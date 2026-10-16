@@ -112,4 +112,8 @@ Use an authorized local HTTP server rooted at this repository to open `experimen
 
 Original models and rendered previews: **CC-BY-4.0**, **Leon Made This / s010s**. Experiment scripts: **MIT**. No third-party images or reference assets are included. These are art-directed displays of independent stylized assets, not a single coexisting ecological reconstruction.
 
-**Status:** source preservation verified; render outputs and encoded/decode measurements complete; visual strengths/defects documented; browser runtime performance unverified; no production integration, commit, push or deployment performed by this experiment.
+**Status:** source preservation verified; render outputs and encoded/decode measurements complete; visual strengths/defects documented; browser image-decode probe recorded below; end-to-end mobile/GPU runtime performance remains unverified; no production sprite integration or deployment.
+
+## Actual cloud-browser image decode probe (2026-10-16)
+
+`browser-decode.json` records the real Chromium `createImageBitmap` button run from preloaded Blob bytes: 5 warmups and 30 samples per variant, each decoded bitmap closed. Clean static/sheet median milliseconds were nest **1.20 / 13.20**, lycopsid **1.05 / 11.20**, and arch **1.00 / 9.90**. Decoding all 16 separate clean frames sequentially took median **16.05 / 16.95 / 16.25 ms** respectively. These results support keeping static previews and optional lazy geometry. They do not measure network, DOM scheduling, GPU upload, animation frame rate, or Android hardware. Cloud WebGL was unavailable, so real GLB rendering is checked separately in CI rather than claimed by this probe.

@@ -31,7 +31,7 @@ let index, items = [], category = 'all', world = 'all', pack = 'all', page = 0, 
 let selected, selectedSummary, origin, stage, stagePromise, hoverCard, hoverTimer;
 let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, detailController, restoringFocus = false;
 let browseMode = 'grid', atlas, atlasPackKey = '', atlasPackItems = [], currentView = 'home', directDetailId = initialRoute.type==='detail'?initialRoute.id:null;
-let sourceContext = null, neighborItems = [], searchTimer, pendingRoute = false;
+let sourceContext = null, neighborItems = [], searchTimer, pendingRoute = false, queuedRoute = false;
 const viewScroll = {home:0, catalog:0, about:0, detail:0};
 const staticContent = $('#static-route-content');
 const path = p => store.resolvePath(p);
@@ -229,7 +229,9 @@ function showView(view){
   document.querySelectorAll('[data-route]').forEach(anchor=>anchor.setAttribute('aria-current',anchor.dataset.route===view?'page':'false'));
 }
 async function syncRoute(){
-  if(!index||pendingRoute)return;pendingRoute=true;
+  if(!index)return;
+  if(pendingRoute){queuedRoute=true;detailController?.abort();store.cancelDetail();++detailVersion;modalAnimation?.cancel();return;}
+  pendingRoute=true;
   try{
     const oldHash=location.hash;
     if(oldHash.startsWith('#asset=')){const id=decodeURIComponent(oldHash.slice(7));if(/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(id))history.replaceState(null,'',href('detail',id));}
@@ -246,12 +248,12 @@ async function syncRoute(){
       else scrollTo(0,viewScroll[currentView]||0);
       sourceContext=null;document.title=`${currentView==='catalog'?t('allModels'):currentView==='about'?t('about'):'Original low-poly assets'} · Lowpoly Vault`;
     }
-  }finally{pendingRoute=false;}
+  }finally{pendingRoute=false;if(queuedRoute){queuedRoute=false;syncRoute();}}
 }
 function navigate(view){history.pushState({view},'',view==='catalog'?listURL():href(view));syncRoute();}
 function paintHome(){
   if(!index)return;document.querySelectorAll('[data-browse] [data-t="exploreAll"]').forEach(e=>e.textContent=lang==='zh'?`浏览全部 ${index.total} 个模型`:`Explore all ${index.total} models`);
-  const specs=[['plants','cycad','01'],['geology','natural-arch','02'],['traces','dinosaur-eggs','03']];
+  const specs=[['plants','cycad','01'],['geology','natural-arch','02'],['traces','dinosaur-nest','03']];
   $('#home-categories').innerHTML=specs.map(([cat,id,n])=>{const a=index.initial.find(x=>x.id===id)||index.initial.find(x=>x.category===cat),count=index.categories.find(c=>c.id===cat)?.count||0;return a?`<a class="curation-card" href="${esc(href('models',undefined,{query:{category:cat}}))}" data-home-category="${cat}"><div><img src="${esc(path(a.preview))}" alt="${esc(loc(a.name))}" loading="lazy" width="640" height="640"><span class="curation-number">${n}</span></div><span class="curation-title">${t(cat)}<span>${count} ${t('count')} ↗</span></span></a>`:'';}).join('');paintIcons($('#home-page'));
 }
 function paintLanguage(){
@@ -296,6 +298,12 @@ $('#sort').onchange=()=>{page=0;updateListing();};$('#prev-page').onclick=()=>{p
 $('#provenance').addEventListener('toggle',()=>{if($('#provenance').open)motionUI.run($('#asset-provenance'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:180});});
 $('#downloads').addEventListener('click',event=>{if(event.target.closest('a'))setStatus(lang==='zh'?'已请求下载文件，是否完成请查看浏览器。':'Download requested. Check your browser for progress.');});
 document.addEventListener('keydown',event=>{
+  if(event.key==='Tab'&&$('#viewer-dialog').open){
+    const dialog=$('#viewer-dialog');
+    const focusable=[...dialog.querySelectorAll('a[href],button,input,select,textarea,summary,[tabindex]')].filter(el=>!el.disabled&&el.tabIndex>=0&&el.getClientRects().length&&!el.closest('[hidden],[inert]'));
+    const first=focusable[0],last=focusable.at(-1),active=document.activeElement;
+    if(first&&((event.shiftKey&&(active===first||!dialog.contains(active)))||(!event.shiftKey&&(active===last||!dialog.contains(active))))){event.preventDefault();(event.shiftKey?last:first).focus();}
+  }
   if(event.key==='/'&&!selected&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();if(currentView==='home')$('#home-query').focus();else catalogToolbar.open();}
   if(selected&&['ArrowLeft','ArrowRight'].includes(event.key)&&!event.altKey&&!event.ctrlKey&&!event.metaKey&&!event.target.closest('#canvas-host,input,textarea,select')){const link=$(event.key==='ArrowLeft'?'#previous-model':'#next-model');if(!link.hidden){event.preventDefault();openAsset(link.dataset.modelId,{replace:true});}}
 });

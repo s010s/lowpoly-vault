@@ -10,6 +10,7 @@ Status: canonical v2 contract, 2026-10-16. Additive extensions are permitted thr
 - `packs: string[]`: many-to-many finite curated groups. The actual ten candidates belong to `prehistoric-starter`. A pack is not a world or a category; a model may appear in several packs without duplicating its files or ID. Pack records have id, localized name/description and ordered asset IDs. Research may define proposed packs, clearly marked planning, but these must not enter the site's live facets.
 - `category: string`: one cross-world functional/form class. Existing stable categories are `plants`, `geology`, `wood`, `traces`. New categories can be added when the research requires distinct useful classes, e.g. `animals`, `fungi`, `terrain`, `water`, `props`, `structures`; category names must describe asset form/use rather than an era, locality or pack.
 - `subcategory: string | null`: controlled refinement within the chosen category, e.g. plants/tree, plants/fern, geology/arch, traces/nest. Do not encode taxonomy rank as a mandatory category tree. A registry may add new subcategories without changing storage paths.
+- `reconstruction_type: string | null`: optional `specimen`, `whole-organism`, or `artistic-concept`, to distinguish isolated reference material from reconstructions.
 - `taxon_group: string | null`: optional reference-supported organism grouping, independent of form-based subcategory; uncertainty belongs in scientific notes.
 - `tags: string[]`: controlled discoverability descriptors; optional. Do not duplicate every axis as a tag. Bilingual labels live in a registry, IDs are English kebab-case.
 - `eras: string[]`: optional controlled geological intervals, as specifically supported; broad or mixed intervals are allowed only with notes. Never invent precise coexistence claims for an art asset.
@@ -27,3 +28,13 @@ Existing `preview`, `glb`, `blend`, `triangles`, `dimensions`, license and attri
 A planning record may additionally contain `status` (`existing-candidate` or `planned`), `priority`, `complexity`, `reference_notes`, and `production_notes`. Existing candidates retain exact current IDs. Proposed records get stable proposed IDs and at least one source supporting identity or form; source licensing is not permission to copy geometry or artwork. Existing candidate QA states remain unchanged. Planned records and packs are not exported to site manifests, counts, search suggestions or sitemaps.
 
 Research can propose necessary taxonomy additions with rationale. The implementation owner reconciles these additions into this contract; the inventory should reference `schema_version: 2`.
+
+## Accepted planning registry extensions
+
+These additions support the 1,000-item research inventory. They do not appear as live site filters until real released assets use them.
+
+- Plants: `flower-specimen`, `fruit-specimen`, `leaf-specimen`, `cone-specimen` for diagnostic isolated organs whose whole-plant attribution is unsafe. Avoid counting the same whole organism and its organs as separate proposed assets without a distinct justified asset use.
+- Fungi: `fruiting-body`, `lichen-thallus`, `microfossil-specimen`.
+- Animals: `synapsid` supports non-mammalian synapsids without calling them reptiles. This broad practical grouping does not claim that non-mammalian synapsids form an exclusive clade.
+
+The research owner maintains the full planned-only registry and source-supported refinements against schema version 2.

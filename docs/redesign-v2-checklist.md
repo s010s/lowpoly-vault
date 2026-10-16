@@ -39,3 +39,7 @@ The original working directory and port-5188 review build remain intact. Impleme
 - 8285d53: complete original candidate snapshot and initial scope.
 - 3f895b8: shared schema v2 contract.
 - 4dec685: real static routes, curated grid, bundles, metric reference and review CI. Uploaded to the WIP branch only.
+
+- 6d75ce2: preview experiment, mobile screenshots and layout polish. Uploaded to WIP branch and backed up privately in two verified ZIPs (original assets 80,542,918 bytes; code/renders 57,188,345 bytes).
+- Follow-up CI found keyboard focus could leave the modal at a tab-order boundary. Explicit visible/eligible focus wrapping was added; strict browser rerun pending.
+- Real cloud Chromium image decode probe now recorded in the experiment: static median 1.00–1.20 ms versus sheet 9.90–13.20 ms. This measures fresh image decoding from preloaded bytes, not network/GPU/device frame rate.
