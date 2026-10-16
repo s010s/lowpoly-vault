@@ -1,0 +1,1033 @@
+# Production and research queues / 制作与研究队列
+
+Planning only. No start dates, effort hours, costs or polygon targets are asserted. A reference-ready record can enter careful blockout review, not automatic publication. Existing candidates still require their original QA.
+
+Resolve evidence/taxonomy before anatomy; then compare low-poly form. Environmental placement comes after selecting a compatible interval and region. Packs are reusable thematic groups, not coexistence claims.
+
+| Queue | Count |
+|---|---:|
+| Existing candidate review / 现有候选审核 | 10 |
+| Wave 1: foundational forms / 第一波：基础形态 | 61 |
+| Wave 2: ecosystem variety / 第二波：生态多样性 | 219 |
+| Wave 3: specialist close-ups / 第三波：专题与近景 | 63 |
+| Research and form queue / 资料与形态审核队列 | 647 |
+
+Within each queue, sort by P1/P2/P3, then production gate and complexity. Complexity and scale classes are qualitative; a microscopic specimen may need an explicitly enlarged educational presentation rather than an environment prop. Priority hold stays outside production regardless of direct source evidence.
+
+## Existing candidate review / 现有候选审核
+
+- `horsetail-cluster` — Jointed horsetail cluster / 木贼群落 · P1 · needs-form-review · medium
+- `cycad` — Cycad rosette / 苏铁形植株 · P1 · needs-form-review · medium
+- `lepidodendron` — Carboniferous lycopsid concept / 石炭纪鳞木 · P1 · needs-form-review · medium
+- `fern-cluster` — Ground fern cluster / 地被蕨丛 · P1 · needs-form-review · medium
+- `conifer-tree` — Mesozoic conifer concept / 针叶乔木 · P1 · needs-form-review · medium
+- `natural-arch` — Natural Arch / 天然石拱 · P1 · needs-form-review · medium
+- `stratified-cliff` — Stratified Cliff / 层理岩崖 · P1 · needs-form-review · medium
+- `three-toed-track` — Three-toed Track Slab / 三趾足迹泥板 · P1 · needs-form-review · medium
+- `dinosaur-nest` — Dinosaur Nest / 恐龙卵窝 · P1 · needs-form-review · medium
+- `uprooted-log` — Uprooted seed-tree log / 连根倒木 · P1 · needs-form-review · medium
+
+## Wave 1: foundational forms / 第一波：基础形态
+
+- `barchan-dune` — Barchan dune / 新月形沙丘 · P1 · reference-ready · medium
+- `mesa` — Mesa / 方山 · P1 · reference-ready · medium
+- `slot-canyon` — Slot canyon / 狭缝峡谷 · P1 · reference-ready · medium
+- `alluvial-fan` — Alluvial fan / 冲积扇 · P1 · reference-ready · medium
+- `meandering-river-reach` — Meandering river reach / 曲流河段 · P1 · reference-ready · medium
+- `braided-river-reach` — Braided river reach / 辫状河段 · P1 · reference-ready · medium
+- `oxbow-lake-basin` — Oxbow lake basin / 牛轭湖盆 · P1 · reference-ready · medium
+- `natural-levee` — Natural levee / 天然堤 · P1 · reference-ready · medium
+- `bedrock-pothole` — Bedrock pothole / 河床壶穴 · P1 · reference-ready · low
+- `waterfall-ledge` — Waterfall ledge / 瀑布岩阶 · P1 · reference-ready · low
+- `sea-stack` — Sea stack / 海蚀柱 · P1 · reference-ready · low
+- `sea-cave` — Sea cave / 海蚀洞 · P1 · reference-ready · medium
+- `sand-spit` — Sand spit / 沙嘴 · P1 · reference-ready · medium
+- `tombolo` — Tombolo / 连岛沙洲 · P1 · reference-ready · medium
+- `barrier-island` — Barrier island / 障壁岛 · P1 · reference-ready · medium
+- `tidal-flat` — Tidal flat / 潮坪 · P1 · reference-ready · medium
+- `glacial-cirque` — Glacial cirque / 冰斗 · P1 · reference-ready · medium
+- `u-shaped-glacial-valley` — U-shaped glacial valley / 冰川U形谷 · P1 · reference-ready · medium
+- `glacial-erratic` — Glacial erratic / 冰川漂砾 · P1 · reference-ready · medium
+- `striated-bedrock` — Striated bedrock / 冰擦痕岩面 · P1 · reference-ready · medium
+- `valley-glacier` — Valley glacier / 山谷冰川 · P1 · reference-ready · medium
+- `karst-sinkhole` — Karst sinkhole / 喀斯特落水洞 · P1 · reference-ready · medium
+- `limestone-pavement` — Limestone pavement / 石灰岩溶沟石面 · P1 · reference-ready · medium
+- `solution-cave-passage` — Solution cave passage / 溶蚀洞穴通道 · P1 · reference-ready · medium
+- `stalactite-group` — Stalactite group / 钟乳石群 · P1 · reference-ready · low
+- `stalagmite-group` — Stalagmite group / 石笋群 · P1 · reference-ready · low
+- `cave-column` — Cave column / 洞穴石柱 · P1 · reference-ready · low
+- `shield-volcano` — Shield volcano / 盾状火山 · P1 · reference-ready · medium
+- `pahoehoe-lava-surface` — Pahoehoe lava surface / 绳状熔岩面 · P1 · reference-ready · medium
+- `aa-lava-front` — Aa lava front / 渣状熔岩前缘 · P1 · reference-ready · medium
+- `pillow-lava-outcrop` — Pillow lava outcrop / 枕状熔岩露头 · P1 · reference-ready · medium
+- `lava-tube-entrance` — Lava tube entrance / 熔岩洞入口 · P1 · reference-ready · medium
+- `columnar-jointed-outcrop` — Columnar jointed outcrop / 柱状节理岩体 · P1 · reference-ready · medium
+- `fault-scarp` — Fault scarp / 断层崖 · P1 · reference-ready · medium
+- `folded-strata-outcrop` — Folded strata outcrop / 褶皱地层露头 · P1 · reference-ready · medium
+- `desiccation-crack-surface` — Desiccation crack surface / 干裂泥面 · P1 · reference-ready · medium
+- `wave-ripple-surface` — Wave ripple surface / 波浪波痕面 · P1 · reference-ready · medium
+- `current-ripple-surface` — Current ripple surface / 流水波痕面 · P1 · reference-ready · medium
+- `cross-bedded-sandstone` — Cross-bedded sandstone / 交错层理砂岩 · P1 · reference-ready · medium
+- `conglomerate-outcrop` — Conglomerate outcrop / 砾岩露头 · P1 · reference-ready · medium
+- `breccia-outcrop` — Breccia outcrop / 角砾岩露头 · P1 · reference-ready · medium
+- `shale-scree` — Shale scree / 页岩碎屑坡 · P1 · reference-ready · medium
+- `quartz-prism-cluster` — Quartz prism cluster / 石英柱晶簇 · P1 · reference-ready · medium
+- `stromatolite-mound` — Stromatolite mound / 叠层石丘 · P1 · reference-ready · medium
+- `calamophyton` — Calamophyton twig-crowned tree / Calamophyton 枝蕨类树 · P1 · reference-ready · high
+- `onoclea` — Onoclea dimorphic frond patch / Onoclea 球子蕨类 · P1 · reference-ready · medium
+- `vauxia` — Vauxia branching fibrous sponge / Vauxia（分枝纤维海绵） · P1 · reference-ready · medium
+- `pirania` — Pirania spine-covered sponge / Pirania（长刺海绵） · P1 · reference-ready · high
+- `hazelia` — Hazelia open-shield sponge / Hazelia（开盾形海绵） · P1 · reference-ready · medium
+- `choia` — Choia radial-disc sponge / Choia（放射盘状海绵） · P1 · reference-ready · medium
+- `leptomitus` — Leptomitus wrinkled tube sponge / Leptomitus（褶纹管海绵） · P1 · reference-ready · medium
+- `eiffelia` — Eiffelia lattice-sac sponge / Eiffelia（格架囊海绵） · P1 · reference-ready · high
+- `takakkawia` — Takakkawia eight-fin sponge / Takakkawia（八翼海绵） · P1 · reference-ready · low
+- `calceola` — Calceola slipper coral / Calceola（拖鞋珊瑚） · P1 · reference-ready · medium
+- `goniophyllum` — Goniophyllum four-lidded coral / Goniophyllum（四盖珊瑚） · P1 · reference-ready · medium
+- `favosites` — Favosites honeycomb tabulate coral / Favosites（蜂巢床板珊瑚） · P1 · reference-ready · medium
+- `halysites` — Halysites chain coral / Halysites（链珊瑚） · P1 · reference-ready · medium
+- `aulopora` — Aulopora trumpet-network coral / Aulopora（喇叭网珊瑚） · P1 · reference-ready · medium
+- `conularia` — Conularia four-sided conulariid / Conularia（四棱锥石类） · P1 · reference-ready · medium
+- `mackenzia` — Mackenzia ribbed sac animal / Mackenzia（肋囊古生动物） · P1 · reference-ready · low
+- `burgessomedusa` — Burgessomedusa box-bell jellyfish / Burgessomedusa（箱钟水母类） · P1 · reference-ready · high
+
+## Wave 2: ecosystem variety / 第二波：生态多样性
+
+- `star-dune` — Star dune / 星形沙丘 · P2 · reference-ready · medium
+- `parabolic-dune` — Parabolic dune / 抛物线沙丘 · P2 · reference-ready · medium
+- `ventifact` — Ventifact / 风棱石 · P2 · reference-ready · low
+- `yardang` — Yardang / 雅丹风蚀脊 · P2 · reference-ready · medium
+- `deflation-hollow` — Deflation hollow / 风蚀洼地 · P2 · reference-ready · low
+- `desert-pavement` — Desert pavement / 荒漠砾幕 · P2 · reference-ready · medium
+- `eruptive-fissure` — Eruptive fissure / 喷发裂隙 · P2 · reference-ready · medium
+- `hoodoo` — Hoodoo / 岩柱土林 · P2 · reference-ready · medium
+- `balanced-rock` — Balanced rock / 平衡石 · P2 · reference-ready · medium
+- `arroyo-wash` — Arroyo wash / 旱谷沟床 · P2 · reference-ready · medium
+- `pediment` — Pediment / 山麓剥蚀面 · P2 · reference-ready · medium
+- `inselberg` — Inselberg / 岛状山 · P2 · reference-ready · medium
+- `badlands-ridge-network` — Badlands ridge network / 劣地沟脊群 · P2 · reference-ready · medium
+- `reticulite-clast` — Reticulite clast / 网状火山玻璃块 · P2 · reference-ready · high
+- `playa-basin` — Playa basin / 干盐湖盆 · P2 · reference-ready · low
+- `crevasse-splay` — Crevasse splay / 决口扇 · P2 · reference-ready · medium
+- `river-terrace` — River terrace / 河流阶地 · P2 · reference-ready · medium
+- `waterfall-plunge-pool` — Waterfall plunge pool / 瀑布潭 · P2 · reference-ready · medium
+- `wave-cut-platform` — Wave-cut platform / 海蚀平台 · P2 · reference-ready · medium
+- `marine-terrace` — Marine terrace / 海成阶地 · P2 · reference-ready · medium
+- `beach-ridge` — Beach ridge / 海滩堤脊 · P2 · reference-ready · medium
+- `estuary-basin` — Estuary basin / 河口湾 · P2 · reference-ready · medium
+- `river-dominated-delta` — River-dominated delta / 河流主导型三角洲 · P2 · reference-ready · medium
+- `wave-dominated-delta` — Wave-dominated delta / 波浪主导型三角洲 · P2 · reference-ready · medium
+- `tide-dominated-delta` — Tide-dominated delta / 潮汐主导型三角洲 · P2 · reference-ready · medium
+- `hanging-valley` — Hanging valley / 悬谷 · P2 · reference-ready · medium
+- `arete-ridge` — Arete ridge / 刃脊 · P2 · reference-ready · medium
+- `glacial-horn` — Glacial horn / 冰川角峰 · P2 · reference-ready · medium
+- `drumlin` — Drumlin / 鼓丘 · P2 · reference-ready · medium
+- `esker` — Esker / 蛇形丘 · P2 · reference-ready · medium
+- `kame-mound` — Kame mound / 冰砾阜 · P2 · reference-ready · medium
+- `terminal-moraine` — Terminal moraine / 终碛垄 · P2 · reference-ready · medium
+- `fulgurite-tube` — Fulgurite tube / 闪电熔管 · P2 · reference-ready · medium
+- `roche-moutonnee` — Roche moutonnee / 羊背石 · P2 · reference-ready · medium
+- `ice-wedge-polygon-ground` — Ice-wedge polygon ground / 冰楔多边形地面 · P2 · reference-ready · medium
+- `pingo` — Pingo / 冰核丘 · P2 · reference-ready · medium
+- `solifluction-lobe` — Solifluction lobe / 融冻泥流舌 · P2 · reference-ready · medium
+- `patterned-stone-circles` — Patterned stone circles / 石环冻土地表 · P2 · reference-ready · medium
+- `piedmont-glacier` — Piedmont glacier / 山麓冰川 · P2 · reference-ready · medium
+- `glacier-crevasse-field` — Glacier crevasse field / 冰川裂隙带 · P2 · reference-ready · medium
+- `moulin-shaft` — Moulin shaft / 冰川冰井 · P2 · reference-ready · medium
+- `serac` — Serac / 冰塔 · P2 · reference-ready · medium
+- `karst-spring-mouth` — Karst spring mouth / 岩溶泉口 · P2 · reference-ready · medium
+- `cave-drapery` — Cave drapery / 石幔 · P2 · reference-ready · medium
+- `helictite` — Helictite / 卷曲石 · P2 · reference-ready · medium
+- `gypsum-cave-flower` — Gypsum cave flower / 石膏花 · P2 · reference-ready · high
+- `aragonite-frostwork` — Aragonite frostwork / 文石霜花 · P2 · reference-ready · high
+- `cave-pearl-pool` — Cave pearl pool / 洞穴珠穴 · P2 · reference-ready · medium
+- `cave-boxwork` — Cave boxwork / 洞穴箱状构造 · P2 · reference-ready · high
+- `calcite-raft-deposit` — Calcite raft deposit / 方解石浮筏沉积 · P2 · reference-ready · medium
+- `cave-popcorn` — Cave popcorn / 洞穴葡萄状结核 · P2 · reference-ready · medium
+- `lava-dome` — Lava dome / 熔岩穹丘 · P2 · reference-ready · medium
+- `maar-crater` — Maar crater / 玛珥火山口 · P2 · reference-ready · medium
+- `caldera` — Caldera / 破火山口 · P2 · reference-ready · medium
+- `lava-channel` — Lava channel / 熔岩流槽 · P2 · reference-ready · medium
+- `volcanic-bomb` — Volcanic bomb / 火山弹 · P2 · reference-ready · low
+- `accretionary-lapilli-bed` — Accretionary lapilli bed / 增生火山砾层 · P2 · reference-ready · medium
+- `welded-ignimbrite-outcrop` — Welded ignimbrite outcrop / 熔结凝灰岩露头 · P2 · reference-ready · medium
+- `obsidian-flow-face` — Obsidian flow face / 黑曜岩流面 · P2 · reference-ready · medium
+- `geyser-sinter-cone` — Geyser sinter cone / 间歇泉硅华锥 · P2 · reference-ready · medium
+- `mudpot` — Mudpot / 泥浆泉坑 · P2 · reference-ready · medium
+- `fumarole-vent` — Fumarole vent / 火山喷气口 · P2 · reference-ready · medium
+- `graben-basin` — Graben basin / 地堑盆地 · P2 · reference-ready · medium
+- `dike-wall` — Dike wall / 岩脉墙 · P2 · reference-ready · medium
+- `sill-ledge` — Sill ledge / 岩床岩台 · P2 · reference-ready · medium
+- `volcanic-neck` — Volcanic neck / 火山颈 · P2 · reference-ready · medium
+- `flute-cast-slab` — Flute cast slab / 槽模岩板 · P2 · reference-ready · medium
+- `load-cast-bedding` — Load-cast bedding / 负载构造岩层 · P2 · reference-ready · medium
+- `slump-folded-bed` — Slump-folded bed / 滑塌褶皱岩层 · P2 · reference-ready · medium
+- `coquina-outcrop` — Coquina outcrop / 贝壳灰岩露头 · P2 · reference-ready · medium
+- `flint-nodule` — Flint nodule / 燧石结核 · P2 · reference-ready · low
+- `septarian-concretion` — Septarian concretion / 龟甲石结核 · P2 · reference-ready · medium
+- `cave-shield` — Cave shield / 洞穴盾状石 · P2 · reference-ready · medium
+- `tafoni-outcrop` — Tafoni outcrop / 蜂窝风化岩面 · P2 · reference-ready · medium
+- `rock-glacier` — Rock glacier / 石冰川 · P2 · reference-ready · medium
+- `impact-crater` — Impact crater / 撞击坑 · P2 · reference-ready · medium
+- `hydrothermal-chimney` — Hydrothermal chimney / 海底热液烟囱 · P2 · reference-ready · medium
+- `sandstone-fin` — Sandstone fin / 砂岩鳍状墙 · P2 · reference-ready · medium
+- `tower-karst` — Tower karst / 峰林喀斯特 · P2 · reference-ready · medium
+- `karst-polje` — Karst polje / 岩溶坡立谷 · P2 · reference-ready · medium
+- `rotational-landslide` — Rotational landslide / 旋转滑坡体 · P2 · reference-ready · medium
+- `tuya` — Tuya / 冰下平顶火山 · P2 · reference-ready · medium
+- `angular-unconformity-outcrop` — Angular unconformity outcrop / 角度不整合露头 · P2 · reference-ready · medium
+- `shatter-cone-rock` — Shatter-cone rock / 震裂锥岩 · P2 · reference-ready · medium
+- `stylolite-seam-section` — Stylolite seam section / 缝合线构造剖面 · P2 · reference-ready · medium
+- `boudinaged-rock-layer` — Boudinaged rock layer / 布丁构造岩层 · P2 · reference-ready · medium
+- `lava-tree-mold-crust` — Lava tree-mold crust / 熔岩树模地壳 · P2 · reference-ready · medium
+- `thrombolite-mound` — Thrombolite mound / 凝块石丘 · P2 · reference-ready · medium
+- `oncoid-bed` — Oncoid bed / 核形石层 · P2 · reference-ready · medium
+- `cooksonia` — Cooksonia sporangial shoots / Cooksonia 裸轴植物 · P2 · reference-ready · medium
+- `sawdonia` — Sawdonia spiny branching shoots / Sawdonia 刺轴植物 · P2 · reference-ready · medium
+- `asteroxylon` — Asteroxylon leafy rooting network / Asteroxylon 星木类植物 · P2 · reference-ready · medium
+- `horneophyton` — Horneophyton corm-based shoots / Horneophyton 角蕨类植物 · P2 · reference-ready · medium
+- `aglaophyton` — Aglaophyton rhizome arches / Aglaophyton 裸轴植物 · P2 · reference-ready · medium
+- `sengelia` — Sengelia K-branching ground plant / Sengelia 匍匐早期植物 · P2 · reference-ready · medium
+- `leclercqia` — Leclercqia divided-leaf shoot / Leclercqia 裂叶石松类植物 · P2 · reference-ready · medium
+- `salvinia` — Salvinia paired floats and submerged leaf / Salvinia 槐叶萍类水蕨 · P2 · reference-ready · medium
+- `hydropteris` — Hydropteris rooted pinnate water fern / Hydropteris 羽叶水蕨 · P2 · reference-ready · medium
+- `paratingia` — Paratingia four-rank crown / Paratingia 诺格蕨类小树 · P2 · reference-ready · high
+- `wielandiella` — Wielandiella divaricate shrub / Wielandiella 本内苏铁类灌木 · P2 · reference-ready · medium
+- `montsechia` — Montsechia flexible fine-leaf shoots / Montsechia 水生早期被子植物 · P2 · reference-ready · medium
+- `limnobiophyllum` — Limnobiophyllum stolon-linked leaf rosettes / Limnobiophyllum 浮生天南星类 · P2 · reference-ready · medium
+- `cobbania` — Cobbania trumpet-leaf floating plant / Cobbania 浮生天南星类 · P2 · reference-ready · medium
+- `pluricarpellatia` — Pluricarpellatia rooted peltate herb / Pluricarpellatia 早期水生被子植物 · P2 · reference-ready · medium
+- `ceratosaurus` — Ceratosaurus / Ceratosaurus（恐龙） · P2 · reference-ready · high
+- `dilophosaurus` — Dilophosaurus / Dilophosaurus（恐龙） · P2 · reference-ready · high
+- `carnotaurus` — Carnotaurus / Carnotaurus（恐龙） · P2 · reference-ready · high
+- `concavenator` — Concavenator / Concavenator（恐龙） · P2 · reference-ready · medium
+- `monolophosaurus` — Monolophosaurus / Monolophosaurus（恐龙） · P2 · reference-ready · high
+- `therizinosaurus` — Therizinosaurus / 镰刀龙（Therizinosaurus） · P2 · reference-ready · medium
+- `parasaurolophus` — Parasaurolophus / 副栉龙（Parasaurolophus） · P2 · reference-ready · high
+- `stegosaurus` — Stegosaurus / 剑龙（Stegosaurus） · P2 · reference-ready · medium
+- `triceratops` — Triceratops / 三角龙（Triceratops） · P2 · reference-ready · high
+- `pterodaustro` — Pterodaustro / Pterodaustro（翼龙类） · P2 · reference-ready · high
+- `quetzalcoatlus` — Quetzalcoatlus / Quetzalcoatlus（翼龙类） · P2 · reference-ready · high
+- `rhamphorhynchus` — Rhamphorhynchus / Rhamphorhynchus（翼龙类） · P2 · reference-ready · high
+- `atopodentatus` — Atopodentatus / Atopodentatus（海生爬行类） · P2 · reference-ready · medium
+- `dimetrodon` — Dimetrodon / 异齿龙（Dimetrodon） · P2 · reference-ready · medium
+- `edaphosaurus` — Edaphosaurus / Edaphosaurus（非哺乳合弓类） · P2 · reference-ready · medium
+- `coelurosauravus` — Coelurosauravus / Coelurosauravus（史前爬行类） · P2 · reference-ready · medium
+- `whatcheeria` — Whatcheeria / Whatcheeria（古两栖／早期四足类） · P2 · reference-ready · medium
+- `beelzebufo` — Beelzebufo / Beelzebufo（古两栖／早期四足类） · P2 · reference-ready · medium
+- `cephalaspis` — Cephalaspis / Cephalaspis（古鱼类） · P2 · reference-ready · high
+- `dunkleosteus` — Dunkleosteus — fossil study / Dunkleosteus（古鱼类化石标本） · P2 · reference-ready · high
+- `bothriolepis` — Bothriolepis / Bothriolepis（古鱼类） · P2 · reference-ready · high
+- `mammuthus` — Mammuthus / 猛犸象（Mammuthus） · P2 · reference-ready · medium
+- `mammut` — Mammut / 乳齿象（Mammut） · P2 · reference-ready · medium
+- `platybelodon` — Platybelodon / Platybelodon（古哺乳形类） · P2 · reference-ready · medium
+- `embolotherium` — Embolotherium / Embolotherium（古哺乳形类） · P2 · reference-ready · medium
+- `megacerops` — Megacerops / Megacerops（古哺乳形类） · P2 · reference-ready · high
+- `coelodonta` — Coelodonta / 披毛犀（Coelodonta） · P2 · reference-ready · high
+- `teleoceras` — Teleoceras / Teleoceras（古哺乳形类） · P2 · reference-ready · medium
+- `chalicotherium` — Chalicotherium / Chalicotherium（古哺乳形类） · P2 · reference-ready · medium
+- `mesohippus` — Mesohippus / Mesohippus（古哺乳形类） · P2 · reference-ready · medium
+- `andrewsarchus` — Andrewsarchus — fossil study / Andrewsarchus（古哺乳形类化石标本） · P2 · reference-ready · medium
+- `amphicyon` — Amphicyon / Amphicyon（古哺乳形类） · P2 · reference-ready · medium
+- `megaloceros` — Megaloceros / Megaloceros（古哺乳形类） · P2 · reference-ready · high
+- `ilingoceros` — Ilingoceros / Ilingoceros（古哺乳形类） · P2 · reference-ready · high
+- `thylacoleo` — Thylacoleo / Thylacoleo（古哺乳形类） · P2 · reference-ready · medium
+- `spinolestes` — Spinolestes / Spinolestes（古哺乳形类） · P2 · reference-ready · medium
+- `onychonycteris` — Onychonycteris / Onychonycteris（古哺乳形类） · P2 · reference-ready · medium
+- `ambulocetus` — Ambulocetus / Ambulocetus（古哺乳形类） · P2 · reference-ready · medium
+- `archaeopteryx` — Archaeopteryx / 始祖鸟（Archaeopteryx） · P2 · reference-ready · medium
+- `gastornis` — Gastornis / Gastornis（古鸟类／鸟翼类） · P2 · reference-ready · medium
+- `anomalocaris` — Anomalocaris grasping radiodont / Anomalocaris（奇虾类） · P2 · reference-ready · high
+- `opabinia` — Opabinia five-eyed swimmer / Opabinia（五眼古生动物） · P2 · reference-ready · high
+- `hurdia` — Hurdia projecting-shield radiodont / Hurdia（盔甲奇虾类） · P2 · reference-ready · high
+- `stanleycaris` — Stanleycaris three-eyed radiodont / Stanleycaris（三眼奇虾类） · P2 · reference-ready · high
+- `cambroraster` — Cambroraster horseshoe-shield radiodont / Cambroraster（马蹄甲奇虾类） · P2 · reference-ready · high
+- `marrella` — Marrella fork-spined arthropod / Marrella（叉棘节肢动物） · P2 · reference-ready · high
+- `leanchoilia` — Leanchoilia whip-fingered arthropod / Leanchoilia（鞭指节肢动物） · P2 · reference-ready · high
+- `yohoia` — Yohoia elbow-clawed arthropod / Yohoia（肘爪节肢动物） · P2 · reference-ready · high
+- `sidneyia` — Sidneyia broad-bodied hunter / Sidneyia（宽体节肢动物） · P2 · reference-ready · high
+- `emeraldella` — Emeraldella needle-tailed crawler / Emeraldella（针尾节肢动物） · P2 · reference-ready · high
+- `naraoia` — Naraoia two-shield arthropod / Naraoia（双甲节肢动物） · P2 · reference-ready · high
+- `burgessia` — Burgessia domed-tail arthropod / Burgessia（圆甲长尾节肢动物） · P2 · reference-ready · high
+- `waptia` — Waptia bivalved swimmer / Waptia（双瓣甲游泳动物） · P2 · reference-ready · high
+- `canadaspis` — Canadaspis shielded bottom crawler / Canadaspis（甲壳底栖动物） · P2 · reference-ready · high
+- `odaraia` — Odaraia tube-carapace swimmer / Odaraia（筒甲游泳动物） · P2 · reference-ready · high
+- `tuzoia` — Tuzoia reticulate bivalved arthropod / Tuzoia（网纹双甲节肢动物） · P2 · reference-ready · high
+- `isoxys` — Isoxys double-spined swimmer / Isoxys（双棘甲游泳动物） · P2 · reference-ready · high
+- `aysheaia` — Aysheaia clawed lobopodian / Aysheaia（有爪叶足动物） · P2 · reference-ready · high
+- `hallucigenia` — Hallucigenia spiny lobopodian / Hallucigenia（背棘叶足动物） · P2 · reference-ready · high
+- `sanctacaris` — Sanctacaris wide-shield raptorial arthropod / Sanctacaris（宽甲捕食节肢动物） · P2 · reference-ready · high
+- `perspicaris` — Perspicaris large-eyed bivalved swimmer / Perspicaris（大眼双甲游泳动物） · P2 · reference-ready · high
+- `tokummia` — Tokummia pincer-bearing mandibulate / Tokummia（钳肢有颚动物） · P2 · reference-ready · high
+- `odontogriphus` — Odontogriphus smooth-bodied grazer / Odontogriphus（光背软体动物） · P2 · reference-ready · medium
+- `haplophrentis` — Haplophrentis hyolith with support rods / Haplophrentis（支杆锥壳动物） · P2 · reference-ready · low
+- `ottoia` — Ottoia ringed predatory worm / Ottoia（环纹捕食蠕虫） · P2 · reference-ready · medium
+- `selkirkia` — Selkirkia sheathed priapulid / Selkirkia（套管曳鳃动物） · P2 · reference-ready · low
+- `canadia` — Canadia leaf-bristled annelid / Canadia（叶毛环节动物） · P2 · reference-ready · medium
+- `kootenayscolex` — Kootenayscolex head-bristled annelid / Kootenayscolex（头部具毛环节动物） · P2 · reference-ready · medium
+- `ovatiovermis` — Ovatiovermis unarmoured filter lobopodian / Ovatiovermis（无甲滤食叶足动物） · P2 · reference-ready · high
+- `ctenorhabdotus` — Ctenorhabdotus many-combed ctenophore / Ctenorhabdotus（多栉列栉水母） · P2 · reference-ready · medium
+- `diania` — Diania cactus-limbed lobopodian / Diania（仙人掌足叶足动物） · P2 · reference-ready · high
+- `halkieria` — Halkieria two-shell armoured crawler / Halkieria（双壳鳞甲爬行动物） · P2 · reference-ready · low
+- `collinsium` — Collinsium superarmoured filter lobopodian / Collinsium（密棘滤食叶足动物） · P2 · reference-ready · high
+- `kerygmachela` — Kerygmachela spined-front gilled lobopodian / Kerygmachela（前棘有鳃叶足动物） · P2 · reference-ready · high
+- `aegirocassis` — Aegirocassis filter-basket radiodont / Aegirocassis（滤篮奇虾类） · P2 · reference-ready · high
+- `facivermis` — Facivermis tube-dwelling lobopodian / Facivermis（管栖叶足动物） · P2 · reference-ready · high
+- `asaphus` — Asaphus eye-tower trilobite / Asaphus（高眼柱三叶虫） · P2 · reference-ready · high
+- `dicranurus` — Dicranurus horn-loop trilobite / Dicranurus（弯角三叶虫） · P2 · reference-ready · high
+- `erbenochile` — Erbenochile turret-eye trilobite / Erbenochile（塔眼三叶虫） · P2 · reference-ready · high
+- `megarachne` — Megarachne broad-shield eurypterid / Megarachne（宽盾广翅鲎） · P2 · reference-ready · high
+- `pentecopterus` — Pentecopterus grasping Ordovician eurypterid / Pentecopterus（奥陶纪捕捉广翅鲎） · P2 · reference-ready · high
+- `dollocaris` — Dollocaris giant-eyed arthropod / Dollocaris（巨眼甲壳动物） · P2 · reference-ready · high
+- `callichimaera` — Callichimaera large-eyed swimming crab / Callichimaera（大眼游泳蟹类） · P2 · reference-ready · high
+- `arthropleura` — Arthropleura broad plated myriapod / Arthropleura（宽甲多足动物） · P2 · reference-ready · high
+- `mongolarachne` — Mongolarachne Jurassic long-legged spider / Mongolarachne（侏罗纪长足蜘蛛） · P2 · reference-ready · high
+- `meganeura` — Meganeura griffinfly / Meganeura（巨脉蜓类） · P2 · reference-ready · high
+- `juracimbrophlebia` — Juracimbrophlebia leaf-like hangingfly / Juracimbrophlebia（叶形悬蝇类） · P2 · reference-ready · high
+- `alienopterus` — Alienopterus short-winged fossil insect / Alienopterus（短前翅化石昆虫） · P2 · reference-ready · high
+- `pseudopulex` — Pseudopulex long-beaked flea relative / Pseudopulex（长喙蚤类近亲） · P2 · reference-ready · high
+- `yochelcionella` — Yochelcionella snorkel-cap mollusc / Yochelcionella（管口帽壳软体动物） · P2 · reference-ready · low
+- `cooperoceras` — Cooperoceras horned coiled nautiloid / Cooperoceras（长角盘卷鹦鹉螺类） · P2 · reference-ready · medium
+- `aturia` — Aturia smooth involute nautiloid / Aturia（光滑内卷鹦鹉螺类） · P2 · reference-ready · low
+- `diplomoceras` — Diplomoceras trombone ammonite / Diplomoceras（长号形菊石） · P2 · reference-ready · medium
+- `baculites` — Baculites compressed straight ammonite / Baculites（扁直菊石） · P2 · reference-ready · medium
+- `hypoturrilites` — Hypoturrilites turret ammonite / Hypoturrilites（塔形菊石） · P2 · reference-ready · medium
+- `didymoceras` — Didymoceras open-helix ammonite / Didymoceras（开放螺旋菊石） · P2 · reference-ready · medium
+- `capinatator` — Capinatator spine-jawed arrow worm / Capinatator（棘颚箭虫类） · P2 · reference-ready · medium
+- `belosaepia` — Belosaepia pronged internal shell / Belosaepia（弯刺内壳） · P2 · reference-ready · medium
+- `proteroctopus` — Proteroctopus finned octopod / Proteroctopus（有鳍八腕动物） · P2 · reference-ready · medium
+- `ecphora` — Ecphora flanged-rib snail / Ecphora（翼肋螺类） · P2 · reference-ready · medium
+- `vermicularia` — Vermicularia uncoiled worm snail / Vermicularia（展开管螺类） · P2 · reference-ready · medium
+- `echinochiton` — Echinochiton spiny plated mollusk / Echinochiton（棘甲软体动物） · P2 · reference-ready · high
+- `gryphaea` — Gryphaea curved oyster fossil / Gryphaea（弯曲牡蛎化石） · P2 · reference-ready · medium
+- `clavagella` — Clavagella bottle-tube bivalve / Clavagella（瓶管双壳类） · P2 · reference-ready · medium
+- `strophomena` — Strophomena broad concave brachiopod / Strophomena（宽凹壳腕足动物） · P2 · reference-ready · medium
+- `mucrospirifer` — Mucrospirifer wing-tip brachiopod / Mucrospirifer（长翼腕足动物） · P2 · reference-ready · medium
+- `fenestella` — Fenestella windowed fan bryozoan / Fenestella（窗格扇苔藓动物） · P2 · reference-ready · high
+- `prasopora` — Prasopora domed bryozoan / Prasopora（穹顶苔藓动物） · P2 · reference-ready · medium
+- `gogia` — Gogia brachiole-crowned eocrinoid / Gogia（腕丝冠始海百合类） · P2 · reference-ready · medium
+- `ctenocystis` — Ctenocystis bilateral plated echinoderm / Ctenocystis（双侧板甲棘皮动物） · P2 · reference-ready · medium
+- `ctenoimbricata` — Ctenoimbricata spiny bilateral echinoderm / Ctenoimbricata（棘缘双侧棘皮动物） · P2 · reference-ready · high
+- `cothurnocystis` — Cothurnocystis boot-shaped stylophoran / Cothurnocystis（靴形异形棘皮动物） · P2 · reference-ready · medium
+- `helicocystis` — Helicocystis spiral-cup echinoderm / Helicocystis（螺杯棘皮动物） · P2 · reference-ready · medium
+- `pentremites` — Pentremites bud-shaped blastoid / Pentremites（芽形海蕾类） · P2 · reference-ready · medium
+- `sollasina` — Sollasina plated tube-foot echinoderm / Sollasina（板甲管足棘皮动物） · P2 · reference-ready · medium
+
+## Wave 3: specialist close-ups / 第三波：专题与近景
+
+- `staurolite-cross-twin` — Staurolite cross-twin / 十字石双晶 · P3 · reference-ready · medium
+- `pyrite-cube-cluster` — Pyrite cube cluster / 黄铁矿立方晶簇 · P3 · reference-ready · low
+- `gypsum-desert-rose` — Gypsum desert rose / 石膏沙漠玫瑰 · P3 · reference-ready · medium
+- `native-copper-dendrite` — Native copper dendrite / 自然铜枝晶 · P3 · reference-ready · medium
+- `arenicolites-u-burrow` — Arenicolites U-burrow / Arenicolites U形潜穴 · P3 · reference-ready · medium
+- `asteriacites-resting-impression` — Asteriacites resting impression / Asteriacites 星状停栖迹 · P3 · reference-ready · medium
+- `conichnus-conical-burrow` — Conichnus conical burrow / Conichnus 锥状潜穴 · P3 · reference-ready · low
+- `cruziana-crawling-furrow` — Cruziana crawling furrow / Cruziana 双叶爬行沟 · P3 · reference-ready · medium
+- `curvolithus-trilobed-trail` — Curvolithus trilobed trail / Curvolithus 三叶爬迹 · P3 · reference-ready · medium
+- `diplocraterion-spreite-burrow` — Diplocraterion spreite burrow / Diplocraterion 蹼状U形潜穴 · P3 · reference-ready · medium
+- `diplichnites-paired-trackway` — Diplichnites paired trackway / Diplichnites 双列足迹 · P3 · reference-ready · medium
+- `halopoa-furrowed-burrow` — Halopoa furrowed burrow / Halopoa 纵褶潜穴 · P3 · reference-ready · medium
+- `lockeia-resting-trace` — Lockeia resting trace / Lockeia 杏仁状停栖迹 · P3 · reference-ready · low
+- `nereites-lobed-meander` — Nereites lobed meander / Nereites 叶瓣曲行迹 · P3 · reference-ready · high
+- `phycodes-palmate-burrow` — Phycodes palmate burrow / Phycodes 掌状潜穴 · P3 · reference-ready · medium
+- `protovirgularia-chevron-trail` — Protovirgularia chevron trail / Protovirgularia 人字形爬迹 · P3 · reference-ready · medium
+- `psammichnites-ribbon-trace` — Psammichnites ribbon trace / Psammichnites 带状潜迹 · P3 · reference-ready · medium
+- `pentichnus-deep-dwelling-trace` — Pentichnus deep dwelling trace / Pentichnus 五辐深潜穴 · P3 · reference-ready · medium
+- `arthrophycus-annulated-burrow` — Arthrophycus annulated burrow / Arthrophycus 环纹潜穴 · P3 · reference-ready · medium
+- `rusophycus-resting-excavation` — Rusophycus resting excavation / Rusophycus 双叶停栖穴 · P3 · reference-ready · medium
+- `lumbricaria-thread-like-coprolite` — Lumbricaria thread-like coprolite / Lumbricaria 细丝状粪化石 · P3 · reference-ready · medium
+- `thalassinoides-branching-burrow` — Thalassinoides branching burrow / Thalassinoides 分支潜穴网 · P3 · reference-ready · medium
+- `ophiomorpha-pellet-lined-burrow` — Ophiomorpha pellet-lined burrow / Ophiomorpha 粒衬潜穴 · P3 · reference-ready · medium
+- `paleodictyon-mesh-trace` — Paleodictyon mesh trace / Paleodictyon 网格潜迹 · P3 · reference-ready · high
+- `teredolites-wood-boring-cast` — Teredolites wood-boring cast / Teredolites 木质钻孔铸型 · P3 · reference-ready · high
+- `entobia-sponge-boring-network` — Entobia sponge-boring network / Entobia 海绵钻孔网 · P3 · reference-ready · high
+- `daemonelix-helical-burrow` — Daemonelix helical burrow / Daemonelix 螺旋兽穴 · P3 · reference-ready · medium
+- `sauropod-manus-pes-trackway` — Sauropod manus-pes trackway / 蜥脚类前后足迹道 · P3 · reference-ready · medium
+- `pterosaur-manus-pes-trackway` — Pterosaur manus-pes trackway / 翼龙前后足迹道 · P3 · reference-ready · medium
+- `spiral-coprolite` — Spiral coprolite / 螺旋粪化石 · P3 · reference-ready · medium
+- `treptichnus-serial-probe-burrow` — Treptichnus serial-probe burrow / Treptichnus 串列探穴 · P3 · reference-ready · medium
+- `schizoneura` — Schizoneura paired leaf sheaths / Schizoneura 裂鞘木贼类 · P3 · reference-ready · medium
+- `tempskya` — Tempskya composite false-trunk specimen / Tempskya 假干蕨 · P3 · reference-ready · medium
+- `matonidium` — Matonidium comb-ray frond / Matonidium 掌状蕨 · P3 · reference-ready · medium
+- `weichselia` — Weichselia armored stem specimen / Weichselia 网脉蕨 · P3 · reference-ready · medium
+- `botrychium` — Botrychium fertile-frond specimen / Botrychium 阴地蕨类化石 · P3 · reference-ready · medium
+- `dicroidium` — Dicroidium forked seed-fern frond / Dicroidium 二叉羊齿叶 · P3 · reference-ready · medium
+- `pachypteris` — Pachypteris thick-pinnule frond / Pachypteris 厚叶种子蕨 · P3 · reference-ready · medium
+- `czekanowskia` — Czekanowskia forked-thread short shoots / Czekanowskia 茨康叶植物 · P3 · reference-ready · low
+- `phoenicopsis` — Phoenicopsis strap-leaf short shoots / Phoenicopsis 拟凤尾叶植物 · P3 · reference-ready · low
+- `cycadeoidea` — Cycadeoidea cone-bearing armored trunk / Cycadeoidea 本内苏铁类干化石 · P3 · reference-ready · medium
+- `williamsonia` — Williamsonia ovulate cone specimen / Williamsonia 本内苏铁类种子球果 · P3 · reference-ready · low
+- `peltaspermum` — Peltaspermum umbrella seed disc / Peltaspermum 盾籽盘 · P3 · reference-ready · low
+- `pseudofrenelopsis` — Pseudofrenelopsis jointed conifer shoots / Pseudofrenelopsis 拟节柏枝 · P3 · reference-ready · medium
+- `araucaria-mirabilis` — Araucaria mirabilis attached cone specimen / Araucaria mirabilis 南洋杉类球果 · P3 · reference-ready · low
+- `metasequoia` — Metasequoia opposite-leaf fertile branch / Metasequoia 水杉类化石枝 · P3 · reference-ready · low
+- `nelumbo` — Nelumbo peltate leaf specimen / Nelumbo 古莲叶 · P3 · reference-ready · low
+- `sabalites` — Sabalites costapalmate fan frond / Sabalites 扇叶棕榈化石 · P3 · reference-ready · medium
+- `florissantia` — Florissantia five-sepal flower / Florissantia 五萼花化石 · P3 · reference-ready · low
+- `dillhoffia` — Dillhoffia funnel-calyx fruit / Dillhoffia 漏斗萼果化石 · P3 · reference-ready · low
+- `nordenskioldia` — Nordenskioldia radial-fruit axis / Nordenskioldia 轮列果序化石 · P3 · reference-ready · low
+- `joffrea` — Joffrea follicle-bearing shoot / Joffrea 连香树类果枝 · P3 · reference-ready · low
+- `iodes-brownii` — Iodes brownii two-horned endocarp / Iodes 双角内果皮化石 · P3 · reference-ready · low
+- `trapa` — Trapa harpoon-horned fruit / Trapa 菱属四角果化石 · P3 · reference-ready · low
+- `spirematospermum` — Spirematospermum ribbed capsule / Spirematospermum 螺纹籽果化石 · P3 · reference-ready · low
+- `pteleoidea` — Pteleoidea notched winged fruit / Pteleoidea 环翅果化石 · P3 · reference-ready · low
+- `bosworthia` — Bosworthia ribbon-branch thallus / Bosworthia 带枝藻化石 · P3 · reference-ready · medium
+- `buthograptus` — Buthograptus curved-pinna thallus / Buthograptus 羽状绿藻 · P3 · reference-ready · high
+- `jimaodanus` — Jimaodanus two-zone algal axis / Jimaodanus 异型轮枝绿藻 · P3 · reference-ready · medium
+- `clypeina` — Clypeina fertile-whorl specimen / Clypeina 盾盘轮藻 · P3 · reference-ready · medium
+- `gondwanagaricites` — Gondwanagaricites gilled mushroom specimen / Gondwanagaricites 伞菌化石 · P3 · reference-ready · medium
+- `quatsinoporites` — Quatsinoporites poroid fragment / Quatsinoporites 孔菌层化石 · P3 · reference-ready · medium
+- `nidula-baltica` — Nidula baltica bird's-nest cup / Nidula 鸟巢菌化石 · P3 · reference-ready · medium
+
+## Research and form queue / 资料与形态审核队列
+
+These IDs are retained research concepts, not a list of approved models. The inventory gives the individual source, unresolved issue and required next step.
+
+- `linear-dune` — Linear dune / 线形沙丘 · P2 · needs-form-review · medium
+- `transverse-dune-ridge` — Transverse dune ridge / 横向沙丘脊 · P2 · needs-form-review · medium
+- `loess-bluff` — Loess bluff / 黄土陡坎 · P2 · needs-specific-reference · medium
+- `beach-cusp-field` — Beach cusp field / 海滩尖角滩 · P2 · needs-specific-reference · medium
+- `kettle-basin` — Kettle basin / 冰穴洼地 · P2 · needs-specific-reference · medium
+- `flowstone-cascade` — Flowstone cascade / 流石瀑 · P2 · needs-form-review · medium
+- `dogtooth-spar-cavity` — Dogtooth spar cavity / 犬牙状方解石晶洞 · P2 · needs-form-review · medium
+- `stratovolcano` — Stratovolcano / 成层火山 · P1 · needs-form-review · medium
+- `cinder-cone` — Cinder cone / 火山渣锥 · P1 · needs-form-review · low
+- `spatter-cone` — Spatter cone / 熔岩溅落锥 · P2 · needs-form-review · medium
+- `travertine-terrace-pools` — Travertine terrace pools / 钙华台阶池 · P2 · needs-form-review · medium
+- `exfoliation-dome` — Exfoliation dome / 剥蚀穹隆 · P2 · needs-specific-reference · medium
+- `geode-cavity` — Geode cavity / 晶洞岩体 · P2 · needs-form-review · medium
+- `banded-iron-formation` — Banded iron formation / 条带状铁建造 · P2 · needs-form-review · medium
+- `coal-seam-outcrop` — Coal seam outcrop / 煤层露头 · P1 · needs-form-review · medium
+- `schist-outcrop` — Schist outcrop / 片岩露头 · P2 · needs-form-review · medium
+- `banded-gneiss-outcrop` — Banded gneiss outcrop / 条带片麻岩露头 · P2 · needs-form-review · medium
+- `rimstone-dam` — Rimstone dam / 边石坝 · P2 · needs-form-review · medium
+- `chondrites-branching-trace` — Chondrites branching trace / Chondrites 枝状潜迹 · P3 · needs-specific-reference · medium
+- `phycosiphon-looping-trace` — Phycosiphon looping trace / Phycosiphon 回环潜迹 · P3 · needs-specific-reference · medium
+- `planolites-smooth-burrow` — Planolites smooth burrow / Planolites 平滑潜穴 · P3 · needs-form-review · low
+- `rosselia-concentrically-filled-burrow` — Rosselia concentrically filled burrow / Rosselia 同心充填潜穴 · P3 · needs-specific-reference · medium
+- `skolithos-pipe-field` — Skolithos pipe field / Skolithos 直管潜穴群 · P3 · needs-form-review · low
+- `teichichnus-spreite-wall` — Teichichnus spreite wall / Teichichnus 叠层潜穴壁 · P3 · needs-specific-reference · medium
+- `rosary-shaped-chambered-burrow-hormosiroidea-type` — Rosary-shaped chambered burrow (Hormosiroidea-type) / 念珠状腔室潜穴（Hormosiroidea型） · P3 · needs-specific-reference · medium
+- `zoophycos-spiral-spreite` — Zoophycos spiral spreite / Zoophycos 螺旋叠层潜迹 · P3 · needs-specific-reference · medium
+- `baragwanathia` — Baragwanathia leafy axes / Baragwanathia 石松类植物 · P2 · needs-specific-reference · medium
+- `zosterophyllum` — Zosterophyllum lateral-sporangium tuft / Zosterophyllum 裸轴植物 · P2 · needs-specific-reference · medium
+- `eophyllophyton` — Eophyllophyton incised-leaf axes / Eophyllophyton 早期叶植物 · P2 · needs-form-review · medium
+- `psilophyton` — Psilophyton fertile branch system / Psilophyton 裸蕨类植物 · P2 · needs-specific-reference · medium
+- `pertica` — Pertica tiered lateral branches / Pertica 三枝蕨类植物 · P2 · needs-specific-reference · medium
+- `archaeopteris` — Archaeopteris leafy progymnosperm / Archaeopteris 古羊齿树 · P1 · needs-form-review · high
+- `rhacophyton` — Rhacophyton spiral frond framework / Rhacophyton 蕨状植物 · P2 · needs-form-review · high
+- `sigillaria` — Sigillaria ribbed lycopsid tree / Sigillaria 封印木 · P1 · needs-specific-reference · high
+- `paralycopodites` — Paralycopodites lateral-branch tree / Paralycopodites 树状石松 · P1 · needs-specific-reference · high
+- `omphalophloios` — Omphalophloios fertile-axis plant / Omphalophloios 小型石松树 · P2 · needs-form-review · medium
+- `chaloneria` — Chaloneria rounded-base column / Chaloneria 石松类植物 · P2 · needs-specific-reference · medium
+- `pleuromeia` — Pleuromeia terminal-cone column / Pleuromeia 肋木类植物 · P2 · needs-specific-reference · medium
+- `nathorstiana` — Nathorstiana ribbed-base quill plant / Nathorstiana 石松类植物 · P2 · needs-form-review · medium
+- `pseudobornia` — Pseudobornia divided-leaf branches / Pseudobornia 古木贼类植物 · P2 · needs-form-review · high
+- `calamites` — Calamites woody jointed tree / Calamites 芦木 · P1 · needs-specific-reference · high
+- `sphenophyllum` — Sphenophyllum wedge-leaf climber / Sphenophyllum 楔叶植物 · P2 · needs-specific-reference · medium
+- `psaronius` — Psaronius root-mantled tree fern / Psaronius 纱椤状树蕨 · P1 · needs-specific-reference · high
+- `hausmannia` — Hausmannia fused fan frond / Hausmannia 扇叶蕨 · P3 · needs-specific-reference · medium
+- `dictyophyllum` — Dictyophyllum palmate divided frond / Dictyophyllum 网叶蕨 · P3 · needs-taxonomy-review · medium
+- `lygodium` — Lygodium climbing frond / Lygodium 攀援蕨 · P2 · needs-specific-reference · medium
+- `marsilea` — Marsilea water-clover patch / Marsilea 水生四叶蕨 · P2 · needs-specific-reference · medium
+- `azolla` — Azolla scale-leaved floating mat / Azolla 满江红类水蕨 · P2 · needs-specific-reference · medium
+- `lyginopteris` — Lyginopteris glandular climber / Lyginopteris 皱籽蕨类 · P2 · needs-specific-reference · medium
+- `medullosa` — Medullosa massive-frond seed plant / Medullosa 髓木类种子蕨 · P2 · needs-form-review · high
+- `glossopteris` — Glossopteris tongue-leaf specimen / Glossopteris 舌羊齿叶 · P3 · needs-form-review · low
+- `caytonia` — Caytonia cupule-bearing axis / Caytonia 杯籽种子蕨 · P3 · needs-specific-reference · low
+- `ginkgo` — Ginkgo broad-fan branch specimen / Ginkgo 银杏类化石枝 · P3 · needs-specific-reference · low
+- `baiera` — Baiera deeply cut fan leaf / Baiera 拜拉叶 · P3 · needs-taxonomy-review · low
+- `dicranophyllum` — Dicranophyllum spiral fork leaves / Dicranophyllum 二叉叶种子植物 · P2 · needs-specific-reference · medium
+- `cordaites` — Cordaites broad-strap seed tree / Cordaites 科达木 · P1 · needs-form-review · high
+- `noeggerathia` — Noeggerathia wedge-pinnule frond / Noeggerathia 楔羽叶植物 · P3 · needs-specific-reference · medium
+- `bjuvia` — Bjuvia entire strap-leaf specimen / Bjuvia 整缘苏铁类叶 · P3 · needs-form-review · low
+- `voltzia` — Voltzia attached-cone fossil branch / Voltzia 古针叶树球果枝 · P3 · needs-specific-reference · low
+- `sciadopitys` — Sciadopitys umbrella-cladode branch / Sciadopitys 金松类轮叶枝 · P3 · needs-taxonomy-review · low
+- `agathis` — Agathis broad-leaved conifer / Agathis 贝壳杉类树 · P1 · needs-form-review · high
+- `archaefructus` — Archaefructus finely divided aquatic herb / Archaefructus 古果类植物 · P2 · needs-form-review · medium
+- `monetianthus` — Monetianthus radial fossil flower / Monetianthus 睡莲目花化石 · hold · needs-form-review · low
+- `quereuxia` — Quereuxia compound floating rosette / Quereuxia 水生复叶植物 · P2 · needs-taxonomy-review · medium
+- `palaeocarpinus` — Palaeocarpinus paired bract fruits / Palaeocarpinus 古鹅耳枥类果序 · P3 · needs-specific-reference · low
+- `proterocladus` — Proterocladus branching thallus specimen / Proterocladus 古绿藻化石 · hold · needs-form-review · medium
+- `flabellophyton` — Flabellophyton radiating fan thallus / Flabellophyton 扇形藻体化石 · P3 · needs-taxonomy-review · medium
+- `waputikia` — Waputikia thick-axis algal spray / Waputikia 分枝藻化石 · P3 · needs-taxonomy-review · medium
+- `marpolia` — Marpolia filamentous tuft specimen / Marpolia 丝状蓝细菌 · P3 · needs-form-review · medium
+- `protosalvinia` — Protosalvinia bilobed thallus specimen / Protosalvinia 双裂植物状化石 · P3 · needs-taxonomy-review · medium
+- `chaetocladus` — Chaetocladus fine-whorled axis / Chaetocladus 轮枝绿藻 · P3 · needs-specific-reference · medium
+- `eocladus` — Eocladus multilevel algal branchwork / Eocladus 复枝绿藻 · P3 · needs-specific-reference · high
+- `marchantites` — Marchantites gemma-cup liverwort / Marchantites 芽杯苔类植物 · P3 · needs-form-review · medium
+- `halimeda` — Halimeda articulated calcified thallus / Halimeda 仙掌藻类 · P2 · needs-specific-reference · medium
+- `diplopora` — Diplopora perforated calcified tube / Diplopora 钙化轮藻 · P3 · needs-taxonomy-review · medium
+- `winfrenatia` — Winfrenatia pitted thallus specimen / Winfrenatia 地衣状化石 · P3 · needs-taxonomy-review · low
+- `macginitiea` — Macginitiea narrow-lobed plane tree / Macginitiea 古悬铃木类树 · P1 · needs-form-review · high
+- `tyrannosaurus` — Tyrannosaurus / 暴龙（Tyrannosaurus） · hold · needs-form-review · medium
+- `allosaurus` — Allosaurus / 异特龙（Allosaurus） · hold · needs-form-review · medium
+- `coelophysis` — Coelophysis / Coelophysis（恐龙） · hold · needs-form-review · medium
+- `herrerasaurus` — Herrerasaurus / Herrerasaurus（恐龙） · hold · needs-form-review · medium
+- `eoraptor` — Eoraptor / Eoraptor（恐龙） · hold · needs-form-review · medium
+- `majungasaurus` — Majungasaurus / Majungasaurus（恐龙） · hold · needs-form-review · high
+- `giganotosaurus` — Giganotosaurus / Giganotosaurus（恐龙） · hold · needs-form-review · medium
+- `carcharodontosaurus` — Carcharodontosaurus — fossil study / Carcharodontosaurus（恐龙化石标本） · hold · needs-form-review · medium
+- `acrocanthosaurus` — Acrocanthosaurus / Acrocanthosaurus（恐龙） · hold · needs-form-review · medium
+- `spinosaurus` — Spinosaurus / 棘龙（Spinosaurus） · hold · needs-form-review · medium
+- `baryonyx` — Baryonyx / Baryonyx（恐龙） · hold · needs-form-review · medium
+- `suchomimus` — Suchomimus / Suchomimus（恐龙） · hold · needs-form-review · medium
+- `guanlong` — Guanlong / Guanlong（恐龙） · hold · needs-specific-reference · high
+- `dilong` — Dilong / Dilong（恐龙） · hold · needs-specific-reference · medium
+- `yutyrannus` — Yutyrannus / Yutyrannus（恐龙） · hold · needs-form-review · medium
+- `alioramus` — Alioramus / Alioramus（恐龙） · hold · needs-specific-reference · medium
+- `albertosaurus` — Albertosaurus / Albertosaurus（恐龙） · hold · needs-form-review · medium
+- `velociraptor` — Velociraptor / 伶盗龙（Velociraptor） · hold · needs-form-review · medium
+- `deinonychus` — Deinonychus / Deinonychus（恐龙） · hold · needs-form-review · medium
+- `utahraptor` — Utahraptor / Utahraptor（恐龙） · hold · needs-form-review · medium
+- `microraptor` — Microraptor / Microraptor（恐龙） · hold · needs-form-review · medium
+- `austroraptor` — Austroraptor / Austroraptor（恐龙） · hold · needs-specific-reference · medium
+- `halszkaraptor` — Halszkaraptor / Halszkaraptor（恐龙） · hold · needs-specific-reference · medium
+- `oviraptor` — Oviraptor / 窃蛋龙（Oviraptor） · hold · needs-form-review · high
+- `caudipteryx` — Caudipteryx / Caudipteryx（恐龙） · hold · needs-specific-reference · medium
+- `gigantoraptor` — Gigantoraptor / Gigantoraptor（恐龙） · hold · needs-form-review · medium
+- `beipiaosaurus` — Beipiaosaurus / Beipiaosaurus（恐龙） · hold · needs-specific-reference · medium
+- `falcarius` — Falcarius / Falcarius（恐龙） · hold · needs-specific-reference · medium
+- `deinocheirus` — Deinocheirus / Deinocheirus（恐龙） · hold · needs-specific-reference · medium
+- `gallimimus` — Gallimimus / Gallimimus（恐龙） · hold · needs-specific-reference · medium
+- `pelecanimimus` — Pelecanimimus / Pelecanimimus（恐龙） · hold · needs-specific-reference · medium
+- `shuvuuia` — Shuvuuia / Shuvuuia（恐龙） · hold · needs-specific-reference · medium
+- `yi` — Yi / Yi（恐龙） · hold · needs-specific-reference · medium
+- `sinosauropteryx` — Sinosauropteryx / 中华龙鸟（Sinosauropteryx） · hold · needs-form-review · medium
+- `compsognathus` — Compsognathus / Compsognathus（恐龙） · hold · needs-taxonomy-review · medium
+- `scipionyx` — Scipionyx — fossil study / Scipionyx（恐龙化石标本） · hold · needs-taxonomy-review · medium
+- `plateosaurus` — Plateosaurus / Plateosaurus（恐龙） · hold · needs-form-review · medium
+- `massospondylus` — Massospondylus / Massospondylus（恐龙） · hold · needs-specific-reference · medium
+- `mussaurus` — Mussaurus / Mussaurus（恐龙） · hold · needs-specific-reference · medium
+- `riojasaurus` — Riojasaurus / Riojasaurus（恐龙） · hold · needs-form-review · medium
+- `brachiosaurus` — Brachiosaurus / 腕龙（Brachiosaurus） · hold · needs-form-review · medium
+- `giraffatitan` — Giraffatitan / Giraffatitan（恐龙） · hold · needs-form-review · medium
+- `diplodocus` — Diplodocus / 梁龙（Diplodocus） · hold · needs-form-review · medium
+- `apatosaurus` — Apatosaurus / 迷惑龙（Apatosaurus） · hold · needs-form-review · medium
+- `brontosaurus` — Brontosaurus / 雷龙（Brontosaurus） · hold · needs-form-review · medium
+- `camarasaurus` — Camarasaurus / Camarasaurus（恐龙） · hold · needs-form-review · medium
+- `mamenchisaurus` — Mamenchisaurus / 马门溪龙（Mamenchisaurus） · hold · needs-form-review · medium
+- `amargasaurus` — Amargasaurus / Amargasaurus（恐龙） · hold · needs-form-review · medium
+- `dicraeosaurus` — Dicraeosaurus / Dicraeosaurus（恐龙） · hold · needs-specific-reference · medium
+- `nigersaurus` — Nigersaurus / Nigersaurus（恐龙） · hold · needs-form-review · medium
+- `rebbachisaurus` — Rebbachisaurus / Rebbachisaurus（恐龙） · hold · needs-specific-reference · medium
+- `shunosaurus` — Shunosaurus / Shunosaurus（恐龙） · hold · needs-form-review · medium
+- `saltasaurus` — Saltasaurus / Saltasaurus（恐龙） · hold · needs-specific-reference · high
+- `alamosaurus` — Alamosaurus / Alamosaurus（恐龙） · hold · needs-specific-reference · medium
+- `dreadnoughtus` — Dreadnoughtus / Dreadnoughtus（恐龙） · hold · needs-form-review · medium
+- `bajadasaurus` — Bajadasaurus / Bajadasaurus（恐龙） · hold · needs-specific-reference · medium
+- `iguanodon` — Iguanodon / 禽龙（Iguanodon） · hold · needs-form-review · medium
+- `mantellisaurus` — Mantellisaurus / Mantellisaurus（恐龙） · hold · needs-specific-reference · medium
+- `ouranosaurus` — Ouranosaurus / Ouranosaurus（恐龙） · hold · needs-form-review · medium
+- `muttaburrasaurus` — Muttaburrasaurus / Muttaburrasaurus（恐龙） · hold · needs-form-review · medium
+- `hypsilophodon` — Hypsilophodon / Hypsilophodon（恐龙） · hold · needs-form-review · medium
+- `dryosaurus` — Dryosaurus / Dryosaurus（恐龙） · hold · needs-form-review · medium
+- `tenontosaurus` — Tenontosaurus / Tenontosaurus（恐龙） · hold · needs-specific-reference · medium
+- `camptosaurus` — Camptosaurus / Camptosaurus（恐龙） · hold · needs-form-review · medium
+- `edmontosaurus` — Edmontosaurus / Edmontosaurus（恐龙） · hold · needs-form-review · high
+- `corythosaurus` — Corythosaurus / Corythosaurus（恐龙） · hold · needs-form-review · high
+- `lambeosaurus` — Lambeosaurus / Lambeosaurus（恐龙） · hold · needs-form-review · high
+- `saurolophus` — Saurolophus / Saurolophus（恐龙） · hold · needs-form-review · medium
+- `gryposaurus` — Gryposaurus / Gryposaurus（恐龙） · hold · needs-specific-reference · high
+- `maiasaura` — Maiasaura / Maiasaura（恐龙） · hold · needs-form-review · high
+- `tsintaosaurus` — Tsintaosaurus / Tsintaosaurus（恐龙） · hold · needs-form-review · high
+- `heterodontosaurus` — Heterodontosaurus / Heterodontosaurus（恐龙） · hold · needs-form-review · medium
+- `kulindadromeus` — Kulindadromeus / Kulindadromeus（恐龙） · hold · needs-specific-reference · medium
+- `kentrosaurus` — Kentrosaurus / Kentrosaurus（恐龙） · hold · needs-form-review · medium
+- `huayangosaurus` — Huayangosaurus / Huayangosaurus（恐龙） · hold · needs-form-review · medium
+- `gigantspinosaurus` — Gigantspinosaurus / 巨棘龙（Gigantspinosaurus） · hold · needs-form-review · medium
+- `dacentrurus` — Dacentrurus / Dacentrurus（恐龙） · hold · needs-specific-reference · medium
+- `scelidosaurus` — Scelidosaurus / Scelidosaurus（恐龙） · hold · needs-form-review · high
+- `scutellosaurus` — Scutellosaurus / Scutellosaurus（恐龙） · hold · needs-form-review · high
+- `ankylosaurus` — Ankylosaurus / 甲龙（Ankylosaurus） · hold · needs-form-review · high
+- `euoplocephalus` — Euoplocephalus / Euoplocephalus（恐龙） · hold · needs-form-review · high
+- `saichania` — Saichania / Saichania（恐龙） · hold · needs-specific-reference · high
+- `borealopelta` — Borealopelta / Borealopelta（恐龙） · hold · needs-specific-reference · high
+- `sauropelta` — Sauropelta / Sauropelta（恐龙） · hold · needs-form-review · medium
+- `edmontonia` — Edmontonia / Edmontonia（恐龙） · hold · needs-form-review · medium
+- `gastonia` — Gastonia / Gastonia（恐龙） · hold · needs-form-review · high
+- `stegouros` — Stegouros / Stegouros（恐龙） · hold · needs-specific-reference · medium
+- `styracosaurus` — Styracosaurus / Styracosaurus（恐龙） · hold · needs-form-review · high
+- `centrosaurus` — Centrosaurus / Centrosaurus（恐龙） · hold · needs-form-review · high
+- `pachyrhinosaurus` — Pachyrhinosaurus / Pachyrhinosaurus（恐龙） · hold · needs-specific-reference · high
+- `chasmosaurus` — Chasmosaurus / Chasmosaurus（恐龙） · hold · needs-form-review · high
+- `pentaceratops` — Pentaceratops / Pentaceratops（恐龙） · hold · needs-specific-reference · high
+- `kosmoceratops` — Kosmoceratops / Kosmoceratops（恐龙） · hold · needs-specific-reference · medium
+- `diabloceratops` — Diabloceratops / Diabloceratops（恐龙） · hold · needs-specific-reference · high
+- `einiosaurus` — Einiosaurus / Einiosaurus（恐龙） · hold · needs-specific-reference · high
+- `regaliceratops` — Regaliceratops / Regaliceratops（恐龙） · hold · needs-specific-reference · medium
+- `protoceratops` — Protoceratops / 原角龙（Protoceratops） · hold · needs-form-review · high
+- `psittacosaurus` — Psittacosaurus / 鹦鹉嘴龙（Psittacosaurus） · hold · needs-form-review · medium
+- `leptoceratops` — Leptoceratops / Leptoceratops（恐龙） · hold · needs-form-review · high
+- `pachycephalosaurus` — Pachycephalosaurus / Pachycephalosaurus（恐龙） · hold · needs-form-review · medium
+- `stegoceras` — Stegoceras / Stegoceras（恐龙） · hold · needs-form-review · medium
+- `anhanguera` — Anhanguera / Anhanguera（翼龙类） · hold · needs-form-review · high
+- `dimorphodon` — Dimorphodon / Dimorphodon（翼龙类） · hold · needs-form-review · high
+- `dsungaripterus` — Dsungaripterus / Dsungaripterus（翼龙类） · hold · needs-form-review · high
+- `jeholopterus` — Jeholopterus / Jeholopterus（翼龙类） · hold · needs-form-review · high
+- `nyctosaurus` — Nyctosaurus / Nyctosaurus（翼龙类） · hold · needs-form-review · high
+- `pteranodon` — Pteranodon / Pteranodon（翼龙类） · hold · needs-form-review · high
+- `pterodactylus` — Pterodactylus / Pterodactylus（翼龙类） · hold · needs-form-review · high
+- `scaphognathus` — Scaphognathus / Scaphognathus（翼龙类） · hold · needs-form-review · high
+- `tapejara` — Tapejara / Tapejara（翼龙类） · hold · needs-form-review · high
+- `tupuxuara` — Tupuxuara / Tupuxuara（翼龙类） · hold · needs-form-review · high
+- `tupandactylus` — Tupandactylus / Tupandactylus（翼龙类） · hold · needs-form-review · high
+- `thalassodromeus` — Thalassodromeus / Thalassodromeus（翼龙类） · hold · needs-specific-reference · high
+- `germanodactylus` — Germanodactylus / Germanodactylus（翼龙类） · hold · needs-specific-reference · high
+- `ctenochasma` — Ctenochasma / Ctenochasma（翼龙类） · hold · needs-specific-reference · high
+- `gnathosaurus` — Gnathosaurus / Gnathosaurus（翼龙类） · hold · needs-specific-reference · high
+- `cycnorhamphus` — Cycnorhamphus / Cycnorhamphus（翼龙类） · hold · needs-specific-reference · high
+- `anurognathus` — Anurognathus / Anurognathus（翼龙类） · hold · needs-specific-reference · high
+- `darwinopterus` — Darwinopterus / Darwinopterus（翼龙类） · hold · needs-specific-reference · high
+- `sordes` — Sordes / Sordes（翼龙类） · hold · needs-specific-reference · high
+- `eudimorphodon` — Eudimorphodon / Eudimorphodon（翼龙类） · hold · needs-specific-reference · high
+- `hamipterus` — Hamipterus / Hamipterus（翼龙类） · hold · needs-specific-reference · high
+- `istiodactylus` — Istiodactylus / Istiodactylus（翼龙类） · hold · needs-specific-reference · high
+- `ichthyosaurus` — Ichthyosaurus / Ichthyosaurus（海生爬行类） · hold · needs-form-review · medium
+- `stenopterygius` — Stenopterygius / Stenopterygius（海生爬行类） · hold · needs-specific-reference · medium
+- `ophthalmosaurus` — Ophthalmosaurus / Ophthalmosaurus（海生爬行类） · hold · needs-form-review · medium
+- `temnodontosaurus` — Temnodontosaurus / Temnodontosaurus（海生爬行类） · hold · needs-form-review · medium
+- `leptonectes` — Leptonectes / Leptonectes（海生爬行类） · hold · needs-form-review · medium
+- `eurhinosaurus` — Eurhinosaurus / Eurhinosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `shonisaurus` — Shonisaurus / Shonisaurus（海生爬行类） · hold · needs-form-review · medium
+- `shastasaurus` — Shastasaurus — fossil study / Shastasaurus（鱼龙类化石研究） · hold · needs-form-review · medium
+- `cymbospondylus` — Cymbospondylus / Cymbospondylus（海生爬行类） · hold · needs-specific-reference · medium
+- `mixosaurus` — Mixosaurus / Mixosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `utatsusaurus` — Utatsusaurus / Utatsusaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `cartorhynchus` — Cartorhynchus / Cartorhynchus（海生爬行类） · hold · needs-specific-reference · medium
+- `hupehsuchus` — Hupehsuchus / Hupehsuchus（海生爬行类） · hold · needs-specific-reference · high
+- `nothosaurus` — Nothosaurus / Nothosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `lariosaurus` — Lariosaurus / Lariosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `simosaurus` — Simosaurus / Simosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `pachypleurosaurus` — Pachypleurosaurus / Pachypleurosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `placodus` — Placodus / Placodus（海生爬行类） · hold · needs-specific-reference · medium
+- `cyamodus` — Cyamodus / Cyamodus（海生爬行类） · hold · needs-specific-reference · high
+- `henodus` — Henodus / Henodus（海生爬行类） · hold · needs-specific-reference · high
+- `placochelys` — Placochelys / Placochelys（海生爬行类） · hold · needs-specific-reference · high
+- `plesiosaurus` — Plesiosaurus / Plesiosaurus（海生爬行类） · hold · needs-form-review · medium
+- `cryptocleidus` — Cryptocleidus / Cryptocleidus（海生爬行类） · hold · needs-form-review · medium
+- `elasmosaurus` — Elasmosaurus / Elasmosaurus（海生爬行类） · hold · needs-form-review · medium
+- `styxosaurus` — Styxosaurus / Styxosaurus（海生爬行类） · hold · needs-form-review · medium
+- `albertonectes` — Albertonectes / Albertonectes（海生爬行类） · hold · needs-form-review · medium
+- `dolichorhynchops` — Dolichorhynchops / Dolichorhynchops（海生爬行类） · hold · needs-specific-reference · medium
+- `liopleurodon` — Liopleurodon / Liopleurodon（海生爬行类） · hold · needs-specific-reference · medium
+- `pliosaurus` — Pliosaurus / Pliosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `kronosaurus` — Kronosaurus / Kronosaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `mosasaurus` — Mosasaurus / Mosasaurus（海生爬行类） · hold · needs-specific-reference · medium
+- `tylosaurus` — Tylosaurus / Tylosaurus（海生爬行类） · hold · needs-form-review · medium
+- `platecarpus` — Platecarpus / Platecarpus（海生爬行类） · hold · needs-specific-reference · medium
+- `globidens` — Globidens / Globidens（海生爬行类） · hold · needs-specific-reference · medium
+- `cotylorhynchus` — Cotylorhynchus / Cotylorhynchus（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `ophiacodon` — Ophiacodon / Ophiacodon（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `varanops` — Varanops / Varanops（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `casea` — Casea / Casea（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `estemmenosuchus` — Estemmenosuchus / Estemmenosuchus（非哺乳合弓类） · hold · needs-specific-reference · high
+- `moschops` — Moschops / Moschops（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `anteosaurus` — Anteosaurus / Anteosaurus（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `inostrancevia` — Inostrancevia / Inostrancevia（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `lystrosaurus` — Lystrosaurus / Lystrosaurus（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `placerias` — Placerias / Placerias（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `dicynodon` — Dicynodon / Dicynodon（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `diictodon` — Diictodon / Diictodon（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `thrinaxodon` — Thrinaxodon / Thrinaxodon（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `cynognathus` — Cynognathus / Cynognathus（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `exaeretodon` — Exaeretodon / Exaeretodon（非哺乳合弓类） · hold · needs-specific-reference · medium
+- `captorhinus` — Captorhinus / Captorhinus（史前爬行类） · hold · needs-specific-reference · medium
+- `hylonomus` — Hylonomus / Hylonomus（史前爬行类） · hold · needs-specific-reference · medium
+- `petrolacosaurus` — Petrolacosaurus / Petrolacosaurus（史前爬行类） · hold · needs-specific-reference · medium
+- `pareiasaurus` — Pareiasaurus / Pareiasaurus（史前爬行类） · hold · needs-specific-reference · high
+- `scutosaurus` — Scutosaurus / Scutosaurus（史前爬行类） · hold · needs-specific-reference · high
+- `procolophon` — Procolophon / Procolophon（史前爬行类） · hold · needs-specific-reference · medium
+- `hypsognathus` — Hypsognathus / Hypsognathus（史前爬行类） · hold · needs-specific-reference · high
+- `euparkeria` — Euparkeria / Euparkeria（史前爬行类） · hold · needs-specific-reference · high
+- `proterosuchus` — Proterosuchus / Proterosuchus（史前爬行类） · hold · needs-specific-reference · medium
+- `erythrosuchus` — Erythrosuchus / Erythrosuchus（史前爬行类） · hold · needs-specific-reference · medium
+- `postosuchus` — Postosuchus / Postosuchus（史前爬行类） · hold · needs-specific-reference · high
+- `desmatosuchus` — Desmatosuchus / Desmatosuchus（史前爬行类） · hold · needs-specific-reference · high
+- `typothorax` — Typothorax / Typothorax（史前爬行类） · hold · needs-specific-reference · medium
+- `sharovipteryx` — Sharovipteryx / Sharovipteryx（史前爬行类） · hold · needs-specific-reference · medium
+- `tanystropheus` — Tanystropheus / Tanystropheus（史前爬行类） · hold · needs-specific-reference · medium
+- `drepanosaurus` — Drepanosaurus / Drepanosaurus（史前爬行类） · hold · needs-specific-reference · medium
+- `sarcosuchus` — Sarcosuchus / Sarcosuchus（史前爬行类） · hold · needs-specific-reference · medium
+- `deinosuchus` — Deinosuchus / Deinosuchus（史前爬行类） · hold · needs-specific-reference · high
+- `kaprosuchus` — Kaprosuchus — fossil study / Kaprosuchus（史前爬行类化石标本） · hold · needs-specific-reference · medium
+- `simosuchus` — Simosuchus / Simosuchus（史前爬行类） · hold · needs-specific-reference · high
+- `metriorhynchus` — Metriorhynchus / Metriorhynchus（史前爬行类） · hold · needs-specific-reference · medium
+- `dakosaurus` — Dakosaurus / Dakosaurus（史前爬行类） · hold · needs-specific-reference · medium
+- `proganochelys` — Proganochelys / Proganochelys（史前爬行类） · hold · needs-form-review · high
+- `odontochelys` — Odontochelys / Odontochelys（史前爬行类） · hold · needs-specific-reference · high
+- `archelon` — Archelon / Archelon（史前爬行类） · hold · needs-specific-reference · high
+- `meiolania` — Meiolania / Meiolania（史前爬行类） · hold · needs-specific-reference · high
+- `stupendemys` — Stupendemys / Stupendemys（史前爬行类） · hold · needs-specific-reference · high
+- `acanthostega` — Acanthostega / Acanthostega（古两栖／早期四足类） · hold · needs-form-review · medium
+- `ichthyostega` — Ichthyostega / Ichthyostega（古两栖／早期四足类） · hold · needs-form-review · medium
+- `tulerpeton` — Tulerpeton — fossil study / Tulerpeton（古两栖／早期四足类化石标本） · hold · needs-form-review · medium
+- `ventastega` — Ventastega — fossil study / Ventastega（古两栖／早期四足类化石标本） · hold · needs-form-review · medium
+- `crassigyrinus` — Crassigyrinus / Crassigyrinus（古两栖／早期四足类） · hold · needs-form-review · medium
+- `greererpeton` — Greererpeton / Greererpeton（古两栖／早期四足类） · hold · needs-form-review · medium
+- `proterogyrinus` — Proterogyrinus / Proterogyrinus（古两栖／早期四足类） · hold · needs-specific-reference · medium
+- `seymouria` — Seymouria / Seymouria（古两栖／早期四足类） · hold · needs-taxonomy-review · medium
+- `eryops` — Eryops / Eryops（古两栖／早期四足类） · hold · needs-form-review · medium
+- `cacops` — Cacops / Cacops（古两栖／早期四足类） · hold · needs-form-review · high
+- `dissorophus` — Dissorophus / Dissorophus（古两栖／早期四足类） · hold · needs-form-review · high
+- `platyhystrix` — Platyhystrix / Platyhystrix（古两栖／早期四足类） · hold · needs-specific-reference · medium
+- `diplocaulus` — Diplocaulus / 笠头螈（Diplocaulus） · hold · needs-form-review · high
+- `gerrothorax` — Gerrothorax / Gerrothorax（古两栖／早期四足类） · hold · needs-form-review · medium
+- `mastodonsaurus` — Mastodonsaurus / Mastodonsaurus（古两栖／早期四足类） · hold · needs-form-review · medium
+- `metoposaurus` — Metoposaurus / Metoposaurus（古两栖／早期四足类） · hold · needs-specific-reference · medium
+- `prionosuchus` — Prionosuchus / Prionosuchus（古两栖／早期四足类） · hold · needs-specific-reference · medium
+- `koolasuchus` — Koolasuchus / Koolasuchus（古两栖／早期四足类） · hold · needs-form-review · medium
+- `triadobatrachus` — Triadobatrachus / Triadobatrachus（古两栖／早期四足类） · hold · needs-specific-reference · medium
+- `prosalirus` — Prosalirus — fossil study / Prosalirus（古两栖／早期四足类化石标本） · hold · needs-specific-reference · medium
+- `karaurus` — Karaurus / Karaurus（古两栖／早期四足类） · hold · needs-form-review · medium
+- `chunerpeton` — Chunerpeton / Chunerpeton（古两栖／早期四足类） · hold · needs-form-review · medium
+- `ophiderpeton` — Ophiderpeton / Ophiderpeton（古两栖／早期四足类） · hold · needs-specific-reference · medium
+- `haikouichthys` — Haikouichthys / Haikouichthys（古鱼类） · hold · needs-form-review · medium
+- `birkenia` — Birkenia / Birkenia（古鱼类） · hold · needs-specific-reference · high
+- `metaspriggina` — Metaspriggina / Metaspriggina（古鱼类） · hold · needs-form-review · medium
+- `arandaspis` — Arandaspis / Arandaspis（古鱼类） · hold · needs-specific-reference · high
+- `sacabambaspis` — Sacabambaspis / Sacabambaspis（古鱼类） · hold · needs-form-review · high
+- `astraspis` — Astraspis / Astraspis（古鱼类） · hold · needs-specific-reference · high
+- `drepanaspis` — Drepanaspis / Drepanaspis（古鱼类） · hold · needs-specific-reference · medium
+- `pteraspis` — Pteraspis / Pteraspis（古鱼类） · hold · needs-specific-reference · high
+- `boreaspis` — Boreaspis / Boreaspis（古鱼类） · hold · needs-specific-reference · medium
+- `tremataspis` — Tremataspis / Tremataspis（古鱼类） · hold · needs-specific-reference · medium
+- `clydagnathus` — Clydagnathus / Clydagnathus（古鱼类） · hold · needs-taxonomy-review · medium
+- `titanichthys` — Titanichthys — fossil study / Titanichthys（古鱼类化石标本） · hold · needs-specific-reference · high
+- `coccosteus` — Coccosteus / Coccosteus（古鱼类） · hold · needs-form-review · high
+- `pterichthyodes` — Pterichthyodes / Pterichthyodes（古鱼类） · hold · needs-specific-reference · high
+- `asterolepis` — Asterolepis / Asterolepis（古鱼类） · hold · needs-specific-reference · high
+- `materpiscis` — Materpiscis / Materpiscis（古鱼类） · hold · needs-form-review · high
+- `incisoscutum` — Incisoscutum / Incisoscutum（古鱼类） · hold · needs-specific-reference · medium
+- `entelognathus` — Entelognathus / 全颌鱼（Entelognathus） · hold · needs-form-review · medium
+- `macropetalichthys` — Macropetalichthys / Macropetalichthys（古鱼类） · hold · needs-specific-reference · high
+- `brindabellaspis` — Brindabellaspis / Brindabellaspis（古鱼类） · hold · needs-specific-reference · medium
+- `acanthodes` — Acanthodes / Acanthodes（古鱼类） · hold · needs-specific-reference · medium
+- `climatius` — Climatius / Climatius（古鱼类） · hold · needs-specific-reference · medium
+- `cheiracanthus` — Cheiracanthus / Cheiracanthus（古鱼类） · hold · needs-form-review · medium
+- `cladoselache` — Cladoselache / Cladoselache（古鱼类） · hold · needs-form-review · medium
+- `stethacanthus` — Stethacanthus / Stethacanthus（古鱼类） · hold · needs-form-review · medium
+- `falcatus` — Falcatus / Falcatus（古鱼类） · hold · needs-form-review · medium
+- `cobelodus` — Cobelodus / Cobelodus（古鱼类） · hold · needs-specific-reference · medium
+- `xenacanthus` — Xenacanthus / Xenacanthus（古鱼类） · hold · needs-specific-reference · medium
+- `orthacanthus` — Orthacanthus / Orthacanthus（古鱼类） · hold · needs-specific-reference · medium
+- `hybodus` — Hybodus / Hybodus（古鱼类） · hold · needs-specific-reference · medium
+- `acrodus` — Acrodus — fossil study / Acrodus（古鱼类化石标本） · hold · needs-specific-reference · medium
+- `ptychodus` — Ptychodus — fossil study / Ptychodus（古鱼类化石标本） · hold · needs-form-review · medium
+- `squalicorax` — Squalicorax / Squalicorax（古鱼类） · hold · needs-specific-reference · medium
+- `otodus` — Otodus / Otodus（古鱼类） · hold · needs-form-review · medium
+- `helicoprion` — Helicoprion / Helicoprion（古鱼类） · hold · needs-form-review · medium
+- `edestus` — Edestus / Edestus（古鱼类） · hold · needs-specific-reference · medium
+- `iniopteryx` — Iniopteryx / Iniopteryx（古鱼类） · hold · needs-specific-reference · medium
+- `ischyodus` — Ischyodus / Ischyodus（古鱼类） · hold · needs-specific-reference · medium
+- `cheirolepis` — Cheirolepis / Cheirolepis（古鱼类） · hold · needs-specific-reference · medium
+- `palaeoniscum` — Palaeoniscum / Palaeoniscum（古鱼类） · hold · needs-specific-reference · medium
+- `platysomus` — Platysomus / Platysomus（古鱼类） · hold · needs-specific-reference · medium
+- `dorypterus` — Dorypterus / Dorypterus（古鱼类） · hold · needs-specific-reference · medium
+- `bobasatrania` — Bobasatrania / Bobasatrania（古鱼类） · hold · needs-specific-reference · medium
+- `saurichthys` — Saurichthys / Saurichthys（古鱼类） · hold · needs-specific-reference · medium
+- `birgeria` — Birgeria / Birgeria（古鱼类） · hold · needs-specific-reference · medium
+- `leedsichthys` — Leedsichthys / Leedsichthys（古鱼类） · hold · needs-form-review · medium
+- `pachycormus` — Pachycormus / Pachycormus（古鱼类） · hold · needs-specific-reference · medium
+- `aspidorhynchus` — Aspidorhynchus / Aspidorhynchus（古鱼类） · hold · needs-specific-reference · medium
+- `dapedium` — Dapedium / Dapedium（古鱼类） · hold · needs-specific-reference · high
+- `pycnodus` — Pycnodus / Pycnodus（古鱼类） · hold · needs-specific-reference · medium
+- `coccodus` — Coccodus / Coccodus（古鱼类） · hold · needs-specific-reference · high
+- `xiphactinus` — Xiphactinus / Xiphactinus（古鱼类） · hold · needs-form-review · medium
+- `diplomystus` — Diplomystus / Diplomystus（古鱼类） · hold · needs-specific-reference · high
+- `osteolepis` — Osteolepis / Osteolepis（古鱼类） · hold · needs-form-review · medium
+- `eusthenopteron` — Eusthenopteron / Eusthenopteron（古鱼类） · hold · needs-form-review · medium
+- `panderichthys` — Panderichthys / Panderichthys（古鱼类） · hold · needs-form-review · medium
+- `tiktaalik` — Tiktaalik / Tiktaalik（古鱼类） · hold · needs-form-review · medium
+- `elpistostege` — Elpistostege — fossil study / Elpistostege（古鱼类化石标本） · hold · needs-form-review · medium
+- `gogonasus` — Gogonasus — fossil study / Gogonasus（古鱼类化石标本） · hold · needs-form-review · medium
+- `onychodus` — Onychodus / Onychodus（古鱼类） · hold · needs-form-review · medium
+- `rhizodus` — Rhizodus — fossil study / Rhizodus（古鱼类化石标本） · hold · needs-specific-reference · medium
+- `mawsonia` — Mawsonia / Mawsonia（古鱼类） · hold · needs-specific-reference · medium
+- `macropoma` — Macropoma / Macropoma（古鱼类） · hold · needs-form-review · medium
+- `coelacanthus` — Coelacanthus / Coelacanthus（古鱼类） · hold · needs-specific-reference · medium
+- `holoptychius` — Holoptychius / Holoptychius（古鱼类） · hold · needs-specific-reference · medium
+- `dipterus` — Dipterus / Dipterus（古鱼类） · hold · needs-form-review · medium
+- `fleurantia` — Fleurantia / Fleurantia（古鱼类） · hold · needs-specific-reference · medium
+- `gomphotherium` — Gomphotherium / Gomphotherium（古哺乳形类） · hold · needs-specific-reference · medium
+- `deinotherium` — Deinotherium / 恐象（Deinotherium） · hold · needs-specific-reference · medium
+- `stegodon` — Stegodon / Stegodon（古哺乳形类） · hold · needs-specific-reference · medium
+- `palaeoloxodon` — Palaeoloxodon / Palaeoloxodon（古哺乳形类） · hold · needs-specific-reference · high
+- `moeritherium` — Moeritherium / Moeritherium（古哺乳形类） · hold · needs-specific-reference · medium
+- `arsinoitherium` — Arsinoitherium / Arsinoitherium（古哺乳形类） · hold · needs-form-review · high
+- `uintatherium` — Uintatherium / Uintatherium（古哺乳形类） · hold · needs-specific-reference · high
+- `paraceratherium` — Paraceratherium / Paraceratherium（古哺乳形类） · hold · needs-form-review · high
+- `elasmotherium` — Elasmotherium / Elasmotherium（古哺乳形类） · hold · needs-form-review · medium
+- `hyracodon` — Hyracodon / Hyracodon（古哺乳形类） · hold · needs-form-review · high
+- `metamynodon` — Metamynodon / Metamynodon（古哺乳形类） · hold · needs-form-review · medium
+- `macrauchenia` — Macrauchenia / Macrauchenia（古哺乳形类） · hold · needs-form-review · medium
+- `toxodon` — Toxodon / Toxodon（古哺乳形类） · hold · needs-form-review · medium
+- `pyrotherium` — Pyrotherium / Pyrotherium（古哺乳形类） · hold · needs-specific-reference · medium
+- `astrapotherium` — Astrapotherium / Astrapotherium（古哺乳形类） · hold · needs-specific-reference · medium
+- `thylacosmilus` — Thylacosmilus / Thylacosmilus（古哺乳形类） · hold · needs-form-review · medium
+- `smilodon` — Smilodon / 美洲剑齿虎（Smilodon） · hold · needs-form-review · medium
+- `homotherium` — Homotherium / Homotherium（古哺乳形类） · hold · needs-form-review · medium
+- `daeodon` — Daeodon / Daeodon（古哺乳形类） · hold · needs-form-review · medium
+- `hyaenodon` — Hyaenodon / Hyaenodon（古哺乳形类） · hold · needs-specific-reference · medium
+- `arctodus` — Arctodus / Arctodus（古哺乳形类） · hold · needs-form-review · medium
+- `borophagus` — Borophagus / Borophagus（古哺乳形类） · hold · needs-specific-reference · medium
+- `megatherium` — Megatherium / 大地懒（Megatherium） · hold · needs-form-review · medium
+- `mylodon` — Mylodon / Mylodon（古哺乳形类） · hold · needs-form-review · medium
+- `nothrotheriops` — Nothrotheriops / Nothrotheriops（古哺乳形类） · hold · needs-specific-reference · medium
+- `glyptodon` — Glyptodon / 雕齿兽（Glyptodon） · hold · needs-form-review · high
+- `doedicurus` — Doedicurus / Doedicurus（古哺乳形类） · hold · needs-specific-reference · high
+- `holmesina` — Holmesina / Holmesina（古哺乳形类） · hold · needs-specific-reference · high
+- `castoroides` — Castoroides / Castoroides（古哺乳形类） · hold · needs-form-review · medium
+- `sivatherium` — Sivatherium / Sivatherium（古哺乳形类） · hold · needs-form-review · medium
+- `synthetoceras` — Synthetoceras / Synthetoceras（古哺乳形类） · hold · needs-specific-reference · high
+- `protoceras` — Protoceras / Protoceras（古哺乳形类） · hold · needs-specific-reference · high
+- `diprotodon` — Diprotodon / Diprotodon（古哺乳形类） · hold · needs-form-review · medium
+- `procoptodon` — Procoptodon / Procoptodon（古哺乳形类） · hold · needs-form-review · medium
+- `palorchestes` — Palorchestes / Palorchestes（古哺乳形类） · hold · needs-form-review · medium
+- `zygomaturus` — Zygomaturus / Zygomaturus（古哺乳形类） · hold · needs-specific-reference · medium
+- `repenomamus` — Repenomamus / Repenomamus（古哺乳形类） · hold · needs-specific-reference · medium
+- `castorocauda` — Castorocauda / Castorocauda（古哺乳形类） · hold · needs-form-review · medium
+- `volaticotherium` — Volaticotherium / Volaticotherium（古哺乳形类） · hold · needs-taxonomy-review · medium
+- `morganucodon` — Morganucodon / Morganucodon（古哺乳形类） · hold · needs-specific-reference · medium
+- `fruitafossor` — Fruitafossor / Fruitafossor（古哺乳形类） · hold · needs-form-review · medium
+- `taeniolabis` — Taeniolabis / Taeniolabis（古哺乳形类） · hold · needs-specific-reference · medium
+- `plesiadapis` — Plesiadapis / Plesiadapis（古哺乳形类） · hold · needs-specific-reference · medium
+- `darwinius` — Darwinius — fossil study / Darwinius（古哺乳形类化石标本） · hold · needs-specific-reference · medium
+- `pakicetus` — Pakicetus / Pakicetus（古哺乳形类） · hold · needs-specific-reference · medium
+- `basilosaurus` — Basilosaurus / Basilosaurus（古哺乳形类） · hold · needs-form-review · medium
+- `dorudon` — Dorudon / Dorudon（古哺乳形类） · hold · needs-specific-reference · medium
+- `odobenocetops` — Odobenocetops / Odobenocetops（古哺乳形类） · hold · needs-specific-reference · medium
+- `confuciusornis` — Confuciusornis / 孔子鸟（Confuciusornis） · hold · needs-form-review · medium
+- `sapeornis` — Sapeornis / Sapeornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `jeholornis` — Jeholornis / Jeholornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `longipteryx` — Longipteryx / Longipteryx（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `longirostravis` — Longirostravis / Longirostravis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `ichthyornis` — Ichthyornis / Ichthyornis（古鸟类／鸟翼类） · hold · needs-form-review · medium
+- `hesperornis` — Hesperornis / Hesperornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `patagopteryx` — Patagopteryx / Patagopteryx（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `vegavis` — Vegavis / Vegavis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `presbyornis` — Presbyornis / Presbyornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `dromornis` — Dromornis / Dromornis（古鸟类／鸟翼类） · hold · needs-form-review · medium
+- `genyornis` — Genyornis / Genyornis（古鸟类／鸟翼类） · hold · needs-form-review · medium
+- `phorusrhacos` — Phorusrhacos / Phorusrhacos（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `kelenken` — Kelenken — fossil study / Kelenken（古鸟类／鸟翼类化石标本） · hold · needs-specific-reference · medium
+- `pelagornis` — Pelagornis / Pelagornis（古鸟类／鸟翼类） · hold · needs-form-review · medium
+- `argentavis` — Argentavis / Argentavis（古鸟类／鸟翼类） · hold · needs-form-review · medium
+- `palaeeudyptes` — Palaeeudyptes / Palaeeudyptes（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `icadyptes` — Icadyptes — fossil study / Icadyptes（古鸟类／鸟翼类化石标本） · hold · needs-specific-reference · medium
+- `aepyornis` — Aepyornis / Aepyornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `dinornis` — Dinornis / Dinornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `pachyornis` — Pachyornis / Pachyornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `sylviornis` — Sylviornis / Sylviornis（古鸟类／鸟翼类） · hold · needs-specific-reference · high
+- `messelornis` — Messelornis / Messelornis（古鸟类／鸟翼类） · hold · needs-specific-reference · medium
+- `titanokorys` — Titanokorys elliptical-shield radiodont / Titanokorys（椭圆甲奇虾类） · P3 · needs-form-review · high
+- `wiwaxia` — Wiwaxia armoured slug-like animal / Wiwaxia（鳞甲蛞蝓形动物） · P3 · needs-taxonomy-review · high
+- `habelia` — Habelia tuberculate stalk-tailed arthropod / Habelia（瘤甲长尾节肢动物） · P3 · needs-form-review · high
+- `alalcomenaeus` — Alalcomenaeus spatula-tailed arthropod / Alalcomenaeus（铲尾节肢动物） · P3 · needs-form-review · high
+- `plenocaris` — Plenocaris long-abdomen swimmer / Plenocaris（长腹甲壳动物） · P3 · needs-form-review · high
+- `nectocaris` — Nectocaris finned nectocaridid / Nectocaris（侧鳍泳行动物） · P3 · needs-taxonomy-review · high
+- `louisella` — Louisella papillate priapulid / Louisella（乳突曳鳃动物） · P3 · needs-form-review · medium
+- `burgessochaeta` — Burgessochaeta fork-bristled annelid / Burgessochaeta（叉毛环节动物） · P3 · needs-form-review · low
+- `chancelloria` — Chancelloria cactus-like animal / Chancelloria（仙人掌形古生动物） · P3 · needs-taxonomy-review · low
+- `protospongia` — Protospongia square-grid sponge / Protospongia（方格海绵） · P3 · needs-form-review · low
+- `dinomischus` — Dinomischus bract-crowned stalked animal / Dinomischus（苞冠有柄动物） · P3 · needs-taxonomy-review · medium
+- `siphusauctum` — Siphusauctum tulip-cup animal / Siphusauctum（郁金香杯形动物） · P3 · needs-taxonomy-review · medium
+- `thaumaptilon` — Thaumaptilon feather-frond animal / Thaumaptilon（羽状古生动物） · P3 · needs-taxonomy-review · medium
+- `echmatocrinus` — Echmatocrinus plated crown animal / Echmatocrinus（板甲冠状古生动物） · P3 · needs-taxonomy-review · high
+- `eldonia` — Eldonia radial disc animal / Eldonia（放射盘状古生动物） · P3 · needs-taxonomy-review · medium
+- `microdictyon` — Microdictyon mesh-plated lobopodian / Microdictyon（网板叶足动物） · P3 · needs-specific-reference · high
+- `pambdelurion` — Pambdelurion broad-lobed crawler / Pambdelurion（宽叶古生爬行动物） · P3 · needs-specific-reference · high
+- `dickinsonia` — Dickinsonia ribbed oval Ediacaran / Dickinsonia（肋纹椭圆埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `spriggina` — Spriggina shield-front Ediacaran / Spriggina（前盾埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `tribrachidium` — Tribrachidium three-armed Ediacaran / Tribrachidium（三辐埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `charnia` — Charnia branched frond Ediacaran / Charnia（分枝叶状埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `fractofusus` — Fractofusus spindle Ediacaran / Fractofusus（纺锤形埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `rangea` — Rangea multivane Ediacaran / Rangea（多叶瓣埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `arborea` — Arborea stalked frond Ediacaran / Arborea（有柄叶状埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `ernietta` — Ernietta quilted cup Ediacaran / Ernietta（绗缝杯形埃迪卡拉生物） · P3 · needs-taxonomy-review · low
+- `pteridinium` — Pteridinium three-vane quilted Ediacaran / Pteridinium（三叶瓣埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `swartpuntia` — Swartpuntia ribbed multivane Ediacaran / Swartpuntia（多肋叶瓣埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `kimberella` — Kimberella mollusc-like Ediacaran / Kimberella（类软体埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `parvancorina` — Parvancorina anchor-ridged Ediacaran / Parvancorina（锚脊埃迪卡拉生物） · P3 · needs-taxonomy-review · medium
+- `coronacollina` — Coronacollina spicule-supported Ediacaran / Coronacollina（长针支撑埃迪卡拉生物） · P3 · needs-taxonomy-review · low
+- `cloudina` — Cloudina nested-tube early animal / Cloudina（套筒早期动物） · P3 · needs-taxonomy-review · medium
+- `namacalathus` — Namacalathus windowed-goblet early animal / Namacalathus（窗孔杯形早期动物） · P3 · needs-taxonomy-review · medium
+- `olenellus` — Olenellus crescent-head trilobite / Olenellus（月牙头三叶虫） · P3 · needs-specific-reference · high
+- `paradoxides` — Paradoxides swept-pleura trilobite / Paradoxides（后掠肋三叶虫） · P3 · needs-specific-reference · high
+- `elrathia` — Elrathia compact oval trilobite / Elrathia（紧凑椭圆三叶虫） · P3 · needs-specific-reference · high
+- `agnostus` — Agnostus two-segment trilobite / Agnostus（两胸节三叶虫类） · P3 · needs-specific-reference · high
+- `trinucleus` — Trinucleus pitted-fringe trilobite / Trinucleus（孔缘三叶虫） · P3 · needs-specific-reference · high
+- `harpes` — Harpes swept-brim trilobite / Harpes（后掠宽缘三叶虫） · P3 · needs-specific-reference · high
+- `isotelus` — Isotelus smooth shield trilobite / Isotelus（光滑盾甲三叶虫） · P3 · needs-specific-reference · high
+- `eldredgeops` — Eldredgeops bulb-eyed trilobite / Eldredgeops（凸眼三叶虫） · P3 · needs-specific-reference · high
+- `dalmanites` — Dalmanites spear-tail trilobite / Dalmanites（矛尾三叶虫） · P3 · needs-specific-reference · high
+- `walliserops` — Walliserops trident-front trilobite / Walliserops（三叉戟三叶虫） · P3 · needs-specific-reference · high
+- `comura` — Comura swept-spine trilobite / Comura（扫帚刺三叶虫） · P3 · needs-specific-reference · high
+- `leonaspis` — Leonaspis flat spiny trilobite / Leonaspis（扁刺三叶虫） · P3 · needs-specific-reference · high
+- `odontopleura` — Odontopleura bristling trilobite / Odontopleura（密刺三叶虫） · P3 · needs-specific-reference · high
+- `lichas` — Lichas lobed-head trilobite / Lichas（分叶头三叶虫） · P3 · needs-specific-reference · high
+- `hoplolichas` — Hoplolichas armoured-tail trilobite / Hoplolichas（甲棘尾三叶虫） · P3 · needs-specific-reference · high
+- `miraspis` — Miraspis candelabra-spine trilobite / Miraspis（烛台刺三叶虫） · P3 · needs-specific-reference · high
+- `cyphaspis` — Cyphaspis bulb-head trilobite / Cyphaspis（球头三叶虫） · P3 · needs-specific-reference · high
+- `symphysurus` — Symphysurus fused-front trilobite / Symphysurus（合前缘三叶虫） · P3 · needs-specific-reference · high
+- `deiphon` — Deiphon balloon-head trilobite / Deiphon（气球头三叶虫） · P3 · needs-specific-reference · high
+- `cheirurus` — Cheirurus fork-tail trilobite / Cheirurus（叉尾三叶虫） · P3 · needs-specific-reference · high
+- `encrinurus` — Encrinurus granular-head trilobite / Encrinurus（颗粒头三叶虫） · P3 · needs-specific-reference · high
+- `triarthrus` — Triarthrus limb-exposed trilobite / Triarthrus（显肢三叶虫） · P3 · needs-specific-reference · high
+- `eurypterus` — Eurypterus paddle-legged eurypterid / Eurypterus（桨足广翅鲎） · P3 · needs-specific-reference · high
+- `jaekelopterus` — Jaekelopterus long-clawed eurypterid / Jaekelopterus（长螯广翅鲎） · P3 · needs-specific-reference · high
+- `megalograptus` — Megalograptus spiny-armed eurypterid / Megalograptus（棘臂广翅鲎） · P3 · needs-specific-reference · high
+- `hibbertopterus` — Hibbertopterus sweep-feeding eurypterid / Hibbertopterus（扫食广翅鲎） · P3 · needs-specific-reference · high
+- `stylonurus` — Stylonurus long-legged eurypterid / Stylonurus（长足广翅鲎） · P3 · needs-specific-reference · high
+- `mesolimulus` — Mesolimulus Jurassic horseshoe crab / Mesolimulus（侏罗纪鲎类） · P3 · needs-specific-reference · high
+- `euproops` — Euproops flared-rim horseshoe crab / Euproops（展缘鲎类） · P3 · needs-specific-reference · high
+- `dibasterium` — Dibasterium split-limbed chelicerate / Dibasterium（分支足螯肢动物） · P3 · needs-form-review · high
+- `offacolus` — Offacolus box-shield chelicerate / Offacolus（匣甲螯肢动物） · P3 · needs-specific-reference · high
+- `weinbergina` — Weinbergina segmented horseshoe-crab relative / Weinbergina（分节鲎近亲） · P3 · needs-specific-reference · high
+- `aeger` — Aeger bristled-arm shrimp / Aeger（刚毛臂虾类） · P3 · needs-specific-reference · high
+- `eryon` — Eryon flat disc lobster / Eryon（扁盘龙虾类） · P3 · needs-specific-reference · high
+- `mecochirus` — Mecochirus long-armed lobster / Mecochirus（长臂龙虾类） · P3 · needs-specific-reference · high
+- `belotelson` — Belotelson Carboniferous shrimp-like swimmer / Belotelson（石炭纪虾形动物） · P3 · needs-specific-reference · high
+- `echinocaris` — Echinocaris spiny-valved phyllocarid / Echinocaris（棘瓣叶虾类） · P3 · needs-specific-reference · high
+- `pygocephalus` — Pygocephalus broad-bodied crustacean / Pygocephalus（宽体甲壳动物） · P3 · needs-specific-reference · high
+- `euphoberia` — Euphoberia spiny millipede / Euphoberia（多刺千足虫类） · P3 · needs-form-review · high
+- `pneumodesmus` — Pneumodesmus early cylindrical millipede / Pneumodesmus（早期圆筒千足虫类） · hold · needs-form-review · high
+- `pulmonoscorpius` — Pulmonoscorpius long-tailed scorpion / Pulmonoscorpius（长尾蝎类） · P3 · needs-specific-reference · high
+- `palaeophonus` — Palaeophonus early scorpion / Palaeophonus（早期蝎类） · hold · needs-form-review · high
+- `palaeotarbus` — Palaeotarbus early arachnid / Palaeotarbus（早期蛛形动物） · P3 · needs-specific-reference · high
+- `trigonotarbus` — Trigonotarbus armoured arachnid / Trigonotarbus（甲腹蛛形动物） · P3 · needs-specific-reference · high
+- `chimerarachne` — Chimerarachne tailed spider relative / Chimerarachne（长尾蜘蛛近亲） · P3 · needs-taxonomy-review · high
+- `dunbaria` — Dunbaria long-beaked palaeodictyopteran / Dunbaria（长喙古网翅昆虫） · P3 · needs-specific-reference · high
+- `stenodictya` — Stenodictya broad-winged palaeodictyopteran / Stenodictya（宽翅古网翅昆虫） · P3 · needs-specific-reference · high
+- `sphecoptera` — Sphecoptera narrow-winged megasecopteran / Sphecoptera（窄翅巨翅昆虫） · P3 · needs-specific-reference · high
+- `homoioptera` — Homoioptera fan-winged palaeodictyopteran / Homoioptera（扇翅古网翅昆虫） · P3 · needs-specific-reference · high
+- `gigatitan` — Gigatitan predatory titanopteran / Gigatitan（捕食巨翅昆虫） · P3 · needs-specific-reference · high
+- `kalligramma` — Kalligramma broad-winged lacewing / Kalligramma（宽翅蝶蛉类） · P3 · needs-specific-reference · high
+- `ceratomyrmex` — Ceratomyrmex horn-jawed ant / Ceratomyrmex（角颚蚁类） · P3 · needs-specific-reference · high
+- `spyroceras` — Spyroceras ring-ribbed nautiloid shell / Spyroceras（环肋鹦鹉螺类壳） · P3 · needs-specific-reference · medium
+- `phragmoceras` — Phragmoceras constricted-mouth nautiloid / Phragmoceras（缩口鹦鹉螺类） · P3 · needs-specific-reference · medium
+- `ascoceras` — Ascoceras flask-shell nautiloid / Ascoceras（瓶壳鹦鹉螺类） · P3 · needs-specific-reference · medium
+- `lituites` — Lituites coil-to-straight nautiloid / Lituites（卷直组合鹦鹉螺类） · P3 · needs-specific-reference · medium
+- `tainoceras` — Tainoceras nodose angular nautiloid / Tainoceras（瘤角鹦鹉螺类） · P3 · needs-specific-reference · medium
+- `eurystomites` — Eurystomites wide-whorled nautiloid / Eurystomites（宽壳圈鹦鹉螺类） · P3 · needs-specific-reference · medium
+- `nipponites` — Nipponites tangled heteromorph ammonite / Nipponites（缠结异形菊石） · P3 · needs-specific-reference · medium
+- `scaphites` — Scaphites short-hook ammonite / Scaphites（短钩菊石） · P3 · needs-specific-reference · medium
+- `ancyloceras` — Ancyloceras coil-shaft-hook ammonite / Ancyloceras（盘卷长柄钩菊石） · P3 · needs-specific-reference · medium
+- `crioceratites` — Crioceratites open planar spiral ammonite / Crioceratites（开放平螺菊石） · P3 · needs-specific-reference · medium
+- `ceratites` — Ceratites nodose compact ammonoid / Ceratites（瘤节紧卷菊石） · P3 · needs-specific-reference · medium
+- `dactylioceras` — Dactylioceras ribbed evolute ammonite / Dactylioceras（密肋外卷菊石） · P3 · needs-specific-reference · medium
+- `placenticeras` — Placenticeras compressed disc ammonite / Placenticeras（扁盘菊石） · P3 · needs-specific-reference · medium
+- `belemnotheutis` — Belemnotheutis hook-armed coleoid / Belemnotheutis（钩腕鞘形动物） · P3 · needs-specific-reference · medium
+- `paleocadmus` — Paleocadmus soft-bodied nautiloid study / Paleocadmus（软体保存鹦鹉螺类） · P3 · needs-form-review · medium
+- `bellerophon` — Bellerophon symmetrical coiled mollusk / Bellerophon（对称盘卷软体动物） · P3 · needs-specific-reference · medium
+- `maclurites` — Maclurites flat-bottomed spiral shell / Maclurites（平底盘螺类） · P3 · needs-form-review · medium
+- `euomphalus` — Euomphalus open-centred snail shell / Euomphalus（敞脐螺类） · P3 · needs-specific-reference · medium
+- `murchisonia` — Murchisonia keeled high-spire snail / Murchisonia（具棱高塔螺类） · P3 · needs-specific-reference · medium
+- `platyceras` — Platyceras curved cap snail / Platyceras（弯帽螺类） · P3 · needs-specific-reference · low
+- `pleurotomaria` — Pleurotomaria slit-shell snail / Pleurotomaria（裂口螺类） · P3 · needs-specific-reference · low
+- `nerinea` — Nerinea slender tower snail / Nerinea（细塔螺类） · P3 · needs-specific-reference · medium
+- `acteonella` — Acteonella barrel snail / Acteonella（桶形螺类） · P3 · needs-specific-reference · low
+- `conus` — Conus cone snail fossil / Conus（芋螺化石） · P3 · needs-specific-reference · low
+- `siphocypraea` — Siphocypraea cowrie fossil / Siphocypraea（宝贝螺类化石） · P3 · needs-specific-reference · low
+- `hystrivasum` — Hystrivasum spiny vase snail / Hystrivasum（棘瓶螺类） · hold · needs-taxonomy-review · medium
+- `struthioptera` — Struthioptera wing-lipped snail / Struthioptera（翼唇螺类） · P3 · needs-specific-reference · medium
+- `austroaporrhais` — Austroaporrhais finger-lipped snail / Austroaporrhais（指唇螺类） · P3 · needs-specific-reference · medium
+- `naticarius` — Naticarius globose moon-snail fossil / Naticarius（球形玉螺化石） · P3 · needs-specific-reference · low
+- `turritella` — Turritella many-whorled tower snail / Turritella（多圈塔螺类） · P3 · needs-specific-reference · medium
+- `crucibulum` — Crucibulum cup-and-saucer snail / Crucibulum（杯碟螺类） · P3 · needs-specific-reference · low
+- `trochita` — Trochita spiral cap snail / Trochita（旋帽螺类） · P3 · needs-specific-reference · low
+- `volutomorpha` — Volutomorpha spindle volute / Volutomorpha（纺锤涡螺类） · P3 · needs-specific-reference · medium
+- `dentalium` — Dentalium tusk shell fossil / Dentalium（角贝化石） · P3 · needs-specific-reference · medium
+- `conocardium` — Conocardium beaked rostroconch / Conocardium（喙形吻壳动物） · hold · needs-taxonomy-review · medium
+- `ribeiria` — Ribeiria curved rostroconch / Ribeiria（弯壳吻壳动物） · hold · needs-taxonomy-review · medium
+- `strobilepis` — Strobilepis ridged early chiton / Strobilepis（棱甲早期石鳖类） · hold · needs-taxonomy-review · medium
+- `exogyra` — Exogyra spiral-beaked oyster / Exogyra（螺喙牡蛎类） · P3 · needs-specific-reference · medium
+- `lopha` — Lopha folded-margin oyster / Lopha（折缘牡蛎类） · P3 · needs-specific-reference · medium
+- `rastellum` — Rastellum comb-edged oyster / Rastellum（梳缘牡蛎类） · P3 · needs-specific-reference · medium
+- `inoceramus` — Inoceramus broad concentric-rib bivalve / Inoceramus（宽同心肋双壳类） · P3 · needs-specific-reference · medium
+- `pinna` — Pinna wedge-shaped pen shell / Pinna（楔形江珧类） · P3 · needs-specific-reference · medium
+- `aviculopecten` — Aviculopecten winged scallop-like bivalve / Aviculopecten（翼状扇贝类） · P3 · needs-specific-reference · medium
+- `neithea` — Neithea convex-valved scallop / Neithea（凸瓣扇贝类） · P3 · needs-specific-reference · medium
+- `myophoria` — Myophoria triangular ridged bivalve / Myophoria（三角脊双壳类） · P3 · needs-specific-reference · medium
+- `megalodon-bivalve` — Megalodon heart-shaped thick bivalve / Megalodon（心形厚双壳类） · hold · needs-taxonomy-review · medium
+- `trigonia` — Trigonia angular beaded-rib bivalve / Trigonia（角形珠肋双壳类） · P3 · needs-specific-reference · medium
+- `hippurites` — Hippurites cylinder rudist / Hippurites（圆筒厚壳蛤类） · P3 · needs-specific-reference · low
+- `radiolites` — Radiolites flared cone rudist / Radiolites（扩锥厚壳蛤类） · P3 · needs-specific-reference · medium
+- `diceras` — Diceras paired-horn rudist / Diceras（双角厚壳蛤类） · P3 · needs-specific-reference · medium
+- `caprina` — Caprina curled-lid rudist / Caprina（卷盖厚壳蛤类） · P3 · needs-specific-reference · medium
+- `requienia` — Requienia coiled-base rudist / Requienia（卷基厚壳蛤类） · P3 · needs-specific-reference · medium
+- `cucullaea` — Cucullaea box-shaped ark shell / Cucullaea（匣形蚶类） · P3 · needs-specific-reference · medium
+- `pholadomya` — Pholadomya gaping ribbed bivalve / Pholadomya（开口肋双壳类） · P3 · needs-specific-reference · medium
+- `cuspidaria` — Cuspidaria rostrate bivalve / Cuspidaria（长吻双壳类） · P3 · needs-specific-reference · medium
+- `lingula` — Lingula tongue-shell brachiopod / Lingula（舌壳腕足动物） · P3 · needs-specific-reference · low
+- `obolus` — Obolus rounded inarticulate brachiopod / Obolus（圆壳无铰腕足动物） · P3 · needs-specific-reference · low
+- `orbiculoidea` — Orbiculoidea off-centre cap brachiopod / Orbiculoidea（偏心帽形腕足动物） · P3 · needs-specific-reference · low
+- `leptaena` — Leptaena bent-margin brachiopod / Leptaena（折缘腕足动物） · P3 · needs-specific-reference · medium
+- `pentamerus` — Pentamerus high-beaked brachiopod / Pentamerus（高喙腕足动物） · P3 · needs-specific-reference · low
+- `paraspirifer` — Paraspirifer barrel-wing brachiopod / Paraspirifer（桶翼腕足动物） · P3 · needs-specific-reference · medium
+- `productus` — Productus spiny bowl brachiopod / Productus（棘碗腕足动物） · P3 · needs-specific-reference · high
+- `richthofenia` — Richthofenia coral-cone brachiopod / Richthofenia（珊瑚锥形腕足动物） · hold · needs-taxonomy-review · low
+- `spinatrypa` — Spinatrypa frilled-rib brachiopod / Spinatrypa（褶刺腕足动物） · P3 · needs-specific-reference · medium
+- `horridonia` — Horridonia long-spined brachiopod / Horridonia（长棘腕足动物） · P3 · needs-specific-reference · high
+- `archimedes` — Archimedes helical lace bryozoan / Archimedes（螺旋蕾丝苔藓动物） · P3 · needs-specific-reference · medium
+- `penniretepora` — Penniretepora fishbone bryozoan / Penniretepora（鱼骨苔藓动物） · P3 · needs-specific-reference · medium
+- `constellaria` — Constellaria star-patterned bryozoan / Constellaria（星斑苔藓动物） · P3 · needs-specific-reference · medium
+- `cystodictya` — Cystodictya ribbon-branch bryozoan / Cystodictya（带枝苔藓动物） · P3 · needs-specific-reference · medium
+- `didymograptus` — Didymograptus tuning-fork graptolite / Didymograptus（音叉形笔石） · P3 · needs-specific-reference · medium
+- `monograptus` — Monograptus single-row graptolite / Monograptus（单列笔石） · P3 · needs-specific-reference · medium
+- `diplograptus` — Diplograptus double-row graptolite / Diplograptus（双列笔石） · P3 · needs-specific-reference · medium
+- `dictyonema` — Dictyonema net-cone graptolite / Dictyonema（网锥笔石） · P3 · needs-specific-reference · low
+- `rastrites` — Rastrites long-cup graptolite / Rastrites（长虫室笔石） · P3 · needs-specific-reference · medium
+- `dendrocystites` — Dendrocystites tailed solutan / Dendrocystites（有尾海果类） · P3 · needs-specific-reference · low
+- `trochocystites` — Trochocystites framed cinctan / Trochocystites（环框棘皮动物） · P3 · needs-specific-reference · medium
+- `helicoplacus` — Helicoplacus spiral-plated echinoderm / Helicoplacus（螺板棘皮动物） · P3 · needs-specific-reference · medium
+- `stromatocystites` — Stromatocystites low radial disc echinoderm / Stromatocystites（低辐盘棘皮动物） · P3 · needs-specific-reference · medium
+- `isorophus` — Isorophus curved-star edrioasteroid / Isorophus（弯星海座星类） · P3 · needs-specific-reference · medium
+- `eleutherocrinus` — Eleutherocrinus asymmetric blastoid / Eleutherocrinus（不对称海蕾类） · hold · needs-taxonomy-review · medium
+- `nucleocrinus` — Nucleocrinus elongate blastoid / Nucleocrinus（长卵海蕾类） · P3 · needs-specific-reference · medium
+- `placocystites` — Placocystites paddle-shaped stylophoran / Placocystites（桨形异形棘皮动物） · P3 · needs-specific-reference · medium
+- `caryocrinites` — Caryocrinites many-armed cystoid / Caryocrinites（多腕海林檎类） · P3 · needs-specific-reference · medium
+- `echinosphaerites` — Echinosphaerites spherical cystoid / Echinosphaerites（球形海林檎类） · P3 · needs-specific-reference · medium
+- `glyptocystites` — Glyptocystites fluted cystoid / Glyptocystites（沟纹海林檎类） · P3 · needs-specific-reference · medium
+- `scyphocrinites` — Scyphocrinites lobolith-bearing crinoid / Scyphocrinites（具球形末端结构的海百合） · P3 · needs-form-review · medium
+- `cupressocrinites` — Cupressocrinites thick-armed crinoid / Cupressocrinites（粗腕海百合） · P3 · needs-specific-reference · high
+- `platycrinites` — Platycrinites flattened-cup crinoid / Platycrinites（扁杯海百合） · P3 · needs-specific-reference · high
+- `eucalyptocrinites` — Eucalyptocrinites caged-crown crinoid / Eucalyptocrinites（笼冠海百合） · P3 · needs-specific-reference · medium
+- `uintacrinus` — Uintacrinus free-floating crinoid / Uintacrinus（自由漂浮海百合） · P3 · needs-specific-reference · high
+- `saccocoma` — Saccocoma small free-swimming crinoid / Saccocoma（小型游泳海百合） · P3 · needs-specific-reference · medium
+- `encrinus` — Encrinus compact crown crinoid / Encrinus（紧冠海百合） · P3 · needs-specific-reference · low
+- `seirocrinus` — Seirocrinus long-stalk branching crinoid / Seirocrinus（长柄分枝海百合） · P3 · needs-specific-reference · medium
+- `archaeocidaris` — Archaeocidaris plate-and-spine urchin / Archaeocidaris（板棘海胆类） · P3 · needs-specific-reference · high
+- `micraster` — Micraster heart urchin / Micraster（心形海胆类） · P3 · needs-specific-reference · medium
+- `hemipneustes` — Hemipneustes high-domed irregular urchin / Hemipneustes（高穹不规则海胆类） · P3 · needs-specific-reference · medium
+- `clypeaster` — Clypeaster thick sand-dollar relative / Clypeaster（厚饼海胆类） · P3 · needs-specific-reference · medium
+- `encope` — Encope slotted sand dollar / Encope（裂孔沙钱类） · P3 · needs-specific-reference · medium
+- `conulus` — Conulus cone-shaped urchin / Conulus（锥形海胆类） · P3 · needs-specific-reference · medium
+- `urasterella` — Urasterella slender-armed sea star / Urasterella（细腕海星类） · P3 · needs-specific-reference · medium
+- `palaeocoma` — Palaeocoma robust brittle star / Palaeocoma（粗腕蛇尾类） · hold · needs-taxonomy-review · medium
+- `helianthaster` — Helianthaster many-rayed sea star / Helianthaster（多辐海星类） · P3 · needs-specific-reference · medium
+- `archaeocyathus` — Archaeocyathus double-walled cup sponge / Archaeocyathus（双壁杯海绵） · P3 · needs-specific-reference · medium
+- `stromatopora` — Stromatopora layered mound sponge / Stromatopora（层状丘海绵） · P3 · needs-specific-reference · medium
+- `amphipora` — Amphipora slender branch sponge / Amphipora（细枝海绵） · P3 · needs-specific-reference · medium
+- `hydnoceras` — Hydnoceras knobbly lattice vase sponge / Hydnoceras（瘤格瓶海绵） · P3 · needs-specific-reference · high
+- `uphantaenia` — Uphantaenia broad basket sponge / Uphantaenia（宽篮海绵） · P3 · needs-specific-reference · medium
+- `coeloptychium` — Coeloptychium mushroom sponge / Coeloptychium（蘑菇形海绵） · P3 · needs-specific-reference · low
+- `ventriculites` — Ventriculites pleated funnel sponge / Ventriculites（褶漏斗海绵） · P3 · needs-specific-reference · medium
+- `hallirhoa` — Hallirhoa lobed sponge / Hallirhoa（多叶瘤海绵） · P3 · needs-specific-reference · medium
+- `astylospongia` — Astylospongia globular funnel sponge / Astylospongia（球体漏口海绵） · P3 · needs-specific-reference · medium
+- `heliophyllum` — Heliophyllum ribbed horn coral / Heliophyllum（肋角珊瑚） · P3 · needs-specific-reference · medium
+- `cystiphyllum` — Cystiphyllum blister-cup coral / Cystiphyllum（泡杯珊瑚） · P3 · needs-specific-reference · medium
+- `acrocyathus` — Acrocyathus clustered rugose coral / Acrocyathus（簇生四射珊瑚） · P3 · needs-specific-reference · medium
+- `syringopora` — Syringopora organ-pipe coral / Syringopora（管风琴珊瑚） · P3 · needs-specific-reference · medium
+- `pleurodictyum` — Pleurodictyum low cup-disc coral / Pleurodictyum（低杯盘珊瑚） · P3 · needs-specific-reference · medium
+- `thamnopora` — Thamnopora porous branch coral / Thamnopora（孔枝珊瑚） · P3 · needs-specific-reference · medium
+- `isastraea` — Isastraea polygon-cup reef coral / Isastraea（多边杯造礁珊瑚） · P3 · needs-specific-reference · medium
+- `thecosmilia` — Thecosmilia branch-tube reef coral / Thecosmilia（枝管造礁珊瑚） · P3 · needs-specific-reference · medium
+- `montlivaltia` — Montlivaltia stalked solitary coral / Montlivaltia（有柄单体珊瑚） · P3 · needs-specific-reference · medium
+- `micrabacia` — Micrabacia radial-disc coral / Micrabacia（放射盘珊瑚） · P3 · needs-specific-reference · medium
+- `flabellum` — Flabellum fan-wedge coral / Flabellum（扇楔珊瑚） · P3 · needs-specific-reference · medium
+- `meandrina` — Meandrina maze-ridge coral / Meandrina（迷宫脊珊瑚） · P3 · needs-specific-reference · medium
+- `conchopeltis` — Conchopeltis radial-cap problematic animal / Conchopeltis（辐射帽形疑难动物） · hold · needs-taxonomy-review · low
+- `rhizostomites` — Rhizostomites radial-bell jellyfish / Rhizostomites（辐钟水母类） · P3 · needs-specific-reference · medium
+- `sphenothallus` — Sphenothallus branching conical tube animal / Sphenothallus（分枝锥管动物） · hold · needs-taxonomy-review · low
+
