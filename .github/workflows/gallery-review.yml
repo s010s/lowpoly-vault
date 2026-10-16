@@ -1,0 +1,66 @@
+name: Review gallery in Chromium
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/**'
+      - 'site/**'
+      - 'package*.json'
+      - 'vite.config.js'
+      - 'THIRD_PARTY_NOTICES.md'
+      - 'scripts/validate_gltf.cjs'
+      - '.github/workflows/gallery-review.yml'
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'site/**'
+      - 'package*.json'
+      - 'vite.config.js'
+      - 'THIRD_PARTY_NOTICES.md'
+      - '.github/workflows/gallery-review.yml'
+permissions:
+  contents: read
+concurrency:
+  group: gallery-review-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  chromium-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Test manifest safety and actual Three.js parsing
+        run: |
+          npm run test:manifest
+          npm run test:parser
+      - name: Build isolated review site (never release manifest or dist)
+        run: node site/prepare-review.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Inspect all real GLBs and gallery interactions
+        env:
+          GALLERY_DIR: qa/review-site
+          QA_REQUIRE_COUNT: '10'
+          QA_REVIEW_ONLY: '1'
+        run: npm run test:browser
+      - name: Upload review evidence for human inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gallery-review-${{ github.sha }}
+          path: |
+            qa/screenshots/
+            qa/browser-report.json
+            qa/threejs-parser.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Explain review boundary
+        if: always()
+        run: |
+          echo '### Gallery review only' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This run does not deploy Pages or edit asset QA. Review browser-report.json and screenshots before approving runtime/visual stages. A successful automated run is not artistic approval.' >> "$GITHUB_STEP_SUMMARY"
