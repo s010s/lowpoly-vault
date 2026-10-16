@@ -2,14 +2,14 @@
 
 ## Scope / 适用范围
 
-All original content in [Lowpoly Vault](https://github.com/s010s/lowpoly-vault), including models, renders, documentation, scripts, and Skills, is licensed by **Leon Made This / s010s** under **Creative Commons Attribution 4.0 International (CC BY 4.0)**. Third-party dependencies and separately identified third-party materials retain their own licenses.
+Original models, renders, images, asset metadata, documentation, and Skills prose in [Lowpoly Vault](https://github.com/s010s/lowpoly-vault) are licensed by **Leon Made This / s010s** under **CC BY 4.0**. Original software uses **MIT**; see the [license scope](LICENSE). Third-party materials retain their own licenses. The asset credit examples below apply to CC BY 4.0 content.
 
-[Lowpoly Vault](https://github.com/s010s/lowpoly-vault) 中所有原创内容，包括模型、渲染图、文档、脚本与 Skills，由 **Leon Made This / s010s** 以 **CC BY 4.0** 许可提供。第三方依赖及另行标明的第三方材料，适用其各自的许可证。
+本仓库原创模型、渲染、图片、资产元数据、文档及 Skills 说明文字采用 **CC BY 4.0**；原创软件代码采用 **MIT**，详见[许可范围](LICENSE)。第三方材料保留各自许可。下方资产署名示例适用于 CC BY 4.0 内容。
 
 - Creator / 作者：Leon Made This / s010s
 - Source / 来源：https://github.com/s010s/lowpoly-vault
 - License / 许可：https://creativecommons.org/licenses/by/4.0/
-- Complete legal text / 完整法律文本：[LICENSE](LICENSE)
+- Complete legal text / 完整法律文本：[CC BY 4.0](LICENSES/CC-BY-4.0.txt)
 - Official legal text source / 官方法律文本来源：https://creativecommons.org/licenses/by/4.0/legalcode.txt
 
 ## Ready-to-use credit / 可用署名示例
@@ -36,6 +36,6 @@ Use a reasonable location for your medium, such as a project's credits page, ass
 
 根据媒介选择合理位置，例如项目致谢页、资产说明、视频简介或展览说明牌；条件允许时，链接到具体资产。保留已提供的版权、许可与免责声明，不暗示原作者为你的作品背书；不要添加妨碍接收者行使许可权利的法律或技术限制。
 
-These examples are practical guidance, not additional license terms. The [full license](LICENSE) governs.
+These examples are practical guidance, not additional license terms. The [full license](LICENSES/CC-BY-4.0.txt) governs.
 
-以上示例用于说明署名方式，不构成额外许可条件；具体以[完整许可文本](LICENSE)为准。
+以上示例用于说明署名方式，不构成额外许可条件；具体以[完整许可文本](LICENSES/CC-BY-4.0.txt)为准。
