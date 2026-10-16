@@ -50,7 +50,7 @@ The actual GLB packed attribute/index buffers are 76,836 / 151,164 / 35,520 byte
 
 **These are CPU proxies, not browser timings and not an apples-to-apples browser race.** Image timing uses Pillow 12.3.0 / libwebp 1.6.0 on Python 3.12.14: encoded bytes preloaded, open + decode + RGBA conversion + byte allocation included. GLB timing uses Three.js 0.180.0 GLTFLoader in Node 24.19.0: parse plus object/material/buffer allocation, without rendering or GPU upload. Both use five warmups and 40 measured iterations, in a shared AMD EPYC 9V74 cloud environment with no CPU affinity or exclusive-load guarantee. Exact samples are in the JSON reports.
 
-Browser measurement could not be obtained: the bundled Playwright browser is absent; installed Chromium failed with a sandbox socket restriction, and the supported elevated retry failed during sandbox setup. No security restriction was bypassed. Browser decode, mobile behavior, GPU upload, frame rate, and actual residency remain **unmeasured**. The isolated `index.html` includes an optional `createImageBitmap` probe to collect real browser decode samples when a supported browser can run it; this page itself has not had browser interaction QA.
+The initial child process could not run a browser because the bundled Playwright browser was absent and installed Chromium hit a sandbox restriction. A later permitted run in the existing cloud Chromium collected actual image-decode samples; see the final section and `browser-decode.json`. End-to-end mobile behavior, GPU upload, frame rate, and actual residency remain **unmeasured**. No security restriction was bypassed.
 
 ## Art direction and preservation
 

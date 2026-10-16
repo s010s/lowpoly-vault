@@ -189,9 +189,28 @@ async function noJavaScriptChecks() {
       assert((await content.locator('h1').textContent()).includes(nameOf(manifest.assets[0], lang)));
       assert(await content.locator('a[href$=".glb"]').isVisible());
       assert(await content.locator('a[href$=".blend"]').isVisible());
+      for (const colorScheme of ['light', 'dark']) {
+        await page.emulateMedia({ colorScheme });
+        const contrast = await content.locator('.static-specs dt').first().evaluate(node => {
+          const rgb = color => (color.match(/[\d.]+/g) || []).map(Number);
+          const foreground = rgb(getComputedStyle(node).color);
+          let background = [255, 255, 255], ancestor = node;
+          while (ancestor) {
+            const color = rgb(getComputedStyle(ancestor).backgroundColor);
+            if (color.length >= 3 && (color[3] === undefined || color[3] === 1)) { background = color; break; }
+            ancestor = ancestor.parentElement;
+          }
+          const opacity = Number(getComputedStyle(node).opacity);
+          const blended = foreground.slice(0, 3).map((value, i) => value * opacity + background[i] * (1 - opacity));
+          const luminance = values => values.slice(0, 3).map(value => value / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, i) => sum + value * [.2126, .7152, .0722][i], 0);
+          const a = luminance(blended), b = luminance(background);
+          return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+        });
+        assert(contrast >= 4.5, `${lang} no-JS ${colorScheme} specification labels need at least 4.5:1 text contrast; got ${contrast}`);
+      }
       await screenshot(page, `no-js-detail-${lang}`);
     }
-    check('JavaScript-disabled catalog and detail remain visible with working file links in English and Chinese');
+    check('JavaScript-disabled catalog and detail remain visible with working file links in English and Chinese; static specification labels retain at least 4.5:1 contrast');
   } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
