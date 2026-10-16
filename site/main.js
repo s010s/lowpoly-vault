@@ -8,8 +8,8 @@ import { routeHref, parseRoute, queryFromParams, filterAndSortCatalog } from './
 import './style.css';
 import './atlas.css';
 
-Object.assign(words.en, {title:'All models',intro:'Original shapes. Ready for your next world.',collection:'The collection',themes:'World',pack:'Pack',refine:'Refine',anyWorld:'Every world',anyPack:'All packs',anyPolygons:'Any triangle count',trianglesUnder:'Up to',scaleReference:'Scale reference',scaleNote:'Grid spacing',scaleUnavailable:'Metric reference is unavailable for this model.',related:'From the same pack',previousModel:'Previous model',nextModel:'Next model',bundle:'Model + source + credits',none:'No models match these filters. Try a different term or clear the filters.',map:'Pack map',grid:'Grid',previewHint:'Hover to inspect',fileSizeUnknown:'Size unavailable'});
-Object.assign(words.zh, {title:'全部模型',intro:'原创形状，为你的下一个世界而准备。',collection:'模型收藏',themes:'世界',pack:'组合包',refine:'筛选',anyWorld:'所有世界',anyPack:'全部组合包',anyPolygons:'不限三角面数',trianglesUnder:'不超过',scaleReference:'尺寸参照',scaleNote:'网格间距',scaleUnavailable:'此模型暂无可靠的米制尺寸参照。',related:'同一组合包中的模型',previousModel:'上一个模型',nextModel:'下一个模型',bundle:'模型、源文件与署名',none:'没有符合这些条件的模型。试试其他关键词，或清除筛选。',map:'组合地图',grid:'网格',previewHint:'悬停查看',fileSizeUnknown:'大小暂无数据'});
+Object.assign(words.en, {title:'All models',intro:'Original shapes. Ready for your next world.',collection:'The collection',sortPolyHigh:'Polygon count: high to low',themes:'World',pack:'Pack',refine:'Refine',anyWorld:'Every world',anyPack:'All packs',anyPolygons:'Any triangle count',trianglesUnder:'Up to',scaleReference:'Scale reference',scaleNote:'Grid spacing',scaleUnavailable:'Metric reference is unavailable for this model.',related:'From the same pack',previousModel:'Previous model',nextModel:'Next model',bundle:'Model + source + credits',none:'No models match these filters. Try a different term or clear the filters.',map:'Pack map',grid:'Grid',previewHint:'Hover to inspect',fileSizeUnknown:'Size unavailable'});
+Object.assign(words.zh, {title:'全部模型',intro:'原创形状，为你的下一个世界而准备。',collection:'模型收藏',sortPolyHigh:'三角面数：从多到少',themes:'世界',pack:'组合包',refine:'筛选',anyWorld:'所有世界',anyPack:'全部组合包',anyPolygons:'不限三角面数',trianglesUnder:'不超过',scaleReference:'尺寸参照',scaleNote:'网格间距',scaleUnavailable:'此模型暂无可靠的米制尺寸参照。',related:'同一组合包中的模型',previousModel:'上一个模型',nextModel:'下一个模型',bundle:'模型、源文件与署名',none:'没有符合这些条件的模型。试试其他关键词，或清除筛选。',map:'组合地图',grid:'网格',previewHint:'悬停查看',fileSizeUnknown:'大小暂无数据'});
 
 const $ = selector => document.querySelector(selector);
 const siteRoot = new URL(import.meta.env.BASE_URL, location.origin).pathname;
@@ -162,12 +162,31 @@ function paintNeighbors(){
 }
 async function prepareRelated(asset,version){
   try{
-    const packID=asset.packs?.[0];if(!packID){$('#related').hidden=true;return;}
+    const packID=asset.packs?.[0];if(!packID){$('#related').hidden=true;await extendNeighbors(version);return;}
     const result=await store.search({pack:packID,pageSize:100});if(version!==detailVersion)return;
-    if(!sourceContext?.items?.some(a=>a.id===asset.id)){neighborItems=result.items;paintNeighbors();}
+    if(!sourceContext){neighborItems=result.items;paintNeighbors();}
     const related=result.items.filter(a=>a.id!==asset.id).slice(0,3);
     $('#related-models').innerHTML=related.map(a=>`<a href="${esc(href('detail',a.id))}" data-model-id="${esc(a.id)}"><img src="${esc(path(a.preview))}" alt="" width="80" height="80" loading="lazy"><span>${esc(loc(a.name))}</span></a>`).join('');$('#related').hidden=!related.length;
+    await extendNeighbors(version);
   }catch(error){if(error.name!=='AbortError')$('#related').hidden=true;}
+}
+async function extendNeighbors(version){
+  if(!sourceContext||sourceContext.view!=='catalog'||browseMode==='atlas')return;
+  const position=sourceContext.items.findIndex(a=>a.id===selected?.id);
+  if(position<0)return;
+  let direction=0;
+  if(position===0&&sourceContext.firstPage>0)direction=-1;
+  else if(position===sourceContext.items.length-1&&sourceContext.lastPage+1<sourceContext.pages)direction=1;
+  if(!direction)return;
+  const adjacentPage=direction<0?sourceContext.firstPage-1:sourceContext.lastPage+1;
+  const result=await store.search({...sourceContext.options,page:adjacentPage,pageSize:24});
+  if(version!==detailVersion)return;
+  const summaries=result.items.map(a=>({id:a.id,name:a.name}));
+  sourceContext.items=direction<0?[...summaries,...sourceContext.items]:[...sourceContext.items,...summaries];
+  if(direction<0)sourceContext.firstPage=adjacentPage;else sourceContext.lastPage=adjacentPage;
+  // Only adjacent pages are retained; this is not an unbounded second catalog cache.
+  if(sourceContext.items.length>72){if(direction>0){sourceContext.items=sourceContext.items.slice(-72);sourceContext.firstPage++;}else{sourceContext.items=sourceContext.items.slice(0,72);sourceContext.lastPage--;}}
+  neighborItems=sourceContext.items;history.replaceState({...history.state,source:sourceContext},'',location.href);paintNeighbors();
 }
 async function animateDialog(from,to,reverse=false){
   const dialog=$('#viewer-dialog'),host=$('#canvas-host'),layout=$('.viewer-layout');document.querySelectorAll('.stage-flight').forEach(e=>e.remove());layout.classList.remove('motion-running');
@@ -179,7 +198,7 @@ async function animateDialog(from,to,reverse=false){
 async function openAsset(id,{push=false,replace=false}={}){
   if(selectedSummary?.id===id&&!closing)return;const version=++detailVersion;closing=false;modalAnimation?.cancel();stopHover();detailController?.abort();detailController=new AbortController();stage?.hide();atlas?.setActive(false);
   const asset=items.find(a=>a.id===id)||index?.initial.find(a=>a.id===id);
-  if(push){sourceContext={url:location.pathname+location.search,view:currentView,scroll:scrollY,triggerId:id,items:items.map(a=>({id:a.id,name:a.name})),options:queryOptions()};history.pushState({vaultDetail:true,source:sourceContext},'',href('detail',id));}
+  if(push){sourceContext={url:location.pathname+location.search,view:currentView,scroll:scrollY,triggerId:id,pages,firstPage:page,lastPage:page,items:items.map(a=>({id:a.id,name:a.name})),options:queryOptions()};history.pushState({vaultDetail:true,source:sourceContext},'',href('detail',id));}
   else if(replace)history.replaceState(history.state,'',href('detail',id));
   selectedSummary=asset||{id};selected=asset||{id,name:{en:'…',zh:'…'}};
   neighborItems=sourceContext?.items||items;origin=currentView==='catalog'?document.querySelector(`.asset-card[data-id="${CSS.escape(id)}"]`):null;
@@ -205,7 +224,7 @@ function hideStaticFor(type){if(staticContent?.dataset.routeType===type)staticCo
 function showView(view){
   if(!['home','catalog','about','detail'].includes(view))view='home';if(view!==currentView)viewScroll[currentView]=scrollY;currentView=view;
   $('#home-page').hidden=view!=='home';$('#catalog-page').hidden=view!=='catalog';$('#about-page').hidden=view!=='about';
-  if(staticContent){const type=view==='catalog'?'models':view;staticContent.hidden=staticContent.dataset.routeType!==type || (view==='detail'&&staticContent.dataset.assetId!==directDetailId);if(index&&view!=='detail')staticContent.hidden=true;}
+  if(staticContent){const type=view==='catalog'?'models':view;staticContent.hidden=staticContent.dataset.routeType!==type || (view==='detail'&&staticContent.dataset.assetId!==directDetailId);if(index&&view!=='detail'&&(view!=='catalog'||$('#grid').ariaBusy==='false'))staticContent.hidden=true;}
   atlas?.setActive(view==='catalog'&&browseMode==='atlas');
   document.querySelectorAll('[data-route]').forEach(anchor=>anchor.setAttribute('aria-current',anchor.dataset.route===view?'page':'false'));
 }
@@ -236,7 +255,7 @@ function paintHome(){
   $('#home-categories').innerHTML=specs.map(([cat,id,n])=>{const a=index.initial.find(x=>x.id===id)||index.initial.find(x=>x.category===cat),count=index.categories.find(c=>c.id===cat)?.count||0;return a?`<a class="curation-card" href="${esc(href('models',undefined,{query:{category:cat}}))}" data-home-category="${cat}"><div><img src="${esc(path(a.preview))}" alt="${esc(loc(a.name))}" loading="lazy" width="640" height="640"><span class="curation-number">${n}</span></div><span class="curation-title">${t(cat)}<span>${count} ${t('count')} ↗</span></span></a>`:'';}).join('');paintIcons($('#home-page'));
 }
 function paintLanguage(){
-  document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-t]').forEach(e=>e.innerHTML=t(e.dataset.t));$('#language').textContent=lang==='en'?'中文':'EN';$('#language').ariaLabel=lang==='en'?'切换为中文':'Switch to English';$('#search').placeholder=t('search');$('#search').ariaLabel=t('search');$('#close').ariaLabel=t('close');$('#canvas-host').ariaLabel=t('canvas');$('#zoom-in').ariaLabel=t('zoomIn');$('#zoom-out').ariaLabel=t('zoomOut');$('.skip').textContent=t('skip');$('.skip').href=href('models');$('#home-query').placeholder=t('homeSearch');$('#home-query').ariaLabel=t('homeSearch');
+  document.documentElement.lang=lang==='zh'?'zh-CN':'en';$('#filters').ariaLabel=lang==='zh'?'按资产类型筛选':'Filter by category';$('.model-pagination').ariaLabel=lang==='zh'?'上一个和下一个模型':'Previous and next models';$('#sort').ariaLabel=t('sort');document.querySelectorAll('[data-t]').forEach(e=>e.innerHTML=t(e.dataset.t));$('#language').textContent=lang==='en'?'中文':'EN';$('#language').ariaLabel=lang==='en'?'切换为中文':'Switch to English';$('#search').placeholder=t('search');$('#search').ariaLabel=t('search');$('#close').ariaLabel=t('close');$('#canvas-host').ariaLabel=t('canvas');$('#zoom-in').ariaLabel=t('zoomIn');$('#zoom-out').ariaLabel=t('zoomOut');$('.skip').textContent=t('skip');$('.skip').href=href('models');$('#home-query').placeholder=t('homeSearch');$('#home-query').ariaLabel=t('homeSearch');
   document.querySelectorAll('[data-route]').forEach(a=>a.href=href(a.dataset.route));
   document.querySelectorAll('a[href$="THIRD_PARTY_NOTICES.md"]').forEach(a=>a.href=new URL('THIRD_PARTY_NOTICES.md',new URL(siteRoot,location.origin)).href);
   $('.hero-art').src=new URL('home/editorial-hero.webp',new URL(siteRoot,location.origin)).href;

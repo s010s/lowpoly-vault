@@ -63,3 +63,13 @@ assets/
 - **第三方内容**：保留各自许可证
 
 分享 CC BY 4.0 内容时，请署名 **Leon Made This / s010s**，链接到来源与许可，并说明修改。分发 MIT 代码时须保留版权与许可声明。详细范围见 [LICENSE](LICENSE)，资产署名示例见 [ATTRIBUTION.md](ATTRIBUTION.md)。
+
+## 图库改版预览
+
+改版分支保留十个原创候选模型，尚未作为正式版本发布或通过最终验收。世界主题、多对多组合包与跨世界分类已分开；现有模型 ID 和文件路径保持兼容。全局检索默认使用紧凑网格，地图只用于选中的真实小组合包（最多 30 个模型）。规划中的资产不会进入线上数量或搜索建议。
+
+英文 `/models/<id>/` 与中文 `/zh-CN/models/<id>/` 是实际生成的静态 HTML 页面。即使 JavaScript 不可用，也可阅读描述、预览、署名和下载。列表普通点击增强为弹窗，保留搜索、筛选、排序、分页与返回状态。ZIP 下载包含 GLB、Blender 源文件和 CREDITS.txt；文件大小来自实际字节数。
+
+测试：`npm run test:redesign`。预览构建：`SITE_BASE=/lowpoly-vault/ node site/prepare-review.mjs`。浏览器验收：`node site/redesign-browser-test.mjs`。发布复制器只按获批 manifest 的明确文件清单工作；没有获批 manifest 时，不复制模型二进制文件到正式输出。详见[构建说明](docs/static-catalog-build-v2.md)、[架构合同](docs/catalog-schema-v2.md)和[改版清单](docs/redesign-v2-checklist.md)。
+
+[三模型预览实验](experiments/preview-turntable-v3/README.md)保留原始几何与尺度。当前实测支持静态卡片加按需 GLB，暂不集成 16 帧 sprite。CPU 解码代理、云浏览器降级截图与真实 WebGL、触摸设备验收分别记录，不互相替代。

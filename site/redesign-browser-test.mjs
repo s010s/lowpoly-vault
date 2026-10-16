@@ -192,7 +192,7 @@ async function noJavaScriptChecks() {
       await screenshot(page, `no-js-detail-${lang}`);
     }
     check('JavaScript-disabled catalog and detail remain visible with working file links in English and Chinese');
-  } finally { await context.close(); }
+  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function navigationChecks() {
@@ -309,7 +309,7 @@ async function navigationChecks() {
     check('Semantic links, compact search keyboard control, query/category/world/pack/sort URL persistence and real About route');
     check('Back/Forward/Close/Escape preserve catalog results, scroll and focus; direct detail enhances its existing URL');
     check('Modal focus trap, adjacent-model arrows outside canvas, canvas orbit arrows and actual same-pack related links');
-  } finally { await context.close(); }
+  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function actualModelChecks() {
@@ -378,7 +378,7 @@ async function actualModelChecks() {
       report.models.push({ id: asset.id, glb_sha256: asset.sha256?.glb || null, status: state === 'ready' ? 'gpu-pass' : 'fallback-only', checks: modelChecks });
     }
     check('All actual review assets: downloads, accessible fallback or strict GPU, bounded one-renderer cache and scene cleanup');
-  } finally { await context.close(); }
+  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function visualMatrixChecks() {
@@ -416,7 +416,7 @@ async function visualMatrixChecks() {
       const chosen = await page.locator('html').getAttribute('data-theme');
       await page.reload(); await waitCatalog(page);
       assert.equal(await page.locator('html').getAttribute('data-theme'), chosen, 'Explicit theme survives reload');
-    } finally { await context.close(); }
+    } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
   }
   check('Screenshot matrix: English/Chinese × light/dark × desktop/390px actual touch context; home/catalog/detail and no horizontal overflow');
   check('Language updates real routes and survives reload; theme follows initial scheme and explicit choice persists');
@@ -499,7 +499,7 @@ async function scaleChecks() {
     report.scale = { metadata: assets.length, categories: catalog.index.categories.length, worlds: catalog.index.worlds.length, packs: catalog.index.packs.length, card_nodes: 24, dom_nodes: nodes, pages: 417, peak_glb_requests: stats.peakRequests, cache_entries: stats.cacheEntries, cache_bytes: stats.cacheBytes, renderer_creations: stats.rendererCreations };
     check('In-memory 10000-item fixture: uneven 39-category/7-world/400-pack facets, distant search, 417 pages and bounded DOM');
     check('Rapid real-GLB hover/detail switching preserves one request, one renderer, bounded bytes and zero live scenes after close');
-  } finally { await context.close(); }
+  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function failureRecoveryChecks() {
@@ -518,7 +518,7 @@ async function failureRecoveryChecks() {
     await page.locator('#retry').click(); await waitCatalog(page);
     assert.equal(await cards(page).count(), Math.min(24, manifest.assets.length));
     check('Catalog failure remains visible and its retry recovers without a page refresh');
-  } finally { await context.close(); }
+  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 await mkdir(output, { recursive: true });

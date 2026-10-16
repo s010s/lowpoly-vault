@@ -21,8 +21,9 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
   if (approvedOnly && manifest.review_only) throw new Error('A review-only manifest cannot produce a release catalog.');
   if (!['catalog', 'catalog-review'].includes(name)) throw new Error('Invalid catalog name.');
   const prefix = `assets/${name}`;
+  const normalized = manifest.assets.map(asset => ({...asset, collection:asset.collection || asset.worlds?.[0] || 'unscoped'}));
   const ids = new Set();
-  for (const asset of manifest.assets) {
+  for (const asset of normalized) {
     if (!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id || '') || ids.has(asset.id)) {
       throw new Error(`Invalid or duplicate catalog asset id: ${asset.id}`);
     }
@@ -31,7 +32,7 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
       throw new Error(`Invalid catalog browsing fields: ${asset.id}`);
     }
   }
-  const ordered = [...manifest.assets].sort(compareCatalogNames);
+  const ordered = normalized.sort(compareCatalogNames);
   const items = ordered.map(asset => ({
     id: asset.id,
     name: asset.name,
