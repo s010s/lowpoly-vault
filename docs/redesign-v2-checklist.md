@@ -1,6 +1,6 @@
 # Asset browser redesign: implementation checklist
 
-Status: **work in progress, review only**. Branch checkpoints preserve code and original model sources; they do not approve asset QA, merge to main, or deploy GitHub Pages.
+Status: **implementation and automated verification complete; owner review only**. Branch checkpoints preserve code and original model sources; they do not approve asset QA, merge to main, or deploy GitHub Pages.
 
 ## Scope
 
@@ -13,13 +13,13 @@ Status: **work in progress, review only**. Branch checkpoints preserve code and 
 - [x] Package source/model with CREDITS.txt; copy release files through an approved-manifest allowlist only.
 - [x] Preserve the singleton renderer, bounded cache/cancellation, on-demand drawing, disposal and reduced-motion behavior; add a truthful optional metric reference.
 - [x] Experiment on dinosaur-nest, lepidodendron and natural-arch: matched rendering rules, 12–16 frame scrub, encoded/decode size and alpha/shadow comparison. Integrate only if evidence supports it.
-- [ ] Test 10 real assets and a 10,000-item uneven many-category fixture, static routes, URL state, accessibility, keyboard and actual download paths.
+- [x] Test 10 real assets and a 10,000-item uneven many-category fixture, static routes, URL state, accessibility, keyboard and actual download paths.
 - [x] Capture actual UI screenshots; distinguish cloud fallback tests from GPU/mobile/continuous-animation acceptance.
 - [x] Keep English-first Skills and bilingual README current; maintain this checklist and checkpoint work periodically.
 
 ## Preservation and acceptance boundaries
 
-The original working directory and port-5188 review build remain intact. Implementation runs in an independent worktree populated from the complete current candidate snapshot. Existing previews and experiments remain available for comparison. No candidate becomes release-approved through this UI work. The cloud browser currently has no WebGL; actual GPU checks remain a separate required test. Bounded Node/DOM checks do not prove network, GPU or frame-rate performance. No external reference artwork is included in release output.
+The original working directory and port-5188 review build remain intact. Implementation runs in an independent worktree populated from the complete current candidate snapshot. Existing previews and experiments remain available for comparison. No candidate becomes release-approved through this UI work. The interactive cloud browser has no WebGL; separate CI checks exercise real Chromium WebGL through software SwiftShader. This is not hardware-GPU performance certification. Bounded Node/DOM checks do not prove network, GPU or frame-rate performance. No external reference artwork is included in release output.
 
 ## Checkpoints
 
@@ -31,7 +31,7 @@ The original working directory and port-5188 review build remain intact. Impleme
 - All 26 real bilingual route documents and all 40 original/download/credit endpoints pass static HTTP checks. Unknown model routes return 404.
 - Actual cloud Chromium: grid, geology filtering, real detail URL, keyboard next model and Back restore query/scroll/original-card focus. Direct Chinese detail retains visible static content and download links. WebGL is disabled and is explicitly reported as fallback.
 - Actual 390px iframe browser rendering captured in `qa/redesign-v2-mobile-grid-zh.png` and `qa/redesign-v2-mobile-detail-zh.png`; document content width is 375px with desktop scrollbar, no horizontal overflow. This checks narrow layout, not Android device/touch/GPU behavior.
-- Initial CI run 38949095195 reached browser interactions but stopped at a missing descending-sort option. The control was added; full browser matrix is still pending a successful rerun.
+- Both complete CI profiles passed at 818f6b7 in run 38952193828. Final screenshot inspection then caught low-contrast labels on the JavaScript-disabled dark detail; 7bd2ced corrects the inherited color and adds a 4.5:1 contrast regression. The final rerun 38953140279 passed both profiles.
 - Preview experiment: clean static images total 12,228 bytes; three 16-frame sheets total 171,688 bytes. Each sheet has a 4 MiB RGBA8 pixel budget, versus 0.25 MiB static. Shadow RGBA introduces grain/clipped edges and poor dark compositing. Decision: keep sprites experimental and retain lazy GLB. See experiment report for exact CPU proxy conditions.
 
 ## Checkpoint history
@@ -41,7 +41,7 @@ The original working directory and port-5188 review build remain intact. Impleme
 - 4dec685: real static routes, curated grid, bundles, metric reference and review CI. Uploaded to the WIP branch only.
 
 - 6d75ce2: preview experiment, mobile screenshots and layout polish. Uploaded to WIP branch and backed up privately in two verified ZIPs (original assets 80,542,918 bytes; code/renders 57,188,345 bytes).
-- Follow-up CI found keyboard focus could leave the modal at a tab-order boundary. Explicit visible/eligible focus wrapping was added; strict browser rerun pending.
+- Follow-up CI found keyboard focus could leave the modal at a tab-order boundary. Explicit visible/eligible focus wrapping was added and subsequently passed both full CI profiles.
 - Real cloud Chromium image decode probe now recorded in the experiment: static median 1.00–1.20 ms versus sheet 9.90–13.20 ms. This measures fresh image decoding from preloaded bytes, not network/GPU/device frame rate.
 
 - c988773: keyboard containment and queued history navigation; actual cloud Tab cycling passes. CI reached all ten models and the complete locale/theme/viewport screenshot matrix, then its rapid-hover test was obstructed by the intentionally still-open filter disclosure. The test now closes that panel before hover; Escape/outside-click dismissal was also added.
@@ -51,10 +51,14 @@ The original working directory and port-5188 review build remain intact. Impleme
 
 ## Remaining acceptance boundaries
 
-- Complete the final strict WebGL / forced-fallback CI run against the final code commit. SwiftShader verifies real browser rendering paths but is not hardware GPU performance certification.
-- Inspect final CI viewport screenshots; 390px touch emulation and the cloud narrow iframe do not replace a physical Android device review.
+- Final code 7bd2ced passed both complete profiles in CI run 38953140279, including the static-label contrast correction. SwiftShader verifies real browser rendering paths but is not hardware GPU performance certification.
+- Selected final CI viewport screenshots have been inspected, including true GLB detail, bilingual homepage, dark catalog and no-JavaScript detail. 390px touch emulation and the cloud narrow iframe do not replace a physical Android device review.
 - No universal animation frame-rate or latency claim is made. Sprite integration is intentionally rejected on the measured trade-off.
 - Original 20 GLB/Blender source hashes match both authored metadata and the untouched original work directory (`qa/redesign-source-preservation.json`).
 - Owner-private phone review hosting requires a separate authorized deployment; the current localhost preview is not a phone-accessible URL. Public Pages release and asset artistic/scientific approval remain outside this review checkpoint.
 
-- Final stress-test fix: closing a 3D dialog could reactivate a different card under the stationary pointer after scroll restoration. Hover now waits for a genuine pointer movement after dismissal, preserving zero live scenes/RAF at rest. Forced-fallback CI is green; strict WebGL rerun verifies this last lifecycle edge.
+- Final stress-test fix: closing a 3D dialog could reactivate a different card under the stationary pointer after scroll restoration. Hover now waits for a genuine pointer movement after dismissal, preserving zero live scenes/RAF at rest. Both forced-fallback and strict WebGL CI now pass this lifecycle edge.
+
+## Verified handoff
+
+The concise implementation, measurements, remaining owner review and deployment boundary are in [redesign-v2-acceptance.md](redesign-v2-acceptance.md). Selected CI evidence is retained in `qa/redesign-v2-evidence/`; exact build files/hashes are in `qa/redesign-v2-build-verification.json`.
