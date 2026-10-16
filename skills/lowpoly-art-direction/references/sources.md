@@ -1,6 +1,6 @@
 # Primary Sources and Evidence Limits
 
-Research date: 2026-10-16. Sources are Blender's official documentation and artists' own websites or tutorials. No third-party models, textures, palettes, or .blend files were downloaded. The recommendations are an original synthesis for this project, not a verbatim account of any artist's process or a claim that the videos were watched in full.
+Research date: 2026-10-16. The initial tutorial research used Blender's official documentation and artists' own websites or tutorials without downloading third-party models, textures, palettes, or .blend files. A later, separately authorized temporary repository inspection is summarized under item 13 and in [reference-quality lessons](reference-quality-lessons.md); inspection does not authorize reuse. The recommendations are an original synthesis for this project, not a verbatim account of any artist's process or a claim that the videos were watched in full.
 
 ## Blender documentation
 
@@ -63,9 +63,17 @@ Research date: 2026-10-16. Sources are Blender's official documentation and arti
     - The artist's article explains that composition goes beyond the rule of thirds, providing a learning entry point for structure, focus, and balance.
     - Project application: environments provide space and visual guidance for animal exhibits. Making every asset the brightest or most saturated focal point destroys hierarchy.
 
+## Recorded repository comparison
+
+13. [RHS059/low_poly_items, inspected commit 2c3cf681cce1cdbcb8f0c7297120422ab178ab90](https://github.com/RHS059/low_poly_items/tree/2c3cf681cce1cdbcb8f0c7297120422ab178ab90)
+    - The recorded study inspected actual GLBs and gray-rendered selected reference and original assets under matched lighting. It supports prioritizing component proportions, middle-scale structure, and concentrated detail over larger counts or random noise.
+    - Its 999 / 5,000 / 10,000 limits are source-and-export **vertex ceilings**, not triangle targets. They belong to that collection; see [asset budgeting](asset-budgeting.md) for exact pinned evidence and our separate counting conventions.
+    - Evidence limit: a frozen, limited-angle study, not exhaustive artistic certification or a repeated live-viewer test. No reference builder was executed or derived model exported. Later original-asset revisions require another review.
+    - Reuse limit: no reuse license was found in the inspected tracked snapshot. Retain original summaries and fixed-commit links only; do not incorporate its models, code, palettes, materials, images, or derived inspection renders into the public library. See [reference-quality lessons](reference-quality-lessons.md) for the full boundary.
+
 ## Original synthesis, not source quotations
 
-The following are project-specific decisions: the 128-pixel silhouette test with a neutral-gray internal-geometry exception for trace assets, five scoring criteria and a 16/20 threshold, three initial benchmarks, triangle tiers, the 60/30/10 starting shape relationship, the fourteen-color palette, and the specific failure-pattern corrections. These are adjustable working conventions, not universal standards stated by any document or tutorial. The project selected the final ten asset categories; this research supplied their construction guidance.
+The following are project-specific decisions: the 128-pixel silhouette test with a neutral-gray internal-geometry exception for trace assets, five scoring criteria and a 16/20 threshold, representative sample reviews, the historical first-pass triangle bands, the 60/30/10 starting shape relationship, the fourteen-color first-pack palette, and the specific failure-pattern corrections. These are adjustable working conventions, not universal standards stated by any document or tutorial. Neither the old 250–2,600 triangle bands nor the reference collection's vertex caps are universal library limits. The project selected the final ten asset categories; this research supplied their construction guidance.
 
 ## Questions requiring dedicated research
 

@@ -29,11 +29,13 @@ If a color needs adjustment during development, update that named color across t
 
 HEX values represent sRGB. When writing to Blender API color properties whose contract is linear, convert correctly: check the actual property contract first, then compare the result with UI entry. Also inspect colors after glTF export. Do not apply a remembered conversion function when the property's color-space contract is unclear.
 
-## Triangle tiers and category signatures
+## Historical first-pass triangle bands and category signatures
 
-T1 small: 250–700 triangles. T2 medium: 700–1,400. T3 large or silhouette-complex: 1,400–2,600. Count final exported triangles, excluding preview platforms, lights, cameras, and collision geometry. These are starting targets, not quotas to fill. Keep a lower count when it fully describes the form. Exceeding a tier is acceptable with a documented visual reason; verify final performance on the target device.
+The first modeling pass used T1: 250–700 exported triangles; T2: 700–1,400; T3: 1,400–2,600, excluding preview platforms, lights, cameras, and collision geometry. These are preserved historical starting bands for this pack, not current universal limits, target amounts to fill, or vertex budgets. Their small/medium/large labels were local shorthand, not a physical-size classification for the whole library. A useful asset may fall below or above them.
 
-| Category | Tier | Dominant form and structural features | Avoid |
+For new assets and revisions, use [asset budgeting](asset-budgeting.md) to set separate vertex, triangle, material/primitive, and population limits from actual screen coverage, viewing distance, and runtime tests. Natural, geological, modern, futuristic, fantasy, and alien assets must not inherit city-object size tiers or the first pack's triangle bands automatically. Extra geometry needs a specific visible benefit; reducing geometry must preserve the identity-bearing structure.
+
+| Category | Historical first-pass tier | Dominant form and structural features | Avoid |
 |---|---|---|---|
 | Rock cliff (岩崖) | T3 | Off-center wedge, inclined strata, stepped breaks, broad quiet planes | Potato-shaped rock piles; uniformly small triangular fragments |
 | Stone arch (石拱) | T2 | One heavy side and one tapering side; a large noncircular opening; a believable load-bearing crown | A torus; two posts joined by a straight bar; weightless construction |
@@ -46,7 +48,9 @@ T1 small: 250–700 triangles. T2 medium: 700–1,400. T3 large or silhouette-co
 | Three-toed footprint slab (三趾足迹泥板) | T2 | Uneven slab thickness and genuine shallow depressions; verify toe shape and stride; inspect gray top-view relief | Floating black decals; cartoon arrows; unsupported species identification |
 | Lepidodendron form (鳞木) | T3 | Tall trunk and crown clearly distinct from the conifer; ordered but restrained leaf scars | A retextured conifer; uniform trunk noise; leaf scars overwhelming the main form |
 
-First establish quality benchmarks with the rock cliff, conifer, and fern cluster, testing hard surfaces, crown negative space, and fine-leaf density respectively. Use the same facet-size logic, palette, materials, and lighting for the remaining seven categories.
+The original benchmark suggestion was rock cliff, conifer, and fern. Following the recorded reference study, the next quality samples are conifer and natural arch, with fern as a third sample to test fine organic rhythm. This is a revised review plan, not a claim that new versions have passed.
+
+Before propagating their approach, freeze two or three accepted samples by file version/hash. Review matched before/after framing, neutral-gray structure, color, side/reverse views, and actual target-viewer output. Confirm convincing secondary structure and proportions, not just category recognition or a count below a cap. Record the visual decision and runtime profile. Continue the wider batch only after this standard is actually met; use the same facet logic, palette, materials, and diagnostic lighting within the pack.
 
 ## Fixed preview setup
 
