@@ -46,3 +46,5 @@ The original working directory and port-5188 review build remain intact. Impleme
 
 - c988773: keyboard containment and queued history navigation; actual cloud Tab cycling passes. CI reached all ten models and the complete locale/theme/viewport screenshot matrix, then its rapid-hover test was obstructed by the intentionally still-open filter disclosure. The test now closes that panel before hover; Escape/outside-click dismissal was also added.
 - Manifest validation now accepts world-only metadata independently of legacy folder names, with regression coverage for stable ID/path compatibility and multi-world/multi-pack records. `npm test` performs explicit review-only structural checks without creating an approved manifest.
+
+- The additional scoped-map stress test exposed 25 sparse categories collapsing into unreadable region labels. Small packs with more than six categories now use one compact pack arrangement; the global 10,000-item catalog still has no map.

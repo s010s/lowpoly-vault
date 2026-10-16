@@ -107,7 +107,8 @@ async function renderGrid(){
     const memoryStore={cancelSearch(){},async search(options={}){const found=filterAndSortCatalog(scope,options),size=options.pageSize||100,p=options.page||0;return {items:found.slice(p*size,(p+1)*size),total:found.length,page:p,pages:Math.ceil(found.length/size)};}};
     if(!atlas)atlas=new ModelAtlas({host:atlasHost,store:memoryStore,t,lang:()=>lang,cardHTML,onItems:visible=>{items=visible;},onOpen:id=>openAsset(id,{push:true}),onHover:requestHover,onStop:stopHover,onPointer:pointerMove});
     atlas.store=memoryStore;atlas.filterKey='';atlas.setActive(currentView==='catalog');
-    await atlas.update({index:scopedIndex});if(version!==queryVersion)return;
+    // Avoid a distant overview of dozens of one-model regions in a small curated pack.
+    await atlas.update({index:scopedIndex,flat:scopedIndex.categories.length>6});if(version!==queryVersion)return;
     $('#count').textContent=`${scope.length.toLocaleString()} ${t('count')}`;$('#grid').ariaBusy='false';$('#grid').inert=false;hideStaticFor('models');return;
   }
   atlas?.setActive(false);const previous=motionUI.capture($('#grid'));$('#grid').ariaBusy='true';$('#grid').inert=true;
