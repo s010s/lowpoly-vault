@@ -31,5 +31,17 @@
     "preview-glb-roundtrip.png",
     "preview-glb-wireframe.png"
   ],
-  "visual_review": "pending"
+  "visual_review": {
+    "status": "pass",
+    "date": "2026-10-16",
+    "images_reviewed": [
+      "preview-glb-roundtrip.png",
+      "preview-glb-wireframe.png"
+    ],
+    "notes": "Re-imported exact shipping GLB matches source silhouette, faceting, material grouping and dimensions. No visible missing faces or export-only shading defects."
+  },
+  "reviewed_warnings": {
+    "status": "accepted",
+    "reason": "The glTF importer marks faces smooth while preserving exported split normals, and face-normal vertex splits appear as topological boundary edges. Source solids have zero boundary/nonmanifold warnings, emitted normals are unit length, and the re-imported images show the intended flat faceting."
+  }
 }

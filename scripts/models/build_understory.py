@@ -83,11 +83,11 @@ def tube(builder, points, radii, sides=5, mat=0, bands=None, phase=0):
     builder.append(vertices, faces, indices)
 
 
-def blade(builder, base, tip, width, fold, shape='lance', mat=0, twist=0):
+def blade(builder, base, tip, width, fold, shape='lance', mat=0, twist=0, plane_normal=None):
     """A closed volume with a designed outline and two faceted ridge surfaces."""
     base, tip = Vector(base), Vector(tip)
     axis = tip - base
-    side = axis.cross(Vector((0, 0, 1))).normalized()
+    side = axis.cross(Vector(plane_normal) if plane_normal is not None else Vector((0, 0, 1))).normalized()
     if side.length < .5:
         side = Vector((1, 0, 0))
     normal = side.cross(axis).normalized()
@@ -98,10 +98,8 @@ def blade(builder, base, tip, width, fold, shape='lance', mat=0, twist=0):
                    tip, base + axis * .38 - side * width]
     elif shape == 'fern':
         outline = [base, base + axis * .23 + side * width,
-                   base + axis * .40 + side * width * .52,
-                   base + axis * .60 + side * width * .78, tip,
-                   base + axis * .62 - side * width * .72,
-                   base + axis * .42 - side * width * .44,
+                   base + axis * .47 + side * width * .43, tip,
+                   base + axis * .49 - side * width * .39,
                    base + axis * .24 - side * width * .88]
     else:
         outline = [base, base + axis * .27 + side * width * .82,
@@ -247,17 +245,20 @@ def build_fern(args):
         ts = [0, .14, .29, .45, .61, .77, .90, 1.02]
         tube(axes, [path(t) for t in ts], [.014, .013, .011, .009, .007, .005, .003, .0014], sides=3)
         pinnae = MeshBuilder()
-        for j in range(7):
-            t0 = .13 + j * .123
+        for j, t0 in enumerate([.08, .18, .29, .40, .51, .61, .70, .78, .85, .91, .96]):
             for handed in [-1, 1]:
-                t = t0 + (.028 if handed == 1 else 0)
-                taper = (math.sin(math.pi * (t - .025))) ** .75
+                t = t0 + (.009 if handed == 1 else 0)
+                taper = (math.sin(math.pi * (t - .025))) ** .60
                 pinnalength = (.226 if number in [0, 3, 4] else .202) * taper
                 base = path(t)
-                # Broad pinnae are slightly swept, then droop off the softer axis.
-                tip = base + side * handed * pinnalength + radial * pinnalength * .36 + Vector((0, 0, -.035 * taper - .018 * t))
-                blade(pinnae, base, tip, .045 * taper, .0085 * taper, 'fern', twist=handed * (.13 + .1 * t))
-        blade(pinnae, path(.92), path(1.04), .012, .004, 'lance')
+                # Each pinna lies in the local curved frond plane, never a global horizontal shelf.
+                tangent = (path(t + .006) - path(t - .006)).normalized()
+                frond_normal = tangent.cross(side).normalized()
+                tip = base + side * handed * pinnalength + tangent * pinnalength * .38
+                blade(pinnae, base, tip, .053 * taper, .0085 * taper, 'fern',
+                      twist=[-.12, .08, -.16, .10, -.06, .15, -.09][number] + handed * .10, plane_normal=frond_normal)
+        blade(pinnae, path(.95), path(1.02), .011, .004, 'lance',
+              plane_normal=(path(.98) - path(.96)).normalized().cross(side).normalized())
         pinnae.finish(f'Arching fern frond {number+1:02d}', mats[color], col)
     axes.finish('Flexible tapering petioles and rachises', mats['fern_deep'], col)
     # A deliberately exposed young crozier at the front-left, with one readable roll.
@@ -285,7 +286,7 @@ def build_fern(args):
          'zh': '七片柔曲拱形叶轴带交错宽羽片，近地叶丛外缘下垂，并保留一片清楚的新卷芽。'},
         ['prehistoric', 'plants', 'fern', 'groundcover', 'mesozoic-concept', 'original', 'low-poly'],
         [{'title': 'NHM: Unfurl the secrets of ferns', 'url': 'https://www.nhm.ac.uk/discover/ferns.html'}],
-        {'palette': list(mats), 'frond_count': 7, 'pinna_pairs_per_frond': 7, 'crozier_count': 1,
+        {'palette': list(mats), 'frond_count': 7, 'pinna_pairs_per_frond': 11, 'crozier_count': 1,
          'seed': SEED + 1, 'silhouette_signature': 'ground-level crown; three frond heights; bowed drooping pinnae; one unfurling crozier'},
         {'en': 'A generalized Mesozoic fern-form concept. The simplified pinnae, growth stage and color are artistic choices; it is not an identification of a living fern species, seed fern, or fossil specimen. Reproduces no flowers or seed clusters.',
          'zh': '宽泛的中生代蕨形概念。简化羽片、生长阶段及配色为美术选择；不是现生蕨种、种子蕨或某件化石标本的鉴定。不制作花或种子串。'})

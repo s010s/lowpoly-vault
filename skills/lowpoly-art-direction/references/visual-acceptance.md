@@ -1,69 +1,81 @@
-# 视觉验收单
+# Visual Acceptance Checklist
 
-这是为本项目设计的工作门槛，不是客观衡量艺术品质的通用标准。自动检查只证明其检查范围；视觉结论必须实际打开图像。
+These are working gates for this project, not universal objective measures of artistic quality. Automated checks establish only what they test. Visual conclusions require opening the actual images.
 
-## 每件资产的最小证据
+## Minimum evidence per asset
 
-1. 统一灯光下的正面三分之四视图，以及另一侧三分之四视图。
-2. 正面、侧面、顶面中的相关正交视图，包含尺度。叶丛、巢穴、岸线必须看顶视图。
-3. 黑色剪影，128×128 像素，资产约占画幅 80%；不得带地台、雾、投影或边线。
-4. 中性灰材质视图，移除纹理和面色；至少再换一次主光方向。
-5. 导出副本的实际三角化线框与近景，检查最复杂的分叉、折面和薄片。
-6. 目标格式重新导入或目标查看器的截图。无法做到时明确标为未验证。
+1. A front three-quarter view and an opposite-side three-quarter view under the shared lighting setup.
+2. Relevant front, side, and top orthographic views, with scale. Foliage clusters, nests, footprint slabs, and shorelines require top views.
+3. A 128×128 black silhouette with the asset occupying about 80% of the frame, without a platform, fog, cast shadow, or outline. For nests and footprint slabs, use this only to inspect outer mass and proportions, not to identify the subject.
+4. A neutral-gray material view with textures and face colors removed, plus at least one alternate key-light direction. For nests and footprint slabs, a neutral-gray top view must reveal the identifying internal geometry: depression, rim, egg placement, or footprint relief.
+5. The export copy's actual triangulated wireframe and close-ups of its most complex forks, folds, and thin surfaces.
+6. A screenshot after reimporting the target format or opening it in the target viewer. Mark this unverified when it cannot be done.
+7. For a quality sample, matched before/after views and at least one secondary identifying structure that survives removal of color. Record the actual asset version/hash; do not use an older contact-sheet cell to assess a newer revision.
 
-每批增加两张联系表：一张统一单件画幅方便比较风格；一张按实际相对尺寸摆放检验尺度。不能用自动归一化缩放的缩略图声称尺度一致。
+Add two contact sheets per batch: one with consistent individual framing for style comparisons, and one arranged at true relative scale. Automatically normalized thumbnails cannot prove scale consistency.
 
-## 五项硬性门槛
+## Five hard gates
 
-- **识别**：剪影能辨认类别与至少一个专属特征；不能主要靠颜色、文字或装饰地台认出。被树叶挡住的树干、塌成圆饼的冠形或无岸线的蓝色地块需返工。
-- **形体完整**：每个需使用的视角没有意外尖刺、黑缝、悬浮连接、穿插穿帮、塌陷或只为主镜头成立的薄纸片。
-- **面与光稳定**：转动光源不会出现无法解释的碎裂、星形凹陷或突变；三角化与重新导入后没有新增的关键阴影折痕。
-- **成组一致**：相邻资产的比例夸张、面大小、色彩饱和度与细节密度相容；同类变体必须具备结构差异。
-- **语境诚实**：未经核验的物种、时期、足迹、巢穴和行为不能标注为科学复原；幻想变体不得混入博物馆写实复原组。
+- **Recognition:** For silhouette-led objects, the silhouette must communicate the category and at least one distinctive feature without depending primarily on color, text, or a decorative platform. Review hidden structural features, flattened crowns, and unreadable shorelines. For trace-based assets such as nests and footprint slabs, recognition comes from neutral-gray top views and internal geometric details instead. A nest may need its bowl, rim, and eggs; a footprint slab needs readable depressions and toe relief. Their outer silhouette alone is not an identification requirement, and failure of that test alone must not trigger rework.
+- **Structural completeness:** Every intended viewing angle is free of accidental spikes, dark cracks, floating joints, obvious intersections, collapses, or paper-thin shortcuts that work only from the hero camera.
+- **Stable planes and lighting:** Moving the light does not reveal unexplained fragmentation, star-shaped dents, or abrupt shading changes. Triangulation and reimport introduce no significant unintended shading creases.
+- **Family consistency:** Neighboring assets have compatible exaggeration, facet size, saturation, and detail density. Variants of one category must differ structurally.
+- **Honest context:** Unverified species, periods, tracks, nests, and behavior must not be labeled scientific reconstructions. Keep fantasy variants separate from realistic museum reconstructions.
 
-## 美术评分建议：五项各 0–4 分
+## Suggested art score: five criteria, 0–4 each
 
-0 = 未完成；1 = 明显问题；2 = 可用但平庸；3 = 有意设计且一致；4 = 很强的识别、节奏与完成度。
+0 = unfinished; 1 = obvious problems; 2 = usable but generic; 3 = intentional and consistent; 4 = strong identity, rhythm, and finish.
 
-| 项目 | 要看什么 | 典型返工信号 |
+| Criterion | Inspect | Typical rework signal |
 |---|---|---|
-| 轮廓与比例 | 不依赖表面细节的识别、主方向、重量、负空间 | 所有岩石像同一块球；所有树像棒棒糖 |
-| 形面与节奏 | 大中小层级、宽大安静面、局部结构转折 | 全表面等尺寸噪声；无理由的均匀三角碎面 |
-| 色组与材质 | 材质家族清晰、灰度分离、受控重点 | 每面随机色、饱和糖果色互抢、永久烘焙式黑影 |
-| 细节与工艺 | 生长/断裂/侵蚀逻辑、正确接触、干净导出 | 等距排布、等粗分叉、悬浮、短细三角与法线错误 |
-| 成组可复用性 | 变体差异、尺度和语言一致、镜头覆盖 | 换色当新资产；只在一个角度成立；有不可拆地台 |
+| Silhouette, proportions, and structural readability | Identity, dominant direction, weight, and negative space. For nests and footprints, assess neutral-gray top-view structure rather than outer-silhouette identity. | All rocks resemble one sphere; all trees resemble lollipops; footprint relief or nest cavities disappear in gray |
+| Planes and rhythm | Large/medium/small hierarchy, broad quiet areas, meaningful local turns | Uniform all-over noise; equally sized triangular fragments without structural purpose |
+| Color groups and material | Clear material families, grayscale separation, controlled emphasis | Random face colors, competing candy saturation, permanent painted black shadows |
+| Detail and craft | Growth/fracture/erosion logic, correct contact, clean export | Equal spacing, equal-width branching, floating parts, sliver triangles, normal errors |
+| Family reuse | Structural variant differences, consistent scale and design language, viewing-angle coverage | Recolors treated as new assets; single-angle construction; inseparable display platforms |
 
-当前建议：每项至少 3 分且总分至少 16/20，五项硬门槛全部通过。评分应写一句理由；不要只输出分数。首个通过样件应成为全批对照物，但不要复制其轮廓。
+Current recommendation: at least 3 in every criterion and at least 16/20 overall, with all five hard gates passed. Give a one-sentence reason for each score. Technical validity and recognizable category are minimum usability gates; benchmark quality additionally requires convincing secondary structure, component proportions, and concentrated, purposeful detail. Neither the total score nor an automated pass overrides a weak criterion or the user's visible objection. Freeze accepted samples before using them as a quality reference, without copying their silhouettes.
 
-## 廉价程序化造型诊断与修法
+## Budget and viewing-profile acceptance
 
-| 症状 | 常见成因 | 修法 |
+Follow [asset budgeting](asset-budgeting.md) for separate source/export vertex counts, triangles, materials/primitives, repetition, and viewing assumptions. Review at intended small, medium, and close projected sizes and in the intended population; a normalized thumbnail or an isolated GLB below a cap is insufficient. Optional LODs must actually switch in the target runtime, with transition and identity checks. Mark unavailable device or scene tests unverified rather than inferring performance from counts.
+
+For every structural revision, record the observed weakness, the change, and the expected visible outcome, then compare under matching framing and lighting. "More triangles," "higher resolution," and "more realistic" are not sufficient explanations. Inspect topology spending at bends, joints, terminations, and negative spaces before adding detail elsewhere. Preserve the neutral-gray top-view/internal-relief exception for nests and footprints.
+
+## Diagnosing generic procedural forms
+
+| Symptom | Common cause | Correction |
 |---|---|---|
-| 圆滚滚土豆岩 | 以球体加均匀随机位移替代构形 | 先定承重底面、长轴、两个主断裂面和一个凹口 |
-| 岩石像碎玻璃 | 过度减面或过多小三角面 | 手动扩大关键面；删除不贡献轮廓的碎细节 |
-| 棕榈/苏铁像风扇 | 每片叶长度、角度和俯仰相同 | 先分冠层，再让少量叶片伸出、下垂或缺失 |
-| 蕨丛像绿色梳子 | 叶片同平面、同间距、同曲线 | 做明确叶轴弧线、前后层次和小叶渐变 |
-| 树像堆圆锥 | 各层冠幅和高度接近，中心线僵硬 | 改变冠层重叠与间隔，做一次明确偏心或开口 |
-| 倒木像管道 | 等径圆柱、全规则断口、无根部结构 | 渐缩截面、主弯折、少量有层级的断枝与断口 |
-| 地形像噪声滤镜 | 高频位移铺满可用区域 | 保留安静平台，让细节集中在地貌交界 |
-| 各件互不相干 | 各自挑颜色、面数、镜头、灯光 | 同色板、同测试灯光、同视觉面密度再比较 |
+| Rounded potato rock | A sphere with uniform random displacement substitutes for construction | Establish the supporting base, long axis, two main fracture planes, and one notch first |
+| Shattered-glass rock | Excessive decimation or too many small triangles | Enlarge key planes manually; remove fragments that do not improve silhouette |
+| Fan-like palm or cycad | Identical leaf lengths, angles, and pitch | Establish crown layers, then let a few leaves extend, droop, or be absent |
+| Green-comb fern | Coplanar, equally spaced leaves with identical curves | Give the frond a clear curve, depth layers, and gradually changing leaflets |
+| Stacked-cone tree | Similar tier widths/heights and a rigid centerline | Vary crown overlap and spacing; introduce a deliberate offset or opening |
+| Pipe-like fallen log | Constant-width cylinder, regular break, no root structure | Taper cross-sections, add a main bend, and use a few hierarchical broken branches and ends |
+| Noise-filter terrain | High-frequency displacement covers all usable areas | Preserve quiet platforms and concentrate detail at landform boundaries |
+| Incoherent asset family | Each asset independently chooses colors, density, cameras, and lighting | Compare under the same palette, test lighting, and visual facet density |
 
-## 建议机器检查，不替代目视
+## Useful automated checks, not substitutes for inspection
 
-- 记录三角数、顶点数、材质槽、包围盒、对象数量、可见/隐藏对象、纹理引用和文件尺寸。
-- 检查 NaN/Inf 坐标、零面积面、孤立顶点、重复面、负比例、未计划的非流形边与外部纹理丢失。
-- 标记长宽比异常的三角形供目视检查；细长叶片可能合理，不要无差别自动修复。
-- 比较源与重新导出导入后的包围盒、数量、颜色与法线。仅测试文件能打开不等于美术通过。
+- Record authored source vertices, evaluated source vertices, exported POSITION-stream vertices, exported triangles, used materials, primitives, bounding box, asset and mesh instance counts, visible/hidden objects, texture references, and file size. State counting scopes using [asset budgeting](asset-budgeting.md).
+- Check NaN/Inf coordinates, zero-area faces, loose vertices, duplicate faces, negative scale, unintended nonmanifold edges, and missing external textures.
+- Flag unusual triangle aspect ratios for visual review. Long narrow leaf faces may be intentional; do not repair them indiscriminately.
+- Compare bounds, counts, colors, and normals before and after export/reimport. A file opening successfully does not establish artistic acceptance.
 
-## 审核记录模板
+## Review record template
 
-资产 ID：
-源文件 / 导出文件：
-检查日期 / Blender 版本 / 目标查看器：
-尺寸 / 三角数 / 材质数：
-实际看过的预览：
-五项硬门槛：
-五项评分及理由：
-最值得修的 1–3 项：
-科学语境与未验证项：
-结论：通过 / 返工 / 有条件通过（写明限制）
+Asset ID:
+Source file / export file:
+Review date / Blender version / target viewer:
+Dimensions / authored and evaluated vertices / exported POSITION vertices / triangles:
+Used materials / primitives / asset and mesh instances:
+Viewing profile / projected size / population / runtime measurements:
+Previews actually inspected:
+Frozen asset version/hash:
+Recognition method: silhouette-led / neutral-gray top-view internal geometry
+Observed weakness / structural change / expected and observed visible outcome:
+Five hard gates:
+Five scores and reasons:
+Highest-priority 1–3 corrections:
+Scientific context and unverified items:
+Decision: pass / rework / conditional pass (state limitations)

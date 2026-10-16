@@ -1,0 +1,64 @@
+{
+  "asset": "three-toed-track",
+  "status": "pass",
+  "reviewed_on": "2026-10-16",
+  "reviewer_model": "GPT-6 Astra, xhigh",
+  "blender_version": "4.3.2",
+  "method": "Actual rendered PNGs were opened and visually inspected, including the independently reimported delivered GLB. Numeric checks alone were not used as visual acceptance.",
+  "reviewed_images": [
+    "preview-hero.png",
+    "preview-reversehero.png",
+    "preview-top.png",
+    "preview-clay.png",
+    "preview-clay-alt.png",
+    "preview-silhouette.png",
+    "preview-wireframe.png",
+    "qa-roundtrip/preview-hero.png",
+    "qa-roundtrip/preview-clay-top.png"
+  ],
+  "summary": "Three staggered impressions show a longer middle digit, curved lateral digits, and a rounded heel. The slab is a single closed mesh; each floor is genuinely below the surrounding substrate, and the shallow lips are separate from that depression.",
+  "scores_out_of_4": {
+    "silhouette_and_proportion": 3,
+    "planes_and_rhythm": 4,
+    "color_and_material": 3,
+    "craft": 4,
+    "reusability": 4
+  },
+  "total_out_of_20": 18,
+  "score_reasons": {
+    "silhouette_and_proportion": "A negative impression inside an opaque slab does not change the external silhouette. Top, clay-top, alternate-light, and ray-depth tests establish the trace identity; the silhouette checks the slab outline only.",
+    "planes_and_rhythm": "Broad quiet facets carry the form; smaller faces are concentrated at bedding, bevels, egg profiles, or cavity edges.",
+    "color_and_material": "Fixed earth / warm_stone / stone_light palette, assigned by structure. No face-wise random colors, emission, or texture dependence.",
+    "craft": "Closed source meshes, grounded placement, no degenerate source triangles, and independently reimported matching triangle counts and bounds.",
+    "reusability": "Editable semantic parts, meter units, identity placement root, plain GLB PBR materials, and clean source/export separation."
+  },
+  "hard_gates": {
+    "identity_in_intended_views": "pass",
+    "geometry_integrity": "pass",
+    "lighting_and_export_stability": "pass",
+    "family_consistency": "pass",
+    "honest_scientific_scope": "pass",
+    "external_silhouette_only_identity": "not_applicable_to_internal_surface_detail"
+  },
+  "silhouette_scope_note": "A negative impression inside an opaque slab does not change the external silhouette. Top, clay-top, alternate-light, and ray-depth tests establish the trace identity; the silhouette checks the slab outline only.",
+  "revisions_after_image_review": [
+    "Replaced generic polygon ear clipping with constrained triangulation to eliminate a degenerate floor triangle.",
+    "Refined angular arrow-like digits into broader, slightly curved pads and softened heel contours."
+  ],
+  "scientific_scope": "Generic tridactyl trace teaching model, not an identified ichnotaxon or dinosaur genus. Artistic depth, toe spread, and step length cannot determine speed or mass.",
+  "not_established_by_this_review": [
+    "Species/specimen-level scientific reconstruction",
+    "Target-device frame-rate performance",
+    "A Three.js screenshot; the separate gallery/runtime check owns that evidence"
+  ],
+  "counts": {
+    "triangles": 972,
+    "materials": 2,
+    "glb_bytes": 48552,
+    "dimensions_width_height_depth_m": [
+      2.771999955177307,
+      0.147782564163208,
+      1.4011200070381165
+    ]
+  }
+}

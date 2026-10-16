@@ -1,55 +1,62 @@
 ---
 name: lowpoly-art-direction
-description: Design and visually review original low-poly environment assets in Blender, including silhouettes, shape rhythm, palettes, facet topology, and consistent asset families. Use for prehistoric museum environments and adaptable fantasy scenery; this skill does not establish paleontological accuracy or authorize publication.
+description: Design and review original low-poly assets for natural, geological, modern, futuristic, fantasy, and alien environments. Use for shape hierarchy, proportions, palettes, topology, role-based budgets, and visual acceptance; this skill does not establish scientific accuracy or authorize publication.
 ---
 
-# 原创低多边形环境美术
+# Original Low-Poly Environment Art
 
-目标是让少量有意设计的形面承担识别、重量、材质和节奏，而不是仅把面数降到很低。按项目的运行时、镜头距离和风格确定预算。本文中的数量是当前项目的起始设计建议，不是行业标准。
+Use deliberately designed planes to communicate identity, weight, material, and rhythm. Prioritize silhouette, component proportions, convincing secondary structure, and detail concentrated where it explains the object. Neither more polygons nor fewer polygons alone establishes quality. Derive budgets from viewing and deployment roles using [asset budgeting](references/asset-budgeting.md); the old first-pack triangle bands are historical starting points, not library-wide caps or industry standards.
 
-## 开始前确定
+## Establish the brief
 
-- 记录对象类别、使用距离、真实尺度或明确的风格化尺度、三个识别特征及一个主轮廓。
-- 标明「科学复原」「有依据的概括」「风格化场景道具」或「幻想」；没有核验的物种、时代、足迹和巢穴不能作为科学复原宣传。
-- 区分独立资产与展示场景。预览灯光、地台、相机不应混进资产导出。
-- 本首包是独立的统一风格化环境资产库。现有 museum 使用写实远景、PBR 地表和真实坐标植被；不要声称本包可直接替换或视觉兼容它，也不要修改 museum。统一 gallery 用于展示本包自身的风格一致性。
-- 遵守当前任务的环境与原创性边界。本项目仅在获准的云端工作；参考公开教程的方法，不下载、临摹或改包装第三方模型、纹理、色板或场景。
+- Record the category, viewing distance, real or explicitly stylized scale, three identifying features, and dominant silhouette. For trace-based assets such as nests and footprint slabs, also name the identifying internal geometry.
+- Write a component-and-cause brief: primary mass, secondary structure, one tertiary identifying feature, quiet region, and the reason for each important connection or interruption. State the representation scale: individual leaves, shoots, branchlet sprays, crown masses, structural panels, or assemblies. Do not accidentally mix these scales.
+- Label the asset as scientific reconstruction, evidence-informed generalization, stylized environment prop, or fantasy. Unverified species, periods, footprints, and nests must not be presented as scientific reconstructions.
+- Separate the reusable asset from its presentation scene. Do not include preview lights, platforms, or cameras in asset exports.
+- This first pack is an independent, consistently stylized environment library. The existing museum uses realistic distant scenery, PBR terrain, and vegetation placed at real-world coordinates. Do not claim direct replacement or visual compatibility, and do not modify the museum. Use the shared gallery to demonstrate this pack's own consistency.
+- Respect the task's environment and originality boundaries. This project is cloud-only in an authorized environment. Separately authorized temporary reference inspection does not authorize reuse: isolate research files outside the original-asset tree, record license status, and do not incorporate unlicensed models, code, materials, palettes, textures, or images. See [reference lessons and reuse limits](references/reference-quality-lessons.md).
 
-## 形体优先
+## Design the structure first
 
-1. 先用少量主块体画出轮廓，先验收黑色剪影，再做材质。给对象一个清楚的方向和重心；副体积为主形服务。
-2. 用大、中、小形体形成节奏，避免等大块体平铺。可以从约 60/30/10 的视觉面积关系起步，但以画面判断，不能机械套比例。
-3. 把边和顶点放在转折、分叉、凹口、叶脊、断裂、弯折等有结构理由的位置。每条边应改善轮廓、平面转向、结构或变形用途之一。
-4. 大部分面积保持安静；识别特征集中使用少量较小面。不要给整件资产统一施加顶点噪声或随机面色。
-5. 自然物允许有组织的不对称：改变承重、趋光、侵蚀、层理、折断或生长方向。每个变体至少改变一个主要结构决定；仅旋转、均匀缩放或重新随机种子不算新设计。
+1. Block out a few dominant masses before materials. For silhouette-led objects, approve the black silhouette first. For nests and footprint slabs, approve neutral-gray top views, depressions, rims, egg placement, and other identifying internal geometry instead; a pure outer silhouette is not an identification gate for these assets. Give every object a clear direction and center of gravity, with secondary masses supporting the main form.
+2. Build large, medium, and small shape rhythms rather than repeating equally sized masses. A roughly 60/30/10 visual-area relationship can be a starting point, but judge the image rather than enforcing the ratio mechanically.
+3. Place edges and vertices at meaningful turns, forks, notches, leaf ridges, fractures, and bends. Each edge should improve silhouette, plane orientation, structure, or deformation behavior.
+4. Keep most areas quiet; concentrate smaller facets on identifying features. Do not apply uniform vertex noise or random face colors across the entire asset.
+5. Use organized asymmetry tied to weight, growth toward light, erosion, bedding, breakage, or growth direction. Each variant should change at least one major structural decision. Rotation, uniform scaling, or a new random seed alone is not a new design.
+6. Resolve the middle scale before adding microdetail: branch-to-spray relationships, complete frond taper, erosion steps, functional joints, or an invented assembly system. At least one secondary identifying structure must remain apparent in neutral gray. Add geometry only for a named visible improvement; random noise and uniform subdivision do not repair missing structure.
 
-## 按材质组织平面
+## Organize planes by material
 
-- 岩石：先选择层状、块状或侵蚀形成的主逻辑，再做少量断裂。不是所有岩石都应来自同一颗变形二十面体。
-- 木材：树干逐段收细；分叉有粗细层级和生长方向；切面、断面与树皮使用不同的宽大形面。不要堆一串等粗圆柱。
-- 植物：先画整株冠形与叶间负空间，再做叶片。叶片具有根部、主轴、弯曲、收尖和厚薄逻辑。不要把同一叶片等角度排成完美齿轮。
-- 地形：留出可放置角色和其他资产的低频安静区域；让起伏集中于岸线、岩脊和坡折。接缝和底缘应有明确用途。
-- 水：先确保岸线、深浅和接触关系可读，后做反射。透明、波纹、发光不能掩盖坏的岸线和悬浮物。
+- **Rock:** Choose a layered, blocky, or eroded structural logic before adding a few fractures. Do not derive every rock from the same distorted icosphere.
+- **Wood:** Taper trunks progressively; give branches a thickness hierarchy and growth direction. Use distinct broad planes for cuts, breaks, and bark. Avoid stacks of equal-width cylinders.
+- **Plants:** Design the whole crown and the negative spaces between leaves before detailing individual leaves. Give leaves a base, axis, bend, taper, and thickness logic. Avoid identical leaves in evenly spaced gear-like arrangements.
+- **Terrain:** Preserve quiet, low-frequency areas for characters and other assets. Concentrate height changes near shorelines, ridges, and slope breaks. Give seams and lower boundaries a clear purpose.
+- **Water:** Establish readable shorelines, depth zones, and contact relationships before reflections. Transparency, ripples, and emission must not conceal poor shore geometry or floating objects.
+- **Manufactured and futuristic objects:** Establish functional proportions, openings, assembly joints, and motion or service access. Concentrate smaller details where operation or construction warrants them, rather than covering every panel with trim.
+- **Fantasy and alien forms:** Establish a coherent invented growth, support, segmentation, or assembly logic. Preserve deliberate exceptions and focal silhouettes without importing terrestrial anatomy or city-prop scale rules as defaults.
 
-## 色彩与光照
+## Color and lighting
 
-- 整批共享一份自己设计的色板。按植被、木、土石、水等材质家族分色，每种材质以基色加少量邻近明度色为主。见 [首批资产与色板](references/first-batch.md)。
-- 按结构或材质区域分配颜色，而不是按多边形编号随机上色。阴影主要由光照承担，避免把一面永久涂黑当阴影。
-- 同时看彩色、灰度、纯剪影。最亮或最饱和的颜色只在有意的视觉重点使用；环境资产通常不应抢走动物展品的注意力。
-- 使用 [首批标准](references/first-batch.md) 的固定色板、面数档和预览配置。记录实际 Blender 版本及视图变换。不要为一件资产偷偷改变曝光来通过验收。
-- 使用中性软主光和适量填充检查体积；再换主光方向检查面走向。美术展示可有情绪灯光，但结构检查不能依赖浓雾、强色光、景深、轮廓光或环境遮蔽来遮瑕。
+- Share one original palette within a style family or batch, using a base color and a few nearby values per material. The prehistoric pack's vegetation, wood, earth/stone, and water families are documented in [first-batch standards](references/first-batch.md); that palette is not mandatory for every future theme.
+- Assign colors by structure or material region, not randomly by polygon index. Let lighting provide most shadows; avoid permanently painting a face black to fake shadow.
+- Review color, grayscale, and silhouette views. Reserve the brightest or most saturated colors for intentional focal points; supporting props should not compete with the intended subject. For trace assets, judge identity from neutral-gray top views and internal relief, not the outer silhouette.
+- Use the current pack's agreed palette and fixed diagnostic preview setup; [first-batch standards](references/first-batch.md) records the prehistoric pack's setup. Choose explicit per-profile geometry ceilings through [asset budgeting](references/asset-budgeting.md), not its historical tier table. Record the actual Blender version and view transform. Do not change exposure for one asset merely to make it pass review.
+- Inspect volume with a neutral soft key and sufficient fill, then change the key direction to inspect plane orientation. Mood lighting is valid for presentation, but structural checks must not rely on fog, strongly colored lights, depth of field, rim lighting, or ambient occlusion to hide flaws.
 
-## 拓扑与着色
+## Topology and shading
 
-- 需要棱面时优先 flat shading；需要平滑的局部可明确使用混合着色。低多边形不等于必须把所有表面设成相同着色方式。
-- 面片的走向服从形体。共面大区域不需要装饰性三角细分；非共面的四边面和多边形应主动决定分割方向，避免导出后随机折痕。
-- Decimate 是清理或 LOD 工具，不是美术风格生成器。雕刻后减面也要重新检查轮廓、面大小层级和薄长三角形；不要一键减面后直接交付。
-- 在导出副本中确认实际三角化结果；保留可编辑源模型。检验目标查看器中的法线、颜色、背面和透明材质，而不只看 Blender。
-- 树叶等有意开放的薄片与错误孔洞分开记录；双面材质不能修复错误法线、重叠表面或不可用的碰撞体。
-- 若使用色板纹理，自己创建色板与材质，检查滤波、UV 落点与导出后的颜色。少材质槽有利于统一管理，但不能把「一个材质」等同于固定的一次 draw call。
+- Prefer flat shading where facets are intentional. Deliberately combine smooth and flat regions where appropriate; low-poly does not require identical shading everywhere.
+- Let facet direction follow form. Broad coplanar regions do not need decorative triangulation. Choose the split direction of nonplanar quads and n-gons deliberately to avoid unexpected creases after export.
+- Use Decimate for cleanup or LOD, not as an art-style generator. After sculpting and decimation, recheck silhouette, facet-size hierarchy, and thin triangles. Do not deliver a one-click decimation without review.
+- Inspect the actual triangulation in an export copy and retain editable source geometry. Check normals, colors, backfaces, and transparent materials in the target viewer, not only in Blender.
+- Distinguish intentional open leaf surfaces from accidental holes. Double-sided materials do not repair incorrect normals, overlapping surfaces, or unusable collision geometry.
+- If using palette textures, create the palette and materials yourself, and verify filtering, UV placement, and exported colors. Fewer material slots simplify consistency, but one material does not guarantee one draw call.
+- Report authored and evaluated source vertices, exported POSITION-stream vertices, triangles, material/primitive counts, and visible instance counts separately. Never infer one through a fixed ratio or describe them ambiguously as "polys." Verify optional LOD switching in the actual runtime, not merely the existence of several files.
 
-## 验收与迭代
+## Review and iterate
 
-按照 [视觉验收单](references/visual-acceptance.md) 渲染和检查。先修轮廓和比例，再修平面、色组和最后的小细节。任何硬性失败不得用好看的主视觉图抵消。
+Render and inspect using the [visual acceptance checklist](references/visual-acceptance.md). Fix recognition-bearing structure and proportions first, then planes, color groups, and small details. For most assets this begins with silhouette; for nests and footprints it begins with neutral-gray top views and readable internal geometry. A polished hero image cannot compensate for a failed hard gate.
 
-交付说明区分：已经目视验证的项目、自动检查结果、仍未验证的运行时或科学信息。需要学习依据时读 [一手来源与证据边界](references/sources.md)。
+Before extending a new style or revised workflow across a batch, freeze two or three representative quality samples with their version/hash, gray and color views, target-viewer evidence, and explicit visual decision. Technical validity and category recognition are minimum gates, not benchmark quality. Compare revisions under matching framing and lighting; record the observed weakness, structural change, and visible outcome. A score must not override a weak criterion or the user's visible objection. Apply the original lessons in [reference-quality lessons](references/reference-quality-lessons.md), not the reference's models or recipes.
+
+Distinguish visually verified findings, automated checks, and unverified runtime or scientific information in delivery notes. Read [primary sources and evidence limits](references/sources.md) when the reasoning behind the workflow is needed.

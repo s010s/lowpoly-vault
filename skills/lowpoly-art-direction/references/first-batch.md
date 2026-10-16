@@ -1,71 +1,76 @@
-# 首批统一美术标准
+# First-Batch Art Standards
 
-这是独立的风格化资产包，用统一 gallery 验收。现有 museum 的写实远景、PBR 地表和真实坐标植被不在修改范围；本包不声称能直接替换其现有资产。
+This is an independent stylized asset pack, reviewed in a shared gallery. The existing museum's realistic distant scenery, PBR terrain, and real-world-coordinate vegetation are outside the modification scope. This pack does not claim to replace those assets directly.
 
-十类由项目确定：岩崖、石拱、针叶树、苏铁、蕨丛、木贼群落、连根倒木、卵窝、三趾足迹泥板、鳞木。它们是资产库分类，不表示同一生态、地点或时代的共存。科学标注须由专项研究核验。
+The project selected ten categories: rock cliff (岩崖), stone arch (石拱), conifer (针叶树), cycad (苏铁), fern cluster (蕨丛), horsetail stand (木贼群落), uprooted fallen log (连根倒木), egg nest (卵窝), three-toed footprint slab (三趾足迹泥板), and Lepidodendron form (鳞木). These are library categories, not a claim that all coexisted in one ecosystem, place, or period. Verify scientific labels through dedicated research.
 
-## 固定原创色板
+## Fixed original palette
 
-使用自己生成的材质或色板纹理，不下载教程附带资源。每件通常使用 2–5 个有结构意义的色组；数量不是硬上限。按部位、层次、材质分色，禁止逐面随机色。
+Create the materials or palette texture yourself; do not download tutorial resources. Typically use 2–5 structurally meaningful color groups per asset, without treating that number as a hard limit. Assign colors by part, layer, or material, never randomly per face.
 
-| ID | sRGB HEX | 结构用途 |
+| ID | sRGB HEX | Structural use |
 |---|---|---|
-| fern_deep | #294C43 | 内层叶组、小面积暗部 |
-| fern_mid | #47745C | 主叶色 |
-| fern_light | #719366 | 外层/年轻叶组 |
-| dry_olive | #A1A276 | 少量干叶或过渡 |
-| bark_deep | #4F443D | 内裂缝、小面积 |
-| bark_mid | #79624B | 主干与根 |
-| cut_wood | #B59B72 | 断口、木质内部 |
-| earth | #8A715B | 土壤、巢、泥板 |
-| warm_stone | #A89578 | 主岩层 |
-| stone_light | #C7B798 | 浅色岩层、卵壳起始色 |
-| cool_stone | #6B7774 | 冷石材 |
-| water_deep | #386B73 | 保留给以后水体 |
-| water_shallow | #679A97 | 保留给以后浅水 |
-| ochre | #BD8B4D | 极少量赭色强调 |
+| fern_deep | #294C43 | Inner leaf groups and limited dark areas |
+| fern_mid | #47745C | Main foliage |
+| fern_light | #719366 | Outer or young leaf groups |
+| dry_olive | #A1A276 | Limited dry leaves or transitions |
+| bark_deep | #4F443D | Small internal cracks |
+| bark_mid | #79624B | Main trunks and roots |
+| cut_wood | #B59B72 | Broken ends and exposed wood |
+| earth | #8A715B | Soil, nests, and mud slabs |
+| warm_stone | #A89578 | Main rock strata |
+| stone_light | #C7B798 | Light strata and initial eggshell color |
+| cool_stone | #6B7774 | Cooler stone |
+| water_deep | #386B73 | Reserved for future water assets |
+| water_shallow | #679A97 | Reserved for future shallow water |
+| ochre | #BD8B4D | Very limited ochre accents |
 
-调试阶段若需要改色，整批更新同名色值，禁止每个文件自行偏移。科学上未知的颜色应标成风格化选择，不宣传为复原结果。
+If a color needs adjustment during development, update that named color across the batch rather than allowing per-file drift. Scientifically unknown colors must be labeled as stylized choices, not reconstruction findings.
 
-HEX 是 sRGB 表示。向以线性空间为契约的 Blender API 颜色属性赋值时，需正确转换；先查实际属性契约，再与 UI 输入结果对照。导出 glTF 后还要检查颜色。API 属性契约不明确时不要凭记忆套转换函数。
+HEX values represent sRGB. When writing to Blender API color properties whose contract is linear, convert correctly: check the actual property contract first, then compare the result with UI entry. Also inspect colors after glTF export. Do not apply a remembered conversion function when the property's color-space contract is unclear.
 
-## 三角档与十类造型签名
+## Historical first-pass triangle bands and category signatures
 
-T1 小型：250–700；T2 中型：700–1,400；T3 大型或轮廓较复杂：1,400–2,600。按最终导出三角数计，不含预览地台、灯光、相机和碰撞体。它们是起始目标，不是填满配额的要求；较少三角能完整表达就保留较少。超档有明确视觉理由也可以保留并记录，最终性能由目标设备验证。
+The first modeling pass used T1: 250–700 exported triangles; T2: 700–1,400; T3: 1,400–2,600, excluding preview platforms, lights, cameras, and collision geometry. These are preserved historical starting bands for this pack, not current universal limits, target amounts to fill, or vertex budgets. Their small/medium/large labels were local shorthand, not a physical-size classification for the whole library. A useful asset may fall below or above them.
 
-| 类别 | 建议档 | 主轮廓与结构特征 | 避免的廉价形态 |
+For new assets and revisions, use [asset budgeting](asset-budgeting.md) to set separate vertex, triangle, material/primitive, and population limits from actual screen coverage, viewing distance, and runtime tests. Natural, geological, modern, futuristic, fantasy, and alien assets must not inherit city-object size tiers or the first pack's triangle bands automatically. Extra geometry needs a specific visible benefit; reducing geometry must preserve the identity-bearing structure.
+
+| Category | Historical first-pass tier | Dominant form and structural features | Avoid |
 |---|---|---|---|
-| 岩崖 | T3 | 偏心楔形、斜向层理、台阶式断面，宽大安静面 | 土豆石堆、全表面等大小三角碎片 |
-| 石拱 | T2 | 一侧厚重、一侧收窄；非圆形大孔洞；拱顶承重方向清楚 | 环形甜甜圈、两根柱加水平棍、上下失重 |
-| 针叶树 | T3 | 逐段收细树干、偏心分层冠形、一个明显冠层缺口 | 完美圆锥叠塔、同粗树枝、无树冠负空间 |
-| 苏铁 | T2 | 粗短干、两层高低不同放射冠、外叶下弯 | 等角风扇、同长度叶片、棕榈树缩小版 |
-| 蕨丛 | T2 | 三组高度不同叶轴，弧线明确，小叶沿轴渐变 | 平面梳子、同角度同间距、实心圆球 |
-| 木贼群落 | T1 | 高中低节茎、节间与分枝有层级，疏密两区 | 等粗吸管阵列、均匀栅栏、每节同样毛刺 |
-| 连根倒木 | T2 | 渐细弯曲主干、大中小根簇、不对称断口，横向延伸 | 等径管道、星形等长根、均匀锯齿断口 |
-| 卵窝 | T1 | 浅凹土窝、两处低边，卵独立且有意排列 | 鸟巢式细枝环默认套所有史前动物、等间距圆环卵阵 |
-| 三趾足迹泥板 | T2 | 不规则薄厚泥板、真正浅凹印迹；趾形与步幅需核验 | 黑色浮片、卡通箭头、无依据的固定物种归属 |
-| 鳞木 | T3 | 与针叶树明显不同的高干与冠形；叶痕有规律但不过密 | 把针叶树换树皮、满干均匀噪声、叶痕抢走大轮廓 |
+| Rock cliff (岩崖) | T3 | Off-center wedge, inclined strata, stepped breaks, broad quiet planes | Potato-shaped rock piles; uniformly small triangular fragments |
+| Stone arch (石拱) | T2 | One heavy side and one tapering side; a large noncircular opening; a believable load-bearing crown | A torus; two posts joined by a straight bar; weightless construction |
+| Conifer (针叶树) | T3 | Progressively tapered trunk, offset crown tiers, one clear crown gap | Perfect stacked cones; equal-width branches; no crown negative space |
+| Cycad (苏铁) | T2 | Short thick stem, two radial crown layers at different heights, drooping outer leaves | Equal-angle fan blades; identical leaf lengths; a miniature palm |
+| Fern cluster (蕨丛) | T2 | Three frond groups at different heights, clear frond curves, progressively changing leaflets | A flat comb; identical angles and spacing; a solid green sphere |
+| Horsetail stand (木贼群落) | T1 | Tall, medium, and short jointed stems; hierarchical internodes and branches; dense and sparse areas | An array of equal-width straws; a uniform fence; identical spikes at every joint |
+| Uprooted fallen log (连根倒木) | T2 | Curved tapering trunk, large/medium/small roots, asymmetric break, horizontal reach | Constant-width pipe; equal-length starburst roots; regular sawtooth breaks |
+| Egg nest (卵窝) | T1 | Shallow earthen depression, two lowered rim areas, separate eggs in an intentional arrangement; inspect from above in gray | Assuming every prehistoric nest is a twig ring; eggs in an evenly spaced circle |
+| Three-toed footprint slab (三趾足迹泥板) | T2 | Uneven slab thickness and genuine shallow depressions; verify toe shape and stride; inspect gray top-view relief | Floating black decals; cartoon arrows; unsupported species identification |
+| Lepidodendron form (鳞木) | T3 | Tall trunk and crown clearly distinct from the conifer; ordered but restrained leaf scars | A retextured conifer; uniform trunk noise; leaf scars overwhelming the main form |
 
-第一轮优先对岩崖、针叶树和蕨丛做质量标杆，分别检验硬表面、树冠负空间和细叶密度。其余七类使用相同的面大小逻辑、色板、材质与灯光。
+The original benchmark suggestion was rock cliff, conifer, and fern. Following the recorded reference study, the next quality samples are conifer and natural arch, with fern as a third sample to test fine organic rhythm. This is a revised review plan, not a claim that new versions have passed.
 
-## 固定预览标准
+Before propagating their approach, freeze two or three accepted samples by file version/hash. Review matched before/after framing, neutral-gray structure, color, side/reverse views, and actual target-viewer output. Confirm convincing secondary structure and proportions, not just category recognition or a count below a cap. Record the visual decision and runtime profile. Continue the wider batch only after this standard is actually met; use the same facet logic, palette, materials, and diagnostic lighting within the pack.
 
-主预览是检查物体的可读性，不是复原一个时期的混搭场景。
+## Fixed preview setup
 
-- 背景：浅暖灰 #E8E4DC；地面可同色，用于接触影。透明缩略图可另存。
-- 色彩管理：首包 Blender 检查图使用 Standard 视图变换、Exposure 0、Gamma 1、无额外 Look/曲线；记录实际版本与枚举。若项目已经决定其他变换，整批统一一次，不能混用。
-- 光照：中性偏软主光，方位相对相机左前约 45°、高约 50°；弱中性填充，主/填约 3:1 起步。每个文件使用同一 rig，灯具距离与尺寸相对物体包围盒统一，强度按同一曝光基准调整，不为单件造特殊效果。
-- 相机：三分之四，方位约 35°、仰俯约 25°；单件检查图使用正交相机。物体约占画幅 80%，底部留出接触影；禁止超广角夸张。
-- 输出：至少 1024×1024 主视图与反侧视图；另做 128×128 纯黑无阴影剪影、中性灰材质图、最终三角化线框。卵窝、足迹板、蕨丛必须补顶视图。
-- 渲染材质：默认不透明、非金属、偏粗糙，roughness 以 0.85 为共同起点；树叶与岩石允许有明确理由的差异。不要用强镜面、发光或透明材质制造完成度假象。
-- 检查阶段不使用景深、浓雾、彩色轮廓光、强烈 AO、描边和粒子；这些可另做展示图，但不能替代检查图。
-- gallery 应提供同一中性环境光与可旋转视角；不必和 Blender 像素一致，但必须确认没有丢面、法线变形、材质缺失或明显色偏。
-- 同时做单件统一画幅联系表和真实相对尺度联系表，不能用归一化缩放缩略图声称尺度统一。
+The primary preview tests asset readability; it is not a mixed-period paleoenvironment reconstruction.
 
-具体灯具功率不是跨渲染器通用常数，以上方向、软硬、曝光与统一性才是比较标准。记录最终采用的 rig；后续所有资产复用它。
+- **Background:** Light warm gray #E8E4DC. A matching ground plane may show contact shadows. Save transparent thumbnails separately if useful.
+- **Color management:** For this batch's Blender inspection images, use Standard, Exposure 0, Gamma 1, and no additional Look or curves. Record the actual version and enum values. If the project has chosen another transform, update the entire batch once rather than mixing transforms.
+- **Lighting:** A neutral soft key approximately 45° front-left of the camera and 50° above the ground, with weak neutral fill. Start around a 3:1 key-to-fill ratio. Reuse the same rig, scaling light distance and size consistently relative to object bounds and maintaining one exposure baseline. Do not create special effects for individual assets.
+- **Camera:** Orthographic three-quarter inspection view, approximately 35° azimuth and 25° elevation. The object occupies about 80% of the frame, with space for contact shadow. Avoid ultrawide distortion.
+- **Outputs:** At least 1024×1024 primary and opposite-side views; also a 128×128 pure black, shadow-free silhouette, a neutral-gray material view, and final triangulated wireframe. Egg nests, footprint slabs, and fern clusters require top views.
+- **Trace-asset exception:** For nests and footprint slabs, the silhouette only documents outer mass and proportions. Identify them from neutral-gray top views, cavity depth, rim shape, egg placement, and footprint relief. Do not require the outer silhouette alone to identify a nest or footprint, and do not distort the slab outline merely to pass that test.
+- **Materials:** Default to opaque, nonmetallic, relatively rough surfaces; use roughness 0.85 as the shared starting point. Allow justified differences between foliage and rock. Do not use strong specular, emission, or transparency to simulate finish quality.
+- **Inspection effects:** No depth of field, dense fog, colored rim lights, strong AO, outlines, or particles. These may appear in separate presentation images but cannot replace inspection views.
+- **Gallery:** Use consistent neutral environmental lighting and a rotatable view. Pixel matching with Blender is unnecessary, but verify that there are no missing faces, distorted normals, missing materials, or obvious color shifts.
+- **Batch comparisons:** Produce both normalized individual framing and a true-relative-scale contact sheet. Normalized thumbnails do not establish consistent physical scale.
 
-## 程序辅助的边界
+Exact light wattage is not a universal cross-renderer constant. Direction, softness, exposure, and consistency are the comparison criteria. Record the final rig and reuse it for subsequent assets.
 
-可以用程序创建原创几何，但参数必须表达设计：层理倾角、重心偏移、冠层开口、叶轴弯度、主根方向、断裂位置、拱洞轮廓。固定随机种子用于复现；随机性只用于受控次级变化。只换种子、颜色或均匀比例不算新的造型设计。
+## Procedural assistance boundaries
 
-自然变体至少改变一个主结构决定。最终必须实际查看所有预览并按视觉验收单返工，不能因为脚本运行成功或文件能打开就判为通过。
+Procedural creation is allowed for original geometry, but parameters must express design: bedding angle, center-of-gravity offset, crown openings, frond curvature, main-root direction, fracture placement, and arch-opening shape. Use fixed random seeds for reproducibility; reserve randomness for controlled secondary variation. Changing only the seed, color, or uniform scale is not a new shape design.
+
+Each natural variant must change at least one major structural decision. Open and inspect every preview, and revise according to the visual acceptance checklist. A successful script or a file that opens is not evidence that the art passes.

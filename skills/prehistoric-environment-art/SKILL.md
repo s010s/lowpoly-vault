@@ -10,7 +10,7 @@ Make original, recognizable environment assets while keeping the distinction bet
 ## Read only what the task needs
 
 - For this repository's first ten assets, read [asset-briefs.json](references/asset-briefs.json). Its target dimensions and simplified forms are art-direction starting points, not fossil measurements.
-- For museum context and the scientific boundaries, read [museum-research.zh-CN.md](references/museum-research.zh-CN.md).
+- For museum context and the scientific boundaries, read [museum-research.md](references/museum-research.md). A [Simplified Chinese supplement](references/museum-research.zh-CN.md) is available.
 - Resolve the source IDs in those briefs through [sources.json](references/sources.json). Check current primary museum, university, specimen, or research sources before expanding a claim.
 
 The first pack is a specific ten-category assignment, not a requirement for every future project. Later work should follow its own requested subjects, period, and location.
@@ -23,7 +23,7 @@ For each asset record:
 3. Source-supported features, artistic decisions, and unknowns separately.
 4. Whether it is a broad concept, teaching model, or a reconstruction of an identified specimen/site.
 
-Do not upgrade a concept to a scientific reconstruction without a supported taxon or landform, locality/stratum, scale, and evidence for the restored parts. A modern botanical analogue helps explain shape; it does not establish that modern species unchanged in deep time.
+Do not upgrade a concept to a scientific reconstruction without a supported taxon or landform, locality/stratum, scale, and evidence for the restored parts. A modern botanical analogue helps explain shape; it does not establish that a modern species existed unchanged in deep time.
 
 ## Morphology that must survive simplification
 

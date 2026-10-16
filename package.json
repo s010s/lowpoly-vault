@@ -7,13 +7,15 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build && node site/copy-assets.mjs",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node site/manifest-test.mjs && node site/validate.mjs",
+    "test": "node site/manifest-test.mjs && node site/validate.mjs && node site/catalog-test.mjs && node site/theme-test.mjs",
     "test:browser": "node site/browser-test.mjs",
     "manifest": "node site/generate-manifest.mjs",
     "manifest:check": "node site/generate-manifest.mjs --check",
     "manifest:preview": "node site/generate-manifest.mjs --preview",
     "test:manifest": "node site/manifest-test.mjs",
-    "test:parser": "node site/parse-models.mjs"
+    "test:parser": "node site/parse-models.mjs",
+    "test:catalog": "node site/catalog-test.mjs",
+    "test:theme": "node site/theme-test.mjs"
   },
   "dependencies": {
     "three": "0.180.0"

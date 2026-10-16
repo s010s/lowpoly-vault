@@ -11,6 +11,11 @@ from pathlib import Path
 import sys
 import tempfile
 
+PAUSE_FILE=Path(__file__).resolve().parents[1]/'qa'/'hero-refinement.pause.json'
+if PAUSE_FILE.is_file():
+    print('HERO_RENDER_PAUSED: '+PAUSE_FILE.read_text(),flush=True)
+    raise SystemExit(75)
+
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import bpy
 from asset_common import render_previews
@@ -44,12 +49,16 @@ if not a.no_update_qa:
     # Read immediately before updating so unrelated latest results are preserved.
     qa=json.loads(qa_path.read_text())
     previews=qa.setdefault('previews',{})
+    previews['status']='refined_hero_pending_review'
+    previews['settings_note']='Per-view settings override the original batch settings; hero was refined separately.'
     per_view=previews.setdefault('per_view',{})
     per_view['hero']={'status':'rendered_not_visually_reviewed','file':'preview-hero.png',
         'engine':'Cycles CPU','samples':a.samples,'resolution':a.resolution,'denoising':False,
         'view_transform':'Standard','look':'None','background_srgb':'#E8E4DC',
         'sha256':png_hash,'source_blend_sha256':source_hash,
         'rendered_at':datetime.now(timezone.utc).isoformat()}
+    # A dedicated record also survives a separate author's later QA-file rewrite.
+    (output/'hero-render.report.json').write_text(json.dumps(per_view['hero'],indent=2,ensure_ascii=False)+'\n')
     temporary_qa=qa_path.with_name('.qa-hero-update.json')
     temporary_qa.write_text(json.dumps(qa,indent=2,ensure_ascii=False)+'\n')
     temporary_qa.replace(qa_path)

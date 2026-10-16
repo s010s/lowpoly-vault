@@ -1,0 +1,81 @@
+{
+  "status": "pass",
+  "date": "2026-10-16",
+  "blender_version": "4.3.2",
+  "scope": "Geometry/material visual acceptance; diagnostic PNGs are 640px/16 samples, except 128px silhouette and 512px GLB roundtrip. Shared final hero refinement is recorded separately.",
+  "images_reviewed": [
+    "preview-hero.png",
+    "preview-reversehero.png",
+    "preview-front.png",
+    "preview-side.png",
+    "preview-rear.png",
+    "preview-top.png",
+    "preview-silhouette.png",
+    "preview-clay.png",
+    "preview-clay-alt.png",
+    "preview-wireframe.png",
+    "preview-glb-roundtrip.png",
+    "preview-glb-wireframe.png"
+  ],
+  "hard_gates": {
+    "identification": {
+      "status": "pass",
+      "reason": "The continuous tapering axis, separated lateral branch whorls and missing low forward limb remain readable in the 128px silhouette. Foliage is represented as solid shoot masses, not individual leaves."
+    },
+    "form_integrity": {
+      "status": "pass",
+      "reason": "Front, side, rear, top and opposite three-quarter views show coherent volumes and deliberate buried intersections, with no unintended spikes, detached parts or open solid surfaces."
+    },
+    "planes_and_lighting": {
+      "status": "pass",
+      "reason": "Neutral clay, reversed key light and actual triangle wireframes show stable broad planes. Exact GLB re-import shows no new critical creases or missing faces."
+    },
+    "family_consistency": {
+      "status": "pass",
+      "reason": "Fixed original palette, flat shading, shared rig, measured meter scale and category-specific silhouette match the package contract."
+    },
+    "scientific_context": {
+      "status": "pass",
+      "reason": "Metadata explicitly labels an evidence-informed stylized concept, separates Carboniferous and Mesozoic context, and records artistic choices."
+    }
+  },
+  "scores": {
+    "silhouette_proportion": {
+      "score": 3,
+      "out_of": 4,
+      "reason": "The tiered lateral branching distinguishes this tree from the high-forked lycopsid."
+    },
+    "planes_rhythm": {
+      "score": 3,
+      "out_of": 4,
+      "reason": "Long trunk planes and limited shoot volumes create a controlled large/medium hierarchy."
+    },
+    "color_material": {
+      "score": 3,
+      "out_of": 4,
+      "reason": "Old bark and three structural foliage-age groups share the fixed palette."
+    },
+    "craft": {
+      "score": 3,
+      "out_of": 4,
+      "reason": "Closed parts, clean buried branch joins, deliberate broken twigs and stable export normals."
+    },
+    "family_reuse": {
+      "score": 4,
+      "out_of": 4,
+      "reason": "Ground-center pivot, measured meter scale and clearly named editable whorls."
+    }
+  },
+  "total_score": 16,
+  "out_of": 20,
+  "completed_visual_revisions": [
+    "Replaced star-fanned foliage surfaces with quieter closed shoot volumes.",
+    "Adjusted branchlet spacing and crown density while preserving the low forward crown opening."
+  ],
+  "limitations": [
+    "Conifer foliage is intentionally clumped; this is not a needle-by-needle or named-species reconstruction."
+  ],
+  "remaining_external_verification": [
+    "Three.js runtime and combined-gallery performance are owned by the integration task; not certified by these Blender images."
+  ]
+}
