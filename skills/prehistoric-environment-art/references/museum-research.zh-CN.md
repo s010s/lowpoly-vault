@@ -1,5 +1,7 @@
 # 博物馆环境研究与科学边界
 
+[English](museum-research.md) · 简体中文补充
+
 检查日期：2026-10-16。博物馆源码快照：[`dbdb0a3`](https://github.com/s010s/prehistoric-animal-museum/commit/dbdb0a3fc1ec82c586f8aaa45667aac76c424669)（2026-10-07）。这是原创总结及来源链接，不包含第三方模型、参考图片或下载的源码全文。
 
 ## 当前项目需要什么
