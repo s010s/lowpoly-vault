@@ -192,7 +192,7 @@ async function noJavaScriptChecks() {
       await screenshot(page, `no-js-detail-${lang}`);
     }
     check('JavaScript-disabled catalog and detail remain visible with working file links in English and Chinese');
-  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
+  } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function navigationChecks() {
@@ -309,7 +309,7 @@ async function navigationChecks() {
     check('Semantic links, compact search keyboard control, query/category/world/pack/sort URL persistence and real About route');
     check('Back/Forward/Close/Escape preserve catalog results, scroll and focus; direct detail enhances its existing URL');
     check('Modal focus trap, adjacent-model arrows outside canvas, canvas orbit arrows and actual same-pack related links');
-  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
+  } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function actualModelChecks() {
@@ -378,7 +378,7 @@ async function actualModelChecks() {
       report.models.push({ id: asset.id, glb_sha256: asset.sha256?.glb || null, status: state === 'ready' ? 'gpu-pass' : 'fallback-only', checks: modelChecks });
     }
     check('All actual review assets: downloads, accessible fallback or strict GPU, bounded one-renderer cache and scene cleanup');
-  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
+  } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function visualMatrixChecks() {
@@ -416,9 +416,9 @@ async function visualMatrixChecks() {
       const chosen = await page.locator('html').getAttribute('data-theme');
       await page.reload(); await waitCatalog(page);
       assert.equal(await page.locator('html').getAttribute('data-theme'), chosen, 'Explicit theme survives reload');
-    } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
+    } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
   }
-  check('Screenshot matrix: English/Chinese × light/dark × desktop/390px actual touch context; home/catalog/detail and no horizontal overflow');
+  check('Screenshot matrix: English/Chinese × light/dark × desktop/390px touch-emulated Chromium; home/catalog/detail and no horizontal overflow');
   check('Language updates real routes and survives reload; theme follows initial scheme and explicit choice persists');
 }
 
@@ -518,7 +518,7 @@ async function scaleChecks() {
     check('In-memory 10000-item fixture: uneven 39-category/7-world/400-pack facets, distant search, 417 pages and bounded DOM');
     check('Cross-page adjacent navigation restores its originating card; measured triangle filter and scoped pack map work');
     check('Rapid real-GLB hover/detail switching preserves one request, one renderer, bounded bytes and zero live scenes after close');
-  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
+  } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 async function failureRecoveryChecks() {
@@ -537,7 +537,7 @@ async function failureRecoveryChecks() {
     await page.locator('#retry').click(); await waitCatalog(page);
     assert.equal(await cards(page).count(), Math.min(24, manifest.assets.length));
     check('Catalog failure remains visible and its retry recovers without a page refresh');
-  } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
+  } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 
 await mkdir(output, { recursive: true });

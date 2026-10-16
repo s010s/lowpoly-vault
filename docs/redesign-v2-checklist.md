@@ -14,7 +14,7 @@ Status: **work in progress, review only**. Branch checkpoints preserve code and 
 - [x] Preserve the singleton renderer, bounded cache/cancellation, on-demand drawing, disposal and reduced-motion behavior; add a truthful optional metric reference.
 - [x] Experiment on dinosaur-nest, lepidodendron and natural-arch: matched rendering rules, 12–16 frame scrub, encoded/decode size and alpha/shadow comparison. Integrate only if evidence supports it.
 - [ ] Test 10 real assets and a 10,000-item uneven many-category fixture, static routes, URL state, accessibility, keyboard and actual download paths.
-- [ ] Capture actual UI screenshots; distinguish cloud fallback tests from GPU/mobile/continuous-animation acceptance.
+- [x] Capture actual UI screenshots; distinguish cloud fallback tests from GPU/mobile/continuous-animation acceptance.
 - [x] Keep English-first Skills and bilingual README current; maintain this checklist and checkpoint work periodically.
 
 ## Preservation and acceptance boundaries
@@ -48,3 +48,13 @@ The original working directory and port-5188 review build remain intact. Impleme
 - Manifest validation now accepts world-only metadata independently of legacy folder names, with regression coverage for stable ID/path compatibility and multi-world/multi-pack records. `npm test` performs explicit review-only structural checks without creating an approved manifest.
 
 - The additional scoped-map stress test exposed 25 sparse categories collapsing into unreadable region labels. Small packs with more than six categories now use one compact pack arrangement; the global 10,000-item catalog still has no map.
+
+## Remaining acceptance boundaries
+
+- Complete the final strict WebGL / forced-fallback CI run against the final code commit. SwiftShader verifies real browser rendering paths but is not hardware GPU performance certification.
+- Inspect final CI viewport screenshots; 390px touch emulation and the cloud narrow iframe do not replace a physical Android device review.
+- No universal animation frame-rate or latency claim is made. Sprite integration is intentionally rejected on the measured trade-off.
+- Original 20 GLB/Blender source hashes match both authored metadata and the untouched original work directory (`qa/redesign-source-preservation.json`).
+- Owner-private phone review hosting requires a separate authorized deployment; the current localhost preview is not a phone-accessible URL. Public Pages release and asset artistic/scientific approval remain outside this review checkpoint.
+
+- Final stress-test fix: closing a 3D dialog could reactivate a different card under the stationary pointer after scroll restoration. Hover now waits for a genuine pointer movement after dismissal, preserving zero live scenes/RAF at rest. Forced-fallback CI is green; strict WebGL rerun verifies this last lifecycle edge.

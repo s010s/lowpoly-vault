@@ -29,7 +29,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 let index, items = [], category = 'all', world = 'all', pack = 'all', page = 0, pages = 0, maxTriangles = 0;
 let selected, selectedSummary, origin, stage, stagePromise, hoverCard, hoverTimer;
-let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, detailController, restoringFocus = false;
+let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, detailController, restoringFocus = false, hoverSuppressed = false;
 let browseMode = 'grid', atlas, atlasPackKey = '', atlasPackItems = [], currentView = 'home', directDetailId = initialRoute.type==='detail'?initialRoute.id:null;
 let sourceContext = null, neighborItems = [], searchTimer, pendingRoute = false, queuedRoute = false;
 const viewScroll = {home:0, catalog:0, about:0, detail:0};
@@ -131,13 +131,13 @@ function updateListing({push=false}={}){paintFilters();paintModes();if(currentVi
 function resetFilters({render=true}={}){category=world=pack='all';page=0;maxTriangles=0;browseMode='grid';$('#search').value='';$('#sort').value='name';if(render)updateListing();}
 
 function requestHover(card){
-  if(selected||restoringFocus||!fine.matches||reduced.matches||!card)return;
+  if(selected||restoringFocus||hoverSuppressed||!fine.matches||reduced.matches||!card)return;
   stopHover();hoverCard=card;hoverTimer=setTimeout(async()=>{
     const asset=items.find(a=>a.id===card.dataset.id);if(!asset||hoverCard!==card)return;card.querySelector('.card-status').textContent=t('viewLoading');
     try{const s=await getStage();if(hoverCard!==card||selected)return;await s.show(card.querySelector('.asset-image'),path(asset.glb),{mode:'hover',onStatus:status=>{if(hoverCard===card)card.querySelector('.card-status').textContent=status==='error'?t('hoverError'):status==='ready'?'':t('viewLoading');}});}catch{if(hoverCard===card)card.querySelector('.card-status').textContent=t('hoverError');}
   },180);
 }
-function pointerMove(event){if(hoverCard&&stage&&!selected){const r=hoverCard.querySelector('.asset-image').getBoundingClientRect();stage.pointer((event.clientX-r.left)/r.width*2-1,(event.clientY-r.top)/r.height*2-1);}}
+function pointerMove(event){if(hoverSuppressed&&!selected){if(!event.movementX&&!event.movementY)return;hoverSuppressed=false;requestHover(event.target.closest('.asset-card'));}if(hoverCard&&stage&&!selected){const r=hoverCard.querySelector('.asset-image').getBoundingClientRect();stage.pointer((event.clientX-r.left)/r.width*2-1,(event.clientY-r.top)/r.height*2-1);}}
 $('#grid').addEventListener('pointerover',event=>{const card=event.target.closest('.asset-card');if(card&&!card.contains(event.relatedTarget)&&event.pointerType!=='touch')requestHover(card);});
 $('#grid').addEventListener('pointerout',event=>{const card=event.target.closest('.asset-card');if(card&&!card.contains(event.relatedTarget))stopHover();});
 $('#grid').addEventListener('pointermove',pointerMove);
@@ -215,7 +215,7 @@ async function openAsset(id,{push=false,replace=false}={}){
   }catch(error){if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');}}
 }
 async function closeAsset(){
-  if(!$('#viewer-dialog').open||closing)return;closing=true;++detailVersion;detailController?.abort();store.cancelDetail();stage?.hide();modalAnimation?.cancel();
+  if(!$('#viewer-dialog').open||closing)return;hoverSuppressed=true;closing=true;++detailVersion;detailController?.abort();store.cancelDetail();stage?.hide();modalAnimation?.cancel();
   const target=origin?.isConnected?origin.querySelector('.asset-image').getBoundingClientRect():null;const visible=target&&target.bottom>0&&target.top<innerHeight&&target.right>0&&target.left<innerWidth;
   if(visible)await animateDialog(target,$('#canvas-host').getBoundingClientRect(),true);else if(!reduced.matches)await $('#viewer-dialog').animate([{opacity:1},{opacity:0}],{duration:120}).finished.catch(()=>{});
   if(!closing)return;$('#viewer-dialog').close();$('#canvas-host').replaceChildren();document.body.style.overflow='';selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;atlas?.setActive(currentView==='catalog'&&browseMode==='atlas');
