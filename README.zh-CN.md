@@ -37,7 +37,7 @@ Lowpoly Vault 是 **Leon Made This / [s010s](https://github.com/s010s)** 持续�
 
 ## 目录结构
 
-资产按**主题 → 粗分类 → 资产标识**组织。以下为目标结构，不代表所有文件已经发布：
+现有源文件保留以下**主题 → 粗分类 → 资产标识**历史目录。目录位置与模型身份、世界、组合包和分类独立；修改归属无需移动文件或重复存储。正式 manifest 仅在 QA 获批后生成：
 
 ```text
 assets/
@@ -52,7 +52,7 @@ assets/
             └── preview-hero.png       # 预览图
 ```
 
-总资产目录统一放在 `assets/manifest.json`。相关资产按粗分类归置，主题背景与使用边界写在各主题自己的 README 中。
+获批总目录放在 `assets/manifest.json`；审阅构建另用 review-only manifest。新元数据可以直接填写 `worlds` 和 `packs`，历史 `collection` 保持主世界回退兼容。详见[架构合同](docs/catalog-schema-v2.md)。
 
 ## 许可与署名
 
@@ -70,6 +70,6 @@ assets/
 
 英文 `/models/<id>/` 与中文 `/zh-CN/models/<id>/` 是实际生成的静态 HTML 页面。即使 JavaScript 不可用，也可阅读描述、预览、署名和下载。列表普通点击增强为弹窗，保留搜索、筛选、排序、分页与返回状态。ZIP 下载包含 GLB、Blender 源文件和 CREDITS.txt；文件大小来自实际字节数。
 
-测试：`npm run test:redesign`。预览构建：`SITE_BASE=/lowpoly-vault/ node site/prepare-review.mjs`。浏览器验收：`node site/redesign-browser-test.mjs`。发布复制器只按获批 manifest 的明确文件清单工作；没有获批 manifest 时，不复制模型二进制文件到正式输出。详见[构建说明](docs/static-catalog-build-v2.md)、[架构合同](docs/catalog-schema-v2.md)和[改版清单](docs/redesign-v2-checklist.md)。
+测试：`npm test`（仅结构审阅，不代表发布批准）和 `npm run test:redesign`。预览构建：`SITE_BASE=/lowpoly-vault/ node site/prepare-review.mjs`。浏览器验收：`node site/redesign-browser-test.mjs`。发布复制器只按获批 manifest 的明确文件清单工作；没有获批 manifest 时，不复制模型二进制文件到正式输出。详见[构建说明](docs/static-catalog-build-v2.md)、[架构合同](docs/catalog-schema-v2.md)和[改版清单](docs/redesign-v2-checklist.md)。
 
 [三模型预览实验](experiments/preview-turntable-v3/README.md)保留原始几何与尺度。当前实测支持静态卡片加按需 GLB，暂不集成 16 帧 sprite。CPU 解码代理、云浏览器降级截图与真实 WebGL、触摸设备验收分别记录，不互相替代。

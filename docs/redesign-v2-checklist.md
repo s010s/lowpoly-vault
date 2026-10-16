@@ -43,3 +43,6 @@ The original working directory and port-5188 review build remain intact. Impleme
 - 6d75ce2: preview experiment, mobile screenshots and layout polish. Uploaded to WIP branch and backed up privately in two verified ZIPs (original assets 80,542,918 bytes; code/renders 57,188,345 bytes).
 - Follow-up CI found keyboard focus could leave the modal at a tab-order boundary. Explicit visible/eligible focus wrapping was added; strict browser rerun pending.
 - Real cloud Chromium image decode probe now recorded in the experiment: static median 1.00–1.20 ms versus sheet 9.90–13.20 ms. This measures fresh image decoding from preloaded bytes, not network/GPU/device frame rate.
+
+- c988773: keyboard containment and queued history navigation; actual cloud Tab cycling passes. CI reached all ten models and the complete locale/theme/viewport screenshot matrix, then its rapid-hover test was obstructed by the intentionally still-open filter disclosure. The test now closes that panel before hover; Escape/outside-click dismissal was also added.
+- Manifest validation now accepts world-only metadata independently of legacy folder names, with regression coverage for stable ID/path compatibility and multi-world/multi-pack records. `npm test` performs explicit review-only structural checks without creating an approved manifest.

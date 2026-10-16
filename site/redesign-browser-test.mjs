@@ -52,7 +52,7 @@ const meta = (html, name) => tags(html, 'meta').find(tag => attr(tag, 'name') ==
 const link = (html, rel, language) => tags(html, 'link').find(tag => attr(tag, 'rel') === rel && (!language || attr(tag, 'hreflang') === language));
 
 async function screenshot(page, name) {
-  await page.screenshot({ path: resolve(output, `${name}.png`), fullPage: true, animations: 'disabled' });
+  await page.screenshot({ path: resolve(output, `${name}.png`), fullPage: !await page.locator('#viewer-dialog').isVisible(), animations: 'disabled' });
   report.screenshots.push(`${name}.png`);
 }
 function observe(page, label) {
@@ -458,6 +458,16 @@ async function scaleChecks() {
     assert.equal(await cards(page).count(), 24);
     assert((await page.locator('#count').textContent()).replace(/[,\s]/g, '').includes('10000'));
     assert.equal(await page.locator('.catalog-modes').isVisible(), false);
+    await cards(page).last().click(); await waitModel(page, 'fixture-00023');
+    await page.locator('#next-model').waitFor({ state: 'visible' });
+    await page.locator('#close').focus(); await page.keyboard.press('ArrowRight');
+    await waitModel(page, 'fixture-00024');
+    await closeModel(page); await waitCatalog(page, assets.slice(0, 24).map(asset => asset.id));
+    assert.equal(await page.evaluate(() => document.activeElement?.dataset.id), 'fixture-00023', 'Cross-page adjacent navigation still restores the original card');
+    await selectFacet(page, '#poly-filter', '500');
+    await page.waitForURL(url => url.searchParams.get('maxTriangles') === '500');
+    await waitCatalog(page, assets.filter(asset => asset.triangles <= 500).slice(0, 24).map(asset => asset.id));
+    await selectFacet(page, '#poly-filter', '0'); await waitCatalog(page, assets.slice(0, 24).map(asset => asset.id));
     await page.locator('#next-page').click();
     await page.waitForURL(url => url.pathname.endsWith('/models/page/2/'));
     await waitCatalog(page, assets.slice(24, 48).map(asset => asset.id));
@@ -483,9 +493,17 @@ async function scaleChecks() {
     await waitCatalog(page, packIDs);
     assert(await page.locator('.catalog-modes').isVisible(), 'A bounded 25-item pack can offer its map');
     await screenshot(page, 'scale-10000-filtered-pack');
+    await page.locator('[data-mode="atlas"]').click();
+    await page.waitForURL(url => url.searchParams.get('view') === 'map');
+    await page.locator('.model-atlas .asset-card').first().waitFor({ state: 'visible' });
+    const mapped = await page.locator('.model-atlas .asset-card').evaluateAll(nodes => nodes.map(node => node.dataset.id));
+    assert(mapped.length > 0 && mapped.length <= 25 && mapped.every(id => assets.slice(9975).some(asset => asset.id === id)), 'Map must contain only the selected small pack');
+    await screenshot(page, 'scale-10000-scoped-map');
+    await page.locator('[data-mode="grid"]').click(); await waitCatalog(page, packIDs);
     await selectFacet(page, '#pack-filter', 'all');
     await waitCatalog(page, assets.slice(0, 24).map(asset => asset.id));
     assert.equal(await page.locator('.catalog-modes').isVisible(), false);
+    if(await page.locator('.catalog-refine').getAttribute('open') !== null) await page.locator('.catalog-refine summary').click();
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     for (let i = 0; i < 8; i++) { await cards(page).nth(i).hover(); await page.waitForTimeout(195); }
     await cards(page).nth(8).click(); await waitModel(page, 'fixture-00008');
@@ -498,6 +516,7 @@ async function scaleChecks() {
     assert.equal((await gpu(page)).liveScenes, 0);
     report.scale = { metadata: assets.length, categories: catalog.index.categories.length, worlds: catalog.index.worlds.length, packs: catalog.index.packs.length, card_nodes: 24, dom_nodes: nodes, pages: 417, peak_glb_requests: stats.peakRequests, cache_entries: stats.cacheEntries, cache_bytes: stats.cacheBytes, renderer_creations: stats.rendererCreations };
     check('In-memory 10000-item fixture: uneven 39-category/7-world/400-pack facets, distant search, 417 pages and bounded DOM');
+    check('Cross-page adjacent navigation restores its originating card; measured triangle filter and scoped pack map work');
     check('Rapid real-GLB hover/detail switching preserves one request, one renderer, bounded bytes and zero live scenes after close');
   } catch(error) { await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }

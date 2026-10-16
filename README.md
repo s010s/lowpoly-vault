@@ -37,7 +37,7 @@ Additional themes will appear here as they are developed.
 
 ## Inside the vault
 
-Assets are organized by **theme → broad category → asset slug**. The following is the target layout, not a list of files already released:
+Existing source folders retain the legacy **theme → broad category → asset slug** layout below. Catalog identity and membership are independent: changing a world, pack, or category does not move files or duplicate an asset. The release manifest is generated only after QA approval:
 
 ```text
 assets/
@@ -52,7 +52,7 @@ assets/
             └── preview-hero.png       # Preview image
 ```
 
-The shared catalog lives at `assets/manifest.json`. Broad categories keep related assets together; theme-specific context and limitations belong in each theme's README.
+The approved shared catalog lives at `assets/manifest.json`; review builds generate a separate review-only manifest. New metadata can use `worlds` and `packs` without `collection`; legacy `collection` remains a primary-world fallback. See [schema v2](docs/catalog-schema-v2.md).
 
 ## License & credit
 
@@ -70,6 +70,6 @@ The review branch preserves ten original candidates; it is not a published or ap
 
 Build-time English and Simplified Chinese model pages are real HTML documents: `/models/<id>/` and `/zh-CN/models/<id>/`. They retain descriptions, images, attribution and downloads without JavaScript. Ordinary list clicks enhance to a modal while preserving filter/sort/query/page state and Back navigation. ZIP downloads contain the GLB, editable source and CREDITS.txt; sizes are measured from the actual files.
 
-Review commands: `npm run test:redesign`; `SITE_BASE=/lowpoly-vault/ node site/prepare-review.mjs`; `node site/redesign-browser-test.mjs`. See [build and release safety](docs/static-catalog-build-v2.md), [schema v2](docs/catalog-schema-v2.md), and the [implementation checklist](docs/redesign-v2-checklist.md). The release copier uses only the approved manifest's explicit file allowlist. No approved manifest means no model binaries are copied to release output.
+Review commands: `npm test` (structural review checks; no approval), `npm run test:redesign`; `SITE_BASE=/lowpoly-vault/ node site/prepare-review.mjs`; `node site/redesign-browser-test.mjs`. See [build and release safety](docs/static-catalog-build-v2.md), [schema v2](docs/catalog-schema-v2.md), and the [implementation checklist](docs/redesign-v2-checklist.md). The release copier uses only the approved manifest's explicit file allowlist. No approved manifest means no model binaries are copied to release output.
 
 A three-model [preview experiment](experiments/preview-turntable-v3/README.md) preserves original scale and geometry. Measurements favor static cards plus lazy real GLB inspection over 16-frame sprite sheets for this small collection. CPU proxies and cloud UI fallback screenshots are clearly separated from actual browser/WebGL and touch-device acceptance.

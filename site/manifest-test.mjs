@@ -14,6 +14,9 @@ try{
  await assert.rejects(()=>collectManifest(root),/khronos_validator QA is not_run/);const preview=await collectManifest(root,{preview:true});assert(preview.review_only);assert.equal(preview.assets[0].scientific_notes.en,'Preserved unchanged');
  for(const stage of Object.keys(qa))qa[stage].status='pass';await writeFile(join(folder,'qa.json'),JSON.stringify(qa));const release=await collectManifest(root);assert.equal(release.assets.length,1);assert.equal(release.review_only,undefined);
  qa.source={status:'pass_with_warnings',warnings:['Test warning']};await writeFile(join(folder,'qa.json'),JSON.stringify(qa));await assert.rejects(()=>collectManifest(root),/warnings need explicit review/);qa.reviewed_warnings=['Test warning reviewed'];await writeFile(join(folder,'qa.json'),JSON.stringify(qa));assert.equal((await collectManifest(root)).assets.length,1);
+ const multi={...metadata,id:'stable-id-independent-of-folder',collection:undefined,worlds:['prehistoric','fiction'],packs:['pack-a','pack-b'],category:'terrain'};
+ await writeFile(join(folder,'metadata.json'),JSON.stringify(multi));
+ const migrated=await collectManifest(root,{preview:true});assert.equal(migrated.schema_version,2);assert.equal(migrated.assets[0].id,multi.id);assert.equal(migrated.assets[0].glb,metadata.glb);assert.deepEqual(migrated.assets[0].worlds,multi.worlds);assert.deepEqual(migrated.assets[0].packs,multi.packs);assert.equal(migrated.assets[0].collection,'prehistoric');
  await rm(join(folder,'preview-hero.png'));await assert.rejects(()=>collectManifest(root,{preview:true}),/ENOENT/);
  console.log('Manifest tests passed: review/release separation, mandatory QA, missing files, warnings, preserved science metadata.');
 }finally{await rm(root,{recursive:true,force:true});}

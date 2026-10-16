@@ -297,7 +297,9 @@ $('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer
 $('#sort').onchange=()=>{page=0;updateListing();};$('#prev-page').onclick=()=>{page--;updateListing({push:true});$('#collection').scrollIntoView({block:'start'});};$('#next-page').onclick=()=>{page++;updateListing({push:true});$('#collection').scrollIntoView({block:'start'});};
 $('#provenance').addEventListener('toggle',()=>{if($('#provenance').open)motionUI.run($('#asset-provenance'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:180});});
 $('#downloads').addEventListener('click',event=>{if(event.target.closest('a'))setStatus(lang==='zh'?'已请求下载文件，是否完成请查看浏览器。':'Download requested. Check your browser for progress.');});
+document.addEventListener('pointerdown',event=>{if(refine.open&&!refine.contains(event.target))refine.open=false;});
 document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&!selected&&refine.open){refine.open=false;refine.querySelector('summary').focus();}
   if(event.key==='Tab'&&$('#viewer-dialog').open){
     const dialog=$('#viewer-dialog');
     const focusable=[...dialog.querySelectorAll('a[href],button,input,select,textarea,summary,[tabindex]')].filter(el=>!el.disabled&&el.tabIndex>=0&&el.getClientRects().length&&!el.closest('[hidden],[inert]'));

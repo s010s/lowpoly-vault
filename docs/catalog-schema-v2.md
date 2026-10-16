@@ -19,7 +19,7 @@ Status: canonical v2 contract, 2026-10-16. Additive extensions are permitted thr
 
 ## Production compatibility and specifications
 
-Existing `collection` stays as a legacy primary-world alias, read fallback only. `worlds` falls back to `[collection]`. Category and path compatibility remain untouched; no directory migration is necessary. Assets are not copied to multiple directories when assigned to multiple packs.
+Existing `collection` stays as a legacy primary-world alias, read fallback only. `worlds` falls back to `[collection]`. Category and path compatibility remain untouched; no directory migration is necessary. Manifest collection accepts world-only metadata and uses its original directory as the source location instead of requiring folder names to match mutable membership. Assets are not copied to multiple directories when assigned to multiple packs.
 
 Existing `preview`, `glb`, `blend`, `triangles`, `dimensions`, license and attribution fields remain. Dimensions are the existing X×Y×Z source meter bounds and require trustworthy unit/export verification before a metric viewer reference appears. `file_sizes: {glb,blend,bundle}` contains exact bytes measured at build, never hand-entered estimates. `downloads: {glb,blend,bundle}` contains actual published paths. Reliable format availability derives from real files. Materials/animation/color filters must not appear until data is actually verified; missing fields are not false claims.
 
