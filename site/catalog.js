@@ -1,9 +1,6 @@
 /** Lazy, paginated static catalog. Full metadata is fetched only for an opened asset. */
-const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });
-const normalize = value => String(value ?? '').normalize('NFKC').toLocaleLowerCase();
+import { normalizeText as normalize, matchesCatalogItem, itemComparator, compareCatalogNames as byName } from './routes.js';
 const abortError = () => new DOMException('Catalog request superseded.', 'AbortError');
-const nameOf = item => typeof item.name === 'string' ? item.name : item.name?.en || item.id;
-const byName = (a, b) => collator.compare(nameOf(a), nameOf(b)) || collator.compare(a.id, b.id);
 const validId = id => typeof id === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(id);
 
 function cachePut(cache, key, value, limit) {
@@ -127,7 +124,7 @@ export class CatalogStore {
   }
 
   /** A newer search aborts the older one. Catch AbortError without rendering an error. */
-  async search({ query = '', category = 'all', collection = 'all', sort = 'name', page = 0, pageSize = 24 } = {}) {
+  async search({ query = '', category = 'all', collection = 'all', world = 'all', pack = 'all', maxTriangles = 0, sort = 'name', page = 0, pageSize = 24 } = {}) {
     if (!this.index) throw new Error('Load the catalog before searching.');
     this.cancelSearch();
     const version = this._searchVersion;
@@ -136,37 +133,33 @@ export class CatalogStore {
     const terms = normalize(query).trim().split(/\s+/).filter(Boolean);
     const cat = category && category !== 'all' ? category : '';
     const col = collection && collection !== 'all' ? collection : '';
+    const wor = world && world !== 'all' ? world : '';
+    const pac = pack && pack !== 'all' ? pack : '';
+    const activeFacets = [['categories',cat],['collections',col],['worlds',wor],['packs',pac]].filter(([,id])=>id);
     pageSize = Math.min(100, Math.max(1, Math.floor(Number(pageSize) || 24)));
     page = Math.max(0, Math.floor(Number(page) || 0));
     if (!Number.isSafeInteger(page)) page = 0;
     const descending = sort === 'name-desc';
     const numeric = sort === 'triangles-asc' || sort === 'triangles-desc';
-    const compare = numeric ? (a, b) => {
-      const av = Number.isFinite(a.triangles) ? a.triangles : Infinity;
-      const bv = Number.isFinite(b.triangles) ? b.triangles : Infinity;
-      if (av === Infinity || bv === Infinity) return (av === bv ? 0 : av === Infinity ? 1 : -1) || byName(a, b);
-      return (sort === 'triangles-desc' ? bv - av : av - bv) || byName(a, b);
-    } : descending ? (a, b) => byName(b, a) : byName;
-    const descriptors = this.index.shards.filter(shard => (!cat || shard.categories[cat]) && (!col || shard.collections[col]));
+    const compare = itemComparator(sort);
+    const descriptors = this.index.shards.filter(shard => activeFacets.every(([key,id]) => shard[key]?.[id]));
     if (descending) descriptors.reverse();
-    const matches = item => (!cat || item.category === cat) && (!col || item.collection === col) &&
-      (!terms.length || terms.every(term => normalize([item.id, ...Object.values(typeof item.name === 'object' ? item.name : { en: item.name }), item.category, item.collection].join(' ')).includes(term)));
+    const matches = item => matchesCatalogItem(item, { query, category, collection, world, pack, maxTriangles });
 
     // Header counts allow browsing directly to a page without downloading preceding shards.
-    const countKnown = !terms.length && !(cat && col);
+    const countKnown = !terms.length && !(Number(maxTriangles) > 0) && activeFacets.length <= 1;
     if (countKnown && !numeric) {
-      const total = cat ? this.index.categories.find(facet => facet.id === cat)?.count || 0 :
-        col ? this.index.collections.find(facet => facet.id === col)?.count || 0 : this.index.total;
+      const total = activeFacets.length ? this.index[activeFacets[0][0]]?.find(facet => facet.id === activeFacets[0][1])?.count || 0 : this.index.total;
       const pages = Math.ceil(total / pageSize);
       page = Math.min(page, Math.max(0, pages - 1));
       let skip = page * pageSize;
       const items = [];
-      if (!cat && !col && !descending && skip + Math.min(pageSize, total) <= this.index.initial.length) {
+      if (!activeFacets.length && !descending && skip + Math.min(pageSize, total) <= this.index.initial.length) {
         check();
         return { items: this.index.initial.slice(skip, skip + pageSize), total, page, pages };
       }
       for (const descriptor of descriptors) {
-        const count = cat ? descriptor.categories[cat] || 0 : col ? descriptor.collections[col] || 0 : descriptor.count;
+        const count = activeFacets.length ? descriptor[activeFacets[0][0]]?.[activeFacets[0][1]] || 0 : descriptor.count;
         if (skip >= count) { skip -= count; continue; }
         const shard = await this._getShard(descriptor, controller.signal, check);
         for (const item of descending ? [...shard].reverse() : shard) {

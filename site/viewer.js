@@ -8,6 +8,36 @@ const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const abortError = () => new DOMException('Model request cancelled', 'AbortError');
 let sharedStage;
 
+/** Validate authored meters before making a metric claim; never infer a conversion. */
+export function metricReferenceSpec(size, metadata) {
+  const dimensions = size.toArray();
+  const longest = Math.max(...dimensions);
+  if (metadata?.units !== 'meters' || !Array.isArray(metadata.dimensions) || metadata.dimensions.length !== 3) {
+    return { available: false, reason: 'missing-metric-metadata' };
+  }
+  if ((metadata.axes?.glb_up && metadata.axes.glb_up !== '+Y') ||
+    (metadata.blender_unit_scale !== undefined && metadata.blender_unit_scale !== 1)) {
+    return { available: false, reason: 'unit-mismatch' };
+  }
+  if (!dimensions.every((value, axis) => Number.isFinite(value) && value >= 0 &&
+    Number.isFinite(metadata.dimensions[axis]) && metadata.dimensions[axis] >= 0 &&
+    Math.abs(value - metadata.dimensions[axis]) <= longest * 0.00001) || longest <= 0) {
+    return { available: false, reason: 'bounds-mismatch' };
+  }
+  // A compact floor reference also works for a tall, narrow asset. Cell spacing
+  // follows the decoded footprint, using readable 1 / 2 / 5 metric increments.
+  const halfX = Math.max(size.x / 2, longest * 0.12) + longest * 0.025;
+  const halfZ = Math.max(size.z / 2, longest * 0.12) + longest * 0.025;
+  const desired = Math.max(halfX, halfZ) / 3;
+  const magnitude = 10 ** Math.floor(Math.log10(desired));
+  const spacingMeters = [1, 2, 5, 10].find(step => step * magnitude >= desired) * magnitude;
+  if (!Number.isFinite(spacingMeters) || spacingMeters <= 0) return { available: false, reason: 'unsupported-scale' };
+  return {
+    available: true, reason: null, dimensionsMeters: dimensions,
+    spacingMeters, halfX, halfZ, floorY: -size.y / 2 - longest * 0.002,
+  };
+}
+
 /** One movable canvas, one live model and a small LRU of original GLB bytes. */
 export class ModelStage {
   constructor({ onStatus } = {}) {
@@ -28,6 +58,7 @@ export class ModelStage {
       liveScenes: 0, cacheEntries: 0, cacheBytes: 0,
       activeRequests: 0, peakRequests: 0, disposedScenes: 0,
       renderedFrames: 0, rafPending: 0, activeMode: null, activeURL: null,
+      referenceObjects: 0, referenceGeometries: 0, referenceMaterials: 0, disposedReferences: 0,
     };
     window.__vaultGPU = this._diagnostics;
     this._onVisibility = () => {
@@ -48,8 +79,19 @@ export class ModelStage {
 
   get stats() { return { ...this._diagnostics }; }
 
+  /** Measurements are from the decoded GLB before display-only normalization. */
+  get scaleReferenceInfo() {
+    return {
+      available: this._mode === 'detail' && Boolean(this._metricReference?.available),
+      enabled: Boolean(this._reference),
+      spacingMeters: this._metricReference?.spacingMeters ?? null,
+      dimensionsMeters: this._metricReference?.dimensionsMeters?.slice() ?? null,
+      reason: this._metricReference?.reason ?? (this._metricReference ? null : 'not-loaded'),
+    };
+  }
+
   /** Resolves false for superseded/aborted work; actual loading errors reject. */
-  show(host, url, { mode = 'hover', signal, onStatus } = {}) {
+  show(host, url, { mode = 'hover', signal, onStatus, metadata } = {}) {
     if (this._disposed) return Promise.reject(new Error('ModelStage has been disposed'));
     if (!host || !url) return Promise.reject(new Error('A model host and URL are required'));
     this.hide();
@@ -96,6 +138,13 @@ export class ModelStage {
         const size = bounds.getSize(new THREE.Vector3());
         const center = bounds.getCenter(new THREE.Vector3());
         if (bounds.isEmpty() || !Number.isFinite(size.length())) throw new Error('Model has no visible geometry');
+        this._metricReference = metricReferenceSpec(size, metadata);
+        // Exported unit extras provide an additional consistency check when present.
+        gltf.scene.traverse((object) => {
+          if (object.userData.units && object.userData.units !== 'meters') {
+            this._metricReference = { available: false, reason: 'unit-mismatch' };
+          }
+        });
         gltf.scene.position.sub(center);
         const scale = 2 / Math.max(size.x, size.y, size.z, 0.00001);
         this._pivot.scale.setScalar(scale);
@@ -246,6 +295,11 @@ export class ModelStage {
 
   _draw() {
     if (!this._canDraw()) return;
+    if (this._reference) {
+      // Detail mode orbits the camera, not the model. From below the floor, omit
+      // the grid so it cannot draw in front of and obscure the asset silhouette.
+      this._reference.visible = this._camera.position.y >= this._metricReference.floorY * this._pivot.scale.y;
+    }
     this._renderer.render(this._scene, this._camera);
     this._diagnostics.renderedFrames++;
     this._host.dataset.renderTriangles = String(this._renderer.info.render.triangles);
@@ -321,6 +375,41 @@ export class ModelStage {
     return this._wireframe;
   }
 
+  /** One optional draw call, no textures, picking targets, camera changes or loop. */
+  scaleReference(enabled) {
+    const show = Boolean(enabled) && this.scaleReferenceInfo.available && !!this._pivot;
+    if (show === Boolean(this._reference)) return show;
+    if (!show) this._disposeReference();
+    else {
+      const { halfX, halfZ, floorY, spacingMeters } = this._metricReference;
+      const positions = [], colors = [];
+      const centerColor = new THREE.Color(0x607c70), gridColor = new THREE.Color(0x82988b);
+      const line = (x1, z1, x2, z2, center) => {
+        positions.push(x1, floorY, z1, x2, floorY, z2);
+        const color = center ? centerColor : gridColor;
+        colors.push(color.r, color.g, color.b, color.r, color.g, color.b);
+      };
+      const columns = Math.floor(halfX / spacingMeters), rows = Math.floor(halfZ / spacingMeters);
+      for (let i = -columns; i <= columns; i++) line(i * spacingMeters, -halfZ, i * spacingMeters, halfZ, i === 0);
+      for (let i = -rows; i <= rows; i++) line(-halfX, i * spacingMeters, halfX, i * spacingMeters, i === 0);
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+      const material = new THREE.LineBasicMaterial({
+        vertexColors: true, transparent: true, opacity: 0.55, depthTest: true, depthWrite: false, toneMapped: false,
+      });
+      const reference = this._reference = new THREE.LineSegments(geometry, material);
+      reference.name = 'metric-floor-reference';
+      reference.raycast = () => {};
+      // The model has already been centered. Sharing its display-only parent scale
+      // makes a one-meter cell exactly one authored meter at every fitted size.
+      this._pivot.add(reference);
+      this._diagnostics.referenceObjects = this._diagnostics.referenceGeometries = this._diagnostics.referenceMaterials = 1;
+    }
+    this._invalidate();
+    return show;
+  }
+
   _key(event) {
     if (this._mode !== 'detail' || !this._pivot || event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.target instanceof Element && event.target.closest('button,input,select,textarea,a')) return;
@@ -342,7 +431,7 @@ export class ModelStage {
   }
 
   _emit(status, error) {
-    const detail = { host: this._host, url: this._url, mode: this._mode, error, stats: this.stats };
+    const detail = { host: this._host, url: this._url, mode: this._mode, error, stats: this.stats, scaleReference: this.scaleReferenceInfo };
     if (this._host) this._host.dataset.modelState = status;
     // UI callbacks must not prevent resource cleanup or poison the serialized queue.
     for (const callback of new Set([this.onStatus, this._statusCallback])) {
@@ -382,12 +471,24 @@ export class ModelStage {
   }
 
   _disposeModel() {
+    this._disposeReference();
+    this._metricReference = null;
     this._pivot?.removeFromParent();
     if (this._gltf) this._disposeGLTF(this._gltf);
     this._gltf = null;
     this._pivot = null;
     this._radius = null;
     this._renderer?.renderLists.dispose();
+  }
+
+  _disposeReference() {
+    if (!this._reference) return;
+    this._reference.removeFromParent();
+    this._reference.geometry.dispose();
+    this._reference.material.dispose();
+    this._reference = null;
+    this._diagnostics.referenceObjects = this._diagnostics.referenceGeometries = this._diagnostics.referenceMaterials = 0;
+    this._diagnostics.disposedReferences++;
   }
 
   hide() {

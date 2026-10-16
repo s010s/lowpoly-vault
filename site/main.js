@@ -1,76 +1,293 @@
 import { createCatalogToolbar } from './catalog-toolbar.js';
 import { ModelAtlas } from './atlas.js';
-import './style.css';
-import './atlas.css';
+import { CatalogStore } from './catalog.js';
 import { initTheme } from './theme.js';
 import { GalleryMotion } from './motion.js';
+import { words } from './words.js';
+import { routeHref, parseRoute, queryFromParams, filterAndSortCatalog } from './routes.js';
+import './style.css';
+import './atlas.css';
+
+Object.assign(words.en, {title:'All models',intro:'Original shapes. Ready for your next world.',collection:'The collection',themes:'World',pack:'Pack',refine:'Refine',anyWorld:'Every world',anyPack:'All packs',anyPolygons:'Any triangle count',trianglesUnder:'Up to',scaleReference:'Scale reference',scaleNote:'Grid spacing',scaleUnavailable:'Metric reference is unavailable for this model.',related:'From the same pack',previousModel:'Previous model',nextModel:'Next model',bundle:'Model + source + credits',none:'No models match these filters. Try a different term or clear the filters.',map:'Pack map',grid:'Grid',previewHint:'Hover to inspect',fileSizeUnknown:'Size unavailable'});
+Object.assign(words.zh, {title:'全部模型',intro:'原创形状，为你的下一个世界而准备。',collection:'模型收藏',themes:'世界',pack:'组合包',refine:'筛选',anyWorld:'所有世界',anyPack:'全部组合包',anyPolygons:'不限三角面数',trianglesUnder:'不超过',scaleReference:'尺寸参照',scaleNote:'网格间距',scaleUnavailable:'此模型暂无可靠的米制尺寸参照。',related:'同一组合包中的模型',previousModel:'上一个模型',nextModel:'下一个模型',bundle:'模型、源文件与署名',none:'没有符合这些条件的模型。试试其他关键词，或清除筛选。',map:'组合地图',grid:'网格',previewHint:'悬停查看',fileSizeUnknown:'大小暂无数据'});
+
+const $ = selector => document.querySelector(selector);
+const siteRoot = new URL(import.meta.env.BASE_URL, location.origin).pathname;
+const initialRoute = parseRoute(location.pathname, siteRoot);
+let lang = initialRoute.lang === 'zh-CN' ? 'zh' : 'en'; // Explicit URL wins over storage.
+const t = key => words[lang][key] || key;
+const loc = value => typeof value === 'object' && value ? (value[lang] || value.en || '') : value || '';
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const href = (type, id, options = {}) => routeHref({type, id, lang, ...options}, siteRoot);
+const plainClick = event => event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+const store = new CatalogStore({baseURL:new URL(siteRoot,location.origin).href});
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+const fine = matchMedia('(hover: hover) and (pointer: fine)');
+const motionUI = new GalleryMotion();
 initTheme();
-const motionUI=new GalleryMotion();
-import { CatalogStore } from './catalog.js';
-const $ = s => document.querySelector(s);
-const words={en:{inspectArch:'Inspect the arch',home:'Home',allModels:'All models',about:'About',edition:'THE PREHISTORIC COLLECTION / 01',homeTitle:'A world,<br>piece by piece.',homeIntro:'Small polygons. Open possibilities.<br>Original 3D models, ready for your next idea.',exploreAll:'Explore all models',heroCaption:'Stone, trees, and a little imagination.',findShape:'What will you make?',searchAction:'Search models',homeSearch:'Find a model…',collectionOne:'COLLECTION 01',prehistoricHome:'A little prehistoric.',curationIntro:'Shapes from a world before us.<br>Build something entirely your own.',viewCollection:'View collection',openFiles:'Made to be opened. And made your own.',aboutLibrary:'About the library ↗',aboutTitle:'Good shapes.<br>Open files.',aboutBody:'A small collection of original, editable low-poly assets by Leon Made This / s010s. Download GLB for your project or open the Blender source to make it your own. Credit the creator, link CC BY 4.0, and indicate your changes.',replay:'Replay entrance',browse:'Browse assets',library:'Your next world',all:'All assets',themes:'Collections',categories:'Asset type',open:'Open by design.',openText:'Original shapes.<br>Editable sources.<br>Room for your ideas.',title:'Less poly. More play.',intro:'A collection of little things for your next big world.',original:'Original 3D assets<br>GLB + Blender sources',sort:'Sort',sortName:'Name',sortPoly:'Polygon count',collection:'Pick your next building block',hoverHint:'Hover to turn · Click to explore',previous:'← Previous',next:'Next →',footer:'Small polygons. Big plans.',notices:'Third-party notices',reset:'Reset view',wireframe:'Wireframe',hint:'Drag to orbit · Scroll to zoom · Arrow keys to rotate',licenseHelp:'Credit Leon Made This / s010s, link CC BY 4.0, and indicate changes.',provenance:'About this asset',share:'Copy link ↗',search:'Search assets…',count:'assets',geology:'Geology',plants:'Plants',wood:'Wood',traces:'Traces',prehistoric:'Prehistoric',loading:'Loading assets…',none:'No shapes here yet. Try another search.',error:'The collection is unavailable. Please try again.',retry:'Try again',clear:'Clear filters',noPreview:'Preview unavailable',viewLoading:'Loading interactive model…',viewError:'3D isn’t available here. Showing the rendered preview.',hoverError:'Rendered preview',view:'Explore in 3D',triangles:'Triangles',dimensions:'Size (X × Y × Z)',license:'License',glb:'Download GLB',blend:'Blender source',copy:'Copy attribution',copied:'Copied',copyFail:'Copy unavailable. Select the text below:',close:'Close viewer',zoomIn:'Zoom in',zoomOut:'Zoom out',canvas:'Interactive model. Arrow keys rotate, plus and minus zoom, Home resets.',skip:'Skip to assets',notAvailable:'Not available',detailError:'Asset details could not load.',missing:'This asset is not in the current collection.',source:'Sources',scope:'Scope',review:'Review preview · These assets are not yet approved for publication.'},zh:{inspectArch:'看看这座石拱',home:'首页',allModels:'全部模型',about:'关于',edition:'史前收藏 / 01',homeTitle:'一个世界，<br>从一块开始。',homeIntro:'简单的多边形，开放的可能。<br>为你的下一个想法，找一个好形状。',exploreAll:'浏览全部模型',heroCaption:'石头、树，和一点想象力。',findShape:'这次，想造点什么？',searchAction:'搜索模型',homeSearch:'找一个模型…',collectionOne:'收藏 01',prehistoricHome:'一点点，史前世界。',curationIntro:'来自遥远过去的形状。<br>拼成只属于你的新世界。',viewCollection:'浏览这组收藏',openFiles:'打开源文件，接着创造。',aboutLibrary:'关于这个模型库 ↗',aboutTitle:'好形状，<br>开放源文件。',aboutBody:'Leon Made This / s010s 创作的原创低多边形模型收藏。下载 GLB 用于你的项目，或打开 Blender 源文件继续创作。使用时请署名、链接 CC BY 4.0 许可，并注明修改。',replay:'重播入场',browse:'浏览资产',library:'下一个世界',all:'全部资产',themes:'主题合集',categories:'资产类型',open:'为自由创作而生。',openText:'原创造型。<br>可编辑源文件。<br>留给你的想象空间。',title:'小小形状，大大脑洞。',intro:'挑一个，转一转。把想象拼成你的世界。',original:'原创三维资产<br>GLB + Blender 源文件',sort:'排序',sortName:'名称',sortPoly:'多边形数量',collection:'下一块灵感，选哪个？',hoverHint:'悬停旋转 · 点击探索',previous:'← 上一页',next:'下一页 →',footer:'少一些多边形，多一些可能。',notices:'第三方许可',reset:'重置视角',wireframe:'线框',hint:'拖动旋转 · 滚轮缩放 · 方向键旋转',licenseHelp:'署名 Leon Made This / s010s，链接 CC BY 4.0 许可证，并注明修改。',provenance:'关于此资产',share:'复制链接 ↗',search:'搜索资产…',count:'件资产',geology:'地质',plants:'植物',wood:'木材',traces:'遗迹',prehistoric:'史前世界',loading:'正在载入资产…',none:'这里暂时没有结果，换个词试试。',error:'资产馆暂时不可用，请稍后重试。',retry:'重试',clear:'清除筛选',noPreview:'暂无预览',viewLoading:'正在载入交互模型…',viewError:'当前无法显示三维模型，已显示真实渲染预览。',hoverError:'渲染预览',view:'查看三维模型',triangles:'三角形',dimensions:'尺寸（X × Y × Z）',license:'许可证',glb:'下载 GLB',blend:'Blender 源文件',copy:'复制署名',copied:'已复制',copyFail:'无法自动复制，请选择下方文字：',close:'关闭预览',zoomIn:'放大',zoomOut:'缩小',canvas:'交互式模型：方向键旋转，加减键缩放，Home 重置。',skip:'跳转到资产',notAvailable:'暂无数据',detailError:'资产详情载入失败。',missing:'当前集合中找不到此资产。',source:'参考来源',scope:'适用范围',review:'待审核预览 · 此处资产尚未获准发布。'}};
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
-function paintIcons(root=document.body){const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())if(/[↗↓←→]/.test(walker.currentNode.textContent))nodes.push(walker.currentNode);for(const node of nodes){const frag=document.createDocumentFragment();for(const part of node.textContent.split(/([↗↓←→])/)){if(!/[↗↓←→]/.test(part)){frag.append(document.createTextNode(part));continue;}const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 16 16');svg.setAttribute('class','inline-icon');svg.setAttribute('aria-hidden','true');const p=document.createElementNS(svg.namespaceURI,'path');p.setAttribute('d',{'↗':'M3 13 13 3M3 3h10v10','↓':'M8 2v12m-5-5 5 5 5-5','←':'M14 8H2m5-5L2 8l5 5','→':'M2 8h12m-5-5 5 5-5 5'}[part]);svg.append(p);frag.append(svg);}node.replaceWith(frag);}}
-function controlsReady(ready){$('.viewer-controls').hidden=!ready;document.querySelectorAll('.viewer-controls button').forEach(b=>b.disabled=!ready);$('.viewer-hint').hidden=!ready;}
-let lang='en';try{lang=localStorage.getItem('vault-language')==='zh'?'zh':'en';}catch{}
-const t=k=>words[lang][k]||k,loc=v=>typeof v==='object'&&v?(v[lang]||v.en||''):v||'',esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const store=new CatalogStore(),reduced=matchMedia('(prefers-reduced-motion: reduce)'),fine=matchMedia('(hover: hover) and (pointer: fine)');
-let index=null,items=[],category='all',collection='all',page=0,pages=0,selected=null,selectedSummary=null,origin=null,stage=null,stagePromise=null,hoverTimer=0,hoverCard=null,queryVersion=0,detailVersion=0,closing=false,modalAnimation=null,detailController=null,restoringFocus=false;
-function path(p){return store.resolvePath(p);}
-function setStatus(s){$('#announcement').textContent=s;}
-async function getStage(){if(!stagePromise)stagePromise=import('./viewer.js').then(({ModelStage})=>(stage=new ModelStage()));return stagePromise;}
-function stopHover(){clearTimeout(hoverTimer);hoverTimer=0;if(hoverCard){hoverCard.querySelector('.card-status').textContent='';hoverCard=null;}if(!selected)stage?.hide();}
-let browseMode=new URLSearchParams(location.search).get('browse')==='grid'?'grid':'atlas',atlas;
-const atlasHost=document.createElement('section');atlasHost.className='model-atlas';$('#grid').before(atlasHost);
-const modes=document.createElement('div');modes.className='catalog-modes';modes.innerHTML='<button data-mode=atlas aria-pressed=true>Atlas</button><button data-mode=grid aria-pressed=false>Grid</button>';$('.search-row').append(modes);
-const catalogToolbar=createCatalogToolbar({root:$('.search-row'),search:$('#search'),modes,language:()=>lang});
-function paintModes(){catalogToolbar.paint();modes.querySelector('[data-mode=atlas] span').textContent=lang==='zh'?'地图':'Atlas';modes.querySelector('[data-mode=grid] span').textContent=lang==='zh'?'网格':'Grid';modes.querySelectorAll('button').forEach(b=>b.ariaPressed=String(b.dataset.mode===browseMode));$('#catalog-page').classList.toggle('catalog-atlas-active',browseMode==='atlas');$('#grid').hidden=browseMode==='atlas';atlasHost.hidden=browseMode!=='atlas';if(browseMode==='atlas')$('.pagination').hidden=true;}
-modes.onclick=e=>{const b=e.target.closest('[data-mode]');if(!b||browseMode===b.dataset.mode)return;browseMode=b.dataset.mode;atlas?.setActive(browseMode==='atlas');paintModes();renderGrid();};
-let currentView='home';const viewScroll={home:0,catalog:0,about:0};
-function paintLanguage(){document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-t]').forEach(e=>e.innerHTML=t(e.dataset.t));$('#language').textContent=lang==='en'?'中文':'EN';$('#language').ariaLabel=lang==='en'?'切换为中文':'Switch to English';$('#search').placeholder=t('search');$('#search').ariaLabel=t('search');$('#close').ariaLabel=t('close');$('#canvas-host').ariaLabel=t('canvas');$('#zoom-in').ariaLabel=t('zoomIn');$('#zoom-out').ariaLabel=t('zoomOut');$('.skip').textContent=t('skip');if($('.review-notice'))$('.review-notice').textContent=t('review');$('#home-query').placeholder=t('homeSearch');$('#home-query').ariaLabel=t('homeSearch');paintHome();paintFilters();if(index)renderGrid();if(selected)fillInfo(selected);paintIcons();}
-function paintFilters(){if(!index)return;$('#library-count').textContent=index.total;$('#all-assets').classList.toggle('active',category==='all'&&collection==='all');$('#themes').innerHTML=index.collections.map(c=>`<button data-collection="${esc(c.id)}" class="${collection===c.id?'active':''}" aria-pressed="${collection===c.id}"><span>${esc(t(c.id))}</span><span>${c.count}</span></button>`).join('');$('#filters').innerHTML=[{id:'all',count:index.total},...index.categories].map(c=>`<button data-category="${esc(c.id)}" class="${category===c.id?'active':''}" aria-pressed="${category===c.id}"><span>${esc(t(c.id))}</span><span>${c.count}</span></button>`).join('');}
-function cardHTML(a,i){return `<button class="asset-card" style="--i:${Math.min(i,7)}" data-id="${esc(a.id)}" aria-label="${esc(loc(a.name))} — ${t('view')}"><div class="asset-image">${a.preview?`<img src="${esc(path(a.preview))}" alt="${esc(loc(a.name))}" loading="lazy" width="640" height="640">`:`<span>${t('noPreview')}</span>`}<span class="card-type">GLB</span><span class="card-action" aria-hidden="true">↗</span><span class="card-status" role="status"></span></div><div class="card-label"><h3>${esc(loc(a.name))}</h3><span>${Number(a.triangles).toLocaleString()} △</span></div><p class="card-category">${esc(t(a.category))}</p></button>`;}
-async function renderGrid(){paintModes();if(browseMode==='atlas'){++queryVersion;stopHover();if(!atlas)atlas=new ModelAtlas({host:atlasHost,store,t,lang:()=>lang,cardHTML,onItems:a=>{items=a;},onOpen:id=>openAsset(id,{push:true}),onHover:requestHover,onStop:stopHover,onPointer:e=>{if(hoverCard&&stage&&!selected){const r=hoverCard.querySelector('.asset-image').getBoundingClientRect();stage.pointer((e.clientX-r.left)/r.width*2-1,(e.clientY-r.top)/r.height*2-1);}}});atlas.setActive(currentView==='catalog');const total=await atlas.update({index,query:$('#search').value,category,collection,sort:$('#sort').value==='triangles'?'triangles-asc':'name'});if(total!==undefined)$('#count').textContent=`${total.toLocaleString()} ${t('count')}`;$('#grid').ariaBusy='false';$('#grid').inert=false;$('#active-filters').replaceChildren();return;}stopHover();const previous=motionUI.capture($('#grid'));const version=++queryVersion;$('#grid').ariaBusy='true';$('#grid').inert=true;try{const result=await store.search({query:$('#search').value,category,collection,sort:$('#sort').value==='triangles'?'triangles-asc':'name',page,pageSize:24});if(version!==queryVersion)return;await motionUI.exit($('#grid'),result.items.map(x=>x.id));if(version!==queryVersion)return;items=result.items;page=result.page;pages=result.pages;$('#count').textContent=`${result.total.toLocaleString()} ${t('count')}`;$('#grid').innerHTML=items.length?items.map(cardHTML).join(''):`<div class="empty">${t('none')}<button id="clear-empty">${t('clear')}</button></div>`;$('#grid').ariaBusy='false';$('#grid').inert=false;$('#prev-page').disabled=page===0;$('#next-page').disabled=page>=pages-1;$('#page-number').textContent=pages?`${page+1} / ${pages}`:'';$('.pagination').hidden=pages<=1;$('#active-filters').innerHTML=[category!=='all'?`<button data-clear="category">${esc(t(category))} ×</button>`:'',collection!=='all'?`<button data-clear="collection">${esc(t(collection))} ×</button>`:''].join('');bindImages();paintIcons($('#grid'));motionUI.commit($('#grid'),previous);motionUI.feedback($('#count'));}catch(e){if(e.name!=='AbortError'&&version===queryVersion)showError();}}
-function bindImages(){document.querySelectorAll('img').forEach(img=>img.onerror=()=>{img.style.visibility='hidden';const s=document.createElement('span');s.className='card-status';s.textContent=t('noPreview');img.parentElement.append(s);});}
-function showError(){atlas?.setActive(false);atlasHost.hidden=true;$('#grid').hidden=false;$('#grid').ariaBusy='false';$('#grid').inert=false;$('#grid').innerHTML=`<div class="empty">${t('error')}<button id="retry">${t('retry')}</button></div>`;}
-function resetFilters(){category=collection='all';page=0;$('#search').value='';paintFilters();renderGrid();}
-function requestHover(card){if(selected||restoringFocus||!fine.matches||!card)return;stopHover();hoverCard=card;hoverTimer=setTimeout(async()=>{const a=items.find(a=>a.id===card.dataset.id);if(!a||hoverCard!==card)return;card.querySelector('.card-status').textContent=t('viewLoading');try{const s=await getStage();if(hoverCard!==card||selected)return;await s.show(card.querySelector('.asset-image'),path(a.glb),{mode:'hover',onStatus:status=>{if(hoverCard===card)card.querySelector('.card-status').textContent=status==='error'?t('hoverError'):status==='ready'?'':t('viewLoading');}});}catch{if(hoverCard===card)card.querySelector('.card-status').textContent=t('hoverError');}},140);}
-$('#grid').addEventListener('pointerover',e=>{const card=e.target.closest('.asset-card');if(card&&!card.contains(e.relatedTarget)&&e.pointerType!=='touch')requestHover(card);});
-$('#grid').addEventListener('pointerout',e=>{const card=e.target.closest('.asset-card');if(card&&!card.contains(e.relatedTarget))stopHover();});
-$('#grid').addEventListener('pointermove',e=>{if(hoverCard&&stage&&!selected){const r=hoverCard.querySelector('.asset-image').getBoundingClientRect();stage.pointer((e.clientX-r.left)/r.width*2-1,(e.clientY-r.top)/r.height*2-1);}});
-$('#grid').addEventListener('focusin',e=>requestHover(e.target.closest('.asset-card')));$('#grid').addEventListener('focusout',()=>stopHover());
-function fillInfo(a){$('#asset-title').textContent=loc(a.name);$('#asset-category').textContent=t(a.category);$('#asset-collection').textContent=t(a.collection||'all');$('#asset-description').textContent=loc(a.description);const dims=Array.isArray(a.dimensions)?a.dimensions.map(n=>Number(n).toFixed(2)).join(' × ')+' m':t('notAvailable');$('#asset-stats').innerHTML=`<dt>${t('triangles')}</dt><dd>${Number.isFinite(a.triangles)?a.triangles.toLocaleString():'—'}</dd><dt>${t('dimensions')}</dt><dd>${esc(dims)}</dd><dt>${t('license')}</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a></dd>`;$('#downloads').innerHTML=[['glb','glb'],['blend','blend']].map(([key,label])=>a[key]?`<a href="${esc(path(a[key]))}" download class="${key==='blend'?'secondary':''}">${t(label)} <span>↓</span></a>`:'').join('')+(a.glb?`<button id="copy-attribution">${t('copy')}</button>`:'');if($('#copy-attribution'))$('#copy-attribution').onclick=()=>copyText(`${loc(a.name)} by Leon Made This / s010s — https://github.com/s010s/lowpoly-vault — CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ (indicate any changes)`,$('#copy-attribution'));$('#asset-provenance').innerHTML=(a.scientific_scope?`<p>${esc(loc(a.scientific_scope))}</p>`:'')+(a.sources||[]).filter(s=>/^https:\/\//.test(s.url)).map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)} ↗</a></p>`).join('');$('#provenance').hidden=!$('#asset-provenance').textContent;paintIcons($('#viewer-dialog'));}
-async function copyText(text,button){try{await navigator.clipboard.writeText(text);button.textContent=t('copied');}catch{button.textContent=t('copyFail')+' '+text;}}
-async function animateDialog(from,to,reverse=false){
- const dialog=$('#viewer-dialog'),host=$('#canvas-host'),layout=$('.viewer-layout');
- document.querySelectorAll('.stage-flight').forEach(e=>e.remove());layout.classList.remove('motion-running');
- if(reduced.matches||!from||!to||from.width<1||from.height<1)return;
- const source=host.querySelector('img');if(!source)return;
- const clone=source.cloneNode();clone.className='stage-flight';
- Object.assign(clone.style,{left:`${to.left}px`,top:`${to.top}px`,width:`${to.width}px`,height:`${to.height}px`});
- dialog.append(clone);host.style.visibility='hidden';layout.classList.add('motion-running');
- const small=`translate(${from.left-to.left}px,${from.top-to.top}px) scale(${from.width/to.width},${from.height/to.height})`;
- modalAnimation=clone.animate(reverse?[{transform:'none',opacity:1},{transform:small,opacity:1}]:[{transform:small,opacity:1},{transform:'none',opacity:1}],{duration:reverse?280:420,easing:reverse?'cubic-bezier(.4,0,.6,1)':'cubic-bezier(.18,.8,.2,1)'});
- await modalAnimation.finished.catch(()=>{});clone.remove();host.style.visibility='';layout.classList.remove('motion-running');
- if(!reverse)motionUI.revealInfo();
+let index, items = [], category = 'all', world = 'all', pack = 'all', page = 0, pages = 0, maxTriangles = 0;
+let selected, selectedSummary, origin, stage, stagePromise, hoverCard, hoverTimer;
+let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, detailController, restoringFocus = false;
+let browseMode = 'grid', atlas, atlasPackKey = '', atlasPackItems = [], currentView = 'home', directDetailId = initialRoute.type==='detail'?initialRoute.id:null;
+let sourceContext = null, neighborItems = [], searchTimer, pendingRoute = false;
+const viewScroll = {home:0, catalog:0, about:0, detail:0};
+const staticContent = $('#static-route-content');
+const path = p => store.resolvePath(p);
+const queryOptions = () => ({query:$('#search').value, category, world, pack, sort:$('#sort').value, maxTriangles, page, view:browseMode === 'atlas' ? 'map' : 'grid'});
+const listURL = () => href('models',undefined,{page,query:queryOptions()});
+const setStatus = text => { $('#announcement').textContent = text; };
+
+function paintIcons(root=document.body) {
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT), nodes=[];
+  while(walker.nextNode()) if(/[↗↓←→]/.test(walker.currentNode.textContent)) nodes.push(walker.currentNode);
+  for(const node of nodes){
+    const fragment=document.createDocumentFragment();
+    for(const part of node.textContent.split(/([↗↓←→])/)){
+      if(!/[↗↓←→]/.test(part)){fragment.append(document.createTextNode(part));continue;}
+      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 16 16');svg.setAttribute('class','inline-icon');svg.setAttribute('aria-hidden','true');
+      const line=document.createElementNS(svg.namespaceURI,'path');line.setAttribute('d',{'↗':'M3 13 13 3M3 3h10v10','↓':'M8 2v12m-5-5 5 5 5-5','←':'M14 8H2m5-5L2 8l5 5','→':'M2 8h12m-5-5 5 5-5 5'}[part]);svg.append(line);fragment.append(svg);
+    }
+    node.replaceWith(fragment);
+  }
 }
-async function openAsset(id,{push=false}={}){if(selectedSummary?.id===id&&!closing)return;const version=++detailVersion;closing=false;modalAnimation?.cancel();stopHover();detailController?.abort();detailController=new AbortController();stage?.hide();const a=items.find(x=>x.id===id)||index?.initial.find(x=>x.id===id);selectedSummary=a||{id};selected=a||{id,name:{en:'…',zh:'…'}};origin=currentView==='catalog'?document.querySelector(`${browseMode==='atlas'?'.atlas-world':'#grid'} .asset-card[data-id="${CSS.escape(id)}"]`):null;const from=origin?.querySelector('.asset-image')?.getBoundingClientRect();fillInfo(selected);$('#canvas-host').replaceChildren();$('#canvas-host').dataset.modelState='loading';if(a?.preview){const img=new Image();img.src=path(a.preview);img.alt=loc(a.name);$('#canvas-host').append(img);}$('#viewer-status').textContent=t('viewLoading');controlsReady(false);$('#wireframe').ariaPressed='false';$('#provenance').open=false;const dialog=$('#viewer-dialog');if(!dialog.open)dialog.showModal();document.body.style.overflow='hidden';if(push)history.pushState({vaultDetail:true,source:currentView},'',`#asset=${encodeURIComponent(id)}`);const motion=animateDialog(from,$('#canvas-host').getBoundingClientRect());$('#close').focus({preventScroll:true});try{const detail=await store.getDetail(a||id);if(version!==detailVersion)return;selected=detail;fillInfo(detail);if(!a?.preview&&detail.preview){const img=new Image();img.src=path(detail.preview);img.alt=loc(detail.name);$('#canvas-host').append(img);}await motion;if(version!==detailVersion)return;const s=await getStage();if(version!==detailVersion)return;await s.show($('#canvas-host'),path(detail.glb),{mode:'detail',signal:detailController.signal,onStatus:status=>{if(version===detailVersion){controlsReady(status==='ready');$('#viewer-status').textContent=status==='ready'?'':status==='error'?t('viewError'):t('viewLoading');}}});}catch(e){if(version===detailVersion){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');}}}
-async function closeAsset(){if(!$('#viewer-dialog').open||closing)return;closing=true;++detailVersion;detailController?.abort();store.cancelDetail();stage?.hide();modalAnimation?.cancel();const target=origin?.isConnected?origin.querySelector('.asset-image').getBoundingClientRect():null;const visible=target&&target.bottom>0&&target.top<innerHeight&&target.right>0&&target.left<innerWidth;if(visible)await animateDialog(target,$('#canvas-host').getBoundingClientRect(),true);else if(!reduced.matches)await $('#viewer-dialog').animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:'scale(.97)'}],{duration:140}).finished.catch(()=>{});if(!closing)return;$('#viewer-dialog').close();$('#canvas-host').replaceChildren();document.body.style.overflow='';selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;}
-function requestClose(){if(history.state?.vaultDetail)history.back();else{history.replaceState(null,'',location.pathname+location.search+'#catalog');closeAsset().then(()=>showView('catalog'));}}
-function showView(view){if(!['home','catalog','about'].includes(view))view='home';if(view!==currentView)viewScroll[currentView]=scrollY;const changed=view!==currentView;currentView=view;atlas?.setActive(view==='catalog'&&browseMode==='atlas');$('#home-page').hidden=view!=='home';$('#catalog-page').hidden=view!=='catalog';$('#about-page').hidden=view!=='about';document.querySelectorAll('[data-route]').forEach(a=>a.setAttribute('aria-current',a.dataset.route===view?'page':'false'));if(changed){stopHover();scrollTo(0,viewScroll[view]||0);if(view==='catalog')motionUI.replay($('#grid'));else motionUI.run($(view==='home'?'.home-copy':'.about-page'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],{duration:320});}}
-async function syncRoute(){if(location.hash==='#collection')history.replaceState(history.state,'',location.pathname+location.search+'#catalog');const match=location.hash.match(/^#asset=(.+)$/);if(match){showView(history.state?.source||'catalog');try{await openAsset(decodeURIComponent(match[1]));}catch{}}else{await closeAsset();showView(location.hash==='#catalog'||location.hash==='#collection'?'catalog':location.hash==='#about'?'about':'home');}}
-function navigate(view){history.pushState({view},'',location.pathname+location.search+(view==='home'?'':'#'+view));syncRoute();}
-function paintHome(){if(!index)return;document.querySelectorAll('[data-browse] [data-t="exploreAll"]').forEach(e=>e.textContent=lang==='zh'?`浏览全部 ${index.total} 个模型`:`Explore all ${index.total} models`);const specs=[['plants','cycad','01'],['geology','natural-arch','02'],['traces','dinosaur-eggs','03']];$('#home-categories').innerHTML=specs.map(([cat,id,n])=>{const a=index.initial.find(x=>x.id===id)||index.initial.find(x=>x.category===cat);const count=index.categories.find(c=>c.id===cat)?.count||0;return a?`<button class="curation-card" data-home-category="${cat}"><div><img src="${esc(path(a.preview))}" alt="${esc(loc(a.name))}" loading="lazy" width="640" height="640"><span class="curation-number">${n}</span></div><span class="curation-title">${t(cat)}<span>${count} ${t('count')} ↗</span></span></button>`:'';}).join('');paintIcons($('#home-page'));}
-document.addEventListener('click',e=>{const asset=e.target.closest('[data-home-asset]');if(asset)openAsset(asset.dataset.homeAsset,{push:true});const nav=e.target.closest('[data-route]');if(nav){e.preventDefault();navigate(nav.dataset.route);}const browse=e.target.closest('[data-browse]');if(browse){resetFilters();navigate('catalog');}const facet=e.target.closest('[data-home-category]');if(facet){category=facet.dataset.homeCategory;collection='all';page=0;$('#search').value='';paintFilters();renderGrid();navigate('catalog');}});
-$('#home-search').onsubmit=e=>{e.preventDefault();category=collection='all';page=0;$('#search').value=$('#home-query').value;paintFilters();renderGrid();navigate('catalog');};
+function formatBytes(bytes) {
+  if(!Number.isFinite(bytes)) return t('fileSizeUnknown');
+  return bytes < 1024 * 1024 ? `${(bytes/1024).toLocaleString(lang === 'zh'?'zh-CN':'en',{maximumFractionDigits:1})} KB` : `${(bytes/1024/1024).toLocaleString(lang === 'zh'?'zh-CN':'en',{maximumFractionDigits:2})} MB`;
+}
+function controlsReady(ready){
+  $('.viewer-controls').hidden=!ready;$('.viewer-hint').hidden=!ready;
+  document.querySelectorAll('.viewer-controls button').forEach(button=>button.disabled=!ready);
+  if(ready) $('#scale-reference').disabled = !stage?.scaleReferenceInfo?.available;
+}
+async function getStage(){return stagePromise ||= import('./viewer.js').then(({ModelStage}) => (stage=new ModelStage()));}
+function stopHover(){clearTimeout(hoverTimer);if(hoverCard){hoverCard.querySelector('.card-status').textContent='';hoverCard=null;}if(!selected)stage?.hide();}
+function bindImages(root=document){root.querySelectorAll('img').forEach(img=>img.onerror=()=>{img.style.visibility='hidden';img.alt=t('noPreview');});}
 
-$('#close').onclick=requestClose;$('#viewer-dialog').addEventListener('cancel',e=>{e.preventDefault();requestClose();});$('#viewer-dialog').addEventListener('click',e=>{if(e.target===$('#viewer-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)requestClose();}});window.addEventListener('popstate',syncRoute);window.addEventListener('hashchange',syncRoute);
-$('#reset').onclick=()=>stage?.reset();$('#zoom-in').onclick=()=>stage?.zoom(1/1.2);$('#zoom-out').onclick=()=>stage?.zoom(1.2);$('#wireframe').onclick=()=>{const on=$('#wireframe').ariaPressed!=='true';$('#wireframe').ariaPressed=String(on);stage?.wireframe(on);};$('#share').onclick=()=>copyText(location.href,$('#share'));
-$('#language').onclick=()=>{lang=lang==='en'?'zh':'en';try{localStorage.setItem('vault-language',lang);}catch{}paintLanguage();};$('#all-assets').onclick=resetFilters;$('#filters').onclick=e=>{const b=e.target.closest('[data-category]');if(b){category=b.dataset.category;page=0;paintFilters();renderGrid();}};$('#themes').onclick=e=>{const b=e.target.closest('[data-collection]');if(b){collection=collection===b.dataset.collection?'all':b.dataset.collection;page=0;paintFilters();renderGrid();}};$('#active-filters').onclick=e=>{const b=e.target.closest('[data-clear]');if(b){if(b.dataset.clear==='category')category='all';else collection='all';page=0;paintFilters();renderGrid();}};let searchTimer;$('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{page=0;renderGrid();},130);});$('#sort').onchange=()=>{page=0;renderGrid();};$('#prev-page').onclick=()=>{page--;renderGrid();$('#collection').scrollIntoView({block:'start'});};$('#next-page').onclick=()=>{page++;renderGrid();$('#collection').scrollIntoView({block:'start'});};$('#grid').onclick=e=>{const b=e.target.closest('.asset-card');if(b)openAsset(b.dataset.id,{push:true});if(e.target.id==='clear-empty')resetFilters();if(e.target.id==='retry')load();};document.addEventListener('keydown',e=>{if(e.key==='/'&&!selected&&!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)){e.preventDefault();if(currentView==='home')$('#home-query').focus();else catalogToolbar.open();}});window.addEventListener('pagehide',()=>stage?.dispose());
-async function load(){ $('#grid').innerHTML=Array.from({length:8},()=>'<div class="skeleton" aria-hidden="true"></div>').join('');$('#grid').ariaBusy='true';try{const review=import.meta.env.DEV&&new URLSearchParams(location.search).get('review')==='1';index=await store.load(new URL(review?'assets/catalog-review.json':'assets/catalog.json',new URL(import.meta.env.BASE_URL,location.href)).href);if(index.review_only&&!$('.review-notice')){const p=document.createElement('p');p.className='review-notice';p.textContent=t('review');document.body.prepend(p);const replay=document.createElement('button');replay.id='replay-entrance';replay.dataset.t='replay';replay.textContent=t('replay');replay.onclick=()=>{stopHover();motionUI.replay($('#grid'));};$('.results-bar').append(replay);}paintHome();paintFilters();await renderGrid();syncRoute();}catch{showError();}}
-document.addEventListener('click',e=>{const control=e.target.closest('button:not(.asset-card),#downloads a');if(control)motionUI.feedback(control);});
-$('#provenance').addEventListener('toggle',()=>{if($('#provenance').open)motionUI.run($('#asset-provenance'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220});});
-$('#downloads').addEventListener('click',e=>{if(e.target.closest('a'))setStatus(lang==='zh'?'正在请求下载文件…':'Requesting the download…');});
-window.addEventListener('pagehide',()=>{motionUI.dispose();atlas?.dispose();});
-showView(location.hash==='#about'?'about':location.hash==='#catalog'||location.hash==='#collection'||location.hash.startsWith('#asset=')?'catalog':'home');
+const atlasHost=document.createElement('section');atlasHost.className='model-atlas';$('#grid').before(atlasHost);
+const modes=document.createElement('div');modes.className='catalog-modes';modes.innerHTML='<button data-mode="grid" aria-pressed="true">Grid</button><button data-mode="atlas" aria-pressed="false">Pack map</button>';$('.search-row').append(modes);
+const catalogToolbar=createCatalogToolbar({root:$('.search-row'),search:$('#search'),modes,language:()=>lang});
+const refine=document.createElement('details');refine.className='catalog-refine';refine.innerHTML='<summary></summary><div class="refine-fields"><label><span data-label="world"></span><select id="world-filter"></select></label><label><span data-label="pack"></span><select id="pack-filter"></select></label><label><span data-label="triangles"></span><select id="poly-filter"></select></label></div>';$('.search-row').append(refine);
+const canMap=()=>pack!=='all' && (index?.packs?.find(p=>p.id===pack)?.count||Infinity)<=30;
+function paintModes(){
+  if(!canMap())browseMode='grid';
+  catalogToolbar.paint();modes.hidden=!canMap();
+  modes.querySelector('[data-mode=atlas] span').textContent=t('map');modes.querySelector('[data-mode=grid] span').textContent=t('grid');
+  modes.querySelectorAll('button').forEach(b=>b.ariaPressed=String(b.dataset.mode===browseMode));
+  $('#catalog-page').classList.toggle('catalog-atlas-active',browseMode==='atlas');$('#grid').hidden=browseMode==='atlas';atlasHost.hidden=browseMode!=='atlas';
+  if(browseMode==='atlas')$('.pagination').hidden=true;
+}
+modes.onclick=event=>{const button=event.target.closest('[data-mode]');if(!button||browseMode===button.dataset.mode)return;browseMode=button.dataset.mode;atlas?.setActive(browseMode==='atlas');updateListing();};
+function facetName(facet){return loc(facet?.name)||t(facet?.id||'');}
+function paintFilters(){
+  if(!index)return;
+  $('#library-count').textContent=index.total;
+  $('#all-assets').classList.toggle('active',category==='all'&&world==='all'&&pack==='all'&&!maxTriangles&&!$('#search').value);
+  $('#all-assets').ariaPressed=String(category==='all'&&world==='all'&&pack==='all'&&!maxTriangles&&!$('#search').value);
+  $('#filters').innerHTML=[{id:'all',count:index.total},...index.categories].map(c=>`<button data-category="${esc(c.id)}" class="${category===c.id?'active':''}" aria-pressed="${category===c.id}">${esc(t(c.id))}<span>${c.count}</span></button>`).join('');
+  refine.querySelector('summary').textContent=t('refine');refine.querySelector('[data-label=world]').textContent=t('themes');refine.querySelector('[data-label=pack]').textContent=t('pack');refine.querySelector('[data-label=triangles]').textContent=t('triangles');
+  $('#world-filter').innerHTML=`<option value="all">${t('anyWorld')}</option>`+(index.worlds||index.collections).map(f=>`<option value="${esc(f.id)}">${esc(facetName(f))} (${f.count})</option>`).join('');
+  $('#pack-filter').innerHTML=`<option value="all">${t('anyPack')}</option>`+(index.packs||[]).map(f=>`<option value="${esc(f.id)}">${esc(facetName(f))} (${f.count})</option>`).join('');
+  $('#poly-filter').innerHTML=`<option value="0">${t('anyPolygons')}</option>`+[500,1000,5000].map(n=>`<option value="${n}">${t('trianglesUnder')} ${n.toLocaleString()}</option>`).join('');
+  $('#world-filter').value=world;$('#pack-filter').value=pack;$('#poly-filter').value=String(maxTriangles);
+  $('#search-suggestions').innerHTML=index.initial.slice(0,12).map(a=>`<option value="${esc(loc(a.name))}"></option>`).join('');
+  const active=[category!=='all'?['category',t(category)]:null,world!=='all'?['world',facetName(index.worlds?.find(f=>f.id===world)||{id:world})]:null,pack!=='all'?['pack',facetName(index.packs?.find(f=>f.id===pack)||{id:pack})]:null,maxTriangles?['triangles',`${t('trianglesUnder')} ${maxTriangles.toLocaleString()} △`]:null].filter(Boolean);
+  $('#active-filters').innerHTML=active.map(([key,label])=>`<button data-clear="${key}" aria-label="${esc(`${t('clear')}: ${label}`)}">${esc(label)} <span aria-hidden="true">×</span></button>`).join('');
+}
+function cardHTML(asset,i){return `<a href="${esc(href('detail',asset.id))}" class="asset-card" style="--i:${Math.min(i,7)}" data-id="${esc(asset.id)}" aria-label="${esc(loc(asset.name))}"><div class="asset-image"><img src="${esc(path(asset.preview))}" alt="${esc(loc(asset.name))}" loading="lazy" decoding="async" width="640" height="640"><span class="card-action" aria-hidden="true">↗</span><span class="card-status" role="status"></span></div><div class="card-label"><h3>${esc(loc(asset.name))}</h3><span>${Number.isFinite(asset.triangles)?asset.triangles.toLocaleString()+' △':''}</span></div><p class="card-category">${esc(t(asset.category))}</p></a>`;}
+async function renderGrid(){
+  if(!index)return;paintModes();paintFilters();const version=++queryVersion;stopHover();
+  if(browseMode==='atlas'){
+    const key=JSON.stringify([pack,world]);
+    if(key!==atlasPackKey){const result=await store.search({pack,world,pageSize:100});if(version!==queryVersion)return;atlasPackItems=result.items;atlasPackKey=key;}
+    const scope=filterAndSortCatalog(atlasPackItems,{query:$('#search').value,category,maxTriangles,sort:$('#sort').value});
+    const counts=new Map();scope.forEach(a=>counts.set(a.category,(counts.get(a.category)||0)+1));
+    const scopedIndex={...index,total:scope.length,categories:[...counts].map(([id,count])=>({id,count}))};
+    const memoryStore={cancelSearch(){},async search(options={}){const found=filterAndSortCatalog(scope,options),size=options.pageSize||100,p=options.page||0;return {items:found.slice(p*size,(p+1)*size),total:found.length,page:p,pages:Math.ceil(found.length/size)};}};
+    if(!atlas)atlas=new ModelAtlas({host:atlasHost,store:memoryStore,t,lang:()=>lang,cardHTML,onItems:visible=>{items=visible;},onOpen:id=>openAsset(id,{push:true}),onHover:requestHover,onStop:stopHover,onPointer:pointerMove});
+    atlas.store=memoryStore;atlas.filterKey='';atlas.setActive(currentView==='catalog');
+    await atlas.update({index:scopedIndex});if(version!==queryVersion)return;
+    $('#count').textContent=`${scope.length.toLocaleString()} ${t('count')}`;$('#grid').ariaBusy='false';$('#grid').inert=false;hideStaticFor('models');return;
+  }
+  atlas?.setActive(false);const previous=motionUI.capture($('#grid'));$('#grid').ariaBusy='true';$('#grid').inert=true;
+  try{
+    const result=await store.search({...queryOptions(),pageSize:24});if(version!==queryVersion)return;
+    await motionUI.exit($('#grid'),result.items.map(a=>a.id));if(version!==queryVersion)return;
+    items=result.items;page=result.page;pages=result.pages;
+    $('#count').textContent=`${result.total.toLocaleString()} ${t('count')}`;
+    $('#grid').innerHTML=items.length?items.map(cardHTML).join(''):`<div class="empty">${t('none')}<button id="clear-empty">${t('clear')}</button></div>`;
+    $('#grid').ariaBusy='false';$('#grid').inert=false;
+    $('#prev-page').disabled=page===0;$('#next-page').disabled=page>=pages-1;$('#page-number').textContent=pages?`${page+1} / ${pages}`:'';$('.pagination').hidden=pages<=1;
+    bindImages($('#grid'));paintIcons($('#grid'));motionUI.commit($('#grid'),previous);hideStaticFor('models');
+  }catch(error){if(error.name!=='AbortError'&&version===queryVersion)showError();}
+}
+function showError(){atlas?.setActive(false);atlasHost.hidden=true;$('#grid').hidden=false;$('#grid').ariaBusy='false';$('#grid').inert=false;$('#grid').innerHTML=`<div class="empty">${t('error')}<button id="retry">${t('retry')}</button></div>`;}
+function readQuery(route=parseRoute(location.pathname,siteRoot)){
+  const q=queryFromParams(location.search);category=q.category;world=q.world==='all'?q.collection:q.world;pack=q.pack;page=route.type==='models'?route.page:q.page;maxTriangles=q.maxTriangles||0;browseMode=q.view==='map'?'atlas':'grid';$('#search').value=q.query;$('#sort').value=q.sort;
+}
+function updateListing({push=false}={}){paintFilters();paintModes();if(currentView==='catalog')history[push?'pushState':'replaceState']({view:'catalog'},'',listURL());return renderGrid();}
+function resetFilters({render=true}={}){category=world=pack='all';page=0;maxTriangles=0;browseMode='grid';$('#search').value='';$('#sort').value='name';if(render)updateListing();}
+
+function requestHover(card){
+  if(selected||restoringFocus||!fine.matches||reduced.matches||!card)return;
+  stopHover();hoverCard=card;hoverTimer=setTimeout(async()=>{
+    const asset=items.find(a=>a.id===card.dataset.id);if(!asset||hoverCard!==card)return;card.querySelector('.card-status').textContent=t('viewLoading');
+    try{const s=await getStage();if(hoverCard!==card||selected)return;await s.show(card.querySelector('.asset-image'),path(asset.glb),{mode:'hover',onStatus:status=>{if(hoverCard===card)card.querySelector('.card-status').textContent=status==='error'?t('hoverError'):status==='ready'?'':t('viewLoading');}});}catch{if(hoverCard===card)card.querySelector('.card-status').textContent=t('hoverError');}
+  },180);
+}
+function pointerMove(event){if(hoverCard&&stage&&!selected){const r=hoverCard.querySelector('.asset-image').getBoundingClientRect();stage.pointer((event.clientX-r.left)/r.width*2-1,(event.clientY-r.top)/r.height*2-1);}}
+$('#grid').addEventListener('pointerover',event=>{const card=event.target.closest('.asset-card');if(card&&!card.contains(event.relatedTarget)&&event.pointerType!=='touch')requestHover(card);});
+$('#grid').addEventListener('pointerout',event=>{const card=event.target.closest('.asset-card');if(card&&!card.contains(event.relatedTarget))stopHover();});
+$('#grid').addEventListener('pointermove',pointerMove);
+$('#grid').addEventListener('focusout',stopHover);
+
+function fillInfo(asset){
+  $('#asset-title').textContent=loc(asset.name);$('#asset-category').textContent=t(asset.category||'');$('#asset-collection').textContent=(asset.worlds||[asset.collection]).filter(Boolean).map(t).join(' · ');$('#asset-description').textContent=loc(asset.description);
+  const dims=Array.isArray(asset.dimensions)?asset.dimensions.map(n=>Number(n).toFixed(2)).join(' × ')+' m':t('notAvailable');
+  $('#asset-stats').innerHTML=`<dt>${t('triangles')}</dt><dd>${Number.isFinite(asset.triangles)?asset.triangles.toLocaleString():'—'}</dd><dt>${t('dimensions')}</dt><dd>${esc(dims)}</dd><dt>${t('license')}</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a></dd>`;
+  $('#downloads').innerHTML=['bundle','glb','blend'].map(key=>{const file=asset.downloads?.[key]||asset[key];return file?`<a href="${esc(path(file))}" download class="${key==='bundle'?'bundle':'secondary'}"><span>${t(key)}<small>${formatBytes(asset.file_sizes?.[key])}</small></span><span aria-hidden="true">↓</span></a>`:'';}).join('')+(asset.glb?`<button id="copy-attribution">${t('copy')}</button>`:'');
+  if($('#copy-attribution'))$('#copy-attribution').onclick=()=>copyText(`${loc(asset.name)} by Leon Made This / s010s — https://github.com/s010s/lowpoly-vault — CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ (indicate any changes)`,$('#copy-attribution'));
+  $('#asset-provenance').innerHTML=(asset.scientific_scope?`<p>${esc(loc(asset.scientific_scope))}</p>`:'')+(asset.sources||[]).filter(source=>/^https:\/\//.test(source.url)).map(source=>`<p><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)} ↗</a></p>`).join('');
+  $('#provenance').hidden=!$('#asset-provenance').textContent;paintIcons($('#viewer-dialog'));
+}
+async function copyText(text,button){try{await navigator.clipboard.writeText(text);button.textContent=t('copied');}catch{button.textContent=t('copyFail')+' '+text;}}
+function paintNeighbors(){
+  const position=neighborItems.findIndex(a=>a.id===selected?.id);
+  for(const [selector,offset,key] of [['#previous-model',-1,'previousModel'],['#next-model',1,'nextModel']]){
+    const anchor=$(selector),asset=position>=0?neighborItems[position+offset]:null;anchor.hidden=!asset;
+    if(asset){anchor.href=href('detail',asset.id);anchor.dataset.modelId=asset.id;anchor.textContent=`${offset<0?'← ':''}${t(key)}${offset>0?' →':''}`;anchor.ariaLabel=`${t(key)}: ${loc(asset.name)}`;}
+  }
+  paintIcons($('.model-pagination'));
+}
+async function prepareRelated(asset,version){
+  try{
+    const packID=asset.packs?.[0];if(!packID){$('#related').hidden=true;return;}
+    const result=await store.search({pack:packID,pageSize:100});if(version!==detailVersion)return;
+    if(!sourceContext?.items?.some(a=>a.id===asset.id)){neighborItems=result.items;paintNeighbors();}
+    const related=result.items.filter(a=>a.id!==asset.id).slice(0,3);
+    $('#related-models').innerHTML=related.map(a=>`<a href="${esc(href('detail',a.id))}" data-model-id="${esc(a.id)}"><img src="${esc(path(a.preview))}" alt="" width="80" height="80" loading="lazy"><span>${esc(loc(a.name))}</span></a>`).join('');$('#related').hidden=!related.length;
+  }catch(error){if(error.name!=='AbortError')$('#related').hidden=true;}
+}
+async function animateDialog(from,to,reverse=false){
+  const dialog=$('#viewer-dialog'),host=$('#canvas-host'),layout=$('.viewer-layout');document.querySelectorAll('.stage-flight').forEach(e=>e.remove());layout.classList.remove('motion-running');
+  if(reduced.matches||!from||!to||from.width<1||from.height<1)return;
+  const source=host.querySelector('img');if(!source)return;const clone=source.cloneNode();clone.className='stage-flight';Object.assign(clone.style,{left:`${to.left}px`,top:`${to.top}px`,width:`${to.width}px`,height:`${to.height}px`});dialog.append(clone);host.style.visibility='hidden';layout.classList.add('motion-running');
+  const small=`translate(${from.left-to.left}px,${from.top-to.top}px) scale(${from.width/to.width},${from.height/to.height})`;
+  modalAnimation=clone.animate(reverse?[{transform:'none',opacity:1},{transform:small,opacity:1}]:[{transform:small,opacity:1},{transform:'none',opacity:1}],{duration:reverse?260:380,easing:'cubic-bezier(.18,.8,.2,1)'});await modalAnimation.finished.catch(()=>{});clone.remove();host.style.visibility='';layout.classList.remove('motion-running');if(!reverse)motionUI.revealInfo();
+}
+async function openAsset(id,{push=false,replace=false}={}){
+  if(selectedSummary?.id===id&&!closing)return;const version=++detailVersion;closing=false;modalAnimation?.cancel();stopHover();detailController?.abort();detailController=new AbortController();stage?.hide();atlas?.setActive(false);
+  const asset=items.find(a=>a.id===id)||index?.initial.find(a=>a.id===id);
+  if(push){sourceContext={url:location.pathname+location.search,view:currentView,scroll:scrollY,triggerId:id,items:items.map(a=>({id:a.id,name:a.name})),options:queryOptions()};history.pushState({vaultDetail:true,source:sourceContext},'',href('detail',id));}
+  else if(replace)history.replaceState(history.state,'',href('detail',id));
+  selectedSummary=asset||{id};selected=asset||{id,name:{en:'…',zh:'…'}};
+  neighborItems=sourceContext?.items||items;origin=currentView==='catalog'?document.querySelector(`.asset-card[data-id="${CSS.escape(id)}"]`):null;
+  const from=origin?.querySelector('.asset-image')?.getBoundingClientRect();fillInfo(selected);paintNeighbors();$('#related').hidden=true;$('#canvas-host').replaceChildren();$('#canvas-host').dataset.modelState='loading';
+  if(asset?.preview){const img=new Image();img.src=path(asset.preview);img.alt=loc(asset.name);$('#canvas-host').append(img);}
+  $('#viewer-status').textContent=t('viewLoading');controlsReady(false);$('#wireframe').ariaPressed='false';$('#scale-reference').ariaPressed='false';$('#scale-status').textContent='';$('#provenance').open=false;
+  const dialog=$('#viewer-dialog');if(!dialog.open)dialog.showModal();document.body.style.overflow='hidden';const motion=animateDialog(from,$('#canvas-host').getBoundingClientRect());$('#close').focus({preventScroll:true});
+  try{
+    const detail=await store.getDetail(asset||id);if(version!==detailVersion)return;selected=detail;fillInfo(detail);document.title=`${loc(detail.name)} · Lowpoly Vault`;prepareRelated(detail,version);
+    if(!asset?.preview&&detail.preview){const img=new Image();img.src=path(detail.preview);img.alt=loc(detail.name);$('#canvas-host').append(img);}
+    await motion;if(version!==detailVersion)return;const s=await getStage();if(version!==detailVersion)return;
+    await s.show($('#canvas-host'),path(detail.glb),{mode:'detail',metadata:detail,signal:detailController.signal,onStatus:status=>{if(version===detailVersion){controlsReady(status==='ready');$('#viewer-status').textContent=status==='ready'?'':status==='error'?t('viewError'):t('viewLoading');}}});
+  }catch(error){if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');}}
+}
+async function closeAsset(){
+  if(!$('#viewer-dialog').open||closing)return;closing=true;++detailVersion;detailController?.abort();store.cancelDetail();stage?.hide();modalAnimation?.cancel();
+  const target=origin?.isConnected?origin.querySelector('.asset-image').getBoundingClientRect():null;const visible=target&&target.bottom>0&&target.top<innerHeight&&target.right>0&&target.left<innerWidth;
+  if(visible)await animateDialog(target,$('#canvas-host').getBoundingClientRect(),true);else if(!reduced.matches)await $('#viewer-dialog').animate([{opacity:1},{opacity:0}],{duration:120}).finished.catch(()=>{});
+  if(!closing)return;$('#viewer-dialog').close();$('#canvas-host').replaceChildren();document.body.style.overflow='';selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;atlas?.setActive(currentView==='catalog'&&browseMode==='atlas');
+}
+function requestClose(){if(history.state?.vaultDetail)history.back();else closeAsset();}
+function hideStaticFor(type){if(staticContent?.dataset.routeType===type)staticContent.hidden=true;}
+function showView(view){
+  if(!['home','catalog','about','detail'].includes(view))view='home';if(view!==currentView)viewScroll[currentView]=scrollY;currentView=view;
+  $('#home-page').hidden=view!=='home';$('#catalog-page').hidden=view!=='catalog';$('#about-page').hidden=view!=='about';
+  if(staticContent){const type=view==='catalog'?'models':view;staticContent.hidden=staticContent.dataset.routeType!==type || (view==='detail'&&staticContent.dataset.assetId!==directDetailId);if(index&&view!=='detail')staticContent.hidden=true;}
+  atlas?.setActive(view==='catalog'&&browseMode==='atlas');
+  document.querySelectorAll('[data-route]').forEach(anchor=>anchor.setAttribute('aria-current',anchor.dataset.route===view?'page':'false'));
+}
+async function syncRoute(){
+  if(!index||pendingRoute)return;pendingRoute=true;
+  try{
+    const oldHash=location.hash;
+    if(oldHash.startsWith('#asset=')){const id=decodeURIComponent(oldHash.slice(7));if(/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(id))history.replaceState(null,'',href('detail',id));}
+    else if(['#catalog','#collection','#about'].includes(oldHash))history.replaceState(null,'',href(oldHash==='#about'?'about':'models'));
+    const route=parseRoute(location.pathname,siteRoot);const nextLang=route.lang==='zh-CN'?'zh':'en';if(lang!==nextLang){lang=nextLang;paintLanguage();}
+    if(route.type==='detail'){
+      if(history.state?.vaultDetail){sourceContext=history.state.source;showView(sourceContext?.view||'catalog');await openAsset(route.id);}
+      else if(staticContent?.dataset.assetId===route.id){directDetailId=route.id;showView('detail');staticContent.querySelectorAll('[data-enhance-model]').forEach(b=>b.hidden=false);}
+      else {showView('catalog');await openAsset(route.id);}
+    }else{
+      const source=sourceContext;await closeAsset();directDetailId=null;readQuery(route);showView(route.type==='models'?'catalog':route.type==='about'?'about':'home');
+      if(route.type==='models')await renderGrid();
+      if(source?.url===location.pathname+location.search){scrollTo(0,source.scroll);const trigger=document.querySelector(`.asset-card[data-id="${CSS.escape(source.triggerId||'')}"]`);trigger?.focus({preventScroll:true});}
+      else scrollTo(0,viewScroll[currentView]||0);
+      sourceContext=null;document.title=`${currentView==='catalog'?t('allModels'):currentView==='about'?t('about'):'Original low-poly assets'} · Lowpoly Vault`;
+    }
+  }finally{pendingRoute=false;}
+}
+function navigate(view){history.pushState({view},'',view==='catalog'?listURL():href(view));syncRoute();}
+function paintHome(){
+  if(!index)return;document.querySelectorAll('[data-browse] [data-t="exploreAll"]').forEach(e=>e.textContent=lang==='zh'?`浏览全部 ${index.total} 个模型`:`Explore all ${index.total} models`);
+  const specs=[['plants','cycad','01'],['geology','natural-arch','02'],['traces','dinosaur-eggs','03']];
+  $('#home-categories').innerHTML=specs.map(([cat,id,n])=>{const a=index.initial.find(x=>x.id===id)||index.initial.find(x=>x.category===cat),count=index.categories.find(c=>c.id===cat)?.count||0;return a?`<a class="curation-card" href="${esc(href('models',undefined,{query:{category:cat}}))}" data-home-category="${cat}"><div><img src="${esc(path(a.preview))}" alt="${esc(loc(a.name))}" loading="lazy" width="640" height="640"><span class="curation-number">${n}</span></div><span class="curation-title">${t(cat)}<span>${count} ${t('count')} ↗</span></span></a>`:'';}).join('');paintIcons($('#home-page'));
+}
+function paintLanguage(){
+  document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-t]').forEach(e=>e.innerHTML=t(e.dataset.t));$('#language').textContent=lang==='en'?'中文':'EN';$('#language').ariaLabel=lang==='en'?'切换为中文':'Switch to English';$('#search').placeholder=t('search');$('#search').ariaLabel=t('search');$('#close').ariaLabel=t('close');$('#canvas-host').ariaLabel=t('canvas');$('#zoom-in').ariaLabel=t('zoomIn');$('#zoom-out').ariaLabel=t('zoomOut');$('.skip').textContent=t('skip');$('.skip').href=href('models');$('#home-query').placeholder=t('homeSearch');$('#home-query').ariaLabel=t('homeSearch');
+  document.querySelectorAll('[data-route]').forEach(a=>a.href=href(a.dataset.route));
+  document.querySelectorAll('a[href$="THIRD_PARTY_NOTICES.md"]').forEach(a=>a.href=new URL('THIRD_PARTY_NOTICES.md',new URL(siteRoot,location.origin)).href);
+  $('.hero-art').src=new URL('home/editorial-hero.webp',new URL(siteRoot,location.origin)).href;
+  if($('.review-notice'))$('.review-notice').textContent=t('review');paintHome();paintFilters();paintModes();if(selected){fillInfo(selected);paintNeighbors();}paintIcons();
+}
+
+// Ordinary anchor clicks are enhanced; modified/new-tab clicks retain browser behavior.
+document.addEventListener('click',event=>{
+  const card=event.target.closest('#grid .asset-card');if(card&&plainClick(event)){event.preventDefault();openAsset(card.dataset.id,{push:true});return;}
+  const adjacent=event.target.closest('[data-model-id]');if(adjacent&&plainClick(event)){event.preventDefault();openAsset(adjacent.dataset.modelId,{replace:true});return;}
+  const enhance=event.target.closest('[data-enhance-model]');if(enhance){openAsset(enhance.dataset.enhanceModel);return;}
+  const asset=event.target.closest('[data-home-asset]');if(asset){openAsset(asset.dataset.homeAsset,{push:true});return;}
+  const nav=event.target.closest('[data-route]');if(nav&&plainClick(event)){event.preventDefault();navigate(nav.dataset.route);return;}
+  const browse=event.target.closest('[data-browse]');if(browse){resetFilters({render:false});navigate('catalog');return;}
+  const facet=event.target.closest('[data-home-category]');if(facet&&plainClick(event)){event.preventDefault();resetFilters({render:false});category=facet.dataset.homeCategory;navigate('catalog');return;}
+  if(event.target.id==='clear-empty')resetFilters();if(event.target.id==='retry')load();
+  const control=event.target.closest('button:not(.asset-card),#downloads a');if(control)motionUI.feedback(control);
+});
+$('#home-search').onsubmit=event=>{event.preventDefault();resetFilters({render:false});$('#search').value=$('#home-query').value;navigate('catalog');};
+$('#close').onclick=requestClose;
+$('#viewer-dialog').addEventListener('cancel',event=>{event.preventDefault();requestClose();});
+$('#viewer-dialog').addEventListener('click',event=>{if(event.target===$('#viewer-dialog')){const r=event.target.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)requestClose();}});
+window.addEventListener('popstate',syncRoute);window.addEventListener('hashchange',syncRoute);
+$('#reset').onclick=()=>stage?.reset();$('#zoom-in').onclick=()=>stage?.zoom(1/1.2);$('#zoom-out').onclick=()=>stage?.zoom(1.2);$('#wireframe').onclick=()=>{const on=$('#wireframe').ariaPressed!=='true';$('#wireframe').ariaPressed=String(on);stage?.wireframe(on);};
+$('#scale-reference').onclick=()=>{const on=stage?.scaleReference($('#scale-reference').ariaPressed!=='true');$('#scale-reference').ariaPressed=String(!!on);const info=stage?.scaleReferenceInfo;$('#scale-status').textContent=on?`${t('scaleNote')}: ${info.spacingMeters} m`:info?.available?'':t('scaleUnavailable');};
+$('#share').onclick=()=>copyText(new URL(href('detail',selected.id),location.origin).href,$('#share'));
+$('#language').onclick=()=>{
+  const route=parseRoute(location.pathname,siteRoot),next=lang==='en'?'zh':'en';lang=next;
+  const target=href(route.type==='not-found'?'home':route.type,route.id,{page:route.page,query:queryOptions()});
+  if(currentView==='detail'&&!history.state?.vaultDetail){location.href=target;return;}
+  history.replaceState(history.state,'',target);paintLanguage();if(index&&currentView==='catalog')renderGrid();
+};
+$('#all-assets').onclick=()=>resetFilters();$('#filters').onclick=event=>{const b=event.target.closest('[data-category]');if(b){category=b.dataset.category;page=0;updateListing();}};
+$('#world-filter').onchange=()=>{world=$('#world-filter').value;page=0;updateListing();};$('#pack-filter').onchange=()=>{pack=$('#pack-filter').value;page=0;updateListing();};$('#poly-filter').onchange=()=>{maxTriangles=Number($('#poly-filter').value)||0;page=0;updateListing();};
+$('#active-filters').onclick=event=>{const b=event.target.closest('[data-clear]');if(!b)return;({category:()=>category='all',world:()=>world='all',pack:()=>pack='all',triangles:()=>maxTriangles=0})[b.dataset.clear]?.();page=0;updateListing();};
+$('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{page=0;updateListing();},150);});
+$('#sort').onchange=()=>{page=0;updateListing();};$('#prev-page').onclick=()=>{page--;updateListing({push:true});$('#collection').scrollIntoView({block:'start'});};$('#next-page').onclick=()=>{page++;updateListing({push:true});$('#collection').scrollIntoView({block:'start'});};
+$('#provenance').addEventListener('toggle',()=>{if($('#provenance').open)motionUI.run($('#asset-provenance'),[{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:180});});
+$('#downloads').addEventListener('click',event=>{if(event.target.closest('a'))setStatus(lang==='zh'?'已请求下载文件，是否完成请查看浏览器。':'Download requested. Check your browser for progress.');});
+document.addEventListener('keydown',event=>{
+  if(event.key==='/'&&!selected&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();if(currentView==='home')$('#home-query').focus();else catalogToolbar.open();}
+  if(selected&&['ArrowLeft','ArrowRight'].includes(event.key)&&!event.altKey&&!event.ctrlKey&&!event.metaKey&&!event.target.closest('#canvas-host,input,textarea,select')){const link=$(event.key==='ArrowLeft'?'#previous-model':'#next-model');if(!link.hidden){event.preventDefault();openAsset(link.dataset.modelId,{replace:true});}}
+});
+window.addEventListener('pagehide',()=>{stage?.dispose();motionUI.dispose();atlas?.dispose();store.dispose();});
+async function load(){
+  if(!staticContent)$('#grid').innerHTML=Array.from({length:8},()=>'<div class="skeleton" aria-hidden="true"></div>').join('');$('#grid').ariaBusy='true';
+  try{
+    const review=import.meta.env.DEV&&new URLSearchParams(location.search).get('review')==='1';index=await store.load(new URL(review?'assets/catalog-review.json':'assets/catalog.json',new URL(siteRoot,location.origin)).href);
+    if(index.review_only&&!$('.review-notice')){const notice=document.createElement('p');notice.className='review-notice';notice.textContent=t('review');document.body.prepend(notice);}
+    paintHome();readQuery();paintFilters();await renderGrid();await syncRoute();
+  }catch{showError();}
+}
+showView(initialRoute.type==='detail'?'detail':initialRoute.type==='models'?'catalog':initialRoute.type==='about'?'about':'home');
 paintLanguage();motionUI.shell();load();

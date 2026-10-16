@@ -2,7 +2,7 @@ name: Review gallery in Chromium
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, 'redesign/**']
     paths:
       - 'assets/**'
       - 'site/**'
@@ -26,8 +26,29 @@ concurrency:
   cancel-in-progress: true
 jobs:
   chromium-review:
+    name: Review (${{ matrix.profile }})
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: strict-gpu
+            allow_fallback: '0'
+            force_fallback: '0'
+          - profile: fallback-only
+            allow_fallback: '1'
+            force_fallback: '1'
+    env:
+      SITE_BASE: /lowpoly-vault/
+      SITE_ORIGIN: https://s010s.github.io
+      REVIEW_OUT: qa/redesign-v2-site
+      GALLERY_DIR: qa/redesign-v2-site
+      QA_OUTPUT_DIR: qa/redesign-${{ matrix.profile }}
+      QA_REQUIRE_COUNT: '10'
+      QA_REVIEW_ONLY: '1'
+      QA_ALLOW_WEBGL_FALLBACK: ${{ matrix.allow_fallback }}
+      QA_FORCE_WEBGL_FALLBACK: ${{ matrix.force_fallback }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,33 +56,31 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - name: Test manifest safety and actual Three.js parsing
+      - name: Test catalog safety and actual Three.js parsing
         run: |
           npm run test:manifest
           npm run test:catalog
+          npm run test:theme
+          npm run test:redesign
           npm run test:parser
       - name: Build isolated review site (never release manifest or dist)
         run: node site/prepare-review.mjs
       - run: npx playwright install --with-deps chromium
-      - name: Inspect all real GLBs and gallery interactions
-        env:
-          GALLERY_DIR: qa/review-site
-          QA_REQUIRE_COUNT: '10'
-          QA_REVIEW_ONLY: '1'
-        run: npm run test:browser
+      - name: Inspect static routes, real assets, interactions and 10000-item fixture
+        run: node site/redesign-browser-test.mjs
       - name: Upload review evidence for human inspection
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: gallery-review-${{ github.sha }}
+          name: gallery-review-${{ matrix.profile }}-${{ github.sha }}
           path: |
-            qa/screenshots/
-            qa/browser-report.json
+            qa/redesign-${{ matrix.profile }}/
             qa/threejs-parser.json
           if-no-files-found: warn
           retention-days: 30
       - name: Explain review boundary
         if: always()
         run: |
-          echo '### Gallery review only' >> "$GITHUB_STEP_SUMMARY"
-          echo 'This run does not deploy Pages or edit asset QA. Review browser-report.json and screenshots before approving runtime/visual stages. A successful automated run is not artistic approval.' >> "$GITHUB_STEP_SUMMARY"
+          echo '### Gallery review only: ${{ matrix.profile }}' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No Pages deployment, production manifest change, or asset QA approval is performed.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Strict GPU and forced WebGL fallback are separate profiles. A fallback pass cannot approve real GPU rendering. Inspect the report and screenshots; an automated pass is not artistic approval.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,12 +1,14 @@
 /** Derived browsing data only. This module never discovers assets or approves QA. */
 import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
+import { itemWorlds, itemPacks, compareCatalogNames } from './routes.js';
+import { catalogMembership, WORLD_LABELS, PACK_LABELS, PACK_RECORDS } from './curation.js';
 
 export const CATALOG_SHARD_SIZE = 256;
 const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });
 const label = asset => typeof asset.name === 'string' ? asset.name : asset.name?.en || asset.id;
 const counts = (assets, key) => Object.fromEntries([...assets.reduce((map, asset) => {
-  map.set(asset[key], (map.get(asset[key]) || 0) + 1);
+  for (const value of (key === 'worlds' ? itemWorlds(asset) : key === 'packs' ? itemPacks(asset) : [asset[key]])) map.set(value, (map.get(value) || 0) + 1);
   return map;
 }, new Map())].sort(([a], [b]) => collator.compare(a, b)));
 const facets = (assets, key) => Object.entries(counts(assets, key)).map(([id, count]) => ({ id, count }));
@@ -29,12 +31,15 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
       throw new Error(`Invalid catalog browsing fields: ${asset.id}`);
     }
   }
-  const ordered = [...manifest.assets].sort((a, b) => collator.compare(label(a), label(b)) || collator.compare(a.id, b.id));
+  const ordered = [...manifest.assets].sort(compareCatalogNames);
   const items = ordered.map(asset => ({
     id: asset.id,
     name: asset.name,
     category: asset.category,
     collection: asset.collection,
+    ...catalogMembership(asset),
+    ...(asset.file_sizes ? { file_sizes: asset.file_sizes } : {}),
+    ...(asset.downloads ? { downloads: asset.downloads } : {}),
     preview: asset.preview,
     glb: asset.glb,
     triangles: Number.isFinite(asset.triangles) ? asset.triangles : null,
@@ -46,7 +51,7 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
     const part = items.slice(offset, offset + CATALOG_SHARD_SIZE);
     const path = `${prefix}/shards/${String(descriptors.length).padStart(5, '0')}.json`;
     shards.set(path, { version: 1, items: part });
-    descriptors.push({ path, count: part.length, categories: counts(part, 'category'), collections: counts(part, 'collection') });
+    descriptors.push({ path, count: part.length, categories: counts(part, 'category'), collections: counts(part, 'collection'), worlds: counts(part, 'worlds'), packs: counts(part, 'packs') });
   }
   const index = {
     version: 1,
@@ -55,6 +60,8 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
     shardSize: CATALOG_SHARD_SIZE,
     categories: facets(items, 'category'),
     collections: facets(items, 'collection'),
+    worlds: facets(items, 'worlds').map(facet => ({...facet, ...(WORLD_LABELS[facet.id] ? {name:WORLD_LABELS[facet.id]} : {})})),
+    packs: facets(items, 'packs').map(facet => ({...facet, ...(PACK_LABELS[facet.id] ? {name:PACK_LABELS[facet.id]} : {}), ...(PACK_RECORDS[facet.id] ? {description:PACK_RECORDS[facet.id].description,asset_ids:PACK_RECORDS[facet.id].asset_ids.filter(id=>ids.has(id))} : {})})),
     shards: descriptors,
     initial: items.slice(0, 24),
     detailBase: `${prefix}/details/`
