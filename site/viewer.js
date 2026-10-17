@@ -304,6 +304,7 @@ export class ModelStage {
       this._reference.visible = this._camera.position.y >= this._metricReference.floorY * this._pivot.scale.y;
     }
     this._renderer.render(this._scene, this._camera);
+    globalThis.__vaultFrameProbe?.({canvas:this._renderer.domElement,host:this._host,view:this.presentationInfo});
     this._diagnostics.renderedFrames++;
     this._host.dataset.renderTriangles = String(this._renderer.info.render.triangles);
     this._host.dataset.renderLines = String(this._renderer.info.render.lines);

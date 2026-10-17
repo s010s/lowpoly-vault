@@ -49,7 +49,10 @@
 /* One neutral presentation preset for static frames and real 3D, in either UI theme. */
 .asset-image:has(.scrub-badge),#canvas-host{background:#e8e4dc}
 #catalog-page .grid .has-turntable .asset-image>img{object-fit:contain}
-#canvas-host>.model-handoff{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;visibility:visible!important;background:#e8e4dc}
-.stage-flight{object-fit:contain;background:#e8e4dc;transform-origin:0 0}
+#canvas-host>.model-handoff{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;visibility:visible!important;background:transparent}
+.stage-flight{object-fit:contain;background:transparent;transform-origin:0 0}
 #canvas-host .model-canvas{z-index:1}
 #catalog-page .grid .has-card-preview .asset-image>img{object-fit:contain}.has-card-preview .asset-image{background:#e8e4dc}
+
+/* Model pixels alone travel; the stage background never scales with the bitmap. */
+.viewer-panel{background:#e8e4dc}#canvas-host{background:transparent}

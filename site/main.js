@@ -59,7 +59,7 @@ function formatBytes(bytes) {
   return bytes < 1024 * 1024 ? `${(bytes/1024).toLocaleString(lang === 'zh'?'zh-CN':'en',{maximumFractionDigits:1})} KB` : `${(bytes/1024/1024).toLocaleString(lang === 'zh'?'zh-CN':'en',{maximumFractionDigits:2})} MB`;
 }
 function controlsReady(ready){
-  $('.viewer-controls').hidden=!ready;$('.viewer-hint').hidden=!ready;
+  for(const selector of ['.viewer-controls','.viewer-hint']){const element=$(selector);element.hidden=false;element.style.visibility=ready?'visible':'hidden';element.setAttribute('aria-hidden',String(!ready));}
   document.querySelectorAll('.viewer-controls button').forEach(button=>button.disabled=!ready);
   if(ready) $('#scale-reference').disabled = !stage?.scaleReferenceInfo?.available;
 }
@@ -260,7 +260,7 @@ async function openAsset(id,{push=false,replace=false}={}){
   neighborItems=sourceContext?.items||items;origin=currentView==='catalog'?document.querySelector(`.asset-card[data-id="${CSS.escape(id)}"]`):null;
   const from=!switching?origin?.querySelector('.asset-image')?.getBoundingClientRect():null;fillInfo(selected);paintNeighbors();$('#related').hidden=true;clearHost();host.dataset.modelState='loading';
   let poster;
-  const addPoster=record=>{const preview=record?.card_preview||record?.preview;if(!preview)return;poster=new Image();poster.src=path(preview);poster.alt=loc(record.name);poster.className='model-poster';poster.dataset.assetId=record.id;host.prepend(poster);};
+  const addPoster=record=>{const preview=record?.card_preview||record?.preview;if(!preview)return;poster=new Image();poster.src=path(preview);poster.alt=loc(record.name);poster.className='model-poster';poster.dataset.assetId=record.id;if(host.querySelector('.model-handoff')||retained)poster.style.visibility='hidden';host.prepend(poster);};
   addPoster(asset);if(retained){retained.className='model-handoff';host.append(retained);}else{const copy=copyVisual(origin?.querySelector('.asset-image img'));if(copy){copy.dataset.assetId=id;host.append(copy);}}
   $('#viewer-status').textContent=t('viewLoading');controlsReady(false);$('#wireframe').ariaPressed='false';$('#scale-reference').ariaPressed='false';$('#scale-status').textContent='';$('#provenance').open=false;
   if(!dialog.open)dialog.showModal();document.body.style.overflow='hidden';const motion=animateDialog(from,host.getBoundingClientRect(),false,version);$('#close').focus({preventScroll:true});
@@ -268,9 +268,9 @@ async function openAsset(id,{push=false,replace=false}={}){
     const detail=await store.getDetail(asset||id);if(version!==detailVersion)return;selected=detail;fillInfo(detail);document.title=`${loc(detail.name)} · Lowpoly Vault`;prepareRelated(detail,version);
     if(!poster)addPoster(detail);
     const s=await getStage();if(version!==detailVersion)return;
-    await s.show(host,path(detail.glb),{mode:'detail',metadata:detail,initialView:cardCapture?.view,signal:detailController.signal,onStatus:status=>{if(version===detailVersion){controlsReady(status==='ready');$('#viewer-status').textContent=status==='ready'?'':status==='error'?t('viewError'):t('viewLoading');if(status==='ready')releaseHandoff(version);}}});
+    await s.show(host,path(detail.glb),{mode:'detail',metadata:detail,initialView:cardCapture?.view,signal:detailController.signal,onStatus:status=>{if(version===detailVersion){controlsReady(status==='ready');$('#viewer-status').textContent=status==='ready'?'':status==='error'?t('viewError'):t('viewLoading');if(status==='ready'){if(poster)poster.style.visibility='hidden';releaseHandoff(version);}else if(status==='error'&&poster){poster.style.visibility='visible';}}}});
     await motion;
-  }catch(error){if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');let decoded=false;if(poster){try{await poster.decode();decoded=true;}catch{}}if(version===detailVersion){if(decoded)releaseHandoff(version);else if(host.querySelector('.model-handoff'))$('#viewer-status').textContent=lang==='zh'?'新预览暂时不可用，保留上一个画面。':'New preview unavailable; the previous view is retained.';}}}
+  }catch(error){if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');let decoded=false;if(poster){try{await poster.decode();decoded=true;}catch{}}if(version===detailVersion){if(decoded){poster.style.visibility='visible';releaseHandoff(version);}else if(host.querySelector('.model-handoff'))$('#viewer-status').textContent=lang==='zh'?'新预览暂时不可用，保留上一个画面。':'New preview unavailable; the previous view is retained.';}}}
 }
 async function closeAsset(){
   if(!$('#viewer-dialog').open)return;
