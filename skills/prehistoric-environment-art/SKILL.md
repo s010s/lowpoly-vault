@@ -13,7 +13,7 @@ Make original, recognizable environment assets while keeping the distinction bet
 - For museum context and the scientific boundaries, read [museum-research.md](references/museum-research.md). A [Simplified Chinese supplement](references/museum-research.zh-CN.md) is available.
 - Resolve the source IDs in those briefs through [sources.json](references/sources.json). Check current primary museum, university, specimen, or research sources before expanding a claim.
 
-The first pack is a specific ten-category assignment, not a requirement for every future project. Later work should follow its own requested subjects, period, and location.
+The first pack is a specific ten-category assignment, not a requirement for every future project. Later work should follow its own requested subjects, period, and location. For whether to revise those originals, consult the [evidence-based first-ten triage](../../docs/case-studies/lightweight-triceratops.md#first-ten-triage): prioritize conifer, fern and arch structure; retain and reassess the other seven. This is a recommendation, not authorization to remake or replace a batch.
 
 Use [asset-factual-review](../asset-factual-review/SKILL.md) for feature-by-feature evidence decisions, especially animal anatomy outside this Skill's scope. Follow the [standardized pipeline](../blender-lowpoly-pipeline/references/standardized-pipeline.md) for immutable candidates and fresh independent review. Historical first-pack approvals do not automatically apply to later revisions or a new surface style.
 

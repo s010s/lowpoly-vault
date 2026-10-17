@@ -39,7 +39,7 @@ Set independent geometry, material/primitive, image dimension/encoded byte and d
 
 Build deliberate primary and secondary structure before polish. Inspect clay, silhouette or internal-relief views and relevant close-ups. Resolve attachment, weight, proportion and function-bearing features before using texture detail to increase apparent finish.
 
-Choose palette-only or [textured-PBR](production-contract.md#textured-pbr-profile) explicitly. Texture-rich low-poly is valid. Preserve editable source and bake original maps for portable export. A surface A/B holds geometry, normals, camera, lighting and exposure fixed; a changed mesh is a separately labeled experiment.
+Choose palette-only, color-only texture or [textured-PBR](production-contract.md#textured-pbr-profile) explicitly. Use the [controlled optimization checklist](controlled-optimization.md) when comparing their quality and delivery cost; a cheaper tier need not have equivalent close-detail quality. Texture-rich low-poly is valid. Preserve editable source and bake original maps for portable export. A surface A/B holds geometry, normals, camera, lighting and exposure fixed; a changed mesh is a separately labeled experiment.
 
 After exporting, run source and GLB checks, official format validation, clean reimport and semantic rebuild. Bind each result to the current GLB and the configured budgets. Unsupported content is blocked/unknown. A warning must have an asset-specific review reason; no blanket suppression.
 
