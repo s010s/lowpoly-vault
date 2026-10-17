@@ -1,4 +1,4 @@
-/** Real browser regression coverage for image-to-GLB continuity and interrupted navigation. */
+/** Real browser regression coverage for shared-model card/detail continuity and interrupted navigation. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile, stat } from 'node:fs/promises';
@@ -41,7 +41,7 @@ async function screenshot(page, name) {
   assert.equal(after.viewport.width, before.viewport.width, 'Evidence capture must not resize the tested viewport');
   assert.equal(after.viewport.height, before.viewport.height, 'Evidence capture must not resize the tested viewport');
   assert(Math.abs(after.scroll.y - before.scroll.y) < 1, 'Evidence capture must not scroll away from the retained card');
-  assert.equal(after.preview?.activeId, before.preview?.activeId, 'Evidence capture must not stop the active image preview');
+  assert.equal(after.preview?.activeId, before.preview?.activeId, 'Evidence capture must not stop the active model preview');
 }
 async function previewDiagnostics(page) {
   return page.evaluate(() => {
@@ -50,13 +50,21 @@ async function previewDiagnostics(page) {
       url: location.href, scroll: { x: scrollX, y: scrollY }, viewport: { width: innerWidth, height: innerHeight },
       focusedId: document.activeElement?.dataset.id || null, focusedElement: document.activeElement?.id || document.activeElement?.tagName,
       preview: window.__vaultPreview ? { ...window.__vaultPreview } : null,
-      card: card ? { state: card.dataset.scrubState, frame: card.dataset.scrubFrame, canvases: card.querySelectorAll('canvas').length, rect: { x: r.x, y: r.y, width: r.width, height: r.height }, inView: r.bottom > 0 && r.top < innerHeight } : null,
+      gpu: window.__vaultGPU ? { ...window.__vaultGPU } : null,
+      card: card ? { state: card.dataset.previewState, frame: window.__vaultPreview?.activeId === card.dataset.id ? window.__vaultPreview.frame : null, azimuth: card.dataset.previewAzimuth, canvases: card.querySelectorAll('canvas').length, rect: { x: r.x, y: r.y, width: r.width, height: r.height }, inView: r.bottom > 0 && r.top < innerHeight } : null,
       detail: host ? { state: host.dataset.modelState, presentedUrl: host.dataset.presentedUrl, azimuth: host.dataset.viewAzimuth, elevation: host.dataset.viewElevation, distance: host.dataset.viewDistance } : null,
     };
   });
 }
 async function canvasPixels(page, selector) {
   return page.locator(selector).evaluate(canvas => {
+    // A WebGL context cannot also supply a 2D context. Read its synchronously
+    // copied draw, captured before the non-preserved drawing buffer clears.
+    if (canvas.classList.contains('model-canvas')) {
+      const signature = window.__handoffReview?.pixelSignatures.get(canvas);
+      if (!signature) throw new Error('The actual card draw must be captured synchronously');
+      return signature;
+    }
     const bytes = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
     let hash = 2166136261, transparent = 0;
     for (let i = 0; i < bytes.length; i++) { hash = Math.imul(hash ^ bytes[i], 16777619) >>> 0; if (i % 4 === 3 && bytes[i] <= 3) transparent++; }
@@ -155,7 +163,7 @@ async function angles(page) { return page.locator('#canvas-host').evaluate(host 
 const deltaAngle = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 async function startSampler(page) {
   await page.evaluate(() => {
-    window.__handoffReview = { phase: 'open', frames: [], draws: [], probe_errors: [] };
+    window.__handoffReview = { phase: 'preview', frames: [], draws: [], probe_errors: [], pixelSignatures: new WeakMap() };
     const alphaCache = new WeakMap(), sampleCanvas = document.createElement('canvas');
     const rectOf = element => { const r = element.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; };
     const readAlpha = source => {
@@ -183,6 +191,20 @@ async function startSampler(page) {
       if (!alphaCache.has(element) && !element.classList.contains('model-canvas')) alphaCache.set(element, readAlpha(element));
       return alphaCache.get(element) || null;
     };
+    const pixelSignature = source => {
+      // Match ModelStage.snapshot's bounded copy without retaining another GLB,
+      // renderer, or scene. These are the actual current WebGL draw's pixels.
+      const scale = Math.min(1, 1024 / Math.max(source.width, source.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(source.width * scale); canvas.height = Math.round(source.height * scale);
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      context.drawImage(source, 0, 0, canvas.width, canvas.height);
+      const bytes = context.getImageData(0, 0, canvas.width, canvas.height).data;
+      let hash = 2166136261, transparent = 0;
+      for (let i = 0; i < bytes.length; i++) { hash = Math.imul(hash ^ bytes[i], 16777619) >>> 0; if (i % 4 === 3 && bytes[i] <= 3) transparent++; }
+      const corners = [3, (canvas.width - 1) * 4 + 3, ((canvas.height - 1) * canvas.width) * 4 + 3, bytes.length - 1].map(i => bytes[i]);
+      return { width: canvas.width, height: canvas.height, rgba_hash: hash.toString(16).padStart(8, '0'), transparent_fraction: transparent / (bytes.length / 4), corner_alpha_max: Math.max(...corners) };
+    };
     const projected = (element, alpha) => {
       if (!element || !alpha?.bbox) return null;
       const r = rectOf(element), css = getComputedStyle(element), [iw, ih] = alpha.source;
@@ -202,7 +224,12 @@ async function startSampler(page) {
     // buffer can clear or ready can release the still-present handoff.
     window.__vaultFrameProbe = ({ canvas, host, view }) => {
       try {
-        const alpha = readAlpha(canvas); alphaCache.set(canvas, alpha); window.__handoffReview.latestLiveAlpha = alpha;
+        const alpha = readAlpha(canvas); alphaCache.set(canvas, alpha);
+        if (host.id !== 'canvas-host') {
+          window.__handoffReview.pixelSignatures.set(canvas, pixelSignature(canvas));
+          return;
+        }
+        window.__handoffReview.latestLiveAlpha = alpha;
         const overlay = host.querySelector('.model-handoff'), overlayAlpha = alphaFor(overlay);
         window.__handoffReview.draws.push({ time: performance.now(), phase: window.__handoffReview.phase, host: rectOf(host), alpha, object: projected(canvas, alpha), view,
           overlay: overlay ? { alpha: overlayAlpha, object: projected(overlay, overlayAlpha) } : null });
@@ -342,21 +369,45 @@ async function roundTrip(label, options = {}) {
   try {
     await catalog(page);
     const card = page.locator('#grid .asset-card[data-id="natural-arch"]');
-    await card.scrollIntoViewIfNeeded(); await card.focus(); await page.keyboard.press('Home');
-    for (let i = 0; i < 7; i++) await page.keyboard.press('ArrowRight');
-    await page.waitForFunction(() => document.querySelector('#grid [data-id="natural-arch"]').dataset.scrubFrame === '7');
-    caseReport.preview_pixels = await canvasPixels(page, '#grid [data-id="natural-arch"] .image-scrub-canvas');
-    await page.evaluate(() => { window.__originalReviewCard = document.querySelector('#grid [data-id="natural-arch"]'); });
-    await page.route('**/*.glb', async route => { await new Promise(resolve => setTimeout(resolve, 450)); await route.continue().catch(() => {}); });
+    await card.scrollIntoViewIfNeeded(); await card.focus();
     await startSampler(page);
-    await page.evaluate(() => { window.__openingCardSurface = document.querySelector('#grid [data-id="natural-arch"] .image-scrub-canvas'); });
+    await page.keyboard.press('Home');
+    for (let i = 0; i < 7; i++) await page.keyboard.press('ArrowRight');
+    await page.waitForFunction(() => {
+      const card = document.querySelector('#grid [data-id="natural-arch"]');
+      return card?.dataset.previewState === 'ready' && window.__vaultPreview?.kind === 'shared-real-model' &&
+        window.__vaultPreview.activeId === 'natural-arch' && window.__vaultPreview.frame === 7 &&
+        Math.abs(Number(card.dataset.previewAzimuth) - 147) < 0.001 && card.querySelector('.asset-image .model-canvas');
+    });
+    caseReport.preview_pixels = await canvasPixels(page, '#grid [data-id="natural-arch"] .asset-image .model-canvas');
+    caseReport.preview_resources = await page.evaluate(() => ({ ...window.__vaultGPU }));
+    assert.equal(caseReport.preview_resources.rendererCount, 1, 'The card uses the shared renderer');
+    assert.equal(caseReport.preview_resources.parseCount, 1, 'The card decodes exactly one GLB');
+    assert.equal(caseReport.preview_resources.networkRequests, 1, 'The card requests exactly one GLB');
+    assert.equal(caseReport.preview_resources.cachedScenes, 1, 'The decoded card resource is retained for detail');
+    await page.evaluate(() => {
+      window.__originalReviewCard = document.querySelector('#grid [data-id="natural-arch"]');
+      window.__openingCardSurface = window.__originalReviewCard.querySelector('.asset-image .model-canvas');
+      window.__handoffReview.phase = 'open';
+    });
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.querySelector('#viewer-dialog')?.open);
-    assert(await page.evaluate(() => window.__openingCardSurface === document.querySelector('#viewer-dialog .stage-flight, #canvas-host .model-handoff')), 'The flight must take the already painted card canvas without copying its backing');
+    assert(await page.evaluate(() => {
+      const handoff = document.querySelector('#viewer-dialog .stage-flight, #canvas-host .model-handoff');
+      return handoff instanceof HTMLCanvasElement && handoff !== window.__openingCardSurface;
+    }), 'The opening handoff copies the current draw so the shared WebGL canvas can attach to detail');
     caseReport.handoff_pixels = await canvasPixels(page, '#viewer-dialog .stage-flight, #canvas-host .model-handoff');
     assert.deepEqual(caseReport.handoff_pixels, caseReport.preview_pixels, 'The exact currently painted card pixels must enter the detail handoff');
     assert(caseReport.handoff_pixels.transparent_fraction > 0.2 && caseReport.handoff_pixels.corner_alpha_max <= 3, 'The initial handoff must not contain a baked opaque background');
     await ready(page, 'natural-arch');
+    assert(await page.locator('#canvas-host .model-canvas').evaluate(canvas => canvas === window.__openingCardSurface), 'Detail must attach the exact shared WebGL canvas used by the card');
+    caseReport.open_resources = await page.evaluate(() => ({ ...window.__vaultGPU }));
+    assert.equal(caseReport.open_resources.parseCount, caseReport.preview_resources.parseCount, 'Opening detail must reuse the decoded card resource');
+    assert.equal(caseReport.open_resources.networkRequests, caseReport.preview_resources.networkRequests, 'Opening detail must not fetch the GLB again');
+    assert.equal(caseReport.open_resources.rendererCreations, caseReport.preview_resources.rendererCreations, 'Opening detail must not allocate another renderer');
+    assert.equal(caseReport.open_resources.liveScenes, 1, 'The shared resource has one attached scene');
+    assert.equal(caseReport.open_resources.cachedScenes, caseReport.preview_resources.cachedScenes, 'Opening detail must not add a duplicate decoded scene');
+    assert(caseReport.open_resources.resourceReuses > caseReport.preview_resources.resourceReuses, 'Detail must acquire the retained decoded resource');
     const initial = await angles(page);
     assert(deltaAngle(initial.azimuth, 147) < 0.001, 'The 7/24 preview angle enters actual 3D unchanged');
     await page.waitForTimeout(350);
@@ -376,8 +427,8 @@ async function roundTrip(label, options = {}) {
     await page.locator('#close').click(); await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
     await page.waitForTimeout(150);
     assert(await card.evaluate(node => node === window.__originalReviewCard), 'Same-list close keeps the original card DOM');
-    assert.equal(await card.locator('.image-scrub-canvas').count(), 1, 'The returned card retains the actual current detail image');
-    const returned = await card.locator('.image-scrub-canvas').evaluate(node => {
+    assert.equal(await card.locator('.model-preview-snapshot').count(), 1, 'The returned card retains the actual current detail image');
+    const returned = await card.locator('.model-preview-snapshot').evaluate(node => {
       const r = node.getBoundingClientRect(); return { square: Math.min(r.width, r.height), x: r.x + r.width / 2, y: r.y + r.height / 2 };
     });
     assert.equal(await page.evaluate(() => document.activeElement?.dataset.id), 'natural-arch');
@@ -394,6 +445,13 @@ async function roundTrip(label, options = {}) {
     await page.evaluate(() => { window.__handoffReview.phase = 'inspect-reopen'; });
     const reopened = await angles(page);
     caseReport.reopened = reopened;
+    assert(await page.locator('#canvas-host .model-canvas').evaluate(canvas => canvas === window.__openingCardSurface), 'Reopening keeps the same shared WebGL canvas');
+    caseReport.reopen_resources = await page.evaluate(() => ({ ...window.__vaultGPU }));
+    assert.equal(caseReport.reopen_resources.parseCount, caseReport.preview_resources.parseCount, 'Reopening must not decode the GLB again');
+    assert.equal(caseReport.reopen_resources.networkRequests, caseReport.preview_resources.networkRequests, 'Reopening must not fetch the GLB again');
+    assert.equal(caseReport.reopen_resources.rendererCreations, caseReport.preview_resources.rendererCreations, 'Reopening must not allocate another renderer');
+    assert.equal(caseReport.reopen_resources.cachedScenes, caseReport.preview_resources.cachedScenes, 'Reopening must not duplicate decoded resources');
+
     assert(deltaAngle(beforeClose.azimuth, reopened.azimuth) < 0.001, 'Close/reopen preserves the actual camera azimuth');
     assert(Math.abs(beforeClose.elevation - reopened.elevation) < 0.001, 'Close/reopen preserves the actual camera elevation');
     assert(Number.isFinite(beforeClose.distance) && Math.abs(beforeClose.distance - reopened.distance) < 0.00001, 'Close/reopen preserves the actual camera zoom distance');
@@ -488,7 +546,20 @@ async function earlyLoadFailure() {
     const card = page.locator('#grid .asset-card[data-id="natural-arch"]');
     await card.scrollIntoViewIfNeeded(); await card.focus(); await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
-    await page.waitForFunction(() => document.querySelector('#grid [data-id="natural-arch"] .image-scrub-canvas')?.width > 0);
+    await page.waitForFunction(() => {
+      const card = document.querySelector('#grid [data-id="natural-arch"]');
+      return card?.dataset.previewState === 'ready' && card.querySelector('.asset-image .model-canvas')?.width > 0 &&
+        Math.abs(Number(card.dataset.previewAzimuth) - 57) < 0.001;
+    });
+    caseReport.before_failure_resources = await page.evaluate(() => ({ ...window.__vaultGPU }));
+    // The card deliberately warmed its GLB. Give only the detail response a new
+    // resource key so an immediate network failure cannot be hidden by that LRU.
+    await page.route('**/assets/catalog/details/natural-arch.json', async route => {
+      const response = await route.fetch();
+      const detail = await response.json();
+      await route.fulfill({ response, json: { ...detail, glb: 'assets/__qa__/handoff-failure/natural-arch.glb' } });
+    });
+    let coldFailures = 0;
     await page.evaluate(() => {
       const host = document.querySelector('#canvas-host');
       window.__earlyFailureDuringFlight = null;
@@ -499,9 +570,11 @@ async function earlyLoadFailure() {
       });
       observer.observe(host, { attributes: true, attributeFilter: ['data-model-state'] });
     });
-    await page.route('**/natural-arch.glb', route => route.abort('failed'));
+    await page.route('**/assets/__qa__/handoff-failure/natural-arch.glb', route => { coldFailures++; return route.abort('failed'); });
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.querySelector('#canvas-host').dataset.modelState === 'error');
+    assert.equal(coldFailures, 1, 'The injected failure must exercise a genuinely cold GLB request');
+    assert.equal(await page.evaluate(() => window.__vaultGPU.networkRequests), caseReport.before_failure_resources.networkRequests + 1, 'The detail failure must bypass the warmed preview resource');
     assert.equal(await page.evaluate(() => window.__earlyFailureDuringFlight), true, 'The failure must occur while the retained bitmap is in flight');
     await page.waitForFunction(() => !document.querySelector('.stage-flight, #canvas-host .model-handoff'));
     caseReport.fallback = await page.locator('#canvas-host').evaluate(host => {
@@ -521,7 +594,7 @@ async function earlyLoadFailure() {
     assert.equal(await page.locator('.stage-flight, .model-handoff').count(), 0);
     assert.equal(await page.evaluate(() => document.querySelectorAll('[data-detail-origin]').length), 0);
     caseReport.status = 'pass';
-    report.checks.push('An immediate GLB failure during opening retires the moved bitmap after flight and reveals the decoded poster without stale overlays or live scenes.');
+    report.checks.push('An immediate GLB failure during opening retires the copied bitmap after flight and reveals the decoded poster without stale overlays or live scenes.');
   } catch (error) { caseReport.status = 'fail'; caseReport.error = error.stack; throw error; }
   finally { await context.close(); }
 }

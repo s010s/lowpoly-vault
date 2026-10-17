@@ -7,7 +7,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "node site/initial-release.mjs --check && vite build && node site/copy-assets.mjs && node site/audit-release.mjs",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node site/manifest-test.mjs && node site/validate.mjs --review && node site/catalog-test.mjs && node site/theme-test.mjs && npm run test:pipeline",
+    "test": "node site/manifest-test.mjs && node site/validate.mjs --review && node site/catalog-test.mjs && node site/theme-test.mjs && npm run test:pipeline && npm run test:preview",
     "test:browser": "node site/browser-test.mjs",
     "manifest": "node site/generate-manifest.mjs",
     "manifest:check": "node site/generate-manifest.mjs --check",
@@ -24,7 +24,9 @@
     "test:scrub:browser": "node site/image-scrub-browser-test.mjs",
     "test:modal:browser": "node site/modal-motion-browser-test.mjs",
     "test:handoff:browser": "node site/handoff-browser-test.mjs",
-    "test:pipeline": "python3 scripts/test_qa_glb.py -v && python3 scripts/test_validate_candidate.py -v && python3 scripts/test_asset_queue.py -v && python3 scripts/test_pipeline_pilot.py -v && python3 scripts/test_technical_reports.py -v"
+    "test:pipeline": "python3 scripts/test_qa_glb.py -v && python3 scripts/test_validate_candidate.py -v && python3 scripts/test_asset_queue.py -v && python3 scripts/test_pipeline_pilot.py -v && python3 scripts/test_technical_reports.py -v",
+    "test:preview": "node site/model-preview-test.mjs && node site/viewer-resource-test.mjs",
+    "test:preview:browser": "node site/shared-model-browser-test.mjs"
   },
   "dependencies": {
     "three": "0.180.0"

@@ -115,7 +115,7 @@ async function waitClosed(page) {
   await page.locator('#viewer-dialog').waitFor({ state: 'hidden' });
   await page.waitForFunction(() => !window.__vaultGPU || (window.__vaultGPU.liveScenes === 0 && window.__vaultGPU.activeRequests === 0 && window.__vaultGPU.rafPending === 0));
   assert.equal(await page.locator('.model-canvas').count(), 0, 'Close must detach the shared WebGL canvas');
-  assert(await page.locator('.image-scrub-canvas').count()<=1,'At most one retained image may remain on the returning card');
+  assert(await page.locator('.model-preview-snapshot').count()<=1,'At most one retained image may remain on the returning card');
 }
 async function closeModel(page) { await page.locator('#close').click(); await waitClosed(page); }
 

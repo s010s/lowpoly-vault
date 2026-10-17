@@ -1,7 +1,7 @@
 name: Validate and deploy asset gallery
 on:
   push:
-    branches: [main, 'publish/**']
+    branches: [main, 'publish/**', 'feat/shared-model-preview']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -40,17 +40,22 @@ jobs:
           QA_REQUIRE_COUNT: '10'
           QA_ALLOW_WEBGL_FALLBACK: '0'
         run: node site/redesign-browser-test.mjs
-      - name: Verify image-only list scrubbing and automatic real-3D details
+      - name: Verify intentional real-GLB list previews and shared detail resources
         env:
           GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/image-scrub
+          QA_OUTPUT_DIR: qa/shared-model-preview/list-browser
         run: npm run test:scrub:browser
+      - name: Verify shared real-model rendering, failure recovery and resource bounds
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/shared-model-preview/shared-browser
+        run: npm run test:preview:browser
       - name: Verify same-angle modal handoff and interrupted history
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/handoff-continuity
         run: npm run test:handoff:browser
-      - name: Verify accepted conifer image-to-GLB handoff and interrupted history
+      - name: Verify accepted conifer shared-GLB handoff and interrupted history
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/release-conifer-handoff
@@ -76,7 +81,7 @@ jobs:
             qa/release-strict-gpu/
             qa/release-fallback-only/
             qa/threejs-parser.json
-            qa/image-scrub/
+            qa/shared-model-preview/
             qa/handoff-continuity/
             qa/release-conifer-handoff/
             qa/modal-motion/

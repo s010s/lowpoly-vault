@@ -160,7 +160,7 @@ function installProbe() {
       shell: style(dialog.querySelector('.viewer-layout')), content, host: style(host), model_state: host?.dataset.modelState,
       flight: visual(dialog.querySelector('.stage-flight')), handoff: visual(host?.querySelector('.model-handoff')),
       model: visual(host?.querySelector('.model-canvas')), poster: visual(host?.querySelector('.model-poster')),
-      card: visual(document.querySelector('#grid [data-id="natural-arch"] .image-scrub-canvas')),
+      card: visual(document.querySelector('#grid [data-id="natural-arch"] .model-preview-snapshot, #grid [data-id="natural-arch"] .model-canvas')),
       animations: animationState(dialog), overflow: document.body.style.overflow,
       scroll: { x: scrollX, y: scrollY }, viewport: { width: innerWidth, height: innerHeight } });
   };
@@ -334,7 +334,7 @@ async function catalog(page, { touch = false, lang = '' } = {}) {
   await card.locator('.asset-image > img').evaluate(async image => { if (!image.complete) await image.decode(); });
   await page.waitForTimeout(650);
   if (touch) {
-    // A genuine CDP touch gesture activates the image preview, followed later by
+    // A genuine CDP touch gesture activates the real-model preview, followed later by
     // locator.tap() for the opening action. No synthetic DOM click or mouse click.
     const box = await card.locator('.asset-image').boundingBox(), session = await page.context().newCDPSession(page);
     const x = box.x + box.width * 0.4, y = box.y + box.height * 0.55;
@@ -345,7 +345,10 @@ async function catalog(page, { touch = false, lang = '' } = {}) {
     await card.focus(); await page.keyboard.press('Home');
     for (let i = 0; i < 7; i++) await page.keyboard.press('ArrowRight');
   }
-  await page.waitForFunction(() => document.querySelector('#grid [data-id="natural-arch"] .image-scrub-canvas')?.width > 0);
+  await page.waitForFunction(() => {
+    const card = document.querySelector('#grid [data-id="natural-arch"]');
+    return card?.dataset.previewState === 'ready' && card.querySelector('.asset-image .model-canvas')?.width > 0;
+  });
   await page.waitForTimeout(100);
 }
 async function cleanupState(page, open) {
@@ -542,8 +545,8 @@ async function runCase(label, options, body) {
 }
 async function roundTrip(page, test, { touch = false, reduced = false, lang = '' } = {}) {
   await catalog(page, { touch, lang });
-  // A short network gate exercises chrome independent of the actual GLB load.
-  await page.route('**/*.glb', async route => { await new Promise(resolve => setTimeout(resolve, 380)); await route.continue().catch(() => {}); });
+  // The warmed GLB still waits for presentationReady before its first detail
+  // draw. Chrome coordination must hold without requesting or parsing it again.
   await arm(page, 'open'); await page.locator(cardSelector)[touch ? 'tap' : 'click']();
   await ready(page); const opened = await collect(page, 450); test.measurements.push(opened);
   validateTiming(test, opened, e => e.type === 'click' && e.target === 'card:natural-arch', { opening: true, reduced, sourced: true });

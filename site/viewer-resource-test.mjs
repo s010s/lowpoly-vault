@@ -7,7 +7,7 @@ import { ModelStage, MODEL_STAGE_LIMITS } from './viewer.js';
 
 const frames = new Map(), parsed = [], disposed = [], closed = [];
 let frameID = 0, fetchCount = 0, clears = 0, failFetch = false;
-let parseGate = null, fetchGate = null;
+let parseGate = null, fetchGate = null, failParse = false;
 const motion = { matches: false, addEventListener() {}, removeEventListener() {} };
 globalThis.window = { matchMedia: () => motion };
 globalThis.document = { baseURI: 'https://example.test/', hidden: false, addEventListener() {}, removeEventListener() {},
@@ -42,6 +42,7 @@ function makeGLTF(id) {
   return gltf;
 }
 GLTFLoader.prototype.parseAsync = async function (bytes) {
+  if (failParse) throw new Error('Intentional parse failure');
   const id = new TextDecoder().decode(bytes).replace(/\0+$/, '');
   const gate = parseGate; parseGate = null;
   const gltf = makeGLTF(id);
@@ -182,6 +183,19 @@ try {
   assert.equal(disposed.filter(value => value.startsWith('oversized:')).length, 6,
     'An aborted oversized pending transfer releases its final lease.');
 
+  // A rejected gate has the same cleanup contract as cancellation, including
+  // the sole lease of an oversized model transferred out of its active host.
+  await show(stage, 'oversized'); flush();
+  let rejectPresentation;
+  const rejectedPresentation = new Promise((resolve, reject) => { rejectPresentation = reject; });
+  const rejectedTransfer = show(stage, 'oversized', { presentationReady: rejectedPresentation });
+  await tick(); assert.equal(stage.stats.pendingLeases, 1);
+  rejectPresentation(new Error('Intentional presentation failure'));
+  await assert.rejects(rejectedTransfer, /Intentional presentation failure/);
+  assert.equal(stage.stats.pendingLeases, 0); assert.equal(stage.stats.activeLeases, 0);
+  assert.equal(stage.stats.uncachedActiveScenes, 0);
+  bounded(stage);
+
   await show(stage, 'budget-a'); flush();
   await show(stage, 'budget-b'); flush(); bounded(stage);
   assert.equal(stage.stats.cachedScenes, 1, 'Decoded byte pressure evicts even before the entry limit.');
@@ -225,6 +239,10 @@ try {
   await assert.rejects(show(stage, 'failure'), /Intentional network failure/);
   assert.equal(stage.stats.liveScenes, 0); assert.equal(stage.stats.activeLeases, 0);
   assert.equal(host.dataset.modelState, 'error'); failFetch = false;
+  failParse = true;
+  await assert.rejects(show(stage, 'parse-failure'), /Intentional parse failure/);
+  assert.equal(stage.stats.liveScenes, 0); assert.equal(stage.stats.activeParses, 0);
+  assert.equal(stage.stats.activeLeases, 0); failParse = false;
   await show(stage, 'recovered'); flush();
   assert(stage.stats.networkMilliseconds >= 0 && stage.stats.lastShowMilliseconds >= 0);
   stage.dispose(); empty(stage);
@@ -246,7 +264,8 @@ try {
     'Exact decoded and GPU object reuse across card/detail', 'Orbit angle/elevation/distance and zoom continuity',
     'Reduced-motion view preservation and demand-only frames', 'Original transforms and wireframes restored',
     'Bounded LRU estimated geometry/texture bytes', 'Active lease protected from cache eviction',
-    'Single oversized uncached active scene', 'Abortable presentation gate and fetch',
+    'Single oversized uncached active scene', 'Rejected oversized transfer gate cleanup',
+    'Abortable presentation gate and fetch', 'Parse failure and queue recovery',
     'Stale parse disposal and one serialized parse', 'Complete teardown including pending parse',
   ] }, null, 2));
 } finally { GLTFLoader.prototype.parseAsync = originalParse; }
