@@ -20,7 +20,10 @@ const root = resolve(process.env.GALLERY_DIR || 'dist');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/modal-motion');
 const baseline = /^(1|true)$/i.test(process.env.BASELINE || '');
 const traceRaster = /^(1|true)$/i.test(process.env.QA_TRACE_RASTER || '');
-const cpuDOMRaster = /^(1|true)$/i.test(process.env.QA_CPU_DOM_RASTER || '');
+// Keep the actual GLB in SwiftShader, but raster DOM content with Skia's CPU
+// path. Software GPU DOM raster batches can block the shared queue for hundreds
+// of ms before WebGL is allowed to draw. QA_CPU_DOM_RASTER=0 retains the control.
+const cpuDOMRaster = !/^(0|false)$/i.test(process.env.QA_CPU_DOM_RASTER || '1');
 const onlyCases = (process.env.QA_CASES || '').split(',').map(value => value.trim()).filter(Boolean);
 const prefix = '/lowpoly-vault/';
 const cardSelector = '#grid .asset-card[data-id="natural-arch"]';
@@ -604,6 +607,15 @@ try {
     validateTiming(test, closed, e => e.type === 'popstate', { sourced: true, before }); await assertClean(page, test, false);
     await arm(page, 'history-reopen'); await page.evaluate(() => history.forward()); await ready(page); const opened = await collect(page, 450); test.measurements.push(opened);
     validateTiming(test, opened, e => e.type === 'popstate', { opening: true, sourced: true }); await assertClean(page, test, true);
+    // Fixed warm-cache coverage: every cycle must pass, with no retry branch.
+    for (let cycle = 1; cycle <= 3; cycle++) {
+      await arm(page, `warm-cache-close-${cycle}`); const before = await page.evaluate(() => window.__modalMotionQA.snapshot());
+      await page.evaluate(() => history.back()); const closed = await collect(page, 600); test.measurements.push(closed);
+      validateTiming(test, closed, e => e.type === 'popstate', { sourced: true, before }); await assertClean(page, test, false);
+      await arm(page, `warm-cache-reopen-${cycle}`); await page.evaluate(() => history.forward()); await ready(page);
+      const opened = await collect(page, 450); test.measurements.push(opened);
+      validateTiming(test, opened, e => e.type === 'popstate', { opening: true, sourced: true }); await assertClean(page, test, true);
+    }
     await arm(page, 'history-interruption');
     await page.evaluate(() => { history.back(); setTimeout(() => history.forward(), 35); });
     await ready(page); const interrupted = await collect(page, 1000); test.measurements.push(interrupted); validateInvariant(test, interrupted); await assertClean(page, test, true);

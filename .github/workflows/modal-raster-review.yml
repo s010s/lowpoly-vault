@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 10
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -47,6 +47,7 @@ jobs:
       - name: Measure browser-default full suite once
         continue-on-error: true
         env:
+          QA_CPU_DOM_RASTER: '0'
           QA_TRACE_RASTER: '1'
           QA_OUTPUT_DIR: qa/modal-raster-diagnosis/browser-default
         run: |
