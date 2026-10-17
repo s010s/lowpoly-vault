@@ -1,0 +1,170 @@
+{
+  "revision": "structure-r16",
+  "state": "awaiting_independent_direction_review",
+  "art_approved": false,
+  "publication": "not_performed",
+  "scope": "11 requested pilot PNGs only; no full turntable, full acceptance bundle, GPU/scene test or official full validation run",
+  "glb": {
+    "path": "conifer-tree.glb",
+    "sha256": "5b571aba796c549b6ae86c34cb2f5a1c65dc1597a05f0f8f87a3ea96598b3d52",
+    "bytes": 452244
+  },
+  "generator": {
+    "path": "build_curved_linear_sprays.py",
+    "sha256": "08e47e51d3047d13ab8ade537cf6472a0a820c95ac822230d24b0efb60e7b2eb"
+  },
+  "config": {
+    "path": "build-config.json",
+    "sha256": "fa8806353f5dfe16bf352705e5960ceefc2717fdd67a3c5ce5dd38f7c1b27c97"
+  },
+  "references": {
+    "path": "references.json",
+    "sha256": "8a356f714e7a160ed9bbd3011be80af944434086ecc993b0ba853ec3c5db77da"
+  },
+  "measurements": {
+    "triangles": 16450,
+    "materials": 3,
+    "primitives": 3,
+    "textures": 0,
+    "source_vertices": 10549,
+    "export_position_vertices": 14590,
+    "delta_vs_r15": {
+      "triangles": 0,
+      "bytes": -27076,
+      "groups_per_branchlet": [
+        11,
+        8
+      ]
+    },
+    "wood_preservation": "Exact r12 local vertex/face/world-matrix equality; see wood-preservation.report.json"
+  },
+  "frames": [
+    {
+      "path": "evidence/detailclay512/detailclay.png",
+      "sha256": "4477e5213b640e435ec0937a12fee7c4e59929ecd670d91f292fcb179606716b",
+      "width": 512,
+      "height": 512,
+      "view": "detailclay",
+      "angle_degrees": [
+        35,
+        20
+      ]
+    },
+    {
+      "path": "evidence/directions128/hero.png",
+      "sha256": "d9d5e201dc9dda8aa0669a3b50cfb6286ef9ad18797971b31ad437831a3c5fe4",
+      "width": 128,
+      "height": 128,
+      "view": "hero",
+      "angle_degrees": [
+        35,
+        20
+      ]
+    },
+    {
+      "path": "evidence/directions128/reversehero.png",
+      "sha256": "f524893eba05420728a0ff454375f0f3cc86bc22dbab1fb7344547944ec8ccc5",
+      "width": 128,
+      "height": 128,
+      "view": "reversehero",
+      "angle_degrees": [
+        215,
+        20
+      ]
+    },
+    {
+      "path": "evidence/directions128/front.png",
+      "sha256": "c947fd79366d6d564ef68e0a393503b06b3ec2885a95e323ada846427fab73a6",
+      "width": 128,
+      "height": 128,
+      "view": "front",
+      "angle_degrees": [
+        0,
+        0
+      ]
+    },
+    {
+      "path": "evidence/directions128/rear.png",
+      "sha256": "4786abfb0e09542e9e936cbd6f80758739ea457cf4865a3642bae088e6ad6c64",
+      "width": 128,
+      "height": 128,
+      "view": "rear",
+      "angle_degrees": [
+        180,
+        0
+      ]
+    },
+    {
+      "path": "evidence/directions128/left.png",
+      "sha256": "846bfabe36ff2bd302345be0c5c7ccf1137400253518829882afb230a29a18ac",
+      "width": 128,
+      "height": 128,
+      "view": "left",
+      "angle_degrees": [
+        270,
+        0
+      ]
+    },
+    {
+      "path": "evidence/directions128/right.png",
+      "sha256": "62a294215769e929c2409bdbbf07cf0b351baace7602bcf8a158d9e554712544",
+      "width": 128,
+      "height": 128,
+      "view": "right",
+      "angle_degrees": [
+        90,
+        0
+      ]
+    },
+    {
+      "path": "evidence/four-hero512/hero035.png",
+      "sha256": "30e57e530383c39cd98fa601f8355f6d139b81124a69b0b57dc0ffa73b395ef2",
+      "width": 512,
+      "height": 512,
+      "view": "hero035",
+      "angle_degrees": [
+        35,
+        20
+      ]
+    },
+    {
+      "path": "evidence/four-hero512/hero125.png",
+      "sha256": "4eb51719eb92bb24db7417e30ddab834aadf48076720b6851afe35c2b1f5d227",
+      "width": 512,
+      "height": 512,
+      "view": "hero125",
+      "angle_degrees": [
+        125,
+        20
+      ]
+    },
+    {
+      "path": "evidence/four-hero512/hero215.png",
+      "sha256": "826e0d6da0bd9b1f05776d96abc5d9be37eba455858314471473066a79110e8b",
+      "width": 512,
+      "height": 512,
+      "view": "hero215",
+      "angle_degrees": [
+        215,
+        20
+      ]
+    },
+    {
+      "path": "evidence/four-hero512/hero305.png",
+      "sha256": "690094bdc34a2764322e9d18b0c44e64af4a9b865994991e640f499e35214fbc",
+      "width": 512,
+      "height": 512,
+      "view": "hero305",
+      "angle_degrees": [
+        305,
+        20
+      ]
+    }
+  ],
+  "known_issues": [
+    "Some visible groups can still read as broad/hard blades or pointed strips.",
+    "Upper canopy remains more open than lower canopy.",
+    "Cardinal128 still needs independent judgment for leafy volume versus layered branch framework."
+  ],
+  "next_gate": "Parent task requests the same independent Sol Medium QA on these pilot images before any full run."
+}
