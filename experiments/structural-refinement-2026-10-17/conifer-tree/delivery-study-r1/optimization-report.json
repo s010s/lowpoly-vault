@@ -1,0 +1,60 @@
+{
+  "source": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/conifer-tree.glb",
+  "source_sha256": "beefce3d0baddcf7fa781d2fa9246746dd2cbfc6d6c635e237094c5b7d970cbb",
+  "source_raw_bytes": 1651140,
+  "source_primitives": 18,
+  "source_attributes": [
+    "POSITION",
+    "NORMAL"
+  ],
+  "unused_uv_or_tangent_attributes": false,
+  "source_ordered_material_triangle_digest": "5d15dfda4da7fe18fd66262a73a3437cefe3d286b7726c0ca78a98f2e4217427",
+  "source_triangles": 23784,
+  "quantization_profile": "Unsigned normalized 16-bit positions with uniform node scale and offset; signed normalized 16-bit normals; 4-byte element alignment. No topology/triangle removal.",
+  "references": [
+    "https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_mesh_quantization/README.md"
+  ],
+  "variants": [
+    {
+      "variant": "lossless-compact",
+      "path": "lossless-compact.glb",
+      "sha256": "d89b072b70ad0f70f13bf0a4bd6d7b456444e4fa1cf0aae7ae99ca583015a539",
+      "raw_bytes": 1641804,
+      "buffer_bytes": 1637136,
+      "triangles": 23784,
+      "primitives": 5,
+      "materials": 5,
+      "position_stream_vertices": 62268,
+      "max_position_error_m": 0,
+      "max_normal_angle_error_degrees": 0,
+      "max_normal_length_error": 0,
+      "ordered_material_triangle_digest": "5d15dfda4da7fe18fd66262a73a3437cefe3d286b7726c0ca78a98f2e4217427",
+      "lossless_render_arrays_identical": true,
+      "requires_extension": null,
+      "requires_external_decoder": false,
+      "audit_status": "pass",
+      "audit_errors": []
+    },
+    {
+      "variant": "quantized-16",
+      "path": "quantized-16.glb",
+      "sha256": "ea5fd1fdd438773d336fae5ade9a979f5449b8ccb5d57b3ce9d72c065a387f46",
+      "raw_bytes": 1143744,
+      "buffer_bytes": 1138992,
+      "triangles": 23784,
+      "primitives": 5,
+      "materials": 5,
+      "position_stream_vertices": 62268,
+      "max_position_error_m": 9.073372403570032e-05,
+      "max_normal_angle_error_degrees": 0.001467874038134305,
+      "max_normal_length_error": 2.5030042988483103e-05,
+      "ordered_material_triangle_digest": null,
+      "lossless_render_arrays_identical": false,
+      "requires_extension": "KHR_mesh_quantization",
+      "requires_external_decoder": false,
+      "audit_status": "pass",
+      "audit_errors": []
+    }
+  ],
+  "limitations": "No runtime GPU or visual approval. Lossless grouping changes scene graph only. Quantization changes positions/normals within measured errors and requires new evidence."
+}

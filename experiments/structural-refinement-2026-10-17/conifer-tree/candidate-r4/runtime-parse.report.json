@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "kind": "runtime_parse_report",
+  "stage": "runtime_parse",
+  "subject": {
+    "revision": "structure-r4",
+    "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+    "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+    "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+  },
+  "status": "pass",
+  "method": "Read the standalone GLB bytes, parse with the pinned Three.js GLTFLoader in Node, update world matrices and measure geometry/bounds. No graphics context is created.",
+  "observations": [
+    "Exact emitted GLB parsed without external resources.",
+    "Measured triangles and axis-converted dimensions agree with export metadata.",
+    "This result establishes parsing only; browser, GPU, materials under target lighting, and scene performance are unverified."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "runtime": {
+    "engine": "Three.js",
+    "version": "0.180.0",
+    "loader": "GLTFLoader",
+    "parsed": true
+  },
+  "measurements": {
+    "triangles": 9634,
+    "mesh_nodes": 3,
+    "position_stream_vertices": 21022,
+    "dimensions": [
+      4.303421974182129,
+      7.042110286653042,
+      4.768073320388794
+    ],
+    "bounds_max_delta_m": 0
+  },
+  "created_at": "2026-10-17T03:58:29.239Z"
+}

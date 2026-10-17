@@ -1,0 +1,144 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/render_detail_views.py",
+    "--",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/assets/prehistoric/plants/conifer-tree/conifer-tree.glb",
+    "--output-dir",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/detail-attempts/preview/conifer-tree/original/silhouette128-original/c27879b466a6edb0c67cd8a047e4caf0fe8b136ae9660e05a77a1f799a8779dc/20261017T034930-0f23582f23824a5e81074c845e51489c/outputs",
+    "--revision",
+    "original",
+    "--brief",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/brief.json",
+    "--references",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/references.json",
+    "--framing-json",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/framing.json",
+    "--resolution",
+    "128",
+    "--samples",
+    "8",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "silhouette",
+    "--detail-target",
+    ".5,.5,.43",
+    "--detail-scale",
+    ".32"
+  ],
+  "created_at": "2026-10-17T03:49:30.388270+00:00",
+  "fingerprint": "c27879b466a6edb0c67cd8a047e4caf0fe8b136ae9660e05a77a1f799a8779dc",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 7257,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/brief.json",
+        "sha256": "78ba8a3ceb369ed8d4ba423c091afc2afe1d9c74ef5d48018d0808559223095c"
+      },
+      "framing": {
+        "bytes": 244,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/framing.json",
+        "sha256": "9d954fdc663758337ab717d1b81559297e4394989213aef59019d4104eecefc6"
+      },
+      "glb": {
+        "bytes": 145732,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/assets/prehistoric/plants/conifer-tree/conifer-tree.glb",
+        "sha256": "f7331e9602faea1e2d29bc9b185baa2fbd3ee16bd36bb2d6641eabc4aa019fea"
+      },
+      "helper": {
+        "bytes": 26328,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "sha256": "27fe5c66c3955a003e141debbd96816b0f6eda6f64af991f28234ec42257d8bc"
+      },
+      "references": {
+        "bytes": 2163,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/references.json",
+        "sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "renderer": {
+        "bytes": 17253,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/render_detail_views.py",
+        "sha256": "d9d57dd544acd8a68301adc97e3d15150d0bb6952a697a5c1dfaa809aa0faae0"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "original",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--framing-json",
+        "{input:framing}",
+        "--resolution",
+        "128",
+        "--samples",
+        "8",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "silhouette",
+        "--detail-target",
+        ".5,.5,.43",
+        "--detail-scale",
+        ".32"
+      ],
+      "asset_id": "conifer-tree",
+      "config": {
+        "purpose": "Requested independent-QA matched density and branch-detail comparison only"
+      },
+      "inputs": {
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/brief.json",
+        "framing": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/framing.json",
+        "glb": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/assets/prehistoric/plants/conifer-tree/conifer-tree.glb",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/references.json",
+        "renderer": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/render_detail_views.py"
+      },
+      "job_id": "silhouette128-original",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "turntable.json",
+        "silhouette.png"
+      ],
+      "revision": "original",
+      "timeout_seconds": 180
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261017T034918-91ecd6de3d2348168d075a39ec1a050f"
+}

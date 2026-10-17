@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "structure-r4",
+    "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+    "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+    "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+  },
+  "status": "pass",
+  "method": "Execute the repository static GLB auditor and official Khronos validator, load the saved editable source for axis-aware source/export comparison, and rebuild the generator/config in a separate bounded queue attempt. Compare semantic and byte digests of the emitted GLBs.",
+  "observations": [
+    "Project audit and official validator report zero errors and zero warnings.",
+    "Actual source geometry and GLB agree at 9,634 triangles with meter-scale axis-aware bounds.",
+    "Separate bounded-process rebuild is byte-identical and semantic-identical.",
+    "Three opaque materials occupy three primitives; only POSITION and NORMAL attributes exist.",
+    "All original assets and r3 geometry are preserved. Visual/style and GPU/scene acceptance remain independent."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 9634,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 565716,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+      "report": {
+        "path": "candidate-r4/static-glb.report.json",
+        "sha256": "415824ef20a4fd7495b99d1d25e29520afd47d2ee2f78c011d7e381866a2326b"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+      "report": {
+        "path": "candidate-r4/gltf-validator.report.json",
+        "sha256": "5b2ad674af3819ab21730e4fdf1b411022ae8cfde6d69a12baf3b407eb854fed"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+      "report": {
+        "path": "candidate-r4/source-export.report.json",
+        "sha256": "818d8b2e96123661b609f4b7514c411801c84951ccea7a7ee98ae17bc8f556c0"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+      "report": {
+        "path": "candidate-r4/reproducibility.report.json",
+        "sha256": "f24594b5768ba42cebfac83c537e79f5f9b1b540f46030ac018c39ea6840b03a"
+      },
+      "warning_review": []
+    }
+  ],
+  "created_at": "2026-10-17T03:59:05.009527+00:00"
+}

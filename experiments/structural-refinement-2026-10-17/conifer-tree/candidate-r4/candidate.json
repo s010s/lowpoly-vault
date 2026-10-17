@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "asset_id": "conifer-tree",
+  "revision": "structure-r4",
+  "maker": {
+    "id": "astra-conifer-maker",
+    "task_id": "refine_conifer_structure"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "candidate-r4/conifer-tree.glb",
+      "sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb"
+    },
+    "source": {
+      "path": "candidate-r4/conifer-tree.blend",
+      "sha256": "1023019a7cce48e9e4979154403aa29aa9b5f5f5265897a95d6f9f97c92d5498"
+    },
+    "generator": {
+      "path": "candidate-r4/build_clustered_conifer.py",
+      "sha256": "75d64290cf3f8f52b5775358390f198e21572bf7c9af2549b7b09bc7991056e6"
+    },
+    "config": {
+      "path": "candidate-r4/build-config.json",
+      "sha256": "b0c1b0fe433999712d08d7a70b427fba5052badc7388a1df7a34c29b94a8b06c"
+    },
+    "brief": {
+      "path": "candidate-r4/brief.json",
+      "sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f"
+    },
+    "references": {
+      "path": "candidate-r4/references.json",
+      "sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "detail512",
+      "kind": "render_manifest",
+      "stage": "visual",
+      "path": "candidate-r4/evidence/detail512/render-manifest.json",
+      "sha256": "31029dd9bf4d1cf2eba43adb6baf24020ae199f14510f90b2fb2940a498b0f4a",
+      "subject": {
+        "revision": "structure-r4",
+        "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+        "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      }
+    },
+    {
+      "id": "silhouette128",
+      "kind": "render_manifest",
+      "stage": "visual",
+      "path": "candidate-r4/evidence/silhouette128/render-manifest.json",
+      "sha256": "6f603396ffd8cedaedf142efefc5a3d44ae3d9fbd4e84ea961e3c0d63bb63f30",
+      "subject": {
+        "revision": "structure-r4",
+        "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+        "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      }
+    },
+    {
+      "id": "technical-checks",
+      "kind": "technical_report",
+      "stage": "technical",
+      "subject": {
+        "revision": "structure-r4",
+        "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+        "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "path": "candidate-r4/technical.report.json",
+      "sha256": "d07801dcf5ae797996deb27a23bb3f73622ddf06497ac430cdafd82a28f4968f"
+    },
+    {
+      "id": "threejs-parse",
+      "kind": "runtime_parse_report",
+      "stage": "runtime_parse",
+      "subject": {
+        "revision": "structure-r4",
+        "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+        "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "path": "candidate-r4/runtime-parse.report.json",
+      "sha256": "cbe04d504ea3711ea95f89a605b5cd018a9e517ce8f576e72c091e0e0d1a913d"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "conifer-executed-checks",
+        "task_id": "refine_conifer_structure"
+      },
+      "subject": {
+        "revision": "structure-r4",
+        "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+        "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "evidence": [
+        "technical-checks"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical-checks"
+          ],
+          "note": "Exact-hash executed report and raw evidence."
+        }
+      ],
+      "note": "Executed checks only; independent appearance and factual decisions pending.",
+      "reviewed_at": "2026-10-17T03:59:05.009527+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "detail512",
+        "silhouette128"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "crown-hierarchy",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "round-organic-joins",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "distributed-foliage",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Not yet run or independently reviewed.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "honest-concept",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "conifer-executed-checks",
+        "task_id": "refine_conifer_structure"
+      },
+      "subject": {
+        "revision": "structure-r4",
+        "glb_sha256": "85e93c06a92c56c5312312f2f2f9b6b42bb1446ebf8e85db668012d6b6bc22bb",
+        "brief_sha256": "9632d73f1d8cfd689104f31d469a2bf741e43bd7365d48b15c8de74ad15b836f",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "evidence": [
+        "threejs-parse"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "threejs-parse"
+          ],
+          "note": "Exact-hash executed report and raw evidence."
+        }
+      ],
+      "note": "Executed checks only; independent appearance and factual decisions pending.",
+      "reviewed_at": "2026-10-17T03:59:05.009527+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "New clustered foliage geometry awaits independent visual, factual and specification review."
+    },
+    {
+      "id": "runtime-gpu-scene-pending",
+      "status": "open",
+      "description": "Exact-export GPU and composed scene evidence not run."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

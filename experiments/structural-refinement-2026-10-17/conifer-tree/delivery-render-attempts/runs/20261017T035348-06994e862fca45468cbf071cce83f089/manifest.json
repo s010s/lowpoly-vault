@@ -1,0 +1,116 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "delivery-lossless-compact",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--framing-json",
+        "{input:framing}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,detail",
+        "--detail-target",
+        ".5,.5,.43",
+        "--detail-scale",
+        ".32"
+      ],
+      "asset_id": "conifer-tree",
+      "config": {
+        "purpose": "Controlled retained-shape delivery comparison; no full visual approval"
+      },
+      "inputs": {
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/brief.json",
+        "framing": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/framing.json",
+        "glb": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/delivery-study-r1/lossless-compact.glb",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/references.json",
+        "renderer": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/render_detail_views.py"
+      },
+      "job_id": "controlled-512-comparison",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "turntable.json",
+        "hero.png",
+        "detail.png"
+      ],
+      "revision": "delivery-lossless-compact",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "delivery-quantized-16",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--framing-json",
+        "{input:framing}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,detail",
+        "--detail-target",
+        ".5,.5,.43",
+        "--detail-scale",
+        ".32"
+      ],
+      "asset_id": "conifer-tree",
+      "config": {
+        "purpose": "Controlled retained-shape delivery comparison; no full visual approval"
+      },
+      "inputs": {
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/brief.json",
+        "framing": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/framing.json",
+        "glb": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/delivery-study-r1/quantized-16.glb",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/references.json",
+        "renderer": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/render_detail_views.py"
+      },
+      "job_id": "controlled-512-comparison",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "turntable.json",
+        "hero.png",
+        "detail.png"
+      ],
+      "revision": "delivery-quantized-16",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "preview",
+  "schema_version": 1
+}

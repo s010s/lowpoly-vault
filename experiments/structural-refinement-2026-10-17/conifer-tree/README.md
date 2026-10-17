@@ -41,3 +41,11 @@ This verifies record integrity, not acceptance. The `--require-approved` variant
 ## Scope and licenses
 
 This is an original evidence-informed conifer architectural concept. Its approximately seven-meter scale and amplified foliage groups are design choices. Modern botanical analogues are not claims that this is an identified extinct species. Reference images and third-party meshes are not incorporated. Code is MIT; geometry, source, documentation and renders are CC-BY-4.0, Leon Made This / s010s.
+
+## r4 clustered-foliage option
+
+`candidate-r4/` is the later art-direction alternative. It retains the rounded primary woody structure but replaces the fine individual-like spikes with 161 lateral and seven leader compound shoots, each a narrow volumetric body with three forward, staggered lobes. This is explicitly aggregated needle-bearing shoot imagery, not measured individual leaves. Only three palette materials and three primitives are used.
+
+Measured r4 cost: 9,634 triangles; 21,022 exported POSITION-stream vertices; 565,716 raw bytes, 207,498 gzip9 bytes, 165,897 Brotli11 bytes. This is a substantive new foliage design, not a repack of r3. Its 128px silhouette and 512px hero/detail/clay comparisons are in `candidate-r4/evidence/`. Current-artifact technical and parser checks pass, including a byte-identical separate-process rebuild. Full-angle review and independent acceptance remain pending.
+
+The earlier `delivery-study-r1/` also retains the distinct r3 lossless-consolidation and 16-bit-quantization study. Its cost/precision reports and matched pixels do not approve r3's fine-spike art direction. They are preserved as controlled packaging evidence, not substitutes for r4. Gzip/Brotli values are lossless transport/archive sizes, not directly loadable GLB files or measured GPU allocations.

@@ -1,0 +1,54 @@
+{
+  "engine": "Three.js",
+  "version": "180",
+  "loader": "GLTFLoader",
+  "method": "Sequential single Node parses with world matrix update. Timing is one CPU observation, not a browser/GPU benchmark; array bytes are CPU-side buffers rather than measured GPU allocation.",
+  "gpu": "not_tested",
+  "results": [
+    {
+      "name": "r3",
+      "parsed": true,
+      "parse_ms": 14.828553,
+      "triangles": 23784,
+      "mesh_nodes": 18,
+      "attribute_and_index_array_bytes": 1637136,
+      "dimensions": [
+        4.108729839324951,
+        7.066711746156216,
+        4.545963525772095
+      ],
+      "bounds_max_delta_m": 0,
+      "status": "pass"
+    },
+    {
+      "name": "lossless-compact",
+      "parsed": true,
+      "parse_ms": 4.765094000000005,
+      "triangles": 23784,
+      "mesh_nodes": 5,
+      "attribute_and_index_array_bytes": 1637136,
+      "dimensions": [
+        4.108729839324951,
+        7.066711746156216,
+        4.545963525772095
+      ],
+      "bounds_max_delta_m": 0,
+      "status": "pass"
+    },
+    {
+      "name": "quantized-16",
+      "parsed": true,
+      "parse_ms": 3.5970310000000154,
+      "triangles": 23784,
+      "mesh_nodes": 5,
+      "attribute_and_index_array_bytes": 1138992,
+      "dimensions": [
+        4.108688756600142,
+        7.066711746156216,
+        4.545943904699073
+      ],
+      "bounds_max_delta_m": 0.000041082724808738647,
+      "status": "pass"
+    }
+  ]
+}
