@@ -68,7 +68,19 @@ async function pixelParity(page, label, caseReport) {
   // Capture the actual browser-composited WebGL pixels. Avoid full-page captures,
   // which change mobile layout and trigger intentional offscreen preview cleanup.
   const screenshotName = label + '-actual-detail-pixels.png';
-  const png = await page.locator('#canvas-host .model-canvas').screenshot({ path: resolve(output, screenshotName), type: 'png' });
+  const canvas = page.locator('#canvas-host .model-canvas');
+  await canvas.scrollIntoViewIfNeeded();
+  const bounds = await canvas.boundingBox(), dpr = await page.evaluate(() => devicePixelRatio);
+  // Locator screenshots round fractional bounds outward. That includes a pixel
+  // of the adjacent dark metadata column on macOS, which is not model geometry.
+  // Keep the screenshot inside the canvas; trim less than one device pixel per
+  // edge, with no model mask and the same strict color/bounds/centroid checks.
+  const x = Math.ceil(bounds.x * dpr) / dpr, y = Math.ceil(bounds.y * dpr) / dpr;
+  const clip = { x, y, width: Math.floor((bounds.x + bounds.width) * dpr) / dpr - x,
+    height: Math.floor((bounds.y + bounds.height) * dpr) / dpr - y };
+  assert(clip.width > 0 && clip.height > 0);
+  caseReport.pixel_capture = { bounds, clip, deviceScaleFactor: dpr };
+  const png = await page.screenshot({ path: resolve(output, screenshotName), type: 'png', clip });
   report.screenshots.push(screenshotName);
   const result = await page.evaluate(async ({ png, prefix }) => {
     const size = 320;
@@ -337,8 +349,10 @@ async function roundTrip(label, options = {}) {
     await page.evaluate(() => { window.__originalReviewCard = document.querySelector('#grid [data-id="natural-arch"]'); });
     await page.route('**/*.glb', async route => { await new Promise(resolve => setTimeout(resolve, 450)); await route.continue().catch(() => {}); });
     await startSampler(page);
+    await page.evaluate(() => { window.__openingCardSurface = document.querySelector('#grid [data-id="natural-arch"] .image-scrub-canvas'); });
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.querySelector('#viewer-dialog')?.open);
+    assert(await page.evaluate(() => window.__openingCardSurface === document.querySelector('#viewer-dialog .stage-flight, #canvas-host .model-handoff')), 'The flight must take the already painted card canvas without copying its backing');
     caseReport.handoff_pixels = await canvasPixels(page, '#viewer-dialog .stage-flight, #canvas-host .model-handoff');
     assert.deepEqual(caseReport.handoff_pixels, caseReport.preview_pixels, 'The exact currently painted card pixels must enter the detail handoff');
     assert(caseReport.handoff_pixels.transparent_fraction > 0.2 && caseReport.handoff_pixels.corner_alpha_max <= 3, 'The initial handoff must not contain a baked opaque background');

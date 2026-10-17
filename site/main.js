@@ -310,7 +310,7 @@ async function closeAsset(){
   const visible=matching&&target&&target.bottom>0&&target.top<innerHeight&&target.right>0&&target.left<innerWidth;
   if(!alreadyClosing)await Promise.all([dialogMotion.start({reverse:true,from:chromeFrom}),visible?animateDialog(target,$('#canvas-host').getBoundingClientRect(),true,version,flightStart):Promise.resolve()]);
   if(!closing||version!==detailVersion)return;$('#viewer-dialog').close();dialogMotion.cancel();document.body.style.overflow='';
-  if(visible&&origin?.isConnected&&returnAsset?.id===origin.dataset.id){scrub.retainSnapshot(origin,returnAsset,retained,returnView);hoverCard=origin;}
+  if(visible&&origin?.isConnected&&returnAsset?.id===origin.dataset.id){scrub.retainSnapshot(origin,returnAsset,retained,returnView,{transfer:true});hoverCard=origin;}
   clearHost();restoreOriginVisual();selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;atlas?.setActive(currentView==='catalog'&&browseMode==='atlas');
 }
 function requestClose(){if(history.state?.vaultDetail)history.back();else{history.replaceState({view:'catalog'},'',href('models'));syncRoute();}}

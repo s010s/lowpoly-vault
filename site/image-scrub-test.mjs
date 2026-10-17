@@ -27,7 +27,9 @@ async function idle(c){for(let n=0;n<1000&&c.running;n++)await pause();assert.eq
  const h=harness(),c=h.controller,one=card();c.activate(one,h.a.asset);await idle(c);
  const painted=c.canvas,view={azimuth_deg:147,elevation_deg:28};c.current.snapshotView=view;
  const captured=c.capture({transfer:true});assert.equal(captured.canvas,painted,'Detail reuses the exact card surface without another raster/copy');assert.equal(captured.view,view);assert.equal(captured.canvas.__presentation,view);assert.equal(c.stats.canvasBytes,0);
- c.stop();assert(!captured.canvas.removed,'Preview cleanup cannot remove the transferred flight');assert(h.bitmaps.every(b=>b.closed));c.dispose();check();
+ c.stop();assert(!captured.canvas.removed,'Preview cleanup cannot remove the transferred flight');assert(h.bitmaps.every(b=>b.closed));
+ painted.width=painted.height=1024;c.retainSnapshot(one,h.a.asset,painted,view,{transfer:true});assert.equal(c.canvas,painted,'Returning the flight to its card also avoids a new canvas copy');assert.equal(c.stats.canvasBytes,1024*1024*4);
+ c.request(1);await idle(c);assert.equal(c.canvas.width,768);assert.equal(c.canvas.height,768);assert(c.stats.decodedBytes+c.stats.canvasBytes<=9*1024*1024,'New scrub frames restore the original decoded memory budget');c.dispose();check();
 }
 {
  const hold=deferred();let aborted=false;const h=harness({fetchHook:async(path,signal)=>{if(path.includes('/arch/'))await new Promise((resolve,reject)=>{signal.addEventListener('abort',()=>{aborted=true;reject(new DOMException('Aborted','AbortError'));});hold.promise.then(resolve);});}}),c=h.controller,one=card(),two=card();c.activate(one,h.a.asset);await pause();c.activate(two,h.b.asset);hold.resolve();await idle(c);assert(aborted);assert.equal(one.dataset.scrubState,undefined);assert.equal(two.dataset.scrubState,'ready');assert.equal(c.stats.activeId,'tree');assert.equal(c.stats.peakRequests,1);assert(h.requests.filter(p=>p.endsWith('.webp')).every(p=>p.includes('/tree/')));c.dispose();check();

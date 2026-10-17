@@ -74,6 +74,9 @@ export class ImageScrubPreview {
         if(this.want?.generation===job.generation&&this.want.frame!==job.frame){this.sync();continue;}
         if(job.preload){this.sync();continue;}
         if(!this.canvas){this.canvas=document.createElement('canvas');this.canvas.className='image-scrub-canvas';this.canvas.setAttribute('aria-hidden','true');this.canvas.width=manifest.width;this.canvas.height=manifest.height;job.current.card.querySelector('.asset-image').append(this.canvas);}
+        // A returned detail snapshot may have a larger square backing. Restore
+        // the sequence budget before painting the first new scrub frame.
+        if(this.canvas.width!==manifest.width||this.canvas.height!==manifest.height){this.canvas.width=manifest.width;this.canvas.height=manifest.height;}
         const context=this.canvas.getContext('2d',{alpha:true});context.clearRect(0,0,this.canvas.width,this.canvas.height);context.drawImage(bitmap,0,0);
         job.current.snapshotView=null;job.current.card.dataset.scrubState='ready';job.current.card.dataset.scrubFrame=String(job.frame);job.current.card.querySelector('.card-status').textContent=this.text(`Image view ${job.frame+1}/${manifest.frame_count} · Click for 3D`,`图片视角 ${job.frame+1}/${manifest.frame_count} · 点击进入 3D`);this.stats.frame=job.frame;this.sync();
         this.prefetch=[-1,1].map(delta=>({...job,frame:(job.frame+delta+manifest.frame_count)%manifest.frame_count,preload:true})).filter(next=>!this.decoded.entries.has(manifest.frames[next.frame].path));
@@ -84,15 +87,18 @@ export class ImageScrubPreview {
       }
     }
   }
-  retainSnapshot(card,asset,source,view) {
+  retainSnapshot(card,asset,source,view,{transfer=false}={}) {
     if(!asset?.turntable||!source)return;
     this.stop();const count=asset.turntable.frame_count;
     const azimuth=view?.azimuth_deg??CARD_RENDER_PRESET.camera.azimuth_deg;
     const frame=((Math.round((azimuth-CARD_RENDER_PRESET.camera.azimuth_deg)*count/360)%count)+count)%count;
     this.current={card,id:asset.id,descriptor:asset.turntable,frame,snapshotView:view};this.intersection.observe(card);
-    this.canvas=document.createElement('canvas');this.canvas.width=asset.turntable.width;this.canvas.height=asset.turntable.height;this.canvas.className='image-scrub-canvas';this.canvas.setAttribute('aria-hidden','true');
     const width=source.naturalWidth||source.width,height=source.naturalHeight||source.height,size=Math.min(width,height);
-    this.canvas.getContext('2d').drawImage(source,(width-size)/2,(height-size)/2,size,size,0,0,this.canvas.width,this.canvas.height);
+    if(transfer&&width===height&&width<=PREVIEW_LIMITS.maxDimension){this.canvas=source;}else{
+      this.canvas=document.createElement('canvas');this.canvas.width=asset.turntable.width;this.canvas.height=asset.turntable.height;
+      this.canvas.getContext('2d').drawImage(source,(width-size)/2,(height-size)/2,size,size,0,0,this.canvas.width,this.canvas.height);
+    }
+    this.canvas.className='image-scrub-canvas';this.canvas.setAttribute('aria-hidden','true');
     card.querySelector('.asset-image').append(this.canvas);card.dataset.scrubState='ready';card.dataset.scrubFrame=String(frame);this.stats.frame=frame;this.sync();
   }
   capture({transfer=false}={}) {
