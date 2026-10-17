@@ -2,12 +2,14 @@ import assert from 'node:assert/strict';
 import { RETURN_TIMING, shortestAngleDelta, interpolateReturnView, startModelReturn } from './return-motion.js';
 
 const rafs = new Map(), timers = new Map();
+const listeners = new Map();
 let id = 0, now = 1000;
 globalThis.performance = { now: () => now };
 globalThis.requestAnimationFrame = callback => { rafs.set(++id, callback); return id; };
 globalThis.cancelAnimationFrame = key => rafs.delete(key);
 globalThis.setTimeout = callback => { timers.set(++id, callback); return id; };
 globalThis.clearTimeout = key => timers.delete(key);
+globalThis.document = { hidden: false, addEventListener: (name, fn) => listeners.set(name, fn), removeEventListener: name => listeners.delete(name) };
 const frame = elapsed => { now = 1000 + elapsed; const pending = [...rafs.values()]; rafs.clear(); pending.forEach(fn => fn(now)); };
 const near = (a, b) => assert(Math.abs(a - b) < 1e-9, `${a} != ${b}`);
 const from = { left: 100, top: 80, width: 600, height: 600 }, to = { left: 720, top: 620, width: 240, height: 240 };
@@ -41,5 +43,11 @@ assert.equal(b.calls.length, 0); assert.equal(b.aligned.length, 0); assert.equal
 const c = setup(); c.stage._host = {}; frame(30); assert.equal(await c.motion.finished, false); assert.equal(c.calls.length, 0, 'A late return callback cannot draw into a newer owner.');
 const d = setup({ reduced: true }); assert.equal(await d.motion.finished, true); assert.deepEqual(d.calls[0].view, [42, 23.3, 5]);
 assert.equal(d.calls[0].phase, 'fading'); assert.equal(rafs.size, 0); assert.equal(timers.size, 0);
-const e = setup(); [...timers.values()][0](); assert.equal(await e.motion.finished, true); assert.equal(rafs.size, 0); assert.equal(timers.size, 0, 'Hidden-tab deadline also releases finite animation callbacks.');
+const e = setup(); document.hidden = true; [...timers.values()][0](); assert.equal(await e.motion.finished, true); assert.equal(rafs.size, 0); assert.equal(timers.size, 0, 'Hidden-tab deadline also releases finite animation callbacks.'); document.hidden = false;
+const f = setup(); frame(250); assert.equal(f.host.style.opacity, '1', 'A delayed canonical draw still starts a complete visible fade.');
+[...timers.values()][0](); assert.equal(f.motion.playState, 'running', 'A visible-page deadline cannot erase the aligned fade.');
+frame(280); near(Number(f.host.style.opacity), .5); frame(310); assert.equal(await f.motion.finished, true);
+assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners.size, 0);
+const g = setup(); document.hidden = true; listeners.get('visibilitychange')(); assert.equal(await g.motion.finished, true); document.hidden = false;
+assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners.size, 0, 'Hiding a page retires all finite-motion callbacks immediately.');
 console.log(JSON.stringify({ status: 'pass', timing: RETURN_TIMING, covers: ['shortest-angle interpolation', 'shared camera and square-flight easing', 'exact canonical alignment before poster fade', 'finite close-only RAF', 'cancel/new-owner safety', 'instant reduced motion', 'hidden-tab deadline'] }, null, 2));

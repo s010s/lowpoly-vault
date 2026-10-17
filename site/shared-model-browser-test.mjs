@@ -8,6 +8,8 @@ import assert from 'node:assert/strict';
 const root=resolve(process.env.GALLERY_DIR||'dist');
 const output=resolve(process.env.QA_OUTPUT_DIR||'qa/shared-model-preview/browser');
 const prefix='/lowpoly-vault/';
+const cpuDOMRaster=!/^(0|false)$/i.test(process.env.QA_CPU_DOM_RASTER||'1');
+const browserArgs=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader',...(cpuDOMRaster?['--disable-gpu-rasterization']:[])];
 const catalog=JSON.parse(await readFile(resolve(root,'assets/catalog.json'),'utf8'));
 const assets=catalog.initial;
 const viewerFile=(await readdir(resolve(root,'assets'))).find(n=>/^viewer-.*\.js$/.test(n));
@@ -32,8 +34,11 @@ const glbRequests=label=>requestLog.filter(r=>r.label===label&&/\.glb(?:\?|$)/.t
 const turntableRequests=label=>requestLog.filter(r=>r.label===label&&/turntable|frame\d{3}/.test(r.url));
 function check(c,name,condition,detail){c.checks.push({name,pass:Boolean(condition),...(detail!==undefined?{detail}:{})});assert(condition,name);}
 async function test(name,fn,options={}){
- const c={name,checks:[],status:'running'};report.cases.push(c);
- const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'no-preference',recordVideo:{dir:output,size:{width:1440,height:1000}},...options});
+ const {recordVideo={dir:output,size:{width:1440,height:1000}},...contextOptions}=options;
+ const c={name,checks:[],status:'running',video_recording:Boolean(recordVideo)};report.cases.push(c);
+ // Timing/event probes run without video readback. Dedicated interaction cases
+ // retain videos, while these cases still capture their settled screenshots.
+ const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'no-preference',...(recordVideo?{recordVideo}:{}),...contextOptions});
  const page=await context.newPage();current=page;
  page.on('pageerror',error=>report.page_errors.push({case:name,error:error.message}));
  page.on('request',r=>requestLog.push({label:name,url:r.url(),type:r.resourceType(),time:Date.now()}));
@@ -112,9 +117,10 @@ fixture=Buffer.alloc(28+jsonBytes.length+binBytes.length);modelBytes.copy(fixtur
 
 try{
  await mkdir(output,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));base='http://127.0.0.1:'+server.address().port;
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:browserArgs});
  report.timing_method='Cold/warm wall time includes the intentional 180ms hover dwell; firstPreviewMilliseconds and lastShowMilliseconds are app load/render timings. ResourceTiming and server byte counts are actual loopback HTTP transfers.';
- report.browser={version:browser.version(),executable:process.env.CHROMIUM_PATH||chromium.executablePath(),args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']};
+ report.browser={version:browser.version(),executable:process.env.CHROMIUM_PATH||chromium.executablePath(),args:browserArgs};
+ report.dom_raster_mode=cpuDOMRaster?'cpu':'browser-default';
  await test('poster-dwell-and-cold-warm',async(page,c)=>{
   await listing(page);await page.waitForTimeout(500);
   check(c,'initial static posters fetch zero GLBs',glbRequests(c.name).length===0,glbRequests(c.name));check(c,'initial creates no WebGL stage',await page.evaluate(()=>!window.__vaultGPU));
@@ -186,7 +192,7 @@ try{
   const fade=frames.filter(f=>f.phase==='fading');check(c,'crossfade exposes matching canonical poster while live model fades',fade.length>0&&fade.every(f=>f.progress===1&&f.poster_visible)&&fade.some(f=>f.opacity<.99),fade);
   const after=await stats(page);check(c,'return creates no renderer parse fetch or extra lease',after.rendererCreations===1&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount&&after.liveScenes===0&&after.activeLeases===0&&after.rafPending===0,{before,after});
   await shot(page,'06b-actual-model-returned-canonical-poster');
- });
+ },{recordVideo:false});
  await test('moving-close-forward-back-before-queued-reopen',async(page,c)=>{
   await listing(page);const el=await hover(page);await stage(page);await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');
   await page.evaluate(()=>{const s=window.__qaStage;s.setView(315,49,s.canonicalView.distance*.76);});
@@ -238,7 +244,7 @@ try{
   check(c,'resumed close keeps a live visual until the canonical poster is shown',evidence.frames.every(f=>f.flight||f.poster_visible||f.time<evidence.forwardEventTime),evidence.frames);
   const after=await stats(page);check(c,'triple history finishes canonical with no RAF leases fetches parses or renderer leaks',after.liveScenes===0&&after.activeLeases===0&&after.pendingLeases===0&&after.rafPending===0&&after.rendererCreations===before.rendererCreations&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount,{before,after});
   await shot(page,'06d-triple-history-resumed-canonical-poster');
- });
+ },{recordVideo:false});
  await test('context-loss-during-live-canonical-return',async(page,c)=>{
   await listing(page);const el=await hover(page);await stage(page);await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');
   const before=await stats(page),canonical=await canonicalView(page);
@@ -252,14 +258,16 @@ try{
     if(!host.classList.contains('live-model-return'))return;
     const state=window.__qaReturnLoss,p=Number(host.dataset.returnProgress);
     state.draws.push({time:performance.now(),progress:p,phase:host.dataset.returnPhase,view:{...view},toolbar_disabled:document.querySelector('.viewer-controls').inert||[...document.querySelectorAll('.viewer-controls button')].every(button=>button.disabled)});
-    if(!state.requested&&p>.15&&p<1){state.requested=true;setTimeout(()=>extension.loseContext(),0);}
+    // Trigger on the first measured nonzero moving pose. Waiting for a
+    // second arbitrary progress band can miss the only such frame on SwiftShader.
+    if(!state.requested&&p>0&&p<1){state.requested=true;state.requestedAt={time:performance.now(),progress:p,phase:host.dataset.returnPhase};extension.loseContext();}
    };
    const sample=()=>{const state=window.__qaReturnLoss;if(state.lost){const image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),flight=document.querySelector('.live-model-return'),css=getComputedStyle(image);state.frames.push({time:performance.now(),dialog_open:document.querySelector('#viewer-dialog').open,flight_phase:flight?.dataset.returnPhase||null,flight_opacity:flight?Number(getComputedStyle(flight).opacity):null,poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});}window.__qaReturnLossRAF=requestAnimationFrame(sample);};sample();
    return true;
   });
   check(c,'real WebGL context-loss extension available for strict return coverage',supported);
   await close(page);await canonicalPoster(page,c,'natural-arch','mid-return context-loss fallback');
-  c.context_loss_return=await page.evaluate(()=>{cancelAnimationFrame(window.__qaReturnLossRAF);delete window.__vaultFrameProbe;const {draws,frames,requested,lost}=window.__qaReturnLoss;return {draws,frames,requested,lost,context_lost:window.__qaStage._contextLost};});
+  c.context_loss_return=await page.evaluate(()=>{cancelAnimationFrame(window.__qaReturnLossRAF);delete window.__vaultFrameProbe;const {draws,frames,requested,requestedAt,lost}=window.__qaReturnLoss;return {draws,frames,requested,requestedAt,lost,context_lost:window.__qaStage._contextLost};});
   const evidence=c.context_loss_return;
   check(c,'native context loss interrupts an actual moving return frame',evidence.requested&&evidence.lost?.dialog_open&&evidence.lost.phase==='moving'&&evidence.lost.progress>0&&evidence.lost.progress<1,evidence);
   check(c,'return toolbar input is blocked before and throughout actual return draws',evidence.draws.length>1&&evidence.draws.every(d=>d.toolbar_disabled),evidence.draws);
@@ -270,7 +278,7 @@ try{
   await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');sameView(c,canonical,await view(page),'context-restored reopen starts canonical');
   check(c,'restored context reuses original canvas and decoded GLTF after interrupted close',await page.evaluate(()=>window.__qaStage._renderer.domElement===window.__qaReturnLoss.canvas&&window.__qaStage._gltf.scene===window.__qaReturnLoss.scene&&window.__qaStage._activeResource===window.__qaReturnLoss.resource));
   const restored=await stats(page);check(c,'context restoration creates no extra renderer parse or request',restored.rendererCreations===before.rendererCreations&&restored.networkRequests===before.networkRequests&&restored.parseCount===before.parseCount,{before,restored});await close(page);
- });
+ },{recordVideo:false});
  await test('rapid-hover-abort-latest-wins',async(page,c)=>{
   await page.route('**/*.glb',async route=>{await new Promise(r=>setTimeout(r,220));await route.continue().catch(()=>{});});await listing(page);
   const ids=['natural-arch','conifer-tree','cycad','dinosaur-nest'];

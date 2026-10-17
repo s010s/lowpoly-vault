@@ -10,7 +10,7 @@ export function interpolateReturnView(from, to, progress) {
 
 /** Only runs during close. One borrowed live canvas, no second scene or loop. */
 export function startModelReturn({ stage, host, from, to, getTarget, initialView, canonicalView, reduced = false, onAligned = () => {} }) {
-  let raf = 0, timer, done, aligned = false;
+  let raf = 0, timer, done, aligned = false, fadeStarted = null;
   const started = performance.now();
   const motion = { playState: 'running', finished: new Promise(resolve => { done = resolve; }), cancel, finish };
   const styles = stage.beginCanonicalReturnStyles?.();
@@ -26,9 +26,13 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
     place(1); host.dataset.returnPhase = 'fading'; host.dataset.returnProgress = '1';
     stage.canonicalReturnStyleProgress?.(1, styles);
     stage.setView(canonicalView.azimuth_deg, canonicalView.elevation_deg, canonicalView.distance); onAligned();
+    // Slow rendering may deliver the canonical draw after the travel deadline.
+    // Start the fade only once that aligned model and its poster are drawable.
+    fadeStarted = performance.now();
   };
   function end(result) {
     if (raf) cancelAnimationFrame(raf); raf = 0; clearTimeout(timer);
+    document.removeEventListener('visibilitychange', visibility);
     motion.playState = result ? 'finished' : 'idle'; done(result);
     stage.endCanonicalReturnStyles?.(styles);
   }
@@ -50,17 +54,19 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
       place(returnEase(progress)); stage.canonicalReturnStyleProgress?.(returnEase(progress), styles);
       stage.setView(view.azimuth_deg, view.elevation_deg, view.distance);
     } else {
-      align(); place(1); host.style.opacity = String(1 - clamp((elapsed - RETURN_TIMING.travel) / RETURN_TIMING.fade));
+      align(); place(1); host.style.opacity = String(1 - clamp((performance.now() - fadeStarted) / RETURN_TIMING.fade));
     }
-    if (elapsed >= RETURN_TIMING.total) finish();
+    if (aligned && performance.now() - fadeStarted >= RETURN_TIMING.fade) finish();
     else raf = requestAnimationFrame(frame);
   }
+  function visibility() { if (document.hidden) finish(); }
   place(0); host.dataset.returnPhase = 'moving'; host.dataset.returnProgress = '0';
   if (reduced) finish();
   else {
     raf = requestAnimationFrame(frame);
     // A background tab must still finish dismissal when RAF is suspended.
-    timer = setTimeout(finish, RETURN_TIMING.total);
+    document.addEventListener('visibilitychange', visibility);
+    timer = setTimeout(() => { if (document.hidden) finish(); }, RETURN_TIMING.total);
   }
   return motion;
 }

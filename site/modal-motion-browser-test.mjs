@@ -73,8 +73,11 @@ function installProbe() {
     const canvas = element.matches('.model-canvas') ? element : element.querySelector('.model-canvas');
     if (canvas && viewCache.has(canvas)) return viewCache.get(canvas);
     if (element.__presentation) return { ...element.__presentation };
-    if (!element.dataset.viewDistance) return null;
-    return { azimuth_deg: Number(element.dataset.viewAzimuth), elevation_deg: Number(element.dataset.viewElevation), distance: Number(element.dataset.viewDistance) };
+    // An idle model may not draw after arming. Its last rendered camera is
+    // published on the owning host, rather than on the shared canvas itself.
+    const host = canvas?.parentElement || element;
+    if (!host.dataset.viewDistance) return null;
+    return { azimuth_deg: Number(host.dataset.viewAzimuth), elevation_deg: Number(host.dataset.viewElevation), distance: Number(host.dataset.viewDistance) };
   };
   const scratch = document.createElement('canvas');
   const rect = element => {

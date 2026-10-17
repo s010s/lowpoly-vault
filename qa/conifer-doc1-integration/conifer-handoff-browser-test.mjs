@@ -10,7 +10,8 @@ import { CARD_RENDER_PRESET } from '../../site/render-preset.js';
 const root = resolve(process.env.GALLERY_DIR || 'dist');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/handoff-continuity');
 const prefix = '/lowpoly-vault/';
-const report = { status: 'running', commit: process.env.GITHUB_SHA || null, checks: [], cases: [], page_errors: [], screenshots: [], videos: [], note: 'Chromium software rendering and emulated viewport sizes; no physical-device performance claim.' };
+const cpuDOMRaster = !/^(0|false)$/i.test(process.env.QA_CPU_DOM_RASTER || '1');
+const report = { dom_raster_mode: cpuDOMRaster ? 'cpu' : 'browser-default', status: 'running', commit: process.env.GITHUB_SHA || null, checks: [], cases: [], page_errors: [], screenshots: [], videos: [], note: 'Chromium software rendering and emulated viewport sizes; no physical-device performance claim.' };
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.webp': 'image/webp', '.png': 'image/png', '.glb': 'model/gltf-binary' };
 const server = createServer(async (req, res) => {
   try {
@@ -27,8 +28,12 @@ const server = createServer(async (req, res) => {
 let browser, base, current;
 const requests = [];
 async function makeContext(label, options = {}) {
-  const viewport = options.viewport || { width: 1440, height: 1000 };
-  const context = await browser.newContext({ viewport, reducedMotion: 'no-preference', recordVideo: { dir: output, size: viewport }, ...options });
+  const { returnTiming = false, returnStyles, ...contextOptions } = options;
+  const viewport = contextOptions.viewport || { width: 1440, height: 1000 };
+  // Timing-sensitive return evidence uses real DOM/draw samples and screenshots.
+  // Video encoding must not consume the short 120 ms travel / 60 ms fade budget.
+  const context = await browser.newContext({ viewport, reducedMotion: 'no-preference',
+    ...(returnTiming ? {} : { recordVideo: { dir: output, size: viewport } }), ...contextOptions });
   const page = await context.newPage(); current = page;
   page.on('pageerror', error => report.page_errors.push({ label, error: error.message }));
   page.on('request', request => requests.push({ label, url: request.url(), time: Date.now() }));
@@ -167,17 +172,22 @@ async function startSampler(page) {
   await page.evaluate(() => {
     window.__handoffReview = { phase: 'preview', frames: [], draws: [], returnDraws: [], probe_errors: [], pixelSignatures: new WeakMap() };
     const alphaCache = new WeakMap(), sampleCanvas = document.createElement('canvas');
+    const returnCaptures = [], returnFrameCaptures = [];
     const rectOf = element => { const r = element.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; };
-    const readAlpha = source => {
+    const alphaSampleSize = source => {
       const sw = source.naturalWidth || source.width, sh = source.naturalHeight || source.height;
-      if (!sw || !sh) return null;
       // Compare equal visible-square raster footprints. A mobile detail canvas
       // is 2:1 while its square preview/return is square. Cap the visible square
       // at 384 physical pixels for all surfaces without changing tolerances.
       const host = document.querySelector('#canvas-host').getBoundingClientRect();
       const square = Math.max(1, Math.min(384, Math.round(Math.min(host.width, host.height) * devicePixelRatio)));
       const ratio = square / Math.min(sw, sh);
-      sampleCanvas.width = Math.max(1, Math.round(sw * ratio)); sampleCanvas.height = Math.max(1, Math.round(sh * ratio));
+      return [Math.max(1, Math.round(sw * ratio)), Math.max(1, Math.round(sh * ratio))];
+    };
+    const readAlpha = (source, sampledSize) => {
+      const sw = source.naturalWidth || source.width, sh = source.naturalHeight || source.height;
+      if (!sw || !sh) return null;
+      [sampleCanvas.width, sampleCanvas.height] = sampledSize || alphaSampleSize(source);
       const width = sampleCanvas.width, height = sampleCanvas.height, context = sampleCanvas.getContext('2d', { willReadFrequently: true });
       context.clearRect(0, 0, width, height); context.drawImage(source, 0, 0, width, height);
       const pixels = context.getImageData(0, 0, width, height).data;
@@ -213,14 +223,52 @@ async function startSampler(page) {
       const corners = [3, (canvas.width - 1) * 4 + 3, ((canvas.height - 1) * canvas.width) * 4 + 3, bytes.length - 1].map(i => bytes[i]);
       return { width: canvas.width, height: canvas.height, rgba_hash: hash.toString(16).padStart(8, '0'), transparent_fraction: transparent / (bytes.length / 4), corner_alpha_max: Math.max(...corners) };
     };
-    const projected = (element, alpha) => {
-      if (!element || !alpha?.bbox) return null;
-      const r = rectOf(element), css = getComputedStyle(element), [iw, ih] = alpha.source;
+    const projectedAt = (r, objectFit, alpha) => {
+      if (!alpha?.bbox) return null;
+      const [iw, ih] = alpha.source;
       let width = r.width, height = r.height, x = r.x, y = r.y;
-      if (css.objectFit === 'contain') { const scale = Math.min(width / iw, height / ih); width = iw * scale; height = ih * scale; x += (r.width - width) / 2; y += (r.height - height) / 2; }
+      if (objectFit === 'contain') { const scale = Math.min(width / iw, height / ih); width = iw * scale; height = ih * scale; x += (r.width - width) / 2; y += (r.height - height) / 2; }
       const b = alpha.bbox;
       return { left: x + b.left * width, top: y + b.top * height, right: x + b.right * width, bottom: y + b.bottom * height,
         width: (b.right - b.left) * width, height: (b.bottom - b.top) * height, x: x + alpha.centroid.x * width, y: y + alpha.centroid.y * height };
+    };
+    const projected = (element, alpha) => element ? projectedAt(rectOf(element), getComputedStyle(element).objectFit, alpha) : null;
+    const copyPixels = (source, sampledSize) => {
+      const copy = document.createElement('canvas');
+      if (sampledSize) {
+        [copy.width, copy.height] = sampledSize;
+        copy.getContext('2d').drawImage(source, 0, 0, copy.width, copy.height);
+      } else {
+        const side = Math.min(source.width, source.height), scale = Math.min(1, 1024 / side);
+        copy.width = copy.height = Math.round(side * scale);
+        copy.getContext('2d').drawImage(source, (source.width - side) / 2, (source.height - side) / 2, side, side, 0, 0, copy.width, copy.height);
+      }
+      return copy;
+    };
+    // Retain actual pixels synchronously, but defer CPU readback, alpha loops,
+    // hashing and PNG encoding until motion has settled. Those probes otherwise
+    // consumed more than the complete 180 ms motion on software-rendered CI.
+    window.__handoffReview.flushReturnCaptures = () => {
+      for (const capture of returnCaptures) {
+        if (capture.processed) continue;
+        const { draw, alphaCopy, source, rect, objectFit, pixels, composite } = capture;
+        draw.alpha = readAlpha(alphaCopy, [alphaCopy.width, alphaCopy.height]); draw.alpha.source = source;
+        draw.object = projectedAt(rect, objectFit, draw.alpha);
+        if (pixels) draw.pixels = pixelSignature(pixels);
+        if (composite) {
+          draw.visiblePixels = pixelSignature(composite);
+          draw.visibleAlpha = readAlpha(composite, capture.sampled);
+        }
+        if (window.__handoffReview.returnEndpoint?.draw === draw) window.__handoffReview.returnEndpoint.png = pixels.toDataURL('image/png');
+        capture.processed = true;
+        alphaCopy.width = alphaCopy.height = 0;
+        if (pixels) pixels.width = pixels.height = 0;
+        if (composite) composite.width = composite.height = 0;
+      }
+      for (const capture of returnFrameCaptures) {
+        capture.flight.alpha = capture.draw.alpha;
+        capture.flight.object = projectedAt(capture.rect, capture.objectFit, capture.draw.alpha);
+      }
     };
     const cssBackgroundAlpha = element => {
       const color = getComputedStyle(element).backgroundColor;
@@ -232,44 +280,41 @@ async function startSampler(page) {
     // buffer can clear or ready can release the still-present handoff.
     window.__vaultFrameProbe = ({ canvas, host, view }) => {
       try {
-        const alpha = readAlpha(canvas); alphaCache.set(canvas, alpha);
-        const signature = pixelSignature(canvas);
-        window.__handoffReview.pixelSignatures.set(canvas, signature);
         if (host.classList.contains('stage-flight')) {
-          const progress = Number(host.dataset.returnProgress), returnPhase = host.dataset.returnPhase;
-          const draw = { time: performance.now(), phase: window.__handoffReview.phase, progress, returnPhase,
-            host: rectOf(host), alpha, object: projected(canvas, alpha), view, pixels: signature,
-            actualSharedCanvas: canvas === window.__openingCardSurface,
+          const review = window.__handoffReview, progress = Number(host.dataset.returnProgress), returnPhase = host.dataset.returnPhase;
+          const draw = { time: performance.now(), phase: review.phase, progress, returnPhase,
+            host: rectOf(host), view, actualSharedCanvas: canvas === window.__openingCardSurface,
             originHidden: Boolean(document.querySelector('[data-detail-origin]')),
             opacity: Number(getComputedStyle(host).opacity),
             styleResources: { referenceObjects: window.__vaultGPU.referenceObjects, returnOverlayMeshes: window.__vaultGPU.returnOverlayMeshes || 0, returnOverlayMaterials: window.__vaultGPU.returnOverlayMaterials || 0 } };
-          if (returnPhase === 'fading' && draw.opacity > 0 && draw.opacity < 1) {
-            const poster = window.__originalReviewCard.querySelector('.asset-image > img');
-            const side = Math.min(canvas.width, canvas.height), scale = Math.min(1, 1024 / side), live = document.createElement('canvas');
-            live.width = live.height = Math.round(side * scale);
-            live.getContext('2d').drawImage(canvas, (canvas.width - side) / 2, (canvas.height - side) / 2, side, side, 0, 0, live.width, live.height);
+          const sampled = alphaSampleSize(canvas), firstEndpoint = progress >= 1 && !review.returnEndpoint;
+          const reversalDraw = Boolean(review.reversalRequested || (window.__reverseReturnAtProgress && progress >= window.__reverseReturnAtProgress && progress < 1));
+          const capture = { draw, sampled, source: [canvas.width, canvas.height], rect: rectOf(canvas),
+            objectFit: getComputedStyle(canvas).objectFit, alphaCopy: copyPixels(canvas, sampled),
+            pixels: firstEndpoint || reversalDraw ? copyPixels(canvas) : null };
+          if (returnPhase === 'fading' && draw.opacity > 0 && draw.opacity < 1 && reversalDraw) {
+            const poster = window.__originalReviewCard.querySelector('.asset-image > img'), live = capture.pixels;
             const composite = document.createElement('canvas'); composite.width = live.width; composite.height = live.height;
             const context = composite.getContext('2d'); context.drawImage(poster, 0, 0, composite.width, composite.height);
             context.globalAlpha = draw.opacity; context.drawImage(live, 0, 0);
-            draw.visiblePixels = pixelSignature(composite); draw.visibleAlpha = readAlpha(composite);
+            capture.composite = composite;
           }
-          window.__handoffReview.returnDraws.push(draw);
-          // Preserve the real endpoint draw before its non-preserved WebGL buffer
-          // clears or the live scene is detached. No bitmap substitutes for flight.
-          if (progress >= 1 && !window.__handoffReview.returnEndpoint) {
-            const side = Math.min(canvas.width, canvas.height), copy = document.createElement('canvas');
-            copy.width = copy.height = side;
-            copy.getContext('2d').drawImage(canvas, (canvas.width - side) / 2, (canvas.height - side) / 2, side, side, 0, 0, side, side);
-            window.__handoffReview.returnEndpoint = { png: copy.toDataURL('image/png'), draw };
-            sample(false);
+          returnCaptures.push(capture); review.returnDraws.push(draw);
+          if (firstEndpoint) {
+            review.returnEndpoint = { draw };
+            // setView's draw is deliberately before onAligned reveals the card.
+            // Observe the resulting DOM only after that synchronous task returns.
             queueMicrotask(() => { if (host.isConnected) sample(false); });
           }
-          if (window.__reverseReturnAtProgress && !window.__handoffReview.reversalRequested && progress >= window.__reverseReturnAtProgress && progress < 1) {
-            window.__handoffReview.reversalRequested = true;
-            setTimeout(() => { window.__handoffReview.phase = 'reversal'; history.forward(); }, 0);
+          if (window.__reverseReturnAtProgress && !review.reversalRequested && progress >= window.__reverseReturnAtProgress && progress < 1) {
+            review.reversalRequested = true;
+            setTimeout(() => { review.phase = 'reversal'; history.forward(); }, 0);
           }
           return;
         }
+        const alpha = readAlpha(canvas); alphaCache.set(canvas, alpha);
+        const signature = pixelSignature(canvas);
+        window.__handoffReview.pixelSignatures.set(canvas, signature);
         if (host.id !== 'canvas-host') return;
         window.__handoffReview.latestLiveAlpha = alpha;
         const overlay = host.querySelector('.model-handoff'), overlayAlpha = alphaFor(overlay);
@@ -316,6 +361,10 @@ async function startSampler(page) {
             progress: Number(flight.dataset.returnProgress), returnPhase: flight.dataset.returnPhase, opacity: Number(getComputedStyle(flight).opacity),
             originHidden: Boolean(document.querySelector('[data-detail-origin]')),
             alpha, object: projected(surface, alpha), css_background_alpha: cssBackgroundAlpha(flight), css_background_image: getComputedStyle(flight).backgroundImage };
+          if (entry.flight.kind === 'live-return') {
+            const draw = window.__handoffReview.returnDraws.at(-1);
+            if (draw) returnFrameCaptures.push({ flight: entry.flight, draw, rect: rectOf(surface), objectFit: getComputedStyle(surface).objectFit });
+          }
         }
         window.__handoffReview.frames.push(entry);
         if (window.__reverseReturnPhase === 'fading' && !window.__handoffReview.reversalRequested && entry.flight?.returnPhase === 'fading' && entry.flight.opacity > 0 && entry.flight.opacity < 1) {
@@ -340,7 +389,7 @@ async function startSampler(page) {
   });
 }
 async function endSampler(page) {
-  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); delete window.__vaultFrameProbe; if (window.__handoffOriginalAnimate) Element.prototype.animate = window.__handoffOriginalAnimate; return window.__handoffReview.frames; });
+  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); window.__handoffReview.flushReturnCaptures(); delete window.__vaultFrameProbe; if (window.__handoffOriginalAnimate) Element.prototype.animate = window.__handoffOriginalAnimate; return window.__handoffReview.frames; });
 }
 
 async function dynamicContinuity(page, caseReport, frames) {
@@ -411,7 +460,7 @@ async function dynamicContinuity(page, caseReport, frames) {
 }
 
 async function canonicalReturnCoverage(page, label, caseReport, canonical, beforeClose, options) {
-  const evidence = await page.evaluate(() => ({ draws: window.__handoffReview.returnDraws, endpoint: window.__handoffReview.returnEndpoint }));
+  const evidence = await page.evaluate(() => { window.__handoffReview.flushReturnCaptures(); return { draws: window.__handoffReview.returnDraws, endpoint: window.__handoffReview.returnEndpoint }; });
   caseReport.canonical_return = { draws: evidence.draws, endpoint: evidence.endpoint?.draw || null };
   if (options.reducedMotion === 'reduce') {
     assert(evidence.draws.every(draw => draw.progress === 0 || draw.progress === 1), 'Reduced motion skips intermediate camera return poses');
@@ -457,7 +506,7 @@ async function canonicalReturnCoverage(page, label, caseReport, canonical, befor
     assert.equal(last.styleResources.returnOverlayMeshes, 0, 'Canonical endpoint removes temporary wireframe meshes before fading');
     assert.equal(last.styleResources.returnOverlayMaterials, 0, 'Canonical endpoint disposes temporary wireframe materials before fading');
   }
-  const parity = await page.evaluate(async ({ png, posterSrc }) => {
+  const parity = await page.evaluate(async ({ png, posterSrc, projectionSize }) => {
     const size = 320, load = async src => { const image = new Image(); image.src = src; await image.decode(); return image; };
     const [actualImage, poster] = await Promise.all([load(png), load(posterSrc)]);
     const normalize = image => {
@@ -475,6 +524,24 @@ async function canonicalReturnCoverage(page, label, caseReport, canonical, befor
       return { canvas, pixels, foreground: { bbox: { left, top, right, bottom }, centroid: { x: sx / count, y: sy / count }, pixels: count },
         alpha: { transparent_fraction: transparent / (size * size), corner_alpha_max: Math.max(pixels[3], pixels[(size - 1) * 4 + 3], pixels[((size - 1) * size) * 4 + 3], pixels.at(-1)) } };
     };
+    // Screen-space alignment must compare the same alpha-weighted pixel-center
+    // statistic at the same raster footprint as the synchronously captured draw.
+    // Keep the independent 320 px unweighted pixel-parity oracle unchanged.
+    const projectionCanvas = document.createElement('canvas');
+    [projectionCanvas.width, projectionCanvas.height] = projectionSize;
+    const projectionContext = projectionCanvas.getContext('2d');
+    projectionContext.drawImage(poster, 0, 0, ...projectionSize);
+    const projectionPixels = projectionContext.getImageData(0, 0, ...projectionSize).data;
+    const [pw, ph] = projectionSize;
+    let pl = pw, pr = -1, pt = ph, pb = -1, weight = 0, cx = 0, cy = 0;
+    for (let y = 0; y < ph; y++) for (let x = 0; x < pw; x++) {
+      const alpha = projectionPixels[(y * pw + x) * 4 + 3];
+      if (alpha <= 16) continue;
+      pl = Math.min(pl, x); pr = Math.max(pr, x); pt = Math.min(pt, y); pb = Math.max(pb, y);
+      weight += alpha; cx += (x + 0.5) * alpha; cy += (y + 0.5) * alpha;
+    }
+    const posterProjection = { sampled: projectionSize, bbox: { left: pl / pw, top: pt / ph, right: (pr + 1) / pw, bottom: (pb + 1) / ph },
+      centroid: { x: cx / weight / pw, y: cy / weight / ph } };
     const actual = normalize(actualImage), expected = normalize(poster);
     // Composite both transparent sources on the same white backing. Alpha-aware
     // RGB comparison excludes undefined RGB in fully transparent WebP pixels.
@@ -487,9 +554,9 @@ async function canonicalReturnCoverage(page, label, caseReport, canonical, befor
       mean_rgb_absolute_error: error / (size * size * 3 * 255),
       bbox_delta_px: Math.max(...Object.keys(actual.foreground.bbox).map(key => Math.abs(actual.foreground.bbox[key] - expected.foreground.bbox[key]))),
       centroid_delta_px: Math.hypot(actual.foreground.centroid.x - expected.foreground.centroid.x, actual.foreground.centroid.y - expected.foreground.centroid.y),
-      actualForeground: actual.foreground, expectedForeground: expected.foreground, liveAlpha: actual.alpha, posterAlpha: expected.alpha,
+      actualForeground: actual.foreground, expectedForeground: expected.foreground, liveAlpha: actual.alpha, posterAlpha: expected.alpha, posterProjection,
       actual_png: actual.canvas.toDataURL('image/png'), poster_png: expected.canvas.toDataURL('image/png') };
-  }, { png: evidence.endpoint.png, posterSrc: caseReport.returned.src });
+  }, { png: evidence.endpoint.png, posterSrc: caseReport.returned.src, projectionSize: evidence.endpoint.draw.alpha.sampled });
   const { actual_png, poster_png, ...measurements } = parity;
   caseReport.canonical_return.pixel_parity = measurements;
   await writeFile(resolve(output, label + '-canonical-live-endpoint.png'), Buffer.from(actual_png.split(',')[1], 'base64'));
@@ -501,12 +568,13 @@ async function canonicalReturnCoverage(page, label, caseReport, canonical, befor
   assert(measurements.mean_rgb_absolute_error < 0.04, 'The actual live canonical endpoint must match the visible poster lighting and pixels');
   assert(measurements.bbox_delta_px <= 8, 'The actual canonical endpoint silhouette must match the poster within 8 pixels');
   assert(measurements.centroid_delta_px <= 8, 'The actual canonical endpoint center must match the poster within 8 pixels');
-  const endpoint = evidence.endpoint.draw.object, reference = measurements.expectedForeground, returned = caseReport.returned;
+  const endpoint = evidence.endpoint.draw.object, reference = measurements.posterProjection, returned = caseReport.returned;
+  assert.deepEqual(reference.sampled, evidence.endpoint.draw.alpha.sampled, 'Live and poster alignment use the same raster footprint');
   const expectedOnCard = {
-    x: returned.x + (reference.centroid.x / 320 - 0.5) * returned.square,
-    y: returned.y + (reference.centroid.y / 320 - 0.5) * returned.square,
-    width: (reference.bbox.right - reference.bbox.left + 1) / 320 * returned.square,
-    height: (reference.bbox.bottom - reference.bbox.top + 1) / 320 * returned.square,
+    x: returned.x + (reference.centroid.x - 0.5) * returned.square,
+    y: returned.y + (reference.centroid.y - 0.5) * returned.square,
+    width: (reference.bbox.right - reference.bbox.left) * returned.square,
+    height: (reference.bbox.bottom - reference.bbox.top) * returned.square,
   };
   const alignment = { center_step_px: Math.hypot(endpoint.x - expectedOnCard.x, endpoint.y - expectedOnCard.y),
     scale_step: Math.max(Math.abs(endpoint.width / expectedOnCard.width - 1), Math.abs(endpoint.height / expectedOnCard.height - 1)) };
@@ -531,7 +599,7 @@ async function directDetails() {
 }
 
 async function roundTrip(label, options = {}) {
-  const context = await makeContext(label, options); const { page } = context;
+  const context = await makeContext(label, { ...options, returnTiming: true }); const { page } = context;
   const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
   try {
     await catalog(page);
@@ -646,6 +714,7 @@ async function roundTrip(label, options = {}) {
       assert(closeFlights.every(frame => frame.flight.kind === 'live-return' && frame.flight.actualSharedCanvas), 'Close animates the actual shared live model inside a DIV');
       const aligned = closeFlights.filter(frame => frame.flight.progress === 1 && !frame.flight.originHidden);
       assert(aligned.length > 0 && aligned.every(frame => frame.canonicalPosterVisible), 'Aligned fade exposes the matching canonical poster beneath the live model');
+      assert(aligned.some(frame => frame.sampledBy === 'raf' && frame.flight.opacity > 0 && frame.flight.opacity < 1), 'Aligned fade must actually paint a partially faded live model over the visible canonical poster');
       const fading = aligned.map(frame => frame.flight.opacity);
       assert(fading.every(opacity => opacity >= 0 && opacity <= 1), 'Aligned live model opacity stays bounded during the fade');
       assert.equal(frames.filter(frame => frame.flight && frame.stationaryVisible).length, 0, 'A flying model must not duplicate a stationary model behind it');
@@ -806,7 +875,7 @@ async function interruptedHistory() {
 }
 
 async function interruptedCanonicalReturn(returnPhase = 'moving') {
-  const label = 'interrupted-canonical-return-' + returnPhase, context = await makeContext(label), { page } = context;
+  const label = 'interrupted-canonical-return-' + returnPhase, context = await makeContext(label, { returnTiming: true }), { page } = context;
   const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
   try {
     await catalog(page);
@@ -906,7 +975,7 @@ async function supersededImport() {
 try {
   await mkdir(output, { recursive: true }); await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   base = `http://127.0.0.1:${server.address().port}`;
-  browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+  browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...(cpuDOMRaster ? ['--disable-gpu-rasterization'] : [])] });
   report.chromium_version = browser.version();
   await directDetails();
   await roundTrip('desktop-motion');
