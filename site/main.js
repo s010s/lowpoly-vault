@@ -249,7 +249,7 @@ async function animateDialog(from,to,reverse=false,version=detailVersion,flightS
   clone.className='stage-flight';Object.assign(clone.style,{left:`${large.left}px`,top:`${large.top}px`,width:`${large.width}px`,height:`${large.height}px`});dialog.append(clone);host.style.opacity='0';
   const transform=`translate(${small.left-large.left}px,${small.top-large.top}px) scale(${small.width/large.width})`;
   const start=flightStart?containRect(flightStart,ratio):null,startTransform=start?`translate(${start.left-large.left}px,${start.top-large.top}px) scale(${start.width/large.width})`:null;
-  const animation=modalAnimation=clone.animate(reverse?[{transform:startTransform||'none',opacity:1},{transform,opacity:1}]:[{transform:startTransform||transform,opacity:1},{transform:'none',opacity:1}],{duration:reverse?DIALOG_TIMING.flightClose:DIALOG_TIMING.flightOpen,easing:'cubic-bezier(.18,.8,.2,1)'});
+  const animation=modalAnimation=clone.animate(reverse?[{transform:startTransform||'none',opacity:1},{transform,opacity:1}]:[{transform:startTransform||transform,opacity:1},{transform:'none',opacity:1}],{duration:reverse?DIALOG_TIMING.flightClose:DIALOG_TIMING.flightOpen,easing:'cubic-bezier(.18,.8,.2,1)',fill:'forwards'});
   await animation.finished.catch(()=>{});releaseVisual(clone);if(version!==detailVersion)return;host.style.opacity='';if(modalAnimation===animation)modalAnimation=null;
 }
 reduced.addEventListener('change',()=>{if(reduced.matches)modalAnimation?.finish();});

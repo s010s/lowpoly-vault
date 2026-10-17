@@ -22,7 +22,7 @@ const cardSelector = '#grid .asset-card[data-id="natural-arch"]';
 const report = {
   status: 'running', mode: baseline ? 'baseline' : 'regression', commit: process.env.GITHUB_SHA || null,
   targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, reverse_flight: 180 },
-  note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. PNG screencasts and synchronous GPU-pixel probes run separately from timing assertions to avoid readback stalls.',
+  note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. PNG screencasts run separately from timing assertions. Pixel/GLB geometry is covered by the independent handoff browser regression, avoiding readback stalls in motion evidence.',
   cases: [], page_errors: [], screenshots: [], videos: [],
 };
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.webp': 'image/webp', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml' };
@@ -134,12 +134,13 @@ function installProbe() {
     const dialog = document.querySelector('#viewer-dialog'), host = document.querySelector('#canvas-host');
     if (!dialog) return;
     const css = getComputedStyle(dialog), backdrop = getComputedStyle(dialog, '::backdrop');
-    const colors = css.boxShadow.match(/rgba?\([^)]+\)|color\([^)]+\)/g) || [];
+    const shadow = dialog.querySelector('.modal-chrome-shadow'), shadowCSS = shadow ? getComputedStyle(shadow) : css;
+    const colors = shadowCSS.boxShadow.match(/rgba?\([^)]+\)|color\([^)]+\)/g) || [];
     const content = [...dialog.querySelectorAll('.asset-info > *, .viewer-topline')].filter(el => getComputedStyle(el).display !== 'none').map((el, i) => ({
       key: el.id || el.className || `${el.tagName}-${i}`, ...style(el),
     }));
     frames.push({ time: performance.now(), source, phase, open: dialog.open, marker: dialog.dataset.modalMotion || null,
-      path: location.pathname, dialog: { ...style(dialog), shadow_alpha: Math.max(0, ...colors.map(colorAlpha)) },
+      path: location.pathname, dialog: { ...style(dialog), shadow_alpha: Math.max(0, ...colors.map(colorAlpha)) * (shadow ? Number(shadowCSS.opacity) : 1) },
       backdrop: { opacity: Number(backdrop.opacity), background_alpha: colorAlpha(backdrop.backgroundColor),
         effective_alpha: Number(backdrop.opacity) * colorAlpha(backdrop.backgroundColor), animation: backdrop.animationName },
       shell: style(dialog.querySelector('.viewer-layout')), content, host: style(host), model_state: host?.dataset.modelState,
@@ -366,11 +367,11 @@ async function sequence(page, test, label, action) {
 }
 async function evidenceRoundTrip(page, test, { touch = false } = {}) {
   await sequence(page, test, test.label + '-evidence', async capture => {
-    await arm(page, 'evidence-open', true);
+    await arm(page, 'evidence-open');
     await page.locator(cardSelector)[touch ? 'tap' : 'click']();
     const opened = await collect(page, 850); await ready(page);
     await page.waitForTimeout(200);
-    await arm(page, 'evidence-close', true); await page.locator('#close')[touch ? 'tap' : 'click']();
+    await arm(page, 'evidence-close'); await page.locator('#close')[touch ? 'tap' : 'click']();
     const closed = await collect(page, 500);
     capture.input_events = [...opened.events, ...closed.events];
     capture.frames.forEach(frame => { frame.since_open_ms = frame.browser_time_ms - (opened.events.find(e => e.type === 'click' && e.target === 'card:natural-arch')?.time ?? 0); frame.since_close_ms = frame.browser_time_ms - (closed.events.find(e => e.type === 'click' && e.target === '#close')?.time ?? 0); });
@@ -380,7 +381,9 @@ async function evidenceRoundTrip(page, test, { touch = false } = {}) {
 }
 async function runCase(label, options, body) {
   const viewport = options.viewport || { width: 1440, height: 1000 };
-  const context = await browser.newContext({ viewport, reducedMotion: 'no-preference', recordVideo: { dir: output, size: viewport }, ...options });
+  // Screen recording is deliberately off during latency measurement. Actual
+  // compositor PNG sequences are captured in the separate evidence round-trip.
+  const context = await browser.newContext({ viewport, reducedMotion: 'no-preference', ...options });
   const page = await context.newPage(); page.setDefaultTimeout(15000); await page.addInitScript(installProbe);
   const test = { label, status: 'running', assertions: [], timings: [], measurements: [] }; report.cases.push(test);
   page.on('pageerror', error => report.page_errors.push({ label, error: error.message }));

@@ -207,7 +207,7 @@ async function startSampler(page) {
       }
       return element.tagName !== 'IMG' || element.naturalWidth > 0;
     };
-    const sample = () => {
+    const sample = (schedule = true) => {
       const host = document.querySelector('#canvas-host'), flight = document.querySelector('.stage-flight'), overlay = host.querySelector('.model-handoff'), model = host.querySelector('.model-canvas');
       if (document.querySelector('#viewer-dialog')?.open) {
         const stationaryVisible = [...host.querySelectorAll('canvas,img')].some(visible);
@@ -224,13 +224,24 @@ async function startSampler(page) {
         }
         window.__handoffReview.frames.push(entry);
       }
-      window.__handoffReviewRAF = requestAnimationFrame(sample);
+      if (schedule) window.__handoffReviewRAF = requestAnimationFrame(() => sample());
+    };
+    // rAF is not guaranteed to land on the final frame of a short flight. Sample
+    // its real filled endpoint before the app's await continuation removes it.
+    // Keep the existing center/scale tolerances, rather than widening them for
+    // a penultimate sample on a loaded software-rendered CI runner.
+    const animate = Element.prototype.animate;
+    window.__handoffOriginalAnimate = animate;
+    Element.prototype.animate = function (...args) {
+      const animation = animate.apply(this, args);
+      if (this.classList.contains('stage-flight')) animation.finished.then(() => sample(false), () => {});
+      return animation;
     };
     sample();
   });
 }
 async function endSampler(page) {
-  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); delete window.__vaultFrameProbe; return window.__handoffReview.frames; });
+  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); delete window.__vaultFrameProbe; if (window.__handoffOriginalAnimate) Element.prototype.animate = window.__handoffOriginalAnimate; return window.__handoffReview.frames; });
 }
 
 async function dynamicContinuity(page, caseReport, frames) {

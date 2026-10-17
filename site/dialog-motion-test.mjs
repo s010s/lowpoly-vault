@@ -3,7 +3,7 @@ import { DialogMotion, DIALOG_TIMING } from './dialog-motion.js';
 
 const pending = [];
 function element(name) {
-  return { name, opacity: '1', shadow: '0px 35px 150px rgba(0, 0, 0, 0.6)', animate(frames, options) {
+  return { name, style: {}, opacity: '1', shadow: '0px 35px 150px rgba(0, 0, 0, 0.6)', animate(frames, options) {
     let resolve;
     const animation = { name, frames, options, finished: new Promise(done => { resolve = done; }),
       cancelled: false, cancel() { this.cancelled = true; resolve(); }, finish() { resolve(); } };
@@ -11,15 +11,17 @@ function element(name) {
     return animation;
   } };
 }
-const panel = element('panel'), content = [element('heading'), element('controls'), element('close')];
+const shadow = element('shadow'), panel = element('panel'), content = [element('heading'), element('controls'), element('close')];
 const dialog = Object.assign(element('dialog'), {
   open: false, dataset: {}, backdrop: '1', properties: new Map(),
-  querySelector: () => panel, querySelectorAll: () => content,
+  querySelector: selector => selector === '.modal-chrome-shadow' ? shadow : panel, querySelectorAll: () => content,
+  getBoundingClientRect: () => ({left: 20, top: 32, width: 1000, height: 600}),
   removeAttribute(name) { if (name === 'data-modal-motion') delete this.dataset.modalMotion; },
 });
 dialog.style = { setProperty: (name, value) => dialog.properties.set(name, value), removeProperty: name => dialog.properties.delete(name) };
 const listeners = new Set();
 const reduced = { matches: false, addEventListener(type, fn) { listeners.add(fn); }, removeEventListener(type, fn) { listeners.delete(fn); } };
+globalThis.ResizeObserver = class { observe() {} disconnect() {} };
 globalThis.getComputedStyle = (node, pseudo) => pseudo ? { opacity: node.backdrop } : { opacity: node.opacity, boxShadow: node.shadow };
 const motion = new DialogMotion(dialog, reduced);
 assert.equal(motion.capture(), null, 'A closed dialog starts transparent');
@@ -32,7 +34,9 @@ assert.equal(pending[0].options.duration, DIALOG_TIMING.panelOpen);
 assert.deepEqual(pending[0].frames, [{ opacity: 0 }, { opacity: 1 }]);
 assert(pending.every(animation => animation.options.fill === 'both'));
 assert(pending.every(animation => animation.frames.every(frame => !('transform' in frame))), 'Chrome cannot move the canvas or its containing block');
-assert(pending.filter(animation => animation.name !== 'dialog').every(animation => animation.options.duration + (animation.options.delay || 0) <= 240));
+assert(pending.every(animation => animation.frames.every(frame => !('boxShadow' in frame))), 'Blur stays static on its own opacity-composited layer');
+assert.deepEqual(shadow.style, { left: '20px', top: '32px', width: '1000px', height: '600px' });
+assert(pending.filter(animation => animation.name !== 'shadow').every(animation => animation.options.duration + (animation.options.delay || 0) <= 240));
 
 // Reverse from the current painted opacity, not from an opaque modal flash.
 panel.opacity = '.42'; content.forEach(node => node.opacity = '.19'); dialog.backdrop = '.55';

@@ -13,10 +13,17 @@ export class DialogMotion {
     this.reduced = reduced;
     this.active = new Set();
     this.version = 0;
+    this.positionShadow = () => {
+      const rect = dialog.getBoundingClientRect();
+      Object.assign(this.shadow.style, { left: `${rect.left}px`, top: `${rect.top}px`, width: `${rect.width}px`, height: `${rect.height}px` });
+    };
+    this.resize = new ResizeObserver(this.positionShadow);
+    this.resize.observe(dialog);
     this.onReduce = () => { if (reduced.matches) for (const animation of this.active) animation.finish(); };
     reduced.addEventListener('change', this.onReduce);
   }
   get panel() { return this.dialog.querySelector('.viewer-layout'); }
+  get shadow() { return this.dialog.querySelector('.modal-chrome-shadow'); }
   get content() {
     return [...this.dialog.querySelectorAll('.asset-info > *, .viewer-topline, #viewer-status, .viewer-controls, #scale-status, .viewer-hint, :scope > button')];
   }
@@ -25,7 +32,7 @@ export class DialogMotion {
     return {
       opacity: new Map([this.panel, ...this.content].map(element => [element, Number(getComputedStyle(element).opacity)])),
       backdrop: Number(getComputedStyle(this.dialog, '::backdrop').opacity),
-      shadow: getComputedStyle(this.dialog).boxShadow,
+      shadow: Number(getComputedStyle(this.shadow).opacity),
     };
   }
   cancel() {
@@ -38,6 +45,7 @@ export class DialogMotion {
   }
   start({ reverse = false, from = null } = {}) {
     this.cancel();
+    this.positionShadow();
     if (this.reduced.matches) return Promise.resolve();
     const version = this.version;
     // Flush removal of a previous same-direction CSS animation before restarting
@@ -64,10 +72,11 @@ export class DialogMotion {
         delay: reverse || from ? 0 : DIALOG_TIMING.contentDelay,
       }));
     }
-    const shadow = getComputedStyle(this.dialog).boxShadow;
-    tasks.push(animate(this.dialog, [
-      { boxShadow: from?.shadow ?? (reverse ? shadow : '0 35px 150px #0000') },
-      { boxShadow: reverse ? '0 35px 150px #0000' : shadow },
+    // Rasterize the static blur once, then composite opacity. Animating a large
+    // box-shadow itself forces costly paint on every frame, especially on mobile.
+    tasks.push(animate(this.shadow, [
+      { opacity: from?.shadow ?? (reverse ? 1 : 0) },
+      { opacity: end },
     ], { duration: backdropDuration }));
     this.dialog.style.setProperty('--modal-backdrop-start', String(from?.backdrop ?? (reverse ? 1 : 0)));
     this.dialog.style.setProperty('--modal-backdrop-duration', `${backdropDuration}ms`);
@@ -80,6 +89,7 @@ export class DialogMotion {
   }
   dispose() {
     this.cancel();
+    this.resize.disconnect();
     this.reduced.removeEventListener('change', this.onReduce);
   }
 }
