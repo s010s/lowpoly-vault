@@ -201,6 +201,7 @@ export class ModelStage {
     }
     this._emit('loading');
     const started = now();
+    this._showStarted = started;
     // Serializing fetch and parse bounds in-flight decoding to one resource.
     // A stale parse is disposed before the next operation enters the queue.
     const operation = this._tail.catch(() => {}).then(async () => {
@@ -228,6 +229,12 @@ export class ModelStage {
           this._diagnostics.peakParses = Math.max(this._diagnostics.peakParses, this._diagnostics.activeParses);
           let gltf;
           try { gltf = await new GLTFLoader().parseAsync(bytes, new URL('.', absoluteURL).href); }
+          catch (error) {
+            // A successful HTTP response can still contain a transient error
+            // page or corrupt bytes. An explicit retry must get fresh bytes.
+            this._forgetBytes(absoluteURL);
+            throw error;
+          }
           finally {
             this._diagnostics.activeParses--;
             this._diagnostics.parseMilliseconds += now() - parseStarted;
@@ -237,7 +244,8 @@ export class ModelStage {
             this._disposeGLTF(gltf);
             return false;
           }
-          entry = this._resource(absoluteURL, gltf);
+          try { entry = this._resource(absoluteURL, gltf); }
+          catch (error) { this._forgetBytes(absoluteURL); throw error; }
         }
         // The stage owns one lease; the LRU independently owns a cache reference.
         // Eviction can drop only unleased entries, never attached detail geometry.
@@ -273,7 +281,6 @@ export class ModelStage {
         this._controls.maxDistance = this._radius * 20;
         this._resize();
         this.reset();
-        this._diagnostics.lastShowMilliseconds = now() - started;
         this._diagnostics.lastShowCacheHit = cacheHit;
         // Publish ready only after a successful draw; hidden tabs keep fallback.
         this._draw();
@@ -392,6 +399,14 @@ export class ModelStage {
     }
   }
 
+  _forgetBytes(url) {
+    const bytes = this._cache.get(url);
+    if (!bytes) return;
+    this._cache.delete(url);
+    this._diagnostics.cacheBytes -= bytes.byteLength;
+    this._diagnostics.cacheEntries = this._cache.size;
+  }
+
   _ensureRenderer() {
     if (this._renderer) return;
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
@@ -492,6 +507,10 @@ export class ModelStage {
       this._reference.visible = this._camera.position.y >= this._metricReference.floorY * this._pivot.scale.y;
     }
     this._renderer.render(this._scene, this._camera);
+    if (this._showStarted !== null && this._showStarted !== undefined) {
+      this._diagnostics.lastShowMilliseconds = now() - this._showStarted;
+      this._showStarted = null;
+    }
     globalThis.__vaultFrameProbe?.({canvas:this._renderer.domElement,host:this._host,view:this.presentationInfo});
     this._diagnostics.renderedFrames++;
     this._host.dataset.renderTriangles = String(this._renderer.info.render.triangles);
@@ -725,6 +744,7 @@ export class ModelStage {
 
   hide() {
     ++this._token;
+    this._showStarted = null;
     this._controller?.abort();
     this._controller = null;
     this._externalSignal?.removeEventListener('abort', this._externalAbort);

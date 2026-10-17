@@ -12,17 +12,17 @@ const catalog=JSON.parse(await readFile(resolve(root,'assets/catalog.json'),'utf
 const assets=catalog.initial;
 const viewerFile=(await readdir(resolve(root,'assets'))).find(n=>/^viewer-.*\.js$/.test(n));
 assert(viewerFile,'Built viewer module required');
-const report={status:'running',started:new Date().toISOString(),checks:[],cases:[],page_errors:[],screenshots:[],videos:[],limitations:['Actual cloud Linux Chromium, ANGLE SwiftShader software WebGL; timings are local loopback and emulated input/viewport, not user-device or production-network benchmarks.','Decoded bytes are the application’s geometry/texture estimates, not driver GPU memory or JS heap measurements.'],server_requests:[]};
+const report={status:'running',commit:process.env.GITHUB_SHA||null,execution_environment:process.env.GITHUB_ACTIONS?'GitHub Actions Linux':'cloud computer Linux',started:new Date().toISOString(),checks:[],cases:[],page_errors:[],screenshots:[],videos:[],limitations:['Actual Linux Chromium, ANGLE SwiftShader software WebGL; timings are local loopback and emulated input/viewport, not user-device or production-network benchmarks.','Decoded bytes are the application’s geometry/texture estimates, not driver GPU memory or JS heap measurements.'],server_requests:[]};
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.png':'image/png','.glb':'model/gltf-binary'};
 let fixture;
 const server=createServer(async(req,res)=>{
- const started=performance.now(); let bytes;
+ const started=performance.now(); let bytes,contentType;
  try{
   const url=new URL(req.url,'http://localhost');
   if(!url.pathname.startsWith(prefix))throw new Error('Outside root');
   if(url.pathname===prefix+'__qa__/textured-stale.glb')bytes=fixture;
-  else{let path=resolve(root,decodeURIComponent(url.pathname.slice(prefix.length))||'index.html');if(path!==root&&!path.startsWith(root+sep))throw new Error('Outside root');if((await stat(path)).isDirectory())path=resolve(path,'index.html');bytes=await readFile(path);}
-  res.writeHead(200,{'Content-Type':mime[extname(url.pathname)]||'application/octet-stream','Content-Length':bytes.length,'Cache-Control':'no-store'}).end(bytes);
+  else{let path=resolve(root,decodeURIComponent(url.pathname.slice(prefix.length))||'index.html');if(path!==root&&!path.startsWith(root+sep))throw new Error('Outside root');if((await stat(path)).isDirectory())path=resolve(path,'index.html');bytes=await readFile(path);contentType=mime[extname(path)];}
+  res.writeHead(200,{'Content-Type':contentType||mime[extname(url.pathname)]||'application/octet-stream','Content-Length':bytes.length,'Cache-Control':'no-store'}).end(bytes);
   report.server_requests.push({path:url.pathname,status:200,bytes:bytes.length,ms:performance.now()-started});
  }catch{res.writeHead(404).end();report.server_requests.push({path:req.url,status:404,bytes:0,ms:performance.now()-started});}
 });
@@ -53,6 +53,21 @@ async function stats(page){return page.evaluate(()=>({...window.__vaultGPU}));}
 async function view(page){return page.evaluate(()=>window.__qaStage.presentationInfo);}
 function angle(a,b){return Math.abs(((a-b+540)%360)-180);}
 function sameView(c,a,b,label){check(c,label+' azimuth',angle(a.azimuth_deg,b.azimuth_deg)<.001,{a,b});check(c,label+' elevation',Math.abs(a.elevation_deg-b.elevation_deg)<.001);check(c,label+' distance',Math.abs(a.distance-b.distance)<.00001);}
+async function trafficBoundary(page){
+ return {browser_start_ms:await page.evaluate(()=>performance.now()),server_start_index:report.server_requests.length,request_start_index:requestLog.length};
+}
+async function trafficSince(page,boundary){
+ const end=await page.evaluate(()=>performance.now());
+ const resources=await page.evaluate(start=>performance.getEntriesByType('resource').filter(r=>r.startTime>=start&&/\.(?:js|glb)(?:$|\?)/.test(new URL(r.name).pathname)).map(r=>({url:r.name,start_ms:r.startTime,duration_ms:r.duration,transfer_bytes:r.transferSize,encoded_body_bytes:r.encodedBodySize,decoded_body_bytes:r.decodedBodySize})),boundary.browser_start_ms);
+ const serverRows=report.server_requests.slice(boundary.server_start_index).filter(r=>/\.(?:js|glb)(?:$|\?)/.test(r.path));
+ const summarize=extension=>{
+  const matching=resources.filter(r=>new URL(r.url).pathname.endsWith(extension));
+  return {requests:matching.length,transfer_bytes:matching.reduce((n,r)=>n+r.transfer_bytes,0),encoded_body_bytes:matching.reduce((n,r)=>n+r.encoded_body_bytes,0),decoded_body_bytes:matching.reduce((n,r)=>n+r.decoded_body_bytes,0),server_body_bytes:serverRows.filter(r=>r.path.endsWith(extension)).reduce((n,r)=>n+r.bytes,0)};
+ };
+ const viewer_js_and_dependencies=summarize('.js'),glb=summarize('.glb');
+ const total=Object.fromEntries(Object.keys(glb).map(key=>[key,glb[key]+viewer_js_and_dependencies[key]]));
+ return {window:{...boundary,browser_end_ms:end,server_end_index:report.server_requests.length,request_end_index:requestLog.length},viewer_js_and_dependencies,glb,total,resources,measurement:'Actual local uncompressed loopback HTTP. ResourceTiming transfer_bytes includes HTTP overhead; server_body_bytes is bytes served without gzip. Only JS initiated in this hover window and GLB are included; initial posters/catalog/UI traffic is excluded. This is not production compressed transfer size.'};
+}
 async function pixels(page,selector='.model-canvas'){
  return page.locator(selector).evaluate(canvas=>{
   if(canvas.classList.contains('model-canvas'))window.__qaStage._draw();
@@ -96,13 +111,13 @@ try{
   const el=card(page,'natural-arch');await el.scrollIntoViewIfNeeded();const r=await el.locator('.asset-image').boundingBox();
   await page.mouse.move(r.x+r.width/2,r.y+r.height/2);await page.waitForTimeout(95);await page.mouse.move(1,1);await page.waitForTimeout(220);
   check(c,'short hover under 180ms loads no GLB',glbRequests(c.name).length===0);await shot(page,'01-static-poster');
-  const start=performance.now();await hover(page);c.cold_wall_ms=performance.now()-start;await stage(page);const cold=await stats(page);c.cold=cold;
+  const coldBoundary=await trafficBoundary(page);const start=performance.now();await hover(page);c.cold_wall_ms=performance.now()-start;await stage(page);const cold=await stats(page);c.cold=cold;c.cold_traffic=await trafficSince(page,coldBoundary);check(c,'cold transfer includes lazy viewer JS and GLB',c.cold_traffic.viewer_js_and_dependencies.requests>=1&&c.cold_traffic.glb.requests===1&&c.cold_traffic.total.transfer_bytes>c.cold_traffic.glb.transfer_bytes,c.cold_traffic);
   check(c,'actual WebGL renders triangles',await page.locator('.model-canvas').evaluate(x=>Number(x.parentElement.dataset.renderTriangles)>0));alpha(c,await pixels(page),'hover');
   c.gpu=await page.evaluate(()=>{const s=window.__qaStage,g=s._renderer.getContext(),ext=g.getExtension('WEBGL_debug_renderer_info');return {renderer:ext?g.getParameter(ext.UNMASKED_RENDERER_WEBGL):g.getParameter(g.RENDERER),vendor:ext?g.getParameter(ext.UNMASKED_VENDOR_WEBGL):g.getParameter(g.VENDOR),webgl:g.getParameter(g.VERSION),maxTextureSize:g.getParameter(g.MAX_TEXTURE_SIZE),maxRenderbufferSize:g.getParameter(g.MAX_RENDERBUFFER_SIZE),drawingBuffer:[g.drawingBufferWidth,g.drawingBufferHeight]};});
   check(c,'one GLB request and parse for cold preview',cold.networkRequests===1&&cold.parseCount===1,cold);await shot(page,'02-live-hover');
   await page.evaluate(()=>{window.__qaIdentity={canvas:window.__qaStage._renderer.domElement,scene:window.__qaStage._gltf.scene,resource:window.__qaStage._activeResource};});
   await page.mouse.move(1,1);await page.waitForTimeout(120);const idle1=await stats(page);await page.waitForTimeout(260);const idle2=await stats(page);check(c,'inactive preview RAF stopped',idle2.renderedFrames===idle1.renderedFrames&&idle2.rafPending===0&&idle2.liveScenes===0,{idle1,idle2});
-  const warmStart=performance.now();await hover(page);c.warm_wall_ms=performance.now()-warmStart;const warm=await stats(page);c.warm=warm;
+  const warmBoundary=await trafficBoundary(page);const warmStart=performance.now();await hover(page);c.warm_wall_ms=performance.now()-warmStart;const warm=await stats(page);c.warm=warm;c.warm_traffic=await trafficSince(page,warmBoundary);check(c,'warm hover transfers zero viewer JS and GLB bytes',c.warm_traffic.total.requests===0&&c.warm_traffic.total.transfer_bytes===0&&c.warm_traffic.total.server_body_bytes===0,c.warm_traffic);
   check(c,'warm hover no extra network or parse',warm.networkRequests===cold.networkRequests&&warm.parseCount===cold.parseCount,{cold,warm});
   check(c,'warm hover reuses exact decoded object and canvas',await page.evaluate(()=>window.__qaStage._gltf.scene===window.__qaIdentity.scene&&window.__qaStage._activeResource===window.__qaIdentity.resource&&window.__qaStage._renderer.domElement===window.__qaIdentity.canvas));
   c.actual_glb_requests=glbRequests(c.name);c.actual_traffic=await page.evaluate(()=>performance.getEntriesByType('resource').filter(r=>/\.glb$/.test(r.name)).map(r=>({url:r.name,duration:r.duration,transferSize:r.transferSize,encodedBodySize:r.encodedBodySize,decodedBodySize:r.decodedBodySize})));
@@ -163,15 +178,65 @@ try{
  },{reducedMotion:'reduce'});
  await test('trusted-touch-swipe-and-tap',async(page,c,context)=>{
   await listing(page);await page.waitForTimeout(200);check(c,'touch initial poster no GLBs',glbRequests(c.name).length===0);
-  const el=card(page,'natural-arch');await el.scrollIntoViewIfNeeded();const r=await el.locator('.asset-image').boundingBox(),x=r.x+r.width*.3,y=r.y+r.height*.5;
-  const session=await context.newCDPSession(page);await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y,id:1}]});for(let i=1;i<=5;i++){await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+r.width*.07*i,y,id:1}]});await page.waitForTimeout(25);}await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
-  await page.waitForFunction(()=>document.querySelector('[data-id="natural-arch"]')?.dataset.previewState==='ready');await stage(page);check(c,'horizontal trusted touch activates actual GLB not accidental modal',await page.locator('.model-canvas').count()===1&&await page.locator('#viewer-dialog').evaluate(d=>!d.open));alpha(c,await pixels(page),'touch swipe');await shot(page,'11-touch-swipe');
-  await el.tap();await detailReady(page,'natural-arch');check(c,'subsequent touch tap opens detail',await page.locator('#viewer-dialog').evaluate(d=>d.open));await close(page);
-  const r2=await el.locator('.asset-image').boundingBox();const before=await page.evaluate(()=>({gpu:{...window.__vaultGPU},activations:window.__vaultPreview.activations}));await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:r2.x+r2.width*.5,y:r2.y+r2.height*.5,id:2}]});await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:r2.x+r2.width*.5+1,y:r2.y+r2.height*.5-70,id:2}]});await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await page.waitForTimeout(200);const after=await page.evaluate(()=>({gpu:{...window.__vaultGPU},activations:window.__vaultPreview.activations,open:document.querySelector('#viewer-dialog').open}));check(c,'vertical touch scroll does not activate preview or detail',after.activations===before.activations&&after.gpu.parseCount===before.gpu.parseCount&&after.gpu.networkRequests===before.gpu.networkRequests&&!after.open,{before,after});await shot(page,'12-touch-return');
+  const el=card(page,'natural-arch');await el.scrollIntoViewIfNeeded();
+  const session=await context.newCDPSession(page);c.touch_swipes=[];
+  await page.evaluate(()=>{
+   window.__qaTouchEvents=[];
+   for(const type of ['pointerdown','pointermove'])document.addEventListener(type,event=>{
+    if(event.pointerType==='touch')window.__qaTouchEvents.push({type,x:event.clientX,y:event.clientY,pointerId:event.pointerId,trusted:event.isTrusted});
+   },true);
+  });
+  const swipeCard=async({id,fraction,before,label})=>{
+   const r=await el.locator('.asset-image').boundingBox(),x=r.x+r.width*.3,y=r.y+r.height*.5;
+   await page.evaluate(()=>{window.__qaTouchEvents=[];});
+   await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y,id}]});
+   for(let i=1;i<=5;i++){
+    await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+r.width*fraction*i/5,y,id}]});
+    await page.waitForTimeout(25);
+   }
+   await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+   await page.waitForFunction(()=>document.querySelector('[data-id="natural-arch"]')?.dataset.previewState==='ready');
+   await stage(page);await page.waitForTimeout(80);
+   const after=await view(page),events=await page.evaluate(()=>window.__qaTouchEvents);
+   const start=events.find(e=>e.type==='pointerdown'),end=events.filter(e=>e.type==='pointermove').at(-1);
+   const expectedAzimuth=(before?.azimuth_deg??42)+(end.x-start.x)/r.width*360;
+   c.touch_swipes.push({label,before,after,expectedAzimuth,image_width:r.width,events});
+   check(c,label+' uses trusted native touch',Boolean(start&&end)&&events.every(e=>e.trusted),events);
+   check(c,label+' rotates from its actual starting azimuth',angle(after.azimuth_deg,expectedAzimuth)<.01,{before,after,expectedAzimuth});
+   if(before){
+    check(c,label+' preserves inspected elevation',Math.abs(after.elevation_deg-before.elevation_deg)<.001,{before,after});
+    check(c,label+' preserves inspected zoom',Math.abs(after.distance-before.distance)<.00001,{before,after});
+   }
+   check(c,label+' does not accidentally open modal',await page.locator('#viewer-dialog').evaluate(d=>!d.open));
+   return after;
+  };
+  const first=await swipeCard({id:1,fraction:.35,label:'first card swipe'});
+  check(c,'horizontal trusted touch activates actual GLB',await page.locator('.model-canvas').count()===1);alpha(c,await pixels(page),'touch swipe');await shot(page,'11-touch-swipe');
+  const second=await swipeCard({id:2,fraction:.22,before:first,label:'second card swipe'});
+  check(c,'second drag continues beyond the first rotated pose',angle(first.azimuth_deg,second.azimuth_deg)>20,{first,second});await shot(page,'11b-second-touch-swipe-continuity');
+  await el.tap();await detailReady(page,'natural-arch');check(c,'subsequent touch tap opens detail',await page.locator('#viewer-dialog').evaluate(d=>d.open));sameView(c,second,await view(page),'touch card to detail');
+  const canvas=page.locator('#canvas-host .model-canvas');await canvas.scrollIntoViewIfNeeded();const r=await canvas.boundingBox(),x=r.x+r.width*.35,y=r.y+r.height*.5;
+  const beforeOrbit=await view(page);
+  await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y,id:3}]});
+  for(let i=1;i<=5;i++){await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+r.width*.04*i,y:y-r.height*.01*i,id:3}]});await page.waitForTimeout(25);}
+  await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await page.waitForTimeout(80);
+  const orbited=await view(page);check(c,'trusted touch orbits detail away from card angle',angle(beforeOrbit.azimuth_deg,orbited.azimuth_deg)>5,{beforeOrbit,orbited});
+  await page.locator('#zoom-in').tap();await page.waitForTimeout(80);const inspected=await view(page);c.inspected_touch_detail=inspected;
+  check(c,'detail touch zoom changes actual camera distance',Math.abs(orbited.distance-inspected.distance)>.01,{orbited,inspected});await shot(page,'11c-inspected-touch-detail');
+  await page.locator('#close').tap();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open);await page.waitForTimeout(80);
+  const snapshotView=await el.locator('.model-preview-snapshot').evaluate(canvas=>canvas.__presentation);sameView(c,inspected,snapshotView,'touch detail to card snapshot');
+  const resumed=await swipeCard({id:4,fraction:.18,before:inspected,label:'returned detail touch resume'});
+  check(c,'touch resume keeps single renderer and original decoded GLTF',(await stats(page)).rendererCreations===1&&(await stats(page)).parseCount===1&&(await stats(page)).networkRequests===1,await stats(page));await shot(page,'11d-returned-detail-touch-resume');
+  const r2=await el.locator('.asset-image').boundingBox();const before=await page.evaluate(()=>({gpu:{...window.__vaultGPU},activations:window.__vaultPreview.activations}));await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:r2.x+r2.width*.5,y:r2.y+r2.height*.5,id:5}]});await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:r2.x+r2.width*.5+1,y:r2.y+r2.height*.5-70,id:5}]});await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await page.waitForTimeout(200);const after=await page.evaluate(()=>({gpu:{...window.__vaultGPU},activations:window.__vaultPreview.activations,open:document.querySelector('#viewer-dialog').open}));check(c,'vertical touch scroll does not activate preview or detail',after.activations===before.activations&&after.gpu.parseCount===before.gpu.parseCount&&after.gpu.networkRequests===before.gpu.networkRequests&&!after.open,{before,after,resumed});await shot(page,'12-touch-return');
  },{viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,recordVideo:{dir:output,size:{width:390,height:844}}});
  for(const failure of ['network','corrupt'])await test(failure+'-fallback-and-recovery',async(page,c)=>{
   const target=assets.find(a=>a.id==='natural-arch');await page.route('**/'+target.glb,route=>failure==='network'?route.fulfill({status:503,body:'Unavailable'}):route.fulfill({status:200,contentType:'model/gltf-binary',body:Buffer.from('this is not a GLB')}));await listing(page);const el=card(page,'natural-arch');await el.scrollIntoViewIfNeeded();await el.hover();await page.waitForFunction(()=>document.querySelector('[data-id="natural-arch"]')?.dataset.previewState==='fallback');check(c,'failed hover retains static poster',await el.locator('img').evaluate(img=>img.complete&&img.naturalWidth>0&&getComputedStyle(img).visibility!=='hidden'));check(c,'failed hover no running scene or RAF',(await stats(page)).liveScenes===0&&(await stats(page)).rafPending===0);await shot(page,'13-'+failure+'-hover-fallback');
-  await el.click();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='error');check(c,'failed detail keeps readable poster and status',await page.locator('#canvas-host img').evaluate(img=>img.complete&&img.naturalWidth>0&&getComputedStyle(img).visibility==='visible')&&Boolean(await page.locator('#viewer-status').textContent()));await shot(page,'14-'+failure+'-detail-fallback');await close(page);await hover(page,'conifer-tree');check(c,'next healthy model recovers',await page.locator('.model-canvas').count()===1&&(await stats(page)).liveScenes===1);
+  await el.click();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='error');check(c,'failed detail keeps readable poster and status',await page.locator('#canvas-host img').evaluate(img=>img.complete&&img.naturalWidth>0&&getComputedStyle(img).visibility==='visible')&&Boolean(await page.locator('#viewer-status').textContent()));await shot(page,'14-'+failure+'-detail-fallback');
+  await page.unroute('**/'+target.glb);await close(page);const retryBefore=await stats(page);
+  await hover(page,'natural-arch');await stage(page);const retryAfter=await stats(page);c.same_url_recovery={before:retryBefore,after:retryAfter};
+  check(c,'same failed URL explicitly retries fresh HTTP and parse',retryAfter.networkRequests===retryBefore.networkRequests+1&&retryAfter.parseCount===retryBefore.parseCount+1,{retryBefore,retryAfter});
+  check(c,'same natural-arch URL recovers actual ready WebGL',await page.locator('.model-canvas').count()===1&&retryAfter.liveScenes===1&&await page.locator('[data-id="natural-arch"] .asset-image').evaluate(host=>host.dataset.modelState==='ready'&&host.dataset.presentedUrl.endsWith('/natural-arch.glb')));alpha(c,await pixels(page),'same-URL recovery');await shot(page,'14b-'+failure+'-same-url-recovered');
+  await hover(page,'conifer-tree');check(c,'next healthy model also recovers',await page.locator('.model-canvas').count()===1&&(await stats(page)).liveScenes===1);
  });
  await test('actual-WebGL-context-loss-restore',async(page,c)=>{
   await listing(page);await hover(page);await stage(page);const original=await stats(page);await page.evaluate(()=>{const g=window.__qaStage._renderer.getContext();window.__qaLose=g.getExtension('WEBGL_lose_context');if(!window.__qaLose)throw new Error('WEBGL_lose_context unavailable');window.__qaLose.loseContext();});await page.waitForFunction(()=>document.querySelector('[data-id="natural-arch"]')?.dataset.previewState==='fallback');const lost=await stats(page);check(c,'actual lost context stops frames and keeps poster',lost.rafPending===0&&await card(page,'natural-arch').locator('img').evaluate(i=>i.complete&&i.naturalWidth>0),lost);await shot(page,'15-context-loss-fallback');

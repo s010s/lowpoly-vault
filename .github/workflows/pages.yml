@@ -26,14 +26,18 @@ jobs:
         run: npm run publication:check && npm run test:publication
       - run: npm test && npm run test:redesign && npm run test:parser && npm run test:scrub
       - run: npm run build
+        id: build_site
       - run: npx playwright install --with-deps chromium
+        id: install_chromium
       - name: Reproduce matching card previews with the actual built viewer
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           PREVIEW_OUTPUT: qa/web-capture-recheck
           VERIFY_SHIPPED_PREVIEWS: '1'
         run: node site/render-web-previews.mjs
       - name: Verify real models, static routes, downloads and mobile layouts
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/release-strict-gpu
@@ -41,31 +45,37 @@ jobs:
           QA_ALLOW_WEBGL_FALLBACK: '0'
         run: node site/redesign-browser-test.mjs
       - name: Verify intentional real-GLB list previews and shared detail resources
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/shared-model-preview/list-browser
         run: npm run test:scrub:browser
       - name: Verify shared real-model rendering, failure recovery and resource bounds
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/shared-model-preview/shared-browser
         run: npm run test:preview:browser
       - name: Verify same-angle modal handoff and interrupted history
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/handoff-continuity
         run: npm run test:handoff:browser
       - name: Verify accepted conifer shared-GLB handoff and interrupted history
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/release-conifer-handoff
         run: node qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs
       - name: Verify coordinated modal chrome and responsive dismissal
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/modal-motion
         run: npm run test:modal:browser
       - name: Verify deliberate WebGL fallback separately
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/release-fallback-only

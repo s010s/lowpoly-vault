@@ -165,8 +165,8 @@ $('#grid').addEventListener('pointerdown',event=>{
 });
 $('#grid').addEventListener('pointermove',event=>{
   const touch=previewTouch;if(!touch||event.pointerId!==touch.pointerId)return;const dx=event.clientX-touch.x,dy=event.clientY-touch.y;
-  if(!touch.dragging){if(Math.abs(dy)>9&&Math.abs(dy)>Math.abs(dx)){previewTouch=null;return;}if(Math.abs(dx)<9||Math.abs(dx)<Math.abs(dy)*1.25)return;touch.dragging=true;hoverSuppressed=false;hoverCard=touch.card;preview.activate(touch.card,touch.asset);touch.card.setPointerCapture(event.pointerId);}
-  event.preventDefault();const width=touch.card.querySelector('.asset-image').getBoundingClientRect().width;preview.request(dx/width*24);
+  if(!touch.dragging){if(Math.abs(dy)>9&&Math.abs(dy)>Math.abs(dx)){previewTouch=null;return;}if(Math.abs(dx)<9||Math.abs(dx)<Math.abs(dy)*1.25)return;touch.dragging=true;hoverSuppressed=false;hoverCard=touch.card;preview.activate(touch.card,touch.asset);touch.frame=preview.current?.frame||0;touch.card.setPointerCapture(event.pointerId);}
+  event.preventDefault();const width=touch.card.querySelector('.asset-image').getBoundingClientRect().width;preview.request(touch.frame+dx/width*24);
 },{passive:false});
 function endPreviewTouch(event){if(!previewTouch||event.pointerId!==previewTouch.pointerId)return;if(previewTouch.dragging)suppressedTouchCard=previewTouch.card;if(event.type==='pointercancel')stopHover();previewTouch=null;}
 $('#grid').addEventListener('pointerup',endPreviewTouch);$('#grid').addEventListener('pointercancel',endPreviewTouch);

@@ -243,6 +243,11 @@ try {
   await assert.rejects(show(stage, 'parse-failure'), /Intentional parse failure/);
   assert.equal(stage.stats.liveScenes, 0); assert.equal(stage.stats.activeParses, 0);
   assert.equal(stage.stats.activeLeases, 0); failParse = false;
+  assert(!stage._cache.has('https://example.test/parse-failure.glb'), 'A failed parse cannot poison same-URL retries with corrupt bytes.');
+  const recoveryRequests = stage.stats.networkRequests;
+  await show(stage, 'parse-failure'); flush();
+  assert.equal(stage.stats.networkRequests, recoveryRequests + 1, 'An explicit same-URL retry refetches after parse failure.');
+  assert.equal(host.dataset.presentedUrl, 'https://example.test/parse-failure.glb');
   await show(stage, 'recovered'); flush();
   assert(stage.stats.networkMilliseconds >= 0 && stage.stats.lastShowMilliseconds >= 0);
   stage.dispose(); empty(stage);
