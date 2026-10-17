@@ -1,0 +1,40 @@
+name: Review exact structural-refinement candidates
+on:
+  push:
+    branches: ['render/structural-refinement-20261017']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: structural-refinement-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  exact-renderer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SITE_BASE: /lowpoly-vault/
+      CAPTURE_REFERENCE: '1'
+      PREVIEW_OUTPUT: qa/structural-refinement-runtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run publication:check && npx vite build
+      - run: node experiments/structural-refinement-2026-10-17/runtime/prepare.mjs experiments/structural-refinement-2026-10-17/runtime/plan.json
+      - run: npx playwright install --with-deps chromium
+      - name: Capture exact built detail renderer and matching alpha frames
+        run: node experiments/structural-refinement-2026-10-17/runtime/capture.mjs
+      - name: Render populated scene and measure browser work
+        run: node experiments/structural-refinement-2026-10-17/runtime/scene.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: structural-refinement-runtime
+          path: qa/structural-refinement-runtime/
+      - name: Keep software renderer scope explicit
+        if: always()
+        run: echo 'Read-only candidate rendering with pinned Three.js. No deployment or approval. Device/browser/software renderer is recorded; physical-device performance remains unmeasured.' >> "$GITHUB_STEP_SUMMARY"
