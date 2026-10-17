@@ -298,7 +298,14 @@ async function openAsset(id,{push=false,replace=false}={}){
     if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');let decoded=false;if(poster){try{await poster.decode();decoded=true;}catch{}}if(version===detailVersion){if(decoded){poster.style.visibility='visible';releaseHandoff(version);}else if(host.querySelector('.model-handoff'))$('#viewer-status').textContent=lang==='zh'?'新预览暂时不可用，保留上一个画面。':'New preview unavailable; the previous view is retained.';}}
   }
 }
-async function closeAsset(){
+let closePresentation=null;
+function closeAsset(){
+  if(closing&&closePresentation&&!interruptedDialog)return closePresentation;
+  const task=performCloseAsset();closePresentation=task;
+  const release=()=>{if(closePresentation===task)closePresentation=null;};task.then(release,release);
+  return task;
+}
+async function performCloseAsset(){
   if(!$('#viewer-dialog').open)return;
   const previous=interruptedDialog;interruptedDialog=null;
   const alreadyClosing=closing,retained=previous?.visual?copyVisual(previous.visual,{square:true}):currentDetailVisual({square:true}),returnView=retained?.__presentation,returnAsset=selected;
@@ -313,7 +320,14 @@ async function closeAsset(){
   if(visible&&origin?.isConnected&&returnAsset?.id===origin.dataset.id){scrub.retainSnapshot(origin,returnAsset,retained,returnView,{transfer:true});hoverCard=origin;}
   clearHost();restoreOriginVisual();selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;atlas?.setActive(currentView==='catalog'&&browseMode==='atlas');
 }
-function requestClose(){if(history.state?.vaultDetail)history.back();else{history.replaceState({view:'catalog'},'',href('models'));syncRoute();}}
+function requestClose(){
+  if(closing)return;
+  if(history.state?.vaultDetail){
+    // Respond to the input now; history traversal can deliver popstate several
+    // frames later. Route reconciliation awaits this same closing presentation.
+    closeAsset();history.back();
+  }else{history.replaceState({view:'catalog'},'',href('models'));syncRoute();}
+}
 function hideStaticFor(type){if(staticContent?.dataset.routeType===type)staticContent.hidden=true;}
 function showView(view){
   if(view!=='catalog')stopHover();
@@ -325,7 +339,7 @@ function showView(view){
 }
 async function syncRoute(){
   if(!index)return;
-  if(pendingRoute){queuedRoute=true;detailController?.abort();store.cancelDetail();++detailVersion;rememberInterruptedDialog();cancelDialogMotion();return;}
+  if(pendingRoute){queuedRoute=true;detailController?.abort();store.cancelDetail();if(closing&&parseRoute(location.pathname,siteRoot).type!=='detail')return;++detailVersion;rememberInterruptedDialog();cancelDialogMotion();return;}
   pendingRoute=true;
   try{
     const oldHash=location.hash;

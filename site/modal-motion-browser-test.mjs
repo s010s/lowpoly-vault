@@ -448,6 +448,9 @@ async function roundTrip(page, test, { touch = false, reduced = false, lang = ''
   const before = await page.evaluate(() => window.__modalMotionQA.snapshot());
   await page.locator('#close')[touch ? 'tap' : 'click'](); const closed = await collect(page, 600); test.measurements.push(closed);
   validateTiming(test, closed, e => e.type === 'click' && e.target === '#close', { opening: false, reduced, sourced: true, before });
+  const closingMarker=closed.events.find(e=>e.type==='attribute'&&e.attribute==='data-modal-motion'&&e.marker==='closing');
+  const closeTraversal=closed.events.find(e=>e.type==='popstate');
+  if(!reduced)check(test, 'Close responds before asynchronous history reconciliation', Boolean(closingMarker&&closeTraversal&&closingMarker.time<=closeTraversal.time), {closingMarker,closeTraversal});
   if (touch) check(test, 'Mobile close was a trusted touch tap', closed.events.some(e => e.type === 'pointerup' && e.pointer_type === 'touch' && e.trusted), closed.events, false);
   await assertClean(page, test, false);
   check(test, 'Focus returns to the source card', await page.evaluate(() => document.activeElement?.dataset.id === 'natural-arch'), null, false);
