@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "kind": "runtime_parse_report",
+  "stage": "runtime_parse",
+  "subject": {
+    "revision": "structure-r20-A-normal16",
+    "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+    "brief_sha256": "50466e78d5da46f10532b601cc2d4ea15ef2fae44c2881a8b8e0e01c15e99a5e",
+    "references_sha256": "6f1ff6cb8fa57c8aec580945eaa04ee141240988cfbdc90b075007d8d9afbe4a"
+  },
+  "status": "pass",
+  "method": "Read this exact standalone GLB using existing pinned Three.js0.180.0 GLTFLoader in Node. Traversed actual geometry/materials/bounds; observed normalized Int16Array interleaved NORMAL attributes on all3 mesh primitives. No graphics context or external decoder.",
+  "observations": [
+    "GLTFLoader successfully parses the required KHR_mesh_quantization extension with its built-in handler.",
+    "All3 normal attributes are normalized Int16Array; positions, indices and bounds retain the r19 values.",
+    "No external decoder was configured or loaded.",
+    "This result is parser/attribute evidence only; it does not establish shader/GPU or composed-scene performance."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "runtime": {
+    "engine": "Three.js",
+    "version": "0.180.0",
+    "loader": "GLTFLoader",
+    "parsed": true
+  },
+  "measurements": {
+    "triangles": 19052,
+    "mesh_nodes": 3,
+    "position_stream_vertices": 29882,
+    "dimensions": [
+      4.661952018737793,
+      7.042110443115234,
+      5.167210817337036
+    ],
+    "bounds_max_delta_m": 0
+  }
+}
