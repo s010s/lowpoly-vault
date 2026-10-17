@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "asset_id": "conifer-tree",
+  "brief_version": "structure-r20-a-normal16-doc1",
+  "profile": "production",
+  "purpose": "Complete seven-meter conifer candidate in the user-selected separated, feathery, airy A style. Preserve natural sparsity and sky windows; readable full-tree outline and coherent branch/foliage hierarchy remain required. User style choice does not approve art, defects, runtime or publication. This delivery revision changes NORMAL storage only to normalized SHORT via KHR_mesh_quantization; FLOAT32 positions, indices/order, materials and transforms are exact. Independent r19 A art direction was communicated as passed upstream; normal16 appearance and full production/runtime gates remain separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 19500,
+    "max_materials": 3,
+    "max_primitives": 3,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Judge the actual exact-GLB pixels in the user-selected A style: readable whole-tree outline, coherent branch/spray growth, clean joins and no coarse tubes or toy-like broad hard blades. Natural airy foliage and sky windows are intended; do not fail solely for not matching the B opaque-mass preference.",
+      "required_sources": [
+        "PRI-branching",
+        "HK-branchlets",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "PRI-branching",
+        "HK-branchlets",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "crown-hierarchy",
+      "stage": "visual",
+      "critical": true,
+      "description": "Unchanged dominant trunk, curved lateral boughs and subordinate needle sprays form a readable intentionally open conifer outline, with natural irregular sky windows. Avoid disconnected clutter or all-angle loss of the principal crown structure; sparse A style itself is permitted.",
+      "required_sources": [
+        "HK-branchlets",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "round-organic-joins",
+      "stage": "visual",
+      "critical": true,
+      "description": "Branch bases taper into trunk with a rounded collar; no plank-like cross sections or detached foliage at detail and underside views.",
+      "required_sources": [
+        "PRI-branching",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "distributed-foliage",
+      "stage": "visual",
+      "critical": true,
+      "description": "Separated narrow feathery sprays must organize into a coherent open crown. Fine needle strands may diminish at native128px; the whole tree outline and major branch/foliage hierarchy must remain readable. No requirement for an opaque connected canopy or per-needle visibility at128px.",
+      "required_sources": [
+        "NCSU-flat-needles",
+        "Earle-flat-needles"
+      ]
+    },
+    {
+      "id": "honest-concept",
+      "stage": "factual",
+      "critical": true,
+      "description": "Delivered labels preserve broad concept status, artistic scale/foliage grouping and modern-analogue limitations.",
+      "required_sources": [
+        "NHM-context",
+        "HK-branchlets"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 fixed-camera azimuth frames plus all orthogonal directions, alternate clay key, triangulated wireframe and visible middle-crown branch joins. Same scale, camera and lighting for original versus revised exact GLB.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "candidate-r20-a-normal16-doc1/conifer-tree.blend",
+      "sha256": "04c20d19354455e57bbc70a8cced6308d9020e02ff057996bfde7c585a7acbef"
+    },
+    {
+      "role": "generator",
+      "path": "candidate-r20-a-normal16-doc1/build_delivery.py",
+      "sha256": "779f4bc5b55c94ee15efb261d32f4b8d48e384f39e9cfcdddd9670c9cdc4456d"
+    },
+    {
+      "role": "config",
+      "path": "candidate-r20-a-normal16-doc1/build-config.json",
+      "sha256": "08999a8191ed011dedd1d91e832e2f10a8db70fa5e5520d99d627753740dff12"
+    },
+    {
+      "role": "wood-source",
+      "path": "candidate-r20-a-normal16-doc1/woody-source.json",
+      "sha256": "51f29ef2b3cf407259ff1a34402661c3eca517d5cf4ef21b777ac503499e4677"
+    },
+    {
+      "role": "core-generator",
+      "path": "candidate-r20-a-normal16-doc1/build_airy_conifer.py",
+      "sha256": "c2ae7779c08a1c960ab97cbe0b8cf153c34ddbab0f2a968b7847124775400652"
+    },
+    {
+      "role": "pack-generator",
+      "path": "candidate-r20-a-normal16-doc1/pack_normal16.py",
+      "sha256": "4bb8a91aa9f63a04e522f7bd388cc04c38f9c4252ede403ea0523c3497435838"
+    }
+  ],
+  "claim_scope": {
+    "classification": "evidence-informed stylized conifer architecture",
+    "period": "Jurassic-Cretaceous inspired design context only",
+    "taxon": "No named extinct species or unchanged modern species claimed",
+    "scale": "Approximately 7 m, artistic",
+    "representation": "Frozen r17 A narrow bowed needle strips,12 pairs per spray plus one short terminal and thin rachis.149 separated sprays:106 lower and43 upper, including8 added upper sprays. Intentionally airy rather than connected B core surfaces; group sizes/counts and7m scale are artistic."
+  },
+  "component_and_cause": {
+    "primary": "Continuous unchanged r12 wood: tapering trunk,26 curved primary boughs, natural broken lower branch and open pyramidal outline.",
+    "secondary": "Lower106 sprays use paired nearby attachments with modest opposing pitch;43 upper sprays inherit the bounded r18 local-cluster arrangement. Varying reach/direction produces continuity with clear sky windows.",
+    "tertiary": "A leaf constructor is byte-for-byte source-identical to r17. Each spray has24 narrow gently curved side strips, one short terminal and thin green rachis; no connected opaque core, thick green tube or hard ridge-filled broad blade. Small upper twig supports are reported separately.",
+    "quiet_region": "Exposed lower trunk and open main-branch roots.",
+    "gaps": "Retained broken lower bough, unequal tier heights and natural spaces between fine sprays. These are intentional style, not an opacity defect by themselves."
+  },
+  "budget_rationale": "149 sprays ×106 triangles=15,794 foliage triangles; original wood2,914 plus43×8=344 fine upper support triangles; actual total19,052. Compared with the r12 actual18,706 triangles, the measured19,052 total is +1.8497%, while the separate19,500 ceiling is +4.2446%. The ceiling and actual model count are distinct; neither changes in this documentation correction. The budget preserves the selected A feather detail and separated support hierarchy, not uniform density.3 opaque primitives;zero textures;bytes measured after export, not inferred.",
+  "runtime_profile": {
+    "renderer": "Three.js 0.180.0",
+    "single_asset_copies": 1,
+    "typical_grove_visible_copies": 16,
+    "stress_visible_copies": 32,
+    "gallery_projection_px": [
+      128,
+      512
+    ],
+    "close_detail_projection_px": 512,
+    "gpu_device": "pending exact-runtime evidence",
+    "frame_time_target_ms": 16.7,
+    "opaque": true,
+    "lod": "No LOD claim in this study",
+    "population_mode": "independent clones; instanced variant must be reported separately"
+  },
+  "delivery_profile": {
+    "position_storage": "FLOAT32, bit-preserved",
+    "normal_storage": "normalized SHORT VEC3,8-byte vertex stride",
+    "required_extension": "KHR_mesh_quantization",
+    "external_decoder": "none; pinned loader extension/normalized-attribute path",
+    "normal_error_bound_deg": 0.001444,
+    "geometric_equivalence": "Positions, topology/order, materials and node transforms must compare exact to r19; normal precision is explicitly not mathematically lossless."
+  },
+  "documentary_revision": {
+    "source_geometry_commit": "265b47eed899307228d609355cc46c6d6992f61d",
+    "source_geometry_revision": "structure-r20-A-normal16",
+    "scope": "S1-S4 documentation fixes and lowercase documentary identity only; model, source blend, geometry generator/config and pixels are byte-identical. Historical source IDs remain unchanged in original producer records."
+  }
+}
