@@ -1,4 +1,4 @@
-// Existing handoff assertions targeted at conifer; failure-case warmer stays a different asset.
+// Existing handoff assertions targeted at conifer; distinct failure warmer and matched square sampling.
 /** Real browser regression coverage for image-to-GLB continuity and interrupted navigation. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -162,7 +162,14 @@ async function startSampler(page) {
     const readAlpha = source => {
       const sw = source.naturalWidth || source.width, sh = source.naturalHeight || source.height;
       if (!sw || !sh) return null;
-      const ratio = Math.min(1, 384 / Math.max(sw, sh));
+      // Compare equal visible-square raster footprints. A mobile detail canvas
+      // is 2:1 while its retained preview is square: capping the longest edge
+      // sampled the model at half the preview's resolution and dropped needle
+      // tips before measuring bounds. Use the actual detail square's physical
+      // pixels (capped at384) for both surfaces; keep every continuity tolerance.
+      const host = document.querySelector('#canvas-host').getBoundingClientRect();
+      const square = Math.max(1, Math.min(384, Math.round(Math.min(host.width, host.height) * devicePixelRatio)));
+      const ratio = square / Math.min(sw, sh);
       sampleCanvas.width = Math.max(1, Math.round(sw * ratio)); sampleCanvas.height = Math.max(1, Math.round(sh * ratio));
       const width = sampleCanvas.width, height = sampleCanvas.height, context = sampleCanvas.getContext('2d', { willReadFrequently: true });
       context.clearRect(0, 0, width, height); context.drawImage(source, 0, 0, width, height);
@@ -283,6 +290,8 @@ async function dynamicContinuity(page, caseReport, frames) {
     }
     // The first synchronous hook sees the handoff before ready can fade/remove it,
     // even if a cached reopen completes before the next RAF sampler callback.
+    assert.equal(Math.min(...renderSamples[0].overlay.alpha.sampled), Math.min(...renderSamples[0].alpha.sampled),
+      phase + ': preview and actual draw must be measured at the same visible-square resolution');
     compare(renderSamples[0].overlay?.object, renderSamples[0].object, 'handoff-versus-first-actual-draw', phase);
     const hostRects = [...samples.map(frame => frame.host), ...renderSamples.map(draw => draw.host)];
     const ranges = Object.fromEntries(['x', 'y', 'width', 'height'].map(key => [key, Math.max(...hostRects.map(rect => rect[key])) - Math.min(...hostRects.map(rect => rect[key]))]));

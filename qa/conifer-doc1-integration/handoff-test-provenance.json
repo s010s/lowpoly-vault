@@ -6,5 +6,6 @@
     "Natural Arch": "Conifer tree"
   },
   "test_assertions_unchanged": true,
-  "additional_adjustment": "Early-load-failure warm-up uses natural-arch so the conifer failure target is not already cached; original suite similarly warms a different asset. Assertions unchanged."
+  "additional_adjustment": "Early-load-failure warm-up uses natural-arch so the conifer failure target is not already cached; original suite similarly warms a different asset. Assertions unchanged.",
+  "sampling_correction": "Use equal visible-square physical-pixel sampling (detail short edge * DPR, capped384) for square preview and wide detail canvas. Original longest-edge cap sampled mobile actual model at192px square versus384px preview. Retain all alpha,3px center/Y and3% scale assertions unchanged."
 }
