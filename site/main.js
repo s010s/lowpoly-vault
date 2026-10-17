@@ -291,7 +291,7 @@ function releaseHandoff(version){
     if(version!==detailVersion||!visual.isConnected||generation!==(visual.__dissolveVersion||0))return;
     if(reduced.matches||!CSS.supports('mix-blend-mode','plus-lighter')){releaseVisual(visual);return;}
     const host=$('#canvas-host'),target=host.dataset.modelState==='ready'?host.querySelector('.model-canvas'):host.querySelector('.model-poster');
-    const reveal=target?.animate([{opacity:0},{opacity:1}],{duration:160,easing:'linear',fill:'both'});
+    const reveal=target?.animate([{opacity:0},{opacity:1}],{duration:160,easing:'linear',fill:'both'});reveal?.finished.catch(()=>{});
     let active=true;visual.__dissolveCleanup=()=>{active=false;reveal?.cancel();};
     const fade=visual.animate([{opacity:1},{opacity:0}],{duration:160,easing:'linear',fill:'both'});
     if(reveal&&document.timeline.currentTime!==null)reveal.startTime=fade.startTime=document.timeline.currentTime;
@@ -359,7 +359,7 @@ async function performCloseAsset(){
     flight=document.createElement('div');flight.className='stage-flight live-model-return';flight.setAttribute('aria-hidden','true');
     flight.dataset.returnPhase='moving';flight.dataset.returnProgress='0';
     Object.assign(flight.style,{position:'fixed',left:`${from.left}px`,top:`${from.top}px`,width:`${from.width}px`,height:`${from.height}px`});
-    canonicalPoster.className='return-poster';flight.append(canonicalPoster);$('#viewer-dialog').append(flight);
+    canonicalPoster.className='return-poster';canonicalPoster.dataset.assetId=returnAsset.id;flight.append(canonicalPoster);$('#viewer-dialog').append(flight);
     let transferred=false;try{transferred=stage.moveTo(flight,{onStatus:status=>{if(status==='error')travel?.finish?.();}});}catch{}
     if(transferred){
       clearHost();releaseVisual(retained);

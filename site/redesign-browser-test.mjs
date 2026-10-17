@@ -115,7 +115,7 @@ async function waitClosed(page) {
   await page.locator('#viewer-dialog').waitFor({ state: 'hidden' });
   await page.waitForFunction(() => !document.querySelector('.stage-flight') && (!window.__vaultGPU || (window.__vaultGPU.liveScenes === 0 && window.__vaultGPU.activeRequests === 0 && window.__vaultGPU.rafPending === 0)));
   assert.equal(await page.locator('.model-canvas').count(), 0, 'Close must detach the shared WebGL canvas');
-  assert.equal(await page.locator('.model-preview-snapshot,.stage-flight').count(),0,'Completed close leaves only the canonical poster, with no retained snapshot or live return flight');
+  assert.equal(await page.locator('.model-preview-snapshot,.stage-flight,.return-poster').count(),0,'Completed close leaves only the canonical poster, with no retained snapshot or live return flight');
   assert.equal(await page.evaluate(()=>window.__vaultPreview?.activeId??null),null,'Completed close releases active card inspection');
 }
 async function closeModel(page) { await page.locator('#close').click(); await waitClosed(page); }

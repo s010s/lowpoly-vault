@@ -191,14 +191,15 @@ async function startSampler(page) {
       const width = sampleCanvas.width, height = sampleCanvas.height, context = sampleCanvas.getContext('2d', { willReadFrequently: true });
       context.clearRect(0, 0, width, height); context.drawImage(source, 0, 0, width, height);
       const pixels = context.getImageData(0, 0, width, height).data;
-      let left = width, right = -1, top = height, bottom = -1, count = 0, transparent = 0, weight = 0, cx = 0, cy = 0;
+      let left = width, right = -1, top = height, bottom = -1, count = 0, transparent = 0, weight = 0, cx = 0, cy = 0, alphaMass = 0, nonzero = 0;
       for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
         const alpha = pixels[(y * width + x) * 4 + 3];
+        alphaMass += alpha; if (alpha > 0) nonzero++;
         if (alpha <= 3) transparent++;
         if (alpha <= 16) continue;
         left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y); count++; weight += alpha; cx += (x + 0.5) * alpha; cy += (y + 0.5) * alpha;
       }
-      return { source: [sw, sh], sampled: [width, height], pixels: count, transparent_fraction: transparent / (width * height),
+      return { source: [sw, sh], sampled: [width, height], pixels: count, nonzero_fraction: nonzero / (width * height), mean_alpha: alphaMass / (width * height * 255), transparent_fraction: transparent / (width * height),
         corner_alpha_max: Math.max(pixels[3], pixels[(width - 1) * 4 + 3], pixels[((height - 1) * width) * 4 + 3], pixels.at(-1)),
         bbox: count ? { left: left / width, top: top / height, right: (right + 1) / width, bottom: (bottom + 1) / height } : null,
         centroid: count ? { x: cx / weight / width, y: cy / weight / height } : null };
@@ -245,6 +246,25 @@ async function startSampler(page) {
       }
       return copy;
     };
+    const dissolveStyle = (host, lower, upper) => ({
+      isolation: getComputedStyle(host).isolation, hostOpacity: Number(getComputedStyle(host).opacity),
+      liveOpacity: lower ? Number(getComputedStyle(lower).opacity) : null,
+      posterOpacity: upper ? Number(getComputedStyle(upper).opacity) : null,
+      liveBlend: lower ? getComputedStyle(lower).mixBlendMode : null,
+      posterBlend: upper ? getComputedStyle(upper).mixBlendMode : null,
+      posterVisibility: upper ? getComputedStyle(upper).visibility : null,
+      advertisedOpacity: host.dataset.returnOpacity === undefined ? null : Number(host.dataset.returnOpacity),
+      posterCanvas: upper instanceof HTMLCanvasElement && !upper.classList.contains('model-canvas'),
+      posterDimensions: upper ? [upper.width, upper.height] : null,
+    });
+    const blendPixels = (live, poster, liveOpacity, posterOpacity, operation = 'lighter') => {
+      const composite = document.createElement('canvas'); composite.width = live.width; composite.height = live.height;
+      const context = composite.getContext('2d'); context.globalCompositeOperation = operation;
+      // Match blendVisual exactly: actual lower WebGL snapshot, then upper poster.
+      context.globalAlpha = liveOpacity; context.drawImage(live, 0, 0);
+      context.globalAlpha = posterOpacity; context.drawImage(poster, 0, 0, composite.width, composite.height);
+      return composite;
+    };
     // Retain actual pixels synchronously, but defer CPU readback, alpha loops,
     // hashing and PNG encoding until motion has settled. Those probes otherwise
     // consumed more than the complete 180 ms motion on software-rendered CI.
@@ -261,13 +281,34 @@ async function startSampler(page) {
         }
         if (window.__handoffReview.returnEndpoint?.draw === draw) window.__handoffReview.returnEndpoint.png = pixels.toDataURL('image/png');
         capture.processed = true;
-        alphaCopy.width = alphaCopy.height = 0;
+        // Keep bounded layer copies until the RAF fade samples are measured.
         if (pixels) pixels.width = pixels.height = 0;
         if (composite) composite.width = composite.height = 0;
       }
       for (const capture of returnFrameCaptures) {
         capture.flight.alpha = capture.draw.alpha;
         capture.flight.object = projectedAt(capture.rect, capture.objectFit, capture.draw.alpha);
+        if (capture.flight.returnPhase === 'fading' && capture.layer?.posterCopy && !capture.flight.alpha_mass) {
+          const live = capture.layer.alphaCopy, poster = capture.layer.posterCopy, style = capture.flight.dissolve;
+          const a = readAlpha(live, [live.width, live.height]), b = readAlpha(poster, [live.width, live.height]);
+          const composite = blendPixels(live, poster, style.liveOpacity, style.posterOpacity);
+          const sourceOver = blendPixels(live, poster, style.liveOpacity, style.posterOpacity, 'source-over');
+          const oldPoster = document.createElement('canvas'); oldPoster.width = live.width; oldPoster.height = live.height;
+          const oldContext = oldPoster.getContext('2d'); oldContext.drawImage(poster, 0, 0, live.width, live.height);
+          oldContext.globalAlpha = style.liveOpacity; oldContext.drawImage(live, 0, 0);
+          capture.flight.alpha_mass = {
+            source: 'actual synchronous WebGL and decoded return-poster pixels; 2D reconstruction of verified CSS blend',
+            denominator_pixels: live.width * live.height,
+            // At most two alpha-byte rounding errors per covered output pixel.
+            // The mass denominator remains the entire raster, including zeros.
+            quantization_tolerance: 2 / 255 * Math.min(1, a.nonzero_fraction + b.nonzero_fraction),
+            live: a.mean_alpha, poster: b.mean_alpha,
+            expected: a.mean_alpha * style.liveOpacity + b.mean_alpha * style.posterOpacity,
+            actual: readAlpha(composite, [live.width, live.height]).mean_alpha,
+            complementary_source_over: readAlpha(sourceOver, [live.width, live.height]).mean_alpha,
+            old_full_poster_source_over: readAlpha(oldPoster, [live.width, live.height]).mean_alpha,
+          };
+        }
       }
     };
     const cssBackgroundAlpha = element => {
@@ -285,19 +326,18 @@ async function startSampler(page) {
           const draw = { time: performance.now(), phase: review.phase, progress, returnPhase,
             host: rectOf(host), view, actualSharedCanvas: canvas === window.__openingCardSurface,
             originHidden: Boolean(document.querySelector('[data-detail-origin]')),
-            opacity: Number(getComputedStyle(host).opacity),
+            opacity: Number(getComputedStyle(canvas).opacity),
+            dissolve: dissolveStyle(host, canvas, host.querySelector('.return-poster')),
             styleResources: { referenceObjects: window.__vaultGPU.referenceObjects, returnOverlayMeshes: window.__vaultGPU.returnOverlayMeshes || 0, returnOverlayMaterials: window.__vaultGPU.returnOverlayMaterials || 0 } };
           const sampled = alphaSampleSize(canvas), firstEndpoint = progress >= 1 && !review.returnEndpoint;
           const reversalDraw = Boolean(review.reversalRequested || (window.__reverseReturnAtProgress && progress >= window.__reverseReturnAtProgress && progress < 1));
           const capture = { draw, sampled, source: [canvas.width, canvas.height], rect: rectOf(canvas),
             objectFit: getComputedStyle(canvas).objectFit, alphaCopy: copyPixels(canvas, sampled),
             pixels: firstEndpoint || reversalDraw ? copyPixels(canvas) : null };
+          const poster = host.querySelector('.return-poster');
+          if (returnPhase === 'fading' && poster) capture.posterCopy = copyPixels(poster, sampled);
           if (returnPhase === 'fading' && draw.opacity > 0 && draw.opacity < 1 && reversalDraw) {
-            const poster = window.__originalReviewCard.querySelector('.asset-image > img'), live = capture.pixels;
-            const composite = document.createElement('canvas'); composite.width = live.width; composite.height = live.height;
-            const context = composite.getContext('2d'); context.drawImage(poster, 0, 0, composite.width, composite.height);
-            context.globalAlpha = draw.opacity; context.drawImage(live, 0, 0);
-            capture.composite = composite;
+            capture.composite = blendPixels(capture.pixels, poster, draw.opacity, 1 - draw.opacity);
           }
           returnCaptures.push(capture); review.returnDraws.push(draw);
           if (firstEndpoint) {
@@ -327,7 +367,8 @@ async function startSampler(page) {
           };
         }
         window.__handoffReview.draws.push({ time: performance.now(), phase: window.__handoffReview.phase, host: rectOf(host), alpha, object: projected(canvas, alpha), view, pixels: signature,
-          overlay: overlay ? { alpha: overlayAlpha, object: projected(overlay, overlayAlpha) } : null });
+          overlay: overlay ? { alpha: overlayAlpha, object: projected(overlay, overlayAlpha) } : null,
+          dissolve: overlay ? dissolveStyle(host, canvas, overlay) : null });
       } catch (error) { window.__handoffReview.probe_errors.push(error.message); }
     };
     const visible = element => {
@@ -345,9 +386,11 @@ async function startSampler(page) {
       const host = document.querySelector('#canvas-host'), flight = document.querySelector('.stage-flight'), overlay = host.querySelector('.model-handoff'), model = host.querySelector('.model-canvas');
       if (document.querySelector('#viewer-dialog')?.open) {
         const stationaryVisible = [...host.querySelectorAll('canvas,img')].some(visible);
-        const canonicalPosterVisible = flight?.dataset.returnPhase === 'fading' && visible(window.__originalReviewCard?.querySelector('.asset-image > img'));
+        const canonicalPosterVisible = flight?.dataset.returnPhase === 'fading' && visible(flight.querySelector('.return-poster'));
+        const originPosterVisible = visible(window.__originalReviewCard?.querySelector('.asset-image > img'));
         const hasVisual = stationaryVisible || visible(flight) || canonicalPosterVisible;
-        const entry = { time: performance.now(), phase: window.__handoffReview.phase, sampledBy: schedule ? 'raf' : 'synchronous', hasVisual, stationaryVisible, canonicalPosterVisible, state: host.dataset.modelState, host: rectOf(host),
+        const entry = { time: performance.now(), phase: window.__handoffReview.phase, sampledBy: schedule ? 'raf' : 'synchronous', hasVisual, stationaryVisible, canonicalPosterVisible, originPosterVisible,
+          dissolve: overlay ? dissolveStyle(host, model || host.querySelector('.model-poster'), overlay) : null, state: host.dataset.modelState, host: rectOf(host),
           model: model ? { alpha: alphaFor(model), object: projected(model, alphaFor(model)), visible: visible(model) } : null,
           overlay: overlay ? { alpha: alphaFor(overlay), object: projected(overlay, alphaFor(overlay)), opacity: Number(getComputedStyle(overlay).opacity), css_background_alpha: cssBackgroundAlpha(overlay) } : null };
         if (flight && visible(flight)) {
@@ -358,12 +401,13 @@ async function startSampler(page) {
           const contentScale = Math.min(r.width / iw, r.height / ih), alpha = alphaFor(surface);
           entry.flight = { square: Math.min(iw, ih) * contentScale, x: r.x + r.width / 2, y: r.y + r.height / 2, width: iw, height: ih,
             kind: flight instanceof HTMLCanvasElement ? 'bitmap-open' : 'live-return', actualSharedCanvas: surface === window.__openingCardSurface,
-            progress: Number(flight.dataset.returnProgress), returnPhase: flight.dataset.returnPhase, opacity: Number(getComputedStyle(flight).opacity),
+            progress: Number(flight.dataset.returnProgress), returnPhase: flight.dataset.returnPhase,
+            opacity: Number(getComputedStyle(surface).opacity), dissolve: dissolveStyle(flight, surface, flight.querySelector('.return-poster')),
             originHidden: Boolean(document.querySelector('[data-detail-origin]')),
             alpha, object: projected(surface, alpha), css_background_alpha: cssBackgroundAlpha(flight), css_background_image: getComputedStyle(flight).backgroundImage };
           if (entry.flight.kind === 'live-return') {
             const draw = window.__handoffReview.returnDraws.at(-1);
-            if (draw) returnFrameCaptures.push({ flight: entry.flight, draw, rect: rectOf(surface), objectFit: getComputedStyle(surface).objectFit });
+            if (draw) returnFrameCaptures.push({ flight: entry.flight, draw, layer: returnCaptures.find(capture => capture.draw === draw), rect: rectOf(surface), objectFit: getComputedStyle(surface).objectFit });
           }
         }
         window.__handoffReview.frames.push(entry);
@@ -392,7 +436,18 @@ async function endSampler(page) {
   return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); window.__handoffReview.flushReturnCaptures(); delete window.__vaultFrameProbe; if (window.__handoffOriginalAnimate) Element.prototype.animate = window.__handoffOriginalAnimate; return window.__handoffReview.frames; });
 }
 
-async function dynamicContinuity(page, caseReport, frames) {
+function assertDissolve(style, label) {
+  assert(style, label + ' must expose measured compositor styles');
+  assert.equal(style.isolation, 'isolate', label + ' must isolate its additive children');
+  assert(Math.abs(style.hostOpacity - 1) < 0.001, label + ' host must stay fully opaque');
+  assert.equal(style.liveBlend, 'plus-lighter', label + ' live child must use plus-lighter');
+  assert.equal(style.posterBlend, 'plus-lighter', label + ' bitmap child must use plus-lighter');
+  assert(style.liveOpacity >= 0 && style.liveOpacity <= 1 && style.posterOpacity >= 0 && style.posterOpacity <= 1,
+    label + ' child weights must stay bounded');
+  assert(Math.abs(style.liveOpacity + style.posterOpacity - 1) < 0.001, label + ' child weights must be complementary');
+}
+
+async function dynamicContinuity(page, caseReport, frames, options = {}) {
   const { draws, probe_errors } = await page.evaluate(() => ({ draws: window.__handoffReview.draws, probe_errors: window.__handoffReview.probe_errors }));
   const comparisons = [], phases = [];
   const requireBounds = (object, label) => {
@@ -433,6 +488,11 @@ async function dynamicContinuity(page, caseReport, frames) {
         const nextObject = frame.overlay?.opacity > 0.5 ? frame.overlay.object : frame.model?.object;
         compare(previousObject, nextObject, 'consecutive-stationary-frames', phase);
       }
+    }
+    const dissolves = samples.filter(frame => frame.dissolve && !frame.flight);
+    for (const frame of dissolves) assertDissolve(frame.dissolve, phase + ' handoff');
+    if (options.reducedMotion !== 'reduce' && samples.some(frame => frame.flight) && dissolves.length) {
+      assert(dissolves.some(frame => frame.dissolve.liveOpacity > 0 && frame.dissolve.liveOpacity < 1), phase + ' must sample the real complementary opening fade');
     }
     phases.push({ phase, samples: samples.length, draws: renderSamples.length, ready_seen: samples.some(frame => frame.state === 'ready'), release_boundaries: releases, host_rect_range_px: ranges });
   }
@@ -486,9 +546,14 @@ async function canonicalReturnCoverage(page, label, caseReport, canonical, befor
     assert(Math.abs(draw.view.distance - (beforeClose.distance + (canonical.distance - beforeClose.distance) * k)) < 0.00001,
       'Actual rendered camera distance must follow cubic interpolation');
     assert(draw.alpha.transparent_fraction > 0.2 && draw.alpha.corner_alpha_max <= 3, 'Every live return frame preserves transparent surrounding pixels');
+    assertDissolve(draw.dissolve, 'live return');
+    assert(draw.originHidden, 'The origin card IMG stays hidden until the final swap');
+    if (draw.dissolve.advertisedOpacity !== null) assert(Math.abs(draw.dissolve.advertisedOpacity - draw.opacity) < 0.000001, 'Return opacity data must agree with the serialized computed live-child opacity');
+    assert(draw.dissolve.posterCanvas, 'The transient return poster must be a decoded-image 2D canvas');
+    assert.deepEqual(draw.dissolve.posterDimensions, [768, 768], 'The transient poster uses the original decoded 768px origin image');
     if (p < 1) {
       assert.equal(draw.returnPhase, 'moving');
-      assert(draw.originHidden, 'The canonical poster stays hidden until the moving live model aligns');
+      assert(draw.originHidden, 'The origin card poster stays hidden throughout the moving return');
       assert(Math.abs(draw.opacity - 1) < 0.001, 'The current pose remains fully visible while moving');
     } else {
       assert.equal(draw.returnPhase, 'fading');
@@ -649,6 +714,11 @@ async function roundTrip(label, options = {}) {
     await page.waitForTimeout(350);
     await page.waitForFunction(() => !document.querySelector('#canvas-host .model-handoff') && !document.querySelector('.stage-flight'));
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const openingCleanup = await page.locator('#canvas-host .model-canvas').evaluate(canvas => ({
+      opacity: Number(getComputedStyle(canvas).opacity), animations: canvas.getAnimations().length,
+      blend: getComputedStyle(canvas).mixBlendMode,
+    }));
+    assert.deepEqual(openingCleanup, { opacity: 1, animations: 0, blend: 'normal' }, 'Opening must retire both complementary animations and release the additive child styling');
     await page.evaluate(() => { window.__handoffReview.phase = 'inspect'; });
     await pixelParity(page, label, caseReport);
     await page.evaluate(() => { window.__handoffReview.phase = 'interact'; });
@@ -707,14 +777,25 @@ async function roundTrip(label, options = {}) {
     assert(Math.abs(canonical.distance - reopened.distance) < 0.00001, 'Reopening from the canonical poster starts at its fitted distance');
     const frames = await endSampler(page), closeFlights = frames.filter(frame => frame.phase === 'close' && frame.flight);
     caseReport.frames = frames;
-    await dynamicContinuity(page, caseReport, frames);
+    await dynamicContinuity(page, caseReport, frames, options);
     assert.equal(frames.filter(frame => !frame.hasVisual).length, 0, 'Open/close/reopen must never show an empty visual frame');
     if (options.reducedMotion !== 'reduce') {
       assert(closeFlights.length > 1, 'The ordinary-motion return must actually animate');
       assert(closeFlights.every(frame => frame.flight.kind === 'live-return' && frame.flight.actualSharedCanvas), 'Close animates the actual shared live model inside a DIV');
-      const aligned = closeFlights.filter(frame => frame.flight.progress === 1 && !frame.flight.originHidden);
-      assert(aligned.length > 0 && aligned.every(frame => frame.canonicalPosterVisible), 'Aligned fade exposes the matching canonical poster beneath the live model');
-      assert(aligned.some(frame => frame.sampledBy === 'raf' && frame.flight.opacity > 0 && frame.flight.opacity < 1), 'Aligned fade must actually paint a partially faded live model over the visible canonical poster');
+      const aligned = closeFlights.filter(frame => frame.flight.progress === 1 && frame.flight.returnPhase === 'fading');
+      assert(aligned.length > 0 && aligned.every(frame => frame.flight.dissolve.posterVisibility === 'visible'), 'Aligned fade exposes the transient decoded canonical return poster');
+      assert(closeFlights.every(frame => frame.flight.originHidden && !frame.originPosterVisible), 'The original card IMG stays hidden throughout the flight and dissolve');
+      for (const frame of closeFlights) assertDissolve(frame.flight.dissolve, 'painted live return');
+      assert(aligned.some(frame => frame.sampledBy === 'raf' && frame.flight.opacity > 0 && frame.flight.opacity < 1), 'Aligned fade must actually paint complementary partially faded live and transient poster children');
+      const masses = aligned.filter(frame => frame.flight.opacity > 0 && frame.flight.opacity < 1).map(frame => frame.flight.alpha_mass);
+      assert(masses.length > 0 && masses.every(Boolean), 'Partial fade alpha mass must use captured actual layer pixels');
+      caseReport.alpha_preserving_dissolve = { source: masses[0].source, samples: masses, tolerance: 'two alpha-byte errors per covered pixel, divided by every raster pixel' };
+      for (const mass of masses) {
+        assert(mass.denominator_pixels > 0, 'Alpha mass keeps every pixel in its unchanged raster denominator');
+        assert(Math.abs(mass.actual - mass.expected) <= mass.quantization_tolerance + 1e-9, 'Actual-layer lighter alpha mass must follow the weighted endpoints without a hump or dip');
+        assert(mass.actual >= Math.min(mass.live, mass.poster) - mass.quantization_tolerance - 1e-9 && mass.actual <= Math.max(mass.live, mass.poster) + mass.quantization_tolerance + 1e-9, 'Dissolve alpha mass must stay inside its actual endpoint envelope');
+      }
+      assert(masses.some(mass => Math.abs(mass.complementary_source_over - mass.expected) > mass.quantization_tolerance || Math.abs(mass.old_full_poster_source_over - mass.expected) > mass.quantization_tolerance), 'Actual model pixels must distinguish the old source-over hump or dip from an alpha-preserving dissolve');
       const fading = aligned.map(frame => frame.flight.opacity);
       assert(fading.every(opacity => opacity >= 0 && opacity <= 1), 'Aligned live model opacity stays bounded during the fade');
       assert.equal(frames.filter(frame => frame.flight && frame.stationaryVisible).length, 0, 'A flying model must not duplicate a stationary model behind it');
@@ -940,6 +1021,11 @@ async function interruptedCanonicalReturn(returnPhase = 'moving') {
     assert.equal(evidence.gpu.liveScenes, 1); assert.equal(evidence.gpu.rendererCreations, resources.rendererCreations);
     assert.equal(evidence.gpu.parseCount, resources.parseCount); assert.equal(evidence.gpu.networkRequests, resources.networkRequests);
     assert.equal(await page.locator('.model-preview-snapshot, .live-model-return').count(), 0, 'Cancelled return leaves no stale bitmap or live flight');
+    const reversalCleanup = await page.locator('#canvas-host .model-canvas').evaluate(canvas => ({
+      opacity: Number(getComputedStyle(canvas).opacity), animations: canvas.getAnimations().length,
+      blend: getComputedStyle(canvas).mixBlendMode,
+    }));
+    assert.deepEqual(reversalCleanup, { opacity: 1, animations: 0, blend: 'normal' }, 'Reversal must clean up both complementary handoff animations');
     caseReport.status = 'pass';
     report.checks.push(`Forward during canonical ${returnPhase} preserves the actual camera and exact visible handoff pixels while reusing one canvas, renderer, and decoded resource.`);
   } catch (error) {

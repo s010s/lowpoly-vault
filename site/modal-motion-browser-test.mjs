@@ -114,7 +114,8 @@ function installProbe() {
     if (!element) return null;
     const css = getComputedStyle(element);
     return { opacity: Number(css.opacity), effective_opacity: opacity(element), transform: transform(css), rect: rect(element),
-      background_alpha: colorAlpha(css.backgroundColor), visibility: css.visibility, display: css.display };
+      background_alpha: colorAlpha(css.backgroundColor), visibility: css.visibility, display: css.display,
+      isolation: css.isolation, mix_blend_mode: css.mixBlendMode };
   };
   const alpha = source => {
     const sw = source.naturalWidth || source.width, sh = source.naturalHeight || source.height;
@@ -159,19 +160,25 @@ function installProbe() {
     const source = element instanceof HTMLCanvasElement || element instanceof HTMLImageElement ? element : element.querySelector('.model-canvas');
     const a = source ? (pixelProbe ? cachedAlpha(source) : alphaCache.get(source) || null) : null, s = style(element);
     const child = source && source !== element ? style(source) : s;
+    const returnPoster = element.querySelector?.('.return-poster'), posterStyle = returnPoster ? style(returnPoster) : null;
     return { ...s, alpha: a, object: objectBounds(source, a), view: view(element), tag: element.tagName,
       canvas_id: source?.classList.contains('model-canvas') ? elementId(source) : null,
       live_canvas: Boolean(source?.classList.contains('model-canvas')), canvas_rect: source ? rect(source) : null,
-      visible: Math.min(s.effective_opacity, child.effective_opacity) > 0.003 && s.rect.width > 0 && s.rect.height > 0,
+      layer: child, bitmap_2d: source instanceof HTMLCanvasElement && !source.classList.contains('model-canvas') ? Boolean(source.getContext('2d')) : false,
+      visible: Math.min(s.effective_opacity, Math.max(child.effective_opacity, posterStyle?.effective_opacity || 0)) > 0.003 && s.rect.width > 0 && s.rect.height > 0,
       return_phase: element.dataset.returnPhase || null,
       return_progress: element.dataset.returnProgress === undefined ? null : Number(element.dataset.returnProgress),
+      return_opacity: element.dataset.returnOpacity === undefined ? null : Number(element.dataset.returnOpacity),
+      return_css_opacity: element.style.getPropertyValue('--return-live-opacity') === '' ? null : Number(getComputedStyle(element).getPropertyValue('--return-live-opacity')),
+      image_decoded: element instanceof HTMLImageElement ? element.complete && element.naturalWidth > 0 : null,
       background_image: getComputedStyle(element).backgroundImage };
   };
   const animationState = dialog => dialog ? dialog.getAnimations({ subtree: true }).map(a => {
     const timing = a.effect?.getComputedTiming(), target = a.effect?.target;
     return { target: target?.id || target?.className || target?.tagName || null, pseudo: a.effect?.pseudoElement || null,
       play_state: a.playState, current_time: a.currentTime, duration: timing?.duration, delay: timing?.delay,
-      end_time: timing?.endTime, progress: timing?.progress };
+      end_time: timing?.endTime, progress: timing?.progress,
+      opacity_keyframes: a.effect?.getKeyframes?.().map(frame => frame.opacity).filter(value => value !== undefined) || [] };
   }) : [];
   const snapshot = source => {
     const dialog = document.querySelector('#viewer-dialog'), host = document.querySelector('#canvas-host');
@@ -188,6 +195,7 @@ function installProbe() {
         effective_alpha: Number(backdrop.opacity) * colorAlpha(backdrop.backgroundColor), animation: backdrop.animationName },
       shell: style(dialog.querySelector('.viewer-layout')), content, host: style(host), model_state: host?.dataset.modelState,
       flight: visual(dialog.querySelector('.stage-flight')), handoff: visual(host?.querySelector('.model-handoff')),
+      return_poster: visual(dialog.querySelector('.stage-flight .return-poster')),
       model: visual(host?.querySelector('.model-canvas')), poster: visual(host?.querySelector('.model-poster')),
       card: visual(document.querySelector('#grid [data-id="natural-arch"] .model-preview-snapshot, #grid [data-id="natural-arch"] .model-canvas')),
       card_poster: visual(document.querySelector('#grid [data-id="natural-arch"] .asset-image > img')),
@@ -306,10 +314,11 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
     check(test, record.phase + ': flight does not duplicate a stationary detail model', ![f.model, f.handoff, f.poster].some(v => v?.visible), { time: f.time, host: f.host });
     check(test, record.phase + ': source card has no alternate retained pose', !f.card?.visible, { time: f.time, card: f.card?.visible });
     const alignedFade = f.flight.live_canvas && f.flight.return_phase === 'fading' && sameView(f.flight.view, f.canonical_view);
-    check(test, record.phase + ': source poster appears only after the live return is canonical', !f.card_poster?.visible || alignedFade,
+    check(test, record.phase + ': transient poster appears only after the live return is canonical', !f.return_poster?.visible || alignedFade,
       { time: f.time, phase: f.flight.return_phase, view: f.flight.view, canonical: f.canonical_view });
-    if (f.flight.live_canvas && f.flight.return_phase === 'moving') check(test, record.phase + ': source stays hidden while live camera and bounds move', f.origin_hidden && !f.card_poster?.visible,
+    if (f.flight.live_canvas) check(test, record.phase + ': source stays hidden until the final canonical swap', f.origin_hidden && !f.card_poster?.visible,
       { time: f.time, origin_hidden: f.origin_hidden, poster: f.card_poster?.visible });
+    else check(test, record.phase + ': source poster stays hidden during the opening flight', !f.card_poster?.visible, { time: f.time });
   }
   if (sourced) check(test, record.phase + ': sourced transition has no empty visual frame', visible.filter(f => f.source === 'raf').every(f =>
     f.flight?.visible || f.handoff?.visible || f.model?.visible || f.poster?.visible || (f.marker === 'closing' && f.card_poster?.visible)),
@@ -330,6 +339,23 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
     }
     const stationary = visible.filter(f => f.source === 'raf' && !f.flight && f.model?.object && f.model_state === 'ready');
     check(test, record.phase + ': model bounds remain continuous after flight handoff', stationary.slice(1).every((f, i) => near(stationary[i].model.object, f.model.object)), { samples: stationary.length });
+  }
+  const handoffs = visible.filter(f => f.handoff && (f.model || f.poster));
+  for (const f of handoffs) {
+    const target = f.model_state === 'ready' ? f.model : f.poster;
+    if (!target || target.visibility === 'hidden') continue;
+    check(test, record.phase + ': opening handoff uses isolated additive complementary layers',
+      f.host.isolation === 'isolate' && f.handoff.mix_blend_mode === 'plus-lighter' && target.mix_blend_mode === 'plus-lighter' &&
+      Math.abs(f.handoff.opacity + target.opacity - 1) <= 0.002,
+      { host: f.host, handoff: f.handoff.opacity, target: target.opacity, blend: target.mix_blend_mode });
+    const fade = f.animations.find(a => a.target === 'model-handoff' && a.opacity_keyframes.length);
+    if (fade) {
+      const reveal = f.animations.find(a => a.target === (f.model_state === 'ready' ? 'model-canvas' : 'model-poster') && a.opacity_keyframes.length);
+      check(test, record.phase + ': opening dissolve pairs opposite opacity animations',
+        Boolean(reveal) && fade.duration === 160 && reveal.duration === fade.duration &&
+        JSON.stringify(fade.opacity_keyframes.map(Number)) === '[1,0]' && JSON.stringify(reveal.opacity_keyframes.map(Number)) === '[0,1]',
+        { fade, reveal });
+    }
   }
 }
 function validateCanonicalReturn(test, record, frames, event, before, slack) {
@@ -384,10 +410,22 @@ function validateCanonicalReturn(test, record, frames, event, before, slack) {
   }
   check(test, record.phase + ': live camera reaches canonical pose before the poster fade', fading.length > 0 && fading.every(f => sameView(f.flight.view, canonical)) && sameView(returnedDraws.at(-1)?.view, canonical),
     { canonical, fade_views: fading.map(f => f.flight.view), last_draw: returnedDraws.at(-1)?.view });
-  check(test, record.phase + ': live return fades over the matching visible canonical poster', fading.some(f => f.card_poster?.visible && f.flight.opacity > 0.025 && f.flight.opacity < 0.985),
-    fading.map(f => ({ time: f.time - event.time, opacity: f.flight.opacity, poster: f.card_poster?.visible })));
-  const posterBounds = fading.filter(f => f.card_poster?.object).map(f => ({ live: f.flight.object, poster: f.card_poster.object }));
+  check(test, record.phase + ': return isolates complementary additive live and decoded poster layers', live.length > 1 && live.every(f =>
+    f.flight.isolation === 'isolate' && f.flight.opacity === 1 && f.flight.layer.mix_blend_mode === 'plus-lighter' &&
+    f.return_poster?.tag === 'CANVAS' && f.return_poster.bitmap_2d && f.return_poster.mix_blend_mode === 'plus-lighter' &&
+    f.card_poster?.image_decoded && Number.isFinite(f.flight.return_opacity) && f.flight.return_opacity >= 0 && f.flight.return_opacity <= 1 &&
+    Math.abs(f.flight.layer.opacity - f.flight.return_opacity) <= 0.002 &&
+    Math.abs(f.flight.return_css_opacity - f.flight.return_opacity) <= 0.002 &&
+    Math.abs(f.flight.layer.opacity + f.return_poster.opacity - 1) <= 0.002),
+    live.map(f => ({ time: f.time - event.time, host: f.flight.opacity, isolation: f.flight.isolation,
+      live: f.flight.layer.opacity, poster: f.return_poster?.opacity, data: f.flight.return_opacity, css: f.flight.return_css_opacity })));
+  check(test, record.phase + ': live return fades over the matching visible canonical poster', fading.some(f => f.return_poster?.visible && f.flight.layer.opacity > 0.025 && f.flight.layer.opacity < 0.985),
+    fading.map(f => ({ time: f.time - event.time, opacity: f.flight.layer.opacity, poster: f.return_poster?.visible })));
+  const posterBounds = fading.filter(f => f.return_poster?.object).map(f => ({ live: f.flight.object, poster: f.return_poster.object }));
   if (record.pixel_probe) check(test, record.phase + ': canonical return silhouette lands on the canonical poster', posterBounds.length > 0 && posterBounds.every(pair => near(pair.live, pair.poster, 14)), posterBounds.slice(0, 3));
+  if (record.pixel_probe) check(test, record.phase + ': transient poster preserves decoded origin transparency and bounds', fading.length > 0 && fading.every(f =>
+    f.return_poster?.alpha?.pixels > 0 && f.return_poster.alpha.transparent_fraction > 0.2 && f.return_poster.alpha.corner_alpha_max <= 3 &&
+    near(f.return_poster.object, f.card_poster?.object, 14)), fading.map(f => ({ transient: f.return_poster?.alpha, origin: f.card_poster?.alpha })));
   const firstGPU = frames.find(f => f.gpu)?.gpu, lastGPU = frames.filter(f => f.gpu).at(-1)?.gpu;
   check(test, record.phase + ': return reuses the attached GLB without request, parse or resource churn', Boolean(firstGPU && lastGPU) &&
     ['rendererCreations', 'networkRequests', 'parseCount', 'disposedGeometries', 'disposedMaterials', 'disposedTextures'].every(key => lastGPU[key] === firstGPU[key]),
@@ -416,6 +454,11 @@ function validateTiming(test, record, trigger, { opening, reduced = false, sourc
     if (!reduced) {
       check(test, record.phase + ': shell, backdrop and content visibly interpolate', s.shell_progress_samples > 0 && s.backdrop_progress_samples > 0 && s.content_progress_samples > 0, s);
       check(test, record.phase + ': content enters before the old 300 ms flight boundary', visible.some(f => f.time - event.time < 220 && f.content.some(c => c.effective_opacity > 0.1)), s);
+      if (sourced) check(test, record.phase + ': opening dissolve actually paints complementary partial layers', visible.some(f => {
+        const target = f.model_state === 'ready' ? f.model : f.poster;
+        return f.source === 'raf' && f.host.opacity === 1 && f.handoff?.visible && target?.visible &&
+          f.handoff.opacity > 0.025 && f.handoff.opacity < 0.985 && target.opacity > 0.025 && target.opacity < 0.985;
+      }), { samples: visible.filter(f => f.handoff?.visible && (f.model?.visible || f.poster?.visible)).length });
     }
     const inputFrame = frames.find(f => f.source === 'event:' + event.type), entryView = inputFrame?.card?.view || inputFrame?.flight?.view;
     if (sourced && entryView) {
@@ -500,6 +543,7 @@ async function cleanupState(page, open) {
     return { expected_open: open, open: dialog.open, marker: dialog.dataset.modalMotion || null, path: location.pathname,
       overflow: document.body.style.overflow, hidden_origins: document.querySelectorAll('[data-detail-origin]').length, flights: document.querySelectorAll('.stage-flight').length,
       handoffs: document.querySelectorAll('.model-handoff').length, canvases: document.querySelectorAll('#canvas-host .model-canvas').length,
+      return_posters: document.querySelectorAll('.return-poster').length,
       card_canvases: document.querySelectorAll('#grid .model-canvas').length,
       retained_snapshots: document.querySelectorAll('.model-preview-snapshot').length,
       preview_active: window.__vaultPreview?.activeId ?? null,
@@ -512,6 +556,8 @@ async function cleanupState(page, open) {
       })(),
       live_scenes: window.__vaultGPU?.liveScenes ?? null, focus_id: document.activeElement?.dataset.id || null,
       active_animations: dialog.getAnimations({ subtree: true }).filter(a => a.playState === 'running' || a.playState === 'paused').map(a => ({ target: a.effect?.target?.id || a.effect?.target?.className, state: a.playState })),
+      retained_opacity_animations: dialog.getAnimations({ subtree: true }).filter(a => a.effect?.target?.matches?.('.model-canvas, .model-poster, .model-handoff') && a.effect.getKeyframes().some(frame => frame.opacity !== undefined)).length,
+      model_opacity: (() => { const model = document.querySelector('#canvas-host .model-canvas'); return model ? Number(getComputedStyle(model).opacity) : null; })(),
       host_opacity: document.querySelector('#canvas-host').style.opacity, layout_class: document.querySelector('.viewer-layout').className };
   }, open);
 }
@@ -525,6 +571,7 @@ async function assertClean(page, test, open) {
   const state = await cleanupState(page, open); (test.cleanup ||= []).push(state);
   check(test, 'Final dialog and route agree', state.open === open && (open ? state.path.endsWith('/natural-arch/') : state.path.endsWith('/models/')), state, false);
   check(test, 'No stale flights, handoffs, animation locks or body lock', state.flights === 0 && state.handoffs === 0 && state.active_animations.length === 0 && state.host_opacity !== '0' && !state.layout_class.includes('motion-running') && (open ? state.overflow === 'hidden' : state.overflow !== 'hidden' && state.hidden_origins === 0), state);
+  check(test, 'Additive dissolve removes transient posters and both opacity animations', state.return_posters === 0 && state.retained_opacity_animations === 0 && (!open || state.model_opacity === 1), state);
   check(test, 'Exactly the expected number of live detail scenes', state.canvases === (open ? 1 : 0) && (state.live_scenes === null || state.live_scenes === (open ? 1 : 0)), state, false);
   if (!open) check(test, 'Closed browsing settles on canonical posters without retained inspection', state.card_canvases === 0 && state.retained_snapshots === 0 && state.preview_active === null && (!sourced || (state.card_poster?.loaded && state.card_poster.visible)), state);
 }

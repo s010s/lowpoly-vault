@@ -61,7 +61,7 @@ function sameView(c,a,b,label){check(c,label+' azimuth',angle(a.azimuth_deg,b.az
 async function canonicalView(page){return page.evaluate(()=>window.__qaStage.canonicalView);}
 async function canonicalPoster(page,c,id,label){
  await page.waitForFunction(()=>!document.querySelector('.stage-flight')&&window.__vaultPreview?.activeId===null&&(!window.__vaultGPU||window.__vaultGPU.liveScenes===0));
- check(c,label+' has no retained snapshot or live canvas',await page.locator('.model-preview-snapshot,.model-canvas').count()===0);
+ check(c,label+' has no retained snapshot or live canvas',await page.locator('.model-preview-snapshot,.model-canvas,.return-poster').count()===0);
  check(c,label+' source card displays only its canonical poster',await card(page,id).locator('.asset-image').evaluate(host=>{
   const img=host.querySelector('img');
   if(!img?.complete||!img.naturalWidth||host.querySelectorAll('img').length!==1)return false;
@@ -171,7 +171,7 @@ try{
     if(!host.classList.contains('live-model-return'))return;
     try{const r=host.getBoundingClientRect();window.__qaReturn.draws.push({time:performance.now(),progress:Number(host.dataset.returnProgress),phase:host.dataset.returnPhase,view:{...view},rect:{x:r.x,y:r.y,width:r.width,height:r.height},same_canvas:drawCanvas===canvas,same_scene:s._gltf.scene===scene,same_resource:s._activeResource===resource,canvases:document.querySelectorAll('.model-canvas').length,live_scenes:window.__vaultGPU.liveScenes});}catch(error){window.__qaReturn.errors.push(error.message);}
    };
-   const sample=()=>{const flight=document.querySelector('.live-model-return');if(flight){const poster=image.querySelector('img'),css=getComputedStyle(poster);window.__qaReturn.frames.push({time:performance.now(),progress:Number(flight.dataset.returnProgress),phase:flight.dataset.returnPhase,opacity:Number(getComputedStyle(flight).opacity),poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});}window.__qaReturnRAF=requestAnimationFrame(sample);};sample();
+   const sample=()=>{const flight=document.querySelector('.live-model-return');if(flight){const live=flight.querySelector('.model-canvas'),poster=flight.querySelector('.return-poster'),hostCSS=getComputedStyle(flight),liveCSS=getComputedStyle(live),posterCSS=getComputedStyle(poster);window.__qaReturn.frames.push({time:performance.now(),progress:Number(flight.dataset.returnProgress),phase:flight.dataset.returnPhase,opacity:Number(liveCSS.opacity),poster_opacity:Number(posterCSS.opacity),host_opacity:Number(hostCSS.opacity),isolation:hostCSS.isolation,live_blend:liveCSS.mixBlendMode,poster_blend:posterCSS.mixBlendMode,poster_visible:posterCSS.visibility!=='hidden',origin_hidden:Boolean(image.closest('[data-detail-origin]'))});}window.__qaReturnRAF=requestAnimationFrame(sample);};sample();
   });
   await close(page);await canonicalPoster(page,c,'natural-arch','animated canonical return');
   c.return_motion=await page.evaluate(()=>{cancelAnimationFrame(window.__qaReturnRAF);delete window.__vaultFrameProbe;return window.__qaReturn;});
@@ -189,7 +189,10 @@ try{
    check(c,'return draw '+i+' center and square follow intended shrink',['x','y','width','height'].every(key=>Math.abs(d.rect[key]-(startRect[key]+(target[key]-startRect[key])*k))<=1),{actual:d.rect,start:startRect,target,k});
   }
   const aligned=draws.filter(d=>d.progress===1);check(c,'canonical angle and fit reached before retiring actual model',aligned.length>0,draws);sameView(c,canonical,aligned.at(-1).view,'final canonical live draw');
-  const fade=frames.filter(f=>f.phase==='fading');check(c,'crossfade exposes matching canonical poster while live model fades',fade.length>0&&fade.every(f=>f.progress===1&&f.poster_visible)&&fade.some(f=>f.opacity<.99),fade);
+  const fade=frames.filter(f=>f.phase==='fading');check(c,'crossfade exposes matching canonical poster while live model fades',fade.length>0&&fade.every(f=>f.progress===1&&f.poster_visible)&&fade.some(f=>f.opacity>0&&f.opacity<.99&&f.poster_opacity>0&&f.poster_opacity<1),fade);
+  check(c,'return uses an isolated complementary plus-lighter dissolve',frames.length>0&&frames.every(f=>f.isolation==='isolate'&&f.live_blend==='plus-lighter'&&f.poster_blend==='plus-lighter'&&f.host_opacity===1&&Math.abs(f.opacity+f.poster_opacity-1)<=.00001),frames);
+  check(c,'origin poster stays hidden until the final canonical swap',frames.every(f=>f.origin_hidden),frames);
+  check(c,'transient poster appears only at canonical alignment',frames.every(f=>f.phase==='fading'||!f.poster_visible),frames);
   const after=await stats(page);check(c,'return creates no renderer parse fetch or extra lease',after.rendererCreations===1&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount&&after.liveScenes===0&&after.activeLeases===0&&after.rafPending===0,{before,after});
   await shot(page,'06b-actual-model-returned-canonical-poster');
  },{recordVideo:false});
@@ -262,7 +265,7 @@ try{
     // second arbitrary progress band can miss the only such frame on SwiftShader.
     if(!state.requested&&p>0&&p<1){state.requested=true;state.requestedAt={time:performance.now(),progress:p,phase:host.dataset.returnPhase};extension.loseContext();}
    };
-   const sample=()=>{const state=window.__qaReturnLoss;if(state.lost){const image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),flight=document.querySelector('.live-model-return'),css=getComputedStyle(image);state.frames.push({time:performance.now(),dialog_open:document.querySelector('#viewer-dialog').open,flight_phase:flight?.dataset.returnPhase||null,flight_opacity:flight?Number(getComputedStyle(flight).opacity):null,poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});}window.__qaReturnLossRAF=requestAnimationFrame(sample);};sample();
+   const sample=()=>{const state=window.__qaReturnLoss;if(state.lost){const image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),flight=document.querySelector('.live-model-return'),poster=flight?.querySelector('.return-poster')||image,css=getComputedStyle(poster);state.frames.push({time:performance.now(),dialog_open:document.querySelector('#viewer-dialog').open,flight_phase:flight?.dataset.returnPhase||null,flight_opacity:flight?Number(getComputedStyle(flight.querySelector('.model-canvas')).opacity):null,poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&(flight?true:!image.closest('[data-detail-origin]'))});}window.__qaReturnLossRAF=requestAnimationFrame(sample);};sample();
    return true;
   });
   check(c,'real WebGL context-loss extension available for strict return coverage',supported);
@@ -278,6 +281,89 @@ try{
   await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');sameView(c,canonical,await view(page),'context-restored reopen starts canonical');
   check(c,'restored context reuses original canvas and decoded GLTF after interrupted close',await page.evaluate(()=>window.__qaStage._renderer.domElement===window.__qaReturnLoss.canvas&&window.__qaStage._gltf.scene===window.__qaReturnLoss.scene&&window.__qaStage._activeResource===window.__qaReturnLoss.resource));
   const restored=await stats(page);check(c,'context restoration creates no extra renderer parse or request',restored.rendererCreations===before.rendererCreations&&restored.networkRequests===before.networkRequests&&restored.parseCount===before.parseCount,{before,restored});await close(page);
+ },{recordVideo:false});
+ await test('context-loss-during-ready-opening-dissolve',async(page,c)=>{
+  await listing(page);const el=await hover(page);await stage(page);
+  const before=await stats(page),openingView=await view(page);
+  const supported=await page.evaluate(()=>{
+   const s=window.__qaStage,canvas=s._renderer.domElement,extension=s._renderer.getContext().getExtension('WEBGL_lose_context');if(!extension)return false;
+   const state=window.__qaOpeningLoss={canvas,scene:s._gltf.scene,resource:s._activeResource,frames:[],partial:null,lost:null,extension};
+   canvas.addEventListener('webglcontextlost',event=>{const host=document.querySelector('#canvas-host'),bitmap=host.querySelector('.model-handoff');state.lost={time:performance.now(),trusted:event.isTrusted,dialog_open:document.querySelector('#viewer-dialog').open,state:host.dataset.modelState,bitmap_opacity:bitmap?Number(getComputedStyle(bitmap).opacity):null,live_opacity:Number(getComputedStyle(canvas).opacity)};},{once:true,capture:true});
+   const visible=node=>{if(!node)return false;for(let n=node;n;n=n.parentElement){const css=getComputedStyle(n);if(css.visibility==='hidden'||css.display==='none'||Number(css.opacity)<.99)return false;}return true;};
+   const sample=()=>{
+    const host=document.querySelector('#canvas-host'),bitmap=host.querySelector('.model-handoff'),live=host.querySelector('.model-canvas'),poster=host.querySelector('.model-poster');
+    if(!state.partial&&host.dataset.modelState==='ready'&&bitmap&&live){
+     const b=Number(getComputedStyle(bitmap).opacity),l=Number(getComputedStyle(live).opacity);
+     if(b>0&&b<1&&l>0&&l<1){state.partial={time:performance.now(),bitmap_opacity:b,live_opacity:l,isolation:getComputedStyle(host).isolation,bitmap_blend:getComputedStyle(bitmap).mixBlendMode,live_blend:getComputedStyle(live).mixBlendMode,same_canvas:live===canvas,same_scene:s._gltf.scene===state.scene,same_resource:s._activeResource===state.resource,view:{...s.presentationInfo},live_scenes:window.__vaultGPU.liveScenes,canvases:document.querySelectorAll('.model-canvas').length};extension.loseContext();}
+    }
+    if(state.lost&&!state.closing){const image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),open=document.querySelector('#viewer-dialog').open;state.frames.push({time:performance.now(),open,state:host.dataset.modelState,poster_visible:open?Boolean(poster?.complete&&poster.naturalWidth&&visible(poster)):visible(image)&&!image.closest('[data-detail-origin]'),bitmap_count:host.querySelectorAll('.model-handoff').length,poster_animations:poster?.getAnimations().filter(a=>a.playState==='running'||a.playState==='finished').length||0,live_hidden:!live||getComputedStyle(live).visibility==='hidden'});}
+    window.__qaOpeningLossRAF=requestAnimationFrame(sample);
+   };sample();return true;
+  });
+  check(c,'native context-loss extension available during ready opening dissolve',supported);
+  await el.focus();await page.keyboard.press('Enter');
+  await page.waitForFunction(()=>window.__qaOpeningLoss.lost&&document.querySelector('#canvas-host').dataset.modelState==='error',null,{timeout:10000});
+  await page.waitForTimeout(200);const idle1=await stats(page);await page.waitForTimeout(200);const idle2=await stats(page);
+  check(c,'opening context loss stops rendering without an idle hang',idle2.rafPending===0&&idle2.renderedFrames===idle1.renderedFrames,{idle1,idle2});
+  check(c,'opening error cancels original live target opacity animations',await page.evaluate(()=>window.__qaOpeningLoss.canvas.getAnimations().length===0));
+  await page.evaluate(()=>{window.__qaOpeningLoss.closing=true;});await close(page);await canonicalPoster(page,c,'natural-arch','ready-opening context-loss return');
+  c.opening_context_loss=await page.evaluate(()=>{cancelAnimationFrame(window.__qaOpeningLossRAF);const {frames,partial,lost}=window.__qaOpeningLoss;return {frames,partial,lost};});
+  const evidence=c.opening_context_loss,p=evidence.partial;
+  check(c,'native loss interrupts an observed ready partial bitmap-to-live dissolve',Boolean(p)&&evidence.lost?.trusted&&evidence.lost.dialog_open&&evidence.lost.state==='ready'&&evidence.lost.bitmap_opacity>0&&evidence.lost.bitmap_opacity<1&&evidence.lost.live_opacity>0&&evidence.lost.live_opacity<1&&p.bitmap_opacity>0&&p.bitmap_opacity<1&&p.live_opacity>0&&p.live_opacity<1,evidence);
+  check(c,'interrupted opening borrows sole original canvas scene and decoded resource',p.same_canvas&&p.same_scene&&p.same_resource&&p.live_scenes===1&&p.canvases===1,p);sameView(c,openingView,p.view,'opening loss retains actual camera');
+  check(c,'interrupted opening weights are isolated complementary plus-lighter',p.isolation==='isolate'&&p.bitmap_blend==='plus-lighter'&&p.live_blend==='plus-lighter'&&Math.abs(p.bitmap_opacity+p.live_opacity-1)<=.00001,p);
+  check(c,'loss exposes decoded fallback before every subsequent painted frame',evidence.frames.length>1&&evidence.frames.every(f=>f.poster_visible&&(!f.open||f.state==='error'&&f.bitmap_count===0&&f.poster_animations===0&&f.live_hidden)),evidence.frames);
+  const after=await stats(page);check(c,'opening-loss close leaves canonical poster with no RAF leases fetch parse or renderer leak',after.liveScenes===0&&after.activeLeases===0&&after.pendingLeases===0&&after.rafPending===0&&after.rendererCreations===before.rendererCreations&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount,{before,after});
+  check(c,'opening-loss close leaves no original target opacity animations',await page.evaluate(()=>window.__qaOpeningLoss.canvas.getAnimations().length===0));
+  await shot(page,'06e-opening-dissolve-context-loss-canonical-poster');
+  await page.waitForTimeout(120);await page.evaluate(()=>window.__qaOpeningLoss.extension.restoreContext());await page.waitForFunction(()=>!window.__qaStage._contextLost);
+  await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');
+  check(c,'loss reacquisition reuses original canvas scene resource with no retained opacity animation',await page.evaluate(()=>{const s=window.__qaStage,o=window.__qaOpeningLoss;return s._renderer.domElement===o.canvas&&s._gltf.scene===o.scene&&s._activeResource===o.resource&&o.canvas.getAnimations().length===0;}));
+  await close(page);await canonicalPoster(page,c,'natural-arch','opening-loss restored reacquisition close');
+  const settled=await stats(page);check(c,'loss reacquisition settles without RAF lease or fresh resource work',settled.liveScenes===0&&settled.activeLeases===0&&settled.pendingLeases===0&&settled.rafPending===0&&settled.rendererCreations===before.rendererCreations&&settled.networkRequests===before.networkRequests&&settled.parseCount===before.parseCount,{before,settled});
+ },{recordVideo:false});
+ await test('same-asset-close-during-ready-opening-dissolve',async(page,c)=>{
+  await listing(page);const el=await hover(page);await stage(page);
+  await page.evaluate(()=>{const s=window.__qaStage;s.setView(319,48,s.canonicalView.distance*.77);});
+  const inspected=await view(page),canonical=await canonicalView(page),before=await stats(page);
+  await page.evaluate(()=>{
+   const s=window.__qaStage,canvas=s._renderer.domElement,scene=s._gltf.scene,resource=s._activeResource;
+   const state=window.__qaOpeningClose={partial:null,draws:[],frames:[]};window.__qaOpeningCloseIdentity={canvas,scene,resource};
+   window.__vaultFrameProbe=({canvas:actual,host,view})=>{if(host.classList.contains('live-model-return'))state.draws.push({time:performance.now(),progress:Number(host.dataset.returnProgress),phase:host.dataset.returnPhase,view:{...view},same_canvas:actual===canvas,same_scene:s._gltf.scene===scene,same_resource:s._activeResource===resource,live_scenes:window.__vaultGPU.liveScenes,canvases:document.querySelectorAll('.model-canvas').length});};
+   const sample=()=>{
+    const host=document.querySelector('#canvas-host'),bitmap=host.querySelector('.model-handoff'),live=host.querySelector('.model-canvas');
+    if(!state.partial&&host.dataset.modelState==='ready'&&bitmap&&live){
+     const b=Number(getComputedStyle(bitmap).opacity),l=Number(getComputedStyle(live).opacity);
+     if(b>0&&b<1&&l>0&&l<1){state.partial={time:performance.now(),bitmap_opacity:b,live_opacity:l,asset_id:bitmap.dataset.assetId,same_canvas:live===canvas,same_scene:s._gltf.scene===scene,same_resource:s._activeResource===resource,isolation:getComputedStyle(host).isolation,bitmap_blend:getComputedStyle(bitmap).mixBlendMode,live_blend:getComputedStyle(live).mixBlendMode,view:{...s.presentationInfo}};document.querySelector('#close').click();}
+    }
+    if(state.partial){
+     const flight=document.querySelector('.live-model-return'),image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),open=document.querySelector('#viewer-dialog').open;
+     if(flight){const actual=flight.querySelector('.model-canvas'),poster=flight.querySelector('.return-poster'),a=getComputedStyle(actual),p=getComputedStyle(poster),f=getComputedStyle(flight);state.frames.push({time:performance.now(),open,flight:true,phase:flight.dataset.returnPhase,progress:Number(flight.dataset.returnProgress),live_opacity:Number(a.opacity),poster_opacity:Number(p.opacity),poster_visible:p.visibility!=='hidden',live_visible:a.visibility!=='hidden',host_opacity:Number(f.opacity),isolation:f.isolation,live_blend:a.mixBlendMode,poster_blend:p.mixBlendMode,poster_decoded:poster instanceof HTMLCanvasElement&&poster.width>0&&poster.height>0,origin_hidden:Boolean(image.closest('[data-detail-origin]'))});}
+     else{const css=getComputedStyle(image);state.frames.push({time:performance.now(),open,flight:false,poster_visible:image.complete&&image.naturalWidth>0&&css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});}
+    }
+    window.__qaOpeningCloseRAF=requestAnimationFrame(sample);
+   };sample();
+  });
+  await el.focus();await page.keyboard.press('Enter');
+  await page.waitForFunction(()=>window.__qaOpeningClose.partial&&!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'),null,{timeout:10000});
+  await canonicalPoster(page,c,'natural-arch','same-asset partial-opening close');
+  c.opening_close=await page.evaluate(()=>{cancelAnimationFrame(window.__qaOpeningCloseRAF);delete window.__vaultFrameProbe;return window.__qaOpeningClose;});
+  const evidence=c.opening_close,p=evidence.partial,draws=evidence.draws,flights=evidence.frames.filter(f=>f.flight);
+  check(c,'same-asset close starts inside an observed partial ready opening dissolve',p?.asset_id==='natural-arch'&&p.bitmap_opacity>0&&p.bitmap_opacity<1&&p.live_opacity>0&&p.live_opacity<1,p);
+  check(c,'partial opening preserves original canvas scene resource and complementary blend',p.same_canvas&&p.same_scene&&p.same_resource&&p.isolation==='isolate'&&p.bitmap_blend==='plus-lighter'&&p.live_blend==='plus-lighter'&&Math.abs(p.bitmap_opacity+p.live_opacity-1)<=.00001,p);sameView(c,inspected,p.view,'partial opening retains inspected camera');
+  check(c,'close during opening uses actual moving canonical-return draws',draws.length>=3&&draws.some(d=>d.progress>0&&d.progress<1)&&draws.some(d=>d.progress===1),draws);
+  sameView(c,inspected,draws[0].view,'partial-opening close begins at actual inspected camera');sameView(c,canonical,draws.at(-1).view,'partial-opening close reaches final canonical camera');
+  check(c,'opening interruption keeps sole original live canvas scene and resource',draws.every(d=>d.same_canvas&&d.same_scene&&d.same_resource&&d.live_scenes===1&&d.canvases===1),draws);
+  check(c,'return has decoded transient poster and isolated complementary child weights',flights.length>1&&flights.every(f=>f.poster_decoded&&f.isolation==='isolate'&&f.live_blend==='plus-lighter'&&f.poster_blend==='plus-lighter'&&f.host_opacity===1&&Math.abs(f.live_opacity+f.poster_opacity-1)<=.00001),flights);
+  check(c,'return keeps origin hidden until final swap and poster until canonical alignment',flights.every(f=>f.origin_hidden&&(f.phase==='fading'?f.progress===1&&f.poster_visible:!f.poster_visible))&&flights.some(f=>f.phase==='fading'&&f.live_opacity>0&&f.live_opacity<1&&f.poster_opacity>0&&f.poster_opacity<1),flights);
+  check(c,'partial-opening close leaves no blank painted frame',evidence.frames.length>1&&evidence.frames.every(f=>f.flight?(f.live_visible&&f.live_opacity>0||f.poster_visible&&f.poster_opacity>0):!f.open&&f.poster_visible),evidence.frames);
+  const after=await stats(page);check(c,'partial-opening close ends canonical without RAF lease network parse or renderer leaks',after.liveScenes===0&&after.activeLeases===0&&after.pendingLeases===0&&after.rafPending===0&&after.rendererCreations===before.rendererCreations&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount,{before,after});
+  check(c,'partial-opening close cancels original target opacity animations',await page.evaluate(()=>window.__qaOpeningCloseIdentity.canvas.getAnimations().length===0));
+  await shot(page,'06f-same-asset-opening-close-canonical-poster');
+  await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');sameView(c,canonical,await view(page),'partial-opening close reacquires canonical camera');
+  check(c,'close reacquisition reuses original canvas scene resource with no retained opacity animation',await page.evaluate(()=>{const s=window.__qaStage,o=window.__qaOpeningCloseIdentity;return s._renderer.domElement===o.canvas&&s._gltf.scene===o.scene&&s._activeResource===o.resource&&o.canvas.getAnimations().length===0;}));
+  await close(page);await canonicalPoster(page,c,'natural-arch','partial-opening restored reacquisition close');
+  const settled=await stats(page);check(c,'close reacquisition settles without RAF lease or fresh resource work',settled.liveScenes===0&&settled.activeLeases===0&&settled.pendingLeases===0&&settled.rafPending===0&&settled.rendererCreations===before.rendererCreations&&settled.networkRequests===before.networkRequests&&settled.parseCount===before.parseCount,{before,settled});
  },{recordVideo:false});
  await test('rapid-hover-abort-latest-wins',async(page,c)=>{
   await page.route('**/*.glb',async route=>{await new Promise(r=>setTimeout(r,220));await route.continue().catch(()=>{});});await listing(page);
