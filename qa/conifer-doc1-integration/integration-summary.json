@@ -1,0 +1,42 @@
+{
+  "review_only": true,
+  "integration_source_commit": "9c19765485cbcf5d6bf2a265ba8b8924494295a3",
+  "model_commit": "8e618be80a2624a58023cadcd508fdaf7494287c",
+  "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+  "handoff_harness_sha256": "95157810ba214837fba26ca23ddff74777ee8df8effe241aab1721e946cd12a9",
+  "publication_preview_approval": "pending_independent_reviewer",
+  "production_gate_scope": "Only unchanged active arch/fern release passes; proposed conifer release correctly blocked.",
+  "performance_claim": "None from software-browser integration diagnostics. All prior SwiftShader performance failures remain disclosed.",
+  "browser_suites": {
+    "strict-gpu": {
+      "status": "pass",
+      "report": "qa/conifer-doc1-integration/browser-evidence/strict-gpu/report.json",
+      "report_sha256": "3fe4b5d5957c180f5e2aae15238aae8e71803729b389a28749c2017a429ffedf"
+    },
+    "scrub": {
+      "status": "pass",
+      "report": "qa/conifer-doc1-integration/browser-evidence/scrub/report.json",
+      "report_sha256": "cf57b29e776795a4a7155b2cb3aa854c25b4b603b24dc9ab4f7501a15f3d4242"
+    },
+    "conifer-handoff": {
+      "status": "fail",
+      "report": "qa/conifer-doc1-integration/browser-evidence/conifer-handoff/report.json",
+      "report_sha256": "aef5327c1ff3cc47165bd974f3fa68008eb103a2f0e668e45eff13d0e18150a9"
+    },
+    "conifer-handoff-attempt02": {
+      "status": "pass",
+      "report": "qa/conifer-doc1-integration/browser-evidence/conifer-handoff-attempt02/report.json",
+      "report_sha256": "4dec87e0c9f508a3e61bdb9fd9a690ce1c5f474fac3734d387d93891137a8726"
+    },
+    "modal-motion": {
+      "status": "pass",
+      "report": "qa/conifer-doc1-integration/browser-evidence/modal-motion/report.json",
+      "report_sha256": "0bd5372b97f732e527abeeda450fd071bcb221c17fc58080c6b415e2579c0ec3"
+    },
+    "fallback": {
+      "status": "pass-with-webgl-fallback",
+      "report": "qa/conifer-doc1-integration/browser-evidence/fallback/report.json",
+      "report_sha256": "01dbcb8ed220cdc89ab18a978a005acff6b5ff1ad97ba158f0b77c9a50eee683"
+    }
+  }
+}

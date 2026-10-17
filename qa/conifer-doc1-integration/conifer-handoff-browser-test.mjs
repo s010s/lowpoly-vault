@@ -1,4 +1,4 @@
-// Exact existing handoff suite, asset literals only changed to conifer-tree.
+// Existing handoff assertions targeted at conifer; failure-case warmer stays a different asset.
 /** Real browser regression coverage for image-to-GLB continuity and interrupted navigation. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -483,7 +483,7 @@ async function earlyLoadFailure() {
   const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
   try {
     // Warm the viewer import/renderer without caching the asset that will fail.
-    await page.goto(base + prefix + 'models/conifer-tree/'); await ready(page, 'conifer-tree');
+    await page.goto(base + prefix + 'models/natural-arch/'); await ready(page, 'natural-arch');
     await page.locator('#close').click(); await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
     await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
     const card = page.locator('#grid .asset-card[data-id="conifer-tree"]');

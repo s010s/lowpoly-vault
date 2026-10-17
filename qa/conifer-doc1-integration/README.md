@@ -16,8 +16,16 @@ The final QA README explicitly leaves the complete24alpha publication sequence a
 
 `prepare-review.mjs` builds an explicitly REVIEW ONLY isolated tree using existing review delivery support, current compiled site/viewer, the exact accepted new conifer and candidate images/download. Other9 checked published entries/ZIPs remain unchanged in that tree. It writes neither production manifest nor active turntable index, grants no preview approval and emits no production Pages artifact. Run with `SITE_BASE=/lowpoly-vault/ SITE_ORIGIN=https://s010s.github.io node qa/conifer-doc1-integration/prepare-review.mjs`.
 
-The conifer-targeted handoff test is an exact copy of the existing full suite with only asset/name literals changed, recorded by `handoff-test-provenance.json`; assertions are unchanged. It exercises frame7 → real GLB continuity, retained image ownership, reverse and interrupted navigation for this new asset rather than relying on the old arch test.
+The conifer-targeted handoff test is an exact copy of the existing full suite with asset/name literals changed and a distinct warm-up asset retained for the early-load-failure case, recorded by `handoff-test-provenance.json`; assertions are unchanged. It exercises frame7 → real GLB continuity, retained image ownership, reverse and interrupted navigation for this new asset rather than relying on the old arch test.
 
 ## Scope and compatibility
 
 Metadata, About text and revision README retain KHR_mesh_quantization, tested Three.js0.180.0, physical M5 Pro/Metal acceptance conditions, SwiftShader frame-budget failure (including single tree) and fine-needle subpixel aliasing. Neither generic device performance nor arbitrary-loader compatibility is claimed. Existing gate and frontend behavior are unchanged. Author: Leon Made This, no-reply Git email. Final model/preview integration approval and main publication remain separate.
+
+## Browser regression evidence
+
+`browser-evidence/` records the isolated review build based on checkpoint `9c19765`, with the exact accepted conifer GLB. The first conifer handoff attempt is preserved: replacing every asset literal accidentally warmed the failure target itself, so its cached GLB could not trigger the simulated network failure. Attempt02 restores the original test intent by warming natural-arch instead; all assertions are retained. This harness-only adjustment does not change site/model bytes. The real conifer frame7 handoff, desktop/retina/mobile/reduced-motion/dark cases, context recovery and interrupted history pass. Selected actual browser pixel captures are retained; these are maker integration diagnostics, not independent publication-preview approval.
+
+`delivery-byte-check.json` verifies identical manifest entries and five delivery files for each of the other nine assets, plus CRC and exact accepted GLB/Blend hashes inside the REVIEW ONLY conifer ZIP. The review ZIP carries a review notice and must not be mistaken for the final production ZIP.
+
+All five final browser suites pass: strict real-GLB loading, image scrub, corrected conifer-targeted handoff, existing modal-motion regression (8 cases), and forced WebGL fallback. The first failed harness attempt remains recorded. Reports include browser/software-rendering scope and are not physical-device performance acceptance.
