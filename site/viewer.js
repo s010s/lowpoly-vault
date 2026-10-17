@@ -206,10 +206,10 @@ export class ModelStage {
 
   _ensureRenderer() {
     if (this._renderer) return;
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'low-power' });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
     this._renderer = renderer;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setClearColor(CARD_RENDER_PRESET.background, 1);
+    renderer.setClearColor(CARD_RENDER_PRESET.background, 0);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = CARD_RENDER_PRESET.exposure;
