@@ -412,6 +412,62 @@ async function evidenceRoundTrip(page, test, { touch = false, lang = '' } = {}) 
   }
 }
 
+async function historyVisualEvidence(test, { interrupted = false, compositor = false } = {}) {
+  const label = `${test.label}-cache-${compositor ? 'compositor' : 'video'}`;
+  const options = test.context_options;
+  const context = await browser.newContext({ reducedMotion: 'no-preference', ...options,
+    ...(compositor ? {} : { recordVideo: { dir: output, size: options.viewport } }),
+  });
+  const page = await context.newPage(); page.setDefaultTimeout(15000);
+  page.on('pageerror', error => report.page_errors.push({ label, error: error.message }));
+  // Input timestamps only: no rAF/style sampler and no WebGL/bitmap readback hook.
+  await page.addInitScript(() => {
+    window.__motionEvidenceInputs = [];
+    for (const type of ['click', 'keydown', 'popstate']) addEventListener(type, event => {
+      window.__motionEvidenceInputs.push({ type, time: performance.now(), origin: performance.timeOrigin,
+        path: location.pathname, key: event.key || null, trusted: event.isTrusted });
+    }, true);
+  });
+  const visual = { label, probe_installed: false,
+    method: compositor ? 'Separate CDP compositor PNG pass; no timing/pixel probe. Readbacks may slow this pass.'
+      : 'Unmodified real-time browser video; no per-frame style sampling, pixel readbacks, or screencast.' };
+  try {
+    await catalog(page); await page.locator(cardSelector).click(); await ready(page); await page.waitForTimeout(650);
+    await page.evaluate(() => history.back());
+    await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open); await page.waitForTimeout(400);
+    check(test, label + ': evidence context has no timing or pixel probe', await page.evaluate(() =>
+      !window.__modalMotionQA && !window.__vaultFrameProbe && !window.__handoffReview), null, false);
+    const action = async () => {
+      await page.evaluate(() => history.forward());
+      if (interrupted) {
+        await page.waitForTimeout(55); await page.keyboard.press('Escape');
+        await page.waitForTimeout(35); await page.evaluate(() => history.forward());
+      }
+      await ready(page); await page.waitForTimeout(700);
+    };
+    if (compositor) {
+      await sequence(page, test, label, async capture => {
+        Object.assign(capture, visual); await action();
+        capture.input_events = await page.evaluate(() => window.__motionEvidenceInputs);
+        capture.content_regions = await page.locator('#asset-title, #asset-description, #downloads').evaluateAll(elements => elements.map(el => {
+          const r=el.getBoundingClientRect(); return {id:el.id,x:r.x,y:r.y,width:r.width,height:r.height};
+        }));
+      });
+    } else {
+      await action();
+      const file = label + '-settled.png'; await page.screenshot({ path: resolve(output, file) }); report.screenshots.push(file);
+      visual.input_events = await page.evaluate(() => window.__motionEvidenceInputs);
+    }
+    await assertClean(page, test, true);
+  } finally {
+    const video = page.video(); await context.close();
+    if (video) {
+      visual.video = basename(await video.path()); report.videos.push({ label, file: visual.video });
+      (test.evidence_sequences ||= []).push(visual);
+    }
+  }
+}
+
 async function runCase(label, options, body) {
   const viewport = options.viewport || { width: 1440, height: 1000 };
   // Screen recording is deliberately off during latency measurement. Actual
@@ -482,10 +538,17 @@ try {
     await catalog(page); await arm(page, 'interrupted-open-close-reopen');
     await page.locator(cardSelector).click(); await page.waitForTimeout(55); await page.keyboard.press('Escape');
     await page.waitForTimeout(35); await page.evaluate(() => history.forward()); await ready(page);
-    const record = await collect(page, 1000); test.measurements.push(record); validateInvariant(test, record);
+    const record = await collect(page, 1000); test.measurements.push(record); validateInvariant(test, record, { sourced: true });
+    const forward = record.events.filter(e => e.type === 'popstate' && e.path.endsWith('/natural-arch/')).at(-1);
+    check(test, 'Fast reversal includes the final detail traversal', Boolean(forward), record.events, false);
+    const reopening = { ...record, phase: 'interrupted-reopen', frames: record.frames.filter(f => f.time >= forward.time),
+      events: record.events.filter(e => e.time >= forward.time), draws: record.draws.filter(d => d.time >= forward.time) };
+    validateTiming(test, reopening, e => e.type === 'popstate', { opening: true, sourced: true });
     check(test, 'Interrupted sequence exercised open, close and forward', record.events.some(e => e.key === 'Escape') && record.events.filter(e => e.type === 'popstate').length >= 2, record.events, false);
     await assertClean(page, test, true);
     await page.keyboard.press('Escape'); await page.waitForTimeout(600); await assertClean(page, test, false);
+    await historyVisualEvidence(test, { interrupted: true });
+    await historyVisualEvidence(test, { interrupted: true, compositor: true });
   });
   await runCase('history-back-forward', {}, async (page, test) => {
     await catalog(page); await page.locator(cardSelector).click(); await ready(page); await page.waitForTimeout(650);
@@ -498,6 +561,8 @@ try {
     await page.evaluate(() => { history.back(); setTimeout(() => history.forward(), 35); });
     await ready(page); const interrupted = await collect(page, 1000); test.measurements.push(interrupted); validateInvariant(test, interrupted); await assertClean(page, test, true);
     await page.keyboard.press('Escape'); await page.waitForTimeout(600); await assertClean(page, test, false);
+    await historyVisualEvidence(test);
+    await historyVisualEvidence(test, { compositor: true });
   });
   await runCase('direct-route-no-origin', {}, async (page, test) => {
     await page.goto(base + prefix + 'models/natural-arch/'); await ready(page); await page.waitForTimeout(650);
