@@ -29,11 +29,12 @@ The inventory is not a glTF validator. The evidence-record checker cannot verify
 
 ## Validation status and commands
 
-The GLB inventory was run against the actual research artifacts before the environment interruption. Reports retain exact hashes and clearly separate declared counts from measured bytes and estimated memory. The new record schema/checker/test suite is delivered for validation; **test execution is pending in this snapshot**. No actual-device GPU/frame/decode benchmark was run.
+The GLB inventory was run against the actual research artifacts before the environment interruption. Reports retain exact hashes and clearly separate declared counts from measured bytes and estimated memory. The record schema/checker passed **15/15 unit tests** on Python 3.12.15 with jsonschema 4.26.0 in [isolated research CI](https://github.com/s010s/lowpoly-vault/actions/runs/38995371863), tested commit `22df052b03c110c38ec8a9cb22ba46bc8900bbd2`. The held example also validated structurally while runtime/scene stayed unknown. The branch-scoped workflow uses read-only contents permission, pinned official actions and no deployment or commit-back. Later commits rerun the same checks. No actual-device GPU/frame/decode benchmark was run.
 
-From this folder, with Python and jsonschema available:
+From this folder, with Python 3.12.15 available:
 
 ```sh
+python -m pip install --only-binary=:all: -r requirements-ci.txt
 python -m unittest discover -s tests -v
 python scripts/check_budget_record.py proposals/asset-budget-record.schema.json proposals/triceratops-light.example.json
 ```
@@ -50,10 +51,9 @@ The inventory requires Pillow and actual source assets. Local machine paths are 
 
 ## Open requirements
 
-1. Run the delivered schema tests in a stable environment and archive the result.
-2. Nominate minimum devices and calibrate representative assets in a real populated museum scene.
-3. Review/adopt specific profile limits and reconcile this proposal with the existing frozen-brief pipeline.
-4. Preserve independent shape/factual/runtime holds despite bounded user style/size acceptance.
-5. Archive this committed research folder with the project's backup process.
+1. Nominate minimum devices and calibrate representative assets in a real populated museum scene.
+2. Review/adopt specific profile limits and reconcile this proposal with the existing frozen-brief pipeline.
+3. Preserve independent shape/factual/runtime holds despite bounded user style/size acceptance.
+4. Archive this committed research folder with the project's backup process.
 
 Source assets and third-party model binaries are not duplicated here. See per-asset source/experiment records and licenses. Original helper scripts in this folder carry MIT SPDX notices.
