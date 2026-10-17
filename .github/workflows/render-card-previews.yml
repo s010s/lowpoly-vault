@@ -21,9 +21,22 @@ jobs:
       - run: npm run publication:check && npm run build
       - run: npx playwright install --with-deps chromium
       - name: Capture actual renderer with pinned preset and exact source hashes
-        run: node site/render-web-previews.mjs
+        run: |
+          for size in 512 640 768; do
+            for quality in 0.85 0.90; do
+              PREVIEW_SIZE=$size PREVIEW_QUALITY=$quality CAPTURE_REFERENCE=1 PREVIEW_OUTPUT=qa/sharpness/$size-$quality node site/render-web-previews.mjs
+            done
+          done
+      - name: Record screenshot-free continuity on the deployed site
+        run: node site/record-live-continuity.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: matching-web-card-previews
-          path: qa/web-card-previews/
+          path: qa/sharpness/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-continuity-demo
+          path: qa/live-continuity-demo/
