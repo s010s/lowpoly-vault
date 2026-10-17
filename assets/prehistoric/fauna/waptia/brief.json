@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "asset_id": "waptia",
+  "brief_version": "pilot-v002",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "acceptance_policy": "production/small-fauna-v1/acceptance-profile.json",
+  "purpose": "Static stylized-inspired scene-supporting prop for an imaginative world aimed at young children; artistic interpretation is welcome. No strict scientific reconstruction, animation readiness or current-museum integration is claimed.",
+  "subject": {
+    "taxon": "Waptia fieldensis",
+    "life_stage": "stylized representative form, not an exact life-stage reconstruction",
+    "era_and_locality": "Middle Cambrian, Burgess Shale, British Columbia",
+    "pose": "Static near-neutral suspended pose, separated appendages; no skeletal animation."
+  },
+  "claim_scope": "Named-taxon-inspired original art, with recognizable basic form. Color, texture, appealing pose, proportion exaggeration and harmless fine-detail changes are artistic choices. If the form becomes too loose for the named identity, use the descriptive generic fallback instead.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "front",
+    "right",
+    "rear",
+    "top",
+    "clay"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Environment-prop tier uses six meaningful views at normal supported viewing scale. Add one or two targeted detail/alternate-side views only for an actual concern; a full orbit, bottom/wire set and microscopic refinement are not default obligations.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 4,
+    "max_primitives": 8,
+    "max_glb_bytes": 2097152
+  },
+  "texture_policy": {
+    "max_textures": 3,
+    "max_dimension": 1024,
+    "max_total_bytes": 1048576,
+    "max_decoded_bytes": 12582912
+  },
+  "budget_context": "Pilot hard ceilings, not triangle targets or a performance guarantee. Aim for deliberate economical form; record actual source/evaluated/exported counts. Any ceiling adjustment must be named and versioned before accepting.",
+  "surface_profile": "refined low-poly with original artistic color/texture/roughness; use an economical original baked texture where it helps, but do not create invisible microdetail or extra material complexity merely to satisfy a style label",
+  "scale": {
+    "nominal_meters": 0.08,
+    "measured_axis": "body length",
+    "certainty": "approximate art-direction scale informed by cited form; inspect actual export bounds",
+    "origin": "ground/root contact center for plant; body center mounting point for suspended aquatic/insect assets",
+    "coordinate_system": "author Z-up and -Y forward; exported glTF Y-up and +Z forward"
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 360,
+    "qa_image_resolution_px": 512,
+    "microscopic_closeups_supported": false
+  },
+  "scene_profile": {
+    "scope": "neutral original static-prop benchmark; eventual cross-period imaginative-world curation is allowed when labeled, without a scientific coexistence claim",
+    "normal_visible_copies": 24,
+    "stress_visible_copies": 72,
+    "runtime": "pin actual Three.js/browser/renderer/device in evidence; do not infer hardware performance from a parser"
+  },
+  "artistic_choices_and_uncertainties": [
+    "Muted translucent-looking ochre/brown is artistic, but use opaque portable materials in this pilot to avoid untested transparency.",
+    "Nominal 0.08 m body length is an approximate upper-size-informed design scale, not a measurement of every specimen.",
+    "Fine setae and tiny mouthparts can be simplified. Do not claim a modern shrimp identity, complete appendage-level anatomical certification or a measured swimming gait.",
+    "User-approved creative scope: appealing colors, textures, pose, proportion exaggeration and harmless fine details may be artistic; retain basic recognizable structure. Cross-period curation is allowed in the labeled imaginative world."
+  ],
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact standalone GLB validates, reimports cleanly, has no missing dependencies or nonfinite geometry, keeps meter scale and meets hard artifact limits; warnings have asset-specific dispositions.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-recognition",
+      "stage": "visual",
+      "critical": true,
+      "description": "Recognizable basic form and the three frozen gross structures at normal supported viewing size, with no obvious accidental missing/extra limbs, detached parts or conspicuous unintended penetration. Artistic exaggeration and fine surface differences are allowed.",
+      "required_sources": [
+        "WP-ROM"
+      ]
+    },
+    {
+      "id": "factual-structure-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Read as a small bilaterally organized arthropod: two stalked eyes and one pair of elongate antennules at the head, with a compact bivalved carapace over the anterior region. Exact proportions, fossil-unknown details and creative surfaces may differ when labeled; reject only a clear defining-structure mistake or misleading claim.",
+      "required_sources": [
+        "WP-ROM"
+      ]
+    },
+    {
+      "id": "factual-structure-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Keep visible lamellar/limb structures under the anterior body, followed by a ringed abdomen without walking legs. The appendage region must not become an amorphous solid block. Exact proportions, fossil-unknown details and creative surfaces may differ when labeled; reject only a clear defining-structure mistake or misleading claim.",
+      "required_sources": [
+        "WP-ROM"
+      ]
+    },
+    {
+      "id": "factual-structure-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Terminate the abdomen in paired caudal flaps; keep carapace, free abdomen and tail visibly distinct at the supported view scale. Exact proportions, fossil-unknown details and creative surfaces may differ when labeled; reject only a clear defining-structure mistake or misleading claim.",
+      "required_sources": [
+        "WP-ROM"
+      ]
+    },
+    {
+      "id": "deliverables-and-label",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable blend, reproducible generator/config, standalone GLB, original maps where used, exact hashes, six-view QA evidence, one poster, provenance and honest stylized-inspired static-prop labels. No animation-ready or strict scientific-accuracy claim.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "The exact GLB parses with the pinned target loader; bounds, material/texture metrics and scene identity are recorded.",
+      "required_sources": []
+    },
+    {
+      "id": "target-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Inspect the exact GLB in a declared actual graphics runtime, including normal and closest supported views. Record renderer/device and errors; software fallback is labeled and cannot claim target hardware validation.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Inspect a neutral representative prop test stage with normal/stress visible copy counts, recorded frame/work metrics and sensible contact/material behavior. This is not current-museum integration or a coexistence reconstruction.",
+      "required_sources": []
+    },
+    {
+      "id": "surface-polish",
+      "stage": "visual",
+      "critical": false,
+      "description": "Small color/roughness and facet variation may remain as documented advisories after the bounded cosmetic pass.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "required_deliverables": [],
+  "display_name": "Stylized Waptia",
+  "generic_fallback_name": "Tiny shelled swimmer, inspired by Waptia"
+}

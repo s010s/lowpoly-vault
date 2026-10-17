@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "asset_id": "bothriolepis",
+  "brief_version": "pilot-v002",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "acceptance_policy": "production/small-fauna-v1/acceptance-profile.json",
+  "purpose": "Static stylized-inspired scene-supporting prop for an imaginative world aimed at young children; artistic interpretation is welcome. No strict scientific reconstruction, animation readiness or current-museum integration is claimed.",
+  "subject": {
+    "taxon": "Bothriolepis canadensis",
+    "life_stage": "stylized representative form, not an exact life-stage reconstruction",
+    "era_and_locality": "Late Devonian, Escuminac Formation, Miguasha, Quebec",
+    "pose": "Static, gently curved posterior body with retracted paired pectorals; no swimming rig."
+  },
+  "claim_scope": "Named-taxon-inspired original art, with recognizable basic form. Color, texture, appealing pose, proportion exaggeration and harmless fine-detail changes are artistic choices. If the form becomes too loose for the named identity, use the descriptive generic fallback instead.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "front",
+    "right",
+    "rear",
+    "top",
+    "clay"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Environment-prop tier uses six meaningful views at normal supported viewing scale. Add one or two targeted detail/alternate-side views only for an actual concern; a full orbit, bottom/wire set and microscopic refinement are not default obligations.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 4,
+    "max_primitives": 8,
+    "max_glb_bytes": 2097152
+  },
+  "texture_policy": {
+    "max_textures": 3,
+    "max_dimension": 1024,
+    "max_total_bytes": 1048576,
+    "max_decoded_bytes": 12582912
+  },
+  "budget_context": "Pilot hard ceilings, not triangle targets or a performance guarantee. Aim for deliberate economical form; record actual source/evaluated/exported counts. Any ceiling adjustment must be named and versioned before accepting.",
+  "surface_profile": "refined low-poly with original artistic color/texture/roughness; use an economical original baked texture where it helps, but do not create invisible microdetail or extra material complexity merely to satisfy a style label",
+  "scale": {
+    "nominal_meters": 0.44,
+    "measured_axis": "body length",
+    "certainty": "approximate art-direction scale informed by cited form; inspect actual export bounds",
+    "origin": "ground/root contact center for plant; body center mounting point for suspended aquatic/insect assets",
+    "coordinate_system": "author Z-up and -Y forward; exported glTF Y-up and +Z forward"
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 360,
+    "qa_image_resolution_px": 512,
+    "microscopic_closeups_supported": false
+  },
+  "scene_profile": {
+    "scope": "neutral original static-prop benchmark; eventual cross-period imaginative-world curation is allowed when labeled, without a scientific coexistence claim",
+    "normal_visible_copies": 12,
+    "stress_visible_copies": 36,
+    "runtime": "pin actual Three.js/browser/renderer/device in evidence; do not infer hardware performance from a parser"
+  },
+  "artistic_choices_and_uncertainties": [
+    "Muted olive-gray armor, subdued seam/plate accents and a quiet warm-gray posterior body are artistic.",
+    "Nominal 0.44 m total length is an approximate design scale informed by the study, not a new specimen measurement.",
+    "Small spines, exact plate ornament, disputed mouth details and soft anatomy may be simplified or explicitly omitted.",
+    "User-approved creative scope: appealing colors, textures, pose, proportion exaggeration and harmless fine details may be artistic; retain basic recognizable structure. Cross-period curation is allowed in the labeled imaginative world."
+  ],
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact standalone GLB validates, reimports cleanly, has no missing dependencies or nonfinite geometry, keeps meter scale and meets hard artifact limits; warnings have asset-specific dispositions.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-recognition",
+      "stage": "visual",
+      "critical": true,
+      "description": "Recognizable basic form and the three frozen gross structures at normal supported viewing size, with no obvious accidental missing/extra limbs, detached parts or conspicuous unintended penetration. Artistic exaggeration and fine surface differences are allowed.",
+      "required_sources": [
+        "BP-2014"
+      ]
+    },
+    {
+      "id": "factual-structure-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Keep a distinct inclined head and deep vaulted angular trunk armor with a raised posterior dorsal crest, followed by a longer tapering soft posterior body. Do not flatten head and trunk into one planar shield. Exact proportions, fossil-unknown details and creative surfaces may differ when labeled; reject only a clear defining-structure mistake or misleading claim.",
+      "required_sources": [
+        "BP-2014"
+      ]
+    },
+    {
+      "id": "factual-structure-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Include a paired set of articulated armored pectoral appendages, with an obvious proximal/distal change and attachment to the armor; use a conservative retracted pose informed by Figures 2\u20133. Exact proportions, fossil-unknown details and creative surfaces may differ when labeled; reject only a clear defining-structure mistake or misleading claim.",
+      "required_sources": [
+        "BP-2014"
+      ]
+    },
+    {
+      "id": "factual-structure-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Use the selected reconstruction for dorsal and tail organization; do not add generic pelvic or anal fins. No feeding or fin-motion claim is made. Exact proportions, fossil-unknown details and creative surfaces may differ when labeled; reject only a clear defining-structure mistake or misleading claim.",
+      "required_sources": [
+        "BP-2014"
+      ]
+    },
+    {
+      "id": "deliverables-and-label",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable blend, reproducible generator/config, standalone GLB, original maps where used, exact hashes, six-view QA evidence, one poster, provenance and honest stylized-inspired static-prop labels. No animation-ready or strict scientific-accuracy claim.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "The exact GLB parses with the pinned target loader; bounds, material/texture metrics and scene identity are recorded.",
+      "required_sources": []
+    },
+    {
+      "id": "target-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Inspect the exact GLB in a declared actual graphics runtime, including normal and closest supported views. Record renderer/device and errors; software fallback is labeled and cannot claim target hardware validation.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Inspect a neutral representative prop test stage with normal/stress visible copy counts, recorded frame/work metrics and sensible contact/material behavior. This is not current-museum integration or a coexistence reconstruction.",
+      "required_sources": []
+    },
+    {
+      "id": "surface-polish",
+      "stage": "visual",
+      "critical": false,
+      "description": "Small color/roughness and facet variation may remain as documented advisories after the bounded cosmetic pass.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "required_deliverables": [],
+  "display_name": "Stylized Bothriolepis",
+  "generic_fallback_name": "Armored river fish, inspired by Bothriolepis"
+}
