@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r12",
+      "job_id": "source-export",
+      "inputs": {
+        "source": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/conifer-tree.blend",
+        "glb": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/conifer-tree.glb",
+        "checker": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/check_source_export.py",
+        "repro_helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/check_reproducibility.py",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "outputs": [
+        "source-export.report.json"
+      ],
+      "config": {
+        "purpose": "Read actual saved source; never save it"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r12",
+      "job_id": "independent-rebuild",
+      "inputs": {
+        "generator": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/build_rounded_sprays.py",
+        "config": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/build-config.json",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/brief.json",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/references.json",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--output-dir",
+        "{output_dir}",
+        "--config",
+        "{input:config}"
+      ],
+      "outputs": [
+        "conifer-tree/conifer-tree.glb",
+        "conifer-tree/conifer-tree.blend",
+        "conifer-tree/metadata.json",
+        "conifer-tree/qa.json",
+        "build-summary.json",
+        "build-config.json"
+      ],
+      "config": {
+        "purpose": "Conifer structural refinement, no renders",
+        "cloud_only": true
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

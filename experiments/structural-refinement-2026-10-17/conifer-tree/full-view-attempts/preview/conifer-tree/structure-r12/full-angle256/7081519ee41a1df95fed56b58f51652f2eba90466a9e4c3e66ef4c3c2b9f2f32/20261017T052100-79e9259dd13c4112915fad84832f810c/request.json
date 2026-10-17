@@ -1,0 +1,177 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/render_fixed_views.py",
+    "--",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/conifer-tree.glb",
+    "--output-dir",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/full-view-attempts/preview/conifer-tree/structure-r12/full-angle256/7081519ee41a1df95fed56b58f51652f2eba90466a9e4c3e66ef4c3c2b9f2f32/20261017T052100-79e9259dd13c4112915fad84832f810c/outputs",
+    "--revision",
+    "structure-r12",
+    "--brief",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/brief.json",
+    "--references",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/references.json",
+    "--framing-json",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/framing.json",
+    "--resolution",
+    "256",
+    "--samples",
+    "8",
+    "--turntable-frames",
+    "24",
+    "--views",
+    "front,rear,left,right,top,bottom,clay,clayalt,wire,detail",
+    "--detail-target",
+    ".5,.5,.43",
+    "--detail-scale",
+    ".32"
+  ],
+  "created_at": "2026-10-17T05:21:00.913834+00:00",
+  "fingerprint": "7081519ee41a1df95fed56b58f51652f2eba90466a9e4c3e66ef4c3c2b9f2f32",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 8280,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/brief.json",
+        "sha256": "5219670391b503820f803c5c0b2e2995befbef8e7c3c5f5ef71bb4685ed6c700"
+      },
+      "framing": {
+        "bytes": 244,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/framing.json",
+        "sha256": "9d954fdc663758337ab717d1b81559297e4394989213aef59019d4104eecefc6"
+      },
+      "glb": {
+        "bytes": 465784,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/conifer-tree.glb",
+        "sha256": "192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622"
+      },
+      "helper": {
+        "bytes": 26328,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "sha256": "27fe5c66c3955a003e141debbd96816b0f6eda6f64af991f28234ec42257d8bc"
+      },
+      "references": {
+        "bytes": 2163,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/references.json",
+        "sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "renderer": {
+        "bytes": 16543,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/render_fixed_views.py",
+        "sha256": "4e05c902f732139f5583871334a5847a49bc23812902864fcab6edba170ee3bb"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "structure-r12",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--framing-json",
+        "{input:framing}",
+        "--resolution",
+        "256",
+        "--samples",
+        "8",
+        "--turntable-frames",
+        "24",
+        "--views",
+        "front,rear,left,right,top,bottom,clay,clayalt,wire,detail",
+        "--detail-target",
+        ".5,.5,.43",
+        "--detail-scale",
+        ".32"
+      ],
+      "asset_id": "conifer-tree",
+      "config": {
+        "purpose": "Requested independent-QA matched density and branch-detail comparison only"
+      },
+      "inputs": {
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/brief.json",
+        "framing": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/framing.json",
+        "glb": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/conifer-tree.glb",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/references.json",
+        "renderer": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/render_fixed_views.py"
+      },
+      "job_id": "full-angle256",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "turntable.json",
+        "turntable-000.png",
+        "turntable-001.png",
+        "turntable-002.png",
+        "turntable-003.png",
+        "turntable-004.png",
+        "turntable-005.png",
+        "turntable-006.png",
+        "turntable-007.png",
+        "turntable-008.png",
+        "turntable-009.png",
+        "turntable-010.png",
+        "turntable-011.png",
+        "turntable-012.png",
+        "turntable-013.png",
+        "turntable-014.png",
+        "turntable-015.png",
+        "turntable-016.png",
+        "turntable-017.png",
+        "turntable-018.png",
+        "turntable-019.png",
+        "turntable-020.png",
+        "turntable-021.png",
+        "turntable-022.png",
+        "turntable-023.png",
+        "front.png",
+        "rear.png",
+        "left.png",
+        "right.png",
+        "top.png",
+        "bottom.png",
+        "clay.png",
+        "clayalt.png",
+        "wire.png",
+        "detail.png"
+      ],
+      "revision": "structure-r12",
+      "timeout_seconds": 360
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 360
+  },
+  "run_id": "20261017T052100-81afc7b133dd46f9956e80d5e8727150"
+}

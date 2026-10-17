@@ -67,3 +67,11 @@ The editable source and standalone GLB, frozen generator/config/brief/reference 
 `candidate-r10/` preserves the first fuller, five-finger preflight (10,810 triangles). `candidate-r11/` is the frozen four-finger short-bevel study, GLB SHA-256 `9b98e62197a3abd3e8988c81bb1ecc571425a8e4dff77d34a44b9c6afce5a235`, 14,194 triangles, 790,652 raw bytes, three opaque primitives and no textures. Source/config/generator, full 24-angle plus ten diagnostic views, native 128px color cardinal views/silhouette, 512px color/clay details and current technical/parser/rebuild evidence are retained.
 
 Fresh independent review is in progress. Closeup flat-looking pointed fingers remain a specifically identified possible blocker; a mathematically capped terminal does not establish a visual pass. The study brief is frozen and will not be overwritten to claim production approval. Original assets and r1–r9 remain unchanged.
+
+## r12 rounded-shoot production candidate
+
+`candidate-r12/` is a separate production-profile candidate, not an approved release. Its GLB SHA-256 is `192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622`; frozen brief SHA-256 is `5219670391b503820f803c5c0b2e2995befbef8e7c3c5f5ef71bb4685ed6c700`. The r11 study and its complete fresh independent failure closure are preserved at `candidate-r11/independent-review/`.
+
+r12 retains 141 branchlets and the crown envelope but uses four-sided curved shoot volumes, short final transitions and visibly blunt caps. Foliage normals are intentionally smooth; wood remains flat shaded. Cost: 18,706 triangles, 10,549 authored source vertices, 14,590 exported POSITION-stream vertices, three opaque primitives, 465,784 raw GLB bytes and no textures. The extra cross-section geometry specifically addresses r11 closeup blades, while smooth normal sharing reduces export cost.
+
+Exact GLB full-angle (24+10), native128 color/cardinal and silhouette, and512 color/clay detail evidence is retained. Source/export, Khronos, static audit, pinned Three.js parsing and a bound byte-identical separate-process rebuild pass; the intentional smooth-style warning is retained and reviewed. Visual/factual/specification and actual GPU/composed-scene gates remain open. Declared clone populations are 1,16,32; instancing, if tested, is a separate runtime variant. No local browser/Chromium socket was launched.

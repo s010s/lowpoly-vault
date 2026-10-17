@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "structure-r12",
+    "glb_sha256": "192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622",
+    "brief_sha256": "5219670391b503820f803c5c0b2e2995befbef8e7c3c5f5ef71bb4685ed6c700",
+    "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+  },
+  "status": "pass",
+  "method": "Execute the repository static GLB auditor and official Khronos validator, load the saved editable source for axis-aware source/export comparison, and rebuild the generator/config in a separate bounded queue attempt. Compare semantic and byte digests of the emitted GLBs.",
+  "observations": [
+    "Executed project audit and official Khronos validator report zero errors and warnings.",
+    "Actual editable source and exact GLB agree at 18,706 triangles and meter-space axis-converted bounds.",
+    "A fresh bounded separate-process rebuild is byte-identical and semantic-identical.",
+    "Three opaque materials/primitives; no textures. Authored source has 10,549 vertices; GLB has 14,590 POSITION-stream vertices.",
+    "Foliage has intentionally smooth normals and wood flat normals. Technical success does not establish visual/factual/specification/GPU or scene acceptance."
+  ],
+  "errors": [],
+  "warnings": [
+    "source: Conifer | clustered narrow needle-bearing shoots: smooth faces require intentional-style review"
+  ],
+  "warning_review": [
+    {
+      "warning": "source: Conifer | clustered narrow needle-bearing shoots: smooth faces require intentional-style review",
+      "rationale": "Foliage smoothing is explicitly authored in the frozen r12 generator, metadata and production brief to support compact rounded shoot sections; woody axes and collars remain flat. Actual 512px color and clay foliage detail was inspected for normals. This resolves the source checker style warning as intentional; independent visual quality remains pending."
+    }
+  ],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 18706,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 465784,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622",
+      "report": {
+        "path": "candidate-r12/static-glb.report.json",
+        "sha256": "68ca40a47170af3973f74a58d151a0e57d57b995978397768cfd1829e1d38a5d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622",
+      "report": {
+        "path": "candidate-r12/gltf-validator.report.json",
+        "sha256": "13522faae3e92d01a02d0cd0bf058786c545792db3d46f7875521401fd8672e7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622",
+      "report": {
+        "path": "candidate-r12/source-export.report.json",
+        "sha256": "7062277097c3a541bb0f10484611dcbc23d90a28339a679a779b57e9f91536d0"
+      },
+      "warning_review": [
+        {
+          "warning": "source: Conifer | clustered narrow needle-bearing shoots: smooth faces require intentional-style review",
+          "rationale": "Foliage smoothing is explicitly authored in the frozen r12 generator, metadata and production brief to support compact rounded shoot sections; woody axes and collars remain flat. Actual 512px color and clay foliage detail was inspected for normals. This resolves the source checker style warning as intentional; independent visual quality remains pending."
+        }
+      ]
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622",
+      "report": {
+        "path": "candidate-r12/reproducibility.report.json",
+        "sha256": "c372c7a8a924df93ac49776a0c40eb25fe6469a91d978cda803d453871ef83cb"
+      },
+      "warning_review": []
+    }
+  ],
+  "created_at": "2026-10-17T05:21:42.106070+00:00"
+}
