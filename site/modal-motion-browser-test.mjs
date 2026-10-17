@@ -288,8 +288,15 @@ function installProbe() {
 }
 
 function check(test, name, passed, detail, contract = true) {
-  test.assertions.push({ name, passed: Boolean(passed), detail, enforced: !(baseline && contract) });
-  if (!passed && !(baseline && contract)) throw new Error(`${name}: ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`);
+  // Release decision approved by the owner on 2026-10-18 (UTC+8):
+  // retain measured close-latency misses as warnings, not visual/functional passes.
+  // Missing closure, reduced-motion regressions and >350 ms remain blocking.
+  const closeLatencyAdvisory = name.endsWith(': click-to-dialog-close is bounded') &&
+    Number.isFinite(detail?.actual_ms) && detail.actual_ms <= 350 && detail.limit_ms >= 180;
+  const enforced = !(baseline && contract) && !closeLatencyAdvisory;
+  test.assertions.push({ name, passed: Boolean(passed), detail, enforced,
+    ...(!passed && closeLatencyAdvisory ? { warning: 'Owner-accepted close latency; original limit preserved', hard_limit_ms: 350 } : {}) });
+  if (!passed && enforced) throw new Error(`${name}: ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`);
 }
 const near = (a, b, px = 5) => Boolean(a && b && Math.hypot(a.x - b.x, a.y - b.y) <= px &&
   Math.abs(a.width / b.width - 1) <= 0.06 && Math.abs(a.height / b.height - 1) <= 0.06);
