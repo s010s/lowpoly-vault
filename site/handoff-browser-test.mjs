@@ -339,7 +339,7 @@ async function roundTrip(label, options = {}) {
     await startSampler(page);
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.querySelector('#viewer-dialog')?.open);
-    caseReport.handoff_pixels = await canvasPixels(page, '#canvas-host .model-handoff');
+    caseReport.handoff_pixels = await canvasPixels(page, '#viewer-dialog .stage-flight, #canvas-host .model-handoff');
     assert.deepEqual(caseReport.handoff_pixels, caseReport.preview_pixels, 'The exact currently painted card pixels must enter the detail handoff');
     assert(caseReport.handoff_pixels.transparent_fraction > 0.2 && caseReport.handoff_pixels.corner_alpha_max <= 3, 'The initial handoff must not contain a baked opaque background');
     await ready(page, 'natural-arch');

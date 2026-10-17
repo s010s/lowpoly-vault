@@ -251,7 +251,8 @@ async function animateDialog(from,to,reverse=false,version=detailVersion,flightS
   const transform=`translate(${small.left-large.left}px,${small.top-large.top}px) scale(${small.width/large.width})`;
   const start=flightStart?containRect(flightStart,ratio):null,startTransform=start?`translate(${start.left-large.left}px,${start.top-large.top}px) scale(${start.width/large.width})`:null;
   const animation=modalAnimation=clone.animate(reverse?[{transform:startTransform||'none',opacity:1},{transform,opacity:1}]:[{transform:startTransform||transform,opacity:1},{transform:'none',opacity:1}],{duration:reverse?DIALOG_TIMING.flightClose:DIALOG_TIMING.flightOpen,easing:'cubic-bezier(.18,.8,.2,1)',fill:'forwards'});
-  await animation.finished.catch(()=>{});if(version!==detailVersion){releaseVisual(clone);return;}
+  const deadline=reverse?setTimeout(()=>{if(version===detailVersion&&animation.playState==='running')animation.finish();},DIALOG_TIMING.flightClose+32):null;
+  await animation.finished.catch(()=>{});clearTimeout(deadline);if(version!==detailVersion){releaseVisual(clone);return;}
   // Move the exact retained bitmap between the flight and host. Re-copying a
   // large canvas here forces another GPU upload during the short close gesture.
   animation.cancel();if(reuse){clone.className='model-handoff';clone.style.cssText='';host.append(clone);}else releaseVisual(clone);

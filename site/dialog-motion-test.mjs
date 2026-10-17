@@ -2,6 +2,9 @@ import assert from 'node:assert/strict';
 import { DialogMotion, DIALOG_TIMING } from './dialog-motion.js';
 
 const pending = [];
+const deadlines = new Map(); let nextDeadline = 0;
+globalThis.setTimeout = (callback, delay) => { deadlines.set(++nextDeadline, { callback, delay }); return nextDeadline; };
+globalThis.clearTimeout = id => deadlines.delete(id);
 function element(name) {
   return { name, style: {}, opacity: '1', shadow: '0px 35px 150px rgba(0, 0, 0, 0.6)', animate(frames, options) {
     let resolve;
@@ -48,10 +51,12 @@ assert.equal(dialog.properties.get('--modal-backdrop-start'), '0.55');
 const closingAnimations = [...motion.active];
 assert.deepEqual(closingAnimations[0].frames, [{ opacity: .42 }, { opacity: 0 }]);
 assert(closingAnimations.every(animation => animation.options.duration <= 140 && !animation.options.delay));
+assert.equal([...deadlines.values()][0].delay, 172, 'A busy compositor cannot extend the chrome dismissal indefinitely');
 await opening;
 assert.equal(dialog.dataset.modalMotion, 'closing', 'A superseded opener cannot clear the closing state');
-closingAnimations.forEach(animation => animation.finish());
+[...deadlines.values()][0].callback();
 await closing;
+assert.equal(deadlines.size, 0, 'Completed exit releases its deadline');
 assert.equal(dialog.dataset.modalMotion, 'closing', 'Exit opacity stays at zero until dialog.close()');
 
 const reopening = motion.start({ from: motion.capture() });
@@ -68,4 +73,5 @@ reduced.matches = false;
 const changingPreference = motion.start(); reduced.matches = true; listeners.forEach(fn => fn()); await changingPreference;
 assert.equal(motion.active.size, 0, 'Changing to reduced motion finishes an in-flight opener');
 motion.dispose(); assert.equal(listeners.size, 0);
+assert.equal(deadlines.size, 0);
 console.log('Dialog motion: overlapping entry, short exit, interrupted reversal, stale completion, reduced motion, and disposal pass.');

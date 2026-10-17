@@ -38,6 +38,7 @@ export class DialogMotion {
   }
   cancel() {
     this.version++;
+    clearTimeout(this.deadline);
     for (const animation of this.active) animation.cancel();
     this.active.clear();
     this.dialog.removeAttribute('data-modal-motion');
@@ -82,8 +83,15 @@ export class DialogMotion {
     this.dialog.style.setProperty('--modal-backdrop-start', String(from?.backdrop ?? (reverse ? 1 : 0)));
     this.dialog.style.setProperty('--modal-backdrop-duration', `${backdropDuration}ms`);
     this.dialog.dataset.modalMotion = direction;
+    // A busy compositor can deliver WAAPI finish notifications a frame late.
+    // Bound dismissal without adding an opaque tail or affecting normal entry.
+    if (reverse) this.deadline = setTimeout(() => {
+      if (version === this.version) for (const animation of this.active) animation.finish();
+    }, backdropDuration + 32);
     return Promise.all(tasks).then(() => {
-      if (version !== this.version || reverse) return;
+      if (version !== this.version) return;
+      clearTimeout(this.deadline);
+      if (reverse) return;
       this.cancel();
       this.dialog.dataset.modalMotion = 'open';
     });
