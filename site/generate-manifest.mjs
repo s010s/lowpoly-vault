@@ -1,12 +1,16 @@
 /** Explicit release step. Never invoked by build or dev. */
 import { readdir, readFile, stat, writeFile, rename } from 'node:fs/promises';
 import { dirname, join, resolve, relative } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, fileURLToPath } from 'node:url';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { catalogMembership } from './curation.js';
 import { validAssetId } from './routes.js';
 
 async function discover(dir){const result=[];for(const entry of await readdir(dir,{withFileTypes:true})){const p=join(dir,entry.name);if(entry.isDirectory())result.push(...await discover(p));else if(entry.isFile()&&entry.name==='metadata.json')result.push(p);}return result.sort();}
+const runFile=promisify(execFile);
+const candidateGate=fileURLToPath(new URL('../scripts/validate_candidate.py',import.meta.url));
 const requireThat=(condition,message)=>{if(!condition)throw new Error(message);};
 export async function collectManifest(root=process.cwd(),{preview=false}={}){
   const base=resolve(root),files=await discover(join(base,'assets')),assets=[],ids=new Set(),errors=[];
@@ -34,6 +38,26 @@ export async function collectManifest(root=process.cwd(),{preview=false}={}){
       const report=qa[stage];requireThat(report&&['pass','pass_with_warnings'].includes(report.status),`${label}: ${stage} QA is ${report?.status||'missing'}`);
       requireThat(!report.errors?.length,`${label}: ${stage} has unresolved errors`);
       if(!preview&&(report.status==='pass_with_warnings'||report.warnings?.length)){requireThat(qa.warning_review?.status==='pass'||(Array.isArray(qa.reviewed_warnings)&&qa.reviewed_warnings.length)||(Array.isArray(asset.reviewed_warnings)&&asset.reviewed_warnings.length),`${label}: ${stage} warnings need explicit review`);}
+    }
+    if(!preview){
+      // Formal publication needs the new evidence gate. The separately authorized,
+      // hash-locked initial-ten release deliberately calls preview:true and stays WIP.
+      const record=asset.candidate_record;
+      requireThat(typeof record==='string'&&!record.startsWith('/')&&!record.split('/').includes('..')&&!record.includes('\\'),`${label}: formal release requires a safe candidate_record path`);
+      let validation;
+      try{
+        const {stdout}=await runFile('python3',[candidateGate,record,'--root',base,'--require-approved','--json'],{maxBuffer:2*1024*1024});
+        validation=JSON.parse(stdout);
+      }catch(error){throw new Error(`${label}: candidate evidence gate refused formal release: ${error.stdout||error.stderr||error.message}`);}
+      requireThat(validation.valid&&validation.approved_for_brief&&validation.profile==='production',`${label}: approved production brief required for formal release`);
+      requireThat(validation.asset_id===asset.id,`${label}: candidate_record belongs to another asset`);
+      const actualGlbHash=createHash('sha256').update(await readFile(resolve(base,asset.glb))).digest('hex');
+      requireThat(validation.subject?.glb_sha256===actualGlbHash,`${label}: candidate_record approves different GLB bytes`);
+      const sourceHash=createHash('sha256').update(await readFile(resolve(base,asset.blend))).digest('hex');
+      const previewHash=createHash('sha256').update(await readFile(resolve(base,asset.preview))).digest('hex');
+      requireThat(validation.artifact_sha256?.source===sourceHash,`${label}: candidate_record approves different editable source bytes`);
+      requireThat(validation.approved_visual_image_sha256?.includes(previewHash),`${label}: published preview is absent from approved visual evidence`);
+      requireThat(validation.measurements?.triangles===asset.triangles,`${label}: published triangle count differs from measured candidate`);
     }
     assets.push({...asset,...membership,collection:asset.collection||membership.worlds[0],qa:`${label}/qa.json`});
   }catch(error){errors.push(`${relative(base,file)}: ${error.message}`);}}

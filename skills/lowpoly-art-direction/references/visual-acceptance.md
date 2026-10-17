@@ -34,7 +34,7 @@ Add two contact sheets per batch: one with consistent individual framing for sty
 | Detail and craft | Growth/fracture/erosion logic, correct contact, clean export | Equal spacing, equal-width branching, floating parts, sliver triangles, normal errors |
 | Family reuse | Structural variant differences, consistent scale and design language, viewing-angle coverage | Recolors treated as new assets; single-angle construction; inseparable display platforms |
 
-Current recommendation: at least 3 in every criterion and at least 16/20 overall, with all five hard gates passed. Give a one-sentence reason for each score. Technical validity and recognizable category are minimum usability gates; benchmark quality additionally requires convincing secondary structure, component proportions, and concentrated, purposeful detail. Neither the total score nor an automated pass overrides a weak criterion or the user's visible objection. Freeze accepted samples before using them as a quality reference, without copying their silhouettes.
+Scores are optional comparison notes, never an acceptance threshold. The historical first-pack recommendation of 3 per criterion and 16/20 total does not approve a new candidate or the newer textured direction. Give a reason and evidence for each judgment. Acceptance requires all brief-specific hard obligations to pass, no unresolved required unknown, and a fresh independent review bound to the current GLB, brief and image hashes. Technical validity and recognizable category are minimum usability gates; benchmark quality also needs convincing secondary structure, proportions and purposeful detail. The user's visible objection cannot be overridden by a score.
 
 ## Budget and viewing-profile acceptance
 
@@ -79,3 +79,11 @@ Five scores and reasons:
 Highest-priority 1–3 corrections:
 Scientific context and unverified items:
 Decision: pass / rework / conditional pass (state limitations)
+
+## Independent exact-export evidence
+
+For new production candidates use the [standardized pipeline](../../blender-lowpoly-pipeline/references/standardized-pipeline.md). The list above remains the historical minimum, not sufficient full-angle coverage for a new production approval. Freeze a view plan: a full turntable (24–36 frames is a starting study profile), front/rear/both sides/top/bottom, clay and alternate key, actual wireframe, and subject-specific detail views. Different subjects can justify different sampling; record the reason and inspect uncertain regions with extra views. A montage helps navigate, but retain full-resolution hashed originals. Review every required view; do not approve from a few hero cells.
+
+Use `pass`, `fail`, `unknown`, `not_applicable`, or `stale` per criterion. A conditional study verdict does not become a production pass. Each defect records severity, view/location, observation, violated criterion/source, proposed repair and recheck evidence. Give the maker the defect list only after the first independent verdict. A revision needs new export evidence and regression checks in previously passing views.
+
+For surface A/B: hold geometry and vertex normals, camera, framing, lights, exposure and color management fixed. Inspect base-color-only, full PBR, clay and alternate key. Separate UV/texture defects from shape defects and distinguish artifact bytes from decoded/GPU memory. Preserve rich textures where useful; neither a single palette nor uniform flat shading is a universal low-poly requirement.
