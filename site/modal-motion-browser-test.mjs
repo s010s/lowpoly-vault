@@ -5,6 +5,8 @@
  * Run this identical file against the previous build with BASELINE=1. Baseline mode
  * records (but does not enforce) the new motion contract; navigation still must work.
  * GALLERY_DIR, CHROMIUM_PATH and optional BASELINE_REPORT are supported.
+ * QA_CASES selects a comma-separated local diagnostic scope, declared in reports;
+ * CI leaves it unset. QA_TRACE_RASTER records the separate history timing pass.
  * Timing comes from capture-phase DOM input events and requestAnimationFrame, never
  * from how long a Playwright click takes. Compositor PNG evidence is a separate pass.
  */
@@ -18,10 +20,12 @@ const root = resolve(process.env.GALLERY_DIR || 'dist');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/modal-motion');
 const baseline = /^(1|true)$/i.test(process.env.BASELINE || '');
 const traceRaster = /^(1|true)$/i.test(process.env.QA_TRACE_RASTER || '');
+const onlyCases = (process.env.QA_CASES || '').split(',').map(value => value.trim()).filter(Boolean);
 const prefix = '/lowpoly-vault/';
 const cardSelector = '#grid .asset-card[data-id="natural-arch"]';
 const report = {
   status: 'running', mode: baseline ? 'baseline' : 'regression', commit: process.env.GITHUB_SHA || null,
+  scope: onlyCases.length ? onlyCases : 'full',
   targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, reverse_flight: 180 },
   note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. Real-time video runs in separate contexts from timing assertions. Pixel/GLB geometry is covered by the independent handoff browser regression, avoiding readback stalls in motion evidence.',
   cases: [], page_errors: [], screenshots: [], videos: [],
@@ -462,20 +466,6 @@ async function historyVisualEvidence(test, { interrupted = false, compositor = f
     }
     await assertClean(page, test, true);
   } finally {
-    if (trace) {
-      let deadline;
-      try {
-        const complete = new Promise((resolve, reject) => {
-          trace.once('Tracing.tracingComplete', resolve);
-          deadline = setTimeout(() => reject(new Error('Raster trace completion exceeded 10 seconds')), 10000);
-        });
-        await trace.send('Tracing.end'); await complete;
-        const file = label + '-raster-trace.json';
-        await writeFile(resolve(output, file), JSON.stringify({ traceEvents }));
-        test.raster_trace = { file, events: traceEvents.length, note: 'Diagnostic trace may affect scheduling; strict thresholds are unchanged. Visual evidence uses independent unprobed contexts.' };
-      } catch (error) { test.status = 'fail'; test.error ||= error.stack; }
-      finally { clearTimeout(deadline); await trace.detach().catch(() => {}); }
-    }
     const video = page.video(); await context.close();
     if (video) {
       visual.video = basename(await video.path()); report.videos.push({ label, file: visual.video });
@@ -485,6 +475,7 @@ async function historyVisualEvidence(test, { interrupted = false, compositor = f
 }
 
 async function runCase(label, options, body) {
+  if (onlyCases.length && !onlyCases.includes(label)) return;
   const viewport = options.viewport || { width: 1440, height: 1000 };
   // Screen recording is deliberately off during latency measurement. Actual
   // compositor PNG sequences are captured in the separate evidence round-trip.
@@ -508,6 +499,29 @@ async function runCase(label, options, body) {
     const filename = label + '-failure.png';
     await page.screenshot({ path: resolve(output, filename), fullPage: false }).then(() => report.screenshots.push(filename)).catch(() => {});
   } finally {
+    if (trace) {
+      let deadline;
+      try {
+        const complete = new Promise((resolve, reject) => {
+          trace.once('Tracing.tracingComplete', resolve);
+          deadline = setTimeout(() => reject(new Error('Raster trace completion exceeded 10 seconds')), 10000);
+        });
+        await trace.send('Tracing.end'); await complete;
+        const file = label + '-raster-trace.json';
+        await writeFile(resolve(output, file), JSON.stringify({ traceEvents }));
+        test.raster_trace = { file, events: traceEvents.length, note: 'Diagnostic trace may affect scheduling; strict thresholds are unchanged. Visual evidence uses independent unprobed contexts.' };
+      } catch (error) { test.status = 'fail'; test.error ||= error.stack; }
+      finally { clearTimeout(deadline); await trace.detach().catch(() => {}); }
+    }
+    // Collect visual proof even when the timing contract fails, and stop the
+    // global Chromium trace before these independent unprobed contexts run.
+    if (['history-back-forward', 'rapid-open-close-reopen'].includes(label)) {
+      try {
+        const interrupted = label === 'rapid-open-close-reopen';
+        await historyVisualEvidence(test, { interrupted });
+        await historyVisualEvidence(test, { interrupted, compositor: true });
+      } catch (error) { test.status = 'fail'; test.error ||= error.stack; }
+    }
     const video = page.video(); await context.close();
     if (video) report.videos.push({ label, file: basename(await video.path()) });
     await writeFile(resolve(output, label + '.json'), JSON.stringify(test, null, 2) + '\n');
@@ -572,8 +586,6 @@ try {
     check(test, 'Interrupted sequence exercised open, close and forward', record.events.some(e => e.key === 'Escape') && record.events.filter(e => e.type === 'popstate').length >= 2, record.events, false);
     await assertClean(page, test, true);
     await page.keyboard.press('Escape'); await page.waitForTimeout(600); await assertClean(page, test, false);
-    await historyVisualEvidence(test, { interrupted: true });
-    await historyVisualEvidence(test, { interrupted: true, compositor: true });
   });
   await runCase('history-back-forward', {}, async (page, test) => {
     await catalog(page); await page.locator(cardSelector).click(); await ready(page); await page.waitForTimeout(650);
@@ -586,8 +598,6 @@ try {
     await page.evaluate(() => { history.back(); setTimeout(() => history.forward(), 35); });
     await ready(page); const interrupted = await collect(page, 1000); test.measurements.push(interrupted); validateInvariant(test, interrupted); await assertClean(page, test, true);
     await page.keyboard.press('Escape'); await page.waitForTimeout(600); await assertClean(page, test, false);
-    await historyVisualEvidence(test);
-    await historyVisualEvidence(test, { compositor: true });
   });
   await runCase('direct-route-no-origin', {}, async (page, test) => {
     await page.goto(base + prefix + 'models/natural-arch/'); await ready(page); await page.waitForTimeout(650);
@@ -600,11 +610,12 @@ try {
       capture.input_events = record.events; test.evidence_measurements = record;
     });
   });
+  assert(onlyCases.every(label => report.cases.some(test => test.label === label)), 'QA_CASES includes an unknown case');
   report.status = report.cases.some(test => test.status === 'fail') || report.page_errors.length ? 'fail' : baseline ? 'recorded' : 'pass';
 } catch (error) { report.status = 'fail'; report.error = error.stack; }
 finally {
   await browser?.close(); if (server.listening) await new Promise(resolve => server.close(resolve));
-  const summary = { status: report.status, mode: report.mode, commit: report.commit, targets_ms: report.targets_ms,
+  const summary = { status: report.status, mode: report.mode, scope: report.scope, commit: report.commit, targets_ms: report.targets_ms,
     cases: report.cases.map(test => ({ label: test.label, status: test.status, timings: test.timings, violations: test.assertions.filter(a => !a.passed).map(({ name, enforced }) => ({ name, enforced })), error: test.error })),
     page_errors: report.page_errors, videos: report.videos, screenshot_count: report.screenshots.length };
   if (process.env.BASELINE_REPORT) {
