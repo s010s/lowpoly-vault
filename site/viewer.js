@@ -276,11 +276,13 @@ export class ModelStage {
     if (!width || !height) { this._stopFrame(); return; }
     this._renderer.setSize(width, height, false);
     this._camera.aspect = width / height;
+    const halfFov = THREE.MathUtils.degToRad(CARD_RENDER_PRESET.camera.fov / 2);
+    this._camera.fov = THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(halfFov) / Math.min(1, this._camera.aspect)));
     this._camera.updateProjectionMatrix();
     if (this._radius) {
-      const vertical = THREE.MathUtils.degToRad(this._camera.fov / 2);
-      const horizontal = Math.atan(Math.tan(vertical) * this._camera.aspect);
-      this._distance = this._radius / Math.sin(Math.min(vertical, horizontal)) * CARD_RENDER_PRESET.camera.fit_padding;
+      // Preserve the same perspective and object scale inside a centered square
+      // at every modal aspect ratio; only the surrounding neutral margin changes.
+      this._distance = this._radius / Math.sin(halfFov) * CARD_RENDER_PRESET.camera.fit_padding;
       this._camera.near = Math.max(this._radius / 100, 0.001);
       this._camera.far = Math.max(this._radius * 100, this._distance * 10);
       this._camera.updateProjectionMatrix();
@@ -306,6 +308,11 @@ export class ModelStage {
     this._host.dataset.renderTriangles = String(this._renderer.info.render.triangles);
     this._host.dataset.renderLines = String(this._renderer.info.render.lines);
     this._host.dataset.renderCalls = String(this._renderer.info.render.calls);
+    const view = this.presentationInfo;
+    this._host.dataset.viewAzimuth = String(view.azimuth_deg);
+    this._host.dataset.viewElevation = String(view.elevation_deg);
+    this._host.dataset.viewDistance = String(view.distance);
+    this._host.dataset.presentedUrl = this._url;
     this._renderer.domElement.style.visibility = 'visible';
     if (this._host.dataset.modelState !== 'ready') this._emit('ready');
   }
@@ -349,10 +356,18 @@ export class ModelStage {
     this._viewTouched = false;
     this._target.set(0, 0);
     this._pivot.rotation.set(0, 0, 0);
-    this._camera.position.set(...cameraDirection(this._initialView?.azimuth_deg, this._initialView?.elevation_deg)).multiplyScalar(this._distance || 5);
+    this._camera.position.set(...cameraDirection(this._initialView?.azimuth_deg, this._initialView?.elevation_deg)).multiplyScalar(Number.isFinite(this._initialView?.distance)?clamp(this._initialView.distance,this._controls.minDistance,this._controls.maxDistance):(this._distance || 5));
     this._controls.target.set(0, 0, 0);
     this._controls.update();
     this._invalidate();
+  }
+
+  get presentationInfo() {
+    if (!this._camera) return null;
+    const p = this._camera.position.clone().sub(this._controls.target), radius = p.length();
+    return { azimuth_deg:(THREE.MathUtils.radToDeg(Math.atan2(p.x,p.z))+360)%360,
+      elevation_deg:THREE.MathUtils.radToDeg(Math.asin(p.y/radius)), distance:radius,
+      fov:this._camera.fov, aspect:this._camera.aspect, preset:CARD_RENDER_PRESET.version };
   }
 
   /** The offline card renderer and card-to-detail handoff use the same camera angles. */
@@ -368,8 +383,11 @@ export class ModelStage {
     if (!this._renderer || !this._pivot || this._host?.dataset.modelState !== 'ready') return null;
     this._draw();
     const source = this._renderer.domElement, canvas = document.createElement('canvas');
-    canvas.width = source.width; canvas.height = source.height;
-    canvas.getContext('2d').drawImage(source, 0, 0);
+    const scale = Math.min(1, 1024 / Math.max(source.width, source.height));
+    canvas.width = Math.round(source.width * scale); canvas.height = Math.round(source.height * scale);
+    canvas.getContext('2d').drawImage(source, 0, 0, canvas.width, canvas.height);
+    canvas.__presentation = this.presentationInfo;
+    canvas.dataset.assetId = new URL(this._url).pathname.split('/').at(-1).replace(/\.glb$/, '');
     canvas.className = 'model-handoff'; canvas.setAttribute('aria-hidden', 'true');
     return canvas;
   }

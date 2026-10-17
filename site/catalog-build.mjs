@@ -41,7 +41,9 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
     ...catalogMembership(asset),
     ...(asset.file_sizes ? { file_sizes: asset.file_sizes } : {}),
     ...(asset.downloads ? { downloads: asset.downloads } : {}),
-    preview: asset.preview,
+    ...(asset.turntable ? {turntable:asset.turntable} : {}),
+    preview: asset.card_preview || asset.preview,
+    ...(asset.card_preview?{card_preview:asset.card_preview}:{}),
     glb: asset.glb,
     triangles: Number.isFinite(asset.triangles) ? asset.triangles : null,
     detail: `${prefix}/details/${asset.id}.json`

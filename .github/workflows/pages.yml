@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - name: Verify exact authorized publication and unchanged originals
         run: npm run publication:check && npm run test:publication
-      - run: npm test && npm run test:redesign && npm run test:parser
+      - run: npm test && npm run test:redesign && npm run test:parser && npm run test:scrub
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - name: Verify real models, static routes, downloads and mobile layouts
@@ -34,6 +34,16 @@ jobs:
           QA_REQUIRE_COUNT: '10'
           QA_ALLOW_WEBGL_FALLBACK: '0'
         run: node site/redesign-browser-test.mjs
+      - name: Verify image-only list scrubbing and automatic real-3D details
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/image-scrub
+        run: npm run test:scrub:browser
+      - name: Verify same-angle modal handoff and interrupted history
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/handoff-continuity
+        run: npm run test:handoff:browser
       - name: Verify deliberate WebGL fallback separately
         env:
           GALLERY_DIR: dist
@@ -50,6 +60,8 @@ jobs:
             qa/release-strict-gpu/
             qa/release-fallback-only/
             qa/threejs-parser.json
+            qa/image-scrub/
+            qa/handoff-continuity/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
