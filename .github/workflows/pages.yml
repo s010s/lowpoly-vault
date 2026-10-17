@@ -27,6 +27,12 @@ jobs:
       - run: npm test && npm run test:redesign && npm run test:parser && npm run test:scrub
       - run: npm run build
       - run: npx playwright install --with-deps chromium
+      - name: Reproduce matching card previews with the actual built viewer
+        env:
+          GALLERY_DIR: dist
+          PREVIEW_OUTPUT: qa/web-capture-recheck
+          VERIFY_SHIPPED_PREVIEWS: '1'
+        run: node site/render-web-previews.mjs
       - name: Verify real models, static routes, downloads and mobile layouts
         env:
           GALLERY_DIR: dist
@@ -62,6 +68,7 @@ jobs:
             qa/threejs-parser.json
             qa/image-scrub/
             qa/handoff-continuity/
+            qa/web-capture-recheck/render-report.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "replace-asset-id",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "NON-EXECUTABLE TEMPLATE: replace null budgets with brief-specific numeric ceilings; set texture budgets to match the requested texture-rich or texture-free style. Freeze before production.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "bottom",
+    "clay",
+    "detail",
+    "front",
+    "left",
+    "rear",
+    "right",
+    "top",
+    "wire"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": null,
+    "max_materials": null,
+    "max_primitives": null,
+    "max_glb_bytes": null
+  },
+  "texture_policy": {
+    "max_textures": null,
+    "max_dimension": null,
+    "max_total_bytes": null,
+    "max_decoded_bytes": null
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "replace-source-id"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "replace-source-id"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explain coverage choices, including any turntable count below 24.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "candidates/replace-asset-id/v001/source.blend",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    },
+    {
+      "role": "generator",
+      "path": "candidates/replace-asset-id/v001/generator.py",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    },
+    {
+      "role": "config",
+      "path": "candidates/replace-asset-id/v001/build-config.json",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256"
+    }
+  ]
+}

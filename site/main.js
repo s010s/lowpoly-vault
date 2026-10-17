@@ -30,7 +30,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 let index, items = [], category = 'all', world = 'all', pack = 'all', page = 0, pages = 0, maxTriangles = 0;
 let selected, selectedSummary, origin, stage, stagePromise, hoverCard, hoverTimer;
-let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, detailController, restoringFocus = false, hoverSuppressed = false;
+let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, detailController, restoringFocus = false, hoverSuppressed = false, hoverPointer = null;
 let browseMode = 'grid', atlas, atlasPackKey = '', atlasPackItems = [], currentView = 'home', directDetailId = initialRoute.type==='detail'?initialRoute.id:null;
 let sourceContext = null, neighborItems = [], searchTimer, pendingRoute = false, queuedRoute = false;
 const viewScroll = {home:0, catalog:0, about:0, detail:0};
@@ -64,7 +64,7 @@ function controlsReady(ready){
   if(ready) $('#scale-reference').disabled = !stage?.scaleReferenceInfo?.available;
 }
 async function getStage(){return stagePromise ||= import('./viewer.js').then(({ModelStage}) => (stage=new ModelStage()));}
-function stopHover(){scrub.stop();clearTimeout(hoverTimer);if(hoverCard){hoverCard.querySelector('.card-status').textContent='';hoverCard=null;}if(!selected)stage?.hide();}
+function stopHover(){hoverPointer=null;scrub.stop();clearTimeout(hoverTimer);if(hoverCard){hoverCard.querySelector('.card-status').textContent='';hoverCard=null;}if(!selected)stage?.hide();}
 function bindImages(root=document){root.querySelectorAll('img').forEach(img=>img.onerror=()=>{img.style.visibility='hidden';img.alt=t('noPreview');});}
 
 const atlasHost=document.createElement('section');atlasHost.className='model-atlas';$('#grid').before(atlasHost);
@@ -132,17 +132,17 @@ function readQuery(route=parseRoute(location.pathname,siteRoot)){
 function updateListing({push=false}={}){paintFilters();paintModes();if(currentView==='catalog')history[push?'pushState':'replaceState']({view:'catalog'},'',listURL());return renderGrid();}
 function resetFilters({render=true}={}){category=world=pack='all';page=0;maxTriangles=0;browseMode='grid';$('#search').value='';$('#sort').value='name';if(render)updateListing();}
 
-function requestHover(card){
+function requestHover(card,clientX){
   if(selected||restoringFocus||hoverSuppressed||!fine.matches||!card||hoverCard===card)return;
   stopHover();const asset=items.find(a=>a.id===card.dataset.id);if(!asset?.turntable)return;
-  hoverCard=card;hoverTimer=setTimeout(()=>{if(hoverCard===card&&!selected)scrub.activate(card,asset);},120);
+  hoverCard=card;hoverPointer=Number.isFinite(clientX)?{x:clientX,frame:asset.turntable.poster_index||0}:null;hoverTimer=setTimeout(()=>{if(hoverCard===card&&!selected)scrub.activate(card,asset);},120);
 }
 function pointerMove(event){
   if(event.pointerType==='touch')return;
   if(hoverSuppressed&&!selected){if(!event.movementX&&!event.movementY)return;hoverSuppressed=false;requestHover(event.target.closest('.asset-card'));}
-  if(hoverCard&&!selected){const r=hoverCard.querySelector('.asset-image').getBoundingClientRect();scrub.fraction((event.clientX-r.left)/r.width);}
+  if(hoverCard&&!selected){const r=hoverCard.querySelector('.asset-image').getBoundingClientRect();if(!hoverPointer)hoverPointer={x:event.clientX,frame:scrub.current?.frame||0};if(scrub.current)scrub.request(hoverPointer.frame+(event.clientX-hoverPointer.x)/r.width*scrub.current.descriptor.frame_count);}
 }
-$('#grid').addEventListener('pointerover',event=>{const card=event.target.closest('.asset-card');if(card&&!card.contains(event.relatedTarget)&&event.pointerType!=='touch')requestHover(card);});
+$('#grid').addEventListener('pointerover',event=>{const card=event.target.closest('.asset-card');if(card&&!card.contains(event.relatedTarget)&&event.pointerType!=='touch')requestHover(card,event.clientX);});
 $('#grid').addEventListener('pointerout',event=>{const card=event.target.closest('.asset-card');if(event.pointerType!=='touch'&&card&&!card.contains(event.relatedTarget))stopHover();});
 $('#grid').addEventListener('pointermove',pointerMove);
 $('#grid').addEventListener('focusout',event=>{if(!scrub.current?.card.contains(event.relatedTarget))stopHover();});

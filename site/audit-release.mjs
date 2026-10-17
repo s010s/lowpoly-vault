@@ -30,7 +30,7 @@ async function walk(directory='') {
   return result;
 }
 const files=await walk();
-for(const file of files) assert(expected.has(file)||/^assets\/(?:index|viewer)-[A-Za-z0-9_-]+\.(?:js|css)$/.test(file),`Unexpected deployment file: ${file}`);
+for(const file of files) assert(expected.has(file)||/^assets\/(?:index|viewer|presentation)-[A-Za-z0-9_-]+\.(?:js|css)$/.test(file),`Unexpected deployment file: ${file}`);
 for(const file of expected)assert(files.includes(file),`Missing deployment file: ${file}`);
 const jobs=manifest.assets.map(a=>({path:resolve(root,a.downloads.bundle),files:Object.fromEntries(['glb','blend'].map(k=>[a[k].split('/').at(-1),a.sha256[k]])),credits:resolve(root,a.downloads.credits)}));
 const script=`import json,sys,zipfile,hashlib\nfor job in json.load(sys.stdin):\n with zipfile.ZipFile(job['path']) as z:\n  assert sorted(z.namelist())==sorted([*job['files'],'CREDITS.txt'])\n  for name,digest in job['files'].items(): assert hashlib.sha256(z.read(name)).hexdigest()==digest\n  assert z.read('CREDITS.txt')==open(job['credits'],'rb').read()\n`;

@@ -33,8 +33,81 @@ async function makeContext(label, options = {}) {
   return { page, async close() { const video = page.video(); await context.close(); if (video) report.videos.push({ label, file: (await video.path()).split(/[\\/]/).at(-1) }); } };
 }
 async function screenshot(page, name) {
-  await page.screenshot({ path: resolve(output, name + '.png'), fullPage: true });
+  const before = await previewDiagnostics(page);
+  await page.screenshot({ path: resolve(output, name + '.png'), fullPage: false });
+  const after = await previewDiagnostics(page);
+  (report.screenshot_states ||= []).push({ name, before, after });
   report.screenshots.push(name + '.png');
+  assert.equal(after.viewport.width, before.viewport.width, 'Evidence capture must not resize the tested viewport');
+  assert.equal(after.viewport.height, before.viewport.height, 'Evidence capture must not resize the tested viewport');
+  assert(Math.abs(after.scroll.y - before.scroll.y) < 1, 'Evidence capture must not scroll away from the retained card');
+  assert.equal(after.preview?.activeId, before.preview?.activeId, 'Evidence capture must not stop the active image preview');
+}
+async function previewDiagnostics(page) {
+  return page.evaluate(() => {
+    const card = document.querySelector('#grid [data-id="natural-arch"]'), r = card?.getBoundingClientRect(), host = document.querySelector('#canvas-host');
+    return {
+      url: location.href, scroll: { x: scrollX, y: scrollY }, viewport: { width: innerWidth, height: innerHeight },
+      focusedId: document.activeElement?.dataset.id || null, focusedElement: document.activeElement?.id || document.activeElement?.tagName,
+      preview: window.__vaultPreview ? { ...window.__vaultPreview } : null,
+      card: card ? { state: card.dataset.scrubState, frame: card.dataset.scrubFrame, canvases: card.querySelectorAll('canvas').length, rect: { x: r.x, y: r.y, width: r.width, height: r.height }, inView: r.bottom > 0 && r.top < innerHeight } : null,
+      detail: host ? { state: host.dataset.modelState, presentedUrl: host.dataset.presentedUrl, azimuth: host.dataset.viewAzimuth, elevation: host.dataset.viewElevation, distance: host.dataset.viewDistance } : null,
+    };
+  });
+}
+async function canvasPixels(page, selector) {
+  return page.locator(selector).evaluate(canvas => {
+    const bytes = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
+    let hash = 2166136261;
+    for (const byte of bytes) hash = Math.imul(hash ^ byte, 16777619) >>> 0;
+    return { width: canvas.width, height: canvas.height, rgba_hash: hash.toString(16).padStart(8, '0') };
+  });
+}
+async function pixelParity(page, label, caseReport) {
+  // Capture the actual browser-composited WebGL pixels. Avoid full-page captures,
+  // which change mobile layout and trigger intentional offscreen preview cleanup.
+  const screenshotName = label + '-actual-detail-pixels.png';
+  const png = await page.locator('#canvas-host .model-canvas').screenshot({ path: resolve(output, screenshotName), type: 'png' });
+  report.screenshots.push(screenshotName);
+  const result = await page.evaluate(async ({ png, prefix }) => {
+    const size = 320;
+    const load = async src => { const image = new Image(); image.src = src; await image.decode(); return image; };
+    const manifest = await (await fetch(prefix + 'assets/turntables/natural-arch/turntable.json')).json();
+    const referencePath = manifest.frames[7].path;
+    const [actualImage, expectedImage] = await Promise.all([load('data:image/png;base64,' + png), load(prefix + referencePath)]);
+    const normalize = image => {
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = size;
+      const side = Math.min(image.naturalWidth, image.naturalHeight), context = canvas.getContext('2d');
+      context.drawImage(image, (image.naturalWidth - side) / 2, (image.naturalHeight - side) / 2, side, side, 0, 0, size, size);
+      return { canvas, pixels: context.getImageData(0, 0, size, size).data };
+    };
+    const actual = normalize(actualImage), expected = normalize(expectedImage), background = [...expected.pixels.slice(0, 3)];
+    const foreground = pixels => {
+      let left = size, right = -1, top = size, bottom = -1, count = 0, sx = 0, sy = 0;
+      for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
+        const i = (y * size + x) * 4;
+        if (Math.max(...background.map((value, c) => Math.abs(pixels[i + c] - value))) <= 12) continue;
+        left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y); count++; sx += x; sy += y;
+      }
+      return { bbox: { left, top, right, bottom }, centroid: { x: sx / count, y: sy / count }, pixels: count };
+    };
+    let error = 0;
+    for (let i = 0; i < actual.pixels.length; i += 4) for (let c = 0; c < 3; c++) error += Math.abs(actual.pixels[i + c] - expected.pixels[i + c]);
+    const actualForeground = foreground(actual.pixels), expectedForeground = foreground(expected.pixels);
+    const bboxDelta = Math.max(...Object.keys(actualForeground.bbox).map(key => Math.abs(actualForeground.bbox[key] - expectedForeground.bbox[key])));
+    const centroidDelta = Math.hypot(actualForeground.centroid.x - expectedForeground.centroid.x, actualForeground.centroid.y - expectedForeground.centroid.y);
+    return { referencePath, normalizedSize: size, mean_rgb_absolute_error: error / (size * size * 3 * 255), bbox_delta_px: bboxDelta, centroid_delta_px: centroidDelta, actualForeground, expectedForeground, background,
+      theme: document.documentElement.dataset.theme || 'system', actual_png: actual.canvas.toDataURL('image/png'), expected_png: expected.canvas.toDataURL('image/png') };
+  }, { png: png.toString('base64'), prefix });
+  const { actual_png, expected_png, ...measurements } = result;
+  caseReport.pixel_parity = measurements;
+  await writeFile(resolve(output, label + '-normalized-detail.png'), Buffer.from(actual_png.split(',')[1], 'base64'));
+  await writeFile(resolve(output, label + '-reference-frame007.png'), Buffer.from(expected_png.split(',')[1], 'base64'));
+  report.screenshots.push(label + '-normalized-detail.png', label + '-reference-frame007.png');
+  assert(measurements.actualForeground.pixels > 100 && measurements.expectedForeground.pixels > 100, 'Pixel checks require a real model silhouette');
+  assert(measurements.mean_rgb_absolute_error < 0.04, 'Actual detail pixels must match the card-frame lighting and framing within a cross-GPU tolerance');
+  assert(measurements.bbox_delta_px <= 8, 'The actual model silhouette bounds must match the card frame within 8 pixels');
+  assert(measurements.centroid_delta_px <= 8, 'The actual model silhouette center must match the card frame within 8 pixels');
 }
 async function catalog(page) {
   await page.goto(base + prefix + 'models/');
@@ -101,24 +174,32 @@ async function directDetails() {
 
 async function roundTrip(label, options = {}) {
   const context = await makeContext(label, options); const { page } = context;
+  const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
   try {
     await catalog(page);
     const card = page.locator('#grid .asset-card[data-id="natural-arch"]');
     await card.scrollIntoViewIfNeeded(); await card.focus(); await page.keyboard.press('Home');
     for (let i = 0; i < 7; i++) await page.keyboard.press('ArrowRight');
     await page.waitForFunction(() => document.querySelector('#grid [data-id="natural-arch"]').dataset.scrubFrame === '7');
+    caseReport.preview_pixels = await canvasPixels(page, '#grid [data-id="natural-arch"] .image-scrub-canvas');
     await page.evaluate(() => { window.__originalReviewCard = document.querySelector('#grid [data-id="natural-arch"]'); });
     await page.route('**/*.glb', async route => { await new Promise(resolve => setTimeout(resolve, 450)); await route.continue().catch(() => {}); });
     await startSampler(page);
-    await page.keyboard.press('Enter'); await ready(page, 'natural-arch');
+    await page.keyboard.press('Enter');
+    await page.waitForFunction(() => document.querySelector('#viewer-dialog')?.open);
+    caseReport.handoff_pixels = await canvasPixels(page, '#canvas-host .model-handoff');
+    assert.deepEqual(caseReport.handoff_pixels, caseReport.preview_pixels, 'The exact currently painted card pixels must enter the detail handoff');
+    await ready(page, 'natural-arch');
     const initial = await angles(page);
     assert(deltaAngle(initial.azimuth, 147) < 0.001, 'The 7/24 preview angle enters actual 3D unchanged');
     await page.waitForTimeout(350);
+    await pixelParity(page, label, caseReport);
     await page.locator('#canvas-host').focus(); await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowUp');
     await page.waitForFunction(previous => Math.abs(Number(document.querySelector('#canvas-host').dataset.viewAzimuth) - previous) > 0.1, initial.azimuth);
     await page.locator('#zoom-in').click();
     await page.waitForFunction(previous => Number(document.querySelector('#canvas-host').dataset.viewDistance) < previous * 0.99, initial.distance);
     const beforeClose = await angles(page);
+    caseReport.beforeClose = beforeClose;
     await screenshot(page, label + '-detail-before-close');
     await page.evaluate(() => { window.__handoffReview.phase = 'close'; });
     await page.locator('#close').click(); await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
@@ -129,10 +210,16 @@ async function roundTrip(label, options = {}) {
       const r = node.getBoundingClientRect(); return { square: Math.min(r.width, r.height), x: r.x + r.width / 2, y: r.y + r.height / 2 };
     });
     assert.equal(await page.evaluate(() => document.activeElement?.dataset.id), 'natural-arch');
+    caseReport.returned = returned;
+    caseReport.beforeRetainedScreenshot = await previewDiagnostics(page);
     await screenshot(page, label + '-retained-card');
+    caseReport.beforeReopen = await previewDiagnostics(page);
+    assert.equal(caseReport.beforeReopen.preview.activeId, 'natural-arch', 'The retained card must still be active immediately before reopening');
+    assert.equal(caseReport.beforeReopen.card.canvases, 1, 'The retained image must remain painted immediately before reopening');
     await page.evaluate(() => { window.__handoffReview.phase = 'reopen'; });
     await page.keyboard.press('Enter'); await ready(page, 'natural-arch'); await page.waitForTimeout(350);
     const reopened = await angles(page);
+    caseReport.reopened = reopened;
     assert(deltaAngle(beforeClose.azimuth, reopened.azimuth) < 0.001, 'Close/reopen preserves the actual camera azimuth');
     assert(Math.abs(beforeClose.elevation - reopened.elevation) < 0.001, 'Close/reopen preserves the actual camera elevation');
     assert(Number.isFinite(beforeClose.distance) && Math.abs(beforeClose.distance - reopened.distance) < 0.00001, 'Close/reopen preserves the actual camera zoom distance');
@@ -145,8 +232,14 @@ async function roundTrip(label, options = {}) {
       assert(Math.abs(last.square / returned.square - 1) < 0.12, 'Reverse-flight model scale must match the retained card at completion');
       assert(Math.hypot(last.x - returned.x, last.y - returned.y) < 12, 'Reverse-flight center must match the retained card');
     }
-    report.cases.push({ label, beforeClose, reopened, returned, frames });
+    Object.assign(caseReport, { status: 'pass', frames });
     report.checks.push(`${label}: rotated preview, real 3D, current-angle close/reopen, no blank frame, and reverse-flight scale continuity.`);
+  } catch (error) {
+    caseReport.status = 'fail'; caseReport.error = error.stack;
+    caseReport.failure_diagnostics = await previewDiagnostics(page).catch(() => null);
+    caseReport.frames = await endSampler(page).catch(() => []);
+    await page.screenshot({ path: resolve(output, label + '-failure.png'), fullPage: false }).then(() => report.screenshots.push(label + '-failure.png')).catch(() => {});
+    throw error;
   } finally { await context.close(); }
 }
 
@@ -200,6 +293,7 @@ try {
   await roundTrip('desktop-motion');
   await roundTrip('mobile-motion', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
   await roundTrip('desktop-reduced-motion', { reducedMotion: 'reduce' });
+  await roundTrip('desktop-dark-motion', { colorScheme: 'dark' });
   await interruptedHistory();
   await supersededImport();
   assert.deepEqual(report.page_errors, []); report.status = 'pass';

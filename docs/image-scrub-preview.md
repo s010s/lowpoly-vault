@@ -12,7 +12,7 @@ Blender diagnostic views remain independent QA evidence. They are not substitute
 
 ## Interaction and resource bounds
 
-- Desktop: after a brief hover intent delay, only the current card loads its sequence manifest, current image and up to two neighboring images. Horizontal pointer motion selects an angle; there is no autoplay.
+- Desktop: after a brief hover intent delay, only the current card loads its sequence manifest, current image and up to two neighboring images. Horizontal motion rotates relative to the entry point, so a small first movement does not jump to the opposite angle; there is no autoplay.
 - Keyboard: focus a pilot card, use arrow keys, Home/End or Escape. Enter opens the real detail renderer.
 - Touch: horizontal drag starts scrubbing; a normal tap opens detail and vertical movement remains native scrolling.
 - Three decoded frame bitmaps are retained, plus one active canvas. At the shipped 320 px resolution this is 1,228,800 bytes of retained RGBA frames plus a 409,600-byte canvas. This is a controlled-object budget, not a measurement of total browser memory.
@@ -34,3 +34,9 @@ All frames are 320 × 320 WebP, quality 0.75, with 24 angles per sequence:
 The ten static posters total 30,248 bytes. A complete sequence is not eagerly downloaded on hover: initial activation is its manifest plus at most three frame files. Sequence metadata is approximately 5 KiB each. The original GLB/Blend/preview downloads remain byte-identical. The previous catalog used original 1–2 MiB PNG previews; derived card posters now avoid that cost.
 
 `npm run test:scrub` verifies the sealed paths, hashes, dimensions and source identities plus cancellation, bounded caches and failure behavior. `npm run test:scrub:browser` records browser interaction, camera-angle continuity, zero GLB/Three.js list requests, rapid/slow replacement, touch, screenshots and video. Full release checks independently exercise all ten actual GLBs, bilingual routes, downloads and forced WebGL fallback.
+
+## Release verification
+
+The release workflow rerenders all 82 shipped WebPs with the pinned browser and actual built viewer, then checks their bytes against the shipped frames. The presentation preset is an isolated small shared chunk so the offline capture does not import the application UI. Browser handoff tests separately compare the current image with the real renderer at desktop/mobile aspect ratios and in both UI themes. Test evidence is uploaded as a CI artifact and excluded from Pages.
+
+The first candidate browser run measured 16–42 ms pointer-to-frame latency on its local CI server, one active image request, three decoded frame bitmaps and zero empty frames across 92 sampled delayed/rapid detail-switch frames. These are software-rendered CI measurements, not mobile-network or physical-device performance promises.

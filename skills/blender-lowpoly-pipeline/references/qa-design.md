@@ -1,5 +1,7 @@
 # QA design and executable entry points
 
+For new work, the [standardized pipeline](standardized-pipeline.md) adds frozen candidate records and fail-closed evidence validation to the existing checks below. Use [parallel-queue.md](parallel-queue.md) for isolated bounded headless jobs and quick exact-GLB multi-angle evidence. Historical `threejs_runtime.status=pass` records must be read with their scope: parsing alone is not GPU rendering. Never promote old or unrelated evidence to a new artifact's pass.
+
 ## Repository interfaces
 
 `../../scripts/asset_common.py` is imported by Blender generators. Its current signatures are:
