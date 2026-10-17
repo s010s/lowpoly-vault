@@ -54,10 +54,10 @@ assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners
 // Execute the production capture helper against premultiplied sample pixels.
 // Stacking two half-alpha copies source-over would produce alpha .75, not .5.
 const main = readFileSync(new URL('./main.js', import.meta.url), 'utf8');
-const helper = main.slice(main.indexOf('function blendVisual('), main.indexOf('function currentDetailVisual('));
+const helper = main.slice(main.indexOf('function paintVisualBlend('), main.indexOf('function currentDetailVisual('));
 const pixelDocument = { createElement() {
   const canvas = { dataset: {}, pixel: [0, 0, 0, 0], setAttribute() {} };
-  const context = { globalAlpha: 1, globalCompositeOperation: 'source-over', drawImage(source) {
+  const context = { globalAlpha: 1, globalCompositeOperation: 'source-over', clearRect() { canvas.pixel = [0, 0, 0, 0]; }, drawImage(source) {
     const a = source.pixel[3] * this.globalAlpha;
     const value = [...source.pixel.slice(0, 3).map(c => c * this.globalAlpha), a];
     canvas.pixel = canvas.pixel.map((c, i) => this.globalCompositeOperation === 'lighter' ? c + value[i] : value[i] + c * (1 - a));

@@ -222,7 +222,7 @@ async function extendNeighbors(version){
   neighborItems=sourceContext.items;history.replaceState({...history.state,source:sourceContext},'',location.href);paintNeighbors();
 }
 function stopDissolve(node){if(!node)return;node.__dissolveVersion=(node.__dissolveVersion||0)+1;const cleanup=node.__dissolveCleanup;delete node.__dissolveCleanup;cleanup?.();node.getAnimations?.().forEach(a=>a.cancel());}
-function releaseVisual(node){if(!node)return;stopDissolve(node);node.remove();if(!(node instanceof HTMLCanvasElement))node.querySelectorAll?.('.return-poster').forEach(poster=>{poster.width=poster.height=0;});if(node instanceof HTMLCanvasElement){node.width=0;node.height=0;}}
+function releaseVisual(node){if(!node)return;stopDissolve(node);node.remove();if(!(node instanceof HTMLCanvasElement))node.querySelectorAll?.('.return-composite').forEach(poster=>{poster.width=poster.height=0;});if(node instanceof HTMLCanvasElement){node.width=0;node.height=0;}}
 function clearHost(){for(const node of [...$('#canvas-host').children])if(!node.classList.contains('model-canvas'))releaseVisual(node);$('#canvas-host').replaceChildren();}
 function copyVisual(source,{square=false}={}){
   if(!source)return null;let copy;
@@ -232,26 +232,22 @@ function copyVisual(source,{square=false}={}){
   }else return null;
   copy.className='model-handoff';copy.setAttribute('aria-hidden','true');copy.dataset.assetId=source.dataset.assetId||'';copy.__presentation=source.__presentation;return copy;
 }
-function blendVisual(lower,upper,upperWeight,upperRect={left:0,top:0,width:lower.width,height:lower.height}){
+function paintVisualBlend(composite,lower,upper,upperWeight,upperRect={left:0,top:0,width:composite.width,height:composite.height}){
+  const context=composite.getContext('2d');context.clearRect(0,0,composite.width,composite.height);context.globalCompositeOperation='lighter';
+  context.globalAlpha=1-upperWeight;context.drawImage(lower,0,0,composite.width,composite.height);
+  context.globalAlpha=upperWeight;context.drawImage(upper,upperRect.left,upperRect.top,upperRect.width,upperRect.height);context.globalAlpha=1;
+}
+function blendVisual(lower,upper,upperWeight,upperRect){
   const composite=document.createElement('canvas');composite.width=lower.width;composite.height=lower.height;
-  const context=composite.getContext('2d');context.globalCompositeOperation='lighter';
-  context.globalAlpha=1-upperWeight;context.drawImage(lower,0,0);
-  context.globalAlpha=upperWeight;context.drawImage(upper,upperRect.left,upperRect.top,upperRect.width,upperRect.height);
-  context.globalAlpha=1;composite.__presentation=lower.__presentation;composite.dataset.assetId=lower.dataset.assetId;
+  paintVisualBlend(composite,lower,upper,upperWeight,upperRect);
+  composite.__presentation=lower.__presentation;composite.dataset.assetId=lower.dataset.assetId;
   composite.className='model-handoff';composite.setAttribute('aria-hidden','true');return composite;
 }
 function currentDetailVisual({square=false}={}){
   const flight=$('#viewer-dialog .stage-flight');if(flight){
     if(!flight.querySelector('.model-canvas'))return copyVisual(flight,{square});
-    const actual=stage?.snapshot({square:true});if(!actual)return copyVisual(flight.querySelector('.return-poster'),{square:true});
-    if(flight.dataset.returnPhase==='fading'){
-      const poster=flight.querySelector('.return-poster'),opacity=Number(getComputedStyle(flight.querySelector('.model-canvas')).opacity);
-      if(poster?.width&&opacity<1){
-        const composite=blendVisual(actual,poster,1-opacity);composite.__returnOpacity=opacity;
-        releaseVisual(actual);return composite;
-      }
-    }
-    return actual;
+    const composite=flight.querySelector('.return-composite');if(composite)return copyVisual(composite,{square:true});
+    return stage?.snapshot({square:true});
   }
   let actual=stage?.snapshot();const overlay=$('#canvas-host .model-handoff');
   if(actual&&overlay){const weight=Number(getComputedStyle(overlay).opacity),rect=containRect({left:0,top:0,width:actual.width,height:actual.height},overlay.width/overlay.height),composite=blendVisual(actual,overlay,weight,rect);releaseVisual(actual);actual=composite;if(weight>0&&overlay.dataset.assetId!==actual.dataset.assetId)actual.dataset.assetId='';}
@@ -294,7 +290,6 @@ function releaseHandoff(version){
     const reveal=target?.animate([{opacity:0},{opacity:1}],{duration:160,easing:'linear',fill:'both'});reveal?.finished.catch(()=>{});
     let active=true;visual.__dissolveCleanup=()=>{active=false;reveal?.cancel();};
     const fade=visual.animate([{opacity:1},{opacity:0}],{duration:160,easing:'linear',fill:'both'});
-    if(reveal&&document.timeline.currentTime!==null)reveal.startTime=fade.startTime=document.timeline.currentTime;
     fade.finished.catch(()=>{}).finally(()=>{if(active)releaseVisual(visual);});
   });
 }
@@ -350,8 +345,8 @@ async function performCloseAsset(){
   const visible=matching&&target&&target.bottom>0&&target.top<innerHeight&&target.right>0&&target.left<innerWidth;
   const initialView=stage?.presentationInfo,canonicalView=stage?.canonicalView;
   const resumable=previous?.assetId===returnAsset?.id&&returnAsset?.glb&&stage?.stats.activeURL===new URL(path(returnAsset.glb),document.baseURI).href;
-  const canonicalPoster=visible?copyVisual(origin.querySelector('.asset-image>img'),{square:true}):null;
-  const liveReturn=canonicalPoster&&visible&&canonicalView&&!stage._contextLost&&((stage?._host===$('#canvas-host')&&$('#canvas-host').dataset.modelState==='ready')||resumable);
+  const canonicalPoster=visible?origin.querySelector('.asset-image>img'):null;
+  const liveReturn=canonicalPoster?.complete&&canonicalPoster.naturalWidth&&visible&&canonicalView&&!stage._contextLost&&((stage?._host===$('#canvas-host')&&$('#canvas-host').dataset.modelState==='ready')||resumable);
   hoverSuppressed=true;closing=true;const version=++detailVersion;cancelDialogMotion();$('.viewer-controls').inert=true;
   let flight,travel;
   if(liveReturn){
@@ -359,14 +354,24 @@ async function performCloseAsset(){
     flight=document.createElement('div');flight.className='stage-flight live-model-return';flight.setAttribute('aria-hidden','true');
     flight.dataset.returnPhase='moving';flight.dataset.returnProgress='0';
     Object.assign(flight.style,{position:'fixed',left:`${from.left}px`,top:`${from.top}px`,width:`${from.width}px`,height:`${from.height}px`});
-    canonicalPoster.className='return-poster';canonicalPoster.dataset.assetId=returnAsset.id;flight.append(canonicalPoster);$('#viewer-dialog').append(flight);
+    $('#viewer-dialog').append(flight);
     let transferred=false;try{transferred=stage.moveTo(flight,{onStatus:status=>{if(status==='error')travel?.finish?.();}});}catch{}
     if(transferred){
       clearHost();releaseVisual(retained);
-      travel=modalAnimation=startModelReturn({stage,host:flight,from,to,getTarget:()=>origin?.isConnected?containRect(origin.querySelector('.asset-image').getBoundingClientRect(),1):to,initialView,canonicalView,reduced:reduced.matches||!CSS.supports('mix-blend-mode','plus-lighter')});
+      let captured,composite;
+      travel=modalAnimation=startModelReturn({stage,host:flight,from,to,getTarget:()=>origin?.isConnected?containRect(origin.querySelector('.asset-image').getBoundingClientRect(),1):to,initialView,canonicalView,reduced:reduced.matches,
+        onAligned:()=>{
+          // The model has finished moving. Preserve that exact same-task draw,
+          // then dissolve one 2D surface instead of two browser compositor layers.
+          captured=stage._contextLost?copyVisual(canonicalPoster,{square:true}):copyVisual(flight.querySelector('.model-canvas'),{square:true});
+          if(!captured)captured=copyVisual(canonicalPoster,{square:true});
+          composite=blendVisual(captured,canonicalPoster,stage._contextLost?1:0);composite.className='return-composite';
+          composite.dataset.assetId=returnAsset.id;composite.__presentation=stage.presentationInfo;flight.append(composite);
+          flight.__dissolveCleanup=()=>releaseVisual(captured);
+        },
+        onFade:opacity=>{if(composite)paintVisualBlend(composite,captured,canonicalPoster,stage._contextLost?1:1-opacity);}});
     }else{releaseVisual(flight);flight=null;}
   }
-  if(!flight)releaseVisual(canonicalPoster);
   detailController?.abort();store.cancelDetail();
   if(!travel){
     stage?.hide();clearHost();if(retained){retained.className='model-handoff';$('#canvas-host').append(retained);}

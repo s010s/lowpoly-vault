@@ -9,7 +9,7 @@ export function interpolateReturnView(from, to, progress) {
 }
 
 /** Only runs during close. One borrowed live canvas, no second scene or loop. */
-export function startModelReturn({ stage, host, from, to, getTarget, initialView, canonicalView, reduced = false, onAligned = () => {} }) {
+export function startModelReturn({ stage, host, from, to, getTarget, initialView, canonicalView, reduced = false, onAligned = () => {}, onFade = () => {} }) {
   let raf = 0, timer, done, aligned = false, fadeStarted = null;
   const started = performance.now();
   const motion = { playState: 'running', finished: new Promise(resolve => { done = resolve; }), cancel, finish };
@@ -17,8 +17,7 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
   Object.assign(host.style, { position: 'fixed', left: `${from.left}px`, top: `${from.top}px`,
     width: `${from.width}px`, height: `${from.height}px`, transformOrigin: '0 0', pointerEvents: 'none', willChange: 'transform,opacity' });
   const opacity = value => {
-    host.style.setProperty('--return-live-opacity', String(value));
-    host.dataset.returnOpacity = String(value);
+    host.dataset.returnOpacity = String(value); onFade(value);
   };
   const place = t => {
     const target = getTarget?.() || to, dx = target.left - from.left, dy = target.top - from.top, scale = target.width / from.width;

@@ -71,7 +71,7 @@ async function stopped(page) {
 }
 async function canonicalPoster(page, id) {
   await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open && !document.querySelector('.stage-flight') && window.__vaultPreview?.activeId === null && (!window.__vaultGPU || (window.__vaultGPU.liveScenes === 0 && window.__vaultGPU.rafPending === 0)));
-  assert.equal(await page.locator('.model-canvas,.model-preview-snapshot,.return-poster').count(), 0, 'Completed close detaches 3D without retaining an inspected-angle bitmap');
+  assert.equal(await page.locator('.model-canvas,.model-preview-snapshot,.return-composite').count(), 0, 'Completed close detaches 3D without retaining an inspected-angle bitmap');
   assert(await page.locator(selector(id)).locator('.asset-image').evaluate(host => {
     const image = host.querySelector('img');
     if (!image?.complete || !image.naturalWidth || host.querySelectorAll('img').length !== 1 || host.closest('[data-detail-origin]')) return false;

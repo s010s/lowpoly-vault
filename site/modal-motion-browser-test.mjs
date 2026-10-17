@@ -55,7 +55,9 @@ let browser, base;
 // non-preserved WebGL buffer clears; ordinary rAF sampling only reads cached alpha.
 function installProbe() {
   let active = false, raf, observer, phase, pixelProbe = false, previousDrawProbe;
-  let frames = [], events = [], draws = [], errors = [];
+  let frames = [], events = [], draws = [], bitmapDraws = [], errors = [];
+  const lastDraw = new WeakMap(), capture = new WeakMap();
+  let nextDrawId = 0;
   const longTasks = [];
   if (PerformanceObserver.supportedEntryTypes.includes('longtask')) {
     new PerformanceObserver(list => { for (const entry of list.getEntries()) longTasks.push({ start: entry.startTime, duration: entry.duration }); }).observe({ type: 'longtask', buffered: true });
@@ -80,6 +82,27 @@ function installProbe() {
     return { azimuth_deg: Number(host.dataset.viewAzimuth), elevation_deg: Number(host.dataset.viewElevation), distance: Number(host.dataset.viewDistance) };
   };
   const scratch = document.createElement('canvas');
+  // Lightweight identity/weight tracing, with no pixel readback in timing runs.
+  // A same-task copy must still refer to the exact synchronous canonical draw.
+  const nativeDrawImage = CanvasRenderingContext2D.prototype.drawImage;
+  CanvasRenderingContext2D.prototype.drawImage = function (source, ...args) {
+    const result = nativeDrawImage.call(this, source, ...args);
+    if (!active || this.canvas === scratch) return result;
+    const live = source?.classList?.contains('model-canvas') && source.parentElement?.classList.contains('stage-flight');
+    const origin = source?.matches?.('#grid [data-id="natural-arch"] .asset-image > img');
+    const retained = capture.get(source), composite = source?.classList?.contains('return-composite');
+    if (live || retained || composite || this.canvas.classList.contains('return-composite') || origin) {
+      const draw = lastDraw.get(source);
+      const copied = live ? { draw_id: draw?.draw_id, draw_time: draw?.time, same_task: draw?.same_task === true,
+        canvas_id: elementId(source), source_size: [source.width, source.height] } : retained || null;
+      if (copied) capture.set(this.canvas, copied);
+      bitmapDraws.push({ time: performance.now(), target_id: elementId(this.canvas), source_id: elementId(source),
+        source_kind: live ? 'live' : composite ? 'composite' : origin ? 'origin-img' : 'retained',
+        target_size: [this.canvas.width, this.canvas.height], args, weight: this.globalAlpha,
+        operation: this.globalCompositeOperation, capture: copied });
+    }
+    return result;
+  };
   const rect = element => {
     if (!element) return null;
     const r = element.getBoundingClientRect();
@@ -155,21 +178,26 @@ function installProbe() {
   };
   const visual = element => {
     if (!element) return null;
-    // Opening flights are retained canvases; returns are DIVs containing the
-    // actual shared WebGL canvas. Never try to drawImage the return container.
-    const source = element instanceof HTMLCanvasElement || element instanceof HTMLImageElement ? element : element.querySelector('.model-canvas');
+    // The shared GLB stays attached throughout close; after alignment the sole
+    // displayed surface is the 2D composite, so visibility follows that surface.
+    const live = element.matches('.model-canvas') ? element : element.querySelector('.model-canvas');
+    const composite = element.querySelector?.('.return-composite');
+    const source = element instanceof HTMLCanvasElement || element instanceof HTMLImageElement ? element : composite || live;
+    // Dynamic 2D composites must be resampled in the optional pixel-only pass.
+    if (pixelProbe && source?.classList.contains('return-composite')) alphaCache.delete(source);
     const a = source ? (pixelProbe ? cachedAlpha(source) : alphaCache.get(source) || null) : null, s = style(element);
     const child = source && source !== element ? style(source) : s;
-    const returnPoster = element.querySelector?.('.return-poster'), posterStyle = returnPoster ? style(returnPoster) : null;
     return { ...s, alpha: a, object: objectBounds(source, a), view: view(element), tag: element.tagName,
-      canvas_id: source?.classList.contains('model-canvas') ? elementId(source) : null,
-      live_canvas: Boolean(source?.classList.contains('model-canvas')), canvas_rect: source ? rect(source) : null,
+      element_id: elementId(element), displayed_id: elementId(source),
+      displayed_kind: source?.classList.contains('return-composite') ? 'composite' : live === source ? 'live' : 'bitmap',
+      canvas_id: elementId(live), live_canvas: Boolean(live), canvas_rect: live ? rect(live) : source ? rect(source) : null,
+      live_layer: live ? style(live) : null, composite_count: element.querySelectorAll?.('.return-composite').length || 0,
+      legacy_return_poster_count: element.querySelectorAll?.('.return-poster').length || 0,
       layer: child, bitmap_2d: source instanceof HTMLCanvasElement && !source.classList.contains('model-canvas') ? Boolean(source.getContext('2d')) : false,
-      visible: Math.min(s.effective_opacity, Math.max(child.effective_opacity, posterStyle?.effective_opacity || 0)) > 0.003 && s.rect.width > 0 && s.rect.height > 0,
+      visible: Math.min(s.effective_opacity, child?.effective_opacity || 0) > 0.003 && s.rect.width > 0 && s.rect.height > 0,
       return_phase: element.dataset.returnPhase || null,
       return_progress: element.dataset.returnProgress === undefined ? null : Number(element.dataset.returnProgress),
       return_opacity: element.dataset.returnOpacity === undefined ? null : Number(element.dataset.returnOpacity),
-      return_css_opacity: element.style.getPropertyValue('--return-live-opacity') === '' ? null : Number(getComputedStyle(element).getPropertyValue('--return-live-opacity')),
       image_decoded: element instanceof HTMLImageElement ? element.complete && element.naturalWidth > 0 : null,
       background_image: getComputedStyle(element).backgroundImage };
   };
@@ -195,7 +223,7 @@ function installProbe() {
         effective_alpha: Number(backdrop.opacity) * colorAlpha(backdrop.backgroundColor), animation: backdrop.animationName },
       shell: style(dialog.querySelector('.viewer-layout')), content, host: style(host), model_state: host?.dataset.modelState,
       flight: visual(dialog.querySelector('.stage-flight')), handoff: visual(host?.querySelector('.model-handoff')),
-      return_poster: visual(dialog.querySelector('.stage-flight .return-poster')),
+      return_composite: visual(dialog.querySelector('.stage-flight .return-composite')),
       model: visual(host?.querySelector('.model-canvas')), poster: visual(host?.querySelector('.model-poster')),
       card: visual(document.querySelector('#grid [data-id="natural-arch"] .model-preview-snapshot, #grid [data-id="natural-arch"] .model-canvas')),
       card_poster: visual(document.querySelector('#grid [data-id="natural-arch"] .asset-image > img')),
@@ -221,7 +249,7 @@ function installProbe() {
     arm(label, { pixels = false } = {}) {
       if (active) this.stop();
       performance.mark('modal:' + label);
-      phase = label; pixelProbe = pixels; frames = []; events = []; draws = []; errors = []; active = true;
+      phase = label; pixelProbe = pixels; frames = []; events = []; draws = []; bitmapDraws = []; errors = []; active = true;
       const dialog = document.querySelector('#viewer-dialog');
       observer = new MutationObserver(records => {
         for (const record of records) events.push({ time: performance.now(), type: 'attribute', attribute: record.attributeName,
@@ -238,7 +266,9 @@ function installProbe() {
           const a = pixelProbe ? alpha(entry.canvas) : null;
           if (a) alphaCache.set(entry.canvas, a);
           const handoff = entry.host.querySelector('.model-handoff');
-          draws.push({ time: performance.now(), phase, alpha: a, object: objectBounds(entry.canvas, a), host: rect(entry.host),
+          const draw = { draw_id: ++nextDrawId, time: performance.now(), same_task: true };
+          lastDraw.set(entry.canvas, draw); queueMicrotask(() => { draw.same_task = false; });
+          draws.push({ draw_id: draw.draw_id, time: draw.time, phase, alpha: a, object: objectBounds(entry.canvas, a), host: rect(entry.host),
             host_class: entry.host.className, canvas_id: elementId(entry.canvas), mode: window.__vaultGPU?.activeMode,
             return_phase: entry.host.dataset.returnPhase || null,
             return_progress: entry.host.dataset.returnProgress === undefined ? null : Number(entry.host.dataset.returnProgress),
@@ -250,7 +280,7 @@ function installProbe() {
     stop() {
       snapshot('stopped'); active = false; cancelAnimationFrame(raf); observer?.disconnect();
       window.__vaultFrameProbe = previousDrawProbe;
-      return { phase, pixel_probe: pixelProbe, time_origin: performance.timeOrigin, frames, events, draws, errors,
+      return { phase, pixel_probe: pixelProbe, time_origin: performance.timeOrigin, frames, events, draws, bitmap_draws: bitmapDraws, errors,
         long_tasks: longTasks.filter(task => task.start + task.duration >= (frames[0]?.time ?? Infinity) && task.start <= (frames.at(-1)?.time ?? -Infinity)) };
     },
     snapshot() { snapshot('manual'); return frames.at(-1); },
@@ -314,7 +344,7 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
     check(test, record.phase + ': flight does not duplicate a stationary detail model', ![f.model, f.handoff, f.poster].some(v => v?.visible), { time: f.time, host: f.host });
     check(test, record.phase + ': source card has no alternate retained pose', !f.card?.visible, { time: f.time, card: f.card?.visible });
     const alignedFade = f.flight.live_canvas && f.flight.return_phase === 'fading' && sameView(f.flight.view, f.canonical_view);
-    check(test, record.phase + ': transient poster appears only after the live return is canonical', !f.return_poster?.visible || alignedFade,
+    check(test, record.phase + ': composite appears only after the live return is canonical', !f.return_composite?.visible || alignedFade,
       { time: f.time, phase: f.flight.return_phase, view: f.flight.view, canonical: f.canonical_view });
     if (f.flight.live_canvas) check(test, record.phase + ': source stays hidden until the final canonical swap', f.origin_hidden && !f.card_poster?.visible,
       { time: f.time, origin_hidden: f.origin_hidden, poster: f.card_poster?.visible });
@@ -388,7 +418,7 @@ function validateCanonicalReturn(test, record, frames, event, before, slack) {
   // The DOM sampler can run before the motion callback in the same RAF batch,
   // observing alignment one display interval late. Time the actual canonical
   // WebGL draw here; the separate RAF assertions below still require a visible
-  // canonical poster and a genuinely partially faded live model.
+  // canonical composite and a genuinely partial logical live-model weight.
   const alignedDraw = returnedDraws.find(d => d.return_phase === 'fading' && d.return_progress === 1 && sameView(d.view, canonical));
   const firstFade = alignedDraw?.time - event.time;
   check(test, record.phase + ': canonical pose is reached at the 120 ms travel boundary', Number.isFinite(firstFade) && firstFade >= 100 && firstFade <= 120 + slack,
@@ -410,22 +440,48 @@ function validateCanonicalReturn(test, record, frames, event, before, slack) {
   }
   check(test, record.phase + ': live camera reaches canonical pose before the poster fade', fading.length > 0 && fading.every(f => sameView(f.flight.view, canonical)) && sameView(returnedDraws.at(-1)?.view, canonical),
     { canonical, fade_views: fading.map(f => f.flight.view), last_draw: returnedDraws.at(-1)?.view });
-  check(test, record.phase + ': return isolates complementary additive live and decoded poster layers', live.length > 1 && live.every(f =>
-    f.flight.isolation === 'isolate' && f.flight.opacity === 1 && f.flight.layer.mix_blend_mode === 'plus-lighter' &&
-    f.return_poster?.tag === 'CANVAS' && f.return_poster.bitmap_2d && f.return_poster.mix_blend_mode === 'plus-lighter' &&
-    f.card_poster?.image_decoded && Number.isFinite(f.flight.return_opacity) && f.flight.return_opacity >= 0 && f.flight.return_opacity <= 1 &&
-    Math.abs(f.flight.layer.opacity - f.flight.return_opacity) <= 0.002 &&
-    Math.abs(f.flight.return_css_opacity - f.flight.return_opacity) <= 0.002 &&
-    Math.abs(f.flight.layer.opacity + f.return_poster.opacity - 1) <= 0.002),
-    live.map(f => ({ time: f.time - event.time, host: f.flight.opacity, isolation: f.flight.isolation,
-      live: f.flight.layer.opacity, poster: f.return_poster?.opacity, data: f.flight.return_opacity, css: f.flight.return_css_opacity })));
-  check(test, record.phase + ': live return fades over the matching visible canonical poster', fading.some(f => f.return_poster?.visible && f.flight.layer.opacity > 0.025 && f.flight.layer.opacity < 0.985),
-    fading.map(f => ({ time: f.time - event.time, opacity: f.flight.layer.opacity, poster: f.return_poster?.visible })));
-  const posterBounds = fading.filter(f => f.return_poster?.object).map(f => ({ live: f.flight.object, poster: f.return_poster.object }));
-  if (record.pixel_probe) check(test, record.phase + ': canonical return silhouette lands on the canonical poster', posterBounds.length > 0 && posterBounds.every(pair => near(pair.live, pair.poster, 14)), posterBounds.slice(0, 3));
-  if (record.pixel_probe) check(test, record.phase + ': transient poster preserves decoded origin transparency and bounds', fading.length > 0 && fading.every(f =>
-    f.return_poster?.alpha?.pixels > 0 && f.return_poster.alpha.transparent_fraction > 0.2 && f.return_poster.alpha.corner_alpha_max <= 3 &&
-    near(f.return_poster.object, f.card_poster?.object, 14)), fading.map(f => ({ transient: f.return_poster?.alpha, origin: f.card_poster?.alpha })));
+  check(test, record.phase + ': return displays one full-opacity transparent composite with logical complementary weights', live.length > 1 && live.every(f =>
+    f.flight.opacity === 1 && Number.isFinite(f.flight.return_opacity) && f.flight.return_opacity >= 0 && f.flight.return_opacity <= 1 &&
+    f.flight.legacy_return_poster_count === 0 && f.flight.live_layer.mix_blend_mode !== 'plus-lighter' &&
+    (f.flight.return_phase === 'moving' ? f.flight.displayed_kind === 'live' && f.flight.live_layer.effective_opacity >= 0.999 && f.flight.composite_count === 0 :
+      f.flight.displayed_kind === 'composite' && f.flight.composite_count === 1 && f.return_composite?.tag === 'CANVAS' && f.return_composite.bitmap_2d &&
+      f.return_composite.visible && f.return_composite.opacity === 1 && f.return_composite.mix_blend_mode !== 'plus-lighter' &&
+      f.flight.live_layer.visibility === 'hidden' && f.card_poster?.image_decoded)),
+    live.map(f => ({ time: f.time - event.time, phase: f.flight.return_phase, displayed: f.flight.displayed_kind,
+      live_visibility: f.flight.live_layer.visibility, logical_weight: f.flight.return_opacity, composite: f.return_composite?.element_id })));
+  check(test, record.phase + ': canonical dissolve has a real partial-weight RAF on its displayed surface', fading.some(f =>
+    f.source === 'raf' && f.return_composite?.visible && f.flight.return_opacity > 0.025 && f.flight.return_opacity < 0.985),
+    fading.map(f => ({ time: f.time - event.time, source: f.source, weight: f.flight.return_opacity, composite: f.return_composite?.visible })));
+  const compositeIds = [...new Set(fading.map(f => f.return_composite?.element_id).filter(Boolean))];
+  const paints = (record.bitmap_draws || []).filter(draw => compositeIds.includes(draw.target_id));
+  const firstPaint = paints[0], captured = firstPaint?.capture;
+  const canonicalCopy = (record.bitmap_draws || []).find(draw => draw.source_kind === 'live' && draw.capture?.draw_id === alignedDraw?.draw_id);
+  check(test, record.phase + ': sole bounded composite captures the exact same-task canonical WebGL draw', compositeIds.length === 1 &&
+    captured?.draw_id === alignedDraw?.draw_id && captured?.draw_time === alignedDraw?.time && captured?.same_task &&
+    captured?.canvas_id === before?.model?.canvas_id && canonicalCopy?.capture?.same_task &&
+    canonicalCopy.target_size.every(size => size > 0 && size <= 1024) && canonicalCopy.target_size[0] === canonicalCopy.target_size[1] &&
+    firstPaint.time >= alignedDraw.time && firstPaint.time <= (fading[0]?.time ?? -Infinity),
+    { aligned_draw: alignedDraw?.draw_id, captured, canonical_copy: canonicalCopy, composite_ids: compositeIds });
+  const paintPairs = paints.filter(draw => draw.source_kind === 'origin-img').map(upper => {
+    const lower = paints[paints.indexOf(upper) - 1]; return { lower, upper };
+  });
+  check(test, record.phase + ': each composite repaint uses weighted lighter with the decoded origin IMG', paintPairs.length > 1 && paintPairs.every(({ lower, upper }) =>
+    lower?.capture?.draw_id === alignedDraw?.draw_id && lower.operation === 'lighter' && upper.operation === 'lighter' &&
+    lower.weight >= 0 && lower.weight <= 1 && upper.weight >= 0 && upper.weight <= 1 && Math.abs(lower.weight + upper.weight - 1) <= 0.00001) &&
+    fading.filter(f => f.source === 'raf').every(f => {
+      const pair = paintPairs.filter(({ upper }) => upper.time <= f.time).at(-1);
+      return pair && Math.abs(pair.lower.weight - f.flight.return_opacity) <= 0.00001;
+    }), { pairs: paintPairs.length, weights: paintPairs.map(({ lower, upper }) => [lower?.weight, upper.weight]) });
+  const finalPaint = paintPairs.find(({ upper }) => upper.weight >= 0.99999)?.upper;
+  const dissolveDuration = finalPaint?.time - firstPaint?.time;
+  check(test, record.phase + ': composite dissolve completes its 60 ms phase after canonical capture',
+    Number.isFinite(dissolveDuration) && dissolveDuration >= 45 && dissolveDuration <= 60 + slack,
+    { actual_ms: dissolveDuration, allowed_late_ms: slack });
+  const posterBounds = fading.filter(f => f.return_composite?.object).map(f => ({ live: alignedDraw?.object, composite: f.return_composite.object, poster: f.card_poster?.object }));
+  if (record.pixel_probe) check(test, record.phase + ': canonical actual GLB silhouette lands on the canonical composite and poster', posterBounds.length > 0 && posterBounds.every(pair => near(pair.live, pair.composite, 14) && near(pair.live, pair.poster, 14)), posterBounds.slice(0, 3));
+  if (record.pixel_probe) check(test, record.phase + ': composite preserves decoded origin transparency and bounds', fading.length > 0 && fading.every(f =>
+    f.return_composite?.alpha?.pixels > 0 && f.return_composite.alpha.transparent_fraction > 0.2 && f.return_composite.alpha.corner_alpha_max <= 3 &&
+    near(f.return_composite.object, f.card_poster?.object, 14)), fading.map(f => ({ composite: f.return_composite?.alpha, origin: f.card_poster?.alpha })));
   const firstGPU = frames.find(f => f.gpu)?.gpu, lastGPU = frames.filter(f => f.gpu).at(-1)?.gpu;
   check(test, record.phase + ': return reuses the attached GLB without request, parse or resource churn', Boolean(firstGPU && lastGPU) &&
     ['rendererCreations', 'networkRequests', 'parseCount', 'disposedGeometries', 'disposedMaterials', 'disposedTextures'].every(key => lastGPU[key] === firstGPU[key]),
@@ -436,9 +492,17 @@ function validateReturnReversal(test, record) {
     const entry = record.frames.find(f => f.time >= event.time && f.source === 'event:popstate');
     if (!entry?.flight?.live_canvas) continue;
     const firstReopenedDraw = record.draws.find(d => d.time >= event.time && !String(d.host_class).split(/\s+/).includes('stage-flight'));
+    const composite = entry.return_composite;
     check(test, record.phase + ': interrupted close reverses from its actual intermediate camera',
-      entry.flight.return_progress > 0 && entry.flight.return_progress < 1 && sameView(firstReopenedDraw?.view, entry.flight.view),
+      entry.flight.return_progress > 0 && entry.flight.return_progress <= 1 &&
+      (entry.flight.return_progress < 1 || composite?.visible) && sameView(firstReopenedDraw?.view, entry.flight.view),
       { progress: entry.flight.return_progress, interrupted_view: entry.flight.view, reopened_view: firstReopenedDraw?.view });
+    if (composite) {
+      const retained = (record.bitmap_draws || []).find(draw => draw.time >= event.time && draw.source_kind === 'composite' && draw.source_id === composite.element_id);
+      check(test, record.phase + ': fading reversal directly copies the displayed composite before reopening',
+        composite.visible && Boolean(retained) && retained.time <= firstReopenedDraw?.time && retained.weight === 1 && retained.operation === 'source-over',
+        { displayed: composite.element_id, weight: entry.flight.return_opacity, retained, reopened_draw_time: firstReopenedDraw?.time });
+    }
   }
 }
 function validateTiming(test, record, trigger, { opening, reduced = false, sourced = false, before = null } = {}) {
@@ -543,7 +607,7 @@ async function cleanupState(page, open) {
     return { expected_open: open, open: dialog.open, marker: dialog.dataset.modalMotion || null, path: location.pathname,
       overflow: document.body.style.overflow, hidden_origins: document.querySelectorAll('[data-detail-origin]').length, flights: document.querySelectorAll('.stage-flight').length,
       handoffs: document.querySelectorAll('.model-handoff').length, canvases: document.querySelectorAll('#canvas-host .model-canvas').length,
-      return_posters: document.querySelectorAll('.return-poster').length,
+      return_posters: document.querySelectorAll('.return-poster').length, return_composites: document.querySelectorAll('.return-composite').length,
       card_canvases: document.querySelectorAll('#grid .model-canvas').length,
       retained_snapshots: document.querySelectorAll('.model-preview-snapshot').length,
       preview_active: window.__vaultPreview?.activeId ?? null,
@@ -571,7 +635,7 @@ async function assertClean(page, test, open) {
   const state = await cleanupState(page, open); (test.cleanup ||= []).push(state);
   check(test, 'Final dialog and route agree', state.open === open && (open ? state.path.endsWith('/natural-arch/') : state.path.endsWith('/models/')), state, false);
   check(test, 'No stale flights, handoffs, animation locks or body lock', state.flights === 0 && state.handoffs === 0 && state.active_animations.length === 0 && state.host_opacity !== '0' && !state.layout_class.includes('motion-running') && (open ? state.overflow === 'hidden' : state.overflow !== 'hidden' && state.hidden_origins === 0), state);
-  check(test, 'Additive dissolve removes transient posters and both opacity animations', state.return_posters === 0 && state.retained_opacity_animations === 0 && (!open || state.model_opacity === 1), state);
+  check(test, 'Dissolves remove transient composites, posters and opacity animations', state.return_composites === 0 && state.return_posters === 0 && state.retained_opacity_animations === 0 && (!open || state.model_opacity === 1), state);
   check(test, 'Exactly the expected number of live detail scenes', state.canvases === (open ? 1 : 0) && (state.live_scenes === null || state.live_scenes === (open ? 1 : 0)), state, false);
   if (!open) check(test, 'Closed browsing settles on canonical posters without retained inspection', state.card_canvases === 0 && state.retained_snapshots === 0 && state.preview_active === null && (!sourced || (state.card_poster?.loaded && state.card_poster.visible)), state);
 }
