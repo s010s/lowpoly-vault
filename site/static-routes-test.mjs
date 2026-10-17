@@ -19,6 +19,11 @@ const hydration=new Function('$','document','staticContent',`let currentView='ho
 hydration.showView('catalog');assert.equal(fallback.hidden,false);assert.equal(shellNodes['#catalog-page'].hidden,true,'Pending enhancement never duplicates the visible fallback list');
 shellNodes['#grid'].ariaBusy='false';hydration.hideStaticFor('models');assert.equal(fallback.hidden,true);assert.equal(shellNodes['#catalog-page'].hidden,false,'Completed enhancement swaps fallback and catalog synchronously');
 hydration.showView('about');assert.equal(shellNodes['#catalog-page'].hidden,true);assert.equal(shellNodes['#about-page'].hidden,false);
+// A failed enhanced load must expose the usable retry control as well.
+const errorSource=mainSource.slice(mainSource.indexOf('function showError(){'),mainSource.indexOf('\n',mainSource.indexOf('function showError(){')));
+const errorHarness=new Function('$','staticContent',`let currentView='catalog',atlas=null;const atlasHost={},t=k=>k;${hydrationSource.slice(0,hydrationSource.indexOf('function showView('))};${errorSource};return showError;`)(id=>shellNodes[id],fallback);
+fallback.hidden=false;shellNodes['#catalog-page'].hidden=true;
+errorHarness();assert.equal(fallback.hidden,true);assert.equal(shellNodes['#catalog-page'].hidden,false,'Load failure exposes the retry panel');assert.match(shellNodes['#grid'].innerHTML,/id="retry"/);
 try {
  const assets=[];
  for(let i=0;i<25;i++){

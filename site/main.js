@@ -130,7 +130,7 @@ async function renderGrid(){
     bindImages($('#grid'));paintIcons($('#grid'));motionUI.commit($('#grid'),previous);hideStaticFor('models');
   }catch(error){if(error.name!=='AbortError'&&version===queryVersion)showError();}
 }
-function showError(){atlas?.setActive(false);atlasHost.hidden=true;$('#grid').hidden=false;$('#grid').ariaBusy='false';$('#grid').inert=false;$('#grid').innerHTML=`<div class="empty">${t('error')}<button id="retry">${t('retry')}</button></div>`;}
+function showError(){atlas?.setActive(false);atlasHost.hidden=true;$('#grid').hidden=false;$('#grid').ariaBusy='false';$('#grid').inert=false;$('#grid').innerHTML=`<div class="empty">${t('error')}<button id="retry">${t('retry')}</button></div>`;if(currentView==='catalog')hideStaticFor('models');}
 function readQuery(route=parseRoute(location.pathname,siteRoot)){
   const q=queryFromParams(location.search);category=q.category;world=q.world==='all'?q.collection:q.world;pack=q.pack;page=route.type==='models'?route.page:q.page;maxTriangles=q.maxTriangles||0;browseMode=q.view==='map'?'atlas':'grid';$('#search').value=q.query;$('#sort').value=q.sort;
 }
