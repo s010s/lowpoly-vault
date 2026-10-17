@@ -313,6 +313,14 @@ async function ready(page) {
     const d = document.querySelector('#viewer-dialog'), h = document.querySelector('#canvas-host');
     return d?.open && h?.dataset.modelState === 'ready' && h.dataset.presentedUrl?.endsWith('/natural-arch.glb') && Number(h.dataset.renderTriangles) > 0;
   }, null, { timeout: 30000 });
+  report.runtime_info ||= await page.evaluate(() => {
+    const gl = document.querySelector('.model-canvas').getContext('webgl2');
+    const debug = gl.getExtension('WEBGL_debug_renderer_info');
+    return { renderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER),
+      hardware_concurrency: navigator.hardwareConcurrency, device_memory_gb: navigator.deviceMemory || null,
+      user_agent: navigator.userAgent, device_scale_factor: devicePixelRatio,
+      viewport: { width: innerWidth, height: innerHeight }, observer_types: PerformanceObserver.supportedEntryTypes };
+  });
 }
 async function catalog(page, { touch = false, lang = '' } = {}) {
   await page.goto(base + prefix + (lang ? lang + '/' : '') + 'models/');
@@ -615,7 +623,7 @@ try {
 } catch (error) { report.status = 'fail'; report.error = error.stack; }
 finally {
   await browser?.close(); if (server.listening) await new Promise(resolve => server.close(resolve));
-  const summary = { status: report.status, mode: report.mode, scope: report.scope, commit: report.commit, targets_ms: report.targets_ms,
+  const summary = { status: report.status, mode: report.mode, scope: report.scope, runtime_info: report.runtime_info, commit: report.commit, targets_ms: report.targets_ms,
     cases: report.cases.map(test => ({ label: test.label, status: test.status, timings: test.timings, violations: test.assertions.filter(a => !a.passed).map(({ name, enforced }) => ({ name, enforced })), error: test.error })),
     page_errors: report.page_errors, videos: report.videos, screenshot_count: report.screenshots.length };
   if (process.env.BASELINE_REPORT) {
