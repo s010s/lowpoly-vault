@@ -39,3 +39,7 @@ These are scoped craft/cost decisions, not botanical, paleontological, geologica
 ## Later bounded material study
 
 A subsequent Triceratops regional-material revision (`c20a5ee7cf8058b79854d334a7f74e19da6a9637d74a0ed5a8f781837bfc8de0`, 7,695,292 bytes) quieted face/frill detail and broadened body scales. Independent inspection of its four exact-GLB images found an improved material hierarchy, while cheeks/mouth/eye rims and torso/limb transitions still held the full asset from the refined museum-style target. The 1K derivative (`62a19b7808a01591c3d13ab7ecfcdd543be8c4d323289f42caa2517a5f65c520`, 2,689,404 bytes) retained the medium-distance material read but visibly softened body-scale relief in the matched close crop. Retain the lighter study tier and an optional close-inspection tier; do not claim equal pixels or full asset acceptance. This bounded experiment ended with concrete unresolved form/factual/runtime scopes, not another automatic polishing cycle.
+
+## Engineering checkpoint
+
+See [independent review](independent-engineering-review.md), [test results](test-results.json), and the saved test log. All 125 pipeline tests, 46 initial-release checks, redesign integration and production build passed. The existing large viewer-chunk build warning remains nonfatal; this pipeline change does not claim to optimize the viewer bundle. Four Skill packages also passed skill-format validation.

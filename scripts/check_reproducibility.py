@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 
 from qa_glb import audit_glb
@@ -29,6 +30,9 @@ def write_new_report(path, report):
 
 def validate_build_run(request, result, generator_sha256, config_sha256, rebuilt_sha256, output):
     """Check a bounded-queue build request/result binding; records are attestations."""
+    for label, value in (('generator', generator_sha256), ('config', config_sha256), ('rebuilt GLB', rebuilt_sha256)):
+        if not isinstance(value, str) or not re.fullmatch(r'[a-f0-9]{64}', value):
+            raise ValueError(f'Build run requires a nonempty exact {label} SHA-256')
     if not isinstance(request, dict) or not isinstance(result, dict):
         raise ValueError('Build request/result must be JSON objects')
     identity = request.get('identity')
@@ -39,7 +43,9 @@ def validate_build_run(request, result, generator_sha256, config_sha256, rebuilt
         raise ValueError('Build request/result fingerprint mismatch')
     if result.get('schema_version') != 1 or result.get('status') != 'succeeded' or type(result.get('returncode')) is not int or result['returncode'] != 0 or result.get('error') is not None:
         raise ValueError('Build run must have succeeded with returncode 0 and no error')
-    inputs = identity.get('inputs', {})
+    inputs = identity.get('inputs')
+    if not isinstance(inputs, dict):
+        raise ValueError('Build identity.inputs must be an object')
     for key, expected in (('generator', generator_sha256), ('config', config_sha256)):
         value = inputs.get(key)
         if not isinstance(value, dict) or value.get('sha256') != expected or not isinstance(value.get('path'), str):
@@ -47,12 +53,17 @@ def validate_build_run(request, result, generator_sha256, config_sha256, rebuilt
         argv = request.get('argv')
         if not isinstance(argv, list) or not all(isinstance(arg, str) for arg in argv) or not any(arg == value['path'] or arg.endswith('=' + value['path']) for arg in argv):
             raise ValueError(f'Build run argv does not explicitly use its {key} input')
-    job = identity.get('job', {})
+    job = identity.get('job')
+    if not isinstance(job, dict):
+        raise ValueError('Build identity.job must be an object')
     if any(not job.get(key) or result.get(key) != job[key] for key in ('asset_id', 'revision', 'job_id')):
         raise ValueError('Build result asset/revision/job differs from request')
     if not isinstance(output, str) or not output or Path(output).is_absolute() or '..' in Path(output).parts:
         raise ValueError('Build output must be a safe relative output name')
-    exported = result.get('outputs', {}).get(output)
+    outputs = result.get('outputs')
+    if not isinstance(outputs, dict):
+        raise ValueError('Build result.outputs must be an object')
+    exported = outputs.get(output)
     if not isinstance(exported, dict) or exported.get('sha256') != rebuilt_sha256 or type(exported.get('bytes')) is not int or exported['bytes'] <= 0:
         raise ValueError('Build result does not bind the rebuilt GLB output')
     return fingerprint

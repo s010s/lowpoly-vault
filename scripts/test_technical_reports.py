@@ -145,6 +145,25 @@ class TechnicalReportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'exact generator'):
             validate_build_run(request, result, 'b' * 64, file_hash(self.config), file_hash(self.rebuilt), 'rebuilt.glb')
 
+
+    def test_missing_hash_cannot_match_missing_build_output_hash(self):
+        request, result = self.build_run()
+        result['outputs']['rebuilt.glb']['sha256'] = None
+        with self.assertRaisesRegex(ValueError, 'nonempty exact rebuilt GLB SHA-256'):
+            validate_build_run(request, result, file_hash(self.generator), file_hash(self.config), None, 'rebuilt.glb')
+
+    def test_build_provenance_nested_objects_fail_cleanly(self):
+        for location in ('inputs', 'job', 'outputs'):
+            request, result = self.build_run()
+            if location == 'outputs':
+                result['outputs'] = []
+            else:
+                request['identity'][location] = []
+                fingerprint = hashlib.sha256(json.dumps(request['identity'], sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+                request['fingerprint'] = result['fingerprint'] = fingerprint
+            with self.assertRaisesRegex(ValueError, 'must be an object'):
+                validate_build_run(request, result, file_hash(self.generator), file_hash(self.config), file_hash(self.rebuilt), 'rebuilt.glb')
+
     def test_report_output_is_no_clobber(self):
         output = self.root / 'raw-report.json'
         report = self.compare()

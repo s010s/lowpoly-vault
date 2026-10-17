@@ -130,7 +130,13 @@ an identified tool and the maker's task. These are traceable attestations; the
 validator cannot authenticate people or prove someone actually looked at pixels.
 
 `approval.status` is `pending`, `rejected`, or `approved_for_brief`. Approval needs
-an independent reviewer, exact subject, `reviewed_at` and note. Any open blocker,
+an independent reviewer, exact subject, `reviewed_at`, note, and
+`review_snapshot_sha256`. Compute the snapshot with
+`validate_candidate.approval_snapshot_sha256(record)` only after actual review:
+it binds artifact descriptors, maker identity, texture provenance, evidence
+descriptors, stage decisions, blockers and supersedes. Changing a reviewed report,
+criterion or image invalidates the prior final decision. Computing a digest is an
+integrity seal; it is neither review nor authorization. Any open blocker,
 missing required stage, unresolved criterion, stale hash, budget failure or missing
 evidence rejects an approval claim. A structurally honest failed/pending record
 remains valid. `not_applicable` is permitted only within the frozen brief's scope.
@@ -153,13 +159,20 @@ A report's own JSON repeats `schema_version: 1`, `kind`, `stage`, `subject`,
 `status`, substantive `method`, and nonempty `observations`. A passing report has
 `errors: []`. Every warning requires `warning_review: [{warning, rationale}]`.
 Descriptor-only relabeling does not turn unrelated reports into evidence.
+Every passing report also freezes `reviewed_evidence: [{id, sha256}]` for every
+non-report item cited by its stage (render manifests/images/screenshots). An empty
+list is explicit when there are no such items. Report self-hashes are excluded to
+avoid cycles. A newly hashed image/manifest cannot inherit an unchanged old review.
+The final approval snapshot additionally binds all report hashes and stage decisions.
 
 Passing technical reports contain `measurements` with `triangles`, `materials`,
 `primitives`, `glb_bytes`, `texture_count`, `texture_max_dimension`, `texture_bytes`.
 They must also contain these named `checks`, each with a distinct hashed raw
 `report: {path, sha256}`, `status: "pass"`, exact `glb_sha256`, and warning reviews:
 
-1. `static_glb`: actual project audit output, exact GLB `sha256`, no errors.
+1. `static_glb`: actual project audit output, exact GLB `sha256`, no errors. Its
+   status, errors and warning multiset must match the gate's newly computed audit;
+   suppressing a current warning cannot bypass explicit warning review.
 2. `khronos_validator`: official validator output with `validatorVersion`,
    `issues.numErrors: 0`, full `messages`, matching warning count and
    `truncated: false`. The check wrapper binds its raw report to the GLB.
@@ -168,6 +181,12 @@ They must also contain these named `checks`, each with a distinct hashed raw
 4. `reproducibility`: `status: "pass"`, `glb_sha256`, `generator_sha256`,
    `config_sha256`, `errors: []`, `semantic_sha256`, `rebuilt_semantic_sha256`.
    Both semantic digests must match the independently decoded current GLB.
+   Also requires `rebuilt_glb_sha256` and
+   `build_run: {request: {path, sha256}, result: {path, sha256}, output}`.
+   The raw request/result must bind a successful build-lane queue run, matching
+   identity fingerprint, exact generator/config inputs explicitly used by argv,
+   and the rebuilt output digest. Merely supplying a copied second GLB establishes
+   equality, not a rebuild, and cannot satisfy this provenance requirement.
 
 Store real observations/reports; never generate a passing wrapper from this list
 without running the checks. The checker enforces their structure and integrity,
@@ -181,6 +200,53 @@ scene reports instead require runtime `engine`, `version`, `renderer`, `device`,
 A parse-only report cannot pass by changing its kind. Scene reports also need
 `scene_description` and `scene_assets` including the exact candidate `glb_sha256`
 with positive `instances`. A browser render does not establish anatomy.
+
+## Executable raw-report producers
+
+Source/export comparison reads the exact editable source with script autoexecution
+disabled, identifies its unique asset-root-marked export collection (or an explicit
+`--collection`), evaluates actual geometry, and compares triangles and axis-mapped
+bounds within 0.0001 m. It never saves the source, re-exports the GLB or reads old QA
+metadata as proof:
+
+```sh
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 \
+  --python scripts/check_source_export.py -- \
+  --source candidates/example/v001/source.blend \
+  --glb candidates/example/v001/model.glb \
+  --output candidates/example/v001/evidence/source-export.report.json
+```
+
+Rebuild comparison never executes the generator. Supply a separately produced GLB
+and the successful bounded-queue build request/result that created it. The queue
+job must declare `generator` and `config` file inputs and explicitly pass their
+paths in its resolved argv. Report descriptors are relative to `--root`:
+
+```sh
+python3 scripts/check_reproducibility.py \
+  --glb candidates/example/v001/model.glb \
+  --rebuilt-glb runs/build/example/v001/rebuild/attempt/outputs/model.glb \
+  --generator candidates/example/v001/generator.py \
+  --config candidates/example/v001/build-config.json \
+  --build-request runs/build/example/v001/rebuild/attempt/request.json \
+  --build-result runs/build/example/v001/rebuild/attempt/result.json \
+  --rebuilt-output model.glb --root . \
+  --output candidates/example/v001/evidence/reproducibility.report.json
+```
+
+Without build provenance, matching separately supplied geometry yields `unknown`
+and exit 2. A mismatch or failed/mismatched run record fails. Same-file and hardlink
+self-comparisons fail. A bound successful run plus semantic equality may pass this
+technical subcheck; queue records are still auditable attestations, not proof
+against forged records or a malicious generator. Both producers create new report
+paths exclusively and refuse to overwrite existing evidence. Hash those raw reports
+into the technical report; review every actual warning. No candidate review status
+is changed automatically.
+
+`python3 scripts/test_technical_reports.py -v` exercises actual temporary GLB files,
+axis/count mismatches, semantic/material changes, unchanged inputs, missing/failed
+run provenance, output/input hash binding and no-clobber behavior. Blender loading
+is a separate integration check; the pure test suite does not claim to run Blender.
 
 ## Complete visual coverage
 
@@ -224,6 +290,7 @@ change does not promote or re-approve those original models.
 
 ```sh
 python scripts/test_validate_candidate.py -v
+python scripts/test_technical_reports.py -v
 node site/manifest-test.mjs
 node site/initial-release-test.mjs
 node site/initial-release.mjs --check

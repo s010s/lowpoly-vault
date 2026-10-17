@@ -654,6 +654,19 @@ class CandidateGateTests(unittest.TestCase):
             self.mutate_report(entry['id'], update)
         self.assertRejected('current independent audit')
 
+
+    def test_null_rebuilt_hash_cannot_match_null_run_output(self):
+        def mutate(raw):
+            raw['rebuilt_glb_sha256'] = None
+            path = self.root / raw['build_run']['result']['path']
+            result = json.loads(path.read_text())
+            result['outputs'][raw['build_run']['output']]['sha256'] = None
+            encoded = json.dumps(result).encode()
+            path.write_bytes(encoded)
+            raw['build_run']['result']['sha256'] = digest(encoded)
+        self.mutate_raw_check('reproducibility', mutate)
+        self.assertRejected('nonempty exact rebuilt GLB SHA-256')
+
     def test_duplicate_json_keys_rejected(self):
         self.path.write_text('{"schema_version":1,"schema_version":1}')
         result = validate_candidate(self.path, self.root)
