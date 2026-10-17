@@ -92,7 +92,7 @@ export class ModelStage {
   }
 
   /** Resolves false for superseded/aborted work; actual loading errors reject. */
-  show(host, url, { mode = 'hover', signal, onStatus, metadata, initialView, presentationReady } = {}) {
+  show(host, url, { mode = 'hover', signal, onStatus, metadata, initialView } = {}) {
     if (this._disposed) return Promise.reject(new Error('ModelStage has been disposed'));
     if (!host || !url) return Promise.reject(new Error('A model host and URL are required'));
     this.hide();
@@ -126,10 +126,6 @@ export class ModelStage {
       if (!current()) return false;
       try {
         const bytes = await this._bytes(absoluteURL, controller.signal);
-        // Fetch concurrently, but do not compile shaders/paint the first GLB in
-        // the middle of a bitmap flight. The retained image remains visible.
-        // Superseded transitions resolve their gate and still hit current().
-        if (presentationReady) await presentationReady;
         if (!current()) return false;
         const gltf = await new GLTFLoader().parseAsync(bytes, new URL('.', absoluteURL).href);
         this._diagnostics.liveScenes++;
