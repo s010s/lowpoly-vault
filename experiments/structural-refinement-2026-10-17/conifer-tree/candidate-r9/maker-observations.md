@@ -1,0 +1,5 @@
+# Maker observations, not approval
+
+All four exact-GLB original/r7/r9 comparisons were opened: 512px hero/detail/clay detail and actual 128px silhouette. r9 makes the outer sprays more spatially coherent, but the 128px silhouette still reads as thin branches with delicate tips. This bounded arrangement does not yet demonstrate that the small-screen readability concern is solved. It is submitted for independent assessment without a maker pass. No full orbit or polished final render has been run.
+
+Spray count, triangle count, materials/primitives and raw bytes are exactly unchanged from r7. Existing sprays have outer staggered attachments, more even length and shallow alternating elevation; no hull or needle density was added. The flat-patch r8 preflight is retained, as are all previous attempts. Static and official validation, actual source/export, pinned Three.js parsing and separate-process byte-identical rebuild pass. GPU/scene and independent visual/factual/specification acceptance remain outstanding.

@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "asset_id": "conifer-tree",
+  "revision": "structure-r9",
+  "maker": {
+    "id": "astra-conifer-maker",
+    "task_id": "refine_conifer_structure"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "candidate-r9/conifer-tree.glb",
+      "sha256": "b9b80b44f46c8d9d332f2bc574db4c5bbb970581310ccd7380d0462b08f223ea"
+    },
+    "source": {
+      "path": "candidate-r9/conifer-tree.blend",
+      "sha256": "273b08f4f779de5e3fd4982c6b5805f9bddea0a40be8c0656f1055c4619280d0"
+    },
+    "generator": {
+      "path": "candidate-r9/build_patch_volume.py",
+      "sha256": "b1fd954ef1ebeb7d4c58f23ef7eae624d5f2d58d1bd60ee50799d212e4ce431b"
+    },
+    "config": {
+      "path": "candidate-r9/build-config.json",
+      "sha256": "4cd399d7ec9470f9f61bed9b7627ba1f3d5537a4c52c8d8271396d7ca9778b25"
+    },
+    "brief": {
+      "path": "candidate-r9/brief.json",
+      "sha256": "82d0e2f262954cc29e62b0410fc046db8230571cafbb5869dfe618544ed446e5"
+    },
+    "references": {
+      "path": "candidate-r9/references.json",
+      "sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "detail512",
+      "kind": "render_manifest",
+      "stage": "visual",
+      "path": "candidate-r9/evidence/detail512/render-manifest.json",
+      "sha256": "1e8b043d3999239e039f1781bb2215ad30fc003a56bdf1a0f6cdcc75b4072247",
+      "subject": {
+        "revision": "structure-r9",
+        "glb_sha256": "b9b80b44f46c8d9d332f2bc574db4c5bbb970581310ccd7380d0462b08f223ea",
+        "brief_sha256": "82d0e2f262954cc29e62b0410fc046db8230571cafbb5869dfe618544ed446e5",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      }
+    },
+    {
+      "id": "silhouette128",
+      "kind": "render_manifest",
+      "stage": "visual",
+      "path": "candidate-r9/evidence/silhouette128/render-manifest.json",
+      "sha256": "d2edf97bfdc3c2c3154ecb6c2f8cf70a17f48ec26d4ce8325310a2838122e531",
+      "subject": {
+        "revision": "structure-r9",
+        "glb_sha256": "b9b80b44f46c8d9d332f2bc574db4c5bbb970581310ccd7380d0462b08f223ea",
+        "brief_sha256": "82d0e2f262954cc29e62b0410fc046db8230571cafbb5869dfe618544ed446e5",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      }
+    },
+    {
+      "id": "technical-checks",
+      "kind": "technical_report",
+      "stage": "technical",
+      "subject": {
+        "revision": "structure-r9",
+        "glb_sha256": "b9b80b44f46c8d9d332f2bc574db4c5bbb970581310ccd7380d0462b08f223ea",
+        "brief_sha256": "82d0e2f262954cc29e62b0410fc046db8230571cafbb5869dfe618544ed446e5",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "path": "candidate-r9/technical.report.json",
+      "sha256": "eb30f7fa42084baffdb095e10ff718a5a458d29b854eb0a56282fe99aeb21142"
+    },
+    {
+      "id": "threejs-parse",
+      "kind": "runtime_parse_report",
+      "stage": "runtime_parse",
+      "subject": {
+        "revision": "structure-r9",
+        "glb_sha256": "b9b80b44f46c8d9d332f2bc574db4c5bbb970581310ccd7380d0462b08f223ea",
+        "brief_sha256": "82d0e2f262954cc29e62b0410fc046db8230571cafbb5869dfe618544ed446e5",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "path": "candidate-r9/runtime-parse.report.json",
+      "sha256": "aad71226eb1867779c5d923cfef28ccd471d6dfb57f7c13dd0f51c53065dc406"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "conifer-executed-checks",
+        "task_id": "refine_conifer_structure"
+      },
+      "subject": {
+        "revision": "structure-r9",
+        "glb_sha256": "b9b80b44f46c8d9d332f2bc574db4c5bbb970581310ccd7380d0462b08f223ea",
+        "brief_sha256": "82d0e2f262954cc29e62b0410fc046db8230571cafbb5869dfe618544ed446e5",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "evidence": [
+        "technical-checks"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical-checks"
+          ],
+          "note": "Exact-hash executed report and raw evidence."
+        }
+      ],
+      "note": "Executed checks only; independent art/factual and runtime GPU/scene acceptance pending.",
+      "reviewed_at": "2026-10-17T04:14:40.843595+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "detail512",
+        "silhouette128"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "crown-hierarchy",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "round-organic-joins",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "distributed-foliage",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Pending exact-artifact checks and independent review.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        },
+        {
+          "id": "honest-concept",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Pending exact-artifact checks and independent review."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Pending exact-artifact checks and independent review."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "conifer-executed-checks",
+        "task_id": "refine_conifer_structure"
+      },
+      "subject": {
+        "revision": "structure-r9",
+        "glb_sha256": "b9b80b44f46c8d9d332f2bc574db4c5bbb970581310ccd7380d0462b08f223ea",
+        "brief_sha256": "82d0e2f262954cc29e62b0410fc046db8230571cafbb5869dfe618544ed446e5",
+        "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      },
+      "evidence": [
+        "threejs-parse"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "threejs-parse"
+          ],
+          "note": "Exact-hash executed report and raw evidence."
+        }
+      ],
+      "note": "Executed checks only; independent art/factual and runtime GPU/scene acceptance pending.",
+      "reviewed_at": "2026-10-17T04:14:40.843595+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Pending exact-artifact checks and independent review."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Pending current-artifact review or check."
+        }
+      ],
+      "note": "Pending exact-artifact checks and independent review."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Outer-patch arrangement awaits targeted small-screen readability review before full-angle evidence."
+    },
+    {
+      "id": "runtime-gpu-scene-pending",
+      "status": "open",
+      "description": "Exact-export GPU and composed scene evidence not run."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

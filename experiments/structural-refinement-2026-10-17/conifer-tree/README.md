@@ -57,3 +57,7 @@ The latest targeted-review artifact is `candidate-r7/`, SHA `757bf8d65cb0ac631c5
 r7 retains the rounded boughs and open crown, with 148 narrow compound shoots, each a central axis and three shorter staggered pinnae. Its 9,722 triangles, 578,924 raw bytes and three primitives are a substantive reduction from r3. Gzip9 is 210,388 bytes and Brotli11 is 167,475 bytes; these are transport sizes, not GLB or GPU costs. Exact requested 512px hero/detail/clay and 128px silhouette comparisons are in `candidate-r7/evidence/`. Only targeted views have been run so far; no full-angle or independent visual acceptance is implied.
 
 The editable source and standalone GLB, frozen generator/config/brief/reference ledger, raw checks and valid pending candidate record are included. Source/export and byte-identical separate-process rebuild pass, as do static/official validation and pinned Three.js parsing. Actual GPU and composed-scene evidence remain outstanding.
+
+## r9 bounded outer-patch arrangement
+
+`candidate-r9/` moves the same 148 narrow sprays into outer branchlet patches with shallow elevation variation. Its counts and raw bytes exactly match r7. Matched 512px hero/detail/clay and 128px silhouettes are retained; the maker observes that 128px foliage is still delicate and does not claim readability acceptance. r8 is the retained flat-patch preflight. Technical checks and byte-identical separate-process reproduction pass. Full-angle, independent art and GPU/scene gates remain open.
