@@ -1,0 +1,103 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/build_conifer.py",
+    "--",
+    "--output-dir",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/attempts/build/conifer-tree/structure-r2/geometry-build/5393d621898a3dad65d34f6aa09c9c0b97e2bbeea0b4641411190e202089cf50/20261017T034240-ce4df073fe634ea986419a948da01198/outputs",
+    "--config",
+    "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/build-config.json"
+  ],
+  "created_at": "2026-10-17T03:42:40.082420+00:00",
+  "fingerprint": "5393d621898a3dad65d34f6aa09c9c0b97e2bbeea0b4641411190e202089cf50",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6674,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/brief.json",
+        "sha256": "1dbb6c7fb85257cc43f24db23f8700a63d5c9b487ff16ee41c16a0c0726a2e90"
+      },
+      "config": {
+        "bytes": 1299,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/build-config.json",
+        "sha256": "7ea4309c328be421882ff75efbe3a6098c1dd5ea4f80efce3308f34a801ae261"
+      },
+      "generator": {
+        "bytes": 10315,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/build_conifer.py",
+        "sha256": "bed8cfcd07bd07048ae0b30b430d2fed9d4d70129d115bea2f3fc2edf651b992"
+      },
+      "helper": {
+        "bytes": 26328,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "sha256": "27fe5c66c3955a003e141debbd96816b0f6eda6f64af991f28234ec42257d8bc"
+      },
+      "references": {
+        "bytes": 2163,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/references.json",
+        "sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--output-dir",
+        "{output_dir}",
+        "--config",
+        "{input:config}"
+      ],
+      "asset_id": "conifer-tree",
+      "config": {
+        "cloud_only": true,
+        "purpose": "Conifer structural refinement, no renders"
+      },
+      "inputs": {
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/brief.json",
+        "config": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/build-config.json",
+        "generator": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/build_conifer.py",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/references.json"
+      },
+      "job_id": "geometry-build",
+      "outputs": [
+        "conifer-tree/conifer-tree.glb",
+        "conifer-tree/conifer-tree.blend",
+        "conifer-tree/metadata.json",
+        "conifer-tree/qa.json",
+        "build-summary.json",
+        "build-config.json"
+      ],
+      "revision": "structure-r2",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261017T034239-a901bf0d98d94243b1f65c480c5b2543"
+}

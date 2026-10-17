@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "asset_id": "conifer-tree",
-  "brief_version": "structure-r1",
-  "profile": "structural-study",
+  "brief_version": "structure-r3",
+  "profile": "study",
   "purpose": "Improve the original seven-meter conifer gallery prop at 128\u2013512px full-asset projection and 512px branch detail. Single showcase and sparse grove, not dense forest groundcover. Actual GPU and populated-scene measurements remain required before production acceptance.",
   "required_stages": [
     "technical",
@@ -31,7 +31,7 @@
     "max_triangles": 24000,
     "max_materials": 5,
     "max_primitives": 24,
-    "max_glb_bytes": 1500000
+    "max_glb_bytes": 2000000
   },
   "texture_policy": {
     "max_textures": 0,
@@ -155,7 +155,7 @@
     "quiet_region": "Exposed lower trunk and shaded interior bough bases.",
     "gaps": "Unequal tier heights and one missing lower foliage fan leave understandable sky windows."
   },
-  "budget_rationale": "16\u201322k triangles anticipated, 24k ceiling for rounded structural joins and individually distributed narrow foliage. Original 2,382 and failed 14,118 studies are references, not caps. 1.5MB delivery ceiling is provisional for a single inspectable gallery tree; no texture allocation. Do not fill limits; reduce only after full-angle readability. Sixteen visible copies imply at most 384k triangles in one pass, arithmetic only; no performance claim.",
+  "budget_rationale": "Current design spends 23,784 triangles on 26 round tapered boughs, 211 narrow branchlets and 3,846 staggered awl foliage elements. A 24k geometry ceiling and 2MB uncompressed GLB ceiling are for one inspectable gallery tree; texture budget is zero. The earlier 1.5MB byte estimate was too low because opaque flat-normal foliage splits exported vertices. Geometry is not inflated to consume remaining capacity. Sixteen visible copies imply 380,544 triangles in one pass, arithmetic only; GPU and populated-scene performance remain unknown.",
   "runtime_profile": {
     "renderer": "Three.js 0.180.0",
     "single_asset_copies": 1,

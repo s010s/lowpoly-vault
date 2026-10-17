@@ -84,6 +84,7 @@ def main():
         for j,degrees in enumerate(angles):
             a=math.radians(degrees);d=radial(a);side=radial(a+math.pi/2)
             length=L*[1.02,.91,1.07,.96,1.04][(j+tier)%5]
+            if tier==0 and j==1:length=.40
             start=axis(z+.065*math.sin(j*1.9+tier)); thickness=.078-.008*tier
             droop=.20 if tier<2 else .13 if tier<4 else .05
             def bp(t):return start+d*(length*t)+side*(.07*math.sin(t*math.pi)*(1 if j%2 else -1))+v((0,0,-droop*math.sin(t*math.pi)+(.10+.035*tier)*t*t))
@@ -105,9 +106,9 @@ def main():
                 shoot_len*=config['shoot_length_multiplier']
                 shoot_len=max(shoot_len,.19)
                 def sp(s):return attachment+direction*(shoot_len*s)+d*(.035*s*s)+v((0,0,-.08*math.sin(math.pi*s)+(.08+.018*tier)*s*s))
-                points=[sp(s) for s in [0,.32,.68,1]]
+                points=[sp(s) for s in [0,.52,1]]
                 r=(.024 if tier<4 else .019)*config['twig_radius_multiplier']
-                tube(sprigs,points,[r,r*.85,r*.50,.0035],5,0 if tier<2 else 1,f'tier{tier+1}-bough{j+1}-shoot{k+1}')
+                tube(sprigs,points,[r*.30,r,.0035],5,0 if tier<2 else 1,f'tier{tier+1}-bough{j+1}-shoot{k+1}')
                 shoot_count+=1
                 count=config['needles_per_shoot']
                 for n in range(count):
@@ -119,7 +120,7 @@ def main():
                     ll=(.115+.045*math.sin(math.pi*s))*(.82 if tier>=4 else 1)*config['needle_scale']
                     # The terminal quarter naturally shortens and brightens.
                     ll*=1-.45*max(0,(s-.6)/.4)
-                    needle(foliage,p+outward*r*.43,direction_needle,ll,.024*config['needle_scale'],2 if s>.70 else 1 if tier>2 else 0)
+                    needle(foliage,p+outward*r*.63,direction_needle,ll,.034*config['needle_scale'],2 if s>.70 else 1 if tier>2 else 0)
                     needle_count+=1
             # Fine needles continue the main bough tips, avoiding bare spear ends.
         foliage.finish()
@@ -135,6 +136,7 @@ def main():
     wood.finish();bough.finish();sprigs.finish();ac.ground_asset(collection)
     metadata={'description':{'en':'An original seven-meter conifer concept with open crown gaps, curved tapering boughs, alternating narrow branchlets and distributed awl-shaped foliage.','zh':'七米针叶乔木概念：开放冠隙、弯曲渐细枝条、错列细枝及沿轴分布的针状叶。'},'generator':str(HERE.relative_to(REPO)),'generator_sha256':hashlib.sha256(HERE.read_bytes()).hexdigest(),'seed':config['seed'],'scientific_status':'evidence-informed stylized conifer architectural concept; not an identified extinct species','artistic_choices':['Seven-meter scale, crown spacing, small asymmetry and color are original design choices.','Foliage awls are enlarged, sparse representational groups for a gallery tree, not individual botanically measured leaves.','Tubular bough bases flare into and are buried within the parent trunk; intentional closed-component intersections.'],'profile':'static opaque palette-only; no textures','license_components':{'geometry':'CC-BY-4.0','blend':'CC-BY-4.0','generator':'MIT'},'provenance':'Original procedural geometry. References consulted only; no external mesh or image incorporated.','semantic_counts':{'boughs':branch_count,'branchlets':shoot_count,'awl_elements':needle_count},'source_vertex_count_convention':'Sum of authored mesh vertices across unique included meshes, before modifiers; no instances or modifiers.','authored_source_vertices':sum(len(o.data.vertices) for o in collection.all_objects if o.type=='MESH'),'target_runtime':'Three.js 0.180.0; runtime evidence pending','topology_notes':'All elements closed and opaque. Deliberate buried intersections at organic branch joins. No broad foliage hulls, flat boards or radial clump stars.'}
     result=ac.export_asset('conifer-tree',{'en':'Open-crown conifer concept','zh':'开放冠针叶乔木'},'plants',collection,metadata,output_root=out,render=False,max_triangles=config['budgets']['max_triangles'],max_materials=config['budgets']['max_materials'],max_primitives=config['budgets']['max_primitives'])
+    assert (out/'conifer-tree/conifer-tree.glb').stat().st_size <= config['budgets']['max_glb_bytes'], 'GLB byte budget exceeded'
     (out/'build-config.json').write_text(json.dumps(config,indent=2)+'\n')
     (out/'build-summary.json').write_text(json.dumps({'generator_sha256':metadata['generator_sha256'],'counts':metadata['semantic_counts'],'authored_source_vertices':metadata['authored_source_vertices'],'metadata':result},indent=2)+'\n')
 if __name__=='__main__':main()

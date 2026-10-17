@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "structure-r3",
+    "glb_sha256": "beefce3d0baddcf7fa781d2fa9246746dd2cbfc6d6c635e237094c5b7d970cbb",
+    "brief_sha256": "78ba8a3ceb369ed8d4ba423c091afc2afe1d9c74ef5d48018d0808559223095c",
+    "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+  },
+  "status": "pass",
+  "method": "Execute the repository static GLB auditor and official Khronos validator, load the saved editable source for axis-aware source/export comparison, and rebuild the generator/config in a separate bounded queue attempt. Compare semantic and byte digests of the emitted GLBs.",
+  "observations": [
+    "Static GLB audit and official validator report zero errors and zero warnings.",
+    "Closed opaque geometry has no boundary or non-manifold warnings in the source audit.",
+    "Actual source geometry and GLB agree at 23,784 triangles and meter bounds.",
+    "Independent process rebuild is byte-identical and semantic-identical.",
+    "All original conifer asset files are preserved; technical checks do not approve appearance, scientific specificity or GPU performance."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 23784,
+    "materials": 5,
+    "primitives": 18,
+    "glb_bytes": 1651140,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": {
+    "static_glb": {
+      "status": "pass",
+      "glb_sha256": "beefce3d0baddcf7fa781d2fa9246746dd2cbfc6d6c635e237094c5b7d970cbb",
+      "report": {
+        "path": "candidate-r3/static-glb.report.json",
+        "sha256": "40ac4c4a9026b60290c1af89e9260f685d37ea43fbb2672213e33261ee917764"
+      },
+      "warning_review": []
+    },
+    "khronos_validator": {
+      "status": "pass",
+      "glb_sha256": "beefce3d0baddcf7fa781d2fa9246746dd2cbfc6d6c635e237094c5b7d970cbb",
+      "report": {
+        "path": "candidate-r3/gltf-validator.report.json",
+        "sha256": "7fb8d0b5a36de3a59e657bf181aecc28aa6ceba9b1a0a9997aa0bde5793a505d"
+      },
+      "warning_review": []
+    },
+    "source_export": {
+      "status": "pass",
+      "glb_sha256": "beefce3d0baddcf7fa781d2fa9246746dd2cbfc6d6c635e237094c5b7d970cbb",
+      "report": {
+        "path": "candidate-r3/source-export.report.json",
+        "sha256": "97bf0ab9488c8c19f80955c30112e686809659925d5cd2dc5f667e5d2e4fbe8b"
+      },
+      "warning_review": []
+    },
+    "reproducibility": {
+      "status": "pass",
+      "glb_sha256": "beefce3d0baddcf7fa781d2fa9246746dd2cbfc6d6c635e237094c5b7d970cbb",
+      "report": {
+        "path": "candidate-r3/reproducibility.report.json",
+        "sha256": "9c8c09ca0bee5b007785fd1c47eb8d35098595035534c4bbcf5ad2dda27c61c1"
+      },
+      "warning_review": []
+    }
+  },
+  "created_at": "2026-10-17T03:47:41.239580+00:00"
+}
