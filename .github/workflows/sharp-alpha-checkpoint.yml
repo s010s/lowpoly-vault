@@ -91,6 +91,23 @@ jobs:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/checkpoint-handoff
         run: npm run test:handoff:browser
+      - name: Summarize measured handoff geometry
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import { existsSync, readFileSync } from 'node:fs';
+          const path = 'qa/checkpoint-handoff/report.json';
+          if (existsSync(path)) {
+            const report = JSON.parse(readFileSync(path));
+            for (const c of report.cases || []) {
+              const d = c.dynamic_continuity;
+              console.log('HANDOFF_METRICS ' + JSON.stringify({ label: c.label, status: c.status, error: c.error,
+                pixel_parity: c.pixel_parity, phases: d?.phases, max_y_step_px: d?.max_y_step_px, max_center_step_px: d?.max_center_step_px, max_scale_step: d?.max_scale_step,
+                comparisons: d?.comparisons?.filter(x => x.y_step_px > 1 || x.center_step_px > 1 || x.scale_step > 0.01).slice(0,20),
+                first_draws: d?.draws?.slice(0,6), before: c.before, lost: c.lost, recovered: c.recovered }));
+            }
+          }
+          NODE
       - name: Verify forced WebGL fallback separately
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         env:

@@ -56,3 +56,8 @@
 
 /* Model pixels alone travel; the stage background never scales with the bitmap. */
 .viewer-panel{background:#e8e4dc}#canvas-host{background:transparent}
+
+/* Delayed metadata may grow the dialog, but must never recenter the model stage. */
+#viewer-dialog{margin-block:32px}
+@media(max-width:800px){#viewer-dialog{margin-block:16px}}
+@media(max-width:500px){#viewer-dialog{margin-block:12px}}
