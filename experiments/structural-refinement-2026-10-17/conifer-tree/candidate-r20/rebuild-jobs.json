@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r20-A-normal16",
+      "job_id": "independent-process-rebuild",
+      "inputs": {
+        "generator": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r20/build_delivery.py",
+        "config": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r20/build-config.json",
+        "geometry": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r20/build_airy_conifer.py",
+        "pack": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r20/pack_normal16.py",
+        "wood": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r20/woody-source.json",
+        "helper": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/scripts/asset_common.py",
+        "audit": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--output-dir",
+        "{output_dir}",
+        "--config",
+        "{input:config}"
+      ],
+      "outputs": [
+        "conifer-tree/conifer-tree.glb",
+        "conifer-tree/conifer-tree.blend",
+        "conifer-tree/metadata.json",
+        "conifer-tree/qa.json",
+        "canonical-export/conifer-tree.glb",
+        "normal16-equivalence.report.json",
+        "build-measurements.json",
+        "build-config.json"
+      ],
+      "timeout_seconds": 180,
+      "config": {
+        "environment": "authorized local macOS Blender5.2LTS",
+        "threads": 2,
+        "storage_profile": "NORMAL16; FLOAT32 positions unchanged"
+      }
+    }
+  ]
+}
