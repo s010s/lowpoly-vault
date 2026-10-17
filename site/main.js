@@ -32,7 +32,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 let index, items = [], category = 'all', world = 'all', pack = 'all', page = 0, pages = 0, maxTriangles = 0;
 let selected, selectedSummary, origin, stage, stagePromise, hoverCard, hoverTimer;
-let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, detailController, restoringFocus = false, hoverSuppressed = false, hoverPointer = null;
+let queryVersion = 0, detailVersion = 0, closing = false, modalAnimation, interruptedDialog, detailController, restoringFocus = false, hoverSuppressed = false, hoverPointer = null;
 let browseMode = 'grid', atlas, atlasPackKey = '', atlasPackItems = [], currentView = 'home', directDetailId = initialRoute.type==='detail'?initialRoute.id:null;
 let sourceContext = null, neighborItems = [], searchTimer, pendingRoute = false, queuedRoute = false;
 const viewScroll = {home:0, catalog:0, about:0, detail:0};
@@ -234,6 +234,11 @@ function currentDetailVisual({square=false}={}){
   const visible=actual||copyVisual(overlay)||copyVisual($('#canvas-host img'));
   if(!square||!visible)return visible;const result=copyVisual(visible,{square:true});releaseVisual(visible);return result;
 }
+function rememberInterruptedDialog(){
+  // Keep the painted frame and opacity across a queued Back/Forward reversal.
+  if(interruptedDialog)return;
+  interruptedDialog=$('#viewer-dialog').open?{assetId:selected?.id,visual:currentDetailVisual(),rect:$('#viewer-dialog .stage-flight')?.getBoundingClientRect(),chrome:dialogMotion.capture()}:null;
+}
 function cancelDialogMotion(){modalAnimation?.cancel();modalAnimation=null;dialogMotion.cancel();document.querySelectorAll('.stage-flight').forEach(releaseVisual);$('#canvas-host').style.opacity='';}
 function containRect(rect,ratio){const width=Math.min(rect.width,rect.height*ratio),height=width/ratio;return {left:rect.left+(rect.width-width)/2,top:rect.top+(rect.height-height)/2,width,height};}
 async function animateDialog(from,to,reverse=false,version=detailVersion,flightStart=null){
@@ -255,17 +260,19 @@ function releaseHandoff(version){
 async function openAsset(id,{push=false,replace=false}={}){
   if(selectedSummary?.id===id&&!closing&&detailController&&!detailController.signal.aborted&&['loading','ready'].includes($('#canvas-host').dataset.modelState))return;
   const dialog=$('#viewer-dialog'),host=$('#canvas-host'),switching=dialog.open&&!closing;
-  const chromeFrom=dialogMotion.capture(),flightStart=$('#viewer-dialog .stage-flight')?.getBoundingClientRect();
-  const interrupted=closing?currentDetailVisual():null;
+  const previous=interruptedDialog;interruptedDialog=null;
+  const resume=previous?.assetId===id?previous:null;if(previous&&!resume)releaseVisual(previous.visual);
+  const chromeFrom=previous?.chrome||dialogMotion.capture(),flightStart=resume?.rect||$('#viewer-dialog .stage-flight')?.getBoundingClientRect();
+  const interrupted=resume?.visual||(closing?currentDetailVisual():null);
   const cardCapture=!switching&&scrub.current?.id===id?scrub.capture():null;
-  const retained=switching?currentDetailVisual():interrupted||cardCapture?.canvas;
+  const retained=interrupted||(switching?currentDetailVisual():cardCapture?.canvas);
   const version=++detailVersion;closing=false;cancelDialogMotion();stopHover();detailController?.abort();detailController=new AbortController();stage?.hide();atlas?.setActive(false);
   const asset=items.find(a=>a.id===id)||index?.initial.find(a=>a.id===id);
   if(push){sourceContext={url:location.pathname+location.search,view:currentView,scroll:scrollY,triggerId:id,pages,firstPage:page,lastPage:page,items:items.map(a=>({id:a.id,name:a.name})),options:queryOptions()};history.pushState({vaultDetail:true,source:sourceContext},'',href('detail',id));}
   else if(replace)history.replaceState(history.state,'',href('detail',id));
   selectedSummary=asset||{id};selected=asset||{id,name:{en:'…',zh:'…'}};
   neighborItems=sourceContext?.items||items;origin=currentView==='catalog'?document.querySelector(`.asset-card[data-id="${CSS.escape(id)}"]`):null;
-  const from=!switching?origin?.querySelector('.asset-image')?.getBoundingClientRect():null;fillInfo(selected);paintNeighbors();$('#related').hidden=true;clearHost();host.dataset.modelState='loading';
+  const from=!switching||resume?.rect?origin?.querySelector('.asset-image')?.getBoundingClientRect():null;fillInfo(selected);paintNeighbors();$('#related').hidden=true;clearHost();host.dataset.modelState='loading';
   let poster;
   const addPoster=record=>{const preview=record?.card_preview||record?.preview;if(!preview)return;poster=new Image();poster.src=path(preview);poster.alt=loc(record.name);poster.className='model-poster';poster.dataset.assetId=record.id;if(host.querySelector('.model-handoff')||retained)poster.style.visibility='hidden';host.prepend(poster);};
   addPoster(asset);if(retained){retained.className='model-handoff';host.append(retained);}else{const copy=copyVisual(origin?.querySelector('.asset-image img'));if(copy){copy.dataset.assetId=id;host.append(copy);}}
@@ -281,8 +288,9 @@ async function openAsset(id,{push=false,replace=false}={}){
 }
 async function closeAsset(){
   if(!$('#viewer-dialog').open)return;
-  const alreadyClosing=closing,retained=currentDetailVisual({square:true}),returnView=retained?.__presentation,returnAsset=selected;
-  const chromeFrom=dialogMotion.capture(),flightStart=$('#viewer-dialog .stage-flight')?.getBoundingClientRect();
+  const previous=interruptedDialog;interruptedDialog=null;
+  const alreadyClosing=closing,retained=previous?.visual?copyVisual(previous.visual,{square:true}):currentDetailVisual({square:true}),returnView=retained?.__presentation,returnAsset=selected;
+  const chromeFrom=previous?.chrome||dialogMotion.capture(),flightStart=previous?.rect||$('#viewer-dialog .stage-flight')?.getBoundingClientRect();releaseVisual(previous?.visual);
   hoverSuppressed=true;closing=true;const version=++detailVersion;cancelDialogMotion();detailController?.abort();store.cancelDetail();stage?.hide();clearHost();
   if(retained){retained.className='model-handoff';$('#canvas-host').append(retained);}
   const target=origin?.isConnected?origin.querySelector('.asset-image').getBoundingClientRect():null;
@@ -305,7 +313,7 @@ function showView(view){
 }
 async function syncRoute(){
   if(!index)return;
-  if(pendingRoute){queuedRoute=true;detailController?.abort();store.cancelDetail();++detailVersion;cancelDialogMotion();return;}
+  if(pendingRoute){queuedRoute=true;detailController?.abort();store.cancelDetail();++detailVersion;rememberInterruptedDialog();cancelDialogMotion();return;}
   pendingRoute=true;
   try{
     const oldHash=location.hash;
@@ -317,7 +325,7 @@ async function syncRoute(){
       else if(staticContent?.dataset.assetId===route.id){directDetailId=route.id;showView('detail');await openAsset(route.id);}
       else {showView('catalog');await openAsset(route.id);}
     }else{
-      const source=sourceContext,sameCatalog=route.type==='models'&&source?.view==='catalog'&&source.url===location.pathname+location.search&&$('#grid').ariaBusy==='false';await closeAsset();directDetailId=null;readQuery(route);showView(route.type==='models'?'catalog':route.type==='about'?'about':'home');
+      const source=sourceContext,sameCatalog=route.type==='models'&&source?.view==='catalog'&&source.url===location.pathname+location.search&&$('#grid').ariaBusy==='false';await closeAsset();if(queuedRoute)return;directDetailId=null;readQuery(route);showView(route.type==='models'?'catalog':route.type==='about'?'about':'home');
       if(route.type==='models'&&!sameCatalog)await renderGrid();
       if(source?.url===location.pathname+location.search){scrollTo(0,source.scroll);const trigger=scrub.current?.card||document.querySelector(`.asset-card[data-id="${CSS.escape(source.triggerId||'')}"]`);trigger?.focus({preventScroll:true});}
       else scrollTo(0,viewScroll[currentView]||0);
@@ -384,7 +392,7 @@ document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!selected&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();if(currentView==='home')$('#home-query').focus();else catalogToolbar.open();}
   if(selected&&['ArrowLeft','ArrowRight'].includes(event.key)&&!event.altKey&&!event.ctrlKey&&!event.metaKey&&!event.target.closest('#canvas-host,input,textarea,select')){const link=$(event.key==='ArrowLeft'?'#previous-model':'#next-model');if(!link.hidden){event.preventDefault();openAsset(link.dataset.modelId,{replace:true});}}
 });
-window.addEventListener('pagehide',()=>{scrub.dispose();stage?.dispose();motionUI.dispose();dialogMotion.dispose();atlas?.dispose();store.dispose();});
+window.addEventListener('pagehide',()=>{releaseVisual(interruptedDialog?.visual);scrub.dispose();stage?.dispose();motionUI.dispose();dialogMotion.dispose();atlas?.dispose();store.dispose();});
 async function load(){
   if(!staticContent)$('#grid').innerHTML=Array.from({length:8},()=>'<div class="skeleton" aria-hidden="true"></div>').join('');$('#grid').ariaBusy='true';
   try{

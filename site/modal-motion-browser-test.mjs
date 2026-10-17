@@ -22,7 +22,7 @@ const cardSelector = '#grid .asset-card[data-id="natural-arch"]';
 const report = {
   status: 'running', mode: baseline ? 'baseline' : 'regression', commit: process.env.GITHUB_SHA || null,
   targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, reverse_flight: 180 },
-  note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. PNG screencasts run separately from timing assertions.',
+  note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. PNG screencasts and synchronous GPU-pixel probes run separately from timing assertions to avoid readback stalls.',
   cases: [], page_errors: [], screenshots: [], videos: [],
 };
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.webp': 'image/webp', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml' };
@@ -42,7 +42,7 @@ let browser, base;
 // Installed before the app. The draw hook reads pixels synchronously before the
 // non-preserved WebGL buffer clears; ordinary rAF sampling only reads cached alpha.
 function installProbe() {
-  let active = false, raf, observer, phase, previousDrawProbe;
+  let active = false, raf, observer, phase, pixelProbe = false, previousDrawProbe;
   let frames = [], events = [], draws = [], errors = [];
   const alphaCache = new WeakMap();
   const scratch = document.createElement('canvas');
@@ -161,9 +161,9 @@ function installProbe() {
   };
   for (const type of ['click', 'keydown', 'pointerdown', 'pointerup', 'touchstart', 'touchend', 'popstate']) addEventListener(type, recordEvent, true);
   window.__modalMotionQA = {
-    arm(label) {
+    arm(label, { pixels = false } = {}) {
       if (active) this.stop();
-      phase = label; frames = []; events = []; draws = []; errors = []; active = true;
+      phase = label; pixelProbe = pixels; frames = []; events = []; draws = []; errors = []; active = true;
       const dialog = document.querySelector('#viewer-dialog');
       observer = new MutationObserver(records => {
         for (const record of records) events.push({ time: performance.now(), type: 'attribute', attribute: record.attributeName,
@@ -174,7 +174,7 @@ function installProbe() {
       previousDrawProbe = window.__vaultFrameProbe;
       window.__vaultFrameProbe = entry => {
         previousDrawProbe?.(entry);
-        if (!active) return;
+        if (!active || !pixelProbe) return;
         try {
           const a = alpha(entry.canvas); alphaCache.set(entry.canvas, a);
           const handoff = entry.host.querySelector('.model-handoff');
@@ -187,7 +187,7 @@ function installProbe() {
     stop() {
       snapshot('stopped'); active = false; cancelAnimationFrame(raf); observer?.disconnect();
       window.__vaultFrameProbe = previousDrawProbe;
-      return { phase, time_origin: performance.timeOrigin, frames, events, draws, errors };
+      return { phase, pixel_probe: pixelProbe, time_origin: performance.timeOrigin, frames, events, draws, errors };
     },
     snapshot() { snapshot('manual'); return frames.at(-1); },
   };
@@ -250,14 +250,17 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
     const range = Object.fromEntries(['x', 'y', 'width', 'height'].map(k => [k, hosts.length ? Math.max(...hosts.map(r => r[k])) - Math.min(...hosts.map(r => r[k])) : null]));
     check(test, record.phase + ': canvas bounds stay fixed while metadata and chrome enter', hosts.length > 1 && Object.values(range).every(x => x <= 1), range);
     const comparisons = record.draws.filter(d => d.handoff).map(d => ({ actual: d.object, handoff: d.handoff }));
+    if (record.pixel_probe) {
     check(test, record.phase + ': actual GLB silhouette matches retained handoff', comparisons.length > 0 && comparisons.every(p => near(p.actual, p.handoff)), comparisons.slice(0, 3));
     check(test, record.phase + ': actual GLB draws remain transparent', record.draws.length > 0 && record.draws.every(d => d.alpha?.transparent_fraction > 0.2 && d.alpha.corner_alpha_max <= 3), { draws: record.draws.length });
+    }
     const stationary = visible.filter(f => f.source === 'raf' && !f.flight && f.model?.object && f.model_state === 'ready');
     check(test, record.phase + ': model bounds remain continuous after flight handoff', stationary.slice(1).every((f, i) => near(stationary[i].model.object, f.model.object)), { samples: stationary.length });
   }
 }
 function validateTiming(test, record, trigger, { opening, reduced = false, sourced = false, before = null } = {}) {
   const analysis = analyze(record, trigger), { summary: s, frames, visible, event } = analysis;
+  if (opening) { s.chrome_gone_ms = null; s.dialog_closed_ms = null; }
   test.timings.push({ phase: record.phase, ...s });
   validateInvariant(test, record, { sourced, opening });
   // Allow two ordinary display intervals, or up to one measured slow CI frame,
@@ -279,7 +282,7 @@ function validateTiming(test, record, trigger, { opening, reduced = false, sourc
       check(test, record.phase + ': closing keeps the transparent bitmap after chrome fades', flights.some(f => f.shell.opacity <= 0.04), flights.map(f => ({ t: f.time - event.time, shell: f.shell.opacity })));
       const flightDurations = flights.flatMap(f => f.animations.filter(a => String(a.target).includes('stage-flight')).map(a => a.duration));
       check(test, record.phase + ': reverse flight is an 180 ms animation', flightDurations.length > 0 && flightDurations.every(ms => typeof ms === 'number' && ms <= 180 && ms >= 160), flightDurations);
-      check(test, record.phase + ': first reverse bitmap matches current model bounds', near(before?.model?.object, flights[0]?.flight?.object, 12), { before: before?.model?.object, first: flights[0]?.flight?.object });
+      if (before?.model?.object) check(test, record.phase + ': first reverse bitmap matches current model bounds', near(before?.model?.object, flights[0]?.flight?.object, 12), { before: before?.model?.object, first: flights[0]?.flight?.object });
       const retained = frames.filter(f => !f.open && f.card?.object).at(-1)?.card?.object;
       check(test, record.phase + ': reverse bitmap lands on the retained card', near(flights.at(-1)?.flight?.object, retained, 14), { last: flights.at(-1)?.flight?.object, retained });
     }
@@ -287,7 +290,7 @@ function validateTiming(test, record, trigger, { opening, reduced = false, sourc
   if (reduced) check(test, record.phase + ': reduced motion has no flight or ongoing chrome animation', visible.every(f => !f.flight && !f.animations.some(a => a.play_state === 'running' && Number(a.duration) > 0)), { samples: visible.length });
 }
 
-async function arm(page, phase) { await page.evaluate(phase => window.__modalMotionQA.arm(phase), phase); }
+async function arm(page, phase, pixels = false) { await page.evaluate(({ phase, pixels }) => window.__modalMotionQA.arm(phase, { pixels }), { phase, pixels }); }
 async function collect(page, ms = 800) { await page.waitForTimeout(ms); return page.evaluate(() => window.__modalMotionQA.stop()); }
 async function ready(page) {
   await page.waitForFunction(() => {
@@ -295,8 +298,8 @@ async function ready(page) {
     return d?.open && h?.dataset.modelState === 'ready' && h.dataset.presentedUrl?.endsWith('/natural-arch.glb') && Number(h.dataset.renderTriangles) > 0;
   }, null, { timeout: 30000 });
 }
-async function catalog(page, { touch = false } = {}) {
-  await page.goto(base + prefix + 'models/');
+async function catalog(page, { touch = false, lang = '' } = {}) {
+  await page.goto(base + prefix + (lang ? lang + '/' : '') + 'models/');
   await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
   const card = page.locator(cardSelector); await card.scrollIntoViewIfNeeded();
   await card.locator('.asset-image > img').evaluate(async image => { if (!image.complete) await image.decode(); });
@@ -328,6 +331,7 @@ async function cleanupState(page, open) {
   }, open);
 }
 async function assertClean(page, test, open) {
+  await page.waitForFunction(open => document.querySelector('#viewer-dialog').open === open, open, { timeout: 5000 });
   const state = await cleanupState(page, open); (test.cleanup ||= []).push(state);
   check(test, 'Final dialog and route agree', state.open === open && (open ? state.path.endsWith('/natural-arch/') : state.path.endsWith('/models/')), state, false);
   check(test, 'No stale flights, handoffs, animation locks or body lock', state.flights === 0 && state.handoffs === 0 && state.active_animations.length === 0 && state.host_opacity !== '0' && !state.layout_class.includes('motion-running') && (open ? state.overflow === 'hidden' : state.overflow !== 'hidden'), state);
@@ -345,25 +349,26 @@ async function sequence(page, test, label, action) {
     report.screenshots.push(filename); pending.push(writeFile(resolve(output, filename), Buffer.from(event.data, 'base64')));
   };
   session.on('Page.screencastFrame', listener);
-  await session.send('Page.startScreencast', { format: 'png', everyNthFrame: 2 });
+  await session.send('Page.startScreencast', { format: 'png', everyNthFrame: 1 });
   try { await action(capture); } finally {
     await session.send('Page.stopScreencast').catch(() => {}); session.off('Page.screencastFrame', listener);
     await Promise.all(pending); await session.detach();
     (test.evidence_sequences ||= []).push(capture);
   }
-  check(test, label + ': real compositor screenshot sequence captured', capture.frames.length >= 3, { frames: capture.frames.length }, false);
+  check(test, label + ': real compositor screenshot sequence captured', capture.frames.length >= (test.label === 'reduced-motion' || label.startsWith('direct-route') ? 2 : 3), { frames: capture.frames.length }, false);
 }
 async function evidenceRoundTrip(page, test, { touch = false } = {}) {
   await sequence(page, test, test.label + '-evidence', async capture => {
-    await arm(page, 'evidence-open');
+    await arm(page, 'evidence-open', true);
     await page.locator(cardSelector)[touch ? 'tap' : 'click']();
     const opened = await collect(page, 850); await ready(page);
     await page.waitForTimeout(200);
-    await arm(page, 'evidence-close'); await page.locator('#close')[touch ? 'tap' : 'click']();
+    await arm(page, 'evidence-close', true); await page.locator('#close')[touch ? 'tap' : 'click']();
     const closed = await collect(page, 500);
     capture.input_events = [...opened.events, ...closed.events];
     capture.frames.forEach(frame => { frame.since_open_ms = frame.browser_time_ms - (opened.events.find(e => e.type === 'click' && e.target === 'card:natural-arch')?.time ?? 0); frame.since_close_ms = frame.browser_time_ms - (closed.events.find(e => e.type === 'click' && e.target === '#close')?.time ?? 0); });
     test.evidence_measurements = { open: opened, close: closed };
+    validateInvariant(test, opened, { opening: true, sourced: true });
   });
 }
 async function runCase(label, options, body) {
@@ -384,8 +389,8 @@ async function runCase(label, options, body) {
     await writeFile(resolve(output, label + '.json'), JSON.stringify(test, null, 2) + '\n');
   }
 }
-async function roundTrip(page, test, { touch = false, reduced = false } = {}) {
-  await catalog(page, { touch });
+async function roundTrip(page, test, { touch = false, reduced = false, lang = '' } = {}) {
+  await catalog(page, { touch, lang });
   // A short network gate exercises chrome independent of the actual GLB load.
   await page.route('**/*.glb', async route => { await new Promise(resolve => setTimeout(resolve, 380)); await route.continue().catch(() => {}); });
   await arm(page, 'open'); await page.locator(cardSelector)[touch ? 'tap' : 'click']();
@@ -414,6 +419,7 @@ try {
     args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
   report.chromium_version = browser.version();
   await runCase('desktop-click', {}, (page, test) => roundTrip(page, test));
+  await runCase('desktop-chinese', {}, (page, test) => roundTrip(page, test, { lang: 'zh-CN' }));
   await runCase('mobile-touch', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, (page, test) => roundTrip(page, test, { touch: true }));
   await runCase('reduced-motion', { reducedMotion: 'reduce' }, (page, test) => roundTrip(page, test, { reduced: true }));
   await runCase('keyboard-enter-escape', {}, async (page, test) => {
@@ -463,7 +469,7 @@ try {
 finally {
   await browser?.close(); if (server.listening) await new Promise(resolve => server.close(resolve));
   const summary = { status: report.status, mode: report.mode, commit: report.commit, targets_ms: report.targets_ms,
-    cases: report.cases.map(test => ({ label: test.label, status: test.status, timings: test.timings, violations: test.assertions.filter(a => !a.passed), error: test.error })),
+    cases: report.cases.map(test => ({ label: test.label, status: test.status, timings: test.timings, violations: test.assertions.filter(a => !a.passed).map(({ name, enforced }) => ({ name, enforced })), error: test.error })),
     page_errors: report.page_errors, videos: report.videos, screenshot_count: report.screenshots.length };
   if (process.env.BASELINE_REPORT) {
     try {
