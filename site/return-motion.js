@@ -16,6 +16,10 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
   const styles = stage.beginCanonicalReturnStyles?.();
   Object.assign(host.style, { position: 'fixed', left: `${from.left}px`, top: `${from.top}px`,
     width: `${from.width}px`, height: `${from.height}px`, transformOrigin: '0 0', pointerEvents: 'none', willChange: 'transform,opacity' });
+  const opacity = value => {
+    host.style.setProperty('--return-live-opacity', String(value));
+    host.dataset.returnOpacity = String(value);
+  };
   const place = t => {
     const target = getTarget?.() || to, dx = target.left - from.left, dy = target.top - from.top, scale = target.width / from.width;
     host.style.transform = `translate(${dx * t}px,${dy * t}px) scale(${1 + (scale - 1) * t})`;
@@ -40,7 +44,7 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
   function finish() {
     if (motion.playState !== 'running') return;
     if (stage._host !== host) { cancel(); return; }
-    align(); host.style.opacity = '0'; host.dataset.returnProgress = '1'; end(true);
+    align(); opacity(0); host.dataset.returnProgress = '1'; end(true);
   }
   function frame(time) {
     raf = 0;
@@ -54,13 +58,13 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
       place(returnEase(progress)); stage.canonicalReturnStyleProgress?.(returnEase(progress), styles);
       stage.setView(view.azimuth_deg, view.elevation_deg, view.distance);
     } else {
-      align(); place(1); host.style.opacity = String(1 - clamp((performance.now() - fadeStarted) / RETURN_TIMING.fade));
+      align(); place(1); opacity(1 - clamp((performance.now() - fadeStarted) / RETURN_TIMING.fade));
     }
     if (aligned && performance.now() - fadeStarted >= RETURN_TIMING.fade) finish();
     else raf = requestAnimationFrame(frame);
   }
   function visibility() { if (document.hidden) finish(); }
-  place(0); host.dataset.returnPhase = 'moving'; host.dataset.returnProgress = '0';
+  opacity(1); place(0); host.dataset.returnPhase = 'moving'; host.dataset.returnProgress = '0';
   if (reduced) finish();
   else {
     raf = requestAnimationFrame(frame);

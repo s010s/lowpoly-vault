@@ -84,6 +84,16 @@
 .preview-badge{position:absolute;left:12px;top:12px;border-radius:12px;padding:4px 8px;font-size:10px;background:#eef0e8;color:#263027;z-index:2;pointer-events:none}
 .has-model-preview .card-status{z-index:3;pointer-events:none}
 /* A finite close flight borrows the same live canvas; only its transparent model
-   is transformed. The canonical poster is revealed for the final aligned fade. */
-.live-model-return{pointer-events:none;background:transparent;z-index:4}
-.live-model-return>.model-canvas{width:100%;height:100%;pointer-events:none}
+   is transformed. Its decoded canonical poster shares an isolated alpha-preserving dissolve. */
+.live-model-return{pointer-events:none;background:transparent;z-index:4;isolation:isolate}
+.live-model-return>.model-canvas,.live-model-return>.return-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;mix-blend-mode:plus-lighter}
+.live-model-return>.model-canvas{opacity:var(--return-live-opacity,1)}
+.live-model-return>.return-poster{opacity:calc(1 - var(--return-live-opacity,1));visibility:hidden}
+.live-model-return[data-return-phase=fading]>.return-poster{visibility:visible}
+
+/* Opening/reversal handoffs use the same premultiplied additive dissolve. */
+@supports (mix-blend-mode:plus-lighter){
+  #canvas-host:has(.model-handoff){isolation:isolate}
+  #canvas-host:has(.model-handoff)>.model-handoff{mix-blend-mode:plus-lighter}
+  #canvas-host:has(.model-handoff)>.model-canvas,#canvas-host:has(.model-handoff)>.model-poster{mix-blend-mode:plus-lighter;opacity:0}
+}
