@@ -12,7 +12,11 @@ assert(!manifest.review_only);
 assert.equal(manifest.assets.length,10);
 const expected=new Set(['index.html','models/index.html','about/index.html','zh-CN/index.html','zh-CN/models/index.html','zh-CN/about/index.html','404.html','sitemap.xml','robots.txt','THIRD_PARTY_NOTICES.md','LICENSE','LICENSES/CC-BY-4.0.txt','LICENSES/MIT.txt','home/editorial-hero.webp','assets/manifest.json','assets/catalog.json','assets/catalog/shards/00000.json',...assetFileAllowlist(manifest)]);
 const turntables=await collectTurntables(manifest);
-for(const file of turntables.files)expected.add(file);
+for(const file of turntables.files) {
+  expected.add(file);
+  assert.equal(createHash('sha256').update(await readFile(resolve(root,file))).digest('hex'),
+    createHash('sha256').update(await readFile(resolve(file))).digest('hex'),`Delivered image or sequence metadata differs: ${file}`);
+}
 for(const asset of manifest.assets) {
   for(const path of [`models/${asset.id}/index.html`,`zh-CN/models/${asset.id}/index.html`,`assets/catalog/details/${asset.id}.json`,asset.downloads.bundle,asset.downloads.credits]) expected.add(path);
   assert.equal(asset.qa,undefined,'Private QA bookkeeping must not enter public metadata');

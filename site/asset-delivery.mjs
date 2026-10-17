@@ -49,7 +49,11 @@ export async function enrichManifest(manifest, root = process.cwd()) {
 }
 export function creditText(asset, manifest) {
   const title = typeof asset.name === 'string' ? asset.name : asset.name?.en || asset.id;
-  return `${title}\n${asset.name?.zh || ''}\n\nCreator: ${asset.author || manifest.author || 'Leon Made This / s010s'}\nSource: ${manifest.attribution_url || 'https://github.com/s010s/lowpoly-vault'}\nLicense: ${asset.license || manifest.license || 'CC-BY-4.0'}\nLicense URL: https://creativecommons.org/licenses/by/4.0/\n\nYou may share and adapt this asset, including commercially, under CC BY 4.0.\nCredit the creator, provide the source and license links, and indicate your changes.\nThis archive contains the original GLB and editable Blender source; no modifications are claimed.\n${manifest.release_status === 'initial' ? '\nInitial collection: further artistic and scientific refinement is ongoing.\n' : ''}${manifest.review_only ? '\nREVIEW ONLY: This candidate is not approved for publication.\n' : ''}`;
+  const revision = asset.revision_provenance;
+  const history = revision
+    ? `Revision: ${asset.revision}\nRevision creator: ${revision.author}\nRevision source: ${revision.source_url}\nChanges: ${revision.changes}\nOriginal creator: ${revision.original_author}\nOriginal source: ${revision.original_source_url}\nOriginal GLB SHA-256: ${revision.original_glb_sha256}\nThis archive contains the accepted revision's GLB and editable Blender source. Acceptance is for its frozen brief.\n`
+    : 'This archive contains the original GLB and editable Blender source; no modifications are claimed.\n';
+  return `${title}\n${asset.name?.zh || ''}\n\nCreator: ${asset.author || manifest.author || 'Leon Made This / s010s'}\nSource: ${asset.source_url || manifest.attribution_url || 'https://github.com/s010s/lowpoly-vault'}\nLicense: ${asset.license || manifest.license || 'CC-BY-4.0'}\nLicense URL: https://creativecommons.org/licenses/by/4.0/\n\nYou may share and adapt this asset, including commercially, under CC BY 4.0.\nCredit the creator, provide the source and license links, and indicate your changes.\n${history}${asset.quality_status === 'work_in_progress' || manifest.release_status === 'initial' ? '\nInitial collection: further artistic and scientific refinement is ongoing.\n' : ''}${manifest.review_only ? '\nREVIEW ONLY: This candidate is not approved for publication.\n' : ''}`;
 }
 export async function clearDeliveredAssets(outDir) {
   const folder = join(outDir,'assets');

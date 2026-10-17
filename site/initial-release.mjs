@@ -40,14 +40,16 @@ export async function collectInitialRelease(root=process.cwd()) {
 export async function checkPublishedManifest(root=process.cwd()) {
   const current=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   assert(!current.review_only,'A review-only manifest cannot be published');
-  const expected=current.release_status==='initial'?await collectInitialRelease(root):await collectManifest(root);
+  const expected=current.release_status==='mixed'
+    ?await (await import('./refined-release.mjs')).collectRefinedRelease(root,current.publication?.descriptor)
+    :current.release_status==='initial'?await collectInitialRelease(root):await collectManifest(root);
   assert.deepEqual(current,expected,'Published manifest must exactly match the checked source and publication scope');
   return current;
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href) {
   if(process.argv.includes('--check')) {
     const manifest=await checkPublishedManifest();
-    console.log(`Publication gate passed: ${manifest.assets.length} unchanged originals; quality status: ${manifest.quality_status||'formal QA'}.`);
+    console.log(`Publication gate passed: ${manifest.assets.length} checked assets; quality status: ${manifest.quality_status||'formal QA'}.`);
   } else {
     const manifest=await collectInitialRelease();
     await writeFile('assets/manifest.json',JSON.stringify(manifest,null,2)+'\n');
