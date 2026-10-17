@@ -1,0 +1,386 @@
+{
+  "status": "pass_with_platform_test_blocker",
+  "platform_test_blocker": "npm test: unchanged Linux-only asset queue requires Linux process groups, /proc and flock; unavailable on macOS. Full log retained; no gate changed.",
+  "source_commit": "35de59d2ad4dbce7e88eae9d8df237c480098c02",
+  "scratch": "qa/review-site/conifer-doc1-independent-attempt02",
+  "proposal_pin": {
+    "path": "assets/releases/conifer-doc1-preview-reviewed-20261017.json",
+    "sha256": "51dd7fd3ed57480ff9d74e95fb4a3e741b94980528b9ef918d77a6162db7ecbf"
+  },
+  "steps": [
+    {
+      "name": "strict-release-gate",
+      "command": [
+        "node",
+        "site/refined-release.mjs",
+        "assets/releases/conifer-doc1-preview-reviewed-20261017.json",
+        "--sha256",
+        "51dd7fd3ed57480ff9d74e95fb4a3e741b94980528b9ef918d77a6162db7ecbf",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "scratch-manifest-assembly",
+      "command": [
+        "node",
+        "site/refined-release.mjs",
+        "assets/releases/conifer-doc1-preview-reviewed-20261017.json",
+        "--sha256",
+        "51dd7fd3ed57480ff9d74e95fb4a3e741b94980528b9ef918d77a6162db7ecbf"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "production-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "publication-tests",
+      "command": [
+        "npm",
+        "run",
+        "test:publication"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "scrub-tests",
+      "command": [
+        "npm",
+        "run",
+        "test:scrub"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "redesign-tests",
+      "command": [
+        "npm",
+        "run",
+        "test:redesign"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "repository-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 1
+    },
+    {
+      "name": "baseline-delivery",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {readFile} from 'node:fs/promises';import {deliverManifestAssets} from './site/asset-delivery.mjs';await deliverManifestAssets(JSON.parse(await readFile('assets/manifest.json')),process.argv[1]);",
+        "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/asset-refinements/qa/review-site/conifer-doc1-independent-baseline"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "unchanged_other_nine": [
+    {
+      "id": "natural-arch",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+          "sha256": "cf41f5f970e4c8f72f57c4132974e00320e262b6b210a40c717dc2c27098672d",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/revisions/natural-arch/structural-r002/natural-arch.blend",
+          "sha256": "a2ab15817796596b8402c3a47fec7967a4d5c3fb9649b3a24e5449696ea946db",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/revisions/natural-arch/structural-r002/preview.webp",
+          "sha256": "957f88e0157293f3f845e484c2a15e9a003fd85d235d678f4712f630d28e25d9",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/natural-arch.zip",
+          "sha256": "ba24e55e20a386f60d616bbcdbb1b92e1e578efc47d6617f69804cf2563bceab",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/natural-arch-CREDITS.txt",
+          "sha256": "cfad54558ea2b186b0e36b4eb78285c38f0539acd12834afe64fd665df5801dc",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "stratified-cliff",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/prehistoric/geology/stratified-cliff/stratified-cliff.glb",
+          "sha256": "0dee151cd0333ac673b984f350508b4820e9f0630dd08906ee28eb083d03d379",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/geology/stratified-cliff/stratified-cliff.blend",
+          "sha256": "e5153ac4214ae05748b858dee0ffa1e7958670312fca7ce9d77dcd96cb91da7d",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/geology/stratified-cliff/preview-hero.png",
+          "sha256": "5741557e0ec044f473c50092fa0bd7f9d75ce8509eb984533cacf2a269d350e2",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/stratified-cliff.zip",
+          "sha256": "baee35d5d11c4ed99189e5c006c9347c267c7e1a3f05208d68749b2cbfc78bfb",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/stratified-cliff-CREDITS.txt",
+          "sha256": "589944dbc77c0ead5adf9cf7f175a032d2771db5eb6a5404bded837957869a43",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "cycad",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/prehistoric/plants/cycad/cycad.glb",
+          "sha256": "9933903953c6bc2167e06c6b5633d3b2a1e5b2b37a547a3990460fb2f53068a2",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/plants/cycad/cycad.blend",
+          "sha256": "70c1d9d0682d28d081f10dfd31d4cb00d5f2449153629a4cb9b78497e76a391f",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/plants/cycad/preview-hero.png",
+          "sha256": "05c510c80b0e2106e3bae3b867eb0fd20b137cab18d48f10d081549131f5c613",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/cycad.zip",
+          "sha256": "2405fc0322417b86918bd5e43234278ba28f9e95f9e1306c2b6d603e3f15c689",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/cycad-CREDITS.txt",
+          "sha256": "429a8e911ac2e1a4f3099957d5d32e9d7cc67e1a1c77c836ab7422c161e121f9",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "fern-cluster",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/revisions/fern-cluster/r006/fern-cluster.glb",
+          "sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/revisions/fern-cluster/r006/fern-cluster.blend",
+          "sha256": "1c8a7a614892548d265151ef06347df62fbd8b5244088ca914b119ac0db33615",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/revisions/fern-cluster/r006/preview.webp",
+          "sha256": "7cfc555fb5c7a0bdbbe65e959f987b167372e9fae1d2dd04027464501fe0df17",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/fern-cluster.zip",
+          "sha256": "8e272ee42ee3b2a15beeb732d529f03a0883be03b681a88d6cdc45fe81d34390",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/fern-cluster-CREDITS.txt",
+          "sha256": "08820701ce22e23b9a4d3cee9c2690176f50d793aa746f38ac6a0ba3a5c4c3ac",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "horsetail-cluster",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/prehistoric/plants/horsetail-cluster/horsetail-cluster.glb",
+          "sha256": "36b6471c6b9f469277b405a792c4afac0bedca484605011b6cdb652f496819b9",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/plants/horsetail-cluster/horsetail-cluster.blend",
+          "sha256": "d1aea06b5855439f942c9157f64f493473d39e1d4cf21396fc402f6dd00348a5",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/plants/horsetail-cluster/preview-hero.png",
+          "sha256": "957879a3fa2059b813fa393a4c54d9ab89f2ef9761f3c73c19bf238846ce162c",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/horsetail-cluster.zip",
+          "sha256": "22cc93d406ea96cfdec3e8746c6f3f6b71740e825339708aa967fb8bb09f62da",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/horsetail-cluster-CREDITS.txt",
+          "sha256": "61ad092f3c94c909a6aa6f690d2be06c698a0b30f90b398e01303b4d56bbd964",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "lepidodendron",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/prehistoric/plants/lepidodendron/lepidodendron.glb",
+          "sha256": "7909974082addbe7cab53edd11694b09b1f2626a554356cbb2be0a72848e89da",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/plants/lepidodendron/lepidodendron.blend",
+          "sha256": "6e3db71c2049aac64bad991787a354157f872744803b8b4ece26522688635983",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/plants/lepidodendron/preview-hero.png",
+          "sha256": "e50ee218a9c43cc6ab683095ae71899a157980c81616cf30e2e4e87ad56cc0fe",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/lepidodendron.zip",
+          "sha256": "3eae7c7da6e023ca56c32a09169fe2275fe4f25f6cd9de750046dc60acf0198e",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/lepidodendron-CREDITS.txt",
+          "sha256": "98aaf13724045ff6f1cdeb9950ba9fdcd5f68fd234240e11fca1acf28f54a011",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "dinosaur-nest",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/prehistoric/traces/dinosaur-nest/dinosaur-nest.glb",
+          "sha256": "f4a3da6f60beb2560828fee76d907eae70c395eba547b373a2c0df9e9623964e",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/traces/dinosaur-nest/dinosaur-nest.blend",
+          "sha256": "ab8125fd8aa4c84d9fb4592d73dfa714f7ba7d05cea0b6fd6d60a70e6c360a5d",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/traces/dinosaur-nest/preview-hero.png",
+          "sha256": "95e0d1ea96092023667441faaa728a2d59e2f862ab4bcbcdb12590dcce37e73e",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/dinosaur-nest.zip",
+          "sha256": "5a3dbb530c7853a50017847a7f401c93a26a3d353dbbb0b02cc1ee6c71587d43",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/dinosaur-nest-CREDITS.txt",
+          "sha256": "0aaf2404f78b976b8f14a7fb5f3adf53dab2911ef0e0afe7296495381d5c2541",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "three-toed-track",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/prehistoric/traces/three-toed-track/three-toed-track.glb",
+          "sha256": "29f156d80ecbcbb0b236a050507c8e7c946321fd274eafb2e5df56e7492e6e4a",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/traces/three-toed-track/three-toed-track.blend",
+          "sha256": "03daf73d6cc710c863ab69372fc06251a405545596055b5fbfc8a591ef947c9d",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/traces/three-toed-track/preview-hero.png",
+          "sha256": "b8c38b1934a59be9bbf388ee7ae71363eccb1e82a07b6affd98cbb9b3c9f9f24",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/three-toed-track.zip",
+          "sha256": "f970ddcedb73e6549d08261cf6b5edd5da4ea076db56ca56ef8c939c2f702410",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/three-toed-track-CREDITS.txt",
+          "sha256": "984b08f7dcf5ea0e22f374ecf29a8d1c47b33b8c3ddf8fe6e2737dddad299ea7",
+          "byte_equal": true
+        }
+      ]
+    },
+    {
+      "id": "uprooted-log",
+      "manifest_entry_equal": true,
+      "files": [
+        {
+          "path": "assets/prehistoric/wood/uprooted-log/uprooted-log.glb",
+          "sha256": "b7732c1e5e613538eca180135dd9692410cf7084b1c5264485fa7311655f4b0b",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/wood/uprooted-log/uprooted-log.blend",
+          "sha256": "f05a431dd77e71d890dea170c9a27ee9ef5f7c854a9343e5a6d502e9088468b6",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/prehistoric/wood/uprooted-log/preview-hero.png",
+          "sha256": "5c292626f858c2751c331f61c9a2488517a0d248b392198a453bb0575bbaacdb",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/uprooted-log.zip",
+          "sha256": "1e1dfbc84b8f5ca78c79fe6528efa57cf323d8ad2e42b8a7a571a5024f1e63b3",
+          "byte_equal": true
+        },
+        {
+          "path": "assets/downloads/uprooted-log-CREDITS.txt",
+          "sha256": "6d9a4e974a575121598193c4c87a10b43d8d08bd7d46faf40c96ed0ef80c43c2",
+          "byte_equal": true
+        }
+      ]
+    }
+  ],
+  "conifer_zip": {
+    "sha256": "55f96771afe827fff62971f396d4caead2274be76384ca8ff6762daf532c4d56",
+    "crc_valid": true,
+    "entries": {
+      "conifer-tree.glb": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+      "conifer-tree.blend": "04c20d19354455e57bbc70a8cced6308d9020e02ff057996bfde7c585a7acbef",
+      "CREDITS.txt": "4f778ae502275a60dc5af975913150f8c5d0fbb7e5e9be3ebe47ecb52f8a0dfe"
+    },
+    "bilingual_compatibility_in_credits": true
+  },
+  "bilingual_static_details_scope_checked": true,
+  "browser_execution": "No browser launched or controlled. Existing exact-code browser evidence inspected separately.",
+  "active_source_manifest_and_index_untouched": true,
+  "publication_performed": false,
+  "background_processes_started": 0
+}
