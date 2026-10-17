@@ -1,0 +1,1123 @@
+{
+  "status": "pass",
+  "commit": "01c60dd85322932a967c4f2aa50045f2da1a25bd",
+  "checks": [
+    "Only hovered card fetches its manifest and current/neighbor frames; other nine remain static.",
+    "Pointer, keyboard wrap/Home/End/Escape and reduced-motion inspection; bounded cache and no idle animation.",
+    "Rapid card changes abort old fetches and close stale decodes; one network request and one canvas.",
+    "Each of all ten originals reaches a decoded image frame independently, with one canvas, only its own requests, no GLB, and at most 9 MiB decoded-plus-canvas memory.",
+    "Current image angle enters real 3D unchanged; delayed and rapid model switches retain a painted snapshot until first paint.",
+    "Closing an outstanding GLB request and opening another asset rejects the abandoned late result.",
+    "Enter/tap/click details automatically import the actual 3D viewer and load the original GLB.",
+    "Failed image leaves the static poster and usable detail link without infinite retry or GLB fallback.",
+    "390 px real browser touch events: horizontal drag scrubs one card and suppresses accidental navigation.",
+    "Vertical touch keeps native page scrolling.",
+    "A subsequent normal touch tap still opens auto-loaded real 3D."
+  ],
+  "screenshots": [
+    "desktop-active-arch.png",
+    "detail-same-current-angle.png",
+    "failed-sequence-static.png",
+    "touch-390-chinese-scrub.png"
+  ],
+  "page_errors": [],
+  "measurements": {
+    "desktop_scrub": {
+      "activeId": "natural-arch",
+      "activeRequests": 0,
+      "peakRequests": 1,
+      "frameRequests": 24,
+      "manifestRequests": 1,
+      "downloadedBytes": 210364,
+      "decodedEntries": 3,
+      "decodedBytes": 7077888,
+      "peakDecodedBytes": 7077888,
+      "encodedEntries": 12,
+      "encodedBytes": 103316,
+      "canvasBytes": 2359296,
+      "frame": 12,
+      "errors": 0,
+      "decodeMilliseconds": [
+        13.400000000023283,
+        29.70000000001164,
+        11.200000000011642,
+        5.5,
+        8.100000000034925,
+        15.299999999988358,
+        7,
+        5.400000000023283,
+        9.800000000046566,
+        9.100000000034925,
+        9.599999999976717,
+        9.900000000023283,
+        8.200000000011642,
+        20.5,
+        12.599999999976717,
+        8.299999999988358,
+        9.099999999976717,
+        17.70000000001164,
+        6.2000000000116415,
+        7.5,
+        15.100000000034925,
+        5.5,
+        6.400000000023283,
+        8.200000000011642
+      ],
+      "requestMilliseconds": [
+        13.799999999988358,
+        18.70000000001164,
+        8.900000000023283,
+        6,
+        4.900000000023283,
+        2.7000000000116415,
+        5.2000000000116415,
+        4.800000000046566,
+        2.800000000046566,
+        7.900000000023283,
+        10.399999999965075,
+        4.400000000023283,
+        12,
+        3.7000000000116415,
+        2.8999999999650754,
+        12.799999999988358,
+        18.800000000046566,
+        3.6000000000349246,
+        8.800000000046566,
+        7.7000000000116415,
+        5.100000000034925,
+        13.099999999976717,
+        9.299999999988358,
+        5.399999999965075,
+        3.7000000000116415
+      ],
+      "pointer_to_frame_ms": [
+        19,
+        50,
+        54,
+        47,
+        69,
+        49,
+        64,
+        20
+      ]
+    },
+    "all_ten": [
+      {
+        "id": "conifer-tree",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 180988
+      },
+      {
+        "id": "lepidodendron",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 226904
+      },
+      {
+        "id": "cycad",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 261810
+      },
+      {
+        "id": "dinosaur-nest",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 258980
+      },
+      {
+        "id": "fern-cluster",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 225632
+      },
+      {
+        "id": "horsetail-cluster",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 234288
+      },
+      {
+        "id": "natural-arch",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 200998
+      },
+      {
+        "id": "stratified-cliff",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 210636
+      },
+      {
+        "id": "three-toed-track",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 165212
+      },
+      {
+        "id": "uprooted-log",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 122706
+      }
+    ],
+    "handoff": {
+      "frames_sampled": 130,
+      "blank_frames": 0,
+      "initial_azimuth": 297,
+      "initial_elevation": 23.300000000000004
+    },
+    "touch": {
+      "activeId": "conifer-tree",
+      "activeRequests": 0,
+      "peakRequests": 1,
+      "frameRequests": 10,
+      "manifestRequests": 1,
+      "downloadedBytes": 348314,
+      "decodedEntries": 3,
+      "decodedBytes": 7077888,
+      "peakDecodedBytes": 7077888,
+      "encodedEntries": 10,
+      "encodedBytes": 341962,
+      "canvasBytes": 2359296,
+      "frame": 8,
+      "errors": 0,
+      "decodeMilliseconds": [
+        8.900000000023283,
+        7,
+        10.5,
+        12.5,
+        16.399999999965075,
+        12.5,
+        9,
+        13.900000000023283,
+        8.900000000023283,
+        13.699999999953434
+      ],
+      "requestMilliseconds": [
+        4.7999999999883585,
+        3.599999999976717,
+        3.6000000000349246,
+        6.599999999976717,
+        8.400000000023283,
+        7,
+        9.299999999988358,
+        7.699999999953434,
+        8.200000000011642,
+        9.799999999988358,
+        13.899999999965075
+      ]
+    }
+  },
+  "note": "Chromium software rendering and emulated touch; not a physical-device memory measurement.",
+  "chromium_version": "141.0.7390.37",
+  "requests": [
+    {
+      "page": "about:blank",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "time": 1792246810952
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/index-B-olaLoZ.js",
+      "time": 1792246810978
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/presentation-CVFjLfLN.js",
+      "time": 1792246810979
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/index-Ck4V9GJP.css",
+      "time": 1792246810979
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/home/editorial-hero.webp",
+      "time": 1792246810979
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog.json",
+      "time": 1792246811036
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/dinosaur-nest-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/fern-cluster-r006-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/horsetail-cluster-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/stratified-cliff-v2-768-q90.webp",
+      "time": 1792246811065
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/three-toed-track-v2-768-q90.webp",
+      "time": 1792246811066
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/uprooted-log-v2-768-q90.webp",
+      "time": 1792246811066
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/turntable.json",
+      "time": 1792246811818
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-000.webp",
+      "time": 1792246811850
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-023.webp",
+      "time": 1792246811869
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-001.webp",
+      "time": 1792246811907
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-014.webp",
+      "time": 1792246812047
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-013.webp",
+      "time": 1792246812056
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-015.webp",
+      "time": 1792246812068
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-010.webp",
+      "time": 1792246812088
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-009.webp",
+      "time": 1792246812101
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-011.webp",
+      "time": 1792246812111
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-017.webp",
+      "time": 1792246812133
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-016.webp",
+      "time": 1792246812149
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-018.webp",
+      "time": 1792246812166
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-007.webp",
+      "time": 1792246812185
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-006.webp",
+      "time": 1792246812198
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-008.webp",
+      "time": 1792246812221
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-020.webp",
+      "time": 1792246812247
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-019.webp",
+      "time": 1792246812276
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-021.webp",
+      "time": 1792246812289
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-004.webp",
+      "time": 1792246812314
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-003.webp",
+      "time": 1792246812329
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-005.webp",
+      "time": 1792246812345
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-012.webp",
+      "time": 1792246812373
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-011.webp",
+      "time": 1792246812386
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-013.webp",
+      "time": 1792246812397
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-000.webp",
+      "time": 1792246813168
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-023.webp",
+      "time": 1792246813197
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-022.webp",
+      "time": 1792246813224
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-001.webp",
+      "time": 1792246813266
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/fern-cluster/r006/v2-768-q90/turntable.json",
+      "time": 1792246813487
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/turntable.json",
+      "time": 1792246813683
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-000.webp",
+      "time": 1792246813847
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-023.webp",
+      "time": 1792246814018
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-023.webp",
+      "time": 1792246814131
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-001.webp",
+      "time": 1792246814158
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/lepidodendron/v2-768-q90/turntable.json",
+      "time": 1792246814323
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/lepidodendron/v2-768-q90/frame-000.webp",
+      "time": 1792246814342
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/lepidodendron/v2-768-q90/frame-023.webp",
+      "time": 1792246814351
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/lepidodendron/v2-768-q90/frame-001.webp",
+      "time": 1792246814370
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/cycad/v2-768-q90/turntable.json",
+      "time": 1792246814533
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/cycad/v2-768-q90/frame-000.webp",
+      "time": 1792246814551
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/cycad/v2-768-q90/frame-023.webp",
+      "time": 1792246814582
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/cycad/v2-768-q90/frame-001.webp",
+      "time": 1792246814617
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/dinosaur-nest/v2-768-q90/turntable.json",
+      "time": 1792246814751
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/dinosaur-nest/v2-768-q90/frame-000.webp",
+      "time": 1792246814766
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/dinosaur-nest/v2-768-q90/frame-023.webp",
+      "time": 1792246814787
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/dinosaur-nest/v2-768-q90/frame-001.webp",
+      "time": 1792246814807
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/fern-cluster/r006/v2-768-q90/turntable.json",
+      "time": 1792246815002
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/fern-cluster/r006/v2-768-q90/frame-000.webp",
+      "time": 1792246815018
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/fern-cluster/r006/v2-768-q90/frame-023.webp",
+      "time": 1792246815048
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/fern-cluster/r006/v2-768-q90/frame-001.webp",
+      "time": 1792246815082
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/horsetail-cluster/v2-768-q90/turntable.json",
+      "time": 1792246815228
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/horsetail-cluster/v2-768-q90/frame-000.webp",
+      "time": 1792246815239
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/horsetail-cluster/v2-768-q90/frame-023.webp",
+      "time": 1792246815263
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/horsetail-cluster/v2-768-q90/frame-001.webp",
+      "time": 1792246815305
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/turntable.json",
+      "time": 1792246815434
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-000.webp",
+      "time": 1792246815451
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-023.webp",
+      "time": 1792246815470
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-001.webp",
+      "time": 1792246815500
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/stratified-cliff/v2-768-q90/turntable.json",
+      "time": 1792246815637
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/stratified-cliff/v2-768-q90/frame-000.webp",
+      "time": 1792246815650
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/stratified-cliff/v2-768-q90/frame-023.webp",
+      "time": 1792246815680
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/stratified-cliff/v2-768-q90/frame-001.webp",
+      "time": 1792246815720
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/three-toed-track/v2-768-q90/turntable.json",
+      "time": 1792246815851
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/three-toed-track/v2-768-q90/frame-000.webp",
+      "time": 1792246815869
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/three-toed-track/v2-768-q90/frame-023.webp",
+      "time": 1792246815914
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/three-toed-track/v2-768-q90/frame-001.webp",
+      "time": 1792246815939
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/uprooted-log/v2-768-q90/turntable.json",
+      "time": 1792246816088
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/uprooted-log/v2-768-q90/frame-000.webp",
+      "time": 1792246816103
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/uprooted-log/v2-768-q90/frame-023.webp",
+      "time": 1792246816123
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/uprooted-log/v2-768-q90/frame-001.webp",
+      "time": 1792246816156
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/turntable.json",
+      "time": 1792246816300
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-002.webp",
+      "time": 1792246816369
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-008.webp",
+      "time": 1792246816397
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-014.webp",
+      "time": 1792246816425
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-017.webp",
+      "time": 1792246816445
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-016.webp",
+      "time": 1792246816460
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog/details/natural-arch.json",
+      "time": 1792246816494
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "time": 1792246816496
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog/shards/00000.json",
+      "time": 1792246816515
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/viewer-DU19HkAP.js",
+      "time": 1792246816515
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+      "time": 1792246816546
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246816699
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246816699
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246816699
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog/details/stratified-cliff.json",
+      "time": 1792246818166
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/stratified-cliff-v2-768-q90.webp",
+      "time": 1792246818168
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/prehistoric/geology/stratified-cliff/stratified-cliff.glb",
+      "time": 1792246818175
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246818186
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246818186
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246818186
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "time": 1792246818310
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246818315
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246818315
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246818315
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/stratified-cliff-v2-768-q90.webp",
+      "time": 1792246818509
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/prehistoric/geology/stratified-cliff/stratified-cliff.glb",
+      "time": 1792246818510
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246818541
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246818541
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/stratified-cliff/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246818541
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/fern-cluster/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog/details/fern-cluster.json",
+      "time": 1792246819471
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/fern-cluster/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/fern-cluster-r006-v2-768-q90.webp",
+      "time": 1792246819471
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/fern-cluster/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/revisions/fern-cluster/r006/fern-cluster.glb",
+      "time": 1792246819491
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/fern-cluster/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246819513
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/fern-cluster/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246819513
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/fern-cluster/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246819513
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/cycad/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246820222
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/cycad/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog/details/cycad.json",
+      "time": 1792246820226
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/cycad/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/prehistoric/plants/cycad/cycad.glb",
+      "time": 1792246820244
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/cycad/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246820824
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/cycad/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246820824
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/cycad/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/dinosaur-nest-v2-768-q90.webp",
+      "time": 1792246820824
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "time": 1792246821702
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/natural-arch/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246821722
+    },
+    {
+      "page": "about:blank",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "time": 1792246822064
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/index-B-olaLoZ.js",
+      "time": 1792246822078
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/presentation-CVFjLfLN.js",
+      "time": 1792246822078
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/index-Ck4V9GJP.css",
+      "time": 1792246822078
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/home/editorial-hero.webp",
+      "time": 1792246822079
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog.json",
+      "time": 1792246822114
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246822125
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246822125
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/dinosaur-nest-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/fern-cluster-r006-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/horsetail-cluster-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/stratified-cliff-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/three-toed-track-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/uprooted-log-v2-768-q90.webp",
+      "time": 1792246822134
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/turntable.json",
+      "time": 1792246822455
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/natural-arch/structural-r002/v2-768-q90/frame-000.webp",
+      "time": 1792246822470
+    },
+    {
+      "page": "about:blank",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "time": 1792246822991
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/index-B-olaLoZ.js",
+      "time": 1792246823004
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/presentation-CVFjLfLN.js",
+      "time": 1792246823004
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/index-Ck4V9GJP.css",
+      "time": 1792246823004
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/home/editorial-hero.webp",
+      "time": 1792246823004
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog.json",
+      "time": 1792246823049
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792246823067
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "time": 1792246823067
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "time": 1792246823067
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/dinosaur-nest-v2-768-q90.webp",
+      "time": 1792246823067
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/fern-cluster-r006-v2-768-q90.webp",
+      "time": 1792246823067
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/horsetail-cluster-v2-768-q90.webp",
+      "time": 1792246823067
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "time": 1792246823068
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/stratified-cliff-v2-768-q90.webp",
+      "time": 1792246823068
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/three-toed-track-v2-768-q90.webp",
+      "time": 1792246823068
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/card-previews/uprooted-log-v2-768-q90.webp",
+      "time": 1792246823068
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/turntable.json",
+      "time": 1792246823266
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-001.webp",
+      "time": 1792246823269
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-000.webp",
+      "time": 1792246823282
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-002.webp",
+      "time": 1792246823292
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-003.webp",
+      "time": 1792246823312
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-004.webp",
+      "time": 1792246823334
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-005.webp",
+      "time": 1792246823389
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-006.webp",
+      "time": 1792246823429
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-007.webp",
+      "time": 1792246823446
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-008.webp",
+      "time": 1792246823483
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/turntables/conifer-tree/structure-r20-a-normal16-doc1/v2-768-q90/frame-009.webp",
+      "time": 1792246823554
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/conifer-tree/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog/details/conifer-tree.json",
+      "time": 1792246824448
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/conifer-tree/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/catalog/shards/00000.json",
+      "time": 1792246824458
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/conifer-tree/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/viewer-DU19HkAP.js",
+      "time": 1792246824458
+    },
+    {
+      "page": "http://127.0.0.1:41369/lowpoly-vault/zh-CN/models/conifer-tree/",
+      "url": "http://127.0.0.1:41369/lowpoly-vault/assets/revisions/conifer-tree/structure-r20-a-normal16-doc1/conifer-tree.glb",
+      "time": 1792246824494
+    }
+  ]
+}

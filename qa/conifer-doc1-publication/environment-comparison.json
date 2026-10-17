@@ -1,0 +1,36 @@
+{
+  "status": "observed_environment_difference_root_cause_unisolated",
+  "same": {
+    "chromium_version": "141.0.7390.37",
+    "playwright_version": "1.56.1",
+    "viewer_source_sha256": "b35245e5ae5b1ce4cfbbac4010f9a0f6a7d6094d10b1505e798858ef1be3db00",
+    "render_preset_sha256": "2d3b55d5bc79348e50d7d5591489ea79e567c1c5b6e743c68a446809e31364ff",
+    "requested_angle_backend": "swiftshader",
+    "viewport": [
+      768,
+      768
+    ],
+    "device_scale_factor": 1
+  },
+  "different": {
+    "mac": {
+      "os": "macOS27.0 build26A428",
+      "architecture": "arm64",
+      "executable": "installed full Chromium.app build1194 explicitly selected",
+      "headless": true
+    },
+    "linux": {
+      "os": "Ubuntu24.04.5LTS",
+      "runner_image": "ubuntu-24.04 20261012.334.1",
+      "executable_selection": "Default headless Chromium launch selects chromium-headless-shell per installed Playwright1.56.1 source; CI installed package build1194",
+      "evidence_capture_run": 39038627111
+    }
+  },
+  "findings": [
+    "Decoded RGB and alpha differ; this is not solely WebP container/encoding noise.",
+    "Mac full Chromium exactly reproduces old conifer25; Linux canonical exactly reproduces other225.",
+    "OS and browser executable/package are confounded; no controlled same-OS full-vs-shell or same-package cross-OS experiment was run.",
+    "No evidence isolates quantized normals, driver precision, architecture, antialiasing or encoding as root cause.",
+    "Use approved exact Linux canonical bytes and require same standard CI zero-mismatch check; no tolerance gate or cross-platform byte-equality claim."
+  ]
+}
