@@ -1,0 +1,45 @@
+import assert from 'node:assert/strict';
+import { RETURN_TIMING, shortestAngleDelta, interpolateReturnView, startModelReturn } from './return-motion.js';
+
+const rafs = new Map(), timers = new Map();
+let id = 0, now = 1000;
+globalThis.performance = { now: () => now };
+globalThis.requestAnimationFrame = callback => { rafs.set(++id, callback); return id; };
+globalThis.cancelAnimationFrame = key => rafs.delete(key);
+globalThis.setTimeout = callback => { timers.set(++id, callback); return id; };
+globalThis.clearTimeout = key => timers.delete(key);
+const frame = elapsed => { now = 1000 + elapsed; const pending = [...rafs.values()]; rafs.clear(); pending.forEach(fn => fn(now)); };
+const near = (a, b) => assert(Math.abs(a - b) < 1e-9, `${a} != ${b}`);
+const from = { left: 100, top: 80, width: 600, height: 600 }, to = { left: 720, top: 620, width: 240, height: 240 };
+const initialView = { azimuth_deg: 350, elevation_deg: 61, distance: 3 }, canonicalView = { azimuth_deg: 42, elevation_deg: 23.3, distance: 5 };
+function setup(extra = {}) {
+  now = 1000;
+  const host = { style: {}, dataset: {} }, calls = [], aligned = [];
+  const stage = { _host: host, setView(...view) { calls.push({ view, phase: host.dataset.returnPhase, progress: host.dataset.returnProgress, transform: host.style.transform }); } };
+  const motion = startModelReturn({ stage, host, from, to, initialView, canonicalView, onAligned: () => aligned.push(calls.at(-1)), ...extra });
+  return { host, stage, calls, aligned, motion };
+}
+assert.equal(shortestAngleDelta(350, 42), 52);
+assert.equal(shortestAngleDelta(43, 42), -1);
+near(shortestAngleDelta(41.999, 42), .001);
+assert.equal(shortestAngleDelta(10, 350), -20);
+assert.deepEqual(interpolateReturnView(initialView, canonicalView, 0), initialView);
+const a = setup();
+frame(0); assert.deepEqual(a.calls.at(-1).view, [350, 61, 3]);
+frame(60); const middle = interpolateReturnView(initialView, canonicalView, .5);
+assert.deepEqual(a.calls.at(-1).view, [middle.azimuth_deg, middle.elevation_deg, middle.distance]);
+assert(a.calls.at(-1).transform.includes('542.5px'), 'Camera and shrink use the same eased progress before the actual draw.');
+frame(120); assert.deepEqual(a.calls.at(-1).view, [42, 23.3, 5]);
+assert.equal(a.calls.at(-1).phase, 'fading'); assert.equal(a.calls.at(-1).progress, '1');
+assert.equal(a.aligned.length, 1); assert.equal(a.host.style.opacity, '1');
+const alignedDraws = a.calls.length;
+frame(150); assert.equal(a.host.style.opacity, '.5'.replace(/^\./, '0.')); assert.equal(a.calls.length, alignedDraws, 'Aligned fade starts no model rotation or idle render loop.');
+frame(180); assert.equal(await a.motion.finished, true); assert.equal(a.host.style.opacity, '0');
+assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(a.aligned.length, 1);
+const b = setup(); b.motion.cancel(); assert.equal(await b.motion.finished, false); frame(180);
+assert.equal(b.calls.length, 0); assert.equal(b.aligned.length, 0); assert.equal(rafs.size, 0); assert.equal(timers.size, 0);
+const c = setup(); c.stage._host = {}; frame(30); assert.equal(await c.motion.finished, false); assert.equal(c.calls.length, 0, 'A late return callback cannot draw into a newer owner.');
+const d = setup({ reduced: true }); assert.equal(await d.motion.finished, true); assert.deepEqual(d.calls[0].view, [42, 23.3, 5]);
+assert.equal(d.calls[0].phase, 'fading'); assert.equal(rafs.size, 0); assert.equal(timers.size, 0);
+const e = setup(); [...timers.values()][0](); assert.equal(await e.motion.finished, true); assert.equal(rafs.size, 0); assert.equal(timers.size, 0, 'Hidden-tab deadline also releases finite animation callbacks.');
+console.log(JSON.stringify({ status: 'pass', timing: RETURN_TIMING, covers: ['shortest-angle interpolation', 'shared camera and square-flight easing', 'exact canonical alignment before poster fade', 'finite close-only RAF', 'cancel/new-owner safety', 'instant reduced motion', 'hidden-tab deadline'] }, null, 2));

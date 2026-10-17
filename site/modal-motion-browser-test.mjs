@@ -1,5 +1,6 @@
 /**
- * Real Chromium regression/evidence for modal chrome and bitmap-flight coordination.
+ * Real Chromium regression/evidence for modal chrome, shared live-model return,
+ * and canonical transparent-poster coordination.
  * Run after the normal production build:
  *   QA_OUTPUT_DIR=qa/modal-motion node site/modal-motion-browser-test.mjs
  * Run this identical file against the previous build with BASELINE=1. Baseline mode
@@ -15,6 +16,7 @@ import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep, basename } from 'node:path';
 import assert from 'node:assert/strict';
+import { CARD_RENDER_PRESET } from './render-preset.js';
 
 const root = resolve(process.env.GALLERY_DIR || 'dist');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/modal-motion');
@@ -31,7 +33,7 @@ const report = {
   status: 'running', mode: baseline ? 'baseline' : 'regression', commit: process.env.GITHUB_SHA || null,
   scope: onlyCases.length ? onlyCases : 'full',
   dom_raster_mode: cpuDOMRaster ? 'cpu' : 'browser-default',
-  targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, reverse_flight: 180 },
+  targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, return_move: 120, canonical_fade: 60, reverse_flight: 180 },
   note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. Real-time video runs in separate contexts from timing assertions. Pixel/GLB geometry is covered by the independent handoff browser regression, avoiding readback stalls in motion evidence.',
   cases: [], page_errors: [], screenshots: [], videos: [],
 };
@@ -59,6 +61,21 @@ function installProbe() {
     new PerformanceObserver(list => { for (const entry of list.getEntries()) longTasks.push({ start: entry.startTime, duration: entry.duration }); }).observe({ type: 'longtask', buffered: true });
   }
   const alphaCache = new WeakMap();
+  const viewCache = new WeakMap(), elementIds = new WeakMap();
+  let nextElementId = 0;
+  const elementId = element => {
+    if (!element) return null;
+    if (!elementIds.has(element)) elementIds.set(element, ++nextElementId);
+    return elementIds.get(element);
+  };
+  const view = element => {
+    if (!element) return null;
+    const canvas = element.matches('.model-canvas') ? element : element.querySelector('.model-canvas');
+    if (canvas && viewCache.has(canvas)) return viewCache.get(canvas);
+    if (element.__presentation) return { ...element.__presentation };
+    if (!element.dataset.viewDistance) return null;
+    return { azimuth_deg: Number(element.dataset.viewAzimuth), elevation_deg: Number(element.dataset.viewElevation), distance: Number(element.dataset.viewDistance) };
+  };
   const scratch = document.createElement('canvas');
   const rect = element => {
     if (!element) return null;
@@ -134,8 +151,17 @@ function installProbe() {
   };
   const visual = element => {
     if (!element) return null;
-    const a = pixelProbe ? cachedAlpha(element) : alphaCache.get(element) || null, s = style(element);
-    return { ...s, alpha: a, object: objectBounds(element, a), visible: s.effective_opacity > 0.003 && s.rect.width > 0 && s.rect.height > 0,
+    // Opening flights are retained canvases; returns are DIVs containing the
+    // actual shared WebGL canvas. Never try to drawImage the return container.
+    const source = element instanceof HTMLCanvasElement || element instanceof HTMLImageElement ? element : element.querySelector('.model-canvas');
+    const a = source ? (pixelProbe ? cachedAlpha(source) : alphaCache.get(source) || null) : null, s = style(element);
+    const child = source && source !== element ? style(source) : s;
+    return { ...s, alpha: a, object: objectBounds(source, a), view: view(element), tag: element.tagName,
+      canvas_id: source?.classList.contains('model-canvas') ? elementId(source) : null,
+      live_canvas: Boolean(source?.classList.contains('model-canvas')), canvas_rect: source ? rect(source) : null,
+      visible: Math.min(s.effective_opacity, child.effective_opacity) > 0.003 && s.rect.width > 0 && s.rect.height > 0,
+      return_phase: element.dataset.returnPhase || null,
+      return_progress: element.dataset.returnProgress === undefined ? null : Number(element.dataset.returnProgress),
       background_image: getComputedStyle(element).backgroundImage };
   };
   const animationState = dialog => dialog ? dialog.getAnimations({ subtree: true }).map(a => {
@@ -161,6 +187,11 @@ function installProbe() {
       flight: visual(dialog.querySelector('.stage-flight')), handoff: visual(host?.querySelector('.model-handoff')),
       model: visual(host?.querySelector('.model-canvas')), poster: visual(host?.querySelector('.model-poster')),
       card: visual(document.querySelector('#grid [data-id="natural-arch"] .model-preview-snapshot, #grid [data-id="natural-arch"] .model-canvas')),
+      card_poster: visual(document.querySelector('#grid [data-id="natural-arch"] .asset-image > img')),
+      origin_hidden: Boolean(document.querySelector('#grid [data-id="natural-arch"][data-detail-origin]')),
+      canonical_view: window.__modalMotionCanonical || null,
+      gpu: window.__vaultGPU ? { ...window.__vaultGPU } : null,
+      preview: window.__vaultPreview ? { ...window.__vaultPreview } : null,
       animations: animationState(dialog), overflow: document.body.style.overflow,
       scroll: { x: scrollX, y: scrollY }, viewport: { width: innerWidth, height: innerHeight } });
   };
@@ -190,12 +221,17 @@ function installProbe() {
       previousDrawProbe = window.__vaultFrameProbe;
       window.__vaultFrameProbe = entry => {
         previousDrawProbe?.(entry);
-        if (!active || !pixelProbe) return;
+        if (!active) return;
         try {
-          const a = alpha(entry.canvas); alphaCache.set(entry.canvas, a);
+          viewCache.set(entry.canvas, { ...entry.view });
+          const a = pixelProbe ? alpha(entry.canvas) : null;
+          if (a) alphaCache.set(entry.canvas, a);
           const handoff = entry.host.querySelector('.model-handoff');
           draws.push({ time: performance.now(), phase, alpha: a, object: objectBounds(entry.canvas, a), host: rect(entry.host),
-            view: entry.view, handoff: objectBounds(handoff, cachedAlpha(handoff)) });
+            host_class: entry.host.className, canvas_id: elementId(entry.canvas), mode: window.__vaultGPU?.activeMode,
+            return_phase: entry.host.dataset.returnPhase || null,
+            return_progress: entry.host.dataset.returnProgress === undefined ? null : Number(entry.host.dataset.returnProgress),
+            view: { ...entry.view }, handoff: pixelProbe ? objectBounds(handoff, cachedAlpha(handoff)) : null });
         } catch (error) { errors.push(error.message); }
       };
       snapshot('armed'); raf = requestAnimationFrame(sample);
@@ -216,6 +252,12 @@ function check(test, name, passed, detail, contract = true) {
 }
 const near = (a, b, px = 5) => Boolean(a && b && Math.hypot(a.x - b.x, a.y - b.y) <= px &&
   Math.abs(a.width / b.width - 1) <= 0.06 && Math.abs(a.height / b.height - 1) <= 0.06);
+const angleDelta = (from, to) => ((to - from + 540) % 360 + 360) % 360 - 180;
+const sameView = (a, b, degrees = 0.05, distanceRatio = 0.0001) => Boolean(a && b &&
+  Number.isFinite(a.azimuth_deg) && Number.isFinite(a.elevation_deg) && Number.isFinite(a.distance) &&
+  Number.isFinite(b.azimuth_deg) && Number.isFinite(b.elevation_deg) && Number.isFinite(b.distance) &&
+  Math.abs(angleDelta(a.azimuth_deg, b.azimuth_deg)) <= degrees &&
+  Math.abs(a.elevation_deg - b.elevation_deg) <= degrees && Math.abs(a.distance / b.distance - 1) <= distanceRatio);
 const first = (frames, fn) => frames.find(fn)?.time ?? null;
 const stableFirst = (frames, fn) => {
   let found = null;
@@ -258,11 +300,19 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
   const flights = visible.filter(f => f.flight);
   for (const f of flights) {
     if (record.pixel_probe) check(test, record.phase + ': flight contains transparent model pixels', f.flight.alpha?.pixels > 0 && f.flight.alpha.transparent_fraction > 0.2 && f.flight.alpha.corner_alpha_max <= 3 && f.flight.background_alpha === 0 && f.flight.background_image === 'none', f.flight.alpha);
-    check(test, record.phase + ': moving bitmap does not duplicate a stationary model', ![f.model, f.handoff, f.poster].some(v => v?.visible), { time: f.time, host: f.host });
-    check(test, record.phase + ': source card does not ghost through the fading chrome', !f.card?.visible, { time: f.time, card: f.card?.visible });
+    check(test, record.phase + ': flight does not duplicate a stationary detail model', ![f.model, f.handoff, f.poster].some(v => v?.visible), { time: f.time, host: f.host });
+    check(test, record.phase + ': source card has no alternate retained pose', !f.card?.visible, { time: f.time, card: f.card?.visible });
+    const alignedFade = f.flight.live_canvas && f.flight.return_phase === 'fading' && sameView(f.flight.view, f.canonical_view);
+    check(test, record.phase + ': source poster appears only after the live return is canonical', !f.card_poster?.visible || alignedFade,
+      { time: f.time, phase: f.flight.return_phase, view: f.flight.view, canonical: f.canonical_view });
+    if (f.flight.live_canvas && f.flight.return_phase === 'moving') check(test, record.phase + ': source stays hidden while live camera and bounds move', f.origin_hidden && !f.card_poster?.visible,
+      { time: f.time, origin_hidden: f.origin_hidden, poster: f.card_poster?.visible });
   }
   if (sourced) check(test, record.phase + ': sourced transition has no empty visual frame', visible.filter(f => f.source === 'raf').every(f =>
-    f.flight?.visible || f.handoff?.visible || f.model?.visible || f.poster?.visible), visible.filter(f => f.source === 'raf' && ![f.flight, f.handoff, f.model, f.poster].some(v => v?.visible)).slice(0, 3));
+    f.flight?.visible || f.handoff?.visible || f.model?.visible || f.poster?.visible || (f.marker === 'closing' && f.card_poster?.visible)),
+    visible.filter(f => f.source === 'raf' && ![f.flight, f.handoff, f.model, f.poster].some(v => v?.visible) && !(f.marker === 'closing' && f.card_poster?.visible)).slice(0, 3));
+  const gpu = record.frames.map(f => f.gpu).filter(Boolean);
+  check(test, record.phase + ': one shared renderer and at most one attached scene', gpu.length > 0 && gpu.every(s => s.renderers === 1 && s.rendererCount === 1 && s.rendererCreations === 1 && s.liveScenes <= 1), gpu.at(-1), false);
   if (opening) {
     const hosts = visible.filter(f => f.host?.rect.width > 0).map(f => f.host.rect);
     const range = Object.fromEntries(['x', 'y', 'width', 'height'].map(k => [k, hosts.length ? Math.max(...hosts.map(r => r[k])) - Math.min(...hosts.map(r => r[k])) : null]));
@@ -279,6 +329,72 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
     check(test, record.phase + ': model bounds remain continuous after flight handoff', stationary.slice(1).every((f, i) => near(stationary[i].model.object, f.model.object)), { samples: stationary.length });
   }
 }
+function validateCanonicalReturn(test, record, frames, event, before, slack) {
+  const flightFrames = frames.filter(f => f.flight), live = flightFrames.filter(f => f.flight.live_canvas);
+  const returnedDraws = record.draws.filter(d => d.time >= event.time && String(d.host_class).split(/\s+/).includes('stage-flight'));
+  const canonical = frames.find(f => f.canonical_view)?.canonical_view;
+  const initial = before?.model?.view;
+  check(test, record.phase + ': return flies the actual shared live canvas', live.length > 1 && live.length === flightFrames.length && live.every(f => f.flight.tag === 'DIV'),
+    { flights: flightFrames.length, live: live.length, tags: [...new Set(flightFrames.map(f => f.flight.tag))] });
+  check(test, record.phase + ': return keeps the same renderer canvas', Boolean(before?.model?.canvas_id) && live.every(f => f.flight.canvas_id === before.model.canvas_id) && returnedDraws.length > 1 && returnedDraws.every(d => d.canvas_id === before.model.canvas_id),
+    { before_canvas: before?.model?.canvas_id, flight_canvases: [...new Set(live.map(f => f.flight.canvas_id))], draws: returnedDraws.length });
+  check(test, record.phase + ': actual draw probe follows the moving return host', returnedDraws.length > 1 && returnedDraws.every(d => d.mode === 'return'),
+    returnedDraws.map(d => ({ time: d.time - event.time, host: d.host_class, mode: d.mode })).slice(0, 4));
+  check(test, record.phase + ': first live return draw preserves the inspected camera', sameView(returnedDraws[0]?.view, initial),
+    { before: initial, first_draw: returnedDraws[0]?.view });
+  const moving = live.filter(f => f.flight.return_phase === 'moving'), fading = live.filter(f => f.flight.return_phase === 'fading');
+  const progress = live.map(f => f.flight.return_progress);
+  check(test, record.phase + ': live return exposes bounded monotonic camera progress', moving.length > 1 && fading.length > 0 && progress.every(p => Number.isFinite(p) && p >= 0 && p <= 1) && progress.slice(1).every((p, i) => p >= progress[i] - 0.00001),
+    { moving: moving.length, fading: fading.length, progress });
+  const interpolated = moving.map(f => {
+    const eased = 1 - (1 - f.flight.return_progress) ** 3;
+    return { actual: f.flight.view, expected: initial && canonical ? {
+      azimuth_deg: initial.azimuth_deg + angleDelta(initial.azimuth_deg, canonical.azimuth_deg) * eased,
+      elevation_deg: initial.elevation_deg + (canonical.elevation_deg - initial.elevation_deg) * eased,
+      distance: initial.distance + (canonical.distance - initial.distance) * eased,
+    } : null, progress: f.flight.return_progress };
+  });
+  check(test, record.phase + ': actual camera follows eased azimuth, elevation and distance', interpolated.length > 1 && interpolated.every(sample => sameView(sample.actual, sample.expected)),
+    interpolated.filter(sample => !sameView(sample.actual, sample.expected)).slice(0, 3));
+  const firstFade = fading[0]?.time - event.time;
+  check(test, record.phase + ': canonical pose is reached at the 120 ms travel boundary', Number.isFinite(firstFade) && firstFade >= 100 && firstFade <= 120 + slack,
+    { first_fade_ms: firstFade, allowed_late_ms: slack });
+  const components = [
+    { key: 'azimuth_deg', span: initial && canonical ? angleDelta(initial.azimuth_deg, canonical.azimuth_deg) : NaN,
+      offset: value => angleDelta(initial.azimuth_deg, value) },
+    { key: 'elevation_deg', span: canonical?.elevation_deg - initial?.elevation_deg, offset: value => value - initial.elevation_deg },
+    { key: 'distance', span: canonical?.distance - initial?.distance, offset: value => value - initial.distance },
+  ];
+  for (const { key, span, offset } of components) {
+    const tolerance = key === 'distance' ? Math.max(1e-6, (canonical?.distance || 1) * 0.0001) : 0.05;
+    const values = returnedDraws.map(d => d.view?.[key]);
+    const fractions = values.map(value => Math.abs(span) > tolerance ? offset(value) / span : 0);
+    check(test, record.phase + ': actual ' + key + ' follows a continuous shortest-path return', Number.isFinite(span) && values.every(Number.isFinite) &&
+      (Math.abs(span) <= tolerance ? values.every(value => Math.abs(offset(value)) <= tolerance) :
+        fractions.every(value => value >= -0.002 && value <= 1.002) && fractions.slice(1).every((value, i) => value >= fractions[i] - 0.002) && fractions.some(value => value > 0.01 && value < 0.99)),
+      { initial: initial?.[key], canonical: canonical?.[key], actual: values });
+  }
+  check(test, record.phase + ': live camera reaches canonical pose before the poster fade', fading.length > 0 && fading.every(f => sameView(f.flight.view, canonical)) && sameView(returnedDraws.at(-1)?.view, canonical),
+    { canonical, fade_views: fading.map(f => f.flight.view), last_draw: returnedDraws.at(-1)?.view });
+  check(test, record.phase + ': live return fades over the matching visible canonical poster', fading.some(f => f.card_poster?.visible && f.flight.opacity > 0.025 && f.flight.opacity < 0.985),
+    fading.map(f => ({ time: f.time - event.time, opacity: f.flight.opacity, poster: f.card_poster?.visible })));
+  const posterBounds = fading.filter(f => f.card_poster?.object).map(f => ({ live: f.flight.object, poster: f.card_poster.object }));
+  if (record.pixel_probe) check(test, record.phase + ': canonical return silhouette lands on the canonical poster', posterBounds.length > 0 && posterBounds.every(pair => near(pair.live, pair.poster, 14)), posterBounds.slice(0, 3));
+  const firstGPU = frames.find(f => f.gpu)?.gpu, lastGPU = frames.filter(f => f.gpu).at(-1)?.gpu;
+  check(test, record.phase + ': return reuses the attached GLB without request, parse or resource churn', Boolean(firstGPU && lastGPU) &&
+    ['rendererCreations', 'networkRequests', 'parseCount', 'disposedGeometries', 'disposedMaterials', 'disposedTextures'].every(key => lastGPU[key] === firstGPU[key]),
+    { before: firstGPU, after: lastGPU }, false);
+}
+function validateReturnReversal(test, record) {
+  for (const event of record.events.filter(e => e.type === 'popstate' && e.path.endsWith('/natural-arch/'))) {
+    const entry = record.frames.find(f => f.time >= event.time && f.source === 'event:popstate');
+    if (!entry?.flight?.live_canvas) continue;
+    const firstReopenedDraw = record.draws.find(d => d.time >= event.time && !String(d.host_class).split(/\s+/).includes('stage-flight'));
+    check(test, record.phase + ': interrupted close reverses from its actual intermediate camera',
+      entry.flight.return_progress > 0 && entry.flight.return_progress < 1 && sameView(firstReopenedDraw?.view, entry.flight.view),
+      { progress: entry.flight.return_progress, interrupted_view: entry.flight.view, reopened_view: firstReopenedDraw?.view });
+  }
+}
 function validateTiming(test, record, trigger, { opening, reduced = false, sourced = false, before = null } = {}) {
   const analysis = analyze(record, trigger), { summary: s, frames, visible, event } = analysis;
   if (opening) { s.chrome_gone_ms = null; s.dialog_closed_ms = null; }
@@ -293,6 +409,12 @@ function validateTiming(test, record, trigger, { opening, reduced = false, sourc
       check(test, record.phase + ': shell, backdrop and content visibly interpolate', s.shell_progress_samples > 0 && s.backdrop_progress_samples > 0 && s.content_progress_samples > 0, s);
       check(test, record.phase + ': content enters before the old 300 ms flight boundary', visible.some(f => f.time - event.time < 220 && f.content.some(c => c.effective_opacity > 0.1)), s);
     }
+    const inputFrame = frames.find(f => f.source === 'event:' + event.type), entryView = inputFrame?.card?.view || inputFrame?.flight?.view;
+    if (sourced && entryView) {
+      const firstModel = record.draws.find(d => d.time >= event.time && !String(d.host_class).split(/\s+/).includes('stage-flight'));
+      check(test, record.phase + ': opening starts from the current hover or interrupted live pose', sameView(firstModel?.view, entryView),
+        { input: entryView, first_detail_draw: firstModel?.view });
+    }
   } else {
     check(test, record.phase + ': chrome vanishes without an opaque closing tail', s.chrome_gone_ms !== null && s.chrome_gone_ms <= (reduced ? 80 : 140) + slack, { actual_ms: s.chrome_gone_ms, limit_ms: (reduced ? 80 : 140) + slack });
     check(test, record.phase + ': click-to-dialog-close is bounded', s.dialog_closed_ms !== null && s.dialog_closed_ms <= (reduced ? 80 : 180) + slack, { actual_ms: s.dialog_closed_ms, limit_ms: (reduced ? 80 : 180) + slack });
@@ -300,15 +422,18 @@ function validateTiming(test, record, trigger, { opening, reduced = false, sourc
     if (!reduced && sourced) {
       const flights = visible.filter(f => f.flight?.visible);
       check(test, record.phase + ': reverse flight actually runs', flights.length > 1, { frames: flights.length });
-      check(test, record.phase + ': closing keeps the transparent bitmap after chrome fades', flights.some(f => f.shell.opacity <= 0.04), flights.map(f => ({ t: f.time - event.time, shell: f.shell.opacity })));
-      const flightDurations = flights.flatMap(f => f.animations.filter(a => String(a.target).includes('stage-flight')).map(a => a.duration));
-      check(test, record.phase + ': reverse flight is an 180 ms animation', flightDurations.length > 0 && flightDurations.every(ms => typeof ms === 'number' && ms <= 180 && ms >= 160), flightDurations);
-      if (before?.model?.object) check(test, record.phase + ': first reverse bitmap matches current model bounds', near(before?.model?.object, flights[0]?.flight?.object, 12), { before: before?.model?.object, first: flights[0]?.flight?.object });
-      const retained = frames.filter(f => !f.open && f.card?.object).at(-1)?.card?.object;
-      if (flights.at(-1)?.flight?.object && retained) check(test, record.phase + ': reverse bitmap lands on the retained card', near(flights.at(-1)?.flight?.object, retained, 14), { last: flights.at(-1)?.flight?.object, retained });
+      check(test, record.phase + ': closing keeps the transparent live model after chrome fades', flights.some(f => f.shell.opacity <= 0.04), flights.map(f => ({ t: f.time - event.time, shell: f.shell.opacity })));
+      if (before?.model?.object) check(test, record.phase + ': first live return matches current model bounds', near(before.model.object, flights[0]?.flight?.object, 12), { before: before.model.object, first: flights[0]?.flight?.object });
+      validateCanonicalReturn(test, record, frames, event, before, slack);
     }
   }
   if (reduced) check(test, record.phase + ': reduced motion has no flight or ongoing chrome animation', visible.every(f => !f.flight && !f.animations.some(a => a.play_state === 'running' && Number(a.duration) > 0)), { samples: visible.length });
+  if (reduced && !opening && sourced) {
+    const canonical = frames.find(f => f.canonical_view)?.canonical_view;
+    const lastReturn = record.draws.filter(d => String(d.host_class).split(/\s+/).includes('stage-flight')).at(-1);
+    check(test, record.phase + ': reduced close immediately settles on the canonical poster', sameView(lastReturn?.view, canonical) &&
+      frames.some(f => !f.open && f.card_poster?.visible && !f.card), { canonical, final_return_view: lastReturn?.view });
+  }
 }
 
 async function arm(page, phase, pixels = false) { await page.evaluate(({ phase, pixels }) => window.__modalMotionQA.arm(phase, { pixels }), { phase, pixels }); }
@@ -318,6 +443,10 @@ async function ready(page) {
     const d = document.querySelector('#viewer-dialog'), h = document.querySelector('#canvas-host');
     return d?.open && h?.dataset.modelState === 'ready' && h.dataset.presentedUrl?.endsWith('/natural-arch.glb') && Number(h.dataset.renderTriangles) > 0;
   }, null, { timeout: 30000 });
+  await page.evaluate(camera => {
+    window.__modalMotionCanonical ||= { azimuth_deg: camera.azimuth_deg, elevation_deg: camera.elevation_deg,
+      distance: Number(document.querySelector('#canvas-host').dataset.viewDistance) };
+  }, CARD_RENDER_PRESET.camera);
   report.runtime_info ||= await page.evaluate(() => {
     const gl = document.querySelector('.model-canvas').getContext('webgl2');
     const debug = gl.getExtension('WEBGL_debug_renderer_info');
@@ -350,6 +479,12 @@ async function catalog(page, { touch = false, lang = '' } = {}) {
     return card?.dataset.previewState === 'ready' && card.querySelector('.asset-image .model-canvas')?.width > 0;
   });
   await page.waitForTimeout(100);
+  // Hover inspection changes azimuth without changing fitted distance. Keep an
+  // independent canonical reference before the detail view can zoom or orbit.
+  await page.evaluate(camera => {
+    window.__modalMotionCanonical = { azimuth_deg: camera.azimuth_deg, elevation_deg: camera.elevation_deg,
+      distance: Number(document.querySelector('#grid [data-id="natural-arch"] .asset-image').dataset.viewDistance) };
+  }, CARD_RENDER_PRESET.camera);
 }
 async function cleanupState(page, open) {
   return page.evaluate(open => {
@@ -357,6 +492,16 @@ async function cleanupState(page, open) {
     return { expected_open: open, open: dialog.open, marker: dialog.dataset.modalMotion || null, path: location.pathname,
       overflow: document.body.style.overflow, hidden_origins: document.querySelectorAll('[data-detail-origin]').length, flights: document.querySelectorAll('.stage-flight').length,
       handoffs: document.querySelectorAll('.model-handoff').length, canvases: document.querySelectorAll('#canvas-host .model-canvas').length,
+      card_canvases: document.querySelectorAll('#grid .model-canvas').length,
+      retained_snapshots: document.querySelectorAll('.model-preview-snapshot').length,
+      preview_active: window.__vaultPreview?.activeId ?? null,
+      card_poster: (() => {
+        const image = document.querySelector('#grid [data-id="natural-arch"] .asset-image > img');
+        if (!image) return null;
+        const css = getComputedStyle(image);
+        return { loaded: image.complete && image.naturalWidth > 0, visible: css.visibility !== 'hidden' && css.display !== 'none' && Number(css.opacity) >= 0.985,
+          source: image.currentSrc || image.src };
+      })(),
       live_scenes: window.__vaultGPU?.liveScenes ?? null, focus_id: document.activeElement?.dataset.id || null,
       active_animations: dialog.getAnimations({ subtree: true }).filter(a => a.playState === 'running' || a.playState === 'paused').map(a => ({ target: a.effect?.target?.id || a.effect?.target?.className, state: a.playState })),
       host_opacity: document.querySelector('#canvas-host').style.opacity, layout_class: document.querySelector('.viewer-layout').className };
@@ -364,10 +509,16 @@ async function cleanupState(page, open) {
 }
 async function assertClean(page, test, open) {
   await page.waitForFunction(open => document.querySelector('#viewer-dialog').open === open, open, { timeout: 5000 });
+  const sourced = test.label !== 'direct-route-no-origin';
+  if (!open) await page.waitForFunction(sourced => {
+    const grid = document.querySelector('#grid'), image = grid?.querySelector('[data-id="natural-arch"] .asset-image > img');
+    return grid?.getAttribute('aria-busy') === 'false' && !document.querySelector('#catalog-page').hidden && (!sourced || (image?.complete && image.naturalWidth > 0));
+  }, sourced, { timeout: 15000 });
   const state = await cleanupState(page, open); (test.cleanup ||= []).push(state);
   check(test, 'Final dialog and route agree', state.open === open && (open ? state.path.endsWith('/natural-arch/') : state.path.endsWith('/models/')), state, false);
   check(test, 'No stale flights, handoffs, animation locks or body lock', state.flights === 0 && state.handoffs === 0 && state.active_animations.length === 0 && state.host_opacity !== '0' && !state.layout_class.includes('motion-running') && (open ? state.overflow === 'hidden' : state.overflow !== 'hidden' && state.hidden_origins === 0), state);
   check(test, 'Exactly the expected number of live detail scenes', state.canvases === (open ? 1 : 0) && (state.live_scenes === null || state.live_scenes === (open ? 1 : 0)), state, false);
+  if (!open) check(test, 'Closed browsing settles on canonical posters without retained inspection', state.card_canvases === 0 && state.retained_snapshots === 0 && state.preview_active === null && (!sourced || (state.card_poster?.loaded && state.card_poster.visible)), state);
 }
 
 async function sequence(page, test, label, action) {
@@ -552,9 +703,10 @@ async function roundTrip(page, test, { touch = false, reduced = false, lang = ''
   validateTiming(test, opened, e => e.type === 'click' && e.target === 'card:natural-arch', { opening: true, reduced, sourced: true });
   if (touch) check(test, 'Mobile open was a trusted touch tap', opened.events.some(e => e.type === 'pointerup' && e.pointer_type === 'touch' && e.trusted) && opened.events.some(e => e.type === 'touchend' && e.trusted), opened.events, false);
   await page.waitForTimeout(250); await assertClean(page, test, true);
-  // Change the actual GLB camera so close cannot silently substitute the poster.
+  // Change all three actual GLB camera coordinates so the return must visibly
+  // interpolate inspected azimuth/elevation/zoom toward the canonical poster.
   await arm(page, 'close');
-  await page.locator('#canvas-host').focus(); await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowUp');
+  await page.locator('#canvas-host').focus(); await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowUp'); await page.keyboard.press('+');
   await page.waitForTimeout(100);
   const before = await page.evaluate(() => window.__modalMotionQA.snapshot());
   await page.locator('#close')[touch ? 'tap' : 'click'](); const closed = await collect(page, 600); test.measurements.push(closed);
@@ -593,7 +745,7 @@ try {
     await catalog(page); await arm(page, 'interrupted-open-close-reopen');
     await page.locator(cardSelector).click(); await page.waitForTimeout(55); await page.keyboard.press('Escape');
     await page.waitForTimeout(35); await page.evaluate(() => history.forward()); await ready(page);
-    const record = await collect(page, 1000); test.measurements.push(record); validateInvariant(test, record, { sourced: true });
+    const record = await collect(page, 1000); test.measurements.push(record); validateInvariant(test, record, { sourced: true }); validateReturnReversal(test, record);
     const forward = record.events.filter(e => e.type === 'popstate' && e.path.endsWith('/natural-arch/')).at(-1);
     check(test, 'Fast reversal includes the final detail traversal', Boolean(forward), record.events, false);
     const reopening = { ...record, phase: 'interrupted-reopen', frames: record.frames.filter(f => f.time >= forward.time),
@@ -621,7 +773,7 @@ try {
     }
     await arm(page, 'history-interruption');
     await page.evaluate(() => { history.back(); setTimeout(() => history.forward(), 35); });
-    await ready(page); const interrupted = await collect(page, 1000); test.measurements.push(interrupted); validateInvariant(test, interrupted); await assertClean(page, test, true);
+    await ready(page); const interrupted = await collect(page, 1000); test.measurements.push(interrupted); validateInvariant(test, interrupted); validateReturnReversal(test, interrupted); await assertClean(page, test, true);
     await page.keyboard.press('Escape'); await page.waitForTimeout(600); await assertClean(page, test, false);
   });
   await runCase('direct-route-no-origin', {}, async (page, test) => {

@@ -69,6 +69,16 @@ async function stopped(page) {
   assert.equal(await page.locator('#grid .model-preview-snapshot').count(), 0);
   const s = await gpu(page); if (s.rendererCreations) bounded(s);
 }
+async function canonicalPoster(page, id) {
+  await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open && !document.querySelector('.stage-flight') && window.__vaultPreview?.activeId === null && (!window.__vaultGPU || (window.__vaultGPU.liveScenes === 0 && window.__vaultGPU.rafPending === 0)));
+  assert.equal(await page.locator('.model-canvas,.model-preview-snapshot').count(), 0, 'Completed close detaches 3D without retaining an inspected-angle bitmap');
+  assert(await page.locator(selector(id)).locator('.asset-image').evaluate(host => {
+    const image = host.querySelector('img');
+    if (!image?.complete || !image.naturalWidth || host.querySelectorAll('img').length !== 1 || host.closest('[data-detail-origin]')) return false;
+    for (let node = image; node; node = node.parentElement) { const css = getComputedStyle(node); if (css.display === 'none' || css.visibility === 'hidden' || Number(css.opacity) < .99) return false; }
+    return true;
+  }), 'The source card must visibly return to its single canonical transparent poster');
+}
 async function detail(page, id) {
   await page.waitForURL(url => url.pathname.endsWith(`/models/${id}/`));
   await page.waitForFunction(id => { const h = document.querySelector('#canvas-host'); return h?.dataset.modelState === 'ready' && h.dataset.presentedUrl?.endsWith('/' + id + '.glb') && Number(h.dataset.renderTriangles) > 0; }, id, { timeout: 30000 });
@@ -165,6 +175,7 @@ async function desktop() {
     assert.equal(report.measurements.handoff.blank_frames, 0, 'No empty visual during delayed or cached next/previous handoff');
     await page.unroute('**/*.glb');
     await page.locator('#close').click(); await page.locator('#viewer-dialog').waitFor({ state: 'hidden' });
+    await canonicalPoster(page, 'natural-arch');
     assert.equal((await gpu(page)).liveScenes, 0); assert.equal(await page.locator('.model-canvas').count(), 0);
     check('Warm card/detail reuses exact canvas and decoded resource with no network/parse; angle continuity and rapid next/previous stay painted.');
     noSequenceRequests(start);

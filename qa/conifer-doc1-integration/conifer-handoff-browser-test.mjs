@@ -1,10 +1,11 @@
-// Existing handoff assertions targeted at conifer; distinct failure warmer and matched square sampling.
+// Handoff assertions targeted at conifer; distinct failure warmer and matched square sampling.
 /** Real browser regression coverage for shared-model card/detail continuity and interrupted navigation. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import assert from 'node:assert/strict';
+import { CARD_RENDER_PRESET } from '../../site/render-preset.js';
 
 const root = resolve(process.env.GALLERY_DIR || 'dist');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/handoff-continuity');
@@ -164,17 +165,15 @@ async function angles(page) { return page.locator('#canvas-host').evaluate(host 
 const deltaAngle = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 async function startSampler(page) {
   await page.evaluate(() => {
-    window.__handoffReview = { phase: 'preview', frames: [], draws: [], probe_errors: [], pixelSignatures: new WeakMap() };
+    window.__handoffReview = { phase: 'preview', frames: [], draws: [], returnDraws: [], probe_errors: [], pixelSignatures: new WeakMap() };
     const alphaCache = new WeakMap(), sampleCanvas = document.createElement('canvas');
     const rectOf = element => { const r = element.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; };
     const readAlpha = source => {
       const sw = source.naturalWidth || source.width, sh = source.naturalHeight || source.height;
       if (!sw || !sh) return null;
       // Compare equal visible-square raster footprints. A mobile detail canvas
-      // is 2:1 while its retained preview is square: capping the longest edge
-      // sampled the model at half the preview's resolution and dropped needle
-      // tips before measuring bounds. Use the actual detail square's physical
-      // pixels (capped at384) for both surfaces; keep every continuity tolerance.
+      // is 2:1 while its square preview/return is square. Cap the visible square
+      // at 384 physical pixels for all surfaces without changing tolerances.
       const host = document.querySelector('#canvas-host').getBoundingClientRect();
       const square = Math.max(1, Math.min(384, Math.round(Math.min(host.width, host.height) * devicePixelRatio)));
       const ratio = square / Math.min(sw, sh);
@@ -234,21 +233,55 @@ async function startSampler(page) {
     window.__vaultFrameProbe = ({ canvas, host, view }) => {
       try {
         const alpha = readAlpha(canvas); alphaCache.set(canvas, alpha);
-        if (host.id !== 'canvas-host') {
-          window.__handoffReview.pixelSignatures.set(canvas, pixelSignature(canvas));
+        const signature = pixelSignature(canvas);
+        window.__handoffReview.pixelSignatures.set(canvas, signature);
+        if (host.classList.contains('stage-flight')) {
+          const progress = Number(host.dataset.returnProgress), returnPhase = host.dataset.returnPhase;
+          const draw = { time: performance.now(), phase: window.__handoffReview.phase, progress, returnPhase,
+            host: rectOf(host), alpha, object: projected(canvas, alpha), view, pixels: signature,
+            actualSharedCanvas: canvas === window.__openingCardSurface,
+            originHidden: Boolean(document.querySelector('[data-detail-origin]')),
+            opacity: Number(getComputedStyle(host).opacity),
+            styleResources: { referenceObjects: window.__vaultGPU.referenceObjects, returnOverlayMeshes: window.__vaultGPU.returnOverlayMeshes || 0, returnOverlayMaterials: window.__vaultGPU.returnOverlayMaterials || 0 } };
+          if (returnPhase === 'fading' && draw.opacity > 0 && draw.opacity < 1) {
+            const poster = window.__originalReviewCard.querySelector('.asset-image > img');
+            const side = Math.min(canvas.width, canvas.height), scale = Math.min(1, 1024 / side), live = document.createElement('canvas');
+            live.width = live.height = Math.round(side * scale);
+            live.getContext('2d').drawImage(canvas, (canvas.width - side) / 2, (canvas.height - side) / 2, side, side, 0, 0, live.width, live.height);
+            const composite = document.createElement('canvas'); composite.width = live.width; composite.height = live.height;
+            const context = composite.getContext('2d'); context.drawImage(poster, 0, 0, composite.width, composite.height);
+            context.globalAlpha = draw.opacity; context.drawImage(live, 0, 0);
+            draw.visiblePixels = pixelSignature(composite); draw.visibleAlpha = readAlpha(composite);
+          }
+          window.__handoffReview.returnDraws.push(draw);
+          // Preserve the real endpoint draw before its non-preserved WebGL buffer
+          // clears or the live scene is detached. No bitmap substitutes for flight.
+          if (progress >= 1 && !window.__handoffReview.returnEndpoint) {
+            const side = Math.min(canvas.width, canvas.height), copy = document.createElement('canvas');
+            copy.width = copy.height = side;
+            copy.getContext('2d').drawImage(canvas, (canvas.width - side) / 2, (canvas.height - side) / 2, side, side, 0, 0, side, side);
+            window.__handoffReview.returnEndpoint = { png: copy.toDataURL('image/png'), draw };
+            sample(false);
+            queueMicrotask(() => { if (host.isConnected) sample(false); });
+          }
+          if (window.__reverseReturnAtProgress && !window.__handoffReview.reversalRequested && progress >= window.__reverseReturnAtProgress && progress < 1) {
+            window.__handoffReview.reversalRequested = true;
+            setTimeout(() => { window.__handoffReview.phase = 'reversal'; history.forward(); }, 0);
+          }
           return;
         }
+        if (host.id !== 'canvas-host') return;
         window.__handoffReview.latestLiveAlpha = alpha;
         const overlay = host.querySelector('.model-handoff'), overlayAlpha = alphaFor(overlay);
-        if (window.__handoffReview.phase === 'open' && overlay && !window.__handoffReview.openingHandoff) {
+        if (['open', 'reversal'].includes(window.__handoffReview.phase) && overlay && !window.__handoffReview[window.__handoffReview.phase === 'reversal' ? 'reversalHandoff' : 'openingHandoff']) {
           // A reduced-motion cached show can retire its overlay before the next
           // Playwright task. Observe the actual copy before ready releases it.
-          window.__handoffReview.openingHandoff = {
+          window.__handoffReview[window.__handoffReview.phase === 'reversal' ? 'reversalHandoff' : 'openingHandoff'] = {
             copied: overlay instanceof HTMLCanvasElement && overlay !== window.__openingCardSurface,
-            pixels: pixelSignature(overlay),
+            pixels: pixelSignature(overlay), alpha: overlayAlpha,
           };
         }
-        window.__handoffReview.draws.push({ time: performance.now(), phase: window.__handoffReview.phase, host: rectOf(host), alpha, object: projected(canvas, alpha), view,
+        window.__handoffReview.draws.push({ time: performance.now(), phase: window.__handoffReview.phase, host: rectOf(host), alpha, object: projected(canvas, alpha), view, pixels: signature,
           overlay: overlay ? { alpha: overlayAlpha, object: projected(overlay, overlayAlpha) } : null });
       } catch (error) { window.__handoffReview.probe_errors.push(error.message); }
     };
@@ -267,18 +300,28 @@ async function startSampler(page) {
       const host = document.querySelector('#canvas-host'), flight = document.querySelector('.stage-flight'), overlay = host.querySelector('.model-handoff'), model = host.querySelector('.model-canvas');
       if (document.querySelector('#viewer-dialog')?.open) {
         const stationaryVisible = [...host.querySelectorAll('canvas,img')].some(visible);
-        const hasVisual = stationaryVisible || visible(flight);
-        const entry = { time: performance.now(), phase: window.__handoffReview.phase, hasVisual, stationaryVisible, state: host.dataset.modelState, host: rectOf(host),
+        const canonicalPosterVisible = flight?.dataset.returnPhase === 'fading' && visible(window.__originalReviewCard?.querySelector('.asset-image > img'));
+        const hasVisual = stationaryVisible || visible(flight) || canonicalPosterVisible;
+        const entry = { time: performance.now(), phase: window.__handoffReview.phase, sampledBy: schedule ? 'raf' : 'synchronous', hasVisual, stationaryVisible, canonicalPosterVisible, state: host.dataset.modelState, host: rectOf(host),
           model: model ? { alpha: alphaFor(model), object: projected(model, alphaFor(model)), visible: visible(model) } : null,
           overlay: overlay ? { alpha: alphaFor(overlay), object: projected(overlay, alphaFor(overlay)), opacity: Number(getComputedStyle(overlay).opacity), css_background_alpha: cssBackgroundAlpha(overlay) } : null };
         if (flight && visible(flight)) {
-          const r = flight.getBoundingClientRect(), iw = flight.naturalWidth || flight.width, ih = flight.naturalHeight || flight.height;
-          const contentScale = Math.min(r.width / iw, r.height / ih);
-          const alpha = alphaFor(flight);
+          // Opening may use a copied canvas; return must measure the actual
+          // shared model-canvas inside its moving DIV, never the wrapper as pixels.
+          const surface = flight.querySelector('.model-canvas') || flight;
+          const r = surface.getBoundingClientRect(), iw = surface.naturalWidth || surface.width, ih = surface.naturalHeight || surface.height;
+          const contentScale = Math.min(r.width / iw, r.height / ih), alpha = alphaFor(surface);
           entry.flight = { square: Math.min(iw, ih) * contentScale, x: r.x + r.width / 2, y: r.y + r.height / 2, width: iw, height: ih,
-            alpha, object: projected(flight, alpha), css_background_alpha: cssBackgroundAlpha(flight), css_background_image: getComputedStyle(flight).backgroundImage };
+            kind: flight instanceof HTMLCanvasElement ? 'bitmap-open' : 'live-return', actualSharedCanvas: surface === window.__openingCardSurface,
+            progress: Number(flight.dataset.returnProgress), returnPhase: flight.dataset.returnPhase, opacity: Number(getComputedStyle(flight).opacity),
+            originHidden: Boolean(document.querySelector('[data-detail-origin]')),
+            alpha, object: projected(surface, alpha), css_background_alpha: cssBackgroundAlpha(flight), css_background_image: getComputedStyle(flight).backgroundImage };
         }
         window.__handoffReview.frames.push(entry);
+        if (window.__reverseReturnPhase === 'fading' && !window.__handoffReview.reversalRequested && entry.flight?.returnPhase === 'fading' && entry.flight.opacity > 0 && entry.flight.opacity < 1) {
+          window.__handoffReview.reversalRequested = true;
+          window.__handoffReview.phase = 'reversal'; history.forward();
+        }
       }
       if (schedule) window.__handoffReviewRAF = requestAnimationFrame(() => sample());
     };
@@ -367,6 +410,111 @@ async function dynamicContinuity(page, caseReport, frames) {
   }
 }
 
+async function canonicalReturnCoverage(page, label, caseReport, canonical, beforeClose, options) {
+  const evidence = await page.evaluate(() => ({ draws: window.__handoffReview.returnDraws, endpoint: window.__handoffReview.returnEndpoint }));
+  caseReport.canonical_return = { draws: evidence.draws, endpoint: evidence.endpoint?.draw || null };
+  if (options.reducedMotion === 'reduce') {
+    assert(evidence.draws.every(draw => draw.progress === 0 || draw.progress === 1), 'Reduced motion skips intermediate camera return poses');
+    // Synchronous endpoint draws may occur inside one unpainted task; no motion
+    // may survive into the browser-painted RAF sequence.
+    return;
+  }
+  const draws = evidence.draws;
+  assert(draws.length > 2, 'Ordinary close must draw the actual live model while returning');
+  assert(draws.every(draw => draw.actualSharedCanvas), 'Every returning draw uses the original shared WebGL canvas');
+  const first = draws[0], last = draws.at(-1), intermediate = draws.filter(draw => draw.progress > 0 && draw.progress < 1);
+  assert.equal(first.progress, 0, 'The first returning frame begins at the inspected pose');
+  assert(intermediate.length > 0, 'Camera return must include an actual intermediate draw before the canonical endpoint');
+  const expectedAngleStep = ((canonical.azimuth - beforeClose.azimuth + 540) % 360) - 180;
+  for (let i = 0; i < draws.length; i++) {
+    const draw = draws[i], p = draw.progress, k = 1 - (1 - p) ** 3;
+    assert(Number.isFinite(p) && p >= 0 && p <= 1, 'Each real return draw advertises bounded analytic progress');
+    assert(!i || p >= draws[i - 1].progress, 'Return progress must never move backwards');
+    assert(deltaAngle(draw.view.azimuth_deg, beforeClose.azimuth + expectedAngleStep * k) < 0.001,
+      'Actual rendered camera azimuth must follow shortest-arc cubic interpolation');
+    assert(Math.abs(draw.view.elevation_deg - (beforeClose.elevation + (canonical.elevation - beforeClose.elevation) * k)) < 0.001,
+      'Actual rendered camera elevation must follow cubic interpolation');
+    assert(Math.abs(draw.view.distance - (beforeClose.distance + (canonical.distance - beforeClose.distance) * k)) < 0.00001,
+      'Actual rendered camera distance must follow cubic interpolation');
+    assert(draw.alpha.transparent_fraction > 0.2 && draw.alpha.corner_alpha_max <= 3, 'Every live return frame preserves transparent surrounding pixels');
+    if (p < 1) {
+      assert.equal(draw.returnPhase, 'moving');
+      assert(draw.originHidden, 'The canonical poster stays hidden until the moving live model aligns');
+      assert(Math.abs(draw.opacity - 1) < 0.001, 'The current pose remains fully visible while moving');
+    } else {
+      assert.equal(draw.returnPhase, 'fading');
+    }
+  }
+  assert(deltaAngle(first.view.azimuth_deg, beforeClose.azimuth) < 0.001 && Math.abs(first.view.distance - beforeClose.distance) < 0.00001,
+    'Closing must not instantly reset the inspected pose');
+  assert(deltaAngle(last.view.azimuth_deg, canonical.azimuth) < 0.001 && Math.abs(last.view.elevation_deg - canonical.elevation) < 0.001 && Math.abs(last.view.distance - canonical.distance) < 0.00001,
+    'The actual live camera must reach the canonical poster pose before detaching');
+  assert(evidence.endpoint?.png, 'Canonical endpoint pixels must come from the actual synchronous WebGL draw');
+  if (options.returnStyles) {
+    assert.equal(first.styleResources.referenceObjects, 1, 'The first returning draw preserves the inspected scale reference');
+    assert(intermediate.some(draw => draw.styleResources.returnOverlayMeshes > 0 && draw.styleResources.returnOverlayMaterials > 0), 'Styled close must actually blend its original wireframe layer during camera travel');
+    assert.equal(last.styleResources.referenceObjects, 0, 'Canonical endpoint removes the scale reference before fading');
+    assert.equal(last.styleResources.returnOverlayMeshes, 0, 'Canonical endpoint removes temporary wireframe meshes before fading');
+    assert.equal(last.styleResources.returnOverlayMaterials, 0, 'Canonical endpoint disposes temporary wireframe materials before fading');
+  }
+  const parity = await page.evaluate(async ({ png, posterSrc }) => {
+    const size = 320, load = async src => { const image = new Image(); image.src = src; await image.decode(); return image; };
+    const [actualImage, poster] = await Promise.all([load(png), load(posterSrc)]);
+    const normalize = image => {
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = size;
+      const side = Math.min(image.naturalWidth, image.naturalHeight), context = canvas.getContext('2d');
+      context.drawImage(image, (image.naturalWidth - side) / 2, (image.naturalHeight - side) / 2, side, side, 0, 0, size, size);
+      const pixels = context.getImageData(0, 0, size, size).data;
+      let left = size, right = -1, top = size, bottom = -1, count = 0, sx = 0, sy = 0, transparent = 0;
+      for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
+        const alpha = pixels[(y * size + x) * 4 + 3];
+        if (alpha <= 3) transparent++;
+        if (alpha <= 16) continue;
+        left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y); count++; sx += x; sy += y;
+      }
+      return { canvas, pixels, foreground: { bbox: { left, top, right, bottom }, centroid: { x: sx / count, y: sy / count }, pixels: count },
+        alpha: { transparent_fraction: transparent / (size * size), corner_alpha_max: Math.max(pixels[3], pixels[(size - 1) * 4 + 3], pixels[((size - 1) * size) * 4 + 3], pixels.at(-1)) } };
+    };
+    const actual = normalize(actualImage), expected = normalize(poster);
+    // Composite both transparent sources on the same white backing. Alpha-aware
+    // RGB comparison excludes undefined RGB in fully transparent WebP pixels.
+    let error = 0;
+    for (let i = 0; i < actual.pixels.length; i += 4) for (let c = 0; c < 3; c++) {
+      const a = actual.pixels[i + 3] / 255, b = expected.pixels[i + 3] / 255;
+      error += Math.abs(actual.pixels[i + c] * a + 255 * (1 - a) - expected.pixels[i + c] * b - 255 * (1 - b));
+    }
+    return { posterSrc, posterDimensions: [poster.naturalWidth, poster.naturalHeight], normalizedSize: size,
+      mean_rgb_absolute_error: error / (size * size * 3 * 255),
+      bbox_delta_px: Math.max(...Object.keys(actual.foreground.bbox).map(key => Math.abs(actual.foreground.bbox[key] - expected.foreground.bbox[key]))),
+      centroid_delta_px: Math.hypot(actual.foreground.centroid.x - expected.foreground.centroid.x, actual.foreground.centroid.y - expected.foreground.centroid.y),
+      actualForeground: actual.foreground, expectedForeground: expected.foreground, liveAlpha: actual.alpha, posterAlpha: expected.alpha,
+      actual_png: actual.canvas.toDataURL('image/png'), poster_png: expected.canvas.toDataURL('image/png') };
+  }, { png: evidence.endpoint.png, posterSrc: caseReport.returned.src });
+  const { actual_png, poster_png, ...measurements } = parity;
+  caseReport.canonical_return.pixel_parity = measurements;
+  await writeFile(resolve(output, label + '-canonical-live-endpoint.png'), Buffer.from(actual_png.split(',')[1], 'base64'));
+  await writeFile(resolve(output, label + '-canonical-poster-reference.png'), Buffer.from(poster_png.split(',')[1], 'base64'));
+  report.screenshots.push(label + '-canonical-live-endpoint.png', label + '-canonical-poster-reference.png');
+  assert(measurements.actualForeground.pixels > 100 && measurements.expectedForeground.pixels > 100, 'Canonical parity measures a real model silhouette');
+  assert(measurements.liveAlpha.transparent_fraction > 0.2 && measurements.liveAlpha.corner_alpha_max <= 3, 'The live canonical endpoint must retain true alpha');
+  assert(measurements.posterAlpha.transparent_fraction > 0.2 && measurements.posterAlpha.corner_alpha_max <= 3, 'Normal browsing must use a transparent canonical poster');
+  assert(measurements.mean_rgb_absolute_error < 0.04, 'The actual live canonical endpoint must match the visible poster lighting and pixels');
+  assert(measurements.bbox_delta_px <= 8, 'The actual canonical endpoint silhouette must match the poster within 8 pixels');
+  assert(measurements.centroid_delta_px <= 8, 'The actual canonical endpoint center must match the poster within 8 pixels');
+  const endpoint = evidence.endpoint.draw.object, reference = measurements.expectedForeground, returned = caseReport.returned;
+  const expectedOnCard = {
+    x: returned.x + (reference.centroid.x / 320 - 0.5) * returned.square,
+    y: returned.y + (reference.centroid.y / 320 - 0.5) * returned.square,
+    width: (reference.bbox.right - reference.bbox.left + 1) / 320 * returned.square,
+    height: (reference.bbox.bottom - reference.bbox.top + 1) / 320 * returned.square,
+  };
+  const alignment = { center_step_px: Math.hypot(endpoint.x - expectedOnCard.x, endpoint.y - expectedOnCard.y),
+    scale_step: Math.max(Math.abs(endpoint.width / expectedOnCard.width - 1), Math.abs(endpoint.height / expectedOnCard.height - 1)) };
+  caseReport.canonical_return.poster_alignment = alignment;
+  assert(alignment.center_step_px <= 3, 'The canonical live endpoint must align with the poster model center before fading');
+  assert(alignment.scale_step <= 0.03, 'The canonical live endpoint must align with the poster silhouette scale before fading');
+}
+
 async function directDetails() {
   const context = await makeContext('direct-auto-load'); const { page } = context;
   try {
@@ -427,6 +575,8 @@ async function roundTrip(label, options = {}) {
     assert.equal(caseReport.open_resources.cachedScenes, caseReport.preview_resources.cachedScenes, 'Opening detail must not add a duplicate decoded scene');
     assert(caseReport.open_resources.resourceReuses > caseReport.preview_resources.resourceReuses, 'Detail must acquire the retained decoded resource');
     const initial = await angles(page);
+    const canonical = { azimuth: CARD_RENDER_PRESET.camera.azimuth_deg, elevation: CARD_RENDER_PRESET.camera.elevation_deg, distance: initial.distance };
+    caseReport.canonical = canonical;
     assert(deltaAngle(initial.azimuth, 147) < 0.001, 'The 7/24 preview angle enters actual 3D unchanged');
     await page.waitForTimeout(350);
     await page.waitForFunction(() => !document.querySelector('#canvas-host .model-handoff') && !document.querySelector('.stage-flight'));
@@ -438,6 +588,11 @@ async function roundTrip(label, options = {}) {
     await page.waitForFunction(previous => Math.abs(Number(document.querySelector('#canvas-host').dataset.viewAzimuth) - previous) > 0.1, initial.azimuth);
     await page.locator('#zoom-in').click();
     await page.waitForFunction(previous => Number(document.querySelector('#canvas-host').dataset.viewDistance) < previous * 0.99, initial.distance);
+    if (options.returnStyles) {
+      await page.locator('#wireframe').click(); await page.locator('#scale-reference').click();
+      await page.waitForFunction(() => document.querySelector('#wireframe').ariaPressed === 'true' && document.querySelector('#scale-reference').ariaPressed === 'true' && window.__vaultGPU.referenceObjects === 1);
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    }
     const beforeClose = await angles(page);
     caseReport.beforeClose = beforeClose;
     await screenshot(page, label + '-detail-before-close');
@@ -445,17 +600,26 @@ async function roundTrip(label, options = {}) {
     await page.locator('#close').click(); await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
     await page.waitForTimeout(150);
     assert(await card.evaluate(node => node === window.__originalReviewCard), 'Same-list close keeps the original card DOM');
-    assert.equal(await card.locator('.model-preview-snapshot').count(), 1, 'The returned card retains the actual current detail image');
-    const returned = await card.locator('.model-preview-snapshot').evaluate(node => {
-      const r = node.getBoundingClientRect(); return { square: Math.min(r.width, r.height), x: r.x + r.width / 2, y: r.y + r.height / 2 };
+    await page.waitForFunction(() => !document.querySelector('.stage-flight, [data-detail-origin]'));
+    assert.equal(await card.locator('.model-preview-snapshot, .model-canvas').count(), 0, 'Completed close leaves only the canonical poster on the card');
+    const returned = await card.locator('.asset-image > img').evaluate(node => {
+      const r = node.getBoundingClientRect();
+      return { square: Math.min(r.width, r.height), x: r.x + r.width / 2, y: r.y + r.height / 2,
+        src: node.currentSrc, visible: getComputedStyle(node).visibility, loaded: node.complete && node.naturalWidth > 0 };
     });
+    assert(returned.loaded && returned.visible === 'visible', 'Completed close reveals the decoded canonical poster');
     assert.equal(await page.evaluate(() => document.activeElement?.dataset.id), 'conifer-tree');
     caseReport.returned = returned;
-    caseReport.beforeRetainedScreenshot = await previewDiagnostics(page);
-    await screenshot(page, label + '-retained-card');
+    caseReport.afterClose = await previewDiagnostics(page);
+    assert.equal(caseReport.afterClose.preview.activeId, null, 'Completed close releases preview.current');
+    assert.equal(caseReport.afterClose.gpu.liveScenes, 0, 'Completed close detaches the live model scene');
+    assert.equal(caseReport.afterClose.gpu.rendererCreations, caseReport.preview_resources.rendererCreations, 'Returning the actual model must not allocate a renderer');
+    assert.equal(caseReport.afterClose.gpu.parseCount, caseReport.preview_resources.parseCount, 'Returning the actual model must not decode another scene');
+    assert.equal(caseReport.afterClose.gpu.networkRequests, caseReport.preview_resources.networkRequests, 'Returning the actual model must not fetch a model again');
+    assert.equal(caseReport.afterClose.card.canvases, 0, 'Normal browsing keeps no returned bitmap or live canvas');
+    await canonicalReturnCoverage(page, label, caseReport, canonical, beforeClose, options);
+    await screenshot(page, label + '-canonical-poster-card');
     caseReport.beforeReopen = await previewDiagnostics(page);
-    assert.equal(caseReport.beforeReopen.preview.activeId, 'conifer-tree', 'The retained card must still be active immediately before reopening');
-    assert.equal(caseReport.beforeReopen.card.canvases, 1, 'The retained image must remain painted immediately before reopening');
     await page.evaluate(() => { window.__handoffReview.phase = 'reopen'; });
     await page.keyboard.press('Enter'); await ready(page, 'conifer-tree'); await page.waitForTimeout(350);
     await page.waitForFunction(() => !document.querySelector('#canvas-host .model-handoff') && !document.querySelector('.stage-flight'));
@@ -470,22 +634,29 @@ async function roundTrip(label, options = {}) {
     assert.equal(caseReport.reopen_resources.rendererCreations, caseReport.preview_resources.rendererCreations, 'Reopening must not allocate another renderer');
     assert.equal(caseReport.reopen_resources.cachedScenes, caseReport.preview_resources.cachedScenes, 'Reopening must not duplicate decoded resources');
 
-    assert(deltaAngle(beforeClose.azimuth, reopened.azimuth) < 0.001, 'Close/reopen preserves the actual camera azimuth');
-    assert(Math.abs(beforeClose.elevation - reopened.elevation) < 0.001, 'Close/reopen preserves the actual camera elevation');
-    assert(Number.isFinite(beforeClose.distance) && Math.abs(beforeClose.distance - reopened.distance) < 0.00001, 'Close/reopen preserves the actual camera zoom distance');
+    assert(deltaAngle(canonical.azimuth, reopened.azimuth) < 0.001, 'Reopening from the canonical poster starts at its azimuth');
+    assert(Math.abs(canonical.elevation - reopened.elevation) < 0.001, 'Reopening from the canonical poster starts at its elevation');
+    assert(Math.abs(canonical.distance - reopened.distance) < 0.00001, 'Reopening from the canonical poster starts at its fitted distance');
     const frames = await endSampler(page), closeFlights = frames.filter(frame => frame.phase === 'close' && frame.flight);
     caseReport.frames = frames;
     await dynamicContinuity(page, caseReport, frames);
     assert.equal(frames.filter(frame => !frame.hasVisual).length, 0, 'Open/close/reopen must never show an empty visual frame');
     if (options.reducedMotion !== 'reduce') {
-      assert(closeFlights.length > 1, 'The ordinary-motion reverse transition must actually animate');
+      assert(closeFlights.length > 1, 'The ordinary-motion return must actually animate');
+      assert(closeFlights.every(frame => frame.flight.kind === 'live-return' && frame.flight.actualSharedCanvas), 'Close animates the actual shared live model inside a DIV');
+      const aligned = closeFlights.filter(frame => frame.flight.progress === 1 && !frame.flight.originHidden);
+      assert(aligned.length > 0 && aligned.every(frame => frame.canonicalPosterVisible), 'Aligned fade exposes the matching canonical poster beneath the live model');
+      const fading = aligned.map(frame => frame.flight.opacity);
+      assert(fading.every(opacity => opacity >= 0 && opacity <= 1), 'Aligned live model opacity stays bounded during the fade');
       assert.equal(frames.filter(frame => frame.flight && frame.stationaryVisible).length, 0, 'A flying model must not duplicate a stationary model behind it');
       const last = closeFlights.at(-1).flight;
-      assert(Math.abs(last.square / returned.square - 1) < 0.12, 'Reverse-flight model scale must match the retained card at completion');
-      assert(Math.hypot(last.x - returned.x, last.y - returned.y) < 12, 'Reverse-flight center must match the retained card');
+      assert(Math.abs(last.square / returned.square - 1) < 0.12, 'Live return scale must match the canonical poster at completion');
+      assert(Math.hypot(last.x - returned.x, last.y - returned.y) < 12, 'Live return center must match the canonical poster');
+    } else {
+      assert.equal(closeFlights.filter(frame => frame.sampledBy === 'raf').length, 0, 'Reduced motion paints the canonical poster immediately without an animated flight');
     }
     Object.assign(caseReport, { status: 'pass', frames });
-    report.checks.push(`${label}: rotated preview, real 3D, current-angle close/reopen, no blank frame, and reverse-flight scale continuity.`);
+    report.checks.push(`${label}: current-hover open, real 3D camera return, canonical poster pixel/framing match, no blank frame, and renderer/resource reuse.`);
   } catch (error) {
     caseReport.status = 'fail'; caseReport.error = error.stack;
     caseReport.failure_diagnostics = await previewDiagnostics(page).catch(() => null);
@@ -634,6 +805,80 @@ async function interruptedHistory() {
   } finally { await context.close(); }
 }
 
+async function interruptedCanonicalReturn(returnPhase = 'moving') {
+  const label = 'interrupted-canonical-return-' + returnPhase, context = await makeContext(label), { page } = context;
+  const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
+  try {
+    await catalog(page);
+    const card = page.locator('#grid .asset-card[data-id="conifer-tree"]');
+    await card.scrollIntoViewIfNeeded(); await card.focus(); await startSampler(page);
+    await page.keyboard.press('Home');
+    for (let i = 0; i < 7; i++) await page.keyboard.press('ArrowRight');
+    await page.waitForFunction(() => Number(document.querySelector('#grid [data-id="conifer-tree"]').dataset.previewAzimuth) === 147);
+    await page.evaluate(() => {
+      window.__originalReviewCard = document.querySelector('#grid [data-id="conifer-tree"]');
+      window.__openingCardSurface = window.__originalReviewCard.querySelector('.model-canvas');
+      window.__handoffReview.phase = 'open';
+    });
+    await page.keyboard.press('Enter'); await ready(page, 'conifer-tree');
+    await page.waitForFunction(() => !document.querySelector('.stage-flight, #canvas-host .model-handoff'));
+    await page.locator('#canvas-host').focus(); await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowUp'); await page.locator('#zoom-in').click();
+    caseReport.inspected = await angles(page);
+    const resources = await page.evaluate(() => ({ ...window.__vaultGPU }));
+    await page.evaluate(returnPhase => {
+      // Reverse from the first measured intermediate draw, so the assertion
+      // targets real camera state rather than a guessed timeout on a slow GPU.
+      if (returnPhase === 'moving') window.__reverseReturnAtProgress = 0.01;
+      else window.__reverseReturnPhase = 'fading';
+      window.__handoffReview.phase = 'close'; history.back();
+    }, returnPhase);
+    await page.waitForFunction(() => window.__handoffReview.reversalRequested, null, { timeout: 5000 });
+    await page.waitForURL(base + prefix + 'models/conifer-tree/'); await ready(page, 'conifer-tree');
+    await page.waitForFunction(() => !document.querySelector('.stage-flight, #canvas-host .model-handoff'));
+    await page.waitForTimeout(80);
+    const frames = await endSampler(page);
+    const evidence = await page.evaluate(() => ({ returns: window.__handoffReview.returnDraws, draws: window.__handoffReview.draws,
+      handoff: window.__handoffReview.reversalHandoff, errors: window.__handoffReview.probe_errors, gpu: { ...window.__vaultGPU } }));
+    Object.assign(caseReport, { frames, ...evidence });
+    assert.deepEqual(evidence.errors, []);
+    const lastReturn = evidence.returns.at(-1), firstReopened = evidence.draws.find(draw => draw.phase === 'reversal');
+    if (returnPhase === 'moving') assert(lastReturn?.progress > 0 && lastReturn.progress < 1, 'Forward must interrupt an actual intermediate camera pose');
+    else assert(lastReturn?.returnPhase === 'fading' && lastReturn.progress === 1 && lastReturn.opacity > 0 && lastReturn.opacity < 1, 'Forward must interrupt the actual aligned partially faded live model');
+    assert(firstReopened, 'Interrupted Forward must produce an actual live detail draw');
+    assert(deltaAngle(lastReturn.view.azimuth_deg, firstReopened.view.azimuth_deg) < 0.001, 'Reversal preserves the actual intermediate azimuth');
+    assert(Math.abs(lastReturn.view.elevation_deg - firstReopened.view.elevation_deg) < 0.001, 'Reversal preserves the actual intermediate elevation');
+    assert(Math.abs(lastReturn.view.distance - firstReopened.view.distance) < 0.00001, 'Reversal preserves the actual intermediate camera distance');
+    assert(evidence.handoff?.copied, 'Reversal retains a copy of the real intermediate draw while reparenting the shared canvas');
+    if (returnPhase === 'moving') assert.deepEqual(evidence.handoff.pixels, lastReturn.pixels, 'The exact intermediate rendered pixels enter the reversal handoff');
+    else {
+      assert(lastReturn.visiblePixels && lastReturn.visibleAlpha, 'Fade reversal captures the actual visible live-plus-poster composite');
+      assert.deepEqual(evidence.handoff.pixels, lastReturn.visiblePixels, 'The exact visible composite enters the fade reversal handoff');
+      const before = lastReturn.visibleAlpha, after = evidence.handoff.alpha;
+      const bboxDelta = Math.max(...Object.keys(before.bbox).map(key => Math.abs(before.bbox[key] - after.bbox[key]) * 320));
+      const centroidDelta = Math.hypot(before.centroid.x - after.centroid.x, before.centroid.y - after.centroid.y) * 320;
+      caseReport.composite_continuity = { bbox_delta_px: bboxDelta, centroid_delta_px: centroidDelta,
+        rgba_hash: lastReturn.visiblePixels.rgba_hash, live_opacity: lastReturn.opacity };
+      assert(before.transparent_fraction > 0.2 && after.transparent_fraction > 0.2 && before.corner_alpha_max <= 3 && after.corner_alpha_max <= 3, 'Both fade composite and reversal handoff preserve true alpha');
+      assert(bboxDelta <= 8 && centroidDelta <= 8, 'Fade composite silhouette and center retain strict pixel parity');
+      const a = firstReopened.overlay?.object, b = firstReopened.object;
+      assert(a && b, 'Fade reversal measures the composite handoff and first actual model draw');
+      const center = Math.hypot(a.x - b.x, a.y - b.y), scale = Math.max(Math.abs(a.width / b.width - 1), Math.abs(a.height / b.height - 1));
+      Object.assign(caseReport.composite_continuity, { handoff_to_live_center_step_px: center, handoff_to_live_scale_step: scale });
+      assert(center <= 3 && scale <= 0.03, 'Fade reversal composite aligns with its first actual live draw within 3px and 3%');
+    }
+    assert.equal(frames.filter(frame => !frame.hasVisual).length, 0, 'Interrupted return/Forward must never paint an empty visual frame');
+    assert(await page.locator('#canvas-host .model-canvas').evaluate(canvas => canvas === window.__openingCardSurface), 'Reversal reattaches the same actual shared canvas');
+    assert.equal(evidence.gpu.liveScenes, 1); assert.equal(evidence.gpu.rendererCreations, resources.rendererCreations);
+    assert.equal(evidence.gpu.parseCount, resources.parseCount); assert.equal(evidence.gpu.networkRequests, resources.networkRequests);
+    assert.equal(await page.locator('.model-preview-snapshot, .live-model-return').count(), 0, 'Cancelled return leaves no stale bitmap or live flight');
+    caseReport.status = 'pass';
+    report.checks.push(`Forward during canonical ${returnPhase} preserves the actual camera and exact visible handoff pixels while reusing one canvas, renderer, and decoded resource.`);
+  } catch (error) {
+    caseReport.status = 'fail'; caseReport.error = error.stack;
+    caseReport.frames = await endSampler(page).catch(() => []); throw error;
+  } finally { await context.close(); }
+}
+
 async function supersededImport() {
   const context = await makeContext('superseded-same-id-import', { reducedMotion: 'reduce' }); const { page } = context;
   let releaseImport;
@@ -672,6 +917,8 @@ try {
   await contextLossRecovery();
   await earlyLoadFailure();
   await interruptedHistory();
+  await interruptedCanonicalReturn();
+  await interruptedCanonicalReturn('fading');
   await supersededImport();
   assert.deepEqual(report.page_errors, []); report.status = 'pass';
   console.log(JSON.stringify({ status: report.status, checks: report.checks }, null, 2));

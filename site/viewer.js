@@ -134,6 +134,7 @@ export class ModelStage {
       lastShowMilliseconds: 0, lastShowCacheHit: false,
       renderedFrames: 0, rafPending: 0, activeMode: null, activeURL: null,
       referenceObjects: 0, referenceGeometries: 0, referenceMaterials: 0, disposedReferences: 0,
+      returnOverlayMeshes: 0, returnOverlayMaterials: 0,
     };
     window.__vaultGPU = this._diagnostics;
     this._onVisibility = () => {
@@ -149,6 +150,91 @@ export class ModelStage {
   }
 
   get stats() { return { ...this._diagnostics }; }
+
+  get canonicalView() {
+    if (!this._pivot) return null;
+    return { azimuth_deg: CARD_RENDER_PRESET.camera.azimuth_deg,
+      elevation_deg: CARD_RENDER_PRESET.camera.elevation_deg, distance: this._distance };
+  }
+
+  /** Reparent the current lease for a finite return flight, without reload/reset. */
+  moveTo(host, { mode = 'return', onStatus } = {}) {
+    if (!host || !this._pivot || !this._renderer || this._contextLost || this._disposed) return false;
+    ++this._token;
+    this._externalSignal?.removeEventListener('abort', this._externalAbort);
+    this._externalSignal = this._externalAbort = null;
+    this._controller?.abort(); this._controller = null;
+    this._stopFrame();
+    this._resizeObserver?.disconnect(); this._intersectionObserver?.disconnect();
+    const previous = this._host;
+    if (previous) {
+      previous.removeEventListener('keydown', this._onKey);
+      for (const key of ['renderTriangles', 'renderLines', 'renderCalls', 'presentedUrl', 'viewAzimuth', 'viewElevation', 'viewDistance']) delete previous.dataset[key];
+      if (this._addedTabIndex) previous.removeAttribute('tabindex');
+      previous.dataset.modelState = 'idle';
+    }
+    this._host = host; this._mode = mode; this._statusCallback = onStatus; this._addedTabIndex = false;
+    this._viewTouched = true; this._inView = true; this._controls.enabled = false;
+    this._diagnostics.activeMode = mode;
+    this._attach(host); this._resize(); this._draw();
+    return true;
+  }
+
+  /** Inspection-only line/grid layers blend back to the solid poster preset. */
+  beginCanonicalReturnStyles() {
+    this.endCanonicalReturnStyles(this._returnStyles);
+    const state = { overlays: [], materials: new Map(), clones: new Map(), reference: this._reference,
+      referenceOpacity: this._reference?.material.opacity };
+    this._returnStyles = state;
+    if (this._wireframe) {
+      const objects = [];
+      this._gltf?.scene.traverse(object => { if (object.isMesh) objects.push(object); });
+      const clone = material => {
+        if (!material || !('wireframe' in material)) return material;
+        if (!state.clones.has(material)) {
+          state.materials.set(material, { opacity: material.opacity, transparent: material.transparent, depthWrite: material.depthWrite });
+          const copy = material.clone(); copy.wireframe = true; copy.transparent = true;
+          state.clones.set(material, copy);
+          material.wireframe = false; material.transparent = true; material.depthWrite = false; material.opacity = 0; material.needsUpdate = true;
+        }
+        return state.clones.get(material);
+      };
+      for (const object of objects) {
+        const materials = Array.isArray(object.material) ? object.material.map(clone) : clone(object.material);
+        const overlay = object.isSkinnedMesh ? new THREE.SkinnedMesh(object.geometry, materials) : new THREE.Mesh(object.geometry, materials);
+        if (object.isSkinnedMesh) { overlay.skeleton = object.skeleton; overlay.bindMatrix.copy(object.bindMatrix); overlay.bindMatrixInverse.copy(object.bindMatrixInverse); }
+        overlay.name = 'canonical-return-wire-overlay'; overlay.raycast = () => {};
+        object.add(overlay); state.overlays.push(overlay);
+      }
+    }
+    this._diagnostics.returnOverlayMeshes = state.overlays.length;
+    this._diagnostics.returnOverlayMaterials = state.clones.size;
+    return state;
+  }
+
+  canonicalReturnStyleProgress(progress, state) {
+    if (!state || state !== this._returnStyles) return;
+    const t = clamp(progress, 0, 1);
+    for (const [material, saved] of state.materials) {
+      material.opacity = saved.opacity * t;
+      state.clones.get(material).opacity = saved.opacity * (1 - t);
+    }
+    if (state.reference && this._reference === state.reference) state.reference.material.opacity = state.referenceOpacity * (1 - t);
+    if (t === 1) this.endCanonicalReturnStyles(state);
+  }
+
+  endCanonicalReturnStyles(state) {
+    if (!state || state !== this._returnStyles) return;
+    this._returnStyles = null;
+    for (const overlay of state.overlays) overlay.removeFromParent();
+    for (const material of state.clones.values()) material.dispose();
+    for (const [material, saved] of state.materials) {
+      Object.assign(material, saved, { wireframe: false }); material.needsUpdate = true;
+    }
+    if (state.reference && this._reference === state.reference) this._disposeReference();
+    this._wireframe = false;
+    this._diagnostics.returnOverlayMeshes = this._diagnostics.returnOverlayMaterials = 0;
+  }
 
   /** Measurements are from the decoded GLB before display-only normalization. */
   get scaleReferenceInfo() {
@@ -717,6 +803,7 @@ export class ModelStage {
   }
 
   _disposeModel() {
+    this.endCanonicalReturnStyles(this._returnStyles);
     this._disposeReference();
     this._metricReference = null;
     this._pivot?.removeFromParent();

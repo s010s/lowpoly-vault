@@ -47,12 +47,23 @@ const card=(page,id)=>page.locator('#grid .asset-card[data-id="'+id+'"]');
 async function listing(page){await page.goto(base+prefix+'models/');await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');await page.mouse.move(1,1);}
 async function hover(page,id='natural-arch'){const el=card(page,id);await el.scrollIntoViewIfNeeded();const r=await el.locator('.asset-image').boundingBox();await page.mouse.move(r.x+r.width*.5,r.y+r.height*.5);await page.waitForFunction(id=>document.querySelector('#grid [data-id="'+id+'"]')?.dataset.previewState==='ready'&&window.__vaultGPU?.renderedFrames>0,id,{timeout:30000});return el;}
 async function detailReady(page,id){await page.waitForFunction(id=>document.querySelector('#viewer-dialog')?.open&&document.querySelector('#canvas-host')?.dataset.modelState==='ready'&&document.querySelector('#canvas-host')?.dataset.presentedUrl?.endsWith('/'+id+'.glb'),id,{timeout:30000});await page.waitForTimeout(200);}
-async function close(page,{moveAway=false}={}){await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open);if(moveAway)await page.mouse.move(1,1);await page.waitForTimeout(80);}
+async function close(page,{moveAway=false}={}){await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight')&&(!window.__vaultGPU||window.__vaultGPU.liveScenes===0));if(moveAway)await page.mouse.move(1,1);await page.waitForTimeout(80);}
 async function stage(page){await page.evaluate(async path=>{const {ModelStage}=await import(path);window.__qaStage=new ModelStage();},base+prefix+'assets/'+viewerFile);}
 async function stats(page){return page.evaluate(()=>({...window.__vaultGPU}));}
 async function view(page){return page.evaluate(()=>window.__qaStage.presentationInfo);}
 function angle(a,b){return Math.abs(((a-b+540)%360)-180);}
 function sameView(c,a,b,label){check(c,label+' azimuth',angle(a.azimuth_deg,b.azimuth_deg)<.001,{a,b});check(c,label+' elevation',Math.abs(a.elevation_deg-b.elevation_deg)<.001);check(c,label+' distance',Math.abs(a.distance-b.distance)<.00001);}
+async function canonicalView(page){return page.evaluate(()=>window.__qaStage.canonicalView);}
+async function canonicalPoster(page,c,id,label){
+ await page.waitForFunction(()=>!document.querySelector('.stage-flight')&&window.__vaultPreview?.activeId===null&&(!window.__vaultGPU||window.__vaultGPU.liveScenes===0));
+ check(c,label+' has no retained snapshot or live canvas',await page.locator('.model-preview-snapshot,.model-canvas').count()===0);
+ check(c,label+' source card displays only its canonical poster',await card(page,id).locator('.asset-image').evaluate(host=>{
+  const img=host.querySelector('img');
+  if(!img?.complete||!img.naturalWidth||host.querySelectorAll('img').length!==1)return false;
+  for(let node=img;node;node=node.parentElement){const css=getComputedStyle(node);if(css.visibility==='hidden'||css.display==='none'||Number(css.opacity)<.99)return false;}
+  return !host.closest('[data-detail-origin]');
+ }));
+}
 async function trafficBoundary(page){
  return {browser_start_ms:await page.evaluate(()=>performance.now()),server_start_index:report.server_requests.length,request_start_index:requestLog.length};
 }
@@ -133,12 +144,132 @@ try{
   await page.setViewportSize({width:1000,height:740});await page.waitForTimeout(160);sameView(c,saved,await view(page),'resize preserves view');alpha(c,await pixels(page),'resized');await shot(page,'05-resized-detail');
   await page.locator('#canvas-host').focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('ArrowUp');await page.keyboard.press('+');await page.waitForTimeout(80);const inspected=await view(page);c.inspected=inspected;
   check(c,'detail keyboard orbit and zoom change view',angle(saved.azimuth_deg,inspected.azimuth_deg)>1&&Math.abs(saved.elevation_deg-inspected.elevation_deg)>1&&Math.abs(saved.distance-inspected.distance)>.01);
-  await close(page);check(c,'detail returns exact 2D snapshot',await card(page,'natural-arch').locator('.model-preview-snapshot').count()===1);const snapshot=await pixels(page,'[data-id="natural-arch"] .model-preview-snapshot');alpha(c,snapshot,'returned snapshot');await shot(page,'06-returned-card-snapshot');
-  await card(page,'natural-arch').focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');sameView(c,inspected,await view(page),'snapshot to reopened detail');await close(page);
+  const canonical=await canonicalView(page);await close(page);await canonicalPoster(page,c,'natural-arch','completed detail return');await shot(page,'06-returned-canonical-poster');
+  await card(page,'natural-arch').focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');sameView(c,canonical,await view(page),'canonical poster to reopened detail');await close(page);
   await page.goForward();await detailReady(page,'natural-arch');check(c,'browser Forward restores modal route',await page.locator('#viewer-dialog').evaluate(d=>d.open)&&/\/models\/natural-arch\/$/.test(new URL(page.url()).pathname));
   await page.goBack();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open);check(c,'Back restores listing and scroll unlocked',await page.evaluate(()=>document.body.style.overflow===''&&!document.querySelector('#catalog-page').hidden));
   for(let i=0;i<3;i++){await card(page,'natural-arch').click();await detailReady(page,'natural-arch');await close(page);}
   const end=await stats(page);check(c,'repeated reopen retains single renderer and one original parse',end.rendererCreations===1&&end.parseCount===1&&end.networkRequests===1,end);
+ });
+ await test('actual-model-canonical-return-progression',async(page,c)=>{
+  await listing(page);const el=await hover(page);await stage(page);
+  await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');
+  const canonical=await canonicalView(page);check(c,'canonical camera is the sole poster preset',angle(canonical.azimuth_deg,42)<.001&&Math.abs(canonical.elevation_deg-23.3)<.001&&canonical.distance>0,canonical);
+  await page.evaluate(()=>{const s=window.__qaStage;s.setView(329,52,s.canonicalView.distance*.71);});
+  const inspected=await view(page),before=await stats(page);
+  await page.evaluate(()=>{
+   const s=window.__qaStage,canvas=s._renderer.domElement,scene=s._gltf.scene,resource=s._activeResource;
+   const image=document.querySelector('#grid [data-id="natural-arch"] .asset-image'),r=image.getBoundingClientRect(),side=Math.min(r.width,r.height);
+   window.__qaReturn={draws:[],frames:[],errors:[],target:{x:r.x+(r.width-side)/2,y:r.y+(r.height-side)/2,width:side,height:side}};
+   window.__vaultFrameProbe=({canvas:drawCanvas,host,view})=>{
+    if(!host.classList.contains('live-model-return'))return;
+    try{const r=host.getBoundingClientRect();window.__qaReturn.draws.push({time:performance.now(),progress:Number(host.dataset.returnProgress),phase:host.dataset.returnPhase,view:{...view},rect:{x:r.x,y:r.y,width:r.width,height:r.height},same_canvas:drawCanvas===canvas,same_scene:s._gltf.scene===scene,same_resource:s._activeResource===resource,canvases:document.querySelectorAll('.model-canvas').length,live_scenes:window.__vaultGPU.liveScenes});}catch(error){window.__qaReturn.errors.push(error.message);}
+   };
+   const sample=()=>{const flight=document.querySelector('.live-model-return');if(flight){const poster=image.querySelector('img'),css=getComputedStyle(poster);window.__qaReturn.frames.push({time:performance.now(),progress:Number(flight.dataset.returnProgress),phase:flight.dataset.returnPhase,opacity:Number(getComputedStyle(flight).opacity),poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});}window.__qaReturnRAF=requestAnimationFrame(sample);};sample();
+  });
+  await close(page);await canonicalPoster(page,c,'natural-arch','animated canonical return');
+  c.return_motion=await page.evaluate(()=>{cancelAnimationFrame(window.__qaReturnRAF);delete window.__vaultFrameProbe;return window.__qaReturn;});
+  const {draws,frames,errors,target}=c.return_motion;
+  check(c,'return actual-draw probe succeeds',errors.length===0,errors);
+  check(c,'return animates actual WebGL model through intermediate poses',draws.length>=3&&draws.some(d=>d.progress>0&&d.progress<1),draws);
+  sameView(c,inspected,draws[0].view,'first live return frame starts at inspected pose');
+  const startRect=draws[0].rect,delta=((canonical.azimuth_deg-inspected.azimuth_deg+540)%360)-180;
+  for(let i=0;i<draws.length;i++){
+   const d=draws[i],p=d.progress,k=1-(1-p)**3;
+   check(c,'return draw '+i+' borrows sole original renderer resource',d.same_canvas&&d.same_scene&&d.same_resource&&d.canvases===1&&d.live_scenes===1,d);
+   check(c,'return draw '+i+' has valid monotonic progress',Number.isFinite(p)&&p>=0&&p<=1&&(!i||p>=draws[i-1].progress),d);
+   const expected={azimuth_deg:inspected.azimuth_deg+delta*k,elevation_deg:inspected.elevation_deg+(canonical.elevation_deg-inspected.elevation_deg)*k,distance:inspected.distance+(canonical.distance-inspected.distance)*k};
+   sameView(c,expected,d.view,'analytic shortest-angle return draw '+i);
+   check(c,'return draw '+i+' center and square follow intended shrink',['x','y','width','height'].every(key=>Math.abs(d.rect[key]-(startRect[key]+(target[key]-startRect[key])*k))<=1),{actual:d.rect,start:startRect,target,k});
+  }
+  const aligned=draws.filter(d=>d.progress===1);check(c,'canonical angle and fit reached before retiring actual model',aligned.length>0,draws);sameView(c,canonical,aligned.at(-1).view,'final canonical live draw');
+  const fade=frames.filter(f=>f.phase==='fading');check(c,'crossfade exposes matching canonical poster while live model fades',fade.length>0&&fade.every(f=>f.progress===1&&f.poster_visible)&&fade.some(f=>f.opacity<.99),fade);
+  const after=await stats(page);check(c,'return creates no renderer parse fetch or extra lease',after.rendererCreations===1&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount&&after.liveScenes===0&&after.activeLeases===0&&after.rafPending===0,{before,after});
+  await shot(page,'06b-actual-model-returned-canonical-poster');
+ });
+ await test('moving-close-forward-back-before-queued-reopen',async(page,c)=>{
+  await listing(page);const el=await hover(page);await stage(page);await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');
+  await page.evaluate(()=>{const s=window.__qaStage;s.setView(315,49,s.canonicalView.distance*.76);});
+  const canonical=await canonicalView(page),before=await stats(page);
+  await page.evaluate(()=>{
+   const stage=window.__qaStage,canvas=stage._renderer.domElement,scene=stage._gltf.scene,resource=stage._activeResource;
+   const state=window.__qaTriple={draws:[],events:[],frames:[],forwardRequested:false,backRequested:false,finalBackSeen:false,holdChrome:true,cancellationSettlementsHeld:0,fixture:'Delay only cancelled closing-chrome finished promises until final native Back popstate, so the queued reopen cannot win the event/microtask race.'};
+   let releaseChrome;const chromeGate=new Promise(resolve=>{releaseChrome=resolve;});
+   const ids=new WeakMap();let nextId=0;const id=host=>{if(!ids.has(host))ids.set(host,++nextId);return ids.get(host);};
+   // Keep the real animations and native history traversals. Only defer the
+   // cancelled chrome promise's settlement to deterministically exercise the
+   // queued-route branch before it can reopen the detail in a microtask.
+   const animate=Element.prototype.animate;window.__qaTripleOriginalAnimate=animate;
+   Element.prototype.animate=function(...args){
+    const animation=animate.apply(this,args),keyframes=args[0];
+    const closing=Array.isArray(keyframes)&&Number(keyframes.at(-1)?.opacity)===0&&Boolean(this.closest('#viewer-dialog'));
+    if(closing){const finished=animation.finished;const delayed=finished.then(value=>value,error=>{if(!state.holdChrome)throw error;state.cancellationSettlementsHeld++;return chromeGate.then(()=>{throw error;});});Object.defineProperty(animation,'finished',{configurable:true,get:()=>delayed});}
+    return animation;
+   };
+   const popstate=event=>{
+    const detail=location.pathname.endsWith('/natural-arch/');
+    state.events.push({time:performance.now(),path:location.pathname,detail,trusted:event.isTrusted,forwardRequested:state.forwardRequested,backRequested:state.backRequested});
+    if(detail&&state.forwardRequested&&!state.backRequested){state.backRequested=true;state.forwardEventTime=performance.now();history.back();}
+    else if(!detail&&state.backRequested){state.finalBackSeen=true;state.finalBackEventTime=performance.now();state.holdChrome=false;releaseChrome();}
+   };
+   window.__qaTriplePopstate=popstate;addEventListener('popstate',popstate,{capture:true});
+   window.__vaultFrameProbe=({canvas:actual,host,view})=>{
+    const flight=host.classList.contains('live-model-return'),r=host.getBoundingClientRect(),progress=flight?Number(host.dataset.returnProgress):null;
+    state.draws.push({time:performance.now(),flight,id:flight?id(host):null,host:host.id||host.className,progress,phase:host.dataset.returnPhase||null,view:{...view},rect:{x:r.x,y:r.y,width:r.width,height:r.height},same_canvas:actual===canvas,same_scene:stage._gltf.scene===scene,same_resource:stage._activeResource===resource,live_scenes:window.__vaultGPU.liveScenes,canvases:document.querySelectorAll('.model-canvas').length});
+    if(flight&&!state.forwardRequested&&progress>.1&&progress<1){state.forwardRequested=true;setTimeout(()=>history.forward(),0);}
+   };
+   const sample=()=>{const flight=document.querySelector('.live-model-return'),image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),css=getComputedStyle(image);state.frames.push({time:performance.now(),open:document.querySelector('#viewer-dialog').open,flight:flight?id(flight):null,poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});window.__qaTripleRAF=requestAnimationFrame(sample);};sample();
+  });
+  await page.locator('#close').click();await page.waitForFunction(()=>window.__qaTriple.finalBackSeen&&!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'),null,{timeout:10000});
+  await canonicalPoster(page,c,'natural-arch','triple-history resumed close');
+  c.triple_history_return=await page.evaluate(()=>{cancelAnimationFrame(window.__qaTripleRAF);delete window.__vaultFrameProbe;removeEventListener('popstate',window.__qaTriplePopstate,{capture:true});Element.prototype.animate=window.__qaTripleOriginalAnimate;return window.__qaTriple;});
+  const evidence=c.triple_history_return,flights=evidence.draws.filter(d=>d.flight),flightIds=[...new Set(flights.map(d=>d.id))];
+  check(c,'triple history uses real Back Forward Back events in order',evidence.events.length===3&&evidence.events.every(e=>e.trusted)&&!evidence.events[0].detail&&evidence.events[1].detail&&!evidence.events[2].detail,evidence.events);
+  check(c,'fixture exercises Back before cancelled-close queued reopen settlement',evidence.cancellationSettlementsHeld>0&&evidence.finalBackSeen,evidence);
+  check(c,'queued detail reopen never starts between Forward and resumed close',evidence.draws.filter(d=>d.time>=evidence.forwardEventTime).every(d=>d.flight),evidence.draws);
+  check(c,'latest Back resumes a second actual live return flight',flightIds.length===2,flights);
+  const original=flights.filter(d=>d.id===flightIds[0]),resumed=flights.filter(d=>d.id===flightIds[1]),lastOriginal=original.at(-1),firstResumed=resumed[0];
+  check(c,'first return was interrupted during actual camera movement',lastOriginal.progress>0&&lastOriginal.progress<1,original);
+  check(c,'resumed return starts from held intermediate live pose at zero new progress',firstResumed.progress===0&&firstResumed.phase==='moving',firstResumed);sameView(c,lastOriginal.view,firstResumed.view,'triple-history held pose to resumed close');
+  check(c,'resumed return keeps the exact saved flight rect',['x','y','width','height'].every(key=>Math.abs(lastOriginal.rect[key]-firstResumed.rect[key])<=1),{before:lastOriginal.rect,resumed:firstResumed.rect});
+  check(c,'resumed first frame does not instantly snap to canonical',angle(firstResumed.view.azimuth_deg,canonical.azimuth_deg)>.001||Math.abs(firstResumed.view.elevation_deg-canonical.elevation_deg)>.001||Math.abs(firstResumed.view.distance-canonical.distance)>.00001,{first:firstResumed.view,canonical});
+  check(c,'resumed flight visibly interpolates before canonical alignment',resumed.some(d=>d.progress>0&&d.progress<1)&&resumed.some(d=>d.progress===1),resumed);sameView(c,canonical,resumed.at(-1).view,'triple-history final canonical live draw');
+  check(c,'triple history retains the same single actual canvas scene and decoded resource',flights.every(d=>d.same_canvas&&d.same_scene&&d.same_resource&&d.live_scenes===1&&d.canvases===1),flights);
+  check(c,'resumed close keeps a live visual until the canonical poster is shown',evidence.frames.every(f=>f.flight||f.poster_visible||f.time<evidence.forwardEventTime),evidence.frames);
+  const after=await stats(page);check(c,'triple history finishes canonical with no RAF leases fetches parses or renderer leaks',after.liveScenes===0&&after.activeLeases===0&&after.pendingLeases===0&&after.rafPending===0&&after.rendererCreations===before.rendererCreations&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount,{before,after});
+  await shot(page,'06d-triple-history-resumed-canonical-poster');
+ });
+ await test('context-loss-during-live-canonical-return',async(page,c)=>{
+  await listing(page);const el=await hover(page);await stage(page);await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');
+  const before=await stats(page),canonical=await canonicalView(page);
+  const supported=await page.evaluate(()=>{
+   const s=window.__qaStage,canvas=s._renderer.domElement,gl=s._renderer.getContext(),extension=gl.getExtension('WEBGL_lose_context');
+   if(!extension)return false;
+   s.setView(318,47,s.canonicalView.distance*.8);
+   window.__qaReturnLoss={extension,canvas,scene:s._gltf.scene,resource:s._activeResource,draws:[],frames:[],requested:false,lost:null};
+   canvas.addEventListener('webglcontextlost',()=>{const flight=document.querySelector('.live-model-return');window.__qaReturnLoss.lost={time:performance.now(),progress:Number(flight?.dataset.returnProgress),phase:flight?.dataset.returnPhase,dialog_open:document.querySelector('#viewer-dialog').open};},{capture:true,once:true});
+   window.__vaultFrameProbe=({host,view})=>{
+    if(!host.classList.contains('live-model-return'))return;
+    const state=window.__qaReturnLoss,p=Number(host.dataset.returnProgress);
+    state.draws.push({time:performance.now(),progress:p,phase:host.dataset.returnPhase,view:{...view},toolbar_disabled:document.querySelector('.viewer-controls').inert||[...document.querySelectorAll('.viewer-controls button')].every(button=>button.disabled)});
+    if(!state.requested&&p>.15&&p<1){state.requested=true;setTimeout(()=>extension.loseContext(),0);}
+   };
+   const sample=()=>{const state=window.__qaReturnLoss;if(state.lost){const image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),flight=document.querySelector('.live-model-return'),css=getComputedStyle(image);state.frames.push({time:performance.now(),dialog_open:document.querySelector('#viewer-dialog').open,flight_phase:flight?.dataset.returnPhase||null,flight_opacity:flight?Number(getComputedStyle(flight).opacity):null,poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});}window.__qaReturnLossRAF=requestAnimationFrame(sample);};sample();
+   return true;
+  });
+  check(c,'real WebGL context-loss extension available for strict return coverage',supported);
+  await close(page);await canonicalPoster(page,c,'natural-arch','mid-return context-loss fallback');
+  c.context_loss_return=await page.evaluate(()=>{cancelAnimationFrame(window.__qaReturnLossRAF);delete window.__vaultFrameProbe;const {draws,frames,requested,lost}=window.__qaReturnLoss;return {draws,frames,requested,lost,context_lost:window.__qaStage._contextLost};});
+  const evidence=c.context_loss_return;
+  check(c,'native context loss interrupts an actual moving return frame',evidence.requested&&evidence.lost?.dialog_open&&evidence.lost.phase==='moving'&&evidence.lost.progress>0&&evidence.lost.progress<1,evidence);
+  check(c,'return toolbar input is blocked before and throughout actual return draws',evidence.draws.length>1&&evidence.draws.every(d=>d.toolbar_disabled),evidence.draws);
+  check(c,'lost context reveals canonical poster before the next painted frame',evidence.frames.length>0&&evidence.frames.every(f=>f.poster_visible&&(!f.dialog_open||f.flight_phase==='fading'&&f.flight_opacity===0)),evidence.frames);
+  const after=await stats(page);check(c,'lost-context close stops all scene leases and RAF without new fetch parse renderer',after.liveScenes===0&&after.activeLeases===0&&after.pendingLeases===0&&after.rafPending===0&&after.rendererCreations===before.rendererCreations&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount,{before,after});
+  await shot(page,'06c-mid-return-context-loss-canonical-poster');
+  await page.waitForTimeout(120);await page.evaluate(()=>window.__qaReturnLoss.extension.restoreContext());await page.waitForFunction(()=>!window.__qaStage._contextLost);
+  await el.focus();await page.keyboard.press('Enter');await detailReady(page,'natural-arch');sameView(c,canonical,await view(page),'context-restored reopen starts canonical');
+  check(c,'restored context reuses original canvas and decoded GLTF after interrupted close',await page.evaluate(()=>window.__qaStage._renderer.domElement===window.__qaReturnLoss.canvas&&window.__qaStage._gltf.scene===window.__qaReturnLoss.scene&&window.__qaStage._activeResource===window.__qaReturnLoss.resource));
+  const restored=await stats(page);check(c,'context restoration creates no extra renderer parse or request',restored.rendererCreations===before.rendererCreations&&restored.networkRequests===before.networkRequests&&restored.parseCount===before.parseCount,{before,restored});await close(page);
  });
  await test('rapid-hover-abort-latest-wins',async(page,c)=>{
   await page.route('**/*.glb',async route=>{await new Promise(r=>setTimeout(r,220));await route.continue().catch(()=>{});});await listing(page);
@@ -174,7 +305,7 @@ try{
  });
  await test('keyboard-reduced-motion',async(page,c)=>{
   await listing(page);const el=card(page,'natural-arch');await el.scrollIntoViewIfNeeded();await el.focus();await page.keyboard.press('ArrowRight');await page.waitForFunction(()=>document.querySelector('[data-id="natural-arch"]')?.dataset.previewState==='ready');await stage(page);await page.waitForTimeout(80);const a=await view(page);await page.keyboard.press('ArrowRight');await page.waitForTimeout(60);const b=await view(page);check(c,'focused card keyboard intentionally activates and orbits',angle(a.azimuth_deg,b.azimuth_deg)>1,{a,b});
-  const s1=await stats(page);await page.waitForTimeout(220);const s2=await stats(page);check(c,'reduced motion no autoplay/continuous RAF',s1.renderedFrames===s2.renderedFrames&&s2.rafPending===0,{s1,s2});await page.keyboard.press('Enter');await detailReady(page,'natural-arch');check(c,'keyboard Enter opens accessible dialog',await page.locator('#viewer-dialog').evaluate(d=>d.open)&&await page.locator('#close').evaluate(d=>document.activeElement===d));const inspected=await view(page);await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForTimeout(60);sameView(c,inspected,await view(page),'motion preference change preserves inspected view');await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(60);sameView(c,inspected,await view(page),'motion reduction preserves inspected view');await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open);check(c,'Escape restores focus to card',await el.evaluate(d=>document.activeElement===d));await shot(page,'10-reduced-motion-keyboard');
+  const s1=await stats(page);await page.waitForTimeout(220);const s2=await stats(page);check(c,'reduced motion no autoplay/continuous RAF',s1.renderedFrames===s2.renderedFrames&&s2.rafPending===0,{s1,s2});await page.keyboard.press('Enter');await detailReady(page,'natural-arch');check(c,'keyboard Enter opens accessible dialog',await page.locator('#viewer-dialog').evaluate(d=>d.open)&&await page.locator('#close').evaluate(d=>document.activeElement===d));const inspected=await view(page);await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForTimeout(60);sameView(c,inspected,await view(page),'motion preference change preserves inspected view');await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(60);sameView(c,inspected,await view(page),'motion reduction preserves inspected view');await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open);await canonicalPoster(page,c,'natural-arch','reduced-motion return');check(c,'Escape restores focus to card',await el.evaluate(d=>document.activeElement===d));await shot(page,'10-reduced-motion-keyboard');
  },{reducedMotion:'reduce'});
  await test('trusted-touch-swipe-and-tap',async(page,c,context)=>{
   await listing(page);await page.waitForTimeout(200);check(c,'touch initial poster no GLBs',glbRequests(c.name).length===0);
@@ -225,9 +356,8 @@ try{
   const orbited=await view(page);check(c,'trusted touch orbits detail away from card angle',angle(beforeOrbit.azimuth_deg,orbited.azimuth_deg)>5,{beforeOrbit,orbited});
   await page.locator('#zoom-in').tap();await page.waitForTimeout(80);const inspected=await view(page);c.inspected_touch_detail=inspected;
   check(c,'detail touch zoom changes actual camera distance',Math.abs(orbited.distance-inspected.distance)>.01,{orbited,inspected});await shot(page,'11c-inspected-touch-detail');
-  await page.locator('#close').tap();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open);await page.waitForTimeout(80);
-  const snapshotView=await el.locator('.model-preview-snapshot').evaluate(canvas=>canvas.__presentation);sameView(c,inspected,snapshotView,'touch detail to card snapshot');
-  const resumed=await swipeCard({id:4,fraction:.18,before:inspected,label:'returned detail touch resume'});
+  const canonical=await canonicalView(page);await page.locator('#close').tap();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'));await canonicalPoster(page,c,'natural-arch','completed touch detail return');
+  const resumed=await swipeCard({id:4,fraction:.18,before:canonical,label:'canonical poster touch resume'});
   check(c,'touch resume keeps single renderer and original decoded GLTF',(await stats(page)).rendererCreations===1&&(await stats(page)).parseCount===1&&(await stats(page)).networkRequests===1,await stats(page));await shot(page,'11d-returned-detail-touch-resume');
   const r2=await el.locator('.asset-image').boundingBox();const before=await page.evaluate(()=>({gpu:{...window.__vaultGPU},activations:window.__vaultPreview.activations}));await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:r2.x+r2.width*.5,y:r2.y+r2.height*.5,id:5}]});await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:r2.x+r2.width*.5+1,y:r2.y+r2.height*.5-70,id:5}]});await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await page.waitForTimeout(200);const after=await page.evaluate(()=>({gpu:{...window.__vaultGPU},activations:window.__vaultPreview.activations,open:document.querySelector('#viewer-dialog').open}));check(c,'vertical touch scroll does not activate preview or detail',after.activations===before.activations&&after.gpu.parseCount===before.gpu.parseCount&&after.gpu.networkRequests===before.gpu.networkRequests&&!after.open,{before,after,resumed});await shot(page,'12-touch-return');
  },{viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,recordVideo:{dir:output,size:{width:390,height:844}}});

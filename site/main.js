@@ -5,6 +5,7 @@ import { CatalogStore } from './catalog.js';
 import { initTheme } from './theme.js';
 import { GalleryMotion } from './motion.js';
 import { DialogMotion, DIALOG_TIMING } from './dialog-motion.js';
+import { startModelReturn } from './return-motion.js';
 import { words } from './words.js';
 import { routeHref, parseRoute, queryFromParams, filterAndSortCatalog } from './routes.js';
 import './style.css';
@@ -61,6 +62,7 @@ function formatBytes(bytes) {
   return bytes < 1024 * 1024 ? `${(bytes/1024).toLocaleString(lang === 'zh'?'zh-CN':'en',{maximumFractionDigits:1})} KB` : `${(bytes/1024/1024).toLocaleString(lang === 'zh'?'zh-CN':'en',{maximumFractionDigits:2})} MB`;
 }
 function controlsReady(ready){
+  $('.viewer-controls').inert=!ready;
   for(const selector of ['.viewer-controls','.viewer-hint']){const element=$(selector);element.hidden=false;element.style.visibility=ready?'visible':'hidden';element.setAttribute('aria-hidden',String(!ready));}
   document.querySelectorAll('.viewer-controls button').forEach(button=>button.disabled=!ready);
   if(ready) $('#scale-reference').disabled = !stage?.scaleReferenceInfo?.available;
@@ -230,7 +232,21 @@ function copyVisual(source,{square=false}={}){
   copy.className='model-handoff';copy.setAttribute('aria-hidden','true');copy.dataset.assetId=source.dataset.assetId||'';copy.__presentation=source.__presentation;return copy;
 }
 function currentDetailVisual({square=false}={}){
-  const flight=$('#viewer-dialog .stage-flight');if(flight)return copyVisual(flight,{square});
+  const flight=$('#viewer-dialog .stage-flight');if(flight){
+    if(!flight.querySelector('.model-canvas'))return copyVisual(flight,{square});
+    const actual=stage?.snapshot({square:true});if(!actual)return null;
+    if(flight.dataset.returnPhase==='fading'){
+      const poster=origin?.querySelector('.asset-image>img'),opacity=Number(getComputedStyle(flight).opacity);
+      if(poster?.complete&&poster.naturalWidth&&opacity<1){
+        const composite=document.createElement('canvas');composite.width=actual.width;composite.height=actual.height;
+        const context=composite.getContext('2d');context.drawImage(poster,0,0,composite.width,composite.height);
+        context.globalAlpha=opacity;context.drawImage(actual,0,0);context.globalAlpha=1;
+        composite.__presentation=actual.__presentation;composite.dataset.assetId=actual.dataset.assetId;composite.__returnOpacity=opacity;
+        composite.className='model-handoff';releaseVisual(actual);return composite;
+      }
+    }
+    return actual;
+  }
   const actual=stage?.snapshot(),overlay=$('#canvas-host .model-handoff');
   if(actual&&overlay){const context=actual.getContext('2d'),rect=containRect({left:0,top:0,width:actual.width,height:actual.height},overlay.width/overlay.height);context.globalAlpha=Number(getComputedStyle(overlay).opacity);context.drawImage(overlay,rect.left,rect.top,rect.width,rect.height);if(context.globalAlpha>0)actual.dataset.assetId='';context.globalAlpha=1;}
   const visible=actual||copyVisual(overlay)||copyVisual($('#canvas-host img'));
@@ -310,16 +326,40 @@ function closeAsset(){
 async function performCloseAsset(){
   if(!$('#viewer-dialog').open)return;
   const previous=interruptedDialog;interruptedDialog=null;
-  const alreadyClosing=closing,retained=previous?.visual?copyVisual(previous.visual,{square:true}):currentDetailVisual({square:true}),returnView=retained?.__presentation,returnAsset=selected;
+  const alreadyClosing=closing,retained=previous?.visual?copyVisual(previous.visual,{square:true}):currentDetailVisual({square:true}),returnAsset=selected;
   const chromeFrom=previous?.chrome||dialogMotion.capture(),flightStart=previous?.rect||$('#viewer-dialog .stage-flight')?.getBoundingClientRect();releaseVisual(previous?.visual);
-  hoverSuppressed=true;closing=true;const version=++detailVersion;cancelDialogMotion();detailController?.abort();store.cancelDetail();stage?.hide();clearHost();
-  if(retained){retained.className='model-handoff';$('#canvas-host').append(retained);}
   const target=origin?.isConnected?origin.querySelector('.asset-image').getBoundingClientRect():null;
   const matching=retained&&retained.dataset.assetId===returnAsset?.id;
   const visible=matching&&target&&target.bottom>0&&target.top<innerHeight&&target.right>0&&target.left<innerWidth;
-  if(!alreadyClosing)await Promise.all([dialogMotion.start({reverse:true,from:chromeFrom}),visible?animateDialog(target,$('#canvas-host').getBoundingClientRect(),true,version,flightStart):Promise.resolve()]);
+  const initialView=stage?.presentationInfo,canonicalView=stage?.canonicalView;
+  const resumable=previous?.assetId===returnAsset?.id&&returnAsset?.glb&&stage?.stats.activeURL===new URL(path(returnAsset.glb),document.baseURI).href;
+  const liveReturn=visible&&canonicalView&&!stage._contextLost&&((stage?._host===$('#canvas-host')&&$('#canvas-host').dataset.modelState==='ready')||resumable);
+  hoverSuppressed=true;closing=true;const version=++detailVersion;cancelDialogMotion();$('.viewer-controls').inert=true;
+  let flight,travel;
+  if(liveReturn){
+    const from=containRect(flightStart||$('#canvas-host').getBoundingClientRect(),1),to=containRect(target,1);
+    flight=document.createElement('div');flight.className='stage-flight live-model-return';flight.setAttribute('aria-hidden','true');
+    flight.dataset.returnPhase='moving';flight.dataset.returnProgress='0';
+    Object.assign(flight.style,{position:'fixed',left:`${from.left}px`,top:`${from.top}px`,width:`${from.width}px`,height:`${from.height}px`});
+    $('#viewer-dialog').append(flight);
+    let transferred=false;try{transferred=stage.moveTo(flight,{onStatus:status=>{if(status==='error')travel?.finish?.();}});}catch{}
+    if(transferred){
+      clearHost();releaseVisual(retained);
+      travel=modalAnimation=startModelReturn({stage,host:flight,from,to,getTarget:()=>origin?.isConnected?containRect(origin.querySelector('.asset-image').getBoundingClientRect(),1):to,initialView,canonicalView,reduced:reduced.matches,
+        onAligned:()=>{if(version===detailVersion&&origin?.isConnected)origin.removeAttribute('data-detail-origin');}});
+    }else{releaseVisual(flight);flight=null;}
+  }
+  detailController?.abort();store.cancelDetail();
+  if(!travel){
+    stage?.hide();clearHost();if(retained){retained.className='model-handoff';$('#canvas-host').append(retained);}
+    // Loading/error states have no drawable current model to orbit. Keep their
+    // image fallback and finish on the canonical poster without retaining a pose.
+    travel={finished:visible&&!alreadyClosing?animateDialog(target,$('#canvas-host').getBoundingClientRect(),true,version,flightStart):Promise.resolve()};
+  }
+  if(!alreadyClosing||flight)await Promise.all([dialogMotion.start({reverse:true,from:chromeFrom}),travel.finished]);
   if(!closing||version!==detailVersion)return;$('#viewer-dialog').close();dialogMotion.cancel();document.body.style.overflow='';
-  if(visible&&origin?.isConnected&&returnAsset?.id===origin.dataset.id){preview.retainSnapshot(origin,returnAsset,retained,returnView,{transfer:true});hoverCard=origin;}
+  if(flight){stage?.hide();releaseVisual(flight);}if(modalAnimation===travel)modalAnimation=null;
+  preview.stop();hoverCard=null;hoverPointer=null;
   clearHost();restoreOriginVisual();selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;atlas?.setActive(currentView==='catalog'&&browseMode==='atlas');
 }
 function requestClose(){

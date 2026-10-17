@@ -113,9 +113,10 @@ async function waitModel(page, id) {
 }
 async function waitClosed(page) {
   await page.locator('#viewer-dialog').waitFor({ state: 'hidden' });
-  await page.waitForFunction(() => !window.__vaultGPU || (window.__vaultGPU.liveScenes === 0 && window.__vaultGPU.activeRequests === 0 && window.__vaultGPU.rafPending === 0));
+  await page.waitForFunction(() => !document.querySelector('.stage-flight') && (!window.__vaultGPU || (window.__vaultGPU.liveScenes === 0 && window.__vaultGPU.activeRequests === 0 && window.__vaultGPU.rafPending === 0)));
   assert.equal(await page.locator('.model-canvas').count(), 0, 'Close must detach the shared WebGL canvas');
-  assert(await page.locator('.model-preview-snapshot').count()<=1,'At most one retained image may remain on the returning card');
+  assert.equal(await page.locator('.model-preview-snapshot,.stage-flight').count(),0,'Completed close leaves only the canonical poster, with no retained snapshot or live return flight');
+  assert.equal(await page.evaluate(()=>window.__vaultPreview?.activeId??null),null,'Completed close releases active card inspection');
 }
 async function closeModel(page) { await page.locator('#close').click(); await waitClosed(page); }
 
@@ -535,7 +536,7 @@ async function scaleChecks() {
     report.scale = { metadata: assets.length, categories: catalog.index.categories.length, worlds: catalog.index.worlds.length, packs: catalog.index.packs.length, card_nodes: 24, dom_nodes: nodes, pages: 417, peak_glb_requests: stats.peakRequests, cache_entries: stats.cacheEntries, cache_bytes: stats.cacheBytes, renderer_creations: stats.rendererCreations };
     check('In-memory 10000-item fixture: uneven 39-category/7-world/400-pack facets, distant search, 417 pages and bounded DOM');
     check('Cross-page adjacent navigation restores its originating card; measured triangle filter and scoped pack map work');
-    check('List hover stays image-only; detail switching preserves one GLB request, one renderer, bounded bytes and zero live scenes after close');
+    check('Intentional list hover and detail switching share one GLB request lane and renderer; completed close restores canonical posters with bounded bytes and zero live scenes');
   } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 

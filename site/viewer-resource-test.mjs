@@ -95,7 +95,7 @@ function empty(stage) {
   for (const key of ['liveScenes', 'cachedScenes', 'cachedDecodedBytes', 'decodedEntries', 'decodedBytes', 'decodedBufferBytes',
     'decodedTextureBytes', 'activeLeases', 'pendingLeases', 'activeEstimatedBytes', 'pendingEstimatedBytes', 'uncachedActiveScenes', 'resourceReferences', 'geometries',
     'materials', 'textures', 'skeletons', 'cacheEntries', 'cacheBytes', 'referenceObjects', 'referenceGeometries',
-    'referenceMaterials', 'renderers', 'rendererCount', 'rafPending']) assert.equal(stage.stats[key], 0, key);
+    'referenceMaterials', 'returnOverlayMeshes', 'returnOverlayMaterials', 'renderers', 'rendererCount', 'rafPending']) assert.equal(stage.stats[key], 0, key);
 }
 
 try {
@@ -144,7 +144,33 @@ try {
   assert.equal(stage.stats.rendererCreations, 1);
   stage.scaleReference(true); stage.wireframe(true); flush();
   assert.equal(stage.stats.referenceObjects, 1);
+  const returning = makeHost(600, 600), currentView = stage.presentationInfo, originalMaterial = [...resource.resources.materials][0];
+  const originalMaterialState = { opacity: originalMaterial.opacity, transparent: originalMaterial.transparent, depthWrite: originalMaterial.depthWrite };
+  assert(stage.moveTo(returning)); flush();
+  assert.equal(stage._activeResource, resource); assert.equal(stage._gltf.scene, root);
+  assert.equal(stage.stats.activeLeases, 1); assert.equal(stage.stats.rendererCreations, 1);
+  for (const key of ['azimuth_deg', 'elevation_deg', 'distance']) near(stage.presentationInfo[key], currentView[key]);
+  assert.equal(stage.stats.activeMode, 'return');
+  const styles = stage.beginCanonicalReturnStyles(); let returnMaterialDisposals = 0;
+  for (const material of styles.clones.values()) material.addEventListener('dispose', () => returnMaterialDisposals++);
+  assert.equal(originalMaterial.opacity, 0); assert.equal(originalMaterial.wireframe, false);
+  assert(styles.overlays.every(overlay => resource.resources.geometries.has(overlay.geometry)), 'Return styling reuses original geometry.');
+  stage.canonicalReturnStyleProgress(.5, styles);
+  near(originalMaterial.opacity, originalMaterialState.opacity * .5);
+  near(styles.clones.get(originalMaterial).opacity, originalMaterialState.opacity * .5);
+  near(stage._reference.material.opacity, .55 * .5);
+  stage.canonicalReturnStyleProgress(1, styles);
+  assert.equal(returnMaterialDisposals, styles.clones.size); assert.equal(stage.stats.referenceObjects, 0);
+  assert.equal(stage.stats.returnOverlayMeshes, 0); assert.equal(stage.stats.returnOverlayMaterials, 0);
+  assert.deepEqual({ opacity: originalMaterial.opacity, transparent: originalMaterial.transparent, depthWrite: originalMaterial.depthWrite }, originalMaterialState);
+  assert.equal(originalMaterial.wireframe, false); assert(styles.overlays.every(overlay => overlay.parent === null));
+  // Cancelling by hide restores every modified material property and retires
+  // transient clones without disposing the cached original resources.
+  stage.wireframe(true); const cancelledStyles = stage.beginCanonicalReturnStyles();
+  stage.canonicalReturnStyleProgress(.3, cancelledStyles);
   stage.hide();
+  assert.deepEqual({ opacity: originalMaterial.opacity, transparent: originalMaterial.transparent, depthWrite: originalMaterial.depthWrite }, originalMaterialState);
+  assert.equal(originalMaterial.wireframe, false);
   assert.equal(stage.stats.liveScenes, 0); assert.equal(stage.stats.activeLeases, 0);
   assert.equal(stage.stats.referenceObjects, 0); assert.equal(stage.stats.cachedScenes, 1);
   assert.equal(root.parent, null); assert(root.position.equals(authoredPosition));
