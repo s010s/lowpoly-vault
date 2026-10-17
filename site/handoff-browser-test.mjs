@@ -232,6 +232,14 @@ async function startSampler(page) {
         }
         window.__handoffReview.latestLiveAlpha = alpha;
         const overlay = host.querySelector('.model-handoff'), overlayAlpha = alphaFor(overlay);
+        if (window.__handoffReview.phase === 'open' && overlay && !window.__handoffReview.openingHandoff) {
+          // A reduced-motion cached show can retire its overlay before the next
+          // Playwright task. Observe the actual copy before ready releases it.
+          window.__handoffReview.openingHandoff = {
+            copied: overlay instanceof HTMLCanvasElement && overlay !== window.__openingCardSurface,
+            pixels: pixelSignature(overlay),
+          };
+        }
         window.__handoffReview.draws.push({ time: performance.now(), phase: window.__handoffReview.phase, host: rectOf(host), alpha, object: projected(canvas, alpha), view,
           overlay: overlay ? { alpha: overlayAlpha, object: projected(overlay, overlayAlpha) } : null });
       } catch (error) { window.__handoffReview.probe_errors.push(error.message); }
@@ -393,11 +401,10 @@ async function roundTrip(label, options = {}) {
     });
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.querySelector('#viewer-dialog')?.open);
-    assert(await page.evaluate(() => {
-      const handoff = document.querySelector('#viewer-dialog .stage-flight, #canvas-host .model-handoff');
-      return handoff instanceof HTMLCanvasElement && handoff !== window.__openingCardSurface;
-    }), 'The opening handoff copies the current draw so the shared WebGL canvas can attach to detail');
-    caseReport.handoff_pixels = await canvasPixels(page, '#viewer-dialog .stage-flight, #canvas-host .model-handoff');
+    await page.waitForFunction(() => Boolean(window.__handoffReview.openingHandoff), null, { timeout: 30000 });
+    const opening = await page.evaluate(() => window.__handoffReview.openingHandoff);
+    assert(opening.copied, 'The opening handoff copies the current draw so the shared WebGL canvas can attach to detail');
+    caseReport.handoff_pixels = opening.pixels;
     assert.deepEqual(caseReport.handoff_pixels, caseReport.preview_pixels, 'The exact currently painted card pixels must enter the detail handoff');
     assert(caseReport.handoff_pixels.transparent_fraction > 0.2 && caseReport.handoff_pixels.corner_alpha_max <= 3, 'The initial handoff must not contain a baked opaque background');
     await ready(page, 'natural-arch');
