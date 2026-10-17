@@ -1,0 +1,76 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-root",
+        "{output_dir}",
+        "--no-render"
+      ],
+      "asset_id": "bothriolepis",
+      "config": {
+        "quality_tier": "environment-prop",
+        "static": true
+      },
+      "inputs": {
+        "asset_common": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/asset_common.py",
+        "config": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/assets/prehistoric/fauna/bothriolepis/build-config.json",
+        "generator": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/build_aquatic_pair.py",
+        "geometry_helper": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/aquatic_pair_geometry.py",
+        "qa_glb": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/qa_glb.py"
+      },
+      "job_id": "deterministic-rebuild",
+      "outputs": [
+        "bothriolepis/bothriolepis.glb",
+        "bothriolepis/bothriolepis.blend",
+        "bothriolepis/metadata.json",
+        "bothriolepis/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-root",
+        "{output_dir}",
+        "--no-render"
+      ],
+      "asset_id": "waptia",
+      "config": {
+        "quality_tier": "environment-prop",
+        "static": true
+      },
+      "inputs": {
+        "asset_common": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/asset_common.py",
+        "config": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/assets/prehistoric/fauna/waptia/build-config.json",
+        "generator": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/build_aquatic_pair.py",
+        "geometry_helper": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/aquatic_pair_geometry.py",
+        "qa_glb": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/qa_glb.py"
+      },
+      "job_id": "deterministic-rebuild",
+      "outputs": [
+        "waptia/waptia.glb",
+        "waptia/waptia.blend",
+        "waptia/metadata.json",
+        "waptia/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 120
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

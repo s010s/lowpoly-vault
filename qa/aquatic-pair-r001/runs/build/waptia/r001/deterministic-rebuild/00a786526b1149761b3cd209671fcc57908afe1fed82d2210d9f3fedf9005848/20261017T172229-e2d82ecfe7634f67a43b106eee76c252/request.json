@@ -1,0 +1,97 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/build_aquatic_pair.py",
+    "--",
+    "--config",
+    "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/assets/prehistoric/fauna/waptia/build-config.json",
+    "--output-root",
+    "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/qa/aquatic-pair-r001/runs/build/waptia/r001/deterministic-rebuild/00a786526b1149761b3cd209671fcc57908afe1fed82d2210d9f3fedf9005848/20261017T172229-e2d82ecfe7634f67a43b106eee76c252/outputs",
+    "--no-render"
+  ],
+  "created_at": "2026-10-17T17:22:29.714952+00:00",
+  "fingerprint": "00a786526b1149761b3cd209671fcc57908afe1fed82d2210d9f3fedf9005848",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26328,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/asset_common.py",
+        "sha256": "27fe5c66c3955a003e141debbd96816b0f6eda6f64af991f28234ec42257d8bc"
+      },
+      "config": {
+        "bytes": 2242,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/assets/prehistoric/fauna/waptia/build-config.json",
+        "sha256": "cd8a1776bb544cb8a5cd91b8a4b9ecb165903d320629631b851cec723fe6c71b"
+      },
+      "generator": {
+        "bytes": 12521,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/build_aquatic_pair.py",
+        "sha256": "bf490f55aa13a9a2ac95084a0da1db23ee9cb342a00ffe6cd18d89e9cb23d021"
+      },
+      "geometry_helper": {
+        "bytes": 4791,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/aquatic_pair_geometry.py",
+        "sha256": "804dcd0bf47820bfc49abec8d5ce06d7a756e1f5c0757f8821935cc11299b570"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-root",
+        "{output_dir}",
+        "--no-render"
+      ],
+      "asset_id": "waptia",
+      "config": {
+        "quality_tier": "environment-prop",
+        "static": true
+      },
+      "inputs": {
+        "asset_common": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/asset_common.py",
+        "config": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/assets/prehistoric/fauna/waptia/build-config.json",
+        "generator": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/build_aquatic_pair.py",
+        "geometry_helper": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/models/small_fauna/aquatic_pair_geometry.py",
+        "qa_glb": "/workspace/scratch/f9208c421601/lowpoly-small-aquatic-pair/scripts/qa_glb.py"
+      },
+      "job_id": "deterministic-rebuild",
+      "outputs": [
+        "waptia/waptia.glb",
+        "waptia/waptia.blend",
+        "waptia/metadata.json",
+        "waptia/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 120
+    },
+    "lane": "build",
+    "memory_mb": 2048,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120
+  },
+  "run_id": "20261017T172226-15d38067aee24cab9911bbb6dbb4e31b"
+}
