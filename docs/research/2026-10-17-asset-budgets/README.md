@@ -39,7 +39,7 @@ python -m unittest discover -s tests -v
 python scripts/check_budget_record.py proposals/asset-budget-record.schema.json proposals/triceratops-light.example.json
 ```
 
-The first command should run 15 unit tests. The second should accept the record structure while its release_status remains hold. A valid held record is not a release approval.
+The unittest command runs 15 tests. The checker command accepts the record structure while its release_status remains hold. A valid held record is not a release approval.
 
 To regenerate supported GLB inventories, provide an input JSON array of objects containing id, path and optional visual_status, then run:
 
