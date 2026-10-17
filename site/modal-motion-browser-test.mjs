@@ -20,12 +20,14 @@ const root = resolve(process.env.GALLERY_DIR || 'dist');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/modal-motion');
 const baseline = /^(1|true)$/i.test(process.env.BASELINE || '');
 const traceRaster = /^(1|true)$/i.test(process.env.QA_TRACE_RASTER || '');
+const cpuDOMRaster = /^(1|true)$/i.test(process.env.QA_CPU_DOM_RASTER || '');
 const onlyCases = (process.env.QA_CASES || '').split(',').map(value => value.trim()).filter(Boolean);
 const prefix = '/lowpoly-vault/';
 const cardSelector = '#grid .asset-card[data-id="natural-arch"]';
 const report = {
   status: 'running', mode: baseline ? 'baseline' : 'regression', commit: process.env.GITHUB_SHA || null,
   scope: onlyCases.length ? onlyCases : 'full',
+  dom_raster_mode: cpuDOMRaster ? 'cpu' : 'browser-default',
   targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, reverse_flight: 180 },
   note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. Real-time video runs in separate contexts from timing assertions. Pixel/GLB geometry is covered by the independent handoff browser regression, avoiding readback stalls in motion evidence.',
   cases: [], page_errors: [], screenshots: [], videos: [],
@@ -565,7 +567,7 @@ try {
   await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
   base = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined,
-    args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+    args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...(cpuDOMRaster ? ['--disable-gpu-rasterization'] : [])] });
   report.chromium_version = browser.version();
   await runCase('desktop-click', {}, (page, test) => roundTrip(page, test));
   await runCase('desktop-chinese', {}, (page, test) => roundTrip(page, test, { lang: 'zh-CN' }));
@@ -623,7 +625,7 @@ try {
 } catch (error) { report.status = 'fail'; report.error = error.stack; }
 finally {
   await browser?.close(); if (server.listening) await new Promise(resolve => server.close(resolve));
-  const summary = { status: report.status, mode: report.mode, scope: report.scope, runtime_info: report.runtime_info, commit: report.commit, targets_ms: report.targets_ms,
+  const summary = { status: report.status, mode: report.mode, scope: report.scope, dom_raster_mode: report.dom_raster_mode, runtime_info: report.runtime_info, commit: report.commit, targets_ms: report.targets_ms,
     cases: report.cases.map(test => ({ label: test.label, status: test.status, timings: test.timings, violations: test.assertions.filter(a => !a.passed).map(({ name, enforced }) => ({ name, enforced })), error: test.error })),
     page_errors: report.page_errors, videos: report.videos, screenshot_count: report.screenshots.length };
   if (process.env.BASELINE_REPORT) {

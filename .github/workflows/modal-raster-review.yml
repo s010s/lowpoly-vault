@@ -44,24 +44,24 @@ jobs:
               printf '%s not exposed by this runner\n' "$info" >> qa/modal-raster-diagnosis/environment.txt
             fi
           done
-      - name: Measure isolated cached history once
+      - name: Measure browser-default full suite once
         continue-on-error: true
         env:
-          QA_CASES: history-back-forward
           QA_TRACE_RASTER: '1'
-          QA_OUTPUT_DIR: qa/modal-raster-diagnosis/isolated
+          QA_OUTPUT_DIR: qa/modal-raster-diagnosis/browser-default
         run: |
-          vmstat 1 > qa/modal-raster-diagnosis/isolated-resources.txt &
+          vmstat 1 > qa/modal-raster-diagnosis/browser-default-resources.txt &
           resource_pid=$!
           trap 'kill "$resource_pid" 2>/dev/null || true' EXIT
-          timeout --kill-after=10s 180s node site/modal-motion-browser-test.mjs
-      - name: Measure the full suite once on the same runner
+          timeout --kill-after=10s 240s node site/modal-motion-browser-test.mjs
+      - name: Measure CPU DOM raster with unchanged WebGL once
         continue-on-error: true
         env:
           QA_TRACE_RASTER: '1'
-          QA_OUTPUT_DIR: qa/modal-raster-diagnosis/full-suite
+          QA_CPU_DOM_RASTER: '1'
+          QA_OUTPUT_DIR: qa/modal-raster-diagnosis/cpu-dom-raster
         run: |
-          vmstat 1 > qa/modal-raster-diagnosis/full-suite-resources.txt &
+          vmstat 1 > qa/modal-raster-diagnosis/cpu-dom-raster-resources.txt &
           resource_pid=$!
           trap 'kill "$resource_pid" 2>/dev/null || true' EXIT
           timeout --kill-after=10s 240s node site/modal-motion-browser-test.mjs
@@ -74,4 +74,4 @@ jobs:
       - name: Require both measured scopes to satisfy unchanged contracts
         if: always()
         run: |
-          node --input-type=module -e "import fs from 'node:fs';for(const scope of ['isolated','full-suite']){const r=JSON.parse(fs.readFileSync('qa/modal-raster-diagnosis/'+scope+'/summary.json'));if(r.status!=='pass')process.exitCode=1;}"
+          node --input-type=module -e "import fs from 'node:fs';for(const scope of ['browser-default','cpu-dom-raster']){const r=JSON.parse(fs.readFileSync('qa/modal-raster-diagnosis/'+scope+'/summary.json'));if(r.status!=='pass')process.exitCode=1;}"
