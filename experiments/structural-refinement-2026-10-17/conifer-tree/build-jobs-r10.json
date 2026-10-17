@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r10",
+      "job_id": "geometry-build",
+      "inputs": {
+        "generator": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/build_soft_sprays.py",
+        "config": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/soft-sprays-config.json",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/brief.json",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/references.json",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--output-dir",
+        "{output_dir}",
+        "--config",
+        "{input:config}"
+      ],
+      "outputs": [
+        "conifer-tree/conifer-tree.glb",
+        "conifer-tree/conifer-tree.blend",
+        "conifer-tree/metadata.json",
+        "conifer-tree/qa.json",
+        "build-summary.json",
+        "build-config.json"
+      ],
+      "config": {
+        "purpose": "Conifer structural refinement, no renders",
+        "cloud_only": true
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

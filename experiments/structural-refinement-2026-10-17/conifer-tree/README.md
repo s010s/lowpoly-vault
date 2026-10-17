@@ -61,3 +61,9 @@ The editable source and standalone GLB, frozen generator/config/brief/reference 
 ## r9 bounded outer-patch arrangement
 
 `candidate-r9/` moves the same 148 narrow sprays into outer branchlet patches with shallow elevation variation. Its counts and raw bytes exactly match r7. Matched 512px hero/detail/clay and 128px silhouettes are retained; the maker observes that 128px foliage is still delicate and does not claim readability acceptance. r8 is the retained flat-patch preflight. Technical checks and byte-identical separate-process reproduction pass. Full-angle, independent art and GPU/scene gates remain open.
+
+## r10/r11 structural preflights
+
+`candidate-r10/` preserves the first fuller, five-finger preflight (10,810 triangles). `candidate-r11/` is the frozen four-finger short-bevel study, GLB SHA-256 `9b98e62197a3abd3e8988c81bb1ecc571425a8e4dff77d34a44b9c6afce5a235`, 14,194 triangles, 790,652 raw bytes, three opaque primitives and no textures. Source/config/generator, full 24-angle plus ten diagnostic views, native 128px color cardinal views/silhouette, 512px color/clay details and current technical/parser/rebuild evidence are retained.
+
+Fresh independent review is in progress. Closeup flat-looking pointed fingers remain a specifically identified possible blocker; a mathematically capped terminal does not establish a visual pass. The study brief is frozen and will not be overwritten to claim production approval. Original assets and r1–r9 remain unchanged.

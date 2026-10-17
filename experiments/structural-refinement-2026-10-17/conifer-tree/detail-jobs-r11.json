@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "lane": "preview",
+  "jobs": [
+    {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r11",
+      "job_id": "detail512-revised",
+      "inputs": {
+        "glb": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/conifer-tree.glb",
+        "renderer": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/render_detail_views.py",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/brief.json",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/references.json",
+        "framing": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/framing.json",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "structure-r11",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--framing-json",
+        "{input:framing}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,detail,detailclay",
+        "--detail-target",
+        ".5,.5,.43",
+        "--detail-scale",
+        ".32"
+      ],
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "turntable.json",
+        "hero.png",
+        "detail.png",
+        "detailclay.png"
+      ],
+      "config": {
+        "purpose": "Requested independent-QA matched density and branch-detail comparison only"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r11",
+      "job_id": "silhouette128-revised",
+      "inputs": {
+        "glb": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/conifer-tree.glb",
+        "renderer": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/render_detail_views.py",
+        "brief": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/brief.json",
+        "references": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/references.json",
+        "framing": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r11/framing.json",
+        "helper": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/asset_common.py",
+        "audit": "/workspace/scratch/f9208c421601/lowpoly-refine-conifer/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "structure-r11",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--framing-json",
+        "{input:framing}",
+        "--resolution",
+        "128",
+        "--samples",
+        "8",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "silhouette",
+        "--detail-target",
+        ".5,.5,.43",
+        "--detail-scale",
+        ".32"
+      ],
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "turntable.json",
+        "silhouette.png"
+      ],
+      "config": {
+        "purpose": "Requested independent-QA matched density and branch-detail comparison only"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

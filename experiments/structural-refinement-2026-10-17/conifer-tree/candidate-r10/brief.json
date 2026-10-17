@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "asset_id": "conifer-tree",
+  "brief_version": "structure-r10",
+  "profile": "study",
+  "purpose": "Improve the original seven-meter conifer gallery prop at 128\u2013512px full-asset projection and 512px branch detail. Single showcase and sparse grove, not dense forest groundcover. Actual GPU and populated-scene measurements remain required before production acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 11000,
+    "max_materials": 3,
+    "max_primitives": 3,
+    "max_glb_bytes": 850000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "PRI-branching",
+        "HK-branchlets",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "PRI-branching",
+        "HK-branchlets",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "crown-hierarchy",
+      "stage": "visual",
+      "critical": true,
+      "description": "Crown has dominant trunk, curved lateral boughs, subordinate branchlets and intentional negative spaces across the full turntable. No repeating cones or broad foliage leaves.",
+      "required_sources": [
+        "HK-branchlets",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "round-organic-joins",
+      "stage": "visual",
+      "critical": true,
+      "description": "Branch bases taper into trunk with a rounded collar; no plank-like cross sections or detached foliage at detail and underside views.",
+      "required_sources": [
+        "PRI-branching",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "distributed-foliage",
+      "stage": "visual",
+      "critical": true,
+      "description": "Compound narrow sprays remain visibly conifer-like at 128/512px; their four alternate forward fingers read as grouped needle foliage, with no broad leaf laminae, starburst knots or long acute thorns.",
+      "required_sources": [
+        "HK-branchlets",
+        "repository-triage"
+      ]
+    },
+    {
+      "id": "honest-concept",
+      "stage": "factual",
+      "critical": true,
+      "description": "Delivered labels preserve broad concept status, artistic scale/foliage grouping and modern-analogue limitations.",
+      "required_sources": [
+        "NHM-context",
+        "HK-branchlets"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 fixed-camera azimuth frames plus all orthogonal directions, alternate clay key, triangulated wireframe and visible middle-crown branch joins. Same scale, camera and lighting for original versus revised exact GLB.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "candidate-r10/conifer-tree.blend",
+      "sha256": "df671f2212c6f4c538cf9d57b41657d67778f25448529bca74bd2376bc4c9613"
+    },
+    {
+      "role": "generator",
+      "path": "candidate-r10/build_soft_sprays.py",
+      "sha256": "8e1b6ffd50e1c9ae59c057f9b46dd6ded2439f9605416892ae787249f1000222"
+    },
+    {
+      "role": "config",
+      "path": "candidate-r10/build-config.json",
+      "sha256": "6d9d58d52bf4cafa4fa9825cb12ee2f0d854158070b593fffac901d0583fb8bc"
+    }
+  ],
+  "claim_scope": {
+    "classification": "evidence-informed stylized conifer architecture",
+    "period": "Jurassic-Cretaceous inspired design context only",
+    "taxon": "No named extinct species or unchanged modern species claimed",
+    "scale": "Approximately 7 m, artistic",
+    "representation": "Aggregated needle-bearing branchlets, not individual measured leaves. Each central curved axis bears four shorter alternate narrow volumetric fingers with short tapered tips. Branchlet grouping and scale are artistic gallery-scale abstractions."
+  },
+  "component_and_cause": {
+    "primary": "Continuous tapering main axis and open broadly pyramidal irregular crown.",
+    "secondary": "26 curved primary boughs carry 134 staggered lateral branchlets and seven leader shoots. Alternating off-axis branchlets create a legible foliage envelope, with varying shallow elevation and preserved irregular sky windows.",
+    "tertiary": "Each branchlet has a slender central shoot plus four shorter, forward-bending narrow fingers. Their volumetric middle sections and short tip taper replace the thin thorn-like r7/r9 geometry. No broad foliage hull or individual-needle microgeometry is used.",
+    "quiet_region": "Exposed lower trunk and shaded interior bough bases.",
+    "gaps": "Unequal tier heights and one missing lower foliage fan leave understandable sky windows."
+  },
+  "budget_rationale": "The r9 same-count positional study remained too bare in actual 128px/512px images. r10 changes the middle-scale geometry: five-finger volumetric branchlets with shorter tapers spread laterally along boughs. It retains the 11k triangle / 850k raw byte study guards and three opaque materials/primitives; actual costs are recorded in metadata and technical evidence. No dense-forest or GPU performance claim is made.",
+  "runtime_profile": {
+    "renderer": "Three.js 0.180.0",
+    "single_asset_copies": 1,
+    "typical_grove_visible_copies": 16,
+    "stress_visible_copies": 32,
+    "gallery_projection_px": [
+      128,
+      512
+    ],
+    "close_detail_projection_px": 512,
+    "gpu_device": "unverified",
+    "frame_time_target_ms": 16.7,
+    "opaque": true,
+    "lod": "No LOD claim in this study"
+  }
+}
