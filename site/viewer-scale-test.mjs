@@ -173,6 +173,20 @@ const cancelled = stage.show(host, assets[0].metadata.glb, { mode: 'detail', met
 early.abort();
 assert.equal(await cancelled, false);
 assert.equal(stage.stats.liveScenes, 0);
+let releasePresentation;
+const presentationReady = new Promise(resolve => { releasePresentation = resolve; });
+const duringFlight = stage.show(host, assets[2].metadata.glb, { mode: 'detail', metadata: assets[2].metadata, presentationReady });
+await new Promise(resolve => setTimeout(resolve, 0));
+assert.equal(stage.stats.activeRequests, 0, 'Bytes finish fetching while the bitmap flies.');
+assert.equal(stage.stats.liveScenes, 0, 'Parsing and renderer work wait for the presentation gate.');
+releasePresentation(); assert.equal(await duringFlight, true); stage.hide();
+const abortDuringFlight = new AbortController();
+const gated = stage.show(host, assets[0].metadata.glb, { mode: 'detail', metadata: assets[0].metadata,
+  signal: abortDuringFlight.signal, presentationReady: new Promise(resolve => { releasePresentation = resolve; }) });
+await new Promise(resolve => setTimeout(resolve, 0));
+abortDuringFlight.abort(); releasePresentation();
+assert.equal(await gated, false, 'An aborted flight must never attach a stale GLB after the gate releases.');
+assert.equal(stage.stats.liveScenes, 0);
 stage.dispose();
 assert.equal(stage.stats.cacheEntries, 0);
 console.log(`PASS metric reference: ${assets.length} real GLBs, scale validation, immutable geometry, bounded resources, one-frame toggles, offscreen pause and disposal.`);

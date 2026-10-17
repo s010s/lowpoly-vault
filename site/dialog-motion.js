@@ -19,6 +19,7 @@ export class DialogMotion {
     };
     this.resize = new ResizeObserver(this.positionShadow);
     this.resize.observe(dialog);
+    this.resize.observe(dialog.ownerDocument.documentElement);
     this.onReduce = () => { if (reduced.matches) for (const animation of this.active) animation.finish(); };
     reduced.addEventListener('change', this.onReduce);
   }

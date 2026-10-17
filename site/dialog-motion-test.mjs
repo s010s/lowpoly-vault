@@ -14,6 +14,7 @@ function element(name) {
 const shadow = element('shadow'), panel = element('panel'), content = [element('heading'), element('controls'), element('close')];
 const dialog = Object.assign(element('dialog'), {
   open: false, dataset: {}, backdrop: '1', properties: new Map(),
+  ownerDocument: { documentElement: {} },
   querySelector: selector => selector === '.modal-chrome-shadow' ? shadow : panel, querySelectorAll: () => content,
   getBoundingClientRect: () => ({left: 20, top: 32, width: 1000, height: 600}),
   removeAttribute(name) { if (name === 'data-modal-motion') delete this.dataset.modalMotion; },

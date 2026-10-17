@@ -22,7 +22,7 @@ const cardSelector = '#grid .asset-card[data-id="natural-arch"]';
 const report = {
   status: 'running', mode: baseline ? 'baseline' : 'regression', commit: process.env.GITHUB_SHA || null,
   targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, reverse_flight: 180 },
-  note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. PNG screencasts run separately from timing assertions. Pixel/GLB geometry is covered by the independent handoff browser regression, avoiding readback stalls in motion evidence.',
+  note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. Real-time video runs in separate contexts from timing assertions. Pixel/GLB geometry is covered by the independent handoff browser regression, avoiding readback stalls in motion evidence.',
   cases: [], page_errors: [], screenshots: [], videos: [],
 };
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.webp': 'image/webp', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml' };
@@ -243,6 +243,7 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
   for (const f of flights) {
     if (record.pixel_probe) check(test, record.phase + ': flight contains transparent model pixels', f.flight.alpha?.pixels > 0 && f.flight.alpha.transparent_fraction > 0.2 && f.flight.alpha.corner_alpha_max <= 3 && f.flight.background_alpha === 0 && f.flight.background_image === 'none', f.flight.alpha);
     check(test, record.phase + ': moving bitmap does not duplicate a stationary model', ![f.model, f.handoff, f.poster].some(v => v?.visible), { time: f.time, host: f.host });
+    check(test, record.phase + ': source card does not ghost through the fading chrome', !f.card?.visible, { time: f.time, card: f.card?.visible });
   }
   if (sourced) check(test, record.phase + ': sourced transition has no empty visual frame', visible.filter(f => f.source === 'raf').every(f =>
     f.flight?.visible || f.handoff?.visible || f.model?.visible || f.poster?.visible), visible.filter(f => f.source === 'raf' && ![f.flight, f.handoff, f.model, f.poster].some(v => v?.visible)).slice(0, 3));
@@ -324,7 +325,7 @@ async function cleanupState(page, open) {
   return page.evaluate(open => {
     const dialog = document.querySelector('#viewer-dialog');
     return { expected_open: open, open: dialog.open, marker: dialog.dataset.modalMotion || null, path: location.pathname,
-      overflow: document.body.style.overflow, flights: document.querySelectorAll('.stage-flight').length,
+      overflow: document.body.style.overflow, hidden_origins: document.querySelectorAll('[data-detail-origin]').length, flights: document.querySelectorAll('.stage-flight').length,
       handoffs: document.querySelectorAll('.model-handoff').length, canvases: document.querySelectorAll('#canvas-host .model-canvas').length,
       live_scenes: window.__vaultGPU?.liveScenes ?? null, focus_id: document.activeElement?.dataset.id || null,
       active_animations: dialog.getAnimations({ subtree: true }).filter(a => a.playState === 'running' || a.playState === 'paused').map(a => ({ target: a.effect?.target?.id || a.effect?.target?.className, state: a.playState })),
@@ -335,7 +336,7 @@ async function assertClean(page, test, open) {
   await page.waitForFunction(open => document.querySelector('#viewer-dialog').open === open, open, { timeout: 5000 });
   const state = await cleanupState(page, open); (test.cleanup ||= []).push(state);
   check(test, 'Final dialog and route agree', state.open === open && (open ? state.path.endsWith('/natural-arch/') : state.path.endsWith('/models/')), state, false);
-  check(test, 'No stale flights, handoffs, animation locks or body lock', state.flights === 0 && state.handoffs === 0 && state.active_animations.length === 0 && state.host_opacity !== '0' && !state.layout_class.includes('motion-running') && (open ? state.overflow === 'hidden' : state.overflow !== 'hidden'), state);
+  check(test, 'No stale flights, handoffs, animation locks or body lock', state.flights === 0 && state.handoffs === 0 && state.active_animations.length === 0 && state.host_opacity !== '0' && !state.layout_class.includes('motion-running') && (open ? state.overflow === 'hidden' : state.overflow !== 'hidden' && state.hidden_origins === 0), state);
   check(test, 'Exactly the expected number of live detail scenes', state.canvases === (open ? 1 : 0) && (state.live_scenes === null || state.live_scenes === (open ? 1 : 0)), state, false);
 }
 
@@ -365,27 +366,51 @@ async function sequence(page, test, label, action) {
   }
   check(test, label + ': real compositor screenshot sequence captured', capture.frames.length >= (test.label === 'reduced-motion' || label.startsWith('direct-route') ? 2 : 3), { frames: capture.frames.length }, false);
 }
-async function evidenceRoundTrip(page, test, { touch = false } = {}) {
-  await sequence(page, test, test.label + '-evidence', async capture => {
-    await arm(page, 'evidence-open');
-    await page.locator(cardSelector)[touch ? 'tap' : 'click']();
-    const opened = await collect(page, 850); await ready(page);
-    await page.waitForTimeout(200);
-    await arm(page, 'evidence-close'); await page.locator('#close')[touch ? 'tap' : 'click']();
-    const closed = await collect(page, 500);
-    capture.input_events = [...opened.events, ...closed.events];
-    capture.frames.forEach(frame => { frame.since_open_ms = frame.browser_time_ms - (opened.events.find(e => e.type === 'click' && e.target === 'card:natural-arch')?.time ?? 0); frame.since_close_ms = frame.browser_time_ms - (closed.events.find(e => e.type === 'click' && e.target === '#close')?.time ?? 0); });
-    test.evidence_measurements = { open: opened, close: closed };
-    validateInvariant(test, opened, { opening: true, sourced: true });
+async function evidenceRoundTrip(page, test, { touch = false, lang = '' } = {}) {
+  // Record a separate, real-time browser session. PNG screencasts force slow
+  // readbacks in SwiftShader, so they must not distort the animation evidence.
+  const options = test.context_options, context = await browser.newContext({
+    reducedMotion: 'no-preference', ...options, recordVideo: { dir: output, size: options.viewport },
   });
+  const evidence = await context.newPage(); evidence.setDefaultTimeout(15000);
+  evidence.on('pageerror', error => report.page_errors.push({ label: test.label + '-evidence', error: error.message }));
+  await evidence.addInitScript(() => {
+    window.__motionEvidenceInputs = [];
+    for (const type of ['click', 'keydown', 'popstate']) addEventListener(type, event => {
+      window.__motionEvidenceInputs.push({ type, time: performance.now(), origin: performance.timeOrigin, key: event.key,
+        target: event.target?.closest?.('#close') ? '#close' : event.target?.closest?.('.asset-card')?.dataset.id });
+    }, true);
+  });
+  const sequence = { label: test.label + '-real-time-video', method: 'Unmodified real-time browser video; no pixel reads or per-frame computed-style probe.' };
+  try {
+    await catalog(evidence, { touch, lang });
+    await evidence.locator(cardSelector)[touch ? 'tap' : 'click'](); await ready(evidence);
+    await evidence.waitForTimeout(750);
+    const open = test.label + '-evidence-open.png';
+    await evidence.screenshot({ path: resolve(output, open) }); report.screenshots.push(open);
+    await evidence.locator('#canvas-host').focus(); await evidence.keyboard.press('ArrowRight'); await evidence.keyboard.press('ArrowUp');
+    await evidence.waitForTimeout(150);
+    await evidence.locator('#close')[touch ? 'tap' : 'click']();
+    await evidence.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
+    await evidence.waitForTimeout(400);
+    const closed = test.label + '-evidence-closed.png';
+    await evidence.screenshot({ path: resolve(output, closed) }); report.screenshots.push(closed);
+    sequence.input_events = await evidence.evaluate(() => window.__motionEvidenceInputs);
+    await assertClean(evidence, test, false);
+  } finally {
+    const video = evidence.video(); await context.close();
+    sequence.video = basename(await video.path()); report.videos.push({ label: test.label, file: sequence.video });
+    (test.evidence_sequences ||= []).push(sequence);
+  }
 }
+
 async function runCase(label, options, body) {
   const viewport = options.viewport || { width: 1440, height: 1000 };
   // Screen recording is deliberately off during latency measurement. Actual
   // compositor PNG sequences are captured in the separate evidence round-trip.
   const context = await browser.newContext({ viewport, reducedMotion: 'no-preference', ...options });
   const page = await context.newPage(); page.setDefaultTimeout(15000); await page.addInitScript(installProbe);
-  const test = { label, status: 'running', assertions: [], timings: [], measurements: [] }; report.cases.push(test);
+  const test = { label, context_options: { viewport, ...options }, status: 'running', assertions: [], timings: [], measurements: [] }; report.cases.push(test);
   page.on('pageerror', error => report.page_errors.push({ label, error: error.message }));
   try { await body(page, test); test.status = baseline ? 'recorded' : 'pass'; }
   catch (error) {
@@ -418,7 +443,7 @@ async function roundTrip(page, test, { touch = false, reduced = false, lang = ''
   if (touch) check(test, 'Mobile close was a trusted touch tap', closed.events.some(e => e.type === 'pointerup' && e.pointer_type === 'touch' && e.trusted), closed.events, false);
   await assertClean(page, test, false);
   check(test, 'Focus returns to the source card', await page.evaluate(() => document.activeElement?.dataset.id === 'natural-arch'), null, false);
-  await evidenceRoundTrip(page, test, { touch }); await assertClean(page, test, false);
+  await evidenceRoundTrip(page, test, { touch, lang }); await assertClean(page, test, false);
 }
 
 try {

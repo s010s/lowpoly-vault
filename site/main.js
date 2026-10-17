@@ -239,18 +239,23 @@ function rememberInterruptedDialog(){
   if(interruptedDialog)return;
   interruptedDialog=$('#viewer-dialog').open?{assetId:selected?.id,visual:currentDetailVisual(),rect:$('#viewer-dialog .stage-flight')?.getBoundingClientRect(),chrome:dialogMotion.capture()}:null;
 }
+function restoreOriginVisual(){document.querySelectorAll('[data-detail-origin]').forEach(card=>card.removeAttribute('data-detail-origin'));}
 function cancelDialogMotion(){modalAnimation?.cancel();modalAnimation=null;dialogMotion.cancel();document.querySelectorAll('.stage-flight').forEach(releaseVisual);$('#canvas-host').style.opacity='';}
 function containRect(rect,ratio){const width=Math.min(rect.width,rect.height*ratio),height=width/ratio;return {left:rect.left+(rect.width-width)/2,top:rect.top+(rect.height-height)/2,width,height};}
 async function animateDialog(from,to,reverse=false,version=detailVersion,flightStart=null){
   const dialog=$('#viewer-dialog'),host=$('#canvas-host');
   if(reduced.matches||!from||!to||from.width<1||from.height<1)return;
-  const source=host.querySelector('.model-handoff')||host.querySelector('img'),clone=copyVisual(source);if(!clone)return;
+  const source=host.querySelector('.model-handoff')||host.querySelector('img'),reuse=source instanceof HTMLCanvasElement,clone=reuse?source:copyVisual(source);if(!clone)return;
   const ratio=(source.naturalWidth||source.width)/(source.naturalHeight||source.height),small=containRect(from,ratio),large=containRect(to,ratio);
   clone.className='stage-flight';Object.assign(clone.style,{left:`${large.left}px`,top:`${large.top}px`,width:`${large.width}px`,height:`${large.height}px`});dialog.append(clone);host.style.opacity='0';
   const transform=`translate(${small.left-large.left}px,${small.top-large.top}px) scale(${small.width/large.width})`;
   const start=flightStart?containRect(flightStart,ratio):null,startTransform=start?`translate(${start.left-large.left}px,${start.top-large.top}px) scale(${start.width/large.width})`:null;
   const animation=modalAnimation=clone.animate(reverse?[{transform:startTransform||'none',opacity:1},{transform,opacity:1}]:[{transform:startTransform||transform,opacity:1},{transform:'none',opacity:1}],{duration:reverse?DIALOG_TIMING.flightClose:DIALOG_TIMING.flightOpen,easing:'cubic-bezier(.18,.8,.2,1)',fill:'forwards'});
-  await animation.finished.catch(()=>{});releaseVisual(clone);if(version!==detailVersion)return;host.style.opacity='';if(modalAnimation===animation)modalAnimation=null;
+  await animation.finished.catch(()=>{});if(version!==detailVersion){releaseVisual(clone);return;}
+  // Move the exact retained bitmap between the flight and host. Re-copying a
+  // large canvas here forces another GPU upload during the short close gesture.
+  animation.cancel();if(reuse){clone.className='model-handoff';clone.style.cssText='';host.append(clone);}else releaseVisual(clone);
+  host.style.opacity='';if(modalAnimation===animation)modalAnimation=null;
 }
 reduced.addEventListener('change',()=>{if(reduced.matches)modalAnimation?.finish();});
 function releaseHandoff(version){
@@ -271,18 +276,19 @@ async function openAsset(id,{push=false,replace=false}={}){
   if(push){sourceContext={url:location.pathname+location.search,view:currentView,scroll:scrollY,triggerId:id,pages,firstPage:page,lastPage:page,items:items.map(a=>({id:a.id,name:a.name})),options:queryOptions()};history.pushState({vaultDetail:true,source:sourceContext},'',href('detail',id));}
   else if(replace)history.replaceState(history.state,'',href('detail',id));
   selectedSummary=asset||{id};selected=asset||{id,name:{en:'…',zh:'…'}};
-  neighborItems=sourceContext?.items||items;origin=currentView==='catalog'?document.querySelector(`.asset-card[data-id="${CSS.escape(id)}"]`):null;
+  neighborItems=sourceContext?.items||items;restoreOriginVisual();origin=currentView==='catalog'?document.querySelector(`.asset-card[data-id="${CSS.escape(id)}"]`):null;
   const from=!switching||resume?.rect?origin?.querySelector('.asset-image')?.getBoundingClientRect():null;fillInfo(selected);paintNeighbors();$('#related').hidden=true;clearHost();host.dataset.modelState='loading';
   let poster;
   const addPoster=record=>{const preview=record?.card_preview||record?.preview;if(!preview)return;poster=new Image();poster.src=path(preview);poster.alt=loc(record.name);poster.className='model-poster';poster.dataset.assetId=record.id;if(host.querySelector('.model-handoff')||retained)poster.style.visibility='hidden';host.prepend(poster);};
   addPoster(asset);if(retained){retained.className='model-handoff';host.append(retained);}else{const copy=copyVisual(origin?.querySelector('.asset-image img'));if(copy){copy.dataset.assetId=id;host.append(copy);}}
   $('#viewer-status').textContent=t('viewLoading');controlsReady(false);$('#wireframe').ariaPressed='false';$('#scale-reference').ariaPressed='false';$('#scale-status').textContent='';$('#provenance').open=false;
+  if(origin)origin.dataset.detailOrigin='true';
   if(!dialog.open)dialog.showModal();document.body.style.overflow='hidden';const motion=Promise.all([dialogMotion.start({from:chromeFrom}),animateDialog(from,host.getBoundingClientRect(),false,version,flightStart)]);$('#close').focus({preventScroll:true});
   try{
     const detail=await store.getDetail(asset||id);if(version!==detailVersion)return;selected=detail;fillInfo(detail);document.title=`${loc(detail.name)} · Lowpoly Vault`;prepareRelated(detail,version);
     if(!poster)addPoster(detail);
     const s=await getStage();if(version!==detailVersion)return;
-    await s.show(host,path(detail.glb),{mode:'detail',metadata:detail,initialView:interrupted?.__presentation||cardCapture?.view,signal:detailController.signal,onStatus:status=>{if(version===detailVersion){controlsReady(status==='ready');$('#viewer-status').textContent=status==='ready'?'':status==='error'?t('viewError'):t('viewLoading');if(status==='ready'){if(poster)poster.style.visibility='hidden';releaseHandoff(version);}else if(status==='error'&&poster){poster.style.visibility='visible';}}}});
+    await s.show(host,path(detail.glb),{mode:'detail',metadata:detail,presentationReady:motion,initialView:interrupted?.__presentation||cardCapture?.view,signal:detailController.signal,onStatus:status=>{if(version===detailVersion){controlsReady(status==='ready');$('#viewer-status').textContent=status==='ready'?'':status==='error'?t('viewError'):t('viewLoading');if(status==='ready'){if(poster)poster.style.visibility='hidden';releaseHandoff(version);}else if(status==='error'&&poster){poster.style.visibility='visible';}}}});
     await motion;
   }catch(error){if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');let decoded=false;if(poster){try{await poster.decode();decoded=true;}catch{}}if(version===detailVersion){if(decoded){poster.style.visibility='visible';releaseHandoff(version);}else if(host.querySelector('.model-handoff'))$('#viewer-status').textContent=lang==='zh'?'新预览暂时不可用，保留上一个画面。':'New preview unavailable; the previous view is retained.';}}}
 }
@@ -299,7 +305,7 @@ async function closeAsset(){
   if(!alreadyClosing)await Promise.all([dialogMotion.start({reverse:true,from:chromeFrom}),visible?animateDialog(target,$('#canvas-host').getBoundingClientRect(),true,version,flightStart):Promise.resolve()]);
   if(!closing||version!==detailVersion)return;$('#viewer-dialog').close();dialogMotion.cancel();document.body.style.overflow='';
   if(visible&&origin?.isConnected&&returnAsset?.id===origin.dataset.id){scrub.retainSnapshot(origin,returnAsset,retained,returnView);hoverCard=origin;}
-  clearHost();selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;atlas?.setActive(currentView==='catalog'&&browseMode==='atlas');
+  clearHost();restoreOriginVisual();selected=selectedSummary=null;closing=false;restoringFocus=true;origin?.isConnected&&origin.focus({preventScroll:true});restoringFocus=false;origin=null;atlas?.setActive(currentView==='catalog'&&browseMode==='atlas');
 }
 function requestClose(){if(history.state?.vaultDetail)history.back();else{history.replaceState({view:'catalog'},'',href('models'));syncRoute();}}
 function hideStaticFor(type){if(staticContent?.dataset.routeType===type)staticContent.hidden=true;}
@@ -392,7 +398,7 @@ document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!selected&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();if(currentView==='home')$('#home-query').focus();else catalogToolbar.open();}
   if(selected&&['ArrowLeft','ArrowRight'].includes(event.key)&&!event.altKey&&!event.ctrlKey&&!event.metaKey&&!event.target.closest('#canvas-host,input,textarea,select')){const link=$(event.key==='ArrowLeft'?'#previous-model':'#next-model');if(!link.hidden){event.preventDefault();openAsset(link.dataset.modelId,{replace:true});}}
 });
-window.addEventListener('pagehide',()=>{releaseVisual(interruptedDialog?.visual);scrub.dispose();stage?.dispose();motionUI.dispose();dialogMotion.dispose();atlas?.dispose();store.dispose();});
+window.addEventListener('pagehide',()=>{restoreOriginVisual();releaseVisual(interruptedDialog?.visual);scrub.dispose();stage?.dispose();motionUI.dispose();dialogMotion.dispose();atlas?.dispose();store.dispose();});
 async function load(){
   if(!staticContent)$('#grid').innerHTML=Array.from({length:8},()=>'<div class="skeleton" aria-hidden="true"></div>').join('');$('#grid').ariaBusy='true';
   try{
