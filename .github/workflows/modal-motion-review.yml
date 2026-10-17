@@ -47,6 +47,7 @@ jobs:
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/modal-motion-after
+          QA_TRACE_RASTER: '1'
           BASELINE_REPORT: qa/modal-motion-before/summary.json
         run: node site/modal-motion-browser-test.mjs
       - name: Require complete baseline capture

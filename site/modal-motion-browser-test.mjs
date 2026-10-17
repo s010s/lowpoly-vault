@@ -17,6 +17,7 @@ import assert from 'node:assert/strict';
 const root = resolve(process.env.GALLERY_DIR || 'dist');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/modal-motion');
 const baseline = /^(1|true)$/i.test(process.env.BASELINE || '');
+const traceRaster = /^(1|true)$/i.test(process.env.QA_TRACE_RASTER || '');
 const prefix = '/lowpoly-vault/';
 const cardSelector = '#grid .asset-card[data-id="natural-arch"]';
 const report = {
@@ -168,6 +169,7 @@ function installProbe() {
   window.__modalMotionQA = {
     arm(label, { pixels = false } = {}) {
       if (active) this.stop();
+      performance.mark('modal:' + label);
       phase = label; pixelProbe = pixels; frames = []; events = []; draws = []; errors = []; active = true;
       const dialog = document.querySelector('#viewer-dialog');
       observer = new MutationObserver(records => {
@@ -460,6 +462,20 @@ async function historyVisualEvidence(test, { interrupted = false, compositor = f
     }
     await assertClean(page, test, true);
   } finally {
+    if (trace) {
+      let deadline;
+      try {
+        const complete = new Promise((resolve, reject) => {
+          trace.once('Tracing.tracingComplete', resolve);
+          deadline = setTimeout(() => reject(new Error('Raster trace completion exceeded 10 seconds')), 10000);
+        });
+        await trace.send('Tracing.end'); await complete;
+        const file = label + '-raster-trace.json';
+        await writeFile(resolve(output, file), JSON.stringify({ traceEvents }));
+        test.raster_trace = { file, events: traceEvents.length, note: 'Diagnostic trace may affect scheduling; strict thresholds are unchanged. Visual evidence uses independent unprobed contexts.' };
+      } catch (error) { test.status = 'fail'; test.error ||= error.stack; }
+      finally { clearTimeout(deadline); await trace.detach().catch(() => {}); }
+    }
     const video = page.video(); await context.close();
     if (video) {
       visual.video = basename(await video.path()); report.videos.push({ label, file: visual.video });
@@ -476,7 +492,16 @@ async function runCase(label, options, body) {
   const page = await context.newPage(); page.setDefaultTimeout(15000); await page.addInitScript(installProbe);
   const test = { label, context_options: { viewport, ...options }, status: 'running', assertions: [], timings: [], measurements: [] }; report.cases.push(test);
   page.on('pageerror', error => report.page_errors.push({ label, error: error.message }));
-  try { await body(page, test); test.status = baseline ? 'recorded' : 'pass'; }
+  let trace;
+  const traceEvents = [];
+  try {
+    if (traceRaster && label === 'history-back-forward') {
+      trace = await context.newCDPSession(page);
+      trace.on('Tracing.dataCollected', event => traceEvents.push(...event.value));
+      await trace.send('Tracing.start', { categories: 'devtools.timeline,v8,blink,cc,gpu,blink.user_timing,disabled-by-default-devtools.timeline.stack', transferMode: 'ReportEvents' });
+    }
+    await body(page, test); test.status = baseline ? 'recorded' : 'pass';
+  }
   catch (error) {
     test.status = 'fail'; test.error = error.stack;
     test.last_measurement = await page.evaluate(() => window.__modalMotionQA?.stop()).catch(() => null);
