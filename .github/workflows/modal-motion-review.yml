@@ -1,0 +1,57 @@
+name: Compare modal chrome motion
+on:
+  push:
+    branches: ['publish/modal-chrome-*']
+    paths: ['site/**', 'package*.json', '.github/workflows/modal-motion-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: modal-motion-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  SITE_BASE: /lowpoly-vault/
+  SITE_ORIGIN: https://s010s.github.io
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 92f4c4ab73df2f4d0ee3ef66ea9cc0b810d3a6b6
+          path: baseline
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build the exact previous live release
+        run: |
+          ln -s ../node_modules baseline/node_modules
+          cd baseline
+          npm run build
+      - name: Measure the previous live release with the same probe
+        env:
+          GALLERY_DIR: baseline/dist
+          QA_OUTPUT_DIR: qa/modal-motion-before
+          BASELINE: '1'
+        run: node site/modal-motion-browser-test.mjs
+      - name: Build current candidate
+        run: npm run build
+      - name: Measure and compare the candidate
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/modal-motion-after
+          BASELINE_REPORT: qa/modal-motion-before/summary.json
+        run: node site/modal-motion-browser-test.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modal-motion-comparison-${{ github.sha }}
+          path: |
+            qa/modal-motion-before/
+            qa/modal-motion-after/
+          retention-days: 30
