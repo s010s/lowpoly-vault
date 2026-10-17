@@ -61,6 +61,7 @@ await opening;
 assert.equal(dialog.dataset.modalMotion, 'closing', 'A superseded opener cannot clear the closing state');
 [...deadlines.values()][0].callback();
 await closing;
+assert.equal(dialog.properties.get('--modal-backdrop-duration'), '0ms', 'The CSS backdrop shares the dismissal deadline');
 assert.equal(deadlines.size, 0, 'Completed exit releases its deadline');
 assert.equal(dialog.dataset.modalMotion, 'closing', 'Exit opacity stays at zero until dialog.close()');
 

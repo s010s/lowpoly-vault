@@ -81,7 +81,11 @@ export class DialogMotion {
     // Use the intended wall-clock endpoint if the compositor delays its WAAPI
     // start/finish notification. Dismissal must not acquire a scheduling tail.
     if (reverse) this.deadline = setTimeout(() => {
-      if (version === this.version) for (const animation of this.active) animation.finish();
+      if (version !== this.version) return;
+      for (const animation of this.active) animation.finish();
+      // The CSS backdrop may start a compositor frame after the WAAPI panel.
+      // Give it the same wall-clock endpoint instead of a final opaque tail.
+      this.dialog.style.setProperty('--modal-backdrop-duration', '0ms');
     }, backdropDuration);
     return Promise.all(tasks).then(() => {
       if (version !== this.version) return;

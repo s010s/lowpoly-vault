@@ -95,10 +95,14 @@ export class ImageScrubPreview {
     this.canvas.getContext('2d').drawImage(source,(width-size)/2,(height-size)/2,size,size,0,0,this.canvas.width,this.canvas.height);
     card.querySelector('.asset-image').append(this.canvas);card.dataset.scrubState='ready';card.dataset.scrubFrame=String(frame);this.stats.frame=frame;this.sync();
   }
-  capture() {
+  capture({transfer=false}={}) {
     if(!this.canvas||!this.current||this.current.card.dataset.scrubState!=='ready')return null;
     const frame=this.manifests.get(this.current.descriptor.manifest)?.frames[this.stats.frame];
-    const canvas=document.createElement('canvas');canvas.width=this.canvas.width;canvas.height=this.canvas.height;canvas.getContext('2d').drawImage(this.canvas,0,0);canvas.className='model-handoff';canvas.setAttribute('aria-hidden','true');canvas.dataset.assetId=this.current.id;
+    // A detail flight can take the already rasterized card surface. Copying it
+    // on every cached reopen forces a new canvas backing and GPU upload.
+    const canvas=transfer?this.canvas:document.createElement('canvas');
+    if(transfer){this.canvas=null;this.sync();}else{canvas.width=this.canvas.width;canvas.height=this.canvas.height;canvas.getContext('2d').drawImage(this.canvas,0,0);}
+    canvas.className='model-handoff';canvas.setAttribute('aria-hidden','true');canvas.dataset.assetId=this.current.id;
     canvas.__presentation=this.current.snapshotView||(frame?{azimuth_deg:frame.azimuth_deg,elevation_deg:frame.elevation_deg}:undefined);
     return {canvas,id:this.current.id,view:this.current.snapshotView||(frame?{azimuth_deg:frame.azimuth_deg,elevation_deg:frame.elevation_deg}:undefined)};
   }

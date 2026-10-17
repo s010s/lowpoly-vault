@@ -270,7 +270,7 @@ async function openAsset(id,{push=false,replace=false}={}){
   const resume=previous?.assetId===id?previous:null;if(previous&&!resume)releaseVisual(previous.visual);
   const chromeFrom=previous?.chrome||dialogMotion.capture(),flightStart=resume?.rect||$('#viewer-dialog .stage-flight')?.getBoundingClientRect();
   const interrupted=resume?.visual||(closing?currentDetailVisual():null);
-  const cardCapture=!switching&&scrub.current?.id===id?scrub.capture():null;
+  const cardCapture=!switching&&!interrupted&&scrub.current?.id===id?scrub.capture({transfer:true}):null;
   const retained=interrupted||(switching?currentDetailVisual():cardCapture?.canvas);
   const version=++detailVersion;closing=false;cancelDialogMotion();stopHover();detailController?.abort();detailController=new AbortController();stage?.hide();atlas?.setActive(false);
   const asset=items.find(a=>a.id===id)||index?.initial.find(a=>a.id===id);
