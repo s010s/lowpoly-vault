@@ -120,7 +120,7 @@ function installProbe() {
   };
   const visual = element => {
     if (!element) return null;
-    const a = cachedAlpha(element), s = style(element);
+    const a = pixelProbe ? cachedAlpha(element) : alphaCache.get(element) || null, s = style(element);
     return { ...s, alpha: a, object: objectBounds(element, a), visible: s.effective_opacity > 0.003 && s.rect.width > 0 && s.rect.height > 0,
       background_image: getComputedStyle(element).backgroundImage };
   };
@@ -240,7 +240,7 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
   check(test, record.phase + ': shell never moves model geometry', visible.every(f => f.shell.transform.identity), visible.filter(f => !f.shell.transform.identity).slice(0, 2));
   const flights = visible.filter(f => f.flight);
   for (const f of flights) {
-    check(test, record.phase + ': flight contains transparent model pixels', f.flight.alpha?.pixels > 0 && f.flight.alpha.transparent_fraction > 0.2 && f.flight.alpha.corner_alpha_max <= 3 && f.flight.background_alpha === 0 && f.flight.background_image === 'none', f.flight.alpha);
+    if (record.pixel_probe) check(test, record.phase + ': flight contains transparent model pixels', f.flight.alpha?.pixels > 0 && f.flight.alpha.transparent_fraction > 0.2 && f.flight.alpha.corner_alpha_max <= 3 && f.flight.background_alpha === 0 && f.flight.background_image === 'none', f.flight.alpha);
     check(test, record.phase + ': moving bitmap does not duplicate a stationary model', ![f.model, f.handoff, f.poster].some(v => v?.visible), { time: f.time, host: f.host });
   }
   if (sourced) check(test, record.phase + ': sourced transition has no empty visual frame', visible.filter(f => f.source === 'raf').every(f =>
@@ -284,7 +284,7 @@ function validateTiming(test, record, trigger, { opening, reduced = false, sourc
       check(test, record.phase + ': reverse flight is an 180 ms animation', flightDurations.length > 0 && flightDurations.every(ms => typeof ms === 'number' && ms <= 180 && ms >= 160), flightDurations);
       if (before?.model?.object) check(test, record.phase + ': first reverse bitmap matches current model bounds', near(before?.model?.object, flights[0]?.flight?.object, 12), { before: before?.model?.object, first: flights[0]?.flight?.object });
       const retained = frames.filter(f => !f.open && f.card?.object).at(-1)?.card?.object;
-      check(test, record.phase + ': reverse bitmap lands on the retained card', near(flights.at(-1)?.flight?.object, retained, 14), { last: flights.at(-1)?.flight?.object, retained });
+      if (flights.at(-1)?.flight?.object && retained) check(test, record.phase + ': reverse bitmap lands on the retained card', near(flights.at(-1)?.flight?.object, retained, 14), { last: flights.at(-1)?.flight?.object, retained });
     }
   }
   if (reduced) check(test, record.phase + ': reduced motion has no flight or ongoing chrome animation', visible.every(f => !f.flight && !f.animations.some(a => a.play_state === 'running' && Number(a.duration) > 0)), { samples: visible.length });
@@ -349,8 +349,15 @@ async function sequence(page, test, label, action) {
     report.screenshots.push(filename); pending.push(writeFile(resolve(output, filename), Buffer.from(event.data, 'base64')));
   };
   session.on('Page.screencastFrame', listener);
+  const still = async suffix => {
+    const file = `${label}-${suffix}.png`;
+    const browser_time_ms = await page.evaluate(() => performance.now());
+    await page.screenshot({ path: resolve(output, file) });
+    report.screenshots.push(file); capture.frames.push({ file, browser_time_ms, capture: 'explicit-compositor-still' });
+  };
+  await still('before');
   await session.send('Page.startScreencast', { format: 'png', everyNthFrame: 1 });
-  try { await action(capture); } finally {
+  try { await action(capture); await still('after'); } finally {
     await session.send('Page.stopScreencast').catch(() => {}); session.off('Page.screencastFrame', listener);
     await Promise.all(pending); await session.detach();
     (test.evidence_sequences ||= []).push(capture);

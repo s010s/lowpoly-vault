@@ -335,6 +335,8 @@ async function roundTrip(label, options = {}) {
     const initial = await angles(page);
     assert(deltaAngle(initial.azimuth, 147) < 0.001, 'The 7/24 preview angle enters actual 3D unchanged');
     await page.waitForTimeout(350);
+    await page.waitForFunction(() => !document.querySelector('#canvas-host .model-handoff') && !document.querySelector('.stage-flight'));
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     await page.evaluate(() => { window.__handoffReview.phase = 'inspect'; });
     await pixelParity(page, label, caseReport);
     await page.evaluate(() => { window.__handoffReview.phase = 'interact'; });
@@ -362,6 +364,8 @@ async function roundTrip(label, options = {}) {
     assert.equal(caseReport.beforeReopen.card.canvases, 1, 'The retained image must remain painted immediately before reopening');
     await page.evaluate(() => { window.__handoffReview.phase = 'reopen'; });
     await page.keyboard.press('Enter'); await ready(page, 'natural-arch'); await page.waitForTimeout(350);
+    await page.waitForFunction(() => !document.querySelector('#canvas-host .model-handoff') && !document.querySelector('.stage-flight'));
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     await page.evaluate(() => { window.__handoffReview.phase = 'inspect-reopen'; });
     const reopened = await angles(page);
     caseReport.reopened = reopened;
