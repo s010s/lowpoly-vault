@@ -22,7 +22,7 @@ Budget by role, projected screen size, visible repetition and target device. Sta
 - [Official sample metadata](data/official-sample-metadata.json): Fox, DamagedHelmet and FlightHelmet at a pinned Khronos commit; not FPS benchmarks.
 - [Source ledger JSON](data/source-ledger.json).
 - [Record schema](proposals/asset-budget-record.schema.json) and [held Triceratops example](proposals/triceratops-light.example.json).
-- [Research-only schema/cross-field checker](scripts/check_budget_record.py) and [13 tests](tests/test_budget_record.py).
+- [Research-only schema/cross-field checker](scripts/check_budget_record.py) and [15 tests](tests/test_budget_record.py).
 - [Read-only supported-subset GLB inventory](scripts/inspect_glb_samples.py).
 
 The inventory is not a glTF validator. The evidence-record checker cannot verify that referenced reviews are truthful or replace human/device QA. The synthetic approval test fixture is not a real asset approval.
@@ -38,7 +38,7 @@ python -m unittest discover -s tests -v
 python scripts/check_budget_record.py proposals/asset-budget-record.schema.json proposals/triceratops-light.example.json
 ```
 
-The first command should run 13 unit tests. The second should accept the record structure while its release_status remains hold. A valid held record is not a release approval.
+The first command should run 15 unit tests. The second should accept the record structure while its release_status remains hold. A valid held record is not a release approval.
 
 To regenerate supported GLB inventories, provide an input JSON array of objects containing id, path and optional visual_status, then run:
 

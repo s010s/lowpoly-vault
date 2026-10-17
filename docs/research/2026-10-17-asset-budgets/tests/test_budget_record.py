@@ -75,5 +75,13 @@ class BudgetRecordTests(unittest.TestCase):
         self.r["budget_contract"]["limits"] = {}
         self.assertTrue(self.check())
 
+    def test_all_unknown_frozen_limits_rejected(self):
+        self.approve_fixture()
+        self.r["budget_contract"]["limits"] = {"stored_glb_bytes": None}
+        self.assertTrue(self.check())
+    def test_fractional_byte_count_rejected(self):
+        self.r["metrics"]["stored_glb_bytes"]["value"] = 471784.5
+        self.assertTrue(self.check())
+
 if __name__ == "__main__":
     unittest.main()

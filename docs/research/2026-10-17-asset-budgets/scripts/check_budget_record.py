@@ -27,7 +27,7 @@ def check(schema, record):
     if record["release_status"] == "approved_for_context":
         if not record["gates"]["technical"]["required"]:
             errors.append("technical gate must be required for approval")
-        if not record["budget_contract"]["limits"]:
+        if not any(v is not None for v in record["budget_contract"]["limits"].values()):
             errors.append("approval needs explicit frozen limits")
         exception_limits = {e["metric"]: e["approved_limit"] for e in record["exceptions"]}
         for key, limit in record["budget_contract"]["limits"].items():
