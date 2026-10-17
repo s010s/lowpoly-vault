@@ -62,8 +62,10 @@ jobs:
           npm run test:redesign
           npm run test:parser
           npm run test:scrub
-      - run: npm run build
-      - run: npx playwright install --with-deps chromium
+      - id: build
+        run: npm run build
+      - id: browser
+        run: npx playwright install --with-deps chromium
       - name: Reproduce all 250 sharp transparent WebPs
         env:
           GALLERY_DIR: dist
@@ -78,16 +80,19 @@ jobs:
           QA_ALLOW_WEBGL_FALLBACK: '0'
         run: node site/redesign-browser-test.mjs
       - name: Verify all ten active-only image cards, bounded resources and touch
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/checkpoint-scrub
         run: npm run test:scrub:browser
       - name: Verify rendered alpha, stationary stage and every first-paint handoff
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/checkpoint-handoff
         run: npm run test:handoff:browser
       - name: Verify forced WebGL fallback separately
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/checkpoint-fallback
