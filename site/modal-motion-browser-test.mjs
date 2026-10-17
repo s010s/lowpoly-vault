@@ -359,9 +359,14 @@ function validateCanonicalReturn(test, record, frames, event, before, slack) {
   });
   check(test, record.phase + ': actual camera follows eased azimuth, elevation and distance', interpolated.length > 1 && interpolated.every(sample => sameView(sample.actual, sample.expected)),
     interpolated.filter(sample => !sameView(sample.actual, sample.expected)).slice(0, 3));
-  const firstFade = fading[0]?.time - event.time;
+  // The DOM sampler can run before the motion callback in the same RAF batch,
+  // observing alignment one display interval late. Time the actual canonical
+  // WebGL draw here; the separate RAF assertions below still require a visible
+  // canonical poster and a genuinely partially faded live model.
+  const alignedDraw = returnedDraws.find(d => d.return_phase === 'fading' && d.return_progress === 1 && sameView(d.view, canonical));
+  const firstFade = alignedDraw?.time - event.time;
   check(test, record.phase + ': canonical pose is reached at the 120 ms travel boundary', Number.isFinite(firstFade) && firstFade >= 100 && firstFade <= 120 + slack,
-    { first_fade_ms: firstFade, allowed_late_ms: slack });
+    { first_fade_ms: firstFade, first_dom_fade_ms: fading[0]?.time - event.time, observation: 'actual synchronous canonical WebGL draw', allowed_late_ms: slack });
   const components = [
     { key: 'azimuth_deg', span: initial && canonical ? angleDelta(initial.azimuth_deg, canonical.azimuth_deg) : NaN,
       offset: value => angleDelta(initial.azimuth_deg, value) },
