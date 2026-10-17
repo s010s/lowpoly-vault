@@ -1,5 +1,6 @@
 /** Production delivery uses an explicit approved manifest allowlist, never a recursive asset copy. */
 import { cp, mkdir, readFile, rm } from 'node:fs/promises';
+import { deliverTurntables } from './turntable-delivery.mjs';
 import { writeCatalog } from './catalog-build.mjs';
 import { clearDeliveredAssets, deliverManifestAssets } from './asset-delivery.mjs';
 import { writeStaticRoutes } from './static-routes.mjs';
@@ -9,7 +10,7 @@ let manifest={version:1,assets:[]};
 try {
   const source=JSON.parse(await readFile('assets/manifest.json','utf8'));
   if(source.review_only)throw new Error('A review-only manifest cannot produce a release catalog.');
-  manifest=await deliverManifestAssets(source,'dist');
+  manifest=await deliverTurntables(await deliverManifestAssets(source,'dist'),'dist');
   const index=await writeCatalog(manifest,'dist',{approvedOnly:true});
   console.log(`Release catalog: ${index.total} published assets in ${index.shards.length} summary shards.`);
 } catch(error) {

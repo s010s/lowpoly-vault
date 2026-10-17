@@ -1,3 +1,4 @@
+import { CARD_RENDER_PRESET, cameraDirection } from './render-preset.js';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -91,7 +92,7 @@ export class ModelStage {
   }
 
   /** Resolves false for superseded/aborted work; actual loading errors reject. */
-  show(host, url, { mode = 'hover', signal, onStatus, metadata } = {}) {
+  show(host, url, { mode = 'hover', signal, onStatus, metadata, initialView } = {}) {
     if (this._disposed) return Promise.reject(new Error('ModelStage has been disposed'));
     if (!host || !url) return Promise.reject(new Error('A model host and URL are required'));
     this.hide();
@@ -100,6 +101,7 @@ export class ModelStage {
     this._controller = controller;
     this._host = host;
     this._mode = mode === 'detail' ? 'detail' : 'hover';
+    this._initialView = initialView || CARD_RENDER_PRESET.camera;
     this._statusCallback = onStatus;
     this._url = new URL(url, document.baseURI).href;
     this._inView = true;
@@ -204,27 +206,26 @@ export class ModelStage {
 
   _ensureRenderer() {
     if (this._renderer) return;
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'low-power' });
     this._renderer = renderer;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setClearColor(0x000000, 0);
+    renderer.setClearColor(CARD_RENDER_PRESET.background, 1);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
+    renderer.toneMappingExposure = CARD_RENDER_PRESET.exposure;
     renderer.domElement.className = 'model-canvas';
     renderer.domElement.setAttribute('aria-hidden', 'true');
     Object.assign(renderer.domElement.style, {
       position: 'absolute', inset: '0', display: 'block', width: '100%', height: '100%', visibility: 'hidden',
     });
     this._scene = new THREE.Scene();
-    this._camera = new THREE.PerspectiveCamera(38, 1, 0.01, 1000);
-    this._scene.add(new THREE.HemisphereLight(0xfff8e9, 0x708277, 2.8));
-    const sun = new THREE.DirectionalLight(0xfff5e7, 3);
-    sun.position.set(5, 8, 6);
-    this._scene.add(sun);
-    const fill = new THREE.DirectionalLight(0xffffff, 1.25);
-    fill.position.set(-5, 3, -4);
-    this._scene.add(fill);
+    this._camera = new THREE.PerspectiveCamera(CARD_RENDER_PRESET.camera.fov, 1, 0.01, 1000);
+    const hemi = CARD_RENDER_PRESET.hemisphere;
+    this._scene.add(new THREE.HemisphereLight(hemi.sky, hemi.ground, hemi.intensity));
+    for (const spec of CARD_RENDER_PRESET.lights) {
+      const light = new THREE.DirectionalLight(spec.color, spec.intensity);
+      light.position.set(...spec.position); this._scene.add(light);
+    }
     this._controls = new OrbitControls(this._camera, renderer.domElement);
     this._controls.enableDamping = false;
     this._controls.enablePan = false;
@@ -275,11 +276,13 @@ export class ModelStage {
     if (!width || !height) { this._stopFrame(); return; }
     this._renderer.setSize(width, height, false);
     this._camera.aspect = width / height;
+    const halfFov = THREE.MathUtils.degToRad(CARD_RENDER_PRESET.camera.fov / 2);
+    this._camera.fov = THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(halfFov) / Math.min(1, this._camera.aspect)));
     this._camera.updateProjectionMatrix();
     if (this._radius) {
-      const vertical = THREE.MathUtils.degToRad(this._camera.fov / 2);
-      const horizontal = Math.atan(Math.tan(vertical) * this._camera.aspect);
-      this._distance = this._radius / Math.sin(Math.min(vertical, horizontal)) * 1.08;
+      // Preserve the same perspective and object scale inside a centered square
+      // at every modal aspect ratio; only the surrounding neutral margin changes.
+      this._distance = this._radius / Math.sin(halfFov) * CARD_RENDER_PRESET.camera.fit_padding;
       this._camera.near = Math.max(this._radius / 100, 0.001);
       this._camera.far = Math.max(this._radius * 100, this._distance * 10);
       this._camera.updateProjectionMatrix();
@@ -305,6 +308,11 @@ export class ModelStage {
     this._host.dataset.renderTriangles = String(this._renderer.info.render.triangles);
     this._host.dataset.renderLines = String(this._renderer.info.render.lines);
     this._host.dataset.renderCalls = String(this._renderer.info.render.calls);
+    const view = this.presentationInfo;
+    this._host.dataset.viewAzimuth = String(view.azimuth_deg);
+    this._host.dataset.viewElevation = String(view.elevation_deg);
+    this._host.dataset.viewDistance = String(view.distance);
+    this._host.dataset.presentedUrl = this._url;
     this._renderer.domElement.style.visibility = 'visible';
     if (this._host.dataset.modelState !== 'ready') this._emit('ready');
   }
@@ -348,10 +356,40 @@ export class ModelStage {
     this._viewTouched = false;
     this._target.set(0, 0);
     this._pivot.rotation.set(0, 0, 0);
-    this._camera.position.set(0.9, 0.58, 1).normalize().multiplyScalar(this._distance || 5);
+    this._camera.position.set(...cameraDirection(this._initialView?.azimuth_deg, this._initialView?.elevation_deg)).multiplyScalar(Number.isFinite(this._initialView?.distance)?clamp(this._initialView.distance,this._controls.minDistance,this._controls.maxDistance):(this._distance || 5));
     this._controls.target.set(0, 0, 0);
     this._controls.update();
     this._invalidate();
+  }
+
+  get presentationInfo() {
+    if (!this._camera) return null;
+    const p = this._camera.position.clone().sub(this._controls.target), radius = p.length();
+    return { azimuth_deg:(THREE.MathUtils.radToDeg(Math.atan2(p.x,p.z))+360)%360,
+      elevation_deg:THREE.MathUtils.radToDeg(Math.asin(p.y/radius)), distance:radius,
+      fov:this._camera.fov, aspect:this._camera.aspect, preset:CARD_RENDER_PRESET.version };
+  }
+
+  /** The offline card renderer and card-to-detail handoff use the same camera angles. */
+  setView(azimuth_deg, elevation_deg = CARD_RENDER_PRESET.camera.elevation_deg) {
+    if (!this._camera || !this._pivot) return;
+    this._viewTouched = true;
+    this._camera.position.set(...cameraDirection(azimuth_deg, elevation_deg)).multiplyScalar(this._distance || 5);
+    this._controls.target.set(0, 0, 0); this._controls.update(); this._draw();
+  }
+
+  /** Copy the last actual draw before releasing GPU geometry; no second live scene. */
+  snapshot() {
+    if (!this._renderer || !this._pivot || this._host?.dataset.modelState !== 'ready') return null;
+    this._draw();
+    const source = this._renderer.domElement, canvas = document.createElement('canvas');
+    const scale = Math.min(1, 1024 / Math.max(source.width, source.height));
+    canvas.width = Math.round(source.width * scale); canvas.height = Math.round(source.height * scale);
+    canvas.getContext('2d').drawImage(source, 0, 0, canvas.width, canvas.height);
+    canvas.__presentation = this.presentationInfo;
+    canvas.dataset.assetId = new URL(this._url).pathname.split('/').at(-1).replace(/\.glb$/, '');
+    canvas.className = 'model-handoff'; canvas.setAttribute('aria-hidden', 'true');
+    return canvas;
   }
 
   zoom(factor) {

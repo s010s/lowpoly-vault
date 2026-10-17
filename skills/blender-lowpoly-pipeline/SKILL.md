@@ -11,7 +11,7 @@ Honor the requested environment, model, and repository permissions. For lowpoly-
 
 The researched baseline is Blender 4.3.2, verified at `/usr/bin/blender` on 2026-10-16. Probe the actual runtime and exporter RNA before using version-sensitive options. Pin Blender, the generator seed, Python source, parameters, exporter settings, and the consuming Three.js version in build metadata. Do not silently replace the requested model or Blender environment.
 
-Read [production-contract.md](references/production-contract.md) for asset decisions and [qa-design.md](references/qa-design.md) before final acceptance. Official references and observed runtime facts are in [sources.md](references/sources.md).
+Read [standardized-pipeline.md](references/standardized-pipeline.md) for the required brief-to-review lifecycle and parallel batch boundaries. Use [production-contract.md](references/production-contract.md) for asset decisions and [qa-design.md](references/qa-design.md) for existing executable checks. Official references and observed runtime facts are in [sources.md](references/sources.md).
 
 ## Asset contract
 
@@ -21,7 +21,7 @@ Use a dedicated `EXPORT` collection with a single identity-transform root named 
 
 Prefer deliberate profile/loft topology and visible silhouette features over assembling an organic shape entirely from untouched primitives. Spend geometry on head profile, pose, limb separation, tail taper, and defining anatomy. Use flat shading intentionally, a restrained consistent palette, and a PBR-compatible material graph. Avoid unnecessary microgeometry, hidden internal surfaces, and transparent overlap.
 
-The default static baseline is texture-free Principled BSDF, opaque materials, exported normals, no custom shader dependency, no lights/cameras/animations, and no required glTF compression extension. These are project defaults, not restrictions of the formats. Add textures, rigs, instances, or extensions when the brief needs them and update the corresponding tests.
+Choose a palette-only or textured-PBR profile in the brief. The current refined-low-poly direction permits original baked base-color, roughness and normal detail: low-poly does not mean flat color or low surface detail. Keep geometry and texture budgets separate. Export portable Principled/glTF materials, normals and required UV/tangent data, with no source-only shader dependency. The first pack's texture-free static baseline remains a valid historical profile, not a library-wide restriction. Rigs, animation, instances and required extensions need explicit profile tests.
 
 ## Reproducible production
 
@@ -31,6 +31,10 @@ The default static baseline is texture-free Principled BSDF, opaque materials, e
 4. Inspect the emitted GLB, run Khronos glTF Validator, and load that exact GLB in the pinned Three.js viewer. Source renders do not establish export correctness. Compare bounds, front direction, colors, silhouette, normals, and ground contact after export.
 5. Produce hero 3/4 plus front/side/rear views with a consistent camera and lighting preset; inspect the actual images. Use a wireframe or clay view when topology/shading needs review. Record performance on the combined museum scene as well as individual assets.
 6. Rebuild twice. Compare semantic metrics and a normalized geometry/material digest; byte-identical `.blend` files are not required. Record checksums of the delivered files for integrity. Deliver only after errors are zero, warnings are reviewed, and visual review is complete.
+
+Freeze each candidate by asset ID, revision, brief/reference hashes and exact GLB hash. Run a fresh independent review task against the brief, reference ledger and actual export evidence, before sharing the maker's verdict. Keep visual craft, factual obligations, specification, parsing, GPU rendering and populated-scene performance separate. Use `scripts/validate_candidate.py` to check record/evidence integrity; it cannot certify beauty or truth. A failed or unknown required gate remains unapproved.
+
+Use bounded headless processes for parallel production, not one serial GUI and not one process per planned asset. Read the queue contract linked from the standardized pipeline, coordinate shared CPU/memory capacity, and isolate every attempt's outputs. Quick full-angle evidence comes before expensive final renders; independent image reviewers can work while other assets build. A screenshot does not prove internal geometry or scientific correctness.
 
 ## Shared helper
 

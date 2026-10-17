@@ -42,3 +42,14 @@
 .static-preview{height:auto!important}.static-route .static-language{font-size:12px;margin-bottom:16px;text-align:right}.static-route .static-review{max-width:none}.static-route .static-detail{gap:40px}.static-route .static-kicker{font-size:10px}.static-route .static-specs{margin:22px 0}.static-route .static-specs dd{text-align:left}.static-route .static-downloads{gap:10px}
 
 .initial-release-notice{font-size:12px;line-height:1.6;opacity:.8;margin:0 0 12px;}
+
+/* One active image-only scrub preview; inactive cards retain the original static image. */
+.image-scrub-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:1}
+.has-turntable .asset-image{touch-action:pan-y}.scrub-badge{position:absolute;left:12px;top:12px;border-radius:12px;padding:4px 8px;font-size:10px;background:var(--surface,#eef0e8);color:var(--text,#263027);z-index:2;pointer-events:none}.has-turntable .card-status{z-index:3;pointer-events:none}.has-turntable[data-scrub-state=ready] .asset-image>img{opacity:0}.has-turntable .asset-image>img{transition:none}
+/* One neutral presentation preset for static frames and real 3D, in either UI theme. */
+.asset-image:has(.scrub-badge),#canvas-host{background:#e8e4dc}
+#catalog-page .grid .has-turntable .asset-image>img{object-fit:contain}
+#canvas-host>.model-handoff{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none;visibility:visible!important;background:#e8e4dc}
+.stage-flight{object-fit:contain;background:#e8e4dc;transform-origin:0 0}
+#canvas-host .model-canvas{z-index:1}
+#catalog-page .grid .has-card-preview .asset-image>img{object-fit:contain}.has-card-preview .asset-image{background:#e8e4dc}

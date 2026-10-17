@@ -1,4 +1,6 @@
-# Production contract draft
+# Production contract
+
+For new candidates, follow the versioned [standardized pipeline](standardized-pipeline.md). Historical first-pack defaults below remain useful fixtures; the frozen brief selects the current profile and budgets.
 
 ## Proposed output structure
 
@@ -71,6 +73,16 @@ bpy.ops.export_scene.gltf(
 ```
 
 These option names were read from the actual Blender 4.3.2 RNA. Fail clearly on a missing required option rather than silently filtering all unknown keys. `export_apply` evaluates modifiers; it is not permission to destructively alter the editable source. Do not use this static profile for rigged/morph assets without changing it.
+
+## Textured PBR profile
+
+The refined-low-poly profile may use original baked base color, roughness, normal and occlusion maps. Keep editable procedural/high-detail source plus portable maps; do not export a Blender-only material and assume its appearance transfers. Set UV export on; explicitly decide tangent export for the normal-mapped mesh and verify the consuming runtime's result. Re-probe exporter options on the actual Blender version.
+
+Use glTF-supported PBR channel roles: base color/emission as color data; normal/roughness/metallic/occlusion as non-color data. Tangent-space normal maps use the expected +Y convention. In metallic-roughness textures G is roughness and B metallic; an occlusion texture uses R. Do not double-convert color factors or mislabel data textures as sRGB. Inspect UV coverage, stretching, mirrored seams, padding/mips, texel density, normal orientation and strength, roughness behavior and distant shimmer. Baked directional light belongs in neither base color nor a hidden substitute for the preview rig.
+
+Record each map's original author/license, dimensions, channel role, encoded bytes/hash, and decoded-memory assumptions. A full-mip RGBA8 estimate is width × height × 4 × 4/3 bytes, not actual GPU memory; runtime compression, allocation and sharing can differ. Track geometry bytes and image bytes independently. Embed required maps for the standalone profile; verify extensions and decoder support when using formats/compression beyond the baseline. The existing simple audit does not establish texture quality or all extension support.
+
+For a surface-only A/B, keep the actual exported triangle positions, normals, pose and camera/light/render settings identical. Inspect palette baseline, base-color-only, full PBR, clay and alternate key. If UV splitting changes POSITION-stream counts, report that separately from changed geometry. Texture detail is permitted to add realism, but cannot repair wrong proportions or silhouette.
 
 ## Preview preset and visual acceptance
 

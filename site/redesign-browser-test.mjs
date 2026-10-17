@@ -96,7 +96,7 @@ async function waitModel(page, id) {
   const state = await page.locator('#canvas-host').getAttribute('data-model-state');
   if (state === 'ready') {
     assert.equal(forceFallback, false, 'The forced fallback profile must not report a successful WebGL renderer');
-    assert.equal(await page.locator('#canvas-host canvas').count(), 1);
+    assert.equal(await page.locator('#canvas-host .model-canvas').count(), 1);
     assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles')) > 0, 'A ready model must draw real triangles');
     if (!report.gpu.rendered_models.includes(id)) report.gpu.rendered_models.push(id);
   } else {
@@ -114,7 +114,8 @@ async function waitModel(page, id) {
 async function waitClosed(page) {
   await page.locator('#viewer-dialog').waitFor({ state: 'hidden' });
   await page.waitForFunction(() => !window.__vaultGPU || (window.__vaultGPU.liveScenes === 0 && window.__vaultGPU.activeRequests === 0 && window.__vaultGPU.rafPending === 0));
-  assert.equal(await page.locator('canvas').count(), 0, 'Close must detach the shared canvas');
+  assert.equal(await page.locator('.model-canvas').count(), 0, 'Close must detach the shared WebGL canvas');
+  assert(await page.locator('.image-scrub-canvas').count()<=1,'At most one retained image may remain on the returning card');
 }
 async function closeModel(page) { await page.locator('#close').click(); await waitClosed(page); }
 
@@ -318,15 +319,13 @@ async function navigationChecks() {
     await page.locator('#about-page').waitFor({ state: 'visible' }); await page.reload();
     assert(await page.locator('#about-page').isVisible());
     await page.goto(urlFor({ type: 'detail', id }));
-    assert(await page.locator('#static-route-content').isVisible(), 'A direct detail URL starts as readable static content');
-    assert.equal(await page.locator('#viewer-dialog').isVisible(), false);
     const directURL = page.url();
-    await page.locator('[data-enhance-model]').click(); await waitModel(page, id);
-    assert.equal(page.url(), directURL, 'Optional 3D enhances the direct route in place');
-    await closeModel(page);
-    assert(await page.locator('#static-route-content').isVisible());
+    await waitModel(page, id);
+    assert.equal(page.url(), directURL, 'A direct detail route automatically starts real 3D');
+    await closeModel(page); await waitCatalog(page);
+    assert(new URL(page.url()).pathname.endsWith('/models/'), 'Closing a direct detail returns to the catalog');
     check('Semantic links, compact search keyboard control, query/category/world/pack/sort URL persistence and real About route');
-    check('Back/Forward/Close/Escape preserve catalog results, scroll and focus; direct detail enhances its existing URL');
+    check('Back/Forward/Close/Escape preserve catalog results, scroll and focus; direct detail automatically loads real 3D');
     check('Modal focus trap, adjacent-model arrows outside canvas, canvas orbit arrows and actual same-pack related links');
   } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
@@ -378,12 +377,12 @@ async function actualModelChecks() {
         assert.equal(await scale.getAttribute('aria-pressed'), 'true', 'Reset changes the camera, not the user’s scale-reference choice');
         await scale.click();
         assert.equal((await gpu(page)).referenceObjects, 0); assert((await gpu(page)).disposedReferences > 0);
-        const canvas = await page.locator('#canvas-host canvas').elementHandle();
+        const canvas = await page.locator('#canvas-host .model-canvas').elementHandle();
         const diagnostics = await page.evaluateHandle(() => window.__vaultGPU);
         const originalTheme = await page.locator('html').getAttribute('data-theme');
         await page.locator('#viewer-dialog [data-theme-toggle]').click();
         await page.waitForFunction(theme => document.documentElement.dataset.theme !== theme, originalTheme);
-        assert(await canvas.evaluate(node => node === document.querySelector('#canvas-host canvas')), 'Theme toggle must retain the same canvas');
+        assert(await canvas.evaluate(node => node === document.querySelector('#canvas-host .model-canvas')), 'Theme toggle must retain the same canvas');
         assert(await diagnostics.evaluate(object => object === window.__vaultGPU), 'Theme toggle must retain the same renderer');
         assert.equal((await gpu(page)).liveScenes, 1);
         assert.equal((await gpu(page)).rendererCreations, 1);
@@ -536,7 +535,7 @@ async function scaleChecks() {
     report.scale = { metadata: assets.length, categories: catalog.index.categories.length, worlds: catalog.index.worlds.length, packs: catalog.index.packs.length, card_nodes: 24, dom_nodes: nodes, pages: 417, peak_glb_requests: stats.peakRequests, cache_entries: stats.cacheEntries, cache_bytes: stats.cacheBytes, renderer_creations: stats.rendererCreations };
     check('In-memory 10000-item fixture: uneven 39-category/7-world/400-pack facets, distant search, 417 pages and bounded DOM');
     check('Cross-page adjacent navigation restores its originating card; measured triangle filter and scoped pack map work');
-    check('Rapid real-GLB hover/detail switching preserves one request, one renderer, bounded bytes and zero live scenes after close');
+    check('List hover stays image-only; detail switching preserves one GLB request, one renderer, bounded bytes and zero live scenes after close');
   } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
 }
 

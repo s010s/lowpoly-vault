@@ -15,6 +15,8 @@ Make original, recognizable environment assets while keeping the distinction bet
 
 The first pack is a specific ten-category assignment, not a requirement for every future project. Later work should follow its own requested subjects, period, and location.
 
+Use [asset-factual-review](../asset-factual-review/SKILL.md) for feature-by-feature evidence decisions, especially animal anatomy outside this Skill's scope. Follow the [standardized pipeline](../blender-lowpoly-pipeline/references/standardized-pipeline.md) for immutable candidates and fresh independent review. Historical first-pack approvals do not automatically apply to later revisions or a new surface style.
+
 ## Establish the claim before the mesh
 
 For each asset record:

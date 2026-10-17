@@ -1,11 +1,13 @@
 ---
 name: lowpoly-art-direction
-description: Design and review original low-poly assets for natural, geological, modern, futuristic, fantasy, and alien environments. Use for shape hierarchy, proportions, palettes, topology, role-based budgets, and visual acceptance; this skill does not establish scientific accuracy or authorize publication.
+description: Design and independently review original low-poly assets for animals, natural, geological, modern, futuristic, fantasy, and alien subjects. Use for shape hierarchy, proportions, portable surface detail, topology, role-based budgets, and visual acceptance; factual claims and publication need separate gates.
 ---
 
-# Original Low-Poly Environment Art
+# Original Low-Poly Asset Art
 
 Use deliberately designed planes to communicate identity, weight, material, and rhythm. Prioritize silhouette, component proportions, convincing secondary structure, and detail concentrated where it explains the object. Neither more polygons nor fewer polygons alone establishes quality. Derive budgets from viewing and deployment roles using [asset budgeting](references/asset-budgeting.md); the old first-pack triangle bands are historical starting points, not library-wide caps or industry standards.
+
+The current target is refined, textured low-poly. Rich original surface maps and mixed smooth/faceted shading are compatible with this goal. Separate geometry complexity from texture resolution, memory and material cost. Texture cannot repair a wrong outline, missing anatomy or implausible joint. Follow the [standardized pipeline](../blender-lowpoly-pipeline/references/standardized-pipeline.md) for frozen briefs, independent review and acceptance records.
 
 ## Establish the brief
 
@@ -51,11 +53,14 @@ Use deliberately designed planes to communicate identity, weight, material, and 
 - Inspect the actual triangulation in an export copy and retain editable source geometry. Check normals, colors, backfaces, and transparent materials in the target viewer, not only in Blender.
 - Distinguish intentional open leaf surfaces from accidental holes. Double-sided materials do not repair incorrect normals, overlapping surfaces, or unusable collision geometry.
 - If using palette textures, create the palette and materials yourself, and verify filtering, UV placement, and exported colors. Fewer material slots simplify consistency, but one material does not guarantee one draw call.
+- For textured-PBR work, preserve editable source and bake original portable maps. Inspect UV seams/stretching, texel density, mip bleed, tangent/normal orientation, roughness response and small-scale shimmer in the exact GLB. Compare surface variants with identical geometry, normals, camera, lighting and exposure; label geometry changes as a separate experiment. See the [surface profile](../blender-lowpoly-pipeline/references/production-contract.md#textured-pbr-profile).
 - Report authored and evaluated source vertices, exported POSITION-stream vertices, triangles, material/primitive counts, and visible instance counts separately. Never infer one through a fixed ratio or describe them ambiguously as "polys." Verify optional LOD switching in the actual runtime, not merely the existence of several files.
 
 ## Review and iterate
 
 Render and inspect using the [visual acceptance checklist](references/visual-acceptance.md). Fix recognition-bearing structure and proportions first, then planes, color groups, and small details. For most assets this begins with silhouette; for nests and footprints it begins with neutral-gray top views and readable internal geometry. A polished hero image cannot compensate for a failed hard gate.
+
+Use a fresh independent reviewer for each quality candidate. Supply the frozen brief, source ledger, exact model and full-angle evidence, not the maker's self-score or expected verdict. Record criterion-level pass/fail/unknown with locations and evidence. For factual obligations use [asset-factual-review](../asset-factual-review/SKILL.md); attractive styling does not establish species identity or regional compliance. Re-exported changes invalidate affected verdicts and require recheck.
 
 Before extending a new style or revised workflow across a batch, freeze two or three representative quality samples with their version/hash, gray and color views, target-viewer evidence, and explicit visual decision. Technical validity and category recognition are minimum gates, not benchmark quality. Compare revisions under matching framing and lighting; record the observed weakness, structural change, and visible outcome. A score must not override a weak criterion or the user's visible objection. Apply the original lessons in [reference-quality lessons](references/reference-quality-lessons.md), not the reference's models or recipes.
 
