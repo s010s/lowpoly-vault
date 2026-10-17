@@ -51,7 +51,7 @@ assert.equal(dialog.properties.get('--modal-backdrop-start'), '0.55');
 const closingAnimations = [...motion.active];
 assert.deepEqual(closingAnimations[0].frames, [{ opacity: .42 }, { opacity: 0 }]);
 assert(closingAnimations.every(animation => animation.options.duration <= 140 && !animation.options.delay));
-assert.equal([...deadlines.values()][0].delay, 172, 'A busy compositor cannot extend the chrome dismissal indefinitely');
+assert.equal([...deadlines.values()][0].delay, 140, 'A busy compositor cannot add a scheduling tail to the chrome dismissal');
 await opening;
 assert.equal(dialog.dataset.modalMotion, 'closing', 'A superseded opener cannot clear the closing state');
 [...deadlines.values()][0].callback();

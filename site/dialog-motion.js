@@ -83,11 +83,11 @@ export class DialogMotion {
     this.dialog.style.setProperty('--modal-backdrop-start', String(from?.backdrop ?? (reverse ? 1 : 0)));
     this.dialog.style.setProperty('--modal-backdrop-duration', `${backdropDuration}ms`);
     this.dialog.dataset.modalMotion = direction;
-    // A busy compositor can deliver WAAPI finish notifications a frame late.
-    // Bound dismissal without adding an opaque tail or affecting normal entry.
+    // Use the intended wall-clock endpoint if the compositor delays its WAAPI
+    // start/finish notification. Dismissal must not acquire a scheduling tail.
     if (reverse) this.deadline = setTimeout(() => {
       if (version === this.version) for (const animation of this.active) animation.finish();
-    }, backdropDuration + 32);
+    }, backdropDuration);
     return Promise.all(tasks).then(() => {
       if (version !== this.version) return;
       clearTimeout(this.deadline);

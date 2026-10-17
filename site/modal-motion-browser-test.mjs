@@ -44,6 +44,10 @@ let browser, base;
 function installProbe() {
   let active = false, raf, observer, phase, pixelProbe = false, previousDrawProbe;
   let frames = [], events = [], draws = [], errors = [];
+  const longTasks = [];
+  if (PerformanceObserver.supportedEntryTypes.includes('longtask')) {
+    new PerformanceObserver(list => { for (const entry of list.getEntries()) longTasks.push({ start: entry.startTime, duration: entry.duration }); }).observe({ type: 'longtask', buffered: true });
+  }
   const alphaCache = new WeakMap();
   const scratch = document.createElement('canvas');
   const rect = element => {
@@ -188,7 +192,8 @@ function installProbe() {
     stop() {
       snapshot('stopped'); active = false; cancelAnimationFrame(raf); observer?.disconnect();
       window.__vaultFrameProbe = previousDrawProbe;
-      return { phase, pixel_probe: pixelProbe, time_origin: performance.timeOrigin, frames, events, draws, errors };
+      return { phase, pixel_probe: pixelProbe, time_origin: performance.timeOrigin, frames, events, draws, errors,
+        long_tasks: longTasks.filter(task => task.start + task.duration >= (frames[0]?.time ?? Infinity) && task.start <= (frames.at(-1)?.time ?? -Infinity)) };
     },
     snapshot() { snapshot('manual'); return frames.at(-1); },
   };
