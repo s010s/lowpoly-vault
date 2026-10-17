@@ -291,7 +291,12 @@ async function openAsset(id,{push=false,replace=false}={}){
     const s=await getStage();if(version!==detailVersion)return;
     await s.show(host,path(detail.glb),{mode:'detail',metadata:detail,presentationReady:motion,initialView:interrupted?.__presentation||cardCapture?.view,signal:detailController.signal,onStatus:status=>{if(version===detailVersion){controlsReady(status==='ready');$('#viewer-status').textContent=status==='ready'?'':status==='error'?t('viewError'):t('viewLoading');if(status==='ready'){if(poster)poster.style.visibility='hidden';releaseHandoff(version);}else if(status==='error'&&poster){poster.style.visibility='visible';}}}});
     await motion;
-  }catch(error){if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');let decoded=false;if(poster){try{await poster.decode();decoded=true;}catch{}}if(version===detailVersion){if(decoded){poster.style.visibility='visible';releaseHandoff(version);}else if(host.querySelector('.model-handoff'))$('#viewer-status').textContent=lang==='zh'?'新预览暂时不可用，保留上一个画面。':'New preview unavailable; the previous view is retained.';}}}
+  }catch(error){
+    // A fast fetch/import failure can arrive while its retained bitmap is still
+    // owned by the flight. Wait for it to return before retiring the overlay.
+    await motion;
+    if(version===detailVersion&&error.name!=='AbortError'){$('#viewer-status').textContent=selected?.glb?t('viewError'):t('detailError');if(!selected?.glb)$('#asset-description').textContent=t('missing');let decoded=false;if(poster){try{await poster.decode();decoded=true;}catch{}}if(version===detailVersion){if(decoded){poster.style.visibility='visible';releaseHandoff(version);}else if(host.querySelector('.model-handoff'))$('#viewer-status').textContent=lang==='zh'?'新预览暂时不可用，保留上一个画面。':'New preview unavailable; the previous view is retained.';}}
+  }
 }
 async function closeAsset(){
   if(!$('#viewer-dialog').open)return;

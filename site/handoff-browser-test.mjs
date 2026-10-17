@@ -463,6 +463,55 @@ async function contextLossRecovery() {
   } finally { await context.close(); }
 }
 
+async function earlyLoadFailure() {
+  const label = 'early-load-failure', context = await makeContext(label), { page } = context;
+  const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
+  try {
+    // Warm the viewer import/renderer without caching the asset that will fail.
+    await page.goto(base + prefix + 'models/conifer-tree/'); await ready(page, 'conifer-tree');
+    await page.locator('#close').click(); await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
+    await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
+    const card = page.locator('#grid .asset-card[data-id="natural-arch"]');
+    await card.scrollIntoViewIfNeeded(); await card.focus(); await page.keyboard.press('Home');
+    await page.keyboard.press('ArrowRight');
+    await page.waitForFunction(() => document.querySelector('#grid [data-id="natural-arch"] .image-scrub-canvas')?.width > 0);
+    await page.evaluate(() => {
+      const host = document.querySelector('#canvas-host');
+      window.__earlyFailureDuringFlight = null;
+      const observer = new MutationObserver(() => {
+        if (host.dataset.modelState !== 'error') return;
+        window.__earlyFailureDuringFlight = Boolean(document.querySelector('#viewer-dialog .stage-flight'));
+        observer.disconnect();
+      });
+      observer.observe(host, { attributes: true, attributeFilter: ['data-model-state'] });
+    });
+    await page.route('**/natural-arch.glb', route => route.abort('failed'));
+    await page.keyboard.press('Enter');
+    await page.waitForFunction(() => document.querySelector('#canvas-host').dataset.modelState === 'error');
+    assert.equal(await page.evaluate(() => window.__earlyFailureDuringFlight), true, 'The failure must occur while the retained bitmap is in flight');
+    await page.waitForFunction(() => !document.querySelector('.stage-flight, #canvas-host .model-handoff'));
+    caseReport.fallback = await page.locator('#canvas-host').evaluate(host => {
+      const poster = host.querySelector('.model-poster');
+      return { poster_loaded: Boolean(poster?.complete && poster.naturalWidth > 0),
+        poster_visibility: poster ? getComputedStyle(poster).visibility : null,
+        controls_disabled: [...document.querySelectorAll('.viewer-controls button')].every(button => button.disabled),
+        live_scenes: window.__vaultGPU?.liveScenes ?? 0 };
+    });
+    assert(caseReport.fallback.poster_loaded, 'The failed model must reveal a decoded fallback poster');
+    assert.equal(caseReport.fallback.poster_visibility, 'visible');
+    assert(caseReport.fallback.controls_disabled);
+    assert.equal(caseReport.fallback.live_scenes, 0);
+    await screenshot(page, label + '-fallback');
+    await page.keyboard.press('Escape');
+    await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
+    assert.equal(await page.locator('.stage-flight, .model-handoff').count(), 0);
+    assert.equal(await page.evaluate(() => document.querySelectorAll('[data-detail-origin]').length), 0);
+    caseReport.status = 'pass';
+    report.checks.push('An immediate GLB failure during opening retires the moved bitmap after flight and reveals the decoded poster without stale overlays or live scenes.');
+  } catch (error) { caseReport.status = 'fail'; caseReport.error = error.stack; throw error; }
+  finally { await context.close(); }
+}
+
 async function interruptedHistory() {
   const context = await makeContext('interrupted-history'); const { page } = context;
   try {
@@ -516,6 +565,7 @@ try {
   await roundTrip('desktop-reduced-motion', { reducedMotion: 'reduce' });
   await roundTrip('desktop-dark-motion', { colorScheme: 'dark' });
   await contextLossRecovery();
+  await earlyLoadFailure();
   await interruptedHistory();
   await supersededImport();
   assert.deepEqual(report.page_errors, []); report.status = 'pass';
