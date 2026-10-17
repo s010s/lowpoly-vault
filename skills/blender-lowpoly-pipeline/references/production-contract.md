@@ -41,7 +41,7 @@ For the simplest static baseline, keep `export_gpu_instances=False` and realize 
 
 First-pack art-direction bands are T1 250–700, T2 700–1,400, T3 1,400–2,600 exported triangles. These are design targets; fewer triangles may be better and justified exceptions can be accepted. Use 2–5 structurally meaningful palette groups when possible. The helper’s default 12,000-triangle error ceiling is a broad safety limit, not the target.
 
-Primitive and byte budgets remain configurable. A texture-free ordinary GLB should usually be comfortably under 1 MB, but visual correctness comes first. Measure the real combined scene and renderer draw calls instead of predicting frame rate from triangle count alone.
+Primitive and byte budgets remain configurable. Do not infer a universal 1 MB or 500 KB limit from an early profile or one accepted example. Set the delivery target from the view envelope, repetition and measured runtime, using the [role-based budgeting framework](../../lowpoly-art-direction/references/asset-budgeting.md). Keep editable source/archive size, downloaded GLB bytes, decoded texture estimates and measured GPU allocation distinct. Measure the real combined scene and renderer draw calls instead of predicting frame rate from triangle count alone.
 
 ## Explicit Blender 4.3.2 static exporter baseline
 
@@ -82,7 +82,7 @@ Use glTF-supported PBR channel roles: base color/emission as color data; normal/
 
 Record each map's original author/license, dimensions, channel role, encoded bytes/hash, and decoded-memory assumptions. A full-mip RGBA8 estimate is width × height × 4 × 4/3 bytes, not actual GPU memory; runtime compression, allocation and sharing can differ. Track geometry bytes and image bytes independently. Embed required maps for the standalone profile; verify extensions and decoder support when using formats/compression beyond the baseline. The existing simple audit does not establish texture quality or all extension support.
 
-For a surface-only A/B, keep the actual exported triangle positions, normals, pose and camera/light/render settings identical. Inspect palette baseline, base-color-only, full PBR, clay and alternate key. If UV splitting changes POSITION-stream counts, report that separately from changed geometry. Texture detail is permitted to add realism, but cannot repair wrong proportions or silhouette.
+For a surface-only A/B, keep the actual exported triangle positions, normals, pose and camera/light/render settings identical. Use the [controlled optimization checklist](controlled-optimization.md) for fair baselines, format/decoder accounting and safe imported-image handling. Inspect palette baseline, base-color-only, full PBR, clay and alternate key. If UV splitting changes POSITION-stream counts, report that separately from changed geometry. Texture detail is permitted to add realism, but cannot repair wrong proportions or silhouette.
 
 ## Preview preset and visual acceptance
 
