@@ -1,0 +1,135 @@
+{
+  "record_kind": "independent factual/specification supplement; not final assembled acceptance",
+  "reviewed_commit": "265b47eed899307228d609355cc46c6d6992f61d",
+  "subject": {
+    "revision": "structure-r20-A-normal16",
+    "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+    "brief_sha256": "50466e78d5da46f10532b601cc2d4ea15ef2fae44c2881a8b8e0e01c15e99a5e",
+    "references_sha256": "6f1ff6cb8fa57c8aec580945eaa04ee141240988cfbdc90b075007d8d9afbe4a"
+  },
+  "factual": {
+    "factual-acceptance": "pass",
+    "honest-concept": "pass",
+    "scope": "Evidence-informed generic stylized conifer, approximate artistic 7m scale, modern branching/needle analogues; no named extinct/current species or precise period/locality reconstruction accepted",
+    "checked_reference_ids": [
+      "PRI-branching",
+      "HK-branchlets",
+      "NHM-context",
+      "repository-triage",
+      "NCSU-flat-needles",
+      "Earle-flat-needles"
+    ],
+    "optional_photo_direct_view": "not verified in this supplement; click returned retrieval error; required morphological text references were read"
+  },
+  "specification": {
+    "status": "fail",
+    "required_deliverables": [
+      {
+        "role": "source",
+        "path": "candidate-r20/conifer-tree.blend",
+        "hash_matches": true
+      },
+      {
+        "role": "generator",
+        "path": "candidate-r20/build_delivery.py",
+        "hash_matches": true
+      },
+      {
+        "role": "config",
+        "path": "candidate-r20/build-config.json",
+        "hash_matches": true
+      },
+      {
+        "role": "wood-source",
+        "path": "candidate-r20/woody-source.json",
+        "hash_matches": true
+      },
+      {
+        "role": "core-generator",
+        "path": "candidate-r20/build_airy_conifer.py",
+        "hash_matches": true
+      },
+      {
+        "role": "pack-generator",
+        "path": "candidate-r20/pack_normal16.py",
+        "hash_matches": true
+      }
+    ],
+    "raw_image_manifests": [
+      {
+        "directory": "full-angle256",
+        "count": 37,
+        "subject": {
+          "brief_sha256": "50466e78d5da46f10532b601cc2d4ea15ef2fae44c2881a8b8e0e01c15e99a5e",
+          "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+          "references_sha256": "6f1ff6cb8fa57c8aec580945eaa04ee141240988cfbdc90b075007d8d9afbe4a",
+          "revision": "structure-r20-A-normal16"
+        },
+        "frame_hash_mismatches": [],
+        "manifest_sha256": "dbb9d0b34c36a36208e97d50c0f193305253b0a3b18ac3382493cecd2417ac7f"
+      },
+      {
+        "directory": "detail512",
+        "count": 7,
+        "subject": {
+          "brief_sha256": "50466e78d5da46f10532b601cc2d4ea15ef2fae44c2881a8b8e0e01c15e99a5e",
+          "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+          "references_sha256": "6f1ff6cb8fa57c8aec580945eaa04ee141240988cfbdc90b075007d8d9afbe4a",
+          "revision": "structure-r20-A-normal16"
+        },
+        "frame_hash_mismatches": [],
+        "manifest_sha256": "3aa719e4cc8960b2d46327bb44277345e3af2f2a0beca483c2436e0e5f993403"
+      },
+      {
+        "directory": "native128",
+        "count": 9,
+        "subject": {
+          "brief_sha256": "50466e78d5da46f10532b601cc2d4ea15ef2fae44c2881a8b8e0e01c15e99a5e",
+          "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+          "references_sha256": "6f1ff6cb8fa57c8aec580945eaa04ee141240988cfbdc90b075007d8d9afbe4a",
+          "revision": "structure-r20-A-normal16"
+        },
+        "frame_hash_mismatches": [],
+        "manifest_sha256": "e6933c7da9e7a9be24fb18ebd43c22df80ad2f50ae47851ac6a86bc8f5aab310"
+      }
+    ],
+    "preview_path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r20/rebuild-runs/local-rebuild-01/outputs/conifer-tree/preview-hero.png",
+    "preview_exists": false,
+    "equivalence_report_resolved_path": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/normal16-equivalence.report.json",
+    "equivalence_report_exists": false,
+    "r12_triangles": 18706,
+    "actual_model_increase_pct": 1.849673901422011,
+    "ceiling_increase_pct": 4.244627392280553,
+    "issues": [
+      {
+        "id": "S1",
+        "file": "metadata.json",
+        "field": "preview",
+        "problem": "points to nonexistent preview-hero.png"
+      },
+      {
+        "id": "S2",
+        "file": "metadata.json",
+        "field": "delivery_storage.equivalence_report",
+        "problem": "relative path resolves to nonexistent report"
+      },
+      {
+        "id": "S3",
+        "file": "brief.json",
+        "field": "budget_rationale",
+        "problem": "1.85% describes actual 19052 triangles; 19500 ceiling is +4.2446%, not +1.85%"
+      },
+      {
+        "id": "S4",
+        "file": "references.json",
+        "field": "study_scope",
+        "problem": "two secondary fans is historical r17 option, not current A constructor; clarify historical scope"
+      }
+    ]
+  },
+  "gpu": "unknown; delegated runtime task, not signed here",
+  "scene": "unknown; delegated runtime task, not signed here",
+  "final_record_assembled": false,
+  "candidate_modified": false,
+  "report_sha256": "54fe2dbc5adc143228eae124f042805fadff1115392e4feac1b09b83d341b020"
+}
