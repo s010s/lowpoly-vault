@@ -4,7 +4,6 @@ export const DIALOG_TIMING = Object.freeze({
   flightOpen: 300, flightClose: 180,
   panelOpen: 240, panelClose: 120,
   backdropOpen: 220, backdropClose: 140,
-  contentOpen: 180, contentDelay: 60, contentClose: 80,
 });
 
 export class DialogMotion {
@@ -25,13 +24,14 @@ export class DialogMotion {
   }
   get panel() { return this.dialog.querySelector('.viewer-layout'); }
   get shadow() { return this.dialog.querySelector('.modal-chrome-shadow'); }
-  get content() {
-    return [...this.dialog.querySelectorAll('.asset-info > *, .viewer-topline, #viewer-status, .viewer-controls, #scale-status, .viewer-hint, :scope > button')];
-  }
+  // Metadata and viewer controls inherit the single panel fade. Giving each
+  // descendant its own opacity animation creates nested compositing surfaces and
+  // delays their first raster until the flight is already underway.
+  get buttons() { return [...this.dialog.querySelectorAll(':scope > button')]; }
   capture() {
     if (!this.dialog.open) return null;
     return {
-      opacity: new Map([this.panel, ...this.content].map(element => [element, Number(getComputedStyle(element).opacity)])),
+      opacity: new Map([this.panel, ...this.buttons].map(element => [element, Number(getComputedStyle(element).opacity)])),
       backdrop: Number(getComputedStyle(this.dialog, '::backdrop').opacity),
       shadow: Number(getComputedStyle(this.shadow).opacity),
     };
@@ -65,14 +65,9 @@ export class DialogMotion {
     };
     const opacity = element => from?.opacity.get(element) ?? (reverse ? 1 : 0);
     const tasks = [animate(this.panel, [{ opacity: opacity(this.panel) }, { opacity: end }])];
-    for (const element of this.content) {
-      // A single small reveal overlaps the model flight. No serial 300 + 352ms tail.
-      // Transform only leaf content, never the canvas host or its ancestors.
-      const frames = [{ opacity: opacity(element) }, { opacity: end }];
-      tasks.push(animate(element, frames, {
-        duration: reverse ? DIALOG_TIMING.contentClose : DIALOG_TIMING.contentOpen,
-        delay: reverse || from ? 0 : DIALOG_TIMING.contentDelay,
-      }));
+    for (const element of this.buttons) {
+      // Only the two buttons outside the panel need independent opacity.
+      tasks.push(animate(element, [{ opacity: opacity(element) }, { opacity: end }]));
     }
     // Rasterize the static blur once, then composite opacity. Animating a large
     // box-shadow itself forces costly paint on every frame, especially on mobile.

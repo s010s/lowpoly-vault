@@ -256,6 +256,9 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
     const hosts = visible.filter(f => f.host?.rect.width > 0).map(f => f.host.rect);
     const range = Object.fromEntries(['x', 'y', 'width', 'height'].map(k => [k, hosts.length ? Math.max(...hosts.map(r => r[k])) - Math.min(...hosts.map(r => r[k])) : null]));
     check(test, record.phase + ': canvas bounds stay fixed while metadata and chrome enter', hosts.length > 1 && Object.values(range).every(x => x <= 1), range);
+    const panelReveal = visible.filter(f => f.source === 'raf' && f.shell.opacity > 0.025 && f.shell.opacity < 0.97);
+    check(test, record.phase + ': content appears with the panel instead of waiting behind it', panelReveal.every(f =>
+      f.content.some(c => c.effective_opacity > 0.025)), { samples: panelReveal.length });
     const comparisons = record.draws.filter(d => d.handoff).map(d => ({ actual: d.object, handoff: d.handoff }));
     if (record.pixel_probe) {
     check(test, record.phase + ': actual GLB silhouette matches retained handoff', comparisons.length > 0 && comparisons.every(p => near(p.actual, p.handoff)), comparisons.slice(0, 3));

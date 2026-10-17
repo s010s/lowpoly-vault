@@ -14,11 +14,15 @@ function element(name) {
     return animation;
   } };
 }
-const shadow = element('shadow'), panel = element('panel'), content = [element('heading'), element('controls'), element('close')];
+const shadow = element('shadow'), panel = element('panel'), content = [element('theme'), element('close')];
 const dialog = Object.assign(element('dialog'), {
   open: false, dataset: {}, backdrop: '1', properties: new Map(),
   ownerDocument: { documentElement: {} },
-  querySelector: selector => selector === '.modal-chrome-shadow' ? shadow : panel, querySelectorAll: () => content,
+  querySelector: selector => selector === '.modal-chrome-shadow' ? shadow : panel,
+  querySelectorAll(selector) {
+    assert.equal(selector, ':scope > button', 'Panel descendants share its fade instead of acquiring nested opacity surfaces');
+    return content;
+  },
   getBoundingClientRect: () => ({left: 20, top: 32, width: 1000, height: 600}),
   removeAttribute(name) { if (name === 'data-modal-motion') delete this.dataset.modalMotion; },
 });
@@ -32,6 +36,7 @@ assert.equal(motion.capture(), null, 'A closed dialog starts transparent');
 dialog.open = true;
 const opening = motion.start();
 assert.equal(dialog.dataset.modalMotion, 'opening');
+assert.equal(pending.length, 4, 'Only the panel, two outer buttons and shadow own opacity animations');
 assert.equal(dialog.properties.get('--modal-backdrop-start'), '0');
 assert.equal(dialog.properties.get('--modal-backdrop-duration'), '220ms');
 assert.equal(pending[0].options.duration, DIALOG_TIMING.panelOpen);
