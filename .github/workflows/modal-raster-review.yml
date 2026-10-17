@@ -35,8 +35,15 @@ jobs:
           uname -a > qa/modal-raster-diagnosis/environment.txt
           lscpu >> qa/modal-raster-diagnosis/environment.txt
           free -m >> qa/modal-raster-diagnosis/environment.txt
-          cat /sys/fs/cgroup/cpu.max >> qa/modal-raster-diagnosis/environment.txt
-          cat /sys/fs/cgroup/memory.max >> qa/modal-raster-diagnosis/environment.txt
+          cat /proc/self/cgroup >> qa/modal-raster-diagnosis/environment.txt
+          for info in /sys/fs/cgroup/cpu.max /sys/fs/cgroup/memory.max; do
+            if [ -r "$info" ]; then
+              printf '%s\n' "$info" >> qa/modal-raster-diagnosis/environment.txt
+              cat "$info" >> qa/modal-raster-diagnosis/environment.txt
+            else
+              printf '%s not exposed by this runner\n' "$info" >> qa/modal-raster-diagnosis/environment.txt
+            fi
+          done
       - name: Measure isolated cached history once
         continue-on-error: true
         env:
