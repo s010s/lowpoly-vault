@@ -1,0 +1,335 @@
+[
+  {
+    "id": "S01",
+    "title": "glTF 2.0.1",
+    "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+    "evidence_class": "normative",
+    "version_or_date": "2021-10-11",
+    "supported_use": "Format semantics; no universal MB or triangle performance limit.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S02",
+    "title": "Khronos Asset Creation Guidelines 2.0",
+    "url": "https://github.com/KhronosGroup/3DC-Asset-Creation/blob/3ba6cf7045f0b3bc7d845bc518ccdbd1356a3b93/asset-creation-guidelines/RealtimeAssetCreationGuidelines.md",
+    "evidence_class": "recommendation",
+    "version_or_date": "2.0.0 August 2025; snapshot 2026-07-11",
+    "supported_use": "Source/delivery, instancing, seams, textures, animation; several full chapters remain WIP.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S03",
+    "title": "Khronos 2020 creation guidelines",
+    "url": "https://www.khronos.org/assets/uploads/apis/3DCommerce-Realtime-sset-Creation-Guidelines_Jul20.pdf",
+    "evidence_class": "historical recommendation",
+    "version_or_date": "July 2020",
+    "supported_use": "The <5 MB / 100k triangle advice is commerce publishing guidance, not a modern populated-scene limit.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S04",
+    "title": "KHR_texture_basisu",
+    "url": "https://github.com/KhronosGroup/glTF/blob/521a91d491f02bb7db7d445b35f591d09d2a64ce/extensions/2.0/Khronos/KHR_texture_basisu/README.md",
+    "evidence_class": "normative plus encoding advice",
+    "version_or_date": "Complete, Ratified; snapshot 2026-10-13",
+    "supported_use": "KTX2 ETC1S/UASTC, color spaces, mips, device-dependent transcode and non-color fallback.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S05",
+    "title": "EXT_meshopt_compression",
+    "url": "https://github.com/KhronosGroup/glTF/blob/521a91d491f02bb7db7d445b35f591d09d2a64ce/extensions/2.0/Vendor/EXT_meshopt_compression/README.md",
+    "evidence_class": "normative",
+    "version_or_date": "Complete, Ratified; snapshot 2026-10-13",
+    "supported_use": "Buffer-view compression includes geometry, morphs, animation and instance transforms.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S06",
+    "title": "KHR_draco_mesh_compression",
+    "url": "https://github.com/KhronosGroup/glTF/blob/521a91d491f02bb7db7d445b35f591d09d2a64ce/extensions/2.0/Khronos/KHR_draco_mesh_compression/README.md",
+    "evidence_class": "normative",
+    "version_or_date": "Complete, Ratified; snapshot 2026-10-13",
+    "supported_use": "Mesh-primitive geometry codec, not arbitrary animation/texture/LOD optimization.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S07",
+    "title": "KHR_mesh_quantization",
+    "url": "https://github.com/KhronosGroup/glTF/blob/521a91d491f02bb7db7d445b35f591d09d2a64ce/extensions/2.0/Khronos/KHR_mesh_quantization/README.md",
+    "evidence_class": "normative",
+    "version_or_date": "Complete, Ratified; snapshot 2026-10-13",
+    "supported_use": "Smaller vertex storage; illustrative PBR layout 48 to 20 B/vertex; precision and consumer support.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S08",
+    "title": "EXT_mesh_gpu_instancing",
+    "url": "https://github.com/KhronosGroup/glTF/blob/521a91d491f02bb7db7d445b35f591d09d2a64ce/extensions/2.0/Vendor/EXT_mesh_gpu_instancing/README.md",
+    "evidence_class": "normative",
+    "version_or_date": "Complete, Ratified; snapshot 2026-10-13",
+    "supported_use": "Repeated geometry with fewer calls; node reuse and GPU instancing differ.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S09",
+    "title": "KHR_meshopt_compression",
+    "url": "https://github.com/KhronosGroup/glTF/blob/521a91d491f02bb7db7d445b35f591d09d2a64ce/extensions/2.0/Khronos/KHR_meshopt_compression/README.md",
+    "evidence_class": "draft status",
+    "version_or_date": "Release Candidate at retrieval",
+    "supported_use": "Do not silently replace EXT in pinned r180.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S10",
+    "title": "meshoptimizer",
+    "url": "https://github.com/zeux/meshoptimizer/tree/f0a684f11ead064e176775c9b796f82a55910e92",
+    "evidence_class": "implementation guidance",
+    "version_or_date": "snapshot 2026-10-14",
+    "supported_use": "Cache/fetch/quantization ordering, attribute discontinuities and hardware-dependent overdraw gains.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S11",
+    "title": "gltfpack",
+    "url": "https://meshoptimizer.org/gltf/",
+    "evidence_class": "tool guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "Optimization can change hierarchy, material, animation and quantization; test emitted asset.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S12",
+    "title": "Basis Universal",
+    "url": "https://github.com/BinomialLLC/basis_universal/tree/1706f948a2f0992d7a6dc2a909f35690b508571c",
+    "evidence_class": "implementation guidance",
+    "version_or_date": "snapshot 2026-10-16",
+    "supported_use": "Universal GPU transcoding differs from JPEG/WebP; quality, target format and overhead matter.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S13",
+    "title": "glTF Transform CLI",
+    "url": "https://gltf-transform.dev/cli",
+    "evidence_class": "tool guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "Inspect and use controlled individual transforms, not only broad optimize presets.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S14",
+    "title": "glTF Transform textureCompress",
+    "url": "https://gltf-transform.dev/modules/functions/functions/textureCompress",
+    "evidence_class": "tool API",
+    "version_or_date": "living documentation",
+    "supported_use": "Resize/transcode by texture use with explicit size and quality.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S15",
+    "title": "Three.js textures",
+    "url": "https://threejs.org/manual/pages/textures.html",
+    "evidence_class": "engine guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "Compressed image file size differs from GPU allocation; RGBA with mips approx w*h*4*4/3.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S16",
+    "title": "Three.js many objects",
+    "url": "https://threejs.org/manual/pages/optimize-lots-of-objects.html",
+    "evidence_class": "engine guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "Submission and scene graph overhead; combining objects has trade-offs.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S17",
+    "title": "Three.js Material",
+    "url": "https://threejs.org/docs/pages/Material.html",
+    "evidence_class": "engine API",
+    "version_or_date": "living documentation; r180 checked locally",
+    "supported_use": "Double-sided transparent two-pass behavior; forceSinglePass is not universally visually safe.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S18",
+    "title": "Three.js InstancedMesh",
+    "url": "https://threejs.org/docs/pages/InstancedMesh.html",
+    "evidence_class": "engine API",
+    "version_or_date": "living documentation",
+    "supported_use": "Shared geometry/material and bounds.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S19",
+    "title": "Three.js LOD",
+    "url": "https://threejs.org/docs/pages/LOD.html",
+    "evidence_class": "engine API",
+    "version_or_date": "living documentation",
+    "supported_use": "Distance switching/hysteresis; thresholds are application-specific.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S20",
+    "title": "Three.js disposal",
+    "url": "https://threejs.org/manual/pages/how-to-dispose-of-objects.html",
+    "evidence_class": "engine guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "GPU and ImageBitmap lifetime; shared resource ownership/ref counting.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S21",
+    "title": "Three.js shadows",
+    "url": "https://threejs.org/manual/pages/shadows.html",
+    "evidence_class": "engine guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "Extra scene passes; point-light shadow uses six views.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S22",
+    "title": "Three.js on-demand rendering",
+    "url": "https://threejs.org/manual/pages/rendering-on-demand.html",
+    "evidence_class": "engine guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "Avoid continuously rendering unchanged inspection views.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S23",
+    "title": "Three.js renderer source",
+    "url": "https://github.com/mrdoob/three.js/blob/r180/src/renderers/WebGLRenderer.js",
+    "evidence_class": "pinned source code",
+    "version_or_date": "r180 / 0.180.0",
+    "supported_use": "Default info reset follows shadows; autoReset=false/reset once for all-pass accounting.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S24",
+    "title": "Three.js counter source",
+    "url": "https://github.com/mrdoob/three.js/blob/r180/src/renderers/webgl/WebGLInfo.js",
+    "evidence_class": "pinned source code",
+    "version_or_date": "r180 / 0.180.0",
+    "supported_use": "Memory values are counts; triangles multiply instanceCount.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S25",
+    "title": "Three.js GLTFLoader",
+    "url": "https://github.com/mrdoob/three.js/blob/r180/examples/jsm/loaders/GLTFLoader.js",
+    "evidence_class": "pinned source code",
+    "version_or_date": "r180 / 0.180.0",
+    "supported_use": "Explicit Draco/Meshopt/KTX2 setup; supports EXT_meshopt.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S26",
+    "title": "Three.js KTX2Loader",
+    "url": "https://threejs.org/docs/pages/KTX2Loader.html",
+    "evidence_class": "engine API",
+    "version_or_date": "living documentation",
+    "supported_use": "detectSupport and target-format selection; transcoder deployment.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S27",
+    "title": "MDN WebGL best practices",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_best_practices",
+    "evidence_class": "browser guidance",
+    "version_or_date": "living documentation",
+    "supported_use": "No portable max-VRAM query; physical pixels, memory/caches, mips/compression.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S28",
+    "title": "MDN disjoint timer query",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/EXT_disjoint_timer_query",
+    "evidence_class": "browser API",
+    "version_or_date": "living documentation",
+    "supported_use": "Optional GPU timing; reject disjoint results; use corresponding WebGL2 API when applicable.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S29",
+    "title": "Unity mobile art optimization",
+    "url": "https://unity.com/how-to/mobile-game-optimization-tips-part-1",
+    "evidence_class": "vendor recommendation",
+    "version_or_date": "publication date unstated",
+    "supported_use": "Silhouette first, material LOD, tiny/static assets may not need LOD; independent map sizes.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S30",
+    "title": "Unreal mobile performance",
+    "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/performance-guidelines-for-mobile-devices-in-unreal-engine?application_version=5.6",
+    "evidence_class": "vendor/historical hardware guidance",
+    "version_or_date": "UE 5.6 documentation view",
+    "supported_use": "500k triangles/700 calls text tied to old iPad4/Air ~30fps, not WebGL baseline.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S31",
+    "title": "PlayCanvas optimization",
+    "url": "https://developer.playcanvas.com/user-manual/optimization/guidelines/",
+    "evidence_class": "Web3D vendor recommendation",
+    "version_or_date": "living documentation",
+    "supported_use": "Rough low-end mobile 100–200 calls; shaders, DPR, alpha, shadows, on-demand rendering.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S32",
+    "title": "model-viewer loading",
+    "url": "https://modelviewer.dev/examples/loading/",
+    "evidence_class": "viewer guidance/demo",
+    "version_or_date": "living documentation",
+    "supported_use": "Poster/lazy loading, decoder cold cost and dynamic resolution.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S33",
+    "title": "model-viewer API",
+    "url": "https://modelviewer.dev/docs/index.html",
+    "evidence_class": "viewer API",
+    "version_or_date": "living documentation",
+    "supported_use": "Model-count cache is not a byte limit.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S34",
+    "title": "Khronos Asset Auditor",
+    "url": "https://www.khronos.org/blog/khronos-gltf-asset-auditor",
+    "evidence_class": "official tool rationale",
+    "version_or_date": "2023 release-era article",
+    "supported_use": "Use-case profiles distinct from format validation.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S35",
+    "title": "glTF Validator",
+    "url": "https://github.com/KhronosGroup/glTF-Validator",
+    "evidence_class": "official tool",
+    "version_or_date": "project pins 2.0.0-dev.3.10",
+    "supported_use": "Conformance does not establish beauty, scientific correctness or frame rate.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S36",
+    "title": "Blender glTF exporter",
+    "url": "https://github.com/KhronosGroup/glTF-Blender-IO/blob/main/docs/blender_docs/scene_gltf2.rst",
+    "evidence_class": "exporter guidance",
+    "version_or_date": "living documentation; project Blender 4.3 baseline",
+    "supported_use": "UV/hard-normal seams split runtime vertices; exportable material graph.",
+    "retrieved_utc_date": "2026-10-17"
+  },
+  {
+    "id": "S37",
+    "title": "Khronos official sample assets",
+    "url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe",
+    "evidence_class": "reproducible metadata",
+    "version_or_date": "snapshot 2026-10-02",
+    "supported_use": "Fox, DamagedHelmet, FlightHelmet exact file/mesh metadata; not FPS or quality rankings.",
+    "retrieved_utc_date": "2026-10-17"
+  }
+]
