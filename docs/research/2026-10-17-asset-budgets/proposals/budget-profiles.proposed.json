@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "policy_id": "lowpoly-vault-budget-research-2026-10-17",
+  "status": "proposed-not-calibrated",
+  "scope": "Project planning allocations, not glTF/engine limits, production defaults or measured device guarantees.",
+  "units": {
+    "file": "bytes; MB=1000000 bytes",
+    "memory": "bytes; MiB=1048576 bytes",
+    "screen": "physical drawing-buffer pixels",
+    "geometry": "exported triangles plus exported vertices"
+  },
+  "asset_bands": [
+    {
+      "id": "micro-repeat",
+      "role": "Pebbles, groundcover, distant clutter",
+      "lod0_triangle_planning_range": [
+        20,
+        300
+      ],
+      "portable_glb_byte_planning_range": [
+        5000,
+        75000
+      ],
+      "material_goal": 1,
+      "base_primitive_goal": 1,
+      "texture_start": "None, vertex colors, shared 128–512 atlas",
+      "expected_visible_repeats": [
+        20,
+        500
+      ]
+    },
+    {
+      "id": "small-prop",
+      "role": "Small props, simple plants, rocks",
+      "lod0_triangle_planning_range": [
+        300,
+        2000
+      ],
+      "portable_glb_byte_planning_range": [
+        25000,
+        250000
+      ],
+      "material_goal": 1,
+      "base_primitive_goal": 1,
+      "texture_start": "256–512 base color only if useful; scalar roughness/metalness",
+      "expected_visible_repeats": [
+        5,
+        100
+      ]
+    },
+    {
+      "id": "medium-environment",
+      "role": "Trees, architecture modules, geology",
+      "lod0_triangle_planning_range": [
+        1000,
+        6000
+      ],
+      "portable_glb_byte_planning_range": [
+        100000,
+        750000
+      ],
+      "material_goal": 2,
+      "base_primitive_goal": 2,
+      "texture_start": "512 base color or shared biome atlas; 1K needs occupancy evidence",
+      "expected_visible_repeats": [
+        3,
+        50
+      ]
+    },
+    {
+      "id": "featured-creature",
+      "role": "Distinctive animal, vehicle or ordinary exhibit",
+      "lod0_triangle_planning_range": [
+        6000,
+        20000
+      ],
+      "portable_glb_byte_planning_range": [
+        250000,
+        1000000
+      ],
+      "material_goal": 2,
+      "base_primitive_goal": 2,
+      "texture_start": "512–1K base color; independent optional 256–512 data maps after A/B",
+      "expected_visible_repeats": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "inspection-hero",
+      "role": "Complex anatomy or signature close-inspection exhibit",
+      "lod0_triangle_planning_range": [
+        15000,
+        60000
+      ],
+      "portable_glb_byte_planning_range": [
+        500000,
+        2000000
+      ],
+      "material_goal": 3,
+      "base_primitive_goal": 4,
+      "texture_start": "1K base/normal and 512 ORM where useful; 2K on-demand exception",
+      "expected_visible_repeats": [
+        1,
+        2
+      ]
+    }
+  ],
+  "asset_band_note": "Planning ranges overlap deliberately and are not minimum quality/geometry requirements. A frozen calibrated brief defines actual gates; lower cost is welcome when the brief is met.",
+  "screen_bands": [
+    {
+      "id": "inspection",
+      "projected_longest_side_px": [
+        512,
+        null
+      ],
+      "lod_triangle_fraction_start": [
+        0.7,
+        1
+      ],
+      "material": "Optional inspection detail",
+      "example_1m_object_distance_m": [
+        0,
+        1.51
+      ]
+    },
+    {
+      "id": "near",
+      "projected_longest_side_px": [
+        256,
+        512
+      ],
+      "lod_triangle_fraction_start": [
+        0.4,
+        0.7
+      ],
+      "material": "Color-first; visible detail only",
+      "example_1m_object_distance_m": [
+        1.51,
+        3.02
+      ]
+    },
+    {
+      "id": "mid",
+      "projected_longest_side_px": [
+        64,
+        256
+      ],
+      "lod_triangle_fraction_start": [
+        0.1,
+        0.35
+      ],
+      "material": "Shared/simple material",
+      "example_1m_object_distance_m": [
+        3.02,
+        12.06
+      ]
+    },
+    {
+      "id": "far",
+      "projected_longest_side_px": [
+        0,
+        64
+      ],
+      "lod_triangle_fraction_start": [
+        0.01,
+        0.1
+      ],
+      "material": "Simplified mesh or tested impostor",
+      "example_1m_object_distance_m": [
+        12.06,
+        null
+      ]
+    }
+  ],
+  "screen_band_note": "Fractions are experiments, not mandatory reductions. Distance example: front-facing 1 m vertical extent, 720px canvas height, vertical FOV 50 degrees. Use actual projected size/error with hysteresis; tiny meshes may need no extra LOD.",
+  "scene_profiles": [
+    {
+      "id": "mobile-conservative",
+      "fps_target": 30,
+      "drawing_buffer_height_cap_start_px": 720,
+      "device_pixel_ratio_cap_start": 1,
+      "main_pass_triangle_planning_cap": 100000,
+      "all_pass_triangle_planning_cap": 200000,
+      "main_pass_draw_call_planning_cap": 75,
+      "all_pass_draw_call_planning_cap": 125,
+      "resident_asset_gpu_bytes_estimated_cap": 67108864,
+      "initial_3d_asset_payload_bytes_goal": 2000000
+    },
+    {
+      "id": "mobile-balanced",
+      "fps_target": 60,
+      "approved_fallback_fps": 30,
+      "drawing_buffer_height_cap_start_px": 1080,
+      "device_pixel_ratio_cap_start": 1.5,
+      "main_pass_triangle_planning_cap": 250000,
+      "all_pass_triangle_planning_cap": 500000,
+      "main_pass_draw_call_planning_cap": 120,
+      "all_pass_draw_call_planning_cap": 200,
+      "resident_asset_gpu_bytes_estimated_cap": 134217728,
+      "initial_3d_asset_payload_bytes_goal": 4000000,
+      "notes": "Start at 720px on weaker devices; increase only on measured headroom."
+    },
+    {
+      "id": "desktop-balanced",
+      "fps_target": 60,
+      "drawing_buffer_height_cap_start_px": 1080,
+      "device_pixel_ratio_cap_start": 1.5,
+      "main_pass_triangle_planning_cap": 750000,
+      "all_pass_triangle_planning_cap": 1500000,
+      "main_pass_draw_call_planning_cap": 300,
+      "all_pass_draw_call_planning_cap": 500,
+      "resident_asset_gpu_bytes_estimated_cap": 268435456,
+      "initial_3d_asset_payload_bytes_goal": 8000000,
+      "notes": "Integrated GPU laptop first; discrete GPU optional enhancement."
+    }
+  ],
+  "scene_profile_note": "Canvas height and DPR are simultaneous caps, not factors to multiply again. Asset GPU estimate covers unique geometry/texture/animation only; targets/depth/MSAA/shadows/PMREM, CPU copies and decode peaks are separate with headroom. No total VRAM measurement is claimed.",
+  "material_tiers": [
+    {
+      "id": "palette",
+      "maps": "None or small shared palette/atlas",
+      "use": "Silhouette-driven objects and far repeats"
+    },
+    {
+      "id": "color-lite",
+      "maps": "One 256–1024 base-color image; scalar roughness/metalness",
+      "use": "Default candidate to test, not automatic production policy"
+    },
+    {
+      "id": "selective-detail",
+      "maps": "Optional normal and nonconstant packed ORM, independent sizes",
+      "use": "Near views with demonstrated A/B benefit"
+    },
+    {
+      "id": "inspection-enhanced",
+      "maps": "Larger maps/advanced features",
+      "use": "On-demand exception with device/scene evidence"
+    }
+  ],
+  "release_rule": "Approve device/scene calibration, freeze asset-specific limits, then require independent exact-hash technical/visual/factual/runtime/scene evidence. Required unknown is hold. No automatic promotion."
+}
