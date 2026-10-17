@@ -227,7 +227,7 @@ function copyVisual(source,{square=false}={}){
 }
 function currentDetailVisual({square=false}={}){
   const actual=stage?.snapshot(),overlay=$('#canvas-host .model-handoff');
-  if(actual&&overlay){const context=actual.getContext('2d'),rect=containRect({left:0,top:0,width:actual.width,height:actual.height},overlay.width/overlay.height);context.globalAlpha=Number(getComputedStyle(overlay).opacity);context.drawImage(overlay,rect.left,rect.top,rect.width,rect.height);context.globalAlpha=1;}
+  if(actual&&overlay){const context=actual.getContext('2d'),rect=containRect({left:0,top:0,width:actual.width,height:actual.height},overlay.width/overlay.height);context.globalAlpha=Number(getComputedStyle(overlay).opacity);context.drawImage(overlay,rect.left,rect.top,rect.width,rect.height);if(context.globalAlpha>0)actual.dataset.assetId='';context.globalAlpha=1;}
   const visible=actual||copyVisual(overlay)||copyVisual($('#canvas-host img'));
   if(!square||!visible)return visible;const result=copyVisual(visible,{square:true});releaseVisual(visible);return result;
 }
