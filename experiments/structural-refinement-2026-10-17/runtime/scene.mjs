@@ -47,17 +47,24 @@ try{
    const copies=[],columns=Math.ceil(Math.sqrt(spec.instances)),rows=Math.ceil(spec.instances/columns),step=Math.max(model.size.x,model.size.z)*1.35+.15;
    for(let i=0;i<spec.instances;i++){const copy=model.model.clone(true);copy.position.set((i%columns-(columns-1)/2)*step-model.center.x,-model.box.min.y,(Math.floor(i/columns)-(rows-1)/2)*step-model.center.z);scene.add(copy);copies.push(copy);}
    const b=new T.Box3();for(const c of copies)b.union(new T.Box3().setFromObject(c));const target=b.getCenter(new T.Vector3()),extent=b.getSize(new T.Vector3()),r=extent.length()/2;
+   const instanceMeshes=[];
+   if(spec.mode==='instanced'){
+    for(const copy of copies)copy.updateMatrixWorld(true);
+    const lists=copies.map(copy=>{const a=[];copy.traverse(o=>{if(o.isMesh)a.push(o);});return a;});
+    for(let j=0;j<lists[0].length;j++){const original=lists[0][j],instanced=new T.InstancedMesh(original.geometry,original.material,spec.instances);for(let i=0;i<spec.instances;i++)instanced.setMatrixAt(i,lists[i][j].matrixWorld);instanced.instanceMatrix.needsUpdate=true;scene.add(instanced);instanceMeshes.push(instanced);}
+    for(const copy of copies)scene.remove(copy);
+   }
    const floor=new T.Mesh(new T.PlaneGeometry(columns*step+1,rows*step+1),new T.MeshStandardMaterial({color:0xd5d0c5,roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.003;scene.add(floor);
    const grid=new T.GridHelper(Math.max(columns,rows)*step+1,Math.max(2,Math.round(Math.max(columns,rows)*step+1)),0x9e998d,0xc0baae);grid.position.y=-.001;scene.add(grid);
    camera.position.copy(target).add(new T.Vector3(1,.85,1.6).normalize().multiplyScalar(r/Math.sin(38*Math.PI/360)*1.13));camera.lookAt(target);
    const durations=[];for(let i=0;i<20;i++){const start=performance.now();renderer.render(scene,camera);gl.finish();durations.push(performance.now()-start);}
-   populations.push({id:spec.id,instances:spec.instances,source_glb_sha256:model.asset.sha256.glb,scope:'Authored-scale uninstanced repeated copies with a one-meter approximate grid; reference floor/grid calls are included.',png:renderer.domElement.toDataURL('image/png'),runtime:runtime(),synchronous_render_finish_ms:durations,camera:{position:camera.position.toArray(),target:target.toArray(),fov:38},reference_drawables:2,grid_step_meters:(Math.max(columns,rows)*step+1)/Math.max(2,Math.round(Math.max(columns,rows)*step+1))});
-   for(const c of copies)scene.remove(c);scene.remove(floor,grid);floor.geometry.dispose();floor.material.dispose();grid.geometry.dispose();grid.material.dispose();
+   populations.push({id:spec.id,instances:spec.instances,mode:spec.mode||'clones',source_glb_sha256:model.asset.sha256.glb,scope:'Authored-scale repeated copies with a one-meter approximate grid; reference floor/grid calls are included. Instanced mode uses identical mesh/material data and per-copy world matrices.',png:renderer.domElement.toDataURL('image/png'),runtime:runtime(),synchronous_render_finish_ms:durations,camera:{position:camera.position.toArray(),target:target.toArray(),fov:38},reference_drawables:2,grid_step_meters:(Math.max(columns,rows)*step+1)/Math.max(2,Math.round(Math.max(columns,rows)*step+1))});
+   for(const c of copies)scene.remove(c);for(const m of instanceMeshes){scene.remove(m);m.dispose();}scene.remove(floor,grid);floor.geometry.dispose();floor.material.dispose();grid.geometry.dispose();grid.material.dispose();
   }
   return {png,measurements,...typical,synchronous_render_finish_ms:times,viewport:[1600,1000],populations};
- },{inputs,preset:CARD_RENDER_PRESET,populationsPlan:plan.assets.flatMap(a=>(a.population_counts||[1,4]).map(instances=>({id:a.id,instances})))});
+ },{inputs,preset:CARD_RENDER_PRESET,populationsPlan:plan.assets.flatMap(a=>(a.population_counts||[1,4]).flatMap(instances=>(a.population_modes||['clones']).map(mode=>({id:a.id,instances,mode}))))});
  const bytes=Buffer.from(result.png.split(',')[1],'base64');delete result.png;await writeFile(resolve(out,'populated-scene.png'),bytes);
- for(const p of result.populations){const b=Buffer.from(p.png.split(',')[1],'base64'),path=`population-${p.id}-${p.instances}.png`;delete p.png;await writeFile(resolve(out,path),b);p.screenshot={path,sha256:hash(b),bytes:b.length};}
+ for(const p of result.populations){const b=Buffer.from(p.png.split(',')[1],'base64'),path=`population-${p.id}-${p.instances}-${p.mode}.png`;delete p.png;await writeFile(resolve(out,path),b);p.screenshot={path,sha256:hash(b),bytes:b.length};}
  Object.assign(report,result,{errors,screenshot:{path:'populated-scene.png',sha256:hash(bytes),bytes:bytes.length},status:errors.length?'fail':'pass'});assert.equal(errors.length,0);assert(report.runtime.triangles>0&&report.runtime.draw_calls>0);await context.close();
 }catch(error){report.status='fail';report.error=error.stack;process.exitCode=1;}
 finally{await mkdir(out,{recursive:true});await writeFile(resolve(out,'scene-report.json'),JSON.stringify(report,null,2)+'\n');await browser?.close();if(server.listening)await new Promise(r=>server.close(r));console.log(JSON.stringify(report,null,2));}
