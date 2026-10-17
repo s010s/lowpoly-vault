@@ -51,6 +51,11 @@ frame(280); near(Number(f.host.dataset.returnOpacity), .5); frame(310); assert.e
 assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners.size, 0);
 const g = setup(); document.hidden = true; listeners.get('visibilitychange')(); assert.equal(await g.motion.finished, true); document.hidden = false;
 assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners.size, 0, 'Hiding a page retires all finite-motion callbacks immediately.');
+const stalled = setup(); frame(120); frame(240);
+near(Number(stalled.host.dataset.returnOpacity), .5);
+assert.equal(stalled.motion.playState, 'running', 'A visible scheduler stall cannot erase every partially weighted frame.');
+frame(270); assert.equal(await stalled.motion.finished, true);
+assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners.size, 0);
 // Execute the production capture helper against premultiplied sample pixels.
 // Stacking two half-alpha copies source-over would produce alpha .75, not .5.
 const main = readFileSync(new URL('./main.js', import.meta.url), 'utf8');

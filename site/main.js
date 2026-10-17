@@ -393,12 +393,15 @@ function requestClose(){
     closeAsset();history.back();
   }else{history.replaceState({view:'catalog'},'',href('models'));syncRoute();}
 }
-function hideStaticFor(type){if(staticContent?.dataset.routeType===type)staticContent.hidden=true;}
+function hideStaticFor(type){if(staticContent?.dataset.routeType===type){staticContent.hidden=true;if(type==='models'&&currentView==='catalog')$('#catalog-page').hidden=false;}}
 function showView(view){
   if(view!=='catalog')stopHover();
   if(!['home','catalog','about','detail'].includes(view))view='home';if(view!==currentView)viewScroll[currentView]=scrollY;currentView=view;
   $('#home-page').hidden=view!=='home';$('#catalog-page').hidden=view!=='catalog';$('#about-page').hidden=view!=='about';
   if(staticContent){const type=view==='catalog'?'models':view;staticContent.hidden=staticContent.dataset.routeType!==type || (view==='detail'&&staticContent.dataset.assetId!==directDetailId);if(index&&view!=='detail'&&(view!=='catalog'||$('#grid').ariaBusy==='false'))staticContent.hidden=true;}
+  // Keep the useful server-rendered list alone until its enhanced replacement
+  // is ready. Revealing an empty catalog here stacked both layouts on reload.
+  if(view==='catalog'&&staticContent?.dataset.routeType==='models'&&!staticContent.hidden)$('#catalog-page').hidden=true;
   atlas?.setActive(view==='catalog'&&browseMode==='atlas');
   document.querySelectorAll('[data-route]').forEach(anchor=>anchor.setAttribute('aria-current',anchor.dataset.route===view?'page':'false'));
 }

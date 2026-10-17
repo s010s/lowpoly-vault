@@ -392,6 +392,13 @@ async function startSampler(page) {
             opacity: Number(getComputedStyle(canvas).opacity),
             dissolve: returnStyle(host, canvas),
             styleResources: { referenceObjects: window.__vaultGPU.referenceObjects, returnOverlayMeshes: window.__vaultGPU.returnOverlayMeshes || 0, returnOverlayMaterials: window.__vaultGPU.returnOverlayMaterials || 0 } };
+          // ModelStage probes after rendering but before its same-task reveal.
+          // Check that first hidden draw again before paint, without relaxing
+          // the ordinary RAF visibility assertions below.
+          if (!review.returnDraws.length && progress === 0 && draw.dissolve.liveVisibility === 'hidden') {
+            queueMicrotask(() => { draw.afterDrawReveal = { visibility: getComputedStyle(canvas).visibility,
+              sameHost: canvas.parentElement === host, compositeCount: host.querySelectorAll('.return-composite').length }; });
+          }
           const sampled = alphaSampleSize(canvas), firstEndpoint = progress >= 1 && !review.returnEndpoint;
           const reversalDraw = Boolean(review.reversalRequested || (window.__reverseReturnAtProgress && progress >= window.__reverseReturnAtProgress && progress < 1));
           const capture = { draw, sampled, source: [canvas.width, canvas.height], rect: rectOf(canvas),
@@ -538,7 +545,7 @@ function assertDissolve(style, label) {
   assert(Math.abs(style.liveOpacity + style.posterOpacity - 1) < 0.001, label + ' child weights must be complementary');
 }
 
-function assertReturnDissolve(style, label, aligned = false) {
+function assertReturnDissolve(style, label, aligned = false, firstDrawReveal = null) {
   assert(style, label + ' must expose actual composite weights and styles');
   assert(Math.abs(style.hostOpacity - 1) < 0.001, label + ' host stays fully opaque');
   assert(style.liveAttached, label + ' keeps the actual WebGL canvas attached');
@@ -558,7 +565,10 @@ function assertReturnDissolve(style, label, aligned = false) {
     assert(style.compositeDimensions.every(side => side > 0 && side <= 1024), label + ' bounds immutable composite pixels');
   } else {
     assert.equal(style.compositeCount, 0, label + ' travels using the actual live canvas');
-    assert.equal(style.liveVisibility, 'visible', label + ' keeps travelling WebGL pixels visible');
+    if (style.liveVisibility === 'hidden' && firstDrawReveal) {
+      assert.deepEqual(firstDrawReveal, { visibility: 'visible', sameHost: true, compositeCount: 0 },
+        label + ' reveals the first synchronous draw in the same task before paint');
+    } else assert.equal(style.liveVisibility, 'visible', label + ' keeps travelling WebGL pixels visible');
     assert.equal(style.liveCSSOpacity, 1);
   }
 }
@@ -662,7 +672,7 @@ async function canonicalReturnCoverage(page, label, caseReport, canonical, befor
     assert(Math.abs(draw.view.distance - (beforeClose.distance + (canonical.distance - beforeClose.distance) * k)) < 0.00001,
       'Actual rendered camera distance must follow cubic interpolation');
     assert(draw.alpha.transparent_fraction > 0.2 && draw.alpha.corner_alpha_max <= 3, 'Every live return frame preserves transparent surrounding pixels');
-    assertReturnDissolve(draw.dissolve, 'actual live return draw');
+    assertReturnDissolve(draw.dissolve, 'actual live return draw', false, i === 0 && p === 0 ? draw.afterDrawReveal : null);
     assert(draw.originHidden, 'The origin card IMG stays hidden until the final swap');
     assert.equal(draw.dissolve.liveOpacity, 1, 'Canonical capture occurs before the logical fade starts');
     if (p < 1) {

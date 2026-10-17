@@ -10,7 +10,7 @@ export function interpolateReturnView(from, to, progress) {
 
 /** Only runs during close. One borrowed live canvas, no second scene or loop. */
 export function startModelReturn({ stage, host, from, to, getTarget, initialView, canonicalView, reduced = false, onAligned = () => {}, onFade = () => {} }) {
-  let raf = 0, timer, done, aligned = false, fadeStarted = null;
+  let raf = 0, timer, done, aligned = false, fadeElapsed = 0, fadeFrame = null;
   const started = performance.now();
   const motion = { playState: 'running', finished: new Promise(resolve => { done = resolve; }), cancel, finish };
   const styles = stage.beginCanonicalReturnStyles?.();
@@ -31,7 +31,7 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
     stage.setView(canonicalView.azimuth_deg, canonicalView.elevation_deg, canonicalView.distance); onAligned();
     // Slow rendering may deliver the canonical draw after the travel deadline.
     // Start the fade only once that aligned model and its poster are drawable.
-    fadeStarted = performance.now();
+    fadeFrame = performance.now();
   };
   function end(result) {
     if (raf) cancelAnimationFrame(raf); raf = 0; clearTimeout(timer);
@@ -57,9 +57,16 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
       place(returnEase(progress)); stage.canonicalReturnStyleProgress?.(returnEase(progress), styles);
       stage.setView(view.azimuth_deg, view.elevation_deg, view.distance);
     } else {
-      align(); place(1); opacity(1 - clamp((performance.now() - fadeStarted) / RETURN_TIMING.fade));
+      align(); place(1);
+      const current = performance.now();
+      // A suspended/overloaded compositor can skip an entire 60 ms fade.
+      // Keep normal wall-clock timing, but never consume more than half the
+      // dissolve in one painted RAF opportunity on a visible page.
+      fadeElapsed += Math.min(Math.max(0, current - fadeFrame), RETURN_TIMING.fade / 2);
+      fadeFrame = current;
+      opacity(1 - clamp(fadeElapsed / RETURN_TIMING.fade));
     }
-    if (aligned && performance.now() - fadeStarted >= RETURN_TIMING.fade) finish();
+    if (aligned && fadeElapsed >= RETURN_TIMING.fade) finish();
     else raf = requestAnimationFrame(frame);
   }
   function visibility() { if (document.hidden) finish(); }
