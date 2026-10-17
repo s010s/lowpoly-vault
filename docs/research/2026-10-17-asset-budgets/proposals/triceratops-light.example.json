@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "policy_status": "research-proposal",
+  "asset_id": "triceratops-horridus-color-lite-experiment",
+  "artifact": {
+    "filename": "triceratops-light-512.glb",
+    "sha256": "d9396f37f1d8453fa68916de8e4d6671f20b89cc96bf4687b60652006d9c2b9c"
+  },
+  "release_status": "hold",
+  "budget_contract": {
+    "status": "planning_only",
+    "profile_id": "mobile-balanced-proposed",
+    "role": "featured-creature",
+    "max_visible_instances": 1,
+    "screen_context": "Hero/detail comparison only; actual museum camera and device not calibrated.",
+    "limits": {}
+  },
+  "metrics": {
+    "stored_glb_bytes": {
+      "value": 471784,
+      "unit": "bytes",
+      "method": "measured",
+      "basis": "Exact file length and SHA-256 in local-sample-inventory.json."
+    },
+    "cold_transfer_bytes": {
+      "value": null,
+      "unit": "bytes",
+      "method": "not_measured",
+      "basis": "No actual consumer/device measurement in this research."
+    },
+    "exported_triangles": {
+      "value": 14432,
+      "unit": "count",
+      "method": "declared",
+      "basis": "TRIANGLES accessor declarations; static inventory, not codec decoding."
+    },
+    "exported_vertices": {
+      "value": 10141,
+      "unit": "count",
+      "method": "declared",
+      "basis": "Unique POSITION accessor counts for consolidated delivery GLB."
+    },
+    "base_primitive_submissions": {
+      "value": 1,
+      "unit": "count",
+      "method": "estimated",
+      "basis": "One default-scene primitive before culling/extra passes."
+    },
+    "material_count": {
+      "value": 1,
+      "unit": "count",
+      "method": "declared",
+      "basis": "One glTF material."
+    },
+    "decoded_geometry_bytes": {
+      "value": null,
+      "unit": "bytes",
+      "method": "not_measured",
+      "basis": "No actual consumer/device measurement in this research."
+    },
+    "texture_resident_estimate_bytes": {
+      "value": 1398100,
+      "unit": "bytes",
+      "method": "estimated",
+      "basis": "One 512x512 RGBA8/SRGB8_ALPHA8 texture, exact full mip chain; excludes CPU copies/driver/other resources."
+    },
+    "all_pass_draw_calls": {
+      "value": null,
+      "unit": "count",
+      "method": "not_measured",
+      "basis": "No actual consumer/device measurement in this research."
+    },
+    "all_pass_triangles": {
+      "value": null,
+      "unit": "count",
+      "method": "not_measured",
+      "basis": "No actual consumer/device measurement in this research."
+    },
+    "frame_p95_ms": {
+      "value": null,
+      "unit": "ms",
+      "method": "not_measured",
+      "basis": "No actual consumer/device measurement in this research."
+    },
+    "decode_ms": {
+      "value": null,
+      "unit": "ms",
+      "method": "not_measured",
+      "basis": "No actual consumer/device measurement in this research."
+    }
+  },
+  "gates": {
+    "technical": {
+      "required": true,
+      "status": "pass",
+      "artifact_sha256": "d9396f37f1d8453fa68916de8e4d6671f20b89cc96bf4687b60652006d9c2b9c",
+      "summary": "Reported Khronos Validator 0 errors/0 warnings for this exact candidate; does not approve unsupported runtime or shape.",
+      "evidence_refs": [
+        "https://github.com/s010s/lowpoly-vault/blob/888c139b651692dd4e4481669403c35493b63063/docs/case-studies/lightweight-triceratops.md"
+      ]
+    },
+    "visual": {
+      "required": true,
+      "status": "unknown",
+      "artifact_sha256": "d9396f37f1d8453fa68916de8e4d6671f20b89cc96bf4687b60652006d9c2b9c",
+      "summary": "User accepts this candidate's style and size. Existing form hold is not resolved by that bounded acceptance.",
+      "evidence_refs": []
+    },
+    "factual": {
+      "required": true,
+      "status": "unknown",
+      "artifact_sha256": "d9396f37f1d8453fa68916de8e4d6671f20b89cc96bf4687b60652006d9c2b9c",
+      "summary": "Anatomy/scientific review remains on hold; no new factual approval.",
+      "evidence_refs": []
+    },
+    "runtime": {
+      "required": true,
+      "status": "unknown",
+      "artifact_sha256": "d9396f37f1d8453fa68916de8e4d6671f20b89cc96bf4687b60652006d9c2b9c",
+      "summary": "Required review or target-device/scene evidence is not complete.",
+      "evidence_refs": []
+    },
+    "scene": {
+      "required": true,
+      "status": "unknown",
+      "artifact_sha256": "d9396f37f1d8453fa68916de8e4d6671f20b89cc96bf4687b60652006d9c2b9c",
+      "summary": "Required review or target-device/scene evidence is not complete.",
+      "evidence_refs": []
+    }
+  },
+  "user_acceptance": {
+    "status": "accepted",
+    "scope": "This 471,784-byte candidate's delivery size and stylized appearance.",
+    "does_not_approve": [
+      "Universal 500 KB library cap",
+      "Scientific accuracy or unresolved form",
+      "Actual-device runtime or populated-scene performance",
+      "2K-equivalent fine surface relief"
+    ]
+  },
+  "exceptions": []
+}

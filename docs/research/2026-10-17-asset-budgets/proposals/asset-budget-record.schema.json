@@ -1,0 +1,717 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/s010s/lowpoly-vault/docs/research/2026-10-17-asset-budgets/proposals/asset-budget-record.schema.json",
+  "title": "Proposed asset budget evidence record",
+  "description": "Research proposal, not adopted production gate. Metric names/units/unknowns, independent gates and hash binding; companion semantic checker enforces cross-field limits.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "policy_status",
+    "asset_id",
+    "artifact",
+    "release_status",
+    "budget_contract",
+    "metrics",
+    "gates",
+    "user_acceptance",
+    "exceptions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "policy_status": {
+      "const": "research-proposal"
+    },
+    "asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "filename",
+        "sha256"
+      ],
+      "properties": {
+        "filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "release_status": {
+      "enum": [
+        "hold",
+        "approved_for_context"
+      ]
+    },
+    "budget_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "profile_id",
+        "role",
+        "max_visible_instances",
+        "screen_context",
+        "limits"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "planning_only",
+            "frozen_after_calibration"
+          ]
+        },
+        "profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "max_visible_instances": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "screen_context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "stored_glb_bytes": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "cold_transfer_bytes": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "exported_triangles": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "exported_vertices": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "base_primitive_submissions": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "material_count": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "decoded_geometry_bytes": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "texture_resident_estimate_bytes": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "all_pass_draw_calls": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "all_pass_triangles": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "frame_p95_ms": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "decode_ms": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stored_glb_bytes",
+        "cold_transfer_bytes",
+        "exported_triangles",
+        "exported_vertices",
+        "base_primitive_submissions",
+        "material_count",
+        "decoded_geometry_bytes",
+        "texture_resident_estimate_bytes",
+        "all_pass_draw_calls",
+        "all_pass_triangles",
+        "frame_p95_ms",
+        "decode_ms"
+      ],
+      "properties": {
+        "stored_glb_bytes": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "bytes"
+                }
+              }
+            }
+          ]
+        },
+        "cold_transfer_bytes": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "bytes"
+                }
+              }
+            }
+          ]
+        },
+        "exported_triangles": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "count"
+                }
+              }
+            }
+          ]
+        },
+        "exported_vertices": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "count"
+                }
+              }
+            }
+          ]
+        },
+        "base_primitive_submissions": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "count"
+                }
+              }
+            }
+          ]
+        },
+        "material_count": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "count"
+                }
+              }
+            }
+          ]
+        },
+        "decoded_geometry_bytes": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "bytes"
+                }
+              }
+            }
+          ]
+        },
+        "texture_resident_estimate_bytes": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "bytes"
+                }
+              }
+            }
+          ]
+        },
+        "all_pass_draw_calls": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "count"
+                }
+              }
+            }
+          ]
+        },
+        "all_pass_triangles": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "count"
+                }
+              }
+            }
+          ]
+        },
+        "frame_p95_ms": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "ms"
+                }
+              }
+            }
+          ]
+        },
+        "decode_ms": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "properties": {
+                "unit": {
+                  "const": "ms"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "technical",
+        "visual",
+        "factual",
+        "runtime",
+        "scene"
+      ],
+      "properties": {
+        "technical": {
+          "$ref": "#/$defs/gate"
+        },
+        "visual": {
+          "$ref": "#/$defs/gate"
+        },
+        "factual": {
+          "$ref": "#/$defs/gate"
+        },
+        "runtime": {
+          "$ref": "#/$defs/gate"
+        },
+        "scene": {
+          "$ref": "#/$defs/gate"
+        }
+      }
+    },
+    "user_acceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "scope",
+        "does_not_approve"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "not_requested",
+            "accepted",
+            "rejected"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "does_not_approve": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metric",
+          "approved_limit",
+          "artifact_sha256",
+          "reason",
+          "evidence_ref",
+          "approved_by",
+          "validity_condition",
+          "fallback"
+        ],
+        "properties": {
+          "metric": {
+            "enum": [
+              "stored_glb_bytes",
+              "cold_transfer_bytes",
+              "exported_triangles",
+              "exported_vertices",
+              "base_primitive_submissions",
+              "material_count",
+              "decoded_geometry_bytes",
+              "texture_resident_estimate_bytes",
+              "all_pass_draw_calls",
+              "all_pass_triangles",
+              "frame_p95_ms",
+              "decode_ms"
+            ]
+          },
+          "approved_limit": {
+            "type": "number",
+            "minimum": 0
+          },
+          "artifact_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "approved_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "validity_condition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "unit",
+        "method",
+        "basis"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "bytes",
+            "count",
+            "ms"
+          ]
+        },
+        "method": {
+          "enum": [
+            "measured",
+            "declared",
+            "estimated",
+            "not_measured"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "method": {
+                "const": "not_measured"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "status",
+        "artifact_sha256",
+        "summary",
+        "evidence_refs"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "fail",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "required": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "pass",
+                  "fail",
+                  "unknown"
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "status": {
+                "const": "not_applicable"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "pass"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "evidence_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "release_status": {
+            "const": "approved_for_context"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "budget_contract": {
+            "properties": {
+              "status": {
+                "const": "frozen_after_calibration"
+              }
+            }
+          },
+          "gates": {
+            "properties": {
+              "technical": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "pass",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "visual": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "pass",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "factual": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "pass",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "runtime": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "pass",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "scene": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "pass",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
