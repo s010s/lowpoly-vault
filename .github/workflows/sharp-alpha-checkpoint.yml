@@ -1,0 +1,117 @@
+name: Validate sharp alpha checkpoint
+on:
+  push:
+    branches: ['checkpoint/sharp-alpha-integration']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: sharp-alpha-checkpoint-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  SITE_BASE: /lowpoly-vault/
+  SITE_ORIGIN: https://s010s.github.io
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore and verify the exact immutable preview archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p qa/checkpoint-alpha-input
+          gh api repos/s010s/lowpoly-vault/actions/artifacts/12085178987 > qa/checkpoint-alpha-artifact.json
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          import assert from 'node:assert/strict';
+          const artifact = JSON.parse(readFileSync('qa/checkpoint-alpha-artifact.json'));
+          assert.equal(artifact.id, 12085178987);
+          assert.equal(artifact.expired, false);
+          assert.equal(artifact.workflow_run.head_sha, 'dc058371d3c7698807bc9a1ee8861a3b583d8e81');
+          assert.equal(artifact.digest, 'sha256:99d5d6625ca29e09fcc447143a30f88e6fabd4714026ee669e6023b1faf1b9f5');
+          NODE
+          gh api repos/s010s/lowpoly-vault/actions/artifacts/12085178987/zip > qa/checkpoint-alpha-input.zip
+          echo '99d5d6625ca29e09fcc447143a30f88e6fabd4714026ee669e6023b1faf1b9f5  qa/checkpoint-alpha-input.zip' | sha256sum -c -
+          unzip -q qa/checkpoint-alpha-input.zip -d qa/checkpoint-alpha-input
+      - name: Overlay only derived images and their sealed metadata
+        run: |
+          test -f qa/checkpoint-alpha-input/assets/turntables/index.json
+          cp -R qa/checkpoint-alpha-input/assets/card-previews/. assets/card-previews/
+          cp -R qa/checkpoint-alpha-input/assets/turntables/. assets/turntables/
+          echo 'Checkpoint-only input: immutable artifact 12085178987 from dc058371d3c7698807bc9a1ee8861a3b583d8e81.'
+          echo 'This workflow never writes repository contents or deploys Pages.'
+      - run: npm ci
+      - name: Validate syntax, immutable originals and complete non-browser suites
+        run: |
+          node --check site/main.js
+          node --check site/viewer.js
+          node --check site/handoff-browser-test.mjs
+          npm run publication:check
+          npm run test:publication
+          npm test
+          npm run test:redesign
+          npm run test:parser
+          npm run test:scrub
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Reproduce all 250 sharp transparent WebPs
+        env:
+          GALLERY_DIR: dist
+          PREVIEW_OUTPUT: qa/checkpoint-render-recheck
+          VERIFY_SHIPPED_PREVIEWS: '1'
+        run: node site/render-web-previews.mjs
+      - name: Verify all real GLBs, bilingual routes, downloads and mobile layout
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/checkpoint-strict-webgl
+          QA_REQUIRE_COUNT: '10'
+          QA_ALLOW_WEBGL_FALLBACK: '0'
+        run: node site/redesign-browser-test.mjs
+      - name: Verify all ten active-only image cards, bounded resources and touch
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/checkpoint-scrub
+        run: npm run test:scrub:browser
+      - name: Verify rendered alpha, stationary stage and every first-paint handoff
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/checkpoint-handoff
+        run: npm run test:handoff:browser
+      - name: Verify forced WebGL fallback separately
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/checkpoint-fallback
+          QA_REQUIRE_COUNT: '10'
+          QA_ALLOW_WEBGL_FALLBACK: '1'
+          QA_FORCE_WEBGL_FALLBACK: '1'
+        run: node site/redesign-browser-test.mjs
+      - name: Preserve exact integration inputs and validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sharp-alpha-checkpoint-evidence
+          path: |
+            qa/checkpoint-strict-webgl/
+            qa/checkpoint-scrub/
+            qa/checkpoint-handoff/
+            qa/checkpoint-fallback/
+            qa/checkpoint-render-recheck/render-report.json
+            qa/threejs-parser.json
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Explain verification boundary
+        if: always()
+        run: |
+          echo '### Sharp transparent preview checkpoint' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Original GLB/Blend/ZIP hashes are checked. Source plus immutable capture artifact is validated without changing main or deploying.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'WebGL uses Chromium SwiftShader. Screenshots and frame-by-frame reports require visual review; no physical-device performance claim.' >> "$GITHUB_STEP_SUMMARY"

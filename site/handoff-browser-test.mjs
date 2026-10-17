@@ -58,9 +58,10 @@ async function previewDiagnostics(page) {
 async function canvasPixels(page, selector) {
   return page.locator(selector).evaluate(canvas => {
     const bytes = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
-    let hash = 2166136261;
-    for (const byte of bytes) hash = Math.imul(hash ^ byte, 16777619) >>> 0;
-    return { width: canvas.width, height: canvas.height, rgba_hash: hash.toString(16).padStart(8, '0') };
+    let hash = 2166136261, transparent = 0;
+    for (let i = 0; i < bytes.length; i++) { hash = Math.imul(hash ^ bytes[i], 16777619) >>> 0; if (i % 4 === 3 && bytes[i] <= 3) transparent++; }
+    const corners = [3, (canvas.width - 1) * 4 + 3, ((canvas.height - 1) * canvas.width) * 4 + 3, bytes.length - 1].map(i => bytes[i]);
+    return { width: canvas.width, height: canvas.height, rgba_hash: hash.toString(16).padStart(8, '0'), transparent_fraction: transparent / (bytes.length / 4), corner_alpha_max: Math.max(...corners) };
   });
 }
 async function pixelParity(page, label, caseReport) {
@@ -72,16 +73,31 @@ async function pixelParity(page, label, caseReport) {
   const result = await page.evaluate(async ({ png, prefix }) => {
     const size = 320;
     const load = async src => { const image = new Image(); image.src = src; await image.decode(); return image; };
-    const manifest = await (await fetch(prefix + 'assets/turntables/natural-arch/turntable.json')).json();
+    const catalog = await (await fetch(prefix + 'assets/catalog.json')).json();
+    let asset = catalog.initial.find(asset => asset.id === 'natural-arch');
+    if (!asset) for (const shard of catalog.shards) { const items = (await (await fetch(prefix + shard.path)).json()).items; asset = items.find(asset => asset.id === 'natural-arch'); if (asset) break; }
+    if (!asset?.turntable?.manifest) throw new Error('Natural Arch must advertise its exact versioned turntable descriptor');
+    const manifest = await (await fetch(prefix + asset.turntable.manifest)).json();
     const referencePath = manifest.frames[7].path;
     const [actualImage, expectedImage] = await Promise.all([load('data:image/png;base64,' + png), load(prefix + referencePath)]);
-    const normalize = image => {
+    const host = document.querySelector('#canvas-host'), layers = [];
+    for (let node = host; node; node = node.parentElement) layers.push(getComputedStyle(node).backgroundColor);
+    const backgroundCanvas = document.createElement('canvas'); backgroundCanvas.width = backgroundCanvas.height = 1;
+    const backgroundContext = backgroundCanvas.getContext('2d'); backgroundContext.fillStyle = '#fff'; backgroundContext.fillRect(0, 0, 1, 1);
+    for (const color of layers.reverse()) { backgroundContext.fillStyle = color; backgroundContext.fillRect(0, 0, 1, 1); }
+    const stageRGB = backgroundContext.getImageData(0, 0, 1, 1).data;
+    const stageBackground = 'rgb(' + stageRGB[0] + ',' + stageRGB[1] + ',' + stageRGB[2] + ')';
+    const normalize = (image, composite = true) => {
       const canvas = document.createElement('canvas'); canvas.width = canvas.height = size;
       const side = Math.min(image.naturalWidth, image.naturalHeight), context = canvas.getContext('2d');
+      if (composite) { context.fillStyle = stageBackground; context.fillRect(0, 0, size, size); }
       context.drawImage(image, (image.naturalWidth - side) / 2, (image.naturalHeight - side) / 2, side, side, 0, 0, size, size);
       return { canvas, pixels: context.getImageData(0, 0, size, size).data };
     };
     const actual = normalize(actualImage), expected = normalize(expectedImage), background = [...expected.pixels.slice(0, 3)];
+    const rawReference = normalize(expectedImage, false), alphaBytes = rawReference.pixels.filter((_, i) => i % 4 === 3);
+    const referenceAlpha = { transparent_fraction: alphaBytes.filter(a => a <= 3).length / alphaBytes.length,
+      corner_alpha_max: Math.max(rawReference.pixels[3], rawReference.pixels[(size - 1) * 4 + 3], rawReference.pixels[((size - 1) * size) * 4 + 3], rawReference.pixels.at(-1)) };
     const foreground = pixels => {
       let left = size, right = -1, top = size, bottom = -1, count = 0, sx = 0, sy = 0;
       for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
@@ -96,14 +112,18 @@ async function pixelParity(page, label, caseReport) {
     const actualForeground = foreground(actual.pixels), expectedForeground = foreground(expected.pixels);
     const bboxDelta = Math.max(...Object.keys(actualForeground.bbox).map(key => Math.abs(actualForeground.bbox[key] - expectedForeground.bbox[key])));
     const centroidDelta = Math.hypot(actualForeground.centroid.x - expectedForeground.centroid.x, actualForeground.centroid.y - expectedForeground.centroid.y);
-    return { referencePath, normalizedSize: size, mean_rgb_absolute_error: error / (size * size * 3 * 255), bbox_delta_px: bboxDelta, centroid_delta_px: centroidDelta, actualForeground, expectedForeground, background,
-      theme: document.documentElement.dataset.theme || 'system', actual_png: actual.canvas.toDataURL('image/png'), expected_png: expected.canvas.toDataURL('image/png') };
+    return { descriptorPath: asset.turntable.manifest, referencePath, referenceDimensions: [expectedImage.naturalWidth, expectedImage.naturalHeight], normalizedSize: size, mean_rgb_absolute_error: error / (size * size * 3 * 255), bbox_delta_px: bboxDelta, centroid_delta_px: centroidDelta, actualForeground, expectedForeground, background, stageBackground, referenceAlpha, liveAlpha: window.__handoffReview.latestLiveAlpha,
+      theme: document.documentElement.dataset.theme || 'system', actual_png: actual.canvas.toDataURL('image/png'), expected_png: expected.canvas.toDataURL('image/png'), reference_alpha_png: rawReference.canvas.toDataURL('image/png') };
   }, { png: png.toString('base64'), prefix });
-  const { actual_png, expected_png, ...measurements } = result;
+  const { actual_png, expected_png, reference_alpha_png, ...measurements } = result;
   caseReport.pixel_parity = measurements;
   await writeFile(resolve(output, label + '-normalized-detail.png'), Buffer.from(actual_png.split(',')[1], 'base64'));
   await writeFile(resolve(output, label + '-reference-frame007.png'), Buffer.from(expected_png.split(',')[1], 'base64'));
-  report.screenshots.push(label + '-normalized-detail.png', label + '-reference-frame007.png');
+  await writeFile(resolve(output, label + '-reference-alpha.png'), Buffer.from(reference_alpha_png.split(',')[1], 'base64'));
+  report.screenshots.push(label + '-normalized-detail.png', label + '-reference-frame007.png', label + '-reference-alpha.png');
+  assert.deepEqual(measurements.referenceDimensions, [768, 768], 'Parity must use the current 768 px proxy, resolved through its catalog descriptor');
+  assert(measurements.referenceAlpha.transparent_fraction > 0.2 && measurements.referenceAlpha.corner_alpha_max <= 3, 'Versioned turntable image must have a genuinely transparent background');
+  assert(measurements.liveAlpha?.transparent_fraction > 0.2 && measurements.liveAlpha.corner_alpha_max <= 3, 'Real WebGL rendering must preserve transparent background pixels');
   assert(measurements.actualForeground.pixels > 100 && measurements.expectedForeground.pixels > 100, 'Pixel checks require a real model silhouette');
   assert(measurements.mean_rgb_absolute_error < 0.04, 'Actual detail pixels must match the card-frame lighting and framing within a cross-GPU tolerance');
   assert(measurements.bbox_delta_px <= 8, 'The actual model silhouette bounds must match the card frame within 8 pixels');
@@ -123,7 +143,59 @@ async function angles(page) { return page.locator('#canvas-host').evaluate(host 
 const deltaAngle = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 async function startSampler(page) {
   await page.evaluate(() => {
-    window.__handoffReview = { phase: 'open', frames: [] };
+    window.__handoffReview = { phase: 'open', frames: [], draws: [], probe_errors: [] };
+    const alphaCache = new WeakMap(), sampleCanvas = document.createElement('canvas');
+    const rectOf = element => { const r = element.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; };
+    const readAlpha = source => {
+      const sw = source.naturalWidth || source.width, sh = source.naturalHeight || source.height;
+      if (!sw || !sh) return null;
+      const ratio = Math.min(1, 384 / Math.max(sw, sh));
+      sampleCanvas.width = Math.max(1, Math.round(sw * ratio)); sampleCanvas.height = Math.max(1, Math.round(sh * ratio));
+      const width = sampleCanvas.width, height = sampleCanvas.height, context = sampleCanvas.getContext('2d', { willReadFrequently: true });
+      context.clearRect(0, 0, width, height); context.drawImage(source, 0, 0, width, height);
+      const pixels = context.getImageData(0, 0, width, height).data;
+      let left = width, right = -1, top = height, bottom = -1, count = 0, transparent = 0, weight = 0, cx = 0, cy = 0;
+      for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+        const alpha = pixels[(y * width + x) * 4 + 3];
+        if (alpha <= 3) transparent++;
+        if (alpha <= 16) continue;
+        left = Math.min(left, x); right = Math.max(right, x); top = Math.min(top, y); bottom = Math.max(bottom, y); count++; weight += alpha; cx += (x + 0.5) * alpha; cy += (y + 0.5) * alpha;
+      }
+      return { source: [sw, sh], sampled: [width, height], pixels: count, transparent_fraction: transparent / (width * height),
+        corner_alpha_max: Math.max(pixels[3], pixels[(width - 1) * 4 + 3], pixels[((height - 1) * width) * 4 + 3], pixels.at(-1)),
+        bbox: count ? { left: left / width, top: top / height, right: (right + 1) / width, bottom: (bottom + 1) / height } : null,
+        centroid: count ? { x: cx / weight / width, y: cy / weight / height } : null };
+    };
+    const alphaFor = element => {
+      if (!element) return null;
+      if (!alphaCache.has(element) && !element.classList.contains('model-canvas')) alphaCache.set(element, readAlpha(element));
+      return alphaCache.get(element) || null;
+    };
+    const projected = (element, alpha) => {
+      if (!element || !alpha?.bbox) return null;
+      const r = rectOf(element), css = getComputedStyle(element), [iw, ih] = alpha.source;
+      let width = r.width, height = r.height, x = r.x, y = r.y;
+      if (css.objectFit === 'contain') { const scale = Math.min(width / iw, height / ih); width = iw * scale; height = ih * scale; x += (r.width - width) / 2; y += (r.height - height) / 2; }
+      const b = alpha.bbox;
+      return { left: x + b.left * width, top: y + b.top * height, right: x + b.right * width, bottom: y + b.bottom * height,
+        width: (b.right - b.left) * width, height: (b.bottom - b.top) * height, x: x + alpha.centroid.x * width, y: y + alpha.centroid.y * height };
+    };
+    const cssBackgroundAlpha = element => {
+      const color = getComputedStyle(element).backgroundColor;
+      if (color === 'transparent') return 0;
+      const match = color.match(/^rgba\([^,]+,[^,]+,[^,]+,\s*([\d.]+)\)$/);
+      return match ? Number(match[1]) : 1;
+    };
+    // Sample synchronously after the actual draw, before the non-preserved WebGL
+    // buffer can clear or ready can release the still-present handoff.
+    window.__vaultFrameProbe = ({ canvas, host, view }) => {
+      try {
+        const alpha = readAlpha(canvas); alphaCache.set(canvas, alpha); window.__handoffReview.latestLiveAlpha = alpha;
+        const overlay = host.querySelector('.model-handoff'), overlayAlpha = alphaFor(overlay);
+        window.__handoffReview.draws.push({ time: performance.now(), phase: window.__handoffReview.phase, host: rectOf(host), alpha, object: projected(canvas, alpha), view,
+          overlay: overlay ? { alpha: overlayAlpha, object: projected(overlay, overlayAlpha) } : null });
+      } catch (error) { window.__handoffReview.probe_errors.push(error.message); }
+    };
     const visible = element => {
       if (!element || !element.isConnected) return false;
       const box = element.getBoundingClientRect();
@@ -136,15 +208,19 @@ async function startSampler(page) {
       return element.tagName !== 'IMG' || element.naturalWidth > 0;
     };
     const sample = () => {
-      const host = document.querySelector('#canvas-host'), flight = document.querySelector('.stage-flight');
+      const host = document.querySelector('#canvas-host'), flight = document.querySelector('.stage-flight'), overlay = host.querySelector('.model-handoff'), model = host.querySelector('.model-canvas');
       if (document.querySelector('#viewer-dialog')?.open) {
         const stationaryVisible = [...host.querySelectorAll('canvas,img')].some(visible);
         const hasVisual = stationaryVisible || visible(flight);
-        const entry = { phase: window.__handoffReview.phase, hasVisual, stationaryVisible, state: host.dataset.modelState };
+        const entry = { time: performance.now(), phase: window.__handoffReview.phase, hasVisual, stationaryVisible, state: host.dataset.modelState, host: rectOf(host),
+          model: model ? { alpha: alphaFor(model), object: projected(model, alphaFor(model)), visible: visible(model) } : null,
+          overlay: overlay ? { alpha: alphaFor(overlay), object: projected(overlay, alphaFor(overlay)), opacity: Number(getComputedStyle(overlay).opacity), css_background_alpha: cssBackgroundAlpha(overlay) } : null };
         if (flight && visible(flight)) {
           const r = flight.getBoundingClientRect(), iw = flight.naturalWidth || flight.width, ih = flight.naturalHeight || flight.height;
           const contentScale = Math.min(r.width / iw, r.height / ih);
-          entry.flight = { square: Math.min(iw, ih) * contentScale, x: r.x + r.width / 2, y: r.y + r.height / 2, width: iw, height: ih };
+          const alpha = alphaFor(flight);
+          entry.flight = { square: Math.min(iw, ih) * contentScale, x: r.x + r.width / 2, y: r.y + r.height / 2, width: iw, height: ih,
+            alpha, object: projected(flight, alpha), css_background_alpha: cssBackgroundAlpha(flight), css_background_image: getComputedStyle(flight).backgroundImage };
         }
         window.__handoffReview.frames.push(entry);
       }
@@ -154,7 +230,72 @@ async function startSampler(page) {
   });
 }
 async function endSampler(page) {
-  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); return window.__handoffReview.frames; });
+  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); delete window.__vaultFrameProbe; return window.__handoffReview.frames; });
+}
+
+async function dynamicContinuity(page, caseReport, frames) {
+  const { draws, probe_errors } = await page.evaluate(() => ({ draws: window.__handoffReview.draws, probe_errors: window.__handoffReview.probe_errors }));
+  const comparisons = [], phases = [];
+  const requireBounds = (object, label) => {
+    assert(object && ['x', 'y', 'width', 'height'].every(key => Number.isFinite(object[key])) && object.width > 0 && object.height > 0,
+      label + ' must contain measured, finite, nonempty model bounds');
+  };
+  const compare = (a, b, reason, phase) => {
+    requireBounds(a, phase + ': ' + reason + ' before');
+    requireBounds(b, phase + ': ' + reason + ' after');
+    comparisons.push({ phase, reason, y_step_px: Math.abs(a.y - b.y), center_step_px: Math.hypot(a.x - b.x, a.y - b.y),
+      scale_step: Math.max(Math.abs(a.width / b.width - 1), Math.abs(a.height / b.height - 1)) });
+  };
+  assert.deepEqual(probe_errors, [], 'Synchronous rendered-alpha sampling must succeed');
+  for (const phase of ['open', 'reopen']) {
+    const samples = frames.filter(frame => frame.phase === phase), renderSamples = draws.filter(draw => draw.phase === phase);
+    assert(renderSamples.length > 0, phase + ' must include an actual synchronous draw');
+    for (let i = 0; i < renderSamples.length; i++) {
+      const draw = renderSamples[i];
+      requireBounds(draw.object, phase + ': actual draw ' + i);
+      assert(draw.alpha?.transparent_fraction > 0.2 && draw.alpha.corner_alpha_max <= 3,
+        phase + ': every actual draw must preserve a transparent surrounding area');
+      if (i > 0) compare(renderSamples[i - 1].object, draw.object, 'consecutive-actual-draws', phase);
+    }
+    // The first synchronous hook sees the handoff before ready can fade/remove it,
+    // even if a cached reopen completes before the next RAF sampler callback.
+    compare(renderSamples[0].overlay?.object, renderSamples[0].object, 'handoff-versus-first-actual-draw', phase);
+    const hostRects = [...samples.map(frame => frame.host), ...renderSamples.map(draw => draw.host)];
+    const ranges = Object.fromEntries(['x', 'y', 'width', 'height'].map(key => [key, Math.max(...hostRects.map(rect => rect[key])) - Math.min(...hostRects.map(rect => rect[key]))]));
+    let releases = 0;
+    for (let i = 0; i < samples.length; i++) {
+      const frame = samples[i], previous = samples[i - 1];
+      if (frame.state === 'ready' && frame.overlay && frame.model) compare(frame.overlay.object, frame.model.object, 'overlay-versus-ready-draw', phase);
+      if (previous?.overlay && !frame.overlay && frame.model) { releases++; compare(previous.overlay.object, frame.model.object, 'overlay-release-boundary', phase); }
+      if (previous && !previous.flight && !frame.flight) {
+        const previousObject = previous.overlay?.opacity > 0.5 ? previous.overlay.object : previous.model?.object;
+        const nextObject = frame.overlay?.opacity > 0.5 ? frame.overlay.object : frame.model?.object;
+        compare(previousObject, nextObject, 'consecutive-stationary-frames', phase);
+      }
+    }
+    phases.push({ phase, samples: samples.length, draws: renderSamples.length, ready_seen: samples.some(frame => frame.state === 'ready'), release_boundaries: releases, host_rect_range_px: ranges });
+  }
+  const surfaces = frames.flatMap(frame => [frame.overlay && { kind: 'handoff', ...frame.overlay }, frame.flight && { kind: 'flight', ...frame.flight }].filter(Boolean));
+  caseReport.dynamic_continuity = { phases, comparisons, draws, probe_errors, transparent_surfaces_sampled: surfaces.length,
+    max_y_step_px: Math.max(0, ...comparisons.map(item => item.y_step_px)),
+    max_center_step_px: Math.max(0, ...comparisons.map(item => item.center_step_px)),
+    max_scale_step: Math.max(0, ...comparisons.map(item => item.scale_step)) };
+  for (const phase of phases) {
+    assert(phase.samples > 1 && phase.draws > 0 && phase.ready_seen, phase.phase + ' must cover loading, an actual draw, and settled ready frames');
+    assert(phase.release_boundaries > 0, phase.phase + ' must sample the actual overlay-release boundary');
+    for (const [axis, range] of Object.entries(phase.host_rect_range_px)) assert(range <= 1, phase.phase + ': canvas host ' + axis + ' changed by ' + range.toFixed(2) + ' px during loading/ready/release');
+  }
+  assert(surfaces.length > 0, 'Transparency must be checked on actual handoff surfaces');
+  for (const surface of surfaces) {
+    assert(surface.css_background_alpha === 0, surface.kind + ' must not transform an opaque CSS background rectangle');
+    if (surface.kind === 'flight') assert.equal(surface.css_background_image, 'none', 'A flight must not carry a background image');
+    assert(surface.alpha?.transparent_fraction > 0.2 && surface.alpha.corner_alpha_max <= 3, surface.kind + ' pixels must retain a transparent surrounding area');
+  }
+  for (const comparison of comparisons) {
+    assert(comparison.y_step_px <= 3, comparison.phase + ': ' + comparison.reason + ' moved model Y by ' + comparison.y_step_px.toFixed(2) + ' px');
+    assert(comparison.center_step_px <= 3, comparison.phase + ': ' + comparison.reason + ' moved model center by ' + comparison.center_step_px.toFixed(2) + ' px');
+    assert(comparison.scale_step <= 0.03, comparison.phase + ': ' + comparison.reason + ' changed model scale by ' + (comparison.scale_step * 100).toFixed(2) + '%');
+  }
 }
 
 async function directDetails() {
@@ -189,11 +330,14 @@ async function roundTrip(label, options = {}) {
     await page.waitForFunction(() => document.querySelector('#viewer-dialog')?.open);
     caseReport.handoff_pixels = await canvasPixels(page, '#canvas-host .model-handoff');
     assert.deepEqual(caseReport.handoff_pixels, caseReport.preview_pixels, 'The exact currently painted card pixels must enter the detail handoff');
+    assert(caseReport.handoff_pixels.transparent_fraction > 0.2 && caseReport.handoff_pixels.corner_alpha_max <= 3, 'The initial handoff must not contain a baked opaque background');
     await ready(page, 'natural-arch');
     const initial = await angles(page);
     assert(deltaAngle(initial.azimuth, 147) < 0.001, 'The 7/24 preview angle enters actual 3D unchanged');
     await page.waitForTimeout(350);
+    await page.evaluate(() => { window.__handoffReview.phase = 'inspect'; });
     await pixelParity(page, label, caseReport);
+    await page.evaluate(() => { window.__handoffReview.phase = 'interact'; });
     await page.locator('#canvas-host').focus(); await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowUp');
     await page.waitForFunction(previous => Math.abs(Number(document.querySelector('#canvas-host').dataset.viewAzimuth) - previous) > 0.1, initial.azimuth);
     await page.locator('#zoom-in').click();
@@ -218,12 +362,15 @@ async function roundTrip(label, options = {}) {
     assert.equal(caseReport.beforeReopen.card.canvases, 1, 'The retained image must remain painted immediately before reopening');
     await page.evaluate(() => { window.__handoffReview.phase = 'reopen'; });
     await page.keyboard.press('Enter'); await ready(page, 'natural-arch'); await page.waitForTimeout(350);
+    await page.evaluate(() => { window.__handoffReview.phase = 'inspect-reopen'; });
     const reopened = await angles(page);
     caseReport.reopened = reopened;
     assert(deltaAngle(beforeClose.azimuth, reopened.azimuth) < 0.001, 'Close/reopen preserves the actual camera azimuth');
     assert(Math.abs(beforeClose.elevation - reopened.elevation) < 0.001, 'Close/reopen preserves the actual camera elevation');
     assert(Number.isFinite(beforeClose.distance) && Math.abs(beforeClose.distance - reopened.distance) < 0.00001, 'Close/reopen preserves the actual camera zoom distance');
     const frames = await endSampler(page), closeFlights = frames.filter(frame => frame.phase === 'close' && frame.flight);
+    caseReport.frames = frames;
+    await dynamicContinuity(page, caseReport, frames);
     assert.equal(frames.filter(frame => !frame.hasVisual).length, 0, 'Open/close/reopen must never show an empty visual frame');
     if (options.reducedMotion !== 'reduce') {
       assert(closeFlights.length > 1, 'The ordinary-motion reverse transition must actually animate');
@@ -239,6 +386,64 @@ async function roundTrip(label, options = {}) {
     caseReport.failure_diagnostics = await previewDiagnostics(page).catch(() => null);
     caseReport.frames = await endSampler(page).catch(() => []);
     await page.screenshot({ path: resolve(output, label + '-failure.png'), fullPage: false }).then(() => report.screenshots.push(label + '-failure.png')).catch(() => {});
+    throw error;
+  } finally { await context.close(); }
+}
+
+async function contextLossRecovery() {
+  const label = 'context-loss-recovery', context = await makeContext(label, { reducedMotion: 'reduce' }), { page } = context;
+  const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
+  try {
+    await page.goto(base + prefix + 'models/natural-arch/'); await ready(page, 'natural-arch');
+    await page.waitForFunction(() => !document.querySelector('#canvas-host .model-handoff'));
+    const before = await angles(page); caseReport.before = before;
+    const supported = await page.locator('#canvas-host .model-canvas').evaluate(canvas => {
+      const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+      const extension = gl?.getExtension('WEBGL_lose_context');
+      if (!extension) return false;
+      window.__contextLossReview = { extension, canvas, renderedFrames: window.__vaultGPU.renderedFrames };
+      extension.loseContext();
+      return true;
+    });
+    if (!supported) {
+      Object.assign(caseReport, { status: 'skipped', reason: 'WEBGL_lose_context is unavailable in this browser.' });
+      report.checks.push('Context-loss recovery not exercised: WEBGL_lose_context is unavailable in this browser.');
+      return;
+    }
+    await page.waitForFunction(() => document.querySelector('#canvas-host')?.dataset.modelState === 'error');
+    caseReport.lost = await page.locator('#canvas-host').evaluate(host => {
+      const canvas = host.querySelector('.model-canvas'), poster = host.querySelector('.model-poster');
+      return {
+        canvas_visibility: canvas ? getComputedStyle(canvas).visibility : null,
+        poster_visibility: poster ? getComputedStyle(poster).visibility : null,
+        poster_loaded: Boolean(poster?.complete && poster.naturalWidth > 0),
+        controls_disabled: [...document.querySelectorAll('.viewer-controls button')].every(button => button.disabled),
+        handoffs: host.querySelectorAll('.model-handoff').length,
+      };
+    });
+    assert.equal(caseReport.lost.canvas_visibility, 'hidden', 'Lost WebGL context must hide the invalid canvas');
+    assert.equal(caseReport.lost.poster_visibility, 'visible', 'Context loss after ready must restore the static poster despite prior inline hiding');
+    assert(caseReport.lost.poster_loaded, 'Context-loss fallback must contain a decoded image');
+    assert(caseReport.lost.controls_disabled, 'Unavailable 3D controls must be disabled');
+    assert.equal(caseReport.lost.handoffs, 0, 'The fallback check must exercise a settled viewer without a retained handoff');
+    await screenshot(page, label + '-fallback');
+    await page.evaluate(() => window.__contextLossReview.extension.restoreContext());
+    await ready(page, 'natural-arch');
+    await page.waitForFunction(() => window.__vaultGPU.renderedFrames > window.__contextLossReview.renderedFrames);
+    const recovered = await angles(page); caseReport.recovered = recovered;
+    assert(deltaAngle(before.azimuth, recovered.azimuth) < 0.001, 'Context restoration preserves camera azimuth');
+    assert(Math.abs(before.elevation - recovered.elevation) < 0.001, 'Context restoration preserves camera elevation');
+    assert(Math.abs(before.distance - recovered.distance) < 0.00001, 'Context restoration preserves camera zoom distance');
+    assert.equal(await page.locator('#canvas-host .model-canvas').evaluate(canvas => getComputedStyle(canvas).visibility), 'visible');
+    assert.equal(await page.locator('#canvas-host .model-poster').evaluate(poster => getComputedStyle(poster).visibility), 'hidden');
+    assert.equal(await page.locator('#canvas-host .model-canvas').count(), 1);
+    assert.equal(await page.evaluate(() => window.__vaultGPU.liveScenes), 1);
+    await screenshot(page, label + '-recovered');
+    caseReport.status = 'pass';
+    report.checks.push('WebGL context loss restores the static poster; recovery redraws one real scene with the same camera and zoom.');
+  } catch (error) {
+    caseReport.status = 'fail'; caseReport.error = error.stack;
+    caseReport.failure_diagnostics = await previewDiagnostics(page).catch(() => null);
     throw error;
   } finally { await context.close(); }
 }
@@ -291,9 +496,11 @@ try {
   report.chromium_version = browser.version();
   await directDetails();
   await roundTrip('desktop-motion');
+  await roundTrip('desktop-retina-motion', { deviceScaleFactor: 2 });
   await roundTrip('mobile-motion', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
   await roundTrip('desktop-reduced-motion', { reducedMotion: 'reduce' });
   await roundTrip('desktop-dark-motion', { colorScheme: 'dark' });
+  await contextLossRecovery();
   await interruptedHistory();
   await supersededImport();
   assert.deepEqual(report.page_errors, []); report.status = 'pass';
