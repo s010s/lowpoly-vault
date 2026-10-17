@@ -1,0 +1,1 @@
+r13 is a retained failed preflight. Matched pilot detail shows sparse separated blade tips and a weak fan body; not submitted for acceptance. Flat-face attempt 02 exceeded the 1 MB byte guard; shared-normal attempt 03 produced the retained GLB. No prior files changed.

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r14",
+      "job_id": "independent-process-rebuild",
+      "inputs": {
+        "generator": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r14/build_flat_sprays.py",
+        "config": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r14/build-config.json",
+        "brief": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r14/brief.json",
+        "references": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r14/references.json",
+        "helper": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/scripts/asset_common.py",
+        "audit": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--output-dir",
+        "{output_dir}",
+        "--config",
+        "{input:config}"
+      ],
+      "outputs": [
+        "conifer-tree/conifer-tree.glb",
+        "conifer-tree/conifer-tree.blend",
+        "conifer-tree/metadata.json",
+        "conifer-tree/qa.json",
+        "build-summary.json",
+        "build-config.json"
+      ],
+      "timeout_seconds": 180,
+      "config": {
+        "environment": "authorized local macOS Blender 5.2 LTS",
+        "threads": 2
+      }
+    }
+  ]
+}

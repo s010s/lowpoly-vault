@@ -1,0 +1,65 @@
+{
+  "identity": {
+    "runner_schema": 1,
+    "lane": "build",
+    "environment": "macOS local bounded runner",
+    "job": {
+      "asset_id": "conifer-tree",
+      "revision": "structure-r15",
+      "job_id": "independent-process-rebuild"
+    },
+    "inputs": {
+      "generator": {
+        "path": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r15/build_flat_sprays.py",
+        "sha256": "081076ab89f37af3c8f4059421580502b1ff0e6fd712c9072d01875764379dff",
+        "bytes": 12662
+      },
+      "config": {
+        "path": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r15/build-config.json",
+        "sha256": "bd4adcc04d797440f89559d32ac11ab9aab6bcad9ba3a4347e9365a1b8e43a93",
+        "bytes": 1195
+      },
+      "brief": {
+        "path": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r15/brief.json",
+        "sha256": "b415d12f0681fd0e61065aadedf3bd46b57e4ba8f5149e2c57007cc861c8c8ae",
+        "bytes": 7660
+      },
+      "references": {
+        "path": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r15/references.json",
+        "sha256": "f30162faf55feadacd02767f07607c6428b5913b09cce6312bd094908594a0fc",
+        "bytes": 3621
+      },
+      "helper": {
+        "path": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/scripts/asset_common.py",
+        "sha256": "27fe5c66c3955a003e141debbd96816b0f6eda6f64af991f28234ec42257d8bc",
+        "bytes": 26328
+      },
+      "audit": {
+        "path": "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+        "bytes": 13344
+      }
+    },
+    "threads": 2,
+    "workers": 1,
+    "timeout_seconds": 180,
+    "memory_limit": "not_enforced; sequential bounded job"
+  },
+  "fingerprint": "62c7d7add01fccd8117499aa67fa12201d0f02467ee200db7867d7704a48e4b2",
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "-b",
+    "-t",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r15/build_flat_sprays.py",
+    "--",
+    "--output-dir",
+    "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r15/rebuild-runs/local-rebuild-01/outputs",
+    "--config",
+    "/Users/leonleung/Documents/leon-made-this/products/lowpoly-vault-worktrees/conifer-refinement/experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r15/build-config.json"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "structure-r15",
+    "glb_sha256": "2ad0baa9c4b54be1a3a5ebd2298eb612ca9d9cb4b4b3a09a2eddd16ae38eca8d",
+    "brief_sha256": "b415d12f0681fd0e61065aadedf3bd46b57e4ba8f5149e2c57007cc861c8c8ae",
+    "references_sha256": "f30162faf55feadacd02767f07607c6428b5913b09cce6312bd094908594a0fc"
+  },
+  "status": "pass",
+  "method": "Executed static auditor, official Khronos validator, saved source/export comparison and independently launched bounded local macOS rebuild with hash-bound request/result. Compared exact r12/r15 woody vertex, face and world-matrix arrays.",
+  "observations": [
+    "Official validator: zero errors/warnings.",
+    "Source/export triangles and axis-converted bounds agree.",
+    "Separate-process rebuild is byte-identical and semantically identical.",
+    "r12 and r15 woody vertices, face indices and world matrix are exactly equal.",
+    "No texture, no external resources, three opaque primitives."
+  ],
+  "errors": [],
+  "warnings": [
+    "source: Conifer | clustered narrow needle-bearing shoots: smooth faces require intentional-style review"
+  ],
+  "warning_review": [
+    {
+      "warning": "source: Conifer | clustered narrow needle-bearing shoots: smooth faces require intentional-style review",
+      "rationale": "Shared smooth normals are explicitly intentional for the shallow closed leaf-group mesh to reduce per-face export duplication. Physical depth stays 13% of width; woody planes are flat. Maker inspected current 512px color/clay pixels. This is a technical warning explanation, not independent style acceptance."
+    }
+  ],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 16450,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 479320,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "2ad0baa9c4b54be1a3a5ebd2298eb612ca9d9cb4b4b3a09a2eddd16ae38eca8d",
+      "report": {
+        "path": "candidate-r15/static-glb.report.json",
+        "sha256": "69781545a9ef852076e600966941138385c58da7aa6a8bb4e24decd984dc7bca"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "2ad0baa9c4b54be1a3a5ebd2298eb612ca9d9cb4b4b3a09a2eddd16ae38eca8d",
+      "report": {
+        "path": "candidate-r15/gltf-validator.report.json",
+        "sha256": "7b8c2f7947856438b996be957168b7c314daf08fec050c0abe476d7fb433d0aa"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "2ad0baa9c4b54be1a3a5ebd2298eb612ca9d9cb4b4b3a09a2eddd16ae38eca8d",
+      "report": {
+        "path": "candidate-r15/source-export.report.json",
+        "sha256": "a702a9bf3f5bad0c28b60186fdf3f1e06575f5f6a85192bceea154f16e7ec020"
+      },
+      "warning_review": [
+        {
+          "warning": "source: Conifer | clustered narrow needle-bearing shoots: smooth faces require intentional-style review",
+          "rationale": "Shared smooth normals are explicitly intentional for the shallow closed leaf-group mesh to reduce per-face export duplication. Physical depth stays 13% of width; woody planes are flat. Maker inspected current 512px color/clay pixels. This is a technical warning explanation, not independent style acceptance."
+        }
+      ]
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "2ad0baa9c4b54be1a3a5ebd2298eb612ca9d9cb4b4b3a09a2eddd16ae38eca8d",
+      "report": {
+        "path": "candidate-r15/reproducibility.report.json",
+        "sha256": "8afd4484932bf9bd6a5c632494921d1329a35bf1e18cbbe0938ed1a15120b801"
+      },
+      "warning_review": []
+    }
+  ]
+}

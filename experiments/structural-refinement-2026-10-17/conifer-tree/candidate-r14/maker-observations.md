@@ -1,0 +1,1 @@
+r14 retained preflight. Shallow overlapping sprays resolve r13 sparse separated tips, but full-angle contact sheet reveals excessive edge-on thinning in the front/rear/left/right horizontal views. No art acceptance. r15 changes only whole-fan roll, retaining the same triangle count and shallow leaf depth. All prior artifacts immutable.
