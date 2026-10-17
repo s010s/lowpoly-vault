@@ -1,0 +1,1276 @@
+{
+  "schema_version": 1,
+  "kind": "scene_report",
+  "stage": "scene",
+  "subject": {
+    "revision": "structure-r20-A-normal16",
+    "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+    "brief_sha256": "50466e78d5da46f10532b601cc2d4ea15ef2fae44c2881a8b8e0e01c15e99a5e",
+    "references_sha256": "6f1ff6cb8fa57c8aec580945eaa04ee141240988cfbdc90b075007d8d9afbe4a"
+  },
+  "status": "pass",
+  "method": "Bounded independent exact-file real-browser runtime measurement and selected actual pixel inspection; scope below. Not whole-candidate acceptance.",
+  "producer": {
+    "id": "independent-runtime-gpt-6.1-sol-medium",
+    "task": "conifer-r20-runtime"
+  },
+  "scope": "Measured Apple M5 Pro/ANGLE Metal runtime; software correctness and software budget failure are reported separately.",
+  "runtime": {
+    "engine": "Three.js",
+    "version": "0.180.0",
+    "renderer": "WebGLRenderer",
+    "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+    "browser": "Chromium 141.0.7390.37 isolated headless",
+    "context": "WebGL2RenderingContext",
+    "context_created": true,
+    "rendered": true,
+    "rendered_frames": 60,
+    "draw_calls": 98,
+    "triangles": 609666,
+    "output_color_space": "srgb",
+    "tone_mapping": "ACESFilmic",
+    "exposure": 1.2,
+    "rendered_frames_scope": "Count of 60 measured timed renders per population; excludes warmup, rAF and screenshot renders"
+  },
+  "screenshots": [
+    "scene-metal-1-clones",
+    "scene-metal-1-instanced",
+    "scene-metal-16-clones",
+    "scene-metal-16-instanced",
+    "scene-metal-32-clones",
+    "scene-metal-32-instanced",
+    "scene-swiftshader-1-clones",
+    "scene-swiftshader-1-instanced",
+    "scene-swiftshader-16-clones",
+    "scene-swiftshader-16-instanced",
+    "scene-swiftshader-32-clones",
+    "scene-swiftshader-32-instanced"
+  ],
+  "errors": [],
+  "warnings": [
+    "Fine opaque double-sided needle geometry can show ordinary subpixel edge aliasing during orbit; stationary draws were byte-stable.",
+    "SwiftShader 16/32-copy frame budget fails; this is software and is not hidden by the Metal pass."
+  ],
+  "observations": [
+    "Exact GLB hash and normalized Int16Array NORMAL attributes verified in the browser.",
+    "No alpha-blended foliage: opacity 1, transparent false; foliage materials use DoubleSide.",
+    "Source and current website renderer/preset hashes, actual images, camera/light/resolution, raw samples and query disjoint flags are preserved.",
+    "Minor r19/r20 pixel differences are nonzero and available for independent artistic review."
+  ],
+  "raw_reports": [
+    {
+      "path": "metal/runtime-report.json",
+      "sha256": "a1d3f4f873f538ce9b422ac9cb7729d2eded8974f7134193712a5d176c5a2037"
+    },
+    {
+      "path": "swiftshader/runtime-report.json",
+      "sha256": "15d65aa3c792f7bb6415b0c79cd84be8f3798a32f2e1ef48d09b50830d66c34f"
+    }
+  ],
+  "scene_description": "Authored-meter grid grove at 1200x900 DPR1; 1/16/32 actual clones and identical-data instancing measured separately, shared gallery lights, no shadows, reference floor/grid included. Main runtime row describes measured 32-clone M5 Pro scene.",
+  "scene_assets": [
+    {
+      "id": "conifer-tree",
+      "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+      "instances": 32
+    }
+  ],
+  "population_measurements": {
+    "metal": {
+      "device": {
+        "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+        "vendor": "Google Inc. (Apple)",
+        "context": "WebGL2RenderingContext",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+        "context_attributes": {
+          "alpha": true,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "low-power",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+        "devicePixelRatio": 1
+      },
+      "hardware_classification": "hardware-reported-Apple-Metal",
+      "populations": [
+        {
+          "copies": 1,
+          "mode": "clones",
+          "visible_copies": 1,
+          "draw_calls": 5,
+          "triangles": 19054,
+          "lines": 20,
+          "runtime": {
+            "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+            "vendor": "Google Inc. (Apple)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              8.302840152000108,
+              10.57846935075771,
+              13.284544243200175
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            1,
+            1
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.09999999403953552,
+            "max": 0.20000001788139343
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 1.194249,
+            "p50": 1.430729,
+            "p95": 2.392374,
+            "max": 2.4125
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 7.399999999999864,
+            "p50": 8.300000000000068,
+            "p95": 8.899999999999864,
+            "max": 8.900000000000091
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": true,
+          "software": false
+        },
+        {
+          "copies": 1,
+          "mode": "instanced",
+          "visible_copies": 1,
+          "draw_calls": 5,
+          "triangles": 19054,
+          "lines": 20,
+          "runtime": {
+            "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+            "vendor": "Google Inc. (Apple)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              8.302840152000108,
+              10.57846935075771,
+              13.284544243200175
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            1,
+            1
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.09999999403953552,
+            "max": 0.10000002384185791
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 1.026583,
+            "p50": 1.4245825,
+            "p95": 2.374625,
+            "max": 2.387375
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 7.099999999999909,
+            "p50": 8.299999999999955,
+            "p95": 9.099999999999909,
+            "max": 9.299999999999955
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": true,
+          "software": false
+        },
+        {
+          "copies": 16,
+          "mode": "clones",
+          "visible_copies": 16,
+          "draw_calls": 50,
+          "triangles": 304834,
+          "lines": 64,
+          "runtime": {
+            "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+            "vendor": "Google Inc. (Apple)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              31.73693416873542,
+              30.497449264982723,
+              50.77909466997667
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            4,
+            4
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.09999999403953552,
+            "p95": 0.10000002384185791,
+            "max": 0.20000001788139343
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 0.334499,
+            "p50": 0.48220799999999997,
+            "p95": 0.624375,
+            "max": 0.874374
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 6.900000000000091,
+            "p50": 8.300000000000068,
+            "p95": 9.599999999999909,
+            "max": 9.899999999999636
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": true,
+          "software": false
+        },
+        {
+          "copies": 16,
+          "mode": "instanced",
+          "visible_copies": 16,
+          "draw_calls": 5,
+          "triangles": 304834,
+          "lines": 64,
+          "runtime": {
+            "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+            "vendor": "Google Inc. (Apple)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              31.73693416873542,
+              30.497449264982723,
+              50.77909466997667
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            4,
+            4
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.09999999403953552,
+            "max": 0.10000002384185791
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 0.777416,
+            "p50": 1.1234790000000001,
+            "p95": 1.412583,
+            "max": 1.964625
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 6.5,
+            "p50": 8.300000000000182,
+            "p95": 9.599999999999909,
+            "max": 10.199999999999818
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": true,
+          "software": false
+        },
+        {
+          "copies": 32,
+          "mode": "clones",
+          "visible_copies": 32,
+          "draw_calls": 98,
+          "triangles": 609666,
+          "lines": 92,
+          "runtime": {
+            "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+            "vendor": "Google Inc. (Apple)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              48.44521736519386,
+              44.6994899819724,
+              77.51234778431018
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            6,
+            6
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.09999999403953552,
+            "p95": 0.19999998807907104,
+            "max": 0.20000001788139343
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 0.222,
+            "p50": 0.2686245,
+            "p95": 0.433124,
+            "max": 0.462833
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 6.5,
+            "p50": 8.300000000000182,
+            "p95": 9.5,
+            "max": 9.699999999999818
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": true,
+          "software": false
+        },
+        {
+          "copies": 32,
+          "mode": "instanced",
+          "visible_copies": 32,
+          "draw_calls": 5,
+          "triangles": 609666,
+          "lines": 92,
+          "runtime": {
+            "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+            "vendor": "Google Inc. (Apple)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              48.44521736519386,
+              44.6994899819724,
+              77.51234778431018
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            6,
+            6
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.09999999403953552,
+            "max": 0.10000002384185791
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 0.324374,
+            "p50": 0.4246245,
+            "p95": 0.900708,
+            "max": 0.920833
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 6.699999999999818,
+            "p50": 8.300000000000182,
+            "p95": 9.699999999999818,
+            "max": 10.300000000000182
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": true,
+          "software": false
+        }
+      ],
+      "normal16_pixel_comparisons": [
+        {
+          "size": 128,
+          "azimuth_deg": 42,
+          "mean_absolute_rgba_error": 7.62939453125e-05,
+          "max_channel_error": 4,
+          "changed_pixels": 2,
+          "total_pixels": 16384,
+          "image": {
+            "path": "normal16/128-42-r20.png",
+            "bytes": 6477,
+            "sha256": "46d687cfa6638389002332bf8618c6c3d92f97babac66aba7965e910e9be9b5f"
+          }
+        },
+        {
+          "size": 128,
+          "azimuth_deg": 132,
+          "mean_absolute_rgba_error": 7.62939453125e-05,
+          "max_channel_error": 4,
+          "changed_pixels": 2,
+          "total_pixels": 16384,
+          "image": {
+            "path": "normal16/128-132-r20.png",
+            "bytes": 6494,
+            "sha256": "26b0653683b5e8372d22c081c638af0646828b767e3c11f0fdb73e7661870331"
+          }
+        },
+        {
+          "size": 128,
+          "azimuth_deg": 222,
+          "mean_absolute_rgba_error": 1.52587890625e-05,
+          "max_channel_error": 1,
+          "changed_pixels": 1,
+          "total_pixels": 16384,
+          "image": {
+            "path": "normal16/128-222-r20.png",
+            "bytes": 6375,
+            "sha256": "c08d361861585d6296d9f4dcb6376b8c0f8472685c5324fd47a3f485d5818b26"
+          }
+        },
+        {
+          "size": 512,
+          "azimuth_deg": 42,
+          "mean_absolute_rgba_error": 8.58306884765625e-06,
+          "max_channel_error": 2,
+          "changed_pixels": 7,
+          "total_pixels": 262144,
+          "image": {
+            "path": "normal16/512-42-r20.png",
+            "bytes": 68064,
+            "sha256": "a6f62c7047dc3f8d882c7c5aa435a3ca619ad68a7fdbde78cb45f987e51dc735"
+          }
+        },
+        {
+          "size": 512,
+          "azimuth_deg": 132,
+          "mean_absolute_rgba_error": 1.239776611328125e-05,
+          "max_channel_error": 3,
+          "changed_pixels": 9,
+          "total_pixels": 262144,
+          "image": {
+            "path": "normal16/512-132-r20.png",
+            "bytes": 67829,
+            "sha256": "b0c33238759e2b75e496dbfd0f63a9edf63dc0fc737d9d02c939ce32c0f3eead"
+          }
+        },
+        {
+          "size": 512,
+          "azimuth_deg": 222,
+          "mean_absolute_rgba_error": 1.9073486328125e-05,
+          "max_channel_error": 4,
+          "changed_pixels": 10,
+          "total_pixels": 262144,
+          "image": {
+            "path": "normal16/512-222-r20.png",
+            "bytes": 67055,
+            "sha256": "9f633dfeee30301acaa89b1c615c502e99a6035f118ce556d7e9c2406a1ddbb5"
+          }
+        }
+      ],
+      "preview": {
+        "manifest": "preview/turntable.json",
+        "frame_count": 24,
+        "poster_sha256": "ae4e4d2789d9d2a97dc8e7b28984c0a5fc9bd76ddfb69952bcdd7980b7cb17dd",
+        "alpha_verified": true,
+        "status": "generated-for-independent-review-not-approved"
+      },
+      "errors": [],
+      "console_warnings": [
+        "WARNING: Multiple instances of Three.js being imported."
+      ],
+      "raw_report": "metal/runtime-report.json",
+      "raw_report_sha256": "a1d3f4f873f538ce9b422ac9cb7729d2eded8974f7134193712a5d176c5a2037"
+    },
+    "swiftshader": {
+      "device": {
+        "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+        "vendor": "Google Inc. (Google)",
+        "context": "WebGL2RenderingContext",
+        "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+        "context_attributes": {
+          "alpha": true,
+          "antialias": true,
+          "depth": true,
+          "desynchronized": false,
+          "failIfMajorPerformanceCaveat": false,
+          "powerPreference": "low-power",
+          "premultipliedAlpha": true,
+          "preserveDrawingBuffer": false,
+          "stencil": false,
+          "xrCompatible": false
+        },
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+        "devicePixelRatio": 1
+      },
+      "hardware_classification": "software",
+      "populations": [
+        {
+          "copies": 1,
+          "mode": "clones",
+          "visible_copies": 1,
+          "draw_calls": 5,
+          "triangles": 19054,
+          "lines": 20,
+          "runtime": {
+            "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+            "vendor": "Google Inc. (Google)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              8.302840152000108,
+              10.57846935075771,
+              13.284544243200175
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            1,
+            1
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.10000002384185791,
+            "max": 0.19999998807907104
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 9.791125,
+            "p50": 10.2116875,
+            "p95": 10.506208,
+            "max": 10.614416
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 7,
+            "p50": 9.399999999999636,
+            "p95": 16.800000000000182,
+            "max": 17.300000000000182
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": false,
+          "software": true
+        },
+        {
+          "copies": 1,
+          "mode": "instanced",
+          "visible_copies": 1,
+          "draw_calls": 5,
+          "triangles": 19054,
+          "lines": 20,
+          "runtime": {
+            "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+            "vendor": "Google Inc. (Google)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              8.302840152000108,
+              10.57846935075771,
+              13.284544243200175
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            1,
+            1
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.09999999403953552,
+            "max": 0.10000002384185791
+          },
+          "gpu_timer_ms": {
+            "samples": 60,
+            "min": 9.740375,
+            "p50": 10.149542,
+            "p95": 10.338041,
+            "max": 10.487542
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 7.899999999999636,
+            "p50": 8.400000000000091,
+            "p95": 16.900000000000546,
+            "max": 16.900000000000546
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": false,
+          "software": true
+        },
+        {
+          "copies": 16,
+          "mode": "clones",
+          "visible_copies": 16,
+          "draw_calls": 50,
+          "triangles": 304834,
+          "lines": 64,
+          "runtime": {
+            "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+            "vendor": "Google Inc. (Google)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              31.73693416873542,
+              30.497449264982723,
+              50.77909466997667
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            4,
+            4
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.10000002384185791,
+            "max": 0.10000002384185791
+          },
+          "gpu_timer_ms": {
+            "samples": 10,
+            "min": 123.146708,
+            "p50": 125.76558299999999,
+            "p95": 126.504375,
+            "max": 126.504375
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 8.400000000001455,
+            "p50": 125.24999999999818,
+            "p95": 133.40000000000146,
+            "max": 133.8000000000029
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": false,
+          "software": true
+        },
+        {
+          "copies": 16,
+          "mode": "instanced",
+          "visible_copies": 16,
+          "draw_calls": 5,
+          "triangles": 304834,
+          "lines": 64,
+          "runtime": {
+            "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+            "vendor": "Google Inc. (Google)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              31.73693416873542,
+              30.497449264982723,
+              50.77909466997667
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            4,
+            4
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.09999999403953552,
+            "max": 0.10000002384185791
+          },
+          "gpu_timer_ms": {
+            "samples": 10,
+            "min": 120.728375,
+            "p50": 126.02116649999999,
+            "p95": 127.9125,
+            "max": 127.9125
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 8.30000000000291,
+            "p50": 125.0,
+            "p95": 133.40000000000146,
+            "max": 134.3000000000029
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": false,
+          "software": true
+        },
+        {
+          "copies": 32,
+          "mode": "clones",
+          "visible_copies": 32,
+          "draw_calls": 98,
+          "triangles": 609666,
+          "lines": 92,
+          "runtime": {
+            "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+            "vendor": "Google Inc. (Google)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              48.44521736519386,
+              44.6994899819724,
+              77.51234778431018
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            6,
+            6
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.09999999403953552,
+            "p95": 0.19999998807907104,
+            "max": 0.29999998211860657
+          },
+          "gpu_timer_ms": {
+            "samples": 10,
+            "min": 249.951125,
+            "p50": 251.83024999999998,
+            "p95": 254.095417,
+            "max": 254.095417
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 8.30000000000291,
+            "p50": 250.09999999999854,
+            "p95": 259.6999999999971,
+            "max": 10124.599999999999
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": false,
+          "software": true
+        },
+        {
+          "copies": 32,
+          "mode": "instanced",
+          "visible_copies": 32,
+          "draw_calls": 5,
+          "triangles": 609666,
+          "lines": 92,
+          "runtime": {
+            "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+            "vendor": "Google Inc. (Google)",
+            "context": "WebGL2RenderingContext",
+            "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+            "shader_version": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+            "context_attributes": {
+              "alpha": true,
+              "antialias": true,
+              "depth": true,
+              "desynchronized": false,
+              "failIfMajorPerformanceCaveat": false,
+              "powerPreference": "high-performance",
+              "premultipliedAlpha": true,
+              "preserveDrawingBuffer": false,
+              "stencil": false,
+              "xrCompatible": false
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.0.0 Safari/537.36",
+            "devicePixelRatio": 1
+          },
+          "camera": {
+            "position": [
+              48.44521736519386,
+              44.6994899819724,
+              77.51234778431018
+            ],
+            "target": [
+              0,
+              3.521055221557617,
+              0
+            ],
+            "fov": 38,
+            "near": 0.01,
+            "far": 2000
+          },
+          "spacing_m": 7.125734603404999,
+          "grid_dimensions": [
+            6,
+            6
+          ],
+          "renderer_memory": {
+            "geometries": 5,
+            "textures": 0
+          },
+          "reference_drawables": 2,
+          "synchronous_render_finish_ms": {
+            "samples": 60,
+            "min": 0,
+            "p50": 0.0,
+            "p95": 0.09999999403953552,
+            "max": 0.09999999403953552
+          },
+          "gpu_timer_ms": {
+            "samples": 10,
+            "min": 245.809916,
+            "p50": 251.036146,
+            "p95": 252.441958,
+            "max": 252.441958
+          },
+          "raf_intervals_ms": {
+            "samples": 30,
+            "min": 8.30000000000291,
+            "p50": 250.50000000000728,
+            "p95": 266.5,
+            "max": 10091.299999999988
+          },
+          "frame_target_ms": 16.7,
+          "meets_sampled_raf_p95_target": false,
+          "software": true
+        }
+      ],
+      "normal16_pixel_comparisons": [
+        {
+          "size": 128,
+          "azimuth_deg": 42,
+          "mean_absolute_rgba_error": 0,
+          "max_channel_error": 0,
+          "changed_pixels": 0,
+          "total_pixels": 16384,
+          "image": {
+            "path": "normal16/128-42-r20.png",
+            "bytes": 6557,
+            "sha256": "1bc6ff6ab64d540ef204d62a9617f16f18c219f9ecd56bd02a01d81245f6ec92"
+          }
+        },
+        {
+          "size": 128,
+          "azimuth_deg": 132,
+          "mean_absolute_rgba_error": 6.103515625e-05,
+          "max_channel_error": 4,
+          "changed_pixels": 1,
+          "total_pixels": 16384,
+          "image": {
+            "path": "normal16/128-132-r20.png",
+            "bytes": 6533,
+            "sha256": "b70cc35d2abbee7c14126a714db997270a64b4f7e95c026983d1895901105d7a"
+          }
+        },
+        {
+          "size": 128,
+          "azimuth_deg": 222,
+          "mean_absolute_rgba_error": 9.1552734375e-05,
+          "max_channel_error": 4,
+          "changed_pixels": 2,
+          "total_pixels": 16384,
+          "image": {
+            "path": "normal16/128-222-r20.png",
+            "bytes": 6297,
+            "sha256": "7f5bcca03974ae10f0d3bdf38a57b119b420c3e3d5439a2484eb85272da0e91c"
+          }
+        },
+        {
+          "size": 512,
+          "azimuth_deg": 42,
+          "mean_absolute_rgba_error": 4.76837158203125e-06,
+          "max_channel_error": 2,
+          "changed_pixels": 3,
+          "total_pixels": 262144,
+          "image": {
+            "path": "normal16/512-42-r20.png",
+            "bytes": 67954,
+            "sha256": "2a8801fa1931c0f96b3a6948844e1d066244ac2dbcd72c09025ce5ed4139496b"
+          }
+        },
+        {
+          "size": 512,
+          "azimuth_deg": 132,
+          "mean_absolute_rgba_error": 1.239776611328125e-05,
+          "max_channel_error": 2,
+          "changed_pixels": 11,
+          "total_pixels": 262144,
+          "image": {
+            "path": "normal16/512-132-r20.png",
+            "bytes": 68175,
+            "sha256": "5c23becc74153a1e8507d304f7ca5673f776a9f1ca5e5badd3f77a6fd97c221b"
+          }
+        },
+        {
+          "size": 512,
+          "azimuth_deg": 222,
+          "mean_absolute_rgba_error": 1.621246337890625e-05,
+          "max_channel_error": 4,
+          "changed_pixels": 12,
+          "total_pixels": 262144,
+          "image": {
+            "path": "normal16/512-222-r20.png",
+            "bytes": 67084,
+            "sha256": "9861bfd19454df48287c5d3978a6a29f8136c0675108fc9f77e5d400ac8b297c"
+          }
+        }
+      ],
+      "preview": {
+        "manifest": "preview/turntable.json",
+        "frame_count": 24,
+        "poster_sha256": "6296286130490b04dba1f1b4b1a7c00149cfecbc43bfeab82dd0c7b18eb0cfd4",
+        "alpha_verified": true,
+        "status": "generated-for-independent-review-not-approved"
+      },
+      "errors": [],
+      "console_warnings": [
+        "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "WARNING: Multiple instances of Three.js being imported."
+      ],
+      "raw_report": "swiftshader/runtime-report.json",
+      "raw_report_sha256": "15d65aa3c792f7bb6415b0c79cd84be8f3798a32f2e1ef48d09b50830d66c34f"
+    }
+  },
+  "warning_review": [
+    {
+      "warning": "WARNING: Multiple instances of Three.js being imported.",
+      "rationale": "Harness imports compiled website Three.js for ModelStage and a second same-version 0.180.0 module for the separate grove after disposing ModelStage. This is a probe-only warning, not deployed application behavior."
+    },
+    {
+      "warning": "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "rationale": "Screenshot/toDataURL readbacks cause driver synchronization warnings. Raw warnings are retained; timed sample loops do not perform image readback, and no shader/context errors occurred."
+    },
+    {
+      "warning": "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+      "rationale": "Screenshot/toDataURL readbacks cause driver synchronization warnings. Raw warnings are retained; timed sample loops do not perform image readback, and no shader/context errors occurred."
+    }
+  ],
+  "test_conditions_limitations": [
+    "One owned isolated browser at a time, fixed DPR1 and viewport, 20 warmup renders, 60 elapsed-query samples, 30 rAF intervals.",
+    "Unrelated host workload, thermal state and long-duration power behavior were not controlled or measured; results are scoped to this run."
+  ]
+}

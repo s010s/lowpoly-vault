@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "kind": "gpu_report",
+  "stage": "gpu",
+  "subject": {
+    "revision": "structure-r20-A-normal16",
+    "glb_sha256": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+    "brief_sha256": "50466e78d5da46f10532b601cc2d4ea15ef2fae44c2881a8b8e0e01c15e99a5e",
+    "references_sha256": "6f1ff6cb8fa57c8aec580945eaa04ee141240988cfbdc90b075007d8d9afbe4a"
+  },
+  "status": "pass",
+  "method": "Bounded independent exact-file real-browser runtime measurement and selected actual pixel inspection; scope below. Not whole-candidate acceptance.",
+  "producer": {
+    "id": "independent-runtime-gpt-6.1-sol-medium",
+    "task": "conifer-r20-runtime"
+  },
+  "scope": "Measured Apple M5 Pro/ANGLE Metal runtime; software correctness and software budget failure are reported separately.",
+  "runtime": {
+    "engine": "Three.js",
+    "version": "0.180.0",
+    "renderer": "WebGLRenderer",
+    "device": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Pro, Unspecified Version)",
+    "browser": "Chromium 141.0.7390.37 isolated headless",
+    "context": "WebGL2RenderingContext",
+    "context_created": true,
+    "rendered": true,
+    "rendered_frames": 24,
+    "draw_calls": 3,
+    "triangles": 19052,
+    "output_color_space": "srgb",
+    "tone_mapping": "ACESFilmic",
+    "exposure": 1.2,
+    "rendered_frames_scope": "Count of captured 24 orbit renders, excluding other diagnostics"
+  },
+  "screenshots": [
+    "gpu-metal-backface-under",
+    "gpu-metal-backface-high",
+    "gpu-metal-branch-detail",
+    "gpu-metal-branch-detail-reverse",
+    "gpu-metal-hero",
+    "gpu-swiftshader-backface-under",
+    "gpu-swiftshader-backface-high",
+    "gpu-swiftshader-branch-detail",
+    "gpu-swiftshader-branch-detail-reverse",
+    "gpu-swiftshader-hero"
+  ],
+  "errors": [],
+  "warnings": [
+    "Fine opaque double-sided needle geometry can show ordinary subpixel edge aliasing during orbit; stationary draws were byte-stable.",
+    "SwiftShader 16/32-copy frame budget fails; this is software and is not hidden by the Metal pass."
+  ],
+  "observations": [
+    "Exact GLB hash and normalized Int16Array NORMAL attributes verified in the browser.",
+    "No alpha-blended foliage: opacity 1, transparent false; foliage materials use DoubleSide.",
+    "Source and current website renderer/preset hashes, actual images, camera/light/resolution, raw samples and query disjoint flags are preserved.",
+    "Minor r19/r20 pixel differences are nonzero and available for independent artistic review."
+  ],
+  "raw_reports": [
+    {
+      "path": "metal/runtime-report.json",
+      "sha256": "a1d3f4f873f538ce9b422ac9cb7729d2eded8974f7134193712a5d176c5a2037"
+    },
+    {
+      "path": "swiftshader/runtime-report.json",
+      "sha256": "15d65aa3c792f7bb6415b0c79cd84be8f3798a32f2e1ef48d09b50830d66c34f"
+    }
+  ],
+  "warning_review": [
+    {
+      "warning": "WARNING: Multiple instances of Three.js being imported.",
+      "rationale": "Harness imports compiled website Three.js for ModelStage and a second same-version 0.180.0 module for the separate grove after disposing ModelStage. This is a probe-only warning, not deployed application behavior."
+    },
+    {
+      "warning": "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "rationale": "Screenshot/toDataURL readbacks cause driver synchronization warnings. Raw warnings are retained; timed sample loops do not perform image readback, and no shader/context errors occurred."
+    },
+    {
+      "warning": "[.WebGL-0x12c00515a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+      "rationale": "Screenshot/toDataURL readbacks cause driver synchronization warnings. Raw warnings are retained; timed sample loops do not perform image readback, and no shader/context errors occurred."
+    }
+  ],
+  "test_conditions_limitations": [
+    "One owned isolated browser at a time, fixed DPR1 and viewport, 20 warmup renders, 60 elapsed-query samples, 30 rAF intervals.",
+    "Unrelated host workload, thermal state and long-duration power behavior were not controlled or measured; results are scoped to this run."
+  ]
+}
