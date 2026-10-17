@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "purpose": "Actual exact-GLB original/refined pixels, compositor only; no retouch, generation, per-model resize or tone change.",
+  "matched_settings": {
+    "color_management": {
+      "exposure": 0,
+      "gamma": 1,
+      "look": "None",
+      "view_transform": "Standard"
+    },
+    "lighting": {
+      "camera_background": "#E8E4DC",
+      "clayalt_key_direction": [
+        3,
+        4,
+        6
+      ],
+      "lights": [
+        {
+          "direction": [
+            -3,
+            -4,
+            6
+          ],
+          "energy": 7200.0,
+          "name": "key",
+          "size": 16.0
+        },
+        {
+          "direction": [
+            4,
+            -1,
+            3
+          ],
+          "energy": 2400.0,
+          "name": "fill",
+          "size": 20.0
+        }
+      ],
+      "world_strength": 0.3
+    },
+    "camera": {
+      "base_pose_deg": 0,
+      "elevation_deg": 20,
+      "fixed_orbit_framing": true,
+      "orthographic_scale": 8.96,
+      "target_blender_m": [
+        0.0,
+        0.0,
+        3.5999999046325684
+      ],
+      "type": "ORTHO"
+    },
+    "blender_version": "4.3.2",
+    "resolution": 512,
+    "samples": 16,
+    "detail_target_normalized": [
+      0.5,
+      0.5,
+      0.43
+    ],
+    "detail_scale": 0.32,
+    "framing_override": {
+      "center": [
+        0,
+        0,
+        3.6
+      ],
+      "max": [
+        2.65,
+        2.65,
+        7.2
+      ],
+      "min": [
+        -2.65,
+        -2.65,
+        0
+      ],
+      "purpose": "Fixed original/revised camera, lights and framing without scale normalization.",
+      "radius": 4.0
+    },
+    "background": "#E8E4DC",
+    "view_transform": "Standard",
+    "look": "None",
+    "exposure": 0,
+    "gamma": 1
+  },
+  "sources": {
+    "original_render_manifest": {
+      "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/evidence/original-detail512/render-manifest.json",
+      "sha256": "97ad3b1bcee38e0779691882123c5252e2c66894a1a8acae4edd966af6177e1a"
+    },
+    "refined_render_manifest": {
+      "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/evidence/detail512/render-manifest.json",
+      "sha256": "6785a79122c2a4919c6cd98d0a33ac8dc22dbe40e3e71ce10a62b5785af0017a"
+    }
+  },
+  "output_files": [
+    {
+      "path": "original-vs-r12-hero.png",
+      "sha256": "b498fecc6908fb302097b6aa2b8de7d856b02e035adfdcddb7f3e35ff90f2ce3",
+      "bytes": 293023,
+      "original_image": {
+        "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/evidence/original-detail512/hero.png",
+        "sha256": "75b35a446297f35957b7f597bb5b2defda1c766c640179fe3fd9d1037db636fc"
+      },
+      "refined_image": {
+        "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/evidence/detail512/hero.png",
+        "sha256": "afd236a93fa2f7874be13c46c4741b1ba355f36bc3ce0c9642c447e745e2da29"
+      }
+    },
+    {
+      "path": "original-vs-r12-detail.png",
+      "sha256": "c7fd36e692c84b4d78afd3feef4b864be15837f25d9a8c51f15dc36eaafdf25b",
+      "bytes": 739970,
+      "original_image": {
+        "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/evidence/original-detail512/detail.png",
+        "sha256": "6466c63cf683848951505e7e2d6a4815a84e3b5b7c05e8b68fb1faf450c89114"
+      },
+      "refined_image": {
+        "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/evidence/detail512/detail.png",
+        "sha256": "ea1939741bb6920bacca96c87027d11ab3ea4b9afdc8f19de90bb09e3f0ee70a"
+      }
+    },
+    {
+      "path": "original-vs-r12-detailclay.png",
+      "sha256": "0829b2d59aeaca63722d9e38526c7e6014af7997f3a90276ba96694604f8641f",
+      "bytes": 537593,
+      "original_image": {
+        "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r3/evidence/original-detail512/detailclay.png",
+        "sha256": "e500c843390f7a4e7d46227d5225194f2dfd111206048dcafe7770c82f63e19a"
+      },
+      "refined_image": {
+        "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/evidence/detail512/detailclay.png",
+        "sha256": "410572eeaf1678bb0974c8e0f34abfa17978e8e2a133eea1310db19ecf86447e"
+      }
+    }
+  ],
+  "source_glbs": {
+    "original": {
+      "path": "assets/prehistoric/plants/conifer-tree/conifer-tree.glb",
+      "sha256": "f7331e9602faea1e2d29bc9b185baa2fbd3ee16bd36bb2d6641eabc4aa019fea"
+    },
+    "refined": {
+      "path": "experiments/structural-refinement-2026-10-17/conifer-tree/candidate-r12/conifer-tree.glb",
+      "sha256": "192a9970b41a1bafcde95d44e1301533ac25d024ae778296dd31c08ca383c622"
+    }
+  },
+  "cost": {
+    "original_triangles": 2382,
+    "original_glb_bytes": 145732,
+    "refined_triangles": 18706,
+    "refined_glb_bytes": 465784
+  },
+  "acceptance": "Fresh independent image review reported no mandatory geometry repair within the narrow stylized concept scope. GPU and scene acceptance remain pending. Chunky aggregated shoots remain a closeup limitation."
+}
