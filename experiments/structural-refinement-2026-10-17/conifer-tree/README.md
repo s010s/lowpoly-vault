@@ -2,7 +2,7 @@
 
 Original asset ID: `conifer-tree`. Original `assets/prehistoric/plants/conifer-tree/**` is immutable and byte-checked in `original-integrity.json` and `candidate-r3/original-integrity-check.json`.
 
-## Current frozen candidate
+## Earlier frozen fine-foliage candidate
 
 `candidate-r3/` contains the editable Blender source, standalone GLB, deterministic generator and config, frozen brief and reference ledger, machine-readable candidate record, exact-GLB visual evidence and technical reports. Approval is pending fresh independent review and actual browser/GPU/composed-scene evidence. It is not a released replacement.
 
@@ -49,3 +49,11 @@ This is an original evidence-informed conifer architectural concept. Its approxi
 Measured r4 cost: 9,634 triangles; 21,022 exported POSITION-stream vertices; 565,716 raw bytes, 207,498 gzip9 bytes, 165,897 Brotli11 bytes. This is a substantive new foliage design, not a repack of r3. Its 128px silhouette and 512px hero/detail/clay comparisons are in `candidate-r4/evidence/`. Current-artifact technical and parser checks pass, including a byte-identical separate-process rebuild. Full-angle review and independent acceptance remain pending.
 
 The earlier `delivery-study-r1/` also retains the distinct r3 lossless-consolidation and 16-bit-quantization study. Its cost/precision reports and matched pixels do not approve r3's fine-spike art direction. They are preserved as controlled packaging evidence, not substitutes for r4. Gzip/Brotli values are lossless transport/archive sizes, not directly loadable GLB files or measured GPU allocations.
+
+## r7 narrow pinnate-spray revision
+
+The latest targeted-review artifact is `candidate-r7/`, SHA `757bf8d65cb0ac631c54be2844b5a8f5ebe5e4a2b1d1e00ba991173afbeec376`. r4 remains immutable following independent feedback that broad wedge sprays and tall isolated spear tips needed correction. Preserved r5/r6 preflights record intermediate maker-rejected forms.
+
+r7 retains the rounded boughs and open crown, with 148 narrow compound shoots, each a central axis and three shorter staggered pinnae. Its 9,722 triangles, 578,924 raw bytes and three primitives are a substantive reduction from r3. Gzip9 is 210,388 bytes and Brotli11 is 167,475 bytes; these are transport sizes, not GLB or GPU costs. Exact requested 512px hero/detail/clay and 128px silhouette comparisons are in `candidate-r7/evidence/`. Only targeted views have been run so far; no full-angle or independent visual acceptance is implied.
+
+The editable source and standalone GLB, frozen generator/config/brief/reference ledger, raw checks and valid pending candidate record are included. Source/export and byte-identical separate-process rebuild pass, as do static/official validation and pinned Three.js parsing. Actual GPU and composed-scene evidence remain outstanding.

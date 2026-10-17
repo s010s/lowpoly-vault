@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "structure-r7",
+    "glb_sha256": "757bf8d65cb0ac631c54be2844b5a8f5ebe5e4a2b1d1e00ba991173afbeec376",
+    "brief_sha256": "8d1910e2ef36061a291d3e78897901c2940f2ddb608503ae348122aa03ce342f",
+    "references_sha256": "569e389d9c7dc9ae9713275f9fc03c348223f84bbaf0497891273d809884c22d"
+  },
+  "status": "pass",
+  "method": "Execute the repository static GLB auditor and official Khronos validator, load the saved editable source for axis-aware source/export comparison, and rebuild the generator/config in a separate bounded queue attempt. Compare semantic and byte digests of the emitted GLBs.",
+  "observations": [
+    "Project audit and official validator report zero errors and zero warnings.",
+    "Actual editable source and exact GLB agree at 9,722 triangles and meter-scale axis-converted bounds.",
+    "Separate bounded-process rebuild is byte-identical and semantic-identical.",
+    "Three opaque materials occupy three primitives; only POSITION and NORMAL streams, without textures, UVs or tangents.",
+    "Narrow clustered foliage needs independent visual/style review; no GPU or composed-scene success is implied."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 9722,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 578924,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "757bf8d65cb0ac631c54be2844b5a8f5ebe5e4a2b1d1e00ba991173afbeec376",
+      "report": {
+        "path": "candidate-r7/static-glb.report.json",
+        "sha256": "59c2e4a5cef3e55c7f2c1ac5d2419f6d4da5ae58bfeb7a9250dbe45770e12ddd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "757bf8d65cb0ac631c54be2844b5a8f5ebe5e4a2b1d1e00ba991173afbeec376",
+      "report": {
+        "path": "candidate-r7/gltf-validator.report.json",
+        "sha256": "d937b6f8f86d55ab6e5396064c4906a59ae97d25db9cf0cf5185b759572501d7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "757bf8d65cb0ac631c54be2844b5a8f5ebe5e4a2b1d1e00ba991173afbeec376",
+      "report": {
+        "path": "candidate-r7/source-export.report.json",
+        "sha256": "26369acf5c9e21592d4181ac0727865e9a10260cce617e8e2ea0bf6decf6f33c"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "757bf8d65cb0ac631c54be2844b5a8f5ebe5e4a2b1d1e00ba991173afbeec376",
+      "report": {
+        "path": "candidate-r7/reproducibility.report.json",
+        "sha256": "b9679f33e26564625bf9d0cb0e904e6868190badf6495b9dec7a92f42ad5f112"
+      },
+      "warning_review": []
+    }
+  ],
+  "created_at": "2026-10-17T04:09:14.667590+00:00"
+}
