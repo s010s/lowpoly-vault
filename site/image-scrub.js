@@ -1,6 +1,6 @@
 import { CARD_RENDER_PRESET } from './render-preset.js';
 /** Image-only card inspection. No Three.js, GLB fetches, autoplay or full-sequence preloading. */
-export const PREVIEW_LIMITS = Object.freeze({ encodedEntries:12, encodedBytes:2*1024*1024, decodedEntries:3, manifestEntries:3, maxDimension:512 });
+export const PREVIEW_LIMITS = Object.freeze({ encodedEntries:12, encodedBytes:2*1024*1024, decodedEntries:3, manifestEntries:3, maxDimension:1024 });
 const cancelled=()=>new DOMException('Preview superseded','AbortError');
 export function validateTurntable(value, descriptor) {
   if(value?.version!==1||value.source_glb_sha256!==descriptor.source_glb_sha256||!Number.isInteger(value.frame_count)||value.frame_count<24||value.frame_count>36||value.frames?.length!==value.frame_count||value.frame_count!==descriptor.frame_count)throw new Error('Invalid turntable identity or frame count');

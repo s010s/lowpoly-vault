@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { collectTurntables, webpDimensions } from './turntable-delivery.mjs';
 const root=process.cwd(),manifest=JSON.parse(await readFile('assets/manifest.json'));const hash=b=>createHash('sha256').update(b).digest('hex');
-const initial=await collectTurntables(manifest);assert.equal(initial.descriptors.size,3);assert.equal(initial.files.length,85);let checks=1;
+const initial=await collectTurntables(manifest);assert.equal(initial.descriptors.size,10);assert.equal(initial.files.length,260);let checks=1;
 const temp=await mkdtemp(resolve(tmpdir(),'vault-turntables-'));
 try{
  await mkdir(resolve(temp,'assets'),{recursive:true});await cp(resolve(root,'assets/turntables'),resolve(temp,'assets/turntables'),{recursive:true});await cp(resolve(root,'assets/card-previews'),resolve(temp,'assets/card-previews'),{recursive:true});

@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { validateTurntable } from './image-scrub.js';
 import { CARD_RENDER_PRESET } from './render-preset.js';
+const variant=`v${CARD_RENDER_PRESET.version}-${CARD_RENDER_PRESET.image.width}-q${Math.round(CARD_RENDER_PRESET.image.quality*100)}`;
 const presetHash=createHash('sha256').update(JSON.stringify(CARD_RENDER_PRESET)).digest('hex');
 export function webpDimensions(bytes) {
   assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');assert.equal(bytes.readUInt32LE(4)+8,bytes.length);
@@ -24,11 +25,11 @@ export async function collectTurntables(manifest,root=process.cwd()) {
   assert.equal(source.version,1);assert(Array.isArray(source.assets));assert.equal(source.render_preset_sha256,presetHash,'Website frames must match the active viewer preset');const descriptors=new Map(),posters=new Map(),files=[];
   for(const item of source.assets) {
     const asset=manifest.assets.find(a=>a.id===item.id);assert(asset,'Turntable must match a published original');assert(!descriptors.has(item.id),'Duplicate turntable');
-    const path=`assets/turntables/${item.id}/turntable.json`;assert.equal(item.manifest,path);assert.equal(item.source_glb_sha256,asset.sha256.glb);
+    const path=`assets/turntables/${item.id}/${variant}/turntable.json`;assert.equal(item.manifest,path);assert.equal(item.source_glb_sha256,asset.sha256.glb);
     assert.equal(await realpath(resolve(root,path)),resolve(root,path),'Turntable metadata symlinks are not allowed');
     const bytes=await readFile(resolve(root,path));assert.equal(createHash('sha256').update(bytes).digest('hex'),item.manifest_sha256,'Turntable metadata changed');
     const data=JSON.parse(bytes),descriptor={manifest:path,source_glb_sha256:asset.sha256.glb,frame_count:data.frame_count,width:data.width,height:data.height,poster_index:data.poster_index};
-    assert.equal(data.target_renderer,'threejs-modelstage');assert.equal(data.render_preset_sha256,presetHash);
+    assert.equal(data.target_renderer,'threejs-modelstage');assert.equal(data.alpha,true);assert.equal(data.background,'transparent');assert.equal(data.render_preset_sha256,presetHash);
     validateTurntable(data,descriptor);files.push(path);let total=0;
     for(const frame of data.frames) {
       assert.equal(relative(resolve(root),await realpath(resolve(root,frame.path))).split('\\').join('/'),frame.path,'Turntable symlinks are not allowed');
@@ -39,10 +40,10 @@ export async function collectTurntables(manifest,root=process.cwd()) {
   assert.equal(source.posters?.length,manifest.assets.length,'Every published card needs a matching lightweight poster');
   for(const item of source.posters) {
     const asset=manifest.assets.find(a=>a.id===item.id);assert(asset);assert(!posters.has(item.id));
-    assert.equal(item.path,`assets/card-previews/${item.id}.webp`);assert.equal(item.source_glb_sha256,asset.sha256.glb);assert.equal(item.render_preset_sha256,presetHash);
+    assert.equal(item.path,`assets/card-previews/${item.id}-${variant}.webp`);assert.equal(item.source_glb_sha256,asset.sha256.glb);assert.equal(item.render_preset_sha256,presetHash);
     assert.equal(await realpath(resolve(root,item.path)),resolve(root,item.path),'Poster symlinks are not allowed');
     const bytes=await readFile(resolve(root,item.path));assert.equal(bytes.length,item.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
-    assert.deepEqual(webpDimensions(bytes),[320,320]);assert.equal(item.width,320);assert.equal(item.height,320);posters.set(item.id,item.path);files.push(item.path);
+    assert.deepEqual(webpDimensions(bytes),[CARD_RENDER_PRESET.image.width,CARD_RENDER_PRESET.image.height]);assert.equal(item.width,CARD_RENDER_PRESET.image.width);assert.equal(item.height,CARD_RENDER_PRESET.image.height);posters.set(item.id,item.path);files.push(item.path);
   }
   return {descriptors,posters,files};
 }
