@@ -1,0 +1,1631 @@
+{
+  "version": 1,
+  "schema_version": 2,
+  "license": "CC-BY-4.0",
+  "code_license": "MIT",
+  "author": "Leon Made This / s010s",
+  "attribution_url": "https://github.com/s010s/lowpoly-vault",
+  "assets": [
+    {
+      "generator": "scripts/models/build_geology_traces.py",
+      "generator_model": "GPT-6 Astra, xhigh",
+      "generator_parameters": {
+        "seed": 29,
+        "asset": "natural-arch"
+      },
+      "sources": [
+        {
+          "title": "NPS Geodiversity Atlas: Arches",
+          "url": "https://www.nps.gov/articles/nps-geodiversity-atlas-arches-national-park-utah.htm",
+          "use": "Erosion and jointing context; original silhouette is not a copy of a named arch."
+        }
+      ],
+      "design_notes": [
+        "The stone is a continuous volume; the hole is genuine geometry visible from both sides.",
+        "The arch profile was designed point by point rather than cut from the cliff or formed from a torus.",
+        "Rock deposition age and arch formation age are not treated as the same."
+      ],
+      "recognition_features": [
+        "Off-center full-depth opening",
+        "Unequal supports and thick crown",
+        "Broad weathered facets with continuous bedding"
+      ],
+      "scientific_scope": {
+        "en": "Evidence-informed stylized teaching/environment concept; not a species, specimen, or site reconstruction.",
+        "zh": "有依据的风格化教学或环境概念；不是具体物种、标本或地点的科学复原。"
+      },
+      "provenance": {
+        "geometry": "Original procedural geometry with manually designed profiles and arrangements.",
+        "textures": "None",
+        "palette": "Original fixed lowpoly-vault palette",
+        "license": "CC-BY-4.0",
+        "author": "Leon Made This / s010s"
+      },
+      "budget_note": "672 triangles in the initial design: the broad continuous arch needs fewer than the T2 target; no filler subdivisions were added.",
+      "id": "natural-arch",
+      "name": {
+        "en": "Natural Arch",
+        "zh": "天然石拱"
+      },
+      "category": "geology",
+      "description": {
+        "en": "A weathered natural stone arch with a right-shifted opening, heavy left support, thinner right leg, and subtle sedimentary seams.",
+        "zh": "原创侵蚀石拱：拱孔向右偏移、左侧厚重、右支脚收窄，并保留低调沉积层缝。"
+      },
+      "glb": "assets/prehistoric/geology/natural-arch/natural-arch.glb",
+      "blend": "assets/prehistoric/geology/natural-arch/natural-arch.blend",
+      "preview": "assets/prehistoric/geology/natural-arch/preview-hero.png",
+      "triangles": 672,
+      "dimensions": [
+        5.350269794464111,
+        3.2428221702575684,
+        1.756019413471222
+      ],
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        5.350269794464111,
+        1.756019413471222,
+        3.2428221702575684
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -2.7572288513183594,
+          0,
+          -0.8100000023841858
+        ],
+        "max": [
+          2.593040943145752,
+          3.2428221702575684,
+          0.9460194110870361
+        ],
+        "size": [
+          5.350269794464111,
+          3.2428221702575684,
+          1.756019413471222
+        ]
+      },
+      "generator_seed": 29,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "earth",
+          "srgb": "#8A715B"
+        },
+        {
+          "name": "stone_light",
+          "srgb": "#C7B798"
+        },
+        {
+          "name": "warm_stone",
+          "srgb": "#A89578"
+        }
+      ],
+      "glb_bytes": 40656,
+      "sha256": {
+        "glb": "393dbf9e01187f6f417650cb56c56240053671367d4069d1f9d05c257f735013",
+        "blend": "99ee9023b8773e286c9d4acae46c7ebd9ec4682bb96a03b4ae198b8154d0180d",
+        "preview": "152cb35b8ee5dd435a34954b2619feeebed7013686058d0013a0de8dca7eea82"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/geology/natural-arch/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "generator": "scripts/models/build_geology_traces.py",
+      "generator_model": "GPT-6 Astra, xhigh",
+      "generator_parameters": {
+        "seed": 29,
+        "asset": "stratified-cliff"
+      },
+      "sources": [
+        {
+          "title": "NPS: Kayenta Formation",
+          "url": "https://www.nps.gov/zion/learn/nature/kayenta.htm",
+          "use": "Sedimentary bedding context, not a reconstructed fossil locality."
+        }
+      ],
+      "design_notes": [
+        "The high left mass, lower right shoulder, and two localized scree groups create a 60/30/10 hierarchy.",
+        "Bed colors encode sedimentary units; no polygon-wise random colors.",
+        "The present-day eroded landform is not asserted to exist in a particular prehistoric landscape."
+      ],
+      "recognition_features": [
+        "Continuous tilted bedding",
+        "High left plateau and lowered fractured shoulder",
+        "Localized angular scree"
+      ],
+      "scientific_scope": {
+        "en": "Evidence-informed stylized teaching/environment concept; not a species, specimen, or site reconstruction.",
+        "zh": "有依据的风格化教学或环境概念；不是具体物种、标本或地点的科学复原。"
+      },
+      "provenance": {
+        "geometry": "Original procedural geometry with manually designed profiles and arrangements.",
+        "textures": "None",
+        "palette": "Original fixed lowpoly-vault palette",
+        "license": "CC-BY-4.0",
+        "author": "Leon Made This / s010s"
+      },
+      "id": "stratified-cliff",
+      "name": {
+        "en": "Stratified Cliff",
+        "zh": "层理岩崖"
+      },
+      "category": "geology",
+      "description": {
+        "en": "A broad, asymmetrical sedimentary cliff with six tilted beds, recessed soft seams, a fractured shoulder, and restrained scree.",
+        "zh": "宽厚偏心的沉积岩崖：六层微倾层理、后退软层、断裂侧肩与少量崩积块。"
+      },
+      "glb": "assets/prehistoric/geology/stratified-cliff/stratified-cliff.glb",
+      "blend": "assets/prehistoric/geology/stratified-cliff/stratified-cliff.blend",
+      "preview": "assets/prehistoric/geology/stratified-cliff/preview-hero.png",
+      "triangles": 1458,
+      "dimensions": [
+        4.5337183475494385,
+        2.5897252559661865,
+        1.9549017548561096
+      ],
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        4.5337183475494385,
+        1.9549017548561096,
+        2.5897252559661865
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -2.1429998874664307,
+          0,
+          -0.7707499861717224
+        ],
+        "max": [
+          2.390718460083008,
+          2.5897252559661865,
+          1.1841517686843872
+        ],
+        "size": [
+          4.5337183475494385,
+          2.5897252559661865,
+          1.9549017548561096
+        ]
+      },
+      "generator_seed": 29,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "earth",
+          "srgb": "#8A715B"
+        },
+        {
+          "name": "stone_light",
+          "srgb": "#C7B798"
+        },
+        {
+          "name": "warm_stone",
+          "srgb": "#A89578"
+        }
+      ],
+      "glb_bytes": 82896,
+      "sha256": {
+        "glb": "0dee151cd0333ac673b984f350508b4820e9f0630dd08906ee28eb083d03d379",
+        "blend": "e5153ac4214ae05748b858dee0ffa1e7958670312fca7ce9d77dcd96cb91da7d",
+        "preview": "5741557e0ec044f473c50092fa0bd7f9d75ce8509eb984533cacf2a269d350e2"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/geology/stratified-cliff/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "generator": "scripts/models/build_trees_deadwood.py",
+      "generator_sha256": "f7f83ea4183fbc39d6c84b4aa75dde615b609ef8bb4496721cecc211f27c4208",
+      "generator_license": "MIT",
+      "style": "original evidence-informed low-poly",
+      "scientific_status": "evidence-informed stylized concept",
+      "scientific_context": {
+        "period": "Jurassic–Cretaceous-inspired concept",
+        "themes": [
+          "mesozoic-forest",
+          "mesozoic-river-valley"
+        ],
+        "taxon_scope": "Conifer architectural analogue; not an identified extinct or unchanged modern species"
+      },
+      "identifying_features": [
+        "dominant tapering trunk",
+        "near-whorled lateral branches",
+        "open asymmetric crown tiers"
+      ],
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/how-to-grow-a-dinosaur-garden.html",
+          "supports": "Conifer context in Jurassic and Cretaceous vegetation; broad living analogue only"
+        },
+        {
+          "url": "https://www.digitalatlasofancientlife.org/learn/embryophytes/tracheophytes/branching/",
+          "supports": "Lateral branching distinguished from apical dichotomies"
+        }
+      ],
+      "artistic_choices": [
+        "Exact height, tier spacing, foliage clumping, colors and branch damage are original artistic choices, not fossil measurements.",
+        "Leaf masses summarize short conifer foliage without pretending to reproduce a named Araucaria species."
+      ],
+      "provenance": "Original geometry and palette-based materials authored procedurally in Blender. No downloaded models, textures, or reference images are included.",
+      "license_components": {
+        "geometry": "CC-BY-4.0",
+        "blend": "CC-BY-4.0",
+        "previews": "CC-BY-4.0",
+        "generator": "MIT"
+      },
+      "target_runtime": "Three.js 0.180.0; static opaque texture-free GLB",
+      "topology_notes": "Closed solid component meshes with purposeful buried intersections at biological branch junctions. No transparent leaf cards. Flat shading; no random per-face colors.",
+      "palette_reference": "skills/lowpoly-art-direction/references/first-batch.md",
+      "reproducibility": {
+        "deterministic": true,
+        "random_geometry": false,
+        "algorithm_revision": 1
+      },
+      "id": "conifer-tree",
+      "name": {
+        "en": "Mesozoic conifer concept",
+        "zh": "针叶乔木"
+      },
+      "category": "plants",
+      "description": {
+        "en": "A seven-meter conifer concept with an exposed tapering axis, asymmetric lateral branch whorls, deeply notched foliage sprays and one deliberate crown gap.",
+        "zh": "约七米高的针叶乔木概念：渐细主干、错落轮生侧枝、分叉叶簇与一处清楚的树冠缺口。"
+      },
+      "glb": "assets/prehistoric/plants/conifer-tree/conifer-tree.glb",
+      "blend": "assets/prehistoric/plants/conifer-tree/conifer-tree.blend",
+      "preview": "assets/prehistoric/plants/conifer-tree/preview-hero.png",
+      "triangles": 2382,
+      "dimensions": [
+        4.167232990264893,
+        7.0961209163069725,
+        4.68551230430603
+      ],
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        4.167232990264893,
+        4.68551230430603,
+        7.096120834350586
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -2.134596586227417,
+          0,
+          -2.3849966526031494
+        ],
+        "max": [
+          2.0326364040374756,
+          7.0961209163069725,
+          2.300515651702881
+        ],
+        "size": [
+          4.167232990264893,
+          7.0961209163069725,
+          4.68551230430603
+        ]
+      },
+      "generator_seed": 3101,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "bark_deep",
+          "srgb": "#4F443D"
+        },
+        {
+          "name": "bark_mid",
+          "srgb": "#79624B"
+        },
+        {
+          "name": "cut_wood",
+          "srgb": "#B59B72"
+        },
+        {
+          "name": "fern_deep",
+          "srgb": "#294C43"
+        },
+        {
+          "name": "fern_light",
+          "srgb": "#719366"
+        },
+        {
+          "name": "fern_mid",
+          "srgb": "#47745C"
+        }
+      ],
+      "glb_bytes": 145732,
+      "sha256": {
+        "glb": "f7331e9602faea1e2d29bc9b185baa2fbd3ee16bd36bb2d6641eabc4aa019fea",
+        "blend": "8a32cc40f50c78f00672cce2c102bbb317f14d6f9a1c4495df189e940b805f00",
+        "preview": "32c05fe8e3ad82987ba013c868c613fd51e5ae1a69dcfb85bbad2c8ba9ab130d"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/plants/conifer-tree/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "author": "Leon Made This / s010s",
+      "license": "CC-BY-4.0",
+      "originality": {
+        "en": "Entirely original procedural mesh design; no third-party model, texture or palette assets.",
+        "zh": "全部为原创参数化几何；未使用第三方模型、纹理或下载色板。"
+      },
+      "scientific_scope": {
+        "en": "Evidence-informed stylized plant concept, not a taxon or site reconstruction.",
+        "zh": "有依据的风格化植物概念，并非具体物种或化石地点复原。"
+      },
+      "generator": "scripts/models/build_understory.py",
+      "modeling_runtime": "GPT-6 Astra; xhigh; Blender 4.3.2; cloud only",
+      "topology_notes": {
+        "en": "Leaves are closed folded blades with a slight ridge and real thickness. No alpha cards. Separate semantic fronds remain editable.",
+        "zh": "叶片均为具浅脊线与真实厚度的闭合折面实体；不使用透明贴片。语义分组叶片可分别编辑。"
+      },
+      "scale_note": {
+        "en": "Dimensions are artistic asset specifications in meters, not measured fossil dimensions.",
+        "zh": "米制尺寸为美术资产规格，不是化石测量值。"
+      },
+      "tags": [
+        "prehistoric",
+        "plants",
+        "cycad",
+        "mesozoic-concept",
+        "original",
+        "low-poly"
+      ],
+      "sources": [
+        {
+          "title": "Smithsonian: About Cycads",
+          "url": "https://qrius.si.edu/taxonomy/term/11978"
+        },
+        {
+          "title": "NHM: How to grow a dinosaur garden",
+          "url": "https://www.nhm.ac.uk/discover/how-to-grow-a-dinosaur-garden.html"
+        }
+      ],
+      "design_parameters": {
+        "palette": [
+          "bark_mid",
+          "bark_deep",
+          "fern_deep",
+          "fern_mid",
+          "fern_light"
+        ],
+        "frond_count": 9,
+        "lower_tier_fronds": 6,
+        "upper_tier_fronds": 3,
+        "leaflet_pairs_per_frond": 9,
+        "emerging_crown_spears": 3,
+        "caudex_height_m": 0.565,
+        "seed": 20261016,
+        "silhouette_signature": "stout patterned caudex; rigid radial feather crown; asymmetric two-tier negative spaces"
+      },
+      "reconstruction_notes": {
+        "en": "A cycad-inspired Mesozoic planting concept, not a palm and not a Bennettitalean identification. Leaf count, caudex proportions and color are stylized. No reproductive organ is asserted.",
+        "zh": "苏铁形中生代植物概念，不是棕榈，也不据羽状叶判为本内苏铁。叶数、干形比例及颜色为风格化；未添加用于分类的生殖器官。"
+      },
+      "generator_sha256": "a16d82b2c2329e1e16bad4aa61135a7c0e0396ebb77f7eed96f4644ab2bbce3f",
+      "seed": 20261016,
+      "style": "faceted-prehistoric-environments",
+      "palette_srgb": {
+        "bark_mid": "#79624B",
+        "bark_deep": "#4F443D",
+        "fern_deep": "#294C43",
+        "fern_mid": "#47745C",
+        "fern_light": "#719366"
+      },
+      "id": "cycad",
+      "name": {
+        "en": "Cycad rosette",
+        "zh": "苏铁形植株"
+      },
+      "category": "plants",
+      "description": {
+        "en": "A short, armored caudex supporting two uneven tiers of stiff, tapered pinnate leaves.",
+        "zh": "短粗叶基干上展开两层高低错落的硬挺羽状叶，叶轴与狭长小叶逐段收细。"
+      },
+      "glb": "assets/prehistoric/plants/cycad/cycad.glb",
+      "blend": "assets/prehistoric/plants/cycad/cycad.blend",
+      "preview": "assets/prehistoric/plants/cycad/preview-hero.png",
+      "triangles": 1944,
+      "dimensions": [
+        2.10919052362442,
+        1.3677858654409647,
+        2.166151285171509
+      ],
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        2.10919052362442,
+        2.166151285171509,
+        1.3677858114242554
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -0.9833981394767761,
+          0,
+          -1.0550434589385986
+        ],
+        "max": [
+          1.125792384147644,
+          1.3677858654409647,
+          1.1111078262329102
+        ],
+        "size": [
+          2.10919052362442,
+          1.3677858654409647,
+          2.166151285171509
+        ]
+      },
+      "generator_seed": 20261016,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "bark_deep",
+          "srgb": "#4F443D"
+        },
+        {
+          "name": "bark_mid",
+          "srgb": "#79624B"
+        },
+        {
+          "name": "fern_deep",
+          "srgb": "#294C43"
+        },
+        {
+          "name": "fern_light",
+          "srgb": "#719366"
+        },
+        {
+          "name": "fern_mid",
+          "srgb": "#47745C"
+        }
+      ],
+      "glb_bytes": 154316,
+      "sha256": {
+        "glb": "9933903953c6bc2167e06c6b5633d3b2a1e5b2b37a547a3990460fb2f53068a2",
+        "blend": "70c1d9d0682d28d081f10dfd31d4cb00d5f2449153629a4cb9b78497e76a391f",
+        "preview": "05c510c80b0e2106e3bae3b867eb0fd20b137cab18d48f10d081549131f5c613"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/plants/cycad/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "author": "Leon Made This / s010s",
+      "license": "CC-BY-4.0",
+      "originality": {
+        "en": "Entirely original procedural mesh design; no third-party model, texture or palette assets.",
+        "zh": "全部为原创参数化几何；未使用第三方模型、纹理或下载色板。"
+      },
+      "scientific_scope": {
+        "en": "Evidence-informed stylized plant concept, not a taxon or site reconstruction.",
+        "zh": "有依据的风格化植物概念，并非具体物种或化石地点复原。"
+      },
+      "generator": "scripts/models/build_understory.py",
+      "modeling_runtime": "GPT-6 Astra; xhigh; Blender 4.3.2; cloud only",
+      "topology_notes": {
+        "en": "Leaves are closed folded blades with a slight ridge and real thickness. No alpha cards. Separate semantic fronds remain editable.",
+        "zh": "叶片均为具浅脊线与真实厚度的闭合折面实体；不使用透明贴片。语义分组叶片可分别编辑。"
+      },
+      "scale_note": {
+        "en": "Dimensions are artistic asset specifications in meters, not measured fossil dimensions.",
+        "zh": "米制尺寸为美术资产规格，不是化石测量值。"
+      },
+      "tags": [
+        "prehistoric",
+        "plants",
+        "fern",
+        "groundcover",
+        "mesozoic-concept",
+        "original",
+        "low-poly"
+      ],
+      "sources": [
+        {
+          "title": "NHM: Unfurl the secrets of ferns",
+          "url": "https://www.nhm.ac.uk/discover/ferns.html"
+        }
+      ],
+      "design_parameters": {
+        "palette": [
+          "fern_deep",
+          "fern_mid",
+          "fern_light"
+        ],
+        "frond_count": 7,
+        "pinna_pairs_per_frond": 11,
+        "crozier_count": 1,
+        "seed": 20261017,
+        "silhouette_signature": "ground-level crown; three frond heights; bowed drooping pinnae; one unfurling crozier"
+      },
+      "reconstruction_notes": {
+        "en": "A generalized Mesozoic fern-form concept. The simplified pinnae, growth stage and color are artistic choices; it is not an identification of a living fern species, seed fern, or fossil specimen. Reproduces no flowers or seed clusters.",
+        "zh": "宽泛的中生代蕨形概念。简化羽片、生长阶段及配色为美术选择；不是现生蕨种、种子蕨或某件化石标本的鉴定。不制作花或种子串。"
+      },
+      "generator_sha256": "a16d82b2c2329e1e16bad4aa61135a7c0e0396ebb77f7eed96f4644ab2bbce3f",
+      "seed": 20261016,
+      "style": "faceted-prehistoric-environments",
+      "palette_srgb": {
+        "fern_deep": "#294C43",
+        "fern_mid": "#47745C",
+        "fern_light": "#719366"
+      },
+      "id": "fern-cluster",
+      "name": {
+        "en": "Ground fern cluster",
+        "zh": "地被蕨丛"
+      },
+      "category": "plants",
+      "description": {
+        "en": "Seven soft arching fronds with staggered, folded pinnae and an exposed young fiddlehead.",
+        "zh": "七片柔曲拱形叶轴带交错宽羽片，近地叶丛外缘下垂，并保留一片清楚的新卷芽。"
+      },
+      "glb": "assets/prehistoric/plants/fern-cluster/fern-cluster.glb",
+      "blend": "assets/prehistoric/plants/fern-cluster/fern-cluster.blend",
+      "preview": "assets/prehistoric/plants/fern-cluster/preview-hero.png",
+      "triangles": 2418,
+      "dimensions": [
+        1.4356966614723206,
+        0.8006523251533508,
+        1.5177306532859802
+      ],
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        1.4356966614723206,
+        1.5177306532859802,
+        0.8006523251533508
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -0.7332270741462708,
+          0,
+          -0.7137723565101624
+        ],
+        "max": [
+          0.7024695873260498,
+          0.8006523251533508,
+          0.8039582967758179
+        ],
+        "size": [
+          1.4356966614723206,
+          0.8006523251533508,
+          1.5177306532859802
+        ]
+      },
+      "generator_seed": 20261017,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "fern_deep",
+          "srgb": "#294C43"
+        },
+        {
+          "name": "fern_light",
+          "srgb": "#719366"
+        },
+        {
+          "name": "fern_mid",
+          "srgb": "#47745C"
+        }
+      ],
+      "glb_bytes": 186208,
+      "sha256": {
+        "glb": "ef8b028ba1189bafedc33d93e25abc84f384cfebab678d6a777c313dccccdd19",
+        "blend": "89cc0db2c0e8a1fe64213264ee068367df3b1dc74d97076807adc68749568588",
+        "preview": "54d586544150978811d7a7a245499b6a10fee5e2010bb7f6878a6864c4579d1a"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/plants/fern-cluster/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "author": "Leon Made This / s010s",
+      "license": "CC-BY-4.0",
+      "originality": {
+        "en": "Entirely original procedural mesh design; no third-party model, texture or palette assets.",
+        "zh": "全部为原创参数化几何；未使用第三方模型、纹理或下载色板。"
+      },
+      "scientific_scope": {
+        "en": "Evidence-informed stylized plant concept, not a taxon or site reconstruction.",
+        "zh": "有依据的风格化植物概念，并非具体物种或化石地点复原。"
+      },
+      "generator": "scripts/models/build_understory.py",
+      "modeling_runtime": "GPT-6 Astra; xhigh; Blender 4.3.2; cloud only",
+      "topology_notes": {
+        "en": "Leaves are closed folded blades with a slight ridge and real thickness. No alpha cards. Separate semantic fronds remain editable.",
+        "zh": "叶片均为具浅脊线与真实厚度的闭合折面实体；不使用透明贴片。语义分组叶片可分别编辑。"
+      },
+      "scale_note": {
+        "en": "Dimensions are artistic asset specifications in meters, not measured fossil dimensions.",
+        "zh": "米制尺寸为美术资产规格，不是化石测量值。"
+      },
+      "tags": [
+        "prehistoric",
+        "plants",
+        "horsetail",
+        "sphenopsid",
+        "wet-margin",
+        "mesozoic-concept",
+        "original",
+        "low-poly"
+      ],
+      "sources": [
+        {
+          "title": "NHM: Go on a Jurassic scavenger hunt",
+          "url": "https://www.nhm.ac.uk/discover/jurassic-scavenger-hunt.html"
+        },
+        {
+          "title": "Smithsonian: The Age of Oxygen",
+          "url": "https://forces.si.edu/atmosphere/02_02_06.html"
+        }
+      ],
+      "design_parameters": {
+        "palette": [
+          "fern_deep",
+          "fern_mid",
+          "fern_light",
+          "dry_olive"
+        ],
+        "stem_count": 7,
+        "branched_stems": 5,
+        "unbranched_fertile_shoots": 2,
+        "node_levels_per_stem": 4,
+        "stem_heights_m": [
+          1.48,
+          1.27,
+          0.95,
+          1.04,
+          0.77,
+          1.36,
+          0.64
+        ],
+        "seed": 20261018,
+        "silhouette_signature": "upright segmented stems; sparse and dense groups; tiered threadlike branch whorls"
+      },
+      "reconstruction_notes": {
+        "en": "A small horsetail-form concept appropriate to a stylized Mesozoic wet margin. It is not bamboo or a Carboniferous Calamites tree. Size, density, branch count, cones and colors are simplified artistic choices, not a fossil-locality reconstruction.",
+        "zh": "适用于风格化中生代湿润岸边的小型木贼形概念；不是竹子，也不能放大冒称石炭纪芦木。尺寸、疏密、枝数、顶穗与颜色为艺术简化，不代表某层位复原。"
+      },
+      "generator_sha256": "a16d82b2c2329e1e16bad4aa61135a7c0e0396ebb77f7eed96f4644ab2bbce3f",
+      "seed": 20261016,
+      "style": "faceted-prehistoric-environments",
+      "palette_srgb": {
+        "fern_deep": "#294C43",
+        "fern_mid": "#47745C",
+        "fern_light": "#719366",
+        "dry_olive": "#A1A276"
+      },
+      "id": "horsetail-cluster",
+      "name": {
+        "en": "Jointed horsetail cluster",
+        "zh": "木贼群落"
+      },
+      "category": "plants",
+      "description": {
+        "en": "Seven unequal jointed stems with dark node sheaths, tiered slender branch whorls, and two unbranched cone-bearing shoots.",
+        "zh": "七根高低不一的分节立茎，节鞘清晰；细侧枝分层轮生，另有两根少枝顶穗茎。"
+      },
+      "glb": "assets/prehistoric/plants/horsetail-cluster/horsetail-cluster.glb",
+      "blend": "assets/prehistoric/plants/horsetail-cluster/horsetail-cluster.blend",
+      "preview": "assets/prehistoric/plants/horsetail-cluster/preview-hero.png",
+      "triangles": 1838,
+      "dimensions": [
+        0.911264955997467,
+        1.4815790886059403,
+        0.7915564477443695
+      ],
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        0.911264955997467,
+        0.7915564477443695,
+        1.481579065322876
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -0.432015597820282,
+          0,
+          -0.3841312527656555
+        ],
+        "max": [
+          0.47924935817718506,
+          1.4815790886059403,
+          0.407425194978714
+        ],
+        "size": [
+          0.911264955997467,
+          1.4815790886059403,
+          0.7915564477443695
+        ]
+      },
+      "generator_seed": 20261018,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "dry_olive",
+          "srgb": "#A1A276"
+        },
+        {
+          "name": "fern_deep",
+          "srgb": "#294C43"
+        },
+        {
+          "name": "fern_light",
+          "srgb": "#719366"
+        },
+        {
+          "name": "fern_mid",
+          "srgb": "#47745C"
+        }
+      ],
+      "glb_bytes": 107256,
+      "sha256": {
+        "glb": "36b6471c6b9f469277b405a792c4afac0bedca484605011b6cdb652f496819b9",
+        "blend": "d1aea06b5855439f942c9157f64f493473d39e1d4cf21396fc402f6dd00348a5",
+        "preview": "957879a3fa2059b813fa393a4c54d9ab89f2ef9761f3c73c19bf238846ce162c"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/plants/horsetail-cluster/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "generator": "scripts/models/build_trees_deadwood.py",
+      "generator_sha256": "f7f83ea4183fbc39d6c84b4aa75dde615b609ef8bb4496721cecc211f27c4208",
+      "generator_license": "MIT",
+      "style": "original evidence-informed low-poly",
+      "scientific_status": "evidence-informed stylized concept",
+      "scientific_context": {
+        "period": "Late Carboniferous-inspired coal-swamp concept",
+        "themes": [
+          "carboniferous-wetland-forest"
+        ],
+        "taxon_scope": "Lepidodendron-like arborescent lycopsid in a branching life stage; not a specimen or species reconstruction"
+      },
+      "identifying_features": [
+        "columnar trunk with helical leaf cushions",
+        "high repeated apical dichotomies",
+        "narrow simple leaves on young crown axes"
+      ],
+      "sources": [
+        {
+          "url": "https://www.digitalatlasofancientlife.org/learn/embryophytes/tracheophytes/leaves/",
+          "supports": "Diamond-shaped Lepidodendron leaf cushions and helical arrangement"
+        },
+        {
+          "url": "https://www.digitalatlasofancientlife.org/learn/embryophytes/tracheophytes/branching/",
+          "supports": "Fossil Lepidodendron apical dichotomy; differs from lateral seed-plant branches"
+        },
+        {
+          "url": "https://forces.si.edu/atmosphere/02_02_06.html",
+          "supports": "Carboniferous wetland context for giant lycopsids"
+        }
+      ],
+      "artistic_choices": [
+        "The eight-meter display scale, exact fork angles, simplified leaf-cushion count, crown stage, green palette and root extent are artistic choices.",
+        "This asset belongs to a Carboniferous collection; do not present it as coexisting with Mesozoic dinosaur habitats.",
+        "Shallow visible root axes are simplified; subsurface stigmarian rootlets are omitted."
+      ],
+      "provenance": "Original geometry and palette-based materials authored procedurally in Blender. No downloaded models, textures, or reference images are included.",
+      "license_components": {
+        "geometry": "CC-BY-4.0",
+        "blend": "CC-BY-4.0",
+        "previews": "CC-BY-4.0",
+        "generator": "MIT"
+      },
+      "target_runtime": "Three.js 0.180.0; static opaque texture-free GLB",
+      "topology_notes": "Closed solid component meshes with purposeful buried intersections at biological branch junctions. No transparent leaf cards. Flat shading; no random per-face colors.",
+      "palette_reference": "skills/lowpoly-art-direction/references/first-batch.md",
+      "reproducibility": {
+        "deterministic": true,
+        "random_geometry": false,
+        "algorithm_revision": 1
+      },
+      "id": "lepidodendron",
+      "name": {
+        "en": "Carboniferous lycopsid concept",
+        "zh": "石炭纪鳞木"
+      },
+      "category": "plants",
+      "description": {
+        "en": "A tall Carboniferous lycopsid concept with helical diamond leaf cushions, a high three-level dichotomous crown and narrow leaves on younger shoots.",
+        "zh": "石炭纪鳞木类概念：高柱状干保留螺旋菱形叶枕，高处三级二歧分枝，狭长叶着生于年轻枝条。"
+      },
+      "glb": "assets/prehistoric/plants/lepidodendron/lepidodendron.glb",
+      "blend": "assets/prehistoric/plants/lepidodendron/lepidodendron.blend",
+      "preview": "assets/prehistoric/plants/lepidodendron/preview-hero.png",
+      "triangles": 2314,
+      "dimensions": [
+        4.74735164642334,
+        8.45516899228096,
+        3.0264023542404175
+      ],
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        4.74735164642334,
+        3.0264023542404175,
+        8.455168724060059
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -2.383120536804199,
+          0,
+          -1.645985722541809
+        ],
+        "max": [
+          2.3642311096191406,
+          8.45516899228096,
+          1.3804166316986084
+        ],
+        "size": [
+          4.74735164642334,
+          8.45516899228096,
+          3.0264023542404175
+        ]
+      },
+      "generator_seed": 3102,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "bark_deep",
+          "srgb": "#4F443D"
+        },
+        {
+          "name": "bark_mid",
+          "srgb": "#79624B"
+        },
+        {
+          "name": "fern_deep",
+          "srgb": "#294C43"
+        },
+        {
+          "name": "fern_light",
+          "srgb": "#719366"
+        },
+        {
+          "name": "fern_mid",
+          "srgb": "#47745C"
+        }
+      ],
+      "glb_bytes": 158864,
+      "sha256": {
+        "glb": "7909974082addbe7cab53edd11694b09b1f2626a554356cbb2be0a72848e89da",
+        "blend": "6e3db71c2049aac64bad991787a354157f872744803b8b4ece26522688635983",
+        "preview": "e50ee218a9c43cc6ab683095ae71899a157980c81616cf30e2e4e87ad56cc0fe"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/plants/lepidodendron/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "generator": "scripts/models/build_geology_traces.py",
+      "generator_model": "GPT-6 Astra, xhigh",
+      "generator_parameters": {
+        "seed": 29,
+        "asset": "dinosaur-nest"
+      },
+      "sources": [
+        {
+          "title": "AMNH: Dinosaur Eggs",
+          "url": "https://www.amnh.org/dinosaurs/dinosaur-eggs",
+          "use": "Attribution of eggs requires evidence; this is an unassigned teaching concept."
+        },
+        {
+          "title": "AMNH: Follow the Fossil Specimen",
+          "url": "https://www.amnh.org/research/paleontology/vertebrate/fossil-preparation/follow-the-specimen",
+          "use": "Context for adults associated with nests, not a measurement source."
+        }
+      ],
+      "design_notes": [
+        "This is not a woven bird nest and is not attributed to any dinosaur species or museum animal.",
+        "The open center, unequal pair angles, and two collapsed rim sectors prevent a mechanical egg ring.",
+        "Egg number, shell color, dimensions, and arrangement are artistic simplifications, not a specimen reconstruction."
+      ],
+      "recognition_features": [
+        "Shallow concave earthen basin",
+        "Eight distinct elongated eggs",
+        "Two collapsed rim sectors and open center"
+      ],
+      "scientific_scope": {
+        "en": "Evidence-informed stylized teaching/environment concept; not a species, specimen, or site reconstruction.",
+        "zh": "有依据的风格化教学或环境概念；不是具体物种、标本或地点的科学复原。"
+      },
+      "provenance": {
+        "geometry": "Original procedural geometry with manually designed profiles and arrangements.",
+        "textures": "None",
+        "palette": "Original fixed lowpoly-vault palette",
+        "license": "CC-BY-4.0",
+        "author": "Leon Made This / s010s"
+      },
+      "budget_note": "T2 rather than the initial T1 nest target: editable, recognizably elongated eggs retain broad ten-sided facets.",
+      "id": "dinosaur-nest",
+      "name": {
+        "en": "Dinosaur Nest",
+        "zh": "恐龙卵窝"
+      },
+      "category": "traces",
+      "description": {
+        "en": "An unassigned dinosaur egg-nest teaching concept with a shallow earthen basin, two low rim sectors, and eight elongated eggs in four loose pairs.",
+        "zh": "不指定物种的恐龙卵窝教学示意：浅土窝、两处低边和四组疏松配对的八枚长卵。"
+      },
+      "glb": "assets/prehistoric/traces/dinosaur-nest/dinosaur-nest.glb",
+      "blend": "assets/prehistoric/traces/dinosaur-nest/dinosaur-nest.blend",
+      "preview": "assets/prehistoric/traces/dinosaur-nest/preview-hero.png",
+      "triangles": 1350,
+      "dimensions": [
+        1.7644673585891724,
+        0.20670264959335327,
+        1.479225754737854
+      ],
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        1.7644673585891724,
+        1.479225754737854,
+        0.20670264959335327
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -0.8497337102890015,
+          0,
+          -0.7022638916969299
+        ],
+        "max": [
+          0.9147336483001709,
+          0.20670264959335327,
+          0.7769618630409241
+        ],
+        "size": [
+          1.7644673585891724,
+          0.20670264959335327,
+          1.479225754737854
+        ]
+      },
+      "generator_seed": 29,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "earth",
+          "srgb": "#8A715B"
+        },
+        {
+          "name": "stone_light",
+          "srgb": "#C7B798"
+        },
+        {
+          "name": "warm_stone",
+          "srgb": "#A89578"
+        }
+      ],
+      "glb_bytes": 85872,
+      "sha256": {
+        "glb": "f4a3da6f60beb2560828fee76d907eae70c395eba547b373a2c0df9e9623964e",
+        "blend": "ab8125fd8aa4c84d9fb4592d73dfa714f7ba7d05cea0b6fd6d60a70e6c360a5d",
+        "preview": "95e0d1ea96092023667441faaa728a2d59e2f862ab4bcbcdb12590dcce37e73e"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/traces/dinosaur-nest/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "generator": "scripts/models/build_geology_traces.py",
+      "generator_model": "GPT-6 Astra, xhigh",
+      "generator_parameters": {
+        "seed": 29,
+        "asset": "three-toed-track"
+      },
+      "sources": [
+        {
+          "title": "NPS: Footprints to Fossils",
+          "url": "https://www.nps.gov/zion/learn/nature/fossil-footprints.htm",
+          "use": "True tracks are depressions in a substrate."
+        },
+        {
+          "title": "NPS: Dinosaurs in the Fossil Record",
+          "url": "https://www.nps.gov/subjects/fossils/dinosaurs-in-the-fossil-record.htm",
+          "use": "Tracks are trace evidence and do not automatically identify a genus."
+        }
+      ],
+      "design_notes": [
+        "Each footprint is a geometric cavity 46 mm below its local substrate, with an 8 mm raised lip.",
+        "The long middle digit, shorter diverging side digits, and alternating lateral offset establish a clear travel direction.",
+        "Depth, step length, toe proportions, and wet/dry color are illustrative. They must not be used to infer a species, speed, or body mass."
+      ],
+      "recognition_features": [
+        "Three negative tridactyl impressions",
+        "Alternating step placement",
+        "Thin irregular mud substrate"
+      ],
+      "scientific_scope": {
+        "en": "Evidence-informed stylized teaching/environment concept; not a species, specimen, or site reconstruction.",
+        "zh": "有依据的风格化教学或环境概念；不是具体物种、标本或地点的科学复原。"
+      },
+      "provenance": {
+        "geometry": "Original procedural geometry with manually designed profiles and arrangements.",
+        "textures": "None",
+        "palette": "Original fixed lowpoly-vault palette",
+        "license": "CC-BY-4.0",
+        "author": "Leon Made This / s010s"
+      },
+      "cavity_geometry": [
+        {
+          "index": 1,
+          "floor_below_adjacent_substrate_m": 0.046,
+          "rim_above_substrate_m": 0.008,
+          "toe_count": 3
+        },
+        {
+          "index": 2,
+          "floor_below_adjacent_substrate_m": 0.046,
+          "rim_above_substrate_m": 0.008,
+          "toe_count": 3
+        },
+        {
+          "index": 3,
+          "floor_below_adjacent_substrate_m": 0.046,
+          "rim_above_substrate_m": 0.008,
+          "toe_count": 3
+        }
+      ],
+      "id": "three-toed-track",
+      "name": {
+        "en": "Three-toed Track Slab",
+        "zh": "三趾足迹泥板"
+      },
+      "category": "traces",
+      "description": {
+        "en": "A thin irregular mud slab with three staggered, genuinely recessed three-toed impressions and small pressure lips.",
+        "zh": "薄而不规则的泥板，带三枚交错排列的真实凹陷三趾印与轻微挤压边缘。"
+      },
+      "glb": "assets/prehistoric/traces/three-toed-track/three-toed-track.glb",
+      "blend": "assets/prehistoric/traces/three-toed-track/three-toed-track.blend",
+      "preview": "assets/prehistoric/traces/three-toed-track/preview-hero.png",
+      "triangles": 972,
+      "dimensions": [
+        2.771999955177307,
+        0.147782564163208,
+        1.4011200070381165
+      ],
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        2.771999955177307,
+        1.4011200070381165,
+        0.147782564163208
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -1.3708800077438354,
+          0,
+          -0.6854400038719177
+        ],
+        "max": [
+          1.4011199474334717,
+          0.147782564163208,
+          0.7156800031661987
+        ],
+        "size": [
+          2.771999955177307,
+          0.147782564163208,
+          1.4011200070381165
+        ]
+      },
+      "generator_seed": 29,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "earth",
+          "srgb": "#8A715B"
+        },
+        {
+          "name": "warm_stone",
+          "srgb": "#A89578"
+        }
+      ],
+      "glb_bytes": 48552,
+      "sha256": {
+        "glb": "29f156d80ecbcbb0b236a050507c8e7c946321fd274eafb2e5df56e7492e6e4a",
+        "blend": "03daf73d6cc710c863ab69372fc06251a405545596055b5fbfc8a591ef947c9d",
+        "preview": "b8c38b1934a59be9bbf388ee7ae71363eccb1e82a07b6affd98cbb9b3c9f9f24"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/traces/three-toed-track/qa.json",
+      "quality_status": "work_in_progress"
+    },
+    {
+      "generator": "scripts/models/build_trees_deadwood.py",
+      "generator_sha256": "f7f83ea4183fbc39d6c84b4aa75dde615b609ef8bb4496721cecc211f27c4208",
+      "generator_license": "MIT",
+      "style": "original evidence-informed low-poly",
+      "scientific_status": "evidence-informed stylized concept",
+      "scientific_context": {
+        "period": "Mesozoic-inspired seed-plant deadwood concept",
+        "themes": [
+          "mesozoic-forest",
+          "mesozoic-river-valley"
+        ],
+        "taxon_scope": "Seed plant/conifer structural concept; explicitly not a lycopsid uprooting reconstruction"
+      },
+      "identifying_features": [
+        "horizontal tapered bent trunk",
+        "hierarchical torn seed-tree roots and attached soil plate",
+        "ragged fracture and peeled bark"
+      ],
+      "sources": [
+        {
+          "url": "https://www.nhm.ac.uk/discover/how-to-grow-a-dinosaur-garden.html",
+          "supports": "Fossil conifer wood and natural decay; broad prehistoric deadwood context"
+        },
+        {
+          "url": "https://repository.si.edu/bitstreams/27b279ae-6030-4d71-93ba-1b0a713e7399/download",
+          "supports": "Referenced boundary against treating lycopsid uprooting as modern seed-tree root-plate behavior"
+        }
+      ],
+      "artistic_choices": [
+        "Exact fall angle, diameter, root spread, soil fragments, snapped branches and colors are original prop design.",
+        "Exposed pale wood is a ragged break, not a modern saw cut.",
+        "No claim is made about a specific tree species, death event, fossil site or fungus."
+      ],
+      "provenance": "Original geometry and palette-based materials authored procedurally in Blender. No downloaded models, textures, or reference images are included.",
+      "license_components": {
+        "geometry": "CC-BY-4.0",
+        "blend": "CC-BY-4.0",
+        "previews": "CC-BY-4.0",
+        "generator": "MIT"
+      },
+      "target_runtime": "Three.js 0.180.0; static opaque texture-free GLB",
+      "topology_notes": "Closed solid component meshes with purposeful buried intersections at biological branch junctions. No transparent leaf cards. Flat shading; no random per-face colors.",
+      "palette_reference": "skills/lowpoly-art-direction/references/first-batch.md",
+      "reproducibility": {
+        "deterministic": true,
+        "random_geometry": false,
+        "algorithm_revision": 1
+      },
+      "id": "uprooted-log",
+      "name": {
+        "en": "Uprooted seed-tree log",
+        "zh": "连根倒木"
+      },
+      "category": "wood",
+      "description": {
+        "en": "A low fallen seed-tree trunk with a bent taper, ragged wood break, three snapped branches, an uneven root plate and adhering soil.",
+        "zh": "横向倒伏的种子植物枯木：主干弯曲收细、断口参差、三处折枝，偏心根盘附着土块。"
+      },
+      "glb": "assets/prehistoric/wood/uprooted-log/uprooted-log.glb",
+      "blend": "assets/prehistoric/wood/uprooted-log/uprooted-log.blend",
+      "preview": "assets/prehistoric/wood/uprooted-log/preview-hero.png",
+      "triangles": 864,
+      "dimensions": [
+        4.4980268478393555,
+        1.4455964043736458,
+        1.836820662021637
+      ],
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "schema_version": 1,
+      "collection": "prehistoric",
+      "units": "meters",
+      "axes": {
+        "glb_up": "+Y",
+        "glb_forward": "+Z",
+        "blender_up": "+Z",
+        "blender_forward": "-Y"
+      },
+      "origin": "ground-center (or documented mounting point)",
+      "blender_version": "4.3.2",
+      "blender_unit_scale": 1,
+      "blender_dimensions_m": [
+        4.4980268478393555,
+        1.8368206024169922,
+        1.44559645652771
+      ],
+      "bounds_glb_m": {
+        "min": [
+          -2.2490134239196777,
+          0,
+          -0.9184103310108185
+        ],
+        "max": [
+          2.2490134239196777,
+          1.4455964043736458,
+          0.9184103310108185
+        ],
+        "size": [
+          4.4980268478393555,
+          1.4455964043736458,
+          1.836820662021637
+        ]
+      },
+      "generator_seed": 3103,
+      "export_options": {
+        "export_format": "GLB",
+        "use_selection": true,
+        "export_yup": true,
+        "export_apply": true,
+        "export_normals": true,
+        "export_texcoords": false,
+        "export_tangents": false,
+        "export_materials": "EXPORT",
+        "export_vertex_color": "NONE",
+        "export_animations": false,
+        "export_skins": false,
+        "export_morph": false,
+        "export_cameras": false,
+        "export_lights": false,
+        "export_extras": true,
+        "export_gpu_instances": false,
+        "export_gn_mesh": false,
+        "export_draco_mesh_compression_enable": false,
+        "export_use_gltfpack": false
+      },
+      "materials": [
+        {
+          "name": "bark_deep",
+          "srgb": "#4F443D"
+        },
+        {
+          "name": "bark_mid",
+          "srgb": "#79624B"
+        },
+        {
+          "name": "cut_wood",
+          "srgb": "#B59B72"
+        },
+        {
+          "name": "earth",
+          "srgb": "#8A715B"
+        }
+      ],
+      "glb_bytes": 55460,
+      "sha256": {
+        "glb": "b7732c1e5e613538eca180135dd9692410cf7084b1c5264485fa7311655f4b0b",
+        "blend": "f05a431dd77e71d890dea170c9a27ee9ef5f7c854a9343e5a6d502e9088468b6",
+        "preview": "5c292626f858c2751c331f61c9a2488517a0d248b392198a453bb0575bbaacdb"
+      },
+      "worlds": [
+        "prehistoric"
+      ],
+      "packs": [
+        "prehistoric-starter"
+      ],
+      "qa": "assets/prehistoric/wood/uprooted-log/qa.json",
+      "quality_status": "work_in_progress"
+    }
+  ],
+  "release_status": "initial",
+  "quality_status": "work_in_progress",
+  "publication": {
+    "authorization": "owner_requested_publication_of_existing_ten",
+    "authorized_on": "2026-10-17",
+    "source_commit": "550ac6b1d4477d1fbd85ea9f8eb69502b20a42a7"
+  }
+}

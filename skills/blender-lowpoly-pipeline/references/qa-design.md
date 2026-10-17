@@ -112,3 +112,11 @@ python scripts/render_heroes.py --assets-root assets/prehistoric --expected-coun
 ```
 
 The hero tool renders to a temporary directory before replacing only `preview-hero.png`, confirms the source blend checksum stayed unchanged, and updates only `qa.previews.per_view.hero`. It does not save the blend, re-export GLB, overwrite metadata, or fabricate validator/browser/visual-review status. The refreshed hero gets its own PNG checksum and `rendered_not_visually_reviewed` status; inspect it before declaring the final visual result complete.
+
+A later consistency check also separated the world shader's camera-visible background from its illumination branch. Horizontal orthographic views now see the same intended warm studio background instead of darkening that background to the environment-light strength. This preserves illumination/exposure and leaves geometry/material exports unchanged. Final hero refinement writes `hero-render.report.json` as an independent record as well as its per-view QA entry, so its provenance is recoverable if an author separately rewrites a QA file.
+
+## Pause expensive polish when art direction changes
+
+More render samples improve noise, not silhouette design, proportions, botanical structure, or the overall visual language. If the user rejects the direction while a batch is rendering, stop launching subsequent renders, preserve completed images and editable sources, and label unfinished refinement pending. Finish an already-running render only when allowed. Rework a representative model against the new direction before spending another full batch on polish.
+
+The batch and per-item hero tools honor `qa/hero-refinement.pause.json`. A requested pause is a workflow stop, not an asset-format failure. Do not remove the pause marker or resume because time elapsed; resume only when the revised task authorizes it. Frame/noise checks on a hero image are limited evidence and do not establish user acceptance of the art direction.

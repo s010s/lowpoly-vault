@@ -1,0 +1,56 @@
+/** Owner-authorized initial collection. This does not grant final artistic or scientific approval. */
+import { readFile, writeFile, realpath } from 'node:fs/promises';
+import { resolve, relative, dirname } from 'node:path';
+import { createHash } from 'node:crypto';
+import { pathToFileURL } from 'node:url';
+import assert from 'node:assert/strict';
+import { collectManifest } from './generate-manifest.mjs';
+import { assetFileAllowlist } from './asset-delivery.mjs';
+
+export const INITIAL_ASSET_IDS = ['conifer-tree','cycad','dinosaur-nest','fern-cluster','horsetail-cluster','lepidodendron','natural-arch','stratified-cliff','three-toed-track','uprooted-log'];
+export async function collectInitialRelease(root=process.cwd()) {
+  const approval=JSON.parse(await readFile(resolve(root,'assets/initial-publication.json'),'utf8'));
+  assert.equal(approval.version,1);
+  assert.equal(approval.release_status,'initial');
+  assert.equal(approval.quality_status,'work_in_progress');
+  assert.equal(approval.authorization,'owner_requested_publication_of_existing_ten');
+  assert.equal(approval.source_commit,'550ac6b1d4477d1fbd85ea9f8eb69502b20a42a7');
+  assert.deepEqual(approval.assets.map(a=>a.id).sort(),INITIAL_ASSET_IDS,'Only the original ten assets are authorized');
+  const {review_only,...candidate}=await collectManifest(root,{preview:true});
+  assert.deepEqual(candidate.assets.map(a=>a.id).sort(),INITIAL_ASSET_IDS,'No extra or missing models may enter the initial collection');
+  for(const asset of candidate.assets) {
+    const approved=approval.assets.find(a=>a.id===asset.id);
+    assetFileAllowlist({assets:[asset]});
+    for(const key of ['glb','blend','preview']) {
+      assert.equal(asset[key],approved[key],`${asset.id}: publication path changed`);
+      assert.match(approved.sha256?.[key]||'',/^[a-f0-9]{64}$/,'Every published file needs a fixed SHA-256');
+      const actualPath=relative(resolve(root),await realpath(resolve(root,asset[key]))).split('\\').join('/');
+      assert.equal(actualPath,asset[key],'Initial publication does not allow symlink substitutions');
+      const actualHash=createHash('sha256').update(await readFile(resolve(root,asset[key]))).digest('hex');
+      assert.equal(actualHash,approved.sha256[key],`${asset.id}: original ${key} bytes changed`);
+    }
+    const qa=JSON.parse(await readFile(resolve(root,dirname(asset.glb),'qa.json'),'utf8'));
+    assert(['pass','pass_with_warnings'].includes(qa.khronos_validator?.status),`${asset.id}: Khronos validation required`);
+    assert(!qa.khronos_validator?.errors?.length,`${asset.id}: unresolved validator errors`);
+    asset.sha256={...approved.sha256};
+    asset.quality_status='work_in_progress';
+  }
+  return {...candidate,release_status:'initial',quality_status:'work_in_progress',publication:{authorization:approval.authorization,authorized_on:approval.authorized_on,source_commit:approval.source_commit},assets:candidate.assets};
+}
+export async function checkPublishedManifest(root=process.cwd()) {
+  const current=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
+  assert(!current.review_only,'A review-only manifest cannot be published');
+  const expected=current.release_status==='initial'?await collectInitialRelease(root):await collectManifest(root);
+  assert.deepEqual(current,expected,'Published manifest must exactly match the checked source and publication scope');
+  return current;
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href) {
+  if(process.argv.includes('--check')) {
+    const manifest=await checkPublishedManifest();
+    console.log(`Publication gate passed: ${manifest.assets.length} unchanged originals; quality status: ${manifest.quality_status||'formal QA'}.`);
+  } else {
+    const manifest=await collectInitialRelease();
+    await writeFile('assets/manifest.json',JSON.stringify(manifest,null,2)+'\n');
+    console.log('Prepared the authorized initial collection. Formal artistic/scientific approval remains separate.');
+  }
+}

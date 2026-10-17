@@ -1,0 +1,20 @@
+/** Isolated review build; never mutates the release manifest, assets, or original review output. */
+import { build } from 'vite';
+import { cp, writeFile, rm } from 'node:fs/promises';
+import { resolve, sep } from 'node:path';
+import { collectManifest } from './generate-manifest.mjs';
+import { writeCatalog } from './catalog-build.mjs';
+import { deliverManifestAssets, clearDeliveredAssets } from './asset-delivery.mjs';
+import { writeStaticRoutes } from './static-routes.mjs';
+const out=resolve(process.env.REVIEW_OUT||'qa/redesign-v2-site');
+if(out===resolve('.')||resolve('.').startsWith(out+sep)||out===resolve('qa')||['assets','site','dist','.git','scripts','node_modules','skills','qa/redesign-site'].some(path=>out===resolve(path)||out.startsWith(resolve(path)+sep))) throw new Error('REVIEW_OUT must be an isolated review directory and cannot replace the original redesign build.');
+const source=await collectManifest(process.cwd(),{preview:true});
+await rm(out,{recursive:true,force:true});
+await build({build:{outDir:out,emptyOutDir:true}});
+await clearDeliveredAssets(out);
+const manifest=await deliverManifestAssets(source,out,{review:true});
+await writeCatalog(manifest,out);
+await cp('THIRD_PARTY_NOTICES.md',`${out}/THIRD_PARTY_NOTICES.md`);
+const routes=await writeStaticRoutes(manifest,out);
+await writeFile(`${out}/REVIEW-ONLY.txt`,'Review-only build. Not approved for publication. Asset QA and production manifest are unchanged.\n');
+console.log(`Isolated review: ${out}; ${manifest.assets.length} candidates; ${routes.pages} static documents; visual approval pending.`);

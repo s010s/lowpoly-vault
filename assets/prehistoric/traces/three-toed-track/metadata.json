@@ -1,0 +1,153 @@
+{
+  "generator": "scripts/models/build_geology_traces.py",
+  "generator_model": "GPT-6 Astra, xhigh",
+  "generator_parameters": {
+    "seed": 29,
+    "asset": "three-toed-track"
+  },
+  "sources": [
+    {
+      "title": "NPS: Footprints to Fossils",
+      "url": "https://www.nps.gov/zion/learn/nature/fossil-footprints.htm",
+      "use": "True tracks are depressions in a substrate."
+    },
+    {
+      "title": "NPS: Dinosaurs in the Fossil Record",
+      "url": "https://www.nps.gov/subjects/fossils/dinosaurs-in-the-fossil-record.htm",
+      "use": "Tracks are trace evidence and do not automatically identify a genus."
+    }
+  ],
+  "design_notes": [
+    "Each footprint is a geometric cavity 46 mm below its local substrate, with an 8 mm raised lip.",
+    "The long middle digit, shorter diverging side digits, and alternating lateral offset establish a clear travel direction.",
+    "Depth, step length, toe proportions, and wet/dry color are illustrative. They must not be used to infer a species, speed, or body mass."
+  ],
+  "recognition_features": [
+    "Three negative tridactyl impressions",
+    "Alternating step placement",
+    "Thin irregular mud substrate"
+  ],
+  "scientific_scope": {
+    "en": "Evidence-informed stylized teaching/environment concept; not a species, specimen, or site reconstruction.",
+    "zh": "有依据的风格化教学或环境概念；不是具体物种、标本或地点的科学复原。"
+  },
+  "provenance": {
+    "geometry": "Original procedural geometry with manually designed profiles and arrangements.",
+    "textures": "None",
+    "palette": "Original fixed lowpoly-vault palette",
+    "license": "CC-BY-4.0",
+    "author": "Leon Made This / s010s"
+  },
+  "cavity_geometry": [
+    {
+      "index": 1,
+      "floor_below_adjacent_substrate_m": 0.046,
+      "rim_above_substrate_m": 0.008,
+      "toe_count": 3
+    },
+    {
+      "index": 2,
+      "floor_below_adjacent_substrate_m": 0.046,
+      "rim_above_substrate_m": 0.008,
+      "toe_count": 3
+    },
+    {
+      "index": 3,
+      "floor_below_adjacent_substrate_m": 0.046,
+      "rim_above_substrate_m": 0.008,
+      "toe_count": 3
+    }
+  ],
+  "id": "three-toed-track",
+  "name": {
+    "en": "Three-toed Track Slab",
+    "zh": "三趾足迹泥板"
+  },
+  "category": "traces",
+  "description": {
+    "en": "A thin irregular mud slab with three staggered, genuinely recessed three-toed impressions and small pressure lips.",
+    "zh": "薄而不规则的泥板，带三枚交错排列的真实凹陷三趾印与轻微挤压边缘。"
+  },
+  "glb": "assets/prehistoric/traces/three-toed-track/three-toed-track.glb",
+  "blend": "assets/prehistoric/traces/three-toed-track/three-toed-track.blend",
+  "preview": "assets/prehistoric/traces/three-toed-track/preview-hero.png",
+  "triangles": 972,
+  "dimensions": [
+    2.771999955177307,
+    0.147782564163208,
+    1.4011200070381165
+  ],
+  "license": "CC-BY-4.0",
+  "author": "Leon Made This / s010s",
+  "schema_version": 1,
+  "collection": "prehistoric",
+  "units": "meters",
+  "axes": {
+    "glb_up": "+Y",
+    "glb_forward": "+Z",
+    "blender_up": "+Z",
+    "blender_forward": "-Y"
+  },
+  "origin": "ground-center (or documented mounting point)",
+  "blender_version": "4.3.2",
+  "blender_unit_scale": 1.0,
+  "blender_dimensions_m": [
+    2.771999955177307,
+    1.4011200070381165,
+    0.147782564163208
+  ],
+  "bounds_glb_m": {
+    "min": [
+      -1.3708800077438354,
+      0.0,
+      -0.6854400038719177
+    ],
+    "max": [
+      1.4011199474334717,
+      0.147782564163208,
+      0.7156800031661987
+    ],
+    "size": [
+      2.771999955177307,
+      0.147782564163208,
+      1.4011200070381165
+    ]
+  },
+  "generator_seed": 29,
+  "export_options": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_normals": true,
+    "export_texcoords": false,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_vertex_color": "NONE",
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false,
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": true,
+    "export_gpu_instances": false,
+    "export_gn_mesh": false,
+    "export_draco_mesh_compression_enable": false,
+    "export_use_gltfpack": false
+  },
+  "materials": [
+    {
+      "name": "earth",
+      "srgb": "#8A715B"
+    },
+    {
+      "name": "warm_stone",
+      "srgb": "#A89578"
+    }
+  ],
+  "glb_bytes": 48552,
+  "sha256": {
+    "glb": "29f156d80ecbcbb0b236a050507c8e7c946321fd274eafb2e5df56e7492e6e4a",
+    "blend": "03daf73d6cc710c863ab69372fc06251a405545596055b5fbfc8a591ef947c9d"
+  }
+}
