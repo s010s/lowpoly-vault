@@ -209,161 +209,51 @@
       "quality_status": "work_in_progress"
     },
     {
-      "generator": "scripts/models/build_trees_deadwood.py",
-      "generator_sha256": "f7f83ea4183fbc39d6c84b4aa75dde615b609ef8bb4496721cecc211f27c4208",
-      "generator_license": "MIT",
-      "style": "original evidence-informed low-poly",
-      "scientific_status": "evidence-informed stylized concept",
-      "scientific_context": {
-        "period": "Jurassic–Cretaceous-inspired concept",
-        "themes": [
-          "mesozoic-forest",
-          "mesozoic-river-valley"
-        ],
-        "taxon_scope": "Conifer architectural analogue; not an identified extinct or unchanged modern species"
-      },
-      "identifying_features": [
-        "dominant tapering trunk",
-        "near-whorled lateral branches",
-        "open asymmetric crown tiers"
-      ],
-      "sources": [
-        {
-          "url": "https://www.nhm.ac.uk/discover/how-to-grow-a-dinosaur-garden.html",
-          "supports": "Conifer context in Jurassic and Cretaceous vegetation; broad living analogue only"
-        },
-        {
-          "url": "https://www.digitalatlasofancientlife.org/learn/embryophytes/tracheophytes/branching/",
-          "supports": "Lateral branching distinguished from apical dichotomies"
-        }
-      ],
-      "artistic_choices": [
-        "Exact height, tier spacing, foliage clumping, colors and branch damage are original artistic choices, not fossil measurements.",
-        "Leaf masses summarize short conifer foliage without pretending to reproduce a named Araucaria species."
-      ],
-      "provenance": "Original geometry and palette-based materials authored procedurally in Blender. No downloaded models, textures, or reference images are included.",
-      "license_components": {
-        "geometry": "CC-BY-4.0",
-        "blend": "CC-BY-4.0",
-        "previews": "CC-BY-4.0",
-        "generator": "MIT"
-      },
-      "target_runtime": "Three.js 0.180.0; static opaque texture-free GLB",
-      "topology_notes": "Closed solid component meshes with purposeful buried intersections at biological branch junctions. No transparent leaf cards. Flat shading; no random per-face colors.",
-      "palette_reference": "skills/lowpoly-art-direction/references/first-batch.md",
-      "reproducibility": {
-        "deterministic": true,
-        "random_geometry": false,
-        "algorithm_revision": 1
-      },
       "id": "conifer-tree",
+      "revision": "structure-r20-a-normal16-doc1",
       "name": {
-        "en": "Mesozoic conifer concept",
-        "zh": "针叶乔木"
+        "en": "Airy conifer tree",
+        "zh": "轻透针叶树"
+      },
+      "description": {
+        "en": "A seven-metre stylized conifer with a tapering trunk, curved boughs and separated feathery needle sprays.",
+        "zh": "约七米高的风格化针叶树，保留渐收主干、弯曲木枝与分离轻透的羽状细针叶簇。"
       },
       "category": "plants",
-      "description": {
-        "en": "A seven-meter conifer concept with an exposed tapering axis, asymmetric lateral branch whorls, deeply notched foliage sprays and one deliberate crown gap.",
-        "zh": "约七米高的针叶乔木概念：渐细主干、错落轮生侧枝、分叉叶簇与一处清楚的树冠缺口。"
-      },
-      "glb": "assets/prehistoric/plants/conifer-tree/conifer-tree.glb",
-      "blend": "assets/prehistoric/plants/conifer-tree/conifer-tree.blend",
-      "preview": "assets/prehistoric/plants/conifer-tree/preview-hero.png",
-      "triangles": 2382,
-      "dimensions": [
-        4.167232990264893,
-        7.0961209163069725,
-        4.68551230430603
-      ],
+      "collection": "prehistoric",
       "license": "CC-BY-4.0",
       "author": "Leon Made This / s010s",
-      "schema_version": 1,
-      "collection": "prehistoric",
+      "source_url": "https://github.com/s010s/lowpoly-vault",
+      "source_candidate_commit": "8e618be80a2624a58023cadcd508fdaf7494287c",
+      "geometry_source_commit": "265b47eed899307228d609355cc46c6d6992f61d",
+      "triangles": 19052,
+      "dimensions": [
+        4.661952018737793,
+        7.042110443115234,
+        5.167210817337036
+      ],
       "units": "meters",
       "axes": {
         "glb_up": "+Y",
-        "glb_forward": "+Z",
-        "blender_up": "+Z",
-        "blender_forward": "-Y"
+        "glb_forward": "+Z"
       },
-      "origin": "ground-center (or documented mounting point)",
-      "blender_version": "4.3.2",
-      "blender_unit_scale": 1,
-      "blender_dimensions_m": [
-        4.167232990264893,
-        4.68551230430603,
-        7.096120834350586
-      ],
-      "bounds_glb_m": {
-        "min": [
-          -2.134596586227417,
-          0,
-          -2.3849966526031494
-        ],
-        "max": [
-          2.0326364040374756,
-          7.0961209163069725,
-          2.300515651702881
-        ],
-        "size": [
-          4.167232990264893,
-          7.0961209163069725,
-          4.68551230430603
-        ]
-      },
-      "generator_seed": 3101,
-      "export_options": {
-        "export_format": "GLB",
-        "use_selection": true,
-        "export_yup": true,
-        "export_apply": true,
-        "export_normals": true,
-        "export_texcoords": false,
-        "export_tangents": false,
-        "export_materials": "EXPORT",
-        "export_vertex_color": "NONE",
-        "export_animations": false,
-        "export_skins": false,
-        "export_morph": false,
-        "export_cameras": false,
-        "export_lights": false,
-        "export_extras": true,
-        "export_gpu_instances": false,
-        "export_gn_mesh": false,
-        "export_draco_mesh_compression_enable": false,
-        "export_use_gltfpack": false
-      },
-      "materials": [
-        {
-          "name": "bark_deep",
-          "srgb": "#4F443D"
-        },
-        {
-          "name": "bark_mid",
-          "srgb": "#79624B"
-        },
-        {
-          "name": "cut_wood",
-          "srgb": "#B59B72"
-        },
-        {
-          "name": "fern_deep",
-          "srgb": "#294C43"
-        },
-        {
-          "name": "fern_light",
-          "srgb": "#719366"
-        },
-        {
-          "name": "fern_mid",
-          "srgb": "#47745C"
-        }
-      ],
-      "glb_bytes": 145732,
+      "glb": "assets/revisions/conifer-tree/structure-r20-a-normal16-doc1/conifer-tree.glb",
+      "blend": "assets/revisions/conifer-tree/structure-r20-a-normal16-doc1/conifer-tree.blend",
+      "preview": "assets/revisions/conifer-tree/structure-r20-a-normal16-doc1/preview.webp",
       "sha256": {
-        "glb": "f7331e9602faea1e2d29bc9b185baa2fbd3ee16bd36bb2d6641eabc4aa019fea",
-        "blend": "8a32cc40f50c78f00672cce2c102bbb317f14d6f9a1c4495df189e940b805f00",
-        "preview": "32c05fe8e3ad82987ba013c868c613fd51e5ae1a69dcfb85bbad2c8ba9ab130d"
+        "glb": "c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40",
+        "blend": "04c20d19354455e57bbc70a8cced6308d9020e02ff057996bfde7c585a7acbef",
+        "preview": "6296286130490b04dba1f1b4b1a7c00149cfecbc43bfeab82dd0c7b18eb0cfd4"
+      },
+      "generator": "assets/revisions/conifer-tree/structure-r20-a-normal16-doc1/build_delivery.py",
+      "generator_config": "assets/revisions/conifer-tree/structure-r20-a-normal16-doc1/build-config.json",
+      "required_extensions": [
+        "KHR_mesh_quantization"
+      ],
+      "tested_loader": "Three.js 0.180.0",
+      "scientific_scope": {
+        "en": "General stylized conifer concept, not a named fossil species or habitat reconstruction. Requires KHR_mesh_quantization; tested with Three.js 0.180.0. Scene frame-budget acceptance is limited to the measured Apple M5 Pro/ANGLE Metal, Chromium 141, DPR 1, 1200×900, no-shadow profile. SwiftShader does not meet the 16.7 ms target, including single-tree tests. Fine needles can show subpixel aliasing in motion. Other devices and loaders are unverified.",
+        "zh": "通用风格化针叶树概念，不是命名化石物种或栖息地复原。需要 KHR_mesh_quantization，已测试 Three.js 0.180.0。场景帧预算通过仅限实测 Apple M5 Pro/ANGLE Metal、Chromium 141、DPR 1、1200×900、无阴影配置；SwiftShader 包括单棵测试均未满足16.7毫秒目标。细针运动时可有亚像素边缘跳动。其他设备与加载器未验证。"
       },
       "worlds": [
         "prehistoric"
@@ -371,8 +261,15 @@
       "packs": [
         "prehistoric-starter"
       ],
-      "qa": "assets/prehistoric/plants/conifer-tree/qa.json",
-      "quality_status": "work_in_progress"
+      "quality_status": "accepted_for_brief",
+      "revision_provenance": {
+        "author": "Leon Made This / s010s",
+        "source_url": "https://github.com/s010s/lowpoly-vault",
+        "changes": "Original airy A-style conifer, preserved r20 GLB under independently reviewed doc1 identity; normalized SHORT normals require KHR_mesh_quantization / Three.js 0.180.0. Performance acceptance only for recorded M5 Pro/Metal profile; SwiftShader frame-budget failure and subpixel aliasing retained. 原创轻透A型针叶树；仅文档doc1身份，模型字节不变，保留设备与细针采样限制。",
+        "original_author": "Leon Made This / s010s",
+        "original_source_url": "https://github.com/s010s/lowpoly-vault",
+        "original_glb_sha256": "f7331e9602faea1e2d29bc9b185baa2fbd3ee16bd36bb2d6641eabc4aa019fea"
+      }
     },
     {
       "author": "Leon Made This / s010s",
@@ -1444,22 +1341,22 @@
   "quality_status": "mixed",
   "publication": {
     "authorization": "owner_requested_publication_of_accepted_revisions",
-    "authorized_on": "2026-10-17T09:41:44.188088+00:00",
-    "release_id": "arch-fern-structural-20261017",
+    "authorized_on": "2026-10-17T12:09:43.308698+00:00",
+    "release_id": "conifer-doc1-preview-reviewed-20261017",
     "descriptor": {
-      "path": "assets/releases/arch-fern-structural-20261017.json",
-      "sha256": "e1d76f598f8d2dedf7681d379fd5de07749968459a30fd587f9b6dfcd5f2b228"
+      "path": "assets/releases/conifer-doc1-preview-reviewed-20261017.json",
+      "sha256": "51dd7fd3ed57480ff9d74e95fb4a3e741b94980528b9ef918d77a6162db7ecbf"
     },
     "initial_publication": {
       "path": "assets/initial-publication.json",
       "sha256": "4043e9a35d43773660c2dee061b0e2ca0897aa430427e430d0ca5f331f967275"
     },
     "approved_asset_ids": [
+      "conifer-tree",
       "fern-cluster",
       "natural-arch"
     ],
     "work_in_progress_asset_ids": [
-      "conifer-tree",
       "cycad",
       "dinosaur-nest",
       "horsetail-cluster",
