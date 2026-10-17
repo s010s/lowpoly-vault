@@ -108,6 +108,8 @@ try {
     assert.deepEqual(await collectInitialRelease(root), initial, 'Revision metadata must not enter legacy recursive discovery');
     await save('assets/manifest.json', manifest);
     assert.deepEqual(await checkPublishedManifest(root), manifest);
+    const cli = await runFile(process.execPath, [join(sourceRoot, 'site/initial-release.mjs'), '--check'], {cwd:root, timeout:30000});
+    assert.match(cli.stdout, /Publication gate passed: 10 checked assets; quality status: mixed/);
   });
   await check('a separately authorized subset leaves nine WIP originals', () => changedJSON(descriptorPath, d => {
     d.approved_asset_ids = [d.approved_asset_ids[0]]; d.revisions = [d.revisions[0]];

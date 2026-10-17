@@ -33,3 +33,13 @@ qa/redesign-static-only/
 qa/ci-*/
 
 qa/release-*/
+
+# Local recovery archives, failed histories and diagnostic snapshots are retained
+# locally; the selected immutable acceptance closures are committed separately.
+experiments/structural-refinement-2026-10-17/local-recovery/
+experiments/structural-refinement-2026-10-17/natural-arch/
+experiments/structural-refinement-2026-10-17/fern-cluster/
+experiments/structural-refinement-2026-10-17/conifer-tree/
+experiments/structural-refinement-2026-10-17/runtime/
+# These frozen evidence logs belong to the two explicitly selected closures.
+!experiments/structural-refinement-2026-10-17/accepted/**/*.log

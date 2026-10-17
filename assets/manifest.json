@@ -7,146 +7,65 @@
   "attribution_url": "https://github.com/s010s/lowpoly-vault",
   "assets": [
     {
-      "generator": "scripts/models/build_geology_traces.py",
-      "generator_model": "GPT-6 Astra, xhigh",
-      "generator_parameters": {
-        "seed": 29,
-        "asset": "natural-arch"
-      },
-      "sources": [
-        {
-          "title": "NPS Geodiversity Atlas: Arches",
-          "url": "https://www.nps.gov/articles/nps-geodiversity-atlas-arches-national-park-utah.htm",
-          "use": "Erosion and jointing context; original silhouette is not a copy of a named arch."
-        }
-      ],
-      "design_notes": [
-        "The stone is a continuous volume; the hole is genuine geometry visible from both sides.",
-        "The arch profile was designed point by point rather than cut from the cliff or formed from a torus.",
-        "Rock deposition age and arch formation age are not treated as the same."
-      ],
-      "recognition_features": [
-        "Off-center full-depth opening",
-        "Unequal supports and thick crown",
-        "Broad weathered facets with continuous bedding"
-      ],
-      "scientific_scope": {
-        "en": "Evidence-informed stylized teaching/environment concept; not a species, specimen, or site reconstruction.",
-        "zh": "有依据的风格化教学或环境概念；不是具体物种、标本或地点的科学复原。"
-      },
-      "provenance": {
-        "geometry": "Original procedural geometry with manually designed profiles and arrangements.",
-        "textures": "None",
-        "palette": "Original fixed lowpoly-vault palette",
-        "license": "CC-BY-4.0",
-        "author": "Leon Made This / s010s"
-      },
-      "budget_note": "672 triangles in the initial design: the broad continuous arch needs fewer than the T2 target; no filler subdivisions were added.",
       "id": "natural-arch",
+      "revision": "structural-r002",
       "name": {
         "en": "Natural Arch",
         "zh": "天然石拱"
       },
-      "category": "geology",
       "description": {
-        "en": "A weathered natural stone arch with a right-shifted opening, heavy left support, thinner right leg, and subtle sedimentary seams.",
-        "zh": "原创侵蚀石拱：拱孔向右偏移、左侧厚重、右支脚收窄，并保留低调沉积层缝。"
+        "en": "A stylized sandstone arch with unequal supports, an offset opening and localized erosion.",
+        "zh": "风格化砂岩石拱，保留不等支脚、偏心孔洞和局部侵蚀结构。"
       },
-      "glb": "assets/prehistoric/geology/natural-arch/natural-arch.glb",
-      "blend": "assets/prehistoric/geology/natural-arch/natural-arch.blend",
-      "preview": "assets/prehistoric/geology/natural-arch/preview-hero.png",
-      "triangles": 672,
-      "dimensions": [
-        5.350269794464111,
-        3.2428221702575684,
-        1.756019413471222
-      ],
+      "category": "geology",
+      "collection": "prehistoric",
       "license": "CC-BY-4.0",
       "author": "Leon Made This / s010s",
-      "schema_version": 1,
-      "collection": "prehistoric",
-      "units": "meters",
-      "axes": {
-        "glb_up": "+Y",
-        "glb_forward": "+Z",
-        "blender_up": "+Z",
-        "blender_forward": "-Y"
-      },
-      "origin": "ground-center (or documented mounting point)",
-      "blender_version": "4.3.2",
-      "blender_unit_scale": 1,
-      "blender_dimensions_m": [
-        5.350269794464111,
-        1.756019413471222,
-        3.2428221702575684
+      "source_url": "https://github.com/s010s/lowpoly-vault/tree/8873107ad02151336024f97eb2fffa279f973660/experiments/structural-refinement-2026-10-17/recovery",
+      "triangles": 898,
+      "dimensions": [
+        5.259999990463257,
+        3.586798906326294,
+        2.107665002346039
       ],
-      "bounds_glb_m": {
-        "min": [
-          -2.7572288513183594,
-          0,
-          -0.8100000023841858
-        ],
-        "max": [
-          2.593040943145752,
-          3.2428221702575684,
-          0.9460194110870361
-        ],
-        "size": [
-          5.350269794464111,
-          3.2428221702575684,
-          1.756019413471222
-        ]
-      },
-      "generator_seed": 29,
-      "export_options": {
-        "export_format": "GLB",
-        "use_selection": true,
-        "export_yup": true,
-        "export_apply": true,
-        "export_normals": true,
-        "export_texcoords": false,
-        "export_tangents": false,
-        "export_materials": "EXPORT",
-        "export_vertex_color": "NONE",
-        "export_animations": false,
-        "export_skins": false,
-        "export_morph": false,
-        "export_cameras": false,
-        "export_lights": false,
-        "export_extras": true,
-        "export_gpu_instances": false,
-        "export_gn_mesh": false,
-        "export_draco_mesh_compression_enable": false,
-        "export_use_gltfpack": false
-      },
-      "materials": [
-        {
-          "name": "earth",
-          "srgb": "#8A715B"
-        },
-        {
-          "name": "stone_light",
-          "srgb": "#C7B798"
-        },
-        {
-          "name": "warm_stone",
-          "srgb": "#A89578"
-        }
-      ],
-      "glb_bytes": 40656,
+      "glb": "assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+      "blend": "assets/revisions/natural-arch/structural-r002/natural-arch.blend",
+      "preview": "assets/revisions/natural-arch/structural-r002/preview.webp",
       "sha256": {
-        "glb": "393dbf9e01187f6f417650cb56c56240053671367d4069d1f9d05c257f735013",
-        "blend": "99ee9023b8773e286c9d4acae46c7ebd9ec4682bb96a03b4ae198b8154d0180d",
-        "preview": "152cb35b8ee5dd435a34954b2619feeebed7013686058d0013a0de8dca7eea82"
+        "glb": "cf41f5f970e4c8f72f57c4132974e00320e262b6b210a40c717dc2c27098672d",
+        "blend": "a2ab15817796596b8402c3a47fec7967a4d5c3fb9649b3a24e5449696ea946db",
+        "preview": "957f88e0157293f3f845e484c2a15e9a003fd85d235d678f4712f630d28e25d9"
       },
+      "generator": "assets/revisions/natural-arch/structural-r002/generator.py",
+      "generator_config": "assets/revisions/natural-arch/structural-r002/build-config.json",
+      "generator_sha256": "676beb16c507c5fa14e06cf261364f30573a83d2478b7db5280e6111d913fb29",
+      "config_sha256": "116a7f3fb570c6267810bab4d3bfd8e003a4ac32bda9d79f918a1d4519751c39",
+      "units": "meters",
+      "scientific_scope": {
+        "en": "Evidence-informed stylized concept; no named taxon, specimen, locality, age or habitat reconstruction is claimed. Dimensions and colors are artistic choices.",
+        "zh": "有依据的风格化概念；不主张具体物种、标本、地点、年代或栖息地复原，尺寸和颜色为美术选择。"
+      },
+      "source_blender_version": "4.3.2",
+      "acceptance_scope": "Frozen concept/catalogue brief; recorded Chromium/SwiftShader correctness and workload. Physical-device performance remains unverified.",
+      "generator_dependencies": [
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py"
+      ],
       "worlds": [
         "prehistoric"
       ],
       "packs": [
         "prehistoric-starter"
       ],
-      "qa": "assets/prehistoric/geology/natural-arch/qa.json",
-      "quality_status": "work_in_progress"
+      "quality_status": "accepted_for_brief",
+      "revision_provenance": {
+        "author": "Leon Made This / s010s",
+        "source_url": "https://github.com/s010s/lowpoly-vault/tree/8873107ad02151336024f97eb2fffa279f973660/experiments/structural-refinement-2026-10-17/recovery",
+        "changes": "Unequal stone supports, irregular shoulder and localized weak-bed erosion; exact independently accepted structural-r002.",
+        "original_author": "Leon Made This / s010s",
+        "original_source_url": "https://github.com/s010s/lowpoly-vault",
+        "original_glb_sha256": "393dbf9e01187f6f417650cb56c56240053671367d4069d1f9d05c257f735013"
+      }
     },
     {
       "generator": "scripts/models/build_geology_traces.py",
@@ -638,168 +557,68 @@
       "quality_status": "work_in_progress"
     },
     {
-      "author": "Leon Made This / s010s",
-      "license": "CC-BY-4.0",
-      "originality": {
-        "en": "Entirely original procedural mesh design; no third-party model, texture or palette assets.",
-        "zh": "全部为原创参数化几何；未使用第三方模型、纹理或下载色板。"
-      },
-      "scientific_scope": {
-        "en": "Evidence-informed stylized plant concept, not a taxon or site reconstruction.",
-        "zh": "有依据的风格化植物概念，并非具体物种或化石地点复原。"
-      },
-      "generator": "scripts/models/build_understory.py",
-      "modeling_runtime": "GPT-6 Astra; xhigh; Blender 4.3.2; cloud only",
-      "topology_notes": {
-        "en": "Leaves are closed folded blades with a slight ridge and real thickness. No alpha cards. Separate semantic fronds remain editable.",
-        "zh": "叶片均为具浅脊线与真实厚度的闭合折面实体；不使用透明贴片。语义分组叶片可分别编辑。"
-      },
-      "scale_note": {
-        "en": "Dimensions are artistic asset specifications in meters, not measured fossil dimensions.",
-        "zh": "米制尺寸为美术资产规格，不是化石测量值。"
-      },
-      "tags": [
-        "prehistoric",
-        "plants",
-        "fern",
-        "groundcover",
-        "mesozoic-concept",
-        "original",
-        "low-poly"
-      ],
-      "sources": [
-        {
-          "title": "NHM: Unfurl the secrets of ferns",
-          "url": "https://www.nhm.ac.uk/discover/ferns.html"
-        }
-      ],
-      "design_parameters": {
-        "palette": [
-          "fern_deep",
-          "fern_mid",
-          "fern_light"
-        ],
-        "frond_count": 7,
-        "pinna_pairs_per_frond": 11,
-        "crozier_count": 1,
-        "seed": 20261017,
-        "silhouette_signature": "ground-level crown; three frond heights; bowed drooping pinnae; one unfurling crozier"
-      },
-      "reconstruction_notes": {
-        "en": "A generalized Mesozoic fern-form concept. The simplified pinnae, growth stage and color are artistic choices; it is not an identification of a living fern species, seed fern, or fossil specimen. Reproduces no flowers or seed clusters.",
-        "zh": "宽泛的中生代蕨形概念。简化羽片、生长阶段及配色为美术选择；不是现生蕨种、种子蕨或某件化石标本的鉴定。不制作花或种子串。"
-      },
-      "generator_sha256": "a16d82b2c2329e1e16bad4aa61135a7c0e0396ebb77f7eed96f4644ab2bbce3f",
-      "seed": 20261016,
-      "style": "faceted-prehistoric-environments",
-      "palette_srgb": {
-        "fern_deep": "#294C43",
-        "fern_mid": "#47745C",
-        "fern_light": "#719366"
-      },
       "id": "fern-cluster",
+      "revision": "r006",
       "name": {
         "en": "Ground fern cluster",
         "zh": "地被蕨丛"
       },
-      "category": "plants",
       "description": {
-        "en": "Seven soft arching fronds with staggered, folded pinnae and an exposed young fiddlehead.",
-        "zh": "七片柔曲拱形叶轴带交错宽羽片，近地叶丛外缘下垂，并保留一片清楚的新卷芽。"
+        "en": "Seven arched fern fronds with narrow swept pinnae, open crown gaps and one young crozier.",
+        "zh": "七片拱形蕨叶，狭长羽片沿叶轴渐收，叶丛留有空隙，并有一片年轻卷芽。"
       },
-      "glb": "assets/prehistoric/plants/fern-cluster/fern-cluster.glb",
-      "blend": "assets/prehistoric/plants/fern-cluster/fern-cluster.blend",
-      "preview": "assets/prehistoric/plants/fern-cluster/preview-hero.png",
-      "triangles": 2418,
-      "dimensions": [
-        1.4356966614723206,
-        0.8006523251533508,
-        1.5177306532859802
-      ],
-      "schema_version": 1,
+      "category": "plants",
       "collection": "prehistoric",
-      "units": "meters",
-      "axes": {
-        "glb_up": "+Y",
-        "glb_forward": "+Z",
-        "blender_up": "+Z",
-        "blender_forward": "-Y"
-      },
-      "origin": "ground-center (or documented mounting point)",
-      "blender_version": "4.3.2",
-      "blender_unit_scale": 1,
-      "blender_dimensions_m": [
-        1.4356966614723206,
-        1.5177306532859802,
-        0.8006523251533508
+      "license": "CC-BY-4.0",
+      "author": "Leon Made This / s010s",
+      "source_url": "https://github.com/s010s/lowpoly-vault/tree/8873107ad02151336024f97eb2fffa279f973660/experiments/structural-refinement-2026-10-17/recovery",
+      "triangles": 7736,
+      "dimensions": [
+        1.4207196831703186,
+        0.8817551825195551,
+        1.5155771970748901
       ],
-      "bounds_glb_m": {
-        "min": [
-          -0.7332270741462708,
-          0,
-          -0.7137723565101624
-        ],
-        "max": [
-          0.7024695873260498,
-          0.8006523251533508,
-          0.8039582967758179
-        ],
-        "size": [
-          1.4356966614723206,
-          0.8006523251533508,
-          1.5177306532859802
-        ]
-      },
-      "generator_seed": 20261017,
-      "export_options": {
-        "export_format": "GLB",
-        "use_selection": true,
-        "export_yup": true,
-        "export_apply": true,
-        "export_normals": true,
-        "export_texcoords": false,
-        "export_tangents": false,
-        "export_materials": "EXPORT",
-        "export_vertex_color": "NONE",
-        "export_animations": false,
-        "export_skins": false,
-        "export_morph": false,
-        "export_cameras": false,
-        "export_lights": false,
-        "export_extras": true,
-        "export_gpu_instances": false,
-        "export_gn_mesh": false,
-        "export_draco_mesh_compression_enable": false,
-        "export_use_gltfpack": false
-      },
-      "materials": [
-        {
-          "name": "fern_deep",
-          "srgb": "#294C43"
-        },
-        {
-          "name": "fern_light",
-          "srgb": "#719366"
-        },
-        {
-          "name": "fern_mid",
-          "srgb": "#47745C"
-        }
-      ],
-      "glb_bytes": 186208,
+      "glb": "assets/revisions/fern-cluster/r006/fern-cluster.glb",
+      "blend": "assets/revisions/fern-cluster/r006/fern-cluster.blend",
+      "preview": "assets/revisions/fern-cluster/r006/preview.webp",
       "sha256": {
-        "glb": "ef8b028ba1189bafedc33d93e25abc84f384cfebab678d6a777c313dccccdd19",
-        "blend": "89cc0db2c0e8a1fe64213264ee068367df3b1dc74d97076807adc68749568588",
-        "preview": "54d586544150978811d7a7a245499b6a10fee5e2010bb7f6878a6864c4579d1a"
+        "glb": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+        "blend": "1c8a7a614892548d265151ef06347df62fbd8b5244088ca914b119ac0db33615",
+        "preview": "7cfc555fb5c7a0bdbbe65e959f987b167372e9fae1d2dd04027464501fe0df17"
       },
+      "generator": "assets/revisions/fern-cluster/r006/generate.py",
+      "generator_config": "assets/revisions/fern-cluster/r006/build-config.json",
+      "generator_sha256": "9ceccabfbc449317a7371951c4badb42d0f1b1027b6f9f32b282fe8f41d8e396",
+      "config_sha256": "5bd354ca0cb83d886cba789327f8eaa87a41d23b1039afcd3f7808ae9dcb84e1",
+      "units": "meters",
+      "scientific_scope": {
+        "en": "Evidence-informed stylized concept; no named taxon, specimen, locality, age or habitat reconstruction is claimed. Dimensions and colors are artistic choices.",
+        "zh": "有依据的风格化概念；不主张具体物种、标本、地点、年代或栖息地复原，尺寸和颜色为美术选择。"
+      },
+      "source_blender_version": "4.3.2",
+      "acceptance_scope": "Frozen concept/catalogue brief; recorded Chromium/SwiftShader correctness and workload. Physical-device performance remains unverified.",
+      "export_packer": "assets/revisions/fern-cluster/r006/pack_static.py",
+      "export_packer_sha256": "735d7db314bfdc6594d350da1d811ecbf3e579b2ac8517be279d163c30021d9c",
+      "generator_dependencies": [
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py",
+        "scripts/models/build_understory.py"
+      ],
       "worlds": [
         "prehistoric"
       ],
       "packs": [
         "prehistoric-starter"
       ],
-      "qa": "assets/prehistoric/plants/fern-cluster/qa.json",
-      "quality_status": "work_in_progress"
+      "quality_status": "accepted_for_brief",
+      "revision_provenance": {
+        "author": "Leon Made This / s010s",
+        "source_url": "https://github.com/s010s/lowpoly-vault/tree/8873107ad02151336024f97eb2fffa279f973660/experiments/structural-refinement-2026-10-17/recovery",
+        "changes": "Curved tapered fronds, narrow swept pinnae, open crown and modest crozier; exact independently accepted r006 normal packing.",
+        "original_author": "Leon Made This / s010s",
+        "original_source_url": "https://github.com/s010s/lowpoly-vault",
+        "original_glb_sha256": "ef8b028ba1189bafedc33d93e25abc84f384cfebab678d6a777c313dccccdd19"
+      }
     },
     {
       "author": "Leon Made This / s010s",
@@ -1621,11 +1440,33 @@
       "quality_status": "work_in_progress"
     }
   ],
-  "release_status": "initial",
-  "quality_status": "work_in_progress",
+  "release_status": "mixed",
+  "quality_status": "mixed",
   "publication": {
-    "authorization": "owner_requested_publication_of_existing_ten",
-    "authorized_on": "2026-10-17",
-    "source_commit": "550ac6b1d4477d1fbd85ea9f8eb69502b20a42a7"
+    "authorization": "owner_requested_publication_of_accepted_revisions",
+    "authorized_on": "2026-10-17T09:41:44.188088+00:00",
+    "release_id": "arch-fern-structural-20261017",
+    "descriptor": {
+      "path": "assets/releases/arch-fern-structural-20261017.json",
+      "sha256": "e1d76f598f8d2dedf7681d379fd5de07749968459a30fd587f9b6dfcd5f2b228"
+    },
+    "initial_publication": {
+      "path": "assets/initial-publication.json",
+      "sha256": "4043e9a35d43773660c2dee061b0e2ca0897aa430427e430d0ca5f331f967275"
+    },
+    "approved_asset_ids": [
+      "fern-cluster",
+      "natural-arch"
+    ],
+    "work_in_progress_asset_ids": [
+      "conifer-tree",
+      "cycad",
+      "dinosaur-nest",
+      "horsetail-cluster",
+      "lepidodendron",
+      "stratified-cliff",
+      "three-toed-track",
+      "uprooted-log"
+    ]
   }
 }

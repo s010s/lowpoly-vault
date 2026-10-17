@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "kind": "runtime_parse_report",
+  "stage": "runtime_parse",
+  "subject": {
+    "revision": "r006",
+    "glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+    "brief_sha256": "237d7e8a58042ed11d85c0883bfc58d61ac07519e897964bce185c82559fca90",
+    "references_sha256": "7bad2e7f69de0c326b0330a43b5645e4bdf02e9d4edabf72639495a36ab5cedf"
+  },
+  "status": "pass",
+  "method": "Independent exact-export review of actual full-resolution images, primary morphology references, decoded geometry, raw automated reports and recovered target-renderer CI evidence. Scope and limitations are stated below.",
+  "reviewer": {
+    "id": "independent-structure-reviewer-arch-fern-20261017",
+    "task_id": "seal_arch_fern_reviews"
+  },
+  "reviewed_at": "2026-10-17T05:18:48.266437+00:00",
+  "observations": [
+    "Pinned Three.js GLTFLoader 0.180.0 loads the exact GLB as 3 meshes/3 materials/7,736 triangles with bounds matching independent decode. Raw Node parse errors and warnings are empty.",
+    "Target-site CI ModelStage independently reports the same GLB parsed in Three.js 0.180.0. Parse success is kept distinct from the separately inspected WebGL render and population evidence."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "runtime": {
+    "engine": "Three.js",
+    "version": "180",
+    "loader": "GLTFLoader",
+    "parsed": true
+  },
+  "bounds": {
+    "min": [
+      -0.726791501045227,
+      0,
+      -0.7431892156600952
+    ],
+    "max": [
+      0.6939281821250916,
+      0.8817551825195551,
+      0.7723879814147949
+    ]
+  },
+  "raw_report": {
+    "path": "candidate/r006/runtime-parse.raw.json",
+    "sha256": "1172ec0f143baaba3b68330645ec8db90ff311a00fcda1b0eae911faceefbf13"
+  }
+}

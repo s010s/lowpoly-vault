@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "asset_id": "natural-arch",
+  "brief_version": "production-r002",
+  "profile": "production",
+  "purpose": "Production-scoped structural candidate after independent r001 quick-review repair. Requires all seven evidence gates and separate publication authorization.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 3,
+    "max_primitives": 6,
+    "max_glb_bytes": 650000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Source/export bounds and counts, exact GLB audit, official validator and separately queued semantic rebuild pass.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "All-angle improvement over original: unequal supports, nonuniform actual thickness, selective undercuts, irregular shoulder and crest, coherent beds rather than repetitive decorative bands. Broad quiet rock planes and genuine through-opening remain readable in clay. Repair check: no paired ruler-like front ledges, engineered slit-to-band termination, or circumferential plinth grooves; physical recesses must taper locally.",
+      "required_sources": [
+        "NPS-ARCH-FORM"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Actual continuous rock volume, through-opening and broadly plausible joint/erosion/bedding relationships; labels do not claim named-site or prehistoric reconstruction.",
+      "required_sources": [
+        "NPS-ARCH-FORM",
+        "NPS-ARCH-TIME"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Isolated immutable attempts, original unchanged, editable source, portable GLB, deterministic generator/config, provenance and same-scale comparisons.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB parses using Three.js 0.180.0 with valid bounds and materials.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual browser WebGL2 render of the exact GLB with all-angle image inspection, shader/console check, renderer adapter/context and workload recorded. Explicitly distinguish SwiftShader software graphics from physical GPU evidence.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render one typical and four stress-case candidate instances in a composed ground-contact scene; inspect scale/contact/materials, record submitted primitives/triangles and timing with renderer identity. Physical target-device performance remains outside this scoped correctness finding and unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 azimuths plus all orthographic directions, clay/alternate key, actual triangle wireframe and support/undercut close-ups. Full-angle quick review precedes high-cost polish.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "candidates/r002/natural-arch.blend",
+      "sha256": "a2ab15817796596b8402c3a47fec7967a4d5c3fb9649b3a24e5449696ea946db"
+    },
+    {
+      "role": "generator",
+      "path": "candidates/r002/generator.py",
+      "sha256": "676beb16c507c5fa14e06cf261364f30573a83d2478b7db5280e6111d913fb29"
+    },
+    {
+      "role": "config",
+      "path": "candidates/r002/build-config.json",
+      "sha256": "116a7f3fb570c6267810bab4d3bfd8e003a4ac32bda9d79f918a1d4519751c39"
+    }
+  ],
+  "role_budget": {
+    "role": "One focal environment geology prop; 1 typical and 4 stress visible copies. Close inspection 512-1024 projected pixels, typical 128-512.",
+    "geometry_rationale": "Up to 6000 triangles permits selective bedding planes, shoulder cuts and underside thickness. Target is useful form, not filling allowance. No universal file-size rule.",
+    "texture_rationale": "Zero texture in this controlled form study. Refined textures remain possible after structure review.",
+    "runtime": "Three.js 0.180.0 correctness and combined-scene workload in a declared browser WebGL2 context. Software SwiftShader must be identified explicitly; physical target-device performance remains unknown until measured and cannot be inferred."
+  },
+  "claim_scope": "Evidence-informed stylized time-neutral sandstone arch concept. No named site, specific stratigraphy, formation age or engineering stability claim.",
+  "target_runtime_scope": {
+    "browser": "Chromium with version captured in evidence",
+    "renderer": "Three.js 0.180.0 WebGLRenderer",
+    "context": "WebGL2; explicit software-versus-hardware adapter identification",
+    "asset_instances": {
+      "typical": 1,
+      "stress": 4
+    },
+    "framebuffer": "At least 1024 x 768 drawing-buffer pixels for exact-GLB visual correctness",
+    "required_observations": [
+      "No GLB fetch/parse/shader/context errors",
+      "Front/rear and orbit pixels show correct geometry and single-sided materials",
+      "Single and four-arch composed-scene submitted primitives/triangles and timing recorded",
+      "Software-rendered timing is not a physical-device performance claim"
+    ],
+    "unresolved_target_hardware": "No specific physical device or frame-time target was supplied; remains an explicit limitation and blocks claims of target-device performance."
+  }
+}

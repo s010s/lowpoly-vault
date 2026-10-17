@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "kind": "scene_report",
+  "stage": "scene",
+  "subject": {
+    "revision": "r006",
+    "glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+    "brief_sha256": "237d7e8a58042ed11d85c0883bfc58d61ac07519e897964bce185c82559fca90",
+    "references_sha256": "7bad2e7f69de0c326b0330a43b5645e4bdf02e9d4edabf72639495a36ab5cedf"
+  },
+  "status": "pass",
+  "method": "Independent exact-export review of actual full-resolution images, primary morphology references, decoded geometry, raw automated reports and recovered target-renderer CI evidence. Scope and limitations are stated below.",
+  "reviewer": {
+    "id": "independent-structure-reviewer-arch-fern-20261017",
+    "task_id": "seal_arch_fern_reviews"
+  },
+  "reviewed_at": "2026-10-17T05:18:48.266437+00:00",
+  "observations": [
+    "Inspected all six unobstructed authored-meter population screenshots: 1, 20 and 100 copies, each as clones and as explicit InstancedMesh groups. Crown contact is on the reference plane, plant proportions/materials remain consistent, and spatially separated repeated plants retain their layered form. No errors are reported.",
+    "Typical 20-copy clones submit 62 calls/154,722 triangles; explicit instancing submits 5 calls/154,722 triangles. Stress 100-copy clones submit 302 calls/773,602 triangles; instancing submits 5 calls/773,602 triangles. Counts include two reference drawables and two floor triangles; one fern remains 3 primitives/7,736 triangles.",
+    "Instancing reduces draw submissions but does not reduce triangle count. Clone/instanced screenshots use the same population camera and source data; their nearly matching pixels support representation consistency. The catalogue viewer does not thereby gain automatic population instancing.",
+    "Each population records 20 synchronous render/finish samples under Chromium 141 ANGLE SwiftShader WebGL2 at 1600×1000. These measurements establish workload and correctness in this software context only. No physical device or frame-time target was supplied, so repeated-groundcover device performance remains unknown and is not an approval claim."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [
+    {
+      "id": "scene-1-clones",
+      "sha256": "878ce5fc9dfaafab5096ccad51874875b1f5cfb1d73da72b53d485ebe59f5a07"
+    },
+    {
+      "id": "scene-1-instanced",
+      "sha256": "f7345edf3e77769105dc45bf11fd455e772a2af9204415b5e3aaf531471e6a43"
+    },
+    {
+      "id": "scene-20-clones",
+      "sha256": "d46ea40ac764f5546a6331fb88a16d3dc80084bb9e5fe9ab7cf2ee806a2686bd"
+    },
+    {
+      "id": "scene-20-instanced",
+      "sha256": "09e68e2a716cee12792f260fa1feaed7731db1ae200b6882ae9cf3610fa3af98"
+    },
+    {
+      "id": "scene-100-clones",
+      "sha256": "342a43db03adf8d65a45951378358004f94ca95e5ed921b2ca6e7725230fcc6c"
+    },
+    {
+      "id": "scene-100-instanced",
+      "sha256": "260b6d8df53f8033d32dc35c46e96f21e6e2886fd0d80b45fd5350e88da598f3"
+    }
+  ],
+  "runtime": {
+    "engine": "Three.js",
+    "version": "0.180.0",
+    "loader": "GLTFLoader",
+    "renderer": "WebGLRenderer",
+    "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+    "context": "WebGL2RenderingContext",
+    "context_created": true,
+    "rendered": true,
+    "rendered_frames": 20,
+    "draw_calls": 5,
+    "triangles": 773602,
+    "output_color_space": "srgb",
+    "tone_mapping": "ACESFilmic",
+    "exposure": 1.2
+  },
+  "screenshots": [
+    "scene-1-clones",
+    "scene-1-instanced",
+    "scene-20-clones",
+    "scene-20-instanced",
+    "scene-100-clones",
+    "scene-100-instanced"
+  ],
+  "scene_description": "Authored-meter fern copies on an unobstructed reference floor/grid, compared as clones and explicit instanced groups at 1/20/100 visible copies. Software-WebGL correctness/workload scope.",
+  "scene_assets": [
+    {
+      "id": "fern-cluster",
+      "glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+      "instances": 100
+    }
+  ],
+  "populations": [
+    {
+      "id": "fern-cluster",
+      "instances": 1,
+      "mode": "clones",
+      "source_glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+      "scope": "Authored-scale repeated copies with a one-meter approximate grid; reference floor/grid calls are included. Instanced mode uses identical mesh/material data and per-copy world matrices.",
+      "runtime": {
+        "engine": "Three.js",
+        "version": "0.180.0",
+        "loader": "GLTFLoader",
+        "renderer": "WebGLRenderer",
+        "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "context": "WebGL2RenderingContext",
+        "context_created": true,
+        "rendered": true,
+        "rendered_frames": 20,
+        "draw_calls": 5,
+        "triangles": 7738,
+        "output_color_space": "srgb",
+        "tone_mapping": "ACESFilmic",
+        "exposure": 1.2
+      },
+      "synchronous_render_finish_ms": [
+        2.2000000000116415,
+        0.20000000001164153,
+        0,
+        0.09999999997671694,
+        0,
+        0.10000000000582077,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0.10000000000582077,
+        0.09999999997671694,
+        0,
+        0.10000000000582077,
+        0,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0,
+        0.10000000000582077,
+        0
+      ],
+      "camera": {
+        "position": [
+          1.8925217605935685,
+          2.049521087764311,
+          3.0280348169497096
+        ],
+        "target": [
+          0,
+          0.44087759125977755,
+          0
+        ],
+        "fov": 38
+      },
+      "reference_drawables": 2,
+      "grid_step_meters": 1.0653430720170338,
+      "screenshot": {
+        "path": "population-fern-cluster-1-clones.png",
+        "sha256": "878ce5fc9dfaafab5096ccad51874875b1f5cfb1d73da72b53d485ebe59f5a07",
+        "bytes": 154739
+      }
+    },
+    {
+      "id": "fern-cluster",
+      "instances": 1,
+      "mode": "instanced",
+      "source_glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+      "scope": "Authored-scale repeated copies with a one-meter approximate grid; reference floor/grid calls are included. Instanced mode uses identical mesh/material data and per-copy world matrices.",
+      "runtime": {
+        "engine": "Three.js",
+        "version": "0.180.0",
+        "loader": "GLTFLoader",
+        "renderer": "WebGLRenderer",
+        "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "context": "WebGL2RenderingContext",
+        "context_created": true,
+        "rendered": true,
+        "rendered_frames": 20,
+        "draw_calls": 5,
+        "triangles": 7738,
+        "output_color_space": "srgb",
+        "tone_mapping": "ACESFilmic",
+        "exposure": 1.2
+      },
+      "synchronous_render_finish_ms": [
+        30.29999999998836,
+        0.29999999998835847,
+        0.10000000000582077,
+        0,
+        0.10000000000582077,
+        0.20000000001164153,
+        0.09999999997671694,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0,
+        0.09999999997671694,
+        0,
+        0.20000000001164153,
+        0,
+        0.10000000000582077,
+        0
+      ],
+      "camera": {
+        "position": [
+          1.8925217605935685,
+          2.049521087764311,
+          3.0280348169497096
+        ],
+        "target": [
+          0,
+          0.44087759125977755,
+          0
+        ],
+        "fov": 38
+      },
+      "reference_drawables": 2,
+      "grid_step_meters": 1.0653430720170338,
+      "screenshot": {
+        "path": "population-fern-cluster-1-instanced.png",
+        "sha256": "f7345edf3e77769105dc45bf11fd455e772a2af9204415b5e3aaf531471e6a43",
+        "bytes": 154780
+      }
+    },
+    {
+      "id": "fern-cluster",
+      "instances": 20,
+      "mode": "clones",
+      "source_glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+      "scope": "Authored-scale repeated copies with a one-meter approximate grid; reference floor/grid calls are included. Instanced mode uses identical mesh/material data and per-copy world matrices.",
+      "runtime": {
+        "engine": "Three.js",
+        "version": "0.180.0",
+        "loader": "GLTFLoader",
+        "renderer": "WebGLRenderer",
+        "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "context": "WebGL2RenderingContext",
+        "context_created": true,
+        "rendered": true,
+        "rendered_frames": 20,
+        "draw_calls": 62,
+        "triangles": 154722,
+        "output_color_space": "srgb",
+        "tone_mapping": "ACESFilmic",
+        "exposure": 1.2
+      },
+      "synchronous_render_finish_ms": [
+        3.2999999999883585,
+        0.39999999999417923,
+        0.3000000000174623,
+        0.1999999999825377,
+        0.39999999999417923,
+        0.5,
+        0.7000000000116415,
+        0.6000000000058208,
+        0.6000000000058208,
+        0.5,
+        0.5999999999767169,
+        0.40000000002328306,
+        0.29999999998835847,
+        0.29999999998835847,
+        0.20000000001164153,
+        0.29999999998835847,
+        0.5,
+        0.40000000002328306,
+        0.5,
+        0.29999999998835847
+      ],
+      "camera": {
+        "position": [
+          10.952896494571878,
+          9.750839611645873,
+          17.524634391315004
+        ],
+        "target": [
+          0,
+          0.44087759125977755,
+          0
+        ],
+        "fov": 38
+      },
+      "reference_drawables": 2,
+      "grid_step_meters": 0.9983455066879591,
+      "screenshot": {
+        "path": "population-fern-cluster-20-clones.png",
+        "sha256": "d46ea40ac764f5546a6331fb88a16d3dc80084bb9e5fe9ab7cf2ee806a2686bd",
+        "bytes": 242452
+      }
+    },
+    {
+      "id": "fern-cluster",
+      "instances": 20,
+      "mode": "instanced",
+      "source_glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+      "scope": "Authored-scale repeated copies with a one-meter approximate grid; reference floor/grid calls are included. Instanced mode uses identical mesh/material data and per-copy world matrices.",
+      "runtime": {
+        "engine": "Three.js",
+        "version": "0.180.0",
+        "loader": "GLTFLoader",
+        "renderer": "WebGLRenderer",
+        "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "context": "WebGL2RenderingContext",
+        "context_created": true,
+        "rendered": true,
+        "rendered_frames": 20,
+        "draw_calls": 5,
+        "triangles": 154722,
+        "output_color_space": "srgb",
+        "tone_mapping": "ACESFilmic",
+        "exposure": 1.2
+      },
+      "synchronous_render_finish_ms": [
+        2.7000000000116415,
+        0.09999999997671694,
+        0,
+        0.10000000000582077,
+        0,
+        0,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0,
+        0,
+        0.09999999997671694,
+        0.10000000000582077,
+        0,
+        0,
+        0.10000000000582077,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0.09999999997671694
+      ],
+      "camera": {
+        "position": [
+          10.952896494571878,
+          9.750839611645873,
+          17.524634391315004
+        ],
+        "target": [
+          0,
+          0.44087759125977755,
+          0
+        ],
+        "fov": 38
+      },
+      "reference_drawables": 2,
+      "grid_step_meters": 0.9983455066879591,
+      "screenshot": {
+        "path": "population-fern-cluster-20-instanced.png",
+        "sha256": "09e68e2a716cee12792f260fa1feaed7731db1ae200b6882ae9cf3610fa3af98",
+        "bytes": 242416
+      }
+    },
+    {
+      "id": "fern-cluster",
+      "instances": 100,
+      "mode": "clones",
+      "source_glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+      "scope": "Authored-scale repeated copies with a one-meter approximate grid; reference floor/grid calls are included. Instanced mode uses identical mesh/material data and per-copy world matrices.",
+      "runtime": {
+        "engine": "Three.js",
+        "version": "0.180.0",
+        "loader": "GLTFLoader",
+        "renderer": "WebGLRenderer",
+        "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "context": "WebGL2RenderingContext",
+        "context_created": true,
+        "rendered": true,
+        "rendered_frames": 20,
+        "draw_calls": 302,
+        "triangles": 773602,
+        "output_color_space": "srgb",
+        "tone_mapping": "ACESFilmic",
+        "exposure": 1.2
+      },
+      "synchronous_render_finish_ms": [
+        3.2999999999883585,
+        1.2000000000116415,
+        1.2000000000116415,
+        1.1999999999825377,
+        1.1000000000058208,
+        1.2000000000116415,
+        1.1999999999825377,
+        1.1000000000058208,
+        0.7999999999883585,
+        1.2000000000116415,
+        0.8999999999941792,
+        1,
+        0.7000000000116415,
+        1.1000000000058208,
+        1.099999999976717,
+        3.2000000000116415,
+        1,
+        1.2999999999883585,
+        1.3000000000174623,
+        1.099999999976717
+      ],
+      "camera": {
+        "position": [
+          25.19187044800455,
+          21.853967472063644,
+          40.30699271680728
+        ],
+        "target": [
+          0,
+          0.44087759125977755,
+          0
+        ],
+        "fov": 38
+      },
+      "reference_drawables": 2,
+      "grid_step_meters": 0.9982735721961312,
+      "screenshot": {
+        "path": "population-fern-cluster-100-clones.png",
+        "sha256": "342a43db03adf8d65a45951378358004f94ca95e5ed921b2ca6e7725230fcc6c",
+        "bytes": 274016
+      }
+    },
+    {
+      "id": "fern-cluster",
+      "instances": 100,
+      "mode": "instanced",
+      "source_glb_sha256": "a94b2e020787f1f6edd2112f5eb64e045faedd57c919464ef0f5e31a143987ac",
+      "scope": "Authored-scale repeated copies with a one-meter approximate grid; reference floor/grid calls are included. Instanced mode uses identical mesh/material data and per-copy world matrices.",
+      "runtime": {
+        "engine": "Three.js",
+        "version": "0.180.0",
+        "loader": "GLTFLoader",
+        "renderer": "WebGLRenderer",
+        "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "context": "WebGL2RenderingContext",
+        "context_created": true,
+        "rendered": true,
+        "rendered_frames": 20,
+        "draw_calls": 5,
+        "triangles": 773602,
+        "output_color_space": "srgb",
+        "tone_mapping": "ACESFilmic",
+        "exposure": 1.2
+      },
+      "synchronous_render_finish_ms": [
+        3.3999999999941792,
+        0.20000000001164153,
+        0.7999999999883585,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0,
+        0,
+        0.09999999997671694,
+        0.10000000000582077,
+        0,
+        0.10000000000582077,
+        0.10000000000582077,
+        0,
+        0,
+        0.10000000000582077,
+        0,
+        0.09999999997671694,
+        0,
+        0.10000000000582077
+      ],
+      "camera": {
+        "position": [
+          25.19187044800455,
+          21.853967472063644,
+          40.30699271680728
+        ],
+        "target": [
+          0,
+          0.44087759125977755,
+          0
+        ],
+        "fov": 38
+      },
+      "reference_drawables": 2,
+      "grid_step_meters": 0.9982735721961312,
+      "screenshot": {
+        "path": "population-fern-cluster-100-instanced.png",
+        "sha256": "260b6d8df53f8033d32dc35c46e96f21e6e2886fd0d80b45fd5350e88da598f3",
+        "bytes": 273933
+      }
+    }
+  ],
+  "raw_report": {
+    "path": "review/evidence/runtime/scene-report.json",
+    "sha256": "bf993f05ca77ff102a7afddfce5f56c0d48ee4a384fc124328e55d178943863f"
+  },
+  "hardware_performance_status": "unknown"
+}
