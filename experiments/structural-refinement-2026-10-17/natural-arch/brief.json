@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "asset_id": "natural-arch",
+  "brief_version": "structural-r001",
+  "profile": "study",
+  "purpose": "Form-first structural candidate, original immutable baseline 672 triangles/40656 bytes. Compare exact exports at unchanged meter scale and shared framing. This is not release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 3,
+    "max_primitives": 6,
+    "max_glb_bytes": 650000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Source/export bounds and counts, exact GLB audit, official validator and separately queued semantic rebuild pass.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "All-angle improvement over original: unequal supports, nonuniform actual thickness, selective undercuts, irregular shoulder and crest, coherent beds rather than repetitive decorative bands. Broad quiet rock planes and genuine through-opening remain readable in clay.",
+      "required_sources": [
+        "NPS-ARCH-FORM"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Actual continuous rock volume, through-opening and broadly plausible joint/erosion/bedding relationships; labels do not claim named-site or prehistoric reconstruction.",
+      "required_sources": [
+        "NPS-ARCH-FORM",
+        "NPS-ARCH-TIME"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Isolated immutable attempts, original unchanged, editable source, portable GLB, deterministic generator/config, provenance and same-scale comparisons.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB parses using Three.js 0.180.0 with valid bounds and materials.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": false,
+      "description": "Actual target graphics results remain unknown until rendered and measured.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": false,
+      "description": "Populated scene performance remains unknown until measured.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 azimuths plus all orthographic directions, clay/alternate key, actual triangle wireframe and support/undercut close-ups. Full-angle quick review precedes high-cost polish.",
+  "required_deliverables": [],
+  "role_budget": {
+    "role": "One focal environment geology prop; 1 typical and 4 stress visible copies. Close inspection 512-1024 projected pixels, typical 128-512.",
+    "geometry_rationale": "Up to 6000 triangles permits selective bedding planes, shoulder cuts and underside thickness. Target is useful form, not filling allowance. No universal file-size rule.",
+    "texture_rationale": "Zero texture in this controlled form study. Refined textures remain possible after structure review.",
+    "runtime": "Pinned Three.js 0.180.0. Populated hardware performance remains unknown until measured."
+  },
+  "claim_scope": "Evidence-informed stylized time-neutral sandstone arch concept. No named site, specific stratigraphy, formation age or engineering stability claim."
+}
