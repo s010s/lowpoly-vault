@@ -97,7 +97,9 @@ export class SharedModelPreview {
     if (this.raf) { cancelAnimationFrame(this.raf); this.raf = 0;
       const base = current.snapshotView || CARD_RENDER_PRESET.camera;
       this.stage?.setView(CARD_RENDER_PRESET.camera.azimuth_deg + current.want * 15, base.elevation_deg, base.distance); }
-    let canvas = current.live ? this.stage.snapshot() : this.canvas;
+    // The renderer frames inside a centered square. Capturing the rectangular
+    // card margin would shrink its flight when the detail aspect ratio differs.
+    let canvas = current.live ? this.stage.snapshot({ square: true }) : this.canvas;
     if (!canvas) return null;
     const view = canvas.__presentation || current.snapshotView;
     if (canvas === this.canvas && transfer) this.canvas = null;

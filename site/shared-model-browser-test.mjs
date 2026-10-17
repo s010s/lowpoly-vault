@@ -183,7 +183,7 @@ try{
   await page.evaluate(()=>{
    window.__qaTouchEvents=[];
    for(const type of ['pointerdown','pointermove'])document.addEventListener(type,event=>{
-    if(event.pointerType==='touch')window.__qaTouchEvents.push({type,x:event.clientX,y:event.clientY,pointerId:event.pointerId,trusted:event.isTrusted});
+    if(event.pointerType==='touch')window.__qaTouchEvents.push({type,x:event.clientX,y:event.clientY,pointerId:event.pointerId,trusted:event.isTrusted,imageWidth:event.target.closest('.asset-card')?.querySelector('.asset-image').getBoundingClientRect().width});
    },true);
   });
   const swipeCard=async({id,fraction,before,label})=>{
@@ -199,8 +199,10 @@ try{
    await stage(page);await page.waitForTimeout(80);
    const after=await view(page),events=await page.evaluate(()=>window.__qaTouchEvents);
    const start=events.find(e=>e.type==='pointerdown'),end=events.filter(e=>e.type==='pointermove').at(-1);
-   const expectedAzimuth=(before?.azimuth_deg??42)+(end.x-start.x)/r.width*360;
-   c.touch_swipes.push({label,before,after,expectedAzimuth,image_width:r.width,events});
+   // Gallery entrance motion can still be scaling the card during the gesture.
+   // Use the width observed with the actual last native move, as the handler does.
+   const expectedAzimuth=(before?.azimuth_deg??42)+(end.x-start.x)/end.imageWidth*360;
+   c.touch_swipes.push({label,before,after,expectedAzimuth,image_width:r.width,final_move_image_width:end.imageWidth,events});
    check(c,label+' uses trusted native touch',Boolean(start&&end)&&events.every(e=>e.trusted),events);
    check(c,label+' rotates from its actual starting azimuth',angle(after.azimuth_deg,expectedAzimuth)<.01,{before,after,expectedAzimuth});
    if(before){

@@ -39,7 +39,7 @@ function harness({ stageGate, showGate, failure } = {}) {
       this.presentationInfo = { azimuth_deg: ((azimuth % 360) + 360) % 360, elevation_deg: elevation, distance: distance ?? this.presentationInfo.distance };
       views.push({ ...this.presentationInfo });
     },
-    snapshot() { this.snapshots++; const result = canvas(); result.__presentation = { ...this.presentationInfo }; return result; },
+    snapshot(options) { this.snapshots++; this.snapshotOptions = options; const result = canvas(); result.__presentation = { ...this.presentationInfo }; return result; },
     hide() { this.hidden++; this._host = null; },
   };
   const controller = new SharedModelPreview({ resolvePath: path => '/lowpoly-vault/' + path, getStage: async () => { gets++; return stageGate ? stageGate.promise : stage; } });
@@ -93,6 +93,7 @@ function dispose(h) { h.controller.dispose(); assert.equal(frames.size, 0); asse
   const h = harness(), c = h.controller, a = card('arch');
   c.activate(a, asset('arch')); await c.pending; c.request(7);
   const snapshot = c.capture({ transfer: true });
+  assert.deepEqual(h.stage.snapshotOptions, { square: true }, 'Card handoff captures the centered framing square, without rectangular card margins.');
   assert.equal(frames.size, 0); assert.equal(snapshot.view.azimuth_deg, 147, 'Capture synchronously flushes latest pointer intent');
   assert.equal(snapshot.canvas.__presentation.azimuth_deg, 147); assert.equal(snapshot.id, 'arch');
   c.stop(); assert(!snapshot.canvas.removed, 'A copied live draw belongs to the modal after capture');

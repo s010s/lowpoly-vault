@@ -202,11 +202,12 @@ async function startSampler(page) {
     const pixelSignature = source => {
       // Match ModelStage.snapshot's bounded copy without retaining another GLB,
       // renderer, or scene. These are the actual current WebGL draw's pixels.
-      const scale = Math.min(1, 1024 / Math.max(source.width, source.height));
+      const side = Math.min(source.width, source.height), scale = Math.min(1, 1024 / side);
       const canvas = document.createElement('canvas');
-      canvas.width = Math.round(source.width * scale); canvas.height = Math.round(source.height * scale);
+      canvas.width = canvas.height = Math.round(side * scale);
       const context = canvas.getContext('2d', { willReadFrequently: true });
-      context.drawImage(source, 0, 0, canvas.width, canvas.height);
+      context.drawImage(source, (source.width - side) / 2, (source.height - side) / 2,
+        side, side, 0, 0, canvas.width, canvas.height);
       const bytes = context.getImageData(0, 0, canvas.width, canvas.height).data;
       let hash = 2166136261, transparent = 0;
       for (let i = 0; i < bytes.length; i++) { hash = Math.imul(hash ^ bytes[i], 16777619) >>> 0; if (i % 4 === 3 && bytes[i] <= 3) transparent++; }

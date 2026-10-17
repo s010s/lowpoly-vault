@@ -587,15 +587,18 @@ export class ModelStage {
   }
 
   /** Copy the actual draw before releasing its lease; never create a second scene. */
-  snapshot() {
+  snapshot({ square = false } = {}) {
     if (!this._renderer || !this._canDraw() || this._host?.dataset.modelState !== 'ready') return null;
     this._draw();
     const source = this._renderer.domElement, canvas = document.createElement('canvas');
-    const scale = Math.min(1, 1024 / Math.max(source.width, source.height));
-    canvas.width = Math.round(source.width * scale); canvas.height = Math.round(source.height * scale);
+    const side = Math.min(source.width, source.height);
+    const width = square ? side : source.width, height = square ? side : source.height;
+    const scale = Math.min(1, 1024 / Math.max(width, height));
+    canvas.width = Math.round(width * scale); canvas.height = Math.round(height * scale);
     const context = canvas.getContext('2d');
     if (!context) return null;
-    context.drawImage(source, 0, 0, canvas.width, canvas.height);
+    context.drawImage(source, square ? (source.width - side) / 2 : 0,
+      square ? (source.height - side) / 2 : 0, width, height, 0, 0, canvas.width, canvas.height);
     canvas.__presentation = this.presentationInfo;
     canvas.dataset.assetId = new URL(this._url).pathname.split('/').at(-1).replace(/\.glb$/, '');
     canvas.className = 'model-handoff'; canvas.setAttribute('aria-hidden', 'true');

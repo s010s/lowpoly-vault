@@ -5,13 +5,13 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { ModelStage, MODEL_STAGE_LIMITS } from './viewer.js';
 
-const frames = new Map(), parsed = [], disposed = [], closed = [];
+const frames = new Map(), parsed = [], disposed = [], closed = [], snapshotDraws = [];
 let frameID = 0, fetchCount = 0, clears = 0, failFetch = false;
 let parseGate = null, fetchGate = null, failParse = false;
 const motion = { matches: false, addEventListener() {}, removeEventListener() {} };
 globalThis.window = { matchMedia: () => motion };
 globalThis.document = { baseURI: 'https://example.test/', hidden: false, addEventListener() {}, removeEventListener() {},
-  createElement: () => ({ dataset: {}, setAttribute() {}, getContext: () => ({ drawImage() {} }) }) };
+  createElement: () => ({ dataset: {}, setAttribute() {}, getContext: () => ({ drawImage(...args) { snapshotDraws.push(args); } }) }) };
 globalThis.requestAnimationFrame = callback => { frames.set(++frameID, callback); return frameID; };
 globalThis.cancelAnimationFrame = id => frames.delete(id);
 const flush = () => { const pending = [...frames.values()]; frames.clear(); for (const callback of pending) callback(); };
@@ -123,6 +123,17 @@ try {
   const snapshot = stage.snapshot();
   assert(snapshot); assert.equal(snapshot.dataset.assetId, 'a');
   const captured = snapshot.__presentation;
+  const sourceCanvas = stage._renderer.domElement;
+  for (const [width, height, x, y] of [[600, 400, 100, 0], [400, 600, 0, 100]]) {
+    sourceCanvas.width = width; sourceCanvas.height = height;
+    const square = stage.snapshot({ square: true });
+    assert.equal(square.width, 400); assert.equal(square.height, 400);
+    assert.deepEqual(snapshotDraws.at(-1), [sourceCanvas, x, y, 400, 400, 0, 0, 400, 400], 'Wide/tall card capture crops the exact centered render square in one copy.');
+    const full = stage.snapshot();
+    assert.equal(full.width, width); assert.equal(full.height, height, 'Default detail snapshots retain their full stage aspect.');
+    assert.deepEqual(square.__presentation, captured);
+  }
+  sourceCanvas.width = sourceCanvas.height = 500;
   const requestsBefore = fetchCount, parsesBefore = stage.stats.parseCount;
   await show(stage, 'a', { host: detail, mode: 'detail', initialView: captured }); flush();
   assert.equal(stage._activeResource, resource, 'Card to detail reuses the exact decoded objects and GPU resources.');
