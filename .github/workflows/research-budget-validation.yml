@@ -1,0 +1,100 @@
+name: Validate proposed research budget records
+on:
+  push:
+    branches: ['research/asset-budget-policy']
+    paths:
+      - 'docs/research/2026-10-17-asset-budgets/**'
+      - '.github/workflows/research-budget-validation.yml'
+permissions:
+  contents: read
+concurrency:
+  group: research-budget-validation-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate-record-proposal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+    defaults:
+      run:
+        shell: bash
+        working-directory: docs/research/2026-10-17-asset-budgets
+    steps:
+      - name: Read exact research commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # official v4, pinned
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          sparse-checkout: docs/research/2026-10-17-asset-budgets
+      - name: Set up pinned official Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # official v6, pinned
+        with:
+          python-version: '3.12.15'
+          architecture: x64
+      - name: Install pinned record-validator dependency
+        run: |
+          python -m pip install --only-binary=:all: -r requirements-ci.txt
+          mkdir -p qa-ci
+          python --version | tee qa-ci/python-version.txt
+          python -m pip freeze | tee qa-ci/resolved-dependencies.txt
+      - name: Run exactly fifteen proposal tests
+        run: |
+          python - <<'PY' 2>&1 | tee qa-ci/unit-tests.log
+          import hashlib
+          import importlib.metadata
+          import json
+          import os
+          from pathlib import Path
+          import platform
+          import sys
+          import unittest
+
+          suite = unittest.defaultTestLoader.discover("tests")
+          count = suite.countTestCases()
+          assert count == 15, f"Expected 15 tests, found {count}"
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          report = {
+              "scope": "Research record schema and cross-field checker only",
+              "commit": os.environ["GITHUB_SHA"],
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "python": platform.python_version(),
+              "jsonschema": importlib.metadata.version("jsonschema"),
+              "tests_run": result.testsRun,
+              "failures": len(result.failures),
+              "errors": len(result.errors),
+              "skipped": len(result.skipped),
+              "success": result.wasSuccessful(),
+              "production_policy": "proposal_not_adopted",
+              "actual_device_gpu_benchmark": "not_performed",
+              "source_sha256": {
+                  str(p): hashlib.sha256(p.read_bytes()).hexdigest()
+                  for p in sorted(Path(".").rglob("*"))
+                  if p.is_file() and "qa-ci" not in p.parts
+                  and "__pycache__" not in p.parts
+              }
+          }
+          Path("qa-ci/unit-tests.json").write_text(json.dumps(report, indent=2) + "\n")
+          sys.exit(0 if result.wasSuccessful() else 1)
+          PY
+      - name: Validate held example without approving release
+        run: |
+          python scripts/check_budget_record.py proposals/asset-budget-record.schema.json proposals/triceratops-light.example.json | tee qa-ci/held-example.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          record = json.loads(Path("proposals/triceratops-light.example.json").read_text())
+          assert record["release_status"] == "hold"
+          assert record["gates"]["runtime"]["status"] == "unknown"
+          assert record["gates"]["scene"]["status"] == "unknown"
+          print("Held record validates structurally; runtime/scene remain unknown.")
+          PY
+      - name: Preserve research snapshot and validation evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # official v4, pinned
+        with:
+          name: research-budget-validation-${{ github.sha }}
+          path: docs/research/2026-10-17-asset-budgets/
+          if-no-files-found: error
+          retention-days: 30
