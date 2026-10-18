@@ -1,0 +1,17 @@
+{
+  "kind": "workspace-setup-incident-before-model-launch",
+  "batch_id": "batch-28",
+  "failed_command": "git worktree add -b candidate/batch28-sea-stack-20261018 /workspace/batch28-sea-stack da272109c96e3c38a7f2421dc2340c192a0153bb",
+  "returncode": 128,
+  "stderr": "original helper suppressed stderr; exact error text unavailable, not invented",
+  "observed": "No sea-stack working directory; local branch existed; df reported overlay 658MB free; preceding full checkouts approximately794MB each.",
+  "recovery": "Only new batch28 worktrees use sparse checkout retaining scripts/schemas/skills/docs/production policies and their own work/candidate; remaining worktrees created with no-checkout before sparse selection. Existing unpushed sea-stack local branch reset to the identical authorized base, then normal claim commit/push. No force push or old-batch deletion.",
+  "owned_model_process_launched": false,
+  "parent_informed": true,
+  "followup_probe": {
+    "command": "git worktree add -b candidate/batch28-sea-stack-20261018 /workspace/batch28-sea-stack da272109c96e3c38a7f2421dc2340c192a0153bb",
+    "returncode": 128,
+    "stderr": "fatal: a branch named candidate/batch28-sea-stack-20261018 already exists",
+    "mutation": "none from this refused duplicate-branch probe"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "kind": "batch28-owned-serial-chronology-summary",
+  "verdict": "pass",
+  "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
+  "final_handoff_jsonl_sha256": "2e3e088c7f91a8248fd70f5a39b41960801b402e67ebe6e39632e062f8f56e6e",
+  "overlapping_top_level_owned_launches": 0,
+  "all_owned_process_groups_exited": true,
+  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
+  "top_level_launch_count": 56,
+  "nonzero_exit_count": 2,
+  "nonzero_exit_note": "Nonzero guard failures are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
+  "assets": [
+    {
+      "asset_id": "marsilea",
+      "candidate_commit": "b6292286a606aefae53d2cc245d91fb726b2b887",
+      "branch": "candidate/batch28-marsilea-20261018",
+      "ledger_path": "production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "ab946512ac2b6bc594caa8cf818ed92c7928b47522e5569c5cb7b5630ace6600",
+      "first_launch": "2026-10-18T23:05:23.885926+00:00",
+      "last_exit": "2026-10-18T23:06:10.507523+00:00",
+      "lifecycle_complete": "2026-10-18T23:06:33.008240+00:00",
+      "top_level_launch_count": 9,
+      "matching_exit_count": 9,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "hurdia",
+      "candidate_commit": "0cd117ebb43065083e13a14d19e82ada5a2392e9",
+      "branch": "candidate/batch28-hurdia-20261018",
+      "ledger_path": "production/continuous-small-life-round10-20261018/work/batch-28/hurdia/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "5aea0b0d18f0a39dc34f9df3007f1eaca40df074da153e7e395c177c888bda5d",
+      "first_launch": "2026-10-18T23:06:46.744266+00:00",
+      "last_exit": "2026-10-18T23:09:13.483604+00:00",
+      "lifecycle_complete": "2026-10-18T23:09:33.542171+00:00",
+      "top_level_launch_count": 18,
+      "matching_exit_count": 18,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "sea-stack",
+      "candidate_commit": "76d653b0888eb1b65de074988d6a89dffd3e320c",
+      "branch": "candidate/batch28-sea-stack-20261018",
+      "ledger_path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "05800b02219dfb9f1abb7113cfa4c1b0ae629408062da803cffca642397eba20",
+      "first_launch": "2026-10-18T23:09:51.540957+00:00",
+      "last_exit": "2026-10-18T23:13:56.467960+00:00",
+      "lifecycle_complete": "2026-10-18T23:14:18.325833+00:00",
+      "top_level_launch_count": 19,
+      "matching_exit_count": 19,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 38513,
+            "returncode": 1,
+            "owned_process_group_remaining": false,
+            "reason": "Missing helper after sparse worktree index initialization error. Failed before any geometry/export; restored unchanged authorized base tree with append-only recovery checkpoint.",
+            "evidence_dir": "failed-attempt-00-missing-sparse-helper"
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "fulgurite-tube",
+      "candidate_commit": "1a1422ef4d51b46e30a0f6bee69839e424d5125a",
+      "branch": "candidate/batch28-fulgurite-tube-20261018",
+      "ledger_path": "production/continuous-small-life-round10-20261018/work/batch-28/fulgurite-tube/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "9396ed03a3cf9e1229353a2a4d7c5ec91b33f53a453e094b93978844d17ee89f",
+      "first_launch": "2026-10-18T23:14:35.683313+00:00",
+      "last_exit": "2026-10-18T23:16:01.278186+00:00",
+      "lifecycle_complete": "2026-10-18T23:16:41.131332+00:00",
+      "top_level_launch_count": 10,
+      "matching_exit_count": 10,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 40211,
+            "returncode": 1,
+            "owned_process_group_remaining": false,
+            "reason": "Required source QA refused 2 degenerate Boolean-intersection triangles before save/export; retain original code/log. Apply subvisual topology weld/degenerate dissolve with unchanged shared validator thresholds and rerun full build/evidence.",
+            "evidence_dir": "failed-attempt-00-boolean-slivers"
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    }
+  ]
+}
