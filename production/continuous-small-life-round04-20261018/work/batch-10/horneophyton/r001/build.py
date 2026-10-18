@@ -88,7 +88,7 @@ def horneophyton(c,m):
   bpy.context.view_layer.update()
   for j,r in enumerate(radii):mesh.skin_vertices[0].data[j].radius=(r*scale,r*scale*.88)
   mesh.skin_vertices[0].data[0].use_root=True
-  sub=o.modifiers.new('Soft continuous corm-to-axis and sporangial forks','SUBSURF');sub.levels=2;sub.render_levels=2
+  sub=o.modifiers.new('Soft continuous corm-to-axis and sporangial forks','SUBSURF');sub.levels=1;sub.render_levels=1
  corms.finish(c)
 
 def wave_ripple_surface(c,m):
