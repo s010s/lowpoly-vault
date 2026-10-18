@@ -20,7 +20,7 @@ if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0,str(SCRIPTS_DIR))
 from qa_glb import audit_glb
 
-REPO_ROOT = Path(__file__).resolve().parents[5]
+REPO_ROOT = next(p for p in Path(__file__).resolve().parents if (p/'scripts/asset_common.py').is_file())
 LICENSE = 'CC-BY-4.0'
 AUTHOR = 'Leon Made This / s010s'
 
