@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "pillow-lava-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/pillow-lava-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/pillow-lava-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/pillow-lava-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/pillow-lava-outcrop/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "pillow-lava-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "pillow-lava-outcrop/pillow-lava-outcrop.blend",
+        "pillow-lava-outcrop/pillow-lava-outcrop.glb",
+        "pillow-lava-outcrop/qa.json",
+        "pillow-lava-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch17 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "pillow-lava-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/pillow-lava-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/pillow-lava-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/pillow-lava-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/pillow-lava-outcrop/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "pillow-lava-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "pillow-lava-outcrop/pillow-lava-outcrop.blend",
+        "pillow-lava-outcrop/pillow-lava-outcrop.glb",
+        "pillow-lava-outcrop/qa.json",
+        "pillow-lava-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch17 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
