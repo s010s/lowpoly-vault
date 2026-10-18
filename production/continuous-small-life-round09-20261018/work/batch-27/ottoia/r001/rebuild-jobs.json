@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "ottoia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/ottoia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/ottoia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/ottoia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/ottoia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/ottoia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "ottoia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "ottoia/ottoia.blend",
+        "ottoia/ottoia.glb",
+        "ottoia/qa.json",
+        "ottoia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch27 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "ottoia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/ottoia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/ottoia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/ottoia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/ottoia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/ottoia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "ottoia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "ottoia/ottoia.blend",
+        "ottoia/ottoia.glb",
+        "ottoia/qa.json",
+        "ottoia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch27 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
