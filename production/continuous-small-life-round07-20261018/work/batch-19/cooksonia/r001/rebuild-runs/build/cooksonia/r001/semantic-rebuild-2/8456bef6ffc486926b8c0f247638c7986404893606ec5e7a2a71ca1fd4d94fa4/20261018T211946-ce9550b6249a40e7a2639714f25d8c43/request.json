@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cooksonia/r001/generator.py",
+    "--",
+    "--asset",
+    "cooksonia",
+    "--config",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cooksonia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cooksonia/r001/rebuild-runs/build/cooksonia/r001/semantic-rebuild-2/8456bef6ffc486926b8c0f247638c7986404893606ec5e7a2a71ca1fd4d94fa4/20261018T211946-ce9550b6249a40e7a2639714f25d8c43/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T21:19:46.506410+00:00",
+  "fingerprint": "8456bef6ffc486926b8c0f247638c7986404893606ec5e7a2a71ca1fd4d94fa4",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 8964,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cooksonia/brief.json",
+        "sha256": "bb61fa06e70907702f3c7f56e762fa78bcbefc125f80446f67c67122319d8bab"
+      },
+      "config": {
+        "bytes": 2340,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cooksonia/r001/config.json",
+        "sha256": "ad48613bc3ced9a7ccd7a74cf9c551f3974ad6a6f95747273b3ff29391355c15"
+      },
+      "generator": {
+        "bytes": 5313,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cooksonia/r001/generator.py",
+        "sha256": "fa672438446409f95aa8fe80ea1e38524143903308cad4e11454b9662a33c782"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1192,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cooksonia/references.json",
+        "sha256": "23883b7c2636ba3fbdd4a2e9d064c9ee6f4dcbbcf80463cdcbc44adf94d40e1d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cooksonia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cooksonia",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch19 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cooksonia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cooksonia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cooksonia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cooksonia/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "cooksonia/cooksonia.blend",
+        "cooksonia/cooksonia.glb",
+        "cooksonia/qa.json",
+        "cooksonia/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T211940-d8c9f512dfa14a37928707d15b85f73c"
+}
