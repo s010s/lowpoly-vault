@@ -1,0 +1,1616 @@
+{
+  "schema_version": 1,
+  "review": {
+    "reviewer": "GPT-6 Luna",
+    "reasoning": "xhigh",
+    "date": "2026-10-18",
+    "base_handoff_commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
+    "base_commit": "0bd62cda92814af5ac781e1a706bba6310cecc35",
+    "planning_commit": "a2baad0a405e845b576b231c6135c92c1ead5f13",
+    "source_thread": "01a1187a-1f8d-746a-8448-61f8cb38d0fc",
+    "execution_thread": "01a1506d-62ed-70e0-b635-5e8e0a8ac023",
+    "handoff_path": "production/continuous-small-life-round05-20261018/work/batch-13/final-handoff.jsonl",
+    "handoff_sha256": "083c194d9177be95b08879bff21ce6deed6e548b096bc7b152e8283d65ec376f",
+    "scope_shared_changes": false,
+    "scope_maker_merged": false,
+    "allowed_asset_ids": [
+      "acrocyathus",
+      "sawdonia",
+      "leanchoilia",
+      "septarian-concretion"
+    ],
+    "independent_review_branch": "qa/s010s/small-life-batch13-20261018",
+    "validation_profile": "static-stylized-v1",
+    "rule_version": "2026-10-18.1",
+    "contact_sheets": {
+      "all-fixed-views-contact-sheet.png": {
+        "sha256": "3be7cdc89fdac383d7cf700dfced4b303cf7a6a4bb7a80ee58b3ebee86e8e30b",
+        "bytes": 1602197
+      },
+      "all-runtime-contact-sheet.png": {
+        "sha256": "38014d2d6c4d42d5388f276e09e34e64f3cc953e7a2538586fae65a750dba47e",
+        "bytes": 389521
+      },
+      "septarian-glb-wireframe.png": {
+        "sha256": "be3a856bedfffd68a50e6c53d4a26630f7ecf12790e47bcff65fdb5079d5f946",
+        "bytes": 266815
+      }
+    },
+    "remote_source_refs_verified": true,
+    "observed_origin_main_tip": "6482ec9c04a9ec2d1ac84f9e1dc3ec20dbdccbea",
+    "review_branch_based_on_exact_handoff_commit": true
+  },
+  "batch_source_exclusivity": {
+    "exact_scope_asset_ids": [
+      "acrocyathus",
+      "sawdonia",
+      "leanchoilia",
+      "septarian-concretion"
+    ],
+    "handoff_rows": 4,
+    "matches_scope": true,
+    "assets": {
+      "acrocyathus": {
+        "branch": "candidate/batch13-acrocyathus-20261018",
+        "source_commit": "284891f1444356f74e2363c27f8bd66e5f6bc1e1",
+        "handoff_commit_matches_scope": true,
+        "candidate_path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/acrocyathus/r001"
+      },
+      "sawdonia": {
+        "branch": "candidate/batch13-sawdonia-20261018",
+        "source_commit": "61cace55d96184ec66a7f0cb7306d667f7d7492e",
+        "handoff_commit_matches_scope": true,
+        "candidate_path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/sawdonia/r001"
+      },
+      "leanchoilia": {
+        "branch": "candidate/batch13-leanchoilia-20261018",
+        "source_commit": "810977ed98e8350948b236755a90e4509f4c652e",
+        "handoff_commit_matches_scope": true,
+        "candidate_path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/leanchoilia/r001"
+      },
+      "septarian-concretion": {
+        "branch": "candidate/batch13-septarian-concretion-20261018",
+        "source_commit": "e82773c763817a9b9ccd7eacbfa0a266d7e7c30b",
+        "handoff_commit_matches_scope": true,
+        "candidate_path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/septarian-concretion/r001"
+      }
+    }
+  },
+  "assets": {
+    "acrocyathus": {
+      "asset_id": "acrocyathus",
+      "candidate_branch": "candidate/batch13-acrocyathus-20261018",
+      "source_commit": "284891f1444356f74e2363c27f8bd66e5f6bc1e1",
+      "source_worktree_clean": true,
+      "source_commit_matches_scope_tip": true,
+      "scope_changed_path_count": 105,
+      "scope_changed_path_count_matches": true,
+      "scope_changed_paths_sha256_matches": true,
+      "scope_paths_confined_to_candidate_prefixes": true,
+      "candidate_sha256": "3e5560902229b0e4d73e7f8b8730b4825983459db46153e82a4f441bf9b9cfab",
+      "brief_sha256": "768f8b2a90f7a0f947ba67750e6b36f90e617f4b6e3b3e181ee8014d8c941d85",
+      "references_sha256": "3dea346b72d1b90518a47cef648b72e3a73d43b1b678d4ee255bd7dca5091b40",
+      "references_unchanged_from_frozen": true,
+      "third_party_media_incorporated": false,
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/acrocyathus/r001/acrocyathus.glb",
+          "bytes": 137920,
+          "sha256": "85c65487af8ddb08595248c5dfda912ddfdc3a1d9e22116177937d848b08400c",
+          "candidate_record_pin_matches": true,
+          "triangles": 4340,
+          "materials": 3,
+          "primitives": 3,
+          "brief_budget": {
+            "max_triangles": 14000,
+            "max_materials": 6,
+            "max_primitives": 30,
+            "max_glb_bytes": 1000000,
+            "soft_glb_bytes": 500000
+          }
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/acrocyathus/r001/acrocyathus.blend",
+          "sha256": "c7aaed77606f061bd626b99ace2bd60657327dfb371f1f47390635c3edd198c2",
+          "candidate_record_pin_matches": true
+        },
+        "generator": {
+          "sha256": "c1c139d2678a8d847646de22535404f1b2b48cd8d6f3f99dbeb2cc5fa11ff0fd",
+          "candidate_record_pin_matches": true
+        },
+        "config": {
+          "sha256": "6d5e160c79060669673f3f5c3a254049ee86dacd9a102b3973309beac2595b1b",
+          "candidate_record_pin_matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.18,
+        "axis": "colony width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "nominal_dimensions_are_art_direction_not_fossil_measurement": true,
+      "source_geometry": {
+        "blender": "4.3.2",
+        "unit_scale_length_m": 1.0,
+        "root_world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "authored_vertices": 2482,
+        "evaluated_vertices": 2482,
+        "nonfinite_normals": 0,
+        "nonpositive_face_area": 0,
+        "parts": [
+          {
+            "name": "elongated-polygonal-corallites-with-real-calyces",
+            "authored_vertices": 730,
+            "evaluated_vertices": 730,
+            "authored_polygons": 677,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 0.0008263262191122826,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "radial-calyx-septal-blades",
+            "authored_vertices": 1752,
+            "evaluated_vertices": 1752,
+            "authored_polygons": 1606,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 2.0523023114411524e-06,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "all_parts_closed_and_manifold": true
+      },
+      "fixed_views": {
+        "expected_count": 8,
+        "turntable_frames": 0,
+        "views": [
+          {
+            "path": "views/preview-clay.png",
+            "sha256": "252f7a7903c8b4b840226682a9f2eeffc8b1689d93cbe436641419bec4021d59",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-front.png",
+            "sha256": "255e632d320c1cfddc983e44fd1117e06818d6eef456f2798adb5a33724384e9",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-hero.png",
+            "sha256": "5eec28caee12be92bd5832c45c516d20351c9dfc9e03aba3baabdc3ab4bddbeb",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-rear.png",
+            "sha256": "c39eee2a50dd213b8527cf4914f9a5397e70057a3d824e500871cd34e72645b7",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-reversehero.png",
+            "sha256": "5b72fb06fdb303678de90a47bd22b6befd0bd6fd744f9fa56005631ff7bd2ac0",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-side.png",
+            "sha256": "d61ac21a9b1151802a1f863701242ff83ae7b59c05e4e513eb299a15f931b522",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-silhouette.png",
+            "sha256": "7cd867eea4b140d93df314bf5c04e6bc58a94d1f0aa0f77008a6f8d5a25c04fb",
+            "dimensions_px": [
+              128,
+              128
+            ]
+          },
+          {
+            "path": "views/preview-top.png",
+            "sha256": "73423a96454ee40130a5468e424bd38050d8d83bdf6671684da865db45430cee",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "checksums_sha256": {
+        "listed_file_count": 58,
+        "all_match": true
+      },
+      "source_export": {
+        "status": "pass_with_warnings",
+        "glb_sha256_matches": true,
+        "source_sha256_matches": true,
+        "errors": [],
+        "warnings": [
+          "source: radial-calyx-septal-blades: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "sha_matches_self_check": true
+      },
+      "fresh_static_glb_audit": {
+        "status": "pass",
+        "sha256": "85c65487af8ddb08595248c5dfda912ddfdc3a1d9e22116177937d848b08400c",
+        "sha_matches_glb": true,
+        "bytes": 137920,
+        "triangles": 4340,
+        "materials": 3,
+        "errors": [],
+        "warnings": [],
+        "report": "fresh-glb-audits/acrocyathus.json"
+      },
+      "fresh_blender_reimport": {
+        "status": "pass_with_warnings",
+        "blender_version": "4.3.2",
+        "sha_matches_glb": true,
+        "triangles": 4340,
+        "bounds_max_error_m": 0.0,
+        "errors": [],
+        "warnings": [
+          "elongated-polygonal-corallites-with-real-calyces: smooth faces require intentional-style review",
+          "elongated-polygonal-corallites-with-real-calyces: 2774 boundary edges; review intentional openings",
+          "radial-calyx-septal-blades: smooth faces require intentional-style review"
+        ],
+        "report": "fresh-blender-roundtrip/acrocyathus.json"
+      },
+      "actual_glb_runtime": {
+        "status": "pass",
+        "glb_sha_matches": true,
+        "browser": "154.0.8037.57",
+        "three_revision": "180",
+        "renderer": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "errors": [],
+        "view_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "top",
+          "near",
+          "scene-9-copies"
+        ],
+        "all_gl_errors_zero": true,
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "instances": 9,
+          "render_calls": 27,
+          "render_triangles": 39060,
+          "foreground_pixels": 30584,
+          "gl_error": 0
+        },
+        "evidence_images": [
+          {
+            "path": "runtime/front.png",
+            "bytes": 13268,
+            "sha256": "adab783afc9e6b265111f2972bd546ea2a170f65182e195e5a2182f903b7579c",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/hero.png",
+            "bytes": 24615,
+            "sha256": "194b343cc0bcace56a3db66942fe5279baab2d06b3a438ed85f338ed789534f4",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/near.png",
+            "bytes": 20379,
+            "sha256": "e53d1591aeb04550523d606aab5e627704c66882b966ee0f7fa0d66667b5831a",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/reversehero.png",
+            "bytes": 22643,
+            "sha256": "f10c325883741856097efb6fcb97fe2ae96f7faf574f2670ca4b2c1fe994f82e",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/scene-9-copies.png",
+            "bytes": 39727,
+            "sha256": "335e3fdf0431cbec59ea891735a25b1b63fca2d1a098e63465a497f4037db133",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/side.png",
+            "bytes": 11708,
+            "sha256": "c930127c12f06b266475a198116440d0f951d05f74e6109014f7dc5dbf936e94",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/top.png",
+            "bytes": 72686,
+            "sha256": "c761106207141a0e2e08f523e6332535e9478f3d2e2aeab20637ca5b5b522d50",
+            "manifest_match": true
+          }
+        ]
+      },
+      "profile_checks": {
+        "temporary_contract_sha256": "170ff8e2f53e5c42c74d360a6f99dd613b6adad335363f77774bf889c4302290",
+        "static_profile": {
+          "returncode": 0,
+          "profile_contract_status": "pass",
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": []
+        },
+        "require_approved": {
+          "returncode": 1,
+          "approved_for_brief": false,
+          "errors": [],
+          "expected_to_fail_while_stage_status_unknown": true
+        },
+        "legacy": {
+          "returncode": 1,
+          "errors": [
+            "IV-PRI-26.license: nonempty text required"
+          ],
+          "expected_legacy_license_mismatch_for_consulted_only_source": true
+        }
+      },
+      "review_decision": {
+        "status": "PASS",
+        "required_issues": []
+      },
+      "independent_blend_glb_compare": {
+        "status": "pass",
+        "source_blend_sha256": "c7aaed77606f061bd626b99ace2bd60657327dfb371f1f47390635c3edd198c2",
+        "glb_sha256": "85c65487af8ddb08595248c5dfda912ddfdc3a1d9e22116177937d848b08400c",
+        "blender_version": "4.3.2",
+        "position_rounding_digits": 6,
+        "source_unique_positions": 2482,
+        "glb_unique_positions": 2482,
+        "matching_positions": true,
+        "source_triangles": 4340,
+        "glb_triangles": 4340,
+        "degenerate_glb_triangles": 0,
+        "bounds_equal": true,
+        "report": "fresh-blend-glb-compare/acrocyathus.json"
+      }
+    },
+    "sawdonia": {
+      "asset_id": "sawdonia",
+      "candidate_branch": "candidate/batch13-sawdonia-20261018",
+      "source_commit": "61cace55d96184ec66a7f0cb7306d667f7d7492e",
+      "source_worktree_clean": true,
+      "source_commit_matches_scope_tip": true,
+      "scope_changed_path_count": 105,
+      "scope_changed_path_count_matches": true,
+      "scope_changed_paths_sha256_matches": true,
+      "scope_paths_confined_to_candidate_prefixes": true,
+      "candidate_sha256": "9bf89df8d6b6a8aaa82f9dfc514eccea6955997a3adccc71429e87d13425766c",
+      "brief_sha256": "75a76998022e116e9c262dbee71c259b68abc92aa582cef5fc80aa3e7ba99c18",
+      "references_sha256": "82262851bc3eb2a4511c7822b313a9f082dd2136b8133c1dcefa3a6efa836b4e",
+      "references_unchanged_from_frozen": true,
+      "third_party_media_incorporated": false,
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/sawdonia/r001/sawdonia.glb",
+          "bytes": 231164,
+          "sha256": "6d8ef1cccefd269ff7f1715828c949e8a466a18ee04ebfc2249d52ad55ee212c",
+          "candidate_record_pin_matches": true,
+          "triangles": 12456,
+          "materials": 2,
+          "primitives": 4,
+          "brief_budget": {
+            "max_triangles": 14000,
+            "max_materials": 6,
+            "max_primitives": 30,
+            "max_glb_bytes": 1000000,
+            "soft_glb_bytes": 500000
+          }
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/sawdonia/r001/sawdonia.blend",
+          "sha256": "e73eb1d1fefd2fe032e16751bcb5191e515d55ec89f2d6bb1ccdcbdf2013b55d",
+          "candidate_record_pin_matches": true
+        },
+        "generator": {
+          "sha256": "c1c139d2678a8d847646de22535404f1b2b48cd8d6f3f99dbeb2cc5fa11ff0fd",
+          "candidate_record_pin_matches": true
+        },
+        "config": {
+          "sha256": "c80cb49aa1015736242d112706fb0f856618937b0fc7f45eb99659aa868d394d",
+          "candidate_record_pin_matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.2,
+        "axis": "shoot cluster height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "nominal_dimensions_are_art_direction_not_fossil_measurement": true,
+      "source_geometry": {
+        "blender": "4.3.2",
+        "unit_scale_length_m": 1.0,
+        "root_world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "authored_vertices": 1143,
+        "evaluated_vertices": 6354,
+        "nonfinite_normals": 0,
+        "nonpositive_face_area": 0,
+        "parts": [
+          {
+            "name": "continuous-spiny-shoot-with-circinate-tips-0",
+            "authored_vertices": 21,
+            "evaluated_vertices": 1758,
+            "authored_polygons": 0,
+            "modifiers": [
+              "SKIN",
+              "SUBSURF"
+            ],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 5.181615182162165e-06,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "continuous-spiny-shoot-with-circinate-tips-1",
+            "authored_vertices": 21,
+            "evaluated_vertices": 1758,
+            "authored_polygons": 0,
+            "modifiers": [
+              "SKIN",
+              "SUBSURF"
+            ],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 3.4714879329358854e-06,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "continuous-spiny-shoot-with-circinate-tips-2",
+            "authored_vertices": 21,
+            "evaluated_vertices": 1758,
+            "authored_polygons": 0,
+            "modifiers": [
+              "SKIN",
+              "SUBSURF"
+            ],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 7.531824959950181e-06,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "sparse-directional-spines-attached-along-shoots",
+            "authored_vertices": 1080,
+            "evaluated_vertices": 1080,
+            "authored_polygons": 840,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 9.579519146591788e-08,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "all_parts_closed_and_manifold": true
+      },
+      "fixed_views": {
+        "expected_count": 8,
+        "turntable_frames": 0,
+        "views": [
+          {
+            "path": "views/preview-clay.png",
+            "sha256": "ff36cee9d8d7b494f344c27ff42d5a138a24d07cfe56441c1dcbdf34e7c8fbca",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-front.png",
+            "sha256": "0ecb276f1f91082d6a4bc6d593bcf9f2e96c6f0005ca131c10429da4facedaf9",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-hero.png",
+            "sha256": "61913fd34f9571042aab17f4afbe9ba442a2b0dfd2b128f79dfaaef9aead282b",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-rear.png",
+            "sha256": "c3e1b43057d2b09be1bb380022b012af1767dd143efa0c5b917f570b4c1293cc",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-reversehero.png",
+            "sha256": "e1baa91dacf6c7f0966ec20f89b78e57525739aedbd9ada706c6a96c5cee3ce9",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-side.png",
+            "sha256": "a49bd025a8368534d94d417925265ab207ecb462e81aafe748d068901e3de711",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-silhouette.png",
+            "sha256": "8798fe10d6aa78374c7f307ec41e70e085deb0b9040815641f9074efe7298c94",
+            "dimensions_px": [
+              128,
+              128
+            ]
+          },
+          {
+            "path": "views/preview-top.png",
+            "sha256": "46c7d3e9e5c6001bf1719ec1651f1311f4740d21cf2bfa313bd1e3f2b39b141b",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "checksums_sha256": {
+        "listed_file_count": 58,
+        "all_match": true
+      },
+      "source_export": {
+        "status": "pass_with_warnings",
+        "glb_sha256_matches": true,
+        "source_sha256_matches": true,
+        "errors": [],
+        "warnings": [
+          "source: continuous-spiny-shoot-with-circinate-tips-0: smooth faces require intentional-style review",
+          "source: continuous-spiny-shoot-with-circinate-tips-1: smooth faces require intentional-style review",
+          "source: continuous-spiny-shoot-with-circinate-tips-2: smooth faces require intentional-style review",
+          "source: sparse-directional-spines-attached-along-shoots: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "sha_matches_self_check": true
+      },
+      "fresh_static_glb_audit": {
+        "status": "pass",
+        "sha256": "6d8ef1cccefd269ff7f1715828c949e8a466a18ee04ebfc2249d52ad55ee212c",
+        "sha_matches_glb": true,
+        "bytes": 231164,
+        "triangles": 12456,
+        "materials": 2,
+        "errors": [],
+        "warnings": [],
+        "report": "fresh-glb-audits/sawdonia.json"
+      },
+      "fresh_blender_reimport": {
+        "status": "pass_with_warnings",
+        "blender_version": "4.3.2",
+        "sha_matches_glb": true,
+        "triangles": 12456,
+        "bounds_max_error_m": 0.0,
+        "errors": [],
+        "warnings": [
+          "continuous-spiny-shoot-with-circinate-tips-0: smooth faces require intentional-style review",
+          "continuous-spiny-shoot-with-circinate-tips-1: smooth faces require intentional-style review",
+          "continuous-spiny-shoot-with-circinate-tips-2: smooth faces require intentional-style review",
+          "sparse-directional-spines-attached-along-shoots: smooth faces require intentional-style review"
+        ],
+        "report": "fresh-blender-roundtrip/sawdonia.json"
+      },
+      "actual_glb_runtime": {
+        "status": "pass",
+        "glb_sha_matches": true,
+        "browser": "154.0.8037.57",
+        "three_revision": "180",
+        "renderer": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "errors": [],
+        "view_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "top",
+          "near",
+          "scene-9-copies"
+        ],
+        "all_gl_errors_zero": true,
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "instances": 9,
+          "render_calls": 36,
+          "render_triangles": 112104,
+          "foreground_pixels": 7374,
+          "gl_error": 0
+        },
+        "evidence_images": [
+          {
+            "path": "runtime/front.png",
+            "bytes": 35226,
+            "sha256": "c282550ec33dbd9fb4cb71335921d028e646229c45e0beef2a74d9a3690d7f9b",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/hero.png",
+            "bytes": 29884,
+            "sha256": "e9bb1d7a8857f5d61e8bb7c475b100441ef6372c547ac09f7fa9e3d6b71c2203",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/near.png",
+            "bytes": 29812,
+            "sha256": "1cd2de3e9702e42ab8b284f09e3924d39acede548c7ac987674a4e43ffe3e649",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/reversehero.png",
+            "bytes": 29728,
+            "sha256": "3b21955106961fa680a8f8cba0b8a7eea8b8f899240d92c72c0ce83d27a39ee0",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/scene-9-copies.png",
+            "bytes": 27188,
+            "sha256": "0fb258c4374d80fd9d3dacd7403b2569b4c48108f35ffbc87a25ac44e35866e5",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/side.png",
+            "bytes": 22736,
+            "sha256": "ccfaa114e5fead7bbd7d4207e31d20ae03bd97bd20ba78b3c9a2675e4e5a6dc9",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/top.png",
+            "bytes": 12830,
+            "sha256": "198bee91f6e4a315ca5e4cd6386808743d7cbedb1dc2e3f9bc7a57ff97b5e097",
+            "manifest_match": true
+          }
+        ]
+      },
+      "profile_checks": {
+        "temporary_contract_sha256": "f15b2008bb1f2592acc64f3e4a1abe67a61279c5356122b4d433f8ee83235dfa",
+        "static_profile": {
+          "returncode": 0,
+          "profile_contract_status": "pass",
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": []
+        },
+        "require_approved": {
+          "returncode": 1,
+          "approved_for_brief": false,
+          "errors": [],
+          "expected_to_fail_while_stage_status_unknown": true
+        },
+        "legacy": {
+          "returncode": 1,
+          "errors": [
+            "FL-early-lab.license: nonempty text required"
+          ],
+          "expected_legacy_license_mismatch_for_consulted_only_source": true
+        }
+      },
+      "review_decision": {
+        "status": "PASS",
+        "required_issues": []
+      },
+      "independent_blend_glb_compare": {
+        "status": "pass",
+        "source_blend_sha256": "e73eb1d1fefd2fe032e16751bcb5191e515d55ec89f2d6bb1ccdcbdf2013b55d",
+        "glb_sha256": "6d8ef1cccefd269ff7f1715828c949e8a466a18ee04ebfc2249d52ad55ee212c",
+        "blender_version": "4.3.2",
+        "position_rounding_digits": 6,
+        "source_unique_positions": 6354,
+        "glb_unique_positions": 6354,
+        "matching_positions": true,
+        "source_triangles": 12456,
+        "glb_triangles": 12456,
+        "degenerate_glb_triangles": 0,
+        "bounds_equal": true,
+        "report": "fresh-blend-glb-compare/sawdonia.json"
+      }
+    },
+    "leanchoilia": {
+      "asset_id": "leanchoilia",
+      "candidate_branch": "candidate/batch13-leanchoilia-20261018",
+      "source_commit": "810977ed98e8350948b236755a90e4509f4c652e",
+      "source_worktree_clean": true,
+      "source_commit_matches_scope_tip": true,
+      "scope_changed_path_count": 105,
+      "scope_changed_path_count_matches": true,
+      "scope_changed_paths_sha256_matches": true,
+      "scope_paths_confined_to_candidate_prefixes": true,
+      "candidate_sha256": "12c107bf0ca54e6a3f17ece5dc9c3c85d28cd92a3f805ee5ad40536166a402d8",
+      "brief_sha256": "f6ae73e9f69309d3fbcda4f6cd76624a06a4572da046ddf9ea0019de6eb924bc",
+      "references_sha256": "6446750d47f1657d37d84d216eef39410bdd66eae898c8374e169961744dd4de",
+      "references_unchanged_from_frozen": true,
+      "third_party_media_incorporated": false,
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/leanchoilia/r001/leanchoilia.glb",
+          "bytes": 137092,
+          "sha256": "e328011f4d9df45eeaa4b1abc94111c6145b2dc9b49b9396bde92e02940ada86",
+          "candidate_record_pin_matches": true,
+          "triangles": 6980,
+          "materials": 4,
+          "primitives": 9,
+          "brief_budget": {
+            "max_triangles": 14000,
+            "max_materials": 6,
+            "max_primitives": 30,
+            "max_glb_bytes": 1000000,
+            "soft_glb_bytes": 500000
+          }
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/leanchoilia/r001/leanchoilia.blend",
+          "sha256": "e4aab6687efa0b9b819baa0d5c881bfe9b2ea67db589c99849f5e037963cd15e",
+          "candidate_record_pin_matches": true
+        },
+        "generator": {
+          "sha256": "c1c139d2678a8d847646de22535404f1b2b48cd8d6f3f99dbeb2cc5fa11ff0fd",
+          "candidate_record_pin_matches": true
+        },
+        "config": {
+          "sha256": "efc61c8c4e392b476e711aa0985cadbb4f82fdf77539207efdc5ab409f13172e",
+          "candidate_record_pin_matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.06,
+        "axis": "body length",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "nominal_dimensions_are_art_direction_not_fossil_measurement": true,
+      "source_geometry": {
+        "blender": "4.3.2",
+        "unit_scale_length_m": 1.0,
+        "root_world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "authored_vertices": 3626,
+        "evaluated_vertices": 3626,
+        "nonfinite_normals": 0,
+        "nonpositive_face_area": 0,
+        "parts": [
+          {
+            "name": "overlapping-articulated-trunk-tergites",
+            "authored_vertices": 980,
+            "evaluated_vertices": 980,
+            "authored_polygons": 1120,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 1.33246731438724e-06,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "single-rounded-head-shield-and-small-eyes",
+            "authored_vertices": 366,
+            "evaluated_vertices": 366,
+            "authored_polygons": 408,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 1.0244030050338499e-06,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "paired-simplified-walking-and-swimming-limbs",
+            "authored_vertices": 1400,
+            "evaluated_vertices": 1400,
+            "authored_polygons": 1460,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 3.2171770564559293e-07,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "great-appendages-with-three-flagellate-fingers",
+            "authored_vertices": 872,
+            "evaluated_vertices": 872,
+            "authored_polygons": 796,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 1.5012620079570967e-07,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "lanceolate-terminal-telson",
+            "authored_vertices": 8,
+            "evaluated_vertices": 8,
+            "authored_polygons": 12,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 7.628583171997128e-08,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "all_parts_closed_and_manifold": true
+      },
+      "fixed_views": {
+        "expected_count": 8,
+        "turntable_frames": 0,
+        "views": [
+          {
+            "path": "views/preview-clay.png",
+            "sha256": "8b33c3a1b2c0a14e4cda06e28c2698477a164eef8d70fdf82e0a4ec893277e93",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-front.png",
+            "sha256": "d24f7c22526b57b65b6dab883e70ea1ae37bdf14c67bb9a00ed87b7e9e01c324",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-hero.png",
+            "sha256": "e863713a13b37eee37f9ec5c69d3eba44bbb541e22396b0f991c23e5ca04db80",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-rear.png",
+            "sha256": "daf26bb306931727e82f2855ed6d7738a3291ebe11a5d7283b813e056b4df09c",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-reversehero.png",
+            "sha256": "4bd10a67804df77a12433e669182e371ed408ad69c479fbb6274315fb6123eb1",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-side.png",
+            "sha256": "e5eb0eaf394dca293551b84ee60fefe896191161cf91ff9f4ad91b843bfa108b",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-silhouette.png",
+            "sha256": "c10e76cee03157d4c02d4b5afc52fbf1169a3fceb4489fb36b19b11465048b3d",
+            "dimensions_px": [
+              128,
+              128
+            ]
+          },
+          {
+            "path": "views/preview-top.png",
+            "sha256": "7b875fe2b94ebd81778d08dda402272f9ef625428af6a5bffa804ec656385406",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "checksums_sha256": {
+        "listed_file_count": 58,
+        "all_match": true
+      },
+      "source_export": {
+        "status": "pass_with_warnings",
+        "glb_sha256_matches": true,
+        "source_sha256_matches": true,
+        "errors": [],
+        "warnings": [
+          "source: overlapping-articulated-trunk-tergites: smooth faces require intentional-style review",
+          "source: single-rounded-head-shield-and-small-eyes: smooth faces require intentional-style review",
+          "source: paired-simplified-walking-and-swimming-limbs: smooth faces require intentional-style review",
+          "source: great-appendages-with-three-flagellate-fingers: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "sha_matches_self_check": true
+      },
+      "fresh_static_glb_audit": {
+        "status": "pass",
+        "sha256": "e328011f4d9df45eeaa4b1abc94111c6145b2dc9b49b9396bde92e02940ada86",
+        "sha_matches_glb": true,
+        "bytes": 137092,
+        "triangles": 6980,
+        "materials": 4,
+        "errors": [],
+        "warnings": [],
+        "report": "fresh-glb-audits/leanchoilia.json"
+      },
+      "fresh_blender_reimport": {
+        "status": "pass_with_warnings",
+        "blender_version": "4.3.2",
+        "sha_matches_glb": true,
+        "triangles": 6980,
+        "bounds_max_error_m": 0.0,
+        "errors": [],
+        "warnings": [
+          "great-appendages-with-three-flagellate-fingers: smooth faces require intentional-style review",
+          "lanceolate-terminal-telson: smooth faces require intentional-style review",
+          "lanceolate-terminal-telson: 36 boundary edges; review intentional openings",
+          "overlapping-articulated-trunk-tergites: smooth faces require intentional-style review",
+          "paired-simplified-walking-and-swimming-limbs: smooth faces require intentional-style review",
+          "single-rounded-head-shield-and-small-eyes: smooth faces require intentional-style review"
+        ],
+        "report": "fresh-blender-roundtrip/leanchoilia.json"
+      },
+      "actual_glb_runtime": {
+        "status": "pass",
+        "glb_sha_matches": true,
+        "browser": "154.0.8037.57",
+        "three_revision": "180",
+        "renderer": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "errors": [],
+        "view_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "top",
+          "near",
+          "scene-9-copies"
+        ],
+        "all_gl_errors_zero": true,
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "instances": 9,
+          "render_calls": 81,
+          "render_triangles": 62820,
+          "foreground_pixels": 2770,
+          "gl_error": 0
+        },
+        "evidence_images": [
+          {
+            "path": "runtime/front.png",
+            "bytes": 8683,
+            "sha256": "d149557dd353a9a1ad1a166fa72907f72cd32d9edb82f0213a5bd89b870895de",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/hero.png",
+            "bytes": 16207,
+            "sha256": "7f75511e4432f5cc82c91198049a9825d18afd8b977d49375c1c6c91ce11b480",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/near.png",
+            "bytes": 14560,
+            "sha256": "de9ba8de6093454279ffee1b9e0d616ce2520b2b7f685c8c9382299f4a79fec5",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/reversehero.png",
+            "bytes": 19270,
+            "sha256": "67dd67aba67b186d244e5d229a5afdbdbdf21db727f35fcc022e7f216e885914",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/scene-9-copies.png",
+            "bytes": 12054,
+            "sha256": "5952e775174cfd5c2988f7665a0b05eba40790e4a9498bab3cd1810a2bbc7fe2",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/side.png",
+            "bytes": 12815,
+            "sha256": "fb294a0a2e49d51d7fd185741550385a034560878626cb0a39eb0f8e55621911",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/top.png",
+            "bytes": 27469,
+            "sha256": "39c643cdb9a4b4a562a60c3d2c40d72aca823b200ed798e6306d56e3e7e3985c",
+            "manifest_match": true
+          }
+        ]
+      },
+      "profile_checks": {
+        "temporary_contract_sha256": "79d14cef0a5d423d78c437fec3cc7c2cc8edef5574f1052efbb7605c1b6544e6",
+        "static_profile": {
+          "returncode": 0,
+          "profile_contract_status": "pass",
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": []
+        },
+        "require_approved": {
+          "returncode": 1,
+          "approved_for_brief": false,
+          "errors": [],
+          "expected_to_fail_while_stage_status_unknown": true
+        },
+        "legacy": {
+          "returncode": 1,
+          "errors": [
+            "IV-ROM-LEANCHOILIA.license: nonempty text required"
+          ],
+          "expected_legacy_license_mismatch_for_consulted_only_source": true
+        }
+      },
+      "review_decision": {
+        "status": "PASS",
+        "required_issues": []
+      },
+      "independent_blend_glb_compare": {
+        "status": "pass",
+        "source_blend_sha256": "e4aab6687efa0b9b819baa0d5c881bfe9b2ea67db589c99849f5e037963cd15e",
+        "glb_sha256": "e328011f4d9df45eeaa4b1abc94111c6145b2dc9b49b9396bde92e02940ada86",
+        "blender_version": "4.3.2",
+        "position_rounding_digits": 6,
+        "source_unique_positions": 3626,
+        "glb_unique_positions": 3626,
+        "matching_positions": true,
+        "source_triangles": 6980,
+        "glb_triangles": 6980,
+        "degenerate_glb_triangles": 0,
+        "bounds_equal": true,
+        "report": "fresh-blend-glb-compare/leanchoilia.json"
+      }
+    },
+    "septarian-concretion": {
+      "asset_id": "septarian-concretion",
+      "candidate_branch": "candidate/batch13-septarian-concretion-20261018",
+      "source_commit": "e82773c763817a9b9ccd7eacbfa0a266d7e7c30b",
+      "source_worktree_clean": true,
+      "source_commit_matches_scope_tip": true,
+      "scope_changed_path_count": 117,
+      "scope_changed_path_count_matches": true,
+      "scope_changed_paths_sha256_matches": true,
+      "scope_paths_confined_to_candidate_prefixes": true,
+      "candidate_sha256": "12d8a64f5c8b0aa212fe70f32b85591f7e5b741968f9aad42c579d9342fcaf82",
+      "brief_sha256": "0ccf5fbe80443d956b2336d12d2ace47b09c7011993f9e47a7b2fc01d86577c3",
+      "references_sha256": "55b1598abfb767d29e40086820d18b1973db7b7d92dc269c61dc788271a347e3",
+      "references_unchanged_from_frozen": true,
+      "third_party_media_incorporated": false,
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/septarian-concretion/r001/septarian-concretion.glb",
+          "bytes": 343052,
+          "sha256": "399ce37d67c905c0ce0f08802c1206307570d39cead72aa68defa9ebaf737c6d",
+          "candidate_record_pin_matches": true,
+          "triangles": 7548,
+          "materials": 3,
+          "primitives": 4,
+          "brief_budget": {
+            "max_triangles": 14000,
+            "max_materials": 6,
+            "max_primitives": 30,
+            "max_glb_bytes": 1000000,
+            "soft_glb_bytes": 500000
+          }
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round05-20261018/batch-13/septarian-concretion/r001/septarian-concretion.blend",
+          "sha256": "cc9e73a01e8800699adc30b8c355007c757ec8ceab09e2885a3462d0add8f573",
+          "candidate_record_pin_matches": true
+        },
+        "generator": {
+          "sha256": "6214aff2cf59ecc5d235c8ef6e76c1a50d25d98a57b1afba353646f49fd01e1c",
+          "candidate_record_pin_matches": true
+        },
+        "config": {
+          "sha256": "0f2b79132741e48f32bc6f7d496cb64c4912b2f1a9c407c22b0c5d442537ff90",
+          "candidate_record_pin_matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.18,
+        "axis": "concretion diameter",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "nominal_dimensions_are_art_direction_not_fossil_measurement": true,
+      "source_geometry": {
+        "blender": "4.3.2",
+        "unit_scale_length_m": 1.0,
+        "root_world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "authored_vertices": 3908,
+        "evaluated_vertices": 3908,
+        "nonfinite_normals": 0,
+        "nonpositive_face_area": 0,
+        "parts": [
+          {
+            "name": "rounded-concretion-rind-and-lower-body",
+            "authored_vertices": 640,
+            "evaluated_vertices": 640,
+            "authored_polygons": 578,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 0.0013244981320949343,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "sectioned-host-rock-blocks-between-internal-veins",
+            "authored_vertices": 1532,
+            "evaluated_vertices": 1532,
+            "authored_polygons": 1490,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 0.0003405883961108669,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "name": "volumetric-radial-and-concentric-mineral-cement",
+            "authored_vertices": 1736,
+            "evaluated_vertices": 1736,
+            "authored_polygons": 1782,
+            "modifiers": [],
+            "nonfinite_vertex_normals": 0,
+            "nonpositive_face_area": 0,
+            "signed_volume_m3": 6.076413966212012e-05,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "all_parts_closed_and_manifold": true
+      },
+      "fixed_views": {
+        "expected_count": 8,
+        "turntable_frames": 0,
+        "views": [
+          {
+            "path": "views/preview-clay.png",
+            "sha256": "71221385b9545137957e0e5ff59bda192c69515d1f300248c1e669d9db79c339",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-front.png",
+            "sha256": "a8603322c16e6bdc68a81e849c6da48544133155fed18c5be1a5c442a169f216",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-hero.png",
+            "sha256": "c988400455eb0e880168f1d15e46716147886cc9013431481452372bf653e2f2",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-rear.png",
+            "sha256": "8af34b0d6b9895e146755ada606adf87f339a01160aed75f27b72c2a496c0ba1",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-reversehero.png",
+            "sha256": "6dc7652152d34e360dcb25aaf13ce08191a00d80315b269bb4470d3dd975a289",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-side.png",
+            "sha256": "b4aad86338aacbe70cfbbb39a4799bdae949654cbfade6507e5fba8fe7c27a33",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "views/preview-silhouette.png",
+            "sha256": "9040bc592fb32da851c9c9bdda4eddf7db34f59cd426b42691229380c51f02ea",
+            "dimensions_px": [
+              128,
+              128
+            ]
+          },
+          {
+            "path": "views/preview-top.png",
+            "sha256": "6197a368534407fb6f03e71288b062b8ce977eb613b1997b78c148148dfa1336",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "checksums_sha256": {
+        "listed_file_count": 58,
+        "all_match": true
+      },
+      "source_export": {
+        "status": "pass",
+        "glb_sha256_matches": true,
+        "source_sha256_matches": true,
+        "errors": [],
+        "warnings": []
+      },
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "sha_matches_self_check": true
+      },
+      "fresh_static_glb_audit": {
+        "status": "pass",
+        "sha256": "399ce37d67c905c0ce0f08802c1206307570d39cead72aa68defa9ebaf737c6d",
+        "sha_matches_glb": true,
+        "bytes": 343052,
+        "triangles": 7548,
+        "materials": 3,
+        "errors": [],
+        "warnings": [],
+        "report": "fresh-glb-audits/septarian-concretion.json"
+      },
+      "fresh_blender_reimport": {
+        "status": "pass_with_warnings",
+        "blender_version": "4.3.2",
+        "sha_matches_glb": true,
+        "triangles": 7548,
+        "bounds_max_error_m": 0.0,
+        "errors": [],
+        "warnings": [
+          "rounded-concretion-rind-and-lower-body: smooth faces require intentional-style review",
+          "rounded-concretion-rind-and-lower-body: 2304 boundary edges; review intentional openings",
+          "sectioned-host-rock-blocks-between-internal-veins: smooth faces require intentional-style review",
+          "sectioned-host-rock-blocks-between-internal-veins: 4594 boundary edges; review intentional openings",
+          "volumetric-radial-and-concentric-mineral-cement: smooth faces require intentional-style review",
+          "volumetric-radial-and-concentric-mineral-cement: 5406 boundary edges; review intentional openings"
+        ],
+        "report": "fresh-blender-roundtrip/septarian-concretion.json"
+      },
+      "actual_glb_runtime": {
+        "status": "pass",
+        "glb_sha_matches": true,
+        "browser": "154.0.8037.57",
+        "three_revision": "180",
+        "renderer": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "errors": [],
+        "view_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "top",
+          "near",
+          "scene-9-copies"
+        ],
+        "all_gl_errors_zero": true,
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "instances": 9,
+          "render_calls": 36,
+          "render_triangles": 67932,
+          "foreground_pixels": 30813,
+          "gl_error": 0
+        },
+        "evidence_images": [
+          {
+            "path": "runtime/front.png",
+            "bytes": 10270,
+            "sha256": "607d87e2a16e1d157f8fc0845e529c85ac03d07e40edb40d569ff854596b5683",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/hero.png",
+            "bytes": 17672,
+            "sha256": "706b0ea322f8b4a8fc4c2afc1ed5d0e1b2ba5ab4c4693e3cb33f7b2b928e747d",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/near.png",
+            "bytes": 15962,
+            "sha256": "d39ad00338e0b7c41b7609d297162e7e3e7f737bc0f8df618aaf8f14259e79c4",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/reversehero.png",
+            "bytes": 17274,
+            "sha256": "1433078d87aa1247a06654ce5c40c7e3e40b1b05b4b121019bd7fd1c075a9363",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/scene-9-copies.png",
+            "bytes": 29458,
+            "sha256": "2567dc345ec577c26b6dad40358eae7e682c1fc49586540bc4be9704f6582850",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/side.png",
+            "bytes": 8456,
+            "sha256": "bf97f55f90cb3f08483e54eed57f7f954448d91360ad6d3d3bfc7f20b7ab68bd",
+            "manifest_match": true
+          },
+          {
+            "path": "runtime/top.png",
+            "bytes": 23065,
+            "sha256": "a23d89e33553aaed5b6b6588646dc9a55e5acbe490545675f6879e219211a6f9",
+            "manifest_match": true
+          }
+        ]
+      },
+      "profile_checks": {
+        "temporary_contract_sha256": "274e61f3c10a3a2fb9be88ced2688b3c5d6c23bb0947d10beb5749e45756d857",
+        "static_profile": {
+          "returncode": 0,
+          "profile_contract_status": "pass",
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": []
+        },
+        "require_approved": {
+          "returncode": 1,
+          "approved_for_brief": false,
+          "errors": [],
+          "expected_to_fail_while_stage_status_unknown": true
+        },
+        "legacy": {
+          "returncode": 1,
+          "errors": [
+            "EN-RK3.license: nonempty text required"
+          ],
+          "expected_legacy_license_mismatch_for_consulted_only_source": true
+        }
+      },
+      "review_decision": {
+        "status": "PASS",
+        "required_issues": []
+      },
+      "septarian_weld_diagnostic": {
+        "method": "diagnostic only: weld exported positions after rounding to 1e-7m, count undirected triangle-edge incidences; no failure threshold used",
+        "boundary_edges": 0,
+        "edges_used_more_than_twice": 257,
+        "edges_shared_between_primitives": 232,
+        "degenerate_triangles": 0,
+        "visual_disposition": "Final GLB wireframe and shaded views show no visible hole, crack, z-fighting or broken vein junction. The candidate source audit reports zero boundary/nonmanifold edges per source part. This edge-incidence diagnostic is non-gating for the static display prop.",
+        "wireframe_evidence": "septarian-glb-wireframe.png"
+      },
+      "independent_blend_glb_compare": {
+        "status": "pass",
+        "source_blend_sha256": "cc9e73a01e8800699adc30b8c355007c757ec8ceab09e2885a3462d0add8f573",
+        "glb_sha256": "399ce37d67c905c0ce0f08802c1206307570d39cead72aa68defa9ebaf737c6d",
+        "blender_version": "4.3.2",
+        "position_rounding_digits": 6,
+        "source_unique_positions": 3638,
+        "glb_unique_positions": 3638,
+        "matching_positions": true,
+        "source_triangles": 7548,
+        "glb_triangles": 7548,
+        "degenerate_glb_triangles": 0,
+        "bounds_equal": true,
+        "report": "fresh-blend-glb-compare/septarian-concretion.json"
+      }
+    }
+  },
+  "scheduling_review": {
+    "maker_note": "A short correction build briefly overlapped a preview job; orchestration was paused for final correction and resumed serially. The maker makes no strict single-worker-throughout or hardware performance claim.",
+    "final_evidence_claim": "Final evidence was produced after correction; exact artifact hashes match build/rebuild/runtime evidence. No timing-based acceptance claim is used."
+  }
+}
