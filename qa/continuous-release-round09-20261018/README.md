@@ -21,3 +21,9 @@ Sollasina/Ottoia names remain inspired teaching forms. Eocladus retains `needs-s
 All prior 115 public entries/payloads/posters and ten turntable sequences remain unchanged. Only the twelve new website posters are rendered; original fixed views and model payloads are preserved.
 
 The browser harness's historical `strict-gpu` label / `QA_ALLOW_WEBGL_FALLBACK=0` means an actual WebGL-rendered model is required instead of the site's image/CSS fallback. It does not identify a physical graphics device. The recorded renderer remains SwiftShader, and the public batch-27 provenance explicitly exposes `formal_profile_acceptance: BLOCKED` and `hardware_gpu_verified: false`.
+
+## Pinned-browser poster reproduction
+
+PR CI Chromium 141 found two exact-byte poster mismatches against the initial local Chromium 154 captures. The original zero-mismatch assertion is retained; the release is held until canonical poster bytes reproduce under CI. Original failure: workflow 39177137976, preview job 117822295787, artifact 12154504560. This is a website-poster capture issue, not a model/source-geometry repair or a waiver of image continuity.
+
+The cloud could not download the artifact or pinned browser (HTTP 403). Capture failure diagnostics now emit the complete mismatch report and SHA-256/length/chunked bytes of only the public generated posters. A deliberately corrupted isolated fixture still exits 1 at the original assertion; its generated poster was reconstructed from the diagnostic chunks and matched its exact SHA. No production fixture/input was modified. This diagnostic transport does not change renderer, tolerance, verification scope or passing behavior.
