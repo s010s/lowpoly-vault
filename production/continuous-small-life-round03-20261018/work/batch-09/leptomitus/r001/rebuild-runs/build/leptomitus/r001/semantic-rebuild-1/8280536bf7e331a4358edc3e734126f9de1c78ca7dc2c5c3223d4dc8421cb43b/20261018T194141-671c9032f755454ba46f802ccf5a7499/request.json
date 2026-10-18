@@ -1,0 +1,107 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+    "--",
+    "--asset",
+    "leptomitus",
+    "--config",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/leptomitus/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/leptomitus/r001/rebuild-runs/build/leptomitus/r001/semantic-rebuild-1/8280536bf7e331a4358edc3e734126f9de1c78ca7dc2c5c3223d4dc8421cb43b/20261018T194141-671c9032f755454ba46f802ccf5a7499/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T19:41:41.989873+00:00",
+  "fingerprint": "8280536bf7e331a4358edc3e734126f9de1c78ca7dc2c5c3223d4dc8421cb43b",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9236,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/leptomitus/brief.json",
+        "sha256": "80a439081b33e9cc68c6ed89e6afffad8fef52b6ec3a512a09fa707401b93603"
+      },
+      "config": {
+        "bytes": 2010,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/leptomitus/r001/config.json",
+        "sha256": "7944c64c24874ee6aae90a5fe7a76ce0f181ccc2e887a6dee4ac48a40fdf1d80"
+      },
+      "generator": {
+        "bytes": 17888,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "sha256": "4bac6871e481829d4200fd53dff4e8e5e255bb803aaad3e57c62130994672e57"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1130,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/leptomitus/references.json",
+        "sha256": "2be14b7e84f02b4c4fb9276945fa66ab90afb9b4ab3ff4f26b85b8e36664cccb"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "leptomitus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "leptomitus",
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "leptomitus"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/leptomitus/brief.json",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/leptomitus/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/leptomitus/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "leptomitus/leptomitus.glb",
+        "leptomitus/leptomitus.blend",
+        "leptomitus/qa.json",
+        "leptomitus/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T194141-aa15c86688904b2992632481ee7ca50b"
+}
