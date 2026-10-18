@@ -1,0 +1,61 @@
+{
+  "subject": {
+    "asset_id": "vauxia",
+    "revision": "r001",
+    "glb_sha256": "1b55a5dbc587b8574c40d9086fb759c8b1ce6da9d86a8b10c03e4f6fa096dfe5",
+    "brief_sha256": "4c8fd811b3ba4aa19cd174109971717e97b9acc27d2879d3410498844a3283b4",
+    "references_sha256": "fb9ad001f00015d2444a45bf6b8f0a38435b5fac46a07dbaed4d945baee559ec"
+  },
+  "independent_acceptance": "pending; maker cannot sign independent QA",
+  "source_export_status": "pass_with_warnings",
+  "rebuilds": [
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "60cc947ae4b29bd2932ec261545d98fc410983760d5be63c62263bc641e3f7c9"
+    },
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "60cc947ae4b29bd2932ec261545d98fc410983760d5be63c62263bc641e3f7c9"
+    }
+  ],
+  "khronos": {
+    "status": "pass",
+    "validator_version": "2.0.0-dev.3.10",
+    "sha256": "1b55a5dbc587b8574c40d9086fb759c8b1ce6da9d86a8b10c03e4f6fa096dfe5",
+    "errors": [],
+    "warnings": [],
+    "num_errors": 0,
+    "num_warnings": 0,
+    "report": "gltf-validator.report.json",
+    "truncated": false
+  },
+  "runtime_status": "pass",
+  "source_vertices": 4608,
+  "source_triangles": 8944,
+  "exported_position_stream_vertices": 4800,
+  "exported_triangles": 8944,
+  "materials": 3,
+  "primitives": 3,
+  "glb_bytes": 172096,
+  "textures": 0,
+  "texture_bytes": 0,
+  "project_checker_returncode": 1,
+  "project_checker_note": "Retain actual first failure in project-checker.report.json: frozen references omit legacy required license/notes keys (use/rights_note retained). Separately, legacy brief checker requires >=2 turntable frames, conflicting with agreed zero-frame profile; that later check is not reached. No invented passing verdict.",
+  "authored_source_vertices": 4608,
+  "evaluated_source_vertices": 4608,
+  "normals_measurement": "source-mesh-measurements.json",
+  "warning_disposition": [
+    {
+      "warning": "tapered-dichotomous-fibrous-sponge: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth shading on round, tapered organic tube walls and connectors; low-sided geometry retained. Inspect actual clay/GLB views for junction quality.",
+      "independent_review": "pending"
+    },
+    {
+      "warning": "restrained-longitudinal-fiber-rhythm: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth shading on round, tapered organic tube walls and connectors; low-sided geometry retained. Inspect actual clay/GLB views for junction quality.",
+      "independent_review": "pending"
+    }
+  ]
+}

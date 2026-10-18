@@ -1,0 +1,59 @@
+{
+  "subject": {
+    "asset_id": "heliophyllum",
+    "revision": "r001",
+    "glb_sha256": "2e70992168ff04d758a2debbd0c77d08a5090626c89489849553491f71950517",
+    "brief_sha256": "f6f998893c9752db62364414a6618b7b1bdc5723f6af4559044d53a935e3d358",
+    "references_sha256": "9ad377e826b498922c1e64b659a8ecaeb9ed8571310b93933c19876c148494dd"
+  },
+  "independent_acceptance": "pending; maker does not sign independent QA",
+  "source_export_status": "pass_with_warnings",
+  "rebuilds": [
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "29b166cd1e20759e81f1094c0674290775f420438f65142d693dc703e436019b"
+    },
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "29b166cd1e20759e81f1094c0674290775f420438f65142d693dc703e436019b"
+    }
+  ],
+  "khronos": {
+    "status": "pass",
+    "validator_version": "2.0.0-dev.3.10",
+    "sha256": "2e70992168ff04d758a2debbd0c77d08a5090626c89489849553491f71950517",
+    "errors": [],
+    "warnings": [],
+    "num_errors": 0,
+    "num_warnings": 0,
+    "report": "gltf-validator.report.json",
+    "truncated": false
+  },
+  "runtime_status": "pass",
+  "authored_source_vertices": 1960,
+  "evaluated_source_vertices": 1960,
+  "source_triangles": 3836,
+  "exported_position_stream_vertices": 2024,
+  "exported_triangles": 3836,
+  "materials": 3,
+  "primitives": 3,
+  "glb_bytes": 74852,
+  "textures": 0,
+  "texture_bytes": 0,
+  "warning_disposition": [
+    {
+      "warning": "curved-corallum-with-continuous-deep-calyx: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on curved corallum and radial septa; geometric cup depth/ribs are retained in clay and runtime evidence.",
+      "independent_review": "pending"
+    },
+    {
+      "warning": "simplified-radial-septa-inside-calyx: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on curved corallum and radial septa; geometric cup depth/ribs are retained in clay and runtime evidence.",
+      "independent_review": "pending"
+    }
+  ],
+  "project_checker_returncode": 1,
+  "project_checker_note": "Actual first mismatch retained in project-checker.report.json: frozen reference ledger has use/rights_note rather than legacy license/notes keys. Legacy zero-turntable incompatibility is separately documented; no fabricated PASS."
+}
