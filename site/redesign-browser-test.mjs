@@ -194,12 +194,25 @@ async function noJavaScriptChecks() {
   const page = await context.newPage(); observe(page, 'No-JS');
   try {
     for (const lang of ['en', 'zh-CN']) {
-      await page.goto(urlFor({ type: 'models', lang }));
-      const content = page.locator('#static-route-content');
-      assert(await content.isVisible(), 'No-JS catalog must remain readable');
-      const links = content.locator('a[href*="/models/"]');
-      assert(await links.count() >= manifest.assets.length, 'No-JS catalog must expose every actual review asset');
-      assert.equal(await page.locator('canvas').count(), 0);
+      const content = page.locator('#static-route-content'), detailLinks = [];
+      const pages = Math.max(1, Math.ceil(manifest.assets.length / CATALOG_PAGE_SIZE));
+      for (let index = 0; index < pages; index++) {
+        await page.goto(urlFor({ type: 'models', lang, page: index }));
+        assert(await content.isVisible(), 'No-JS catalog must remain readable');
+        const links = await content.locator('a.static-card').evaluateAll(nodes => nodes.map(node => node.href));
+        assert.equal(links.length, manifest.assets.slice(index * CATALOG_PAGE_SIZE, (index + 1) * CATALOG_PAGE_SIZE).length);
+        detailLinks.push(...links);
+        for (const [rel, target] of [['prev', index - 1], ['next', index + 1]]) {
+          const navigation = content.locator(`.static-pagination a[rel="${rel}"]`);
+          if (target >= 0 && target < pages) {
+            assert.equal(await navigation.count(), 1, 'No-JS pagination must expose adjacent pages');
+            assert.equal(await navigation.evaluate(node => node.href), urlFor({type:'models',lang,page:target}));
+          } else assert.equal(await navigation.count(), 0);
+        }
+        assert.equal(await page.locator('canvas').count(), 0);
+      }
+      assert.equal(new Set(detailLinks).size, detailLinks.length, 'No duplicated No-JS catalog entries');
+      assert.deepEqual(detailLinks.sort(), manifest.assets.map(asset => urlFor({type:'detail',lang,id:asset.id})).sort(), 'No-JS catalog must expose every actual review asset across all reachable pages');
       await page.goto(urlFor({ type: 'detail', lang, id: manifest.assets[0].id }));
       assert(await content.isVisible());
       assert((await content.locator('h1').textContent()).includes(nameOf(manifest.assets[0], lang)));
