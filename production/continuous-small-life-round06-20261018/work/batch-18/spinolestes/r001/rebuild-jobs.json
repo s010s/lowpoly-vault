@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "spinolestes",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/build.py",
+        "config": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/config.json",
+        "brief": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/brief.json",
+        "references": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/references.json",
+        "freeze": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/freeze.json",
+        "original_config": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/build-config.json",
+        "policy": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/reference-policy.json",
+        "helper": "/workspace/batch18-spinolestes/scripts/asset_common.py",
+        "audit": "/workspace/batch18-spinolestes/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "spinolestes.glb",
+        "spinolestes.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101815,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "spinolestes",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/build.py",
+        "config": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/config.json",
+        "brief": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/brief.json",
+        "references": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/references.json",
+        "freeze": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/freeze.json",
+        "original_config": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/build-config.json",
+        "policy": "/workspace/batch18-spinolestes/production/continuous-small-life-round06-20261018/work/batch-18/spinolestes/r001/reference-policy.json",
+        "helper": "/workspace/batch18-spinolestes/scripts/asset_common.py",
+        "audit": "/workspace/batch18-spinolestes/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "spinolestes.glb",
+        "spinolestes.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101815,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
