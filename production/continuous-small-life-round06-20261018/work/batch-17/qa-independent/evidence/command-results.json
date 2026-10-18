@@ -1,0 +1,621 @@
+{
+  "qa_base_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb",
+  "commands": [
+    {
+      "asset_id": "isastraea",
+      "limits": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "checks": [
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/qa_glb.py",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/isastraea/isastraea.glb",
+            "--max-triangles",
+            "14000",
+            "--max-materials",
+            "6",
+            "--max-primitives",
+            "30",
+            "--report",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/isastraea/qa-glb.json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"profile\": \"static-uncompressed-v1\",\n  \"file\": \"/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/isastraea/isastraea.glb\",\n  \"errors\": [],\n  \"warnings\": [],\n  \"khronos_validator\": \"not_run_by_this_script\",\n  \"bytes\": 184356,\n  \"sha256\": \"6380b1770d80a0f6e9521fb69189cce836f2b42be07e4b0aa238adc1cfb0ece9\",\n  \"generator\": \"Khronos glTF Blender I/O v4.3.47\",\n  \"extensions_used\": [],\n  \"materials\": 3,\n  \"unique_mesh_triangles\": 8528,\n  \"unique_mesh_primitives\": 3,\n  \"unique_position_accessor_vertices\": 5418,\n  \"bounds_m\": {\n    \"min\": [\n      -0.0913499966263771,\n      0.0,\n      -0.07308000326156616\n    ],\n    \"max\": [\n      0.0913499966263771,\n      0.044884029775857925,\n      0.07308000326156616\n    ],\n    \"size\": [\n      0.1826999932527542,\n      0.044884029775857925,\n      0.14616000652313232\n    ]\n  },\n  \"semantic_sha256\": \"d393a8a9f40aba55bda0440c07dfe5da75789e118175b5306c8bb769457aa8cc\",\n  \"semantic_digest_profile\": \"decoded-static-content-v1\",\n  \"scene_triangles\": 8528,\n  \"scene_primitives_estimated_base_draw_calls\": 3,\n  \"status\": \"pass\"\n}\n",
+          "filename": "qa-glb.txt",
+          "status": "pass",
+          "errors": [],
+          "warnings": [],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/usr/bin/blender",
+            "-b",
+            "--factory-startup",
+            "--disable-autoexec",
+            "--python-exit-code",
+            "1",
+            "--python",
+            "/tmp/lowpoly-batch17-qa/scripts/check_source_export.py",
+            "--",
+            "--source",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/isastraea/r001/attempt-01/isastraea/isastraea.blend",
+            "--glb",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/isastraea/r001/attempt-01/isastraea/isastraea.glb",
+            "--output",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/isastraea/source-export.json"
+          ],
+          "exit_code": 0,
+          "stdout": "Source/export pass_with_warnings: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/isastraea/source-export.json\nBlender 4.3.2\nRead blend: \"/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/isastraea/r001/attempt-01/isastraea/isastraea.blend\"\n\nBlender quit\n",
+          "filename": "source-export.txt",
+          "status": "pass_with_warnings",
+          "errors": [],
+          "warnings": [
+            "source: continuous-low-massive-colony-with-shared-polygon-cup-walls: smooth faces require intentional-style review"
+          ],
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "source_parts": [
+            {
+              "name": "continuous-low-massive-colony-with-shared-polygon-cup-walls",
+              "vertices": 4266,
+              "triangles": 8528,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_gltf.cjs",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/isastraea/isastraea.glb"
+          ],
+          "exit_code": 0,
+          "stdout": "pass: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/isastraea/isastraea.glb (0 errors, 0 warnings)\n",
+          "filename": "khronos.txt",
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "num_errors": 0,
+          "num_warnings": 0,
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_candidate.py",
+            "production/continuous-small-life-round06-20261018/work/batch-17/isastraea/r001/candidate.json",
+            "--root",
+            "/tmp/batch17-candidate-review",
+            "--profile",
+            "static-stylized-v1",
+            "--profile-contract",
+            "production/continuous-small-life-round06-20261018/work/batch-17/isastraea/r001/profile-contract.json",
+            "--json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"valid\": true,\n  \"approved_for_brief\": false,\n  \"errors\": [],\n  \"approval_blockers\": [\n    \"technical: unknown\",\n    \"technical-integrity: unknown\",\n    \"visual: unknown\",\n    \"normal-view-craft: unknown\",\n    \"factual: unknown\",\n    \"basic-form-and-scope: unknown\",\n    \"specification: unknown\",\n    \"deliverables-and-label: unknown\",\n    \"runtime_parse: unknown\",\n    \"target-loader: unknown\",\n    \"gpu: unknown\",\n    \"functional-render: unknown\",\n    \"scene: unknown\",\n    \"representative-scene: unknown\",\n    \"open blocker: independent-acceptance-pending\",\n    \"approval: pending\"\n  ],\n  \"required_stages\": [\n    \"factual\",\n    \"gpu\",\n    \"runtime_parse\",\n    \"scene\",\n    \"specification\",\n    \"technical\",\n    \"visual\"\n  ],\n  \"measurements\": {\n    \"triangles\": 8528,\n    \"materials\": 3,\n    \"primitives\": 3,\n    \"glb_bytes\": 184356,\n    \"texture_count\": 0,\n    \"texture_max_dimension\": 0,\n    \"texture_bytes\": 0,\n    \"decoded_texture_bytes_estimate\": 0,\n    \"semantic_sha256\": \"d393a8a9f40aba55bda0440c07dfe5da75789e118175b5306c8bb769457aa8cc\"\n  },\n  \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n  \"validation_profile\": \"static-stylized-v1\",\n  \"rule_version\": \"2026-10-18.1\",\n  \"profile_contract_status\": \"pass\",\n  \"asset_id\": \"isastraea\",\n  \"revision\": \"r001\",\n  \"subject\": {\n    \"revision\": \"r001\",\n    \"glb_sha256\": \"6380b1770d80a0f6e9521fb69189cce836f2b42be07e4b0aa238adc1cfb0ece9\",\n    \"brief_sha256\": \"520a4b17d13f45777554960c22a5dfde377a6e4c856aee90695cbe9921b4ac7d\",\n    \"references_sha256\": \"337c836ebe82e9e2af40e6a6872e38c2a71490d550c1a9572ed4b59af9d4d468\"\n  },\n  \"artifact_sha256\": {\n    \"glb\": \"6380b1770d80a0f6e9521fb69189cce836f2b42be07e4b0aa238adc1cfb0ece9\",\n    \"source\": \"952aae3d8fd74e3f44a07bd09e28579477b4cbf8a12ef592d19ab8adf256a822\",\n    \"generator\": \"9f78d886fb793768b39e2629d3b62e4b814604f803c5dfe062c0762a10106d2a\",\n    \"config\": \"7646d9d1938274df9aadd5f733dd364b570b24d20d7a6845c8d35f87ec211647\",\n    \"brief\": \"520a4b17d13f45777554960c22a5dfde377a6e4c856aee90695cbe9921b4ac7d\",\n    \"references\": \"337c836ebe82e9e2af40e6a6872e38c2a71490d550c1a9572ed4b59af9d4d468\",\n    \"frozen_references\": \"9b76a89473d95577e979949b57f7cfadbbaf7cd848164f5bdd9a5289ee55ece1\",\n    \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n    \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n    \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n    \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n    \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n    \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n    \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n    \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n    \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n    \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n  },\n  \"approved_visual_image_sha256\": [],\n  \"profile_contract\": {\n    \"path\": \"production/continuous-small-life-round06-20261018/work/batch-17/isastraea/r001/profile-contract.json\",\n    \"sha256\": \"0b219617743963f24409d564b2f01d354c640de198620c147eeea3419de98c99\"\n  },\n  \"profile\": \"production\",\n  \"decoded_memory_assumptions\": \"RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.\",\n  \"approval_status\": \"pending\",\n  \"legacy_result\": {\n    \"valid\": false,\n    \"approved_for_brief\": false,\n    \"errors\": [\n      \"IV-PRI-SCLERACTINIA.license: nonempty text required\"\n    ],\n    \"approval_blockers\": [],\n    \"required_stages\": [],\n    \"measurements\": {},\n    \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n    \"validation_profile\": \"legacy-v1\",\n    \"rule_version\": \"2026-10-18.1\",\n    \"profile_contract_status\": \"not_checked\",\n    \"asset_id\": \"isastraea\",\n    \"revision\": \"r001\",\n    \"subject\": {\n      \"revision\": \"r001\",\n      \"glb_sha256\": \"6380b1770d80a0f6e9521fb69189cce836f2b42be07e4b0aa238adc1cfb0ece9\",\n      \"brief_sha256\": \"520a4b17d13f45777554960c22a5dfde377a6e4c856aee90695cbe9921b4ac7d\",\n      \"references_sha256\": \"337c836ebe82e9e2af40e6a6872e38c2a71490d550c1a9572ed4b59af9d4d468\"\n    },\n    \"artifact_sha256\": {\n      \"glb\": \"6380b1770d80a0f6e9521fb69189cce836f2b42be07e4b0aa238adc1cfb0ece9\",\n      \"source\": \"952aae3d8fd74e3f44a07bd09e28579477b4cbf8a12ef592d19ab8adf256a822\",\n      \"generator\": \"9f78d886fb793768b39e2629d3b62e4b814604f803c5dfe062c0762a10106d2a\",\n      \"config\": \"7646d9d1938274df9aadd5f733dd364b570b24d20d7a6845c8d35f87ec211647\",\n      \"brief\": \"520a4b17d13f45777554960c22a5dfde377a6e4c856aee90695cbe9921b4ac7d\",\n      \"references\": \"337c836ebe82e9e2af40e6a6872e38c2a71490d550c1a9572ed4b59af9d4d468\",\n      \"frozen_references\": \"9b76a89473d95577e979949b57f7cfadbbaf7cd848164f5bdd9a5289ee55ece1\",\n      \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n      \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n      \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n      \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n      \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n      \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n      \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n      \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n      \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n      \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n    },\n    \"approved_visual_image_sha256\": []\n  }\n}\n",
+          "filename": "current-main-candidate-validator.txt",
+          "valid": true,
+          "profile_contract_status": "pass",
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-acceptance-pending",
+            "approval: pending"
+          ],
+          "measurements": {
+            "triangles": 8528,
+            "materials": 3,
+            "primitives": 3,
+            "glb_bytes": 184356,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "d393a8a9f40aba55bda0440c07dfe5da75789e118175b5306c8bb769457aa8cc"
+          },
+          "reviewer_check_pass": true
+        }
+      ]
+    },
+    {
+      "asset_id": "araucaria-mirabilis",
+      "limits": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "checks": [
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/qa_glb.py",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/araucaria-mirabilis/araucaria-mirabilis.glb",
+            "--max-triangles",
+            "14000",
+            "--max-materials",
+            "6",
+            "--max-primitives",
+            "30",
+            "--report",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/araucaria-mirabilis/qa-glb.json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"profile\": \"static-uncompressed-v1\",\n  \"file\": \"/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/araucaria-mirabilis/araucaria-mirabilis.glb\",\n  \"errors\": [],\n  \"warnings\": [],\n  \"khronos_validator\": \"not_run_by_this_script\",\n  \"bytes\": 136564,\n  \"sha256\": \"40ec7b84c24c7406631c46252811efca43c6e9a2c361794cca38012d279d1614\",\n  \"generator\": \"Khronos glTF Blender I/O v4.3.47\",\n  \"extensions_used\": [],\n  \"materials\": 4,\n  \"unique_mesh_triangles\": 6914,\n  \"unique_mesh_primitives\": 5,\n  \"unique_position_accessor_vertices\": 3753,\n  \"bounds_m\": {\n    \"min\": [\n      -0.09747206419706345,\n      0.0,\n      -0.0376516655087471\n    ],\n    \"max\": [\n      0.06767696142196655,\n      0.0944112790748477,\n      0.03758322447538376\n    ],\n    \"size\": [\n      0.16514902561903,\n      0.0944112790748477,\n      0.07523488998413086\n    ]\n  },\n  \"semantic_sha256\": \"8abed636c54fb75b898034c7a08cfc61af245a5289cf4d844e22f05c59abc722\",\n  \"semantic_digest_profile\": \"decoded-static-content-v1\",\n  \"scene_triangles\": 6914,\n  \"scene_primitives_estimated_base_draw_calls\": 5,\n  \"status\": \"pass\"\n}\n",
+          "filename": "qa-glb.txt",
+          "status": "pass",
+          "errors": [],
+          "warnings": [],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/usr/bin/blender",
+            "-b",
+            "--factory-startup",
+            "--disable-autoexec",
+            "--python-exit-code",
+            "1",
+            "--python",
+            "/tmp/lowpoly-batch17-qa/scripts/check_source_export.py",
+            "--",
+            "--source",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/araucaria-mirabilis/r001/attempt-01/araucaria-mirabilis/araucaria-mirabilis.blend",
+            "--glb",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/araucaria-mirabilis/r001/attempt-01/araucaria-mirabilis/araucaria-mirabilis.glb",
+            "--output",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/araucaria-mirabilis/source-export.json"
+          ],
+          "exit_code": 0,
+          "stdout": "Source/export pass_with_warnings: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/araucaria-mirabilis/source-export.json\nBlender 4.3.2\nRead blend: \"/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/araucaria-mirabilis/r001/attempt-01/araucaria-mirabilis/araucaria-mirabilis.blend\"\n\nBlender quit\n",
+          "filename": "source-export.txt",
+          "status": "pass_with_warnings",
+          "errors": [],
+          "warnings": [
+            "source: rounded-preserved-cone-core: smooth faces require intentional-style review",
+            "source: original-mosaic-polygonal-cone-scales: smooth faces require intentional-style review",
+            "source: one-short-supporting-twig-and-attached-pedicel: smooth faces require intentional-style review"
+          ],
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 2.7939677238464355e-09,
+          "source_parts": [
+            {
+              "name": "rounded-preserved-cone-core",
+              "vertices": 1106,
+              "triangles": 2208,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "original-mosaic-polygonal-cone-scales",
+              "vertices": 1960,
+              "triangles": 3360,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "one-short-supporting-twig-and-attached-pedicel",
+              "vertices": 687,
+              "triangles": 1346,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_gltf.cjs",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/araucaria-mirabilis/araucaria-mirabilis.glb"
+          ],
+          "exit_code": 0,
+          "stdout": "pass: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/araucaria-mirabilis/araucaria-mirabilis.glb (0 errors, 0 warnings)\n",
+          "filename": "khronos.txt",
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "num_errors": 0,
+          "num_warnings": 0,
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_candidate.py",
+            "production/continuous-small-life-round06-20261018/work/batch-17/araucaria-mirabilis/r001/candidate.json",
+            "--root",
+            "/tmp/batch17-candidate-review",
+            "--profile",
+            "static-stylized-v1",
+            "--profile-contract",
+            "production/continuous-small-life-round06-20261018/work/batch-17/araucaria-mirabilis/r001/profile-contract.json",
+            "--json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"valid\": true,\n  \"approved_for_brief\": false,\n  \"errors\": [],\n  \"approval_blockers\": [\n    \"technical: unknown\",\n    \"technical-integrity: unknown\",\n    \"visual: unknown\",\n    \"normal-view-craft: unknown\",\n    \"factual: unknown\",\n    \"basic-form-and-scope: unknown\",\n    \"specification: unknown\",\n    \"deliverables-and-label: unknown\",\n    \"runtime_parse: unknown\",\n    \"target-loader: unknown\",\n    \"gpu: unknown\",\n    \"functional-render: unknown\",\n    \"scene: unknown\",\n    \"representative-scene: unknown\",\n    \"open blocker: independent-acceptance-pending\",\n    \"approval: pending\"\n  ],\n  \"required_stages\": [\n    \"factual\",\n    \"gpu\",\n    \"runtime_parse\",\n    \"scene\",\n    \"specification\",\n    \"technical\",\n    \"visual\"\n  ],\n  \"measurements\": {\n    \"triangles\": 6914,\n    \"materials\": 4,\n    \"primitives\": 5,\n    \"glb_bytes\": 136564,\n    \"texture_count\": 0,\n    \"texture_max_dimension\": 0,\n    \"texture_bytes\": 0,\n    \"decoded_texture_bytes_estimate\": 0,\n    \"semantic_sha256\": \"8abed636c54fb75b898034c7a08cfc61af245a5289cf4d844e22f05c59abc722\"\n  },\n  \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n  \"validation_profile\": \"static-stylized-v1\",\n  \"rule_version\": \"2026-10-18.1\",\n  \"profile_contract_status\": \"pass\",\n  \"asset_id\": \"araucaria-mirabilis\",\n  \"revision\": \"r001\",\n  \"subject\": {\n    \"revision\": \"r001\",\n    \"glb_sha256\": \"40ec7b84c24c7406631c46252811efca43c6e9a2c361794cca38012d279d1614\",\n    \"brief_sha256\": \"d5c6a8bd55a2b1143c478cbb7bcfbebd757db49d51e90df56f122b7e6f1a09d8\",\n    \"references_sha256\": \"4f89d8e8d6e963d990fa402c1d659e0573cc80d6cb7342358e8ab002952c94f9\"\n  },\n  \"artifact_sha256\": {\n    \"glb\": \"40ec7b84c24c7406631c46252811efca43c6e9a2c361794cca38012d279d1614\",\n    \"source\": \"82779a3f0d209738f686a486907ae0172dcaf1e655b42575e7b1cddf25661605\",\n    \"generator\": \"c35c766fd0750a7e048583b3a30f6bfab00f7a0752152346d211473ded4ab54a\",\n    \"config\": \"7306d80fa29fbb38f116dad2d7574336b80a4c69e68d5971fefc80f5ba33fc0a\",\n    \"brief\": \"d5c6a8bd55a2b1143c478cbb7bcfbebd757db49d51e90df56f122b7e6f1a09d8\",\n    \"references\": \"4f89d8e8d6e963d990fa402c1d659e0573cc80d6cb7342358e8ab002952c94f9\",\n    \"frozen_references\": \"46ebc372f3a7a57b6425dff2ae9291f0724e6210c68943fe92f409a4599c3cf7\",\n    \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n    \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n    \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n    \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n    \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n    \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n    \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n    \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n    \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n    \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n  },\n  \"approved_visual_image_sha256\": [],\n  \"profile_contract\": {\n    \"path\": \"production/continuous-small-life-round06-20261018/work/batch-17/araucaria-mirabilis/r001/profile-contract.json\",\n    \"sha256\": \"be72a5b78d923b9931d3a4fd088d561130dfa6cb7860a36b567ad232960e688e\"\n  },\n  \"profile\": \"production\",\n  \"decoded_memory_assumptions\": \"RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.\",\n  \"approval_status\": \"pending\",\n  \"legacy_result\": {\n    \"valid\": false,\n    \"approved_for_brief\": false,\n    \"errors\": [\n      \"FL-araucaria.license: nonempty text required\"\n    ],\n    \"approval_blockers\": [],\n    \"required_stages\": [],\n    \"measurements\": {},\n    \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n    \"validation_profile\": \"legacy-v1\",\n    \"rule_version\": \"2026-10-18.1\",\n    \"profile_contract_status\": \"not_checked\",\n    \"asset_id\": \"araucaria-mirabilis\",\n    \"revision\": \"r001\",\n    \"subject\": {\n      \"revision\": \"r001\",\n      \"glb_sha256\": \"40ec7b84c24c7406631c46252811efca43c6e9a2c361794cca38012d279d1614\",\n      \"brief_sha256\": \"d5c6a8bd55a2b1143c478cbb7bcfbebd757db49d51e90df56f122b7e6f1a09d8\",\n      \"references_sha256\": \"4f89d8e8d6e963d990fa402c1d659e0573cc80d6cb7342358e8ab002952c94f9\"\n    },\n    \"artifact_sha256\": {\n      \"glb\": \"40ec7b84c24c7406631c46252811efca43c6e9a2c361794cca38012d279d1614\",\n      \"source\": \"82779a3f0d209738f686a486907ae0172dcaf1e655b42575e7b1cddf25661605\",\n      \"generator\": \"c35c766fd0750a7e048583b3a30f6bfab00f7a0752152346d211473ded4ab54a\",\n      \"config\": \"7306d80fa29fbb38f116dad2d7574336b80a4c69e68d5971fefc80f5ba33fc0a\",\n      \"brief\": \"d5c6a8bd55a2b1143c478cbb7bcfbebd757db49d51e90df56f122b7e6f1a09d8\",\n      \"references\": \"4f89d8e8d6e963d990fa402c1d659e0573cc80d6cb7342358e8ab002952c94f9\",\n      \"frozen_references\": \"46ebc372f3a7a57b6425dff2ae9291f0724e6210c68943fe92f409a4599c3cf7\",\n      \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n      \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n      \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n      \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n      \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n      \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n      \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n      \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n      \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n      \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n    },\n    \"approved_visual_image_sha256\": []\n  }\n}\n",
+          "filename": "current-main-candidate-validator.txt",
+          "valid": true,
+          "profile_contract_status": "pass",
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-acceptance-pending",
+            "approval: pending"
+          ],
+          "measurements": {
+            "triangles": 6914,
+            "materials": 4,
+            "primitives": 5,
+            "glb_bytes": 136564,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "8abed636c54fb75b898034c7a08cfc61af245a5289cf4d844e22f05c59abc722"
+          },
+          "reviewer_check_pass": true
+        }
+      ]
+    },
+    {
+      "asset_id": "onychonycteris",
+      "limits": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "checks": [
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/qa_glb.py",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/onychonycteris/onychonycteris.glb",
+            "--max-triangles",
+            "14000",
+            "--max-materials",
+            "6",
+            "--max-primitives",
+            "30",
+            "--report",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/onychonycteris/qa-glb.json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"profile\": \"static-uncompressed-v1\",\n  \"file\": \"/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/onychonycteris/onychonycteris.glb\",\n  \"errors\": [],\n  \"warnings\": [],\n  \"khronos_validator\": \"not_run_by_this_script\",\n  \"bytes\": 231000,\n  \"sha256\": \"762fa3aabcaa37cae5f374e9d3fa22beb9f227ed86195919f8bdc02c1c1bf02f\",\n  \"generator\": \"Khronos glTF Blender I/O v4.3.47\",\n  \"extensions_used\": [],\n  \"materials\": 5,\n  \"unique_mesh_triangles\": 12292,\n  \"unique_mesh_primitives\": 8,\n  \"unique_position_accessor_vertices\": 6234,\n  \"bounds_m\": {\n    \"min\": [\n      -0.1385505050420761,\n      0.0,\n      -0.06772102415561676\n    ],\n    \"max\": [\n      0.1385503113269806,\n      0.04837973602116108,\n      0.04441635310649872\n    ],\n    \"size\": [\n      0.2771008163690567,\n      0.04837973602116108,\n      0.11213737726211548\n    ]\n  },\n  \"semantic_sha256\": \"c4e4c4cde6ca592b21064c8b63a5100a6f652052806c33c23676a797390131e6\",\n  \"semantic_digest_profile\": \"decoded-static-content-v1\",\n  \"scene_triangles\": 12292,\n  \"scene_primitives_estimated_base_draw_calls\": 8,\n  \"status\": \"pass\"\n}\n",
+          "filename": "qa-glb.txt",
+          "status": "pass",
+          "errors": [],
+          "warnings": [],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/usr/bin/blender",
+            "-b",
+            "--factory-startup",
+            "--disable-autoexec",
+            "--python-exit-code",
+            "1",
+            "--python",
+            "/tmp/lowpoly-batch17-qa/scripts/check_source_export.py",
+            "--",
+            "--source",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/onychonycteris/r001/attempt-02/onychonycteris/onychonycteris.blend",
+            "--glb",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/onychonycteris/r001/attempt-02/onychonycteris/onychonycteris.glb",
+            "--output",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/onychonycteris/source-export.json"
+          ],
+          "exit_code": 0,
+          "stdout": "Source/export pass_with_warnings: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/onychonycteris/source-export.json\nBlender 4.3.2\nRead blend: \"/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/onychonycteris/r001/attempt-02/onychonycteris/onychonycteris.blend\"\n\nBlender quit\n",
+          "filename": "source-export.txt",
+          "status": "pass_with_warnings",
+          "errors": [],
+          "warnings": [
+            "source: compact-mammal-trunk-head-and-soft-shoulder-roots: smooth faces require intentional-style review",
+            "source: two-broad-curved-closed-wing-membranes-and-tail-web: smooth faces require intentional-style review",
+            "source: short-arms-and-four-long-supporting-wing-digits: smooth faces require intentional-style review",
+            "source: five-wing-digit-claws-per-side-and-small-foot-claws: smooth faces require intentional-style review",
+            "source: friendly-eyes-and-small-mammal-nose: smooth faces require intentional-style review",
+            "source: small-rounded-upright-mammal-ears: smooth faces require intentional-style review"
+          ],
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 1.862645149230957e-09,
+          "source_parts": [
+            {
+              "name": "compact-mammal-trunk-head-and-soft-shoulder-roots",
+              "vertices": 1806,
+              "triangles": 3600,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "two-broad-curved-closed-wing-membranes-and-tail-web",
+              "vertices": 1306,
+              "triangles": 2600,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "short-arms-and-four-long-supporting-wing-digits",
+              "vertices": 1050,
+              "triangles": 2048,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "five-wing-digit-claws-per-side-and-small-foot-claws",
+              "vertices": 972,
+              "triangles": 1880,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "friendly-eyes-and-small-mammal-nose",
+              "vertices": 580,
+              "triangles": 1140,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "small-rounded-upright-mammal-ears",
+              "vertices": 520,
+              "triangles": 1024,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_gltf.cjs",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/onychonycteris/onychonycteris.glb"
+          ],
+          "exit_code": 0,
+          "stdout": "pass: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/onychonycteris/onychonycteris.glb (0 errors, 0 warnings)\n",
+          "filename": "khronos.txt",
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "num_errors": 0,
+          "num_warnings": 0,
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_candidate.py",
+            "production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/candidate.json",
+            "--root",
+            "/tmp/batch17-candidate-review",
+            "--profile",
+            "static-stylized-v1",
+            "--profile-contract",
+            "production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/profile-contract.json",
+            "--json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"valid\": true,\n  \"approved_for_brief\": false,\n  \"errors\": [],\n  \"approval_blockers\": [\n    \"technical: unknown\",\n    \"technical-integrity: unknown\",\n    \"visual: unknown\",\n    \"normal-view-craft: unknown\",\n    \"factual: unknown\",\n    \"basic-form-and-scope: unknown\",\n    \"specification: unknown\",\n    \"deliverables-and-label: unknown\",\n    \"runtime_parse: unknown\",\n    \"target-loader: unknown\",\n    \"gpu: unknown\",\n    \"functional-render: unknown\",\n    \"scene: unknown\",\n    \"representative-scene: unknown\",\n    \"open blocker: independent-acceptance-pending\",\n    \"approval: pending\"\n  ],\n  \"required_stages\": [\n    \"factual\",\n    \"gpu\",\n    \"runtime_parse\",\n    \"scene\",\n    \"specification\",\n    \"technical\",\n    \"visual\"\n  ],\n  \"measurements\": {\n    \"triangles\": 12292,\n    \"materials\": 5,\n    \"primitives\": 8,\n    \"glb_bytes\": 231000,\n    \"texture_count\": 0,\n    \"texture_max_dimension\": 0,\n    \"texture_bytes\": 0,\n    \"decoded_texture_bytes_estimate\": 0,\n    \"semantic_sha256\": \"c4e4c4cde6ca592b21064c8b63a5100a6f652052806c33c23676a797390131e6\"\n  },\n  \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n  \"validation_profile\": \"static-stylized-v1\",\n  \"rule_version\": \"2026-10-18.1\",\n  \"profile_contract_status\": \"pass\",\n  \"asset_id\": \"onychonycteris\",\n  \"revision\": \"r001\",\n  \"subject\": {\n    \"revision\": \"r001\",\n    \"glb_sha256\": \"762fa3aabcaa37cae5f374e9d3fa22beb9f227ed86195919f8bdc02c1c1bf02f\",\n    \"brief_sha256\": \"7466b14ec83948b2ba355384fe09f1af1b3f068e1ed0c0e5f3d397236a05644d\",\n    \"references_sha256\": \"0ff864dae761579e6480cda855c0efde62572f915496d1bcd17709ac11274639\"\n  },\n  \"artifact_sha256\": {\n    \"glb\": \"762fa3aabcaa37cae5f374e9d3fa22beb9f227ed86195919f8bdc02c1c1bf02f\",\n    \"source\": \"b284ce6db4235bec8cd1c44494bcfdbcfc28af5b8f0f7460bc982140a6c1a02f\",\n    \"generator\": \"ec34b4e3402ea396f83bb5d1e7372624d8efbe72d41403da9973143d140f94d2\",\n    \"config\": \"2f9582b0eafccffc2f221cbe5da032448d6b8b8d04e595137c5e156a30a03df9\",\n    \"brief\": \"7466b14ec83948b2ba355384fe09f1af1b3f068e1ed0c0e5f3d397236a05644d\",\n    \"references\": \"0ff864dae761579e6480cda855c0efde62572f915496d1bcd17709ac11274639\",\n    \"frozen_references\": \"99390919a8af5bcefd665f3a3c095e5c25a249d48bddec72b96c8ef19e2cb5ed\",\n    \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n    \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n    \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n    \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n    \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n    \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n    \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n    \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n    \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n    \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n  },\n  \"approved_visual_image_sha256\": [],\n  \"profile_contract\": {\n    \"path\": \"production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/profile-contract.json\",\n    \"sha256\": \"070ff81af464c6e49a2b2685eaa9daf52c94374082c8038643844984f2b584fe\"\n  },\n  \"profile\": \"production\",\n  \"decoded_memory_assumptions\": \"RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.\",\n  \"approval_status\": \"pending\",\n  \"legacy_result\": {\n    \"valid\": false,\n    \"approved_for_brief\": false,\n    \"errors\": [\n      \"VT-G-MAMMALS.license: nonempty text required\"\n    ],\n    \"approval_blockers\": [],\n    \"required_stages\": [],\n    \"measurements\": {},\n    \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n    \"validation_profile\": \"legacy-v1\",\n    \"rule_version\": \"2026-10-18.1\",\n    \"profile_contract_status\": \"not_checked\",\n    \"asset_id\": \"onychonycteris\",\n    \"revision\": \"r001\",\n    \"subject\": {\n      \"revision\": \"r001\",\n      \"glb_sha256\": \"762fa3aabcaa37cae5f374e9d3fa22beb9f227ed86195919f8bdc02c1c1bf02f\",\n      \"brief_sha256\": \"7466b14ec83948b2ba355384fe09f1af1b3f068e1ed0c0e5f3d397236a05644d\",\n      \"references_sha256\": \"0ff864dae761579e6480cda855c0efde62572f915496d1bcd17709ac11274639\"\n    },\n    \"artifact_sha256\": {\n      \"glb\": \"762fa3aabcaa37cae5f374e9d3fa22beb9f227ed86195919f8bdc02c1c1bf02f\",\n      \"source\": \"b284ce6db4235bec8cd1c44494bcfdbcfc28af5b8f0f7460bc982140a6c1a02f\",\n      \"generator\": \"ec34b4e3402ea396f83bb5d1e7372624d8efbe72d41403da9973143d140f94d2\",\n      \"config\": \"2f9582b0eafccffc2f221cbe5da032448d6b8b8d04e595137c5e156a30a03df9\",\n      \"brief\": \"7466b14ec83948b2ba355384fe09f1af1b3f068e1ed0c0e5f3d397236a05644d\",\n      \"references\": \"0ff864dae761579e6480cda855c0efde62572f915496d1bcd17709ac11274639\",\n      \"frozen_references\": \"99390919a8af5bcefd665f3a3c095e5c25a249d48bddec72b96c8ef19e2cb5ed\",\n      \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n      \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n      \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n      \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n      \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n      \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n      \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n      \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n      \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n      \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n    },\n    \"approved_visual_image_sha256\": []\n  }\n}\n",
+          "filename": "current-main-candidate-validator.txt",
+          "valid": true,
+          "profile_contract_status": "pass",
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-acceptance-pending",
+            "approval: pending"
+          ],
+          "measurements": {
+            "triangles": 12292,
+            "materials": 5,
+            "primitives": 8,
+            "glb_bytes": 231000,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "c4e4c4cde6ca592b21064c8b63a5100a6f652052806c33c23676a797390131e6"
+          },
+          "reviewer_check_pass": true
+        }
+      ]
+    },
+    {
+      "asset_id": "pillow-lava-outcrop",
+      "limits": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "checks": [
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/qa_glb.py",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/pillow-lava-outcrop/pillow-lava-outcrop.glb",
+            "--max-triangles",
+            "14000",
+            "--max-materials",
+            "6",
+            "--max-primitives",
+            "30",
+            "--report",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/pillow-lava-outcrop/qa-glb.json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"profile\": \"static-uncompressed-v1\",\n  \"file\": \"/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/pillow-lava-outcrop/pillow-lava-outcrop.glb\",\n  \"errors\": [],\n  \"warnings\": [],\n  \"khronos_validator\": \"not_run_by_this_script\",\n  \"bytes\": 141820,\n  \"sha256\": \"ae72e9c5f1e4971ce5b7fb60828be0119c4a9c27f64c45a8256a3e303617f437\",\n  \"generator\": \"Khronos glTF Blender I/O v4.3.47\",\n  \"extensions_used\": [],\n  \"materials\": 2,\n  \"unique_mesh_triangles\": 7636,\n  \"unique_mesh_primitives\": 2,\n  \"unique_position_accessor_vertices\": 3898,\n  \"bounds_m\": {\n    \"min\": [\n      -0.47501179575920105,\n      0.0,\n      -0.3099115490913391\n    ],\n    \"max\": [\n      0.4749882221221924,\n      0.28423992171883583,\n      0.24637331068515778\n    ],\n    \"size\": [\n      0.9500000178813934,\n      0.28423992171883583,\n      0.5562848597764969\n    ]\n  },\n  \"semantic_sha256\": \"d9deb384f5a0f90709ebbab0d0af6a7899218291f0dc3b3958b7c9147a8bda10\",\n  \"semantic_digest_profile\": \"decoded-static-content-v1\",\n  \"scene_triangles\": 7636,\n  \"scene_primitives_estimated_base_draw_calls\": 2,\n  \"status\": \"pass\"\n}\n",
+          "filename": "qa-glb.txt",
+          "status": "pass",
+          "errors": [],
+          "warnings": [],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/usr/bin/blender",
+            "-b",
+            "--factory-startup",
+            "--disable-autoexec",
+            "--python-exit-code",
+            "1",
+            "--python",
+            "/tmp/lowpoly-batch17-qa/scripts/check_source_export.py",
+            "--",
+            "--source",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/pillow-lava-outcrop/r001/attempt-02/pillow-lava-outcrop/pillow-lava-outcrop.blend",
+            "--glb",
+            "/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/pillow-lava-outcrop/r001/attempt-02/pillow-lava-outcrop/pillow-lava-outcrop.glb",
+            "--output",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/pillow-lava-outcrop/source-export.json"
+          ],
+          "exit_code": 0,
+          "stdout": "Source/export pass_with_warnings: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/pillow-lava-outcrop/source-export.json\nBlender 4.3.2\nRead blend: \"/tmp/batch17-candidate-review/assets/candidates/continuous-small-life-round06-20261018/batch-17/pillow-lava-outcrop/r001/attempt-02/pillow-lava-outcrop/pillow-lava-outcrop.blend\"\n\nBlender quit\n",
+          "filename": "source-export.txt",
+          "status": "pass_with_warnings",
+          "errors": [],
+          "warnings": [
+            "source: original-continuous-unequal-pillow-lobes-with-constricted-necks: smooth faces require intentional-style review"
+          ],
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 3.725290298461914e-09,
+          "source_parts": [
+            {
+              "name": "original-continuous-unequal-pillow-lobes-with-constricted-necks",
+              "vertices": 3820,
+              "triangles": 7636,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_gltf.cjs",
+            "/tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/pillow-lava-outcrop/pillow-lava-outcrop.glb"
+          ],
+          "exit_code": 0,
+          "stdout": "pass: /tmp/lowpoly-batch17-qa/production/continuous-small-life-round06-20261018/work/batch-17/qa-independent/evidence/checks/pillow-lava-outcrop/pillow-lava-outcrop.glb (0 errors, 0 warnings)\n",
+          "filename": "khronos.txt",
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "num_errors": 0,
+          "num_warnings": 0,
+          "reviewer_check_pass": true
+        },
+        {
+          "command": [
+            "python3",
+            "/tmp/lowpoly-batch17-qa/scripts/validate_candidate.py",
+            "production/continuous-small-life-round06-20261018/work/batch-17/pillow-lava-outcrop/r001/candidate.json",
+            "--root",
+            "/tmp/batch17-candidate-review",
+            "--profile",
+            "static-stylized-v1",
+            "--profile-contract",
+            "production/continuous-small-life-round06-20261018/work/batch-17/pillow-lava-outcrop/r001/profile-contract.json",
+            "--json"
+          ],
+          "exit_code": 0,
+          "stdout": "{\n  \"valid\": true,\n  \"approved_for_brief\": false,\n  \"errors\": [],\n  \"approval_blockers\": [\n    \"technical: unknown\",\n    \"technical-integrity: unknown\",\n    \"visual: unknown\",\n    \"normal-view-craft: unknown\",\n    \"factual: unknown\",\n    \"basic-form-and-scope: unknown\",\n    \"specification: unknown\",\n    \"deliverables-and-label: unknown\",\n    \"runtime_parse: unknown\",\n    \"target-loader: unknown\",\n    \"gpu: unknown\",\n    \"functional-render: unknown\",\n    \"scene: unknown\",\n    \"representative-scene: unknown\",\n    \"open blocker: independent-acceptance-pending\",\n    \"approval: pending\"\n  ],\n  \"required_stages\": [\n    \"factual\",\n    \"gpu\",\n    \"runtime_parse\",\n    \"scene\",\n    \"specification\",\n    \"technical\",\n    \"visual\"\n  ],\n  \"measurements\": {\n    \"triangles\": 7636,\n    \"materials\": 2,\n    \"primitives\": 2,\n    \"glb_bytes\": 141820,\n    \"texture_count\": 0,\n    \"texture_max_dimension\": 0,\n    \"texture_bytes\": 0,\n    \"decoded_texture_bytes_estimate\": 0,\n    \"semantic_sha256\": \"d9deb384f5a0f90709ebbab0d0af6a7899218291f0dc3b3958b7c9147a8bda10\"\n  },\n  \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n  \"validation_profile\": \"static-stylized-v1\",\n  \"rule_version\": \"2026-10-18.1\",\n  \"profile_contract_status\": \"pass\",\n  \"asset_id\": \"pillow-lava-outcrop\",\n  \"revision\": \"r001\",\n  \"subject\": {\n    \"revision\": \"r001\",\n    \"glb_sha256\": \"ae72e9c5f1e4971ce5b7fb60828be0119c4a9c27f64c45a8256a3e303617f437\",\n    \"brief_sha256\": \"0c9f7702a695598637027d942804681bdfd74e722e706d01422c31ede8488fb7\",\n    \"references_sha256\": \"fa5f3c5ea18013d60a03ad2ed305950c98cba049939035c4f3e6182f25fa47a5\"\n  },\n  \"artifact_sha256\": {\n    \"glb\": \"ae72e9c5f1e4971ce5b7fb60828be0119c4a9c27f64c45a8256a3e303617f437\",\n    \"source\": \"2471cdc816ed976c54158357684c696ee7a0a5a9d36bdba5ecd9f4714f0d7f51\",\n    \"generator\": \"f3649916f2312bb5c50f4607fd98e43804f4543772eb3f49b760fe446044e6f8\",\n    \"config\": \"f2e4bcf249cd2bb92af67ea38fdb9cc16174dd66c54c9fdba488a35d0486293a\",\n    \"brief\": \"0c9f7702a695598637027d942804681bdfd74e722e706d01422c31ede8488fb7\",\n    \"references\": \"fa5f3c5ea18013d60a03ad2ed305950c98cba049939035c4f3e6182f25fa47a5\",\n    \"frozen_references\": \"5928281756333a75a90d1abfed8cedf269f2b81cbc53b315f417c58059921bcf\",\n    \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n    \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n    \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n    \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n    \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n    \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n    \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n    \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n    \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n    \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n  },\n  \"approved_visual_image_sha256\": [],\n  \"profile_contract\": {\n    \"path\": \"production/continuous-small-life-round06-20261018/work/batch-17/pillow-lava-outcrop/r001/profile-contract.json\",\n    \"sha256\": \"36578af819b39abd444d350dc8ae79d0e8e445a41b6b4faf6a449f8cbc6486ec\"\n  },\n  \"profile\": \"production\",\n  \"decoded_memory_assumptions\": \"RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.\",\n  \"approval_status\": \"pending\",\n  \"legacy_result\": {\n    \"valid\": false,\n    \"approved_for_brief\": false,\n    \"errors\": [\n      \"EN-LV.license: nonempty text required\"\n    ],\n    \"approval_blockers\": [],\n    \"required_stages\": [],\n    \"measurements\": {},\n    \"limitations\": \"Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.\",\n    \"validation_profile\": \"legacy-v1\",\n    \"rule_version\": \"2026-10-18.1\",\n    \"profile_contract_status\": \"not_checked\",\n    \"asset_id\": \"pillow-lava-outcrop\",\n    \"revision\": \"r001\",\n    \"subject\": {\n      \"revision\": \"r001\",\n      \"glb_sha256\": \"ae72e9c5f1e4971ce5b7fb60828be0119c4a9c27f64c45a8256a3e303617f437\",\n      \"brief_sha256\": \"0c9f7702a695598637027d942804681bdfd74e722e706d01422c31ede8488fb7\",\n      \"references_sha256\": \"fa5f3c5ea18013d60a03ad2ed305950c98cba049939035c4f3e6182f25fa47a5\"\n    },\n    \"artifact_sha256\": {\n      \"glb\": \"ae72e9c5f1e4971ce5b7fb60828be0119c4a9c27f64c45a8256a3e303617f437\",\n      \"source\": \"2471cdc816ed976c54158357684c696ee7a0a5a9d36bdba5ecd9f4714f0d7f51\",\n      \"generator\": \"f3649916f2312bb5c50f4607fd98e43804f4543772eb3f49b760fe446044e6f8\",\n      \"config\": \"f2e4bcf249cd2bb92af67ea38fdb9cc16174dd66c54c9fdba488a35d0486293a\",\n      \"brief\": \"0c9f7702a695598637027d942804681bdfd74e722e706d01422c31ede8488fb7\",\n      \"references\": \"fa5f3c5ea18013d60a03ad2ed305950c98cba049939035c4f3e6182f25fa47a5\",\n      \"frozen_references\": \"5928281756333a75a90d1abfed8cedf269f2b81cbc53b315f417c58059921bcf\",\n      \"mesh_utils\": \"b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b\",\n      \"helper\": \"a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519\",\n      \"audit\": \"88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098\",\n      \"source_inspector\": \"c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5\",\n      \"runtime_viewer\": \"d63d7fbe2cde83f49bd826575c7bed546da8bb69a121dc7bed228d4ffc590299\",\n      \"runtime_checker\": \"6dc5e0387b27f583ee414df50973506ac109021512d3e1f8665cdbd34481026a\",\n      \"verification_runner\": \"8bd749ecc26bd3e31f031d7440715620e33d4c4d1f3c08776ceffcc9d389408d\",\n      \"package_lock\": \"4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2\",\n      \"reference_access\": \"eb81d549bfca3976c87c7a9514faec88001a3ee25154ef5b050cebd80e2a00ce\",\n      \"claim\": \"694f3d5c1930cd4b06bf3bf3bff7b7badcdb3990f1e1fcc82cf5e578fc5b5e1a\"\n    },\n    \"approved_visual_image_sha256\": []\n  }\n}\n",
+          "filename": "current-main-candidate-validator.txt",
+          "valid": true,
+          "profile_contract_status": "pass",
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-acceptance-pending",
+            "approval: pending"
+          ],
+          "measurements": {
+            "triangles": 7636,
+            "materials": 2,
+            "primitives": 2,
+            "glb_bytes": 141820,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "d9deb384f5a0f90709ebbab0d0af6a7899218291f0dc3b3958b7c9147a8bda10"
+          },
+          "reviewer_check_pass": true
+        }
+      ]
+    }
+  ]
+}
