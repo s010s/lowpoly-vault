@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/aysheaia/r001/generator.py",
+    "--",
+    "--asset",
+    "aysheaia",
+    "--config",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/aysheaia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/aysheaia/r001/rebuild-runs/build/aysheaia/r001/semantic-rebuild-2/296c9b4c033a306efd7f0c53206e5b10f4ecc4be3a476098c95a0191b1085cbe/20261018T203913-95284edae5ca4e1da15f715d7a6e9adc/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:39:13.654938+00:00",
+  "fingerprint": "296c9b4c033a306efd7f0c53206e5b10f4ecc4be3a476098c95a0191b1085cbe",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9529,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/aysheaia/brief.json",
+        "sha256": "36ea0ba3c12a71eb4a32544c82f0e8d1ebe2214f77357f7ac990f47edf58c9bb"
+      },
+      "config": {
+        "bytes": 2329,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/aysheaia/r001/config.json",
+        "sha256": "993d320fe0602bc3585b6520a713d7bb6f750a1a8ee8b438bf2b28fc4fd6d93c"
+      },
+      "generator": {
+        "bytes": 5625,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/aysheaia/r001/generator.py",
+        "sha256": "44a85a2528578c6f180c97d9225d7dbbe5b37e386d0582ce180701e8f0165432"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1306,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/aysheaia/references.json",
+        "sha256": "c892258ca8e2b8e5c40e8e82fa3eae3031fc04acf7fe5f02a17fe8dace1b2c4d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "aysheaia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "aysheaia",
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/aysheaia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/aysheaia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/aysheaia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/aysheaia/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "aysheaia/aysheaia.blend",
+        "aysheaia/aysheaia.glb",
+        "aysheaia/qa.json",
+        "aysheaia/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T203909-77f96bb8f85047b49084592227f89591"
+}
