@@ -1,3 +1,7 @@
+**当前授权以最新state和父任务明确派发证明为准；旧queue/config/工作副本的空claim或未派发文字是历史快照，不得阻塞已被父任务独占授权的worker。以下旧阶段文字不覆盖当前状态。**
+
+当前 `batch-07`：`reviewing`。详情及精确source/QA/发布pins见state.json。
+
 # batch-07 — 仅计划，尚未派发
 
 以最新state和父任务明确派发证明为准，历史queue/config/工作副本空claim不得阻塞已被父任务独占派发的worker。本轮目前确实尚未派发，planner不得自行启动。

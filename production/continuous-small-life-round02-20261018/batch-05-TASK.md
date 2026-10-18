@@ -1,3 +1,7 @@
+**当前授权以最新state和父任务明确派发证明为准；旧queue/config/工作副本的空claim或未派发文字是历史快照，不得阻塞已被父任务独占授权的worker。以下旧阶段文字不覆盖当前状态。**
+
+当前 `batch-05`：`model_qa_pass_release_integration`。详情及精确source/QA/发布pins见state.json。
+
 **状态与派发授权：以本目录最新 `state.json` 和父任务明确派发证明为准。`queue.json`/冻结config/旧工作副本中的空claim或“尚未派发”是历史快照，不能阻塞父任务已经独占派发的worker；父任务消息是有效授权证据。未知真实分支/时间/哈希不编造，新任务仍由父任务统一领取，不能由未派发者自行认领。**
 
 当前 `batch-05`：`building`；原制作线程 `01a15056-509d-725f-bad0-871371cd7010`。05/06已正式独占派发；04独立QA进行中，未PASS。
