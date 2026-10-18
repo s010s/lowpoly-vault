@@ -1,5 +1,7 @@
 # batch-24 — 仅计划，尚未派发
 
+**当前父任务确认：batch22/23已交付、待独立QA，batch24生产者独占制作。实际state及父任务派发证明覆盖下方初始未分派/空claim；交付不等于QA PASS或已发布。22/23来源SHA为本次远端头观察值，派QA前核对实际冻结handoff。**
+
 以最新state和父任务明确派发证明为准，历史queue/config/工作副本空claim不得阻塞已被父任务独占派发的worker。本轮目前确实尚未派发，planner不得自行启动。
 
 制作必须 GPT-6.1 Sol medium；独立QA由父任务新派 GPT-6 Luna xhigh，制作会话自检不能替代。读本目录README、queue/state/reference-policy和每项freeze/brief/config/references。
