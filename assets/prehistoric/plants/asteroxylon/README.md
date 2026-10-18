@@ -14,8 +14,10 @@ The attached brief/reference package is **pilot-v002-recovered-20261018**, a dis
 - Source/static GLB checks passed; the insect's negative lowest coordinate is its documented suspended mounting pivot
 - Official Khronos validator: zero errors and zero warnings
 - Six exact-export views plus transparent poster, calibrated scale panel and supported-size thumbnails are present
-- Independent visual/basic-form review and target-runtime/scene QA remain pending; this is a candidate checkpoint, not a release approval
+- Independent visual/basic-form review passed with advisory; target-loader, actual GPU and repeated-instance scene QA remain untested. This is a candidate checkpoint, not a release approval
 
 Generator: `scripts/models/build_small_insect_plant_pair.py`; final config: `production/insect-plant-build/asteroxylon-r2.json`. Shared helper dependencies are retained at repository baseline `01c60dd85322932a967c4f2aa50045f2da1a25bd`.
 
 Assets/previews: CC BY 4.0, attribution Leon Made This / s010s. Generator code: MIT. References were consulted only; no external artwork, model or texture is incorporated.
+
+Independent review: `qa/small-fauna-independent-review-20261018/independent-review.md` (exact GLB hashes and all frame hashes checked). Image sheets retain their generation-time pending banner; the later independent report records the current scoped visual verdict.
