@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "micrabacia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/micrabacia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/micrabacia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/micrabacia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/micrabacia/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "micrabacia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "micrabacia/micrabacia.glb",
+        "micrabacia/micrabacia.blend",
+        "micrabacia/metadata.json",
+        "micrabacia/qa.json"
+      ],
+      "config": {
+        "profile": "batch11 original palette-only"
+      },
+      "timeout_seconds": 300
+    },
+    {
+      "asset_id": "micrabacia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/micrabacia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/micrabacia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/micrabacia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/micrabacia/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "micrabacia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "micrabacia/micrabacia.glb",
+        "micrabacia/micrabacia.blend",
+        "micrabacia/metadata.json",
+        "micrabacia/qa.json"
+      ],
+      "config": {
+        "profile": "batch11 original palette-only"
+      },
+      "timeout_seconds": 300
+    }
+  ]
+}
