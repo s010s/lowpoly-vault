@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/generator.py",
+    "--",
+    "--asset",
+    "limestone-pavement",
+    "--config",
+    "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/rebuild-runs/build/limestone-pavement/r001/semantic-rebuild-1/02166b9e30d41386ab7921169c5a894ed7a1e44839a4eda8d2e94a6d89a302f7/20261018T224531-f34b91c8dbb74e22b31f69dcbcb1fb4b/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T22:45:31.375372+00:00",
+  "fingerprint": "02166b9e30d41386ab7921169c5a894ed7a1e44839a4eda8d2e94a6d89a302f7",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9789,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/limestone-pavement/brief.json",
+        "sha256": "c4bc94de0022ef1d13137ba2769932998340e78cd0d2bc6f76c47933c5ac02e2"
+      },
+      "config": {
+        "bytes": 2367,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/config.json",
+        "sha256": "897a7a2bfc96dfc84ff8f62c50e0e5e5c2b9b00c0462e76884b7db756938cd0e"
+      },
+      "generator": {
+        "bytes": 6466,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/generator.py",
+        "sha256": "7a0eb0c21ac07c18006d445b5c2b618d7cb0131368042ec6119aa3ea601bc785"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2761,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/limestone-pavement/inventory-record.json",
+        "sha256": "d36ce94bc1dbcbcd2ec1471e444d75cd945035857ae7a69d2299bace20283c2d"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1210,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/limestone-pavement/references.json",
+        "sha256": "26854a468df9b58432d9d9e0fcb61240380ac0831c7287435f8db14565aa01eb"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "limestone-pavement",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "limestone-pavement",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch27 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/limestone-pavement/brief.json",
+        "config": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/limestone-pavement/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/limestone-pavement/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "limestone-pavement/limestone-pavement.blend",
+        "limestone-pavement/limestone-pavement.glb",
+        "limestone-pavement/qa.json",
+        "limestone-pavement/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T224531-159e36b3bdde4f1eaf929cc81a87c265"
+}
