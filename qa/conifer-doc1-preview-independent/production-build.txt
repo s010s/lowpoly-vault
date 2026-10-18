@@ -1,0 +1,25 @@
+
+> lowpoly-vault@1.0.0 build
+> node site/initial-release.mjs --check && vite build && node site/copy-assets.mjs && node site/audit-release.mjs
+
+Publication gate passed: 10 checked assets; quality status: mixed.
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 22 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist/index.html                         9.87 kB │ gzip:   3.59 kB
+../dist/assets/index-Ck4V9GJP.css         53.25 kB │ gzip:  11.56 kB
+../dist/assets/presentation-CVFjLfLN.js    0.63 kB │ gzip:   0.42 kB
+../dist/assets/index-B-olaLoZ.js          84.33 kB │ gzip:  29.38 kB
+../dist/assets/viewer-DU19HkAP.js        607.45 kB │ gzip: 154.08 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 480ms
+Image-scrub delivery: 10 published assets, 240 individually lazy-loadable frames, 10 lightweight static posters.
+Release catalog: 10 published assets in 1 summary shards.
+Static HTML: 26 bilingual documents, 10 model detail pairs.
+Release inventory passed: 361 allowlisted files; ten byte-identical GLB/Blend pairs and ZIPs; no QA, research or experiments.

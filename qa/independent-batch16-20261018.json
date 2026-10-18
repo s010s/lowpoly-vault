@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "title": "Independent batch16 QA",
+  "review_date": "2026-10-18",
+  "qa_branch": "qa/independent-batch16-20261018",
+  "source_of_truth": {
+    "handoff_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3",
+    "handoff_path": "production/continuous-small-life-round06-20261018/work/batch-16/final-handoff.jsonl",
+    "scope": "only batch16 pleurodictyum, matonidium, yohoia, gypsum-desert-rose; earlier batch02 answers excluded"
+  },
+  "standard": {
+    "profile": "static-stylized-v1",
+    "rule_version": "2026-10-18.1",
+    "acceptance": "natural, refined stylized low-poly teaching art; exact scientific reconstruction not required"
+  },
+  "method": {
+    "fresh_sha256_checks": true,
+    "fixed_views_opened_and_reviewed": 8,
+    "runtime_images_opened_and_reviewed": 7,
+    "source_export_rerun": "Blender 4.3.2 with scripts/check_source_export.py; source files were read without saving or exporting replacements",
+    "geometry_review": "evaluated-source triangle parity, axis-converted bounds, source mesh boundary/nonmanifold edges, proportions and visible joins",
+    "runtime_review": "exact GLBs bound by runtime evidence manifest; Chromium 154 / Three.js 180 / ANGLE SwiftShader captures"
+  },
+  "assets": [
+    {
+      "asset_id": "pleurodictyum",
+      "revision": "r001",
+      "qa_result": "PASS",
+      "reviewed_candidate": {
+        "branch": "candidate/batch16-pleurodictyum-20261018",
+        "commit": "2a2f0dc307bcd2895a90589e07d26088edcfbfd6"
+      },
+      "source": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/pleurodictyum/r001/pleurodictyum.blend",
+        "sha256": "7fe5af3d8e8305d6d00f149781a094510b1389406b21f0b3a7c0fc285cb648d2"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/pleurodictyum/r001/pleurodictyum.glb",
+        "sha256": "2b904cc71378663b71fdd74680de4f5ee24b5f34729681a0080c343a776dca3c",
+        "bytes": 127672,
+        "triangles": 7004,
+        "materials": 1,
+        "primitives": 1
+      },
+      "integrity_and_export": {
+        "direct_sha256_matches_handoff_candidate_and_evidence": true,
+        "independent_source_export_audit": {
+          "status": "pass_with_warnings",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "topology_parts": [
+            {
+              "name": "low-domed-colony-disc-with-few-adjoining-large-calyces",
+              "vertices": 3504,
+              "triangles": 7004,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "warnings": [
+            "source: low-domed-colony-disc-with-few-adjoining-large-calyces: smooth faces require intentional-style review"
+          ]
+        }
+      },
+      "fixed_view_review": {
+        "views": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "all_image_byte_counts_and_sha256_verified": true,
+        "manifest_sha256": "38146e72f673af40dac8ae75b86fe6afa0c55ed2ef767c8b7d598117c974cddd",
+        "visual_notes": "八视图可读为低穹盘和六个相邻浅杯；hero/reversehero/top 保持杯口与中央关系，front/side/rear 显示连续低缘。侧缘较直且略呈台壁，但网格闭合、没有破口或杯体脱接；在简化教学造型与当前风格要求内接受。平滑面是有意软化的艺术处理。"
+      },
+      "runtime_review": {
+        "status": "pass",
+        "runtime": "Chromium ANGLE SwiftShader / Three.js 180",
+        "runtime_report_sha256": "d3a77452270f55b3083c18f23ba633681705070676cc48bdd01bb1a9904f6115",
+        "evidence_manifest_sha256": "ab8b881354a4a997f4c5c27f655e0028fc3a41b76a17dc6e54f8fe0e91f72608",
+        "glb_sha256_matches_reviewed_glb": true,
+        "all_runtime_capture_byte_counts_and_sha256_verified": true,
+        "gl_errors": 0,
+        "scene_9_copies": {
+          "instances": 9,
+          "render_calls": 9,
+          "triangles": 63036,
+          "foreground_pixels": 20520
+        },
+        "glb_bounds_mm_xyz_y_up": [
+          89.8,
+          24.0,
+          75.2
+        ]
+      },
+      "nominal_scale": {
+        "meters": 0.09,
+        "axis": "colony disc width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "scene_scale_review": "盘宽约 89.8 mm，与 90 mm 名义艺术尺度相符；runtime 九件实例均完整入镜。",
+      "required_source_changes": []
+    },
+    {
+      "asset_id": "matonidium",
+      "revision": "r001",
+      "qa_result": "PASS",
+      "reviewed_candidate": {
+        "branch": "candidate/batch16-matonidium-20261018",
+        "commit": "1928f874ebbd50e98815291d255d42b9b009d365"
+      },
+      "source": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/matonidium/r001/matonidium.blend",
+        "sha256": "bbde7d0dd5c937dda6ee6b48e466905add6e05d82746caa1684f4017089a4b3a"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/matonidium/r001/matonidium.glb",
+        "sha256": "cd8cb6c2f212b14a84550d68f15b5ec6449ec964e51ff7bd9ee5c6d25424ed68",
+        "bytes": 120908,
+        "triangles": 2830,
+        "materials": 2,
+        "primitives": 2
+      },
+      "integrity_and_export": {
+        "direct_sha256_matches_handoff_candidate_and_evidence": true,
+        "independent_source_export_audit": {
+          "status": "pass_with_warnings",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "topology_parts": [
+            {
+              "name": "preserved-frond-thin-radiating-rachises-only",
+              "vertices": 867,
+              "triangles": 1710,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "rounded-subtriangular-pinnules-with-ray-gaps",
+              "vertices": 720,
+              "triangles": 1120,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "warnings": [
+            "source: preserved-frond-thin-radiating-rachises-only: smooth faces require intentional-style review"
+          ]
+        }
+      },
+      "fixed_view_review": {
+        "views": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "all_image_byte_counts_and_sha256_verified": true,
+        "manifest_sha256": "84ba2283e504ccea598402c437a3101dd3164a53a3ba45ca98f6d588466f1e66",
+        "visual_notes": "八视图呈放射蕨叶器官，主轴连接清楚，成对圆端亚三角羽片及射线间空隙可辨。side/rear 很薄，符合压制/保存叶器官的标本式教学方向；没有误加整株枝干、根系或显著断裂。平滑面是有意软化的艺术处理。"
+      },
+      "runtime_review": {
+        "status": "pass",
+        "runtime": "Chromium ANGLE SwiftShader / Three.js 180",
+        "runtime_report_sha256": "f73553a48d6ea46b8ae32ce802aff52e4757939b2a2f32d271c55a6be46a4ac7",
+        "evidence_manifest_sha256": "f470e7c017f5f0c3b370a373333c0efbddae8f03cc8517b43426156b0ce1ebdb",
+        "glb_sha256_matches_reviewed_glb": true,
+        "all_runtime_capture_byte_counts_and_sha256_verified": true,
+        "gl_errors": 0,
+        "scene_9_copies": {
+          "instances": 9,
+          "render_calls": 18,
+          "triangles": 25470,
+          "foreground_pixels": 4152
+        },
+        "glb_bounds_mm_xyz_y_up": [
+          220.0,
+          12.4,
+          186.5
+        ]
+      },
+      "nominal_scale": {
+        "meters": 0.22,
+        "axis": "preserved frond span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "scene_scale_review": "GLB 平面占域约 220.0 × 186.5 mm、厚约 12.4 mm，覆盖 220 mm 名义保存叶片跨度；九件 runtime 场景未裁切。",
+      "required_source_changes": []
+    },
+    {
+      "asset_id": "yohoia",
+      "revision": "r001",
+      "qa_result": "PASS",
+      "reviewed_candidate": {
+        "branch": "candidate/batch16-yohoia-20261018",
+        "commit": "e93398d53c49000ad67693b64000cfea45b0c2c6"
+      },
+      "source": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/yohoia/r001/yohoia.blend",
+        "sha256": "75f4f6f617c7d31a483daa5445dfaaf290e427f89fea45b17acd24adb5082d00"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/yohoia/r001/yohoia.glb",
+        "sha256": "b18bc7d9939b523c7f29c1cba541a7311a762d4e03792528a280b5981fc32fd8",
+        "bytes": 86912,
+        "triangles": 4224,
+        "materials": 4,
+        "primitives": 8
+      },
+      "integrity_and_export": {
+        "direct_sha256_matches_handoff_candidate_and_evidence": true,
+        "independent_source_export_audit": {
+          "status": "pass_with_warnings",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "topology_parts": [
+            {
+              "name": "broad-subrectangular-head-shield",
+              "vertices": 32,
+              "triangles": 60,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "gently-tapered-segmented-trunk",
+              "vertices": 882,
+              "triangles": 1728,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "paired-two-segment-elbows-and-four-terminal-fingers",
+              "vertices": 632,
+              "triangles": 1224,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "simplified-ventral-support-and-swimming-limbs",
+              "vertices": 378,
+              "triangles": 684,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "broad-terminal-paddle-telson",
+              "vertices": 122,
+              "triangles": 240,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "small-lateral-eyes",
+              "vertices": 148,
+              "triangles": 288,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "warnings": [
+            "source: gently-tapered-segmented-trunk: smooth faces require intentional-style review",
+            "source: paired-two-segment-elbows-and-four-terminal-fingers: smooth faces require intentional-style review",
+            "source: simplified-ventral-support-and-swimming-limbs: smooth faces require intentional-style review",
+            "source: broad-terminal-paddle-telson: smooth faces require intentional-style review",
+            "source: small-lateral-eyes: smooth faces require intentional-style review"
+          ]
+        }
+      },
+      "fixed_view_review": {
+        "views": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "all_image_byte_counts_and_sha256_verified": true,
+        "manifest_sha256": "8d67421d24d536c47f05932bf5740bbeddc96d9b14983eaf05564bd57148e11b",
+        "visual_notes": "八视图持续保留方形头甲、成对肘状前附肢与指端、分节躯干、侧肢及桨状尾节；接合连贯，前后和上下视角没有发现穿孔、明显缺面或粘连遮蔽。简化程度和小比例读感符合教学艺术目标。"
+      },
+      "runtime_review": {
+        "status": "pass",
+        "runtime": "Chromium ANGLE SwiftShader / Three.js 180",
+        "runtime_report_sha256": "e8f4f01ec07cf35a33ad7e38baece6e7d8c8d1beabafcf0427332a1fd6927c62",
+        "evidence_manifest_sha256": "b0ab6409d7b0058c96682a5c1217ccf056127d21d570aaaa384e151bd4eba38c",
+        "glb_sha256_matches_reviewed_glb": true,
+        "all_runtime_capture_byte_counts_and_sha256_verified": true,
+        "gl_errors": 0,
+        "scene_9_copies": {
+          "instances": 9,
+          "render_calls": 72,
+          "triangles": 38016,
+          "foreground_pixels": 5059
+        },
+        "glb_bounds_mm_xyz_y_up": [
+          19.1,
+          12.6,
+          57.2
+        ]
+      },
+      "nominal_scale": {
+        "meters": 0.04,
+        "axis": "body length",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "scene_scale_review": "GLB 轴对齐外包约 19.1 × 12.6 × 57.2 mm；40 mm 名义尺度标注的是身体长度，外包同时包括前附肢和尾节。九件 runtime 场景完整入镜。",
+      "required_source_changes": []
+    },
+    {
+      "asset_id": "gypsum-desert-rose",
+      "revision": "r001",
+      "qa_result": "PASS",
+      "reviewed_candidate": {
+        "branch": "candidate/batch16-gypsum-desert-rose-20261018",
+        "commit": "acfeecd7ac95eec9a66a45fb72740036fbee3da9"
+      },
+      "source": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/gypsum-desert-rose/r001/gypsum-desert-rose.blend",
+        "sha256": "69b3422e6ec174754cdfdf5ac210a1c5a9bd988410fa61206dbc2bf8f402d0c7"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round06-20261018/batch-16/gypsum-desert-rose/r001/gypsum-desert-rose.glb",
+        "sha256": "826ac3e2c8d2fcfc583a647a6c52361ab8ee1d3e5b2f6192b5bd6b63b46e6156",
+        "bytes": 59424,
+        "triangles": 1092,
+        "materials": 3,
+        "primitives": 4
+      },
+      "integrity_and_export": {
+        "direct_sha256_matches_handoff_candidate_and_evidence": true,
+        "independent_source_export_audit": {
+          "status": "pass",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "topology_parts": [
+            {
+              "name": "intergrown-sandy-gypsum-core",
+              "vertices": 128,
+              "triangles": 252,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "overlapping-tabular-crystals-with-hierarchical-sizes-and-angles",
+              "vertices": 450,
+              "triangles": 840,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ],
+          "warnings": []
+        }
+      },
+      "fixed_view_review": {
+        "views": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "all_image_byte_counts_and_sha256_verified": true,
+        "manifest_sha256": "226cb50ab9add675e8741c6a95fef0e83b78a37bcda08ad4abfacb7e8d84bb29",
+        "visual_notes": "八视图和 runtime 皆读作有主次尺寸、不同角度交叠的片状晶体集合；侧视厚度可见，晶片连接/遮挡关系清楚。runtime 向下表面较暗，但未见缺面或异常断口；符合沙漠玫瑰概念的折面表现。"
+      },
+      "runtime_review": {
+        "status": "pass",
+        "runtime": "Chromium ANGLE SwiftShader / Three.js 180",
+        "runtime_report_sha256": "eb0a7082278ff11ac19e55dadf39827f3a8e08ef36bb2e6607f7e5cb91abf5e9",
+        "evidence_manifest_sha256": "7300f7cae02b2fe17cd2c2cdc2d3ead08445d786ff84c96c08984f45caf1d0da",
+        "glb_sha256_matches_reviewed_glb": true,
+        "all_runtime_capture_byte_counts_and_sha256_verified": true,
+        "gl_errors": 0,
+        "scene_9_copies": {
+          "instances": 9,
+          "render_calls": 36,
+          "triangles": 9828,
+          "foreground_pixels": 14557
+        },
+        "glb_bounds_mm_xyz_y_up": [
+          160.0,
+          74.5,
+          154.5
+        ]
+      },
+      "nominal_scale": {
+        "meters": 0.16,
+        "axis": "crystal aggregate span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "scene_scale_review": "晶体集合外包约 160.0 × 74.5 × 154.5 mm，与 160 mm 名义集合跨度吻合；runtime 九件实例完整入镜。",
+      "required_source_changes": []
+    }
+  ],
+  "scope_note": "PASS records independent visual and technical QA for these exact source/GLB hashes. It does not rewrite maker candidate-stage fields, imply publication authority, or grant full-record approval."
+}

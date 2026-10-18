@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "asset_id": "canadia",
+  "brief_version": "round07-plan-v001",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "batch_id": "batch-20",
+  "display_name": "Stylized Canadia leaf-bristled annelid",
+  "generic_fallback_name": "Prehistoric-inspired teaching prop inspired by canadia",
+  "purpose": "Balanced child-friendly scene variety: small marine/terrestrial/flying animals, two coral forms, botanical organ teaching props and original natural objects.",
+  "subject": {
+    "taxon_inspiration": "canadia",
+    "inventory_name": {
+      "en": "Canadia leaf-bristled annelid",
+      "zh": "Canadia（叶毛环节动物）"
+    },
+    "category": "animals",
+    "subcategory": "worm",
+    "planning_eras": [
+      "cambrian"
+    ],
+    "representation": "living-reconstruction",
+    "reconstruction_type": "whole-organism",
+    "pose": "Calm static pose selected for recognizable structure and natural connections."
+  },
+  "claim_scope": "Named-taxon-inspired teaching art using basic recognizable form, not strict scientific reconstruction; no exact species/measurement/locomotion/coexistence claim.",
+  "distinctness": {
+    "en": "Its distinguishing construction is flattened worm with broad overlapping dorsal bristles and two long head palps; retain this geometry rather than treating it as a recolor, scale or pose variant.",
+    "zh": "以扁虫体具宽叠背刚毛和两根长头须为独立造型依据；须保留这些结构差异，不能仅靠换色、缩放或姿势区别。"
+  },
+  "modeling_brief": {
+    "en": "Original low-poly direction: establish flattened worm with broad overlapping dorsal bristles and two long head palps in the blockout, then preserve the largest silhouette breaks and openings. Simplify fine ornament and repeated elements without copying reference meshes; palette and presentation are artistic choices, not fossil evidence.",
+    "zh": "原创低多边形方向：先以扁虫体具宽叠背刚毛和两根长头须搭建体块，再保留主要外轮廓转折与孔隙。细纹及重复结构可简化，不复制参考网格；配色与展示方式属于美术选择，并非化石证据。"
+  },
+  "shape_plan_zh": "虫体与宽叶状背刚毛成组衔接，头须克制；不是Aysheaia加毛或整身细刺噪声。细刚毛/体节数可合理简化，软组织色彩为艺术。",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Approved practical profile: eight fixed useful views, no production turntable; add targeted views only for an actual concern.",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "scale": {
+    "meters": 0.06,
+    "axis": "body length",
+    "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 480,
+    "microscopic_closeups_supported": false
+  },
+  "style": "Natural refined low-poly, credible proportions and soft connections; restrained child-friendly cartooning, no mechanical assembly or unnecessary large maps.",
+  "artistic_choices": [
+    "Nominal dimensions, colors and limited thickness/pose are artistic choices, not fossil measurement.",
+    "Never enlarge a source scope from fragment to whole organism or freshwater to marine merely for scene filler."
+  ],
+  "reference_policy": {
+    "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+    "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+    "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+    "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+    "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+    "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+  },
+  "review_bound": "One consolidated independent QA and at most one planned cosmetic repair; persistent genuine required defect goes to parent. Uncertain fine reconstruction is advisory, not repeat-work fuel.",
+  "publication_authority": "separate",
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and measured separate budgets; warnings dispositioned.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-craft",
+      "stage": "visual",
+      "critical": true,
+      "description": "All eight fixed QA views and actual-GLB runtime evidence; readable distinct silhouette, credible proportions, soft natural connections at normal/near viewing scale. Counts do not certify beauty.",
+      "required_sources": []
+    },
+    {
+      "id": "basic-form-and-scope",
+      "stage": "factual",
+      "critical": true,
+      "description": "虫体与宽叶状背刚毛成组衔接，头须克制；不是Aysheaia加毛或整身细刺噪声。细刚毛/体节数可合理简化，软组织色彩为艺术。 Preserve original reference scope, uncertainty and representation label. No extra microscopic or precise life-reconstruction obligations.",
+      "required_sources": [
+        "IV-ROM-CANADIA"
+      ]
+    },
+    {
+      "id": "deliverables-and-label",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable Blend, standalone GLB, deterministic generator/config and dependency hashes, bilingual metadata/scope/provenance/attribution, original small maps if used, transparent cover, eight fixed views and actual-GLB runtime evidence.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB parsed by pinned target loader; record bounds/material/texture/errors.",
+      "required_sources": []
+    },
+    {
+      "id": "functional-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Declared functional graphics runtime; identify software/hardware honestly, no unsupported physical-device performance claim.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts; no actual museum integration or cross-era habitat claim.",
+      "required_sources": []
+    }
+  ],
+  "maker": {
+    "model": "GPT-6.1 Sol",
+    "reasoning": "medium"
+  },
+  "independent_reviewer": {
+    "model": "GPT-6 Luna",
+    "reasoning": "xhigh",
+    "dispatcher": "parent; fresh independent task"
+  },
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256",
+    "observed_at_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb"
+  },
+  "candidate_validation_profile": "static-stylized-v1",
+  "candidate_rule_version": "2026-10-18.1"
+}

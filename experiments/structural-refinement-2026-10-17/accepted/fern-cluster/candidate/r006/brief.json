@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "asset_id": "fern-cluster",
+  "brief_version": "structure-r006",
+  "profile": "production",
+  "purpose": "Structural revision for a close-inspected catalogue groundcover prop. Compare against immutable 2,418-triangle original. Preserve meter scale; form first; no surface maps in this iteration.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_position_stream_vertices": 30000,
+    "max_materials": 3,
+    "max_primitives": 16,
+    "max_glb_bytes": 1400000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "AFS-MORPH",
+        "NHM-FERNS"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "AFS-MORPH",
+        "NHM-FERNS"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 distinct azimuths plus all orthographic axes, clay with alternate key, actual triangulated wire and pinna\u2013rachis crop. Original/revision share fixed world camera and framing.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "candidate/r006/fern-cluster.blend",
+      "sha256": "1c8a7a614892548d265151ef06347df62fbd8b5244088ca914b119ac0db33615"
+    },
+    {
+      "role": "generator",
+      "path": "candidate/r006/generate.py",
+      "sha256": "9ceccabfbc449317a7371951c4badb42d0f1b1027b6f9f32b282fe8f41d8e396"
+    },
+    {
+      "role": "config",
+      "path": "candidate/r006/build-config.json",
+      "sha256": "5bd354ca0cb83d886cba789327f8eaa87a41d23b1039afcd3f7808ae9dcb84e1"
+    },
+    {
+      "role": "export_packer",
+      "path": "candidate/r006/pack_static.py",
+      "sha256": "735d7db314bfdc6594d350da1d811ecbf3e579b2ac8517be279d163c30021d9c"
+    }
+  ],
+  "subject": {
+    "claim": "evidence-informed stylized fern concept",
+    "not_claimed": [
+      "named extant or fossil taxon",
+      "specific Mesozoic locality",
+      "measured fossil reconstruction"
+    ],
+    "scale": "artistic meters, original envelope about 1.44 x 1.52 x 0.80 m"
+  },
+  "intended_use": {
+    "runtime": "Three.js 0.180.0 static gallery; prospective repeated groundcover",
+    "view_envelope": "full plant 128\u2013512 projected pixels; pinna-rachis detail 256 pixels",
+    "normal_visible_instances": 20,
+    "stress_visible_instances": 100,
+    "performance_status": "requires measured GPU and populated scene tests; this candidate alone does not establish population suitability"
+  },
+  "budget_rationale": "The original 2,418 triangles under-resolves curves and pinna shoulders. The provisional 12,000 ceiling allowed an initial 11,936-triangle 8-section sweep candidate. A controlled 5-section pinna sweep reduces 4,200 triangles while preserving frond and pinna count, axes, colors and broad silhouette. Final r004 cost is 7,736 triangles: pinnae 6,300; axes 1,162; crozier 236; crown 38. Geometry supports curved solid blades and tapered axes, not texture veins. 12,000 remains an experiment ceiling, not target or runtime-qualified limit. Separate GLB ceiling is not a 500 KB cap; repeated-scene suitability stays unknown pending measured GPU tests. r006 is a controlled shading/export-representation option: coherent per-quad normals replace separate triangle normals, and exact stream repacking consolidates 10 primitives into 3 material primitives. Every triangle position and material remains unchanged; shading must be independently reviewed at 128\u2013512px.",
+  "feature_obligations": [
+    "Continuous frond/stipe/rachis hierarchy from one low crown",
+    "Narrow pinnae attach to the main rachis and taper progressively, without arrow shoulders or a single abrupt tent fold",
+    "Three unequal height tiers and visible inter-frond windows; check the whole orbit for overlapping terminal tips",
+    "One modest unfurling crozier; no flowers or seeds",
+    "Palette and scale held close to the original so comparison isolates structural change"
+  ]
+}

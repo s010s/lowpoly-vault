@@ -1,0 +1,44 @@
+{
+  "status": "reviewed_prototype_user_approval_pending",
+  "reviewed_at_utc": "2026-10-16T16:28:00Z",
+  "scope": "Independent near-view experiment, not a replacement for the 2382-triangle base asset.",
+  "images_inspected": [
+    "preview-hero.png",
+    "preview-reversehero.png",
+    "preview-side.png",
+    "preview-clay.png",
+    "preview-clay-alt.png",
+    "preview-silhouette.png",
+    "preview-glb-roundtrip.png",
+    "preview-glb-wireframe.png",
+    "comparison-v1/preview-hero.png",
+    "comparison-v1/preview-reversehero.png",
+    "comparison-v1/preview-clay.png"
+  ],
+  "visible_improvement": [
+    "Main boughs lead into tapering secondary branchlet fans and fine terminal woody shoots; junction hierarchy is visible in both hero directions.",
+    "Short narrow solid needle groups replace the broad spear-like leaf blocks of the baseline.",
+    "Unequal bough lengths, varying shoot scale and open gaps avoid a stack of matching cones."
+  ],
+  "iteration": {
+    "observed_defect": "The first rendered sample had needle envelopes too narrow to read at the intended medium viewing scale; crown looked skeletal.",
+    "correction": "Widened and lengthened the existing needle-bundle envelopes, especially on lower and middle shoots. No extra triangles were added for this correction.",
+    "before_images": [
+      "iteration-01/preview-hero-sparse.png",
+      "iteration-01/preview-reversehero-sparse.png"
+    ],
+    "after_images": [
+      "preview-hero.png",
+      "preview-reversehero.png"
+    ]
+  },
+  "tradeoffs": [
+    "14118 triangles is 5.93 times the baseline; 36144 exported POSITION vertices is 7.32 times the baseline.",
+    "The crown remains intentionally open and spiky. Fine foliage is less robust at thumbnail/distant scale than the baseline large masses.",
+    "At 128px overall tree silhouette is visible, but individual needle groups largely disappear. Preferred object coverage is 350–650px.",
+    "No Three.js runtime performance benchmark or user aesthetic approval is claimed.",
+    "No compliance with RHS059/low_poly_items vertex limits is claimed."
+  ],
+  "comparison_controls": "Same union-bounds camera framing, key/fill lighting, Standard view transform, 1024px and 32 samples. Shared preview fixtures are absent from both exported assets.",
+  "conclusion": "Branch and foliage identity improves at close-to-medium range, at a substantial geometry cost. Retain the original base asset as default; this sample is for an explicit visual-versus-cost decision only."
+}

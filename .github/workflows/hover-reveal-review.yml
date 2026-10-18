@@ -1,0 +1,49 @@
+name: Review hover model reveal
+on:
+  push:
+    branches: ['fix/smooth-hover-reveal-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hover-reveal-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SITE_BASE: /lowpoly-vault/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 92903263310a407426875bf98d7eb6f37b526f55
+          path: baseline
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:preview && npm run test:redesign
+      - name: Build and measure original reveal
+        run: |
+          ln -s ../node_modules baseline/node_modules
+          (cd baseline && npm run build)
+          BASELINE=1 GALLERY_DIR=baseline/dist QA_OUTPUT_DIR=qa/hover-before node site/hover-reveal-browser-test.mjs
+      - run: npm run build
+      - name: Measure candidate reveal
+        run: QA_OUTPUT_DIR=qa/hover-after node site/hover-reveal-browser-test.mjs
+      - name: Existing shared model regression gates
+        if: always()
+        run: npm run test:preview:browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hover-reveal-${{ github.sha }}
+          path: |
+            qa/hover-before/
+            qa/hover-after/
+            qa/shared-model-preview/browser/
+          retention-days: 30

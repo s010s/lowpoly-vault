@@ -1,0 +1,84 @@
+{
+  "status": "pass",
+  "glb_sha256": "2f74e3b9620ec72ae02f6e9a986a6e8593519aca7287c1ed7351f30c279d1a04",
+  "rebuilt_glb_sha256": "2f74e3b9620ec72ae02f6e9a986a6e8593519aca7287c1ed7351f30c279d1a04",
+  "semantic_sha256": "684468f8342087293df69c036b92a7f8f3e9e61b8e375216935179a4a497bb36",
+  "rebuilt_semantic_sha256": "684468f8342087293df69c036b92a7f8f3e9e61b8e375216935179a4a497bb36",
+  "semantic_match": true,
+  "byte_identical": true,
+  "generator_sha256": "e0fde32e6a063ae02f72b47c4079a6658c303afdfee5d0192aa0d0a7b65f8720",
+  "config_sha256": "d120c3309d8c2103361ca3838c7e0e9aac8b5a4f2a82c94f1f2b23914324cc45",
+  "helper_sha256": "27fe5c66c3955a003e141debbd96816b0f6eda6f64af991f28234ec42257d8bc",
+  "commands": [
+    {
+      "label": "rebuild",
+      "argv": [
+        "blender",
+        "-b",
+        "-t",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/build_batch01.py",
+        "--",
+        "--asset",
+        "archaeopteryx",
+        "--config",
+        "/workspace/lowpoly-vault/production/continuous-small-life-20261018/items/archaeopteryx/build-config.json",
+        "--output",
+        "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/archaeopteryx/r001/rebuild"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.992,
+      "log": "rebuild.txt"
+    },
+    {
+      "label": "source-reopen",
+      "argv": [
+        "blender",
+        "-b",
+        "-t",
+        "2",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "scripts/check_source_export.py",
+        "--",
+        "--source",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/archaeopteryx/r001/archaeopteryx.blend",
+        "--glb",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/archaeopteryx/r001/archaeopteryx.glb",
+        "--output",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/archaeopteryx/r001/evidence/technical/source-export.report.json"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.812,
+      "log": "source-reopen.txt"
+    },
+    {
+      "label": "clean-import",
+      "argv": [
+        "blender",
+        "-b",
+        "-t",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "scripts/check_glb_roundtrip.py",
+        "--",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/archaeopteryx/r001/archaeopteryx.glb",
+        "--output-dir",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/archaeopteryx/r001/evidence/technical",
+        "--no-render"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.21,
+      "log": "clean-import.txt"
+    }
+  ],
+  "scope": "Actual separately executed deterministic build, decoded geometry/material/scene semantic comparison; source archive byte identity not required. No independent visual or scientific verdict."
+}

@@ -1,0 +1,1142 @@
+[
+  {
+    "source": "qa/animation-refinements/ci-fix-conifer-exact/report.json",
+    "runtime_commit": "7a627e6f2e17a39b7b213ed8f97f6ddf7971998a",
+    "status": "fail",
+    "chromium_version": "154.0.8037.57",
+    "error": "AssertionError [ERR_ASSERTION]: Camera return must include an actual intermediate draw before the canonical endpoint\n    at canonicalReturnCoverage (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:675:3)\n    at async roundTrip (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:900:5)\n    at async file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:1209:3",
+    "failed_cases": [
+      {
+        "label": "desktop-motion",
+        "status": "fail",
+        "canonical_return": {
+          "draws": [
+            {
+              "time": 2499.2000000001863,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.8865708797528784,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "hidden",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "afterDrawReveal": {
+                "visibility": "visible",
+                "sameHost": true,
+                "compositeCount": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 2510.3000000002794,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.8865708797528784,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 2511.600000000093,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.886570879752878,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 2515,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.886570879752878,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 2655.7000000001863,
+              "phase": "close",
+              "progress": 1,
+              "returnPhase": "fading",
+              "host": {
+                "x": 57.4140625,
+                "y": 302.1171875,
+                "width": 290.171875,
+                "height": 290.171875
+              },
+              "view": {
+                "azimuth_deg": 42,
+                "elevation_deg": 23.300000000000004,
+                "distance": 4.663885055703454,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 10906,
+                "nonzero_fraction": 0.08135308159722222,
+                "mean_alpha": 0.0423793551708878,
+                "transparent_fraction": 0.9204372829861112,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2708333333333333,
+                  "top": 0.19010416666666666,
+                  "right": 0.6979166666666666,
+                  "bottom": 0.796875
+                },
+                "centroid": {
+                  "x": 0.4919350726914938,
+                  "y": 0.5286237494763361
+                }
+              },
+              "object": {
+                "left": 136.00227864583331,
+                "top": 357.2800699869792,
+                "right": 259.92985026041663,
+                "bottom": 533.347900390625,
+                "width": 123.92757161458333,
+                "height": 176.06783040364584,
+                "x": 200.15978492115204,
+                "y": 455.50893205507873
+              },
+              "pixels": {
+                "width": 646,
+                "height": 646,
+                "rgba_hash": "a0f37adc",
+                "transparent_fraction": 0.9390102464319604,
+                "corner_alpha_max": 0
+              }
+            }
+          ],
+          "endpoint": {
+            "time": 2655.7000000001863,
+            "phase": "close",
+            "progress": 1,
+            "returnPhase": "fading",
+            "host": {
+              "x": 57.4140625,
+              "y": 302.1171875,
+              "width": 290.171875,
+              "height": 290.171875
+            },
+            "view": {
+              "azimuth_deg": 42,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.663885055703454,
+              "fov": 38,
+              "aspect": 1,
+              "preset": 2
+            },
+            "actualSharedCanvas": true,
+            "originHidden": true,
+            "opacity": 1,
+            "dissolve": {
+              "hostOpacity": 1,
+              "advertisedOpacity": 1,
+              "liveOpacity": 1,
+              "posterOpacity": 0,
+              "liveAttached": true,
+              "liveVisibility": "visible",
+              "liveCSSOpacity": 1,
+              "liveBlend": "normal",
+              "compositeCount": 0,
+              "compositeCanvas": false,
+              "compositeVisibility": null,
+              "compositeOpacity": null,
+              "compositeBlend": null,
+              "compositeDimensions": null,
+              "legacyPosterCount": 0,
+              "originImage": true,
+              "originDimensions": [
+                768,
+                768
+              ]
+            },
+            "styleResources": {
+              "referenceObjects": 0,
+              "returnOverlayMeshes": 0,
+              "returnOverlayMaterials": 0
+            },
+            "alpha": {
+              "source": [
+                646,
+                646
+              ],
+              "sampled": [
+                384,
+                384
+              ],
+              "pixels": 10906,
+              "nonzero_fraction": 0.08135308159722222,
+              "mean_alpha": 0.0423793551708878,
+              "transparent_fraction": 0.9204372829861112,
+              "corner_alpha_max": 0,
+              "bbox": {
+                "left": 0.2708333333333333,
+                "top": 0.19010416666666666,
+                "right": 0.6979166666666666,
+                "bottom": 0.796875
+              },
+              "centroid": {
+                "x": 0.4919350726914938,
+                "y": 0.5286237494763361
+              }
+            },
+            "object": {
+              "left": 136.00227864583331,
+              "top": 357.2800699869792,
+              "right": 259.92985026041663,
+              "bottom": 533.347900390625,
+              "width": 123.92757161458333,
+              "height": 176.06783040364584,
+              "x": 200.15978492115204,
+              "y": 455.50893205507873
+            },
+            "pixels": {
+              "width": 646,
+              "height": 646,
+              "rgba_hash": "a0f37adc",
+              "transparent_fraction": 0.9390102464319604,
+              "corner_alpha_max": 0
+            }
+          },
+          "same_task_capture": {
+            "pixels": {
+              "width": 646,
+              "height": 646,
+              "rgba_hash": "a0f37adc",
+              "transparent_fraction": 0.9390102464319604,
+              "corner_alpha_max": 0
+            },
+            "canonicalPixels": {
+              "width": 646,
+              "height": 646,
+              "rgba_hash": "a0f37adc",
+              "transparent_fraction": 0.9390102464319604,
+              "corner_alpha_max": 0
+            },
+            "weight": 1,
+            "sameTask": true,
+            "dimensions": [
+              646,
+              646
+            ]
+          }
+        },
+        "error": "AssertionError [ERR_ASSERTION]: Camera return must include an actual intermediate draw before the canonical endpoint\n    at canonicalReturnCoverage (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:675:3)\n    at async roundTrip (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:900:5)\n    at async file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:1209:3"
+      }
+    ],
+    "raw_report_sha256": "01589e6eb1222d46fb13f86d14e1b2c366e02800f38e75ea974c89f033d12a7c"
+  },
+  {
+    "source": "qa/animation-refinements/conifer-baseline-154/report.json",
+    "runtime_commit": "77720858d73fcb8f6b8845576851762dcba078ef",
+    "status": "fail",
+    "chromium_version": "154.0.8037.57",
+    "error": "AssertionError [ERR_ASSERTION]: Camera return must include an actual intermediate draw before the canonical endpoint\n    at canonicalReturnCoverage (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:675:3)\n    at async roundTrip (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:900:5)\n    at async file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:1209:3",
+    "failed_cases": [
+      {
+        "label": "desktop-motion",
+        "status": "fail",
+        "canonical_return": {
+          "draws": [
+            {
+              "time": 3902.3000000002794,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.8865708797528784,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "hidden",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "afterDrawReveal": {
+                "visibility": "visible",
+                "sameHost": true,
+                "compositeCount": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 3909.600000000093,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.8865708797528784,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 3911.2000000001863,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.886570879752878,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 3915.5,
+              "phase": "close",
+              "progress": 0,
+              "returnPhase": "moving",
+              "host": {
+                "x": 120,
+                "y": 121.8125,
+                "width": 646.359375,
+                "height": 646.359375
+              },
+              "view": {
+                "azimuth_deg": 153.87549354156988,
+                "elevation_deg": 30.175493541569892,
+                "distance": 3.886570879752878,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 15083,
+                "nonzero_fraction": 0.11260308159722222,
+                "mean_alpha": 0.061948635791122,
+                "transparent_fraction": 0.8898993598090278,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2265625,
+                  "top": 0.12239583333333333,
+                  "right": 0.7239583333333334,
+                  "bottom": 0.8098958333333334
+                },
+                "centroid": {
+                  "x": 0.48311366348146184,
+                  "y": 0.5071592913201423
+                }
+              },
+              "object": {
+                "left": 266.4407958984375,
+                "top": 200.9241943359375,
+                "right": 587.937255859375,
+                "bottom": 645.2962646484375,
+                "width": 321.4964599609375,
+                "height": 444.3720703125,
+                "x": 432.265045581838,
+                "y": 449.6196625631301
+              }
+            },
+            {
+              "time": 4154.800000000279,
+              "phase": "close",
+              "progress": 1,
+              "returnPhase": "fading",
+              "host": {
+                "x": 57.4140625,
+                "y": 302.1171875,
+                "width": 290.171875,
+                "height": 290.171875
+              },
+              "view": {
+                "azimuth_deg": 42,
+                "elevation_deg": 23.300000000000004,
+                "distance": 4.663885055703454,
+                "fov": 38,
+                "aspect": 1,
+                "preset": 2
+              },
+              "actualSharedCanvas": true,
+              "originHidden": true,
+              "opacity": 1,
+              "dissolve": {
+                "hostOpacity": 1,
+                "advertisedOpacity": 1,
+                "liveOpacity": 1,
+                "posterOpacity": 0,
+                "liveAttached": true,
+                "liveVisibility": "visible",
+                "liveCSSOpacity": 1,
+                "liveBlend": "normal",
+                "compositeCount": 0,
+                "compositeCanvas": false,
+                "compositeVisibility": null,
+                "compositeOpacity": null,
+                "compositeBlend": null,
+                "compositeDimensions": null,
+                "legacyPosterCount": 0,
+                "originImage": true,
+                "originDimensions": [
+                  768,
+                  768
+                ]
+              },
+              "styleResources": {
+                "referenceObjects": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "alpha": {
+                "source": [
+                  646,
+                  646
+                ],
+                "sampled": [
+                  384,
+                  384
+                ],
+                "pixels": 10906,
+                "nonzero_fraction": 0.08135308159722222,
+                "mean_alpha": 0.0423793551708878,
+                "transparent_fraction": 0.9204372829861112,
+                "corner_alpha_max": 0,
+                "bbox": {
+                  "left": 0.2708333333333333,
+                  "top": 0.19010416666666666,
+                  "right": 0.6979166666666666,
+                  "bottom": 0.796875
+                },
+                "centroid": {
+                  "x": 0.4919350726914938,
+                  "y": 0.5286237494763361
+                }
+              },
+              "object": {
+                "left": 136.00227864583331,
+                "top": 357.2800699869792,
+                "right": 259.92985026041663,
+                "bottom": 533.347900390625,
+                "width": 123.92757161458333,
+                "height": 176.06783040364584,
+                "x": 200.15978492115204,
+                "y": 455.50893205507873
+              },
+              "pixels": {
+                "width": 646,
+                "height": 646,
+                "rgba_hash": "a0f37adc",
+                "transparent_fraction": 0.9390102464319604,
+                "corner_alpha_max": 0
+              }
+            }
+          ],
+          "endpoint": {
+            "time": 4154.800000000279,
+            "phase": "close",
+            "progress": 1,
+            "returnPhase": "fading",
+            "host": {
+              "x": 57.4140625,
+              "y": 302.1171875,
+              "width": 290.171875,
+              "height": 290.171875
+            },
+            "view": {
+              "azimuth_deg": 42,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.663885055703454,
+              "fov": 38,
+              "aspect": 1,
+              "preset": 2
+            },
+            "actualSharedCanvas": true,
+            "originHidden": true,
+            "opacity": 1,
+            "dissolve": {
+              "hostOpacity": 1,
+              "advertisedOpacity": 1,
+              "liveOpacity": 1,
+              "posterOpacity": 0,
+              "liveAttached": true,
+              "liveVisibility": "visible",
+              "liveCSSOpacity": 1,
+              "liveBlend": "normal",
+              "compositeCount": 0,
+              "compositeCanvas": false,
+              "compositeVisibility": null,
+              "compositeOpacity": null,
+              "compositeBlend": null,
+              "compositeDimensions": null,
+              "legacyPosterCount": 0,
+              "originImage": true,
+              "originDimensions": [
+                768,
+                768
+              ]
+            },
+            "styleResources": {
+              "referenceObjects": 0,
+              "returnOverlayMeshes": 0,
+              "returnOverlayMaterials": 0
+            },
+            "alpha": {
+              "source": [
+                646,
+                646
+              ],
+              "sampled": [
+                384,
+                384
+              ],
+              "pixels": 10906,
+              "nonzero_fraction": 0.08135308159722222,
+              "mean_alpha": 0.0423793551708878,
+              "transparent_fraction": 0.9204372829861112,
+              "corner_alpha_max": 0,
+              "bbox": {
+                "left": 0.2708333333333333,
+                "top": 0.19010416666666666,
+                "right": 0.6979166666666666,
+                "bottom": 0.796875
+              },
+              "centroid": {
+                "x": 0.4919350726914938,
+                "y": 0.5286237494763361
+              }
+            },
+            "object": {
+              "left": 136.00227864583331,
+              "top": 357.2800699869792,
+              "right": 259.92985026041663,
+              "bottom": 533.347900390625,
+              "width": 123.92757161458333,
+              "height": 176.06783040364584,
+              "x": 200.15978492115204,
+              "y": 455.50893205507873
+            },
+            "pixels": {
+              "width": 646,
+              "height": 646,
+              "rgba_hash": "a0f37adc",
+              "transparent_fraction": 0.9390102464319604,
+              "corner_alpha_max": 0
+            }
+          },
+          "same_task_capture": {
+            "pixels": {
+              "width": 646,
+              "height": 646,
+              "rgba_hash": "a0f37adc",
+              "transparent_fraction": 0.9390102464319604,
+              "corner_alpha_max": 0
+            },
+            "canonicalPixels": {
+              "width": 646,
+              "height": 646,
+              "rgba_hash": "a0f37adc",
+              "transparent_fraction": 0.9390102464319604,
+              "corner_alpha_max": 0
+            },
+            "weight": 1,
+            "sameTask": true,
+            "dimensions": [
+              646,
+              646
+            ]
+          }
+        },
+        "error": "AssertionError [ERR_ASSERTION]: Camera return must include an actual intermediate draw before the canonical endpoint\n    at canonicalReturnCoverage (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:675:3)\n    at async roundTrip (file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:900:5)\n    at async file:///workspace/lowpoly-vault/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs:1209:3"
+      }
+    ],
+    "raw_report_sha256": "857b79b32c7c6186c3444db6cf10911313c50671311b2ac2306b1b5837162d22"
+  }
+]

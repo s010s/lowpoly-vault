@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/workspace/batch28-control/serial_asset.py", line 25, in <module>
+    if phase=='build':run(root,['blender','-b','-t','2','--python-exit-code','1','--python',w/'build.py','--','--config',w/'config.json','--output',out,'--preview'],logs/'build.log')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/batch28-control/serial_asset.py", line 24, in run
+    if code:raise RuntimeError(str(log)+'\n'+log.read_text()[-5000:])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: /workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/logs/build.log
+Traceback (most recent call last):
+  File "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/build.py", line 6, in <module>
+    ROOT=next(p for p in Path(__file__).resolve().parents if (p/'scripts/asset_common.py').exists())
+StopIteration
+
+Error: script failed, file: '/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/build.py', exiting.
+Blender 4.3.2
+
+Blender quit
+

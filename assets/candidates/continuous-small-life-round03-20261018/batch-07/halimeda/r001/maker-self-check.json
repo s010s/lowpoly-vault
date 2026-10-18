@@ -1,0 +1,61 @@
+{
+  "subject": {
+    "asset_id": "halimeda",
+    "revision": "r001",
+    "glb_sha256": "5e1b7e2940482c1ad27b156b7457354d1c04fe98a46a36fc3ae904a5a16517ea",
+    "brief_sha256": "4c13d3b4149a949528e82b9b6bbca47a36d983a78f377d8f3a647d0146d6bf7c",
+    "references_sha256": "63379464408878884f26db9599387fa7bd4162b9ab564a0aa57d9a709bb25240"
+  },
+  "independent_acceptance": "pending; maker cannot sign independent QA",
+  "source_export_status": "pass_with_warnings",
+  "rebuilds": [
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "f52a7dabed08273fda28051bcc71710bd81dc701757c0f825f35a1ba331ef03c"
+    },
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "f52a7dabed08273fda28051bcc71710bd81dc701757c0f825f35a1ba331ef03c"
+    }
+  ],
+  "khronos": {
+    "status": "pass",
+    "validator_version": "2.0.0-dev.3.10",
+    "sha256": "5e1b7e2940482c1ad27b156b7457354d1c04fe98a46a36fc3ae904a5a16517ea",
+    "errors": [],
+    "warnings": [],
+    "num_errors": 0,
+    "num_warnings": 0,
+    "report": "gltf-validator.report.json",
+    "truncated": false
+  },
+  "runtime_status": "pass",
+  "source_vertices": 836,
+  "source_triangles": 1520,
+  "exported_position_stream_vertices": 836,
+  "exported_triangles": 1520,
+  "materials": 4,
+  "primitives": 4,
+  "glb_bytes": 33188,
+  "textures": 0,
+  "texture_bytes": 0,
+  "project_checker_returncode": 1,
+  "project_checker_note": "Retain actual first failure in project-checker.report.json: frozen references omit legacy required license/notes keys (use/rights_note retained). Separately, legacy brief checker requires >=2 turntable frames, conflicting with agreed zero-frame profile; that later check is not reached. No invented passing verdict.",
+  "authored_source_vertices": 836,
+  "evaluated_source_vertices": 836,
+  "normals_measurement": "source-mesh-measurements.json",
+  "warning_disposition": [
+    {
+      "warning": "calcified-fan-segments: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on shallow convex calcified segment faces and flexible necks, while silhouette remains faceted; actual GLB evidence retained.",
+      "independent_review": "pending"
+    },
+    {
+      "warning": "narrow-flexible-nodes: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on shallow convex calcified segment faces and flexible necks, while silhouette remains faceted; actual GLB evidence retained.",
+      "independent_review": "pending"
+    }
+  ]
+}

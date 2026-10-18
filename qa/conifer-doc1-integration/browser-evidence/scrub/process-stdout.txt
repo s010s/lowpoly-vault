@@ -1,0 +1,216 @@
+{
+  "status": "pass",
+  "checks": [
+    "Only hovered card fetches its manifest and current/neighbor frames; other nine remain static.",
+    "Pointer, keyboard wrap/Home/End/Escape and reduced-motion inspection; bounded cache and no idle animation.",
+    "Rapid card changes abort old fetches and close stale decodes; one network request and one canvas.",
+    "Each of all ten originals reaches a decoded image frame independently, with one canvas, only its own requests, no GLB, and at most 9 MiB decoded-plus-canvas memory.",
+    "Current image angle enters real 3D unchanged; delayed and rapid model switches retain a painted snapshot until first paint.",
+    "Closing an outstanding GLB request and opening another asset rejects the abandoned late result.",
+    "Enter/tap/click details automatically import the actual 3D viewer and load the original GLB.",
+    "Failed image leaves the static poster and usable detail link without infinite retry or GLB fallback.",
+    "390 px real browser touch events: horizontal drag scrubs one card and suppresses accidental navigation.",
+    "Vertical touch keeps native page scrolling.",
+    "A subsequent normal touch tap still opens auto-loaded real 3D."
+  ],
+  "measurements": {
+    "desktop_scrub": {
+      "activeId": "natural-arch",
+      "activeRequests": 0,
+      "peakRequests": 1,
+      "frameRequests": 24,
+      "manifestRequests": 1,
+      "downloadedBytes": 210364,
+      "decodedEntries": 3,
+      "decodedBytes": 7077888,
+      "peakDecodedBytes": 7077888,
+      "encodedEntries": 12,
+      "encodedBytes": 103316,
+      "canvasBytes": 2359296,
+      "frame": 12,
+      "errors": 0,
+      "decodeMilliseconds": [
+        1.600000023841858,
+        1.5,
+        1.5999999940395355,
+        1.300000011920929,
+        1.300000011920929,
+        1.199999988079071,
+        1.4000000059604645,
+        1.300000011920929,
+        1.4000000059604645,
+        1.4000000059604645,
+        1.2999999821186066,
+        1.300000011920929,
+        1.4000000059604645,
+        1.5,
+        1.399999976158142,
+        1.4000000059604645,
+        1.5,
+        1.300000011920929,
+        1.4000000059604645,
+        1.199999988079071,
+        1.300000011920929,
+        1.4000000059604645,
+        1.199999988079071,
+        1.4000000059604645
+      ],
+      "requestMilliseconds": [
+        1.5,
+        0.8999999761581421,
+        1.600000023841858,
+        1.5,
+        1.5,
+        0.800000011920929,
+        0.7999999821186066,
+        1.7999999821186066,
+        1.2999999821186066,
+        0.9000000059604645,
+        1.5999999940395355,
+        1,
+        0.800000011920929,
+        1.7999999821186066,
+        1,
+        1,
+        1.9000000059604645,
+        1,
+        0.9000000059604645,
+        1.600000023841858,
+        1.0999999940395355,
+        0.800000011920929,
+        1.9000000059604645,
+        1.199999988079071,
+        0.699999988079071
+      ],
+      "pointer_to_frame_ms": [
+        11,
+        17,
+        18,
+        17,
+        16,
+        16,
+        18,
+        7
+      ]
+    },
+    "all_ten": [
+      {
+        "id": "conifer-tree",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 178600
+      },
+      {
+        "id": "lepidodendron",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 226792
+      },
+      {
+        "id": "cycad",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 262476
+      },
+      {
+        "id": "dinosaur-nest",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 258936
+      },
+      {
+        "id": "fern-cluster",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 225632
+      },
+      {
+        "id": "horsetail-cluster",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 234288
+      },
+      {
+        "id": "natural-arch",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 200998
+      },
+      {
+        "id": "stratified-cliff",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 210636
+      },
+      {
+        "id": "three-toed-track",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 165212
+      },
+      {
+        "id": "uprooted-log",
+        "frame": 0,
+        "decodedBytes": 7077888,
+        "canvasBytes": 2359296,
+        "encodedBytes": 122706
+      }
+    ],
+    "handoff": {
+      "frames_sampled": 127,
+      "blank_frames": 0,
+      "initial_azimuth": 297,
+      "initial_elevation": 23.300000000000004
+    },
+    "touch": {
+      "activeId": "conifer-tree",
+      "activeRequests": 0,
+      "peakRequests": 1,
+      "frameRequests": 10,
+      "manifestRequests": 1,
+      "downloadedBytes": 347913,
+      "decodedEntries": 3,
+      "decodedBytes": 7077888,
+      "peakDecodedBytes": 7077888,
+      "encodedEntries": 10,
+      "encodedBytes": 341622,
+      "canvasBytes": 2359296,
+      "frame": 8,
+      "errors": 0,
+      "decodeMilliseconds": [
+        2.100000023841858,
+        2.199999988079071,
+        1.9000000059604645,
+        2,
+        1.9000000059604645,
+        2,
+        2.199999988079071,
+        1.9000000059604645,
+        2.0999999940395355,
+        2.199999988079071
+      ],
+      "requestMilliseconds": [
+        1.5999999940395355,
+        1,
+        1.300000011920929,
+        1.5999999940395355,
+        1.4000000059604645,
+        0.800000011920929,
+        1.2999999821186066,
+        1.2000000178813934,
+        0.7999999821186066,
+        1.4000000059604645,
+        1.300000011920929
+      ]
+    }
+  }
+}
