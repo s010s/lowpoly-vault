@@ -1,0 +1,84 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cobbania",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cobbania",
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/cobbania/brief.json",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/cobbania/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/cobbania/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/cobbania/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "cobbania/cobbania.blend",
+        "cobbania/cobbania.glb",
+        "cobbania/qa.json",
+        "cobbania/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cobbania",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cobbania",
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/cobbania/brief.json",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/cobbania/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/cobbania/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/cobbania/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "cobbania/cobbania.blend",
+        "cobbania/cobbania.glb",
+        "cobbania/qa.json",
+        "cobbania/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
