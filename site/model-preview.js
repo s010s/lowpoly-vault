@@ -90,7 +90,10 @@ export class SharedModelPreview {
     this.revealMotion = startHoverReveal({ host: current.card.querySelector('.asset-image'), poster: lower, model,
       onFinish: () => {
         this.clearReveal();
-        if (this.current === current && current.want !== undefined) this.request(current.want);
+        // Commit held input in this same paint opportunity. Exposing the
+        // canonical canvas and queuing another RAF lets Enter capture a pose
+        // that has never been displayed between reveal completion and orbit.
+        if (this.current === current && current.want !== undefined) this.applyRequest(current);
       } });
   }
 
@@ -110,12 +113,15 @@ export class SharedModelPreview {
     this.raf = requestAnimationFrame(() => {
       this.raf = 0;
       if (generation !== this.generation || this.current !== current || !current.live) return;
-      const base = current.snapshotView || CARD_RENDER_PRESET.camera;
-      this.stage.setView(CARD_RENDER_PRESET.camera.azimuth_deg + current.want * 360 / 24,
-        base.elevation_deg, base.distance);
-      current.snapshotView = this.stage.presentationInfo;
-      current.card.dataset.previewAzimuth = String(current.snapshotView.azimuth_deg);
+      this.applyRequest(current);
     });
+  }
+  applyRequest(current) {
+    const base = current.snapshotView || CARD_RENDER_PRESET.camera;
+    this.stage.setView(CARD_RENDER_PRESET.camera.azimuth_deg + current.want * 360 / 24,
+      base.elevation_deg, base.distance);
+    current.snapshotView = this.stage.presentationInfo;
+    current.card.dataset.previewAzimuth = String(current.snapshotView.azimuth_deg);
   }
   step(delta) { if (this.current) this.request(this.current.frame + delta); }
 

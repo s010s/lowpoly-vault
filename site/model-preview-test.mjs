@@ -8,8 +8,8 @@ const listeners = new Map(), frames = new Map();
 let nextFrame = 0, checks = 0;
 const deferred = () => { let resolve, reject; const promise = new Promise((a, b) => { resolve = a; reject = b; }); return { promise, resolve, reject }; };
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
-const flush = () => { const pending = [...frames.values()]; frames.clear(); pending.forEach(callback => callback()); };
-const canvas = () => ({ width: 320, height: 320, dataset: {}, setAttribute() {}, remove() { this.removed = true; }, getContext: () => ({ drawImage() {} }) });
+const flush = time => { const pending = [...frames.values()]; frames.clear(); pending.forEach(callback => callback(time)); };
+const canvas = () => ({ width: 320, height: 320, dataset: {}, setAttribute() {}, remove() { this.removed = true; }, getContext: () => ({ drawImage() {}, clearRect() {} }) });
 globalThis.matchMedia = () => ({ matches: true }); // Legacy controller contracts use reduced motion; reveal has dedicated raster coverage.
 globalThis.document = { hidden: false, addEventListener: (name, callback) => listeners.set(name, callback), removeEventListener: name => listeners.delete(name), createElement: canvas };
 globalThis.requestAnimationFrame = callback => { frames.set(++nextFrame, callback); return nextFrame; };
@@ -132,5 +132,21 @@ function dispose(h) { h.controller.dispose(); assert.equal(frames.size, 0); asse
   c.activate(a, asset('arch')); await c.pending; const hidden = h.stage.hidden;
   h.stage._host = {}; c.stop(); assert.equal(h.stage.hidden, hidden);
   dispose(h);
+}
+{
+  globalThis.matchMedia = () => ({ matches: false });
+  const h = harness(), c = h.controller, a = card('arch'), poster = canvas();
+  const query = a.querySelector;
+  a.querySelector = selector => selector === '.asset-image img' ? poster : query(selector);
+  c.activate(a, asset('arch')); c.request(7); await c.pending;
+  assert(c.revealMotion, 'Actual reveal retains held orbit input');
+  assert.equal(h.stage.presentationInfo.azimuth_deg, 42);
+  assert.equal(c.capture().view.azimuth_deg, 42, 'Mid-reveal capture keeps displayed pose, not held intent');
+  let time = performance.now();
+  while (c.revealMotion) { time += 50; flush(time); }
+  assert.equal(h.stage.presentationInfo.azimuth_deg, 147, 'Reveal endpoint commits held intent synchronously');
+  assert.equal(frames.size, 0, 'No invisible pending orbit RAF remains for Enter to flush');
+  assert.equal(c.capture().view.azimuth_deg, 147, 'Immediate endpoint capture matches visible live pose');
+  dispose(h); globalThis.matchMedia = () => ({ matches: true });
 }
 console.log(JSON.stringify({ status: 'pass', checks, covers: ['lazy GLB acquisition and invalid targets', 'continuous latest-intent camera orbit', 'no frame/manifest fetches', 'superseded import/show callbacks', 'copy/transfer snapshot ownership', 'retained pose and zoom', 'failure fallback and explicit recovery', 'visibility/offscreen stop and detail ownership'] }, null, 2));
