@@ -2,7 +2,7 @@
   "kind": "batch23-owned-serial-chronology-summary",
   "verdict": "pass",
   "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
-  "final_handoff_jsonl_sha256": "aecfb00751319de6e93827d2677ec07ca65fd4702ee044515c8225a85173d2b3",
+  "final_handoff_jsonl_sha256": "0e7fffd62135cb8deb72db9ed95188042bacb3727ae6a22b6c33f84d3b7b32a9",
   "overlapping_top_level_owned_launches": 0,
   "all_owned_process_groups_exited": true,
   "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
@@ -10,7 +10,7 @@
   "assets": [
     {
       "asset_id": "metasequoia",
-      "candidate_commit": "b47cd91c5cd88146d9c3bf9e854e2425e3dfd220",
+      "candidate_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
       "branch": "candidate/batch23-metasequoia-20261018",
       "ledger_path": "production/continuous-small-life-round08-20261018/work/batch-23/metasequoia/r001/logs/owned-processes.jsonl",
       "ledger_sha256": "3f51ddd5ab5e1849d939d1eb498f82fcdf06a00bac0d64a497538ec4ba90099b",
@@ -20,7 +20,8 @@
       "top_level_launch_count": 9,
       "matching_exit_count": 9,
       "nonzero_exit_count": 0,
-      "remaining_owned_process_groups": 0
+      "remaining_owned_process_groups": 0,
+      "model_evidence_commit": "b47cd91c5cd88146d9c3bf9e854e2425e3dfd220"
     },
     {
       "asset_id": "ovatiovermis",
@@ -64,5 +65,12 @@
       "nonzero_exit_count": 0,
       "remaining_owned_process_groups": 0
     }
-  ]
+  ],
+  "label_only_amendment": {
+    "asset_id": "metasequoia",
+    "current_delivery_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
+    "unchanged_model_evidence_commit": "b47cd91c5cd88146d9c3bf9e854e2425e3dfd220",
+    "new_blender_or_graphics_jobs": 0,
+    "note": "Original launch chronology and ledger hashes remain unchanged; updated candidate commit only carries label/binding records."
+  }
 }
