@@ -1,0 +1,70 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}/fenestella"
+      ],
+      "asset_id": "fenestella",
+      "config": {
+        "seed": 2026101815,
+        "style": "natural refined lowpoly"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "common": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/build_batch06.py"
+      },
+      "job_id": "semantic-rebuild-a",
+      "outputs": [
+        "fenestella/fenestella.blend",
+        "fenestella/fenestella.glb",
+        "fenestella/metadata.json",
+        "fenestella/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}/fenestella"
+      ],
+      "asset_id": "fenestella",
+      "config": {
+        "seed": 2026101815,
+        "style": "natural refined lowpoly"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "common": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/build_batch06.py"
+      },
+      "job_id": "semantic-rebuild-b",
+      "outputs": [
+        "fenestella/fenestella.blend",
+        "fenestella/fenestella.glb",
+        "fenestella/metadata.json",
+        "fenestella/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

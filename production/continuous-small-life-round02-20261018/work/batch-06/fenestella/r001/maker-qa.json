@@ -1,0 +1,82 @@
+{
+  "asset_id": "fenestella",
+  "revision": "r001",
+  "glb": {
+    "path": "assets/candidates/continuous-small-life-round02-20261018/batch-06/fenestella/r001/attempt-01/fenestella/fenestella.glb",
+    "sha256": "57429dfbc0381244208a38626b38d6ced591b71f16504db85c97444793d0b3f5",
+    "bytes": 206444
+  },
+  "checks": {
+    "source-export.json": {
+      "status": "pass_with_warnings",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/source-export.json",
+        "sha256": "22c9a7f9f14e56b66645015d6c78e186981fd5b4bfc58a4dbed24bedb8789045",
+        "bytes": 4501
+      }
+    },
+    "roundtrip/glb-roundtrip.report.json": {
+      "status": "pass_with_warnings",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/roundtrip/glb-roundtrip.report.json",
+        "sha256": "0b721c0432200e14971f823507dd4f117cdf0c6e297dc6f6608d5798b49220ee",
+        "bytes": 584
+      }
+    },
+    "semantic-rebuild-a.json": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/semantic-rebuild-a.json",
+        "sha256": "a2757657c367a1a3222034aca1643661816680ca118aecb733bc588bd95c7913",
+        "bytes": 2789
+      }
+    },
+    "semantic-rebuild-b.json": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/semantic-rebuild-b.json",
+        "sha256": "32a8b31f7ab08332ff997ae6cc54894cef71735ba0c0de94fed7a13e3ff03d0b",
+        "bytes": 2789
+      }
+    },
+    "project-audit.json": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/project-audit.json",
+        "sha256": "767e32def54d576bd43043dfaec2e224e97897e71328650b2fd9b609cdd69e56",
+        "bytes": 1141
+      }
+    },
+    "khronos": {
+      "status": "pass",
+      "evidence": {
+        "path": "assets/candidates/continuous-small-life-round02-20261018/batch-06/fenestella/r001/attempt-01/fenestella/gltf-validator.report.json",
+        "sha256": "2c17beb94add16d764699541eba5dd786a581f1013b9fbbb3ecb588ba9cd6e40",
+        "bytes": 869
+      }
+    },
+    "runtime": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001/runtime-attempt-01/fenestella.json",
+        "sha256": "f6f28f6fab4b306f9f3603c09ec0b8f75f46abc3dfc4bb393e098025d44d5039",
+        "bytes": 2862
+      },
+      "scope": "Pinned Three.js 0.180.0; Chromium ANGLE Vulkan SwiftShader software WebGL2. No physical GPU performance claim."
+    },
+    "scene": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/runtime-scene-attempt-01/scene.json",
+        "sha256": "a932b7c0cd74dd3fb91320e54e2bca4cd0bff0a5cc3bd784d521fae7752c7119",
+        "bytes": 2842
+      },
+      "instances": 12,
+      "scale": "actual meters; no display normalization; synthetic catalogue gallery only"
+    }
+  },
+  "warnings_disposition": "Smooth shading is intentional for softly connected organic forms; spines deliberately faceted. No open/non-manifold edges are expected. Any checker-specific additional warning is retained in its original report.",
+  "independent_acceptance": "unknown; maker checks are not independent QA",
+  "visual_self_check": "Actual runtime contact sheet and targeted full-size images inspected by maker; observations logged in MAKER-NOTES.md.",
+  "scene_evidence": "shared runtime-scene-attempt-01/scene.json; 12 actual-scale copies, software WebGL2"
+}
