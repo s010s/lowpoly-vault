@@ -33,8 +33,11 @@ let browser;
 try {
  await mkdir(out,{recursive:true});
  // Pages/CDN caches may still return the previous release briefly. Only proceed on the exact expected payload set.
- await waitForDeployedRelease(base+'assets/manifest.json?release='+report.source_commit,expected);
+ const deployed=await waitForDeployedRelease(base+'assets/manifest.json?release='+report.source_commit,expected);
  report.deployed_payload_scope='exact-match';
+ const limited=expected.assets.filter(a=>Object.hasOwn(a.approval_provenance||{},'hardware_gpu_verified'));
+ for(const asset of limited){const actual=deployed.assets.find(a=>a.id===asset.id);assert.deepEqual(actual.approval_provenance,asset.approval_provenance,asset.id+': public approval/hardware limitations must remain intact');}
+ report.preserved_hardware_limitations=limited.map(a=>({id:a.id,formal_profile_acceptance:a.approval_provenance.formal_profile_acceptance,hardware_gpu_verified:a.approval_provenance.hardware_gpu_verified}));
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});report.browser=browser.version();
  for(const mobile of [false,true]) {
   const lang=mobile?'zh-CN/':'',context=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},hasTouch:mobile,isMobile:mobile,reducedMotion:'reduce'});
