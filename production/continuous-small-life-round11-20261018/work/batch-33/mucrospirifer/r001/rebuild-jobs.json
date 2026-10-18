@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "mucrospirifer",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mucrospirifer/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mucrospirifer/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/mucrospirifer/brief.json",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/mucrospirifer/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/mucrospirifer/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "mucrospirifer",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "mucrospirifer/mucrospirifer.blend",
+        "mucrospirifer/mucrospirifer.glb",
+        "mucrospirifer/qa.json",
+        "mucrospirifer/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "mucrospirifer",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mucrospirifer/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mucrospirifer/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/mucrospirifer/brief.json",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/mucrospirifer/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/mucrospirifer/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "mucrospirifer",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "mucrospirifer/mucrospirifer.blend",
+        "mucrospirifer/mucrospirifer.glb",
+        "mucrospirifer/qa.json",
+        "mucrospirifer/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
