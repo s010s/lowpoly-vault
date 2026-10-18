@@ -1,3 +1,4 @@
+import {ROUND07_IDS,ROUND07_PACK} from './small-life-round07-release.mjs';
 import {ROUND06_IDS,ROUND06_PACK} from './small-life-round06-release.mjs';
 import {ROUND05_IDS,ROUND05_PACK} from './small-life-round05-release.mjs';
 import {ROUND04_IDS,ROUND04_PACK} from './small-life-round04-release.mjs';
@@ -14,8 +15,8 @@ import { ROUND02_IDS, ROUND02_PACK } from './small-life-round02-release.mjs';
 import { BATCH_IDS, BATCH_PACK } from './small-life-batch-release.mjs';
 import { FAUNA_IDS } from './small-fauna-release.mjs';
 const pack=process.env.QA_ADDITION_PACK||'prehistoric-small-life';
-assert(['prehistoric-small-life','prehistoric-small-fauna',BATCH_PACK,ROUND02_PACK,ROUND03_PACK,ROUND04_PACK,ROUND05_PACK,ROUND06_PACK].includes(pack));
-const assetIDs=pack===ROUND06_PACK?ROUND06_IDS:pack===ROUND05_PACK?ROUND05_IDS:pack===ROUND04_PACK?ROUND04_IDS:pack===ROUND03_PACK?ROUND03_IDS:pack===ROUND02_PACK?ROUND02_IDS:pack===BATCH_PACK?BATCH_IDS:pack==='prehistoric-small-fauna'?FAUNA_IDS:SMALL_LIFE_IDS;
+assert(['prehistoric-small-life','prehistoric-small-fauna',BATCH_PACK,ROUND02_PACK,ROUND03_PACK,ROUND04_PACK,ROUND05_PACK,ROUND06_PACK,ROUND07_PACK].includes(pack));
+const assetIDs=pack===ROUND07_PACK?ROUND07_IDS:pack===ROUND06_PACK?ROUND06_IDS:pack===ROUND05_PACK?ROUND05_IDS:pack===ROUND04_PACK?ROUND04_IDS:pack===ROUND03_PACK?ROUND03_IDS:pack===ROUND02_PACK?ROUND02_IDS:pack===BATCH_PACK?BATCH_IDS:pack==='prehistoric-small-fauna'?FAUNA_IDS:SMALL_LIFE_IDS;
 const root=resolve(process.env.GALLERY_DIR||'dist'),out=resolve(process.env.QA_OUTPUT_DIR||'qa/small-life-release-20261018/new-props'),prefix='/lowpoly-vault/';
 const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'))),report={status:'running',cases:[],page_errors:[],resource_errors:[],limitations:['Chromium SwiftShader and emulated touch; not physical-device performance.']},requests=[];
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.glb':'model/gltf-binary'};
