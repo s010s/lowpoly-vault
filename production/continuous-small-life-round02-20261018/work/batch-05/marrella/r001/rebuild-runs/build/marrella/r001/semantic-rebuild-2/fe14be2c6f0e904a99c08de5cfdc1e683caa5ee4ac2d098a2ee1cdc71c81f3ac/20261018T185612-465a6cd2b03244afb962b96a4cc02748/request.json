@@ -1,0 +1,107 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+    "--",
+    "--asset",
+    "marrella",
+    "--config",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/marrella/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/marrella/r001/rebuild-runs/build/marrella/r001/semantic-rebuild-2/fe14be2c6f0e904a99c08de5cfdc1e683caa5ee4ac2d098a2ee1cdc71c81f3ac/20261018T185612-465a6cd2b03244afb962b96a4cc02748/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T18:56:12.250471+00:00",
+  "fingerprint": "fe14be2c6f0e904a99c08de5cfdc1e683caa5ee4ac2d098a2ee1cdc71c81f3ac",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9364,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/brief.json",
+        "sha256": "59592c2e479ac5fb64f6897e7ad4ab67c115a51e3be4ea4143ba94783058c24b"
+      },
+      "config": {
+        "bytes": 2116,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/marrella/r001/config.json",
+        "sha256": "5cb9ef0de2ae85716f64a38b8672dbde53578e82681e5be76dfb2ae96c706610"
+      },
+      "generator": {
+        "bytes": 16178,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "sha256": "f4f12085abb3f63ed88d9871c7082c3fb5b6e84383384c5d502678445c2ec8f7"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1021,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/references.json",
+        "sha256": "58d00146eeaeab36b8d2c80129333dbf88d642d27f4a13030df24061fb0ed5cf"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "marrella",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "marrella",
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "marrella"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/marrella/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "marrella/marrella.glb",
+        "marrella/marrella.blend",
+        "marrella/qa.json",
+        "marrella/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T185609-da9abe8171504e4ebd43456d072af787"
+}

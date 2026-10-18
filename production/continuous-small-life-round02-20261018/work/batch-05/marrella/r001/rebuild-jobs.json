@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "marrella",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/marrella/r001/config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "marrella",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "marrella/marrella.glb",
+        "marrella/marrella.blend",
+        "marrella/qa.json",
+        "marrella/metadata.json"
+      ],
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "marrella"
+      },
+      "timeout_seconds": 300
+    },
+    {
+      "asset_id": "marrella",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/marrella/r001/config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/marrella/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "marrella",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "marrella/marrella.glb",
+        "marrella/marrella.blend",
+        "marrella/qa.json",
+        "marrella/metadata.json"
+      ],
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "marrella"
+      },
+      "timeout_seconds": 300
+    }
+  ]
+}
