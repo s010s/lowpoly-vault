@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "cruziana-crawling-furrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/cruziana-crawling-furrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/cruziana-crawling-furrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch31/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch31/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/cruziana-crawling-furrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/cruziana-crawling-furrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/cruziana-crawling-furrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cruziana-crawling-furrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "cruziana-crawling-furrow/cruziana-crawling-furrow.blend",
+        "cruziana-crawling-furrow/cruziana-crawling-furrow.glb",
+        "cruziana-crawling-furrow/qa.json",
+        "cruziana-crawling-furrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch31 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "cruziana-crawling-furrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/cruziana-crawling-furrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/cruziana-crawling-furrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch31/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch31/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/cruziana-crawling-furrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/cruziana-crawling-furrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/cruziana-crawling-furrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cruziana-crawling-furrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "cruziana-crawling-furrow/cruziana-crawling-furrow.blend",
+        "cruziana-crawling-furrow/cruziana-crawling-furrow.glb",
+        "cruziana-crawling-furrow/qa.json",
+        "cruziana-crawling-furrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch31 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
