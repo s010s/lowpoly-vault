@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/generator.py",
+    "--",
+    "--asset",
+    "onychonycteris",
+    "--config",
+    "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/rebuild-runs/build/onychonycteris/r001/semantic-rebuild-1/1b9709ba0efbe9bf1d3a2092ec9a33bebe7a8d706398b8557f2e9925acad68ca/20261018T205809-2ae295d54a6046b89268025a9728b9a3/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:58:09.553344+00:00",
+  "fingerprint": "1b9709ba0efbe9bf1d3a2092ec9a33bebe7a8d706398b8557f2e9925acad68ca",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9609,
+        "path": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/onychonycteris/brief.json",
+        "sha256": "7466b14ec83948b2ba355384fe09f1af1b3f068e1ed0c0e5f3d397236a05644d"
+      },
+      "config": {
+        "bytes": 2339,
+        "path": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/config.json",
+        "sha256": "2f9582b0eafccffc2f221cbe5da032448d6b8b8d04e595137c5e156a30a03df9"
+      },
+      "generator": {
+        "bytes": 8841,
+        "path": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/generator.py",
+        "sha256": "ec34b4e3402ea396f83bb5d1e7372624d8efbe72d41403da9973143d140f94d2"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1940,
+        "path": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/onychonycteris/references.json",
+        "sha256": "99390919a8af5bcefd665f3a3c095e5c25a249d48bddec72b96c8ef19e2cb5ed"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "onychonycteris",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "onychonycteris",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch17 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/onychonycteris/brief.json",
+        "config": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/onychonycteris/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/onychonycteris/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "onychonycteris/onychonycteris.blend",
+        "onychonycteris/onychonycteris.glb",
+        "onychonycteris/qa.json",
+        "onychonycteris/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T205809-b87f2870f79a414c96874184126b9188"
+}
