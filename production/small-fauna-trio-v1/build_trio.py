@@ -45,9 +45,13 @@ class Part:
   self.add(v,f,mi)
  def sheet(self,outline,thickness,mi=0,axis=(1,0,0)):
   a=Vector(axis)*thickness/2;v=[tuple(Vector(p)+a) for p in outline]+[tuple(Vector(p)-a) for p in outline];n=len(outline)
-  center=sum((Vector(p) for p in outline),Vector())/n
-  v += [tuple(center+a),tuple(center-a)];f=[]
-  for k in range(n):j=(k+1)%n;f.extend([(2*n,k,j),(2*n+1,n+j,n+k),(k,n+k,n+j,j)])
+  # A tail fork is concave: use proper polygon tessellation, never center fans.
+  from mathutils.geometry import tessellate_polygon
+  poly=[Vector(p) for p in outline];triangles=tessellate_polygon([poly]);f=[]
+  for tri in triangles:
+   ids=[t if isinstance(t,int) else next(i for i,p in enumerate(poly) if (p-t).length<1e-8) for t in tri]
+   f.extend([tuple(ids),tuple(n+i for i in reversed(ids))])
+  for k in range(n):j=(k+1)%n;f.append((k,n+k,n+j,j))
   self.add(v,f,mi)
 
 def fish(c,m):
@@ -124,7 +128,7 @@ def insect(c,m):
   for fore in [True,False]:
    root=Vector((s*.002,-.006 if fore else .004,.004 if fore else .0025))
    u=Vector((s*(.053 if fore else .043),-.029 if fore else .032,.009 if fore else .004))
-   perp=Vector((s*.012,.024 if fore else .020,-.001))
+   perp=Vector((s*(.012 if fore else -.015),.024 if fore else .020,-.001))
    def pos(t,q,z=0):return root+u*t+perp*(math.sin(pi*t)**.72)*q+Vector((0,0,z+.0025*math.sin(pi*t)))
    # Elliptical outline around root/tip, each pair connected in order.
    outline=[pos(0,0)]
