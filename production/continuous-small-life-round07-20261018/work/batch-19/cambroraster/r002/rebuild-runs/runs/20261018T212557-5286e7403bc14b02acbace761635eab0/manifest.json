@@ -1,0 +1,84 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cambroraster",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cambroraster",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch19 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/brief.json",
+        "config": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r002/config.json",
+        "generator": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "cambroraster/cambroraster.blend",
+        "cambroraster/cambroraster.glb",
+        "cambroraster/qa.json",
+        "cambroraster/metadata.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cambroraster",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cambroraster",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch19 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/brief.json",
+        "config": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r002/config.json",
+        "generator": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "cambroraster/cambroraster.blend",
+        "cambroraster/cambroraster.glb",
+        "cambroraster/qa.json",
+        "cambroraster/metadata.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 600
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
