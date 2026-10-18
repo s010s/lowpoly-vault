@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "araucaria-mirabilis",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/araucaria-mirabilis/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/araucaria-mirabilis/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/araucaria-mirabilis/brief.json",
+        "references": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/araucaria-mirabilis/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "araucaria-mirabilis",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "araucaria-mirabilis/araucaria-mirabilis.blend",
+        "araucaria-mirabilis/araucaria-mirabilis.glb",
+        "araucaria-mirabilis/qa.json",
+        "araucaria-mirabilis/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch17 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "araucaria-mirabilis",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/araucaria-mirabilis/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/araucaria-mirabilis/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/araucaria-mirabilis/brief.json",
+        "references": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/araucaria-mirabilis/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "araucaria-mirabilis",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "araucaria-mirabilis/araucaria-mirabilis.blend",
+        "araucaria-mirabilis/araucaria-mirabilis.glb",
+        "araucaria-mirabilis/qa.json",
+        "araucaria-mirabilis/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch17 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
