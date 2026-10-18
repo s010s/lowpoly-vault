@@ -1,0 +1,1 @@
+Initial source build passed. Maker source hero showed the thin disc almost edge-on, despite visible attached underside bases. Adjust only display tilt to show a broader peltate underside at ordinary hero/gray angles. This is a retained source-only draft, not full final evidence or independent acceptance.
