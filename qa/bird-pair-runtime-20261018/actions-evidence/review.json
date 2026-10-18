@@ -1,0 +1,69 @@
+{
+  "status": "FAIL_RUNTIME_VISUAL",
+  "automated_functional_status": "pass",
+  "asset_checkpoint": "00c88aaca6a8a97b1a8843000958125749a95104",
+  "tested_commit": "5a134c03464fa7b000077e9b3baeb7388f21d3f8",
+  "run_url": "https://github.com/s010s/lowpoly-vault/actions/runs/39090283618",
+  "artifact_id": 12122940405,
+  "artifact_sha256": "1a4d34df85313df5733b6e35db0dfda68dd45bcbcab9f4c87de086bca369a7d3",
+  "hashes": {
+    "ichthyornis": "60d5db71c77b3ce25b1a5f3f66cd1d7ba3e30d1940806011cfd80e939cd69c73",
+    "confuciusornis": "9d36359f9e0f5106b0287c913bf1f592a11a955baf735600fbe2389289781350"
+  },
+  "actual_screenshot_pixels_reviewed": [
+    "ichthyornis.png",
+    "ichthyornis-orbit.png",
+    "confuciusornis.png",
+    "confuciusornis-orbit.png",
+    "mixed-12.png"
+  ],
+  "screenshots": {
+    "ichthyornis.png": "824dc75da6fd5f56f1ce2874dc65ed81f74e96035b5121ac7d86eba3ad08fd05",
+    "ichthyornis-orbit.png": "aab8f71361b0d633aca3075b1d020088757129b29f015af6cf4e04992f14b422",
+    "confuciusornis.png": "158f696f450c7f4a79c299bf9025f0ba7f4d3d43e88f6e9fbed226f71606ddf6",
+    "confuciusornis-orbit.png": "de4a8164f8f3b56593665e422d0c63d89c8923298cac982c932b9ec250e0d6f7",
+    "mixed-12.png": "caa4e6b9bdb72be5b73ea6da01c9176bc3645f7776e3503a30fe893be036a430"
+  },
+  "mechanical_checks": {
+    "successful_loads": 14,
+    "orbit_actions": 14,
+    "disposal_observations": 15,
+    "all_disposal_geometry_texture_counts_zero": true,
+    "page_errors": 0,
+    "console_errors": 0,
+    "gl_errors": 0,
+    "canvas_count": 1,
+    "duplicate_scene": {
+      "count": 12,
+      "scale": "normalized display size for mixed-prop inspection, not biological scale",
+      "drawCalls": 48,
+      "triangles": 27240,
+      "glError": 0
+    }
+  },
+  "blocking_defects": [
+    {
+      "asset": "ichthyornis",
+      "result": "FAIL",
+      "defect": "Large visible torso/head/wing sections disappear under normal single-sided Three.js rendering. Before/after-orbit screenshots show broken/open silhouettes.",
+      "diagnosis": "Mixed triangle winding with single-sided materials; geometric edge closure alone is insufficient.",
+      "same_direction_shared_edges": 755
+    },
+    {
+      "asset": "confuciusornis",
+      "result": "FAIL",
+      "defect": "Large visible torso/head/wing sections disappear under normal single-sided Three.js rendering. Before/after-orbit screenshots show broken/open silhouettes.",
+      "diagnosis": "Mixed triangle winding with single-sided materials; geometric edge closure alone is insufficient.",
+      "same_direction_shared_edges": 891
+    }
+  ],
+  "likely_cause": "scripts/build_bird_pair.py preserve_and_batch duplicates vertices per polygon and calls asset_common.mesh_object with default recalculate_normals=True before welding. Normal recalculation sees disconnected faces; subsequent weld does not restore coherent face orientation.",
+  "recommended_next_step": "Preserve the already-oriented semantic source face winding during material batching, re-export the same shapes/palette, then rerun exact hash-pinned runtime checks. Do not mask the defect by treating the automated PASS as visual approval.",
+  "changes_in_this_review": "QA code and evidence only. No model, palette, source Blender, original preview or main edits.",
+  "limits": [
+    "Chromium/SwiftShader functional evidence, not hardware/mobile performance.",
+    "Bounded disposal counters are not long-duration heap/leak proof.",
+    "Mixed display sizes are normalized, not biological scale.",
+    "This runtime visual FAIL supersedes any implication of end-to-end readiness from the earlier Blender-only visual PASS; original previews remain valid evidence of their own renderer."
+  ]
+}
