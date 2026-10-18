@@ -1,0 +1,41 @@
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 26 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist/index.html                         9.87 kB │ gzip:   3.59 kB
+../dist/assets/index-Dt42mTzP.css         58.47 kB │ gzip:  12.29 kB
+../dist/assets/presentation-CVFjLfLN.js    0.63 kB │ gzip:   0.42 kB
+../dist/assets/index-BhgUZ6Ba.js          87.27 kB │ gzip:  30.98 kB
+../dist/assets/viewer-DOT3rl7N.js        617.23 kB │ gzip: 157.62 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 2.03s
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Every published card needs a matching lightweight poster
+
+67 !== 79
+
+    at collectTurntables (file:///workspace/lowpoly-vault/site/turntable-delivery.mjs:77:10)
+    at async deliverTurntables (file:///workspace/lowpoly-vault/site/turntable-delivery.mjs:90:37)
+    at async file:///workspace/lowpoly-vault/site/copy-assets.mjs:13:12 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 67,
+  expected: 79,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
