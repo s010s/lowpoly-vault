@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "pachypteris",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "pachypteris",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch29 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch29/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/pachypteris/brief.json",
+        "config": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch29/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/pachypteris/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/pachypteris/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "pachypteris/pachypteris.blend",
+        "pachypteris/pachypteris.glb",
+        "pachypteris/qa.json",
+        "pachypteris/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "pachypteris",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "pachypteris",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch29 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch29/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/pachypteris/brief.json",
+        "config": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch29/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/pachypteris/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/pachypteris/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "pachypteris/pachypteris.blend",
+        "pachypteris/pachypteris.glb",
+        "pachypteris/qa.json",
+        "pachypteris/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
