@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 const tasks = {
   "round06": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round06-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round06-20261018/site"}},
   "round07": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round07-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round07-20261018/site"}},
+  "round08": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round08-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round08-20261018/site"}},
   "round05": {command:"node site/small-life-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round05-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round05-20261018/site"}},
   "round04": {command:"node site/small-life-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round04-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round04-20261018/site"}},
   "round03": {command:"node site/small-life-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round03-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round03-20261018/site"}},

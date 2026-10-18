@@ -1,0 +1,943 @@
+{
+  "schema_version": 1,
+  "report_id": "batch23-independent-review-final-label-v002-2026-10-18",
+  "batch_id": "batch-23",
+  "source_repository": "s010s/lowpoly-vault",
+  "handoff_commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
+  "handoff_path": "production/continuous-small-life-round08-20261018/work/batch-23/final-handoff.jsonl",
+  "validation_profile": "static-stylized-v1",
+  "rule_version": "2026-10-18.1",
+  "qa_result": "PASS_ALL_REVIEW_FINDINGS_CLEARED",
+  "publication_authority": "separate",
+  "reviewer": "Independent static-stylized QA",
+  "reviewed_at_utc": "2026-10-18",
+  "handoff_artifact_pin_count": 95,
+  "handoff_artifact_pin_failures": 0,
+  "remote_handoff_tip_matches": true,
+  "source_model_artifacts_changed": false,
+  "assets": [
+    {
+      "asset_id": "metasequoia",
+      "branch": "candidate/batch23-metasequoia-20261018",
+      "source_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
+      "remote_tip_matches_handoff": true,
+      "blend_sha256": "b0543479cd9c277dc065cdeac770e0c6796c2a102da28d5c2069000d6e4d125a",
+      "glb_sha256": "1f8c69eefb337b06b37ae03b2b28a0de1c736025180b71b28642fbc23f98c046",
+      "glb_bytes": 118168,
+      "triangles": 3204,
+      "materials": 2,
+      "primitives": 2,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "decision": "PASS",
+      "model_result": "PASS",
+      "label_result": "PASS",
+      "label_finding": {
+        "status": "RESOLVED",
+        "resolved_by_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
+        "label_revision": "label-v002",
+        "fields_verified": [
+          {
+            "field": "metadata.json /name/en",
+            "value": "Metasequoia-inspired preserved leafy branch",
+            "matches_expected": true
+          },
+          {
+            "field": "label-v002/brief.json /display_name",
+            "value": "Stylized preserved botanical organ: Metasequoia-inspired leafy branch",
+            "matches_expected": true
+          },
+          {
+            "field": "label-v002/brief.json /subject/inventory_name/en",
+            "value": "Metasequoia-inspired preserved leafy branch",
+            "matches_expected": true
+          },
+          {
+            "field": "label-v002/inventory-record.json /name/en",
+            "value": "Metasequoia-inspired preserved leafy branch",
+            "matches_expected": true
+          }
+        ],
+        "original_frozen_records_retained": true,
+        "current_brief_path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/brief.json",
+        "current_inventory_path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/inventory-record.json",
+        "candidate_artifacts_brief_path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/brief.json"
+      },
+      "technical": {
+        "source_export_status": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: preserved-cut-branch-organ-with-opposite-lateral-attachments: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_max_error_m": 0.0,
+        "roundtrip_status": "pass_with_warnings",
+        "roundtrip_errors": [],
+        "roundtrip_warnings": [
+          "paired-and-decussate-small-flat-leaves-with-topological-spaces: smooth faces require intentional-style review",
+          "paired-and-decussate-small-flat-leaves-with-topological-spaces: 2880 boundary edges; review intentional openings",
+          "preserved-cut-branch-organ-with-opposite-lateral-attachments: smooth faces require intentional-style review"
+        ],
+        "gltf_validator_version": "2.0.0-dev.3.10",
+        "gltf_errors": 0,
+        "gltf_warnings": 0
+      },
+      "fixed_views": {
+        "ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "turntable_frames": 0,
+        "source_glb_sha256": "1f8c69eefb337b06b37ae03b2b28a0de1c736025180b71b28642fbc23f98c046",
+        "file_checks": [
+          {
+            "path": "preview-hero.png",
+            "sha256": "e96f485a4656de4f53adc25ebc0cd9121a07dba64ed43d169c47cdde2efba728",
+            "bytes": 419954,
+            "pass": true
+          },
+          {
+            "path": "preview-reversehero.png",
+            "sha256": "db266898180710f5e904d3188e58c0b4f9b041e00c9672b11a710390ed8ac4e4",
+            "bytes": 433018,
+            "pass": true
+          },
+          {
+            "path": "preview-front.png",
+            "sha256": "7a3ae5f63c8cf20df8c72ece4beb0e7227e6502813b02d896e19dfa75be0879f",
+            "bytes": 149683,
+            "pass": true
+          },
+          {
+            "path": "preview-side.png",
+            "sha256": "1ad8037853a12b37533bab29e8257b299a1aeef586f50b5dd1488fdc6f3d05a8",
+            "bytes": 167327,
+            "pass": true
+          },
+          {
+            "path": "preview-rear.png",
+            "sha256": "d80389684944b11989179042eee11587d3803bd7a27c598e8599b7f3a379f7fa",
+            "bytes": 150120,
+            "pass": true
+          },
+          {
+            "path": "preview-top.png",
+            "sha256": "62399d1e48db0bd738b240d442418ece2c7b1249584ef64163950679d75cc695",
+            "bytes": 426884,
+            "pass": true
+          },
+          {
+            "path": "preview-clay.png",
+            "sha256": "2f2eae0e6d90a882a9a86055ef27199760b5e971288baa92af9a2d8e8160d879",
+            "bytes": 236408,
+            "pass": true
+          },
+          {
+            "path": "preview-silhouette.png",
+            "sha256": "148a96873f8f6aded74ae86f140a78bd9f22b6c4dace5db51cadb8bddbd9ac8a",
+            "bytes": 4487,
+            "pass": true
+          },
+          {
+            "path": "transparent/preview-hero.png",
+            "sha256": "9f29581c436430d4ed3d286fc9e68745031d7a3a9248214261b52b1a576fc845",
+            "bytes": 155280,
+            "pass": true
+          }
+        ]
+      },
+      "runtime": {
+        "status": "pass",
+        "graphics": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "browser": "154.0.8037.57",
+        "three_version": "180",
+        "errors": [],
+        "view_gl_errors": {
+          "hero": 0,
+          "reversehero": 0,
+          "front": 0,
+          "side": 0,
+          "top": 0,
+          "near": 0,
+          "scene-9-copies": 0
+        },
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "azimuth": 35,
+          "elevation": 20,
+          "instances": 9,
+          "render_calls": 18,
+          "render_triangles": 28836,
+          "foreground_pixels": 3819,
+          "frame_ms": [
+            0.599999999627471,
+            1.900000000372529,
+            1.5,
+            0.30000000074505806
+          ],
+          "gl_error": 0
+        },
+        "image_checks": [
+          {
+            "path": "front.png",
+            "sha256": "b5aded37a1cb10310293eaf04dec8b354e3d4c6e4782bdcd56b65df9b0606a2b",
+            "bytes": 8534,
+            "pass": true
+          },
+          {
+            "path": "hero.png",
+            "sha256": "a13a9cb2304d678a28ec13ea2cebf790e9dd90fca44b23283b0441af5cf93993",
+            "bytes": 16051,
+            "pass": true
+          },
+          {
+            "path": "near.png",
+            "sha256": "a44eec0a0a5078761799884f6a21094d892c4f29dcf272f617496691686cdebb",
+            "bytes": 14184,
+            "pass": true
+          },
+          {
+            "path": "reversehero.png",
+            "sha256": "c6fb9fd484d531bc043254240099afadafca4787cf1fcbdcb4814fa952811b78",
+            "bytes": 16253,
+            "pass": true
+          },
+          {
+            "path": "scene-9-copies.png",
+            "sha256": "4a940ee369723efb66e79713ced0e4ae5777ff0d39c11d57d4cd109ece7f947d",
+            "bytes": 16304,
+            "pass": true
+          },
+          {
+            "path": "side.png",
+            "sha256": "d10266a5d94fcfc5ee55c8609e9f9a73c8efa6afe360f470a4e39139b177945e",
+            "bytes": 8192,
+            "pass": true
+          },
+          {
+            "path": "top.png",
+            "sha256": "ec25867584030bbde67bfff59f7017e2507d41cc2d82cab4f34e5a3d5ba7b9e9",
+            "bytes": 21355,
+            "pass": true
+          }
+        ]
+      },
+      "profile_recheck": {
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ]
+      },
+      "source_nominal_scale": {
+        "meters": 0.22,
+        "axis": "preserved fertile branch span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "label_v002": {
+        "amendment_sha256": "a53020e2392676b12fe1fbb9f86fa2a5087f5bb6f95cacea8da1c3b795279880",
+        "amendment_qa_ref_matches": true,
+        "four_fields_match": true,
+        "current_candidate_uses_v002_brief": true,
+        "preserved_artifact_count": 101,
+        "geometry_sha256_unchanged": true,
+        "fixed_view_images_unchanged": 8,
+        "runtime_images_unchanged": 7,
+        "amendment_authority_qa_sha256": "ee7a11a2e8b503495acd34d783b87735d89cda935d05038407f47cbddcda95c4"
+      },
+      "formal_candidate_approval_status": "pending (source candidate remains approved_for_brief=false; separate gate not changed by this QA report)"
+    },
+    {
+      "asset_id": "ovatiovermis",
+      "branch": "candidate/batch23-ovatiovermis-20261018",
+      "source_commit": "3487c3ce65e904130a3836e80c1c56d218bb2078",
+      "remote_tip_matches_handoff": true,
+      "blend_sha256": "1caf6f3f354a246e2c968649e680b0d51b500788e792997e29209ddbc23d26e8",
+      "glb_sha256": "a21f595f92b1733ddd9ff1ae5c2c7d60d62fbe50fe432f98513e807e44f68dbc",
+      "glb_bytes": 180716,
+      "triangles": 9412,
+      "materials": 3,
+      "primitives": 5,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "decision": "PASS",
+      "model_result": "PASS",
+      "label_result": "PASS",
+      "label_finding": null,
+      "technical": {
+        "source_export_status": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: unarmoured-continuous-soft-tubular-trunk-and-small-head: smooth faces require intentional-style review",
+          "source: two-long-anterior-paired-filter-limbs-and-four-shorter-middle-p: smooth faces require intentional-style review",
+          "source: economical-paired-filter-setae-no-trunk-armour: smooth faces require intentional-style review",
+          "source: three-robust-posterior-lobopod-pairs-supporting-body: smooth faces require intentional-style review",
+          "source: single-strong-claw-on-each-posterior-lobopod: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_max_error_m": 0.0,
+        "roundtrip_status": "pass_with_warnings",
+        "roundtrip_errors": [],
+        "roundtrip_warnings": [
+          "economical-paired-filter-setae-no-trunk-armour: smooth faces require intentional-style review",
+          "single-strong-claw-on-each-posterior-lobopod: smooth faces require intentional-style review",
+          "three-robust-posterior-lobopod-pairs-supporting-body: smooth faces require intentional-style review",
+          "two-long-anterior-paired-filter-limbs-and-four-shorter-middle-p: smooth faces require intentional-style review",
+          "unarmoured-continuous-soft-tubular-trunk-and-small-head: smooth faces require intentional-style review"
+        ],
+        "gltf_validator_version": "2.0.0-dev.3.10",
+        "gltf_errors": 0,
+        "gltf_warnings": 0
+      },
+      "fixed_views": {
+        "ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "turntable_frames": 0,
+        "source_glb_sha256": "a21f595f92b1733ddd9ff1ae5c2c7d60d62fbe50fe432f98513e807e44f68dbc",
+        "file_checks": [
+          {
+            "path": "preview-hero.png",
+            "sha256": "0cd716cbc1d145d056d0b1f620252a8c35caf7919de458155cc717462f296af6",
+            "bytes": 435032,
+            "pass": true
+          },
+          {
+            "path": "preview-reversehero.png",
+            "sha256": "38e83259ff628879183d59f591bb7ca54d46ad93fddf4d7bb6d0b2f2aff299bc",
+            "bytes": 430031,
+            "pass": true
+          },
+          {
+            "path": "preview-front.png",
+            "sha256": "f2fefdb8a471e3dc84c8e8295865e7e599142ac9f1be89fde6d905e2576536fb",
+            "bytes": 224406,
+            "pass": true
+          },
+          {
+            "path": "preview-side.png",
+            "sha256": "56d1ddb20415ab64a0fc3a3a523fb7df15ae2434af7dc755d97fb33a87f538d3",
+            "bytes": 196150,
+            "pass": true
+          },
+          {
+            "path": "preview-rear.png",
+            "sha256": "1b48deb21f6d8370cede3b7b23d125acd4c09629b34b66d245f65f480e86953d",
+            "bytes": 225783,
+            "pass": true
+          },
+          {
+            "path": "preview-top.png",
+            "sha256": "f19ccfd9799965575e87d36a4af59910a7e2581426005001e0777f2dcd2dc68c",
+            "bytes": 463806,
+            "pass": true
+          },
+          {
+            "path": "preview-clay.png",
+            "sha256": "046901099a7bb3e1501153495d6a55bd632149b4cce3ae55fcc1a97762e7efcf",
+            "bytes": 232543,
+            "pass": true
+          },
+          {
+            "path": "preview-silhouette.png",
+            "sha256": "5aedf76d2976b8b4e91c50d838cbe482617c8bc4398425f1a2ad3477fe8a26da",
+            "bytes": 6414,
+            "pass": true
+          },
+          {
+            "path": "transparent/preview-hero.png",
+            "sha256": "4c6e977fca59053f8895b40ee88dac514e76d676eeea5135c1e601fba17a97de",
+            "bytes": 217592,
+            "pass": true
+          }
+        ]
+      },
+      "runtime": {
+        "status": "pass",
+        "graphics": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "browser": "154.0.8037.57",
+        "three_version": "180",
+        "errors": [],
+        "view_gl_errors": {
+          "hero": 0,
+          "reversehero": 0,
+          "front": 0,
+          "side": 0,
+          "top": 0,
+          "near": 0,
+          "scene-9-copies": 0
+        },
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "azimuth": 35,
+          "elevation": 20,
+          "instances": 9,
+          "render_calls": 45,
+          "render_triangles": 84708,
+          "foreground_pixels": 9599,
+          "frame_ms": [
+            0.900000000372529,
+            0.5,
+            0.2999999988824129,
+            0.6000000014901161
+          ],
+          "gl_error": 0
+        },
+        "image_checks": [
+          {
+            "path": "front.png",
+            "sha256": "887d6a9895f0abf6164dfcd50c80a649a57ada406fd5c2e95760dba80208480f",
+            "bytes": 50306,
+            "pass": true
+          },
+          {
+            "path": "hero.png",
+            "sha256": "3c83ba4837b3b0b9832df7e952c3e08a7b963abe75ba81315e3af7e79a2c7574",
+            "bytes": 43212,
+            "pass": true
+          },
+          {
+            "path": "near.png",
+            "sha256": "17e0d389ec11df933adc9fa0972e11bbc0fae0523d140ac16615157c9962f241",
+            "bytes": 44188,
+            "pass": true
+          },
+          {
+            "path": "reversehero.png",
+            "sha256": "1c283e683f3c1668794e802805d5d786fc3e7ebd6815a7491f4fa1527905076a",
+            "bytes": 53307,
+            "pass": true
+          },
+          {
+            "path": "scene-9-copies.png",
+            "sha256": "40bf0b793b215a09c2615211863b90257fbafbff557407233fdddc0ce8992d4c",
+            "bytes": 34762,
+            "pass": true
+          },
+          {
+            "path": "side.png",
+            "sha256": "abc1c96514d01abb8ca936a9d4fef45fa2ede16ee6ac6370e23db3ea2ef8c893",
+            "bytes": 27523,
+            "pass": true
+          },
+          {
+            "path": "top.png",
+            "sha256": "0fd12d8eafc21b2e6275eed806b7a8b41555380d5c2657b6390e3cfc21918768",
+            "bytes": 35999,
+            "pass": true
+          }
+        ]
+      },
+      "profile_recheck": {
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ]
+      },
+      "source_nominal_scale": {
+        "meters": 0.06,
+        "axis": "body and raised-arm height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      }
+    },
+    {
+      "asset_id": "nordenskioldia",
+      "branch": "candidate/batch23-nordenskioldia-20261018",
+      "source_commit": "00710386584b58bdb844e9ea8db5b2c2b0de0920",
+      "remote_tip_matches_handoff": true,
+      "blend_sha256": "130862f7ab85ccd51cf367f1294e45e5fa017baa974b8a59b742986409f0f2ce",
+      "glb_sha256": "983079c22610d6bf826cc642ce909429f95bab99683c658ad3a21453d98e2b0e",
+      "glb_bytes": 85044,
+      "triangles": 2860,
+      "materials": 4,
+      "primitives": 4,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "decision": "PASS",
+      "model_result": "PASS",
+      "label_result": "PASS",
+      "label_finding": null,
+      "technical": {
+        "source_export_status": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: preserved-slender-fruiting-axis-only: smooth faces require intentional-style review",
+          "source: persistent-umbrella-like-fruit-receptacles-attached-to-axis: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_max_error_m": 0.0,
+        "roundtrip_status": "pass_with_warnings",
+        "roundtrip_errors": [],
+        "roundtrip_warnings": [
+          "persistent-umbrella-like-fruit-receptacles-attached-to-axis: smooth faces require intentional-style review",
+          "preserved-slender-fruiting-axis-only: smooth faces require intentional-style review",
+          "radial-wedge-fruitlets-with-distinct-boundaries-no-separate-see: smooth faces require intentional-style review",
+          "radial-wedge-fruitlets-with-distinct-boundaries-no-separate-see: 1680 boundary edges; review intentional openings"
+        ],
+        "gltf_validator_version": "2.0.0-dev.3.10",
+        "gltf_errors": 0,
+        "gltf_warnings": 0
+      },
+      "fixed_views": {
+        "ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "turntable_frames": 0,
+        "source_glb_sha256": "983079c22610d6bf826cc642ce909429f95bab99683c658ad3a21453d98e2b0e",
+        "file_checks": [
+          {
+            "path": "preview-hero.png",
+            "sha256": "b0b56037f4a80990e1c24f962d07eb9a5e016fe9163c379a23ffbed923788287",
+            "bytes": 392167,
+            "pass": true
+          },
+          {
+            "path": "preview-reversehero.png",
+            "sha256": "71e71a5e1448487297b992107ffd1c983142fa514fe4a9930079d3cdca1f0ed8",
+            "bytes": 401256,
+            "pass": true
+          },
+          {
+            "path": "preview-front.png",
+            "sha256": "2eb13c2dafbc644bc79805a574f084d1d7980f6fabfa229afa49e5fa4ec16c18",
+            "bytes": 160995,
+            "pass": true
+          },
+          {
+            "path": "preview-side.png",
+            "sha256": "16b5312905f15d04bf0af99408949405606b3f8a2ec0acefc6d08ad88d2d9c86",
+            "bytes": 156647,
+            "pass": true
+          },
+          {
+            "path": "preview-rear.png",
+            "sha256": "cdd6deedb117af860a85e28933b451f04c965145599281a74d0b70b3e0a37f36",
+            "bytes": 161836,
+            "pass": true
+          },
+          {
+            "path": "preview-top.png",
+            "sha256": "ad1adb3826a4c8d89809e32c3ae69d55bf48357a94ff0a38ff2746bb8db41fbe",
+            "bytes": 445228,
+            "pass": true
+          },
+          {
+            "path": "preview-clay.png",
+            "sha256": "453d5ebbd56f5cc88f7d2fd846e9fd42b53d68b2acac28a777f681f581d7818a",
+            "bytes": 218609,
+            "pass": true
+          },
+          {
+            "path": "preview-silhouette.png",
+            "sha256": "3cc7699827dae53090b66cc909e5b8e1c01b68d0fcf4f63fc4db513d10aa700d",
+            "bytes": 3409,
+            "pass": true
+          },
+          {
+            "path": "transparent/preview-hero.png",
+            "sha256": "d59d12ee09569c6faf87e801302547301f130f84d208ae68695a2a8a397de7c0",
+            "bytes": 166506,
+            "pass": true
+          }
+        ]
+      },
+      "runtime": {
+        "status": "pass",
+        "graphics": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "browser": "154.0.8037.57",
+        "three_version": "180",
+        "errors": [],
+        "view_gl_errors": {
+          "hero": 0,
+          "reversehero": 0,
+          "front": 0,
+          "side": 0,
+          "top": 0,
+          "near": 0,
+          "scene-9-copies": 0
+        },
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "azimuth": 35,
+          "elevation": 20,
+          "instances": 9,
+          "render_calls": 36,
+          "render_triangles": 25740,
+          "foreground_pixels": 3342,
+          "frame_ms": [
+            0.7000000011175871,
+            0.3999999985098839,
+            0.40000000037252903,
+            0.5
+          ],
+          "gl_error": 0
+        },
+        "image_checks": [
+          {
+            "path": "front.png",
+            "sha256": "7262d6a96ab13e34e2f531ab9881d82827eb029553cad8bc879037d029993fa5",
+            "bytes": 11368,
+            "pass": true
+          },
+          {
+            "path": "hero.png",
+            "sha256": "4d60a490ead01972278d833c93417ebbe22982b2a3c86644d3fbcecd32a22171",
+            "bytes": 11993,
+            "pass": true
+          },
+          {
+            "path": "near.png",
+            "sha256": "2b560018cb64ffd7a6505f4da82eb5207f28adb514623958a6369445a3c682a6",
+            "bytes": 11490,
+            "pass": true
+          },
+          {
+            "path": "reversehero.png",
+            "sha256": "ec9800afa2116f4bda9674a7a78f060bc898f9b45934653d88601cafe034b225",
+            "bytes": 11970,
+            "pass": true
+          },
+          {
+            "path": "scene-9-copies.png",
+            "sha256": "2ec15c567d40444eef79dea726916bdc910265046a2ea84e921af1762eb93d7b",
+            "bytes": 13886,
+            "pass": true
+          },
+          {
+            "path": "side.png",
+            "sha256": "b3a636caba9f38f9746909aad746a9254c6b6de5855cc30d72a553371cc014de",
+            "bytes": 7373,
+            "pass": true
+          },
+          {
+            "path": "top.png",
+            "sha256": "56891b3ef458c34ce2d9d8d177419336b0634313cee0c81b76a9054c8758f175",
+            "bytes": 8196,
+            "pass": true
+          }
+        ]
+      },
+      "profile_recheck": {
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ]
+      },
+      "source_nominal_scale": {
+        "meters": 0.16,
+        "axis": "fruit-bearing axis span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      }
+    },
+    {
+      "asset_id": "waterfall-ledge",
+      "branch": "candidate/batch23-waterfall-ledge-20261018",
+      "source_commit": "8a73f884021695ddbf1932ef7c1c6b2333ab8ed6",
+      "remote_tip_matches_handoff": true,
+      "blend_sha256": "ff777a51aa83a6a2273d261a9d1cfbb33eb48ad2481c6e6ddc001fbf7c589af2",
+      "glb_sha256": "815b86ec82deb66a25b2c6588625111a7fa35bbe64f9c4f3af32e92354a92667",
+      "glb_bytes": 30340,
+      "triangles": 546,
+      "materials": 2,
+      "primitives": 2,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "decision": "PASS",
+      "model_result": "PASS",
+      "label_result": "PASS",
+      "label_finding": null,
+      "technical": {
+        "source_export_status": "pass",
+        "source_export_errors": [],
+        "source_export_warnings": [],
+        "triangles_match": true,
+        "bounds_max_error_m": 0.0,
+        "roundtrip_status": "pass_with_warnings",
+        "roundtrip_errors": [],
+        "roundtrip_warnings": [
+          "one-continuous-overhanging-resistant-lip-and-recessed-soft-lowe: smooth faces require intentional-style review",
+          "one-continuous-overhanging-resistant-lip-and-recessed-soft-lowe: 1030 boundary edges; review intentional openings"
+        ],
+        "gltf_validator_version": "2.0.0-dev.3.10",
+        "gltf_errors": 0,
+        "gltf_warnings": 0
+      },
+      "fixed_views": {
+        "ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "turntable_frames": 0,
+        "source_glb_sha256": "815b86ec82deb66a25b2c6588625111a7fa35bbe64f9c4f3af32e92354a92667",
+        "file_checks": [
+          {
+            "path": "preview-hero.png",
+            "sha256": "a80cfe36531c91332f84ee40181962e8f904e17ea06c798f1352453b1581eb8f",
+            "bytes": 408071,
+            "pass": true
+          },
+          {
+            "path": "preview-reversehero.png",
+            "sha256": "d1733e491454bec4190952c536f36b983878712c87a3b135b57409b531dd9f0c",
+            "bytes": 428868,
+            "pass": true
+          },
+          {
+            "path": "preview-front.png",
+            "sha256": "ffc86b653827c37005a3f130726a800eabd2bc03137914dff6a9a02ed887f5ab",
+            "bytes": 247986,
+            "pass": true
+          },
+          {
+            "path": "preview-side.png",
+            "sha256": "53c1c94454725ab4aad12e7cac2fe937f6d02fef35e4fb78bd05a6ac6bc12f77",
+            "bytes": 280971,
+            "pass": true
+          },
+          {
+            "path": "preview-rear.png",
+            "sha256": "e0c0d2b3a2b33e5b913fc91ee28afb127d127a8d2910458b1505340f90b755e7",
+            "bytes": 242754,
+            "pass": true
+          },
+          {
+            "path": "preview-top.png",
+            "sha256": "f00ee81d737a1afdecbd7bad982dbfbf5d9e163fdf27cd7a5df78c4946d60931",
+            "bytes": 412759,
+            "pass": true
+          },
+          {
+            "path": "preview-clay.png",
+            "sha256": "4115d6c08e5537b26fa3868f8006818a2bbe2254ac7c27011fd3997d3d464284",
+            "bytes": 239889,
+            "pass": true
+          },
+          {
+            "path": "preview-silhouette.png",
+            "sha256": "5f6c2460f77be35a70136d119fa448ba08a1348fcc8b96807f03b681c20ddd13",
+            "bytes": 6298,
+            "pass": true
+          },
+          {
+            "path": "transparent/preview-hero.png",
+            "sha256": "9bd24bb03c17b38a9a7c01fba22dc93ca4ce9b72e29826e46eb7449bbaef18af",
+            "bytes": 233908,
+            "pass": true
+          }
+        ]
+      },
+      "runtime": {
+        "status": "pass",
+        "graphics": "Chromium ANGLE SwiftShader software WebGL; functional/local timing only, no physical-device or production performance claim",
+        "browser": "154.0.8037.57",
+        "three_version": "180",
+        "errors": [],
+        "view_gl_errors": {
+          "hero": 0,
+          "reversehero": 0,
+          "front": 0,
+          "side": 0,
+          "top": 0,
+          "near": 0,
+          "scene-9-copies": 0
+        },
+        "scene_9_copies": {
+          "name": "scene-9-copies",
+          "azimuth": 35,
+          "elevation": 20,
+          "instances": 9,
+          "render_calls": 18,
+          "render_triangles": 4914,
+          "foreground_pixels": 32982,
+          "frame_ms": [
+            0.599999999627471,
+            0.30000000074505806,
+            4.299999998882413,
+            0.30000000074505806
+          ],
+          "gl_error": 0
+        },
+        "image_checks": [
+          {
+            "path": "front.png",
+            "sha256": "a69d6b2b0ea5c8e695c536a661a5fb7f5694b8259cca8d3fd0ab1df6cf845634",
+            "bytes": 5448,
+            "pass": true
+          },
+          {
+            "path": "hero.png",
+            "sha256": "87abcac03a8806d87234d809d10f6b9fcbd9fb080a9f3eb3b222d7203918d629",
+            "bytes": 15664,
+            "pass": true
+          },
+          {
+            "path": "near.png",
+            "sha256": "1b982916e09caf8874cbdedff2ab169acd6131de97f9b592a74f1117621e8488",
+            "bytes": 14622,
+            "pass": true
+          },
+          {
+            "path": "reversehero.png",
+            "sha256": "6ce999b5f232b3d8cd613c0c10abc846af6f325301873f1efadc976c8b44cca0",
+            "bytes": 6820,
+            "pass": true
+          },
+          {
+            "path": "scene-9-copies.png",
+            "sha256": "4d1cdcc9eff3590ca771f24bc21101ebeb860a1bf565d48271438b11ec8f0a0c",
+            "bytes": 27554,
+            "pass": true
+          },
+          {
+            "path": "side.png",
+            "sha256": "9676cd87f935878c6b40189b263a4f5ad6f51342dddf9f2c9e99ad8aa8d770d6",
+            "bytes": 3788,
+            "pass": true
+          },
+          {
+            "path": "top.png",
+            "sha256": "fb0485e9ffc7d4274ed5a314d7b558bd7af4574f2c3dd0d5b4ffbeb260766177",
+            "bytes": 4605,
+            "pass": true
+          }
+        ]
+      },
+      "profile_recheck": {
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ]
+      },
+      "source_nominal_scale": {
+        "meters": 1.1,
+        "axis": "rock ledge width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      }
+    }
+  ],
+  "limits": [
+    "Runtime evidence is Chromium/Three.js software WebGL via ANGLE SwiftShader; it does not establish hardware GPU behavior or production performance.",
+    "Nominal dimensions are art-direction choices, not fossil measurements.",
+    "Stylized teaching art is judged against its declared scope, not strict specimen reconstruction."
+  ],
+  "label_records_changed": true,
+  "prior_qa_commit": "28ec00c57941c662275a6b22851cfd26be6e7e15",
+  "final_recheck": {
+    "candidate_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
+    "four_label_fields_effective": true,
+    "frozen_original_records_preserved": true,
+    "blend_glb_hashes_unchanged": true,
+    "all_four_assets_blend_glb_hashes_unchanged": true,
+    "all_required_findings_resolved": true,
+    "candidate_approval_or_publication_granted": false
+  },
+  "candidate_branch_label_records_changed": true,
+  "model_artifacts_changed": false,
+  "frozen_original_records_preserved": true,
+  "reviewer_modified_candidate_branch": false
+}
