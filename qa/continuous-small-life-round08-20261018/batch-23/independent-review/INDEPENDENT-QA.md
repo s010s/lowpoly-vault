@@ -1,48 +1,47 @@
-metasequoia b47cd91c5cd88146d9c3bf9e854e2425e3dfd220 | ovatiovermis 3487c3ce65e904130a3836e80c1c56d218bb2078 | nordenskioldia 00710386584b58bdb844e9ea8db5b2c2b0de0920 | waterfall-ledge 8a73f884021695ddbf1932ef7c1c6b2333ab8ed6
-# Batch 23 independent review
+metasequoia 6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd | ovatiovermis 3487c3ce65e904130a3836e80c1c56d218bb2078 | nordenskioldia 00710386584b58bdb844e9ea8db5b2c2b0de0920 | waterfall-ledge 8a73f884021695ddbf1932ef7c1c6b2333ab8ed6
+# Batch 23 independent review — label-v002 recheck
 
-**Overall disposition: FIX REQUIRED — label-only, for metasequoia.** The model geometry, Blend/GLB integrity, fixed views and runtime all pass. Ovatiovermis, Nordenskioldia and waterfall-ledge PASS. No source model was changed or rebuilt.
+**Final QA result: PASS — all findings from the prior independent review are resolved.** Metasequoia’s former label-only blocker is closed. No Blender/GLB rebuild or geometric change occurred. The three other assets retain their prior PASS results.
 
-This review is bound to handoff `cbc6b33756fa1eb02ff9ac1b95fd84545698efda`, the four source branch tips listed above, and the exact Blend/GLB SHA-256 values in [`review.json`](review.json). It uses `static-stylized-v1`, rule `2026-10-18.1`. The expected style is natural, refined stylized low-poly teaching art; no exact fossil measurement or strict reconstruction is claimed.
+This update is bound to handoff commit `f1b0572a6642f66c2d7c716b848e3828899b6c6e`. Metasequoia’s source branch now points to `6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd`; the other three source branch commits remain those in [`review.json`](review.json). The prior review is preserved as [`INDEPENDENT-QA-v001.md`](INDEPENDENT-QA-v001.md) and was explicitly named by the v002 amendment as label authority.
 
-## Metasequoia: model PASS; label correction required
+## Label-v002 verification
 
-The actual Blender source and exported GLB depict a preserved leafy branch with opposite lateral attachments and paired/decussate small leaves. They do **not** contain a cone, flower, or other reproductive structure. The geometry is attached and closed in source; exact source/export triangle counts match at 3,204, bounds match with 0.0 m delta, the Khronos report has 0 errors/warnings, and runtime renders without GL errors. This model needs no geometry edit, rebuilding, or re-export.
+The four fields now resolve to the recommended wording:
 
-The one required change is the display label:
+- `assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/metadata.json` `/name/en`: `Metasequoia-inspired preserved leafy branch`.
+- `assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/brief.json` `/display_name`: `Stylized preserved botanical organ: Metasequoia-inspired leafy branch`.
+- The same `label-v002/brief.json` `/subject/inventory_name/en`: `Metasequoia-inspired preserved leafy branch`.
+- `assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/inventory-record.json` `/name/en`: `Metasequoia-inspired preserved leafy branch`.
 
-- **Primary path:** `assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/metadata.json`, JSON pointer `/name/en`
-- **Current value:** `Metasequoia opposite-leaf fertile branch`
-- **Recommended value:** `Metasequoia-inspired preserved leafy branch`
+The current `candidate.json` binds its brief artifact to `label-v002/brief.json`; `metadata.json` declares `label_revision: label-v002` and points to the v002 brief, inventory and amendment. The original top-level frozen `brief.json`, `inventory-record.json` and `freeze.json` remain byte-identical to the prior source commit. The producer’s preservation manifest lists 101 v001 files; all 101 match the original commit and their recorded SHA-256 values.
 
-The same display text is duplicated in these source records, so align the user-facing names in the same text-only correction if each is consumed by the product:
+## Model and evidence integrity
 
-- `assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/brief.json` `/display_name`: `Stylized preserved botanical organ: Metasequoia opposite-leaf fertile branch` → `Stylized preserved botanical organ: Metasequoia-inspired leafy branch`.
-- The same `brief.json` `/subject/inventory_name/en`: `Metasequoia opposite-leaf fertile branch` → `Metasequoia-inspired preserved leafy branch`.
-- `assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/inventory-record.json` `/name/en`: `Metasequoia opposite-leaf fertile branch` → `Metasequoia-inspired preserved leafy branch`. The mismatch is specifically that “fertile” suggests the depicted organ includes reproductive structures while the delivered mesh is leafy only. A primary Metasequoia fossil study treats vegetative shoots separately from pollen and ovulate cones and cautions that isolated organs are not generally diagnostic: [Stockey, Rothwell & Falder (2001)](https://www.journals.uchicago.edu/doi/10.1086/317914).
+All 95 handoff artifact pins were recomputed from the exact candidate commit Git objects: **95 pass, 0 fail**. Each remote candidate ref matches its handoff commit. The label amendment does not change model geometry or render pixels:
 
-**Do not edit the Blend or GLB to resolve this finding.** Their baseline SHA-256 values are Blend `b0543479cd9c277dc065cdeac770e0c6796c2a102da28d5c2069000d6e4d125a` and GLB `1f8c69eefb337b06b37ae03b2b28a0de1c736025180b71b28642fbc23f98c046`. No post-fix producer commit/diff is present in the inspected remote yet, so preservation of those hashes after the label edit remains to be verified when that text-only commit is pushed.
+| Asset | Previous → current source commit | Blend SHA-256 | GLB SHA-256 | Result |
+|---|---|---|---|---|
+| metasequoia | `b47cd91c5cd88146d9c3bf9e854e2425e3dfd220` → `6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd` | `b0543479cd9c277dc065cdeac770e0c6796c2a102da28d5c2069000d6e4d125a` | `1f8c69eefb337b06b37ae03b2b28a0de1c736025180b71b28642fbc23f98c046` | PASS |
+| ovatiovermis | `3487c3ce65e904130a3836e80c1c56d218bb2078` → `3487c3ce65e904130a3836e80c1c56d218bb2078` | `1caf6f3f354a246e2c968649e680b0d51b500788e792997e29209ddbc23d26e8` | `a21f595f92b1733ddd9ff1ae5c2c7d60d62fbe50fe432f98513e807e44f68dbc` | PASS |
+| nordenskioldia | `00710386584b58bdb844e9ea8db5b2c2b0de0920` → `00710386584b58bdb844e9ea8db5b2c2b0de0920` | `130862f7ab85ccd51cf367f1294e45e5fa017baa974b8a59b742986409f0f2ce` | `983079c22610d6bf826cc642ce909429f95bab99683c658ad3a21453d98e2b0e` | PASS |
+| waterfall-ledge | `8a73f884021695ddbf1932ef7c1c6b2333ab8ed6` → `8a73f884021695ddbf1932ef7c1c6b2333ab8ed6` | `ff777a51aa83a6a2273d261a9d1cfbb33eb48ad2481c6e6ddc001fbf7c589af2` | `815b86ec82deb66a25b2c6588625111a7fa35bbe64f9c4f3af32e92354a92667` | PASS |
 
-## Other assets
+Metasequoia’s Blend remains `b0543479cd9c277dc065cdeac770e0c6796c2a102da28d5c2069000d6e4d125a` (593,908 bytes); its GLB remains `1f8c69eefb337b06b37ae03b2b28a0de1c736025180b71b28642fbc23f98c046` (118,168 bytes). Both hashes equal the previous review and the original source commit. The other three assets’ Blend and GLB hashes also equal their previous PASS records.
 
-- **Ovatiovermis — PASS.** Soft naked body; two long anterior limb pairs, four shorter middle pairs, and three robust posterior pairs with single curved claws are connected and readable. Setae are an economical stylization. No exact locomotion claim. The broad form is consistent with the original description by [Caron & Aria (2017)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5282736/).
-- **Nordenskioldia — PASS.** Slender axis supports four separate radial segmented fruits on short receptacles; attachments and wedges remain legible in top/front/side/clay views. Ten wedges per teaching fruit are an art choice, not a diagnostic count. See [Crane et al. (1991)](https://bsapubs.onlinelibrary.wiley.com/doi/10.1002/j.1537-2197.1991.tb12599.x).
-- **Waterfall ledge — PASS.** One continuous closed rock form reads as a resistant projecting lip above a recessed softer bed. No specific site, flow simulation, or dated landscape is claimed. The natural process is consistent with the [USGS Yellowstone Volcano Observatory explanation](https://www.usgs.gov/observatories/yvo/news/spectacular-waterfalls-are-often-hidden-gem-yellowstone-national-park).
+All eight Metasequoia fixed-view image files and seven runtime screenshots are byte-identical to the previously reviewed images, and their updated manifests still bind them to the unchanged GLB. The manifests were updated to bind the v002 brief; no pixels were re-rendered. The existing Blender source/export and GLB round-trip evidence still applies because geometry hashes are unchanged.
 
-## Verification record
+## Disposition and limits
 
-- Confirmed the exact remote handoff ref and all four candidate refs against the commits in the frozen handoff; recomputed **88/88 artifact pins** directly from Git objects.
-- Re-ran `scripts/validate_candidate.py` with the declared `static-stylized-v1` profile and contract: all four records are structurally valid and profile-contract status is `pass`; this checker does not approve visual quality by itself.
-- Independently reopened each exact `.blend` read-only in Blender 4.3.2, compared the `EXPORT` collection against the exact GLB, and imported the GLB back. Triangle totals agree and bounds deltas are 0.0 m. Smooth-face warnings were reviewed as intentional stylized curved forms. Round-trip boundary warnings on split leaf/fruit faces are representation artifacts; the exact fixed and runtime views show no missing faces.
-- Verified all eight frozen fixed-view image hashes per asset (`hero`, `reversehero`, `front`, `side`, `rear`, `top`, `clay`, `silhouette`), zero turntable frames, each view manifest's binding to its exact GLB, all runtime image hashes, and source Khronos validator reports (0 errors, 0 warnings per GLB).
-- Opened the exact runtime captures in Chromium 154 / Three.js 180 / ANGLE SwiftShader software WebGL. Per-asset and nine-copy scenes show positive draw calls/triangles, visible foreground, and zero GL errors. This is functional software-WebGL evidence only, not hardware-GPU or production-performance evidence. Candidate nominal dimensions remain artistic scale choices; no resizing was applied.
+**All required findings raised by this review are cleared.** No new mandatory finding remains. The source candidate’s own checker and handoff still report `approved_for_brief: false` with independent stage placeholders pending. This QA report does not alter those approval fields or grant publication authority; the handoff continues to mark publication authority as separate.
+
+No candidate source was edited during this recheck. Only this existing QA branch report and its verification evidence were updated. No model, budget, validation threshold, CI, permissions, merge, publication or Drive changes were made.
 
 ## Evidence
 
-- [`review.json`](review.json): source commits, exact hashes and per-asset results.
-- [`source-evidence-checks.json`](source-evidence-checks.json): handoff, pin, view-manifest, runtime and validator checks.
-- [`evidence/source-artifacts/`](evidence/source-artifacts/): byte-identical read-only copies of the handed-off Blend/GLB files.
-- [`evidence/assets/`](evidence/assets/): fixed-view images and manifests, actual runtime captures, candidate records and independent Blender audit/reimport reports.
-- [`evidence/source/profile-rechecks.json`](evidence/source/profile-rechecks.json): fresh static-profile checker output.
-
-No model, budget, threshold, CI, permission, merge, publication, or Drive change was made. Publication authority remains separate.
+- [`review.json`](review.json): final per-asset decision, source commits and hashes.
+- [`source-evidence-checks.json`](source-evidence-checks.json): initial and v002 recheck index.
+- [`evidence/source/label-v002-verification.json`](evidence/source/label-v002-verification.json): full 95-pin direct Git-object verification, four field values, frozen-record and 101-file preservation checks.
+- [`evidence/source/label-v002-image-geometry-verification.json`](evidence/source/label-v002-image-geometry-verification.json): previous/current Blend/GLB and image-pixel comparison.
+- [`evidence/assets/metasequoia/source-records-v002/`](evidence/assets/metasequoia/source-records-v002/): exact new consumer records and amendment.
+- [`evidence/source/final-handoff-label-v002.jsonl`](evidence/source/final-handoff-label-v002.jsonl): exact updated handoff.

@@ -1,26 +1,25 @@
 {
   "schema_version": 1,
-  "report_id": "batch23-independent-review-2026-10-18",
+  "report_id": "batch23-independent-review-final-label-v002-2026-10-18",
   "batch_id": "batch-23",
   "source_repository": "s010s/lowpoly-vault",
-  "handoff_commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
+  "handoff_commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
   "handoff_path": "production/continuous-small-life-round08-20261018/work/batch-23/final-handoff.jsonl",
   "validation_profile": "static-stylized-v1",
   "rule_version": "2026-10-18.1",
-  "qa_result": "FIX_REQUIRED_LABEL_ONLY",
+  "qa_result": "PASS_ALL_REVIEW_FINDINGS_CLEARED",
   "publication_authority": "separate",
   "reviewer": "Independent static-stylized QA",
   "reviewed_at_utc": "2026-10-18",
-  "handoff_artifact_pin_count": 88,
+  "handoff_artifact_pin_count": 95,
   "handoff_artifact_pin_failures": 0,
   "remote_handoff_tip_matches": true,
-  "source_assets_changed": false,
   "source_model_artifacts_changed": false,
   "assets": [
     {
       "asset_id": "metasequoia",
       "branch": "candidate/batch23-metasequoia-20261018",
-      "source_commit": "b47cd91c5cd88146d9c3bf9e854e2425e3dfd220",
+      "source_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
       "remote_tip_matches_handoff": true,
       "blend_sha256": "b0543479cd9c277dc065cdeac770e0c6796c2a102da28d5c2069000d6e4d125a",
       "glb_sha256": "1f8c69eefb337b06b37ae03b2b28a0de1c736025180b71b28642fbc23f98c046",
@@ -30,36 +29,39 @@
       "primitives": 2,
       "validation_profile": "static-stylized-v1",
       "rule_version": "2026-10-18.1",
-      "decision": "FIX_REQUIRED_LABEL_ONLY",
+      "decision": "PASS",
       "model_result": "PASS",
-      "label_result": "FIX_REQUIRED",
+      "label_result": "PASS",
       "label_finding": {
-        "status": "FIX_REQUIRED_LABEL_ONLY",
-        "primary_path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/metadata.json",
-        "json_pointer": "/name/en",
-        "current_value": "Metasequoia opposite-leaf fertile branch",
-        "recommended_value": "Metasequoia-inspired preserved leafy branch",
-        "duplicate_display_name_fields": [
+        "status": "RESOLVED",
+        "resolved_by_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
+        "label_revision": "label-v002",
+        "fields_verified": [
           {
-            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/brief.json",
-            "json_pointer": "/display_name",
-            "current_value": "Stylized preserved botanical organ: Metasequoia opposite-leaf fertile branch",
-            "recommended_value": "Stylized preserved botanical organ: Metasequoia-inspired leafy branch"
+            "field": "metadata.json /name/en",
+            "value": "Metasequoia-inspired preserved leafy branch",
+            "matches_expected": true
           },
           {
-            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/brief.json",
-            "json_pointer": "/subject/inventory_name/en",
-            "current_value": "Metasequoia opposite-leaf fertile branch",
-            "recommended_value": "Metasequoia-inspired preserved leafy branch"
+            "field": "label-v002/brief.json /display_name",
+            "value": "Stylized preserved botanical organ: Metasequoia-inspired leafy branch",
+            "matches_expected": true
           },
           {
-            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/inventory-record.json",
-            "json_pointer": "/name/en",
-            "current_value": "Metasequoia opposite-leaf fertile branch",
-            "recommended_value": "Metasequoia-inspired preserved leafy branch"
+            "field": "label-v002/brief.json /subject/inventory_name/en",
+            "value": "Metasequoia-inspired preserved leafy branch",
+            "matches_expected": true
+          },
+          {
+            "field": "label-v002/inventory-record.json /name/en",
+            "value": "Metasequoia-inspired preserved leafy branch",
+            "matches_expected": true
           }
         ],
-        "reason": "The delivered mesh shows only an attached leafy branch; no cone, flower, or other reproductive structure is present. “Fertile” overstates this particular depicted organ. Label-only correction; no geometry/export regeneration required."
+        "original_frozen_records_retained": true,
+        "current_brief_path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/brief.json",
+        "current_inventory_path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/inventory-record.json",
+        "candidate_artifacts_brief_path": "assets/candidates/continuous-small-life-round08-20261018/batch-23/metasequoia/r001/label-v002/brief.json"
       },
       "technical": {
         "source_export_status": "pass_with_warnings",
@@ -256,7 +258,19 @@
         "meters": 0.22,
         "axis": "preserved fertile branch span",
         "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
-      }
+      },
+      "label_v002": {
+        "amendment_sha256": "a53020e2392676b12fe1fbb9f86fa2a5087f5bb6f95cacea8da1c3b795279880",
+        "amendment_qa_ref_matches": true,
+        "four_fields_match": true,
+        "current_candidate_uses_v002_brief": true,
+        "preserved_artifact_count": 101,
+        "geometry_sha256_unchanged": true,
+        "fixed_view_images_unchanged": 8,
+        "runtime_images_unchanged": 7,
+        "amendment_authority_qa_sha256": "ee7a11a2e8b503495acd34d783b87735d89cda935d05038407f47cbddcda95c4"
+      },
+      "formal_candidate_approval_status": "pending (source candidate remains approved_for_brief=false; separate gate not changed by this QA report)"
     },
     {
       "asset_id": "ovatiovermis",
@@ -910,5 +924,20 @@
     "Runtime evidence is Chromium/Three.js software WebGL via ANGLE SwiftShader; it does not establish hardware GPU behavior or production performance.",
     "Nominal dimensions are art-direction choices, not fossil measurements.",
     "Stylized teaching art is judged against its declared scope, not strict specimen reconstruction."
-  ]
+  ],
+  "label_records_changed": true,
+  "prior_qa_commit": "28ec00c57941c662275a6b22851cfd26be6e7e15",
+  "final_recheck": {
+    "candidate_commit": "6cffc7a4eaf403e1339c9ddc022aa9ef82f661cd",
+    "four_label_fields_effective": true,
+    "frozen_original_records_preserved": true,
+    "blend_glb_hashes_unchanged": true,
+    "all_four_assets_blend_glb_hashes_unchanged": true,
+    "all_required_findings_resolved": true,
+    "candidate_approval_or_publication_granted": false
+  },
+  "candidate_branch_label_records_changed": true,
+  "model_artifacts_changed": false,
+  "frozen_original_records_preserved": true,
+  "reviewer_modified_candidate_branch": false
 }
