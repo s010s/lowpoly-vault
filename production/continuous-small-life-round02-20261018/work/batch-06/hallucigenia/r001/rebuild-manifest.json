@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "hallucigenia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-a",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/build_batch06.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/config.json",
+        "common": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}/hallucigenia"
+      ],
+      "outputs": [
+        "hallucigenia/hallucigenia.blend",
+        "hallucigenia/hallucigenia.glb",
+        "hallucigenia/metadata.json",
+        "hallucigenia/qa.json"
+      ],
+      "config": {
+        "style": "natural refined lowpoly",
+        "seed": 2026101814
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "hallucigenia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-b",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/build_batch06.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/config.json",
+        "common": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}/hallucigenia"
+      ],
+      "outputs": [
+        "hallucigenia/hallucigenia.blend",
+        "hallucigenia/hallucigenia.glb",
+        "hallucigenia/metadata.json",
+        "hallucigenia/qa.json"
+      ],
+      "config": {
+        "style": "natural refined lowpoly",
+        "seed": 2026101814
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "asset_id": "hallucigenia",
+  "revision": "r001",
+  "glb": {
+    "path": "assets/candidates/continuous-small-life-round02-20261018/batch-06/hallucigenia/r001/attempt-01/hallucigenia/hallucigenia.glb",
+    "sha256": "c076974098f45795fcebc3519832cf6a3b23fa45d649f1eadedeee16c6b378f1",
+    "bytes": 285584
+  },
+  "checks": {
+    "source-export.json": {
+      "status": "pass_with_warnings",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/source-export.json",
+        "sha256": "f870c6aaf620d97d1561f7418be1803af9bb6762df6a626e54fde2a6242fd592",
+        "bytes": 5042
+      }
+    },
+    "roundtrip/glb-roundtrip.report.json": {
+      "status": "pass_with_warnings",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/roundtrip/glb-roundtrip.report.json",
+        "sha256": "6fe844882d5f5ced5a8216ad75112081ba7274e4319b653e8928f55cf4fa8e35",
+        "bytes": 812
+      }
+    },
+    "semantic-rebuild-a.json": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/semantic-rebuild-a.json",
+        "sha256": "a8bb78fe36b505181df4ef4cfa070e42da9598240d4db2757ec37c848b14838b",
+        "bytes": 2817
+      }
+    },
+    "semantic-rebuild-b.json": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/semantic-rebuild-b.json",
+        "sha256": "0c30b030c3079f68571ea7ebf123ee3d618b90c9bb9d7bcfb603f901f8423201",
+        "bytes": 2817
+      }
+    },
+    "project-audit.json": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/project-audit.json",
+        "sha256": "d58e841f40e188c09a2bb93856739ed79c0647423cbb07aa5f1c41113186f85d",
+        "bytes": 1150
+      }
+    },
+    "khronos": {
+      "status": "pass",
+      "evidence": {
+        "path": "assets/candidates/continuous-small-life-round02-20261018/batch-06/hallucigenia/r001/attempt-01/hallucigenia/gltf-validator.report.json",
+        "sha256": "7811ebc8dffcbc047534a44b589a5cccee4909ab7efcecbba1eeada1c219f5be",
+        "bytes": 871
+      }
+    },
+    "runtime": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001/runtime-attempt-01/hallucigenia.json",
+        "sha256": "689924ad1aace11dfc61c707ce590d45bf545a1f25748772805bb8add0bf862e",
+        "bytes": 2891
+      },
+      "scope": "Pinned Three.js 0.180.0; Chromium ANGLE Vulkan SwiftShader software WebGL2. No physical GPU performance claim."
+    },
+    "scene": {
+      "status": "pass",
+      "evidence": {
+        "path": "production/continuous-small-life-round02-20261018/work/batch-06/runtime-scene-attempt-01/scene.json",
+        "sha256": "a932b7c0cd74dd3fb91320e54e2bca4cd0bff0a5cc3bd784d521fae7752c7119",
+        "bytes": 2842
+      },
+      "instances": 12,
+      "scale": "actual meters; no display normalization; synthetic catalogue gallery only"
+    }
+  },
+  "warnings_disposition": "Smooth shading is intentional for softly connected organic forms; spines deliberately faceted. No open/non-manifold edges are expected. Any checker-specific additional warning is retained in its original report.",
+  "independent_acceptance": "unknown; maker checks are not independent QA",
+  "visual_self_check": "Actual runtime contact sheet and targeted full-size images inspected by maker; observations logged in MAKER-NOTES.md.",
+  "scene_evidence": "shared runtime-scene-attempt-01/scene.json; 12 actual-scale copies, software WebGL2"
+}
