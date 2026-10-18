@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "odaraia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch29/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch29/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/odaraia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/odaraia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/odaraia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "odaraia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "odaraia/odaraia.blend",
+        "odaraia/odaraia.glb",
+        "odaraia/qa.json",
+        "odaraia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch29 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "odaraia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch29/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch29/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/odaraia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/odaraia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/odaraia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "odaraia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "odaraia/odaraia.blend",
+        "odaraia/odaraia.glb",
+        "odaraia/qa.json",
+        "odaraia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch29 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
