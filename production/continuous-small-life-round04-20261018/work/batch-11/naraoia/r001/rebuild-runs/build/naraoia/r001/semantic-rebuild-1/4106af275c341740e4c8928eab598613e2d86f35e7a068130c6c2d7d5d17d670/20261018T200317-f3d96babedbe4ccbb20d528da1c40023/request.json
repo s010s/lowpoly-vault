@@ -1,0 +1,112 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/naraoia/r001/generator.py",
+    "--",
+    "--asset",
+    "naraoia",
+    "--config",
+    "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/naraoia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/naraoia/r001/rebuild-runs/build/naraoia/r001/semantic-rebuild-1/4106af275c341740e4c8928eab598613e2d86f35e7a068130c6c2d7d5d17d670/20261018T200317-f3d96babedbe4ccbb20d528da1c40023/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:03:17.108633+00:00",
+  "fingerprint": "4106af275c341740e4c8928eab598613e2d86f35e7a068130c6c2d7d5d17d670",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9595,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/naraoia/brief.json",
+        "sha256": "56cecb30f6e385a8f90bb180023f4360acc045fee695124e95d4e048ae36fcb8"
+      },
+      "config": {
+        "bytes": 2258,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/naraoia/r001/config.json",
+        "sha256": "995361983a67dec288a6e755e819012b25ebd691a357fc1a376bcd72a43087a5"
+      },
+      "generator": {
+        "bytes": 3632,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/naraoia/r001/generator.py",
+        "sha256": "fd6d62b525e1ddcdf85bfd207c7a553c1bc1fa4a498a53ddd018a8d945f6aeca"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1295,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/naraoia/references.json",
+        "sha256": "7aa4bfe1a613215437bb9db89eed0c7e71e2caf56d994a5ce93d1f4515c3db13"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "naraoia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "naraoia",
+      "config": {
+        "profile": "batch11 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/naraoia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/naraoia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/naraoia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/naraoia/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "naraoia/naraoia.glb",
+        "naraoia/naraoia.blend",
+        "naraoia/metadata.json",
+        "naraoia/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T200316-4804e3e252474e168287449963abece7"
+}
