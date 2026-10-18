@@ -1077,6 +1077,9 @@ async function interruptedHistory() {
   try {
     await page.goto(base + prefix); await page.locator('.primary-nav [data-route="catalog"]').click();
     await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
+    // Filter replaces the catalog entry, retaining the intended home → catalog → detail Back history.
+    await page.locator('.catalog-refine summary').click();await page.locator('#pack-filter').selectOption('prehistoric-starter');
+    await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');await page.locator('.catalog-refine summary').click();
     const card = page.locator('#grid .asset-card[data-id="natural-arch"]');
     await card.scrollIntoViewIfNeeded(); await card.click(); await ready(page, 'natural-arch'); await page.waitForTimeout(350);
     await page.evaluate(() => { history.back(); setTimeout(() => history.back(), 35); });

@@ -11,7 +11,8 @@ const prefix='/lowpoly-vault/';
 const cpuDOMRaster=!/^(0|false)$/i.test(process.env.QA_CPU_DOM_RASTER||'1');
 const browserArgs=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader',...(cpuDOMRaster?['--disable-gpu-rasterization']:[])];
 // Lifecycle fixtures use original pack IDs; resolve their bytes from the complete publication, not page one.
-const assets=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8')).assets;
+const assets=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8')).assets.filter(asset=>asset.packs?.includes('prehistoric-starter'));
+assert.equal(assets.length,10,'All ten published starter specimens are required for lifecycle/LRU coverage');
 const viewerFile=(await readdir(resolve(root,'assets'))).find(n=>/^viewer-.*\.js$/.test(n));
 assert(viewerFile,'Built viewer module required');
 const report={status:'running',commit:process.env.GITHUB_SHA||null,execution_environment:process.env.GITHUB_ACTIONS?'GitHub Actions Linux':'cloud computer Linux',started:new Date().toISOString(),checks:[],cases:[],page_errors:[],screenshots:[],videos:[],limitations:['Actual Linux Chromium, ANGLE SwiftShader software WebGL; timings are local loopback and emulated input/viewport, not user-device or production-network benchmarks.','Decoded bytes are the application’s geometry/texture estimates, not driver GPU memory or JS heap measurements.'],server_requests:[]};
