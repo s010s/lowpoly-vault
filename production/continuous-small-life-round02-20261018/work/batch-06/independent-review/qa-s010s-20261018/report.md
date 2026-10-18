@@ -48,14 +48,18 @@
 
 12 实例中性场景的 GLB 加载和渲染通过，报告为 37 draw calls、118,862 个三角面（含地板）；[hero](runtime/scene-hero.png) 和 [top](runtime/scene-top.png) 是真实运行截图。4 cm 的 Hallucigenia 在 15–20 cm 珊瑚旁显得很小，这是实际尺寸差造成的；若未来要做四类并列展示，可把它放在前景或单独标注放大展示。这里不要求放大 canonical asset，也不把场景预览误报为 museum integration 测试。
 
-## Candidate checker：真实缺陷与兼容性问题
+## Candidate checker：授权来源与兼容性问题
 
-实际重跑 `scripts/validate_candidate.py`，四件全部以相同第一错误结束：`brief: publication authority must remain separate`。源简报中的 `publication_authority` 是一段声称用户已授权 QA 后批量 push/merge 的文字，而检查器要求字段值严格为 `separate`。这是实际的批次权限/brief 字段缺陷；本次授权仅覆盖 push 独立审查分支，不能把 brief 的概括性文字解读为 merge 授权。应修订并重新冻结该权限字段。
+实际重跑 `scripts/validate_candidate.py`，四件全部以相同第一错误结束：`brief: publication authority must remain separate`。这是 checker 的实际错误结果：它要求 `publication_authority` 字段严格等于 `separate`，而本批 brief 在该字段写入了一段项目级授权说明。
 
-接着我只在内存中模拟更正这个字段，**没有更改任何简报、记录、模型或阈值**。旧检查器继续要求 `turntable_frames >= 2`；再临时设为 2 后，它要求生产视图 `front/rear/left/right/top/bottom/clay/wire/detail`。四份冻结 brief 实际明示当前认可的是 `hero/reversehero/front/side/rear/top/clay/silhouette` 八个固定视角、0 帧 turntable，并写明“不做 production turntable campaign”。这部分是旧 validator 与当前固定八视图简报契约不匹配，不能据此判模型缺陷；但也没有据此伪造 checker PASS。
+该项目级发布授权有用户提供的既有对话记录支持：用户要求在 CI 调整后持续分批制作，将完成的模型上传到 GitHub 并合入 low-poly-vault，且无需逐模型审批。原话包括“做完就上传到 Github 上面，合到我这个 low poly vault”和“不需要经过我的审批”。因此，报告撤回先前将这段授权说明判断为越权/真实授权缺陷的表述。这个项目级授权与本次独立 QA 代理的具体执行边界是两回事：本任务只授权我 push 审查分支；父任务承担唯一 release 协调职责。本次不执行 candidate merge 或发布。
 
-**正式放行的准确前置项：** 纠正四份 frozen brief 中过宽的 publication authority 文本；随后由工作流负责人决定将 validator 升级为识别本批已批准的固定八视图 profile，或另行批准证据契约。保持 checker 当前失败/blocked，不篡改候选阈值或模型，也不声明已批准。
+当前更准确的问题是权限语义与 checker 字段契约没有分开表达：brief 同时载有长期项目发布授权和“本 planning task does not release”，但 checker 只接受固定哨兵值 `separate`。若要使记录通过，应把 `separate` 保留为此字段值，并将既有项目级授权及其来源记录在独立字段/策略中；这不等于撤销用户授权，也不代表本审查者有合并权限。当前 candidate checker 仍为 invalid，报告不宣称其通过。
 
-诊断文件见 [candidate-checker](candidate-checker/)，其中 [compatibility probe](candidate-checker/compatibility-probe.json) 明确标注为纯内存诊断、并非通过结果。引用范围限于源简报声明的基本外形：Digital Atlas 展示 Aulopora 附生于 Favosites、Thamnopora 枝体；ROM 记载 Hallucigenia 朝向与背棘/腹足；Digital Atlas 将 Fenestella 归于 Fenestrida。它们不支持对低模进行属级微观细节审核：[Tabulate corals](https://www.digitalatlasofancientlife.org/vc/cnidaria/anthozoa/tabulata/)、[ROM: Hallucigenia](https://burgess-shale.rom.on.ca/fossils/hallucigenia-sparsa/)、[Digital Atlas: Bryozoa](https://www.digitalatlasofancientlife.org/learn/bryozoa/)。
+接着我只在内存中把字段值暂设为 `separate`，没有更改任何简报、记录、模型或阈值。旧检查器继续要求 `turntable_frames >= 2`；再临时设为 2 后，它要求生产视图 `front/rear/left/right/top/bottom/clay/wire/detail`。四份冻结 brief 实际明示当前认可的是 `hero/reversehero/front/side/rear/top/clay/silhouette` 八个固定视角、0 帧 turntable，并写明“不做 production turntable campaign”。这部分是旧 validator 与当前固定八视图简报契约不匹配，不能据此判模型缺陷；但也没有据此伪造 checker PASS。
+
+**正式放行前的准确处理：** 工作流需分开表示 per-candidate 的 `publication_authority=separate` 与既有项目级发布授权，并让 validator 识别本批已批准的固定八视图 profile，或由工作流负责人决定另一套证据契约。旧 checker 的 invalid 结果保持如实记录。模型、阈值和 candidate 记录未改；后续发布仍由父任务协调，本审查分支只包含 QA 报告与证据。
+
+诊断文件见 [candidate-checker](candidate-checker/)，其中 [compatibility probe](candidate-checker/compatibility-probe.json) 明确标注为纯内存诊断、并非通过结果；[授权来源补注](candidate-checker/authorization-provenance.md)记录项目级授权及当前审查任务边界。引用范围限于源简报声明的基本外形：Digital Atlas 展示 Aulopora 附生于 Favosites、Thamnopora 枝体；ROM 记载 Hallucigenia 朝向与背棘/腹足；Digital Atlas 将 Fenestella 归于 Fenestrida。它们不支持对低模进行属级微观细节审核：[Tabulate corals](https://www.digitalatlasofancientlife.org/vc/cnidaria/anthozoa/tabulata/)、[ROM: Hallucigenia](https://burgess-shale.rom.on.ca/fossils/hallucigenia-sparsa/)、[Digital Atlas: Bryozoa](https://www.digitalatlasofancientlife.org/learn/bryozoa/)。
 
 **本审查只新增独立证据；模型、阈值、CI 权限和 candidate 记录均未更改。**

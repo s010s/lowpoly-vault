@@ -144,11 +144,12 @@
     }
   ],
   "cross_batch_blocker": {
-    "candidate_checker": "scripts/validate_candidate.py returns invalid for all four: brief publication authority must remain separate.",
-    "actual_brief_defect": "Each frozen brief has publication_authority text claiming user authorization to push and merge without per-model approval. This is broader than the current task authorization; do not interpret it as merge permission.",
-    "compatibility_findings": "After correcting only that field in memory, checker next requires at least two turntable frames; setting two in memory reveals its production profile demands front/rear/left/right/top/bottom/clay/wire/detail. Frozen batch briefs explicitly specify eight fixed views and zero turntable frames. This is a profile/validator contract mismatch, not a mesh defect.",
+    "candidate_checker": "scripts/validate_candidate.py returns invalid for all four with the unchanged exact first error: brief: publication authority must remain separate.",
+    "authority_interpretation": "Project-level release authorization is supported by user-provided prior transcript: after CI adjustment, batch production may upload and merge to lowpoly-vault without per-model approval. This authorization is valid at the project level. This QA delegation authorizes only pushing the independent review; the parent task is the sole release coordinator.",
+    "field_contract_issue": "The frozen brief stores the standing project-level authorization as text in publication_authority, while the checker accepts only the sentinel separate. Keep per-candidate publication_authority=separate and represent the standing grant and provenance separately; do not mischaracterize the grant as revoked or unauthorized.",
+    "compatibility_findings": "After setting only publication_authority=separate in memory, checker next requires at least two turntable frames; setting two in memory reveals the production profile demands front/rear/left/right/top/bottom/clay/wire/detail. Frozen briefs explicitly specify eight fixed views and zero turntable frames. This remains a profile/validator contract mismatch, not a mesh defect.",
     "record_state": "Each candidate record remains approval=pending with all independent stages unknown and no evidence. This review report does not rewrite candidate records.",
-    "required_follow_up": "Correct/re-freeze the over-broad publication-authority statement and make the validator honor the approved fixed-eight-view profile (or explicitly choose a different evidence contract). Until then the official candidate gate is blocked; no checker PASS is claimed."
+    "required_follow_up": "Represent the project-level user grant and its provenance separately from the per-candidate publication-authority sentinel, and make the validator recognize the approved fixed-eight-view profile (or explicitly choose another evidence contract). Preserve the checker invalid result until resolved. Parent coordinates release; this reviewer only pushes the review branch."
   },
   "scene": {
     "browser_status": "pass",
