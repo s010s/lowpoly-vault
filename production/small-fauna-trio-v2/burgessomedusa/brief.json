@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "asset_id": "burgessomedusa",
+  "brief_version": "trio-v002",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "batch_id": "batch-b",
+  "display_name": "Stylized Burgessomedusa",
+  "generic_fallback_name": "Bell-shaped sea drifter inspired by Burgessomedusa",
+  "purpose": "Scene-enriching original static prop for an imaginative world aimed at young children; artistic colors/textures/pose/proportions are welcome.",
+  "subject": {
+    "taxon_inspiration": "burgessomedusa",
+    "inventory_name": {
+      "en": "Burgessomedusa box-bell jellyfish",
+      "zh": "Burgessomedusa（箱钟水母类）"
+    },
+    "category": "cnidarian",
+    "planning_eras": [
+      "cambrian"
+    ],
+    "pose": "Static free-swimming-looking bell with short tentacles; no animation or water volume."
+  },
+  "claim_scope": "Named-taxon-inspired art with basic recognizable anatomy. Not strict scientific reconstruction; no exact locomotion, life-history, coexistence or animation-readiness claim.",
+  "distinctness": "Tall angular hollow bell and short dense fringe",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Six meaningful fixed-framing views are the complete default environment-prop plan; add a targeted angle only for a real concern, never a production turntable campaign.",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "scale": {
+    "meters": 0.15,
+    "axis": "bell height",
+    "kind": "art-direction choice, not a newly measured fossil dimension"
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 480,
+    "microscopic_closeups_supported": false
+  },
+  "style": "Natural refined low-poly, credible proportions and soft transitions. User rejected v001 art direction.",
+  "artistic_choices": [
+    "Suggested palette: pale lavender/seafoam with soft opaque value changes",
+    "Nominal size, proportions, pose, missing fine parts and simplified detail are artistic.",
+    "Tiny subjects need close placement or an explicit creative display-scale choice; do not promise readability from a distant island camera.",
+    "Opaque or economical portable materials are preferred. Fine translucent/vein/feather detail is optional when it does not survive normal viewing.",
+    "Original low-contrast pigment maps for fish and lacewing; mild portable transmission for jelly bell."
+  ],
+  "acceptance_policy": "archived plan-brief.json plus current user request",
+  "review_bound": "one consolidated independent review; one planned cosmetic repair maximum",
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact standalone GLB validates and reimports; no missing dependencies, nonfinite geometry or broken units/origin; budgets measured and warnings dispositioned.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-recognition",
+      "stage": "visual",
+      "critical": true,
+      "description": "Readable distinct core form in the six normal-scale views; no conspicuous unintended penetration, detached major parts or clearly broken shading. Minor color/facet differences and artistic choices are advisory.",
+      "required_sources": [
+        "BURG-ROM"
+      ]
+    },
+    {
+      "id": "identity-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired basic-form obligation: Use an upright angular bell-shaped body with a readable open lower margin.",
+      "required_sources": [
+        "BURG-ROM"
+      ]
+    },
+    {
+      "id": "identity-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired basic-form obligation: Add a dense but simplified fringe of short marginal tentacles, attached around the bell edge; avoid a few giant octopus-like arms.",
+      "required_sources": [
+        "BURG-ROM"
+      ]
+    },
+    {
+      "id": "identity-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired basic-form obligation: Keep the bell/fringe silhouette readable with opaque or mildly translucent-looking colors. Do not require glass transparency or classify it as a living modern box-jelly species.",
+      "required_sources": [
+        "BURG-ROM"
+      ]
+    },
+    {
+      "id": "deliverables-and-label",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable source, deterministic generator/config, standalone GLB, original maps if used, exact hashes, six QA views and one hero poster. Label stylized-inspired and static; include actual source/generator/config hashes in the final versioned execution brief.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader; record bounds, material/texture metrics and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "functional-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Inspect this exact GLB in a declared graphics runtime. Record renderer/device; a SwiftShader PASS is functional software-render evidence, not physical GPU/device performance.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Inspect a neutral simple prop benchmark with the exact GLB and recorded visible copy count/work. Do not require current-museum integration or scientific coexistence for this asset brief.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [],
+  "view_exemptions": {},
+  "inventory_gate_snapshot": "reference-ready",
+  "research_boundary": "The archived research gate is preserved. This creative production scope does not certify that every fossil question has been resolved.",
+  "maker_requested": "GPT6.1Sol Medium; no fast; cloud only",
+  "maker_runtime_model": "not exposed to assistant; do not claim verified selection",
+  "origin": "identity root at free-swimming/flying centerline, meters; not floor contact",
+  "closest_supported_projected_extent_px": 480,
+  "user_feedback": "更自然精致：比例可信，低多边形但衔接柔和"
+}

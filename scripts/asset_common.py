@@ -428,7 +428,7 @@ def export_asset(slug, title, category, collection, metadata=None, output_root=N
     root=bpy.data.objects.get(collection.get('asset_root',''))
     bpy.context.view_layer.objects.active=root
     options=dict(filepath=str(output_dir/f'{slug}.glb'),export_format='GLB',use_selection=True,
-        export_yup=True,export_apply=True,export_normals=True,export_texcoords=False,
+        export_yup=True,export_apply=True,export_normals=True,export_texcoords=bool(metadata.pop('export_texcoords',False)),
         export_tangents=False,export_materials='EXPORT',export_vertex_color='NONE',
         export_animations=False,export_skins=False,export_morph=False,export_cameras=False,
         export_lights=False,export_extras=True,export_gpu_instances=False,export_gn_mesh=False,
