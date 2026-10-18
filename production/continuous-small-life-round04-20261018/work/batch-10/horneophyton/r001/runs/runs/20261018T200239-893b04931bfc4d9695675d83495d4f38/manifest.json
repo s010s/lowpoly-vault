@@ -1,0 +1,84 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "horneophyton",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101808
+      },
+      "inputs": {
+        "audit": "/workspace/batch10-horneophyton/scripts/qa_glb.py",
+        "brief": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/brief.json",
+        "config": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/config.json",
+        "freeze": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/freeze.json",
+        "generator": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/build.py",
+        "helper": "/workspace/batch10-horneophyton/scripts/asset_common.py",
+        "original_config": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/build-config.json",
+        "policy": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/reference-policy.json",
+        "references": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "horneophyton.glb",
+        "horneophyton.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "horneophyton",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101808
+      },
+      "inputs": {
+        "audit": "/workspace/batch10-horneophyton/scripts/qa_glb.py",
+        "brief": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/brief.json",
+        "config": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/config.json",
+        "freeze": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/freeze.json",
+        "generator": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/build.py",
+        "helper": "/workspace/batch10-horneophyton/scripts/asset_common.py",
+        "original_config": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/build-config.json",
+        "policy": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/reference-policy.json",
+        "references": "/workspace/batch10-horneophyton/production/continuous-small-life-round04-20261018/work/batch-10/horneophyton/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "horneophyton.glb",
+        "horneophyton.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
