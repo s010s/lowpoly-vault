@@ -1,0 +1,112 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/cystiphyllum/r001/generator.py",
+    "--",
+    "--asset",
+    "cystiphyllum",
+    "--config",
+    "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/cystiphyllum/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/cystiphyllum/r001/rebuild-runs/build/cystiphyllum/r001/semantic-rebuild-1/8ca3d792c103b7f3fc8d5c596e3c002eaebc31bf12fc90b4521853411f4d4925/20261018T202326-2f7f048f50924f1988ca3b226cd12177/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:23:26.871056+00:00",
+  "fingerprint": "8ca3d792c103b7f3fc8d5c596e3c002eaebc31bf12fc90b4521853411f4d4925",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9656,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/cystiphyllum/brief.json",
+        "sha256": "9c7ad6a41184ce7a4f8745292a6d5ab688f0ff1b1efabf1d71fd30d77ec1b9c7"
+      },
+      "config": {
+        "bytes": 2296,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/cystiphyllum/r001/config.json",
+        "sha256": "cc5c59424f382dfb5f55ba709f2fdcb3fb429730c8cfa55abacebf044b255f85"
+      },
+      "generator": {
+        "bytes": 3690,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/cystiphyllum/r001/generator.py",
+        "sha256": "f5fd6aff29749dd4f16985901acda65782da900fa972038d12e81ee92e2b99d0"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1248,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/cystiphyllum/references.json",
+        "sha256": "5d76760e7ec601f11a8bf1306e55c522968c01f65c4b902d5a044b26e8650296"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cystiphyllum",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cystiphyllum",
+      "config": {
+        "profile": "batch12 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/cystiphyllum/brief.json",
+        "config": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/cystiphyllum/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/cystiphyllum/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/cystiphyllum/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "cystiphyllum/cystiphyllum.glb",
+        "cystiphyllum/cystiphyllum.blend",
+        "cystiphyllum/metadata.json",
+        "cystiphyllum/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T202326-5b555c908e284d2fb8245cdb62dee6bd"
+}
