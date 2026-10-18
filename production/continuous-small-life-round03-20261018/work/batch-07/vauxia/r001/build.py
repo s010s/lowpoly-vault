@@ -77,7 +77,7 @@ def vauxia(c,m):
   if depth>0:
    for angle in [.4,2.7,4.7]:
     shift=Vector((math.cos(angle),math.sin(angle),0))*r*.96
-    fibers.tube([p+shift*(1-.3*j/7) for j,p in enumerate(pts)],[.00020*(1-.3*j/7)]*8,2,n=4)
+    fibers.tube([p+shift*(1-.3*j/7) for j,p in enumerate(pts)],[.00020*(1-.3*j/7) for j in range(8)],2,n=4)
   if depth:
    d=delta.normalized();az=key*1.37
    for side in [-1,1]:
