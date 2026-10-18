@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "kind": "executable-generator-config",
+  "asset_id": "matonidium",
+  "batch_id": "batch-16",
+  "revision": "r001",
+  "maker_model": "GPT-6.1 Sol",
+  "maker_reasoning_effort": "medium",
+  "environment": "authorized selected cloud only",
+  "seed": 2026101808,
+  "representation": "fossil-specimen",
+  "reconstruction_type": "specimen",
+  "nominal_scale": {
+    "meters": 0.22,
+    "axis": "preserved frond span",
+    "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100\u2013500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "preview": {
+    "resolution": 512,
+    "samples": 8,
+    "poster_view": "hero"
+  },
+  "static_only": true,
+  "animation_ready_claim": false,
+  "start_gate": "explicit parent exclusive dispatch in claim.json",
+  "concurrency": "Parent-coordinated shared host pool; default one worker x two Blender threads, no per-batch full-host allocation.",
+  "candidate_validation_profile": "static-stylized-v1",
+  "candidate_rule_version": "2026-10-18.1",
+  "publication_authority": "separate"
+}

@@ -22,7 +22,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - name: Full publication rejection regressions
         run: npm run test:publication
       - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub
