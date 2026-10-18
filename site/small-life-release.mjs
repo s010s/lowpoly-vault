@@ -23,7 +23,6 @@ export async function collectSmallLifeRelease(root,pin) {
   assert.equal(release.authorization,'owner_requested_website_code_and_models');
   assert.equal(release.authorization_reference,'owner-authorized-six-model-release-20261018');
   assert.deepEqual(release.additions.map(a=>a.id).sort(),SMALL_LIFE_IDS,'Exact six reviewed additions required');
-  const base = await collectRefinedRelease(root,release.base_descriptor);
   const additions=[];
   for(const entry of release.additions) {
     const folder = `assets/additions/${entry.id}/small-life-v1`;
@@ -57,6 +56,7 @@ export async function collectSmallLifeRelease(root,pin) {
     const measured=parsed.find(a=>a.asset===entry.id); assert.equal(measured?.status,'pass'); assert.equal(measured?.sha256,entry.sha256.glb); assert.equal(measured?.triangles,asset.triangles); assert.equal(measured?.animations,0);
     additions.push({...asset,...catalogMembership(asset),quality_status:'accepted_environment_prop'});
   }
+  const base = await collectRefinedRelease(root,release.base_descriptor);
   assert(!additions.some(asset=>base.assets.some(a=>a.id===asset.id)),'Additions cannot replace existing assets');
   return {...base,assets:[...base.assets,...additions],publication:{...base.publication,additions_descriptor:pin,approved_addition_ids:[...SMALL_LIFE_IDS]}};
 }

@@ -19,5 +19,8 @@ try{
  const accepted=ACCEPTED_ROUND03_ASSETS[id];
  for(const path of [published.assets[43].glb,published.assets[43].blend,accepted.runtime.path,accepted.review.path,accepted.profile_result.path,accepted.profile_candidate.path,accepted.original_legacy_result.path]){const bytes=await readFile(resolve(root,path));try{await writeFile(resolve(root,path),Buffer.concat([bytes,Buffer.from('tamper')]));await assert.rejects(collect,/hash mismatch/);checks++;}finally{await writeFile(resolve(root,path),bytes);}}
  const isoxys=release.additions.find(a=>a.id==='isoxys');await mutate(isoxys.metadata.path,m=>m.placement_offset_y_m=0,async()=>{const metadata=await pin(isoxys.metadata.path);await mutate(file,d=>d.additions.find(a=>a.id==='isoxys').metadata=metadata,()=>assert.rejects(collect));});
+ const olderPath=published.assets[0].glb,olderBytes=await readFile(resolve(root,olderPath));
+ try{await writeFile(resolve(root,olderPath),Buffer.concat([olderBytes,Buffer.from('tamper')]));await assert.rejects(collect,error=>error.message.includes(olderPath)&&/hash|SHA|bytes|checksum/i.test(error.message));checks++;}finally{await writeFile(resolve(root,olderPath),olderBytes);}
+ try{await rm(resolve(root,olderPath));await assert.rejects(collect,error=>error.code==='ENOENT'&&error.message.includes(olderPath));checks++;}finally{await writeFile(resolve(root,olderPath),olderBytes);}
  console.log(`Round03 release: ${checks} checks passed; exact twelve, unchanged forty-three, independent QA, explicit profile and preserved candidate failures.`);
 }finally{await rm(root,{recursive:true,force:true});}
