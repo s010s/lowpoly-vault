@@ -1,1 +1,0 @@
-Initial bootstrap build rejected missing twelve posters, as expected before capture. The first local browser/GPU attempts used a build without SITE_BASE=/lowpoly-vault/ and failed routing/resource checks. Final build and probes use the Pages base path. These failures were not fixed by assertion changes.

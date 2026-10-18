@@ -1,9 +1,0 @@
-# Change-scoped gallery validation
-
-Pages keeps the exact publication/unchanged-original gate, static contracts, Three.js parsing, build and release inventory audit. Every normal run also checks every bilingual static detail/download/credit payload, the full key-interaction probe, and direct detail plus one complete desktop thumbnail → real GLB → canonical return round trip. `QA_HANDOFF_SMOKE=1` selects those existing handoff cases; default invocation still runs every case and assertion.
-
-`Full release review` runs independent browser probes in parallel. `site/ci-scope.mjs` selects work from the PR base or push-before SHA, failing closed to full review when provenance is unavailable. Runtime changes exercise all models, the language/theme/viewport matrix, resource/failure recovery, handoff, modal and small-life suites. Published payload changes exercise model/download checks and preview reproduction. Unpublished candidates and prose do not trigger rendering. The publication manifest selects the exact authorized set; it is not inferred from neighboring candidates. Manual dispatch runs all original probes, including every forced-fallback model. No failing assertion is suppressed.
-
-`Review gallery in Chromium` remains a manual isolated review entry for both strict GPU and forced fallback. It now builds from the checked publication, which pairs accepted revision GLBs with their sealed revision image paths. Previously it mixed original-ten source metadata with the mixed-release image index and failed at natural-arch/structural-r002 before Chromium could run. It still marks output review-only and cannot deploy.
-
-The asset pipeline tests remain independently scoped to scripts, schemas, skills and their fixtures. Existing dedicated render, hover and modal comparison workflows remain available. Permissions and repository protection are unchanged. Browser screenshots are inspection evidence, not automatic art or scientific approval.
