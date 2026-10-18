@@ -1,0 +1,2795 @@
+{
+  "schema_version": 1,
+  "title": "Batch 24 independent QA review",
+  "batch_id": "batch-24",
+  "source_branch": "candidate/small-life-batch24-20261018",
+  "source_commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
+  "source_pin_kind": "exact user-specified candidate branch commit, including final handoff",
+  "model_source_commit": "b1460146163ad4421f05c6cef51d8e59ff063b97",
+  "scope_expected_model_source_commit": "b1460146163ad4421f05c6cef51d8e59ff063b97",
+  "expected_asset_ids": [
+    "williamsonia",
+    "halkieria",
+    "ctenorhabdotus",
+    "conglomerate-outcrop"
+  ],
+  "asset_id_echo_verified": true,
+  "expected_glb_sha256_by_asset": {
+    "williamsonia": "be8508e48b7bdd40eaff065d9e26bcc753ba9794df9bf34485dc36686380e2a7",
+    "halkieria": "b68978490fededa8e37ef6a3b8e131ce5f4047d7385bdc90a3f4442ac18ed76b",
+    "ctenorhabdotus": "bdf4ce2db481b2e54947ade282ba13e0a4dd762adc1e33e288886012f6cc271b",
+    "conglomerate-outcrop": "26b2433a5fbc8f2742b6f37a90af274e2409b29c850568ec1127a5d95d607be4"
+  },
+  "handoff_md_sha256": "9e2fb7be7f80969b0e27a1d8f1c584213844630ef013db13708e16da515eedc8",
+  "handoff_json_sha256": "15f465ea7f17efb761a1116f027adecafdc4f26ca3db5bb8fbe62c48b0bc5325",
+  "qa_handoff_scope_sha256": "3f07a776e037334c1e8f9b9b0c736bdadf0fb8d546e54c4383383970e297c923",
+  "profile": {
+    "name": "static-stylized-v1",
+    "rule_version": "2026-10-18.1"
+  },
+  "style_and_claim_scope": "Natural refined low-poly teaching art with restrained child-friendly stylization; not strict scientific reconstruction.",
+  "review_method": "Independent visual review of actual source and runtime pixels; exact-hash verification; fresh Blender source reopen and BMesh topology checks; independent static GLB audit and Khronos validation; fresh Three.js/Chromium SwiftShader WebGL2 runtime captures.",
+  "asset_count": 4,
+  "verdict": "PASS",
+  "assets": [
+    {
+      "asset_id": "williamsonia",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "candidate_checkpoint_sha": "5560604ebb0ec37af38821b873b909ade8b1763a",
+      "checkpoint_is_ancestor_of_source_pin": true,
+      "candidate_json_path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/candidate.json",
+      "candidate_json_sha256": "a7a272a709ec938539ed6436a10ab7c8a2cb85952d3c203e421c7050dcb19c6d",
+      "blend_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/williamsonia.blend",
+      "blend_sha256": "6270ec94bdcf3d4b58911a598c5ddc4e213012a74b04e5fae5e4a76398e5d932",
+      "glb_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/williamsonia.glb",
+      "glb_sha256": "be8508e48b7bdd40eaff065d9e26bcc753ba9794df9bf34485dc36686380e2a7",
+      "glb_bytes": 88364,
+      "brief_path": "production/continuous-small-life-round08-20261018/items/williamsonia/brief.json",
+      "brief_sha256": "b74637e0e401872f011df52ecba004bd1c6464dcae0104d26b97250658a2fef9",
+      "frozen_references_sha256": "75c67521b0f8b48a37e9fbd49cc44719420762634d942cde6594c3aaa23ac8be",
+      "profile_contract_sha256": "aa5064ccc90d10c1308a86331140fafaca7ca799ec66d78dfe18a9822ef9bf5b",
+      "file_integrity": {
+        "candidate": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/candidate.json",
+          "sha256": "a7a272a709ec938539ed6436a10ab7c8a2cb85952d3c203e421c7050dcb19c6d",
+          "expected_sha256": "a7a272a709ec938539ed6436a10ab7c8a2cb85952d3c203e421c7050dcb19c6d",
+          "bytes": 10198,
+          "expected_bytes": 10198,
+          "matches": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/williamsonia.blend",
+          "sha256": "6270ec94bdcf3d4b58911a598c5ddc4e213012a74b04e5fae5e4a76398e5d932",
+          "expected_sha256": "6270ec94bdcf3d4b58911a598c5ddc4e213012a74b04e5fae5e4a76398e5d932",
+          "bytes": 649928,
+          "expected_bytes": 649928,
+          "matches": true
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/williamsonia.glb",
+          "sha256": "be8508e48b7bdd40eaff065d9e26bcc753ba9794df9bf34485dc36686380e2a7",
+          "expected_sha256": "be8508e48b7bdd40eaff065d9e26bcc753ba9794df9bf34485dc36686380e2a7",
+          "bytes": 88364,
+          "expected_bytes": 88364,
+          "matches": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/freeze.json",
+          "sha256": "59f8ea5ad8d19f6af425c4a4007b98fd3809abe374eb1af6a47ea31ce53557b8",
+          "expected_sha256": "59f8ea5ad8d19f6af425c4a4007b98fd3809abe374eb1af6a47ea31ce53557b8",
+          "bytes": 6775,
+          "expected_bytes": 6775,
+          "matches": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/profile-contract.json",
+          "sha256": "aa5064ccc90d10c1308a86331140fafaca7ca799ec66d78dfe18a9822ef9bf5b",
+          "expected_sha256": "aa5064ccc90d10c1308a86331140fafaca7ca799ec66d78dfe18a9822ef9bf5b",
+          "bytes": 923,
+          "expected_bytes": 923,
+          "matches": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/metadata.json",
+          "sha256": "86c5a8751e66576f5d2ee60aac2e71a9b24403ef0b31ed0b34d610fbe4395753",
+          "expected_sha256": "86c5a8751e66576f5d2ee60aac2e71a9b24403ef0b31ed0b34d610fbe4395753",
+          "bytes": 5900,
+          "expected_bytes": 5900,
+          "matches": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/view-manifest.json",
+          "sha256": "f57cba611be0cf8754d476b61cb4b1f4679302a74fe7a1f028f7f9836bf29956",
+          "expected_sha256": "f57cba611be0cf8754d476b61cb4b1f4679302a74fe7a1f028f7f9836bf29956",
+          "bytes": 8944,
+          "expected_bytes": 8944,
+          "matches": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/source-contact-sheet.jpg",
+          "sha256": "d50af41485059eadcc5b8ad418935448c6b713051a7fc4de4e8de61108b75072",
+          "expected_sha256": "d50af41485059eadcc5b8ad418935448c6b713051a7fc4de4e8de61108b75072",
+          "bytes": 122325,
+          "expected_bytes": 122325,
+          "matches": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime-contact-sheet.jpg",
+          "sha256": "19f3dfcf1f4f536c41a92772302a7e795e96f86cde1a3ce72880bc9919849747",
+          "expected_sha256": "19f3dfcf1f4f536c41a92772302a7e795e96f86cde1a3ce72880bc9919849747",
+          "bytes": 197381,
+          "expected_bytes": 197381,
+          "matches": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/source-scene.json",
+          "sha256": "17982c594a6a8c48f8ea33d57499f64ca4af27c8ebe722061fa88eb45a2e8744",
+          "expected_sha256": "17982c594a6a8c48f8ea33d57499f64ca4af27c8ebe722061fa88eb45a2e8744",
+          "bytes": 1036,
+          "expected_bytes": 1036,
+          "matches": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/source-export.json",
+          "sha256": "114483a55346c622563dd327c42b3fdf1afba5fe8d53775658c3908f58498bb5",
+          "expected_sha256": "114483a55346c622563dd327c42b3fdf1afba5fe8d53775658c3908f58498bb5",
+          "bytes": 4633,
+          "expected_bytes": 4633,
+          "matches": true
+        },
+        "brief": {
+          "path": "production/continuous-small-life-round08-20261018/items/williamsonia/brief.json",
+          "sha256": "b74637e0e401872f011df52ecba004bd1c6464dcae0104d26b97250658a2fef9",
+          "expected_sha256": "b74637e0e401872f011df52ecba004bd1c6464dcae0104d26b97250658a2fef9",
+          "matches": true
+        },
+        "frozen_references": {
+          "path": "production/continuous-small-life-round08-20261018/items/williamsonia/references.json",
+          "sha256": "75c67521b0f8b48a37e9fbd49cc44719420762634d942cde6594c3aaa23ac8be",
+          "expected_sha256": "75c67521b0f8b48a37e9fbd49cc44719420762634d942cde6594c3aaa23ac8be",
+          "matches": true
+        },
+        "references": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/references.execution.json",
+          "sha256": "3d5381bb9c9ee7079e88148ea4063640b72fe58d3d8fb2b2e9f6d4b4f180965d",
+          "expected_sha256": "3d5381bb9c9ee7079e88148ea4063640b72fe58d3d8fb2b2e9f6d4b4f180965d",
+          "matches": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/generator.py",
+          "sha256": "a97d01bab19536ef5be9f5084ecfb63689e79b7a4ff24fb3edf0dd90bf4a9c8e",
+          "expected_sha256": "a97d01bab19536ef5be9f5084ecfb63689e79b7a4ff24fb3edf0dd90bf4a9c8e",
+          "matches": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/williamsonia/r001/config.json",
+          "sha256": "2e8622fc168ff907c893d2541e55de6549f1869e74e77521d0ed4fc931f91982",
+          "expected_sha256": "2e8622fc168ff907c893d2541e55de6549f1869e74e77521d0ed4fc931f91982",
+          "matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.1,
+        "axis": "preserved ovulate structure height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "measured_glb_bounds_m": {
+        "min": [
+          -0.024000000208616257,
+          0.0,
+          -0.02250000089406967
+        ],
+        "max": [
+          0.024000000208616257,
+          0.09599999943748116,
+          0.02250000089406967
+        ],
+        "size": [
+          0.04800000041723251,
+          0.09599999943748116,
+          0.04500000178813934
+        ]
+      },
+      "geometry": {
+        "source_authored_vertices": 2463,
+        "source_evaluated_vertices": 2463,
+        "exported_position_vertices": 2463,
+        "triangles": 4314,
+        "materials": 3,
+        "primitives": 3,
+        "textures": 0,
+        "extensions_used": [],
+        "source_meshes": [
+          {
+            "name": "compact ovulate receptacle and short stalk",
+            "authored_vertices": 522,
+            "evaluated_vertices": 522,
+            "triangles": 1036,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 2,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          },
+          {
+            "name": "restrained interseminal surface mosaic",
+            "authored_vertices": 1941,
+            "evaluated_vertices": 1941,
+            "triangles": 3278,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 151,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          }
+        ],
+        "blender_version": "4.3.2",
+        "unit_scale": 1.0,
+        "root_identity": true,
+        "saved_cameras_lights": 0,
+        "source_bounds_blender": {
+          "min": [
+            -0.024000000208616257,
+            -0.02250000089406967,
+            0.0
+          ],
+          "max": [
+            0.024000000208616257,
+            0.02250000089406967,
+            0.09600000083446503
+          ]
+        },
+        "glb_bounds_m": {
+          "min": [
+            -0.024000000208616257,
+            0.0,
+            -0.02250000089406967
+          ],
+          "max": [
+            0.024000000208616257,
+            0.09599999943748116,
+            0.02250000089406967
+          ],
+          "size": [
+            0.04800000041723251,
+            0.09599999943748116,
+            0.04500000178813934
+          ]
+        },
+        "source_glb_axis_bounds_match": true,
+        "boundary_edges_zero": true,
+        "nonmanifold_edges_zero": true,
+        "degenerate_triangles_zero": true
+      },
+      "profile_validation": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ]
+      },
+      "gltf_validator": {
+        "validator": "Khronos gltf-validator 2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "num_infos": 0,
+        "num_hints": 0,
+        "messages": []
+      },
+      "fixed_views": {
+        "required_names": [
+          "preview-clay.png",
+          "preview-front.png",
+          "preview-hero.png",
+          "preview-rear.png",
+          "preview-reversehero.png",
+          "preview-side.png",
+          "preview-silhouette.png",
+          "preview-top.png"
+        ],
+        "observed_source_count": 8,
+        "runtime_frame_count": 12,
+        "turntable_frames": 0,
+        "manifest_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/view-manifest.json",
+        "manifest_sha256": "f57cba611be0cf8754d476b61cb4b1f4679302a74fe7a1f028f7f9836bf29956",
+        "source_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-hero.png",
+            "sha256": "4c0bcd65cfd8782b2ce644449dbb007af33e2cba320223a319631152a4b4f250",
+            "manifest_sha256": "4c0bcd65cfd8782b2ce644449dbb007af33e2cba320223a319631152a4b4f250",
+            "bytes": 227312,
+            "manifest_bytes": 227312,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-reversehero.png",
+            "sha256": "e8e40c334fae6f58182a00409f2943d8b1b3321cfc996469b8a650e115245ac0",
+            "manifest_sha256": "e8e40c334fae6f58182a00409f2943d8b1b3321cfc996469b8a650e115245ac0",
+            "bytes": 223262,
+            "manifest_bytes": 223262,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-front.png",
+            "sha256": "65c74ab62d555e22d927d6d84f79aef8647de01eb8613f64f7ec6e6b22754672",
+            "manifest_sha256": "65c74ab62d555e22d927d6d84f79aef8647de01eb8613f64f7ec6e6b22754672",
+            "bytes": 221948,
+            "manifest_bytes": 221948,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-side.png",
+            "sha256": "30c52783156c5fe2719ad596cb6e5ebaee8ccdd995756144515c30594abeebae",
+            "manifest_sha256": "30c52783156c5fe2719ad596cb6e5ebaee8ccdd995756144515c30594abeebae",
+            "bytes": 217228,
+            "manifest_bytes": 217228,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-rear.png",
+            "sha256": "f0f0ee5e2029848e03d3dbc7984a7b2f7b7a6f588c7d3dffeb9ce6cf5cab765a",
+            "manifest_sha256": "f0f0ee5e2029848e03d3dbc7984a7b2f7b7a6f588c7d3dffeb9ce6cf5cab765a",
+            "bytes": 216846,
+            "manifest_bytes": 216846,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-top.png",
+            "sha256": "f0111ea258bf79b226bb98e4582f6fde782a8c89ef0e9272989c3d507bf41f0a",
+            "manifest_sha256": "f0111ea258bf79b226bb98e4582f6fde782a8c89ef0e9272989c3d507bf41f0a",
+            "bytes": 291315,
+            "manifest_bytes": 291315,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-clay.png",
+            "sha256": "cbc0c96ea9c3b6776752d6a3bc4c4b14d3823b028276434715adf902fa11eb53",
+            "manifest_sha256": "cbc0c96ea9c3b6776752d6a3bc4c4b14d3823b028276434715adf902fa11eb53",
+            "bytes": 176730,
+            "manifest_bytes": 176730,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/preview-silhouette.png",
+            "sha256": "02f9db13c11a9e70f70cb0946ddc2545642b9cf55283c760ac5f997e4619a5b3",
+            "manifest_sha256": "02f9db13c11a9e70f70cb0946ddc2545642b9cf55283c760ac5f997e4619a5b3",
+            "bytes": 4825,
+            "manifest_bytes": 4825,
+            "dimensions": [
+              128,
+              128
+            ],
+            "manifest_dimensions": [
+              128,
+              128
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "frozen_runtime_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-hero.png",
+            "sha256": "83754665e57965ac857b030a40c8349a6fed89585302c90aa4d472757c89b9e1",
+            "manifest_sha256": "83754665e57965ac857b030a40c8349a6fed89585302c90aa4d472757c89b9e1",
+            "bytes": 71379,
+            "manifest_bytes": 71379,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-reversehero.png",
+            "sha256": "28543f735a8eec3801e72a4f9603a867f34789eca73f50a17aa960ea2219e2cf",
+            "manifest_sha256": "28543f735a8eec3801e72a4f9603a867f34789eca73f50a17aa960ea2219e2cf",
+            "bytes": 71986,
+            "manifest_bytes": 71986,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-front.png",
+            "sha256": "c39f9f8107c33e55c37832de80f43c3443481cc089e4385417361b8648a906f9",
+            "manifest_sha256": "c39f9f8107c33e55c37832de80f43c3443481cc089e4385417361b8648a906f9",
+            "bytes": 90780,
+            "manifest_bytes": 90780,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-side.png",
+            "sha256": "e764a137fa974948f719dc72d7e286b827c9f003481543b4f223c437d35d5a47",
+            "manifest_sha256": "e764a137fa974948f719dc72d7e286b827c9f003481543b4f223c437d35d5a47",
+            "bytes": 85702,
+            "manifest_bytes": 85702,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-rear.png",
+            "sha256": "5517d4aafc484334ed89d5ee85e6ee3a3e14aab03a239c291451da2c044dbe75",
+            "manifest_sha256": "5517d4aafc484334ed89d5ee85e6ee3a3e14aab03a239c291451da2c044dbe75",
+            "bytes": 87167,
+            "manifest_bytes": 87167,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-top.png",
+            "sha256": "efd2d3af636fe897b12c9e77d0b05d3d9768a43365271b7fd8f80521e1cb1960",
+            "manifest_sha256": "efd2d3af636fe897b12c9e77d0b05d3d9768a43365271b7fd8f80521e1cb1960",
+            "bytes": 158926,
+            "manifest_bytes": 158926,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-bottom.png",
+            "sha256": "70699a5d736c676f6f5037073cd7c6dac45753a2063fc0720e61ed025251dfe6",
+            "manifest_sha256": "70699a5d736c676f6f5037073cd7c6dac45753a2063fc0720e61ed025251dfe6",
+            "bytes": 147804,
+            "manifest_bytes": 147804,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-80px.png",
+            "sha256": "523f28aa1e95598b2e97f36892646b933095718e71239c981a877c65aff28b85",
+            "manifest_sha256": "523f28aa1e95598b2e97f36892646b933095718e71239c981a877c65aff28b85",
+            "bytes": 15935,
+            "manifest_bytes": 15935,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-160px.png",
+            "sha256": "447666e0e2c44a9a066316661d470c04765b626a0c4133d26b8c222e33da7652",
+            "manifest_sha256": "447666e0e2c44a9a066316661d470c04765b626a0c4133d26b8c222e33da7652",
+            "bytes": 23657,
+            "manifest_bytes": 23657,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/single-240px.png",
+            "sha256": "32771de892e14657c48e691320444b9e9185de87144b8abf79041394bbc574c8",
+            "manifest_sha256": "32771de892e14657c48e691320444b9e9185de87144b8abf79041394bbc574c8",
+            "bytes": 33824,
+            "manifest_bytes": 33824,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/scene-hero.png",
+            "sha256": "383241b5c57ba4fd6620c199c2ce724755227fdbef3d263f65317ae3ed86c62f",
+            "manifest_sha256": "383241b5c57ba4fd6620c199c2ce724755227fdbef3d263f65317ae3ed86c62f",
+            "bytes": 60527,
+            "manifest_bytes": 60527,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/williamsonia/r001/attempt-02/williamsonia/runtime/scene-top.png",
+            "sha256": "db3047e08dc39ff6633d9912f050d0d2d71125b7f9203f30bc088876ef982790",
+            "manifest_sha256": "db3047e08dc39ff6633d9912f050d0d2d71125b7f9203f30bc088876ef982790",
+            "bytes": 51618,
+            "manifest_bytes": 51618,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "source_all_integrity_match": true,
+        "runtime_all_integrity_match": true
+      },
+      "actual_runtime": {
+        "status": "pass",
+        "three_js_revision": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "vendor": "Google Inc. (Google)",
+        "webgl2": true,
+        "hardware_gpu_evidence": false,
+        "errors": [],
+        "failed_requests": [],
+        "loaded_bounds": {
+          "min": [
+            -0.024000000208616257,
+            0,
+            -0.02250000089406967
+          ],
+          "max": [
+            0.024000000208616257,
+            0.09599999943748116,
+            0.02250000089406967
+          ]
+        },
+        "loaded_materials": 3,
+        "loaded_primitives": 3,
+        "loaded_textures": 0,
+        "single_views_count": 10,
+        "single_hero_draw_calls": 3,
+        "single_hero_triangles": 4314,
+        "scene_instances": 6,
+        "scene_hero_draw_calls": 18,
+        "scene_hero_triangles": 25884,
+        "independent_capture_count": 12,
+        "independent_capture_hashes_match_frozen": true,
+        "independent_capture_sha256_by_name": {
+          "single-hero.png": "83754665e57965ac857b030a40c8349a6fed89585302c90aa4d472757c89b9e1",
+          "single-reversehero.png": "28543f735a8eec3801e72a4f9603a867f34789eca73f50a17aa960ea2219e2cf",
+          "single-front.png": "c39f9f8107c33e55c37832de80f43c3443481cc089e4385417361b8648a906f9",
+          "single-side.png": "e764a137fa974948f719dc72d7e286b827c9f003481543b4f223c437d35d5a47",
+          "single-rear.png": "5517d4aafc484334ed89d5ee85e6ee3a3e14aab03a239c291451da2c044dbe75",
+          "single-top.png": "efd2d3af636fe897b12c9e77d0b05d3d9768a43365271b7fd8f80521e1cb1960",
+          "single-bottom.png": "70699a5d736c676f6f5037073cd7c6dac45753a2063fc0720e61ed025251dfe6",
+          "single-80px.png": "523f28aa1e95598b2e97f36892646b933095718e71239c981a877c65aff28b85",
+          "single-160px.png": "447666e0e2c44a9a066316661d470c04765b626a0c4133d26b8c222e33da7652",
+          "single-240px.png": "32771de892e14657c48e691320444b9e9185de87144b8abf79041394bbc574c8",
+          "scene-hero.png": "383241b5c57ba4fd6620c199c2ce724755227fdbef3d263f65317ae3ed86c62f",
+          "scene-top.png": "db3047e08dc39ff6633d9912f050d0d2d71125b7f9203f30bc088876ef982790"
+        }
+      },
+      "claim_scope": "Fossil-specimen botanical organ concept limited to documented flower/calyx, leafy fertile branch, fruit axis or ovulate cone; no complete parent plant or newly associated organs implied.",
+      "visual_review": {
+        "status": "pass_within_frozen_brief",
+        "criteria": {
+          "silhouette_and_primary_form": "pass",
+          "proportions_and_nominal_scene_scale": "pass",
+          "secondary_structure_and_connections": "pass",
+          "eight_fixed_views_and_near_scale": "pass",
+          "exact_glb_visual_parity": "pass",
+          "claim_scope": "pass_within_stylized_teaching_art_scope"
+        },
+        "observations": {
+          "williamsonia": "Compact oval ovulate cone with restrained tessellated surface and a continuous short stalk; reads as the bounded reproductive organ prop, without invented petals or parent plant. Surface mosaic is legible at medium/near views; fine cells recede at 80 px.",
+          "halkieria": "Elongated flattened crawler with recognizable front and rear cap shells, ordered overlapping dorsal armour and short marginal sclerites; body stays connected in side and underside runtime views. Simplified plate count is within scope.",
+          "ctenorhabdotus": "Short oval barrel with relatively flat poles and repeated separated triple comb-band groups. Attempt-02 preserves band rhythm at medium/near views; fine bands soften at 80 px. No tentacle curtain is implied.",
+          "conglomerate-outcrop": "One continuous faceted matrix contains differently sized rounded clasts and shows the intended bounded cut face/curved relief. The cut face is a teaching presentation surface, not a seamless terrain boundary; no precise site, age or chemistry is claimed."
+        },
+        "must_fix_items": []
+      },
+      "decision": "PASS",
+      "decision_scope": "Independent visual/technical/specification review within the frozen natural refined low-poly teaching-art brief; not strict scientific reconstruction or formal candidate approval."
+    },
+    {
+      "asset_id": "halkieria",
+      "revision": "r001",
+      "selected_attempt": "attempt-01",
+      "candidate_checkpoint_sha": "2ae0cfa84f639ddc5f344b608c4cb2def397b22e",
+      "checkpoint_is_ancestor_of_source_pin": true,
+      "candidate_json_path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/candidate.json",
+      "candidate_json_sha256": "44a242a969da38e1633552aed0dd30c19ee111d4c1fed324d7ab6b2443925050",
+      "blend_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/halkieria.blend",
+      "blend_sha256": "3602d86d20eeea3ff52686aa26999ea09a280c90db7568a8d6ce2b60bfc8b22a",
+      "glb_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/halkieria.glb",
+      "glb_sha256": "b68978490fededa8e37ef6a3b8e131ce5f4047d7385bdc90a3f4442ac18ed76b",
+      "glb_bytes": 154268,
+      "brief_path": "production/continuous-small-life-round08-20261018/items/halkieria/brief.json",
+      "brief_sha256": "0c50a57ca15505e3f80b681c01dcbc5444e5482b8d97503a43962ff1ac3d2ed8",
+      "frozen_references_sha256": "57c19ac54aee5c41b402107e78c06693489e9a4d153826ce8632e8d8b886910a",
+      "profile_contract_sha256": "118dfd2d0bd40884cbae394b181b627ac91de7041073ae8263f3bd0b4f045449",
+      "file_integrity": {
+        "candidate": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/candidate.json",
+          "sha256": "44a242a969da38e1633552aed0dd30c19ee111d4c1fed324d7ab6b2443925050",
+          "expected_sha256": "44a242a969da38e1633552aed0dd30c19ee111d4c1fed324d7ab6b2443925050",
+          "bytes": 10117,
+          "expected_bytes": 10117,
+          "matches": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/halkieria.blend",
+          "sha256": "3602d86d20eeea3ff52686aa26999ea09a280c90db7568a8d6ce2b60bfc8b22a",
+          "expected_sha256": "3602d86d20eeea3ff52686aa26999ea09a280c90db7568a8d6ce2b60bfc8b22a",
+          "bytes": 780700,
+          "expected_bytes": 780700,
+          "matches": true
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/halkieria.glb",
+          "sha256": "b68978490fededa8e37ef6a3b8e131ce5f4047d7385bdc90a3f4442ac18ed76b",
+          "expected_sha256": "b68978490fededa8e37ef6a3b8e131ce5f4047d7385bdc90a3f4442ac18ed76b",
+          "bytes": 154268,
+          "expected_bytes": 154268,
+          "matches": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/freeze.json",
+          "sha256": "f21c1d8829e43e63291c0590706914161606634a2c3455825ee7f80e40226035",
+          "expected_sha256": "f21c1d8829e43e63291c0590706914161606634a2c3455825ee7f80e40226035",
+          "bytes": 6692,
+          "expected_bytes": 6692,
+          "matches": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/profile-contract.json",
+          "sha256": "118dfd2d0bd40884cbae394b181b627ac91de7041073ae8263f3bd0b4f045449",
+          "expected_sha256": "118dfd2d0bd40884cbae394b181b627ac91de7041073ae8263f3bd0b4f045449",
+          "bytes": 920,
+          "expected_bytes": 920,
+          "matches": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/metadata.json",
+          "sha256": "d142b12025c68d8af0d9ad895f0ac28ae68502950b76f6ea5e709af35bce0b87",
+          "expected_sha256": "d142b12025c68d8af0d9ad895f0ac28ae68502950b76f6ea5e709af35bce0b87",
+          "bytes": 6233,
+          "expected_bytes": 6233,
+          "matches": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/view-manifest.json",
+          "sha256": "f9e255176a7dca5338f9f4b1207eade5ba0d22c7679ea7d89786def23491abc7",
+          "expected_sha256": "f9e255176a7dca5338f9f4b1207eade5ba0d22c7679ea7d89786def23491abc7",
+          "bytes": 8806,
+          "expected_bytes": 8806,
+          "matches": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/source-contact-sheet.jpg",
+          "sha256": "e10c3eec8dfca56440c51893ac736c61fb78c2c2f6066cd680ff9a6b65f7c950",
+          "expected_sha256": "e10c3eec8dfca56440c51893ac736c61fb78c2c2f6066cd680ff9a6b65f7c950",
+          "bytes": 95774,
+          "expected_bytes": 95774,
+          "matches": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime-contact-sheet.jpg",
+          "sha256": "ca02a14ec9d909ab0975b200b194b6918b455bf2ce2e55123d9cb0dd6f4998a0",
+          "expected_sha256": "ca02a14ec9d909ab0975b200b194b6918b455bf2ce2e55123d9cb0dd6f4998a0",
+          "bytes": 169700,
+          "expected_bytes": 169700,
+          "matches": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/source-scene.json",
+          "sha256": "0786f58126085b6b01808e6c57e29df06abce522761ef8ed7d519b7ead680224",
+          "expected_sha256": "0786f58126085b6b01808e6c57e29df06abce522761ef8ed7d519b7ead680224",
+          "bytes": 1290,
+          "expected_bytes": 1290,
+          "matches": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/source-export.json",
+          "sha256": "c081a593ee35fe5af3544d34dce9b3fea450f36c841313727f57d898f5f7badb",
+          "expected_sha256": "c081a593ee35fe5af3544d34dce9b3fea450f36c841313727f57d898f5f7badb",
+          "bytes": 5003,
+          "expected_bytes": 5003,
+          "matches": true
+        },
+        "brief": {
+          "path": "production/continuous-small-life-round08-20261018/items/halkieria/brief.json",
+          "sha256": "0c50a57ca15505e3f80b681c01dcbc5444e5482b8d97503a43962ff1ac3d2ed8",
+          "expected_sha256": "0c50a57ca15505e3f80b681c01dcbc5444e5482b8d97503a43962ff1ac3d2ed8",
+          "matches": true
+        },
+        "frozen_references": {
+          "path": "production/continuous-small-life-round08-20261018/items/halkieria/references.json",
+          "sha256": "57c19ac54aee5c41b402107e78c06693489e9a4d153826ce8632e8d8b886910a",
+          "expected_sha256": "57c19ac54aee5c41b402107e78c06693489e9a4d153826ce8632e8d8b886910a",
+          "matches": true
+        },
+        "references": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/references.execution.json",
+          "sha256": "0227485d97efc7e2437314b3a6d4b700df7cfdd0b3d0924e932b72a10b36a97e",
+          "expected_sha256": "0227485d97efc7e2437314b3a6d4b700df7cfdd0b3d0924e932b72a10b36a97e",
+          "matches": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/generator.py",
+          "sha256": "5f7169cf45906fe86217a3a9cd85b21c1ad516ac9c08d4328aba6d609b978981",
+          "expected_sha256": "5f7169cf45906fe86217a3a9cd85b21c1ad516ac9c08d4328aba6d609b978981",
+          "matches": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/halkieria/r001/config.json",
+          "sha256": "fe7f1a70813014dc07c9f4acfb510431787eb02d80e2f71790b8963d061da485",
+          "expected_sha256": "fe7f1a70813014dc07c9f4acfb510431787eb02d80e2f71790b8963d061da485",
+          "matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.07,
+        "axis": "body length",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "measured_glb_bounds_m": {
+        "min": [
+          -0.012736455537378788,
+          0.0,
+          -0.03500000014901161
+        ],
+        "max": [
+          0.012732199393212795,
+          0.016900000046007335,
+          0.03500000014901161
+        ],
+        "size": [
+          0.025468654930591583,
+          0.016900000046007335,
+          0.07000000029802322
+        ]
+      },
+      "geometry": {
+        "source_authored_vertices": 4220,
+        "source_evaluated_vertices": 4220,
+        "exported_position_vertices": 4220,
+        "triangles": 8040,
+        "materials": 3,
+        "primitives": 5,
+        "textures": 0,
+        "extensions_used": [],
+        "source_meshes": [
+          {
+            "name": "elongated flattened soft mantle and sole",
+            "authored_vertices": 760,
+            "evaluated_vertices": 760,
+            "triangles": 1512,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 2,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          },
+          {
+            "name": "distinct anterior and posterior cap shells",
+            "authored_vertices": 1320,
+            "evaluated_vertices": 1320,
+            "triangles": 2616,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 6,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          },
+          {
+            "name": "ordered overlapping dorsal armour zones",
+            "authored_vertices": 2140,
+            "evaluated_vertices": 2140,
+            "triangles": 3912,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 92,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          }
+        ],
+        "blender_version": "4.3.2",
+        "unit_scale": 1.0,
+        "root_identity": true,
+        "saved_cameras_lights": 0,
+        "source_bounds_blender": {
+          "min": [
+            -0.012736455537378788,
+            -0.03500000014901161,
+            0.0
+          ],
+          "max": [
+            0.012732199393212795,
+            0.03500000014901161,
+            0.016899999231100082
+          ]
+        },
+        "glb_bounds_m": {
+          "min": [
+            -0.012736455537378788,
+            0.0,
+            -0.03500000014901161
+          ],
+          "max": [
+            0.012732199393212795,
+            0.016900000046007335,
+            0.03500000014901161
+          ],
+          "size": [
+            0.025468654930591583,
+            0.016900000046007335,
+            0.07000000029802322
+          ]
+        },
+        "source_glb_axis_bounds_match": true,
+        "boundary_edges_zero": true,
+        "nonmanifold_edges_zero": true,
+        "degenerate_triangles_zero": true
+      },
+      "profile_validation": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ]
+      },
+      "gltf_validator": {
+        "validator": "Khronos gltf-validator 2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "num_infos": 0,
+        "num_hints": 0,
+        "messages": []
+      },
+      "fixed_views": {
+        "required_names": [
+          "preview-clay.png",
+          "preview-front.png",
+          "preview-hero.png",
+          "preview-rear.png",
+          "preview-reversehero.png",
+          "preview-side.png",
+          "preview-silhouette.png",
+          "preview-top.png"
+        ],
+        "observed_source_count": 8,
+        "runtime_frame_count": 12,
+        "turntable_frames": 0,
+        "manifest_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/view-manifest.json",
+        "manifest_sha256": "f9e255176a7dca5338f9f4b1207eade5ba0d22c7679ea7d89786def23491abc7",
+        "source_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-hero.png",
+            "sha256": "00425b98fd6fe7f94387d4e74e70dcdf578016ab2ebfb13f4a07dfad647bf4ba",
+            "manifest_sha256": "00425b98fd6fe7f94387d4e74e70dcdf578016ab2ebfb13f4a07dfad647bf4ba",
+            "bytes": 213382,
+            "manifest_bytes": 213382,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-reversehero.png",
+            "sha256": "12220704c66bd95a87f875bbb64e6271012daf8aa2ab0678d78f129a409a626f",
+            "manifest_sha256": "12220704c66bd95a87f875bbb64e6271012daf8aa2ab0678d78f129a409a626f",
+            "bytes": 219031,
+            "manifest_bytes": 219031,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-front.png",
+            "sha256": "68116753de3057fa1082a624ee67a853d6ac420dfdaee849190e8eca647e3d62",
+            "manifest_sha256": "68116753de3057fa1082a624ee67a853d6ac420dfdaee849190e8eca647e3d62",
+            "bytes": 149132,
+            "manifest_bytes": 149132,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-side.png",
+            "sha256": "4fdb6497b29c8be4ff7918e5328e5513bfa9aa5a93945a08e73d0065c4d5a28e",
+            "manifest_sha256": "4fdb6497b29c8be4ff7918e5328e5513bfa9aa5a93945a08e73d0065c4d5a28e",
+            "bytes": 158526,
+            "manifest_bytes": 158526,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-rear.png",
+            "sha256": "bbc40deb2f101ea85af96d2f5fc5cd2087dc828ca14d6bd57bb8a83234bc5040",
+            "manifest_sha256": "bbc40deb2f101ea85af96d2f5fc5cd2087dc828ca14d6bd57bb8a83234bc5040",
+            "bytes": 149410,
+            "manifest_bytes": 149410,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-top.png",
+            "sha256": "9766f4842d6207da469e19fb648598887c01fb2018e9a100fb9b0fb9ecb92c36",
+            "manifest_sha256": "9766f4842d6207da469e19fb648598887c01fb2018e9a100fb9b0fb9ecb92c36",
+            "bytes": 227105,
+            "manifest_bytes": 227105,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-clay.png",
+            "sha256": "7036d1d9a5bf832c15c47180cfa79f671132c90ef2c0a05695e6efec4c20710e",
+            "manifest_sha256": "7036d1d9a5bf832c15c47180cfa79f671132c90ef2c0a05695e6efec4c20710e",
+            "bytes": 163580,
+            "manifest_bytes": 163580,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/preview-silhouette.png",
+            "sha256": "01edc3a9e29fb772e06cd895aafb782853a36222fb95e589bddca655a31adca1",
+            "manifest_sha256": "01edc3a9e29fb772e06cd895aafb782853a36222fb95e589bddca655a31adca1",
+            "bytes": 4833,
+            "manifest_bytes": 4833,
+            "dimensions": [
+              128,
+              128
+            ],
+            "manifest_dimensions": [
+              128,
+              128
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "frozen_runtime_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-hero.png",
+            "sha256": "1143845c3704f9527db2d54400bcc062819f51e018ec880e64944d8f49280ceb",
+            "manifest_sha256": "1143845c3704f9527db2d54400bcc062819f51e018ec880e64944d8f49280ceb",
+            "bytes": 63049,
+            "manifest_bytes": 63049,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-reversehero.png",
+            "sha256": "8a2855737e6fc6f32865b9b105390b885add604adda4fefe68aaed358a2ad663",
+            "manifest_sha256": "8a2855737e6fc6f32865b9b105390b885add604adda4fefe68aaed358a2ad663",
+            "bytes": 64946,
+            "manifest_bytes": 64946,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-front.png",
+            "sha256": "e18cbb237c7b3cb5b72a460e2478a7d01a436b662c72b5d55510d29006250a1c",
+            "manifest_sha256": "e18cbb237c7b3cb5b72a460e2478a7d01a436b662c72b5d55510d29006250a1c",
+            "bytes": 52518,
+            "manifest_bytes": 52518,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-side.png",
+            "sha256": "fa2ec4cacdc90bcff67e9dfcfe29c6e582e948e33bb15917d0dc4ff32c1eb9da",
+            "manifest_sha256": "fa2ec4cacdc90bcff67e9dfcfe29c6e582e948e33bb15917d0dc4ff32c1eb9da",
+            "bytes": 34456,
+            "manifest_bytes": 34456,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-rear.png",
+            "sha256": "62bcf83284bde8989cda63fef1557b1c8f21de4cccb49881df8fdd1e73d0225b",
+            "manifest_sha256": "62bcf83284bde8989cda63fef1557b1c8f21de4cccb49881df8fdd1e73d0225b",
+            "bytes": 54720,
+            "manifest_bytes": 54720,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-top.png",
+            "sha256": "c0d584f7e55f85920f25c45e1f6a5eb58bd9128712700f7557e3cb91e1ff6e09",
+            "manifest_sha256": "c0d584f7e55f85920f25c45e1f6a5eb58bd9128712700f7557e3cb91e1ff6e09",
+            "bytes": 85311,
+            "manifest_bytes": 85311,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-bottom.png",
+            "sha256": "be4dfe50537ef8ccaeaa7a4590b2b9c982abdc98094362c14c8d944a84cabd3d",
+            "manifest_sha256": "be4dfe50537ef8ccaeaa7a4590b2b9c982abdc98094362c14c8d944a84cabd3d",
+            "bytes": 48508,
+            "manifest_bytes": 48508,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-80px.png",
+            "sha256": "f3c72fac6bce59ef49c909e8fe6778e90719cfef4ee04ffcc283ee0b033868e2",
+            "manifest_sha256": "f3c72fac6bce59ef49c909e8fe6778e90719cfef4ee04ffcc283ee0b033868e2",
+            "bytes": 16121,
+            "manifest_bytes": 16121,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-160px.png",
+            "sha256": "5f44ec758aab141141d20f9c4b6f5020c7c49047d9f09699c0ef1df2f28dda18",
+            "manifest_sha256": "5f44ec758aab141141d20f9c4b6f5020c7c49047d9f09699c0ef1df2f28dda18",
+            "bytes": 23231,
+            "manifest_bytes": 23231,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/single-240px.png",
+            "sha256": "9fd4285f5d21eada6f342fefba3a34fa8f1307112027094d29355b5e42e054a9",
+            "manifest_sha256": "9fd4285f5d21eada6f342fefba3a34fa8f1307112027094d29355b5e42e054a9",
+            "bytes": 31898,
+            "manifest_bytes": 31898,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/scene-hero.png",
+            "sha256": "d31dc09fcdd09ba6c6f13ebaf37ecd36025b9101df3ef7a464436c3f5a9f3118",
+            "manifest_sha256": "d31dc09fcdd09ba6c6f13ebaf37ecd36025b9101df3ef7a464436c3f5a9f3118",
+            "bytes": 44252,
+            "manifest_bytes": 44252,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/halkieria/r001/attempt-01/halkieria/runtime/scene-top.png",
+            "sha256": "e6b2973fd30b55c13d12e5e6fae0349287f6af55fcf10638e30ec48ae5edce97",
+            "manifest_sha256": "e6b2973fd30b55c13d12e5e6fae0349287f6af55fcf10638e30ec48ae5edce97",
+            "bytes": 84381,
+            "manifest_bytes": 84381,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "source_all_integrity_match": true,
+        "runtime_all_integrity_match": true
+      },
+      "actual_runtime": {
+        "status": "pass",
+        "three_js_revision": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "vendor": "Google Inc. (Google)",
+        "webgl2": true,
+        "hardware_gpu_evidence": false,
+        "errors": [],
+        "failed_requests": [],
+        "loaded_bounds": {
+          "min": [
+            -0.012736455537378788,
+            0,
+            -0.03500000014901161
+          ],
+          "max": [
+            0.012732199393212795,
+            0.016900000046007335,
+            0.03500000014901161
+          ]
+        },
+        "loaded_materials": 3,
+        "loaded_primitives": 5,
+        "loaded_textures": 0,
+        "single_views_count": 10,
+        "single_hero_draw_calls": 5,
+        "single_hero_triangles": 8040,
+        "scene_instances": 6,
+        "scene_hero_draw_calls": 30,
+        "scene_hero_triangles": 48240,
+        "independent_capture_count": 12,
+        "independent_capture_hashes_match_frozen": true,
+        "independent_capture_sha256_by_name": {
+          "single-hero.png": "1143845c3704f9527db2d54400bcc062819f51e018ec880e64944d8f49280ceb",
+          "single-reversehero.png": "8a2855737e6fc6f32865b9b105390b885add604adda4fefe68aaed358a2ad663",
+          "single-front.png": "e18cbb237c7b3cb5b72a460e2478a7d01a436b662c72b5d55510d29006250a1c",
+          "single-side.png": "fa2ec4cacdc90bcff67e9dfcfe29c6e582e948e33bb15917d0dc4ff32c1eb9da",
+          "single-rear.png": "62bcf83284bde8989cda63fef1557b1c8f21de4cccb49881df8fdd1e73d0225b",
+          "single-top.png": "c0d584f7e55f85920f25c45e1f6a5eb58bd9128712700f7557e3cb91e1ff6e09",
+          "single-bottom.png": "be4dfe50537ef8ccaeaa7a4590b2b9c982abdc98094362c14c8d944a84cabd3d",
+          "single-80px.png": "f3c72fac6bce59ef49c909e8fe6778e90719cfef4ee04ffcc283ee0b033868e2",
+          "single-160px.png": "5f44ec758aab141141d20f9c4b6f5020c7c49047d9f09699c0ef1df2f28dda18",
+          "single-240px.png": "9fd4285f5d21eada6f342fefba3a34fa8f1307112027094d29355b5e42e054a9",
+          "scene-hero.png": "d31dc09fcdd09ba6c6f13ebaf37ecd36025b9101df3ef7a464436c3f5a9f3118",
+          "scene-top.png": "e6b2973fd30b55c13d12e5e6fae0349287f6af55fcf10638e30ec48ae5edce97"
+        }
+      },
+      "claim_scope": "Named-taxon-inspired teaching art using basic recognizable form, not strict scientific reconstruction; no exact species/measurement/locomotion/coexistence claim.",
+      "visual_review": {
+        "status": "pass_within_frozen_brief",
+        "criteria": {
+          "silhouette_and_primary_form": "pass",
+          "proportions_and_nominal_scene_scale": "pass",
+          "secondary_structure_and_connections": "pass",
+          "eight_fixed_views_and_near_scale": "pass",
+          "exact_glb_visual_parity": "pass",
+          "claim_scope": "pass_within_stylized_teaching_art_scope"
+        },
+        "observations": {
+          "williamsonia": "Compact oval ovulate cone with restrained tessellated surface and a continuous short stalk; reads as the bounded reproductive organ prop, without invented petals or parent plant. Surface mosaic is legible at medium/near views; fine cells recede at 80 px.",
+          "halkieria": "Elongated flattened crawler with recognizable front and rear cap shells, ordered overlapping dorsal armour and short marginal sclerites; body stays connected in side and underside runtime views. Simplified plate count is within scope.",
+          "ctenorhabdotus": "Short oval barrel with relatively flat poles and repeated separated triple comb-band groups. Attempt-02 preserves band rhythm at medium/near views; fine bands soften at 80 px. No tentacle curtain is implied.",
+          "conglomerate-outcrop": "One continuous faceted matrix contains differently sized rounded clasts and shows the intended bounded cut face/curved relief. The cut face is a teaching presentation surface, not a seamless terrain boundary; no precise site, age or chemistry is claimed."
+        },
+        "must_fix_items": []
+      },
+      "decision": "PASS",
+      "decision_scope": "Independent visual/technical/specification review within the frozen natural refined low-poly teaching-art brief; not strict scientific reconstruction or formal candidate approval."
+    },
+    {
+      "asset_id": "ctenorhabdotus",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "candidate_checkpoint_sha": "dfaf6ce25fa9a97ff7f43d258e8b5d7151f7aee7",
+      "checkpoint_is_ancestor_of_source_pin": true,
+      "candidate_json_path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/candidate.json",
+      "candidate_json_sha256": "a6e0f5abd30d7b98a932743d211d81e6c17e25201ef2fec72947259c655bca37",
+      "blend_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/ctenorhabdotus.blend",
+      "blend_sha256": "b676aea99bf5db6365495ab918da19738f65fd693ab34b8d0d878ad5bee1f17c",
+      "glb_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/ctenorhabdotus.glb",
+      "glb_sha256": "bdf4ce2db481b2e54947ade282ba13e0a4dd762adc1e33e288886012f6cc271b",
+      "glb_bytes": 223948,
+      "brief_path": "production/continuous-small-life-round08-20261018/items/ctenorhabdotus/brief.json",
+      "brief_sha256": "8d4f40f9808fce6bf8d929b9237d8ad4391e5689c3d9b42154dec571f3b29508",
+      "frozen_references_sha256": "b67eb82652b22981330f0b61545579293af2816f6b1b3d65bfe6887a05adb132",
+      "profile_contract_sha256": "cb83cf44ea3ab0808bd5cb1daa073e06206e257d2981bbd2c55e513b0f1d35e9",
+      "file_integrity": {
+        "candidate": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/candidate.json",
+          "sha256": "a6e0f5abd30d7b98a932743d211d81e6c17e25201ef2fec72947259c655bca37",
+          "expected_sha256": "a6e0f5abd30d7b98a932743d211d81e6c17e25201ef2fec72947259c655bca37",
+          "bytes": 10252,
+          "expected_bytes": 10252,
+          "matches": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/ctenorhabdotus.blend",
+          "sha256": "b676aea99bf5db6365495ab918da19738f65fd693ab34b8d0d878ad5bee1f17c",
+          "expected_sha256": "b676aea99bf5db6365495ab918da19738f65fd693ab34b8d0d878ad5bee1f17c",
+          "bytes": 916208,
+          "expected_bytes": 916208,
+          "matches": true
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/ctenorhabdotus.glb",
+          "sha256": "bdf4ce2db481b2e54947ade282ba13e0a4dd762adc1e33e288886012f6cc271b",
+          "expected_sha256": "bdf4ce2db481b2e54947ade282ba13e0a4dd762adc1e33e288886012f6cc271b",
+          "bytes": 223948,
+          "expected_bytes": 223948,
+          "matches": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/freeze.json",
+          "sha256": "1acf381015f3ed2a3e5df7be02405aa45bd8df3e4e3f2a95d799b2cebb62ed9c",
+          "expected_sha256": "1acf381015f3ed2a3e5df7be02405aa45bd8df3e4e3f2a95d799b2cebb62ed9c",
+          "bytes": 6832,
+          "expected_bytes": 6832,
+          "matches": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/profile-contract.json",
+          "sha256": "cb83cf44ea3ab0808bd5cb1daa073e06206e257d2981bbd2c55e513b0f1d35e9",
+          "expected_sha256": "cb83cf44ea3ab0808bd5cb1daa073e06206e257d2981bbd2c55e513b0f1d35e9",
+          "bytes": 925,
+          "expected_bytes": 925,
+          "matches": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/metadata.json",
+          "sha256": "4d54f59c51efb8a91bae6d61cf179f68c4619640f540c4fbdb96ea53630b81b4",
+          "expected_sha256": "4d54f59c51efb8a91bae6d61cf179f68c4619640f540c4fbdb96ea53630b81b4",
+          "bytes": 6464,
+          "expected_bytes": 6464,
+          "matches": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/view-manifest.json",
+          "sha256": "f73b2f220209f169d45663bdb05d029e802808a40ceb8b12a7c24b45aab65b87",
+          "expected_sha256": "f73b2f220209f169d45663bdb05d029e802808a40ceb8b12a7c24b45aab65b87",
+          "bytes": 9034,
+          "expected_bytes": 9034,
+          "matches": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/source-contact-sheet.jpg",
+          "sha256": "fd975ecc7e08adeb9ae8ffa164a1a614c7d7888932edde8a0f9cc2b9c9af1251",
+          "expected_sha256": "fd975ecc7e08adeb9ae8ffa164a1a614c7d7888932edde8a0f9cc2b9c9af1251",
+          "bytes": 150192,
+          "expected_bytes": 150192,
+          "matches": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime-contact-sheet.jpg",
+          "sha256": "db3be8a384fb7d7f2fbb96fd7e585f3cdea9e850c9f4826bfc87659e1e8b668c",
+          "expected_sha256": "db3be8a384fb7d7f2fbb96fd7e585f3cdea9e850c9f4826bfc87659e1e8b668c",
+          "bytes": 200150,
+          "expected_bytes": 200150,
+          "matches": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/source-scene.json",
+          "sha256": "f4bbadcc67854f421e8d0f3dfe7b8cc101c7b7e7c19a1b2c337a108d3a3c4ea2",
+          "expected_sha256": "f4bbadcc67854f421e8d0f3dfe7b8cc101c7b7e7c19a1b2c337a108d3a3c4ea2",
+          "bytes": 1552,
+          "expected_bytes": 1552,
+          "matches": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/source-export.json",
+          "sha256": "064942a2b55a63d19c68f62fd1d26e5834db5ab5d46af6e863e3748398de9c24",
+          "expected_sha256": "064942a2b55a63d19c68f62fd1d26e5834db5ab5d46af6e863e3748398de9c24",
+          "bytes": 5487,
+          "expected_bytes": 5487,
+          "matches": true
+        },
+        "brief": {
+          "path": "production/continuous-small-life-round08-20261018/items/ctenorhabdotus/brief.json",
+          "sha256": "8d4f40f9808fce6bf8d929b9237d8ad4391e5689c3d9b42154dec571f3b29508",
+          "expected_sha256": "8d4f40f9808fce6bf8d929b9237d8ad4391e5689c3d9b42154dec571f3b29508",
+          "matches": true
+        },
+        "frozen_references": {
+          "path": "production/continuous-small-life-round08-20261018/items/ctenorhabdotus/references.json",
+          "sha256": "b67eb82652b22981330f0b61545579293af2816f6b1b3d65bfe6887a05adb132",
+          "expected_sha256": "b67eb82652b22981330f0b61545579293af2816f6b1b3d65bfe6887a05adb132",
+          "matches": true
+        },
+        "references": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/references.execution.json",
+          "sha256": "b2d2321d29a619b3eff943eb6e3c08b004830d77b1410a17e45bcaf342af1552",
+          "expected_sha256": "b2d2321d29a619b3eff943eb6e3c08b004830d77b1410a17e45bcaf342af1552",
+          "matches": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/generator.py",
+          "sha256": "ca6dcc309a45eed63266863b27ecb6b38cd8c33a5e386f04d5c5ae9d141ae874",
+          "expected_sha256": "ca6dcc309a45eed63266863b27ecb6b38cd8c33a5e386f04d5c5ae9d141ae874",
+          "matches": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/ctenorhabdotus/r001/config.json",
+          "sha256": "38fde08111a48d38d753f05eaf813ace361323076db9595e2435fafa3c0fd072",
+          "expected_sha256": "38fde08111a48d38d753f05eaf813ace361323076db9595e2435fafa3c0fd072",
+          "matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.055,
+        "axis": "body height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "measured_glb_bounds_m": {
+        "min": [
+          -0.022888408973813057,
+          0.0,
+          -0.020618567243218422
+        ],
+        "max": [
+          0.022888408973813057,
+          0.05227047228254378,
+          0.020618567243218422
+        ],
+        "size": [
+          0.045776817947626114,
+          0.05227047228254378,
+          0.041237134486436844
+        ]
+      },
+      "geometry": {
+        "source_authored_vertices": 6245,
+        "source_evaluated_vertices": 6245,
+        "exported_position_vertices": 6245,
+        "triangles": 11614,
+        "materials": 3,
+        "primitives": 4,
+        "textures": 0,
+        "extensions_used": [],
+        "source_meshes": [
+          {
+            "name": "short ovoid barrel with flattened oral and aboral poles",
+            "authored_vertices": 1856,
+            "evaluated_vertices": 1856,
+            "triangles": 3708,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 1,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          },
+          {
+            "name": "eight convergent sets of three comb bands",
+            "authored_vertices": 2320,
+            "evaluated_vertices": 2320,
+            "triangles": 4512,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 32,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          },
+          {
+            "name": "simplified broad comb plate rhythm",
+            "authored_vertices": 1472,
+            "evaluated_vertices": 1472,
+            "triangles": 2208,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 184,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          },
+          {
+            "name": "subtle aboral capsule and oral margin",
+            "authored_vertices": 597,
+            "evaluated_vertices": 597,
+            "triangles": 1186,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 2,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 3
+          }
+        ],
+        "blender_version": "4.3.2",
+        "unit_scale": 1.0,
+        "root_identity": true,
+        "saved_cameras_lights": 0,
+        "source_bounds_blender": {
+          "min": [
+            -0.022888408973813057,
+            -0.020618567243218422,
+            0.0
+          ],
+          "max": [
+            0.022888408973813057,
+            0.020618567243218422,
+            0.052270472049713135
+          ]
+        },
+        "glb_bounds_m": {
+          "min": [
+            -0.022888408973813057,
+            0.0,
+            -0.020618567243218422
+          ],
+          "max": [
+            0.022888408973813057,
+            0.05227047228254378,
+            0.020618567243218422
+          ],
+          "size": [
+            0.045776817947626114,
+            0.05227047228254378,
+            0.041237134486436844
+          ]
+        },
+        "source_glb_axis_bounds_match": true,
+        "boundary_edges_zero": true,
+        "nonmanifold_edges_zero": true,
+        "degenerate_triangles_zero": true
+      },
+      "profile_validation": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ]
+      },
+      "gltf_validator": {
+        "validator": "Khronos gltf-validator 2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "num_infos": 0,
+        "num_hints": 0,
+        "messages": []
+      },
+      "fixed_views": {
+        "required_names": [
+          "preview-clay.png",
+          "preview-front.png",
+          "preview-hero.png",
+          "preview-rear.png",
+          "preview-reversehero.png",
+          "preview-side.png",
+          "preview-silhouette.png",
+          "preview-top.png"
+        ],
+        "observed_source_count": 8,
+        "runtime_frame_count": 12,
+        "turntable_frames": 0,
+        "manifest_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/view-manifest.json",
+        "manifest_sha256": "f73b2f220209f169d45663bdb05d029e802808a40ceb8b12a7c24b45aab65b87",
+        "source_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-hero.png",
+            "sha256": "f9564333b3687058722a22f4061d3adb633803dee6601b778e3eabbf656e355d",
+            "manifest_sha256": "f9564333b3687058722a22f4061d3adb633803dee6601b778e3eabbf656e355d",
+            "bytes": 287271,
+            "manifest_bytes": 287271,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-reversehero.png",
+            "sha256": "b76aea7f723015631b10fbd100116c9715b4df926cd81a34ca5a9b8522e40550",
+            "manifest_sha256": "b76aea7f723015631b10fbd100116c9715b4df926cd81a34ca5a9b8522e40550",
+            "bytes": 275415,
+            "manifest_bytes": 275415,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-front.png",
+            "sha256": "cb99ba4e96a680d91016bef137494d8ab0b48ffc1f362e9a78429a775cb2cbe2",
+            "manifest_sha256": "cb99ba4e96a680d91016bef137494d8ab0b48ffc1f362e9a78429a775cb2cbe2",
+            "bytes": 295565,
+            "manifest_bytes": 295565,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-side.png",
+            "sha256": "73d1aeb41607a7b914f210ca4729c1f490df02bbc74693b2d1cbf7197921d44b",
+            "manifest_sha256": "73d1aeb41607a7b914f210ca4729c1f490df02bbc74693b2d1cbf7197921d44b",
+            "bytes": 278587,
+            "manifest_bytes": 278587,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-rear.png",
+            "sha256": "6047de3a143351a09b4a35935781d081f82d52dbd984d8a93fa181c2542e39e2",
+            "manifest_sha256": "6047de3a143351a09b4a35935781d081f82d52dbd984d8a93fa181c2542e39e2",
+            "bytes": 278783,
+            "manifest_bytes": 278783,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-top.png",
+            "sha256": "8ab154cbf4af7c394d715747cd14cfa2d9c120848bdb86410bc727ad3ec725dc",
+            "manifest_sha256": "8ab154cbf4af7c394d715747cd14cfa2d9c120848bdb86410bc727ad3ec725dc",
+            "bytes": 265984,
+            "manifest_bytes": 265984,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-clay.png",
+            "sha256": "a7cd14c3269cd335341ae03388d2efe5a24708ba901db8f13d8c5e0acdbbba33",
+            "manifest_sha256": "a7cd14c3269cd335341ae03388d2efe5a24708ba901db8f13d8c5e0acdbbba33",
+            "bytes": 199423,
+            "manifest_bytes": 199423,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/preview-silhouette.png",
+            "sha256": "0477b658efcd3914abb89a85876be25647f8d494e99d2947e8751a161e864e0d",
+            "manifest_sha256": "0477b658efcd3914abb89a85876be25647f8d494e99d2947e8751a161e864e0d",
+            "bytes": 6961,
+            "manifest_bytes": 6961,
+            "dimensions": [
+              128,
+              128
+            ],
+            "manifest_dimensions": [
+              128,
+              128
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "frozen_runtime_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-hero.png",
+            "sha256": "778574d154238847d71092d1d1c051c8f67f4a9ddeef3c7e0f09271fe17f8861",
+            "manifest_sha256": "778574d154238847d71092d1d1c051c8f67f4a9ddeef3c7e0f09271fe17f8861",
+            "bytes": 78144,
+            "manifest_bytes": 78144,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-reversehero.png",
+            "sha256": "658ab39d646235cb3d72b0f771ea1b98c07ab59d845b02bdd298e524820bb4f0",
+            "manifest_sha256": "658ab39d646235cb3d72b0f771ea1b98c07ab59d845b02bdd298e524820bb4f0",
+            "bytes": 77470,
+            "manifest_bytes": 77470,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-front.png",
+            "sha256": "b95ae1cf5bdff56e396f98e2db0dcf2e8278174078ae845adae61782dc7d3085",
+            "manifest_sha256": "b95ae1cf5bdff56e396f98e2db0dcf2e8278174078ae845adae61782dc7d3085",
+            "bytes": 110596,
+            "manifest_bytes": 110596,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-side.png",
+            "sha256": "42cf9b403468e296ac4a2c7ac335e36a96f492486bb2ece8c2a833e98d694956",
+            "manifest_sha256": "42cf9b403468e296ac4a2c7ac335e36a96f492486bb2ece8c2a833e98d694956",
+            "bytes": 96903,
+            "manifest_bytes": 96903,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-rear.png",
+            "sha256": "ff0cfc292652dbadf86e14ccd936128d76545681bf47eecaca8f60654d9d7a6a",
+            "manifest_sha256": "ff0cfc292652dbadf86e14ccd936128d76545681bf47eecaca8f60654d9d7a6a",
+            "bytes": 98781,
+            "manifest_bytes": 98781,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-top.png",
+            "sha256": "0dbc460b262560bb3a09b29721839c57469feef7e057e3376f8e23e974627e49",
+            "manifest_sha256": "0dbc460b262560bb3a09b29721839c57469feef7e057e3376f8e23e974627e49",
+            "bytes": 107154,
+            "manifest_bytes": 107154,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-bottom.png",
+            "sha256": "17aa4c5cd965bd56a63eef9750026eb8e2cf74085c8f7576d5d75e4c4cd5e7b5",
+            "manifest_sha256": "17aa4c5cd965bd56a63eef9750026eb8e2cf74085c8f7576d5d75e4c4cd5e7b5",
+            "bytes": 92112,
+            "manifest_bytes": 92112,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-80px.png",
+            "sha256": "dfe8c9fe6c74f54ca04dbeda83957b954e01edb5adbfb1afd9ec5cf8df91d819",
+            "manifest_sha256": "dfe8c9fe6c74f54ca04dbeda83957b954e01edb5adbfb1afd9ec5cf8df91d819",
+            "bytes": 17466,
+            "manifest_bytes": 17466,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-160px.png",
+            "sha256": "421404d580aecde9af3979e1b470ced8d2190d9209c844960d82db52db00d938",
+            "manifest_sha256": "421404d580aecde9af3979e1b470ced8d2190d9209c844960d82db52db00d938",
+            "bytes": 26203,
+            "manifest_bytes": 26203,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/single-240px.png",
+            "sha256": "c95a37d9f430a0d2b87695a7ac1d759006c287196c0a67c34f6f32d6ee786d47",
+            "manifest_sha256": "c95a37d9f430a0d2b87695a7ac1d759006c287196c0a67c34f6f32d6ee786d47",
+            "bytes": 37214,
+            "manifest_bytes": 37214,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/scene-hero.png",
+            "sha256": "b1f7585ef40af3290be6f46affadb732bdc79685a28af2077c94e688ffbc9702",
+            "manifest_sha256": "b1f7585ef40af3290be6f46affadb732bdc79685a28af2077c94e688ffbc9702",
+            "bytes": 59477,
+            "manifest_bytes": 59477,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/ctenorhabdotus/r001/attempt-02/ctenorhabdotus/runtime/scene-top.png",
+            "sha256": "b36dacdfee30f35e95795a6f0e40ed2f92416778db09f3be4070004b62dde4ba",
+            "manifest_sha256": "b36dacdfee30f35e95795a6f0e40ed2f92416778db09f3be4070004b62dde4ba",
+            "bytes": 50473,
+            "manifest_bytes": 50473,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "source_all_integrity_match": true,
+        "runtime_all_integrity_match": true
+      },
+      "actual_runtime": {
+        "status": "pass",
+        "three_js_revision": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "vendor": "Google Inc. (Google)",
+        "webgl2": true,
+        "hardware_gpu_evidence": false,
+        "errors": [],
+        "failed_requests": [],
+        "loaded_bounds": {
+          "min": [
+            -0.022888408973813057,
+            0,
+            -0.020618567243218422
+          ],
+          "max": [
+            0.022888408973813057,
+            0.05227047228254378,
+            0.020618567243218422
+          ]
+        },
+        "loaded_materials": 3,
+        "loaded_primitives": 4,
+        "loaded_textures": 0,
+        "single_views_count": 10,
+        "single_hero_draw_calls": 4,
+        "single_hero_triangles": 11614,
+        "scene_instances": 6,
+        "scene_hero_draw_calls": 24,
+        "scene_hero_triangles": 69684,
+        "independent_capture_count": 12,
+        "independent_capture_hashes_match_frozen": true,
+        "independent_capture_sha256_by_name": {
+          "single-hero.png": "778574d154238847d71092d1d1c051c8f67f4a9ddeef3c7e0f09271fe17f8861",
+          "single-reversehero.png": "658ab39d646235cb3d72b0f771ea1b98c07ab59d845b02bdd298e524820bb4f0",
+          "single-front.png": "b95ae1cf5bdff56e396f98e2db0dcf2e8278174078ae845adae61782dc7d3085",
+          "single-side.png": "42cf9b403468e296ac4a2c7ac335e36a96f492486bb2ece8c2a833e98d694956",
+          "single-rear.png": "ff0cfc292652dbadf86e14ccd936128d76545681bf47eecaca8f60654d9d7a6a",
+          "single-top.png": "0dbc460b262560bb3a09b29721839c57469feef7e057e3376f8e23e974627e49",
+          "single-bottom.png": "17aa4c5cd965bd56a63eef9750026eb8e2cf74085c8f7576d5d75e4c4cd5e7b5",
+          "single-80px.png": "dfe8c9fe6c74f54ca04dbeda83957b954e01edb5adbfb1afd9ec5cf8df91d819",
+          "single-160px.png": "421404d580aecde9af3979e1b470ced8d2190d9209c844960d82db52db00d938",
+          "single-240px.png": "c95a37d9f430a0d2b87695a7ac1d759006c287196c0a67c34f6f32d6ee786d47",
+          "scene-hero.png": "b1f7585ef40af3290be6f46affadb732bdc79685a28af2077c94e688ffbc9702",
+          "scene-top.png": "b36dacdfee30f35e95795a6f0e40ed2f92416778db09f3be4070004b62dde4ba"
+        }
+      },
+      "claim_scope": "Named-taxon-inspired teaching art using basic recognizable form, not strict scientific reconstruction; no exact species/measurement/locomotion/coexistence claim.",
+      "visual_review": {
+        "status": "pass_within_frozen_brief",
+        "criteria": {
+          "silhouette_and_primary_form": "pass",
+          "proportions_and_nominal_scene_scale": "pass",
+          "secondary_structure_and_connections": "pass",
+          "eight_fixed_views_and_near_scale": "pass",
+          "exact_glb_visual_parity": "pass",
+          "claim_scope": "pass_within_stylized_teaching_art_scope"
+        },
+        "observations": {
+          "williamsonia": "Compact oval ovulate cone with restrained tessellated surface and a continuous short stalk; reads as the bounded reproductive organ prop, without invented petals or parent plant. Surface mosaic is legible at medium/near views; fine cells recede at 80 px.",
+          "halkieria": "Elongated flattened crawler with recognizable front and rear cap shells, ordered overlapping dorsal armour and short marginal sclerites; body stays connected in side and underside runtime views. Simplified plate count is within scope.",
+          "ctenorhabdotus": "Short oval barrel with relatively flat poles and repeated separated triple comb-band groups. Attempt-02 preserves band rhythm at medium/near views; fine bands soften at 80 px. No tentacle curtain is implied.",
+          "conglomerate-outcrop": "One continuous faceted matrix contains differently sized rounded clasts and shows the intended bounded cut face/curved relief. The cut face is a teaching presentation surface, not a seamless terrain boundary; no precise site, age or chemistry is claimed."
+        },
+        "must_fix_items": []
+      },
+      "decision": "PASS",
+      "decision_scope": "Independent visual/technical/specification review within the frozen natural refined low-poly teaching-art brief; not strict scientific reconstruction or formal candidate approval."
+    },
+    {
+      "asset_id": "conglomerate-outcrop",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "candidate_checkpoint_sha": "b1460146163ad4421f05c6cef51d8e59ff063b97",
+      "checkpoint_is_ancestor_of_source_pin": true,
+      "candidate_json_path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/candidate.json",
+      "candidate_json_sha256": "98450aa52d677572efe8c10a825f5f33c8f27c5347b394d30976fde33f2df48a",
+      "blend_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/conglomerate-outcrop.blend",
+      "blend_sha256": "9c3d477b58d81e71b95c0c70e8e48530de0dfe67451160308bcb0e626d66cec3",
+      "glb_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/conglomerate-outcrop.glb",
+      "glb_sha256": "26b2433a5fbc8f2742b6f37a90af274e2409b29c850568ec1127a5d95d607be4",
+      "glb_bytes": 174328,
+      "brief_path": "production/continuous-small-life-round08-20261018/items/conglomerate-outcrop/brief.json",
+      "brief_sha256": "d003c76c8134834363e593aaa521018bb3dab4cd7175c909a4884f4526a4597c",
+      "frozen_references_sha256": "0bbc41a892d3b0f60154dcc750efb7f3ad44d0b98406ec748e87f845366c5b20",
+      "profile_contract_sha256": "db2c3294600501da2f24225f1a8b49c9dd9d07e8d633d1505693d6eb01fa8e01",
+      "file_integrity": {
+        "candidate": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/candidate.json",
+          "sha256": "98450aa52d677572efe8c10a825f5f33c8f27c5347b394d30976fde33f2df48a",
+          "expected_sha256": "98450aa52d677572efe8c10a825f5f33c8f27c5347b394d30976fde33f2df48a",
+          "bytes": 10414,
+          "expected_bytes": 10414,
+          "matches": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/conglomerate-outcrop.blend",
+          "sha256": "9c3d477b58d81e71b95c0c70e8e48530de0dfe67451160308bcb0e626d66cec3",
+          "expected_sha256": "9c3d477b58d81e71b95c0c70e8e48530de0dfe67451160308bcb0e626d66cec3",
+          "bytes": 920904,
+          "expected_bytes": 920904,
+          "matches": true
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/conglomerate-outcrop.glb",
+          "sha256": "26b2433a5fbc8f2742b6f37a90af274e2409b29c850568ec1127a5d95d607be4",
+          "expected_sha256": "26b2433a5fbc8f2742b6f37a90af274e2409b29c850568ec1127a5d95d607be4",
+          "bytes": 174328,
+          "expected_bytes": 174328,
+          "matches": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/freeze.json",
+          "sha256": "c96ecfce69e105d547cdcee28244452e563912a3642907667175aaa97479a5be",
+          "expected_sha256": "c96ecfce69e105d547cdcee28244452e563912a3642907667175aaa97479a5be",
+          "bytes": 7000,
+          "expected_bytes": 7000,
+          "matches": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/profile-contract.json",
+          "sha256": "db2c3294600501da2f24225f1a8b49c9dd9d07e8d633d1505693d6eb01fa8e01",
+          "expected_sha256": "db2c3294600501da2f24225f1a8b49c9dd9d07e8d633d1505693d6eb01fa8e01",
+          "bytes": 931,
+          "expected_bytes": 931,
+          "matches": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/metadata.json",
+          "sha256": "1c963bc58374f175571a57fdee9bad5523954c5138c37bd4406915b2c5dc9edd",
+          "expected_sha256": "1c963bc58374f175571a57fdee9bad5523954c5138c37bd4406915b2c5dc9edd",
+          "bytes": 6750,
+          "expected_bytes": 6750,
+          "matches": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/view-manifest.json",
+          "sha256": "390164978cf55d3a05670a7e3bf716d4f410de42489eed266b6035ce5cb4ceb7",
+          "expected_sha256": "390164978cf55d3a05670a7e3bf716d4f410de42489eed266b6035ce5cb4ceb7",
+          "bytes": 9302,
+          "expected_bytes": 9302,
+          "matches": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/source-contact-sheet.jpg",
+          "sha256": "518b84bf1083a818bbbdbb1315bac6154395d53668cfa30ac90bcf39f9368f9e",
+          "expected_sha256": "518b84bf1083a818bbbdbb1315bac6154395d53668cfa30ac90bcf39f9368f9e",
+          "bytes": 123910,
+          "expected_bytes": 123910,
+          "matches": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime-contact-sheet.jpg",
+          "sha256": "a434ed2948cdbd096dce6ca8c0f1760bec7bdea864860e438b53f753f2d48710",
+          "expected_sha256": "a434ed2948cdbd096dce6ca8c0f1760bec7bdea864860e438b53f753f2d48710",
+          "bytes": 188177,
+          "expected_bytes": 188177,
+          "matches": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/source-scene.json",
+          "sha256": "7e307b62b843618382b8917dd86632a43e936b232255e000dad8e9280c0636b2",
+          "expected_sha256": "7e307b62b843618382b8917dd86632a43e936b232255e000dad8e9280c0636b2",
+          "bytes": 1066,
+          "expected_bytes": 1066,
+          "matches": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/source-export.json",
+          "sha256": "5e2c937556eebe6446c9f05b21037786b87b5f71ef7842d2cd395972466cc6fe",
+          "expected_sha256": "5e2c937556eebe6446c9f05b21037786b87b5f71ef7842d2cd395972466cc6fe",
+          "bytes": 4562,
+          "expected_bytes": 4562,
+          "matches": true
+        },
+        "brief": {
+          "path": "production/continuous-small-life-round08-20261018/items/conglomerate-outcrop/brief.json",
+          "sha256": "d003c76c8134834363e593aaa521018bb3dab4cd7175c909a4884f4526a4597c",
+          "expected_sha256": "d003c76c8134834363e593aaa521018bb3dab4cd7175c909a4884f4526a4597c",
+          "matches": true
+        },
+        "frozen_references": {
+          "path": "production/continuous-small-life-round08-20261018/items/conglomerate-outcrop/references.json",
+          "sha256": "0bbc41a892d3b0f60154dcc750efb7f3ad44d0b98406ec748e87f845366c5b20",
+          "expected_sha256": "0bbc41a892d3b0f60154dcc750efb7f3ad44d0b98406ec748e87f845366c5b20",
+          "matches": true
+        },
+        "references": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/references.execution.json",
+          "sha256": "6159151393c3330093c0c9ada100a1d2b7c319e0827b7d77c139703bf8e35c66",
+          "expected_sha256": "6159151393c3330093c0c9ada100a1d2b7c319e0827b7d77c139703bf8e35c66",
+          "matches": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/generator.py",
+          "sha256": "b5531f4ab58e7b0a53042bb4de4ad42a90d05c0af34471e66da51c7d9187971e",
+          "expected_sha256": "b5531f4ab58e7b0a53042bb4de4ad42a90d05c0af34471e66da51c7d9187971e",
+          "matches": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/config.json",
+          "sha256": "d674bd5d2aeff46929668ac19c5ef8e1c89185a1b5f7adecf2ca3179614555de",
+          "expected_sha256": "d674bd5d2aeff46929668ac19c5ef8e1c89185a1b5f7adecf2ca3179614555de",
+          "matches": true
+        }
+      },
+      "nominal_scale": {
+        "meters": 0.8,
+        "axis": "outcrop width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "measured_glb_bounds_m": {
+        "min": [
+          -0.4111931622028351,
+          0.0,
+          -0.2738230228424072
+        ],
+        "max": [
+          0.3922252357006073,
+          0.4476435109972954,
+          0.1404999941587448
+        ],
+        "size": [
+          0.8034183979034424,
+          0.4476435109972954,
+          0.41432301700115204
+        ]
+      },
+      "geometry": {
+        "source_authored_vertices": 4046,
+        "source_evaluated_vertices": 4046,
+        "exported_position_vertices": 5124,
+        "triangles": 7840,
+        "materials": 4,
+        "primitives": 4,
+        "textures": 0,
+        "extensions_used": [],
+        "source_meshes": [
+          {
+            "name": "continuous finer-grained matrix with original teaching fracture",
+            "authored_vertices": 306,
+            "evaluated_vertices": 306,
+            "triangles": 608,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 1,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 4
+          },
+          {
+            "name": "rounded clasts embedded through continuous matrix",
+            "authored_vertices": 3740,
+            "evaluated_vertices": 3740,
+            "triangles": 7232,
+            "boundary_edges": 0,
+            "nonmanifold_edges_including_boundary": 0,
+            "connected_components": 62,
+            "degenerate_triangles": 0,
+            "positive_determinant": true,
+            "materials": 4
+          }
+        ],
+        "blender_version": "4.3.2",
+        "unit_scale": 1.0,
+        "root_identity": true,
+        "saved_cameras_lights": 0,
+        "source_bounds_blender": {
+          "min": [
+            -0.4111931622028351,
+            -0.1404999941587448,
+            0.0
+          ],
+          "max": [
+            0.3922252357006073,
+            0.2738230228424072,
+            0.447643518447876
+          ]
+        },
+        "glb_bounds_m": {
+          "min": [
+            -0.4111931622028351,
+            0.0,
+            -0.2738230228424072
+          ],
+          "max": [
+            0.3922252357006073,
+            0.4476435109972954,
+            0.1404999941587448
+          ],
+          "size": [
+            0.8034183979034424,
+            0.4476435109972954,
+            0.41432301700115204
+          ]
+        },
+        "source_glb_axis_bounds_match": true,
+        "boundary_edges_zero": true,
+        "nonmanifold_edges_zero": true,
+        "degenerate_triangles_zero": true
+      },
+      "profile_validation": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "valid": true,
+        "profile_contract_status": "pass",
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ]
+      },
+      "gltf_validator": {
+        "validator": "Khronos gltf-validator 2.0.0-dev.3.10",
+        "num_errors": 0,
+        "num_warnings": 0,
+        "num_infos": 0,
+        "num_hints": 0,
+        "messages": []
+      },
+      "fixed_views": {
+        "required_names": [
+          "preview-clay.png",
+          "preview-front.png",
+          "preview-hero.png",
+          "preview-rear.png",
+          "preview-reversehero.png",
+          "preview-side.png",
+          "preview-silhouette.png",
+          "preview-top.png"
+        ],
+        "observed_source_count": 8,
+        "runtime_frame_count": 12,
+        "turntable_frames": 0,
+        "manifest_path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/view-manifest.json",
+        "manifest_sha256": "390164978cf55d3a05670a7e3bf716d4f410de42489eed266b6035ce5cb4ceb7",
+        "source_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-hero.png",
+            "sha256": "348ef7fa14423b53f7e710a25fec4f9d6b4ab7bac06a38e10cffcfbc76e34df2",
+            "manifest_sha256": "348ef7fa14423b53f7e710a25fec4f9d6b4ab7bac06a38e10cffcfbc76e34df2",
+            "bytes": 243935,
+            "manifest_bytes": 243935,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-reversehero.png",
+            "sha256": "9b293dba6c0eada8f082048bc8fb025ec258f2013d8a5105e94bc018ffa38e15",
+            "manifest_sha256": "9b293dba6c0eada8f082048bc8fb025ec258f2013d8a5105e94bc018ffa38e15",
+            "bytes": 231717,
+            "manifest_bytes": 231717,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-front.png",
+            "sha256": "311538d232ecee8f16b88b90139f2bf03aa1b7e39874b7c395ac5a0c7c8bd8d8",
+            "manifest_sha256": "311538d232ecee8f16b88b90139f2bf03aa1b7e39874b7c395ac5a0c7c8bd8d8",
+            "bytes": 222939,
+            "manifest_bytes": 222939,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-side.png",
+            "sha256": "9f6839714f82010216a37349bc0222c582fb778322f671a64c0d5200708c7b5d",
+            "manifest_sha256": "9f6839714f82010216a37349bc0222c582fb778322f671a64c0d5200708c7b5d",
+            "bytes": 290949,
+            "manifest_bytes": 290949,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-rear.png",
+            "sha256": "9d3826c3e19914a9dbb759787ed30f78831fc580aad5037f5fa6abb74094e935",
+            "manifest_sha256": "9d3826c3e19914a9dbb759787ed30f78831fc580aad5037f5fa6abb74094e935",
+            "bytes": 212172,
+            "manifest_bytes": 212172,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-top.png",
+            "sha256": "172215695f4e9cf285715d618e5aa78cd3f9260cabc8aee8fcc798f196c8704a",
+            "manifest_sha256": "172215695f4e9cf285715d618e5aa78cd3f9260cabc8aee8fcc798f196c8704a",
+            "bytes": 211768,
+            "manifest_bytes": 211768,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-clay.png",
+            "sha256": "e054d1571d55f5de494290421a293001daa0ed5f68a754c0bd6c07d776807fa5",
+            "manifest_sha256": "e054d1571d55f5de494290421a293001daa0ed5f68a754c0bd6c07d776807fa5",
+            "bytes": 177095,
+            "manifest_bytes": 177095,
+            "dimensions": [
+              512,
+              512
+            ],
+            "manifest_dimensions": [
+              512,
+              512
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/preview-silhouette.png",
+            "sha256": "7b978dde77f939d341e97621fbb14109d87ef0cb348996eeb6f0c2bc1ee702e6",
+            "manifest_sha256": "7b978dde77f939d341e97621fbb14109d87ef0cb348996eeb6f0c2bc1ee702e6",
+            "bytes": 6085,
+            "manifest_bytes": 6085,
+            "dimensions": [
+              128,
+              128
+            ],
+            "manifest_dimensions": [
+              128,
+              128
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "frozen_runtime_images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-hero.png",
+            "sha256": "f209ae68a0ded2a05f36b88c9b8ae5a3cdbf26db6dceef738ee4379b07daee1d",
+            "manifest_sha256": "f209ae68a0ded2a05f36b88c9b8ae5a3cdbf26db6dceef738ee4379b07daee1d",
+            "bytes": 56310,
+            "manifest_bytes": 56310,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-reversehero.png",
+            "sha256": "4ec84195f2cca6730b6640cb14e9337f003d2a1a6ce03be60e879473ffaa9aa9",
+            "manifest_sha256": "4ec84195f2cca6730b6640cb14e9337f003d2a1a6ce03be60e879473ffaa9aa9",
+            "bytes": 48476,
+            "manifest_bytes": 48476,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-front.png",
+            "sha256": "c2b2b744f11e7f37eddf1f6f88a2d0d4c3c4df6bc5d7aece2fb8a0ebc73aec95",
+            "manifest_sha256": "c2b2b744f11e7f37eddf1f6f88a2d0d4c3c4df6bc5d7aece2fb8a0ebc73aec95",
+            "bytes": 60562,
+            "manifest_bytes": 60562,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-side.png",
+            "sha256": "e845105957fbc605676ab217ddabf3f5293947f4c88f2deff993b22373a07789",
+            "manifest_sha256": "e845105957fbc605676ab217ddabf3f5293947f4c88f2deff993b22373a07789",
+            "bytes": 53999,
+            "manifest_bytes": 53999,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-rear.png",
+            "sha256": "a3019c1432039276237a0c1ebe04411d9656b4b522959ccca5fd75a3efe698f5",
+            "manifest_sha256": "a3019c1432039276237a0c1ebe04411d9656b4b522959ccca5fd75a3efe698f5",
+            "bytes": 45663,
+            "manifest_bytes": 45663,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-top.png",
+            "sha256": "e5735e70b47129deffebda7cd6f7ecc212d6b344cc759d3eec6be5a5d46c8407",
+            "manifest_sha256": "e5735e70b47129deffebda7cd6f7ecc212d6b344cc759d3eec6be5a5d46c8407",
+            "bytes": 51227,
+            "manifest_bytes": 51227,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-bottom.png",
+            "sha256": "ac4b16e7aeb4934dea5920e6a7c8f2bc0d36232ab9e67922d3dcff32d7c4d85d",
+            "manifest_sha256": "ac4b16e7aeb4934dea5920e6a7c8f2bc0d36232ab9e67922d3dcff32d7c4d85d",
+            "bytes": 30115,
+            "manifest_bytes": 30115,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-80px.png",
+            "sha256": "aea09c9f2aec99b0918e245462a69ad8a27e721465367018d0333e20cc9588a4",
+            "manifest_sha256": "aea09c9f2aec99b0918e245462a69ad8a27e721465367018d0333e20cc9588a4",
+            "bytes": 17860,
+            "manifest_bytes": 17860,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-160px.png",
+            "sha256": "9e889002b145b119ecd9cec019f400a8fc8dbd93e91957914a691e5665f011ac",
+            "manifest_sha256": "9e889002b145b119ecd9cec019f400a8fc8dbd93e91957914a691e5665f011ac",
+            "bytes": 24652,
+            "manifest_bytes": 24652,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/single-240px.png",
+            "sha256": "8c9ceffd7e31883c7dff4a1e0c88c54888a2dfb97567ca0c32f86e878292ac59",
+            "manifest_sha256": "8c9ceffd7e31883c7dff4a1e0c88c54888a2dfb97567ca0c32f86e878292ac59",
+            "bytes": 32101,
+            "manifest_bytes": 32101,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/scene-hero.png",
+            "sha256": "bd5d9febe2541871f15753bbeacf2ca8e8c104bd5993bf4962efb41b6134777e",
+            "manifest_sha256": "bd5d9febe2541871f15753bbeacf2ca8e8c104bd5993bf4962efb41b6134777e",
+            "bytes": 54438,
+            "manifest_bytes": 54438,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round08-20261018/batch-24/conglomerate-outcrop/r001/attempt-02/conglomerate-outcrop/runtime/scene-top.png",
+            "sha256": "f096f7b634cc76eb38e31a4258ba5b2d66d6645cb9a458b060abe7586a27747d",
+            "manifest_sha256": "f096f7b634cc76eb38e31a4258ba5b2d66d6645cb9a458b060abe7586a27747d",
+            "bytes": 49875,
+            "manifest_bytes": 49875,
+            "dimensions": [
+              640,
+              640
+            ],
+            "manifest_dimensions": [
+              640,
+              640
+            ],
+            "matches_manifest": true
+          }
+        ],
+        "source_all_integrity_match": true,
+        "runtime_all_integrity_match": true
+      },
+      "actual_runtime": {
+        "status": "pass",
+        "three_js_revision": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "vendor": "Google Inc. (Google)",
+        "webgl2": true,
+        "hardware_gpu_evidence": false,
+        "errors": [],
+        "failed_requests": [],
+        "loaded_bounds": {
+          "min": [
+            -0.4111931622028351,
+            0,
+            -0.2738230228424072
+          ],
+          "max": [
+            0.3922252357006073,
+            0.4476435109972954,
+            0.1404999941587448
+          ]
+        },
+        "loaded_materials": 4,
+        "loaded_primitives": 4,
+        "loaded_textures": 0,
+        "single_views_count": 10,
+        "single_hero_draw_calls": 4,
+        "single_hero_triangles": 7840,
+        "scene_instances": 6,
+        "scene_hero_draw_calls": 24,
+        "scene_hero_triangles": 47040,
+        "independent_capture_count": 12,
+        "independent_capture_hashes_match_frozen": true,
+        "independent_capture_sha256_by_name": {
+          "single-hero.png": "f209ae68a0ded2a05f36b88c9b8ae5a3cdbf26db6dceef738ee4379b07daee1d",
+          "single-reversehero.png": "4ec84195f2cca6730b6640cb14e9337f003d2a1a6ce03be60e879473ffaa9aa9",
+          "single-front.png": "c2b2b744f11e7f37eddf1f6f88a2d0d4c3c4df6bc5d7aece2fb8a0ebc73aec95",
+          "single-side.png": "e845105957fbc605676ab217ddabf3f5293947f4c88f2deff993b22373a07789",
+          "single-rear.png": "a3019c1432039276237a0c1ebe04411d9656b4b522959ccca5fd75a3efe698f5",
+          "single-top.png": "e5735e70b47129deffebda7cd6f7ecc212d6b344cc759d3eec6be5a5d46c8407",
+          "single-bottom.png": "ac4b16e7aeb4934dea5920e6a7c8f2bc0d36232ab9e67922d3dcff32d7c4d85d",
+          "single-80px.png": "aea09c9f2aec99b0918e245462a69ad8a27e721465367018d0333e20cc9588a4",
+          "single-160px.png": "9e889002b145b119ecd9cec019f400a8fc8dbd93e91957914a691e5665f011ac",
+          "single-240px.png": "8c9ceffd7e31883c7dff4a1e0c88c54888a2dfb97567ca0c32f86e878292ac59",
+          "scene-hero.png": "bd5d9febe2541871f15753bbeacf2ca8e8c104bd5993bf4962efb41b6134777e",
+          "scene-top.png": "f096f7b634cc76eb38e31a4258ba5b2d66d6645cb9a458b060abe7586a27747d"
+        }
+      },
+      "claim_scope": "Original stylized geological/mineral/process concept, not exact site reconstruction or a named organism.",
+      "visual_review": {
+        "status": "pass_within_frozen_brief",
+        "criteria": {
+          "silhouette_and_primary_form": "pass",
+          "proportions_and_nominal_scene_scale": "pass",
+          "secondary_structure_and_connections": "pass",
+          "eight_fixed_views_and_near_scale": "pass",
+          "exact_glb_visual_parity": "pass",
+          "claim_scope": "pass_within_stylized_teaching_art_scope"
+        },
+        "observations": {
+          "williamsonia": "Compact oval ovulate cone with restrained tessellated surface and a continuous short stalk; reads as the bounded reproductive organ prop, without invented petals or parent plant. Surface mosaic is legible at medium/near views; fine cells recede at 80 px.",
+          "halkieria": "Elongated flattened crawler with recognizable front and rear cap shells, ordered overlapping dorsal armour and short marginal sclerites; body stays connected in side and underside runtime views. Simplified plate count is within scope.",
+          "ctenorhabdotus": "Short oval barrel with relatively flat poles and repeated separated triple comb-band groups. Attempt-02 preserves band rhythm at medium/near views; fine bands soften at 80 px. No tentacle curtain is implied.",
+          "conglomerate-outcrop": "One continuous faceted matrix contains differently sized rounded clasts and shows the intended bounded cut face/curved relief. The cut face is a teaching presentation surface, not a seamless terrain boundary; no precise site, age or chemistry is claimed."
+        },
+        "must_fix_items": []
+      },
+      "decision": "PASS",
+      "decision_scope": "Independent visual/technical/specification review within the frozen natural refined low-poly teaching-art brief; not strict scientific reconstruction or formal candidate approval."
+    }
+  ],
+  "formal_acceptance": {
+    "candidate_approval_transition": "not performed",
+    "source_candidate_records_approved_for_brief": false,
+    "reason": "Original candidate formal stages remain unknown and approval pending; this independent report does not mutate frozen records.",
+    "publication_authority": "separate; no release or merge performed"
+  },
+  "cross_item_limits": [
+    "Software WebGL2/SwiftShader runtime is not hardware GPU or physical-device performance evidence.",
+    "Full planning verifier cannot run from this source checkout because production/continuous-small-life-20261018/queue.json is absent; handoff states direct frozen checksums passed all 72 planning entries.",
+    "Legacy consulted-only reference license checker findings are preserved; no third-party license is inferred."
+  ]
+}

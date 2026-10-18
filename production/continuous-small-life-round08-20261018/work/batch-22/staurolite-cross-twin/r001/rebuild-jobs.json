@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "staurolite-cross-twin",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/staurolite-cross-twin/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/staurolite-cross-twin/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch22/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch22/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/staurolite-cross-twin/brief.json",
+        "references": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/staurolite-cross-twin/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "staurolite-cross-twin",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "staurolite-cross-twin/staurolite-cross-twin.blend",
+        "staurolite-cross-twin/staurolite-cross-twin.glb",
+        "staurolite-cross-twin/qa.json",
+        "staurolite-cross-twin/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch22 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "staurolite-cross-twin",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/staurolite-cross-twin/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/staurolite-cross-twin/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch22/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch22/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/staurolite-cross-twin/brief.json",
+        "references": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/staurolite-cross-twin/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "staurolite-cross-twin",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "staurolite-cross-twin/staurolite-cross-twin.blend",
+        "staurolite-cross-twin/staurolite-cross-twin.glb",
+        "staurolite-cross-twin/qa.json",
+        "staurolite-cross-twin/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch22 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}

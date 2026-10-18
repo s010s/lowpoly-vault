@@ -1,0 +1,13 @@
+node:internal/fs/promises:613
+    const bytesRead = (await PromisePrototypeThen(
+                       ^
+
+Error: EISDIR: illegal operation on a directory, read
+    at async readFileHandle (node:internal/fs/promises:613:24)
+    at async file:///workspace/lowpoly-vault/site/small-life-round08-release-test.mjs:20:699 {
+  errno: -21,
+  code: 'EISDIR',
+  syscall: 'read'
+}
+
+Node.js v24.19.0

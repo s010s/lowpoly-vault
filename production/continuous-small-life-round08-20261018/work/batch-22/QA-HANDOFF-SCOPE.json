@@ -1,0 +1,31 @@
+{
+  "kind": "maker-frozen-independent-review-input-scope",
+  "batch_id": "batch-22",
+  "expected_asset_ids": [
+    "florissantia",
+    "stanleycaris",
+    "pahoehoe-lava-surface",
+    "staurolite-cross-twin"
+  ],
+  "expected_source_commit": "1bfc3c7e33bbbd2131f86799f5fff5e9971ba0a5",
+  "expected_glb_sha256_by_asset": {
+    "florissantia": "d64badf1fc1c3c2a1dde99502dbf1dba7c284496877c55fce75beedf2392190f",
+    "stanleycaris": "cb1d0a833dc425fce32333d2bdcba34bea234e150d2b456aac155ba50c17c18d",
+    "pahoehoe-lava-surface": "22d72f2ab8b64a419427df6334ac5d7ca50277d4132cbdca99ca4003c768a7e5",
+    "staurolite-cross-twin": "0c36f1a2ed7d63406d8ea636ac82fb907da0e25ab1a244efd12a66510c4e5511"
+  },
+  "ready_for_qa": true,
+  "reviewer_model": "GPT-6 Luna",
+  "reviewer_reasoning": "xhigh",
+  "prefer_fresh_independent_context": true,
+  "before_verdict": "Parent supplies real frozen source/GLB pins. Reviewer must echo exact batch/source/asset set and inspect actual exports; any mismatch invalidates the report.",
+  "wrong_subject_action": "Do not mark PASS or repair models based on wrong-batch response; retain invalidated attempt and restart correct independent review.",
+  "candidate_paths": {
+    "florissantia": "production/continuous-small-life-round08-20261018/work/batch-22/florissantia/r001/candidate.json",
+    "stanleycaris": "production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/candidate.json",
+    "pahoehoe-lava-surface": "production/continuous-small-life-round08-20261018/work/batch-22/pahoehoe-lava-surface/r001/candidate.json",
+    "staurolite-cross-twin": "production/continuous-small-life-round08-20261018/work/batch-22/staurolite-cross-twin/r001/candidate.json"
+  },
+  "readiness_scope": "Inputs ready only; no acceptance verdict. Parent must dispatch fresh independent reviewer and verify exact subject echo.",
+  "maker_thread_id": "01a15056-509d-725f-bad0-871371cd7010"
+}

@@ -38,3 +38,5 @@ const round06={assets:appended.assets,publication:{round06_descriptor:{},approve
 assert.deepEqual(classify(['assets/manifest.json'],round06,false,{previousManifest:manifest}).tasks,['models','round06','previews']);
 const round07={assets:appended.assets,publication:{round07_descriptor:{},approved_round07_ids:['new']}};
 assert.deepEqual(classify(['assets/manifest.json'],round07,false,{previousManifest:manifest}).tasks,['models','round07','previews']);
+const round08={assets:appended.assets,publication:{round08_descriptor:{},approved_round08_ids:['new']}};
+assert.deepEqual(classify(['assets/manifest.json'],round08,false,{previousManifest:manifest}).tasks,['models','round08','previews']);
