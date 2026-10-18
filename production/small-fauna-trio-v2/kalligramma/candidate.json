@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "asset_id": "kalligramma",
+  "revision": "v002",
+  "maker": {
+    "id": "cloud-maker",
+    "task_id": "small-fauna-trio-v2"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "assets/candidates/small-fauna-trio-v2/kalligramma/kalligramma.glb",
+      "sha256": "6a5a15ea887312171f5ee213a7db1774459170b9f99df3ef4e9fa81e60fcd39e"
+    },
+    "source": {
+      "path": "assets/candidates/small-fauna-trio-v2/kalligramma/kalligramma.blend",
+      "sha256": "dfb2bafb7873658aee80252d0509824e452ffd702a3da8853e8054effdae7d9b"
+    },
+    "generator": {
+      "path": "production/small-fauna-trio-v2/build_trio.py",
+      "sha256": "ccfee06ca8d82c2faefdc3ede8df57dd6c181c65ed93680afc70b0a71839293f"
+    },
+    "config": {
+      "path": "production/small-fauna-trio-v2/kalligramma/build-config.json",
+      "sha256": "abfd79e6b711102401ad72c998ebe0c232740bdea0028d70402d1c4c37226db5"
+    },
+    "brief": {
+      "path": "production/small-fauna-trio-v2/kalligramma/brief.json",
+      "sha256": "7bb51b303bea5020fb5eaecda9533e0ccf455dca6f33dba7088de9e65f9f8eda"
+    },
+    "references": {
+      "path": "production/small-fauna-trio-v2/kalligramma/references.json",
+      "sha256": "856d799cebf343b79e109d78f8a25f8d8c14b24d1c4485340faba5307cbe3898"
+    },
+    "helper": {
+      "path": "scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    }
+  },
+  "textures": [
+    {
+      "path": "assets/candidates/small-fauna-trio-v2/kalligramma/kalligramma-wing-pigment.png",
+      "sha256": "4c5be2dcc8580f84b415fc98c721dd668c98c86a542700c62bafca31d49b1eba",
+      "bytes": 58618
+    }
+  ],
+  "status": "candidate-awaiting-user-visual-review",
+  "approval": {
+    "status": "pending"
+  },
+  "technical_evidence": {
+    "khronos": {
+      "path": "assets/candidates/small-fauna-trio-v2/kalligramma/gltf-validator.report.json",
+      "sha256": "33570e9f949659654fd7d6f1f970fb610c7f584b3367078632f7d603f63d20f2",
+      "bytes": 1171
+    },
+    "source_export": {
+      "path": "qa/small-fauna-trio-v2/final-validation-r2/kalligramma-source-export.json",
+      "sha256": "92a2abaeab52964ec26c548d5325bf34c76b85bb220708e7dc7b2af70a02c2d9",
+      "bytes": 5470
+    },
+    "reproducibility": {
+      "path": "qa/small-fauna-trio-v2/final-validation-r2/kalligramma-reproducibility.json",
+      "sha256": "643c099a1a4b4a2eb35b28c2017ae9b8443cf879d479cebd763d4407a00cd272",
+      "bytes": 973
+    },
+    "browser": {
+      "path": "qa/small-fauna-trio-v2/browser/kalligramma.json",
+      "sha256": "32fc7bed27cd9e32491c247f1d5526ce04071b6d555ee0830bfd797c2633579d",
+      "bytes": 2667
+    },
+    "views": {
+      "path": "qa/small-fauna-trio-v2/kalligramma-view-manifest.json",
+      "sha256": "7f3320c952d2edb6895c64239693c46df0c780b2738ecf995bdfacac94aa544d",
+      "bytes": 3887
+    }
+  },
+  "blockers": [],
+  "formal_gate_limitation": "Historical validate_candidate.py requires >=2 turntable frames and production full diagnostic coverage; user specifically requests zero sequence frames and practical bounded review. It is not reported as a passing approval gate.",
+  "independent_review": {
+    "path": "production/small-fauna-trio-v2/kalligramma/independent-review.json",
+    "sha256": "e513191e0d8b46a72188670ba0ad2871e40f42e16a1bf1069d255e4be2504565"
+  },
+  "artistic_user_acceptance": "pending"
+}
