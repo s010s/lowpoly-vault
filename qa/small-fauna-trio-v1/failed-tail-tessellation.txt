@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/production/small-fauna-trio-v1/build_trio.py", line 176, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/lowpoly-vault/production/small-fauna-trio-v1/build_trio.py", line 172, in main
+    {'diplomystus':fish,'burgessomedusa':jelly,'kalligramma':insect}[s](c,mats)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/workspace/lowpoly-vault/production/small-fauna-trio-v1/build_trio.py", line 73, in fish
+    for poly in [dorsal,anal,tail]:fins.sheet(poly,.0018,2)
+                                   ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/production/small-fauna-trio-v1/build_trio.py", line 52, in sheet
+    ids=[next(i for i,p in enumerate(poly) if (p-t).length<1e-9) for t in tri]
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/production/small-fauna-trio-v1/build_trio.py", line 52, in <genexpr>
+    ids=[next(i for i,p in enumerate(poly) if (p-t).length<1e-9) for t in tri]
+                                               ~^~
+AttributeError: Vector subtraction: (Vector - int) invalid type for this operation
+
+Error: script failed, file: 'production/small-fauna-trio-v1/build_trio.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+Blender 4.3.2
+
+Blender quit

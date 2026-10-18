@@ -25,11 +25,13 @@ jobs:
       - run: node site/ci-scope-test.mjs
       - name: Verify exact authorized publication and unchanged originals
         run: npm run publication:check && npm run test:publication
-      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:parser && npm run test:scrub
+      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub
       - run: npm run build
         id: build_site
       - run: npx playwright install --with-deps chromium
         id: install_chromium
+      - name: Parse original and published models, decoding embedded textures in Chromium
+        run: npm run test:parser
       - name: Static routes, exact download bytes and attribution for every model
         env:
           GALLERY_DIR: dist
@@ -69,3 +71,24 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+  verify-live:
+    name: Verify deployed Pages in Chromium
+    if: needs.deploy.result == 'success'
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Actual deployed catalog, direct details, GLB/Blend/ZIP, attribution and previews
+        run: node site/live-release-browser-test.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-release-browser-${{ github.sha }}
+          path: qa/live-fauna-release/

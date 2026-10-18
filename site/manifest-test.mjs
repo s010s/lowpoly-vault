@@ -16,6 +16,8 @@ try{
  const glb=Buffer.alloc(12);glb.write('glTF');glb.writeUInt32LE(2,4);glb.writeUInt32LE(12,8);await writeFile(join(folder,'test-only.glb'),glb);await writeFile(join(folder,'test-only.blend'),'TEST ONLY');await writeFile(join(folder,'preview-hero.png'),'TEST ONLY');await writeFile(join(folder,'metadata.json'),JSON.stringify(metadata));
  const qa={source:{status:'pass'},glb:{status:'pass'},khronos_validator:{status:'not_run'},threejs_runtime:{status:'not_run'},visual_review:{status:'pending'}};await writeFile(join(folder,'qa.json'),JSON.stringify(qa));
  await assert.rejects(()=>collectManifest(root),/khronos_validator QA is not_run/);const preview=await collectManifest(root,{preview:true});assert(preview.review_only);assert.equal(preview.assets[0].scientific_notes.en,'Preserved unchanged');
+ const candidates=join(root,'assets/candidates/unpublished/test-only');await mkdir(candidates,{recursive:true});await writeFile(join(candidates,'metadata.json'),JSON.stringify({id:'test-only',approval:'pending'}));
+ assert.deepEqual((await collectManifest(root,{preview:true})).assets,preview.assets,'Versioned unpublished candidates cannot collide with or enter discovered release scope');await rm(join(root,'assets/candidates'),{recursive:true});
  for(const stage of Object.keys(qa))qa[stage].status='pass';await writeFile(join(folder,'qa.json'),JSON.stringify(qa));
  await assert.rejects(()=>collectManifest(root),/candidate_record/);
  await runFile('python3',[fileURLToPath(new URL('../scripts/test_validate_candidate.py',import.meta.url)),'--write-fixture',root,base,'test-only.glb']);
