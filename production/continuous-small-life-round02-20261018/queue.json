@@ -1,0 +1,744 @@
+{
+  "schema_version": 1,
+  "kind": "planning-only-production-backlog-not-executable-runner-manifest",
+  "round": 2,
+  "created_at": "2026-10-18T18:18:34.357027+00:00",
+  "inventory": {
+    "path": "research/prehistoric-1000-v1/inventory.json",
+    "sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "total": 1000
+  },
+  "style_commit": "c8514b8c348777c9a2d81c6c0bbd9cf02cdb5184",
+  "status": "planned_awaiting_parent_dispatch",
+  "start_gate": {
+    "ci_simplification_confirmed": true,
+    "ci_main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
+    "confirmed_by": "parent",
+    "next_round_dispatched": false,
+    "requires_parent_exclusive_claim": true
+  },
+  "publication": {
+    "qa_passed_batches_authorized": true,
+    "per_model_user_approval_required": false,
+    "planning_branch_merge_allowed": false,
+    "coordinator": "parent; serialize integration against latest main"
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "batches": [
+    {
+      "id": "batch-04",
+      "asset_ids": [
+        "opabinia",
+        "choia",
+        "meganeura",
+        "cooksonia"
+      ],
+      "maker_task": "production/continuous-small-life-round02-20261018/batch-04-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-04-20261018"
+    },
+    {
+      "id": "batch-05",
+      "asset_ids": [
+        "marrella",
+        "proteroctopus",
+        "mongolarachne",
+        "salvinia"
+      ],
+      "maker_task": "production/continuous-small-life-round02-20261018/batch-05-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-05-20261018"
+    },
+    {
+      "id": "batch-06",
+      "asset_ids": [
+        "hallucigenia",
+        "fenestella",
+        "leclercqia",
+        "montsechia"
+      ],
+      "maker_task": "production/continuous-small-life-round02-20261018/batch-06-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-06-20261018"
+    }
+  ],
+  "jobs": [
+    {
+      "inventory_id": "opabinia",
+      "name": {
+        "en": "Opabinia five-eyed swimmer",
+        "zh": "Opabinia（五眼古生动物）"
+      },
+      "batch_id": "batch-04",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "五眼、单根长吻和侧叶形成游泳主体；区别于已有鱼、蟹、双瓣甲动物。",
+      "basic_form_zh": "五个眼部突起、单根末端抓握式长吻、低矮侧叶体要清楚；精确节数、腹侧细肢和软组织可简化。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/opabinia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-04/opabinia/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-04/opabinia/r001",
+      "release_dir_after_acceptance": "assets/additions/opabinia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.1,
+        "axis": "body length",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "choia",
+      "name": {
+        "en": "Choia radial-disc sponge",
+        "zh": "Choia（放射盘状海绵）"
+      },
+      "batch_id": "batch-04",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "扁盘与放射骨针丰富海底低矮层，不是海胆的球壳长刺变种。",
+      "basic_form_zh": "低扁椭圆中心与伸出式放射骨针轮廓；有秩序疏密，微观骨针计数/骨架截面不作为门槛。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/choia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-04/choia/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-04/choia/r001",
+      "release_dir_after_acceptance": "assets/additions/choia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P1",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.06,
+        "axis": "overall disc-and-spicule span",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "meganeura",
+      "name": {
+        "en": "Meganeura griffinfly",
+        "zh": "Meganeura（巨脉蜓类）"
+      },
+      "batch_id": "batch-04",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "四翼长腹部丰富飞行昆虫层，区别于宽翅蝶蛉和悬蝇；不是小型恐龙替代品。",
+      "basic_form_zh": "长腹、两对翅和连贯六足；翼膜封闭、根部自然连接。简化翅脉，不逐条复原，不做捕食行为。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/meganeura",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-04/meganeura/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-04/meganeura/r001",
+      "release_dir_after_acceptance": "assets/additions/meganeura/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.65,
+        "axis": "wingspan",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "cooksonia",
+      "name": {
+        "en": "Cooksonia sporangial shoots",
+        "zh": "Cooksonia 裸轴植物"
+      },
+      "batch_id": "batch-04",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "末端囊与简单叉枝形成稀疏低矮植物，区别于首轮根茎拱与叶丛。",
+      "basic_form_zh": "简单 Y 型分叉细轴和末端囊；不加现代蕨类羽状叶或花，囊形厚度和枝数可合理风格化。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/cooksonia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-04/cooksonia/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-04/cooksonia/r001",
+      "release_dir_after_acceptance": "assets/additions/cooksonia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.06,
+        "axis": "shoot patch height",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "marrella",
+      "name": {
+        "en": "Marrella fork-spined arthropod",
+        "zh": "Marrella（叉棘节肢动物）"
+      },
+      "batch_id": "batch-05",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "头盾双组长棘和细分节躯干形成新的小型底栖轮廓。",
+      "basic_form_zh": "头盾的成组长棘与分节躯干相连；有负空间，不用随机插针代替结构。肢节/刚毛可经济简化。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/marrella",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-05/marrella/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-05/marrella/r001",
+      "release_dir_after_acceptance": "assets/additions/marrella/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.03,
+        "axis": "body length excluding head spines",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "proteroctopus",
+      "name": {
+        "en": "Proteroctopus finned octopod",
+        "zh": "Proteroctopus（有鳍八腕动物）"
+      },
+      "batch_id": "batch-05",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "柔软外套膜、成对鳍和八腕补充海生软体动物，避免全是硬甲。",
+      "basic_form_zh": "紧凑外套膜、成对鳍和八条渐细腕；腕根过渡柔和。现有参考是 Coleoidea 类群页，不能把所有本属细节说成已证实；泛化为受 Proteroctopus 启发的有鳍八腕教学道具即可，若添加属级特定特征应另找真实支持。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/proteroctopus",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-05/proteroctopus/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-05/proteroctopus/r001",
+      "release_dir_after_acceptance": "assets/additions/proteroctopus/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.12,
+        "axis": "overall mantle-and-arm span",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "mongolarachne",
+      "name": {
+        "en": "Mongolarachne Jurassic long-legged spider",
+        "zh": "Mongolarachne（侏罗纪长足蜘蛛）"
+      },
+      "batch_id": "batch-05",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "双体节和八条长足补充陆地蛛形纲，不能标成昆虫或六足虫。",
+      "basic_form_zh": "椭圆腹部、小头胸部、四对连贯长足；触肢不算额外步足，柔和友善姿态。微毛、微小口器/生殖结构不必复原。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/mongolarachne",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-05/mongolarachne/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-05/mongolarachne/r001",
+      "release_dir_after_acceptance": "assets/additions/mongolarachne/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.12,
+        "axis": "overall leg span",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "salvinia",
+      "name": {
+        "en": "Salvinia paired floats and submerged leaf",
+        "zh": "Salvinia 槐叶萍类水蕨"
+      },
+      "batch_id": "batch-05",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "成对浮叶和水下沉叶丰富水面；结构上区别于首轮有根羽状 Hydropteris。",
+      "basic_form_zh": "成对浮叶与悬垂分叉的沉水叶分层；下垂部分标为叶而非真根。浮叶数量/细毛/精确脉纹可简化。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/salvinia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-05/salvinia/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-05/salvinia/r001",
+      "release_dir_after_acceptance": "assets/additions/salvinia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.03,
+        "axis": "floating pair span",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "hallucigenia",
+      "name": {
+        "en": "Hallucigenia spiny lobopodian",
+        "zh": "Hallucigenia（背棘叶足动物）"
+      },
+      "batch_id": "batch-06",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "细长体、背棘和软足形成低位行走生物，与硬壳蟹和海星不同。",
+      "basic_form_zh": "背面成对高棘与腹侧柔软弯腿方向正确，前后体连续；不采用历史倒置复原，微爪、口器和逐节计数可简化。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/hallucigenia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-06/hallucigenia/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-06/hallucigenia/r001",
+      "release_dir_after_acceptance": "assets/additions/hallucigenia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.04,
+        "axis": "body length",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "fenestella",
+      "name": {
+        "en": "Fenestella windowed fan bryozoan",
+        "zh": "Fenestella（窗格扇苔藓动物）"
+      },
+      "batch_id": "batch-06",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "开窗网格扇形增加海底竖向背景，区别于海绵盘和分枝腕动物；是苔藓动物而非植物。",
+      "basic_form_zh": "薄扇形分枝与横条构成可见开窗；窗口数量可压缩，孔隙不能全靠大贴图画出。现有来源支持 fenestrate 类群形态，不声称属级微观鉴别已经核实。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/fenestella",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-06/fenestella/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-06/fenestella/r001",
+      "release_dir_after_acceptance": "assets/additions/fenestella/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.15,
+        "axis": "fan height",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "leclercqia",
+      "name": {
+        "en": "Leclercqia divided-leaf shoot",
+        "zh": "Leclercqia 裂叶石松类植物"
+      },
+      "batch_id": "batch-06",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "裂叶单元和弯曲中央叶尖补充小型叶生石松层，不重复裸轴植物或大树冠。",
+      "basic_form_zh": "有辨识度的分裂叶与较长中央部分；重点几片展示裂形即可，远侧重复叶可简化，不以统一密集复制填满预算。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/leclercqia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-06/leclercqia/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-06/leclercqia/r001",
+      "release_dir_after_acceptance": "assets/additions/leclercqia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.15,
+        "axis": "shoot height",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "montsechia",
+      "name": {
+        "en": "Montsechia flexible fine-leaf shoots",
+        "zh": "Montsechia 水生早期被子植物"
+      },
+      "batch_id": "batch-06",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "柔软细叶水生枝与成对果实丰富水下层，区别于浮生水蕨。",
+      "basic_form_zh": "细分枝、小型简单叶和可读成对末端果；无依据不添加根。花色、根系、精确果脉和繁殖场景不强加。",
+      "plan_dir": "production/continuous-small-life-round02-20261018/items/montsechia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round02-20261018/batch-06/montsechia/r001",
+      "production_dir": "production/continuous-small-life-round02-20261018/work/batch-06/montsechia/r001",
+      "release_dir_after_acceptance": "assets/additions/montsechia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.12,
+        "axis": "shoot span",
+        "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    }
+  ]
+}

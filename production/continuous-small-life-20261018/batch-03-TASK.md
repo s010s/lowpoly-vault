@@ -1,3 +1,5 @@
+**当前独占领取：父任务已派发到 `01a1503a-0986-7207-b37b-a75e291ca02c`；CI 已确认 main `643534830397824dfd46990485bd16ad66ecf9ce`。以下初始等待描述为历史，现以 state.json 为准；不要再次派发或重新领取同一批。**
+
 # batch-03 — maker task (do not start before parent CI confirmation)
 
 制作模型必须 GPT-6.1 Sol，reasoning medium。先读同目录 README.md、queue.json、state.json 和每项 freeze/brief/config/references。父任务尚未确认 CI 精简，本文件只是待派发任务。

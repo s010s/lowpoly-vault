@@ -1,6 +1,6 @@
 # 可恢复持续制作队列：首轮 12 项
 
-**状态：只规划；等待父任务明确确认 CI 精简完成。没有启动 Blender、独立 QA、发布、部署或合并。**
+**当前状态：父任务已确认 CI 完成（main `643534830397824dfd46990485bd16ad66ecf9ce`），首轮三批已独占派发；实际线程和领取信息以 state.json 为准。此 planning 会话未启动 Blender、QA、发布或合并。queue.json 中初始 blocked 状态是历史计划快照，不覆盖当前 state。**
 
 计划分支：`planning/recoverable-small-life-12-20261018`。本目录是可以恢复、分派和核对的制作 backlog，不是 `run_asset_queue.py` 可直接运行的 manifest。三批互不共享模型输出；实际 Blender 并发仍受同一云环境资源协调限制。
 
@@ -87,3 +87,5 @@
 每项 upstream 是原冻结输入的原字节归档；`freeze.json` 固定更新后的本轮 brief/config/reference/inventory 行。归档中的旧模型/批号/预算不是当前要求。变更本轮冻结输入须提高计划或模型版本并重新生成 freeze/checksums 后正常提交。动态 state/events 不计入静态文件清单哈希，仍由 Git 版本追踪。
 
 许可沿用仓库；正常 commit/push 署名 `Leon Made This <8357465+s010s@users.noreply.github.com>`。不上传 Google Drive、不改权限、不强推。
+
+下一轮12项已另存到 [round02，批次04–06](../continuous-small-life-round02-20261018/README.md)，尚未领取/派发。不得重领首轮ID。
