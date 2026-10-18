@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "capinatator",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/build.py",
+        "inventory": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/inventory-record.json",
+        "config": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/config.json",
+        "brief": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/brief.json",
+        "references": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/references.json",
+        "freeze": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/freeze.json",
+        "original_config": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/build-config.json",
+        "policy": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/reference-policy.json",
+        "helper": "/workspace/batch30-capinatator/scripts/asset_common.py",
+        "audit": "/workspace/batch30-capinatator/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "capinatator.glb",
+        "capinatator.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101816,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "capinatator",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/build.py",
+        "inventory": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/inventory-record.json",
+        "config": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/config.json",
+        "brief": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/brief.json",
+        "references": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/references.json",
+        "freeze": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/freeze.json",
+        "original_config": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/build-config.json",
+        "policy": "/workspace/batch30-capinatator/production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/reference-policy.json",
+        "helper": "/workspace/batch30-capinatator/scripts/asset_common.py",
+        "audit": "/workspace/batch30-capinatator/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "capinatator.glb",
+        "capinatator.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101816,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
