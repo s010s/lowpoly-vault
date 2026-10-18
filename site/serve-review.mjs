@@ -1,7 +1,0 @@
-/** Local static review server, including real directory index documents; never an SPA fallback. */
-import {createServer} from 'node:http';
-import {readFile,stat} from 'node:fs/promises';
-import {resolve,extname,sep} from 'node:path';
-const root=resolve(process.env.REVIEW_OUT||'qa/redesign-v2-site'),base=process.env.SITE_BASE||'/lowpoly-vault/',port=Number(process.env.PORT||5190);
-const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.glb':'model/gltf-binary','.zip':'application/zip','.txt':'text/plain; charset=utf-8','.xml':'application/xml'};
-createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost');if(!url.pathname.startsWith(base))throw new Error('outside base');let file=resolve(root,decodeURIComponent(url.pathname.slice(base.length)));if(file!==root&&!file.startsWith(root+sep))throw new Error('outside root');if((await stat(file)).isDirectory())file=resolve(file,'index.html');const data=await readFile(file);res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(data);}catch{res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end(await readFile(resolve(root,'404.html')).catch(()=>Buffer.from('Not found')));}}).listen(port,'0.0.0.0',()=>console.log(`Review: http://localhost:${port}${base}`));

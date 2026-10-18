@@ -1,8 +1,0 @@
-
-> lowpoly-vault@1.0.0 test:scrub
-> node site/image-scrub-test.mjs && node site/turntable-delivery-test.mjs && node site/turntable-mixed-source-test.mjs
-
-{"status":"pass","checks":24,"limits":{"encodedEntries":12,"encodedBytes":2097152,"decodedEntries":3,"manifestEntries":3,"maxDimension":1024},"covers":["24–36 frames","unsafe metadata","encoded LRU","one active request","abort stale fetch","close stale decode","latest pointer wins","image failure restores static","visibility/offscreen cleanup"]}
-{"status":"pass","checks":15,"assets":10,"frames":240,"source":"immutable original GLB hashes","coverage":"sealed metadata/bytes/dimensions/path allowlist/symlink rejection/static-only fallback"}
-Revision turntable delivery tests passed: 55 checks; deterministic accepted-revision routes, original paths/bytes preserved, exact preset/alpha, frame-0/approved-preview equality, no arbitrary routes.
-Mixed-source regression passed: full original and synthetic revision test suites run after source selection of all three revision routes. No real assets approved.
