@@ -195,6 +195,10 @@ def main():
       'acceptance':'candidate; independent review pending','publication':'not authorized by asset generation'}
     record=export_asset(slug,{'en':'Stylized '+slug.capitalize(),'zh':'风格化 '+slug.capitalize()},'birds',COL,metadata,
       output_root=ROOT/'assets/prehistoric/birds',render=False,max_triangles=12000,max_materials=4,max_primitives=8)
+    folder=ROOT/'assets/prehistoric/birds'/slug
+    bpy.ops.wm.save_as_mainfile(filepath=str(folder/(slug+'.blend')),compress=True)
+    record['sha256']['blend']=hashlib.sha256((folder/(slug+'.blend')).read_bytes()).hexdigest()
+    (folder/'metadata.json').write_text(json.dumps(record,indent=2,ensure_ascii=False)+'\n')
     print('BIRD_RESULT '+json.dumps(record))
 
 if __name__=='__main__':main()

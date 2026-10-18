@@ -52,6 +52,7 @@ def main():
     parser.add_argument('--revision',required=True)
     parser.add_argument('--brief',type=Path)
     parser.add_argument('--references',type=Path)
+    parser.add_argument('--transparent',action='store_true')
     parser.add_argument('--resolution',type=int,default=256)
     parser.add_argument('--samples',type=int,default=8)
     parser.add_argument('--turntable-frames',type=int,default=24)
@@ -140,7 +141,7 @@ def main():
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = 'PNG'
     scene.render.image_settings.color_mode = 'RGBA'
-    scene.render.film_transparent = False
+    scene.render.film_transparent = args.transparent
     scene.view_settings.view_transform = 'Standard'
     scene.view_settings.look = 'None'
     scene.view_settings.exposure = 0
@@ -197,7 +198,7 @@ def main():
             'audit_helper_sha256':digest(Path(__file__).with_name('qa_glb.py')),
             'blender_version':bpy.app.version_string,'engine':'Cycles CPU','resolution':args.resolution,
             'samples':args.samples,'denoising':False,'view_transform':'Standard','look':'None','exposure':0,'gamma':1,
-            'background':BACKGROUND,'lights':lighting,'camera_type':'ORTHO','orthographic_scale':ortho_scale,
+            'background':'transparent' if args.transparent else BACKGROUND,'lights':lighting,'camera_type':'ORTHO','orthographic_scale':ortho_scale,
             'target_blender_m':list(center),'source_bounds_blender_m':{'min':list(low),'max':list(high)},
             'fixed_orbit_framing':True,'turntable_frames':args.turntable_frames,'elevation_deg':args.elevation,
             'base_pose_deg':args.base_pose_deg,'detail_target_normalized':detail,'detail_scale':args.detail_scale,
@@ -237,7 +238,7 @@ def main():
               'render_config':{'path':'render-config.json','sha256':config_hash},'frames':frames,
               'frame_count':len(frames),'source_glb_sha256':source_hash,'config_sha256':config_hash,
               'width':args.resolution,'height':args.resolution,'total_encoded_bytes':sum(x['byte_length'] for x in frames),
-              'decoded_rgba_bytes_estimate':len(frames)*args.resolution**2*4,'background':BACKGROUND,
+              'decoded_rgba_bytes_estimate':len(frames)*args.resolution**2*4,'background':'transparent' if args.transparent else BACKGROUND,
               'source_unchanged':True,'visual_review':'pending','runtime_qa':'not_run',
               'coverage_note':'Rendered coverage is described by frames; no automatic visual approval.',
               'wall_seconds':round(time.monotonic()-started,4),'created_at':datetime.now(timezone.utc).isoformat()}
@@ -245,7 +246,7 @@ def main():
     orbit=[frame for frame in frames if frame['view']=='turntable']
     web={'version':1,'target_renderer':'blender-cycles-cpu','source_glb_sha256':source_hash,'config_sha256':config_hash,'frame_count':len(orbit),
          'width':args.resolution,'height':args.resolution,'frames':orbit,'poster_index':0 if orbit else None,
-         'background':BACKGROUND,'elevation_deg':args.elevation,'base_pose_deg':args.base_pose_deg,
+         'background':'transparent' if args.transparent else BACKGROUND,'elevation_deg':args.elevation,'base_pose_deg':args.base_pose_deg,
          'format':args.format,'total_encoded_bytes':sum(frame['byte_length'] for frame in orbit),
          'decoded_rgba_bytes_estimate':len(orbit)*args.resolution**2*4}
     save_json(output/'turntable.json',web)
