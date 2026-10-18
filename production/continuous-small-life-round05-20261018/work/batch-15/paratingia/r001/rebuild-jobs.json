@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "paratingia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/build.py",
+        "config": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/config.json",
+        "brief": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/brief.json",
+        "references": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/references.json",
+        "freeze": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/freeze.json",
+        "original_config": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/build-config.json",
+        "policy": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/reference-policy.json",
+        "helper": "/workspace/batch15-paratingia/scripts/asset_common.py",
+        "audit": "/workspace/batch15-paratingia/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "paratingia.glb",
+        "paratingia.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101817,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "paratingia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/build.py",
+        "config": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/config.json",
+        "brief": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/brief.json",
+        "references": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/references.json",
+        "freeze": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/freeze.json",
+        "original_config": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/build-config.json",
+        "policy": "/workspace/batch15-paratingia/production/continuous-small-life-round05-20261018/work/batch-15/paratingia/r001/reference-policy.json",
+        "helper": "/workspace/batch15-paratingia/scripts/asset_common.py",
+        "audit": "/workspace/batch15-paratingia/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "paratingia.glb",
+        "paratingia.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101817,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
