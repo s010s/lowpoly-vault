@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/build_batch06.py", line 176, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-06/build_batch06.py", line 169, in main
+    record=export_asset(slug,cfg['name'],'animals',c,output_root=out.parent,render=False,max_triangles=14000,max_materials=6,max_primitives=30,metadata={'description':cfg['description'],'claim_scope':cfg['claim_scope'],'sources':cfg['sources'],'reconstruction_notes':cfg['uncertainties'],'generator':str(Path(__file__).relative_to(ROOT)),'config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest(),'representation':'Original palette-only static teaching prop; no textures','nominal_scale':{'meters':cfg['nominal_meters'],'kind':'art-direction estimate, not fossil measurement'},'origin':'center of projected footprint at lowest intended floor contact; all mesh transforms identity','motion':'static only; no rig/animation claim','provenance':[{'creator':'Leon Made This / s010s','license':'CC-BY-4.0','scope':'All original geometry/materials/previews; no third-party media incorporated'}]})
+  File "/workspace/lowpoly-vault/scripts/asset_common.py", line 420, in export_asset
+    raise RuntimeError('Source QA failed: '+'; '.join(source['errors']))
+RuntimeError: Source QA failed: softly-fused-growing-fingers: 743 degenerate triangles
+
+Error: script failed, file: 'production/continuous-small-life-round02-20261018/work/batch-06/build_batch06.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+Blender 4.3.2
+
+Blender quit
