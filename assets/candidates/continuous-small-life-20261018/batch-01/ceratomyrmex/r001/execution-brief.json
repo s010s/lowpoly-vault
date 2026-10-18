@@ -228,5 +228,16 @@
     "quality_boundary": "Recognizable natural refined child-friendly prop; uncertain fine reconstruction is advisory, not a reason for repeated rework."
   },
   "technical_profile": "Blender 4.3.2 / exporter 4.3.47 / Three.js r180 / gltf-validator pinned in package-lock",
-  "QA": "Technical maker checks only; independent review pending."
+  "QA": "Technical maker checks only; independent review pending.",
+  "execution_overrides": {
+    "preview_samples": {
+      "planned": 8,
+      "actual": 16,
+      "reason": "Modest noise reduction for full-resolution fixed evidence; camera/material profile unchanged."
+    },
+    "candidate_metadata_filename": {
+      "actual": "source-metadata.json",
+      "reason": "Keep unaccepted candidates outside existing publication metadata discovery; no site/CI logic changes."
+    }
+  }
 }
