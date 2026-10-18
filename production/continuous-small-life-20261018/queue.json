@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "kind": "planning-only-production-backlog-not-executable-runner-manifest",
+  "created_at": "2026-10-18T18:06:30.054028+00:00",
+  "inventory": {
+    "path": "research/prehistoric-1000-v1/inventory.json",
+    "sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "total": 1000
+  },
+  "source_backlog_commit": "51a583295fcba6109117e01441ecf39354221b1b",
+  "style_commit": "c8514b8c348777c9a2d81c6c0bbd9cf02cdb5184",
+  "status": "blocked_ci_confirmation",
+  "start_gate": {
+    "ci_simplification_confirmed": false,
+    "confirmation_evidence": null,
+    "confirmed_by_parent": null
+  },
+  "publication": {
+    "qa_passed_batches_authorized": true,
+    "per_model_user_approval_required": false,
+    "planning_branch_merge_allowed": false,
+    "coordinator": "parent; serialize integration against latest main"
+  },
+  "batches": [
+    {
+      "id": "batch-01",
+      "asset_ids": [
+        "archaeopteryx",
+        "canadaspis",
+        "ceratomyrmex",
+        "hydropteris"
+      ],
+      "maker_task": "production/continuous-small-life-20261018/batch-01-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-01-20261018"
+    },
+    {
+      "id": "batch-02",
+      "asset_ids": [
+        "longipteryx",
+        "urasterella",
+        "alienopterus",
+        "aglaophyton"
+      ],
+      "maker_task": "production/continuous-small-life-20261018/batch-02-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-02-20261018"
+    },
+    {
+      "id": "batch-03",
+      "asset_ids": [
+        "cephalaspis",
+        "saccocoma",
+        "archaeocidaris",
+        "onoclea"
+      ],
+      "maker_task": "production/continuous-small-life-20261018/batch-03-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-03-20261018"
+    }
+  ],
+  "jobs": [
+    {
+      "inventory_id": "archaeopteryx",
+      "name": {
+        "en": "Archaeopteryx",
+        "zh": "始祖鸟（Archaeopteryx）"
+      },
+      "batch_id": "batch-01",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "长羽尾、翼爪与站姿补足鸟类轮廓；区别于已发布孔子鸟和鱼鸟。",
+      "plan_dir": "production/continuous-small-life-20261018/items/archaeopteryx",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-01/archaeopteryx/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-01/archaeopteryx/r001",
+      "release_dir_after_acceptance": "assets/additions/archaeopteryx/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.4,
+        "axis": "body length including tail",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "canadaspis",
+      "name": {
+        "en": "Canadaspis shielded bottom crawler",
+        "zh": "Canadaspis（甲壳底栖动物）"
+      },
+      "batch_id": "batch-01",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "双瓣甲与分节躯体形成近底小型海生轮廓；不重复 Waptia 的成品。",
+      "plan_dir": "production/continuous-small-life-20261018/items/canadaspis",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-01/canadaspis/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-01/canadaspis/r001",
+      "release_dir_after_acceptance": "assets/additions/canadaspis/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.08,
+        "axis": "body length",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "ceratomyrmex",
+      "name": {
+        "en": "Ceratomyrmex horn-jawed ant",
+        "zh": "Ceratomyrmex（角颚蚁类）"
+      },
+      "batch_id": "batch-01",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "头角与向上颚提供清晰昆虫辨识点；与蝶蛉和悬蝇不同。",
+      "plan_dir": "production/continuous-small-life-20261018/items/ceratomyrmex",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-01/ceratomyrmex/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-01/ceratomyrmex/r001",
+      "release_dir_after_acceptance": "assets/additions/ceratomyrmex/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.01,
+        "axis": "body length excluding antennae",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "hydropteris",
+      "name": {
+        "en": "Hydropteris rooted pinnate water fern",
+        "zh": "Hydropteris 羽叶水蕨"
+      },
+      "batch_id": "batch-01",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "羽状水蕨的根叶关系丰富浅水层，不以叶片密度变体计数。",
+      "plan_dir": "production/continuous-small-life-20261018/items/hydropteris",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-01/hydropteris/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-01/hydropteris/r001",
+      "release_dir_after_acceptance": "assets/additions/hydropteris/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.08,
+        "axis": "patch height",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "longipteryx",
+      "name": {
+        "en": "Longipteryx",
+        "zh": "Longipteryx（古鸟类／鸟翼类）"
+      },
+      "batch_id": "batch-02",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "细长吻与短尾形成第二种小鸟轮廓；不安排捕鱼叙事，保留食性来源限制。",
+      "plan_dir": "production/continuous-small-life-20261018/items/longipteryx",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-02/longipteryx/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-02/longipteryx/r001",
+      "release_dir_after_acceptance": "assets/additions/longipteryx/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "hold",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.2,
+        "axis": "body length",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "urasterella",
+      "name": {
+        "en": "Urasterella slender-armed sea star",
+        "zh": "Urasterella（细腕海星类）"
+      },
+      "batch_id": "batch-02",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "放射腕形提供海底低位主体，与鱼蟹和水母形态不同。",
+      "plan_dir": "production/continuous-small-life-20261018/items/urasterella",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-02/urasterella/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-02/urasterella/r001",
+      "release_dir_after_acceptance": "assets/additions/urasterella/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.07,
+        "axis": "overall arm span",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "alienopterus",
+      "name": {
+        "en": "Alienopterus short-winged fossil insect",
+        "zh": "Alienopterus（短前翅化石昆虫）"
+      },
+      "batch_id": "batch-02",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "短前翅与六足结构补充地表小昆虫；区别于已发布叶形悬蝇。",
+      "plan_dir": "production/continuous-small-life-20261018/items/alienopterus",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-02/alienopterus/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-02/alienopterus/r001",
+      "release_dir_after_acceptance": "assets/additions/alienopterus/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.015,
+        "axis": "body length",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "aglaophyton",
+      "name": {
+        "en": "Aglaophyton rhizome arches",
+        "zh": "Aglaophyton 裸轴植物"
+      },
+      "batch_id": "batch-02",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "低矮裸轴、分叉与顶生结构丰富早期植物地表层，不重复星木。",
+      "plan_dir": "production/continuous-small-life-20261018/items/aglaophyton",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-02/aglaophyton/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-02/aglaophyton/r001",
+      "release_dir_after_acceptance": "assets/additions/aglaophyton/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.2,
+        "axis": "patch height",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "cephalaspis",
+      "name": {
+        "en": "Cephalaspis",
+        "zh": "Cephalaspis（古鱼类）"
+      },
+      "batch_id": "batch-03",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "宽头盾与细长尾形成底栖鱼轮廓；避开 Dapedium/Diplomystus 候选。",
+      "plan_dir": "production/continuous-small-life-20261018/items/cephalaspis",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-03/cephalaspis/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-03/cephalaspis/r001",
+      "release_dir_after_acceptance": "assets/additions/cephalaspis/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.22,
+        "axis": "body length",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "saccocoma",
+      "name": {
+        "en": "Saccocoma small free-swimming crinoid",
+        "zh": "Saccocoma（小型游泳海百合）"
+      },
+      "batch_id": "batch-03",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "小杯体与轻盈分枝腕形成悬浮棘皮轮廓；与海星式地面姿态不同。",
+      "plan_dir": "production/continuous-small-life-20261018/items/saccocoma",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-03/saccocoma/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-03/saccocoma/r001",
+      "release_dir_after_acceptance": "assets/additions/saccocoma/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.05,
+        "axis": "overall arm span",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "archaeocidaris",
+      "name": {
+        "en": "Archaeocidaris plate-and-spine urchin",
+        "zh": "Archaeocidaris（板棘海胆类）"
+      },
+      "batch_id": "batch-03",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "球形壳体与有节奏长刺补充立体海底造型，不能机械插满等长针。",
+      "plan_dir": "production/continuous-small-life-20261018/items/archaeocidaris",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-03/archaeocidaris/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-03/archaeocidaris/r001",
+      "release_dir_after_acceptance": "assets/additions/archaeocidaris/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.1,
+        "axis": "overall span including spines",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "onoclea",
+      "name": {
+        "en": "Onoclea dimorphic frond patch",
+        "zh": "Onoclea 球子蕨类"
+      },
+      "batch_id": "batch-03",
+      "status": "blocked_ci_confirmation",
+      "owner": null,
+      "reason_zh": "可读营养叶和生殖结构补充林下植物；不计作旧 fern-cluster 冠密度变种。",
+      "plan_dir": "production/continuous-small-life-20261018/items/onoclea",
+      "candidate_dir": "assets/candidates/continuous-small-life-20261018/batch-03/onoclea/r001",
+      "production_dir": "production/continuous-small-life-20261018/work/batch-03/onoclea/r001",
+      "release_dir_after_acceptance": "assets/additions/onoclea/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P1",
+      "research_gate_policy": "Preserve inventory unchanged. Existing practical inspired-by brief narrows claim; maker must resolve basic feature-specific references before building; no scientific-reconstruction claim.",
+      "scale": {
+        "meters": 0.45,
+        "axis": "patch height",
+        "kind": "art-direction choice, not a newly measured fossil dimension"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    }
+  ]
+}
