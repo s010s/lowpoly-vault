@@ -204,16 +204,16 @@ def onoclea(c,m):
    t=k/25;axis.append(base+d*(spread*t**1.7)+Vector((0,0,height*(t-.17*t**3))))
   stems.tube(axis,[.0029*(1-k/26)**1.25+.00015 for k in range(26)],2,8)
   # Connected upper lamina, deep rounded sinuses and leaf-size taper. Each lobe is built into one blade mesh.
-  side=Vector((-d.y,d.x,0));start=.31;v=[];f=[];mat=[];samples=73
+  side=Vector((-d.y,d.x,0));start=.29;v=[];f=[];mat=[];samples=49
   for layer in [1,-1]:
    for k in range(samples):
     t=k/(samples-1);u=start+(1-start)*t;center=base+d*(spread*u**1.7)+Vector((0,0,height*(u-.17*u**3)))
     envelope=math.sin(pi*(.08+.92*t))**.70
     # Six pairs of broad lobes separated by smoothly cut sinuses; integrated terminal lobe.
-    rhythm=.26+.74*(.5+.5*math.cos(2*pi*(6.2*t-.10)))**.62
+    rhythm=.34+.66*(.5+.5*math.cos(2*pi*((5.35+idx*.12)*t-.10)))**.50
     w=max(.0006,width*envelope*rhythm*(1-.48*t))
     for q in [-1,0,1]:
-     p=center+side*(q*w)+d*(abs(q)*.008*math.sin(pi*t))+Vector((0,0,-abs(q)*.005*envelope+layer*.00038))
+     qw=w*(1.14+.10*math.sin(t*17+idx+q*.8))*(1+.06*q*math.sin(t*11+idx));p=center+side*(q*qw)+d*(abs(q)*.008*math.sin(pi*t))+Vector((0,0,-abs(q)*.005*envelope+layer*.00038))
      v.append(tuple(p))
   layern=samples*3
   for layer in [0,1]:
@@ -237,11 +237,11 @@ def onoclea(c,m):
    t=.42+row*.086;p=base+d*(.045*t**1.5)+Vector((0,0,h*t));length=.025*(1-row*.105)
    for sign in [-1,1]:
     end=p+side*sign*length+Vector((0,0,.013));fertile.tube([p,p.lerp(end,.55),end],[.0011,.00075,.0003],3,6)
-    for bead in range(1,5):
-     u=bead/4.4;pos=p.lerp(end,u)+d*(.0015*math.sin(row));r=.0034*(1-.17*bead/4)
-     fertile.ellipsoid(pos,(r,r*.76,r*1.30),4 if row<4 else 3,10,6)
+    for bead in range(1,4):
+     u=bead/3.4;pos=p.lerp(end,u)+d*(.0015*math.sin(row));r=.0034*(1-.17*bead/4)
+     fertile.ellipsoid(pos,(r,r*.76,r*1.30),4 if row<4 else 3,6,4)
   fertile.ellipsoid(axis[-1],(.002,.002,.004),3,10,6)
- stems.finish(c,True);leaves.finish(c,False);veins.finish(c,True);fertile.finish(c,True)
+ stems.finish(c,True);leaves.finish(c,True);veins.finish(c,True);fertile.finish(c,True)
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--asset',choices=['cephalaspis','saccocoma','archaeocidaris','onoclea'],required=True);ap.add_argument('--output',type=Path);ap.add_argument('--no-preview',action='store_true');args=ap.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
@@ -258,7 +258,7 @@ def main():
   if o.type=='MESH':
    for v in o.data.vertices:v.co*=factor
  ground_asset(c,center_xy=True)
- output=args.output or ROOT/'assets/candidates/continuous-small-life-20261018/batch-03';parent=output/slug/'r001'
+ output=args.output or ROOT/'assets/candidates/continuous-small-life-20261018/batch-03';parent=output/slug/('r002' if slug=='onoclea' else 'r001')
  names={'cephalaspis':{'en':'Stylized Cephalaspis','zh':'风格化头甲鱼'},'saccocoma':{'en':'Stylized Saccocoma','zh':'风格化无柄游泳海百合'},'archaeocidaris':{'en':'Stylized Archaeocidaris','zh':'风格化板棘海胆'},'onoclea':{'en':'Onoclea-inspired dimorphic fern patch','zh':'球子蕨启发的双型叶丛'}}
  note={'cephalaspis':'Broad horseshoe shield, small dorsal eyes and a gently curved tapering body.','saccocoma':'Small stemless cup and five bifurcating arm bases with delicate open branches.','archaeocidaris':'Rounded plated test and organized long primary spines, with quiet space between.','onoclea':'Broad lobed sterile blades and narrow beaded fertile fronds attached to one creeping rhizome.'}
  zh={'cephalaspis':'宽马蹄形头盾、顶部小眼及轻弯渐细的躯尾。','saccocoma':'无长柄小杯体、五条分叉腕基和开放细枝。','archaeocidaris':'圆板壳和有序渐细长棘，留出可读壳体。','onoclea':'宽裂营养叶与狭窄珠状生殖叶相连于同一匍匐根茎。'}
