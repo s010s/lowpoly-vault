@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "bosworthia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/build.py",
+        "config": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/config.json",
+        "brief": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/brief.json",
+        "references": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/references.json",
+        "freeze": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/freeze.json",
+        "original_config": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/build-config.json",
+        "policy": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/reference-policy.json",
+        "helper": "/workspace/batch08-bosworthia/scripts/asset_common.py",
+        "audit": "/workspace/batch08-bosworthia/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "bosworthia.glb",
+        "bosworthia.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101813,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "bosworthia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/build.py",
+        "config": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/config.json",
+        "brief": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/brief.json",
+        "references": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/references.json",
+        "freeze": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/freeze.json",
+        "original_config": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/build-config.json",
+        "policy": "/workspace/batch08-bosworthia/production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001/reference-policy.json",
+        "helper": "/workspace/batch08-bosworthia/scripts/asset_common.py",
+        "audit": "/workspace/batch08-bosworthia/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "bosworthia.glb",
+        "bosworthia.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101813,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
