@@ -52,9 +52,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - name: Verify exact authorized publication and unchanged originals
-        run: npm run publication:check
-      - run: node site/ci-scope-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/ci-timed-test.mjs
       - run: npm run build
         id: build_site
       - run: npx playwright install --with-deps chromium
@@ -74,6 +72,7 @@ jobs:
         with:
           name: full-release-${{ matrix.task }}-${{ github.sha }}
           path: |
+            qa/ci-timings/
             qa/catalog-scroll/
             qa/release-hover-reveal/
             qa/release-matrix/

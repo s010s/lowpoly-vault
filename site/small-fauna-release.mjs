@@ -31,7 +31,7 @@ export async function collectSmallFaunaRelease(root,pin) {
   assert.equal(release.source_commit,FAUNA_SOURCE_COMMIT);
   assert.deepEqual(release.additions.map(a=>a.id).sort(),FAUNA_IDS,'Only exact accepted trio may be added');
   assert.equal(release.base_descriptor.path,'assets/releases/small-life-six-20261018.json');
-  const base=await collectSmallLifeRelease(root,release.base_descriptor),additions=[];
+  const additions=[];
   for(const entry of release.additions) {
     const id=entry.id,folder=`assets/additions/${id}/small-fauna-v2`,candidateFolder=`assets/candidates/small-fauna-trio-v2/${id}`;
     assert.equal(entry.metadata.path,`${folder}/release-metadata.json`);
@@ -73,6 +73,7 @@ export async function collectSmallFaunaRelease(root,pin) {
     assert(review.criteria.every(c=>c.status==='pass'||(c.id==='scientific-species-and-venation-fidelity'&&c.status==='unknown')),'Required review criteria must pass; species fidelity remains outside stylized-art scope');
     additions.push({...asset,quality_status:'owner_accepted_stylized_prop'});
   }
+  const base=await collectSmallLifeRelease(root,release.base_descriptor);
   assert(!additions.some(a=>base.assets.some(b=>a.id===b.id)),'Trio cannot replace existing published assets');
   return {...base,assets:[...base.assets,...additions],publication:{...base.publication,fauna_descriptor:pin,approved_fauna_ids:FAUNA_IDS}};
 }

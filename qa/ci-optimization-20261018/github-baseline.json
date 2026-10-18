@@ -1,0 +1,100 @@
+{
+  "source_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
+  "run_id": 39167985593,
+  "job_id": 117794889580,
+  "started_at": "2026-10-18T21:28:29Z",
+  "completed_at": "2026-10-18T21:33:34Z",
+  "job_seconds": 305,
+  "steps": [
+    {
+      "name": "Set up job",
+      "seconds": 1,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "seconds": 12,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "seconds": 1,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci",
+      "seconds": 2,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run node site/ci-scope-test.mjs && node site/live-release-contract-test.mjs",
+      "seconds": 0,
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify exact authorized publication and unchanged originals",
+      "seconds": 198,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub",
+      "seconds": 6,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run build",
+      "seconds": 33,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npx playwright install --with-deps chromium",
+      "seconds": 20,
+      "conclusion": "success"
+    },
+    {
+      "name": "Parse original and published models, decoding embedded textures in Chromium",
+      "seconds": 1,
+      "conclusion": "success"
+    },
+    {
+      "name": "Static routes, exact download bytes and attribution for every model",
+      "seconds": 1,
+      "conclusion": "success"
+    },
+    {
+      "name": "Key keyboard, filter, disclosure and clipboard interactions",
+      "seconds": 9,
+      "conclusion": "success"
+    },
+    {
+      "name": "Thumbnail to real 3D and canonical return smoke",
+      "seconds": 12,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "seconds": 2,
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-pages-artifact@v3",
+      "seconds": 3,
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "seconds": 0,
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "seconds": 1,
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "seconds": 0,
+      "conclusion": "success"
+    }
+  ]
+}

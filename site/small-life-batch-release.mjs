@@ -32,8 +32,7 @@ export async function collectSmallLifeBatchRelease(root,p) {
  assert.equal(release.authorization,'owner_authorized_publish_independent_qa_passed_batches');assert.equal(release.authorization_reference,'owner-qa-pass-production-policy-20261018');
  assert.equal(release.base_descriptor.path,'assets/releases/small-fauna-trio-v002-20261018.json');
  assert.deepEqual(release.additions.map(a=>a.id).sort(),BATCH_IDS,'Exact independently reviewed twelve required');
- const base=await collectSmallFaunaRelease(root,release.base_descriptor),additions=[];
- assert.equal(base.assets.length,19);assert.equal(release.batches.length,3);
+ const additions=[];assert.equal(release.batches.length,3);
  for(const entry of release.additions) {
   const accepted=ACCEPTED_BATCH_ASSETS[entry.id],id=entry.id,folder=`assets/additions/${id}/small-life-20261018`;
   const batch=release.batches.find(b=>b.batch===accepted.batch);assert(batch);
@@ -63,6 +62,7 @@ export async function collectSmallLifeBatchRelease(root,p) {
   for(const snapshot of Object.values(accepted.source_snapshots))await checked(root,snapshot);
   additions.push({...a,quality_status:'independent_qa_accepted_stylized_prop',approval_provenance:{source_commit:accepted.source_commit,review_commit:accepted.review_commit,review_sha256:accepted.review.sha256}});
  }
+ const base=await collectSmallFaunaRelease(root,release.base_descriptor);assert.equal(base.assets.length,19);
  assert(!additions.some(a=>base.assets.some(b=>b.id===a.id)),'Reviewed additions cannot replace existing assets');
  return {...base,assets:[...base.assets,...additions],publication:{...base.publication,batch_descriptor:p,approved_batch_ids:BATCH_IDS}};
 }

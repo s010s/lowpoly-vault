@@ -18,7 +18,7 @@ export async function collectRound02Release(root,p){
  assert.equal(p?.path,'assets/releases/small-life-round02-twelve-20261018.json');const release=await json(p);
  assert.equal(release.version,1);assert.equal(release.scope,'small-life-round02-twelve-20261018');assert.equal(release.authorization,'owner_authorized_publish_independent_qa_passed_batches');assert.equal(release.validation_profile,'static-stylized-v1');assert.equal(release.rule_version,'2026-10-18.1');
  assert.equal(release.publication_policy.path,'production/policies/qa-passed-batch-publication-20261018.json');const policy=await json(release.publication_policy);assert.equal(policy.authority,'owner_authorized_qa_passed_batch_release');assert.equal(policy.candidate_gate_grants_publication,false);
- assert.equal(release.base_descriptor.path,'assets/releases/small-life-twelve-20261018.json');const base=await collectSmallLifeBatchRelease(root,release.base_descriptor);assert.equal(base.assets.length,31);assert.deepEqual(release.additions.map(a=>a.id).sort(),ROUND02_IDS);assert.equal(release.batches.length,3);
+ assert.equal(release.base_descriptor.path,'assets/releases/small-life-twelve-20261018.json');assert.deepEqual(release.additions.map(a=>a.id).sort(),ROUND02_IDS);assert.equal(release.batches.length,3);
  const additions=[];
  for(const entry of release.additions){
   const id=entry.id,accepted=ACCEPTED_ROUND02_ASSETS[id],folder=`assets/additions/${id}/small-life-round02-20261018`,batch=release.batches.find(b=>b.batch===accepted.batch);assert(batch);assert.equal(batch.source_commit,accepted.source_commit);assert.equal(batch.review_commit,accepted.review_commit);assert.deepEqual(batch.review,accepted.review);assert(batch.ids.includes(id));
@@ -45,6 +45,7 @@ export async function collectRound02Release(root,p){
   assert.deepEqual(current.errors,frozen.errors);assert.deepEqual(current.legacy_result.errors,frozen.legacy_result.errors);
   additions.push({...a,quality_status:'independent_qa_accepted_stylized_prop',approval_provenance:{source_commit:accepted.source_commit,review_commit:accepted.review_commit,review_sha256:accepted.review.sha256,validation_profile:'static-stylized-v1',rule_version:release.rule_version,candidate_record_approved_for_brief:false}});
  }
+ const base=await collectSmallLifeBatchRelease(root,release.base_descriptor);assert.equal(base.assets.length,31);
  assert(!additions.some(a=>base.assets.some(b=>a.id===b.id)));
  return {...base,assets:[...base.assets,...additions],publication:{...base.publication,round02_descriptor:p,approved_round02_ids:ROUND02_IDS}};
 }
