@@ -96,7 +96,7 @@ def wave_ripple_surface(c,m):
  for j in range(ny+1):
   v=-1+2*j/ny
   for i in range(nx+1):
-   u=-1+2*i/nx;x=.75*u*(1-.035*v**8);y=.58*v*(1-.025*u**8);phase=2*pi*(x/.205+.075*math.sin(x*2*pi/.83)+.09*math.sin(y*2*pi/1.25+.4*x));amp=.018*(.96+.04*math.cos(y*5));z=.043+amp*(.5+.5*math.cos(phase));vs.append((x,y,z))
+   u=-1+2*i/nx;x=.75*u*(1-.035*v**8);y=.58*v*(1-.025*u**8);phase=2*pi*(x/.205+.075*math.sin(x*2*pi/.83)+.09*math.sin(y*2*pi/1.25+.4*x));amp=.038*(.96+.04*math.cos(y*5));z=.043+amp*(.5+.5*math.cos(phase));vs.append((x,y,z))
  for j in range(ny):
   for i in range(nx):a=j*(nx+1)+i;fs.append((a,a+1,a+nx+2,a+nx+1));mi.append(0)
  top_faces=len(fs);boundary=[i for i in range(nx+1)]+[j*(nx+1)+nx for j in range(1,ny+1)]+[ny*(nx+1)+i for i in range(nx-1,-1,-1)]+[j*(nx+1) for j in range(ny-1,0,-1)];bottom=[]
