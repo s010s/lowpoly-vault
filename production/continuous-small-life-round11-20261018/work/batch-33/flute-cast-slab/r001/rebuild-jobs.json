@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "flute-cast-slab",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/brief.json",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "flute-cast-slab",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "flute-cast-slab/flute-cast-slab.blend",
+        "flute-cast-slab/flute-cast-slab.glb",
+        "flute-cast-slab/qa.json",
+        "flute-cast-slab/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "flute-cast-slab",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/brief.json",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "flute-cast-slab",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "flute-cast-slab/flute-cast-slab.blend",
+        "flute-cast-slab/flute-cast-slab.glb",
+        "flute-cast-slab/qa.json",
+        "flute-cast-slab/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}

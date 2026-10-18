@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/generator.py",
+    "--",
+    "--asset",
+    "flute-cast-slab",
+    "--config",
+    "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/rebuild-runs/build/flute-cast-slab/r001/semantic-rebuild-1/1c39666539518fd837384fa5c6fb524c155971992c6b725ae00f69ad4bff2258/20261018T235702-a3780a52ec4c4b22be12769120a61a45/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T23:57:02.263360+00:00",
+  "fingerprint": "1c39666539518fd837384fa5c6fb524c155971992c6b725ae00f69ad4bff2258",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9715,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/brief.json",
+        "sha256": "481eab4e3d85f5844b07caeb1ffc3036fc3527ea0249b0177bbcfc883f883da9"
+      },
+      "config": {
+        "bytes": 2345,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/config.json",
+        "sha256": "6a80470feb067f289ed279a536975250159b502bd59a5b5862db1bac124506da"
+      },
+      "generator": {
+        "bytes": 5330,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/generator.py",
+        "sha256": "88f8bd526b6b7007634333e0c30f75ae367d3e6c37113f6f3d39a1cf4f91556f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 3002,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/inventory-record.json",
+        "sha256": "a00557b30b3aef5714a479d96e91689c368463e8fb582b0f0db2cb6eaab6cc5d"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1665,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/references.json",
+        "sha256": "daa9b1e7038df3699febf10d97c88b360db0e48908d25b3d8319f52e01494c73"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "flute-cast-slab",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "flute-cast-slab",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/brief.json",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/flute-cast-slab/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/flute-cast-slab/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "flute-cast-slab/flute-cast-slab.blend",
+        "flute-cast-slab/flute-cast-slab.glb",
+        "flute-cast-slab/qa.json",
+        "flute-cast-slab/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T235701-239b60d626364b64b10233a30c0f7010"
+}
