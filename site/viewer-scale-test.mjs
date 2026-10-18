@@ -17,7 +17,9 @@ async function discover(dir) {
 }
 const arrayBuffer = bytes => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
 const assets = [];
-for (const path of await discover('assets')) {
+// Keep the same historical, texture-free lifecycle fixtures; published textured
+// bounds/metric contracts are exercised by parse-models and strict GPU model review.
+for (const path of await discover('assets/prehistoric')) {
   const metadata = JSON.parse(await readFile(path, 'utf8'));
   const bytes = arrayBuffer(await readFile(metadata.glb));
   const gltf = await new GLTFLoader().parseAsync(bytes, '');

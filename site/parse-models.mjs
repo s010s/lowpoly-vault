@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { Box3,Vector3 } from 'three';
 import { chromium } from 'playwright';
+import { metricReferenceSpec } from './viewer.js';
 async function discover(dir){const found=[];for(const e of await readdir(dir,{withFileTypes:true})){const p=join(dir,e.name);if(e.isDirectory())found.push(...await discover(p));else if(e.name==='metadata.json')found.push(p);}return found.sort();}
 const results=[], inputs=new Map(),root=resolve('.');
 // Historical originals and every exact publication. Rejected/unpublished candidate revisions are not release inputs.
@@ -54,6 +55,11 @@ try {
    }
    const delta=Math.max(...measured.dimensions.map((n,i)=>Math.abs(n-a.dimensions[i])));
    assert.equal(measured.triangles,a.triangles,'Triangle count must match');assert(delta<=.0001,`Bounds mismatch: ${delta} m`);
+   const spec=metricReferenceSpec(new Vector3(...measured.dimensions),a);
+   assert(spec.available,`${a.id} must have verified meter bounds: ${spec.reason}`);
+   assert.deepEqual(spec.dimensionsMeters,measured.dimensions,'Measurements must come from the loaded GLB');
+   assert(spec.floorY < -measured.dimensions[1]/2,'Grid must remain below the model');
+   measured.metric_reference='pass';
    results.push({id:a.id,revision:a.revision,glb:a.glb,scope:a.parse_scope,status:'pass',...measured,bounds_max_delta_m:delta});console.log(`PASS ${a.id}: ${measured.meshes} meshes, ${measured.triangles} triangles, dimensions match, ${measured.decoded_images} decoded images`);
   }catch(e){results.push({id:a.id,glb:a.glb,scope:a.parse_scope,status:'fail',error:e.message});console.error(`FAIL ${a.id}: ${e.message}`);}
  }
