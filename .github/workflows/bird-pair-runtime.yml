@@ -15,6 +15,10 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: d5cc3d2f3ff34d032dbd740470e3c454e2909405
+          path: bird-input
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -22,8 +26,8 @@ jobs:
         run: |
           cd qa/bird-pair-runtime-20261018
           mkdir -p assets results
-          cp ../../assets/prehistoric/birds/ichthyornis/ichthyornis.glb assets/
-          cp ../../assets/prehistoric/birds/confuciusornis/confuciusornis.glb assets/
+          cp ../../bird-input/assets/prehistoric/birds/ichthyornis/ichthyornis.glb assets/
+          cp ../../bird-input/assets/prehistoric/birds/confuciusornis/confuciusornis.glb assets/
           npm ci --ignore-scripts
           node parse.mjs
           npx playwright install --with-deps chromium
