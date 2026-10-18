@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T22:49:36.873060+00:00",
+  "updated_at": "2026-10-18T23:25:37.135750+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "model_qa_pass_awaiting_release_confirmation",
+  "status": "model_qa_pass_release_integration",
   "claims": {
     "florissantia": {
       "batch_id": "batch-22",
@@ -182,7 +182,7 @@
   },
   "batches": {
     "batch-22": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
@@ -205,13 +205,15 @@
       },
       "recorded_at": "2026-10-18T22:49:36.873060+00:00",
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "batch-23": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
@@ -234,9 +236,11 @@
       },
       "recorded_at": "2026-10-18T22:49:36.873060+00:00",
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       },
       "metadata_revision": {
         "kind": "label_only",
@@ -246,7 +250,7 @@
       }
     },
     "batch-24": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "maker_thread_id": null,
       "maker_turn_id": null,
       "model": "GPT-6.1 Sol",
@@ -274,15 +278,17 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     }
   },
   "jobs": {
     "florissantia": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -302,7 +308,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
@@ -310,13 +316,15 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "stanleycaris": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -336,7 +344,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
@@ -344,13 +352,15 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "pahoehoe-lava-surface": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -370,7 +380,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
@@ -378,13 +388,15 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "staurolite-cross-twin": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -404,7 +416,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
@@ -412,13 +424,15 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "metasequoia": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -438,7 +452,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
@@ -446,9 +460,11 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       },
       "metadata_revision": {
         "kind": "label_only",
@@ -458,7 +474,7 @@
       }
     },
     "ovatiovermis": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -478,7 +494,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
@@ -486,9 +502,11 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       },
       "metadata_revision": {
         "kind": "label_only",
@@ -498,7 +516,7 @@
       }
     },
     "nordenskioldia": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -518,7 +536,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
@@ -526,9 +544,11 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       },
       "metadata_revision": {
         "kind": "label_only",
@@ -538,7 +558,7 @@
       }
     },
     "waterfall-ledge": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -558,7 +578,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
@@ -566,9 +586,11 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       },
       "metadata_revision": {
         "kind": "label_only",
@@ -578,7 +600,7 @@
       }
     },
     "williamsonia": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -598,7 +620,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch24-20261018",
@@ -606,13 +628,15 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "halkieria": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -632,7 +656,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch24-20261018",
@@ -640,13 +664,15 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "ctenorhabdotus": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -666,7 +692,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch24-20261018",
@@ -674,13 +700,15 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     },
     "conglomerate-outcrop": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_integration",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -700,7 +728,7 @@
         "evidence_commit": null,
         "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "status_note": "Independent model QA PASS preserved; release integration ongoing, not confirmed published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch24-20261018",
@@ -708,9 +736,11 @@
         "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "publication_integration_in_progress",
         "publication_confirmed": false,
-        "release_commit": null
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 103,
+        "note": "Parent confirms22–24 release integration ongoing; no publication inferred."
       }
     }
   },
@@ -721,8 +751,10 @@
     "note": "No duplicate dispatch/task created for UNKNOWN request."
   },
   "latest_publication_checkpoint": {
-    "confirmed_live_assets": 79,
-    "main_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
-    "confirmed_by": "parent"
+    "confirmed_by": "parent",
+    "confirmed_live_assets": 103,
+    "main_commit": null,
+    "observed_main_commit": "0ab5ea99dcd3b340324b4fda8b71a9863a142ceb",
+    "note": "Parent confirms live103 but supplies no exact public-build SHA in this message. Observed current main is not automatically asserted as verified live build."
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T22:49:36.873060+00:00",
+  "updated_at": "2026-10-18T23:25:37.135750+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "mixed_candidate_qa_pass_and_making",
+  "status": "model_qa_pass_and_candidate_waiting",
   "claims": {
     "anomalocaris": {
       "batch_id": "batch-25",
@@ -133,8 +133,8 @@
       "recorded_at": "2026-10-18T22:49:36.873060+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch27-20261018",
+      "candidate_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
       "authorization": "Explicit parent work/handoff statement supersedes stale empty planning claim."
     },
     "ottoia": {
@@ -147,8 +147,8 @@
       "recorded_at": "2026-10-18T22:49:36.873060+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch27-20261018",
+      "candidate_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
       "authorization": "Explicit parent work/handoff statement supersedes stale empty planning claim."
     },
     "eocladus": {
@@ -161,8 +161,8 @@
       "recorded_at": "2026-10-18T22:49:36.873060+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch27-20261018",
+      "candidate_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
       "authorization": "Explicit parent work/handoff statement supersedes stale empty planning claim."
     },
     "limestone-pavement": {
@@ -175,14 +175,14 @@
       "recorded_at": "2026-10-18T22:49:36.873060+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch27-20261018",
+      "candidate_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
       "authorization": "Explicit parent work/handoff statement supersedes stale empty planning claim."
     }
   },
   "batches": {
     "batch-25": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch25-20261018",
@@ -190,12 +190,20 @@
         "pin_provenance": "Observed remote head; verify actual frozen QA handoff pin rather than assuming latest tip reviewed."
       },
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "recorded_at": "2026-10-18T22:49:36.873060+00:00"
+      "recorded_at": "2026-10-18T23:25:37.135750+00:00"
     },
     "batch-26": {
       "status": "model_qa_pass_awaiting_batch_completion",
@@ -208,7 +216,7 @@
       "qa": {
         "status": "completed",
         "verdict": "pass",
-        "scope": "Independent model QA PASS per explicit parent report; not full profile/release approval.",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -217,36 +225,55 @@
         "turn_id": null,
         "source_commit": null,
         "evidence_commit": null,
-        "subject_pin_note": "Exact reviewer/source pins not supplied here, not guessed."
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "recorded_at": "2026-10-18T22:49:36.873060+00:00"
+      "recorded_at": "2026-10-18T23:25:37.135750+00:00"
     },
     "batch-27": {
-      "status": "building",
+      "status": "candidate_awaiting_independent_qa",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "maker_thread_id": null,
       "maker_turn_id": null,
-      "qa": null,
-      "recorded_at": "2026-10-18T22:49:36.873060+00:00",
-      "note": "Parent confirms making; exact maker thread/turn not supplied, not guessed."
-    }
-  },
-  "jobs": {
-    "anomalocaris": {
-      "status": "candidate_awaiting_independent_qa",
-      "owner": "parent-assigned-producer:batch-25",
-      "attempts": [],
-      "accepted_glb_sha256": null,
-      "release_commit": null,
-      "batch_id": "batch-25",
       "qa": {
         "status": "not_started",
         "verdict": null,
         "thread_id": null,
         "turn_id": null
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "recorded_at": "2026-10-18T23:25:37.135750+00:00",
+      "note": "Parent confirms making; exact maker thread/turn not supplied, not guessed.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch27-20261018",
+        "commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+        "pin_provenance": "Observed remote head; parent confirms delivery. Verify actual frozen handoff when assigning QA."
+      }
+    }
+  },
+  "jobs": {
+    "anomalocaris": {
+      "status": "model_qa_pass_awaiting_batch_completion",
+      "owner": "parent-assigned-producer:batch-25",
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "release_commit": null,
+      "batch_id": "batch-25",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
+      },
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch25-20261018",
@@ -255,19 +282,27 @@
       }
     },
     "jimaodanus": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "owner": "parent-assigned-producer:batch-25",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-25",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch25-20261018",
@@ -276,19 +311,27 @@
       }
     },
     "hydrothermal-chimney": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "owner": "parent-assigned-producer:batch-25",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-25",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch25-20261018",
@@ -297,19 +340,27 @@
       }
     },
     "arenicolites-u-burrow": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "owner": "parent-assigned-producer:batch-25",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-25",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch25-20261018",
@@ -327,7 +378,7 @@
       "qa": {
         "status": "completed",
         "verdict": "pass",
-        "scope": "Independent model QA PASS per explicit parent report; not full profile/release approval.",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -336,9 +387,9 @@
         "turn_id": null,
         "source_commit": null,
         "evidence_commit": null,
-        "subject_pin_note": "Exact reviewer/source pins not supplied here, not guessed."
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch26-20261018",
@@ -356,7 +407,7 @@
       "qa": {
         "status": "completed",
         "verdict": "pass",
-        "scope": "Independent model QA PASS per explicit parent report; not full profile/release approval.",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -365,9 +416,9 @@
         "turn_id": null,
         "source_commit": null,
         "evidence_commit": null,
-        "subject_pin_note": "Exact reviewer/source pins not supplied here, not guessed."
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch26-20261018",
@@ -385,7 +436,7 @@
       "qa": {
         "status": "completed",
         "verdict": "pass",
-        "scope": "Independent model QA PASS per explicit parent report; not full profile/release approval.",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -394,9 +445,9 @@
         "turn_id": null,
         "source_commit": null,
         "evidence_commit": null,
-        "subject_pin_note": "Exact reviewer/source pins not supplied here, not guessed."
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch26-20261018",
@@ -414,7 +465,7 @@
       "qa": {
         "status": "completed",
         "verdict": "pass",
-        "scope": "Independent model QA PASS per explicit parent report; not full profile/release approval.",
+        "scope": "Independent model QA PASS per explicit parent; not full profile/candidate/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -423,9 +474,9 @@
         "turn_id": null,
         "source_commit": null,
         "evidence_commit": null,
-        "subject_pin_note": "Exact reviewer/source pins not supplied here, not guessed."
+        "subject_pin_note": "Exact QA pins not supplied here; do not substitute observed current branch head."
       },
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred.",
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch26-20261018",
@@ -434,44 +485,95 @@
       }
     },
     "sollasina": {
-      "status": "building",
+      "status": "candidate_awaiting_independent_qa",
       "owner": "parent-assigned-producer:batch-27",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-27",
-      "qa": null,
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred."
+      "qa": {
+        "status": "not_started",
+        "verdict": null,
+        "thread_id": null,
+        "turn_id": null
+      },
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch27-20261018",
+        "commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+        "pin_provenance": "Observed remote head; parent confirms delivery. Verify actual frozen handoff when assigning QA."
+      }
     },
     "ottoia": {
-      "status": "building",
+      "status": "candidate_awaiting_independent_qa",
       "owner": "parent-assigned-producer:batch-27",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-27",
-      "qa": null,
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred."
+      "qa": {
+        "status": "not_started",
+        "verdict": null,
+        "thread_id": null,
+        "turn_id": null
+      },
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch27-20261018",
+        "commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+        "pin_provenance": "Observed remote head; parent confirms delivery. Verify actual frozen handoff when assigning QA."
+      }
     },
     "eocladus": {
-      "status": "building",
+      "status": "candidate_awaiting_independent_qa",
       "owner": "parent-assigned-producer:batch-27",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-27",
-      "qa": null,
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred."
+      "qa": {
+        "status": "not_started",
+        "verdict": null,
+        "thread_id": null,
+        "turn_id": null
+      },
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch27-20261018",
+        "commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+        "pin_provenance": "Observed remote head; parent confirms delivery. Verify actual frozen handoff when assigning QA."
+      }
     },
     "limestone-pavement": {
-      "status": "building",
+      "status": "candidate_awaiting_independent_qa",
       "owner": "parent-assigned-producer:batch-27",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-27",
-      "qa": null,
-      "status_note": "Current stage per parent; candidate/QA/release are separate, no publication inferred."
+      "qa": {
+        "status": "not_started",
+        "verdict": null,
+        "thread_id": null,
+        "turn_id": null
+      },
+      "status_note": "Current independent QA/candidate stage per parent; publication not inferred.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch27-20261018",
+        "commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+        "pin_provenance": "Observed remote head; parent confirms delivery. Verify actual frozen handoff when assigning QA."
+      }
     }
+  },
+  "latest_publication_checkpoint": {
+    "confirmed_by": "parent",
+    "confirmed_live_assets": 103,
+    "main_commit": null,
+    "observed_main_commit": "0ab5ea99dcd3b340324b4fda8b71a9863a142ceb",
+    "note": "Parent confirms live103 but supplies no exact public-build SHA in this message. Observed current main is not automatically asserted as verified live build."
   }
 }
