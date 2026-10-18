@@ -31,6 +31,8 @@ for job in jobs:
     assert job['maker'] == {'model': 'GPT-6.1 Sol', 'reasoning': 'medium'}
     bundle = repo / job['plan_dir']
     freeze = json.loads((bundle / 'freeze.json').read_text())
+    assert hashlib.sha256((root / 'reference-gate-policy.json').read_bytes()).hexdigest() == freeze['shared_policy_sha256']
+    assert job['budget_intent']['usual_glb_bytes_range'] == [100000, 500000]
     for name, digest in freeze['files'].items():
         assert hashlib.sha256((bundle / name).read_bytes()).hexdigest() == digest, (asset, name)
     for name, digest in freeze['upstream_hashes'].items():

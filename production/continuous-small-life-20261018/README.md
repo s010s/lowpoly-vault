@@ -44,7 +44,7 @@
 
 全部抓取分支中，没有发现首轮 12 项的 .blend/.glb 或按这些 ID 命名的生成器。旧队列中的 brief-ready 仅表示等待制作，不能当作正在制作。当前连接器 open-PR 查询返回空。路径扫描仍无法证明共享生成器、未推送工作或另一个会话没有占用；父任务启动前必须统一确认 claim。不能把本快照当全局任务锁。
 
-五项旧 inventory gate 为 `needs-specific-reference`：`longipteryx`、`ceratomyrmex`、`urasterella`、`saccocoma`、`archaeocidaris`。其后已有 practical inspired-by brief/reference，随本目录保存，但本轮没有重新打开外部论文，也没有宣布清除这些 gate。制作任务应先核对关键形态的具名主来源和适用位置，必要时缩窄为 inspired-by teaching art；关键基本形态仍未知则停在 reference/brief 阶段，由父任务调整，不制造事实 PASS。其他七项 reference-ready 也不是 QA PASS。
+五项旧 inventory gate 为 `needs-specific-reference`：`longipteryx`、`ceratomyrmex`、`urasterella`、`saccocoma`、`archaeocidaris`。其后已有 practical inspired-by brief/reference，随本目录保存，但本轮没有重新打开外部论文，也没有宣布清除这些 gate。这些旧 gate 不再作为严格科考复原的自动停工令：见 [五项处理说明](REFERENCE-GATES.md) 和 `reference-gate-policy.json`，只确认可靠基础参考支持可辨识形态，输入原创或有真实使用授权，之后即可合理风格化继续；不为软组织、精确齿数/板列/羽序或微观复原细节反复研究返工。没有可靠基本形态依据或标签声称超过依据时，先缩窄 inspired-by 标签或交父任务调整，不能伪造来源或事实 PASS。其他七项 reference-ready 也不是 QA PASS。
 
 ## 当前规范和预算
 
@@ -61,11 +61,11 @@
 |---|---|
 | 导出三角形 | ≤14,000，上限而非目标 |
 | 材质 / primitive | ≤6 / ≤30；不等同实际 draw calls |
-| GLB | 软目标 500,000 bytes，硬上限 1,000,000 bytes |
+| GLB | 通常争取约 100,000–500,000 bytes，硬上限 1,000,000 bytes |
 | 可选原创建色贴图 | ≤1 张，单边 ≤256 px，总编码 ≤65,536 bytes |
 | 贴图解码内存 | ≤524,288 bytes；另记录是否含 mip，不冒充 GPU 实测 |
 
-单独报告源顶点、求值顶点、导出 POSITION-stream 顶点、三角形、材质/primitive、GLB 字节、贴图解码估算、源归档大小和场景实例数。现行 v002 没有独立顶点硬上限，不捏造一个。8,000/10,000/12,000 旧三角形阈值仅在 upstream 中归档，当前统一采用 v002 上限，不填满预算。若必须增预算，先给出命名的可见改善证据交父任务协调，不静默超限。
+单独报告源顶点、求值顶点、导出 POSITION-stream 顶点、三角形、材质/primitive、GLB 字节、贴图解码估算、源归档大小和场景实例数。现行 v002 没有独立顶点硬上限，不捏造一个。8,000/10,000/12,000 旧三角形阈值仅在 upstream 中归档，当前统一采用 v002 上限，不填满预算。14k 和 1MB 都是上限而非目标；通常争取约 100–500KB，更小同样可接受。只在轮廓、可信比例或衔接有明显收益时增加面数，不以大贴图凑精细。超过通常区间但仍在上限内，记录具体收益即可，不为软目标破坏造型。若必须提高硬上限，先给出命名的可见改善证据交父任务协调，不静默超限。
 
 交付：可编辑 .blend、独立 GLB、可重建脚本/配置/依赖哈希、中英 metadata/不确定性/来源/许可/署名、透明封面，八个有意义的固定 QA 视图（hero/reversehero/front/side/rear/top/clay/silhouette），实际 GLB 多角度运行时证据。默认零转台序列；真正问题加针对性视图。源重开、两次语义重建对比、Khronos 验证与项目检查、精确 GLB 的 loader/功能渲染/简化多实例场景检查都必须记录。软件渲染不能冒充真实设备性能。
 
@@ -74,7 +74,7 @@
 ## 恢复、领取和执行
 
 1. 正常 fetch 全部分支和最新 main，再读本目录 `queue.json`、`state.json`、`events.jsonl`、`dedup-snapshot.json`。运行 `python3 production/continuous-small-life-20261018/verify_plan.py` 只校验规划，不执行 Blender。
-2. **等父任务明确确认 CI 精简完成。** 父任务记录确认来源/时间/相关 SHA 到 `state.json.ci_confirmation`，随后重查最新发布、候选分支、PR 和父任务实时分工。CI 工作流或 release 文件有变动本身不是确认。没有确认不开始建模。
+2. **等父任务明确确认 CI 精简完成。** 父任务记录确认来源/时间/相关 SHA 到 `state.json.ci_confirmation`，随后重查最新发布、候选分支、PR 和父任务实时分工。CI 工作流或 release 文件有变动本身不是确认。没有确认不开始建模。CI 确认后，五项旧参考 gate 按 REFERENCE-GATES.md 的有界基础检查处理，不额外要求严格科考复原。
 3. 父任务作为单一协调者先领取独占 ID，再派发对应 batch TASK。把 owner、任务 ID、时间、工作分支与起点 SHA 写入 claims，并追加 events。队列中的 immutable 初始状态仍为 blocked；以已提交 state/events 为动态真相。不由三个 maker 各自假设自己先拿到 claim；常规 Git push 冲突须 fetch/reconcile，绝不 force push。过期 claim 必须由父任务明确释放，不能仅凭超时抢占。
 4. 每批独立 branch/worktree，从届时最新 main 起步，只带入本 planning 目录。模型/脚本/证据按本批隔离，不覆盖已发布素材；不顺带 cherry-pick 旧分支的 CI、站点、发布代码。规划分支不合 main。原子更新 state 由父任务串行完成；并行 maker 返回各自结果文件供其归并。
 5. 沿用 `planned → brief_ready → building → candidate → reviewing → repair → reviewing → accepted_for_brief`，另记 blocked/failed/cancelled/superseded/released。每个 attempt 保存输入/脚本/工具/参数哈希、资源、日志、返回码、输出哈希和路径，失败不覆盖、不当成功。

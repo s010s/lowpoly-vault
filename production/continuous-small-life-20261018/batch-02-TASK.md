@@ -6,7 +6,7 @@ Only inventory IDs: longipteryx, urasterella, alienopterus, aglaophyton.
 
 Confirm parent CI completion evidence and exclusive coordinator claims for these IDs before any Blender invocation. Use a separate branch/worktree based on current main, copy only the planning directory from this planning branch, and keep every attempt isolated. Never cherry-pick entire stale production branches into main.
 
-Follow v002 natural/refined style: credible proportions, soft transitions, deliberate low-poly structure, restrained original small textures, child-friendly normal-view readability. Use queue budgets unchanged. Check primary feature-specific references before building; label inspired-by teaching art and preserve scientific uncertainty.
+Follow v002 natural/refined style: credible proportions, soft transitions, deliberate low-poly structure, restrained original small textures, child-friendly normal-view readability. Use queue budgets unchanged: 14k triangles and 1,000,000 GLB bytes are hard ceilings, not targets. Usually aim about 100–500 KB (smaller is fine). Add geometry only for visible silhouette/proportion/connection improvement; do not pad counts or enlarge textures to fake refinement. Read reference-gate-policy.json. Reliable basic recognizable form and original/authorized inputs suffice for this stylized-inspired static prop. Keep source labels and uncertainty honest; fine reconstruction uncertainty does not require repeated research or repair.
 
 Required per ID: editable .blend, standalone GLB, deterministic generator/config/helper hashes, bilingual metadata/provenance/attribution, original maps if used, transparent cover, eight fixed QA views and exact-GLB runtime views at normal/near scale, Khronos/project validation, source reopen and deterministic rebuild, candidate artifact hashes. No full turntable campaign. Record bounds/scale, triangles, source and exported vertices, materials/primitives, bytes/texture memory, visible copies and declared runtime. Do not infer beauty from counts.
 
@@ -20,3 +20,5 @@ Prior backlog upstream files are archived under items/<id>/upstream/. They may c
 | `urasterella` | Urasterella（细腕海星类） / Urasterella slender-armed sea star | 放射腕形提供海底低位主体，与鱼蟹和水母形态不同。 | `items/urasterella/` |
 | `alienopterus` | Alienopterus（短前翅化石昆虫） / Alienopterus short-winged fossil insect | 短前翅与六足结构补充地表小昆虫；区别于已发布叶形悬蝇。 | `items/alienopterus/` |
 | `aglaophyton` | Aglaophyton 裸轴植物 / Aglaophyton rhizome arches | 低矮裸轴、分叉与顶生结构丰富早期植物地表层，不重复星木。 | `items/aglaophyton/` |
+
+For the five historical reference gates, see [REFERENCE-GATES.md](REFERENCE-GATES.md). Keep the inherited one consolidated independent review / at most one planned cosmetic repair bound. Real technical/basic-form defects remain actionable; uncertain soft tissue, color, microscopic anatomy, exact plate/feather counts and unclaimed fossil measurements are advisory. Preserve source access truth; no third-party asset or image reuse without actual rights.
