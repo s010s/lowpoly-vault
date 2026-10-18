@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "asset_id": "diplomystus",
+  "brief_version": "trio-v001",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "batch_id": "batch-b",
+  "display_name": "Stylized Diplomystus",
+  "generic_fallback_name": "Prehistoric-inspired fish inspired by Diplomystus",
+  "purpose": "Scene-enriching original static prop for an imaginative world aimed at young children; artistic colors/textures/pose/proportions are welcome.",
+  "subject": {
+    "taxon_inspiration": "diplomystus",
+    "inventory_name": {
+      "en": "Diplomystus",
+      "zh": "Diplomystus（古鱼类）"
+    },
+    "category": "fish",
+    "planning_eras": [
+      "paleogene"
+    ],
+    "pose": "Static gently arced fish with a clearly upturned small mouth."
+  },
+  "claim_scope": "Named-taxon-inspired art with basic recognizable anatomy. Not strict scientific reconstruction; no exact locomotion, life-history, coexistence or animation-readiness claim.",
+  "distinctness": "Deep-sided elongate forebody, upturned mouth, dorsal scute rhythm, clear fins and forked tail",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Six meaningful fixed-framing views are the complete default environment-prop plan; add a targeted angle only for a real concern, never a production turntable campaign.",
+  "geometry_policy": {
+    "max_triangles": 10000,
+    "max_materials": 4,
+    "max_primitives": 24,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 0
+  },
+  "scale": {
+    "meters": 0.25,
+    "axis": "body length",
+    "kind": "art-direction choice, not a newly measured fossil dimension"
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 360,
+    "microscopic_closeups_supported": false
+  },
+  "style": "Match the accepted small-life pilot family with calm original surfaces and readable shape. Suggested colors are creative, not fossil facts. Avoid threatening feeding scenes, extra decorative props or an unrelated new rendering style.",
+  "artistic_choices": [
+    "Suggested palette: soft silver-blue with a darker dorsal band",
+    "Nominal size, proportions, pose, missing fine parts and simplified detail are artistic.",
+    "Tiny subjects need close placement or an explicit creative display-scale choice; do not promise readability from a distant island camera.",
+    "Opaque or economical portable materials are preferred. Fine translucent/vein/feather detail is optional when it does not survive normal viewing."
+  ],
+  "acceptance_policy": "archived plan-brief.json plus current user request",
+  "review_bound": "one consolidated independent review; one planned cosmetic repair maximum",
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact standalone GLB validates and reimports; no missing dependencies, nonfinite geometry or broken units/origin; budgets measured and warnings dispositioned.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-recognition",
+      "stage": "visual",
+      "critical": true,
+      "description": "Readable distinct core form in the six normal-scale views; no conspicuous unintended penetration, detached major parts or clearly broken shading. Minor color/facet differences and artistic choices are advisory.",
+      "required_sources": [
+        "NEXT-DIP-SI"
+      ]
+    },
+    {
+      "id": "identity-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired basic-form obligation: Elongate herring-like silhouette with a proportionally deeper forebody and taper toward the tail.",
+      "required_sources": [
+        "NEXT-DIP-SI"
+      ]
+    },
+    {
+      "id": "identity-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired basic-form obligation: Show the upturned mouth and a restrained dorsal scute/edge rhythm, not an armored head shield.",
+      "required_sources": [
+        "NEXT-DIP-SI"
+      ]
+    },
+    {
+      "id": "identity-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired basic-form obligation: Keep clear dorsal/anal/paired-fin organization and a readable forked tail; do not duplicate the deep oval Dapedium construction.",
+      "required_sources": [
+        "NEXT-DIP-SI"
+      ]
+    },
+    {
+      "id": "deliverables-and-label",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable source, deterministic generator/config, standalone GLB, original maps if used, exact hashes, six QA views and one hero poster. Label stylized-inspired and static; include actual source/generator/config hashes in the final versioned execution brief.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader; record bounds, material/texture metrics and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "functional-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Inspect this exact GLB in a declared graphics runtime. Record renderer/device; a SwiftShader PASS is functional software-render evidence, not physical GPU/device performance.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Inspect a neutral simple prop benchmark with the exact GLB and recorded visible copy count/work. Do not require current-museum integration or scientific coexistence for this asset brief.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [],
+  "view_exemptions": {},
+  "inventory_gate_snapshot": "needs-specific-reference",
+  "research_boundary": "The archived research gate is preserved. This creative production scope does not certify that every fossil question has been resolved.",
+  "maker_requested": "GPT6.1Sol Medium; no fast; cloud only",
+  "maker_runtime_model": "not exposed to assistant; do not claim verified selection",
+  "origin": "identity root at free-swimming/flying centerline, meters; not floor contact",
+  "closest_supported_projected_extent_px": 480
+}
