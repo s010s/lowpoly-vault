@@ -1,0 +1,22 @@
+Source checkout: detached e6391cd3d1059f39feba4dc88a18544cbeebfee6
+
+Static GLB audit, each asset:
+python3 scripts/qa_glb.py assets/candidates/continuous-small-life-20261018/batch-01/<asset>/r001/<asset>.glb --max-triangles 14000 --max-materials 6 --max-primitives 30 --report production/continuous-small-life-20261018/work/batch-01/independent-evidence/e639-refresh/<asset>/glb-audit.json
+
+Blend reopen / exact export comparison, each asset:
+/usr/bin/blender -b --factory-startup --disable-autoexec --python-exit-code 1 --python scripts/check_source_export.py -- --source assets/candidates/continuous-small-life-20261018/batch-01/<asset>/r001/<asset>.blend --glb assets/candidates/continuous-small-life-20261018/batch-01/<asset>/r001/<asset>.glb --output /workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/independent-evidence/e639-refresh/<asset>/source-export.report.json
+
+Fresh GLB import / bounds comparison, each asset:
+/usr/bin/blender -b --factory-startup --disable-autoexec --python-exit-code 1 --python scripts/check_glb_roundtrip.py -- assets/candidates/continuous-small-life-20261018/batch-01/<asset>/r001/<asset>.glb --output-dir /workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/independent-evidence/e639-refresh/<asset>/roundtrip --no-render
+
+Official Khronos validator 2.0.0-dev.3.10, against the exact e639 GLBs:
+NODE_PATH=/tmp/batch01-qa-deps/node_modules node /workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/independent-evidence/e639-refresh/validate-khronos-batch01.cjs /workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/independent-evidence/e639-refresh/khronos-validator-rerun.json <four exact e639 GLB paths>
+
+Independent practical bundle integrity run (not an art/science approval):
+python3 production/continuous-small-life-20261018/work/batch-01/validate_bundle.py
+
+Fresh exact-GLB runtime screenshots:
+python3 -m http.server 8765 --bind 127.0.0.1 --directory /tmp/batch01-runtime-review
+/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node production/continuous-small-life-20261018/work/batch-01/browser_qa.mjs archaeopteryx canadaspis ceratomyrmex hydropteris
+
+The runtime command used isolated copies of only the exact e639 GLBs, viewer.html and browser_qa.mjs under /tmp/batch01-runtime-review so candidate evidence was not overwritten. It rendered seven directions plus 80/160/240px object extents, and two three-instance scene views per asset.
