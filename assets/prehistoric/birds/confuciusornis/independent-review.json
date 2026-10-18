@@ -1,129 +1,21 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-18T02:24:49.708610+00:00",
-  "review_scope": "Independent practical review of existing static child-friendly stylized scene props. No model changes, no new modeling, no new renders, no main publication.",
   "asset": "confuciusornis",
-  "model_result": "PASS",
-  "blocking_model_defects": [],
-  "source_checkpoint": {
-    "repository": "s010s/lowpoly-vault",
-    "branch": "production/bird-pair-20261018",
-    "commit": "0612289dbf0b01a68c0a150dcdd01da58591cf31"
-  },
-  "subject": {
-    "glb_sha256": "9d36359f9e0f5106b0287c913bf1f592a11a955baf735600fbe2389289781350",
-    "blend_sha256": "a3561def95ad91ec99c063a744202348b1d42962f5f063b6e84e66b11d4037bd",
-    "glb_and_blend_hashes_independently_verified": true
-  },
-  "visual_evidence": {
-    "actual_pixels_inspected": true,
-    "views": [
-      "hero",
-      "front",
-      "right",
-      "rear",
-      "top",
-      "clay"
-    ],
-    "resolution": [
-      512,
-      512
-    ],
-    "all_frame_hashes_match_render_manifest": true,
-    "frames": [
-      {
-        "path": "views/hero.png",
-        "sha256": "a93f1f15c565b50ec9d2fbcd92848c6db76b433d68a743382e766516b387b3e5"
-      },
-      {
-        "path": "views/front.png",
-        "sha256": "3a371e96b9476461f28ad5da2e00cd23242dbba65fbb0778535fb31f0a80d9e9"
-      },
-      {
-        "path": "views/right.png",
-        "sha256": "0fcddb8ea8a5490b93453c7896b17f8e10dccd42d6d931f2fd9a7e37f6c38523"
-      },
-      {
-        "path": "views/rear.png",
-        "sha256": "13d3c76281f944e44d3501d13344380c553e5fd87691eb40ad8f918c744d2477"
-      },
-      {
-        "path": "views/top.png",
-        "sha256": "782d968d2dc2f82ca17b87eff0fe51dcceda39ad441bf84b84e178c9f8961e28"
-      },
-      {
-        "path": "views/clay.png",
-        "sha256": "db477b8a115783b461bd09d349ac9189ef056e0167669c95a8bc5baaa9f99a32"
-      }
-    ]
-  },
-  "findings": {
-    "recognition": "Clear rounded head, short closed beak, compact torso, folded wings, two standing legs and two long paired tail streamers. The paired streamers distinguish it strongly from the companion bird.",
-    "silhouette": "All six views preserve readable major parts. Paired streamers are separate from top/rear views and remain clear of the floor in the side view. No visible gross penetration, exposed body hole or floating major part.",
-    "placement": "Both feet reach the ground plane. Allow approximately 0.143 m width, 0.478 m total fore-aft depth including streamers and 0.219 m height. Keep scenery clear of the long low trailing streamers.",
-    "optional_polish": [
-      "Streamers are quite fine edge-on and may disappear at distant screen sizes. This is a placement/LOD consideration, not a blocker for the current static prop."
-    ]
-  },
-  "technical_checks": {
-    "glb_binary_positions_decoded": true,
-    "all_positions_finite": true,
-    "identity_root_and_mesh_nodes": true,
-    "triangles": 2108,
-    "materials_and_base_draw_calls": 4,
-    "textures": 0,
-    "animations": 0,
-    "skins": 0,
-    "bounds_match_metadata_exactly": true,
-    "bounds_glb_m": {
-      "min": [
-        -0.07154838740825653,
-        0.0,
-        -0.3529999852180481
-      ],
-      "max": [
-        0.07154838740825653,
-        0.21907636523246765,
-        0.125
-      ],
-      "size": [
-        0.14309677481651306,
-        0.21907636523246765,
-        0.4779999852180481
-      ]
-    },
-    "lowest_y_m": 0.0,
-    "existing_khronos_validator_report": {
-      "errors": 0,
-      "warnings": 0,
-      "hash_matches_reviewed_glb": true
-    },
-    "source_opening_warning_interpretation": {
-      "per_material_boundary_edges": {
-        "plumage": 60,
-        "warm-breast": 60
-      },
-      "method": "Decode GLB triangle positions; count undirected geometric edges after merging identical exact float-coordinate positions across all material meshes. Read source loft/material-batching construction as supporting evidence. This is an in-memory diagnostic, not a model edit.",
-      "all_materials_combined_boundary_edges": 0,
-      "all_materials_combined_edges_with_more_than_two_faces": 0,
-      "conclusion": "Warnings are coincident material seams, not open holes in the combined surface. Accept for this static environment-prop scope."
-    }
-  },
-  "packaging_issue_at_review": {
-    "severity": "Fix before metadata-driven preview integration; not a modeling defect",
-    "metadata_preview": "assets/prehistoric/birds/confuciusornis/views/hero.png",
-    "referenced_file_exists": false,
-    "existing_hero_path": "assets/prehistoric/birds/confuciusornis/views/hero.png",
-    "resolution_owner": "audit_small_fauna_inventory",
-    "status": "RESOLVED: corrected metadata.preview now points to the existing hero PNG; reviewer rechecked the path and all model/image hashes.",
-    "resolved_metadata_preview": "assets/prehistoric/birds/confuciusornis/views/hero.png",
-    "resolved_at": "2026-10-18T02:25:16.701007+00:00",
-    "receipt": "production/small-fauna-v1/bird-pair-preservation-20261018/packaging-fix.json"
-  },
+  "revision": "r2",
+  "status": "PASS",
+  "scope": "Independent practical static scene-prop review, including six Blender views and actual Three.js browser raster inspection.",
+  "glb_sha256": "264383f0cca9b772479d93037f83c4084a6feabefd26d0285278e6a539f16bdb",
+  "asset_checkpoint": "d5cc3d2f3ff34d032dbd740470e3c454e2909405",
+  "qa_evidence_commit": "cd443a934b0e6440f05276f0faa4183813a545f8",
+  "report": "https://github.com/s010s/lowpoly-vault/blob/cd443a934b0e6440f05276f0faa4183813a545f8/qa/bird-pair-runtime-20261018/actions-evidence-r2/review.json",
+  "summary": "https://github.com/s010s/lowpoly-vault/blob/cd443a934b0e6440f05276f0faa4183813a545f8/qa/bird-pair-runtime-20261018/actions-evidence-r2/README.md",
+  "runtime_run": "https://github.com/s010s/lowpoly-vault/actions/runs/39090931667",
+  "blocking_defects": [],
+  "resolved_defect": "Mixed triangle winding caused missing surfaces in r1 browser renders; r2 has zero orientation conflicts and intact actual runtime images.",
   "limits": [
-    "Existing six views are five color directions plus a matching hero clay view; underside and left side were not separately rendered.",
-    "No runtime viewer, Three.js import, collision, rigging or animation test was run.",
-    "No strict paleontological accuracy claim.",
-    "Acceptance here covers the exact GLB and image hashes above; publication is a separate decision."
-  ]
+    "Static unrigged prop only; no animation or collision acceptance.",
+    "Software-WebGL functional evidence, not hardware/mobile performance.",
+    "No scientific certification or main publication approval."
+  ],
+  "prior_failure_preserved": "https://github.com/s010s/lowpoly-vault/blob/cd443a934b0e6440f05276f0faa4183813a545f8/qa/bird-pair-runtime-20261018/actions-evidence/README.md"
 }

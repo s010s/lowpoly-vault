@@ -59,16 +59,26 @@
         "boundary_edges": 0,
         "nonmanifold_edges": 0
       }
+    ],
+    "warning_disposition": [
+      {
+        "warning": "ichthyornis-plumage: 42 boundary edges; review intentional openings",
+        "disposition": "Intentional matched seams between palette material batches. Exact coordinate global edge audit joins across material batches and confirms zero true boundary edges; original editable semantic meshes are closed."
+      },
+      {
+        "warning": "ichthyornis-warm-breast: 42 boundary edges; review intentional openings",
+        "disposition": "Intentional matched seams between palette material batches. Exact coordinate global edge audit joins across material batches and confirms zero true boundary edges; original editable semantic meshes are closed."
+      }
     ]
   },
   "glb": {
     "profile": "static-uncompressed-v1",
-    "file": "/workspace/shared/lowpoly-birds-20261018/assets/prehistoric/birds/ichthyornis/ichthyornis.glb",
+    "file": "/workspace/shared/lowpoly-birds-r2-20261018/assets/prehistoric/birds/ichthyornis/ichthyornis.glb",
     "errors": [],
     "warnings": [],
     "khronos_validator": "not_run_by_this_script",
     "bytes": 134252,
-    "sha256": "60d5db71c77b3ce25b1a5f3f66cd1d7ba3e30d1940806011cfd80e939cd69c73",
+    "sha256": "016fa98ae3c7b430a5756ffd0a683fb51f48d0a9e168b9f9c295222c6db98be9",
     "generator": "Khronos glTF Blender I/O v4.3.47",
     "extensions_used": [],
     "materials": 4,
@@ -92,7 +102,7 @@
         0.30000000447034836
       ]
     },
-    "semantic_sha256": "746e6feafcd1d1016d97041ae7719890302c1163b02ef8683bfc4e71e8b9db5c",
+    "semantic_sha256": "d48f878fe795479517af9d6cd02429e3f7902f76957b8c311a7c9ea2880db544",
     "semantic_digest_profile": "decoded-static-content-v1",
     "scene_triangles": 2432,
     "scene_primitives_estimated_base_draw_calls": 4,
@@ -101,7 +111,7 @@
   "khronos_validator": {
     "status": "pass",
     "validator_version": "2.0.0-dev.3.10",
-    "sha256": "60d5db71c77b3ce25b1a5f3f66cd1d7ba3e30d1940806011cfd80e939cd69c73",
+    "sha256": "016fa98ae3c7b430a5756ffd0a683fb51f48d0a9e168b9f9c295222c6db98be9",
     "errors": [],
     "warnings": [],
     "num_errors": 0,
@@ -113,7 +123,9 @@
     "status": "not_run"
   },
   "visual_review": {
-    "status": "pending"
+    "status": "pending",
+    "revision": "r2",
+    "note": "Winding repair invalidates prior exact-GLB runtime verdict. Independent r2 review required."
   },
   "bounds_roundtrip_max_error_m": 0
 }

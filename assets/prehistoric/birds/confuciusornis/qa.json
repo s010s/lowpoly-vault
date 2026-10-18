@@ -59,16 +59,26 @@
         "boundary_edges": 0,
         "nonmanifold_edges": 0
       }
+    ],
+    "warning_disposition": [
+      {
+        "warning": "confuciusornis-plumage: 60 boundary edges; review intentional openings",
+        "disposition": "Intentional matched seams between palette material batches. Exact coordinate global edge audit joins across material batches and confirms zero true boundary edges; original editable semantic meshes are closed."
+      },
+      {
+        "warning": "confuciusornis-warm-breast: 60 boundary edges; review intentional openings",
+        "disposition": "Intentional matched seams between palette material batches. Exact coordinate global edge audit joins across material batches and confirms zero true boundary edges; original editable semantic meshes are closed."
+      }
     ]
   },
   "glb": {
     "profile": "static-uncompressed-v1",
-    "file": "/workspace/shared/lowpoly-birds-20261018/assets/prehistoric/birds/confuciusornis/confuciusornis.glb",
+    "file": "/workspace/shared/lowpoly-birds-r2-20261018/assets/prehistoric/birds/confuciusornis/confuciusornis.glb",
     "errors": [],
     "warnings": [],
     "khronos_validator": "not_run_by_this_script",
     "bytes": 116860,
-    "sha256": "9d36359f9e0f5106b0287c913bf1f592a11a955baf735600fbe2389289781350",
+    "sha256": "264383f0cca9b772479d93037f83c4084a6feabefd26d0285278e6a539f16bdb",
     "generator": "Khronos glTF Blender I/O v4.3.47",
     "extensions_used": [],
     "materials": 4,
@@ -92,7 +102,7 @@
         0.4779999852180481
       ]
     },
-    "semantic_sha256": "dd410dcd1cac209cc5f798e65fddbed298fbd9a01528cf2d7ae4a913daed202a",
+    "semantic_sha256": "3055a61d52b9762207c8953eaec298c68625e741f3f296968ff8c9fd36f0cb5f",
     "semantic_digest_profile": "decoded-static-content-v1",
     "scene_triangles": 2108,
     "scene_primitives_estimated_base_draw_calls": 4,
@@ -101,7 +111,7 @@
   "khronos_validator": {
     "status": "pass",
     "validator_version": "2.0.0-dev.3.10",
-    "sha256": "9d36359f9e0f5106b0287c913bf1f592a11a955baf735600fbe2389289781350",
+    "sha256": "264383f0cca9b772479d93037f83c4084a6feabefd26d0285278e6a539f16bdb",
     "errors": [],
     "warnings": [],
     "num_errors": 0,
@@ -113,7 +123,9 @@
     "status": "not_run"
   },
   "visual_review": {
-    "status": "pending"
+    "status": "pending",
+    "revision": "r2",
+    "note": "Winding repair invalidates prior exact-GLB runtime verdict. Independent r2 review required."
   },
   "bounds_roundtrip_max_error_m": 0
 }
