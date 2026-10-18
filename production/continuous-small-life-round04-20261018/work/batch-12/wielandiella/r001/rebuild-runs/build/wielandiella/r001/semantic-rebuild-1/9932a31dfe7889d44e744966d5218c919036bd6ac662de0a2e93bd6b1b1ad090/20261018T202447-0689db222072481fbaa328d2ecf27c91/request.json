@@ -1,0 +1,112 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/wielandiella/r001/generator.py",
+    "--",
+    "--asset",
+    "wielandiella",
+    "--config",
+    "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/wielandiella/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/wielandiella/r001/rebuild-runs/build/wielandiella/r001/semantic-rebuild-1/9932a31dfe7889d44e744966d5218c919036bd6ac662de0a2e93bd6b1b1ad090/20261018T202447-0689db222072481fbaa328d2ecf27c91/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:24:47.812820+00:00",
+  "fingerprint": "9932a31dfe7889d44e744966d5218c919036bd6ac662de0a2e93bd6b1b1ad090",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9118,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/wielandiella/brief.json",
+        "sha256": "d464e9046a2cf6da6a922b8588af0aa9ec6e81391f59e0023df5d03fffd33fbc"
+      },
+      "config": {
+        "bytes": 2293,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/wielandiella/r001/config.json",
+        "sha256": "b2ab53113f8a6b48b2354161a865935695b922d763b71746fc17933fc980d7ef"
+      },
+      "generator": {
+        "bytes": 5526,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/wielandiella/r001/generator.py",
+        "sha256": "31a4dd983c551e114c5c80f79e00f7eeef2b05785ea5a75d98751f2b8919d42d"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1265,
+        "path": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/wielandiella/references.json",
+        "sha256": "f977e96b39b1c311c12a7727ff12250738f50f0c917591716f0e434b69f8d4a9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "wielandiella",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "wielandiella",
+      "config": {
+        "profile": "batch12 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/wielandiella/brief.json",
+        "config": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/wielandiella/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/wielandiella/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/wielandiella/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "wielandiella/wielandiella.glb",
+        "wielandiella/wielandiella.blend",
+        "wielandiella/metadata.json",
+        "wielandiella/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T202447-2d0f3091d4ee425ea0ef07337a4c699f"
+}
