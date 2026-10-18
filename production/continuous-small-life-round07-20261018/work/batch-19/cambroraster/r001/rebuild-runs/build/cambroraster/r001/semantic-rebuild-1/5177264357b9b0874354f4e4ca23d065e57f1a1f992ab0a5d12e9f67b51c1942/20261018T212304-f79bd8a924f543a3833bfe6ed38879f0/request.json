@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r001/generator.py",
+    "--",
+    "--asset",
+    "cambroraster",
+    "--config",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r001/rebuild-runs/build/cambroraster/r001/semantic-rebuild-1/5177264357b9b0874354f4e4ca23d065e57f1a1f992ab0a5d12e9f67b51c1942/20261018T212304-f79bd8a924f543a3833bfe6ed38879f0/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T21:23:04.812925+00:00",
+  "fingerprint": "5177264357b9b0874354f4e4ca23d065e57f1a1f992ab0a5d12e9f67b51c1942",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9512,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/brief.json",
+        "sha256": "43abf62a4d7439e6237e19b4bcf8776fbf73a117e02cda9c3e75adb5e4c6ea42"
+      },
+      "config": {
+        "bytes": 2342,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r001/config.json",
+        "sha256": "ac4c6ab4c2f7ac00cb1d52608d3be3014970b144b4a8a1e7fafcd5c6e62b616f"
+      },
+      "generator": {
+        "bytes": 6730,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r001/generator.py",
+        "sha256": "1621ebb33d7bf6b6f2d43f058d1abbb24613ad8809197ab16e8d3fe97206d8fb"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1265,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/references.json",
+        "sha256": "78d4a0f23bc393d8a048dfeefb624bfee71a0d770cbe713ddb02051cfcb361ef"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cambroraster",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cambroraster",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch19 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/brief.json",
+        "config": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/cambroraster/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/cambroraster/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "cambroraster/cambroraster.blend",
+        "cambroraster/cambroraster.glb",
+        "cambroraster/qa.json",
+        "cambroraster/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T212304-9d8a3c9637624ae08578bed3afd2afdf"
+}
