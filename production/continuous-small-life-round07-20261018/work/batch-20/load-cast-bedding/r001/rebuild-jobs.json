@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "load-cast-bedding",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/build.py",
+        "config": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/config.json",
+        "brief": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/brief.json",
+        "references": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/references.json",
+        "freeze": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/freeze.json",
+        "original_config": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/build-config.json",
+        "policy": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/reference-policy.json",
+        "helper": "/workspace/batch20-load-cast-bedding/scripts/asset_common.py",
+        "audit": "/workspace/batch20-load-cast-bedding/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "load-cast-bedding.glb",
+        "load-cast-bedding.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101814,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "load-cast-bedding",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/build.py",
+        "config": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/config.json",
+        "brief": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/brief.json",
+        "references": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/references.json",
+        "freeze": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/freeze.json",
+        "original_config": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/build-config.json",
+        "policy": "/workspace/batch20-load-cast-bedding/production/continuous-small-life-round07-20261018/work/batch-20/load-cast-bedding/r001/reference-policy.json",
+        "helper": "/workspace/batch20-load-cast-bedding/scripts/asset_common.py",
+        "audit": "/workspace/batch20-load-cast-bedding/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "load-cast-bedding.glb",
+        "load-cast-bedding.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101814,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
