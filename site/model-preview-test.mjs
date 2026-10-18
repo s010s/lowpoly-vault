@@ -10,6 +10,7 @@ const deferred = () => { let resolve, reject; const promise = new Promise((a, b)
 const tick = () => new Promise(resolve => setTimeout(resolve, 0));
 const flush = () => { const pending = [...frames.values()]; frames.clear(); pending.forEach(callback => callback()); };
 const canvas = () => ({ width: 320, height: 320, dataset: {}, setAttribute() {}, remove() { this.removed = true; }, getContext: () => ({ drawImage() {} }) });
+globalThis.matchMedia = () => ({ matches: true }); // Legacy controller contracts use reduced motion; reveal has dedicated raster coverage.
 globalThis.document = { hidden: false, addEventListener: (name, callback) => listeners.set(name, callback), removeEventListener: name => listeners.delete(name), createElement: canvas };
 globalThis.requestAnimationFrame = callback => { frames.set(++nextFrame, callback); return nextFrame; };
 globalThis.cancelAnimationFrame = id => frames.delete(id);

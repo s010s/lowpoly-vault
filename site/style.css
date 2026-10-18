@@ -78,7 +78,7 @@
 /* Cards acquire the same real-GLB stage as details. Only the active card hides
    its poster; an unready or failed model can never expose the previous draw. */
 .has-model-preview .asset-image{touch-action:pan-y;background:#e8e4dc}
-.has-model-preview .asset-image>.model-canvas,.model-preview-snapshot{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:1}
+.has-model-preview .asset-image>.model-canvas,.model-preview-snapshot,.model-hover-reveal{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:1}
 .has-model-preview[data-preview-state=ready] .asset-image>img{opacity:0}
 .has-model-preview .asset-image>img{transition:none!important;object-fit:contain!important}
 .preview-badge{position:absolute;left:12px;top:12px;border-radius:12px;padding:4px 8px;font-size:10px;background:#eef0e8;color:#263027;z-index:2;pointer-events:none}
@@ -95,3 +95,6 @@
   #canvas-host:has(.model-handoff)>.model-handoff{mix-blend-mode:plus-lighter}
   #canvas-host:has(.model-handoff)>.model-canvas,#canvas-host:has(.model-handoff)>.model-poster{mix-blend-mode:plus-lighter;opacity:0}
 }
+
+/* One alpha-correct reveal surface replaces both inputs while blending. */
+.asset-image:has(>.model-hover-reveal)>.model-canvas{visibility:hidden!important}

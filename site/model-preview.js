@@ -1,3 +1,4 @@
+import { startHoverReveal } from './hover-reveal.js';
 import { CARD_RENDER_PRESET } from './render-preset.js';
 
 // A card is a poster until an intentional interaction acquires the application's
@@ -51,6 +52,7 @@ export class SharedModelPreview {
           card.dataset.previewState = status === 'error' ? 'fallback' : status;
           if (status === 'ready') {
             current.live = true; current.loading = false;
+            this.reveal(current, stage);
             if (this.canvas) { this.canvas.remove(); this.canvas.width = this.canvas.height = 0; this.canvas = null; }
             card.querySelector('.card-status').textContent = this.text('3D preview · Move to orbit', '3D 预览 · 移动查看角度');
             this.stats.firstPreviewMilliseconds = performance.now() - started;
@@ -71,12 +73,39 @@ export class SharedModelPreview {
     return true;
   }
 
+  reveal(current, stage) {
+    const poster = this.canvas || current.card.querySelector('.asset-image img');
+    if (globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ||
+        !poster || !(poster.width > 0) || (poster.tagName === 'IMG' && (!poster.complete || !poster.naturalWidth))) return;
+    const model = stage.snapshot({ square: true });
+    if (!model) return;
+    // A retained canvas may be retired by activate immediately after this call.
+    // Copy it once; the canonical poster image itself is stable while hovered.
+    let lower = poster;
+    if (poster === this.canvas) {
+      lower = document.createElement('canvas'); lower.width = poster.width; lower.height = poster.height;
+      lower.getContext('2d').drawImage(poster, 0, 0);
+    }
+    this.revealLower = lower === poster ? null : lower;
+    this.revealMotion = startHoverReveal({ host: current.card.querySelector('.asset-image'), poster: lower, model,
+      onFinish: () => {
+        this.clearReveal();
+        if (this.current === current && current.want !== undefined) this.request(current.want);
+      } });
+  }
+
+  clearReveal() {
+    this.revealMotion?.cancel(); this.revealMotion = null;
+    if (this.revealLower) this.revealLower.width = this.revealLower.height = 0;
+    this.revealLower = null;
+  }
+
   request(frame) {
     const current = this.current;
     if (!current || !Number.isFinite(frame)) return;
     current.frame = frame; current.want = frame;
     this.sync();
-    if (!current.live || this.raf) return;
+    if (!current.live || this.revealMotion || this.raf) return;
     const generation = this.generation;
     this.raf = requestAnimationFrame(() => {
       this.raf = 0;
@@ -93,6 +122,16 @@ export class SharedModelPreview {
   capture({ transfer = false } = {}) {
     const current = this.current;
     if (!current) return null;
+    if (this.revealMotion) {
+      // Clicking during reveal hands off the exact displayed blend, not the
+      // unseen final GLB or a pending pointer pose.
+      const source = this.revealMotion.canvas, canvas = document.createElement('canvas');
+      canvas.width = source.width; canvas.height = source.height;
+      canvas.getContext('2d').drawImage(source, 0, 0);
+      canvas.className = 'model-handoff'; canvas.dataset.assetId = current.id;
+      canvas.__presentation = source.__presentation;
+      return { canvas, id: current.id, view: canvas.__presentation };
+    }
     // Flush the latest pointer intent before taking the transfer frame.
     if (this.raf) { cancelAnimationFrame(this.raf); this.raf = 0;
       const base = current.snapshotView || CARD_RENDER_PRESET.camera;
@@ -126,6 +165,7 @@ export class SharedModelPreview {
 
   stop() {
     this.generation++;
+    this.clearReveal();
     this.controller?.abort(); this.controller = null;
     if (this.raf) cancelAnimationFrame(this.raf); this.raf = 0;
     this.intersection.disconnect();
