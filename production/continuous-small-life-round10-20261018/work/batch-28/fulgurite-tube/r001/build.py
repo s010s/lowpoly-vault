@@ -165,7 +165,7 @@ def fulgurite_tube(c,m):
  for j in [1,2]:boolean(bore,cutters[j],'UNION','connected-lumen-junction-'+str(j))
  boolean(rock,bore,'DIFFERENCE','real-hollow-core-through-all-branch-mouths')
  import bmesh
- bm=bmesh.new();bm.from_mesh(rock.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-7);bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=1e-7);bmesh.ops.triangulate(bm,faces=list(bm.faces));bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(rock.data);bm.free();rock.data.update()
+ bm=bmesh.new();bm.from_mesh(rock.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=2e-5);bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=2e-5);bmesh.ops.triangulate(bm,faces=list(bm.faces));bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(rock.data);bm.free();rock.data.update()
  for p in rock.data.polygons:
   if p.material_index==2:p.use_smooth=True
   elif p.center.z<.04 or (p.center.z>.10 and p.center.z<.13):p.material_index=1
