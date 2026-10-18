@@ -1,0 +1,87 @@
+name: Full release review
+on:
+  push:
+    branches: [main]
+    paths: &review_paths
+      - 'site/**'
+      - 'assets/**'
+      - 'package*.json'
+      - 'vite.config.js'
+      - '.github/workflows/*.yml'
+  pull_request:
+    paths: *review_paths
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: full-release-review-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  SITE_BASE: /lowpoly-vault/
+  SITE_ORIGIN: https://s010s.github.io
+jobs:
+  scope:
+    runs-on: ubuntu-latest
+    outputs:
+      runtime: ${{ steps.scope.outputs.runtime }}
+      models: ${{ steps.scope.outputs.models }}
+      previews: ${{ steps.scope.outputs.previews }}
+      ids: ${{ steps.scope.outputs.ids }}
+      tasks: ${{ steps.scope.outputs.tasks }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          FULL_REVIEW: ${{ github.event_name == 'workflow_dispatch' }}
+        run: node site/ci-scope.mjs
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        task: ${{ fromJSON(needs.scope.outputs.tasks) }}
+    needs: scope
+    if: needs.scope.outputs.runtime == 'true' || needs.scope.outputs.models == 'true' || needs.scope.outputs.previews == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Verify exact authorized publication and unchanged originals
+        run: npm run publication:check && npm run test:publication
+      - run: node site/ci-scope-test.mjs
+      - run: npm run build
+        id: build_site
+      - run: npx playwright install --with-deps chromium
+        id: install_chromium
+      - name: Run selected acceptance scope
+        env:
+          CI_REVIEW_TASK: ${{ matrix.task }}
+          FULL_REVIEW: ${{ github.event_name == 'workflow_dispatch' }}
+          CI_RUNTIME: ${{ needs.scope.outputs.runtime }}
+          CI_MODELS: ${{ needs.scope.outputs.models }}
+          CI_PREVIEWS: ${{ needs.scope.outputs.previews }}
+          QA_MODEL_IDS: ${{ needs.scope.outputs.ids }}
+          PREVIEW_ASSET_IDS: ${{ needs.scope.outputs.ids }}
+        run: node site/ci-review.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-release-${{ matrix.task }}-${{ github.sha }}
+          path: |
+            qa/release-matrix/
+            qa/release-strict-gpu/
+            qa/release-fallback-only/
+            qa/threejs-parser.json
+            qa/shared-model-preview/
+            qa/handoff-continuity/
+            qa/release-conifer-handoff/
+            qa/modal-motion/
+            qa/interaction-motion/
+            qa/web-capture-recheck/render-report.json
+            qa/small-life-browser/

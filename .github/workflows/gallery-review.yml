@@ -1,24 +1,6 @@
 name: Review gallery in Chromium
 on:
   workflow_dispatch:
-  push:
-    branches: [main, 'redesign/**']
-    paths:
-      - 'assets/**'
-      - 'site/**'
-      - 'package*.json'
-      - 'vite.config.js'
-      - 'THIRD_PARTY_NOTICES.md'
-      - 'scripts/validate_gltf.cjs'
-      - '.github/workflows/gallery-review.yml'
-  pull_request:
-    paths:
-      - 'assets/**'
-      - 'site/**'
-      - 'package*.json'
-      - 'vite.config.js'
-      - 'THIRD_PARTY_NOTICES.md'
-      - '.github/workflows/gallery-review.yml'
 permissions:
   contents: read
 concurrency:
@@ -45,7 +27,6 @@ jobs:
       REVIEW_OUT: qa/redesign-v2-site
       GALLERY_DIR: qa/redesign-v2-site
       QA_OUTPUT_DIR: qa/redesign-${{ matrix.profile }}
-      QA_REQUIRE_COUNT: '10'
       QA_REVIEW_ONLY: '1'
       QA_ALLOW_WEBGL_FALLBACK: ${{ matrix.allow_fallback }}
       QA_FORCE_WEBGL_FALLBACK: ${{ matrix.force_fallback }}

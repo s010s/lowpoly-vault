@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {classify} from './ci-scope.mjs';
+const manifest={assets:[{id:'arch',glb:'assets/revisions/arch/r2/arch.glb',blend:'assets/revisions/arch/r2/arch.blend',preview:'assets/revisions/arch/r2/preview.webp'}]};
+assert.deepEqual(classify(['docs/note.md'],manifest).tasks,['none']);
+assert.deepEqual(classify(['production/new/review.json'],manifest).tasks,['none']);
+const asset=classify([manifest.assets[0].glb],manifest);
+assert.equal(asset.ids,'arch');assert.deepEqual(asset.tasks,['models','previews']);
+for(const path of ['site/style.css','site/main.js','site/viewer.js','site/routes.js','package-lock.json'])assert(classify([path],manifest).runtime,path);
+assert.equal(classify(['site/ci-scope.mjs'],manifest).runtime,false);
+assert(classify([],manifest,true).tasks.includes('shared'));
+assert.equal(classify(['assets/manifest.json'],manifest).ids,'');
+assert(classify(['site/render-preset.js'],manifest).previews);
+console.log('CI routing: docs, unpublished candidates, model payload, runtime, manifest and full fallback passed.');

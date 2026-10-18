@@ -1198,6 +1198,7 @@ try {
   report.chromium_version = browser.version();
   await directDetails();
   await roundTrip('desktop-motion');
+  if (process.env.QA_HANDOFF_SMOKE !== '1') {
   await roundTrip('desktop-styled-motion', { returnStyles: true });
   await roundTrip('desktop-retina-motion', { deviceScaleFactor: 2 });
   await roundTrip('mobile-motion', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
@@ -1209,6 +1210,8 @@ try {
   await interruptedCanonicalReturn();
   await interruptedCanonicalReturn('fading');
   await supersededImport();
+  }
+  report.scope = process.env.QA_HANDOFF_SMOKE === '1' ? 'smoke-direct-and-desktop-roundtrip' : 'full';
   assert.deepEqual(report.page_errors, []); report.status = 'pass';
   console.log(JSON.stringify({ status: report.status, checks: report.checks }, null, 2));
 } catch (error) {

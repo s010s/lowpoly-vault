@@ -13,11 +13,14 @@ const prefix = normalizeSiteBase(process.env.SITE_BASE || '/lowpoly-vault/');
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/redesign-browser');
 const allowFallback = process.env.QA_ALLOW_WEBGL_FALLBACK === '1';
 const forceFallback = process.env.QA_FORCE_WEBGL_FALLBACK === '1';
+const reviewScope = process.env.QA_REVIEW_SCOPE || 'full';
+assert(['full','models','matrix'].includes(reviewScope), 'Known review scope required');
+const selectedIDs = process.env.QA_MODEL_IDS ? new Set(process.env.QA_MODEL_IDS.split(',')) : null;
 const staticOnly = process.env.QA_STATIC_ONLY === '1';
 assert(!forceFallback || allowFallback, 'Forced fallback requires QA_ALLOW_WEBGL_FALLBACK=1');
 const report = {
   status: 'running', commit: process.env.GITHUB_SHA || null, build_directory: root,
-  site_base: prefix, review_only: null, visual_approval: 'pending_human_inspection',
+  review_scope: reviewScope, selected_model_ids: selectedIDs ? [...selectedIDs] : null, site_base: prefix, review_only: null, visual_approval: 'pending_human_inspection',
   profile: staticOnly ? 'static-only' : forceFallback ? 'forced-webgl-fallback' : allowFallback ? 'allow-webgl-fallback' : 'strict-gpu',
   static_routes: [], checks: [], models: [], screenshots: [], page_errors: [], resource_errors: [],
   gpu: { status: 'not-run', fallback_models: [], rendered_models: [] },
@@ -347,7 +350,9 @@ async function actualModelChecks() {
   const page = await context.newPage(); observe(page, 'Actual models');
   try {
     await page.goto(urlFor({ type: 'models' })); await waitCatalog(page);
-    for (const asset of manifest.assets) {
+    const selected = manifest.assets.filter(asset => !selectedIDs || selectedIDs.has(asset.id));
+    assert(selected.length > 0 && (!selectedIDs || selected.length === selectedIDs.size), 'All selected models must exist');
+    for (const asset of selected) {
       await page.locator(`#grid .asset-card[data-id="${asset.id}"]`).click();
       const state = await waitModel(page, asset.id);
       const downloads = page.locator('#downloads');
@@ -592,18 +597,20 @@ try {
       throw error;
     }
     report.chromium_version = browser.version();
-    await noJavaScriptChecks();
-    await navigationChecks();
-    await actualModelChecks();
-    await visualMatrixChecks();
-    await scaleChecks();
-    await failureRecoveryChecks();
+    if (reviewScope !== 'models') {
+      await noJavaScriptChecks();
+      await navigationChecks();
+      await visualMatrixChecks();
+      await scaleChecks();
+      await failureRecoveryChecks();
+    }
+    if (reviewScope !== 'matrix') await actualModelChecks();
     assert.deepEqual(report.page_errors, [], 'Unexpected browser exceptions');
     assert.deepEqual(report.resource_errors, [], 'Unexpected failed resource requests');
     report.browser_status = 'pass';
     report.gpu.status = report.gpu.fallback_models.length ? 'fallback-only-or-partial' : 'pass';
     report.status = report.gpu.fallback_models.length ? 'pass-with-webgl-fallback' : 'pass';
-    console.log(`${report.status}: ${manifest.assets.length} actual models; 10000 metadata fixture; ${report.static_routes.length} static routes. ${report.gpu.fallback_models.length ? 'GPU acceptance remains incomplete.' : 'Strict GPU acceptance passed.'} Screenshots still require human visual review.`);
+    console.log(`${report.status}: scope=${reviewScope}; ${report.models.length} actual models; 10000 metadata fixture; ${report.static_routes.length} static routes. ${report.gpu.fallback_models.length ? 'GPU acceptance remains incomplete.' : 'Strict GPU acceptance passed.'} Screenshots still require human visual review.`);
   }
 } catch (error) {
   report.status = report.browser_status === 'blocked' ? 'blocked-browser' : 'fail';
