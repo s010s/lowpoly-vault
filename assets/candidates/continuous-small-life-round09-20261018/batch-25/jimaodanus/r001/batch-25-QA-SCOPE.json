@@ -1,0 +1,23 @@
+{
+  "kind": "planning-only-review-scope-not-a-candidate",
+  "batch_id": "batch-25",
+  "expected_asset_ids": [
+    "anomalocaris",
+    "jimaodanus",
+    "hydrothermal-chimney",
+    "arenicolites-u-burrow"
+  ],
+  "expected_source_commit": null,
+  "expected_glb_sha256_by_asset": {
+    "anomalocaris": null,
+    "jimaodanus": null,
+    "hydrothermal-chimney": null,
+    "arenicolites-u-burrow": null
+  },
+  "ready_for_qa": false,
+  "reviewer_model": "GPT-6 Luna",
+  "reviewer_reasoning": "xhigh",
+  "prefer_fresh_independent_context": true,
+  "before_verdict": "Parent supplies actual frozen source/GLB pins. Reviewer echoes exact batch/source/asset set and inspects actual exports; any mismatch invalidates report.",
+  "wrong_subject_action": "Never accept PASS or repair models from a wrong-batch report; retain invalidated attempt and ask parent to restart correct independent review."
+}
