@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "baculites",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101812
+      },
+      "inputs": {
+        "audit": "/workspace/batch32-baculites/scripts/qa_glb.py",
+        "brief": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/brief.json",
+        "config": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/config.json",
+        "freeze": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/freeze.json",
+        "generator": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/build.py",
+        "helper": "/workspace/batch32-baculites/scripts/asset_common.py",
+        "inventory": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/inventory-record.json",
+        "original_config": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/build-config.json",
+        "policy": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/reference-policy.json",
+        "references": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "baculites.glb",
+        "baculites.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "baculites",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101812
+      },
+      "inputs": {
+        "audit": "/workspace/batch32-baculites/scripts/qa_glb.py",
+        "brief": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/brief.json",
+        "config": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/config.json",
+        "freeze": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/freeze.json",
+        "generator": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/build.py",
+        "helper": "/workspace/batch32-baculites/scripts/asset_common.py",
+        "inventory": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/inventory-record.json",
+        "original_config": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/build-config.json",
+        "policy": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/reference-policy.json",
+        "references": "/workspace/batch32-baculites/production/continuous-small-life-round11-20261018/work/batch-32/baculites/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "baculites.glb",
+        "baculites.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
