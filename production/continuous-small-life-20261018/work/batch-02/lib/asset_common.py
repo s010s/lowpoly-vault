@@ -368,7 +368,7 @@ def render_previews(collection, output_dir, views=('hero','reversehero','front',
             shift=Vector(((max(p.x for p in projected)+min(p.x for p in projected))/2,
                           (max(p.y for p in projected)+min(p.y for p in projected))/2,0))
             camera.location+=camera.matrix_world.to_3x3()@shift
-            camera_data.ortho_scale=max(width,height,0.05)*1.25
+            camera_data.ortho_scale=max(width,height,0.00001)*1.25
             scene.render.filepath=str(output_dir/f'preview-{view}.png')
             bpy.ops.render.render(write_still=True)
             files.append(scene.render.filepath)

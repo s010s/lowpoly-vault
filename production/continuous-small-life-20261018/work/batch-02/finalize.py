@@ -12,7 +12,7 @@ for s in sys.argv[1:]:
   frozen.mkdir(parents=True);shutil.copy2(HERE/'build_batch02.py',frozen/'build.py');shutil.copytree(HERE/'lib',frozen/'lib',ignore=shutil.ignore_patterns('__pycache__'))
  commands=[]
  def run(args,label):
-  start=time.monotonic();r=subprocess.run(args,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=300);(logs/(label+'.log')).write_bytes(r.stdout);commands.append({'command':args,'returncode':r.returncode,'wall_seconds':round(time.monotonic()-start,3),'log':'logs/'+label+'.log'});print(s,label,r.returncode,flush=True)
+  start=time.monotonic();r=subprocess.run(args,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=300);(logs/(label+'.txt')).write_bytes(r.stdout);commands.append({'command':args,'returncode':r.returncode,'wall_seconds':round(time.monotonic()-start,3),'log':'logs/'+label+'.txt'});print(s,label,r.returncode,flush=True)
   if r.returncode:raise RuntimeError(label+' failed; see '+str(logs))
  gen=str(frozen/'build.py');blender=['blender','-b','-t','2','--python-exit-code','1','--python']
  run(blender+[gen,'--','--asset',s,'--no-preview'],'freeze-build')
