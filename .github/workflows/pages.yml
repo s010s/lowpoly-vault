@@ -22,95 +22,36 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - run: node site/ci-scope-test.mjs
       - name: Verify exact authorized publication and unchanged originals
         run: npm run publication:check && npm run test:publication
-      - run: npm test && npm run test:redesign && npm run test:parser && npm run test:scrub
+      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:parser && npm run test:scrub
       - run: npm run build
         id: build_site
       - run: npx playwright install --with-deps chromium
         id: install_chromium
-      - name: Reproduce matching card previews with the actual built viewer
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
+      - name: Static routes, exact download bytes and attribution for every model
         env:
           GALLERY_DIR: dist
-          PREVIEW_OUTPUT: qa/web-capture-recheck
-          VERIFY_SHIPPED_PREVIEWS: '1'
-          PREVIEW_POSTERS_ONLY: '1'
-        run: node site/render-web-previews.mjs
-      - name: Verify real models, static routes, downloads and mobile layouts
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/release-strict-gpu
-          QA_REQUIRE_COUNT: '16'
-          QA_ALLOW_WEBGL_FALLBACK: '0'
+          QA_STATIC_ONLY: '1'
+          QA_OUTPUT_DIR: qa/release-static
         run: node site/redesign-browser-test.mjs
-      - name: Verify every new small-life prop on desktop and touch
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/small-life-browser
-        run: node site/small-life-browser-test.mjs
-      - name: Verify intentional real-GLB list previews and shared detail resources
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/shared-model-preview/list-browser
-        run: npm run test:scrub:browser
-      - name: Verify shared real-model rendering, failure recovery and resource bounds
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/shared-model-preview/shared-browser
-        run: npm run test:preview:browser
-      - name: Verify same-angle modal handoff and interrupted history
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/handoff-continuity
-        run: npm run test:handoff:browser
-      - name: Verify accepted conifer shared-GLB handoff and interrupted history
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/release-conifer-handoff
-        run: node qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs
-      - name: Verify coordinated modal chrome and responsive dismissal
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/modal-motion
-        run: npm run test:modal:browser
-      - name: Verify keyboard, native Refine and confirmed clipboard feedback
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
-        env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/interaction-motion
+      - name: Key keyboard, filter, disclosure and clipboard interactions
         run: npm run test:interaction:browser
-      - name: Verify deliberate WebGL fallback separately
-        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
+      - name: Thumbnail to real 3D and canonical return smoke
         env:
-          GALLERY_DIR: dist
-          QA_OUTPUT_DIR: qa/release-fallback-only
-          QA_REQUIRE_COUNT: '16'
-          QA_ALLOW_WEBGL_FALLBACK: '1'
-          QA_FORCE_WEBGL_FALLBACK: '1'
-        run: node site/redesign-browser-test.mjs
+          QA_HANDOFF_SMOKE: '1'
+          QA_OUTPUT_DIR: qa/release-handoff-smoke
+        run: npm run test:handoff:browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: gallery-release-qa
           path: |
-            qa/release-strict-gpu/
-            qa/release-fallback-only/
+            qa/release-static/
+            qa/release-handoff-smoke/
+            qa/animation-refinements/interaction/
             qa/threejs-parser.json
-            qa/shared-model-preview/
-            qa/handoff-continuity/
-            qa/release-conifer-handoff/
-            qa/modal-motion/
-            qa/interaction-motion/
-            qa/web-capture-recheck/render-report.json
-            qa/small-life-browser/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
