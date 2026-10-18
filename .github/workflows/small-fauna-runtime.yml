@@ -1,0 +1,52 @@
+name: Review four exact small-fauna GLBs
+on:
+  workflow_dispatch:
+  push:
+    branches: ['qa/small-fauna-runtime-20261018']
+    paths: ['qa/small-fauna-runtime-20261018/**', '.github/workflows/small-fauna-runtime.yml']
+permissions:
+  contents: read
+concurrency:
+  group: small-fauna-runtime-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  narrow-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: d0735b414baae2edd4a35d0f911bc3afdbe9c624
+          path: aquatic-input
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare exact inputs without changing canonical assets
+        run: |
+          cd qa/small-fauna-runtime-20261018
+          mkdir -p assets results
+          cp ../../assets/prehistoric/animals/juracimbrophlebia/juracimbrophlebia.glb assets/
+          cp ../../assets/prehistoric/plants/asteroxylon/asteroxylon.glb assets/
+          cp ../../aquatic-input/assets/prehistoric/fauna/bothriolepis/bothriolepis.glb assets/
+          cp ../../aquatic-input/assets/prehistoric/fauna/waptia/waptia.glb assets/
+          npm ci --ignore-scripts
+          node parse.mjs
+          npx playwright install --with-deps chromium
+      - name: Render four GLBs and verify bounded switching
+        working-directory: qa/small-fauna-runtime-20261018
+        run: node browser-test.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: small-fauna-runtime-${{ github.sha }}
+          path: |
+            qa/small-fauna-runtime-20261018/results/
+            qa/small-fauna-runtime-20261018/node-parse.json
+            qa/small-fauna-runtime-20261018/expected.json
+          retention-days: 30
+      - name: State verification limits
+        if: always()
+        run: |
+          echo '### Four exact small-fauna GLBs, isolated runtime QA' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Chromium/SwiftShader WebGL functional evidence only. Not physical-device or hardware GPU performance. No deployment, release approval, geometry edits or main merge.' >> "$GITHUB_STEP_SUMMARY"
