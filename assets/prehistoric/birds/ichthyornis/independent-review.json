@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-18T02:24:49.708051+00:00",
+  "review_scope": "Independent practical review of existing static child-friendly stylized scene props. No model changes, no new modeling, no new renders, no main publication.",
+  "asset": "ichthyornis",
+  "model_result": "PASS",
+  "blocking_model_defects": [],
+  "source_checkpoint": {
+    "repository": "s010s/lowpoly-vault",
+    "branch": "production/bird-pair-20261018",
+    "commit": "0612289dbf0b01a68c0a150dcdd01da58591cf31"
+  },
+  "subject": {
+    "glb_sha256": "60d5db71c77b3ce25b1a5f3f66cd1d7ba3e30d1940806011cfd80e939cd69c73",
+    "blend_sha256": "8e445c2d8a968cbfcac03c7a2f080e3be5cfe1b213f95292c74c716b5dbf7881",
+    "glb_and_blend_hashes_independently_verified": true
+  },
+  "visual_evidence": {
+    "actual_pixels_inspected": true,
+    "views": [
+      "hero",
+      "front",
+      "right",
+      "rear",
+      "top",
+      "clay"
+    ],
+    "resolution": [
+      512,
+      512
+    ],
+    "all_frame_hashes_match_render_manifest": true,
+    "frames": [
+      {
+        "path": "views/hero.png",
+        "sha256": "c231933ac19e0004454c5b35fabb3444d13529688e39e9912329997bfd38ad87"
+      },
+      {
+        "path": "views/front.png",
+        "sha256": "d561c15b012ce52291f69ec6f80cb1d6be78a540caf5bbca15121733d2edc0c2"
+      },
+      {
+        "path": "views/right.png",
+        "sha256": "f85ffc88590ee05cf3ee2a5abbf766c2363bd9587e097fab8a7d0fc114f7853c"
+      },
+      {
+        "path": "views/rear.png",
+        "sha256": "226b17e7121cee4556e6853356872ea3382bd9af05b2307c9e4062a526e015e3"
+      },
+      {
+        "path": "views/top.png",
+        "sha256": "c2491dda8aecf2fecc27684804eecce2f50b7c2b19a8783095ff7ed00480c048"
+      },
+      {
+        "path": "views/clay.png",
+        "sha256": "881805f620073b5334cde2a5aea874ed8a766db1439648f26250a63551dfcf4a"
+      }
+    ]
+  },
+  "findings": {
+    "recognition": "Clear slender pointed beak, compact feathered torso, two spread wings, short tail and two standing legs. Reads as a friendly stylized seabird-like prehistoric bird; not certified as a strict species reconstruction.",
+    "silhouette": "All six views show coherent connected major body parts. Broad paired wing silhouette is clean from front, rear and top. No visible gross penetration, exposed body hole or floating major part.",
+    "placement": "Both feet reach the ground plane. Allow approximately 0.412 m width, 0.300 m fore-aft depth and 0.190 m height at authored scale; spread wings require lateral clearance.",
+    "optional_polish": [
+      "In the hero/clay angle the far wing aligns behind the head and can briefly read as a crest; alternate display yaw could improve the thumbnail without changing geometry.",
+      "The narrow wing-leading edge and layered flight feathers look skeletal edge-on in front/rear views, but remain coherent for the chosen small scene-prop style."
+    ]
+  },
+  "technical_checks": {
+    "glb_binary_positions_decoded": true,
+    "all_positions_finite": true,
+    "identity_root_and_mesh_nodes": true,
+    "triangles": 2432,
+    "materials_and_base_draw_calls": 4,
+    "textures": 0,
+    "animations": 0,
+    "skins": 0,
+    "bounds_match_metadata_exactly": true,
+    "bounds_glb_m": {
+      "min": [
+        -0.20617561042308807,
+        0.0,
+        -0.11999999731779099
+      ],
+      "max": [
+        0.20617561042308807,
+        0.19007636606693268,
+        0.18000000715255737
+      ],
+      "size": [
+        0.41235122084617615,
+        0.19007636606693268,
+        0.30000000447034836
+      ]
+    },
+    "lowest_y_m": 0.0,
+    "existing_khronos_validator_report": {
+      "errors": 0,
+      "warnings": 0,
+      "hash_matches_reviewed_glb": true
+    },
+    "source_opening_warning_interpretation": {
+      "per_material_boundary_edges": {
+        "plumage": 42,
+        "warm-breast": 42
+      },
+      "method": "Decode GLB triangle positions; count undirected geometric edges after merging identical exact float-coordinate positions across all material meshes. Read source loft/material-batching construction as supporting evidence. This is an in-memory diagnostic, not a model edit.",
+      "all_materials_combined_boundary_edges": 0,
+      "all_materials_combined_edges_with_more_than_two_faces": 0,
+      "conclusion": "Warnings are coincident material seams, not open holes in the combined surface. Accept for this static environment-prop scope."
+    }
+  },
+  "packaging_issue_at_review": {
+    "severity": "Fix before metadata-driven preview integration; not a modeling defect",
+    "metadata_preview": "assets/prehistoric/birds/ichthyornis/views/hero.png",
+    "referenced_file_exists": false,
+    "existing_hero_path": "assets/prehistoric/birds/ichthyornis/views/hero.png",
+    "resolution_owner": "audit_small_fauna_inventory",
+    "status": "RESOLVED: corrected metadata.preview now points to the existing hero PNG; reviewer rechecked the path and all model/image hashes.",
+    "resolved_metadata_preview": "assets/prehistoric/birds/ichthyornis/views/hero.png",
+    "resolved_at": "2026-10-18T02:25:16.699435+00:00",
+    "receipt": "production/small-fauna-v1/bird-pair-preservation-20261018/packaging-fix.json"
+  },
+  "limits": [
+    "Existing six views are five color directions plus a matching hero clay view; underside and left side were not separately rendered.",
+    "No runtime viewer, Three.js import, collision, rigging or animation test was run.",
+    "No strict paleontological accuracy claim.",
+    "Acceptance here covers the exact GLB and image hashes above; publication is a separate decision."
+  ]
+}
