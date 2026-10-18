@@ -1,0 +1,46 @@
+name: Review two exact bird GLBs
+on:
+  workflow_dispatch:
+  push:
+    branches: ['qa/bird-pair-runtime-20261018']
+    paths: ['qa/bird-pair-runtime-20261018/**', '.github/workflows/bird-pair-runtime.yml']
+permissions:
+  contents: read
+concurrency:
+  group: bird-pair-runtime-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  narrow-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare exact inputs without changing canonical assets
+        run: |
+          cd qa/bird-pair-runtime-20261018
+          mkdir -p assets results
+          cp ../../assets/prehistoric/birds/ichthyornis/ichthyornis.glb assets/
+          cp ../../assets/prehistoric/birds/confuciusornis/confuciusornis.glb assets/
+          npm ci --ignore-scripts
+          node parse.mjs
+          npx playwright install --with-deps chromium
+      - name: Render two bird GLBs and verify bounded switching
+        working-directory: qa/bird-pair-runtime-20261018
+        run: node browser-test.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bird-pair-runtime-${{ github.sha }}
+          path: |
+            qa/bird-pair-runtime-20261018/results/
+            qa/bird-pair-runtime-20261018/node-parse.json
+            qa/bird-pair-runtime-20261018/expected.json
+          retention-days: 30
+      - name: State verification limits
+        if: always()
+        run: |
+          echo '### Two exact bird GLBs, isolated runtime QA' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Chromium/SwiftShader WebGL functional evidence only. Not physical-device or hardware GPU performance. No deployment, release approval, geometry edits or main merge.' >> "$GITHUB_STEP_SUMMARY"
