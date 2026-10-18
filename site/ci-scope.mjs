@@ -32,6 +32,7 @@ export function classify(paths,manifest,full=false,context={}) {
  if(smallProbe)tasks.push('small-life');
  if(manifest.publication?.fauna_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_fauna_ids.some(id=>changedIDs.has(id))))tasks.push('fauna');
  if(manifest.publication?.batch_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_batch_ids.some(id=>changedIDs.has(id))))tasks.push('batch');
+ if(manifest.publication?.round02_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_round02_ids.some(id=>changedIDs.has(id))))tasks.push('round02');
  if(previews)tasks.push('previews');
  return {runtime,models,previews,ids,tasks:tasks.length?[...new Set(tasks)]:['none']};
 }

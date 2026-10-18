@@ -20,3 +20,6 @@ assert(editorialDataOnly("export const PACK_LABELS = {'a':{en:'A'}};\nfunction x
 assert(!editorialDataOnly("export const PACK_LABELS = {};", "export const PACK_LABELS = {x:evil()};"));
 assert(!editorialDataOnly("export const PACK_LABELS = {};\nfunction x(){}", "export const PACK_LABELS = {};\nfunction x(){evil()}"));
 assert.deepEqual(classify(['site/shared-model-browser-test.mjs'],manifest).tasks,['shared']);
+const round02={assets:appended.assets,publication:{round02_descriptor:{},approved_round02_ids:['new']}};
+const scoped=classify(['assets/manifest.json'],round02,false,{previousManifest:manifest});
+assert.equal(scoped.runtime,false);assert.equal(scoped.ids,'new');assert.deepEqual(scoped.tasks,['models','round02','previews']);
