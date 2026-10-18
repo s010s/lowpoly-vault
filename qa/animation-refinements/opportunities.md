@@ -1,6 +1,6 @@
 # Animation opportunities — 2026-10-18
 
-Base: `77720858d73fcb8f6b8845576851762dcba078ef`, cloud Linux only.
+Base: `77720858d73fcb8f6b8845576851762dcba078ef`, cloud Linux only. The actual current manifest has 16 published models (the original ten plus six additions); source publication tests remain authoritative.
 Official workflow: emilkowalski/skills at `2d228630ba1446365f614a108cb8252f1feda202`.
 Read find-animation-opportunities/SKILL.md → animate/SKILL.md + RECIPES.md → review-animations/SKILL.md + STANDARDS.md. Retained verbatim under `.agents/skills/emil-animation/` with the original MIT license. No global skill installer or added motion dependency.
 

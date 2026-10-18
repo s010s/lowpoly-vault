@@ -1,16 +1,62 @@
-/** One interruptible owner per element. No permanent animation loop or hidden content. */
-export class GalleryMotion {
- constructor(){this.reduce=matchMedia('(prefers-reduced-motion: reduce)');this.active=new Map();this.seen=new WeakSet();this.observer=new IntersectionObserver(entries=>{let order=0;for(const e of entries){if(e.isIntersecting&&!this.seen.has(e.target)){this.seen.add(e.target);this.observer.unobserve(e.target);this.enter(e.target,order++);}}},{threshold:.08});document.addEventListener('visibilitychange',()=>{for(const a of this.active.values())document.hidden?a.pause():a.play();});this.reduce.addEventListener('change',()=>{if(this.reduce.matches)this.cancelAll();});document.addEventListener('focusin',e=>this.cancel(e.target.closest('.asset-card')));}
- run(el,frames,options={}){if(!el||this.reduce.matches)return null;this.cancel(el);const a=el.animate(frames,{duration:300,fill:'backwards',easing:'cubic-bezier(.2,.8,.2,1)',...options});this.active.set(el,a);if(document.hidden)a.pause();a.finished.catch(()=>{}).finally(()=>{if(this.active.get(el)===a)this.active.delete(el);});return a;}
- cancel(el){this.active.get(el)?.cancel();this.active.delete(el);}
- cancelAll(){for(const a of this.active.values())a.cancel();this.active.clear();}
- capture(grid){const rects=new Map();for(const c of grid.querySelectorAll('.asset-card')){this.cancel(c);rects.set(c.dataset.id,c.getBoundingClientRect());}return rects;}
- async exit(grid,ids){const keep=new Set(ids),tasks=[];for(const c of grid.querySelectorAll('.asset-card'))if(!keep.has(c.dataset.id)){const a=this.run(c,[{opacity:1,transform:'none'},{opacity:0,transform:'translateY(-6px)'}],{duration:100});if(a)tasks.push(a.finished.catch(()=>{}));}await Promise.all(tasks);}
- enter(card,i=0){this.run(card,[{opacity:0,transform:'translateY(24px) scale(.96)'},{opacity:1,transform:'none'}],{duration:460,delay:Math.min(i*40,240)});}
- commit(grid,previous=new Map()){this.observer.disconnect();let i=0;for(const card of grid.querySelectorAll('.asset-card')){const r=card.getBoundingClientRect(),old=previous.get(card.dataset.id);if(old&&old.top<innerHeight&&old.bottom>0&&r.top<innerHeight&&r.bottom>0){this.seen.add(card);const dx=old.left-r.left,dy=old.top-r.top;this.run(card,[{opacity:.65,transform:`translate(${dx}px,${dy}px)`},{opacity:1,transform:'none'}],{duration:280});}else if(r.top<innerHeight&&r.bottom>0){this.seen.add(card);this.enter(card,i++);}else this.observer.observe(card);}}
- replay(grid){for(const c of grid.querySelectorAll('.asset-card'))this.cancel(c);this.commit(grid);}
- shell(){['.brand','.intro','.sidebar','.search-row'].forEach((s,i)=>this.run(document.querySelector(s),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:240,delay:i*45}));}
- feedback(el){this.run(el,[{transform:'scale(1)'},{transform:'scale(.96)',offset:.4},{transform:'scale(1)'}],{duration:180});}
- revealInfo(){document.querySelectorAll('.asset-info>*,.viewer-topline').forEach((el,i)=>this.run(el,[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:220,delay:Math.min(i*22,132)}));}
- dispose(){this.observer.disconnect();this.cancelAll();}
+/** Small interaction feedback. Catalog results and keyboard actions stay immediate. */
+export function initInteractionMotion(refine, doc = document) {
+  const root = doc.documentElement;
+  const summary = refine.querySelector('summary');
+  const fields = refine.querySelector('.refine-fields');
+  let pressed;
+  root.dataset.motionInput = 'keyboard';
+  const release = () => {
+    pressed?.removeAttribute('data-pointer-pressed');
+    pressed = null;
+  };
+  const keyboard = () => { root.dataset.motionInput = 'keyboard'; release(); };
+  const pointer = event => {
+    root.dataset.motionInput = 'pointer';
+    release();
+    if (event.button !== 0 || !event.isPrimary) return;
+    pressed = event.target.closest('button:not(:disabled), #downloads a');
+    pressed?.setAttribute('data-pointer-pressed', '');
+  };
+  const syncDisclosure = () => {
+    // Native open/closed semantics change immediately, including during the visual exit.
+    if (!refine.open && fields.contains(doc.activeElement)) summary.focus({preventScroll:true});
+    fields.inert = !refine.open;
+  };
+  const observer = new MutationObserver(syncDisclosure);
+  observer.observe(refine, {attributes:true, attributeFilter:['open']});
+  syncDisclosure();
+  doc.addEventListener('keydown', keyboard, true);
+  doc.addEventListener('pointerdown', pointer, true);
+  doc.addEventListener('pointerup', release, true);
+  doc.addEventListener('pointercancel', release, true);
+  doc.addEventListener('visibilitychange', release);
+  doc.defaultView.addEventListener('blur', release);
+  return () => {
+    release(); observer.disconnect();
+    doc.removeEventListener('keydown', keyboard, true);
+    doc.removeEventListener('pointerdown', pointer, true);
+    doc.removeEventListener('pointerup', release, true);
+    doc.removeEventListener('pointercancel', release, true);
+    doc.removeEventListener('visibilitychange', release);
+    doc.defaultView.removeEventListener('blur', release);
+  };
+}
+
+/** Only call after a successful clipboard write; repeat success stays settled. */
+export function confirmCopy(button, message) {
+  if (!button.isConnected) return;
+  if (!button.querySelector('.copy-confirmation')) {
+    button.style.minWidth = `${button.getBoundingClientRect().width}px`;
+    const label = document.createElement('span');
+    label.className = 'copy-label';
+    label.textContent = message;
+    const check = document.createElement('span');
+    check.className = 'copy-confirmation';
+    check.textContent = '✓'; check.setAttribute('aria-hidden', 'true');
+    button.replaceChildren(label, check);
+    // Establish the initial CSS state once; subsequent copies never restart it.
+    getComputedStyle(check).opacity;
+  }
+  button.querySelector('.copy-label').textContent = message;
+  button.dataset.copyState = 'copied';
 }
