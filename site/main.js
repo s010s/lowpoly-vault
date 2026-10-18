@@ -260,7 +260,20 @@ function rememberInterruptedDialog(){
   interruptedDialog=$('#viewer-dialog').open?{assetId:selected?.id,visual:currentDetailVisual(),rect:$('#viewer-dialog .stage-flight')?.getBoundingClientRect(),chrome:dialogMotion.capture()}:null;
 }
 function restoreOriginVisual(){document.querySelectorAll('[data-detail-origin]').forEach(card=>card.removeAttribute('data-detail-origin'));}
-function cancelDialogMotion(){modalAnimation?.cancel();modalAnimation=null;dialogMotion.cancel();document.querySelectorAll('.stage-flight').forEach(releaseVisual);$('#canvas-host').style.opacity='';}
+function cancelDialogMotion(){
+  modalAnimation?.cancel();modalAnimation=null;dialogMotion.cancel();
+  const held=interruptedDialog;
+  document.querySelectorAll('.stage-flight').forEach(visual=>{if(visual!==held?.visual)releaseVisual(visual);});
+  $('#canvas-host').style.opacity='';
+  // A queued native history traversal may span a painted frame before its
+  // cancelled chrome promise settles. Keep the exact interrupted picture on
+  // screen until the next open/close consumes it, rather than only in memory.
+  if(held?.visual&&held.rect){
+    held.visual.className='stage-flight live-model-return interrupted-dialog-handoff';
+    Object.assign(held.visual.style,{position:'fixed',left:`${held.rect.left}px`,top:`${held.rect.top}px`,width:`${held.rect.width}px`,height:`${held.rect.height}px`,opacity:'1',visibility:'visible',pointerEvents:'none'});
+    $('#viewer-dialog').append(held.visual);
+  }
+}
 function containRect(rect,ratio){const width=Math.min(rect.width,rect.height*ratio),height=width/ratio;return {left:rect.left+(rect.width-width)/2,top:rect.top+(rect.height-height)/2,width,height};}
 async function animateDialog(from,to,reverse=false,version=detailVersion,flightStart=null){
   const dialog=$('#viewer-dialog'),host=$('#canvas-host');
@@ -297,6 +310,7 @@ async function openAsset(id,{push=false,replace=false}={}){
   if(selectedSummary?.id===id&&!closing&&detailController&&!detailController.signal.aborted&&['loading','ready'].includes($('#canvas-host').dataset.modelState))return;
   const dialog=$('#viewer-dialog'),host=$('#canvas-host'),switching=dialog.open&&!closing;
   const previous=interruptedDialog;interruptedDialog=null;
+  if(previous?.visual){previous.visual.remove();previous.visual.style.cssText='';}
   const resume=previous?.assetId===id?previous:null;if(previous&&!resume)releaseVisual(previous.visual);
   const chromeFrom=previous?.chrome||dialogMotion.capture(),flightStart=resume?.rect||$('#viewer-dialog .stage-flight')?.getBoundingClientRect();
   const interrupted=resume?.visual||(closing?currentDetailVisual():null);

@@ -218,7 +218,7 @@ try{
    const popstate=event=>{
     const detail=location.pathname.endsWith('/natural-arch/');
     state.events.push({time:performance.now(),path:location.pathname,detail,trusted:event.isTrusted,forwardRequested:state.forwardRequested,backRequested:state.backRequested});
-    if(detail&&state.forwardRequested&&!state.backRequested){state.backRequested=true;state.forwardEventTime=performance.now();history.back();}
+    if(detail&&state.forwardRequested&&!state.backRequested){state.backRequested=true;state.forwardEventTime=performance.now();requestAnimationFrame(()=>history.back());}
     else if(!detail&&state.backRequested){state.finalBackSeen=true;state.finalBackEventTime=performance.now();state.holdChrome=false;releaseChrome();}
    };
    window.__qaTriplePopstate=popstate;addEventListener('popstate',popstate,{capture:true});
@@ -227,7 +227,22 @@ try{
     state.draws.push({time:performance.now(),flight,id:flight?id(host):null,host:host.id||host.className,progress,phase:host.dataset.returnPhase||null,view:{...view},rect:{x:r.x,y:r.y,width:r.width,height:r.height},same_canvas:actual===canvas,same_scene:stage._gltf.scene===scene,same_resource:stage._activeResource===resource,live_scenes:window.__vaultGPU.liveScenes,canvases:document.querySelectorAll('.model-canvas').length});
     if(flight&&!state.forwardRequested&&progress>.1&&progress<1){state.forwardRequested=true;setTimeout(()=>history.forward(),0);}
    };
-   const sample=()=>{const flight=document.querySelector('.live-model-return'),image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),css=getComputedStyle(image);state.frames.push({time:performance.now(),open:document.querySelector('#viewer-dialog').open,flight:flight?id(flight):null,poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});window.__qaTripleRAF=requestAnimationFrame(sample);};sample();
+   const heldPixels=new WeakMap();
+   const sample=()=>{
+    const flight=document.querySelector('.live-model-return'),held=document.querySelector('.interrupted-dialog-handoff'),image=document.querySelector('#grid [data-id="natural-arch"] .asset-image img'),css=getComputedStyle(image);
+    if(held&&!heldPixels.has(held)){
+     const pixels=held.getContext('2d').getImageData(0,0,held.width,held.height).data;
+     let visible=false;for(let i=3;i<pixels.length;i+=4)if(pixels[i]){visible=true;break;}
+     heldPixels.set(held,visible);
+    }
+    const heldStyle=held&&getComputedStyle(held);
+    state.frames.push({time:performance.now(),open:document.querySelector('#viewer-dialog').open,flight:flight?id(flight):null,held:!!held,
+     waiting_for_final_back:state.forwardRequested&&state.backRequested&&!state.finalBackSeen,
+     held_visible:!!held&&heldStyle.visibility!=='hidden'&&heldStyle.display!=='none'&&Number(heldStyle.opacity)>.99&&held.getBoundingClientRect().width>0,
+     held_has_model_pixels:held?heldPixels.get(held):false,
+     poster_visible:css.visibility!=='hidden'&&Number(css.opacity)>.99&&!image.closest('[data-detail-origin]')});
+    window.__qaTripleRAF=requestAnimationFrame(sample);
+   };sample();
   });
   await page.locator('#close').click();await page.waitForFunction(()=>window.__qaTriple.finalBackSeen&&!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'),null,{timeout:10000});
   await canonicalPoster(page,c,'natural-arch','triple-history resumed close');
@@ -244,6 +259,7 @@ try{
   check(c,'resumed first frame does not instantly snap to canonical',angle(firstResumed.view.azimuth_deg,canonical.azimuth_deg)>.001||Math.abs(firstResumed.view.elevation_deg-canonical.elevation_deg)>.001||Math.abs(firstResumed.view.distance-canonical.distance)>.00001,{first:firstResumed.view,canonical});
   check(c,'resumed flight visibly interpolates before canonical alignment',resumed.some(d=>d.progress>0&&d.progress<1)&&resumed.some(d=>d.progress===1),resumed);sameView(c,canonical,resumed.at(-1).view,'triple-history final canonical live draw');
   check(c,'triple history retains the same single actual canvas scene and decoded resource',flights.every(d=>d.same_canvas&&d.same_scene&&d.same_resource&&d.live_scenes===1&&d.canvases===1),flights);
+  check(c,'queued history is sampled while its exact interrupted picture stays mounted',evidence.frames.some(f=>f.waiting_for_final_back)&&evidence.frames.filter(f=>f.waiting_for_final_back).every(f=>f.held_visible&&f.held_has_model_pixels),evidence.frames);
   check(c,'resumed close keeps a live visual until the canonical poster is shown',evidence.frames.every(f=>f.flight||f.poster_visible||f.time<evidence.forwardEventTime),evidence.frames);
   const after=await stats(page);check(c,'triple history finishes canonical with no RAF leases fetches parses or renderer leaks',after.liveScenes===0&&after.activeLeases===0&&after.pendingLeases===0&&after.rafPending===0&&after.rendererCreations===before.rendererCreations&&after.networkRequests===before.networkRequests&&after.parseCount===before.parseCount,{before,after});
   await shot(page,'06d-triple-history-resumed-canonical-poster');
