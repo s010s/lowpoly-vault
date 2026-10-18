@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "halimeda",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/build.py",
+        "config": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/config.json",
+        "brief": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/brief.json",
+        "references": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/references.json",
+        "freeze": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/freeze.json",
+        "helper": "/workspace/batch07-halimeda/scripts/asset_common.py",
+        "audit": "/workspace/batch07-halimeda/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "halimeda.glb",
+        "halimeda.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101809,
+        "purpose": "fresh deterministic semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "halimeda",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/build.py",
+        "config": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/config.json",
+        "brief": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/brief.json",
+        "references": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/references.json",
+        "freeze": "/workspace/batch07-halimeda/production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001/freeze.json",
+        "helper": "/workspace/batch07-halimeda/scripts/asset_common.py",
+        "audit": "/workspace/batch07-halimeda/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "halimeda.glb",
+        "halimeda.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101809,
+        "purpose": "fresh deterministic semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
