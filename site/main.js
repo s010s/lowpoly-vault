@@ -1,5 +1,6 @@
 import { SharedModelPreview } from './model-preview.js';
 import { createCatalogToolbar } from './catalog-toolbar.js';
+import { createCatalogScroll } from './catalog-scroll.js';
 import { ModelAtlas } from './atlas.js';
 import { CatalogStore } from './catalog.js';
 import { initTheme } from './theme.js';
@@ -38,6 +39,7 @@ let browseMode = 'grid', atlas, atlasPackKey = '', atlasPackItems = [], currentV
 let sourceContext = null, neighborItems = [], searchTimer, pendingRoute = false, queuedRoute = false;
 const viewScroll = {home:0, catalog:0, about:0, detail:0};
 const staticContent = $('#static-route-content');
+const catalogScroll = createCatalogScroll({catalog:$('#catalog-page'),dialog:$('#viewer-dialog'),label:()=>lang==='zh'?'向下浏览':'Scroll to explore'});
 const path = p => store.resolvePath(p);
 const preview = new SharedModelPreview({resolvePath:path,getStage,language:()=>lang});
 const queryOptions = () => ({query:$('#search').value, category, world, pack, sort:$('#sort').value, maxTriangles, page, view:browseMode === 'atlas' ? 'map' : 'grid'});
@@ -410,6 +412,7 @@ function showView(view){
   if(view!=='catalog')stopHover();
   if(!['home','catalog','about','detail'].includes(view))view='home';if(view!==currentView)viewScroll[currentView]=scrollY;currentView=view;
   $('#home-page').hidden=view!=='home';$('#catalog-page').hidden=view!=='catalog';$('#about-page').hidden=view!=='about';
+  catalogScroll.setActive(view==='catalog');
   if(staticContent){const type=view==='catalog'?'models':view;staticContent.hidden=staticContent.dataset.routeType!==type || (view==='detail'&&staticContent.dataset.assetId!==directDetailId);if(index&&view!=='detail'&&(view!=='catalog'||$('#grid').ariaBusy==='false'))staticContent.hidden=true;}
   // Keep the useful server-rendered list alone until its enhanced replacement
   // is ready. Revealing an empty catalog here stacked both layouts on reload.
@@ -496,7 +499,7 @@ document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!selected&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();if(currentView==='home')$('#home-query').focus();else catalogToolbar.open();}
   if(selected&&['ArrowLeft','ArrowRight'].includes(event.key)&&!event.altKey&&!event.ctrlKey&&!event.metaKey&&!event.target.closest('#canvas-host,input,textarea,select')){const link=$(event.key==='ArrowLeft'?'#previous-model':'#next-model');if(!link.hidden){event.preventDefault();openAsset(link.dataset.modelId,{replace:true});}}
 });
-window.addEventListener('pagehide',()=>{restoreOriginVisual();releaseVisual(interruptedDialog?.visual);preview.dispose();stage?.dispose();disposeInteractionMotion();dialogMotion.dispose();atlas?.dispose();store.dispose();});
+window.addEventListener('pagehide',()=>{catalogScroll.dispose();restoreOriginVisual();releaseVisual(interruptedDialog?.visual);preview.dispose();stage?.dispose();disposeInteractionMotion();dialogMotion.dispose();atlas?.dispose();store.dispose();});
 async function load(){
   if(!staticContent)$('#grid').innerHTML=Array.from({length:8},()=>'<div class="skeleton" aria-hidden="true"></div>').join('');$('#grid').ariaBusy='true';
   try{

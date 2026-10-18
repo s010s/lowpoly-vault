@@ -15,7 +15,7 @@ const mainSource=await readFile(new URL('./main.js',import.meta.url),'utf8');
 const hydrationSource=mainSource.slice(mainSource.indexOf('function hideStaticFor('),mainSource.indexOf('async function syncRoute('));
 const shellNodes=Object.fromEntries(['#home-page','#about-page','#catalog-page','#grid'].map(id=>[id,{hidden:true,ariaBusy:'true'}]));
 const fallback={dataset:{routeType:'models'},hidden:false};
-const hydration=new Function('$','document','staticContent',`let currentView='home',index=null,directDetailId=null,atlas=null,browseMode='grid',viewScroll={},scrollY=0;const stopHover=()=>{};${hydrationSource};return {showView,hideStaticFor};`)(id=>shellNodes[id],{querySelectorAll:()=>[]},fallback);
+const hydration=new Function('$','document','staticContent',`let currentView='home',index=null,directDetailId=null,atlas=null,browseMode='grid',viewScroll={},scrollY=0;const stopHover=()=>{},catalogScroll={setActive(){}};${hydrationSource};return {showView,hideStaticFor};`)(id=>shellNodes[id],{querySelectorAll:()=>[]},fallback);
 hydration.showView('catalog');assert.equal(fallback.hidden,false);assert.equal(shellNodes['#catalog-page'].hidden,true,'Pending enhancement never duplicates the visible fallback list');
 shellNodes['#grid'].ariaBusy='false';hydration.hideStaticFor('models');assert.equal(fallback.hidden,true);assert.equal(shellNodes['#catalog-page'].hidden,false,'Completed enhancement swaps fallback and catalog synchronously');
 hydration.showView('about');assert.equal(shellNodes['#catalog-page'].hidden,true);assert.equal(shellNodes['#about-page'].hidden,false);

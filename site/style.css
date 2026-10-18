@@ -134,3 +134,19 @@ button[data-pointer-pressed]:not(:disabled),#downloads a[data-pointer-pressed]{t
   button[data-pointer-pressed]:not(:disabled),#downloads a[data-pointer-pressed]{transform:none}
   .catalog-refine::details-content{transition:none!important;transform:none}
 }
+
+/* Reserve classic-scrollbar space on ordinary pages. Catalog browsing instead
+   uses the full viewport, including throughout its detail scroll lock. */
+html{scrollbar-gutter:stable}
+html[data-catalog-scroll]{scrollbar-gutter:auto;scrollbar-width:none}
+html[data-catalog-scroll]::-webkit-scrollbar{display:none}
+.catalog-scroll-cue{
+  --scroll-surface:#20211e;
+  position:fixed;inset:auto 0 0;z-index:5;pointer-events:none;
+  display:flex;align-items:flex-end;justify-content:center;
+  height:calc(56px + env(safe-area-inset-bottom,0px));
+  padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(transparent,var(--scroll-surface));color:var(--muted);
+}
+[data-theme=light] .catalog-scroll-cue{--scroll-surface:#f3f2ed}
+.catalog-scroll-cue span{font-size:10px;line-height:1.5;letter-spacing:.15px}

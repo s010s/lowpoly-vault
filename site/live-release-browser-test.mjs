@@ -25,11 +25,16 @@ try {
    const catalog=base+lang+'models/?pack=prehistoric-small-fauna';
    await page.goto(catalog);await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');
    assert.deepEqual((await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),FAUNA_IDS);
+   assert(await page.locator('html').evaluate(el=>el.hasAttribute('data-catalog-scroll')&&getComputedStyle(el).scrollbarWidth==='none'),'Deployed catalog must use the new scoped native scrolling');
    for(const id of FAUNA_IDS) {
     const asset=expected.assets.find(a=>a.id===id),card=page.locator(`#grid [data-id="${id}"]`);await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());assert(await card.locator('img').evaluate(img=>img.naturalWidth>0));
     if(!mobile){await card.hover();await page.waitForFunction(id=>document.querySelector(`[data-id="${id}"]`)?.dataset.previewState==='ready',id);}
+    const before=await page.locator('html').evaluate(el=>({x:el.getBoundingClientRect().x,width:el.getBoundingClientRect().width}));
     await card.click();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');
     assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0);
+    const after=await page.locator('html').evaluate(el=>({x:el.getBoundingClientRect().x,width:el.getBoundingClientRect().width,scoped:el.hasAttribute('data-catalog-scroll')}));
+    assert(after.scoped,'Catalog scope persists beneath deployed details');assert(Math.abs(after.x-before.x)<=.5&&Math.abs(after.width-before.width)<=.5,'Deployed catalog must not shift horizontally');
+    assert.equal(await page.locator('.catalog-scroll-cue').isVisible(),false,'Deployed cue is hidden beneath details');
     assert.equal(await page.locator('#asset-title').textContent(),asset.name[mobile?'zh':'en']);
     const detailURL=base+lang+`models/${id}/`,staticResponse=await page.request.get(detailURL);assert(staticResponse.ok());const html=await staticResponse.text();assert(html.includes('application/ld+json')&&html.includes('static-route-content'));
     const downloaded={};

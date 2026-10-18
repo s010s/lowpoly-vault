@@ -32,3 +32,9 @@ The owner accepted shipping the measured 271–288 ms close latency. Only the mo
 The same closing-latency exception covers canonical alignment time up to 250 ms (original 120 ms target remains reported). The separate assertion that the actual camera matches the canonical pose before fading remains blocking, along with the continuous-path and partial-painted-fade checks.
 
 Publication follow-through: timing-only misses are advisory without a substitute millisecond ceiling, including the observed 487.6 ms CI close. Missing closure, reduced-motion timing, camera/pixel continuity and functional cleanup remain blocking. This supersedes the provisional 350/250 ms ceilings above.
+
+## Catalog scrolling
+
+The enhanced catalog keeps native document scrolling while hiding only the viewport scrollbar. A non-interactive bottom fade and localized “Scroll to explore / 向下浏览” hint appears only when catalog content remains below the viewport. It disappears at the bottom, for non-overflowing results, outside the catalog, and under the detail dialog. The cue has no animation and never intercepts wheel, touch or keyboard input. Detail scrollbars remain available.
+
+The catalog keeps its full-width scrollbar scope throughout detail opening, closing and history reversal, so body scroll lock does not change measured card/flight coordinates. Other routes reserve a stable native scrollbar gutter. `npm run test:redesign` includes controller state/input-listener checks; after a project-prefix build, `npm run test:scroll:browser` checks real-model roundtrips, rAF-sampled background geometry, scrolling and restoration, short/filter/resize cases, localization, reduced motion and emulated touch/overlay configurations. Reports disclose actual measured scrollbar geometry and device limits.

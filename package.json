@@ -16,7 +16,7 @@
     "test:parser": "node site/parse-models.mjs",
     "test:catalog": "node site/catalog-test.mjs",
     "test:theme": "node site/theme-test.mjs",
-    "test:redesign": "node site/catalog-v2-test.mjs && node site/static-routes-test.mjs && node site/viewer-scale-test.mjs && node site/dialog-motion-test.mjs",
+    "test:redesign": "node site/catalog-v2-test.mjs && node site/static-routes-test.mjs && node site/viewer-scale-test.mjs && node site/dialog-motion-test.mjs && node site/catalog-scroll-test.mjs",
     "test:redesign:browser": "node site/redesign-browser-test.mjs",
     "publication:check": "node site/initial-release.mjs --check",
     "test:publication": "node site/initial-release-test.mjs && node site/refined-release-test.mjs && node site/small-life-release-test.mjs && node site/small-fauna-release-test.mjs",
@@ -28,7 +28,8 @@
     "test:preview": "node site/model-preview-test.mjs && node site/viewer-resource-test.mjs && node site/return-motion-test.mjs && node site/hover-reveal-test.mjs && node site/handoff-dissolve-test.mjs",
     "test:preview:browser": "node site/shared-model-browser-test.mjs",
     "test:interaction:browser": "node site/interaction-motion-browser-test.mjs",
-    "test:hover:browser": "node site/hover-reveal-browser-test.mjs"
+    "test:hover:browser": "node site/hover-reveal-browser-test.mjs",
+    "test:scroll:browser": "node site/catalog-scroll-browser-test.mjs"
   },
   "dependencies": {
     "three": "0.180.0"
