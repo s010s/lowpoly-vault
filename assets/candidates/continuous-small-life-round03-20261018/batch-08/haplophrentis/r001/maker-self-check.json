@@ -1,0 +1,64 @@
+{
+  "subject": {
+    "asset_id": "haplophrentis",
+    "revision": "r001",
+    "glb_sha256": "4df63451a4c3bc355c3e9dd10ec308857e7baa0842fde8f3b0d75577376cda74",
+    "brief_sha256": "9b93c23551de6d985b04d6d928196719eadb5e83f50fae4cbf273d4ff9fec712",
+    "references_sha256": "4b073d50a70800734017fe2c3b64433fb630874b793401d61c02e2934efcf9d2"
+  },
+  "independent_acceptance": "pending; maker does not sign independent QA",
+  "source_export_status": "pass_with_warnings",
+  "rebuilds": [
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "314445ccfc8c2795968624572f122d2ee77ac19aaeaa803624ee50a7e0451be2"
+    },
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "314445ccfc8c2795968624572f122d2ee77ac19aaeaa803624ee50a7e0451be2"
+    }
+  ],
+  "khronos": {
+    "status": "pass",
+    "validator_version": "2.0.0-dev.3.10",
+    "sha256": "4df63451a4c3bc355c3e9dd10ec308857e7baa0842fde8f3b0d75577376cda74",
+    "errors": [],
+    "warnings": [],
+    "num_errors": 0,
+    "num_warnings": 0,
+    "report": "gltf-validator.report.json",
+    "truncated": false
+  },
+  "runtime_status": "pass",
+  "authored_source_vertices": 2123,
+  "evaluated_source_vertices": 2123,
+  "source_triangles": 4230,
+  "exported_position_stream_vertices": 2163,
+  "exported_triangles": 4230,
+  "materials": 4,
+  "primitives": 4,
+  "glb_bytes": 81460,
+  "textures": 0,
+  "texture_bytes": 0,
+  "warning_disposition": [
+    {
+      "warning": "tapered-conch-with-visible-aperture: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on tapered conch, shallow operculum and swept slender helens; static teaching pose only.",
+      "independent_review": "pending"
+    },
+    {
+      "warning": "separate-simplified-operculum: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on tapered conch, shallow operculum and swept slender helens; static teaching pose only.",
+      "independent_review": "pending"
+    },
+    {
+      "warning": "two-long-curved-helens-from-aperture: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on tapered conch, shallow operculum and swept slender helens; static teaching pose only.",
+      "independent_review": "pending"
+    }
+  ],
+  "project_checker_returncode": 1,
+  "project_checker_note": "Actual first mismatch retained in project-checker.report.json: frozen reference ledger has use/rights_note rather than legacy license/notes keys. Legacy zero-turntable incompatibility is separately documented; no fabricated PASS."
+}
