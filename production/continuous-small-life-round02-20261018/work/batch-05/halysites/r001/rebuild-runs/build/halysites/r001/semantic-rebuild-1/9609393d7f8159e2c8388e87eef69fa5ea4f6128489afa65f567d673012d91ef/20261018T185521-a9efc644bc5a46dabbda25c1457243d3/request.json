@@ -1,0 +1,107 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+    "--",
+    "--asset",
+    "halysites",
+    "--config",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/halysites/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/halysites/r001/rebuild-runs/build/halysites/r001/semantic-rebuild-1/9609393d7f8159e2c8388e87eef69fa5ea4f6128489afa65f567d673012d91ef/20261018T185521-a9efc644bc5a46dabbda25c1457243d3/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T18:55:21.327056+00:00",
+  "fingerprint": "9609393d7f8159e2c8388e87eef69fa5ea4f6128489afa65f567d673012d91ef",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9308,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/brief.json",
+        "sha256": "d516aabec0fbc2821ed427c458a0de27f294fe9982604626fc98c6a888b1ad94"
+      },
+      "config": {
+        "bytes": 2096,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/halysites/r001/config.json",
+        "sha256": "6991040dd9926350387955a73f995460549603132f6d24a7c4b9705601c73146"
+      },
+      "generator": {
+        "bytes": 16178,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "sha256": "f4f12085abb3f63ed88d9871c7082c3fb5b6e84383384c5d502678445c2ec8f7"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1098,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/references.json",
+        "sha256": "6ad472b843216a286ced7bfc608fcf0791f7300c502a82c1cec7d0b0ba07f485"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "halysites",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "halysites",
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "halysites"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/halysites/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "halysites/halysites.glb",
+        "halysites/halysites.blend",
+        "halysites/qa.json",
+        "halysites/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T185521-dcd2e181b64b4bbe9f39a84499f65db2"
+}

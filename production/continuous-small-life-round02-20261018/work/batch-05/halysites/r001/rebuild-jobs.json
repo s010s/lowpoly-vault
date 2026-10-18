@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "halysites",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/halysites/r001/config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "halysites",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "halysites/halysites.glb",
+        "halysites/halysites.blend",
+        "halysites/qa.json",
+        "halysites/metadata.json"
+      ],
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "halysites"
+      },
+      "timeout_seconds": 300
+    },
+    {
+      "asset_id": "halysites",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/halysites/r001/config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/halysites/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "halysites",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "halysites/halysites.glb",
+        "halysites/halysites.blend",
+        "halysites/qa.json",
+        "halysites/metadata.json"
+      ],
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "halysites"
+      },
+      "timeout_seconds": 300
+    }
+  ]
+}
