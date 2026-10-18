@@ -15,7 +15,7 @@ import zlib
 
 from test_qa_glb import fixture, encode
 from qa_glb import audit_glb
-from validate_candidate import STAGES, REPORT_KIND, PRODUCTION_VIEWS, validate_candidate, image_size, json_bytes, check_render_manifest, approval_snapshot_sha256
+from validate_candidate import STAGES, REPORT_KIND, PRODUCTION_VIEWS, ENVIRONMENT_PROP_VIEWS, validate_candidate, image_size, json_bytes, check_render_manifest, approval_snapshot_sha256
 
 
 def digest(raw):
@@ -29,7 +29,7 @@ def png():
             + chunk(b'IDAT', zlib.compress(b'\0\xff\0\0')) + chunk(b'IEND', b''))
 
 
-def build_fixture(root, base='candidate-fixture', glb_name='model.glb', approved=True, profile='production', textured=False):
+def build_fixture(root, base='candidate-fixture', glb_name='model.glb', approved=True, profile='production', textured=False, quality_tier=None):
     """Fake assertions intentionally marked synthetic; only exercise the gate's behavior."""
     root = Path(root)
     folder = root / base
@@ -65,6 +65,10 @@ def build_fixture(root, base='candidate-fixture', glb_name='model.glb', approved
              'criteria': [{'id': stage + '-criterion', 'stage': stage, 'critical': stage not in ('gpu', 'scene') or profile == 'production',
                            'description': 'SYNTHETIC TEST ONLY: ' + stage, 'required_sources': ['reference-a'] if stage in ('visual', 'factual') else []}
                           for stage in STAGES]}
+    if quality_tier is not None:
+        brief['quality_tier'] = quality_tier
+    if quality_tier == 'environment-prop':
+        brief.update(required_views=sorted(ENVIRONMENT_PROP_VIEWS), turntable_frames=0)
     brief_artifact = save('brief.json', brief)
     subject = {'revision': 'v001', 'glb_sha256': artifact['sha256'], 'brief_sha256': brief_artifact['sha256'],
                'references_sha256': references['sha256']}
@@ -672,6 +676,38 @@ class CandidateGateTests(unittest.TestCase):
         result = validate_candidate(self.path, self.root)
         self.assertFalse(result['valid'])
         self.assertIn('duplicate JSON key', result['errors'][0])
+
+
+class RecoveredEnvironmentPropTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.candidate, self.path = build_fixture(self.root, quality_tier='environment-prop')
+
+    def test_six_views_zero_orbit_preserves_all_stages(self):
+        result = validate_candidate(self.path, self.root)
+        self.assertTrue(result['approved_for_brief'], result)
+        self.assertEqual(set(result['required_stages']), set(STAGES))
+
+    def test_gpu_still_cannot_be_waived(self):
+        self.candidate['stages']['gpu']['status'] = 'not_applicable'
+        self.path.write_text(json.dumps(self.candidate))
+        result = validate_candidate(self.path, self.root)
+        self.assertFalse(result['approved_for_brief'], result)
+        self.assertIn('mandatory stage cannot be waived', str(result))
+
+    def test_missing_meaningful_view_rejected(self):
+        item = self.candidate['artifacts']['brief']
+        path = self.root / item['path']
+        brief = json.loads(path.read_text())
+        brief['required_views'].remove('clay')
+        path.write_text(json.dumps(brief))
+        item['sha256'] = digest(path.read_bytes())
+        self.path.write_text(json.dumps(self.candidate))
+        result = validate_candidate(self.path, self.root)
+        self.assertFalse(result['valid'], result)
+        self.assertIn('hero/front/right/rear/top/clay', str(result))
 
 
 if __name__ == '__main__':

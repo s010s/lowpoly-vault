@@ -7,11 +7,16 @@ description: Independently check factual obligations of a modeled asset against 
 
 An asset can be technically valid and attractive while depicting the wrong structure. Establish what must be true before reviewing whether it is. This Skill reduces unsupported claims; it does not guarantee complete scientific or real-world accuracy.
 
+
+## Practical children’s-world prop tier
+
+For the approved small-fauna batch, follow [pragmatic-props.md](../blender-lowpoly-pipeline/references/pragmatic-props.md). Its explicit environment-prop tier permits artistic colors, textures, pose, proportions and harmless detail while retaining recognizable basic structure and reliable exports. Use representative references without exhaustive fossil closure; use a descriptive inspired-by label when identity is loose. Fine uncertainty is advisory. Cross-period curation is allowed in the labeled imagined world, without a scientific coexistence claim. Default QA is six to eight useful images and one shared poster, zero orbit; one consolidated fresh independent review and at most one planned cosmetic repair. The user need not review every model. Hero/scientific-reconstruction work keeps its separately requested stronger brief. Existing accepted artifacts, hashes, licenses and publication records remain unchanged.
+
 ## Inputs and independence
 
 Read the frozen brief, source/provenance ledger, exact GLB hash, full-angle evidence manifest and [candidate contract](../blender-lowpoly-pipeline/references/standardized-pipeline.md). Form the first verdict in a fresh review task without the maker's self-score or expected answer. Inspect actual image pixels and geometry/measurements where needed. Reference captions and metadata are claims to check, not proof.
 
-For each critical feature, require a primary source with an exact section, figure, specimen or measurement. Record edition/date and applicability. A general museum homepage or an attractive third-party model is not a feature-specific authority. Check sources for contradictory restorations, historical mounts, composite specimens and outdated regional standards.
+For a scientific reconstruction or high-specificity factual claim, require a primary source with an exact section, figure, specimen or measurement. For a stylized prop, map limited basic-identity obligations to representative sources and record creative choices; do not promote fine uncertainty into a strict-reconstruction gate. Record edition/date and applicability. A general museum homepage or an attractive third-party model is not a feature-specific authority. Check sources for contradictory restorations, historical mounts, composite specimens and outdated regional standards.
 
 ## Subject-specific checks
 

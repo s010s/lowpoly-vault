@@ -17,6 +17,11 @@ The first pack is a specific ten-category assignment, not a requirement for ever
 
 Use [asset-factual-review](../asset-factual-review/SKILL.md) for feature-by-feature evidence decisions, especially animal anatomy outside this Skill's scope. Follow the [standardized pipeline](../blender-lowpoly-pipeline/references/standardized-pipeline.md) for immutable candidates and fresh independent review. Historical first-pack approvals do not automatically apply to later revisions or a new surface style.
 
+
+## Practical children’s-world prop tier
+
+For the approved small-fauna batch, follow [pragmatic-props.md](../blender-lowpoly-pipeline/references/pragmatic-props.md). Its explicit environment-prop tier permits artistic colors, textures, pose, proportions and harmless detail while retaining recognizable basic structure and reliable exports. Use representative references without exhaustive fossil closure; use a descriptive inspired-by label when identity is loose. Fine uncertainty is advisory. Cross-period curation is allowed in the labeled imagined world, without a scientific coexistence claim. Default QA is six to eight useful images and one shared poster, zero orbit; one consolidated fresh independent review and at most one planned cosmetic repair. The user need not review every model. Hero/scientific-reconstruction work keeps its separately requested stronger brief. Existing accepted artifacts, hashes, licenses and publication records remain unchanged.
+
 ## Establish the claim before the mesh
 
 For each asset record:
@@ -42,7 +47,7 @@ Do not upgrade a concept to a scientific reconstruction without a supported taxo
 
 ## Keep the package scientifically honest
 
-The first pack contains a Carboniferous tree, Mesozoic-inspired plants, teaching traces, and time-neutral geology concepts. Show them together only as a clearly labeled cross-period asset catalogue. A habitat reconstruction requires compatibility at the period, place, substrate, and climate levels.
+The first pack contains a Carboniferous tree, Mesozoic-inspired plants, teaching traces, and time-neutral geology concepts. Show them together as a labeled cross-period catalogue or imagined world. A claimed scientific habitat reconstruction still requires compatibility at the period, place, substrate, and climate levels.
 
 For the current museum:
 - The legacy gobi ID means an Iren Dabasu vegetated fluvial plain, not today's dune desert.

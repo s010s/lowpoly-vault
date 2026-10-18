@@ -2,6 +2,10 @@
 
 This contract applies to new candidates and revisions. It does not retroactively turn historical first-pack records into current approval. Use the existing build/export helpers and [QA entry points](qa-design.md); add the candidate record and independent review described here.
 
+## Explicit environment-prop scope
+
+Follow [pragmatic-props.md](pragmatic-props.md) for the children’s-world batch: recognizable stylized-inspired form, representative references, artistic choices and fine uncertainties as advisories, six to eight useful images, zero orbit and a bounded consolidated independent review. The explicit tier keeps production-stage integrity/runtime checks. Hero or scientific-reconstruction obligations apply only to their separately frozen briefs.
+
 ## Lifecycle and identities
 
 `planned → brief_ready → building → candidate → reviewing → repair → reviewing → accepted_for_brief`
@@ -47,7 +51,7 @@ After exporting, run source and GLB checks, official format validation, clean re
 
 Use the headless renderer and queue in [parallel-queue.md](parallel-queue.md). One Blender installation can run multiple isolated processes. The GUI is not the scheduling unit.
 
-Freeze a view plan. A 24–36-frame full-azimuth turntable is a starting profile, configurable after a visual/cost benchmark. Add front/rear/both sides/top/bottom, clay and alternate key, actual triangulated wireframe and subject-specific details. Request extra angles around uncertain joints, undersides, thin surfaces and cavities. Full angle coverage at low samples precedes final high-resolution renders.
+Freeze a view plan. For environment props use hero/front/right/rear/top/clay with zero orbit by default, adding a targeted view only for a real concern. A 24–36-frame full-azimuth turntable is a possible hero/full-coverage profile, configurable after a visual/cost benchmark. For the hero/full-coverage tier, add front/rear/both sides/top/bottom, clay and alternate key, actual triangulated wireframe and subject-specific details; do not impose that expanded set on environment props. Request extra angles around uncertain joints, undersides, thin surfaces and cavities. Full angle coverage at low samples precedes final high-resolution renders.
 
 Every image must identify source GLB hash and camera/render config. Keep frame order, azimuth/elevation, pose, resolution, background, color management, bytes and SHA-256 in a manifest. Fit the full asset using stable framing; do not allow each frame to zoom independently. Generate a navigation montage while retaining originals. A reviewer must open the actual required pixels; a montage or filename alone does not establish inspection.
 

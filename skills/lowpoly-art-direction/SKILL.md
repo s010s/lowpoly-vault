@@ -9,6 +9,11 @@ Use deliberately designed planes to communicate identity, weight, material, and 
 
 The current target is refined, textured low-poly. Rich original surface maps and mixed smooth/faceted shading are compatible with this goal. Separate geometry complexity from texture resolution, memory and material cost. Texture cannot repair a wrong outline, missing anatomy or implausible joint. The [Triceratops and environment surface study](../../docs/case-studies/lightweight-triceratops.md) records where inexpensive regional color helped, where fine relief was lost, and why three surface-heavy environment prototypes were rejected. Use its [controlled comparison checklist](../blender-lowpoly-pipeline/references/controlled-optimization.md) for new variants; its accepted byte count is an example, not a preset. Follow the [standardized pipeline](../blender-lowpoly-pipeline/references/standardized-pipeline.md) for frozen briefs, independent review and acceptance records.
 
+
+## Practical children’s-world prop tier
+
+For the approved small-fauna batch, follow [pragmatic-props.md](../blender-lowpoly-pipeline/references/pragmatic-props.md). Its explicit environment-prop tier permits artistic colors, textures, pose, proportions and harmless detail while retaining recognizable basic structure and reliable exports. Use representative references without exhaustive fossil closure; use a descriptive inspired-by label when identity is loose. Fine uncertainty is advisory. Cross-period curation is allowed in the labeled imagined world, without a scientific coexistence claim. Default QA is six to eight useful images and one shared poster, zero orbit; one consolidated fresh independent review and at most one planned cosmetic repair. The user need not review every model. Hero/scientific-reconstruction work keeps its separately requested stronger brief. Existing accepted artifacts, hashes, licenses and publication records remain unchanged.
+
 ## Establish the brief
 
 - Record the category, viewing distance, real or explicitly stylized scale, three identifying features, and dominant silhouette. For trace-based assets such as nests and footprint slabs, also name the identifying internal geometry.

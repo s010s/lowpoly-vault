@@ -30,6 +30,7 @@ GEOMETRY = {'triangles': 'max_triangles', 'materials': 'max_materials',
 TEXTURE = {'texture_count': 'max_textures', 'texture_max_dimension': 'max_dimension',
            'texture_bytes': 'max_total_bytes'}
 PRODUCTION_VIEWS = frozenset(('front', 'rear', 'left', 'right', 'top', 'bottom', 'clay', 'wire', 'detail'))
+ENVIRONMENT_PROP_VIEWS = frozenset(('hero', 'front', 'right', 'rear', 'top', 'clay'))
 SHA = re.compile(r'^[a-f0-9]{64}$')
 ID = re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9._:-]*$')
 LIMITATIONS = ('Checks evidence integrity and recorded obligations only; it does not prove visual quality, '
@@ -211,6 +212,9 @@ def check_brief(brief, record, sources):
     need(brief.get('asset_id') == record['asset_id'], 'brief: asset_id mismatch')
     identifier(brief.get('brief_version'), 'brief.brief_version')
     need(brief.get('profile') in ('study', 'production'), 'brief: profile must be study or production')
+    environment_prop = brief.get('quality_tier') == 'environment-prop'
+    if environment_prop:
+        need(brief['profile'] == 'production', 'brief: environment-prop tier retains the production stages')
     need(brief.get('publication_authority') == 'separate', 'brief: publication authority must remain separate')
     requested = unique(brief.get('required_stages'), 'brief.required_stages')
     need(set(requested) <= set(STAGES), 'brief: unknown required stage')
@@ -219,13 +223,17 @@ def check_brief(brief, record, sources):
         required |= {'gpu', 'scene'}
     views = unique(brief.get('required_views'), 'brief.required_views')
     need(views and 'turntable' not in views, 'brief: named required views exclude turntable frames')
-    frames = integer(brief.get('turntable_frames'), 'brief.turntable_frames', 2)
+    frames = integer(brief.get('turntable_frames'), 'brief.turntable_frames', 0 if environment_prop else 2)
+    need(frames != 1, 'brief: orbit plan must be zero or at least two frames')
     exemptions = obj(brief.get('view_exemptions', {}), 'brief.view_exemptions')
     need(set(exemptions) <= {'detail'}, 'brief: only detail may be explicitly inapplicable')
     for view, reason in exemptions.items():
         text(reason, f'brief.view_exemptions.{view}')
         need(view not in views, f'brief: {view} cannot be required and exempt')
-    if brief['profile'] == 'production':
+    if environment_prop:
+        need(ENVIRONMENT_PROP_VIEWS <= set(views),
+             'brief: environment-prop requires hero/front/right/rear/top/clay coverage')
+    elif brief['profile'] == 'production':
         need(PRODUCTION_VIEWS - set(exemptions) <= set(views),
              'brief: production requires full front/rear/left/right/top/bottom/clay/wire/detail coverage')
     if frames < 24:
@@ -437,7 +445,7 @@ def check_render_manifest(manifest, evidence, expected, brief, root):
         problems.append(f'{label}: insufficient distinct turntable angles')
     # Full orbit coverage: distinct angles cannot all cluster on a single side.
     angles = sorted(turntable_angles)
-    if len(angles) > 1:
+    if brief['turntable_frames'] > 0 and len(angles) > 1:
         gaps = [b-a for a, b in zip(angles, angles[1:])] + [angles[0]+360-angles[-1]]
         if max(gaps) > 360 / brief['turntable_frames'] * 1.5 + 1e-6:
             problems.append(f'{label}: turntable coverage has an uninspected angular gap')

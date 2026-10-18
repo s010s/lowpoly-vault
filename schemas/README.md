@@ -299,3 +299,7 @@ node site/initial-release.mjs --check
 Tests intentionally include fabricated/mutated fixtures so the gate's rejection
 behavior is observable. Passing synthetic tests are evidence about the gate,
 not evidence that any production model looks good or is factually correct.
+
+## Explicit environment-prop tier
+
+A production brief with quality_tier environment-prop retains all seven stages but permits turntable_frames zero with a coverage reason. It requires hero/front/right/rear/top/clay; extra detail views are need-driven. Old briefs without this opt-in keep their full-view/orbit requirements. The practical Skill defines stylized-inspired claim scope, advisory uncertainty and bounded review.

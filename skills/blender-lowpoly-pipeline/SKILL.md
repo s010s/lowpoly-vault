@@ -5,6 +5,11 @@ description: Create reproducible original low-poly Blender assets, GLB exports, 
 
 # Build low-poly museum assets
 
+
+## Practical children’s-world prop tier
+
+For the approved small-fauna batch, follow [pragmatic-props.md](references/pragmatic-props.md). Its explicit environment-prop tier permits artistic colors, textures, pose, proportions and harmless detail while retaining recognizable basic structure and reliable exports. Use representative references without exhaustive fossil closure; use a descriptive inspired-by label when identity is loose. Fine uncertainty is advisory. Cross-period curation is allowed in the labeled imagined world, without a scientific coexistence claim. Default QA is six to eight useful images and one shared poster, zero orbit; one consolidated fresh independent review and at most one planned cosmetic repair. The user need not review every model. Hero/scientific-reconstruction work keeps its separately requested stronger brief. Existing accepted artifacts, hashes, licenses and publication records remain unchanged.
+
 ## Scope and runtime
 
 Honor the requested environment, model, and repository permissions. For lowpoly-vault the current instruction is cloud-only, no user Mac, with Blender modeling performed using GPT-6 Astra at xhigh reasoning. This skill grants no publishing or Git authority.
