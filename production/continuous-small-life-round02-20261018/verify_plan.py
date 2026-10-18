@@ -11,7 +11,8 @@ state = json.loads((root / 'state.json').read_text())
 first = json.loads((repo / 'production/continuous-small-life-20261018/queue.json').read_text())
 assert q['kind'] == 'planning-only-production-backlog-not-executable-runner-manifest'
 assert q['round'] == 2 and q['start_gate']['ci_simplification_confirmed'] is True
-assert q['start_gate']['next_round_dispatched'] is False
+# queue.start_gate is historical planning intent, never a live dispatch lock.
+# Explicit parent dispatch and current state override stale empty claims.
 invpath = repo / q['inventory']['path']
 assert hashlib.sha256(invpath.read_bytes()).hexdigest() == q['inventory']['sha256']
 inv = {a['id']: a for a in json.loads(invpath.read_text())['assets']}

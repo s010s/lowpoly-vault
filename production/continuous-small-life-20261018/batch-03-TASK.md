@@ -1,3 +1,7 @@
+**状态与派发授权：以本目录最新 `state.json` 和父任务明确派发证明为准。`queue.json`/冻结config/旧工作副本中的空claim或“尚未派发”是历史快照，不能阻塞父任务已经独占派发的worker；父任务消息是有效授权证据。未知真实分支/时间/哈希不编造，新任务仍由父任务统一领取，不能由未派发者自行认领。**
+
+当前 `batch-03`：`release_queued`；原制作线程 `01a1503a-0986-7207-b37b-a75e291ca02c`。12件已交唯一release child `01a1502d-a2f1-74aa-adef-d04595fe501c` 排队，尚未确认发布。
+
 **当前独占领取：父任务已派发到 `01a1503a-0986-7207-b37b-a75e291ca02c`；CI 已确认 main `643534830397824dfd46990485bd16ad66ecf9ce`。以下初始等待描述为历史，现以 state.json 为准；不要再次派发或重新领取同一批。**
 
 # batch-03 — maker task (do not start before parent CI confirmation)
