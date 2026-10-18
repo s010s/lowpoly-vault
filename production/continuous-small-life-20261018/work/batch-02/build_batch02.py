@@ -14,11 +14,12 @@ class Mesh:
  def add(self,v,f,mi=0):
   off=len(self.v);self.v+=v;self.f += [tuple(off+i for i in face) for face in f];self.mi += mi if isinstance(mi,list) else [mi]*len(f)
  def tube(self,pts,rads,mi=0,n=10,oval=None):
-  pts=list(map(Vector,pts));v=[]
+  pts=list(map(Vector,pts));v=[];prev=None
   for j,p in enumerate(pts):
-   d=(pts[min(j+1,len(pts)-1)]-pts[max(j-1,0)]).normalized();u=d.cross(Vector((0,0,1)))
+   d=(pts[min(j+1,len(pts)-1)]-pts[max(j-1,0)]).normalized()
+   u=prev-d*prev.dot(d) if prev is not None else d.cross(Vector((0,0,1)))
    if u.length<.01:u=d.cross(Vector((0,1,0)))
-   u.normalize();w=d.cross(u).normalized()
+   u.normalize();prev=u.copy();w=d.cross(u).normalized()
    for k in range(n):v.append(tuple(p+rads[j]*(u*math.cos(k*2*PI/n)+w*math.sin(k*2*PI/n)*(oval or 1))))
   f=[tuple(reversed(range(n)))]+[(j*n+k,j*n+(k+1)%n,(j+1)*n+(k+1)%n,(j+1)*n+k) for j in range(len(pts)-1) for k in range(n)]+[tuple((len(pts)-1)*n+k for k in range(n))]
   self.add(v,f,mi)
@@ -61,15 +62,17 @@ def star(c,m):
 
 def plant(c,m):
  stem=Mesh('connected-naked-dichotomous-axes',m);cap=Mesh('terminal-spindle-sporangia',m)
- stem.tube([(-.10,-.025,.005),(-.065,-.005,.008),(-.025,.005,.007),(.02,.015,.006),(.065,.002,.006),(.105,.025,.005)],[.004,.005,.005,.0045,.0035,.002],1)
+ stem.tube([(-.10,-.025,.005),(-.065,-.005,.008),(-.025,.005,.007),(.02,.015,.006),(.065,.002,.006),(.105,.025,.005)],[.0007,.005,.005,.0045,.0035,.0006],1)
  for i,(x,y,h,lean) in enumerate([(-.07,-.005,.145,-.025),(-.025,.005,.18,.016),(.022,.015,.163,.03),(.065,.002,.122,.025),(-.012,.045,.115,-.035)]):
   base=(x,y,.007)
   if i==4:stem.tube([(-.025,.005,.007),base],[.004,.003],1)
   fork=(x+lean*.4,y+.008,h*.58)
-  stem.tube([base,(x-lean*.1,y-.007,h*.28),fork],[.0042,.004,.0032],0,n=12)
+  control=Vector((x-lean*.1,y-.007,h*.28));start=Vector(base);end=Vector(fork)
+  stem.tube([tuple((1-t)**2*start+2*t*(1-t)*control+t*t*end) for t in [j/7 for j in range(8)]],[.0042-.001*j/7 for j in range(8)],0,n=12)
   for sign in (-1,1):
    tip=(x+lean+sign*.018,y+sign*.011,h)
-   stem.tube([fork,(fork[0]+sign*.015,fork[1]+sign*.008,h*.81),tip],[.0032,.0027,.0022],0,n=12)
+   control=Vector((fork[0]+sign*.015,fork[1]+sign*.008,h*.81));start=Vector(fork);end=Vector(tip)
+   stem.tube([tuple((1-t)**2*start+2*t*(1-t)*control+t*t*end) for t in [j/5 for j in range(6)]],[.0032-.001*j/5 for j in range(6)],0,n=12)
    cap.tube([tip,(tip[0]+sign*.002,tip[1],h+.009),(tip[0]+sign*.003,tip[1],h+.019),(tip[0]+sign*.004,tip[1],h+.024)],[.0022,.0044,.0035,.0006],2,n=12)
  stem.finish(c);cap.finish(c)
 
