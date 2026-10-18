@@ -1,0 +1,793 @@
+{
+  "schema_version": 1,
+  "kind": "planning-only-production-backlog-not-executable-runner-manifest",
+  "round": 3,
+  "created_at": "2026-10-18T18:59:11.082818+00:00",
+  "inventory": {
+    "path": "research/prehistoric-1000-v1/inventory.json",
+    "sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "total": 1000
+  },
+  "style_commit": "c8514b8c348777c9a2d81c6c0bbd9cf02cdb5184",
+  "status": "planned_awaiting_parent_dispatch",
+  "start_gate": {
+    "ci_simplification_confirmed": true,
+    "ci_main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
+    "confirmed_by": "parent",
+    "round_dispatched": false,
+    "requires_parent_exclusive_assignment": true,
+    "authorization_precedence": "Current parent explicit assignment and latest state prevail over stale empty-claim snapshots."
+  },
+  "publication": {
+    "qa_passed_batches_authorized": true,
+    "per_model_user_approval_required": false,
+    "planning_branch_merge_allowed": false,
+    "coordinator": "parent; serialize integration against latest main"
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "true_coral_ids": [
+    "syringopora",
+    "heliophyllum",
+    "thecosmilia",
+    "meandrina"
+  ],
+  "sponge_ids": [
+    "vauxia",
+    "pirania",
+    "leptomitus"
+  ],
+  "alga_ids": [
+    "halimeda",
+    "bosworthia",
+    "buthograptus"
+  ],
+  "specimen_only_alga_ids": [
+    "bosworthia",
+    "buthograptus"
+  ],
+  "small_marine_animal_ids": [
+    "isoxys",
+    "haplophrentis"
+  ],
+  "batches": [
+    {
+      "id": "batch-07",
+      "asset_ids": [
+        "syringopora",
+        "vauxia",
+        "halimeda",
+        "isoxys"
+      ],
+      "maker_task": "production/continuous-small-life-round03-20261018/batch-07-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-07-20261018"
+    },
+    {
+      "id": "batch-08",
+      "asset_ids": [
+        "heliophyllum",
+        "pirania",
+        "bosworthia",
+        "haplophrentis"
+      ],
+      "maker_task": "production/continuous-small-life-round03-20261018/batch-08-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-08-20261018"
+    },
+    {
+      "id": "batch-09",
+      "asset_ids": [
+        "thecosmilia",
+        "meandrina",
+        "leptomitus",
+        "buthograptus"
+      ],
+      "maker_task": "production/continuous-small-life-round03-20261018/batch-09-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-09-20261018"
+    }
+  ],
+  "jobs": [
+    {
+      "inventory_id": "syringopora",
+      "name": {
+        "en": "Syringopora organ-pipe coral",
+        "zh": "Syringopora（管风琴珊瑚）"
+      },
+      "batch_id": "batch-07",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "分离直立细管与稀疏横桥提供通透管风琴群体，不重复蜂巢块或开放链壁。",
+      "basic_form_zh": "以独立竖管和间断横连为主要结构；管口少量可读、连接有生长逻辑。区别于Halysites连续链壁，不能只是换密度。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/syringopora",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-07/syringopora/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-07/syringopora/r001",
+      "release_dir_after_acceptance": "assets/additions/syringopora/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.18,
+        "axis": "colony height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "vauxia",
+      "name": {
+        "en": "Vauxia branching fibrous sponge",
+        "zh": "Vauxia（分枝纤维海绵）"
+      },
+      "batch_id": "batch-07",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "反复分枝的细管海绵提供灌丛式立体空间，区别于扁盘Choia。",
+      "basic_form_zh": "自然粗细递变的多次分枝、若干开口尖端和克制纤维节奏；这是海绵不是植物或珊瑚，不用机械等宽管拼接。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/vauxia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-07/vauxia/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-07/vauxia/r001",
+      "release_dir_after_acceptance": "assets/additions/vauxia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P1",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.18,
+        "axis": "branching body height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "halimeda",
+      "name": {
+        "en": "Halimeda articulated calcified thallus",
+        "zh": "Halimeda 仙掌藻类"
+      },
+      "batch_id": "batch-07",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "关节相连扁平节片链，补充活体概念的钙化海藻形态，与管状/丝状藻不同。",
+      "basic_form_zh": "少量自然分枝扁平节片链与窄连接；以来源支持的基础节片形态为界。不指派现代种，不把白垩纪外观相似性当种级证据，不加陆生根叶。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/halimeda",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-07/halimeda/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-07/halimeda/r001",
+      "release_dir_after_acceptance": "assets/additions/halimeda/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.15,
+        "axis": "thallus span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "isoxys",
+      "name": {
+        "en": "Isoxys double-spined swimmer",
+        "zh": "Isoxys（双棘甲游泳动物）"
+      },
+      "batch_id": "batch-07",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "双瓣凸甲、前后相对长棘及突眼，丰富水层小型游泳动物。",
+      "basic_form_zh": "两片凸甲、前后长棘、可读眼位与内部躯体有连贯关系；区别于已做Canadaspis/Waptia。未保存小肢与软组织可经济简化，不作游泳机制或动画就绪承诺。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/isoxys",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-07/isoxys/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-07/isoxys/r001",
+      "release_dir_after_acceptance": "assets/additions/isoxys/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.05,
+        "axis": "valve body length",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "heliophyllum",
+      "name": {
+        "en": "Heliophyllum ribbed horn coral",
+        "zh": "Heliophyllum（肋角珊瑚）"
+      },
+      "batch_id": "batch-08",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "弯角单体和深放射杯丰富单体珊瑚，区别于一盖/四盖珊瑚。",
+      "basic_form_zh": "弯角杯体、深圆杯和少量可读放射隔壁；无盖，不把它做成Calceola/Goniophyllum去盖变体，整体弯角与放射杯是结构区别。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/heliophyllum",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-08/heliophyllum/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-08/heliophyllum/r001",
+      "release_dir_after_acceptance": "assets/additions/heliophyllum/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.12,
+        "axis": "corallum height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "pirania",
+      "name": {
+        "en": "Pirania spine-covered sponge",
+        "zh": "Pirania（长刺海绵）"
+      },
+      "batch_id": "batch-08",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "粗基部分枝和疏布长刺提供有刺管状海绵，不是Choia扁盘放大。",
+      "basic_form_zh": "粗基部自然接管体，长刺稀疏有秩序附着，管体仍可读；不是珊瑚或海胆，不用随机均匀插针，微观骨针形态可简化。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/pirania",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-08/pirania/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-08/pirania/r001",
+      "release_dir_after_acceptance": "assets/additions/pirania/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P1",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.15,
+        "axis": "sponge body height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "bosworthia",
+      "name": {
+        "en": "Bosworthia ribbon-branch thallus",
+        "zh": "Bosworthia 带枝藻化石"
+      },
+      "batch_id": "batch-08",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "扁平带状分叉藻体片段丰富藻类展示轮廓，不重复钙化节片海藻。",
+      "basic_form_zh": "严格限原清单preserved thallus specimen：浅浮雕/浅厚度的柔带分叉片段，不套用灌木，不添加未知母体、完整固着器、根系或未经依据的整株立体冠；可不带岩板，但仍标为结构片段教学展示。",
+      "representation": "fossil-specimen",
+      "reconstruction_type": "specimen",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/bosworthia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-08/bosworthia/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-08/bosworthia/r001",
+      "release_dir_after_acceptance": "assets/additions/bosworthia/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.12,
+        "axis": "preserved thallus fragment span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "haplophrentis",
+      "name": {
+        "en": "Haplophrentis hyolith with support rods",
+        "zh": "Haplophrentis（支杆锥壳动物）"
+      },
+      "batch_id": "batch-08",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "渐细锥壳、盖板和两根外弯支杆形成新的低位海底主体。",
+      "basic_form_zh": "渐细壳体、前盖与两根弯支杆的基本结构关系；支杆从有意附着位置长出，保留空隙，细软组织/盖开合机制不是精确复原要求。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/haplophrentis",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-08/haplophrentis/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-08/haplophrentis/r001",
+      "release_dir_after_acceptance": "assets/additions/haplophrentis/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.05,
+        "axis": "shell and helens span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "thecosmilia",
+      "name": {
+        "en": "Thecosmilia branch-tube reef coral",
+        "zh": "Thecosmilia（枝管造礁珊瑚）"
+      },
+      "batch_id": "batch-09",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "直立厚管枝末端的独立深杯补充枝管珊瑚，区别于Thamnopora指枝侧孔。",
+      "basic_form_zh": "厚管枝自然分叉，分离的末端深隔壁杯可读；侧壁不布满Thamnopora式孔口。宽杯与分枝过渡值得用几何，具体隔壁计数不必复原。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/thecosmilia",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-09/thecosmilia/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-09/thecosmilia/r001",
+      "release_dir_after_acceptance": "assets/additions/thecosmilia/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.2,
+        "axis": "colony height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "meandrina",
+      "name": {
+        "en": "Meandrina maze-ridge coral",
+        "zh": "Meandrina（迷宫脊珊瑚）"
+      },
+      "batch_id": "batch-09",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "连续蜿蜒沟壁与迷宫脊增加低丘礁体结构，区别于Favosites离散蜂巢孔。",
+      "basic_form_zh": "圆丘上的连续沟谷和成对曲折壁在80–240px仍读得出；用主要几何表达迷宫起伏，不用大贴图画纹理掩盖平球。不要复用蜂巢孔阵列。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/meandrina",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-09/meandrina/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-09/meandrina/r001",
+      "release_dir_after_acceptance": "assets/additions/meandrina/continuous-small-life-v1",
+      "inventory_gate": "needs-specific-reference",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.18,
+        "axis": "colony width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "leptomitus",
+      "name": {
+        "en": "Leptomitus wrinkled tube sponge",
+        "zh": "Leptomitus（褶纹管海绵）"
+      },
+      "batch_id": "batch-09",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "高窄褶纹管体提供安静竖向海绵层，与Vauxia分枝及Pirania带刺管不同。",
+      "basic_form_zh": "连续高窄管、圆钝基部及克制纵向褶纹；安静有粗细变化，不堆叠等径圆柱或以贴图替代轮廓。开口和壁厚仅作合理简化。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/leptomitus",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-09/leptomitus/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-09/leptomitus/r001",
+      "release_dir_after_acceptance": "assets/additions/leptomitus/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P1",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.2,
+        "axis": "tube body height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    },
+    {
+      "inventory_id": "buthograptus",
+      "name": {
+        "en": "Buthograptus curved-pinna thallus",
+        "zh": "Buthograptus 羽状绿藻"
+      },
+      "batch_id": "batch-09",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "弯曲渐细侧元组成羽状/梳状藻体片段，与Bosworthia连续带枝不同。",
+      "basic_form_zh": "严格限原清单preserved thallus specimen：开放梳状浅浮雕，弯曲渐细侧元可读；不加陆生根或叶脉，不延伸为未知完整海藻植株，显示为具来源依据的片段教学展示。",
+      "representation": "fossil-specimen",
+      "reconstruction_type": "specimen",
+      "plan_dir": "production/continuous-small-life-round03-20261018/items/buthograptus",
+      "candidate_dir": "assets/candidates/continuous-small-life-round03-20261018/batch-09/buthograptus/r001",
+      "production_dir": "production/continuous-small-life-round03-20261018/work/batch-09/buthograptus/r001",
+      "release_dir_after_acceptance": "assets/additions/buthograptus/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.12,
+        "axis": "preserved thallus fragment span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null
+    }
+  ]
+}
