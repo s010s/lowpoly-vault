@@ -1,0 +1,26 @@
+{
+  "source": "Retained executed tool-call text, 2026-10-17",
+  "operation": "Apply Python str.replace in recorded order to the recovered r1 source",
+  "replacements": [
+    [
+      "def leaf_axis(points,r,idx,step=.0075)",
+      "def leaf_axis(points,r,idx,step=.0055)"
+    ],
+    [
+      "for half in (0,1):",
+      "for half in (0,1,2):"
+    ],
+    [
+      "theta=angle+half*math.pi*.93",
+      "theta=angle+half*math.tau/3"
+    ],
+    [
+      "length=(.010+.003*math.sin(n*1.7+idx))*(.65+.35*math.sin(math.pi*t))",
+      "length=(.016+.003*math.sin(n*1.7+idx))*(.66+.34*math.sin(math.pi*t))"
+    ],
+    [
+      "blade(leaves,p,tip,.0017*(1-.35*t),.00055",
+      "blade(leaves,p,tip,.0027*(1-.35*t),.00065"
+    ]
+  ]
+}

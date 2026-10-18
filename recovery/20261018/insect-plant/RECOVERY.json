@@ -1,0 +1,78 @@
+{
+  "recovery_date_utc": "2026-10-18",
+  "kind": "source-only transcript recovery",
+  "status": "source recovered; original candidate binaries not located in current workspace",
+  "method": "Transcribed the complete previously executed visible generator-creation tool call, then applied the five exact recorded r2 string replacements. This is source recovery, not new model generation. No Blender process was run during recovery.",
+  "verification": "Python AST parsing passed. Historical generator hash was not printed in retained output, so byte equality to the historical generator is not certified.",
+  "historical_local_commit": "660dd53",
+  "remote_publication": "Direct git push failed for missing HTTPS username; no GitHub blob/tree/commit/ref writes and no Drive/Library uploads were made by this worker.",
+  "historical_final_candidates": [
+    {
+      "asset": "juracimbrophlebia",
+      "revision": "r1",
+      "glb_sha256": "b6fa8ebf0995614401b27cafea2e5095f6f48bbdcb69fd99957cacd60272fa94",
+      "triangles": 2128,
+      "glb_bytes": 117624,
+      "dimensions_glb_m": [
+        0.08101987093687057,
+        0.013746018521487713,
+        0.06625411286950111
+      ]
+    },
+    {
+      "asset": "asteroxylon",
+      "revision": "r2",
+      "glb_sha256": "028eca80ede2eb4fc95f87c17465aee8dd3284c43d3d5633cb8343db91abcc8e",
+      "triangles": 5744,
+      "glb_bytes": 425752,
+      "dimensions_glb_m": [
+        0.242885522544384,
+        0.29999997839331627,
+        0.12149544432759285
+      ]
+    }
+  ],
+  "dependencies": {
+    "repository": "s010s/lowpoly-vault",
+    "baseline_commit": "01c60dd85322932a967c4f2aa50045f2da1a25bd",
+    "files": [
+      "scripts/asset_common.py",
+      "scripts/qa_glb.py"
+    ],
+    "runtime": "Blender 4.3.2",
+    "briefs": "Planner pilot-v002 files, originally production/small-fauna-v1/pilot/{asset}/{brief.json,references.json,freeze.json}; not recovered in this packet."
+  },
+  "recovered_files": [
+    {
+      "path": "README.md",
+      "bytes": 1730,
+      "sha256": "ccff825119d63d93b3542a09d89dfc2426aec9e61067d215058660e47e5848f0"
+    },
+    {
+      "path": "config/asteroxylon-r2.json",
+      "bytes": 180,
+      "sha256": "3d8309efcc06595131eeb291a2c366d03c7d0b45ffc43a164b49775b58de86b6"
+    },
+    {
+      "path": "config/juracimbrophlebia-r1.json",
+      "bytes": 62,
+      "sha256": "aec95b0f0810606963e12a49ac7a84743d9b8d1b64a60dc72f2734dd24146592"
+    },
+    {
+      "path": "exact-r2-edits.json",
+      "bytes": 722,
+      "sha256": "3f24001b2eabf023141176ac697cc04f268bd499b94a628ce17e7662d3f99047"
+    },
+    {
+      "path": "scripts/models/build_small_insect_plant_pair.py",
+      "bytes": 15463,
+      "sha256": "c912c2256c21a033d4bf298b39174bbb60fd1bcdfa7cbd497d55ef4a89870e39"
+    },
+    {
+      "path": "scripts/models/build_small_insect_plant_pair_r1_history.py",
+      "bytes": 15462,
+      "sha256": "7831f768cb145b9cd5d6dd935fb3e01c3cc771cf878cbed49e1489c984d7233f"
+    }
+  ],
+  "current_candidate_qa": "pending; original GLB and blend binaries not recovered"
+}
