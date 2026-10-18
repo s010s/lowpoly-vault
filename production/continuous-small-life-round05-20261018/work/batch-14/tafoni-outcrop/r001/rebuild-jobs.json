@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "tafoni-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/references.json"
+      },
+      "outputs": [
+        "tafoni-outcrop/tafoni-outcrop.blend",
+        "tafoni-outcrop/tafoni-outcrop.glb",
+        "tafoni-outcrop/qa.json",
+        "tafoni-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "timeout_seconds": 600,
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "tafoni-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ]
+    },
+    {
+      "asset_id": "tafoni-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/references.json"
+      },
+      "outputs": [
+        "tafoni-outcrop/tafoni-outcrop.blend",
+        "tafoni-outcrop/tafoni-outcrop.glb",
+        "tafoni-outcrop/qa.json",
+        "tafoni-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "timeout_seconds": 600,
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "tafoni-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ]
+    }
+  ]
+}

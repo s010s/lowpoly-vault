@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/generator.py",
+    "--",
+    "--asset",
+    "tafoni-outcrop",
+    "--config",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/rebuild-runs/build/tafoni-outcrop/r001/semantic-rebuild-1/af3e7d87e4121b978d316eed7816a3ee9102dee90cbafccdf4484011c9d8db9e/20261018T203927-3152336dbac7488fa208c7cd8b1bd87b/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:39:27.539886+00:00",
+  "fingerprint": "af3e7d87e4121b978d316eed7816a3ee9102dee90cbafccdf4484011c9d8db9e",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9023,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/brief.json",
+        "sha256": "c3047cfcff53a80746f616dfc9e076f2443f4e26af7d6b460d2522c4cb4f5215"
+      },
+      "config": {
+        "bytes": 2338,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/config.json",
+        "sha256": "4818f05a749a80b29ba83ec4b17864f0840398878566abcb513904ee1543ba54"
+      },
+      "generator": {
+        "bytes": 5746,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/generator.py",
+        "sha256": "a8d97fba76443002f7aef6d18ac468de533aa5fec95d2bf08884b201bdc6f6b6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1154,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/references.json",
+        "sha256": "c6a970bca5b52496034959e3882609a50e99baa2e8ae920f938e1956cb60529b"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "tafoni-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "tafoni-outcrop",
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/brief.json",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/tafoni-outcrop/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/tafoni-outcrop/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "tafoni-outcrop/tafoni-outcrop.blend",
+        "tafoni-outcrop/tafoni-outcrop.glb",
+        "tafoni-outcrop/qa.json",
+        "tafoni-outcrop/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T203927-2aa921d62e1442168dde5af2e5a1eff1"
+}
