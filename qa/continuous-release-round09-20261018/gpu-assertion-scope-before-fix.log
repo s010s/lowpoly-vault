@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(published.assets.slice(115).every(a=>a.approval_provenance.candidate_record_approved_for_brief===false&&a.approval_provenance.formal_profile_acceptance==='BLOCKED'&&a.approval_provenance.hardware_gpu_verified===false))
+
+    at file:///workspace/lowpoly-vault/site/small-life-round09-release-test.mjs:15:197 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

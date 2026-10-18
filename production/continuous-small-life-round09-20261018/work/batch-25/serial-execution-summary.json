@@ -1,0 +1,106 @@
+{
+  "kind": "batch25-owned-serial-chronology-summary",
+  "verdict": "pass",
+  "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
+  "final_handoff_jsonl_sha256": "c2d4d55aea3d7b6023bfdd36cb2607f3966702660177bb79ad669ce659b3cba0",
+  "overlapping_top_level_owned_launches": 0,
+  "all_owned_process_groups_exited": true,
+  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
+  "top_level_launch_count": 48,
+  "nonzero_exit_count": 3,
+  "nonzero_exit_note": "Nonzero guard failures are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
+  "assets": [
+    {
+      "asset_id": "anomalocaris",
+      "candidate_commit": "334b64ab07e1585edeede66c38442efef89bbb52",
+      "branch": "candidate/batch25-anomalocaris-20261018",
+      "ledger_path": "production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "771c843496f766799ff3f88a5f8f62d0a38f1eecebe3ee672655e209c25cc06c",
+      "first_launch": "2026-10-18T22:23:49.933208+00:00",
+      "last_exit": "2026-10-18T22:29:37.839314+00:00",
+      "lifecycle_complete": "2026-10-18T22:30:08.964722+00:00",
+      "top_level_launch_count": 20,
+      "matching_exit_count": 20,
+      "nonzero_exit_count": 2,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 31962,
+            "returncode": 1,
+            "owned_process_group_remaining": false,
+            "reason": "Source checker correctly refused overwriting old immutable report; old reports moved intact into prototype before fresh final evidence.",
+            "evidence_dir": "failed-attempt-01-immutable-evidence-guard"
+          },
+          {
+            "owned_pid": 32183,
+            "returncode": 1,
+            "owned_process_group_remaining": false,
+            "reason": "Render script refused existing transparent directory after fixed8; partial views and old transparent/runtime archived. Resume only render/runtime; fresh final source/rebuild/Khronos already passed.",
+            "evidence_dir": "failed-attempt-02-existing-render-output"
+          }
+        ],
+        "controller_preflight": "failed-attempt-00-driver-id-guard: initial allowlist rejection before any owned launch"
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "jimaodanus",
+      "candidate_commit": "2c97b832c116ea6aff320ebef9489ec3d4c567ac",
+      "branch": "candidate/batch25-jimaodanus-20261018",
+      "ledger_path": "production/continuous-small-life-round09-20261018/work/batch-25/jimaodanus/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "55714de0557b07bed99b3418c61e660db580a0cf15f3398bd49dc886fe4f4e3e",
+      "first_launch": "2026-10-18T22:35:14.331130+00:00",
+      "last_exit": "2026-10-18T22:36:26.148180+00:00",
+      "lifecycle_complete": "2026-10-18T22:36:51.646819+00:00",
+      "top_level_launch_count": 9,
+      "matching_exit_count": 9,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "hydrothermal-chimney",
+      "candidate_commit": "cfc984a96844d90302e7c9a5f85b11452f136eb1",
+      "branch": "candidate/batch25-hydrothermal-chimney-20261018",
+      "ledger_path": "production/continuous-small-life-round09-20261018/work/batch-25/hydrothermal-chimney/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "d6fd61f3ad43a2274c8f006ac1d9114fc489ae3ad6357acb5328d8cc80122268",
+      "first_launch": "2026-10-18T22:37:28.518979+00:00",
+      "last_exit": "2026-10-18T22:38:40.008687+00:00",
+      "lifecycle_complete": "2026-10-18T22:39:02.549927+00:00",
+      "top_level_launch_count": 9,
+      "matching_exit_count": 9,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "arenicolites-u-burrow",
+      "candidate_commit": "e09df39890528efe7997f909a9fef077adbfed60",
+      "branch": "candidate/batch25-arenicolites-u-burrow-20261018",
+      "ledger_path": "production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "1d1102a4ba4e3dfc51d0f18e99178b772da0e14f9c5383ac839e749e493661de",
+      "first_launch": "2026-10-18T22:39:38.949209+00:00",
+      "last_exit": "2026-10-18T22:41:45.687436+00:00",
+      "lifecycle_complete": "2026-10-18T22:42:33.383836+00:00",
+      "top_level_launch_count": 10,
+      "matching_exit_count": 10,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 34914,
+            "returncode": 1,
+            "owned_process_group_remaining": false,
+            "reason": "Required source QA refused 55 degenerate boolean triangles; failed geometry was not exported or accepted. Offset near-coincident channel/section plane and clean topology at subvisual tolerance before new verification.",
+            "evidence_dir": "failed-attempt-00-boolean-degenerate-source"
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    }
+  ]
+}
