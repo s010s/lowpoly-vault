@@ -1,6 +1,6 @@
-**最新进度：04–06已发布，父任务确认总数43/main 0bd62cda92814af5ac781e1a706bba6310cecc35；07–09独立模型QA PASS、profile发布记录适配中，未确认55；10–11独立QA进行中无结论，12已独占制作。现state与父任务派发证明优先于下方历史规划/空claim。**
-
 # batch-12 — 仅计划，尚未派发
+
+**当前状态：最后确认live43；07–09模型QA PASS、发布适配CI中；10–12模型QA全PASS、release排队；13–14候选完成/独立QA运行，14当前turn未知留空；15独占制作。最新state与父任务派发证明覆盖下方历史空claim/未派发描述；不由QA PASS推断发布。**
 
 以最新state和父任务明确派发证明为准，历史queue/config/工作副本空claim不得阻塞已被父任务独占派发的worker。本轮目前确实尚未派发，planner不得自行启动。
 

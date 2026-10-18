@@ -1,16 +1,6 @@
-**最新进度：04–06已发布，父任务确认总数43/main 0bd62cda92814af5ac781e1a706bba6310cecc35；07–09独立模型QA PASS、profile发布记录适配中，未确认55；10–11独立QA进行中无结论，12已独占制作。现state与父任务派发证明优先于下方历史规划/空claim。**
-
-**当前授权以最新state和父任务明确派发证明为准；旧queue/config/工作副本的空claim或未派发文字是历史快照，不得阻塞已被父任务独占授权的worker。以下旧阶段文字不覆盖当前状态。**
-
-当前 `batch-02`：`published`。详情及精确source/QA/发布pins见state.json。
-
-**状态与派发授权：以本目录最新 `state.json` 和父任务明确派发证明为准。`queue.json`/冻结config/旧工作副本中的空claim或“尚未派发”是历史快照，不能阻塞父任务已经独占派发的worker；父任务消息是有效授权证据。未知真实分支/时间/哈希不编造，新任务仍由父任务统一领取，不能由未派发者自行认领。**
-
-当前 `batch-02`：`release_queued`；原制作线程 `01a15039-e827-7435-9098-a0cc29d54009`。12件已交唯一release child `01a1502d-a2f1-74aa-adef-d04595fe501c` 排队，尚未确认发布。
-
-**当前独占领取：父任务已派发到 `01a15039-e827-7435-9098-a0cc29d54009`；CI 已确认 main `643534830397824dfd46990485bd16ad66ecf9ce`。以下初始等待描述为历史，现以 state.json 为准；不要再次派发或重新领取同一批。**
-
 # batch-02 — maker task (do not start before parent CI confirmation)
+
+**当前状态：最后确认live43；07–09模型QA PASS、发布适配CI中；10–12模型QA全PASS、release排队；13–14候选完成/独立QA运行，14当前turn未知留空；15独占制作。最新state与父任务派发证明覆盖下方历史空claim/未派发描述；不由QA PASS推断发布。**
 
 制作模型必须 GPT-6.1 Sol，reasoning medium。先读同目录 README.md、queue.json、state.json 和每项 freeze/brief/config/references。父任务尚未确认 CI 精简，本文件只是待派发任务。
 

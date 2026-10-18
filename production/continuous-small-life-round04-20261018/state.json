@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T20:18:25.717775+00:00",
+  "updated_at": "2026-10-18T20:44:38.595927+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "in_progress",
+  "status": "model_qa_pass_release_queued",
   "claims": {
     "flabellum": {
       "batch_id": "batch-10",
@@ -182,7 +182,7 @@
   },
   "batches": {
     "batch-10": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch10-20261018",
@@ -190,20 +190,35 @@
         "reported_by": "parent"
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2"
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "recorded_at": "2026-10-18T20:18:25.717775+00:00"
+      "recorded_at": "2026-10-18T20:44:38.595927+00:00",
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
+      }
     },
     "batch-11": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch11-20261018",
@@ -211,290 +226,581 @@
         "reported_by": "parent"
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa"
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "recorded_at": "2026-10-18T20:18:25.717775+00:00"
+      "recorded_at": "2026-10-18T20:44:38.595927+00:00",
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
+      }
     },
     "batch-12": {
-      "status": "building",
+      "status": "model_qa_pass_release_queued",
       "maker_thread_id": "01a15056-509d-725f-bad0-871371cd7010",
       "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "qa": null,
-      "recorded_at": "2026-10-18T20:18:25.717775+00:00"
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "recorded_at": "2026-10-18T20:44:38.595927+00:00",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms batch12 model QA PASS; exact candidate source pin not supplied in latest report, not inferred from branch presence."
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
+      }
     }
   },
   "jobs": {
     "flabellum": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-10",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-10",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2"
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch10-20261018",
         "commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "horneophyton": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-10",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-10",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2"
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch10-20261018",
         "commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "wave-ripple-surface": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-10",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-10",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2"
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch10-20261018",
         "commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "gogia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-10",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-10",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2"
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150a6-ae43-77e3-85d7-7402e4cc2a38",
+        "source_commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch10-20261018",
         "commit": "cce0de6c86f8bcbb061930bae4026b7c1a28f1e2",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "micrabacia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-11",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-11",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa"
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch11-20261018",
         "commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "sengelia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-11",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-11",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa"
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch11-20261018",
         "commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "coquina-outcrop": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-11",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-11",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa"
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch11-20261018",
         "commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "naraoia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-maker:batch-11",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-11",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa"
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": "01a150a6-cb3d-76ae-8aca-18d06087eaa6",
+        "source_commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete, independent QA running with no verdict.",
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch11-20261018",
         "commit": "7394fef092feb21ab9c084f331cfdf35a86979aa",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
       }
     },
     "cystiphyllum": {
-      "status": "building",
+      "status": "model_qa_pass_release_queued",
       "owner": "maker-thread:01a15056-509d-725f-bad0-871371cd7010",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-12",
-      "qa": null,
-      "status_note": "Parent confirms exclusive Sol6.1 medium maker task and turn; building, no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "maker_thread_id": "01a15056-509d-725f-bad0-871371cd7010",
-      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048"
+      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms batch12 model QA PASS; exact candidate source pin not supplied in latest report, not inferred from branch presence."
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
+      }
     },
     "limnobiophyllum": {
-      "status": "building",
+      "status": "model_qa_pass_release_queued",
       "owner": "maker-thread:01a15056-509d-725f-bad0-871371cd7010",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-12",
-      "qa": null,
-      "status_note": "Parent confirms exclusive Sol6.1 medium maker task and turn; building, no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "maker_thread_id": "01a15056-509d-725f-bad0-871371cd7010",
-      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048"
+      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms batch12 model QA PASS; exact candidate source pin not supplied in latest report, not inferred from branch presence."
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
+      }
     },
     "wielandiella": {
-      "status": "building",
+      "status": "model_qa_pass_release_queued",
       "owner": "maker-thread:01a15056-509d-725f-bad0-871371cd7010",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-12",
-      "qa": null,
-      "status_note": "Parent confirms exclusive Sol6.1 medium maker task and turn; building, no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "maker_thread_id": "01a15056-509d-725f-bad0-871371cd7010",
-      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048"
+      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms batch12 model QA PASS; exact candidate source pin not supplied in latest report, not inferred from branch presence."
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
+      }
     },
     "desiccation-crack-surface": {
-      "status": "building",
+      "status": "model_qa_pass_release_queued",
       "owner": "maker-thread:01a15056-509d-725f-bad0-871371cd7010",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-12",
-      "qa": null,
-      "status_note": "Parent confirms exclusive Sol6.1 medium maker task and turn; building, no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release gate PASS.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "All independent model QA PASS per parent and handed to release queue; not published.",
       "maker_thread_id": "01a15056-509d-725f-bad0-871371cd7010",
-      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048"
+      "maker_turn_id": "01a150a6-e668-71cd-bc18-4a7f89262048",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms batch12 model QA PASS; exact candidate source pin not supplied in latest report, not inferred from branch presence."
+      },
+      "release": {
+        "status": "queued",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "profile_contract": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "status": "release_coordinator_pending",
+        "full_candidate_gate_pass_claimed": false
+      }
     }
   },
   "publication_checkpoint": {
     "last_confirmed_total_assets": 43,
     "main_commit": "0bd62cda92814af5ac781e1a706bba6310cecc35",
-    "this_round_publication_confirmed": false
+    "this_round_publication_confirmed": false,
+    "last_confirmed_live_assets": 43
   },
   "thread_identity_resolution": {
     "01a15046": {
