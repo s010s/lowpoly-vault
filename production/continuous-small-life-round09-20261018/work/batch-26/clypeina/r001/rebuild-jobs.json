@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "clypeina",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/clypeina/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/clypeina/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch26/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch26/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/clypeina/brief.json",
+        "references": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/clypeina/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/clypeina/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "clypeina",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "clypeina/clypeina.blend",
+        "clypeina/clypeina.glb",
+        "clypeina/qa.json",
+        "clypeina/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch26 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "clypeina",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/clypeina/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/clypeina/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch26/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch26/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/clypeina/brief.json",
+        "references": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/clypeina/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/clypeina/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "clypeina",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "clypeina/clypeina.blend",
+        "clypeina/clypeina.glb",
+        "clypeina/qa.json",
+        "clypeina/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch26 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
