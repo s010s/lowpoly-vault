@@ -52,7 +52,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-timed-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - run: npm run build
         id: build_site
       - run: npx playwright install --with-deps chromium
@@ -92,3 +92,4 @@ jobs:
             qa/continuous-release-round03-20261018/site/
             qa/continuous-release-round04-20261018/site/
             qa/continuous-release-round05-20261018/site/
+            qa/continuous-release-round06-20261018/site/
