@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "estuary-basin",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101813
+      },
+      "inputs": {
+        "audit": "/workspace/batch32-estuary-basin/scripts/qa_glb.py",
+        "brief": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/brief.json",
+        "config": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/config.json",
+        "freeze": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/freeze.json",
+        "generator": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/build.py",
+        "helper": "/workspace/batch32-estuary-basin/scripts/asset_common.py",
+        "inventory": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/inventory-record.json",
+        "original_config": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/build-config.json",
+        "policy": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/reference-policy.json",
+        "references": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "estuary-basin.glb",
+        "estuary-basin.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "estuary-basin",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101813
+      },
+      "inputs": {
+        "audit": "/workspace/batch32-estuary-basin/scripts/qa_glb.py",
+        "brief": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/brief.json",
+        "config": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/config.json",
+        "freeze": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/freeze.json",
+        "generator": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/build.py",
+        "helper": "/workspace/batch32-estuary-basin/scripts/asset_common.py",
+        "inventory": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/inventory-record.json",
+        "original_config": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/build-config.json",
+        "policy": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/reference-policy.json",
+        "references": "/workspace/batch32-estuary-basin/production/continuous-small-life-round11-20261018/work/batch-32/estuary-basin/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "estuary-basin.glb",
+        "estuary-basin.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
