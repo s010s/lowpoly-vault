@@ -23,8 +23,9 @@ const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/modal-motion');
 const baseline = /^(1|true)$/i.test(process.env.BASELINE || '');
 const traceRaster = /^(1|true)$/i.test(process.env.QA_TRACE_RASTER || '');
 // Keep the actual GLB in SwiftShader, but raster DOM content with Skia's CPU
-// path. Software GPU DOM raster batches can block the shared queue for hundreds
-// of ms before WebGL is allowed to draw. QA_CPU_DOM_RASTER=0 retains the control.
+// path, including composition. Software GPU DOM work can block the shared queue
+// for hundreds of ms while the unchanged SwiftShader scene waits to draw.
+// QA_CPU_DOM_RASTER=0 retains the browser-default control.
 const cpuDOMRaster = !/^(0|false)$/i.test(process.env.QA_CPU_DOM_RASTER || '1');
 const onlyCases = (process.env.QA_CASES || '').split(',').map(value => value.trim()).filter(Boolean);
 const prefix = '/lowpoly-vault/';
@@ -33,6 +34,7 @@ const report = {
   status: 'running', mode: baseline ? 'baseline' : 'regression', commit: process.env.GITHUB_SHA || null,
   scope: onlyCases.length ? onlyCases : 'full',
   dom_raster_mode: cpuDOMRaster ? 'cpu' : 'browser-default',
+  dom_compositor_mode: cpuDOMRaster ? 'cpu' : 'browser-default',
   targets_ms: { chrome_open: 240, all_content_open: 300, chrome_close: 140, return_move: 120, canonical_fade: 60, reverse_flight: 180 },
   note: 'Actual Chromium rAF/computed-style/alpha measurements, software WebGL, and trusted emulated touch input. Not physical-device performance. Real-time video runs in separate contexts from timing assertions. Pixel/GLB geometry is covered by the independent handoff browser regression, avoiding readback stalls in motion evidence.',
   cases: [], page_errors: [], screenshots: [], videos: [],
@@ -56,6 +58,10 @@ let browser, base;
 function installProbe() {
   let active = false, raf, observer, phase, pixelProbe = false, previousDrawProbe;
   let frames = [], events = [], draws = [], bitmapDraws = [], errors = [];
+  // Clock precision can give a later repaint the same timestamp as an earlier
+  // RAF sample. Preserve JS observation order instead of matching that future
+  // paint to the earlier sample's still-visible weight.
+  let observationOrder = 0;
   const lastDraw = new WeakMap(), capture = new WeakMap();
   let nextDrawId = 0;
   const longTasks = [];
@@ -96,7 +102,7 @@ function installProbe() {
       const copied = live ? { draw_id: draw?.draw_id, draw_time: draw?.time, same_task: draw?.same_task === true,
         canvas_id: elementId(source), source_size: [source.width, source.height] } : retained || null;
       if (copied) capture.set(this.canvas, copied);
-      bitmapDraws.push({ time: performance.now(), target_id: elementId(this.canvas), source_id: elementId(source),
+      bitmapDraws.push({ order: ++observationOrder, time: performance.now(), target_id: elementId(this.canvas), source_id: elementId(source),
         source_kind: live ? 'live' : composite ? 'composite' : origin ? 'origin-img' : 'retained',
         target_size: [this.canvas.width, this.canvas.height], args, weight: this.globalAlpha,
         operation: this.globalCompositeOperation, capture: copied });
@@ -217,7 +223,7 @@ function installProbe() {
     const content = [...dialog.querySelectorAll('.asset-info > *, .viewer-topline')].filter(el => getComputedStyle(el).display !== 'none').map((el, i) => ({
       key: el.id || el.className || `${el.tagName}-${i}`, ...style(el),
     }));
-    frames.push({ time: performance.now(), source, phase, open: dialog.open, marker: dialog.dataset.modalMotion || null,
+    frames.push({ order: ++observationOrder, time: performance.now(), source, phase, open: dialog.open, marker: dialog.dataset.modalMotion || null,
       path: location.pathname, dialog: { ...style(dialog), shadow_alpha: Math.max(0, ...colors.map(colorAlpha)) * (shadow ? Number(shadowCSS.opacity) : 1) },
       backdrop: { opacity: Number(backdrop.opacity), background_alpha: colorAlpha(backdrop.backgroundColor),
         effective_alpha: Number(backdrop.opacity) * colorAlpha(backdrop.backgroundColor), animation: backdrop.animationName },
@@ -483,7 +489,7 @@ function validateCanonicalReturn(test, record, frames, event, before, slack) {
     lower?.capture?.draw_id === alignedDraw?.draw_id && lower.operation === 'lighter' && upper.operation === 'lighter' &&
     lower.weight >= 0 && lower.weight <= 1 && upper.weight >= 0 && upper.weight <= 1 && Math.abs(lower.weight + upper.weight - 1) <= 0.00001) &&
     fading.filter(f => f.source === 'raf').every(f => {
-      const pair = paintPairs.filter(({ upper }) => upper.time <= f.time).at(-1);
+      const pair = paintPairs.filter(({ upper }) => upper.order < f.order).at(-1);
       return pair && Math.abs(pair.lower.weight - f.flight.return_opacity) <= 0.00001;
     }), { pairs: paintPairs.length, weights: paintPairs.map(({ lower, upper }) => [lower?.weight, upper.weight]) });
   const finalPaint = paintPairs.find(({ upper }) => upper.weight >= 0.99999)?.upper;
@@ -862,7 +868,7 @@ try {
   await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
   base = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined,
-    args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...(cpuDOMRaster ? ['--disable-gpu-rasterization'] : [])] });
+    args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...(cpuDOMRaster ? ['--disable-gpu-rasterization', '--disable-gpu-compositing'] : [])] });
   report.chromium_version = browser.version();
   await runCase('desktop-click', {}, (page, test) => roundTrip(page, test));
   await runCase('desktop-chinese', {}, (page, test) => roundTrip(page, test, { lang: 'zh-CN' }));
@@ -929,7 +935,7 @@ try {
 } catch (error) { report.status = 'fail'; report.error = error.stack; }
 finally {
   await browser?.close(); if (server.listening) await new Promise(resolve => server.close(resolve));
-  const summary = { status: report.status, mode: report.mode, scope: report.scope, dom_raster_mode: report.dom_raster_mode, runtime_info: report.runtime_info, commit: report.commit, targets_ms: report.targets_ms,
+  const summary = { status: report.status, mode: report.mode, scope: report.scope, dom_raster_mode: report.dom_raster_mode, dom_compositor_mode: report.dom_compositor_mode, runtime_info: report.runtime_info, commit: report.commit, targets_ms: report.targets_ms,
     cases: report.cases.map(test => ({ label: test.label, status: test.status, timings: test.timings, violations: test.assertions.filter(a => !a.passed).map(({ name, enforced }) => ({ name, enforced })), error: test.error })),
     page_errors: report.page_errors, videos: report.videos, screenshot_count: report.screenshots.length };
   if (process.env.BASELINE_REPORT) {
