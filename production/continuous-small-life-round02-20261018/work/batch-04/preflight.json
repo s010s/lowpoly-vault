@@ -63,5 +63,14 @@
     "production/continuous-small-life-round02-20261018/items/choia/build-config.json": "3b5b7de0a4a75cd887736c98d38d9dc9f4f899d1c4d7e41d6d55ea3e7de7a7b7",
     "production/continuous-small-life-round02-20261018/items/choia/references.json": "b4282e44a8adc0cee516be15af3ae44741e770c356365745ca4ee820aea82b79",
     "production/continuous-small-life-round02-20261018/items/choia/freeze.json": "ff5098895f25a293f03bf87ad95874e1fa90669413ac7a8a9c5e1871d56f5874"
+  },
+  "preflight_checks": {
+    "frozen_plan_identity": "Imported directly using git archive from exact requested commit; original planning files unchanged",
+    "verify_plan": {
+      "status": "blocked",
+      "returncode": 1,
+      "reason": "verify_plan.py requires production/continuous-small-life-20261018/queue.json, absent on current main. First-round files were not imported or modified."
+    },
+    "npm_dependencies": "npm ci succeeded using --cache /tmp/batch04-npm-cache; initial default-cache run failed outside writable roots; package files unchanged"
   }
 }
