@@ -27,3 +27,6 @@ assert.deepEqual(classify(['site/hover-reveal-browser-test.mjs'],manifest).tasks
 assert(classify([],manifest,true).tasks.includes('hover'));
 const round03={assets:appended.assets,publication:{round03_descriptor:{},approved_round03_ids:['new']}};
 assert.deepEqual(classify(['assets/manifest.json'],round03,false,{previousManifest:manifest}).tasks,['models','round03','previews']);
+
+const round04={assets:appended.assets,publication:{round04_descriptor:{},approved_round04_ids:['new']}};
+assert.deepEqual(classify(['assets/manifest.json'],round04,false,{previousManifest:manifest}).tasks,['models','round04','previews']);
