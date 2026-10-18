@@ -17,7 +17,8 @@ function element() {
   };
 }
 const root = Object.assign(element(), { scrollHeight: 1800 });
-const body = element(), catalog = { getBoundingClientRect: () => ({ bottom }) };
+let measurements = 0;
+const body = element(), catalog = { getBoundingClientRect: () => { measurements++; return { bottom }; } };
 const dialog = { open: false }, listeners = new Map(), frames = new Map();
 let bottom = 1800, text = 'Scroll to explore', nextFrame = 0;
 const view = { innerHeight: 900,
@@ -37,6 +38,10 @@ controller.setActive(true);
 assert(root.attributes.has('data-catalog-scroll'));
 assert(!cue.hidden);
 assert.equal(cue.children[0].textContent, 'Scroll to explore ↓');
+const measured = measurements;
+controller.setActive(true);controller.setActive(true);
+assert.equal(measurements, measured, 'Same-view history reconciliation must not synchronously force layout');
+assert.equal(frames.size, 1);flush();assert(!cue.hidden);
 for (let i = 0; i < 8; i++) listeners.get('scroll').callback();
 assert.equal(frames.size, 1, 'One refresh per frame, rather than per wheel event');
 bottom = 900; flush(); assert(cue.hidden, 'Bottom reached');

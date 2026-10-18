@@ -33,6 +33,9 @@ export function createCatalogScroll({ catalog, dialog, label, doc = document, vi
 
   return {
     setActive(value) {
+      // History reconciliation often retains the same underlying catalog.
+      // Do not force synchronous document measurement during modal reversal.
+      if (active === value) { refresh(); return; }
       if (frame) view.cancelAnimationFrame(frame);
       active = value;
       // Keep this scope while the detail is above the catalog. Scroll lock then
