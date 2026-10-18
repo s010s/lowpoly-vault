@@ -121,12 +121,131 @@
     "truncated": false
   },
   "threejs_runtime": {
-    "status": "not_run"
+    "asset": "onoclea",
+    "benchmark": false,
+    "three": "180",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "vendor": "Google Inc. (Google)",
+    "webgl2": true,
+    "loaded": [
+      {
+        "id": "onoclea",
+        "bounds": {
+          "min": [
+            -0.2707076668739319,
+            0,
+            -0.18047526478767395
+          ],
+          "max": [
+            0.2707076668739319,
+            0.4500000061816536,
+            0.18047526478767395
+          ]
+        },
+        "materials": 5,
+        "primitives": 8,
+        "textures": 0,
+        "glb_sha256": "a6cfc0c662603b3fe19fe11d11fa9426195e42e9611e43ce064edbbadb038a84"
+      }
+    ],
+    "instances": 1,
+    "lights": "Hemisphere white/gray 2.0; key white 2.3; fill white .65",
+    "toneMapping": "None",
+    "output": "sRGB",
+    "devicePixelRatio": 1,
+    "views": [
+      {
+        "view": "hero",
+        "extent": 360,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-hero.png"
+      },
+      {
+        "view": "reversehero",
+        "extent": 360,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-reversehero.png"
+      },
+      {
+        "view": "front",
+        "extent": 360,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-front.png"
+      },
+      {
+        "view": "rear",
+        "extent": 360,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-rear.png"
+      },
+      {
+        "view": "side",
+        "extent": 360,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-side.png"
+      },
+      {
+        "view": "top",
+        "extent": 360,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-top.png"
+      },
+      {
+        "view": "bottom",
+        "extent": 360,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-bottom.png"
+      },
+      {
+        "view": "hero",
+        "extent": 80,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-80px.png"
+      },
+      {
+        "view": "hero",
+        "extent": 160,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-160px.png"
+      },
+      {
+        "view": "hero",
+        "extent": 240,
+        "calls": 8,
+        "triangles": 12776,
+        "points": 0,
+        "path": "onoclea-240px.png"
+      }
+    ],
+    "errors": [],
+    "failed": [],
+    "status": "pass",
+    "scope": "Functional software WebGL2 with SwiftShader; not physical GPU/device FPS or museum performance",
+    "glb_sha256": "a6cfc0c662603b3fe19fe11d11fa9426195e42e9611e43ce064edbbadb038a84"
   },
   "visual_review": {
-    "status": "pending"
+    "status": "pending_independent_review",
+    "maker_self_check": "Maker inspected the generated full-angle and browser contact sheets; no external QA verdict is asserted."
   },
-  "bounds_roundtrip_max_error_m": 1.1699739843606949e-8,
+  "bounds_roundtrip_max_error_m": 1.1699739843606949e-08,
   "previews": {
     "status": "rendered_not_independently_reviewed",
     "engine": "Cycles CPU",
@@ -143,5 +262,67 @@
       "silhouette"
     ],
     "transparent": true
+  },
+  "scene_benchmark": {
+    "asset": "onoclea",
+    "benchmark": true,
+    "three": "180",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "vendor": "Google Inc. (Google)",
+    "webgl2": true,
+    "loaded": [
+      {
+        "id": "onoclea",
+        "bounds": {
+          "min": [
+            -0.2707076668739319,
+            0,
+            -0.18047526478767395
+          ],
+          "max": [
+            0.2707076668739319,
+            0.4500000061816536,
+            0.18047526478767395
+          ]
+        },
+        "materials": 5,
+        "primitives": 8,
+        "textures": 0,
+        "glb_sha256": "a6cfc0c662603b3fe19fe11d11fa9426195e42e9611e43ce064edbbadb038a84"
+      }
+    ],
+    "instances": 9,
+    "lights": "Hemisphere white/gray 2.0; key white 2.3; fill white .65",
+    "toneMapping": "None",
+    "output": "sRGB",
+    "devicePixelRatio": 1,
+    "views": [
+      {
+        "view": "hero",
+        "extent": 360,
+        "calls": 73,
+        "triangles": 114986,
+        "points": 0,
+        "path": "onoclea-scene-hero.png"
+      },
+      {
+        "view": "top",
+        "extent": 360,
+        "calls": 73,
+        "triangles": 114986,
+        "points": 0,
+        "path": "onoclea-scene-top.png"
+      }
+    ],
+    "errors": [],
+    "failed": [],
+    "status": "pass",
+    "scope": "Functional software WebGL2 with SwiftShader; not physical GPU/device FPS or museum performance",
+    "glb_sha256": "a6cfc0c662603b3fe19fe11d11fa9426195e42e9611e43ce064edbbadb038a84"
+  },
+  "warning_disposition": {
+    "smooth_faces": "Intentional mixed refined low-poly organic surfaces: continuous shields/bodies, curved arms/spines, softly folded leaves. Checked in source and exact-export images; independent craft decision remains pending.",
+    "boundary_edges": "Source parts are closed: measured zero boundary/nonmanifold edges. No forced double-sided runtime materials.",
+    "minor_detail": "Fine branchlets, plate seams, eye highlights and fertile beads can disappear at 80px. Core silhouette is the normal-view priority; independent QA must decide readability."
   }
 }
