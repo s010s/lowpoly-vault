@@ -7,7 +7,7 @@ Source thread `01a1187a-1f8d-746a-8448-61f8cb38d0fc`; sole maker `/root/batch07_
 | ID | Candidate branch | Exact tip | GLB bytes | Triangles |
 |---|---|---|---:|---:|
 | flabellum | `candidate/batch10-flabellum-20261018` | `5f0675dfadcfaa7dbeb202966bc21e155ba923d4` | 77384 | 3966 |
-| horneophyton | `candidate/batch10-horneophyton-20261018` | `6ef93de5352431c357bdc8b09ea92074c0e68603` | 120172 | 6444 |
+| horneophyton | `candidate/batch10-horneophyton-20261018` | `948c32a4b14b8f8a495100096c32e2c46f91b2a1` | 120172 | 6444 |
 | wave-ripple-surface | `candidate/batch10-wave-ripple-surface-20261018` | `007b640f1327a8650626a0c25cb1e654b92da93e` | 117640 | 5328 |
 | gogia | `candidate/batch10-gogia-20261018` | `325dac1315e0578b98f9ecaeffae04f7d18d9086` | 87560 | 3144 |
 
