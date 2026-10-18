@@ -7,6 +7,7 @@ review identities and observations remain auditable attestations, not proof that
 someone looked at an image. This command never publishes or edits any file.
 """
 import argparse
+import copy
 from datetime import datetime
 import hashlib
 import json
@@ -30,6 +31,11 @@ GEOMETRY = {'triangles': 'max_triangles', 'materials': 'max_materials',
 TEXTURE = {'texture_count': 'max_textures', 'texture_max_dimension': 'max_dimension',
            'texture_bytes': 'max_total_bytes'}
 PRODUCTION_VIEWS = frozenset(('front', 'rear', 'left', 'right', 'top', 'bottom', 'clay', 'wire', 'detail'))
+LEGACY_PROFILE = 'legacy-v1'
+STATIC_PROFILE = 'static-stylized-v1'
+PROFILE_RULE_VERSION = '2026-10-18.1'
+STATIC_VIEWS = frozenset(('hero', 'reversehero', 'front', 'side', 'rear', 'top', 'clay', 'silhouette'))
+CONSULTED_USE = 'consulted-only; no source media, mesh or texture incorporated'
 SHA = re.compile(r'^[a-f0-9]{64}$')
 ID = re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9._:-]*$')
 LIMITATIONS = ('Checks evidence integrity and recorded obligations only; it does not prove visual quality, '
@@ -205,7 +211,7 @@ def check_subject(value, expected, label):
     need(value == expected, f'{label}: subject differs from exact revision/GLB/brief/reference hashes (stale or unrelated evidence)')
 
 
-def check_brief(brief, record, sources):
+def check_brief(brief, record, sources, validation_profile=LEGACY_PROFILE):
     obj(brief, 'brief')
     need(brief.get('schema_version') == 1, 'brief: unsupported schema_version')
     need(brief.get('asset_id') == record['asset_id'], 'brief: asset_id mismatch')
@@ -219,13 +225,18 @@ def check_brief(brief, record, sources):
         required |= {'gpu', 'scene'}
     views = unique(brief.get('required_views'), 'brief.required_views')
     need(views and 'turntable' not in views, 'brief: named required views exclude turntable frames')
-    frames = integer(brief.get('turntable_frames'), 'brief.turntable_frames', 2)
+    if validation_profile == STATIC_PROFILE:
+        frames = integer(brief.get('turntable_frames'), 'brief.turntable_frames')
+        need(frames == 0 and set(views) == STATIC_VIEWS,
+             'static-stylized-v1: exactly eight fixed views and zero turntable frames required')
+    else:
+        frames = integer(brief.get('turntable_frames'), 'brief.turntable_frames', 2)
     exemptions = obj(brief.get('view_exemptions', {}), 'brief.view_exemptions')
     need(set(exemptions) <= {'detail'}, 'brief: only detail may be explicitly inapplicable')
     for view, reason in exemptions.items():
         text(reason, f'brief.view_exemptions.{view}')
         need(view not in views, f'brief: {view} cannot be required and exempt')
-    if brief['profile'] == 'production':
+    if brief['profile'] == 'production' and validation_profile == LEGACY_PROFILE:
         need(PRODUCTION_VIEWS - set(exemptions) <= set(views),
              'brief: production requires full front/rear/left/right/top/bottom/clay/wire/detail coverage')
     if frames < 24:
@@ -384,7 +395,7 @@ def check_report(report, evidence, expected, stage, measured, evidence_by_id, ro
                  f'{label}: composed scene must include exact candidate GLB')
 
 
-def check_render_manifest(manifest, evidence, expected, brief, root):
+def check_render_manifest(manifest, evidence, expected, brief, root, validation_profile=LEGACY_PROFILE):
     label = evidence['id']
     obj(manifest, label)
     need(manifest.get('schema_version') == 1 and manifest.get('kind') == 'render_manifest', f'{label}: invalid render manifest')
@@ -435,6 +446,8 @@ def check_render_manifest(manifest, evidence, expected, brief, root):
         problems.append(f'{label}: required views missing')
     if len(turntable_angles) < brief['turntable_frames']:
         problems.append(f'{label}: insufficient distinct turntable angles')
+    if validation_profile == STATIC_PROFILE and (views != STATIC_VIEWS or len(frames) != len(STATIC_VIEWS)):
+        problems.append(f'{label}: static-stylized-v1 requires exactly one frame for each fixed view')
     # Full orbit coverage: distinct angles cannot all cluster on a single side.
     angles = sorted(turntable_angles)
     if len(angles) > 1:
@@ -444,12 +457,54 @@ def check_render_manifest(manifest, evidence, expected, brief, root):
     return {'frames': seen, 'problems': problems, 'image_sha256': [frame['sha256'] for frame in frames]}
 
 
-def validate_candidate(candidate, root=None, previous=None):
+def static_contract(root, contract_path, candidate_path, brief, artifacts):
+    """Explicit, hash-bound interpretation of frozen records; never grants approval."""
+    need(contract_path is not None, 'static-stylized-v1: --profile-contract required')
+    path = Path(contract_path)
+    if path.is_absolute():
+        need(path.is_relative_to(root), 'profile contract must be inside root')
+        path = path.relative_to(root)
+    path = relative_file(root, path.as_posix(), 'profile contract')
+    raw = path.read_bytes()
+    contract = obj(json_bytes(raw, 'profile contract'), 'profile contract')
+    need(set(contract) == {'schema_version', 'validation_profile', 'rule_version', 'candidate',
+                           'publication_authority', 'publication_policy', 'rationale'},
+         'profile contract: exact versioned fields required')
+    need(type(contract['schema_version']) is int and contract['schema_version'] == 1 and contract['validation_profile'] == STATIC_PROFILE
+         and contract['rule_version'] == PROFILE_RULE_VERSION, 'profile contract: unknown profile/rule version')
+    need(contract['publication_authority'] == 'separate', 'profile contract: publication authority must remain separate')
+    text(contract['rationale'], 'profile contract.rationale')
+    frozen_path, frozen_bytes = checked_file(root, contract['candidate'], 'profile contract.candidate')
+    need(frozen_path == candidate_path and frozen_bytes == candidate_path.read_bytes(),
+         'profile contract: different candidate')
+    _, policy_raw = checked_file(root, contract['publication_policy'], 'profile contract.publication_policy')
+    policy = obj(json_bytes(policy_raw, 'publication policy'), 'publication policy')
+    need(type(policy.get('schema_version')) is int and policy.get('schema_version') == 1 and policy.get('scope') == 's010s/lowpoly-vault'
+         and policy.get('authority') == 'owner_authorized_qa_passed_batch_release'
+         and policy.get('candidate_gate_grants_publication') is False, 'profile contract: invalid separate publication policy')
+    text(policy.get('authorization_source'), 'publication policy.authorization_source')
+    brief = obj(brief, 'brief')
+    need(brief.get('profile') == 'production', 'static-stylized-v1: production obligations required')
+    effective = copy.deepcopy(brief)
+    # Keep original bytes/subject hashes. A contract names the source record and the
+    # separate policy instead of interpreting free-text authority as permission.
+    effective['publication_authority'] = 'separate'
+    if 'required_deliverables' not in effective:
+        effective['required_deliverables'] = [{'role': role, **artifacts[role]}
+                                              for role in ('source', 'generator', 'config') if role in artifacts]
+    return effective, {'path': path.relative_to(root).as_posix(), 'sha256': hashlib.sha256(raw).hexdigest()}
+
+
+def validate_candidate(candidate, root=None, previous=None, validation_profile=LEGACY_PROFILE, profile_contract=None):
     """Return JSON-safe diagnostics. Never modify files or grant publication authority."""
     root = Path(root or Path(__file__).resolve().parents[1]).resolve()
     result = {'valid': False, 'approved_for_brief': False, 'errors': [], 'approval_blockers': [],
-              'required_stages': [], 'measurements': {}, 'limitations': LIMITATIONS}
+              'required_stages': [], 'measurements': {}, 'limitations': LIMITATIONS,
+              'validation_profile': validation_profile, 'rule_version': PROFILE_RULE_VERSION,
+              'profile_contract_status': 'not_checked'}
     try:
+        need(validation_profile in (LEGACY_PROFILE, STATIC_PROFILE), 'Unknown validation profile')
+        need(validation_profile == STATIC_PROFILE or profile_contract is None, 'Legacy profile cannot use a profile contract')
         path = Path(candidate)
         if path.is_absolute():
             need(path.is_relative_to(root), 'candidate record must be inside root')
@@ -469,6 +524,9 @@ def validate_candidate(candidate, root=None, previous=None):
         result['asset_id'], result['revision'], result['subject'] = record['asset_id'], record['revision'], expected
         result['artifact_sha256'] = {key: item['sha256'] for key, item in artifacts.items()}
         result['approved_visual_image_sha256'] = []
+        brief = json_bytes(files['brief'][1], 'brief')
+        if validation_profile == STATIC_PROFILE:
+            brief, result['profile_contract'] = static_contract(root, profile_contract, path, brief, artifacts)
         references = obj(json_bytes(files['references'][1], 'references'), 'references')
         need(references.get('schema_version') == 1, 'references: unsupported schema_version')
         sources = set()
@@ -477,14 +535,24 @@ def validate_candidate(candidate, root=None, previous=None):
             sid = identifier(source.get('id'), 'source.id')
             need(sid not in sources, f'duplicate reference source: {sid}')
             sources.add(sid)
-            for key in ('title', 'url', 'license'):
+            for key in ('title', 'url'):
                 text(source.get(key), f'{sid}.{key}')
+            consulted = validation_profile == STATIC_PROFILE and source.get('use') in ('consulted-only', CONSULTED_USE)
+            if consulted:
+                need(references.get('no_incorporated_third_party_assets') is True,
+                     f'{sid}: consulted-only requires explicit no-incorporated-assets declaration')
+                text(source.get('rights_note'), f'{sid}.rights_note')
+                need(source.get('incorporated', False) is False, f'{sid}: consulted-only source cannot be incorporated')
+                need(not any(obj(obj(t, 'texture').get('provenance'), 'texture.provenance').get('source_id') == sid for t in arr(record.get('textures'), 'textures')),
+                     f'{sid}: consulted-only source cannot supply an incorporated texture')
+            else:
+                text(source.get('license'), f'{sid}.license')
             if source.get('local') is not None:
                 checked_file(root, source['local'], f'reference {sid}')
-        brief = json_bytes(files['brief'][1], 'brief')
-        required, definitions = check_brief(brief, record, sources)
+        required, definitions = check_brief(brief, record, sources, validation_profile)
         result['required_stages'] = sorted(required)
         result['profile'] = brief['profile']
+        result['profile_contract_status'] = 'pass'  # Compatibility only, not candidate validity or approval.
         deliverables = arr(brief.get('required_deliverables', []), 'brief.required_deliverables')
         roles = set()
         for deliverable in deliverables:
@@ -564,7 +632,7 @@ def validate_candidate(candidate, root=None, previous=None):
                 width, height = image_size(data)
                 need(width > 0 and height > 0, f'{eid}: image has no pixels')
             elif evidence['kind'] == 'render_manifest':
-                render_frames[eid] = check_render_manifest(json_bytes(data, eid), evidence, expected, brief, root)
+                render_frames[eid] = check_render_manifest(json_bytes(data, eid), evidence, expected, brief, root, validation_profile)
             else:
                 report_by_id[eid] = json_bytes(data, eid)
             evidence_by_id[eid] = evidence
@@ -676,6 +744,9 @@ def validate_candidate(candidate, root=None, previous=None):
                  'supersedes: same asset and a different immutable revision required')
             need(prior.get('revision') == supersedes.get('revision'), 'supersedes: prior revision mismatch')
         if approval['status'] == 'approved_for_brief':
+            if validation_profile == STATIC_PROFILE:
+                need(approval.get('validation_profile') == STATIC_PROFILE and approval.get('rule_version') == PROFILE_RULE_VERSION,
+                     'approval: exact static validation profile/rule version required')
             identity(approval.get('reviewer'), 'approval.reviewer', record['maker'])
             timestamp(approval.get('reviewed_at'), 'approval.reviewed_at')
             check_subject(approval.get('subject'), expected, 'approval')
@@ -689,6 +760,9 @@ def validate_candidate(candidate, root=None, previous=None):
         result['valid'] = True
     except (Invalid, OSError, ValueError, TypeError, KeyError, IndexError, struct.error, OverflowError) as exc:
         result['errors'].append(str(exc))
+    if validation_profile == STATIC_PROFILE:
+        # Separate diagnostics are deliberately not rewritten to fit the new profile.
+        result['legacy_result'] = validate_candidate(candidate, root, previous)
     return result
 
 
@@ -696,11 +770,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('candidate', help='candidate record path; relative paths are resolved under --root')
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument('--profile', choices=(LEGACY_PROFILE, STATIC_PROFILE), default=LEGACY_PROFILE)
+    parser.add_argument('--profile-contract', help='frozen candidate/policy sidecar required by static-stylized-v1')
     parser.add_argument('--previous', help='previous record snapshot; enforce immutable inputs within the same revision')
     parser.add_argument('--require-approved', action='store_true', help='fail unless independent evidence establishes approved_for_brief')
     parser.add_argument('--json', action='store_true', help='emit machine-readable diagnostics')
     args = parser.parse_args()
-    result = validate_candidate(args.candidate, args.root, args.previous)
+    result = validate_candidate(args.candidate, args.root, args.previous, args.profile, args.profile_contract)
     if args.json:
         print(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False))
     else:
