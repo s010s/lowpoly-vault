@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "conglomerate-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/work/batch-24/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch24/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch24/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/items/conglomerate-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/items/conglomerate-outcrop/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "conglomerate-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "conglomerate-outcrop/conglomerate-outcrop.blend",
+        "conglomerate-outcrop/conglomerate-outcrop.glb",
+        "conglomerate-outcrop/qa.json",
+        "conglomerate-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch24 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "conglomerate-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/work/batch-24/conglomerate-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/work/batch-24/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch24/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch24/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/items/conglomerate-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch24/production/continuous-small-life-round08-20261018/items/conglomerate-outcrop/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "conglomerate-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "conglomerate-outcrop/conglomerate-outcrop.blend",
+        "conglomerate-outcrop/conglomerate-outcrop.glb",
+        "conglomerate-outcrop/qa.json",
+        "conglomerate-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch24 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
