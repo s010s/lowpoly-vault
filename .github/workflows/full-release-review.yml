@@ -43,7 +43,7 @@ jobs:
       matrix:
         task: ${{ fromJSON(needs.scope.outputs.tasks) }}
     needs: scope
-    if: needs.scope.outputs.runtime == 'true' || needs.scope.outputs.models == 'true' || needs.scope.outputs.previews == 'true'
+    if: needs.scope.outputs.tasks != '["none"]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -87,3 +87,4 @@ jobs:
             qa/web-capture-recheck/render-report.json
             qa/small-life-browser/
             qa/small-fauna-release-20261018/site/
+            qa/continuous-release-20261018/site/

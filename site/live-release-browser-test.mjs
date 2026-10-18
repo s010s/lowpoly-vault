@@ -4,10 +4,13 @@ import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {chromium} from 'playwright';
+import {BATCH_IDS,BATCH_PACK} from './small-life-batch-release.mjs';
+import {ACCEPTED_BATCH_ASSETS} from './accepted-small-life-batch-data.mjs';
 import {FAUNA_IDS} from './small-fauna-release.mjs';
 import {waitForDeployedRelease} from './live-release-contract.mjs';
 const base='https://s010s.github.io/lowpoly-vault/',out=resolve(process.env.QA_OUTPUT_DIR||'qa/live-fauna-release');
 const expected=JSON.parse(await readFile('assets/manifest.json'));
+const ids=expected.publication.batch_descriptor?BATCH_IDS:FAUNA_IDS,pack=expected.publication.batch_descriptor?BATCH_PACK:'prehistoric-small-fauna';
 const report={status:'running',source_commit:process.env.GITHUB_SHA||null,origin:base,cases:[],static_routes:[],errors:[],resource_errors:[],limitations:['Actual public Pages origin in Chromium SwiftShader; emulated touch, no physical-device performance claim.']};
 const hash=b=>createHash('sha256').update(b).digest('hex');
 let browser;
@@ -22,11 +25,11 @@ try {
   await context.grantPermissions(['clipboard-read','clipboard-write'],{origin:new URL(base).origin});
   const page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));page.on('response',r=>{if(r.status()>=400)report.resource_errors.push(`${r.status()} ${r.url()}`);});
   try {
-   const catalog=base+lang+'models/?pack=prehistoric-small-fauna';
+   const catalog=base+lang+'models/?pack='+pack;
    await page.goto(catalog);await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');
-   assert.deepEqual((await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),FAUNA_IDS);
+   assert.deepEqual((await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),ids);
    assert(await page.locator('html').evaluate(el=>el.hasAttribute('data-catalog-scroll')&&getComputedStyle(el).scrollbarWidth==='none'),'Deployed catalog must use the new scoped native scrolling');
-   for(const id of FAUNA_IDS) {
+   for(const id of ids) {
     const asset=expected.assets.find(a=>a.id===id),card=page.locator(`#grid [data-id="${id}"]`);await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());assert(await card.locator('img').evaluate(img=>img.naturalWidth>0));
     if(!mobile){await card.hover();await page.waitForFunction(id=>document.querySelector(`[data-id="${id}"]`)?.dataset.previewState==='ready',id);}
     const before=await page.locator('html').evaluate(el=>({x:el.getBoundingClientRect().x,width:el.getBoundingClientRect().width}));
@@ -39,7 +42,7 @@ try {
     const detailURL=base+lang+`models/${id}/`,staticResponse=await page.request.get(detailURL);assert(staticResponse.ok());const html=await staticResponse.text();assert(html.includes('application/ld+json')&&html.includes('static-route-content'));
     const downloaded={};
     for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());const bytes=await response.body();assert.equal(hash(bytes),asset.sha256[key]);downloaded[key]=bytes.length;}
-    assert.equal(downloaded.glb,{burgessomedusa:122504,diplomystus:93752,kalligramma:150456}[id]);
+    assert.equal(downloaded.glb,ACCEPTED_BATCH_ASSETS[id]?.glb.bytes??{burgessomedusa:122504,diplomystus:93752,kalligramma:150456}[id]);
     for(const [kind,path] of [['credits',`assets/downloads/${id}-CREDITS.txt`],['bundle',`assets/downloads/${id}.zip`]]) {
      const response=await page.request.get(base+path);assert(response.ok());const bytes=await response.body();assert(bytes.length>0);
      if(kind==='credits'){assert.match(bytes.toString(),/Leon Made This/);assert.match(bytes.toString(),/https:\/\/creativecommons\.org\/licenses\/by\/4\.0\//);}else assert.equal(bytes.subarray(0,2).toString(),'PK');

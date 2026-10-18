@@ -1,0 +1,79 @@
+[
+  {
+    "command": [
+      "blender",
+      "-b",
+      "-t",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-02/frozen/alienopterus/build.py",
+      "--",
+      "--asset",
+      "alienopterus",
+      "--no-preview"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.382,
+    "log": "logs/freeze-build.txt"
+  },
+  {
+    "command": [
+      "blender",
+      "-b",
+      "-t",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-02/frozen/alienopterus/build.py",
+      "--",
+      "--asset",
+      "alienopterus",
+      "--no-preview",
+      "--output",
+      "/tmp/batch02-rebuild"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.372,
+    "log": "logs/rebuild.txt"
+  },
+  {
+    "command": [
+      "blender",
+      "-b",
+      "-t",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-02/verify_blender.py",
+      "--",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-02/r001/alienopterus"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.288,
+    "log": "logs/source-roundtrip.txt"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/validate_gltf.cjs",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-02/r001/alienopterus"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.081,
+    "log": "logs/khronos.txt"
+  },
+  {
+    "command": [
+      "node",
+      "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-02/runtime.mjs",
+      "alienopterus"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.323,
+    "log": "logs/runtime.txt"
+  }
+]

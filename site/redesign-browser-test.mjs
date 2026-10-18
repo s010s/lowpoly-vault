@@ -353,6 +353,9 @@ async function actualModelChecks() {
     const selected = manifest.assets.filter(asset => !selectedIDs || selectedIDs.has(asset.id));
     assert(selected.length > 0 && (!selectedIDs || selected.length === selectedIDs.size), 'All selected models must exist');
     for (const asset of selected) {
+      // Each real model must remain discoverable when the catalog spans pages.
+      await page.goto(urlFor({ type: 'models' }) + '?q=' + encodeURIComponent(asset.id));
+      await waitCatalog(page);
       await page.locator(`#grid .asset-card[data-id="${asset.id}"]`).click();
       const state = await waitModel(page, asset.id);
       const downloads = page.locator('#downloads');
