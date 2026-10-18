@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/quartz-prism-cluster/r001/generator.py",
+    "--",
+    "--asset",
+    "quartz-prism-cluster",
+    "--config",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/quartz-prism-cluster/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/quartz-prism-cluster/r001/rebuild-runs/build/quartz-prism-cluster/r001/semantic-rebuild-1/1e147f82e04ca49971a01621ba9452f5f934a0242a594570236c769d5a616fcb/20261018T213333-e3bba462993f4052844d7342044adbd7/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T21:33:33.973315+00:00",
+  "fingerprint": "1e147f82e04ca49971a01621ba9452f5f934a0242a594570236c769d5a616fcb",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 8997,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/quartz-prism-cluster/brief.json",
+        "sha256": "f535ad5ab1700f911bd5d4ec1f3aa2e4837bfc258444ee665997ec2bf00fc248"
+      },
+      "config": {
+        "bytes": 2357,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/quartz-prism-cluster/r001/config.json",
+        "sha256": "97a97c9b011f0d849d4d92cc7852be7d2122b9f43b6d20b5c8d598c281d147f0"
+      },
+      "generator": {
+        "bytes": 5099,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/quartz-prism-cluster/r001/generator.py",
+        "sha256": "c0cffb8eac84b61dd08c01ffa0c33a9a86133e0d7f2d24f4801c84ccdda62a68"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1225,
+        "path": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/quartz-prism-cluster/references.json",
+        "sha256": "aa38b9c0e0dbc3af0b179278e1388b7427bd43e8205dae055030275df003a5bd"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "quartz-prism-cluster",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "quartz-prism-cluster",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch19 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch19/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/quartz-prism-cluster/brief.json",
+        "config": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/quartz-prism-cluster/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/quartz-prism-cluster/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch19/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/work/batch-19/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch19/production/continuous-small-life-round07-20261018/items/quartz-prism-cluster/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "quartz-prism-cluster/quartz-prism-cluster.blend",
+        "quartz-prism-cluster/quartz-prism-cluster.glb",
+        "quartz-prism-cluster/qa.json",
+        "quartz-prism-cluster/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T213333-612cc00a15414404b00e3fac05d27340"
+}
