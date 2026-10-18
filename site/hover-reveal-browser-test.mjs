@@ -43,7 +43,7 @@ try {
       };
       const sample=()=>{
         const card=document.querySelector('#grid [data-id="natural-arch"]'), host=card.querySelector('.asset-image'), c=host.querySelector('.model-hover-reveal'), live=host.querySelector('.model-canvas'), img=host.querySelector('img');
-        const frame={state:card.dataset.previewState||'poster',time:performance.now(),canvases:document.querySelectorAll('.model-canvas').length,weight:c?Number(c.dataset.revealWeight):null,surfaceOpacity:c?Number(getComputedStyle(c).opacity):null,posterOpacity:Number(getComputedStyle(img).opacity),liveVisible:live&&getComputedStyle(live).visibility!=='hidden'};
+        const frame={state:card.dataset.previewState||'poster',time:performance.now(),canvases:document.querySelectorAll('.model-canvas').length,weight:c?Number(c.dataset.revealWeight):null,surfaceOpacity:c?Number(getComputedStyle(c).opacity):null,posterOpacity:Number(getComputedStyle(img).opacity),liveOpacity:live?Number(getComputedStyle(live).opacity):null,liveVisible:live&&getComputedStyle(live).visibility!=='hidden'};
         if(c){
           const w=c.width,h=c.height,ctx=c.getContext('2d'),actual=ctx.getImageData(0,0,w,h).data;
           const buffer=document.createElement('canvas');buffer.width=w;buffer.height=h;const b=buffer.getContext('2d');b.drawImage(img,0,0,w,h);const lower=b.getImageData(0,0,w,h).data;
@@ -59,11 +59,12 @@ try {
   }
   await test('cold-and-warm-alpha-correct-reveal',async(page,result)=>{
     for(const temperature of ['cold','warm']){
-      await probe(page);await hover(page);await settled(page);
+      await probe(page);await hover(page);await settled(page);await page.waitForTimeout(220);
       const frames=await page.evaluate(()=>{cancelAnimationFrame(window.__revealRAF);return window.__revealFrames;});result[temperature]=frames;
       const partial=frames.filter(f=>f.weight>0&&f.weight<1);
       if(!baseline){assert(partial.length>=2,'At least two painted intermediate weights');assert(partial.every(f=>f.maxPremultipliedError<=3&&f.foreground>0),'Premultiplied alpha/color match analytic blend');assert(frames.every(f=>f.canvases<=1),'Single WebGL canvas');assert(frames.filter(f=>f.weight!==null).every(f=>!f.liveVisible&&f.posterOpacity===0&&f.surfaceOpacity===1),'Only blend surface displayed');}
-      else assert.equal(partial.length,0,'Baseline has atomic swap');
+      else {assert.equal(partial.length,0,'Baseline has atomic swap');assert(frames.some(f=>f.posterOpacity===0&&f.liveVisible&&f.liveOpacity<.99),'Baseline exposes background while the only visible model is faded');}
+      if(!baseline)assert(frames.filter(f=>f.liveVisible).every(f=>f.liveOpacity===1),'Visible real model never fades from zero');
       const png=await page.evaluate(()=>window.__revealPNG||null);if(png)await writeFile(resolve(output,temperature+'-blend.png'),Buffer.from(png.split(',')[1],'base64'));
       await page.screenshot({path:resolve(output,temperature+'-settled.png')});
       result[temperature+'GPU']=await page.evaluate(()=>({...window.__vaultGPU}));
@@ -85,7 +86,7 @@ try {
       await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'));
       assert.equal(await page.locator('.model-hover-reveal').count(),0);
     });
-    await test('reduced-motion',async(page)=>{await probe(page);await hover(page);await settled(page);const frames=await page.evaluate(()=>{cancelAnimationFrame(window.__revealRAF);return window.__revealFrames;});assert(frames.every(f=>f.weight===null));},'reduce');
+    await test('reduced-motion',async(page)=>{await probe(page);await hover(page);await settled(page);await page.waitForTimeout(220);const frames=await page.evaluate(()=>{cancelAnimationFrame(window.__revealRAF);return window.__revealFrames;});assert(frames.every(f=>f.weight===null));},'reduce');
     await test('failed-fetch-keeps-poster',async(page)=>{await page.route('**/*.glb',route=>route.abort());await hover(page);await page.waitForFunction(()=>document.querySelector('#grid [data-id="natural-arch"]')?.dataset.previewState==='fallback');assert.equal(await page.locator('.model-hover-reveal').count(),0);assert.equal(await page.locator(selector+' img').evaluate(img=>Number(getComputedStyle(img).opacity)),1);});
   }
   report.pass=report.cases.every(c=>c.pass)&&!report.errors.length;
