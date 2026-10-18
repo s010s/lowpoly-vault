@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/generator.py",
+    "--",
+    "--asset",
+    "sollasina",
+    "--config",
+    "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/rebuild-runs/build/sollasina/r001/semantic-rebuild-1/c2cd5043f88a2715bd5899b26c4c3023d792ee331aaf84ce29f3ec6a3fa62018/20261018T223737-8e007e6ea70c4c59a173c874aa8f8023/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T22:37:37.555303+00:00",
+  "fingerprint": "c2cd5043f88a2715bd5899b26c4c3023d792ee331aaf84ce29f3ec6a3fa62018",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 10030,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/sollasina/brief.json",
+        "sha256": "af43b84941bcad5674372e46b880ca68dc192ba535825247bb07fa7b3aefb03d"
+      },
+      "config": {
+        "bytes": 2339,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/config.json",
+        "sha256": "f1cc9cc77b267d25e4512307767f0bf37f3c252d2fccc7a541d23ed2ed2365a6"
+      },
+      "generator": {
+        "bytes": 5660,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/generator.py",
+        "sha256": "c4a0a6f09974f2d9de0eb94451bce1b480d43b1bca768741ce21c5a88163888a"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2962,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/sollasina/inventory-record.json",
+        "sha256": "bcd70d5b1fc0e8c193360264488f4b5f1dab7ab002c32c83582cad0a7ab486ad"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1329,
+        "path": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/sollasina/references.json",
+        "sha256": "c6f53658e0a91b42bfd7b159dd5b6a2674829b13e5e5129632947922dcaf7a55"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "sollasina",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "sollasina",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch27 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/sollasina/brief.json",
+        "config": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/sollasina/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/sollasina/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "sollasina/sollasina.blend",
+        "sollasina/sollasina.glb",
+        "sollasina/qa.json",
+        "sollasina/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T223737-5a71a731039145498a1d36fa056c16aa"
+}
