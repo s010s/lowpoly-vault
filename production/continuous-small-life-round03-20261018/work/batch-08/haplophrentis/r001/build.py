@@ -125,14 +125,15 @@ def haplophrentis(c,m):
  shell=Mesh('tapered-conch-with-visible-aperture',m);lid=Mesh('separate-simplified-operculum',m);helens=Mesh('two-long-curved-helens-from-aperture',m)
  n=40;vs=[];fs=[];mi=[];profiles=[]
  for j in range(26):
-  t=j/25;profiles.append((.028-.041*t,.0045+.0018*t,.00025+.0079*t,.00020+.0058*t,0,t))
+  t=j/25;profiles.append((.028-.041*t,.0045+.0018*t,.00040+.00775*t,.00032+.00568*t,0,t))
  # The visible aperture has real inner wall depth; no copied textures or assumed soft tissue.
  for ratio,depth in [(.91,.0002),(.84,.0015),(.70,.004),(.45,.009)]:profiles.append((-.013+depth,.0063,.00815*ratio,.006*ratio,1,1))
  for y,zc,w,h,mat,t in profiles:
   for k in range(n):
    a=2*pi*k/n;tri=1+.07*math.cos(3*a+.5*pi);growth=1+.012*math.sin(2*pi*t*13)*t;x=w*math.cos(a)*tri*growth;z=zc+h*math.sin(a)*tri*growth
    vs.append((x,y-.0010*(1-math.sin(a))*t,z))
- fs.append(tuple(reversed(range(n))));mi.append(0)
+ cap=len(vs);vs.append((0,.028,.0045))
+ for k in range(n):fs.append((cap,(k+1)%n,k));mi.append(0)
  for j in range(len(profiles)-1):
   for k in range(n):fs.append((j*n+k,j*n+(k+1)%n,(j+1)*n+(k+1)%n,(j+1)*n+k));mi.append(profiles[j+1][4])
  fs.append(tuple((len(profiles)-1)*n+k for k in range(n)));mi.append(1);shell.add(vs,fs,mi)
