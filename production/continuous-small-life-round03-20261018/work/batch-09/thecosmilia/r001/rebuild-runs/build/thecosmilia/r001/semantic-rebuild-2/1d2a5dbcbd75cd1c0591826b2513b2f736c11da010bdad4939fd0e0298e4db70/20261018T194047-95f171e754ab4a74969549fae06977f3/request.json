@@ -1,0 +1,107 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+    "--",
+    "--asset",
+    "thecosmilia",
+    "--config",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/thecosmilia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/thecosmilia/r001/rebuild-runs/build/thecosmilia/r001/semantic-rebuild-2/1d2a5dbcbd75cd1c0591826b2513b2f736c11da010bdad4939fd0e0298e4db70/20261018T194047-95f171e754ab4a74969549fae06977f3/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T19:40:47.692754+00:00",
+  "fingerprint": "1d2a5dbcbd75cd1c0591826b2513b2f736c11da010bdad4939fd0e0298e4db70",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9259,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/brief.json",
+        "sha256": "e1952676a5fac4c6a807b18f60d9f89465f90e8841586bbf26385624b4bc01b5"
+      },
+      "config": {
+        "bytes": 2008,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/thecosmilia/r001/config.json",
+        "sha256": "aee84e0e240987ffebc9e6f8f370db9db310ff666eee569a6a4acc3552b09a99"
+      },
+      "generator": {
+        "bytes": 17888,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "sha256": "4bac6871e481829d4200fd53dff4e8e5e255bb803aaad3e57c62130994672e57"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1091,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/references.json",
+        "sha256": "cee9ea7281ee42841c0167869c5c567f8a959a620351b5d3cf2a2cd88b56abef"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "thecosmilia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "thecosmilia",
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "thecosmilia"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/thecosmilia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "thecosmilia/thecosmilia.glb",
+        "thecosmilia/thecosmilia.blend",
+        "thecosmilia/qa.json",
+        "thecosmilia/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T194038-368ee9e312794b718026bf4a7cdfbe90"
+}

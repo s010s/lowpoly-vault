@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "thecosmilia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "thecosmilia",
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "thecosmilia"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/thecosmilia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "thecosmilia/thecosmilia.glb",
+        "thecosmilia/thecosmilia.blend",
+        "thecosmilia/qa.json",
+        "thecosmilia/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "thecosmilia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "thecosmilia",
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "thecosmilia"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/thecosmilia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/thecosmilia/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "thecosmilia/thecosmilia.glb",
+        "thecosmilia/thecosmilia.blend",
+        "thecosmilia/qa.json",
+        "thecosmilia/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

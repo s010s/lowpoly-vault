@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: MIT
+"""Freeze actual bytes and measured evidence; independent review stays pending."""
+import json,hashlib,sys
+from pathlib import Path
+from PIL import Image,ImageDraw
+ROOT=next(p for p in Path(__file__).resolve().parents if (p/'scripts/asset_common.py').exists());b=Path(__file__).resolve().parent;s=sys.argv[1];w=b/s/'r001';d=ROOT/f"assets/candidates/continuous-small-life-round03-20261018/batch-09/{s}/r001/{dict(thecosmilia='attempt-06',meandrina='attempt-04',leptomitus='attempt-02').get(s,'attempt-01')}/{s}";inputs=ROOT/'production/continuous-small-life-round03-20261018/items'/s
+sys.path.insert(0,str(ROOT/'scripts'));from qa_glb import audit_glb,read_glb
+
+def put(p,x):p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+def ref(p):return {'path':p.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size}
+def read(p):return json.loads(p.read_text())
+audit=audit_glb(d/(s+'.glb'),14000,6,30);assert not audit['errors'];source=read(w/'source-scene.json');rebuild=read(w/'reproducibility.json');comparison=read(w/'source-export.json');validator=read(d/'gltf-validator.report.json');single=read(d/'runtime/single.json');scene=read(d/'runtime/scene.json')
+assert validator['issues']['numErrors']==0 and validator['issues']['numWarnings']==0
+assert source['status']=='pass' and comparison['triangles_match'] and comparison['bounds_match'] and rebuild['status']=='pass'
+assert single['glb_sha256']==scene['glb_sha256']==audit['sha256'] and single['status']==scene['status']=='pass'
+assert scene['instances']==6 and single['views'][0]['triangles']==audit['scene_triangles'] and scene['views'][0]['triangles']==6*audit['scene_triangles']
+texture_paths=list(d.glob('*pigment.png'));texture_records=[ref(p) for p in texture_paths];texture_encoded=sum(p.stat().st_size for p in texture_paths);texture_decoded=sum(Image.open(p).width*Image.open(p).height*4 for p in texture_paths)
+gltf,binary,_raw=read_glb(d/(s+'.glb'));embedded_encoded=0;embedded_decoded=0
+from io import BytesIO
+for im in gltf.get('images',[]):
+ view=gltf['bufferViews'][im['bufferView']];data=binary[view.get('byteOffset',0):view.get('byteOffset',0)+view['byteLength']];pic=Image.open(BytesIO(data));assert max(pic.size)<=256;embedded_encoded+=len(data);embedded_decoded+=pic.width*pic.height*4
+assert len(texture_paths)<=1 and len(gltf.get('images',[]))<=1 and max(texture_encoded,embedded_encoded)<=65536 and max(texture_decoded,embedded_decoded)<=524288
+meta=read(d/'metadata.json');meta.update(status='candidate-awaiting-independent-QA',source_authored_vertices=source['source_authored_vertices'],source_evaluated_vertices=source['source_evaluated_vertices'],exported_position_stream_vertices=audit['unique_position_accessor_vertices'],exported_materials=audit['materials'],exported_primitives=audit['scene_primitives_estimated_base_draw_calls'],texture_metrics={'count':len(texture_paths),'source_encoded_bytes':texture_encoded,'embedded_encoded_bytes':embedded_encoded,'decoded_bytes':embedded_decoded},textures=texture_records,reference_access_supplement=ref(b/'reference-access.json'),attribution={'en':'Leon Made This / s010s — CC-BY-4.0; generator code MIT','zh':'Leon Made This / s010s 署名，模型与渲染 CC-BY-4.0，生成代码 MIT'},independent_qa={'status':'pending','dispatcher':'parent','model':'GPT-6 Luna','reasoning':'xhigh'},style_reference=ref(ROOT/'qa/small-fauna-trio-v2/before-after.jpg'))
+put(d/'metadata.json',meta)
+# Contact sheets retain, and bind, all full-resolution source/runtime originals.
+def sheet(paths,path,cols=4):
+ rows=(len(paths)+cols-1)//cols;canvas=Image.new('RGB',(cols*400,rows*435),'#e8e4dc');draw=ImageDraw.Draw(canvas)
+ for k,p in enumerate(paths):
+  im=Image.open(p).convert('RGBA');im.thumbnail((400,400));x=k%cols*400;y=k//cols*435;canvas.paste(im,(x+(400-im.width)//2,y+(400-im.height)//2),im);draw.text((x+10,y+410),s+' / '+p.stem,fill='#30434b')
+ canvas.save(path,quality=93)
+views=['hero','reversehero','front','side','rear','top','clay','silhouette'];source_paths=[d/f'preview-{v}.png' for v in views];runtime_paths=[d/'runtime'/f['path'] for mode in [single,scene] for f in mode['views']]
+sheet(source_paths,d/'source-contact-sheet.jpg');sheet(runtime_paths,d/'runtime-contact-sheet.jpg')
+for p in source_paths:
+ im=Image.open(p);assert im.mode=='RGBA'
+ if 'silhouette' not in p.name:assert im.getchannel('A').getextrema()[0]==0
+manifest={'schema_version':1,'asset_id':s,'revision':'r001','glb_sha256':audit['sha256'],'turntable_frames':0,'source_render':{'engine':'Blender 4.3.2 Cycles CPU','threads':2,'resolution':512,'samples':16,'color':'Standard / None / exposure 0 / gamma 1','transparent':True,'framing':'Per-view projected-bounds fit, asset_common.py; source geometry unchanged'},'runtime_render':{'engine':single['renderer'],'three':'0.180.0','output':'sRGB','tone_mapping':'None','fixed_view_near_extent_px':480,'normal_extent_px':[80,160,240],'instances':6,'camera_and_lighting_source':ref(b/'viewer.html')},'frames':[dict(ref(p),width=Image.open(p).width,height=Image.open(p).height,origin='source' if p in source_paths else 'exact-glb-runtime') for p in source_paths+runtime_paths],'sheets':[ref(d/'source-contact-sheet.jpg'),ref(d/'runtime-contact-sheet.jpg')],'review_state':'Maker inspects pixels separately; independent review pending.'}
+put(d/'view-manifest.json',manifest)
+notes={
+ 'thecosmilia':'Eight source views inspected: six thick naturally forked branches end in separated deep open cups and simplified unequal radial septa. Quiet lengthwise costae, no side-hole array. Branch number, septal count and palette are artistic choices; this is an inspired-by teaching prop.',
+ 'meandrina':'Eight source views inspected: continuous low mound with actual winding recessed valleys and paired raised walls; one small original 256px low-contrast valley pigment map and no honeycomb-hole array. The simplified maze is artistic, not a specimen- or species-exact skeletal reconstruction.',
+ 'leptomitus':'Eight source views inspected: continuous elongate narrow tube, rounded base, genuine longitudinal folds and open thickened rim. Subtle bow and width variation are artistic; no microspicule or exact tuft reconstruction claim.',
+ 'buthograptus':'Eight source views inspected: preserved shallow thallus fragment on an original quiet teaching slab, central axis cropped at both ends, open curved tapering laterals. No whole organism, roots, holdfast, terrestrial leaf veins or reconstructed marine vegetation. Slab is an original teaching support, not a copy of specimen matrix.'}
+
+qa=read(d/'qa.json');qa.update(threejs_runtime=single,representative_scene=scene,source_reopen=ref(w/'source-scene.json'),source_export=ref(w/'source-export.json'),reproducibility=ref(w/'reproducibility.json'),warning_disposition={'smooth_faces':'Intentional mixed refined low-poly profile: continuous organic surfaces with smooth normals; all source meshes are closed and outward-normal recalculated by mesh_object. Actual runtime checked with normal backface culling.','source_scene':'Only EXPORT root and descendants shipped; Editable Thecosmilia branch construction retained outside EXPORT and hidden. No cameras/lights/stage saved.','scale':'Meters and identity root at central placement axis; nominal brief scale is an artistic choice, not a measured specimen.','scientific_scope':'Inspired-by teaching art; Buthograptus restricted to a shallow preserved-thallus fragment. No strict genus/specimen accuracy or cross-period coexistence claim.'},visual_review={'status':'maker_self_review_only','thread_id':'01a15056-509d-725f-bad0-871371cd7010','observations':notes[s],'independent_qa':'pending parent-dispatched GPT-6 Luna xhigh'},previews={'status':'rendered_and_maker_inspected','views':views,'cover':'preview-hero.png','manifest':ref(d/'view-manifest.json')})
+put(d/'qa.json',qa)
+artifacts={k:ref(p) for k,p in {'glb':d/(s+'.glb'),'source':d/(s+'.blend'),'generator':b/'build_batch09.py','config':w/'config.json','brief':inputs/'brief.json','references':inputs/'references.json','helper':ROOT/'scripts/asset_common.py','audit':ROOT/'scripts/qa_glb.py','package_lock':ROOT/'package-lock.json','source_inspector':b/'inspect_source.py','runtime_viewer':b/'viewer.html','runtime_checker':b/'browser_qa.mjs','verification_runner':b/'verify_item.py','queue_runner':ROOT/'scripts/run_asset_queue.py','reference_access':b/'reference-access.json','claim':b/'claim.json',**{('original_pigment_'+str(i)):p for i,p in enumerate(texture_paths)}}.items()}
+evidence={k:ref(p) for k,p in {'khronos':d/'gltf-validator.report.json','source_scene':w/'source-scene.json','source_export':w/'source-export.json','two_rebuilds':w/'reproducibility.json','runtime':d/'runtime/single.json','scene':d/'runtime/scene.json','views':d/'view-manifest.json','metadata':d/'metadata.json','qa':d/'qa.json'}.items()}
+record=read(ROOT/'schemas/templates/candidate.template.json');record.update(asset_id=s,revision='r001',maker={'id':'GPT-6.1 Sol medium','task_id':'01a15056-509d-725f-bad0-871371cd7010'},artifacts=artifacts,textures=texture_records,status='candidate-awaiting-independent-QA',technical_evidence=evidence,blockers=['Independent visual/factual/specification acceptance pending parent-dispatched GPT-6 Luna xhigh.'],approval={'status':'pending'},formal_gate_limitation='Inherited frozen planning references omit legacy required license fields (consultation does not grant a media license); this is the first observed legacy-checker failure. The practical brief also requires zero turntable frames and eight fixed views, whereas legacy validate_candidate.py requires >=2 frames and more production views. Failure is recorded, never reported as PASS. No global checker or CI changed.')
+for stage in record['stages'].values():stage['note']='Independent acceptance not asserted by maker; see technical_evidence for measured maker checks.'
+put(w/'candidate.json',record)
+put(w/'freeze.json',{'schema_version':1,'asset_id':s,'revision':'r001','final_attempt':dict(thecosmilia='attempt-06',meandrina='attempt-04',leptomitus='attempt-02').get(s,'attempt-01'),'files':artifacts,'evidence':evidence,'candidate':ref(w/'candidate.json'),'independent_acceptance':'pending','source_plan_commit':'ff67b477c888bc924fa6b664186013fbe5717645','base_main':'ab11dfe622682b75b86a8dd29c48c650e5e5a5c2'})
+print(s,audit['sha256'],audit['bytes'],audit['scene_triangles'])
