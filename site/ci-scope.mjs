@@ -17,7 +17,7 @@ export function classify(paths,manifest,full=false,context={}) {
   if(p==='site/curation.js'&&editorialDataOnly(context.previousCuration,context.currentCuration))return false;
   if(p==='package.json'&&context.previousPackage&&context.currentPackage){const {scripts:a,...old}=context.previousPackage,{scripts:b,...now}=context.currentPackage;if(isDeepStrictEqual(old,now))return false;}
   if(/^(package(?:-lock)?\.json|vite\.config\.js)$/.test(p))return true;
-  return /^site\//.test(p)&&!/^site\/(?:ci-|.*release(?:-test)?\.mjs$|audit-release\.mjs$|accepted-small-life-batch-data\.mjs$|(?:redesign|small-life|live-release|catalog-scroll|shared-model|image-scrub|handoff|modal-motion|interaction-motion)-browser-test\.mjs$|live-release-contract(?:-test)?\.mjs$)/.test(p);
+  return /^site\//.test(p)&&!/^site\/(?:ci-|.*release(?:-test)?\.mjs$|audit-release\.mjs$|accepted-small-life-batch-data\.mjs$|(?:redesign|small-life|live-release|catalog-scroll|shared-model|image-scrub|handoff|hover-reveal|modal-motion|interaction-motion)-browser-test\.mjs$|live-release-contract(?:-test)?\.mjs$)/.test(p);
  });
  const manifestChanged=paths.includes('assets/manifest.json'),previous=context.previousManifest;
  const unknown=manifestChanged&&!previous;
@@ -25,8 +25,8 @@ export function classify(paths,manifest,full=false,context={}) {
  const models=runtime||unknown||changed.length>0||paths.includes('site/redesign-browser-test.mjs');
  const ids=runtime||unknown?'':changed.map(a=>a.id).join(',');
  const previews=full||paths.some(p=>/^(site\/(viewer\.js|render-preset\.js|render-web-previews\.mjs|turntable-delivery\.mjs)|assets\/(card-previews\/|turntables\/))/.test(p))||changed.length>0;
- const tasks=runtime?['models','matrix','fallback','small-life','list','shared','handoff','conifer','modal','interaction','scroll']:models?['models']:[];
- const probes={'catalog-scroll-browser-test.mjs':'scroll','shared-model-browser-test.mjs':'shared','image-scrub-browser-test.mjs':'list','handoff-browser-test.mjs':'handoff','modal-motion-browser-test.mjs':'modal','interaction-motion-browser-test.mjs':'interaction','browser-test.mjs':'matrix'};
+ const tasks=runtime?['models','matrix','fallback','small-life','list','shared','handoff','conifer','modal','interaction','scroll','hover']:models?['models']:[];
+ const probes={'catalog-scroll-browser-test.mjs':'scroll','shared-model-browser-test.mjs':'shared','image-scrub-browser-test.mjs':'list','handoff-browser-test.mjs':'handoff','hover-reveal-browser-test.mjs':'hover','modal-motion-browser-test.mjs':'modal','interaction-motion-browser-test.mjs':'interaction','browser-test.mjs':'matrix'};
  for(const [file,task]of Object.entries(probes))if(paths.includes('site/'+file))tasks.push(task);
  const changedIDs=new Set(changed.map(a=>a.id)),smallProbe=paths.includes('site/small-life-browser-test.mjs');
  if(smallProbe)tasks.push('small-life');

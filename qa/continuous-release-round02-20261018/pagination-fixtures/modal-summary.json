@@ -1,0 +1,850 @@
+{
+  "status": "pass",
+  "mode": "regression",
+  "scope": "full",
+  "dom_raster_mode": "cpu",
+  "dom_compositor_mode": "cpu",
+  "runtime_info": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "hardware_concurrency": 5,
+    "device_memory_gb": 16,
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "device_scale_factor": 1,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "observer_types": [
+      "element",
+      "event",
+      "first-input",
+      "interaction-contentful-paint",
+      "largest-contentful-paint",
+      "layout-shift",
+      "long-animation-frame",
+      "longtask",
+      "mark",
+      "measure",
+      "navigation",
+      "paint",
+      "resource",
+      "soft-navigation",
+      "visibility-state"
+    ]
+  },
+  "commit": null,
+  "targets_ms": {
+    "chrome_open": 240,
+    "all_content_open": 300,
+    "chrome_close": 140,
+    "return_move": 120,
+    "canonical_fade": 60,
+    "reverse_flight": 180
+  },
+  "cases": [
+    {
+      "label": "desktop-click",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "open",
+          "trigger": {
+            "time": 1464,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "card:natural-arch",
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 48,
+          "max_raf_gap_ms": 39,
+          "dialog_open_ms": 35,
+          "shell_settled_ms": 237.20000000018626,
+          "content_settled_ms": 237.20000000018626,
+          "chrome_settled_ms": 237.20000000018626,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 35,
+          "last_flight_ms": 352.5,
+          "marker_opening_ms": 35,
+          "marker_closing_ms": null,
+          "content_progress_samples": 8,
+          "shell_progress_samples": 8,
+          "backdrop_progress_samples": 7
+        },
+        {
+          "phase": "close",
+          "trigger": {
+            "time": 3162.7000000001863,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "#close",
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 38,
+          "max_raf_gap_ms": 40.10000000055879,
+          "dialog_open_ms": 0.599999999627471,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 205.20000000018626,
+          "dialog_closed_ms": 260.29999999981374,
+          "first_flight_ms": 35.89999999944121,
+          "last_flight_ms": 253.79999999981374,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 35.89999999944121,
+          "content_progress_samples": 4,
+          "shell_progress_samples": 4,
+          "backdrop_progress_samples": 4
+        }
+      ],
+      "violations": [
+        {
+          "name": "close: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "close: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "close: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        }
+      ]
+    },
+    {
+      "label": "desktop-chinese",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "open",
+          "trigger": {
+            "time": 1544.5,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "card:natural-arch",
+            "path": "/lowpoly-vault/zh-CN/models/"
+          },
+          "raf_samples": 48,
+          "max_raf_gap_ms": 49.299999999813735,
+          "dialog_open_ms": 35,
+          "shell_settled_ms": 253.30000000074506,
+          "content_settled_ms": 253.30000000074506,
+          "chrome_settled_ms": 253.30000000074506,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 35,
+          "last_flight_ms": 354.5,
+          "marker_opening_ms": 35,
+          "marker_closing_ms": null,
+          "content_progress_samples": 9,
+          "shell_progress_samples": 9,
+          "backdrop_progress_samples": 8
+        },
+        {
+          "phase": "close",
+          "trigger": {
+            "time": 3260,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "#close",
+            "path": "/lowpoly-vault/zh-CN/models/natural-arch/"
+          },
+          "raf_samples": 39,
+          "max_raf_gap_ms": 38.80000000074506,
+          "dialog_open_ms": 0.40000000037252903,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 196.1000000005588,
+          "dialog_closed_ms": 260,
+          "first_flight_ms": 36.80000000074506,
+          "last_flight_ms": 255.20000000018626,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 36.80000000074506,
+          "content_progress_samples": 4,
+          "shell_progress_samples": 4,
+          "backdrop_progress_samples": 4
+        }
+      ],
+      "violations": [
+        {
+          "name": "close: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "close: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "close: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        }
+      ]
+    },
+    {
+      "label": "desktop-chinese-slow-frame",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "open",
+          "trigger": {
+            "time": 1470.7000000001863,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "card:natural-arch",
+            "path": "/lowpoly-vault/zh-CN/models/"
+          },
+          "raf_samples": 50,
+          "max_raf_gap_ms": 223,
+          "dialog_open_ms": 30.5,
+          "shell_settled_ms": 240.29999999981374,
+          "content_settled_ms": 240.29999999981374,
+          "chrome_settled_ms": 240.29999999981374,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 30.5,
+          "last_flight_ms": 357.5,
+          "marker_opening_ms": 30.5,
+          "marker_closing_ms": null,
+          "content_progress_samples": 9,
+          "shell_progress_samples": 9,
+          "backdrop_progress_samples": 8
+        },
+        {
+          "phase": "close",
+          "trigger": {
+            "time": 3338.2999999998137,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "#close",
+            "path": "/lowpoly-vault/zh-CN/models/natural-arch/"
+          },
+          "raf_samples": 37,
+          "max_raf_gap_ms": 36.59999999962747,
+          "dialog_open_ms": 0.40000000037252903,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 195.40000000037253,
+          "dialog_closed_ms": 260.5,
+          "first_flight_ms": 36.299999999813735,
+          "last_flight_ms": 255.40000000037253,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 36.299999999813735,
+          "content_progress_samples": 4,
+          "shell_progress_samples": 4,
+          "backdrop_progress_samples": 4
+        }
+      ],
+      "violations": [
+        {
+          "name": "close: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "close: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "close: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        }
+      ]
+    },
+    {
+      "label": "mobile-touch",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "open",
+          "trigger": {
+            "time": 1612.7999999998137,
+            "type": "click",
+            "key": null,
+            "pointer_type": "touch",
+            "trusted": true,
+            "target": "card:natural-arch",
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 49,
+          "max_raf_gap_ms": 29.40000000037253,
+          "dialog_open_ms": 27.200000000186265,
+          "shell_settled_ms": 211.79999999981374,
+          "content_settled_ms": 211.79999999981374,
+          "chrome_settled_ms": 211.79999999981374,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 27.200000000186265,
+          "last_flight_ms": 328.3999999994412,
+          "marker_opening_ms": 27.200000000186265,
+          "marker_closing_ms": null,
+          "content_progress_samples": 9,
+          "shell_progress_samples": 9,
+          "backdrop_progress_samples": 8
+        },
+        {
+          "phase": "close",
+          "trigger": {
+            "time": 3254.0999999996275,
+            "type": "click",
+            "key": null,
+            "pointer_type": "touch",
+            "trusted": true,
+            "target": "#close",
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 40,
+          "max_raf_gap_ms": 19.700000000186265,
+          "dialog_open_ms": 0.5,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 154.59999999962747,
+          "dialog_closed_ms": 242.20000000018626,
+          "first_flight_ms": 21.799999999813735,
+          "last_flight_ms": 237.29999999981374,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 21.799999999813735,
+          "content_progress_samples": 6,
+          "shell_progress_samples": 6,
+          "backdrop_progress_samples": 7
+        }
+      ],
+      "violations": [
+        {
+          "name": "close: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "close: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        }
+      ]
+    },
+    {
+      "label": "reduced-motion",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "open",
+          "trigger": {
+            "time": 1482.5999999996275,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "card:natural-arch",
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 33,
+          "max_raf_gap_ms": 35.60000000055879,
+          "dialog_open_ms": 29.200000000186265,
+          "shell_settled_ms": 29.200000000186265,
+          "content_settled_ms": 29.200000000186265,
+          "chrome_settled_ms": 29.200000000186265,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": null,
+          "last_flight_ms": null,
+          "marker_opening_ms": null,
+          "marker_closing_ms": null,
+          "content_progress_samples": 0,
+          "shell_progress_samples": 0,
+          "backdrop_progress_samples": 0
+        },
+        {
+          "phase": "close",
+          "trigger": {
+            "time": 2800.7999999998137,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "#close",
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 39,
+          "max_raf_gap_ms": 19.90000000037253,
+          "dialog_open_ms": 0.2999999998137355,
+          "shell_settled_ms": 0.2999999998137355,
+          "content_settled_ms": 0.2999999998137355,
+          "chrome_settled_ms": 0.2999999998137355,
+          "chrome_gone_ms": 68.3999999994412,
+          "dialog_closed_ms": 67.5,
+          "first_flight_ms": null,
+          "last_flight_ms": null,
+          "marker_opening_ms": null,
+          "marker_closing_ms": null,
+          "content_progress_samples": 0,
+          "shell_progress_samples": 0,
+          "backdrop_progress_samples": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "label": "keyboard-enter-escape",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "keyboard-open",
+          "trigger": {
+            "time": 1444.5,
+            "type": "keydown",
+            "key": "Enter",
+            "pointer_type": null,
+            "trusted": true,
+            "target": "card:natural-arch",
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 46,
+          "max_raf_gap_ms": 42.700000000186265,
+          "dialog_open_ms": 25.200000000186265,
+          "shell_settled_ms": 224.79999999981374,
+          "content_settled_ms": 224.79999999981374,
+          "chrome_settled_ms": 224.79999999981374,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 25.200000000186265,
+          "last_flight_ms": 339.5,
+          "marker_opening_ms": 25.200000000186265,
+          "marker_closing_ms": null,
+          "content_progress_samples": 8,
+          "shell_progress_samples": 8,
+          "backdrop_progress_samples": 7
+        },
+        {
+          "phase": "keyboard-close",
+          "trigger": {
+            "time": 2634.7999999998137,
+            "type": "keydown",
+            "key": "Escape",
+            "pointer_type": null,
+            "trusted": true,
+            "target": "#close",
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 35,
+          "max_raf_gap_ms": 33.799999999813735,
+          "dialog_open_ms": 0.40000000037252903,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 197.20000000018626,
+          "dialog_closed_ms": 286.90000000037253,
+          "first_flight_ms": 36.799999999813735,
+          "last_flight_ms": 281.90000000037253,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 36.799999999813735,
+          "content_progress_samples": 4,
+          "shell_progress_samples": 4,
+          "backdrop_progress_samples": 4
+        }
+      ],
+      "violations": [
+        {
+          "name": "keyboard-close: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "keyboard-close: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "keyboard-close: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        }
+      ]
+    },
+    {
+      "label": "rapid-open-close-reopen",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "interrupted-reopen",
+          "trigger": {
+            "time": 1652.9000000003725,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 80,
+          "max_raf_gap_ms": 43.799999999813735,
+          "dialog_open_ms": 1.2000000001862645,
+          "shell_settled_ms": 211,
+          "content_settled_ms": 211,
+          "chrome_settled_ms": 211,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 1.2000000001862645,
+          "last_flight_ms": 313,
+          "marker_opening_ms": 11.700000000186265,
+          "marker_closing_ms": 1.2000000001862645,
+          "content_progress_samples": 13,
+          "shell_progress_samples": 13,
+          "backdrop_progress_samples": 12
+        }
+      ],
+      "violations": []
+    },
+    {
+      "label": "history-back-forward",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "history-close",
+          "trigger": {
+            "time": 2772.7999999998137,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 32,
+          "max_raf_gap_ms": 34.30000000074506,
+          "dialog_open_ms": 0.30000000074505806,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 212.30000000074506,
+          "dialog_closed_ms": 269.30000000074506,
+          "first_flight_ms": 43,
+          "last_flight_ms": 264.70000000018626,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 43,
+          "content_progress_samples": 5,
+          "shell_progress_samples": 5,
+          "backdrop_progress_samples": 5
+        },
+        {
+          "phase": "history-reopen",
+          "trigger": {
+            "time": 3653.4000000003725,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 49,
+          "max_raf_gap_ms": 47.40000000037253,
+          "dialog_open_ms": 9.700000000186265,
+          "shell_settled_ms": 202.09999999962747,
+          "content_settled_ms": 202.09999999962747,
+          "chrome_settled_ms": 202.09999999962747,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 9.700000000186265,
+          "last_flight_ms": 318.5,
+          "marker_opening_ms": 9.700000000186265,
+          "marker_closing_ms": null,
+          "content_progress_samples": 9,
+          "shell_progress_samples": 9,
+          "backdrop_progress_samples": 8
+        },
+        {
+          "phase": "warm-cache-close-1",
+          "trigger": {
+            "time": 4839.799999999814,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 33,
+          "max_raf_gap_ms": 37.799999999813735,
+          "dialog_open_ms": 0.40000000037252903,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 192.70000000018626,
+          "dialog_closed_ms": 253.70000000018626,
+          "first_flight_ms": 34.60000000055879,
+          "last_flight_ms": 248.1000000005588,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 34.60000000055879,
+          "content_progress_samples": 4,
+          "shell_progress_samples": 4,
+          "backdrop_progress_samples": 5
+        },
+        {
+          "phase": "warm-cache-reopen-1",
+          "trigger": {
+            "time": 5678.100000000559,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 45,
+          "max_raf_gap_ms": 44.59999999962747,
+          "dialog_open_ms": 13.899999999441206,
+          "shell_settled_ms": 218.8999999994412,
+          "content_settled_ms": 218.8999999994412,
+          "chrome_settled_ms": 218.8999999994412,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 13.899999999441206,
+          "last_flight_ms": 326.3999999994412,
+          "marker_opening_ms": 13.899999999441206,
+          "marker_closing_ms": null,
+          "content_progress_samples": 9,
+          "shell_progress_samples": 9,
+          "backdrop_progress_samples": 8
+        },
+        {
+          "phase": "warm-cache-close-2",
+          "trigger": {
+            "time": 6829.100000000559,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 29,
+          "max_raf_gap_ms": 45.10000000055879,
+          "dialog_open_ms": 0.19999999925494194,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 195.8999999994412,
+          "dialog_closed_ms": 296.29999999981374,
+          "first_flight_ms": 44.69999999925494,
+          "last_flight_ms": 291.8999999994412,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 44.69999999925494,
+          "content_progress_samples": 3,
+          "shell_progress_samples": 3,
+          "backdrop_progress_samples": 3
+        },
+        {
+          "phase": "warm-cache-reopen-2",
+          "trigger": {
+            "time": 7638.100000000559,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 47,
+          "max_raf_gap_ms": 43.40000000037253,
+          "dialog_open_ms": 10.199999999254942,
+          "shell_settled_ms": 216.19999999925494,
+          "content_settled_ms": 216.19999999925494,
+          "chrome_settled_ms": 216.19999999925494,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 10.199999999254942,
+          "last_flight_ms": 317.79999999981374,
+          "marker_opening_ms": 10.199999999254942,
+          "marker_closing_ms": null,
+          "content_progress_samples": 9,
+          "shell_progress_samples": 9,
+          "backdrop_progress_samples": 8
+        },
+        {
+          "phase": "warm-cache-close-3",
+          "trigger": {
+            "time": 8786.200000000186,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/"
+          },
+          "raf_samples": 31,
+          "max_raf_gap_ms": 37.799999999813735,
+          "dialog_open_ms": 0.2999999998137355,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 183.5,
+          "dialog_closed_ms": 274.90000000037253,
+          "first_flight_ms": 43,
+          "last_flight_ms": 268.59999999962747,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 43,
+          "content_progress_samples": 4,
+          "shell_progress_samples": 4,
+          "backdrop_progress_samples": 4
+        },
+        {
+          "phase": "warm-cache-reopen-3",
+          "trigger": {
+            "time": 9603,
+            "type": "popstate",
+            "key": null,
+            "pointer_type": null,
+            "trusted": true,
+            "target": null,
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 46,
+          "max_raf_gap_ms": 36.89999999944121,
+          "dialog_open_ms": 12.600000000558794,
+          "shell_settled_ms": 202.6000000005588,
+          "content_settled_ms": 202.6000000005588,
+          "chrome_settled_ms": 202.6000000005588,
+          "chrome_gone_ms": null,
+          "dialog_closed_ms": null,
+          "first_flight_ms": 12.600000000558794,
+          "last_flight_ms": 319,
+          "marker_opening_ms": 12.600000000558794,
+          "marker_closing_ms": null,
+          "content_progress_samples": 9,
+          "shell_progress_samples": 9,
+          "backdrop_progress_samples": 8
+        }
+      ],
+      "violations": [
+        {
+          "name": "history-close: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "history-close: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "history-close: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-1: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-1: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-1: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-2: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-2: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-2: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-3: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-3: click-to-dialog-close is bounded",
+          "enforced": false
+        },
+        {
+          "name": "warm-cache-close-3: canonical pose is reached at the 120 ms travel boundary",
+          "enforced": false
+        }
+      ]
+    },
+    {
+      "label": "direct-route-no-origin",
+      "status": "pass",
+      "timings": [
+        {
+          "phase": "direct-close",
+          "trigger": {
+            "time": 1795.7000000001863,
+            "type": "click",
+            "key": null,
+            "pointer_type": "mouse",
+            "trusted": true,
+            "target": "#close",
+            "path": "/lowpoly-vault/models/natural-arch/"
+          },
+          "raf_samples": 39,
+          "max_raf_gap_ms": 97.70000000018626,
+          "dialog_open_ms": 0.7999999998137355,
+          "shell_settled_ms": null,
+          "content_settled_ms": null,
+          "chrome_settled_ms": null,
+          "chrome_gone_ms": 215,
+          "dialog_closed_ms": 213.90000000037253,
+          "first_flight_ms": null,
+          "last_flight_ms": null,
+          "marker_opening_ms": null,
+          "marker_closing_ms": 73.6000000005588,
+          "content_progress_samples": 3,
+          "shell_progress_samples": 3,
+          "backdrop_progress_samples": 4
+        }
+      ],
+      "violations": [
+        {
+          "name": "direct-close: chrome vanishes without an opaque closing tail",
+          "enforced": false
+        }
+      ]
+    }
+  ],
+  "page_errors": [],
+  "videos": [
+    {
+      "label": "desktop-click",
+      "file": "326d6ecf16bde212ae364792c8dc1758.webm"
+    },
+    {
+      "label": "desktop-chinese",
+      "file": "dc1bd1378cad2fef71481f56acd2163e.webm"
+    },
+    {
+      "label": "desktop-chinese-slow-frame",
+      "file": "3b97fb778aedb62684a246ac471c295f.webm"
+    },
+    {
+      "label": "mobile-touch",
+      "file": "ca040882e58393a256e648b1cf1fca7a.webm"
+    },
+    {
+      "label": "reduced-motion",
+      "file": "0f1bf727b08c5c959c4069cac330fc36.webm"
+    },
+    {
+      "label": "rapid-open-close-reopen-cache-video",
+      "file": "0a7273dfad6c58c29cc12370f0ec4acb.webm"
+    },
+    {
+      "label": "history-back-forward-cache-video",
+      "file": "a64a9fb31f1f8b2f9ce7b70ac0cb0dcd.webm"
+    }
+  ],
+  "screenshot_count": 69
+}

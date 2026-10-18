@@ -604,7 +604,7 @@ async function ready(page) {
   });
 }
 async function catalog(page, { touch = false, lang = '' } = {}) {
-  await page.goto(base + prefix + (lang ? lang + '/' : '') + 'models/');
+  await page.goto(base + prefix + (lang ? lang + '/' : '') + 'models/?pack=prehistoric-starter');
   await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
   const card = page.locator(cardSelector); await card.scrollIntoViewIfNeeded();
   await card.locator('.asset-image > img').evaluate(async image => { if (!image.complete) await image.decode(); });

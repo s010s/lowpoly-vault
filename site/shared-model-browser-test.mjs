@@ -10,8 +10,8 @@ const output=resolve(process.env.QA_OUTPUT_DIR||'qa/shared-model-preview/browser
 const prefix='/lowpoly-vault/';
 const cpuDOMRaster=!/^(0|false)$/i.test(process.env.QA_CPU_DOM_RASTER||'1');
 const browserArgs=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader',...(cpuDOMRaster?['--disable-gpu-rasterization']:[])];
-const catalog=JSON.parse(await readFile(resolve(root,'assets/catalog.json'),'utf8'));
-const assets=catalog.initial;
+// Lifecycle fixtures use original pack IDs; resolve their bytes from the complete publication, not page one.
+const assets=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8')).assets;
 const viewerFile=(await readdir(resolve(root,'assets'))).find(n=>/^viewer-.*\.js$/.test(n));
 assert(viewerFile,'Built viewer module required');
 const report={status:'running',commit:process.env.GITHUB_SHA||null,execution_environment:process.env.GITHUB_ACTIONS?'GitHub Actions Linux':'cloud computer Linux',started:new Date().toISOString(),checks:[],cases:[],page_errors:[],screenshots:[],videos:[],limitations:['Actual Linux Chromium, ANGLE SwiftShader software WebGL; timings are local loopback and emulated input/viewport, not user-device or production-network benchmarks.','Decoded bytes are the application’s geometry/texture estimates, not driver GPU memory or JS heap measurements.'],server_requests:[]};
@@ -49,7 +49,7 @@ async function test(name,fn,options={}){
 async function save(){await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2));}
 async function shot(page,name){await page.screenshot({path:resolve(output,name+'.png'),fullPage:false});report.screenshots.push(name+'.png');}
 const card=(page,id)=>page.locator('#grid .asset-card[data-id="'+id+'"]');
-async function listing(page){await page.goto(base+prefix+'models/');await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');await page.mouse.move(1,1);}
+async function listing(page){await page.goto(base+prefix+'models/?pack=prehistoric-starter');await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');await page.mouse.move(1,1);}
 async function hover(page,id='natural-arch'){const el=card(page,id);await el.scrollIntoViewIfNeeded();const r=await el.locator('.asset-image').boundingBox();await page.mouse.move(r.x+r.width*.5,r.y+r.height*.5);await page.waitForFunction(id=>document.querySelector('#grid [data-id="'+id+'"]')?.dataset.previewState==='ready'&&window.__vaultGPU?.renderedFrames>0&&!document.querySelector('.model-hover-reveal'),id,{timeout:30000});return el;}
 async function detailReady(page,id){await page.waitForFunction(id=>document.querySelector('#viewer-dialog')?.open&&document.querySelector('#canvas-host')?.dataset.modelState==='ready'&&document.querySelector('#canvas-host')?.dataset.presentedUrl?.endsWith('/'+id+'.glb'),id,{timeout:30000});await page.waitForTimeout(200);}
 async function close(page,{moveAway=false}={}){await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight')&&(!window.__vaultGPU||window.__vaultGPU.liveScenes===0));if(moveAway)await page.mouse.move(1,1);await page.waitForTimeout(80);}
