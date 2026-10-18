@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "columnar-jointed-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/build.py",
+        "config": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/config.json",
+        "brief": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/brief.json",
+        "references": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/references.json",
+        "freeze": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/freeze.json",
+        "original_config": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/build-config.json",
+        "policy": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/reference-policy.json",
+        "helper": "/workspace/batch21-columnar-jointed-outcrop/scripts/asset_common.py",
+        "audit": "/workspace/batch21-columnar-jointed-outcrop/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "columnar-jointed-outcrop.glb",
+        "columnar-jointed-outcrop.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101818,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "columnar-jointed-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/build.py",
+        "config": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/config.json",
+        "brief": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/brief.json",
+        "references": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/references.json",
+        "freeze": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/freeze.json",
+        "original_config": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/build-config.json",
+        "policy": "/workspace/batch21-columnar-jointed-outcrop/production/continuous-small-life-round07-20261018/work/batch-21/columnar-jointed-outcrop/r001/reference-policy.json",
+        "helper": "/workspace/batch21-columnar-jointed-outcrop/scripts/asset_common.py",
+        "audit": "/workspace/batch21-columnar-jointed-outcrop/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "columnar-jointed-outcrop.glb",
+        "columnar-jointed-outcrop.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101818,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
