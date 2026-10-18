@@ -1,6 +1,6 @@
 # batch-05 — next-round maker task; not yet dispatched
 
-Only inventory IDs: marrella, proteroctopus, mongolarachne, salvinia.
+Only inventory IDs: goniophyllum, halysites, marrella, proteroctopus.
 
 CI 已由父任务确认完成于 main `643534830397824dfd46990485bd16ad66ecf9ce`；这不等于本轮已派发。先由父任务统一更新本目录 state.json 的独占 claim 和实际 task/thread ID，才能开始。本 planner 不生产、不创建制作会话、不合并 main。
 
@@ -20,7 +20,7 @@ CI 已由父任务确认完成于 main `643534830397824dfd46990485bd16ad66ecf9ce
 
 | ID | 原始中英名称 | 选择理由 / 基本形态 | 计划目录 |
 |---|---|---|---|
+| `goniophyllum` | Goniophyllum（四盖珊瑚） / Goniophyllum four-lidded coral | 方锥体和四片三角盖形成与Calceola不同的有盖单体珊瑚。 方形渐细杯锥与四片三角盖的基本关系；保留四盖可读轮廓，精确隔壁与软体不用复原。不是Calceola换色或盖子数量随意变体。 | `items/goniophyllum/` |
+| `halysites` | Halysites（链珊瑚） / Halysites chain coral | 开放环链式直立管壁形成通透礁体，区别于Favosites实心蜂巢群体。 相连直立管壁形成开放曲折环链，主要孔隙用真实结构表达；链路可经济简化，不用大贴图伪造空隙。 | `items/halysites/` |
 | `marrella` | Marrella（叉棘节肢动物） / Marrella fork-spined arthropod | 头盾双组长棘和细分节躯干形成新的小型底栖轮廓。 头盾的成组长棘与分节躯干相连；有负空间，不用随机插针代替结构。肢节/刚毛可经济简化。 | `items/marrella/` |
 | `proteroctopus` | Proteroctopus（有鳍八腕动物） / Proteroctopus finned octopod | 柔软外套膜、成对鳍和八腕补充海生软体动物，避免全是硬甲。 紧凑外套膜、成对鳍和八条渐细腕；腕根过渡柔和。现有参考是 Coleoidea 类群页，不能把所有本属细节说成已证实；泛化为受 Proteroctopus 启发的有鳍八腕教学道具即可，若添加属级特定特征应另找真实支持。 | `items/proteroctopus/` |
-| `mongolarachne` | Mongolarachne（侏罗纪长足蜘蛛） / Mongolarachne Jurassic long-legged spider | 双体节和八条长足补充陆地蛛形纲，不能标成昆虫或六足虫。 椭圆腹部、小头胸部、四对连贯长足；触肢不算额外步足，柔和友善姿态。微毛、微小口器/生殖结构不必复原。 | `items/mongolarachne/` |
-| `salvinia` | Salvinia 槐叶萍类水蕨 / Salvinia paired floats and submerged leaf | 成对浮叶和水下沉叶丰富水面；结构上区别于首轮有根羽状 Hydropteris。 成对浮叶与悬垂分叉的沉水叶分层；下垂部分标为叶而非真根。浮叶数量/细毛/精确脉纹可简化。 | `items/salvinia/` |

@@ -1,6 +1,6 @@
 # batch-06 — next-round maker task; not yet dispatched
 
-Only inventory IDs: hallucigenia, fenestella, leclercqia, montsechia.
+Only inventory IDs: aulopora, thamnopora, hallucigenia, fenestella.
 
 CI 已由父任务确认完成于 main `643534830397824dfd46990485bd16ad66ecf9ce`；这不等于本轮已派发。先由父任务统一更新本目录 state.json 的独占 claim 和实际 task/thread ID，才能开始。本 planner 不生产、不创建制作会话、不合并 main。
 
@@ -20,7 +20,7 @@ CI 已由父任务确认完成于 main `643534830397824dfd46990485bd16ad66ecf9ce
 
 | ID | 原始中英名称 | 选择理由 / 基本形态 | 计划目录 |
 |---|---|---|---|
+| `aulopora` | Aulopora（喇叭网珊瑚） / Aulopora trumpet-network coral | 低矮附生管网与上翘喇叭口丰富岩面覆盖层，不是大块礁体缩放版。 沿基底低矮分枝的管网与向上喇叭口；基底若为展示用必须与可复用珊瑚主体分开。支路数量/颜色可以风格化。 | `items/aulopora/` |
+| `thamnopora` | Thamnopora（孔枝珊瑚） / Thamnopora porous branch coral | 粗指状分枝和向外孔口增加海底竖向层次，区别于低矮管网和链状/块状珊瑚。 粗而自然衔接的指状分枝与若干向外孔口；用少量可读开口表达，不堆微孔。原清单needs-specific-reference且来源是床板珊瑚类群页：可靠基础枝状/孔口参考支持即可做inspired-by教学造型，不冒充属级微观验证；没有依据的新属级特征不添加。 | `items/thamnopora/` |
 | `hallucigenia` | Hallucigenia（背棘叶足动物） / Hallucigenia spiny lobopodian | 细长体、背棘和软足形成低位行走生物，与硬壳蟹和海星不同。 背面成对高棘与腹侧柔软弯腿方向正确，前后体连续；不采用历史倒置复原，微爪、口器和逐节计数可简化。 | `items/hallucigenia/` |
 | `fenestella` | Fenestella（窗格扇苔藓动物） / Fenestella windowed fan bryozoan | 开窗网格扇形增加海底竖向背景，区别于海绵盘和分枝腕动物；是苔藓动物而非植物。 薄扇形分枝与横条构成可见开窗；窗口数量可压缩，孔隙不能全靠大贴图画出。现有来源支持 fenestrate 类群形态，不声称属级微观鉴别已经核实。 | `items/fenestella/` |
-| `leclercqia` | Leclercqia 裂叶石松类植物 / Leclercqia divided-leaf shoot | 裂叶单元和弯曲中央叶尖补充小型叶生石松层，不重复裸轴植物或大树冠。 有辨识度的分裂叶与较长中央部分；重点几片展示裂形即可，远侧重复叶可简化，不以统一密集复制填满预算。 | `items/leclercqia/` |
-| `montsechia` | Montsechia 水生早期被子植物 / Montsechia flexible fine-leaf shoots | 柔软细叶水生枝与成对果实丰富水下层，区别于浮生水蕨。 细分枝、小型简单叶和可读成对末端果；无依据不添加根。花色、根系、精确果脉和繁殖场景不强加。 | `items/montsechia/` |

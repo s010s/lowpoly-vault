@@ -1,6 +1,6 @@
 # batch-04 — next-round maker task; not yet dispatched
 
-Only inventory IDs: opabinia, choia, meganeura, cooksonia.
+Only inventory IDs: calceola, favosites, opabinia, choia.
 
 CI 已由父任务确认完成于 main `643534830397824dfd46990485bd16ad66ecf9ce`；这不等于本轮已派发。先由父任务统一更新本目录 state.json 的独占 claim 和实际 task/thread ID，才能开始。本 planner 不生产、不创建制作会话、不合并 main。
 
@@ -20,7 +20,7 @@ CI 已由父任务确认完成于 main `643534830397824dfd46990485bd16ad66ecf9ce
 
 | ID | 原始中英名称 | 选择理由 / 基本形态 | 计划目录 |
 |---|---|---|---|
+| `calceola` | Calceola（拖鞋珊瑚） / Calceola slipper coral | 单体拖鞋杯与单盖提供低矮有盖珊瑚，区别于块状和枝状群体。 扁拖鞋形杯体与一个半圆盖的基本关系；盖缝留可读层次。开合姿态和软组织是美术选择，不作活动机制精确复原。 | `items/calceola/` |
+| `favosites` | Favosites（蜂巢床板珊瑚） / Favosites honeycomb tabulate coral | 蜂巢状紧排多边管群体，提供厚实圆块礁体，与链状珊瑚不同。 圆块群体和紧邻多边管口形成蜂巢节奏；选择少量足够可读的管口，不填满微小孔阵列。宏观蜂巢形态足够，具体种级管壁微孔不必复原。 | `items/favosites/` |
 | `opabinia` | Opabinia（五眼古生动物） / Opabinia five-eyed swimmer | 五眼、单根长吻和侧叶形成游泳主体；区别于已有鱼、蟹、双瓣甲动物。 五个眼部突起、单根末端抓握式长吻、低矮侧叶体要清楚；精确节数、腹侧细肢和软组织可简化。 | `items/opabinia/` |
 | `choia` | Choia（放射盘状海绵） / Choia radial-disc sponge | 扁盘与放射骨针丰富海底低矮层，不是海胆的球壳长刺变种。 低扁椭圆中心与伸出式放射骨针轮廓；有秩序疏密，微观骨针计数/骨架截面不作为门槛。 | `items/choia/` |
-| `meganeura` | Meganeura（巨脉蜓类） / Meganeura griffinfly | 四翼长腹部丰富飞行昆虫层，区别于宽翅蝶蛉和悬蝇；不是小型恐龙替代品。 长腹、两对翅和连贯六足；翼膜封闭、根部自然连接。简化翅脉，不逐条复原，不做捕食行为。 | `items/meganeura/` |
-| `cooksonia` | Cooksonia 裸轴植物 / Cooksonia sporangial shoots | 末端囊与简单叉枝形成稀疏低矮植物，区别于首轮根茎拱与叶丛。 简单 Y 型分叉细轴和末端囊；不加现代蕨类羽状叶或花，囊形厚度和枝数可合理风格化。 | `items/cooksonia/` |
