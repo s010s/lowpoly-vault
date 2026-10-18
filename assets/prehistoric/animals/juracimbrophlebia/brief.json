@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "asset_id": "juracimbrophlebia",
+  "brief_version": "pilot-v002-recovered-20261018",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "display_name": "Stylized Juracimbrophlebia",
+  "generic_fallback_name": "Leaf-outline hangingfly, inspired by Juracimbrophlebia",
+  "acceptance_policy": "production/small-fauna-v1/acceptance-profile.json",
+  "purpose": "Static stylized-inspired supporting prop for an imaginative children's world; artistic interpretation is welcome. No strict scientific reconstruction, animation readiness or current-museum integration is claimed.",
+  "subject": {
+    "taxon": "Juracimbrophlebia ginkgofolia",
+    "era_and_locality": "Middle Jurassic, Jiulongshan Formation, Daohugou, northeastern China",
+    "pose": "Appealing static pose with separated defining parts; creative interpretation is permitted.",
+    "life_stage": "Stylized representative form, not an exact life-stage reconstruction."
+  },
+  "claim_scope": "Named-taxon-inspired original art. Basic identity should remain recognizable; color, texture, pose, proportions and harmless fine detail are creative choices. Use the generic fallback for deliberately loose interpretations.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "front",
+    "right",
+    "rear",
+    "top",
+    "clay"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Six meaningful views at normal supported scale; add a targeted detail only for a real concern. No default orbit, bottom/wireframe campaign or microscopic perfection.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 4,
+    "max_primitives": 8,
+    "max_glb_bytes": 2097152
+  },
+  "texture_policy": {
+    "max_textures": 3,
+    "max_dimension": 1024,
+    "max_total_bytes": 1048576,
+    "max_decoded_bytes": 12582912
+  },
+  "budget_context": "Pilot ceilings, not targets. Joint texture caps apply; three maximum-size maps may exceed the decoded cap. Record actual counts and workload.",
+  "surface_profile": "Refined low-poly with original artistic colors/textures/roughness; prioritize readable form without invisible microdetail.",
+  "scale": {
+    "nominal_meters": 0.04,
+    "measured_axis": "body length",
+    "certainty": "Approximate art-direction scale, not a new fossil measurement.",
+    "origin": "Ground/root contact center for plant; body-center mounting point for insect.",
+    "coordinate_system": "Author Z-up and -Y forward; export glTF Y-up and +Z forward."
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 360,
+    "qa_image_resolution_px": 512,
+    "microscopic_closeups_supported": false
+  },
+  "artistic_choices_and_uncertainties": [
+    "Colors, textures, appealing pose, proportions, cluster/shoot count and harmless fine details may be creative.",
+    "Incomplete exact fossil anatomy is advisory unless basic identity is unclear.",
+    "Cross-period curation is allowed in the labeled imaginative world.",
+    "Static prop only; no measured movement or rig readiness is claimed."
+  ],
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate the exact standalone GLB, clean reimport, dependencies, scale/origin and hard artifact limits; disposition warnings explicitly.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-recognition",
+      "stage": "visual",
+      "critical": true,
+      "description": "Recognizable basic form at supported viewing sizes, without obvious accidental missing/extra major parts or conspicuous unwanted intersections; artistic exaggeration and fine surface differences are allowed.",
+      "required_sources": [
+        "JG-2012"
+      ]
+    },
+    {
+      "id": "factual-structure-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Use a slender segmented insect body with six long articulated legs; avoid a butterfly or dragonfly body.",
+      "required_sources": [
+        "JG-2012"
+      ]
+    },
+    {
+      "id": "factual-structure-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Use four elongated, relatively narrow, separately readable wings. The four wings plus the central abdomen together make a five-lobed leaf-like outline; do not give every wing a broad butterfly-like lobed shape.",
+      "required_sources": [
+        "JG-2012"
+      ]
+    },
+    {
+      "id": "factual-structure-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Stylized-inspired identity check, not strict fossil certification: Keep a small head, antennae and modest mouthpart profile. Missing wing tips, distal legs and antenna ends can be conservatively and artistically restored, without claiming those parts are fossil observations.",
+      "required_sources": [
+        "JG-2012"
+      ]
+    },
+    {
+      "id": "deliverables-and-label",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable blend, reproducible generator/config, exact standalone GLB, original maps where used, exact hashes, six QA views, one poster and honest inspired-by static-prop labels. Add actual source/generator/config deliverable hashes in a versioned execution brief.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds/material/texture metrics and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "target-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render and inspect this exact GLB in a declared graphics runtime. Record actual renderer/device and errors; software fallback must be labeled.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Inspect a neutral prop benchmark containing the exact GLB, with visible copy counts and measured work. This does not claim current-museum integration or scientific coexistence.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "required_deliverables": [],
+  "recovery": {
+    "reconstructed_on": "2026-10-18",
+    "previous_local_commit": "f269a40abb43901a38f681f816d0c1627a2a58b1",
+    "byte_identical_to_old_brief": false,
+    "old_hashes_for_history_only": {
+      "brief.json": "38c5bc79d61b278b50395dcfda2e23bb6c7be60eb130e18af21762abdce42b3d",
+      "references.json": "eb58b2fb50294c5e52e4d03ca6183b13200d54f196ee2338f6a0e4feeaa8edef"
+    },
+    "tests": "No old QA is reused; validate recovered files anew."
+  }
+}
