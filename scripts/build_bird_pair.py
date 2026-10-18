@@ -166,7 +166,7 @@ def preserve_and_batch(slug):
             fs.append(tuple(range(off,off+len(p.vertices))))
         bpy.data.objects.remove(ob,do_unlink=True)
     for i,(vs,fs) in enumerate(batches):
-        ob=mesh_object(slug+'-'+MAT[i].name,vs,fs,MAT[i],COL)
+        ob=mesh_object(slug+'-'+MAT[i].name,vs,fs,MAT[i],COL,recalculate_normals=False)
         # Weld same-material neighboring vertices; components remain intentionally closed overlaps.
         bm=bmesh.new();bm.from_mesh(ob.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-7);bm.to_mesh(ob.data);bm.free();ob.data.update()
     return src
@@ -185,6 +185,7 @@ def main():
     count=len(PARTS);src=preserve_and_batch(slug)
     metadata={
       'description':{'en':f'Original static stylized {slug.capitalize()}-inspired scene prop for an imaginative children’s world.','zh':'原创静态史前鸟类灵感场景配角，面向儿童想象世界。'},
+      'revision':'r2','technical_revision':'Preserve coherent source face winding through material batching; no shape or palette changes.',
       'quality_tier':'environment-prop','claim_scope':'stylized-inspired; not a strict scientific reconstruction',
       'static_only':True,'animation_ready':False,'surface_profile':'four original opaque palette materials; no textures',
       'source_parts':count,'editable_source_collection':src.name,
@@ -197,6 +198,7 @@ def main():
       output_root=ROOT/'assets/prehistoric/birds',render=False,max_triangles=12000,max_materials=4,max_primitives=8)
     folder=ROOT/'assets/prehistoric/birds'/slug
     bpy.ops.wm.save_as_mainfile(filepath=str(folder/(slug+'.blend')),compress=True)
+    record['preview']=f'assets/prehistoric/birds/{slug}/views/hero.png'
     record['sha256']['blend']=hashlib.sha256((folder/(slug+'.blend')).read_bytes()).hexdigest()
     (folder/'metadata.json').write_text(json.dumps(record,indent=2,ensure_ascii=False)+'\n')
     print('BIRD_RESULT '+json.dumps(record))
