@@ -1,0 +1,5 @@
+# Batch20 maker handoff
+
+Four independently pushed candidates; no merge or publication. Exact commits, hashes, byte/triangle counts and all local/repository paths are in [final-handoff.jsonl](final-handoff.jsonl). [HANDOFF.md](HANDOFF.md) explains evidence and limits. [scope.json](scope.json) binds exclusive paths and JSONL. [serial-execution-summary.json](serial-execution-summary.json) proves the actual owned launch chronology: one asset lifecycle fully completes before the next begins, no overlap, all owned process groups gone.
+
+Static profile contracts pass and records are valid, but independent model QA remains pending and approved_for_brief=false. Actual legacy license failures and require-approved failures remain. No third-party media or guessed license; textual source access limits recorded. Leclercqia and Salvinia preserve their archived deferred bytes and original manifests, restoring each existing ID once. Salvinia descending organ is a submerged leaf, never true roots; load casts are continuous-layer teaching structures without a seismic-cause claim. Functional software WebGL is not physical-device performance evidence.
