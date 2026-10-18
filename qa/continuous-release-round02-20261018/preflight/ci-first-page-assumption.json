@@ -1,0 +1,44 @@
+{
+  "source_run": "https://github.com/s010s/lowpoly-vault/actions/runs/39160288580",
+  "evidence_url": "https://github.com/s010s/lowpoly-vault/actions/runs/39160288580/artifacts/12149070424",
+  "pass": false,
+  "cases": [
+    {
+      "name": "refine-pointer-interruption",
+      "pass": true
+    },
+    {
+      "name": "keyboard-and-pointer-press",
+      "pass": true
+    },
+    {
+      "name": "rapid-filter-sort-search",
+      "pass": true
+    },
+    {
+      "name": "clipboard-success-repeat-and-failure",
+      "pass": false,
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('#grid [data-id=\"natural-arch\"]')\n\n    at openModel (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:39:86)\n    at /home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:41:9\n    at test (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:16:754)\n    at async file:///home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:40:2"
+    },
+    {
+      "name": "reduced-motion-immediate",
+      "pass": false,
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('#grid [data-id=\"natural-arch\"]')\n\n    at openModel (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:39:86)\n    at test.reducedMotion (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:47:336)\n    at async test (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:16:748)\n    at async file:///home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:46:2"
+    },
+    {
+      "name": "mobile-no-sticky-hover",
+      "pass": true
+    },
+    {
+      "name": "localized-dark-and-live-reduction",
+      "pass": false,
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('#grid [data-id=\"natural-arch\"]')\n\n    at openModel (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:39:86)\n    at test.colorScheme (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:54:410)\n    at async test (/home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:16:748)\n    at async file:///home/runner/work/lowpoly-vault/lowpoly-vault/site/interaction-motion-browser-test.mjs:52:2"
+    },
+    {
+      "name": "native-details-fallback",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "output": "/home/runner/work/lowpoly-vault/lowpoly-vault/qa/animation-refinements/interaction"
+}

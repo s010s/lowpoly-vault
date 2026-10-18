@@ -156,7 +156,7 @@ async function pixelParity(page, label, caseReport) {
   assert(measurements.centroid_delta_px <= 8, 'The actual model silhouette center must match the card frame within 8 pixels');
 }
 async function catalog(page) {
-  await page.goto(base + prefix + 'models/');
+  await page.goto(base + prefix + 'models/?pack=prehistoric-starter');
   await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
 }
 async function ready(page, id) {
@@ -1012,9 +1012,10 @@ async function earlyLoadFailure() {
   const caseReport = { label, status: 'running' }; report.cases.push(caseReport);
   try {
     // Warm the viewer import/renderer without caching the asset that will fail.
-    await page.goto(base + prefix + 'models/conifer-tree/'); await ready(page, 'conifer-tree');
+    await catalog(page); await page.locator('#grid [data-id="conifer-tree"]').click(); await ready(page, 'conifer-tree');
+    await page.waitForFunction(() => !document.querySelector('.stage-flight, .model-handoff'));
     await page.locator('#close').click(); await page.waitForFunction(() => !document.querySelector('#viewer-dialog').open);
-    await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
+    await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false' && !document.querySelector('.stage-flight'));
     const card = page.locator('#grid .asset-card[data-id="natural-arch"]');
     await card.scrollIntoViewIfNeeded(); await card.focus(); await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
@@ -1076,6 +1077,9 @@ async function interruptedHistory() {
   try {
     await page.goto(base + prefix); await page.locator('.primary-nav [data-route="catalog"]').click();
     await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
+    // Filter replaces the catalog entry, retaining the intended home → catalog → detail Back history.
+    await page.locator('.catalog-refine summary').click();await page.locator('#pack-filter').selectOption('prehistoric-starter');
+    await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');await page.locator('.catalog-refine summary').click();
     const card = page.locator('#grid .asset-card[data-id="natural-arch"]');
     await card.scrollIntoViewIfNeeded(); await card.click(); await ready(page, 'natural-arch'); await page.waitForTimeout(350);
     await page.evaluate(() => { history.back(); setTimeout(() => history.back(), 35); });

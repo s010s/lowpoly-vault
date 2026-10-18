@@ -21,7 +21,8 @@ const server = createServer(async (req, res) => {
 });
 let browser, base;
 async function listing(page, path = 'models/') {
-  await page.goto(base + prefix + path);
+  const url=new URL(path,base+prefix);if(!url.search)url.searchParams.set('pack','prehistoric-starter');
+  await page.goto(url.href);
   await page.waitForFunction(() => document.querySelector('#grid')?.ariaBusy === 'false');
   await page.waitForFunction(() => document.querySelector('.catalog-scroll-cue'));
 }

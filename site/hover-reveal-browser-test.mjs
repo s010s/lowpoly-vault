@@ -20,7 +20,7 @@ let browser;
 try {
   await mkdir(output, {recursive:true}); await new Promise(r => server.listen(0, '127.0.0.1', r));
   browser = await chromium.launch({executablePath:process.env.CHROMIUM_PATH || undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-gpu-rasterization']});
-  const base = `http://127.0.0.1:${server.address().port}/lowpoly-vault/models/`;
+  const base = `http://127.0.0.1:${server.address().port}/lowpoly-vault/models/?pack=prehistoric-starter`;
   async function test(name, fn, reducedMotion='no-preference') {
     const context = await browser.newContext({viewport:{width:1440,height:1000},reducedMotion});
     const page = await context.newPage(); page.on('pageerror', e => report.errors.push(e.message));
