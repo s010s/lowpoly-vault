@@ -1,5 +1,7 @@
 # 第五轮13–15：小型动物、植物和自然物，12项
 
+**当前状态：线上67已确认（main ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb，PR9/Pages/public Chromium均PASS）；13–15全模型QA PASS、67→79发布容量失败待恢复，不影响已完成67；16–17候选完成/QA运行无结论，18独占制作。以最新state和父任务派发证明覆盖下方历史空claim/未派发/旧线上数量。**
+
 **当前状态：最后确认live43；07–09模型QA PASS、发布适配CI中；10–12模型QA全PASS、release排队；13–14候选完成/独立QA运行，14当前turn未知留空；15独占制作。最新state与父任务派发证明覆盖下方历史空claim/未派发描述；不由QA PASS推断发布。**
 
 **仅计划，未派发制作；不启动Blender、不合并main。** 当前父任务确认43件已生产发布，main `0bd62cda92814af5ac781e1a706bba6310cecc35`；07–09模型QA PASS但新profile发布适配中，未确认55；10–11独立QA运行无结论，12已独占制作。01–12的当前state与父任务明确派发证明优先于其旧queue/config的空claim。

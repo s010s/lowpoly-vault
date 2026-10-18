@@ -1,5 +1,7 @@
 # batch-01 — maker task (do not start before parent CI confirmation)
 
+**当前状态：线上67已确认（main ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb，PR9/Pages/public Chromium均PASS）；13–15全模型QA PASS、67→79发布容量失败待恢复，不影响已完成67；16–17候选完成/QA运行无结论，18独占制作。以最新state和父任务派发证明覆盖下方历史空claim/未派发/旧线上数量。**
+
 **当前状态：最后确认live43；07–09模型QA PASS、发布适配CI中；10–12模型QA全PASS、release排队；13–14候选完成/独立QA运行，14当前turn未知留空；15独占制作。最新state与父任务派发证明覆盖下方历史空claim/未派发描述；不由QA PASS推断发布。**
 
 制作模型必须 GPT-6.1 Sol，reasoning medium。先读同目录 README.md、queue.json、state.json 和每项 freeze/brief/config/references。父任务尚未确认 CI 精简，本文件只是待派发任务。

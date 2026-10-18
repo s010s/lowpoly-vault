@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T20:44:38.595927+00:00",
+  "updated_at": "2026-10-18T21:11:55.055722+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "in_progress",
+  "status": "model_qa_pass_release_recovery_pending",
   "claims": {
     "acrocyathus": {
       "batch_id": "batch-13",
@@ -182,8 +182,8 @@
   },
   "batches": {
     "batch-13": {
-      "status": "reviewing",
-      "recorded_at": "2026-10-18T20:44:38.595927+00:00",
+      "status": "model_qa_pass_release_recovery_pending",
+      "recorded_at": "2026-10-18T21:11:55.055722+00:00",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
@@ -191,21 +191,36 @@
         "reported_by": "parent"
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
         "source_commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "batch-14": {
-      "status": "reviewing",
-      "recorded_at": "2026-10-18T20:44:38.595927+00:00",
+      "status": "model_qa_pass_release_recovery_pending",
+      "recorded_at": "2026-10-18T21:11:55.055722+00:00",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
@@ -213,296 +228,592 @@
         "reported_by": "parent"
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": null,
         "source_commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "batch-15": {
-      "status": "building",
-      "recorded_at": "2026-10-18T20:44:38.595927+00:00",
+      "status": "model_qa_pass_release_recovery_pending",
+      "recorded_at": "2026-10-18T21:11:55.055722+00:00",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
       "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "qa": null
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+      }
     }
   },
   "jobs": {
     "acrocyathus": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-13",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
         "source_commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
         "commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "sawdonia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-13",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
         "source_commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
         "commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "leanchoilia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-13",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
         "source_commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
         "commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "septarian-concretion": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-13",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150b7-3ae0-7138-adeb-fa837734c61f",
         "source_commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
         "commit": "c173fe4666939005f1617e7be46cdbba6b4cef89",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "montlivaltia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-14",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": null,
         "source_commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
         "commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "cobbania": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-14",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": null,
         "source_commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
         "commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "aysheaia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-14",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": null,
         "source_commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
         "commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "tafoni-outcrop": {
-      "status": "reviewing",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-14",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
+        "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
+        "turn_id": null,
         "source_commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
-        "note": "New QA turn running; current turn not yet supplied for batch14, do not reuse historical turns."
+        "evidence_commit": null,
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no conclusion.",
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
         "commit": "5d33dccfb439c44d5342e2a1047b81891b850435",
         "reported_by": "parent"
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
       }
     },
     "beelzebufo": {
-      "status": "building",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-15",
-      "qa": null,
-      "status_note": "Explicit parent exclusive maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a"
+      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+      }
     },
     "pluricarpellatia": {
-      "status": "building",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-15",
-      "qa": null,
-      "status_note": "Explicit parent exclusive maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a"
+      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+      }
     },
     "paratingia": {
-      "status": "building",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-15",
-      "qa": null,
-      "status_note": "Explicit parent exclusive maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a"
+      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+      }
     },
     "stromatolite-mound": {
-      "status": "building",
+      "status": "model_qa_pass_release_recovery_pending",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-15",
-      "qa": null,
-      "status_note": "Explicit parent exclusive maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "All independent model QA PASS per explicit parent report; no full profile/release gate PASS inferred.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "reported_by": "parent"
+      },
+      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a"
+      "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
+      },
+      "release": {
+        "status": "capacity_failure_recovery_pending",
+        "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
+        "publication_confirmed": false,
+        "release_commit": null,
+        "confirmed_baseline_live_assets": 67,
+        "target_total_live_assets": 79,
+        "last_attempt": {
+          "status": "failed_capacity",
+          "exact_task_or_turn_id": null
+        },
+        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+      }
     }
   },
   "publication_checkpoint": {
-    "last_confirmed_live_assets": 43,
+    "last_confirmed_live_assets": 67,
+    "main_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb",
     "this_round_publication_confirmed": false
   },
   "qa_thread_resolution": {
@@ -523,5 +834,17 @@
       ]
     },
     "method": "Unique full IDs from current state history; batch14 current QA turn deliberately unknown."
+  },
+  "latest_publication_checkpoint": {
+    "confirmed_by": "parent",
+    "confirmed_live_assets": 67,
+    "main_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb",
+    "pr_number": 9,
+    "gates": {
+      "PR": "pass",
+      "Pages": "pass",
+      "public_Chromium": "pass"
+    },
+    "scope": "Publication/verification explicitly reported by parent; planner did not redeploy or rerun public browser tests."
   }
 }
