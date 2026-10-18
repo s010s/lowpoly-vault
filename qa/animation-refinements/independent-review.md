@@ -17,3 +17,9 @@ Review by a separate read-only agent, after reading the pinned official SKILL.md
 **证据限制：** 本地为 Chromium **154.0.8037.57 / SwiftShader**；shared-model 仍 **16/17，整体失败**，仅原有触摸后快速缩放检查失败。原关闭时延约 237–246ms 的 advisory 超标仍保留。新修复尚无 Chromium 141 CI 重跑结果，不能声称 CI 已通过；真实设备、Safari、Firefox 未验收。
 
 **Approve：批准本次已审查动画代码及修复范围。** 此结论针对 `50e7621` 之后当前修复树，不代表新提交的 CI、合并或部署获准。
+
+## Subsequent independent probe review
+
+After directly reading exact 7a627e6 GitHub logs, the independent reviewer confirmed Chromium141 modal **9/9**, interaction **8/8**, and the conifer failure at the reduced-motion release-boundary assertion. The reviewer inspected the narrow conifer diff and both scoped diagnostic modules: only actual removal sampling/restoration and selection of the existing reduced-motion case changed; all conifer-specific pixel and geometry assertions remain. Measured reopen boundaries were **0/fail before → 1/pass after**.
+
+**Approve for the conifer probe synchronization**, explicitly contingent on the new exact head's full CI result. This approval does not claim the local full conifer run passed. Subsequent baseline comparison evidence is documented separately in ci-regression.md; the initial review text above retains its original chronological CI limits.

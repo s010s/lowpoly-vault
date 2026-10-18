@@ -520,6 +520,19 @@ async function startSampler(page) {
       }
       return result;
     };
+    // Reduced-motion warm reopens can draw and release in the same task.
+    // Observe the actual operation on both sides; a RAF cannot invent that edge.
+    const remove = Element.prototype.remove;
+    window.__handoffOriginalRemove = remove;
+    Element.prototype.remove = function (...args) {
+      const host = this.parentElement;
+      const boundary = host?.id === 'canvas-host' && this.classList.contains('model-handoff') &&
+        host.dataset.modelState === 'ready' && Boolean(host.querySelector('.model-canvas'));
+      if (boundary) sample(false);
+      const result = remove.apply(this, args);
+      if (boundary) sample(false);
+      return result;
+    };
     const animate = Element.prototype.animate;
     window.__handoffOriginalAnimate = animate;
     Element.prototype.animate = function (...args) {
@@ -531,7 +544,7 @@ async function startSampler(page) {
   });
 }
 async function endSampler(page) {
-  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); window.__handoffReview.flushOpeningCaptures(); window.__handoffReview.flushReturnCaptures(); delete window.__vaultFrameProbe; if (window.__handoffOriginalAnimate) Element.prototype.animate = window.__handoffOriginalAnimate; if (window.__handoffOriginalAppend) Element.prototype.append = window.__handoffOriginalAppend; return window.__handoffReview.frames; });
+  return page.evaluate(() => { cancelAnimationFrame(window.__handoffReviewRAF); window.__handoffReview.flushOpeningCaptures(); window.__handoffReview.flushReturnCaptures(); delete window.__vaultFrameProbe; if (window.__handoffOriginalAnimate) Element.prototype.animate = window.__handoffOriginalAnimate; if (window.__handoffOriginalAppend) Element.prototype.append = window.__handoffOriginalAppend; if (window.__handoffOriginalRemove) Element.prototype.remove = window.__handoffOriginalRemove; return window.__handoffReview.frames; });
 }
 
 function assertDissolve(style, label) {
