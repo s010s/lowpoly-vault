@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "arenicolites-u-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/build.py",
+        "config": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/config.json",
+        "brief": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/brief.json",
+        "references": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/references.json",
+        "freeze": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/freeze.json",
+        "original_config": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/build-config.json",
+        "policy": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/reference-policy.json",
+        "helper": "/workspace/batch25-arenicolites-u-burrow/scripts/asset_common.py",
+        "audit": "/workspace/batch25-arenicolites-u-burrow/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "arenicolites-u-burrow.glb",
+        "arenicolites-u-burrow.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101810,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "arenicolites-u-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/build.py",
+        "config": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/config.json",
+        "brief": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/brief.json",
+        "references": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/references.json",
+        "freeze": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/freeze.json",
+        "original_config": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/build-config.json",
+        "policy": "/workspace/batch25-arenicolites-u-burrow/production/continuous-small-life-round09-20261018/work/batch-25/arenicolites-u-burrow/r001/reference-policy.json",
+        "helper": "/workspace/batch25-arenicolites-u-burrow/scripts/asset_common.py",
+        "audit": "/workspace/batch25-arenicolites-u-burrow/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "arenicolites-u-burrow.glb",
+        "arenicolites-u-burrow.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101810,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
