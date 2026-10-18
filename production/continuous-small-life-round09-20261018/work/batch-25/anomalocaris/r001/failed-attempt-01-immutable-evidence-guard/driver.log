@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/batch25-control/serial_asset.py", line 28, in <module>
+    code=Path('/workspace/batch25-control/evidence.py').read_text();exec(compile(code,'evidence.py','exec'))
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "evidence.py", line 7, in <module>
+    run(root,['blender','-b','-t','2','--factory-startup','--disable-autoexec','--python-exit-code','1','--python',root/'scripts/check_source_export.py','--','--source',out/(a+'.blend'),'--glb',out/(a+'.glb'),'--output',out/'source-export.report.json'],logs/'source-export.log')
+  File "/workspace/batch25-control/serial_asset.py", line 24, in run
+    if code:raise RuntimeError(str(log)+'\n'+log.read_text()[-5000:])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: /workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/logs/source-export.log
+Report already exists; choose a new immutable evidence path.
+Blender 4.3.2
+

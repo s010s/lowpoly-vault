@@ -1,0 +1,84 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "anomalocaris",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101807
+      },
+      "inputs": {
+        "audit": "/workspace/batch25-anomalocaris/scripts/qa_glb.py",
+        "brief": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/brief.json",
+        "config": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/config.json",
+        "freeze": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/freeze.json",
+        "generator": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/build.py",
+        "helper": "/workspace/batch25-anomalocaris/scripts/asset_common.py",
+        "original_config": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/build-config.json",
+        "policy": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/reference-policy.json",
+        "references": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "anomalocaris.glb",
+        "anomalocaris.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "anomalocaris",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101807
+      },
+      "inputs": {
+        "audit": "/workspace/batch25-anomalocaris/scripts/qa_glb.py",
+        "brief": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/brief.json",
+        "config": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/config.json",
+        "freeze": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/freeze.json",
+        "generator": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/build.py",
+        "helper": "/workspace/batch25-anomalocaris/scripts/asset_common.py",
+        "original_config": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/build-config.json",
+        "policy": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/reference-policy.json",
+        "references": "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "anomalocaris.glb",
+        "anomalocaris.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

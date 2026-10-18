@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/workspace/batch25-control/serial_asset.py", line 28, in <module>
+    code=Path('/workspace/batch25-control/evidence.py').read_text();exec(compile(code,'evidence.py','exec'))
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "evidence.py", line 19, in <module>
+    run(root,['blender','-b','-t','2','--python-exit-code','1','--python',w/'render.py','--',out/(a+'.glb'),out/'views'],logs/'render.log')
+  File "/workspace/batch25-control/serial_asset.py", line 24, in run
+    if code:raise RuntimeError(str(log)+'\n'+log.read_text()[-5000:])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: /workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/logs/render.log
+g Procedurals
+Fra:1 Mem:13.78M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:13.78M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:13.78M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:13.78M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:13.78M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:13.79M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:13.79M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:13.79M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:13.79M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:13.86M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:13.86M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:13.86M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:13.86M (Peak 14.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:13.86M (Peak 14.24M) | Time:00:00.00 | Mem:0.16M, Peak:0.16M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:13.86M (Peak 14.24M) | Time:00:00.00 | Mem:0.33M, Peak:0.49M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:13.86M (Peak 14.24M) | Time:00:00.00 | Mem:0.33M, Peak:0.49M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.33M, Peak:0.49M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.53M, Peak:0.53M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.53M, Peak:0.53M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.53M, Peak:0.53M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.53M, Peak:0.53M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.53M, Peak:0.53M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.62M, Peak:0.62M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.62M, Peak:0.62M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.62M, Peak:0.62M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.62M, Peak:0.62M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.54M, Peak:0.62M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.62M, Peak:0.62M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.62M, Peak:0.62M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:14.07M (Peak 14.24M) | Time:00:00.00 | Mem:0.62M, Peak:0.62M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:14.64M (Peak 14.64M) | Time:00:00.00 | Remaining:00:00.05 | Mem:1.18M, Peak:1.18M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:14.90M (Peak 14.90M) | Time:00:00.04 | Mem:1.18M, Peak:1.18M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:14.90M (Peak 14.90M) | Time:00:00.04 | Mem:1.18M, Peak:1.18M | Scene, ViewLayer | Finished
+Saved: '/workspace/batch25-anomalocaris/assets/candidates/continuous-small-life-round09-20261018/batch-25/anomalocaris/r001/views/preview-silhouette.png'
+Time: 00:00.04 (Saving: 00:00.00)
+
+Traceback (most recent call last):
+  File "/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/render.py", line 11, in <module>
+    cover=a.output/'transparent';cover.mkdir();files+=render_previews(c,cover,('hero',),resolution=512,samples=24,transparent=True)
+                                 ~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 724, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: '/workspace/batch25-anomalocaris/assets/candidates/continuous-small-life-round09-20261018/batch-25/anomalocaris/r001/views/transparent'
+
+Error: script failed, file: '/workspace/batch25-anomalocaris/production/continuous-small-life-round09-20261018/work/batch-25/anomalocaris/r001/render.py', exiting.
+
+Blender quit
+
