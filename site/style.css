@@ -98,3 +98,6 @@
 
 /* One alpha-correct reveal surface replaces both inputs while blending. */
 .asset-image:has(>.model-hover-reveal)>.model-canvas{visibility:hidden!important}
+/* The retired generic model-ready fade hid the poster before fading the GLB
+   from zero, exposing bare background. Reveal owns coverage, never CSS opacity. */
+.has-model-preview .asset-image>.model-canvas,.model-preview-snapshot,.model-hover-reveal{animation:none!important}
