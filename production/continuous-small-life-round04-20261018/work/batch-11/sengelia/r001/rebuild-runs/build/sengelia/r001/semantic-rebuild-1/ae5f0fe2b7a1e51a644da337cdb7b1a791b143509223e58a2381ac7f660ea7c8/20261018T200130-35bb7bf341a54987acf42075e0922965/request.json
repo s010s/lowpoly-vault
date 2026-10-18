@@ -1,0 +1,112 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/sengelia/r001/generator.py",
+    "--",
+    "--asset",
+    "sengelia",
+    "--config",
+    "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/sengelia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/sengelia/r001/rebuild-runs/build/sengelia/r001/semantic-rebuild-1/ae5f0fe2b7a1e51a644da337cdb7b1a791b143509223e58a2381ac7f660ea7c8/20261018T200130-35bb7bf341a54987acf42075e0922965/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:01:30.685760+00:00",
+  "fingerprint": "ae5f0fe2b7a1e51a644da337cdb7b1a791b143509223e58a2381ac7f660ea7c8",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9046,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/sengelia/brief.json",
+        "sha256": "b47bf58d5685e5f1c1862d3e54fc8f773aa5d74291d018c92cc00dae1f411ef0"
+      },
+      "config": {
+        "bytes": 2260,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/sengelia/r001/config.json",
+        "sha256": "f05ef701c2dfc6508c60528b0c568c677f9e7e331c05e403e1a7d1b755c34cb9"
+      },
+      "generator": {
+        "bytes": 3771,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/sengelia/r001/generator.py",
+        "sha256": "bfd6f28f9399014f12dc11e856b13ca30dc035a47bcef091c5c49ffd611de431"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1236,
+        "path": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/sengelia/references.json",
+        "sha256": "bd3ea34b6476b5dc93a314c5c1ebe5a3cd52b0f06294872a58ee45d8e57022c9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "sengelia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "sengelia",
+      "config": {
+        "profile": "batch11 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/sengelia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/sengelia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/sengelia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/sengelia/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "sengelia/sengelia.glb",
+        "sengelia/sengelia.blend",
+        "sengelia/metadata.json",
+        "sengelia/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T200130-4752c0f55c3049e0991db930d0b84909"
+}
