@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "tidal-flat",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/tidal-flat/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/tidal-flat/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch26/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch26/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/tidal-flat/brief.json",
+        "references": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/tidal-flat/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/tidal-flat/inventory-record.json",
+        "private_export_helper": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/tidal-flat/r001/asset_common_color.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "tidal-flat",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "tidal-flat/tidal-flat.blend",
+        "tidal-flat/tidal-flat.glb",
+        "tidal-flat/qa.json",
+        "tidal-flat/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch26 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "tidal-flat",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/tidal-flat/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/tidal-flat/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch26/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch26/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/tidal-flat/brief.json",
+        "references": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/tidal-flat/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/tidal-flat/inventory-record.json",
+        "private_export_helper": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/tidal-flat/r001/asset_common_color.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "tidal-flat",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "tidal-flat/tidal-flat.blend",
+        "tidal-flat/tidal-flat.glb",
+        "tidal-flat/qa.json",
+        "tidal-flat/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch26 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
