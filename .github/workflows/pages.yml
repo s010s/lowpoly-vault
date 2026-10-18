@@ -25,11 +25,13 @@ jobs:
       - run: node site/ci-scope-test.mjs
       - name: Verify exact authorized publication and unchanged originals
         run: npm run publication:check && npm run test:publication
-      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:parser && npm run test:scrub
+      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub
       - run: npm run build
         id: build_site
       - run: npx playwright install --with-deps chromium
         id: install_chromium
+      - name: Parse original and published models, decoding embedded textures in Chromium
+        run: npm run test:parser
       - name: Static routes, exact download bytes and attribution for every model
         env:
           GALLERY_DIR: dist

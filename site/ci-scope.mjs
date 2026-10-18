@@ -10,6 +10,7 @@ export function classify(paths, manifest, full = false) {
   const ids = runtime || paths.includes('assets/manifest.json') ? '' : changed.map(a=>a.id).join(',');
   const previews = full || paths.some(p => /^(site\/(viewer\.js|render-preset\.js|render-web-previews\.mjs|turntable-delivery\.mjs)|assets\/(card-previews\/|turntables\/))/.test(p)) || changed.length > 0;
   const tasks = runtime ? ['models','matrix','fallback','small-life','list','shared','handoff','conifer','modal','interaction'] : models ? ['models'] : [];
+  if (manifest.publication?.fauna_descriptor && (runtime || models)) tasks.push('fauna');
   if (previews) tasks.push('previews');
   return {runtime,models,previews,ids,tasks:tasks.length ? tasks : ['none']};
 }

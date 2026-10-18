@@ -2,6 +2,7 @@
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 const tasks = {
+  "fauna": {"command":"node site/small-life-browser-test.mjs","env":{"QA_ADDITION_PACK":"prehistoric-small-fauna","GALLERY_DIR":"dist","QA_OUTPUT_DIR":"qa/small-fauna-release-20261018/site"}},
   "matrix": {"command":"node site/redesign-browser-test.mjs","env":{"GALLERY_DIR":"dist","QA_OUTPUT_DIR":"qa/release-matrix","QA_REVIEW_SCOPE":"matrix"}},
   "previews": {
     "command": "node site/render-web-previews.mjs",

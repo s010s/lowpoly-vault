@@ -610,7 +610,7 @@ try {
     report.browser_status = 'pass';
     report.gpu.status = report.gpu.fallback_models.length ? 'fallback-only-or-partial' : 'pass';
     report.status = report.gpu.fallback_models.length ? 'pass-with-webgl-fallback' : 'pass';
-    console.log(`${report.status}: scope=${reviewScope}; ${report.models.length} actual models; 10000 metadata fixture; ${report.static_routes.length} static routes. ${report.gpu.fallback_models.length ? 'GPU acceptance remains incomplete.' : 'Strict GPU acceptance passed.'} Screenshots still require human visual review.`);
+    console.log(`${report.status}: scope=${reviewScope}; ${report.models.length} actual models; ${reviewScope === 'models' ? 'fixture not selected' : '10000 metadata fixture'}; ${report.static_routes.length} static routes. ${report.gpu.fallback_models.length ? 'GPU acceptance remains incomplete.' : 'Strict GPU acceptance passed.'} Screenshots still require human visual review.`);
   }
 } catch (error) {
   report.status = report.browser_status === 'blocked' ? 'blocked-browser' : 'fail';

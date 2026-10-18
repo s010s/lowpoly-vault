@@ -44,10 +44,10 @@ jobs:
           npm run test:theme
           npm run test:preview
           npm run test:redesign
-          npm run test:parser
       - name: Build isolated review site (never release manifest or dist)
         run: node site/prepare-review.mjs
       - run: npx playwright install --with-deps chromium
+      - run: npm run test:parser
       - name: Inspect static routes, real assets, interactions and 10000-item fixture
         run: node site/redesign-browser-test.mjs
       - name: Upload review evidence for human inspection

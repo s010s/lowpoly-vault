@@ -8,12 +8,13 @@ import { createHash } from 'node:crypto';
 import { catalogMembership } from './curation.js';
 import { validAssetId } from './routes.js';
 
-async function discover(dir){const result=[];for(const entry of await readdir(dir,{withFileTypes:true})){const p=join(dir,entry.name);if(entry.isDirectory())result.push(...await discover(p));else if(entry.isFile()&&entry.name==='metadata.json')result.push(p);}return result.sort();}
+// Versioned candidates can share IDs and are never implicitly promoted by discovery.
+async function discover(dir,candidateRoot){const result=[];for(const entry of await readdir(dir,{withFileTypes:true})){const p=join(dir,entry.name);if(p===candidateRoot)continue;if(entry.isDirectory())result.push(...await discover(p,candidateRoot));else if(entry.isFile()&&entry.name==='metadata.json')result.push(p);}return result.sort();}
 const runFile=promisify(execFile);
 const candidateGate=fileURLToPath(new URL('../scripts/validate_candidate.py',import.meta.url));
 const requireThat=(condition,message)=>{if(!condition)throw new Error(message);};
 export async function collectManifest(root=process.cwd(),{preview=false}={}){
-  const base=resolve(root),files=await discover(join(base,'assets')),assets=[],ids=new Set(),errors=[];
+  const base=resolve(root),files=await discover(join(base,'assets'),join(base,'assets/candidates')),assets=[],ids=new Set(),errors=[];
   requireThat(files.length,'No asset metadata found. No manifest was written.');
   for(const file of files){try{
     const asset=JSON.parse(await readFile(file,'utf8')),folder=dirname(file),label=relative(base,folder);
