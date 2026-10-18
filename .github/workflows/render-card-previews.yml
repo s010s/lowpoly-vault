@@ -1,0 +1,39 @@
+name: Render matching website card previews
+on:
+  push:
+    branches: ['render/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    env:
+      SITE_BASE: /lowpoly-vault/
+      SITE_ORIGIN: https://s010s.github.io
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run publication:check && npx vite build && node site/prepare-render-capture.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Capture actual renderer with pinned preset and exact source hashes
+        env:
+          CAPTURE_REFERENCE: '1'
+        run: node site/render-web-previews.mjs
+      - name: Record screenshot-free continuity on the deployed site
+        run: node site/record-live-continuity.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matching-web-card-previews
+          path: qa/web-card-previews/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-continuity-demo
+          path: qa/live-continuity-demo/

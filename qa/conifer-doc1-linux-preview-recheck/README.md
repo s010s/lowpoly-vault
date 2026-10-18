@@ -1,0 +1,15 @@
+# Linux canonical conifer preview recheck — publication blocked
+
+Candidate base: `7adf0d2` on `integrate/conifer-doc1-20261017`. The approved model/source and existing independently approved Mac images/records are untouched. Main and deployed site remain `e6af7a7`.
+
+Linux full publication CI [39038352273](https://github.com/s010s/lowpoly-vault/actions/runs/39038352273) passed strict publication, full npm test (including Linux queue/pipeline), redesign/parser/scrub unit checks, and production build. It failed the existing exact pixel/encoding reproduction gate: 25/250 images differ, all24 conifer frames plus its poster. Later browser steps and deployment did not run. Full failed log and original render report are retained; no gate was relaxed.
+
+The same standard capture script on the existing Mac full Chromium141 reproduces all25 approved conifer images exactly, but differs for the225 other images. The Linux canonical renderer reproduces all225 other images exactly. This establishes an environment-specific capture mismatch; it does not isolate whether the OS, browser package, GPU backend or encoding implementation causes the difference. The Mac diagnostic only adds an executablePath to the installed browser and resolves its two imports. No software was installed. Its strict failed report is preserved.
+
+Existing render-only workflow [39038627111](https://github.com/s010s/lowpoly-vault/actions/runs/39038627111) succeeded and supplied the new Linux frames/poster retained here. Its separate deployed-site demo exercised the old live release and is not evidence that the new conifer is live. This capture workflow is diagnostic; it grants no publication approval. All225 other captures match source bytes. New conifer files have valid768×768 alpha, fixed42+15*i azimuth and23.3° elevation. Per-frame light/dark composited numeric differences and exact hashes are in `preview-review-request.json`. Mean RGB error against approved Mac images is0.077–0.106 on a0–255 scale over the light background; small numeric difference does not waive exact reproduction or independent review.
+
+## Required independent action
+
+Inspect all24 newly generated Linux frames and poster, bind their exact hashes to a new independently sealed publication visual record, and check exact-model handoff consistency. Preserve the prior model acceptance, original Mac preview approval, and all original bytes. The new poster SHA256 is `fb46be69de3e6dd664150c9bddeae58353d293e2eebff536cf44d5f014dab975`. Only after independent approval should the integrator update the proposed release images/metadata/descriptor and rerun the complete Linux publication workflow. Do not reuse the old629628... approval for the new bytes. Do not publish this currently failing candidate.
+
+The source GLB remains `c3a215eda3ceb3e4ec95bdb31446e180fd9f9d1f7eaa24131459a0db6fa56b40`. KHR_mesh_quantization, measured M5 Pro/Metal scope, all SwiftShader budget failures and fine-needle aliasing limits remain unchanged. There is no new performance claim. `pre-deployment-other-nine.json` confirms45 live delivery-file hashes matched the independent baseline before this attempted release.

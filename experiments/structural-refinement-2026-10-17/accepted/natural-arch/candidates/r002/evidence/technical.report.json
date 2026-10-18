@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "structural-r002",
+    "glb_sha256": "cf41f5f970e4c8f72f57c4132974e00320e262b6b210a40c717dc2c27098672d",
+    "brief_sha256": "ddfba8cc686821b377785bce47e4d7aa4b36a143f0a795f9811e574cccd618e0",
+    "references_sha256": "95c3f0aa17b6159a619f29a9b98b1ee7fa91a4dd0b734bf2f6d6de6523dbdb37"
+  },
+  "status": "pass",
+  "method": "Fresh static audit, official Khronos glTF validator, exact source reopened with autoexec disabled and axis-aware compare, second bounded queue execution and semantic comparison.",
+  "observations": [
+    "898 triangles, 1752 exported POSITION-stream vertices, 3 materials, 4 primitives, 51388 GLB bytes.",
+    "453 authored source vertices across two manifold closed meshes.",
+    "Independent deterministic build reproduced identical GLB bytes and semantic digest.",
+    "Source and exported bounds match exactly; lowest contact is zero."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 898,
+    "materials": 3,
+    "primitives": 4,
+    "glb_bytes": 51388,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "cf41f5f970e4c8f72f57c4132974e00320e262b6b210a40c717dc2c27098672d",
+      "report": {
+        "path": "candidates/r002/evidence/static-glb.report.json",
+        "sha256": "3905abacd785798c79da0eb94c67481589ea5db78e31a1deee4d254345981056"
+      },
+      "warnings": [],
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "cf41f5f970e4c8f72f57c4132974e00320e262b6b210a40c717dc2c27098672d",
+      "report": {
+        "path": "candidates/r002/gltf-validator.report.json",
+        "sha256": "affcb8c51890fea8e5d47ce03602adb4eeb8f2c879a2be4cda8007a3a2b1293b"
+      },
+      "warnings": [],
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "cf41f5f970e4c8f72f57c4132974e00320e262b6b210a40c717dc2c27098672d",
+      "report": {
+        "path": "candidates/r002/evidence/source-export.report.json",
+        "sha256": "d9b3f43035fe00cb302fee94133f1c89bba780ed6de50f85c716b64afa2e10fc"
+      },
+      "warnings": [],
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "cf41f5f970e4c8f72f57c4132974e00320e262b6b210a40c717dc2c27098672d",
+      "report": {
+        "path": "candidates/r002/evidence/reproducibility.report.json",
+        "sha256": "9b140431262181a3be24da62e5685b807a421e2fcf07c6a1fed60803d30f2660"
+      },
+      "warnings": [],
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}

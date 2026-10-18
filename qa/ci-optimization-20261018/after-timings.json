@@ -1,0 +1,147 @@
+[
+  {
+    "phase": "publication-check",
+    "command": "node site/initial-release.mjs --check",
+    "seconds": 21.095,
+    "returncode": 0,
+    "python_calls": 135,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 3,
+      "scripts/check_release_textures.py": 36,
+      "scripts/qa_glb.py": 48,
+      "scripts/validate_candidate.py": 48
+    }
+  },
+  {
+    "phase": "initial-release",
+    "command": "node site/initial-release-test.mjs",
+    "seconds": 1.904,
+    "returncode": 0,
+    "python_calls": 0,
+    "python_scripts": {}
+  },
+  {
+    "phase": "refined-release",
+    "command": "node site/refined-release-test.mjs",
+    "seconds": 11.249,
+    "returncode": 0,
+    "python_calls": 63,
+    "python_scripts": {
+      "-c": 7,
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 56
+    }
+  },
+  {
+    "phase": "small-life-release",
+    "command": "node site/small-life-release-test.mjs",
+    "seconds": 6.197,
+    "returncode": 0,
+    "python_calls": 12,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 12
+    }
+  },
+  {
+    "phase": "small-fauna-release",
+    "command": "node site/small-fauna-release-test.mjs",
+    "seconds": 5.419,
+    "returncode": 0,
+    "python_calls": 9,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 9
+    }
+  },
+  {
+    "phase": "small-life-batch-release",
+    "command": "node site/small-life-batch-release-test.mjs",
+    "seconds": 2.893,
+    "returncode": 0,
+    "python_calls": 3,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 3
+    }
+  },
+  {
+    "phase": "small-life-round02-release",
+    "command": "node site/small-life-round02-release-test.mjs",
+    "seconds": 8.143,
+    "returncode": 0,
+    "python_calls": 37,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 3,
+      "scripts/qa_glb.py": 18,
+      "scripts/validate_candidate.py": 16
+    }
+  },
+  {
+    "phase": "small-life-round03-release",
+    "command": "node site/small-life-round03-release-test.mjs",
+    "seconds": 29.394,
+    "returncode": 0,
+    "python_calls": 208,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 3,
+      "scripts/check_release_textures.py": 43,
+      "scripts/qa_glb.py": 83,
+      "scripts/validate_candidate.py": 79
+    }
+  },
+  {
+    "phase": "small-life-round04-release",
+    "command": "node site/small-life-round04-release-test.mjs",
+    "seconds": 24.082,
+    "returncode": 0,
+    "python_calls": 115,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 3,
+      "scripts/check_release_textures.py": 28,
+      "scripts/qa_glb.py": 44,
+      "scripts/validate_candidate.py": 40
+    }
+  },
+  {
+    "phase": "small-life-round05-release",
+    "command": "node site/small-life-round05-release-test.mjs",
+    "seconds": 33.858,
+    "returncode": 0,
+    "python_calls": 221,
+    "python_scripts": {
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 3,
+      "scripts/check_release_textures.py": 63,
+      "scripts/qa_glb.py": 80,
+      "scripts/validate_candidate.py": 75
+    }
+  },
+  {
+    "phase": "vite",
+    "command": "node_modules/.bin/vite build",
+    "seconds": 2.575,
+    "returncode": 0,
+    "python_calls": 0,
+    "python_scripts": {}
+  },
+  {
+    "phase": "copy-assets",
+    "command": "node site/copy-assets.mjs",
+    "seconds": 3.477,
+    "returncode": 0,
+    "python_calls": 1,
+    "python_scripts": {
+      "-c": 1
+    }
+  },
+  {
+    "phase": "audit-release",
+    "command": "node site/audit-release.mjs",
+    "seconds": 42.145,
+    "returncode": 0,
+    "python_calls": 136,
+    "python_scripts": {
+      "-c": 1,
+      "/workspace/lowpoly-vault/scripts/validate_candidate.py": 3,
+      "scripts/check_release_textures.py": 36,
+      "scripts/qa_glb.py": 48,
+      "scripts/validate_candidate.py": 48
+    }
+  }
+]

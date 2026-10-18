@@ -1,0 +1,47 @@
+{
+  "base": "77720858d73fcb8f6b8845576851762dcba078ef",
+  "implementation": "ebce4e7f0155982d49f87b41d2792061fd9a4690",
+  "build": "pass",
+  "npm_test": "pass",
+  "redesign_unit": "pass",
+  "publication": "pass",
+  "interaction": {
+    "passed": 8,
+    "total": 8
+  },
+  "hover": {
+    "passed": 4,
+    "total": 4
+  },
+  "modal": {
+    "passed": 8,
+    "total": 8,
+    "timing_advisories_retained": true
+  },
+  "handoff": {
+    "passed": 10,
+    "total": 10
+  },
+  "redesign_browser": {
+    "status": "pass",
+    "real_models": 16,
+    "static_routes": 38,
+    "metadata_fixture": 10000
+  },
+  "shared": {
+    "status": "failed",
+    "passed": 16,
+    "total": 17,
+    "failure": "trusted-touch-swipe-and-tap: no compatibility click on zoom tap after CDP orbit gesture",
+    "also_reproduced_on_unmodified_base": true,
+    "new_press_disabled_still_fails": true,
+    "separate_400ms_gesture_settling_diagnostic": "pass"
+  },
+  "not_run": [
+    "physical iOS/Android",
+    "Safari",
+    "Firefox",
+    "independent visual acceptance"
+  ],
+  "review": "approve scoped animation diff; overall test result is not all-pass"
+}

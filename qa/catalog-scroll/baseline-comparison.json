@@ -1,0 +1,58 @@
+{
+  "base_commit": "12550349a9678398b9360e97d7908bc42667c42c",
+  "local_chromium": "154.0.8037.57",
+  "original_patch_shared": {
+    "status": "failed",
+    "failed_cases": [
+      {
+        "name": "trusted-touch-swipe-and-tap",
+        "error": "AssertionError [ERR_ASSERTION]: detail touch zoom changes actual camera distance\n    at check (file:///workspace/lowpoly-vault/site/shared-model-browser-test.mjs:35:123)\n    at test.viewport.width (file:///workspace/lowpoly-vault/site/shared-model-browser-test.mjs:469:3)\n    at async test (file:///workspace/lowpoly-vault/site/shared-model-browser-test.mjs:45:6)\n    at async file:///workspace/lowpoly-vault/site/shared-model-browser-test.mjs:421:2"
+      }
+    ]
+  },
+  "baseline_shared": {
+    "status": "failed",
+    "failed_cases": [
+      {
+        "name": "actual-model-canonical-return-progression",
+        "error": "AssertionError [ERR_ASSERTION]: return animates actual WebGL model through intermediate poses\n    at check (file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:35:123)\n    at test.recordVideo (file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:180:3)\n    at async test (file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:45:6)\n    at async file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:160:2"
+      },
+      {
+        "name": "moving-close-forward-back-before-queued-reopen",
+        "error": "page.waitForFunction: Timeout 10000ms exceeded.\n    at test.recordVideo (/tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:247:51)\n    at async test (/tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:45:6)\n    at async file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:199:2"
+      },
+      {
+        "name": "trusted-touch-swipe-and-tap",
+        "error": "AssertionError [ERR_ASSERTION]: detail touch zoom changes actual camera distance\n    at check (file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:35:123)\n    at test.viewport.width (file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:469:3)\n    at async test (file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:45:6)\n    at async file:///tmp/lpv-scroll-baseline/site/shared-model-browser-test.mjs:421:2"
+      }
+    ]
+  },
+  "original_patch_modal": {
+    "status": "fail",
+    "failed_cases": [
+      {
+        "name": "desktop-click",
+        "error": "Error: close: actual azimuth_deg follows a continuous shortest-path return: {\"initial\":153.87549354156988,\"canonical\":42,\"actual\":[153.87549354156988,153.87549354156988,153.87549354156988,42]}\n    at check (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:312:34)\n    at validateCanonicalReturn (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:464:5)\n    at validateTiming (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:574:7)\n    at roundTrip (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:864:3)\n    at async runCase (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:812:5)\n    at async file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:881:3"
+      },
+      {
+        "name": "desktop-chinese",
+        "error": "Error: open: all chrome/content completes in the opening flight: {\"actual_ms\":431.20000000018626,\"limit_ms\":365}\n    at check (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:312:34)\n    at validateTiming (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:545:5)\n    at roundTrip (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:854:3)\n    at async runCase (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:812:5)\n    at async file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:882:3"
+      },
+      {
+        "name": "desktop-chinese-slow-frame",
+        "error": "Error: open: all chrome/content completes in the opening flight: {\"actual_ms\":374.6999999997206,\"limit_ms\":365}\n    at check (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:312:34)\n    at validateTiming (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:545:5)\n    at roundTrip (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:854:3)\n    at async file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:902:5\n    at async runCase (file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:812:5)\n    at async file:///workspace/lowpoly-vault/site/modal-motion-browser-test.mjs:883:3"
+      }
+    ]
+  },
+  "baseline_modal": {
+    "status": "pass",
+    "failed_cases": []
+  },
+  "scoped_same_view_optimization": {
+    "status": "pass",
+    "failed_cases": []
+  },
+  "ci141_original_patch_failure": "https://github.com/s010s/lowpoly-vault/actions/runs/39155702328",
+  "ci141_same_runner_full_baseline_and_candidate_pass": "https://github.com/s010s/lowpoly-vault/actions/runs/39156193072",
+  "note": "All failures retained; no timing or camera continuity assertion removed or relaxed. Scoped optimization run is four cases, not a full-suite pass."
+}

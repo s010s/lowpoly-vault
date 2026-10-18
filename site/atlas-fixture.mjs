@@ -1,0 +1,7 @@
+// Test-only browser harness. Bundled into the isolated review directory, never the public build.
+import {ModelAtlas} from './atlas.js';
+const cats=['geology','plants','wood','traces'];let version=0;
+const all=Array.from({length:10000},(_,i)=>({id:`synthetic-${i}`,name:`Synthetic ${i}`,category:cats[i%4]}));
+const store={cancelSearch(){version++;},async search({query='',category='all',page=0,pageSize=100}){const v=++version;await new Promise(r=>setTimeout(r,15));if(v!==version)throw new DOMException('cancelled','AbortError');const items=all.filter(a=>(category==='all'||a.category===category)&&a.name.includes(query));return{items:items.slice(page*pageSize,(page+1)*pageSize),total:items.length};}};
+const host=document.querySelector('#atlas');const index={total:10000,categories:cats.map(id=>({id,count:2500}))};const atlas=new ModelAtlas({host,store,t:x=>x,lang:()=> 'en',cardHTML:a=>`<button class="asset-card" data-id="${a.id}"><div class="asset-image"><span class="card-status"></span></div><div class="card-label"><h3>${a.name}</h3></div></button>`,onItems:items=>{document.querySelector('#stats').textContent=JSON.stringify({total:10000,mounted:host.querySelectorAll('.asset-card').length,returned:items.length});},onOpen:()=>{},onHover:()=>{},onStop:()=>{},onPointer:()=>{}});
+await atlas.update({index});document.querySelector('#focus').onclick=()=>atlas.focus('plants');document.querySelector('#search').oninput=e=>atlas.update({index,query:e.target.value});

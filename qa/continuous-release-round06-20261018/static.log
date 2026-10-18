@@ -1,0 +1,157 @@
+
+> lowpoly-vault@1.0.0 test:manifest
+> node site/manifest-test.mjs
+
+Manifest tests passed: review/release separation, mandatory QA, hash-bound independent production approval, pending/self-review/image-tamper rejection, missing files, warnings, preserved science metadata.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+Review-only structural check (no publication approval): Validated 10 original asset entries and all GLB/Blend/preview paths.
+
+> lowpoly-vault@1.0.0 test:catalog
+> node site/catalog-test.mjs
+
+{
+  "result": "Catalog tests passed",
+  "assets": 10000,
+  "shards": 40,
+  "indexBytes": 15223,
+  "defaultPageShardRequests": 0,
+  "deepPageShardRequests": 1,
+  "maxCachedShards": 8,
+  "maxCachedDetails": 4,
+  "peakSummaryRequests": 1,
+  "peakDetailRequests": 1,
+  "verified": [
+    "global bilingual search",
+    "combined facets",
+    "sort and pagination",
+    "cancelled requests",
+    "abort-ignoring transport guard",
+    "same-origin deployment prefix",
+    "safe detail ids",
+    "complete detail preservation",
+    "approved-manifest-only production",
+    "empty catalog"
+  ]
+}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+
+> lowpoly-vault@1.0.0 test:theme
+> node site/theme-test.mjs
+
+Theme tests passed: OS initial/change, explicit preference, persistence failure, seven rapid clicks, farthest-corner radius, reduced motion, no-ViewTransition fallback.
+
+> lowpoly-vault@1.0.0 test:preview
+> node site/model-preview-test.mjs && node site/viewer-resource-test.mjs && node site/return-motion-test.mjs && node site/hover-reveal-test.mjs && node site/handoff-dissolve-test.mjs
+
+{
+  "status": "pass",
+  "checks": 7,
+  "covers": [
+    "lazy GLB acquisition and invalid targets",
+    "continuous latest-intent camera orbit",
+    "no frame/manifest fetches",
+    "superseded import/show callbacks",
+    "copy/transfer snapshot ownership",
+    "retained pose and zoom",
+    "failure fallback and explicit recovery",
+    "visibility/offscreen stop and detail ownership"
+  ]
+}
+{
+  "status": "pass",
+  "limits": {
+    "encodedEntries": 3,
+    "encodedBytes": 25165824,
+    "decodedEntries": 3,
+    "decodedBytes": 50331648,
+    "uncachedActiveEntries": 1
+  },
+  "checks": [
+    "Exact decoded and GPU object reuse across card/detail",
+    "Orbit angle/elevation/distance and zoom continuity",
+    "Reduced-motion view preservation and demand-only frames",
+    "Original transforms and wireframes restored",
+    "Bounded LRU estimated geometry/texture bytes",
+    "Active lease protected from cache eviction",
+    "Single oversized uncached active scene",
+    "Rejected oversized transfer gate cleanup",
+    "Abortable presentation gate and fetch",
+    "Parse failure and queue recovery",
+    "Stale parse disposal and one serialized parse",
+    "Complete teardown including pending parse"
+  ]
+}
+{
+  "status": "pass",
+  "timing": {
+    "travel": 120,
+    "fade": 60,
+    "total": 180
+  },
+  "covers": [
+    "shortest-angle interpolation",
+    "shared camera and square-flight easing",
+    "exact canonical alignment before poster fade",
+    "finite close-only RAF",
+    "cancel/new-owner safety",
+    "instant reduced motion",
+    "hidden-tab deadline"
+  ]
+}
+Hover reveal: complementary alpha weights, finite timing, slow-frame progression and cancellation passed.
+Handoff dissolve: complementary weights, first slow frame, wall-clock catchup, cancellation, reduced motion, visibility and stale ownership passed.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+
+> lowpoly-vault@1.0.0 test:redesign
+> node site/catalog-v2-test.mjs && node site/static-routes-test.mjs && node site/viewer-scale-test.mjs && node site/dialog-motion-test.mjs && node site/catalog-scroll-test.mjs
+
+{
+  "result": "Catalog v2 passed",
+  "assets": 10000,
+  "categories": 17,
+  "unevenCounts": true,
+  "multiWorld": true,
+  "multiPack": true,
+  "maxTriangles": true,
+  "requests": 168,
+  "cacheBound": 8,
+  "indexBytes": 30383,
+  "summaryShards": 40,
+  "summaryBytes": 2888068,
+  "buildMilliseconds": 109,
+  "deepPageRequests": 1
+}
+Static route and release tests passed: bilingual real documents, pagination, metadata, custom/project/root deployment, exact sizes, ZIP credits, approved allowlist, no QA/reference files, symlink/traversal refusal.
+PASS metric reference: 10 real GLBs, scale validation, immutable geometry, bounded resources, one-frame toggles, offscreen pause and disposal.
+Dialog motion: overlapping entry, short exit, interrupted reversal, stale completion, reduced motion, and disposal pass.
+Catalog scroll: native passive input, scoped scrollbar, bottom/short/resize/filter/localization/modal state, refresh coalescing and disposal pass.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+
+> lowpoly-vault@1.0.0 test:scrub
+> node site/image-scrub-test.mjs && node site/turntable-delivery-test.mjs && node site/turntable-mixed-source-test.mjs
+
+{"status":"pass","checks":24,"limits":{"encodedEntries":12,"encodedBytes":2097152,"decodedEntries":3,"manifestEntries":3,"maxDimension":1024},"covers":["24–36 frames","unsafe metadata","encoded LRU","one active request","abort stale fetch","close stale decode","latest pointer wins","image failure restores static","visibility/offscreen cleanup"]}
+{"status":"pass","checks":15,"assets":10,"frames":240,"source":"immutable original GLB hashes","coverage":"sealed metadata/bytes/dimensions/path allowlist/symlink rejection/static-only fallback"}
+Revision turntable delivery tests passed: 55 checks; deterministic accepted-revision routes, original paths/bytes preserved, exact preset/alpha, frame-0/approved-preview equality, no arbitrary routes.
+Mixed-source regression passed: full original and synthetic revision test suites run after source selection of all three revision routes. No real assets approved.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

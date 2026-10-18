@@ -1,0 +1,63 @@
+{
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "c9c1eb75ec0d81448eb935f38bc86916ae1110617cf315972508cd4c82467e07",
+    "brief_sha256": "f14e9687dd1a4338d26ed02bbfd60968a9669d6125d4fa5d7ad0bd8d5cfabd82",
+    "references_sha256": "0cb8c77454fd6f0d69d2b8277690b58678f5254bc5f4df6c08f13c2f29b4b41d"
+  },
+  "independent_acceptance": "pending; maker does not sign independent QA",
+  "source_export_status": "pass_with_warnings",
+  "rebuilds": [
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "5802eacd3120c4976a7f6b00cd489114b572ca0a53f46d3edef9405ffedfd7ae"
+    },
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "5802eacd3120c4976a7f6b00cd489114b572ca0a53f46d3edef9405ffedfd7ae"
+    }
+  ],
+  "khronos": {
+    "status": "pass",
+    "validator_version": "2.0.0-dev.3.10",
+    "sha256": "c9c1eb75ec0d81448eb935f38bc86916ae1110617cf315972508cd4c82467e07",
+    "errors": [],
+    "warnings": [],
+    "num_errors": 0,
+    "num_warnings": 0,
+    "report": "gltf-validator.report.json",
+    "truncated": false
+  },
+  "runtime_status": "pass",
+  "authored_source_vertices": 2808,
+  "evaluated_source_vertices": 2808,
+  "source_triangles": 5608,
+  "exported_position_stream_vertices": 3576,
+  "exported_triangles": 5608,
+  "materials": 2,
+  "primitives": 2,
+  "glb_bytes": 121996,
+  "textures": 0,
+  "texture_bytes": 0,
+  "warning_disposition": [
+    {
+      "warning": "continuous-lower-soft-layer-around-load-lobes: smooth faces require intentional-style review",
+      "maker_disposition": "Smooth shared buried layer interfaces; exposed educational cut faces remain flat and two continuous layer volumes stay closed.",
+      "independent_review": "pending"
+    },
+    {
+      "warning": "continuous-upper-sand-layer-with-downward-load-lobes: smooth faces require intentional-style review",
+      "maker_disposition": "Smooth shared buried layer interfaces; exposed educational cut faces remain flat and two continuous layer volumes stay closed.",
+      "independent_review": "pending"
+    }
+  ],
+  "project_checker_returncode": 1,
+  "profile_checker_returncode": 0,
+  "profile_approved_checker_returncode": 1,
+  "profile_contract_status": "pass",
+  "candidate_record_valid": true,
+  "approved_for_brief": false,
+  "project_checker_note": "Actual legacy mismatch retained. Explicit static profile and separate publication policy are pinned by a generated real-hash sidecar; actual profile/record/approval results are separate. Unknown independent stages do not become approved."
+}

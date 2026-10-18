@@ -1,0 +1,29 @@
+
+> lowpoly-vault@1.0.0 build
+> node site/ci-timed.mjs build
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: assets/releases/small-life-round06-twelve-20261018.json: release hash mismatch
++ actual - expected
+
++ 'f26dfbfed0d96798de0557f21c2831ac7f3e4643f04fc10b687b5be0c0afc123'
+- '2ad7873e4b59ff01139cf5a56e90f6dd0b5a2a864f153b33fbe11ba051db889e'
+
+    at checked (file:///workspace/lowpoly-vault/site/small-life-round06-release.mjs:16:488)
+    at async json (file:///workspace/lowpoly-vault/site/small-life-round06-release.mjs:17:35)
+    at async collectRound06Release (file:///workspace/lowpoly-vault/site/small-life-round06-release.mjs:18:96)
+    at async checkPublishedManifest (file:///workspace/lowpoly-vault/site/initial-release.mjs:53:6)
+    at async file:///workspace/lowpoly-vault/site/initial-release.mjs:76:20 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'f26dfbfed0d96798de0557f21c2831ac7f3e4643f04fc10b687b5be0c0afc123',
+  expected: '2ad7873e4b59ff01139cf5a56e90f6dd0b5a2a864f153b33fbe11ba051db889e',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
+CI timing: {"name":"publication-check","seconds":0.098,"exit_code":1,"signal":null}

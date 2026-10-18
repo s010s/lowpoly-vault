@@ -1,0 +1,1342 @@
+{
+  "status": "passed",
+  "commit": null,
+  "execution_environment": "cloud computer Linux",
+  "started": "2026-10-18T15:55:21.927Z",
+  "checks": [],
+  "cases": [
+    {
+      "name": "trusted-touch-swipe-and-tap",
+      "checks": [
+        {
+          "name": "touch initial poster no GLBs",
+          "pass": true
+        },
+        {
+          "name": "first card swipe uses trusted native touch",
+          "pass": true,
+          "detail": [
+            {
+              "type": "pointerdown",
+              "x": 253.60000610351562,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 265.6400146484375,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 277.67999267578125,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 289.7200012207031,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 301.760009765625,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 313.79998779296875,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            }
+          ]
+        },
+        {
+          "name": "first card swipe rotates from its actual starting azimuth",
+          "pass": true,
+          "detail": {
+            "after": {
+              "azimuth_deg": 167.99996167559948,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "expectedAzimuth": 167.99996167559956
+          }
+        },
+        {
+          "name": "first card swipe does not accidentally open modal",
+          "pass": true
+        },
+        {
+          "name": "horizontal trusted touch activates actual GLB",
+          "pass": true
+        },
+        {
+          "name": "touch swipe real visible silhouette",
+          "pass": true,
+          "detail": {
+            "hash": "d761020b",
+            "foreground_rgb_mean": [
+              187.0609698160675,
+              171.84796213916678,
+              137.08114664931895
+            ],
+            "transparent_fraction": 0.807647705078125,
+            "foreground": 12401,
+            "corner_alpha_max": 0,
+            "bbox": {
+              "left": 43,
+              "right": 217,
+              "top": 66,
+              "bottom": 201
+            },
+            "centroid": {
+              "x": 141.83993226352715,
+              "y": 126.68623498104992
+            }
+          }
+        },
+        {
+          "name": "touch swipe transparent background",
+          "pass": true,
+          "detail": {
+            "hash": "d761020b",
+            "foreground_rgb_mean": [
+              187.0609698160675,
+              171.84796213916678,
+              137.08114664931895
+            ],
+            "transparent_fraction": 0.807647705078125,
+            "foreground": 12401,
+            "corner_alpha_max": 0,
+            "bbox": {
+              "left": 43,
+              "right": 217,
+              "top": 66,
+              "bottom": 201
+            },
+            "centroid": {
+              "x": 141.83993226352715,
+              "y": 126.68623498104992
+            }
+          }
+        },
+        {
+          "name": "second card swipe uses trusted native touch",
+          "pass": true,
+          "detail": [
+            {
+              "type": "pointerdown",
+              "x": 253.60000610351562,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 261.1679992675781,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 268.7359924316406,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 276.3039855957031,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 283.87200927734375,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 291.44000244140625,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            }
+          ]
+        },
+        {
+          "name": "second card swipe rotates from its actual starting azimuth",
+          "pass": true,
+          "detail": {
+            "before": {
+              "azimuth_deg": 167.99996167559948,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "after": {
+              "azimuth_deg": 247.19995401071944,
+              "elevation_deg": 23.30000000000002,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "expectedAzimuth": 247.1999540107194
+          }
+        },
+        {
+          "name": "second card swipe preserves inspected elevation",
+          "pass": true,
+          "detail": {
+            "before": {
+              "azimuth_deg": 167.99996167559948,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "after": {
+              "azimuth_deg": 247.19995401071944,
+              "elevation_deg": 23.30000000000002,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "second card swipe preserves inspected zoom",
+          "pass": true,
+          "detail": {
+            "before": {
+              "azimuth_deg": 167.99996167559948,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "after": {
+              "azimuth_deg": 247.19995401071944,
+              "elevation_deg": 23.30000000000002,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "second card swipe does not accidentally open modal",
+          "pass": true
+        },
+        {
+          "name": "second drag continues beyond the first rotated pose",
+          "pass": true,
+          "detail": {
+            "first": {
+              "azimuth_deg": 167.99996167559948,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "second": {
+              "azimuth_deg": 247.19995401071944,
+              "elevation_deg": 23.30000000000002,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "subsequent touch tap opens detail",
+          "pass": true
+        },
+        {
+          "name": "touch card to detail azimuth",
+          "pass": true,
+          "detail": {
+            "a": {
+              "azimuth_deg": 247.19995401071944,
+              "elevation_deg": 23.30000000000002,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "b": {
+              "azimuth_deg": 247.19995401071938,
+              "elevation_deg": 23.30000000000002,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 2,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "touch card to detail elevation",
+          "pass": true
+        },
+        {
+          "name": "touch card to detail distance",
+          "pass": true
+        },
+        {
+          "name": "trusted touch orbits detail away from card angle",
+          "pass": true,
+          "detail": {
+            "beforeOrbit": {
+              "azimuth_deg": 247.19995401071938,
+              "elevation_deg": 23.30000000000002,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 2,
+              "preset": 2
+            },
+            "orbited": {
+              "azimuth_deg": 103.19996001417735,
+              "elevation_deg": 5.300012006916003,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 2,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "detail touch zoom changes actual camera distance",
+          "pass": true,
+          "detail": {
+            "orbited": {
+              "azimuth_deg": 103.19996001417735,
+              "elevation_deg": 5.300012006916003,
+              "distance": 4.2294274002353855,
+              "fov": 38,
+              "aspect": 2,
+              "preset": 2
+            },
+            "inspected": {
+              "azimuth_deg": 103.19996001417735,
+              "elevation_deg": 5.300012006916003,
+              "distance": 3.5245228335294874,
+              "fov": 38,
+              "aspect": 2,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "completed touch detail return has no retained snapshot or live canvas",
+          "pass": true
+        },
+        {
+          "name": "completed touch detail return source card displays only its canonical poster",
+          "pass": true
+        },
+        {
+          "name": "canonical poster touch resume uses trusted native touch",
+          "pass": true,
+          "detail": [
+            {
+              "type": "pointerdown",
+              "x": 253.60000610351562,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 259.7919921875,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 265.9840087890625,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 272.1759948730469,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 278.3680114746094,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 284.55999755859375,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            }
+          ]
+        },
+        {
+          "name": "canonical poster touch resume rotates from its actual starting azimuth",
+          "pass": true,
+          "detail": {
+            "before": {
+              "azimuth_deg": 42,
+              "elevation_deg": 23.3,
+              "distance": 4.229427400235386
+            },
+            "after": {
+              "azimuth_deg": 106.79998211527976,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            },
+            "expectedAzimuth": 106.79998211527979
+          }
+        },
+        {
+          "name": "canonical poster touch resume preserves inspected elevation",
+          "pass": true,
+          "detail": {
+            "before": {
+              "azimuth_deg": 42,
+              "elevation_deg": 23.3,
+              "distance": 4.229427400235386
+            },
+            "after": {
+              "azimuth_deg": 106.79998211527976,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "canonical poster touch resume preserves inspected zoom",
+          "pass": true,
+          "detail": {
+            "before": {
+              "azimuth_deg": 42,
+              "elevation_deg": 23.3,
+              "distance": 4.229427400235386
+            },
+            "after": {
+              "azimuth_deg": 106.79998211527976,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            }
+          }
+        },
+        {
+          "name": "canonical poster touch resume does not accidentally open modal",
+          "pass": true
+        },
+        {
+          "name": "touch resume keeps single renderer and original decoded GLTF",
+          "pass": true,
+          "detail": {
+            "renderers": 1,
+            "rendererCount": 1,
+            "rendererCreations": 1,
+            "liveScenes": 1,
+            "cacheEntries": 1,
+            "cacheBytes": 51388,
+            "cachedScenes": 1,
+            "cachedDecodedBytes": 47436,
+            "decodedEntries": 1,
+            "decodedBytes": 47436,
+            "decodedBufferBytes": 47436,
+            "decodedTextureBytes": 0,
+            "decodedBytesEstimated": true,
+            "decodedEntryLimit": 3,
+            "decodedByteLimit": 50331648,
+            "activeLeases": 1,
+            "pendingLeases": 0,
+            "activeEstimatedBytes": 47436,
+            "pendingEstimatedBytes": 0,
+            "uncachedActiveScenes": 0,
+            "resourceReferences": 2,
+            "geometries": 4,
+            "materials": 3,
+            "textures": 0,
+            "skeletons": 0,
+            "activeRequests": 0,
+            "peakRequests": 1,
+            "networkRequests": 1,
+            "networkBytes": 51388,
+            "networkMilliseconds": 16,
+            "lastNetworkMilliseconds": 16,
+            "byteCacheHits": 0,
+            "parseCount": 1,
+            "activeParses": 0,
+            "peakParses": 1,
+            "parseMilliseconds": 8.5,
+            "decodedCacheHits": 2,
+            "resourceReuses": 2,
+            "evictedScenes": 0,
+            "staleScenes": 0,
+            "disposedScenes": 0,
+            "disposedGeometries": 0,
+            "disposedMaterials": 0,
+            "disposedTextures": 0,
+            "lastShowMilliseconds": 3.400000000023283,
+            "lastShowCacheHit": true,
+            "renderedFrames": 37,
+            "rafPending": 0,
+            "activeMode": "hover",
+            "activeURL": "http://127.0.0.1:34179/lowpoly-vault/assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+            "referenceObjects": 0,
+            "referenceGeometries": 0,
+            "referenceMaterials": 0,
+            "disposedReferences": 0,
+            "returnOverlayMeshes": 0,
+            "returnOverlayMaterials": 0
+          }
+        },
+        {
+          "name": "vertical touch scroll does not activate preview or detail",
+          "pass": true,
+          "detail": {
+            "before": {
+              "gpu": {
+                "renderers": 1,
+                "rendererCount": 1,
+                "rendererCreations": 1,
+                "liveScenes": 1,
+                "cacheEntries": 1,
+                "cacheBytes": 51388,
+                "cachedScenes": 1,
+                "cachedDecodedBytes": 47436,
+                "decodedEntries": 1,
+                "decodedBytes": 47436,
+                "decodedBufferBytes": 47436,
+                "decodedTextureBytes": 0,
+                "decodedBytesEstimated": true,
+                "decodedEntryLimit": 3,
+                "decodedByteLimit": 50331648,
+                "activeLeases": 1,
+                "pendingLeases": 0,
+                "activeEstimatedBytes": 47436,
+                "pendingEstimatedBytes": 0,
+                "uncachedActiveScenes": 0,
+                "resourceReferences": 2,
+                "geometries": 4,
+                "materials": 3,
+                "textures": 0,
+                "skeletons": 0,
+                "activeRequests": 0,
+                "peakRequests": 1,
+                "networkRequests": 1,
+                "networkBytes": 51388,
+                "networkMilliseconds": 16,
+                "lastNetworkMilliseconds": 16,
+                "byteCacheHits": 0,
+                "parseCount": 1,
+                "activeParses": 0,
+                "peakParses": 1,
+                "parseMilliseconds": 8.5,
+                "decodedCacheHits": 2,
+                "resourceReuses": 2,
+                "evictedScenes": 0,
+                "staleScenes": 0,
+                "disposedScenes": 0,
+                "disposedGeometries": 0,
+                "disposedMaterials": 0,
+                "disposedTextures": 0,
+                "lastShowMilliseconds": 3.400000000023283,
+                "lastShowCacheHit": true,
+                "renderedFrames": 37,
+                "rafPending": 0,
+                "activeMode": "hover",
+                "activeURL": "http://127.0.0.1:34179/lowpoly-vault/assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+                "referenceObjects": 0,
+                "referenceGeometries": 0,
+                "referenceMaterials": 0,
+                "disposedReferences": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "activations": 2
+            },
+            "after": {
+              "gpu": {
+                "renderers": 1,
+                "rendererCount": 1,
+                "rendererCreations": 1,
+                "liveScenes": 1,
+                "cacheEntries": 1,
+                "cacheBytes": 51388,
+                "cachedScenes": 1,
+                "cachedDecodedBytes": 47436,
+                "decodedEntries": 1,
+                "decodedBytes": 47436,
+                "decodedBufferBytes": 47436,
+                "decodedTextureBytes": 0,
+                "decodedBytesEstimated": true,
+                "decodedEntryLimit": 3,
+                "decodedByteLimit": 50331648,
+                "activeLeases": 1,
+                "pendingLeases": 0,
+                "activeEstimatedBytes": 47436,
+                "pendingEstimatedBytes": 0,
+                "uncachedActiveScenes": 0,
+                "resourceReferences": 2,
+                "geometries": 4,
+                "materials": 3,
+                "textures": 0,
+                "skeletons": 0,
+                "activeRequests": 0,
+                "peakRequests": 1,
+                "networkRequests": 1,
+                "networkBytes": 51388,
+                "networkMilliseconds": 16,
+                "lastNetworkMilliseconds": 16,
+                "byteCacheHits": 0,
+                "parseCount": 1,
+                "activeParses": 0,
+                "peakParses": 1,
+                "parseMilliseconds": 8.5,
+                "decodedCacheHits": 2,
+                "resourceReuses": 2,
+                "evictedScenes": 0,
+                "staleScenes": 0,
+                "disposedScenes": 0,
+                "disposedGeometries": 0,
+                "disposedMaterials": 0,
+                "disposedTextures": 0,
+                "lastShowMilliseconds": 3.400000000023283,
+                "lastShowCacheHit": true,
+                "renderedFrames": 37,
+                "rafPending": 0,
+                "activeMode": "hover",
+                "activeURL": "http://127.0.0.1:34179/lowpoly-vault/assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+                "referenceObjects": 0,
+                "referenceGeometries": 0,
+                "referenceMaterials": 0,
+                "disposedReferences": 0,
+                "returnOverlayMeshes": 0,
+                "returnOverlayMaterials": 0
+              },
+              "activations": 2,
+              "open": false
+            },
+            "resumed": {
+              "azimuth_deg": 106.79998211527976,
+              "elevation_deg": 23.300000000000004,
+              "distance": 4.229427400235386,
+              "fov": 38,
+              "aspect": 1.1168831168831168,
+              "preset": 2
+            }
+          }
+        }
+      ],
+      "status": "passed",
+      "video_recording": true,
+      "touch_swipes": [
+        {
+          "label": "first card swipe",
+          "after": {
+            "azimuth_deg": 167.99996167559948,
+            "elevation_deg": 23.300000000000004,
+            "distance": 4.229427400235386,
+            "fov": 38,
+            "aspect": 1.1168831168831168,
+            "preset": 2
+          },
+          "expectedAzimuth": 167.99996167559956,
+          "image_width": 172,
+          "final_move_image_width": 172,
+          "events": [
+            {
+              "type": "pointerdown",
+              "x": 253.60000610351562,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 265.6400146484375,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 277.67999267578125,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 289.7200012207031,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 301.760009765625,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 313.79998779296875,
+              "y": 399.484375,
+              "pointerId": 2,
+              "trusted": true,
+              "imageWidth": 172
+            }
+          ]
+        },
+        {
+          "label": "second card swipe",
+          "before": {
+            "azimuth_deg": 167.99996167559948,
+            "elevation_deg": 23.300000000000004,
+            "distance": 4.229427400235386,
+            "fov": 38,
+            "aspect": 1.1168831168831168,
+            "preset": 2
+          },
+          "after": {
+            "azimuth_deg": 247.19995401071944,
+            "elevation_deg": 23.30000000000002,
+            "distance": 4.2294274002353855,
+            "fov": 38,
+            "aspect": 1.1168831168831168,
+            "preset": 2
+          },
+          "expectedAzimuth": 247.1999540107194,
+          "image_width": 172,
+          "final_move_image_width": 172,
+          "events": [
+            {
+              "type": "pointerdown",
+              "x": 253.60000610351562,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 261.1679992675781,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 268.7359924316406,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 276.3039855957031,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 283.87200927734375,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 291.44000244140625,
+              "y": 399.484375,
+              "pointerId": 3,
+              "trusted": true,
+              "imageWidth": 172
+            }
+          ]
+        },
+        {
+          "label": "canonical poster touch resume",
+          "before": {
+            "azimuth_deg": 42,
+            "elevation_deg": 23.3,
+            "distance": 4.229427400235386
+          },
+          "after": {
+            "azimuth_deg": 106.79998211527976,
+            "elevation_deg": 23.300000000000004,
+            "distance": 4.229427400235386,
+            "fov": 38,
+            "aspect": 1.1168831168831168,
+            "preset": 2
+          },
+          "expectedAzimuth": 106.79998211527979,
+          "image_width": 172,
+          "final_move_image_width": 172,
+          "events": [
+            {
+              "type": "pointerdown",
+              "x": 253.60000610351562,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 259.7919921875,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 265.9840087890625,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 272.1759948730469,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 278.3680114746094,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            },
+            {
+              "type": "pointermove",
+              "x": 284.55999755859375,
+              "y": 399.484375,
+              "pointerId": 8,
+              "trusted": true,
+              "imageWidth": 172
+            }
+          ]
+        }
+      ],
+      "inspected_touch_detail": {
+        "azimuth_deg": 103.19996001417735,
+        "elevation_deg": 5.300012006916003,
+        "distance": 3.5245228335294874,
+        "fov": 38,
+        "aspect": 2,
+        "preset": 2
+      },
+      "touchZoomEvents": [
+        {
+          "type": "pointerdown",
+          "id": "",
+          "tag": "CANVAS",
+          "x": 140.10000610351562,
+          "y": 145.5,
+          "detail": 0,
+          "pressed": false,
+          "trusted": true
+        },
+        {
+          "type": "touchstart",
+          "id": "",
+          "tag": "CANVAS",
+          "detail": 0,
+          "pressed": false,
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "id": "",
+          "tag": "CANVAS",
+          "x": 213.3000030517578,
+          "y": 136.35000610351562,
+          "detail": 0,
+          "pressed": false,
+          "trusted": true
+        },
+        {
+          "type": "touchend",
+          "id": "",
+          "tag": "CANVAS",
+          "detail": 0,
+          "pressed": false,
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "id": "zoom-in",
+          "tag": "BUTTON",
+          "x": 288.0299987792969,
+          "y": 287,
+          "detail": 0,
+          "pressed": true,
+          "trusted": true
+        },
+        {
+          "type": "touchstart",
+          "id": "zoom-in",
+          "tag": "BUTTON",
+          "detail": 0,
+          "pressed": true,
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "id": "zoom-in",
+          "tag": "BUTTON",
+          "x": 288.0299987792969,
+          "y": 287,
+          "detail": 0,
+          "pressed": false,
+          "trusted": true
+        },
+        {
+          "type": "touchend",
+          "id": "zoom-in",
+          "tag": "BUTTON",
+          "detail": 0,
+          "pressed": false,
+          "trusted": true
+        },
+        {
+          "type": "click",
+          "id": "zoom-in",
+          "tag": "BUTTON",
+          "x": 288,
+          "y": 287,
+          "detail": 1,
+          "pressed": false,
+          "trusted": true
+        }
+      ]
+    }
+  ],
+  "page_errors": [],
+  "screenshots": [
+    "11-touch-swipe.png",
+    "11b-second-touch-swipe-continuity.png",
+    "11c-inspected-touch-detail.png",
+    "11d-returned-detail-touch-resume.png",
+    "12-touch-return.png"
+  ],
+  "videos": [
+    {
+      "case": "trusted-touch-swipe-and-tap",
+      "file": "1754e17a2ff4e9199ab1aff4f0357ef5.webm"
+    }
+  ],
+  "limitations": [
+    "Actual Linux Chromium, ANGLE SwiftShader software WebGL; timings are local loopback and emulated input/viewport, not user-device or production-network benchmarks.",
+    "Decoded bytes are the application’s geometry/texture estimates, not driver GPU memory or JS heap measurements."
+  ],
+  "server_requests": [
+    {
+      "path": "/lowpoly-vault/models/",
+      "status": 200,
+      "bytes": 17996,
+      "ms": 19.517547000000036
+    },
+    {
+      "path": "/lowpoly-vault/assets/index-CCHM8oo_.js",
+      "status": 200,
+      "bytes": 85448,
+      "ms": 3.575358000000051
+    },
+    {
+      "path": "/lowpoly-vault/assets/presentation-CVFjLfLN.js",
+      "status": 200,
+      "bytes": 629,
+      "ms": 4.022170000000074
+    },
+    {
+      "path": "/lowpoly-vault/assets/index-C6Ems1m7.css",
+      "status": 200,
+      "bytes": 57818,
+      "ms": 5.748862000000031
+    },
+    {
+      "path": "/lowpoly-vault/home/editorial-hero.webp",
+      "status": 200,
+      "bytes": 67498,
+      "ms": 6.411788000000001
+    },
+    {
+      "path": "/lowpoly-vault/assets/catalog.json",
+      "status": 200,
+      "bytes": 16496,
+      "ms": 4.499606000000085
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 34692,
+      "ms": 24.19999299999995
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/bothriolepis-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 7312,
+      "ms": 25.051001000000042
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/asteroxylon-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 37540,
+      "ms": 25.594708000000082
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 23126,
+      "ms": 39.63718300000005
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/confuciusornis-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 11106,
+      "ms": 35.43909899999994
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 20748,
+      "ms": 27.203598000000056
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/dinosaur-nest-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 8554,
+      "ms": 6.000540000000001
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/fern-cluster-r006-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 23692,
+      "ms": 6.009012999999868
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/ichthyornis-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 9236,
+      "ms": 2.1740449999999782
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/juracimbrophlebia-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 15282,
+      "ms": 2.0384310000001733
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 9650,
+      "ms": 2.020623999999998
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/stratified-cliff-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 11460,
+      "ms": 2.019561999999951
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/horsetail-cluster-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 26082,
+      "ms": 2.2859829999999874
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/three-toed-track-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 8074,
+      "ms": 2.0542250000000877
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/uprooted-log-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 11518,
+      "ms": 4.326757000000043
+    },
+    {
+      "path": "/lowpoly-vault/assets/card-previews/waptia-v2-768-q90.webp",
+      "status": 200,
+      "bytes": 12624,
+      "ms": 4.319615999999996
+    },
+    {
+      "path": "/lowpoly-vault/assets/viewer-DOT3rl7N.js",
+      "status": 200,
+      "bytes": 617225,
+      "ms": 4.421990000000051
+    },
+    {
+      "path": "/lowpoly-vault/assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+      "status": 200,
+      "bytes": 51388,
+      "ms": 6.083264999999983
+    },
+    {
+      "path": "/lowpoly-vault/assets/catalog/details/natural-arch.json",
+      "status": 200,
+      "bytes": 3372,
+      "ms": 3.800821000000269
+    },
+    {
+      "path": "/lowpoly-vault/assets/catalog/shards/00000.json",
+      "status": 200,
+      "bytes": 14872,
+      "ms": 2.2045720000000983
+    }
+  ],
+  "timing_method": "Cold/warm wall time includes the intentional 180ms hover dwell; firstPreviewMilliseconds and lastShowMilliseconds are app load/render timings. ResourceTiming and server byte counts are actual loopback HTTP transfers.",
+  "browser": {
+    "version": "154.0.8037.57",
+    "executable": "/usr/bin/chromium",
+    "args": [
+      "--no-sandbox",
+      "--use-gl=angle",
+      "--use-angle=swiftshader",
+      "--enable-unsafe-swiftshader",
+      "--disable-gpu-rasterization"
+    ]
+  },
+  "dom_raster_mode": "cpu",
+  "finished": "2026-10-18T15:55:27.721Z",
+  "requests": [
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/models/",
+      "type": "document",
+      "time": 1792338922396
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/index-CCHM8oo_.js",
+      "type": "script",
+      "time": 1792338922479
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/presentation-CVFjLfLN.js",
+      "type": "script",
+      "time": 1792338922479
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/index-C6Ems1m7.css",
+      "type": "stylesheet",
+      "time": 1792338922479
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/home/editorial-hero.webp",
+      "type": "image",
+      "time": 1792338922480
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/catalog.json",
+      "type": "fetch",
+      "time": 1792338922629
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922677
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/asteroxylon-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922678
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/bothriolepis-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922678
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/lepidodendron-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922679
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/confuciusornis-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922679
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/cycad-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922679
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/dinosaur-nest-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922679
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/fern-cluster-r006-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922679
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/ichthyornis-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/horsetail-cluster-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/juracimbrophlebia-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/natural-arch-structural-r002-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/stratified-cliff-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/three-toed-track-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/uprooted-log-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/card-previews/waptia-v2-768-q90.webp",
+      "type": "image",
+      "time": 1792338922799
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/viewer-DOT3rl7N.js",
+      "type": "script",
+      "time": 1792338923225
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/revisions/natural-arch/structural-r002/natural-arch.glb",
+      "type": "fetch",
+      "time": 1792338923294
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/catalog/details/natural-arch.json",
+      "type": "fetch",
+      "time": 1792338924785
+    },
+    {
+      "label": "trusted-touch-swipe-and-tap",
+      "url": "http://127.0.0.1:34179/lowpoly-vault/assets/catalog/shards/00000.json",
+      "type": "fetch",
+      "time": 1792338924812
+    }
+  ]
+}

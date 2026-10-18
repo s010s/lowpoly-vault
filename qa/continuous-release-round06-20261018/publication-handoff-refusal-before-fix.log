@@ -1,0 +1,45 @@
+
+> lowpoly-vault@1.0.0 test:publication
+> node site/ci-timed.mjs publication
+
+Initial-release tests passed: 46 checks; exact ten original assets; three required hashes; scope/path/byte/symlink mutation refusal; QA preserved; stored-manifest equality; formal gate remains strict.
+CI timing: {"name":"initial-release","seconds":1.54,"exit_code":0,"signal":null}
+Capture-only inputs: 10 hash-checked published GLBs; no deployment artifact is produced.
+Refined-release tests passed: 78 checks; strict production evidence; explicit pinned publication; 3 accepted/7 WIP; unchanged originals; safe revision paths; revision credits; no real asset approval.
+CI timing: {"name":"refined-release","seconds":8.907,"exit_code":0,"signal":null}
+Small-life release: 16 checks passed; exact six additions, untouched ten originals, payload/evidence pins, scope and metadata mutation refusals.
+CI timing: {"name":"small-life-release","seconds":5.183,"exit_code":0,"signal":null}
+Small fauna release: 22 checks passed; exact accepted v002 payloads, original sixteen unchanged, authorization and metadata/evidence boundaries.
+CI timing: {"name":"small-fauna-release","seconds":4.625,"exit_code":0,"signal":null}
+Twelve-asset release: 21 checks passed; exact source/QA bindings, corrected taxonomy, scope and immutable payloads.
+CI timing: {"name":"small-life-batch-release","seconds":2.569,"exit_code":0,"signal":null}
+Round02 release: 26 checks passed; exact twelve, unchanged thirty-one, independent QA, explicit profile and preserved candidate failures.
+CI timing: {"name":"small-life-round02-release","seconds":8.625,"exit_code":0,"signal":null}
+Round03 release: 32 checks passed; exact twelve, unchanged forty-three, independent QA, explicit profile and preserved candidate failures.
+CI timing: {"name":"small-life-round03-release","seconds":38.133,"exit_code":0,"signal":null}
+Round04 release: 28 checks passed; exact twelve, unchanged fifty-five, independent QA, explicit profile and preserved candidate failures.
+CI timing: {"name":"small-life-round04-release","seconds":20.544,"exit_code":0,"signal":null}
+Round05 release: 34 checks passed; exact twelve, unchanged sixty-seven, independent QA, explicit profile and preserved candidate failures.
+CI timing: {"name":"small-life-round05-release","seconds":35.882,"exit_code":0,"signal":null}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Missing expected rejection.
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///workspace/lowpoly-vault/site/small-life-round06-release-test.mjs:20:452 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: /hash mismatch/,
+  operator: 'rejects',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
+CI timing: {"name":"small-life-round06-release","seconds":83.284,"exit_code":1,"signal":null}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
