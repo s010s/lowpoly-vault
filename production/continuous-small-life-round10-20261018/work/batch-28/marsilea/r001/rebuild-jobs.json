@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "marsilea",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/build.py",
+        "config": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/config.json",
+        "brief": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/brief.json",
+        "references": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/references.json",
+        "freeze": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/freeze.json",
+        "original_config": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/build-config.json",
+        "policy": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/reference-policy.json",
+        "helper": "/workspace/batch28-marsilea/scripts/asset_common.py",
+        "audit": "/workspace/batch28-marsilea/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "marsilea.glb",
+        "marsilea.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101807,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "marsilea",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/build.py",
+        "config": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/config.json",
+        "brief": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/brief.json",
+        "references": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/references.json",
+        "freeze": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/freeze.json",
+        "original_config": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/build-config.json",
+        "policy": "/workspace/batch28-marsilea/production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/reference-policy.json",
+        "helper": "/workspace/batch28-marsilea/scripts/asset_common.py",
+        "audit": "/workspace/batch28-marsilea/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "marsilea.glb",
+        "marsilea.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101807,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
