@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/generator.py", line 37, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/generator.py", line 34, in main
+    export_asset(s,{'en':'Eocladus-inspired preserved multilevel algal branchwork','zh':'Eocladus 保存型复枝藻轴片段'},'plants',c,metadata=meta,output_root=a.output,render=False,max_triangles=14000,max_materials=6,max_primitives=30)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault-batch27/scripts/asset_common.py", line 420, in export_asset
+    raise RuntimeError('Source QA failed: '+'; '.join(source['errors']))
+RuntimeError: Source QA failed: Triangle budget exceeded: 14600 > 14000
+
+Error: script failed, file: 'production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/generator.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+Blender 4.3.2
+
+Blender quit

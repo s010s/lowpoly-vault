@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "eocladus",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/eocladus/brief.json",
+        "references": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/eocladus/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/eocladus/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "eocladus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "eocladus/eocladus.blend",
+        "eocladus/eocladus.glb",
+        "eocladus/qa.json",
+        "eocladus/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch27 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "eocladus",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/work/batch-27/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch27/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch27/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/eocladus/brief.json",
+        "references": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/eocladus/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch27/production/continuous-small-life-round09-20261018/items/eocladus/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "eocladus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "eocladus/eocladus.blend",
+        "eocladus/eocladus.glb",
+        "eocladus/qa.json",
+        "eocladus/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch27 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
