@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/generator.py",
+    "--",
+    "--asset",
+    "montlivaltia",
+    "--config",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/rebuild-runs/build/montlivaltia/r001/semantic-rebuild-2/7e37e73297f9b22a39309769015101e4c5eb1e23a534a9662d0cfad18accea87/20261018T203845-1225eba9ea1144bc861b4cbb7de06e0f/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T20:38:45.414604+00:00",
+  "fingerprint": "7e37e73297f9b22a39309769015101e4c5eb1e23a534a9662d0cfad18accea87",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9576,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/brief.json",
+        "sha256": "8976bf872b2b2d25fa4ef62f8864b055537a9fab8cf8b4dc54e621a13d5ae74a"
+      },
+      "config": {
+        "bytes": 2348,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/config.json",
+        "sha256": "57a5084d535740bac5fdc411746ab09525da66088b8b98db70ab303f088f9369"
+      },
+      "generator": {
+        "bytes": 3891,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/generator.py",
+        "sha256": "e2ae54f20b78f0b0ba15ae6f6927b0f90c859ebc7492481774ac717ea039c9a1"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1232,
+        "path": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/references.json",
+        "sha256": "bb34c6d858dfb32ed0e6b79d13750fb08187154af4061df302375ef8434bb608"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "montlivaltia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "montlivaltia",
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "montlivaltia/montlivaltia.blend",
+        "montlivaltia/montlivaltia.glb",
+        "montlivaltia/qa.json",
+        "montlivaltia/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T203842-5289bbfd1fcf4f17a83e25a21cc12e5d"
+}

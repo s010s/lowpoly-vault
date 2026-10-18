@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "montlivaltia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/references.json"
+      },
+      "outputs": [
+        "montlivaltia/montlivaltia.blend",
+        "montlivaltia/montlivaltia.glb",
+        "montlivaltia/qa.json",
+        "montlivaltia/metadata.json"
+      ],
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "timeout_seconds": 600,
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "montlivaltia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ]
+    },
+    {
+      "asset_id": "montlivaltia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/montlivaltia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/work/batch-14/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch14/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch14/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch14/production/continuous-small-life-round05-20261018/items/montlivaltia/references.json"
+      },
+      "outputs": [
+        "montlivaltia/montlivaltia.blend",
+        "montlivaltia/montlivaltia.glb",
+        "montlivaltia/qa.json",
+        "montlivaltia/metadata.json"
+      ],
+      "config": {
+        "purpose": "Actual independent execution of same deterministic original geometry",
+        "threads": 2
+      },
+      "timeout_seconds": 600,
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "montlivaltia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ]
+    }
+  ]
+}
