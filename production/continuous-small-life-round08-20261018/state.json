@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T22:11:10.738625+00:00",
+  "updated_at": "2026-10-18T22:49:36.873060+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "candidate_delivery_and_making",
+  "status": "model_qa_pass_awaiting_release_confirmation",
   "claims": {
     "florissantia": {
       "batch_id": "batch-22",
@@ -78,7 +78,7 @@
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "branch": "handoff/batch23-20261018",
-      "candidate_commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
+      "candidate_commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     },
     "ovatiovermis": {
@@ -92,7 +92,7 @@
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "branch": "handoff/batch23-20261018",
-      "candidate_commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
+      "candidate_commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     },
     "nordenskioldia": {
@@ -106,7 +106,7 @@
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "branch": "handoff/batch23-20261018",
-      "candidate_commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
+      "candidate_commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     },
     "waterfall-ledge": {
@@ -120,7 +120,7 @@
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "branch": "handoff/batch23-20261018",
-      "candidate_commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
+      "candidate_commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     },
     "williamsonia": {
@@ -133,8 +133,8 @@
       "recorded_at": "2026-10-18T22:11:10.738625+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch24-20261018",
+      "candidate_commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     },
     "halkieria": {
@@ -147,8 +147,8 @@
       "recorded_at": "2026-10-18T22:11:10.738625+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch24-20261018",
+      "candidate_commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     },
     "ctenorhabdotus": {
@@ -161,8 +161,8 @@
       "recorded_at": "2026-10-18T22:11:10.738625+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch24-20261018",
+      "candidate_commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     },
     "conglomerate-outcrop": {
@@ -175,263 +175,543 @@
       "recorded_at": "2026-10-18T22:11:10.738625+00:00",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "candidate/small-life-batch24-20261018",
+      "candidate_commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
       "authorization": "Explicit parent report supersedes stale empty planning claim; no maker identity inferred from QA."
     }
   },
   "batches": {
     "batch-22": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
         "commit": "42d05757288c22b3e458414bfaa9747b3d53b301",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "recorded_at": "2026-10-18T22:11:10.738625+00:00"
+      "recorded_at": "2026-10-18T22:49:36.873060+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "batch-23": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
-        "commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
       },
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "recorded_at": "2026-10-18T22:11:10.738625+00:00"
+      "recorded_at": "2026-10-18T22:49:36.873060+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "metadata_revision": {
+        "kind": "label_only",
+        "model_changed": false,
+        "reported_by": "parent",
+        "note": "Label correction only; model unchanged. Planner did not rerun model/hash QA or invent affected file hashes."
+      }
     },
     "batch-24": {
-      "status": "building",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "maker_thread_id": null,
       "maker_turn_id": null,
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "qa": null,
-      "recorded_at": "2026-10-18T22:11:10.738625+00:00",
-      "note": "Parent explicitly reports exclusive producer assignment; exact thread/turn not supplied, not guessed."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
+      },
+      "recorded_at": "2026-10-18T22:49:36.873060+00:00",
+      "note": "Parent explicitly reports exclusive producer assignment; exact thread/turn not supplied, not guessed.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch24-20261018",
+        "commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     }
   },
   "jobs": {
     "florissantia": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-22",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
         "commit": "42d05757288c22b3e458414bfaa9747b3d53b301",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "stanleycaris": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-22",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
         "commit": "42d05757288c22b3e458414bfaa9747b3d53b301",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "pahoehoe-lava-surface": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-22",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
         "commit": "42d05757288c22b3e458414bfaa9747b3d53b301",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "staurolite-cross-twin": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-22",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-22",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch22-20261018",
         "commit": "42d05757288c22b3e458414bfaa9747b3d53b301",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "metasequoia": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-23",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
-        "commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "metadata_revision": {
+        "kind": "label_only",
+        "model_changed": false,
+        "reported_by": "parent",
+        "note": "Label correction only; model unchanged. Planner did not rerun model/hash QA or invent affected file hashes."
       }
     },
     "ovatiovermis": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-23",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
-        "commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "metadata_revision": {
+        "kind": "label_only",
+        "model_changed": false,
+        "reported_by": "parent",
+        "note": "Label correction only; model unchanged. Planner did not rerun model/hash QA or invent affected file hashes."
       }
     },
     "nordenskioldia": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-23",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
-        "commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "metadata_revision": {
+        "kind": "label_only",
+        "model_changed": false,
+        "reported_by": "parent",
+        "note": "Label correction only; model unchanged. Planner did not rerun model/hash QA or invent affected file hashes."
       }
     },
     "waterfall-ledge": {
-      "status": "candidate_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-23",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-23",
       "qa": {
-        "status": "not_started",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
         "thread_id": null,
-        "turn_id": null
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
       },
-      "status_note": "Delivered awaiting independent QA; no PASS.",
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch23-20261018",
-        "commit": "cbc6b33756fa1eb02ff9ac1b95fd84545698efda",
-        "pin_provenance": "Observed remote ref head at planning read; parent confirms delivery. Verify exact handoff pin when dispatching independent QA."
+        "commit": "f1b0572a6642f66c2d7c716b848e3828899b6c6e",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "metadata_revision": {
+        "kind": "label_only",
+        "model_changed": false,
+        "reported_by": "parent",
+        "note": "Label correction only; model unchanged. Planner did not rerun model/hash QA or invent affected file hashes."
       }
     },
     "williamsonia": {
-      "status": "building",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-24",
-      "qa": null,
-      "status_note": "Exclusive producer building; no candidate completion or QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
+      },
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch24-20261018",
+        "commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "halkieria": {
-      "status": "building",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-24",
-      "qa": null,
-      "status_note": "Exclusive producer building; no candidate completion or QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
+      },
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch24-20261018",
+        "commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "ctenorhabdotus": {
-      "status": "building",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-24",
-      "qa": null,
-      "status_note": "Exclusive producer building; no candidate completion or QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
+      },
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch24-20261018",
+        "commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "conglomerate-outcrop": {
-      "status": "building",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-24",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-24",
-      "qa": null,
-      "status_note": "Exclusive producer building; no candidate completion or QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/release/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "subject_pin_note": "Exact review pins not supplied in current message; do not substitute observed current ref tip."
+      },
+      "status_note": "Parent confirms independent model QA PASS; publication not confirmed here.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "candidate/small-life-batch24-20261018",
+        "commit": "15ebe8c0420bcb128f5c9496c7c77f96787ab736",
+        "pin_provenance": "Remote ref head observed now; parent confirms model QA. Exact QA subject remains bound by review evidence, not inferred from latest branch head."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     }
   },
   "request_resolution": {
