@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "gypsum-desert-rose",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/build.py",
+        "config": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/config.json",
+        "brief": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/brief.json",
+        "references": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/references.json",
+        "freeze": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/freeze.json",
+        "original_config": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/build-config.json",
+        "policy": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/reference-policy.json",
+        "helper": "/workspace/batch16-gypsum-desert-rose/scripts/asset_common.py",
+        "audit": "/workspace/batch16-gypsum-desert-rose/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "gypsum-desert-rose.glb",
+        "gypsum-desert-rose.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101810,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "gypsum-desert-rose",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/build.py",
+        "config": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/config.json",
+        "brief": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/brief.json",
+        "references": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/references.json",
+        "freeze": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/freeze.json",
+        "original_config": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/build-config.json",
+        "policy": "/workspace/batch16-gypsum-desert-rose/production/continuous-small-life-round06-20261018/work/batch-16/gypsum-desert-rose/r001/reference-policy.json",
+        "helper": "/workspace/batch16-gypsum-desert-rose/scripts/asset_common.py",
+        "audit": "/workspace/batch16-gypsum-desert-rose/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "gypsum-desert-rose.glb",
+        "gypsum-desert-rose.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101810,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
