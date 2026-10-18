@@ -6,6 +6,7 @@ import { resolve, extname, sep } from 'node:path';
 import assert from 'node:assert/strict';
 
 const root = resolve(process.env.GALLERY_DIR || 'dist');
+const manifest = JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
 const output = resolve(process.env.QA_OUTPUT_DIR || 'qa/shared-model-preview/browser');
 const prefix = '/lowpoly-vault/';
 const report = { status: 'running', commit: process.env.GITHUB_SHA || null, checks: [], screenshots: [], page_errors: [], measurements: {}, note: 'Chromium software WebGL and emulated touch. Resource bytes are estimates, not physical-device GPU/heap measurements.' };
@@ -49,7 +50,7 @@ async function context(options = {}) {
 async function catalog(page, lang = '') {
   await page.goto(base + prefix + lang + 'models/');
   await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
-  assert.equal(await page.locator('#grid .asset-card').count(), 10);
+  assert.equal(await page.locator('#grid .asset-card').count(), Math.min(24,manifest.assets.length));
   assert.equal((await preview(page)).kind, 'shared-real-model');
 }
 async function ready(page, id, frame) {

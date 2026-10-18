@@ -52,6 +52,17 @@ const meta = (html, name) => tags(html, 'meta').find(tag => attr(tag, 'name') ==
 const link = (html, rel, language) => tags(html, 'link').find(tag => attr(tag, 'rel') === rel && (!language || attr(tag, 'hreflang') === language));
 
 async function screenshot(page, name) {
+  // Full-page screenshots do not automatically scroll lazy thumbnails into view.
+  // Exercise their real scroll loading before recording an all-card catalog image.
+  if(name.startsWith('catalog-')) {
+    const position=await page.evaluate(()=>({x:scrollX,y:scrollY}));
+    for(const image of await page.locator('#grid .asset-card .asset-image img').all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img=>img.decode());
+      assert(await image.evaluate(img=>img.complete&&img.naturalWidth>0),'Every scrolled catalog poster must decode');
+    }
+    await page.evaluate(p=>scrollTo(p.x,p.y),position);
+  }
   await page.screenshot({ path: resolve(output, `${name}.png`), fullPage: !await page.locator('#viewer-dialog').isVisible(), animations: 'disabled' });
   report.screenshots.push(`${name}.png`);
 }

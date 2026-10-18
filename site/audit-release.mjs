@@ -5,11 +5,13 @@ import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { collectTurntables } from './turntable-delivery.mjs';
+import { checkPublishedManifest } from './initial-release.mjs';
 import { assetFileAllowlist } from './asset-delivery.mjs';
 const root=resolve('dist');
 const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
 assert(!manifest.review_only);
-assert.equal(manifest.assets.length,10);
+const source=await checkPublishedManifest();
+assert.deepEqual(manifest.assets.map(a=>a.id),source.assets.map(a=>a.id),'Delivered scope must equal the exact checked release');
 const expected=new Set(['index.html','models/index.html','about/index.html','zh-CN/index.html','zh-CN/models/index.html','zh-CN/about/index.html','404.html','sitemap.xml','robots.txt','THIRD_PARTY_NOTICES.md','LICENSE','LICENSES/CC-BY-4.0.txt','LICENSES/MIT.txt','home/editorial-hero.webp','assets/manifest.json','assets/catalog.json','assets/catalog/shards/00000.json',...assetFileAllowlist(manifest)]);
 const turntables=await collectTurntables(manifest);
 for(const file of turntables.files) {
@@ -40,4 +42,4 @@ const jobs=manifest.assets.map(a=>({path:resolve(root,a.downloads.bundle),files:
 const script=`import json,sys,zipfile,hashlib\nfor job in json.load(sys.stdin):\n with zipfile.ZipFile(job['path']) as z:\n  assert sorted(z.namelist())==sorted([*job['files'],'CREDITS.txt'])\n  for name,digest in job['files'].items(): assert hashlib.sha256(z.read(name)).hexdigest()==digest\n  assert z.read('CREDITS.txt')==open(job['credits'],'rb').read()\n`;
 const result=spawnSync('python3',['-c',script],{input:JSON.stringify(jobs),encoding:'utf8'});
 assert.equal(result.status,0,result.stderr);
-console.log(`Release inventory passed: ${files.length} allowlisted files; ten byte-identical GLB/Blend pairs and ZIPs; no QA, research or experiments.`);
+console.log(`Release inventory passed: ${files.length} allowlisted files; ${manifest.assets.length} byte-identical GLB/Blend pairs and ZIPs; no QA, research or experiments.`);

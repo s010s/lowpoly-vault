@@ -1,7 +1,7 @@
 name: Validate and deploy asset gallery
 on:
   push:
-    branches: [main, 'publish/**', 'feat/shared-model-preview', 'fix/smooth-hover-reveal-*']
+    branches: [main, 'publish/**', 'feat/shared-model-preview', 'fix/smooth-hover-reveal-*', 'integrate/small-life-*']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -35,15 +35,22 @@ jobs:
           GALLERY_DIR: dist
           PREVIEW_OUTPUT: qa/web-capture-recheck
           VERIFY_SHIPPED_PREVIEWS: '1'
+          PREVIEW_POSTERS_ONLY: '1'
         run: node site/render-web-previews.mjs
       - name: Verify real models, static routes, downloads and mobile layouts
         if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/release-strict-gpu
-          QA_REQUIRE_COUNT: '10'
+          QA_REQUIRE_COUNT: '16'
           QA_ALLOW_WEBGL_FALLBACK: '0'
         run: node site/redesign-browser-test.mjs
+      - name: Verify every new small-life prop on desktop and touch
+        if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
+        env:
+          GALLERY_DIR: dist
+          QA_OUTPUT_DIR: qa/small-life-browser
+        run: node site/small-life-browser-test.mjs
       - name: Verify intentional real-GLB list previews and shared detail resources
         if: ${{ !cancelled() && steps.build_site.outcome == 'success' && steps.install_chromium.outcome == 'success' }}
         env:
@@ -79,7 +86,7 @@ jobs:
         env:
           GALLERY_DIR: dist
           QA_OUTPUT_DIR: qa/release-fallback-only
-          QA_REQUIRE_COUNT: '10'
+          QA_REQUIRE_COUNT: '16'
           QA_ALLOW_WEBGL_FALLBACK: '1'
           QA_FORCE_WEBGL_FALLBACK: '1'
         run: node site/redesign-browser-test.mjs
@@ -96,6 +103,7 @@ jobs:
             qa/release-conifer-handoff/
             qa/modal-motion/
             qa/web-capture-recheck/render-report.json
+            qa/small-life-browser/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

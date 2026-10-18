@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { collectManifest } from './generate-manifest.mjs';
 import { assetFileAllowlist } from './asset-delivery.mjs';
 import { collectRefinedRelease } from './refined-release.mjs';
+import { collectSmallLifeRelease } from './small-life-release.mjs';
 
 export const INITIAL_ASSET_IDS = ['conifer-tree','cycad','dinosaur-nest','fern-cluster','horsetail-cluster','lepidodendron','natural-arch','stratified-cliff','three-toed-track','uprooted-log'];
 export async function collectInitialRelease(root=process.cwd()) {
@@ -41,7 +42,9 @@ export async function collectInitialRelease(root=process.cwd()) {
 export async function checkPublishedManifest(root=process.cwd()) {
   const current=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   assert(!current.review_only,'A review-only manifest cannot be published');
-  const expected=current.release_status==='mixed'
+  const expected=current.publication?.additions_descriptor
+    ?await collectSmallLifeRelease(root,current.publication.additions_descriptor)
+    :current.release_status==='mixed'
     ?await collectRefinedRelease(root,current.publication?.descriptor)
     :current.release_status==='initial'?await collectInitialRelease(root):await collectManifest(root);
   assert.deepEqual(current,expected,'Published manifest must exactly match the checked source and publication scope');

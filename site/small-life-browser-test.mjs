@@ -1,0 +1,40 @@
+/** Real-site smoke coverage for every new prop on desktop and emulated touch. */
+import assert from 'node:assert/strict';
+import { chromium } from 'playwright';
+import { createServer } from 'node:http';
+import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
+import { resolve, extname, sep } from 'node:path';
+import { createHash } from 'node:crypto';
+import { SMALL_LIFE_IDS } from './small-life-release.mjs';
+const root=resolve(process.env.GALLERY_DIR||'dist'),out=resolve(process.env.QA_OUTPUT_DIR||'qa/small-life-release-20261018/new-props'),prefix='/lowpoly-vault/';
+const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'))),report={status:'running',cases:[],page_errors:[],resource_errors:[],limitations:['Chromium SwiftShader and emulated touch; not physical-device performance.']},requests=[];
+const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.glb':'model/gltf-binary'};
+const server=createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost');assert(url.pathname.startsWith(prefix));let file=resolve(root,decodeURIComponent(url.pathname.slice(prefix.length))||'index.html');assert(file.startsWith(root+sep));if((await stat(file)).isDirectory())file=resolve(file,'index.html');res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream'}).end(await readFile(file));}catch{res.writeHead(404).end();}});
+let browser;
+try {
+ await mkdir(out,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}${prefix}`;
+ browser=await chromium.launch({args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});report.browser=browser.version();
+ for(const mobile of [false,true]) {
+  const context=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},hasTouch:mobile,isMobile:mobile,reducedMotion:'reduce'}),page=await context.newPage();
+  page.on('pageerror',e=>report.page_errors.push(e.message));page.on('request',r=>requests.push(r.url()));page.on('response',r=>{if(r.status()>=400)report.resource_errors.push(`${r.status()} ${r.url()}`);});
+  const catalog=base+(mobile?'zh-CN/':'')+'models/?pack=prehistoric-small-life';
+  await page.goto(catalog);await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');
+  assert.deepEqual((await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),SMALL_LIFE_IDS);
+  for(const id of SMALL_LIFE_IDS) {
+   const asset=manifest.assets.find(a=>a.id===id),card=page.locator(`#grid .asset-card[data-id="${id}"]`);await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());
+   if(!mobile){await card.hover();await page.waitForFunction(id=>document.querySelector(`[data-id="${id}"]`)?.dataset.previewState==='ready',id);}
+   await card.click();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');
+   assert.equal(await page.locator('#asset-title').textContent(),asset.name[mobile?'zh':'en']);
+   assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0);
+   assert(await page.locator('#viewer-dialog').evaluate(dialog=>dialog.scrollWidth<=dialog.clientWidth+1),'No modal horizontal overflow');
+   for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());assert.equal(createHash('sha256').update(await response.body()).digest('hex'),asset.sha256[key]);}
+   await page.screenshot({path:resolve(out,`${mobile?'mobile':'desktop'}-${id}.png`)});
+   await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'));
+   assert.equal(new URL(page.url()).searchParams.get('pack'),'prehistoric-small-life');
+   report.cases.push({id,viewport:mobile?'390x844-touch':'1440x1000',status:'pass',glb_sha256:asset.sha256.glb,blend_sha256:asset.sha256.blend});
+  }
+  await context.close();
+ }
+ assert.deepEqual(report.page_errors,[]);assert.deepEqual(report.resource_errors,[]);assert(!requests.some(url=>url.includes('/turntables/')),'New props must not request sequence frames or metadata');report.sequence_requests=0;report.status='pass';
+} catch(error){report.status='fail';report.error=error.stack;process.exitCode=1;}
+finally {await browser?.close();if(server.listening)await new Promise(r=>server.close(r));await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));}

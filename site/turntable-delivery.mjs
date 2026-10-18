@@ -80,8 +80,9 @@ export async function collectTurntables(manifest,root=process.cwd()) {
     const {poster:posterPath,revised}=paths.get(item.id);assert.equal(item.path,posterPath);assert.equal(item.source_glb_sha256,asset.sha256.glb);assert.equal(item.render_preset_sha256,presetHash);
     assert.equal(await realpath(resolve(root,item.path)),resolve(root,item.path),'Poster symlinks are not allowed');
     if(revised){const frame=posterFrames.get(item.id);assert(frame,'Revised cards require the accepted revision sequence');assert.equal(item.sha256,frame.sha256,'Revision poster must match frame 0');assert.equal(item.bytes,frame.bytes,'Revision poster bytes must match frame 0');assert.equal(item.sha256,asset.sha256.preview,'Revision poster must match the approved published preview');}
+    if(manifest.publication?.approved_addition_ids?.includes(asset.id)){assert.equal(item.sha256,asset.sha256.preview,'Addition poster must match its published canonical preview');assert(!descriptors.has(asset.id),'Small-life additions are poster-only, never sequence frames');}
     const bytes=await readFile(resolve(root,item.path));assert.equal(bytes.length,item.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
-    assert.deepEqual(webpDimensions(bytes),[CARD_RENDER_PRESET.image.width,CARD_RENDER_PRESET.image.height]);if(revised)assert(webpHasAlpha(bytes),'Revision poster must contain encoded alpha');assert.equal(item.width,CARD_RENDER_PRESET.image.width);assert.equal(item.height,CARD_RENDER_PRESET.image.height);posters.set(item.id,item.path);files.push(item.path);
+    assert.deepEqual(webpDimensions(bytes),[CARD_RENDER_PRESET.image.width,CARD_RENDER_PRESET.image.height]);if(revised||manifest.publication?.approved_addition_ids?.includes(asset.id))assert(webpHasAlpha(bytes),'Published accepted poster must contain encoded alpha');assert.equal(item.width,CARD_RENDER_PRESET.image.width);assert.equal(item.height,CARD_RENDER_PRESET.image.height);posters.set(item.id,item.path);files.push(item.path);
   }
   return {descriptors,posters,files};
 }
