@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "desiccation-crack-surface",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "desiccation-crack-surface",
+      "config": {
+        "profile": "batch12 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/desiccation-crack-surface/brief.json",
+        "config": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/desiccation-crack-surface/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/desiccation-crack-surface/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/desiccation-crack-surface/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "desiccation-crack-surface/desiccation-crack-surface.glb",
+        "desiccation-crack-surface/desiccation-crack-surface.blend",
+        "desiccation-crack-surface/metadata.json",
+        "desiccation-crack-surface/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "desiccation-crack-surface",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "desiccation-crack-surface",
+      "config": {
+        "profile": "batch12 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/desiccation-crack-surface/brief.json",
+        "config": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/desiccation-crack-surface/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/desiccation-crack-surface/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/desiccation-crack-surface/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "desiccation-crack-surface/desiccation-crack-surface.glb",
+        "desiccation-crack-surface/desiccation-crack-surface.blend",
+        "desiccation-crack-surface/metadata.json",
+        "desiccation-crack-surface/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
