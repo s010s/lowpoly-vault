@@ -1,0 +1,84 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "sea-stack",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101809
+      },
+      "inputs": {
+        "audit": "/workspace/batch28-sea-stack/scripts/qa_glb.py",
+        "brief": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/brief.json",
+        "config": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/config.json",
+        "freeze": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/freeze.json",
+        "generator": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/build.py",
+        "helper": "/workspace/batch28-sea-stack/scripts/asset_common.py",
+        "original_config": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/build-config.json",
+        "policy": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/reference-policy.json",
+        "references": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "sea-stack.glb",
+        "sea-stack.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "sea-stack",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101809
+      },
+      "inputs": {
+        "audit": "/workspace/batch28-sea-stack/scripts/qa_glb.py",
+        "brief": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/brief.json",
+        "config": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/config.json",
+        "freeze": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/freeze.json",
+        "generator": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/build.py",
+        "helper": "/workspace/batch28-sea-stack/scripts/asset_common.py",
+        "original_config": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/build-config.json",
+        "policy": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/reference-policy.json",
+        "references": "/workspace/batch28-sea-stack/production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "sea-stack.glb",
+        "sea-stack.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

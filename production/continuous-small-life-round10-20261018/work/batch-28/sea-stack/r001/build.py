@@ -120,15 +120,18 @@ def hurdia(c,m):
  shell.finish(c,False);side.finish(c,False);body.finish(c);flap.finish(c,False);front.finish(c);eyes.finish(c);tail.finish(c)
 
 def sea_stack(c,m):
- rock=Mesh('single-isolated-steep-coastal-stack-with-coherent-wave-cut-base',m);n=23;zs=[0,.12,.29,.48,.69,.91,1.25,1.63,2.03,2.40,2.78,3.15,3.46,3.72,3.90];rs=[.76,.78,.69,.59,.58,.69,.82,.85,.82,.79,.75,.72,.66,.59,.42];vs=[];f=[];mi=[]
+ rock=Mesh('single-isolated-steep-coastal-stack-with-one-sided-wave-cut-recess',m);n=19;zs=[0,.14,.39,.66,.94,1.27,1.72,2.18,2.62,3.08,3.48,3.79];rs=[.82,.86,.88,.89,.91,.87,.84,.83,.78,.74,.68,.49];vs=[];f=[];mi=[]
  for j,(z,r) in enumerate(zip(zs,rs)):
   for k in range(n):
-   a=2*pi*k/n;shape=1+.105*math.sin(3*a+.6)+.055*math.sin(5*a-1)+.028*math.sin(8*a+j*.15);erosion=.10*math.cos(a+.2)*math.exp(-((z-.52)/.28)**2);rad=r*shape-erosion;cx=.055*math.sin(z*.8);cy=.035*math.sin(z*1.3)
-   vs.append((cx+rad*math.cos(a),cy+rad*.77*math.sin(a),z+(.045*math.sin(a*3)+.020*math.sin(a*5+.3))*(j/(len(zs)-1))))
+   a=2*pi*k/n;shape=1+.12*math.sin(3*a+.6)+.065*math.sin(5*a-1)+.023*math.sin(7*a+j*.14)
+   # Directed wave erosion produces a recess on one face; the rear buttress stays broad.
+   notch=.34*max(0,math.cos(a+1.2))**2*math.exp(-((z-.46)/.27)**2);shoulder=.075*math.cos(a-.6)*math.exp(-((z-2.1)/.75)**2);rad=r*shape-notch+shoulder;cx=.12*(z/3.79)**1.3;cy=.030*math.sin(z*1.3)
+   crest=(.12*math.sin(a)+.085*math.sin(3*a+.4))*(j/(len(zs)-1))**3
+   vs.append((cx+rad*math.cos(a),cy+rad*.77*math.sin(a),z+crest))
  f.append(tuple(reversed(range(n))));mi.append(2)
  for j in range(len(zs)-1):
-  for k in range(n):f.append((j*n+k,j*n+(k+1)%n,(j+1)*n+(k+1)%n,(j+1)*n+k));mi.append(2 if j<3 else (1 if j in [6,10,12] else 0))
- top=len(vs);vs.append((.035,-.02,3.91))
+  for k in range(n):f.append((j*n+k,j*n+(k+1)%n,(j+1)*n+(k+1)%n,(j+1)*n+k));mi.append(2 if j<3 else (1 if j in [5,9] else 0))
+ top=len(vs);vs.append((.12,-.02,3.87))
  for k in range(n):f.append(((len(zs)-1)*n+k,(len(zs)-1)*n+(k+1)%n,top));mi.append(1)
  rock.add(vs,f,mi);rock.finish(c,False)
 

@@ -6,5 +6,63 @@
   "problem": "No-checkout worktree index was not populated before first sparse claim commit; base tracked files were absent from candidate tree.",
   "recovery": "Restore complete base tree into index/worktree respecting sparse patterns, restore own work, append normal FF checkpoint. Historical mistaken claim retained, no force/rebase/merge. Final base diff must contain own work/candidate prefixes only.",
   "model_launched_before_recovery": true,
-  "model_result": "Sea-stack launch exited1 at helper lookup before modeling/export; fulgurite never launched."
+  "model_result": "Sea-stack launch exited1 at helper lookup before modeling/export; fulgurite never launched.",
+  "recovery_commit": "e89f4c6220c481646271f318db1c530b72806082",
+  "remote_tip": "e89f4c6220c481646271f318db1c530b72806082",
+  "base_tree_blob_integrity": {
+    "status": "pass",
+    "method": "git diff base...recovery contains own work prefix only; explicit tree object ID comparison is independent of sparse working view",
+    "paths": [
+      {
+        "path": "scripts",
+        "base_object": "4046d9389270f773467b4c73bb33f3ff7557b73f",
+        "recovered_object": "4046d9389270f773467b4c73bb33f3ff7557b73f",
+        "equal": true
+      },
+      {
+        "path": "schemas",
+        "base_object": "2814f887e4a62ea50840719bbe2efe377b0a2bb3",
+        "recovered_object": "2814f887e4a62ea50840719bbe2efe377b0a2bb3",
+        "equal": true
+      },
+      {
+        "path": "skills",
+        "base_object": "2014da1b9c7fd0c37e2064e1ecb670ff32c62c84",
+        "recovered_object": "2014da1b9c7fd0c37e2064e1ecb670ff32c62c84",
+        "equal": true
+      },
+      {
+        "path": ".github",
+        "base_object": "d30cb7f55dc8e5e24911fb64350777b6d75480b1",
+        "recovered_object": "d30cb7f55dc8e5e24911fb64350777b6d75480b1",
+        "equal": true
+      },
+      {
+        "path": "src",
+        "base_object": null,
+        "recovered_object": null,
+        "equal": true
+      },
+      {
+        "path": "public",
+        "base_object": null,
+        "recovered_object": null,
+        "equal": true
+      },
+      {
+        "path": "site",
+        "base_object": "b70acd0c37e0201216e96302cd0f59965d8e296c",
+        "recovered_object": "b70acd0c37e0201216e96302cd0f59965d8e296c",
+        "equal": true
+      },
+      {
+        "path": "production/policies",
+        "base_object": "1ac02e68221b0634e5c7678eab3f8d1baaa10b09",
+        "recovered_object": "1ac02e68221b0634e5c7678eab3f8d1baaa10b09",
+        "equal": true
+      }
+    ],
+    "all_other_paths_unchanged": true,
+    "main_and_other_branches_modified": false
+  }
 }
