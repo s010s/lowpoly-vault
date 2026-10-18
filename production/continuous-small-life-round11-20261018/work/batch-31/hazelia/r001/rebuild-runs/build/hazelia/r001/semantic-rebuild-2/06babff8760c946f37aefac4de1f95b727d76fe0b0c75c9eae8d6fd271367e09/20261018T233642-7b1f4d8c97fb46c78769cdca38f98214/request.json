@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/hazelia/r001/generator.py",
+    "--",
+    "--asset",
+    "hazelia",
+    "--config",
+    "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/hazelia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/hazelia/r001/rebuild-runs/build/hazelia/r001/semantic-rebuild-2/06babff8760c946f37aefac4de1f95b727d76fe0b0c75c9eae8d6fd271367e09/20261018T233642-7b1f4d8c97fb46c78769cdca38f98214/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T23:36:42.061366+00:00",
+  "fingerprint": "06babff8760c946f37aefac4de1f95b727d76fe0b0c75c9eae8d6fd271367e09",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch31/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 10296,
+        "path": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/hazelia/brief.json",
+        "sha256": "c566a0d62a3e256275ef3eb8cc5d5ec4d1a697f9fbf0d00da18196fd5f702966"
+      },
+      "config": {
+        "bytes": 2332,
+        "path": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/hazelia/r001/config.json",
+        "sha256": "4e4f84cc84db3c233abd96b1251bfad4be7bced53d8a60f132746838024b0db3"
+      },
+      "generator": {
+        "bytes": 5005,
+        "path": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/hazelia/r001/generator.py",
+        "sha256": "78c55db8cf240e1a55fc6404c05d632d6be42677702c5afe478300cc71e35df2"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch31/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 3263,
+        "path": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/hazelia/inventory-record.json",
+        "sha256": "b9aa45d38796271e44ad3bd4a8f49052c2ca69b8822d7cfe8d53f922f15e5687"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1255,
+        "path": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/hazelia/references.json",
+        "sha256": "10979c57fb5d2e9a183c4299fd2a0940d4735f58a9971ac1e2b0792db71f914e"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "hazelia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "hazelia",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch31 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch31/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/hazelia/brief.json",
+        "config": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/hazelia/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/hazelia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch31/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/hazelia/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/work/batch-31/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch31/production/continuous-small-life-round11-20261018/items/hazelia/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "hazelia/hazelia.blend",
+        "hazelia/hazelia.glb",
+        "hazelia/qa.json",
+        "hazelia/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T233639-eeb232c980f447f3a56f21b122154812"
+}
