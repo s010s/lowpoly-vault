@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 export function classify(paths, manifest, full = false) {
-  const runtime = full || paths.some(p => /^(package(?:-lock)?\.json|vite\.config\.js)$/.test(p) || /^site\/(?!ci-|.*(?:-test|\.test)\.m?js$|.*release\.mjs$)/.test(p));
+  const runtime = full || paths.some(p => /^(package(?:-lock)?\.json|vite\.config\.js)$/.test(p) || /^site\/(?!ci-|.*release\.mjs$)/.test(p));
   const changed = manifest.assets.filter(a => paths.some(p => [a.glb,a.blend,a.preview].includes(p) || p.startsWith(`assets/card-previews/${a.id}-`) || p.startsWith(`assets/turntables/${a.id}/`)));
   const models = runtime || paths.includes('assets/manifest.json') || changed.length > 0;
   // Manifest updates select all published IDs: metadata and release evidence are cheap, geometry remains immutable.

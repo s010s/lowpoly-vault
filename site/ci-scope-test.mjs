@@ -5,7 +5,7 @@ assert.deepEqual(classify(['docs/note.md'],manifest).tasks,['none']);
 assert.deepEqual(classify(['production/new/review.json'],manifest).tasks,['none']);
 const asset=classify([manifest.assets[0].glb],manifest);
 assert.equal(asset.ids,'arch');assert.deepEqual(asset.tasks,['models','previews']);
-for(const path of ['site/style.css','site/main.js','site/viewer.js','site/routes.js','package-lock.json'])assert(classify([path],manifest).runtime,path);
+for(const path of ['site/style.css','site/main.js','site/viewer.js','site/routes.js','site/shared-model-browser-test.mjs','package-lock.json'])assert(classify([path],manifest).runtime,path);
 assert.equal(classify(['site/ci-scope.mjs'],manifest).runtime,false);
 assert(classify([],manifest,true).tasks.includes('shared'));
 assert.equal(classify(['assets/manifest.json'],manifest).ids,'');
