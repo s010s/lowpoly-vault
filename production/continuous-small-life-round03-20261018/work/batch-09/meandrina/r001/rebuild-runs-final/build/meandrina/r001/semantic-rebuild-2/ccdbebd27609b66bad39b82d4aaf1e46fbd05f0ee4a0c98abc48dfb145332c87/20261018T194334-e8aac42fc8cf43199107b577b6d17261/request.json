@@ -1,0 +1,108 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_meandrina_r001.py",
+    "--",
+    "--asset",
+    "meandrina",
+    "--config",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/meandrina/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/meandrina/r001/rebuild-runs-final/build/meandrina/r001/semantic-rebuild-2/ccdbebd27609b66bad39b82d4aaf1e46fbd05f0ee4a0c98abc48dfb145332c87/20261018T194334-e8aac42fc8cf43199107b577b6d17261/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T19:43:34.363414+00:00",
+  "fingerprint": "ccdbebd27609b66bad39b82d4aaf1e46fbd05f0ee4a0c98abc48dfb145332c87",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9273,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/brief.json",
+        "sha256": "914a73b041fef668497f978f76476d28bcbf0491ca206753b5c50252c2b3b209"
+      },
+      "config": {
+        "bytes": 2125,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/meandrina/r001/config.json",
+        "sha256": "8e59e986dec7465dcbf58e65105e0216f4a1989bcb63e85e3da0760d39a67762"
+      },
+      "generator": {
+        "bytes": 17924,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_meandrina_r001.py",
+        "sha256": "c3b55a034ea3efbd13fe9bfe57281d21be1eaf1a1a1791a40c4ab274b3aad8c0"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1095,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/references.json",
+        "sha256": "403418f630f60cc83c64da4a62f293c3f37f7f0c2effc9c7ec280d5ca1481530"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "meandrina",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "meandrina",
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "meandrina"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/brief.json",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/meandrina/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_meandrina_r001.py",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "meandrina/meandrina.glb",
+        "meandrina/meandrina.blend",
+        "meandrina/qa.json",
+        "meandrina/metadata.json",
+        "meandrina/meandrina-original-valley-pigment.png"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T194326-4569f757aaa841209f412ff73d464ab2"
+}

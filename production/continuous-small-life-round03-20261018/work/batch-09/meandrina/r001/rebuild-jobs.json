@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "meandrina",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_meandrina_r001.py",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/meandrina/r001/config.json",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/brief.json",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "meandrina",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "meandrina/meandrina.glb",
+        "meandrina/meandrina.blend",
+        "meandrina/qa.json",
+        "meandrina/metadata.json",
+        "meandrina/meandrina-original-valley-pigment.png"
+      ],
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "meandrina"
+      },
+      "timeout_seconds": 300
+    },
+    {
+      "asset_id": "meandrina",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_meandrina_r001.py",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/meandrina/r001/config.json",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/brief.json",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/meandrina/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "meandrina",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "meandrina/meandrina.glb",
+        "meandrina/meandrina.blend",
+        "meandrina/qa.json",
+        "meandrina/metadata.json",
+        "meandrina/meandrina-original-valley-pigment.png"
+      ],
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "meandrina"
+      },
+      "timeout_seconds": 300
+    }
+  ]
+}
