@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { collectTurntables } from './turntable-delivery.mjs';
 import { checkPublishedManifest } from './initial-release.mjs';
+import { CATALOG_PAGE_SIZE } from './routes.js';
 import { assetFileAllowlist } from './asset-delivery.mjs';
 const root=resolve('dist');
 const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
@@ -13,6 +14,7 @@ assert(!manifest.review_only);
 const source=await checkPublishedManifest();
 assert.deepEqual(manifest.assets.map(a=>a.id),source.assets.map(a=>a.id),'Delivered scope must equal the exact checked release');
 const expected=new Set(['index.html','models/index.html','about/index.html','zh-CN/index.html','zh-CN/models/index.html','zh-CN/about/index.html','404.html','sitemap.xml','robots.txt','THIRD_PARTY_NOTICES.md','LICENSE','LICENSES/CC-BY-4.0.txt','LICENSES/MIT.txt','home/editorial-hero.webp','assets/manifest.json','assets/catalog.json','assets/catalog/shards/00000.json',...assetFileAllowlist(manifest)]);
+for(let page=2;page<=Math.ceil(manifest.assets.length/CATALOG_PAGE_SIZE);page++) for(const locale of ['','zh-CN/'])expected.add(`${locale}models/page/${page}/index.html`);
 const turntables=await collectTurntables(manifest);
 for(const file of turntables.files) {
   expected.add(file);
