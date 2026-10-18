@@ -1,3 +1,5 @@
+import {ACCEPTED_ROUND04_ASSETS} from './accepted-round04-release.mjs';
+import {ROUND04_IDS,ROUND04_PACK} from './small-life-round04-release.mjs';
 /** Actual Pages acceptance. Never substitutes a local server for the deployed origin. */
 import assert from 'node:assert/strict';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
@@ -14,7 +16,7 @@ import {FAUNA_IDS} from './small-fauna-release.mjs';
 import {waitForDeployedRelease} from './live-release-contract.mjs';
 const base='https://s010s.github.io/lowpoly-vault/',out=resolve(process.env.QA_OUTPUT_DIR||'qa/live-fauna-release');
 const expected=JSON.parse(await readFile('assets/manifest.json'));
-const ids=expected.publication.round03_descriptor?ROUND03_IDS:expected.publication.round02_descriptor?ROUND02_IDS:expected.publication.batch_descriptor?BATCH_IDS:FAUNA_IDS,pack=expected.publication.round03_descriptor?ROUND03_PACK:expected.publication.round02_descriptor?ROUND02_PACK:expected.publication.batch_descriptor?BATCH_PACK:'prehistoric-small-fauna';
+const ids=expected.publication.round04_descriptor?ROUND04_IDS:expected.publication.round03_descriptor?ROUND03_IDS:expected.publication.round02_descriptor?ROUND02_IDS:expected.publication.batch_descriptor?BATCH_IDS:FAUNA_IDS,pack=expected.publication.round04_descriptor?ROUND04_PACK:expected.publication.round03_descriptor?ROUND03_PACK:expected.publication.round02_descriptor?ROUND02_PACK:expected.publication.batch_descriptor?BATCH_PACK:'prehistoric-small-fauna';
 const report={status:'running',source_commit:process.env.GITHUB_SHA||null,origin:base,cases:[],static_routes:[],errors:[],resource_errors:[],limitations:['Actual public Pages origin in Chromium SwiftShader; emulated touch, no physical-device performance claim.']};
 const hash=b=>createHash('sha256').update(b).digest('hex');
 let browser;
@@ -46,7 +48,7 @@ try {
     const detailURL=base+lang+`models/${id}/`,staticResponse=await page.request.get(detailURL);assert(staticResponse.ok());const html=await staticResponse.text();assert(html.includes('application/ld+json')&&html.includes('static-route-content'));
     const downloaded={};
     for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());const bytes=await response.body();assert.equal(hash(bytes),asset.sha256[key]);downloaded[key]=bytes.length;}
-    assert.equal(downloaded.glb,ACCEPTED_ROUND03_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND02_ASSETS[id]?.glb.bytes??ACCEPTED_BATCH_ASSETS[id]?.glb.bytes??{burgessomedusa:122504,diplomystus:93752,kalligramma:150456}[id]);
+    assert.equal(downloaded.glb,ACCEPTED_ROUND04_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND03_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND02_ASSETS[id]?.glb.bytes??ACCEPTED_BATCH_ASSETS[id]?.glb.bytes??{burgessomedusa:122504,diplomystus:93752,kalligramma:150456}[id]);
     for(const [kind,path] of [['credits',`assets/downloads/${id}-CREDITS.txt`],['bundle',`assets/downloads/${id}.zip`]]) {
      const response=await page.request.get(base+path);assert(response.ok());const bytes=await response.body();assert(bytes.length>0);
      if(kind==='credits'){assert.match(bytes.toString(),/Leon Made This/);assert.match(bytes.toString(),/https:\/\/creativecommons\.org\/licenses\/by\/4\.0\//);}else assert.equal(bytes.subarray(0,2).toString(),'PK');

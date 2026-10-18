@@ -1,0 +1,120 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/build.py",
+    "--",
+    "--config",
+    "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/config.json",
+    "--output",
+    "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/runs/build/flabellum/r001/semantic-rebuild-1/a6d658ab0e09526026e8eb61617afe2050fd5cd89a345eaa0d55b74f36e29b87/20261018T200153-edac9e98855f4032b921ab87f280effe/outputs"
+  ],
+  "created_at": "2026-10-18T20:01:53.584752+00:00",
+  "fingerprint": "a6d658ab0e09526026e8eb61617afe2050fd5cd89a345eaa0d55b74f36e29b87",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/batch10-flabellum/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9633,
+        "path": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/brief.json",
+        "sha256": "b8a71ae3133d53df15f915315e2ed954fb9a399326c40e80a83e2855bf223c26"
+      },
+      "config": {
+        "bytes": 1981,
+        "path": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/config.json",
+        "sha256": "3b9c81019a8de6ef847fb1750ac87a834aca8c743cb6616426e3658c958255b2"
+      },
+      "freeze": {
+        "bytes": 881,
+        "path": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/freeze.json",
+        "sha256": "cdd409daa4f915c92c7954228fd9ab46f75e9f07d6381b879ae7463911c1e372"
+      },
+      "generator": {
+        "bytes": 13253,
+        "path": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/build.py",
+        "sha256": "264f417df9a9546942292a2241893b2b27aaf7be42f1c46224fd35e399d26720"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/batch10-flabellum/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "original_config": {
+        "bytes": 2147,
+        "path": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/build-config.json",
+        "sha256": "d049a1ece474c45168dcdcce00dc89669fd8ec581f50ca9199e610c5de1cb0ac"
+      },
+      "policy": {
+        "bytes": 3172,
+        "path": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/reference-policy.json",
+        "sha256": "c2b88ea5e647def0947ece6ea3e429b5801c0664bc793f7501e8336dd9a124c9"
+      },
+      "references": {
+        "bytes": 1256,
+        "path": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/references.json",
+        "sha256": "e428708f8b68cdbdeb8d033c3ed19657480fb4b766b50e170361c2ec15ec5af1"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "flabellum",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101807
+      },
+      "inputs": {
+        "audit": "/workspace/batch10-flabellum/scripts/qa_glb.py",
+        "brief": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/brief.json",
+        "config": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/config.json",
+        "freeze": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/freeze.json",
+        "generator": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/build.py",
+        "helper": "/workspace/batch10-flabellum/scripts/asset_common.py",
+        "original_config": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/build-config.json",
+        "policy": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/reference-policy.json",
+        "references": "/workspace/batch10-flabellum/production/continuous-small-life-round04-20261018/work/batch-10/flabellum/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "flabellum.glb",
+        "flabellum.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261018T200153-d82d4197f1c44d138abab36b33e884fc"
+}

@@ -1,0 +1,63 @@
+{
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "fedfac4035f835b425b3d66f3b56e3977d7c0c0ddde69229e324024c8e9a5c69",
+    "brief_sha256": "b8a71ae3133d53df15f915315e2ed954fb9a399326c40e80a83e2855bf223c26",
+    "references_sha256": "817011566f803009b96e7dc8fb4cd9dc442ae6b3a88bfa1e61fa79aa793dae41"
+  },
+  "independent_acceptance": "pending; maker does not sign independent QA",
+  "source_export_status": "pass_with_warnings",
+  "rebuilds": [
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "5a1b32ba37e1c538b6c04a732d18d504df60ef20ede8d71ef85eafb6b9586ab1"
+    },
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "5a1b32ba37e1c538b6c04a732d18d504df60ef20ede8d71ef85eafb6b9586ab1"
+    }
+  ],
+  "khronos": {
+    "status": "pass",
+    "validator_version": "2.0.0-dev.3.10",
+    "sha256": "fedfac4035f835b425b3d66f3b56e3977d7c0c0ddde69229e324024c8e9a5c69",
+    "errors": [],
+    "warnings": [],
+    "num_errors": 0,
+    "num_warnings": 0,
+    "report": "gltf-validator.report.json",
+    "truncated": false
+  },
+  "runtime_status": "pass",
+  "authored_source_vertices": 2033,
+  "evaluated_source_vertices": 2033,
+  "source_triangles": 3966,
+  "exported_position_stream_vertices": 2097,
+  "exported_triangles": 3966,
+  "materials": 3,
+  "primitives": 3,
+  "glb_bytes": 77384,
+  "textures": 0,
+  "texture_bytes": 0,
+  "warning_disposition": [
+    {
+      "warning": "laterally-compressed-fan-wedge-with-blade-opening: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on a broad flattened fan cup and its septal blades; real wall thickness, cavity and plate rhythm remain in exact-GLB views.",
+      "independent_review": "pending"
+    },
+    {
+      "warning": "restrained-interior-septal-blades: smooth faces require intentional-style review",
+      "maker_disposition": "Deliberate smooth normals on a broad flattened fan cup and its septal blades; real wall thickness, cavity and plate rhythm remain in exact-GLB views.",
+      "independent_review": "pending"
+    }
+  ],
+  "project_checker_returncode": 1,
+  "profile_checker_returncode": 0,
+  "profile_approved_checker_returncode": 1,
+  "profile_contract_status": "pass",
+  "candidate_record_valid": true,
+  "approved_for_brief": false,
+  "project_checker_note": "Actual legacy mismatch retained. Explicit static profile and separate publication policy are pinned by a generated real-hash sidecar; actual profile/record/approval results are separate. Unknown independent stages do not become approved."
+}
