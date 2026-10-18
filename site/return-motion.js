@@ -10,7 +10,7 @@ export function interpolateReturnView(from, to, progress) {
 
 /** Only runs during close. One borrowed live canvas, no second scene or loop. */
 export function startModelReturn({ stage, host, from, to, getTarget, initialView, canonicalView, reduced = false, onAligned = () => {}, onFade = () => {} }) {
-  let raf = 0, timer, done, aligned = false, fadeElapsed = 0, fadeFrame = null;
+  let raf = 0, timer, done, aligned = false, fadeElapsed = 0, fadeStarted = null, partialFadePresented = false;
   const started = performance.now();
   const motion = { playState: 'running', finished: new Promise(resolve => { done = resolve; }), cancel, finish };
   const styles = stage.beginCanonicalReturnStyles?.();
@@ -31,7 +31,7 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
     stage.setView(canonicalView.azimuth_deg, canonicalView.elevation_deg, canonicalView.distance); onAligned();
     // Slow rendering may deliver the canonical draw after the travel deadline.
     // Start the fade only once that aligned model and its poster are drawable.
-    fadeFrame = performance.now();
+    fadeStarted = performance.now();
   };
   function end(result) {
     if (raf) cancelAnimationFrame(raf); raf = 0; clearTimeout(timer);
@@ -59,12 +59,13 @@ export function startModelReturn({ stage, host, from, to, getTarget, initialView
     } else {
       align(); place(1);
       const current = performance.now();
-      // A suspended/overloaded compositor can skip an entire 60 ms fade.
-      // Keep normal wall-clock timing, but never consume more than half the
-      // dissolve in one painted RAF opportunity on a visible page.
-      fadeElapsed += Math.min(Math.max(0, current - fadeFrame), RETURN_TIMING.fade / 2);
-      fadeFrame = current;
+      // Preserve a meaningful intermediate frame after a scheduler stall, then
+      // catch up to the original wall-clock deadline. Capping every RAF delta
+      // accumulates artificial delay when slow and fast frames alternate.
+      fadeElapsed = Math.min(Math.max(0, current - fadeStarted),
+        partialFadePresented ? RETURN_TIMING.fade : RETURN_TIMING.fade / 2);
       opacity(1 - clamp(fadeElapsed / RETURN_TIMING.fade));
+      if (fadeElapsed >= RETURN_TIMING.fade * .025 && fadeElapsed <= RETURN_TIMING.fade * .985) partialFadePresented = true;
     }
     if (aligned && fadeElapsed >= RETURN_TIMING.fade) finish();
     else raf = requestAnimationFrame(frame);

@@ -56,6 +56,15 @@ near(Number(stalled.host.dataset.returnOpacity), .5);
 assert.equal(stalled.motion.playState, 'running', 'A visible scheduler stall cannot erase every partially weighted frame.');
 frame(270); assert.equal(await stalled.motion.finished, true);
 assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners.size, 0);
+// The observed CI sequence: 83.4 ms after canonical capture, a fast 2.6 ms
+// frame, then another long frame. Retain the partial paint without adding an
+// extra 47.5 ms tail after the intended fade deadline has already elapsed.
+const alternating = setup(); frame(120); frame(203.4);
+near(Number(alternating.host.dataset.returnOpacity), .5);
+assert.equal(alternating.motion.playState, 'running');
+frame(206); assert.equal(await alternating.motion.finished, true);
+assert.equal(alternating.host.dataset.returnOpacity, '0');
+assert.equal(rafs.size, 0); assert.equal(timers.size, 0); assert.equal(listeners.size, 0);
 // Execute the production capture helper against premultiplied sample pixels.
 // Stacking two half-alpha copies source-over would produce alpha .75, not .5.
 const main = readFileSync(new URL('./main.js', import.meta.url), 'utf8');
