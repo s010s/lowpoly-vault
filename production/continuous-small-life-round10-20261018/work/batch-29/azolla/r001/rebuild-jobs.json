@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "azolla",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch29/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch29/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/azolla/brief.json",
+        "references": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/azolla/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/azolla/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "azolla",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "azolla/azolla.blend",
+        "azolla/azolla.glb",
+        "azolla/qa.json",
+        "azolla/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch29 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "azolla",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch29/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch29/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/azolla/brief.json",
+        "references": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/azolla/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch29/production/continuous-small-life-round10-20261018/items/azolla/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "azolla",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "azolla/azolla.blend",
+        "azolla/azolla.glb",
+        "azolla/qa.json",
+        "azolla/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch29 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
