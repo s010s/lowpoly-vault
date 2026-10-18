@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T21:11:55.055722+00:00",
+  "updated_at": "2026-10-18T21:44:20.445694+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "model_qa_pass_release_recovery_pending",
+  "status": "published",
   "claims": {
     "acrocyathus": {
       "batch_id": "batch-13",
@@ -182,8 +182,8 @@
   },
   "batches": {
     "batch-13": {
-      "status": "model_qa_pass_release_recovery_pending",
-      "recorded_at": "2026-10-18T21:11:55.055722+00:00",
+      "status": "published",
+      "recorded_at": "2026-10-18T21:44:20.445694+00:00",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
@@ -205,22 +205,22 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "batch-14": {
-      "status": "model_qa_pass_release_recovery_pending",
-      "recorded_at": "2026-10-18T21:11:55.055722+00:00",
+      "status": "published",
+      "recorded_at": "2026-10-18T21:44:20.445694+00:00",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
@@ -242,22 +242,22 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "batch-15": {
-      "status": "model_qa_pass_release_recovery_pending",
-      "recorded_at": "2026-10-18T21:11:55.055722+00:00",
+      "status": "published",
+      "recorded_at": "2026-10-18T21:44:20.445694+00:00",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
       "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
       "model": "GPT-6.1 Sol",
@@ -283,27 +283,27 @@
         "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     }
   },
   "jobs": {
     "acrocyathus": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-13",
       "qa": {
         "status": "completed",
@@ -319,7 +319,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
@@ -327,25 +327,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "sawdonia": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-13",
       "qa": {
         "status": "completed",
@@ -361,7 +361,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
@@ -369,25 +369,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "leanchoilia": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-13",
       "qa": {
         "status": "completed",
@@ -403,7 +403,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
@@ -411,25 +411,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "septarian-concretion": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-13",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-13",
       "qa": {
         "status": "completed",
@@ -445,7 +445,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch13-20261018",
@@ -453,25 +453,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "montlivaltia": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-14",
       "qa": {
         "status": "completed",
@@ -487,7 +487,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
@@ -495,25 +495,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "cobbania": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-14",
       "qa": {
         "status": "completed",
@@ -529,7 +529,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
@@ -537,25 +537,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "aysheaia": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-14",
       "qa": {
         "status": "completed",
@@ -571,7 +571,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
@@ -579,25 +579,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "tafoni-outcrop": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "parent-assigned-maker:batch-14",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-14",
       "qa": {
         "status": "completed",
@@ -613,7 +613,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch14-20261018",
@@ -621,25 +621,25 @@
         "reported_by": "parent"
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "beelzebufo": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-15",
       "qa": {
         "status": "completed",
@@ -655,7 +655,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
       "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
       "candidate": {
@@ -665,25 +665,25 @@
         "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "pluricarpellatia": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-15",
       "qa": {
         "status": "completed",
@@ -699,7 +699,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
       "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
       "candidate": {
@@ -709,25 +709,25 @@
         "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "paratingia": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-15",
       "qa": {
         "status": "completed",
@@ -743,7 +743,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
       "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
       "candidate": {
@@ -753,25 +753,25 @@
         "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     },
     "stromatolite-mound": {
-      "status": "model_qa_pass_release_recovery_pending",
+      "status": "published",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
       "batch_id": "batch-15",
       "qa": {
         "status": "completed",
@@ -787,7 +787,7 @@
         "evidence_commit": null,
         "reported_by": "parent"
       },
-      "status_note": "Model QA PASS and queued for 67→79; release task capacity failure pending recovery does not undo live67.",
+      "status_note": "Parent confirms live79 publication; earlier release capacity failure resolved.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
       "maker_turn_id": "01a150b7-5628-7531-950f-e0969cafae5a",
       "candidate": {
@@ -797,24 +797,26 @@
         "source_note": "Parent confirms completed model and QA PASS; exact source pin not supplied here, not guessed."
       },
       "release": {
-        "status": "capacity_failure_recovery_pending",
+        "status": "published",
         "coordinator_thread_id": "01a1502d-a2f1-74aa-adef-d04595fe501c",
-        "publication_confirmed": false,
-        "release_commit": null,
+        "publication_confirmed": true,
+        "release_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
         "confirmed_baseline_live_assets": 67,
         "target_total_live_assets": 79,
         "last_attempt": {
           "status": "failed_capacity",
           "exact_task_or_turn_id": null
         },
-        "note": "Parent preparing release recovery. Capacity failure affects next 67→79 release only; live67 already confirmed and must not be downgraded."
+        "note": "Parent confirms recovered 67→79 publication now live. Earlier capacity failure remains historical, not current status."
       }
     }
   },
   "publication_checkpoint": {
-    "last_confirmed_live_assets": 67,
-    "main_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb",
-    "this_round_publication_confirmed": false
+    "confirmed_by": "parent",
+    "confirmed_live_assets": 79,
+    "main_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
+    "scope": "Parent explicitly confirms live79; planner did not deploy or rerun public tests.",
+    "this_round_publication_confirmed": true
   },
   "qa_thread_resolution": {
     "01a15046": {
@@ -837,14 +839,8 @@
   },
   "latest_publication_checkpoint": {
     "confirmed_by": "parent",
-    "confirmed_live_assets": 67,
-    "main_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb",
-    "pr_number": 9,
-    "gates": {
-      "PR": "pass",
-      "Pages": "pass",
-      "public_Chromium": "pass"
-    },
-    "scope": "Publication/verification explicitly reported by parent; planner did not redeploy or rerun public browser tests."
+    "confirmed_live_assets": 79,
+    "main_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
+    "scope": "Parent explicitly confirms live79; planner did not deploy or rerun public tests."
   }
 }

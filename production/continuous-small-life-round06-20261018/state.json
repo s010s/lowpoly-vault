@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T21:11:55.055722+00:00",
+  "updated_at": "2026-10-18T21:44:20.445694+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "in_progress",
+  "status": "mixed_model_qa_pass_and_reviewing",
   "claims": {
     "pleurodictyum": {
       "batch_id": "batch-16",
@@ -131,8 +131,8 @@
       "exclusive": true,
       "claimed_by": "parent",
       "recorded_at": "2026-10-18T21:11:55.055722+00:00",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "handoff/batch18-20261018",
+      "candidate_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "authorization": "Parent explicit dispatch/handoff supersedes stale empty claims; QA is not maker identity."
@@ -145,8 +145,8 @@
       "exclusive": true,
       "claimed_by": "parent",
       "recorded_at": "2026-10-18T21:11:55.055722+00:00",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "handoff/batch18-20261018",
+      "candidate_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "authorization": "Parent explicit dispatch/handoff supersedes stale empty claims; QA is not maker identity."
@@ -159,8 +159,8 @@
       "exclusive": true,
       "claimed_by": "parent",
       "recorded_at": "2026-10-18T21:11:55.055722+00:00",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "handoff/batch18-20261018",
+      "candidate_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "authorization": "Parent explicit dispatch/handoff supersedes stale empty claims; QA is not maker identity."
@@ -173,8 +173,8 @@
       "exclusive": true,
       "claimed_by": "parent",
       "recorded_at": "2026-10-18T21:11:55.055722+00:00",
-      "branch": null,
-      "candidate_commit": null,
+      "branch": "handoff/batch18-20261018",
+      "candidate_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "authorization": "Parent explicit dispatch/handoff supersedes stale empty claims; QA is not maker identity."
@@ -192,18 +192,27 @@
       "qa": {
         "status": "in_progress",
         "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150d2-9275-77d6-8441-ddf7c646620d",
+        "thread_id": "01a150f1-ab04-71eb-af42-0a2fc9450036",
+        "turn_id": null,
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3"
+        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3",
+        "expected_batch_id": "batch-16",
+        "expected_asset_ids": [
+          "pleurodictyum",
+          "matonidium",
+          "yohoia",
+          "gypsum-desert-rose"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
       },
-      "recorded_at": "2026-10-18T21:11:55.055722+00:00"
+      "recorded_at": "2026-10-18T21:44:20.445694+00:00",
+      "previous_wrong_review_invalidated": true
     },
     "batch-17": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch17-20261018",
@@ -211,26 +220,54 @@
         "reported_by": "parent"
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
         "turn_id": "01a150d9-377f-74ef-af42-34e5a1c88eff",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88"
+        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88",
+        "evidence_commit": "f8deba913022d9a1a4111a039f1a806032d22b38",
+        "scope": "Independent model QA PASS per parent; not full profile/release approval.",
+        "reported_by": "parent"
       },
-      "recorded_at": "2026-10-18T21:11:55.055722+00:00"
+      "recorded_at": "2026-10-18T21:44:20.445694+00:00"
     },
     "batch-18": {
-      "status": "building",
+      "status": "reviewing",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
       "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
-      "qa": null,
-      "recorded_at": "2026-10-18T21:11:55.055722+00:00"
+      "qa": {
+        "status": "in_progress",
+        "verdict": null,
+        "thread_id": "01a150f5-9dfe-77e0-bd27-6cbc89942035",
+        "turn_id": null,
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "source_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "expected_batch_id": "batch-18",
+        "expected_asset_ids": [
+          "spinolestes",
+          "odontogriphus",
+          "trapa",
+          "flint-nodule"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
+      },
+      "recorded_at": "2026-10-18T21:44:20.445694+00:00",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "handoff/batch18-20261018",
+        "commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "reported_by": "parent"
+      },
+      "previous_wrong_review_invalidated": true
     }
   },
   "jobs": {
@@ -244,15 +281,23 @@
       "qa": {
         "status": "in_progress",
         "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150d2-9275-77d6-8441-ddf7c646620d",
+        "thread_id": "01a150f1-ab04-71eb-af42-0a2fc9450036",
+        "turn_id": null,
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3"
+        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3",
+        "expected_batch_id": "batch-16",
+        "expected_asset_ids": [
+          "pleurodictyum",
+          "matonidium",
+          "yohoia",
+          "gypsum-desert-rose"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch16-20261018",
@@ -270,15 +315,23 @@
       "qa": {
         "status": "in_progress",
         "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150d2-9275-77d6-8441-ddf7c646620d",
+        "thread_id": "01a150f1-ab04-71eb-af42-0a2fc9450036",
+        "turn_id": null,
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3"
+        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3",
+        "expected_batch_id": "batch-16",
+        "expected_asset_ids": [
+          "pleurodictyum",
+          "matonidium",
+          "yohoia",
+          "gypsum-desert-rose"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch16-20261018",
@@ -296,15 +349,23 @@
       "qa": {
         "status": "in_progress",
         "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150d2-9275-77d6-8441-ddf7c646620d",
+        "thread_id": "01a150f1-ab04-71eb-af42-0a2fc9450036",
+        "turn_id": null,
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3"
+        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3",
+        "expected_batch_id": "batch-16",
+        "expected_asset_ids": [
+          "pleurodictyum",
+          "matonidium",
+          "yohoia",
+          "gypsum-desert-rose"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch16-20261018",
@@ -322,15 +383,23 @@
       "qa": {
         "status": "in_progress",
         "verdict": null,
-        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
-        "turn_id": "01a150d2-9275-77d6-8441-ddf7c646620d",
+        "thread_id": "01a150f1-ab04-71eb-af42-0a2fc9450036",
+        "turn_id": null,
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3"
+        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3",
+        "expected_batch_id": "batch-16",
+        "expected_asset_ids": [
+          "pleurodictyum",
+          "matonidium",
+          "yohoia",
+          "gypsum-desert-rose"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch16-20261018",
@@ -339,24 +408,27 @@
       }
     },
     "isastraea": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "owner": "parent-assigned-maker:batch-17",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-17",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
         "turn_id": "01a150d9-377f-74ef-af42-34e5a1c88eff",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88"
+        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88",
+        "evidence_commit": "f8deba913022d9a1a4111a039f1a806032d22b38",
+        "scope": "Independent model QA PASS per parent; not full profile/release approval.",
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Model QA PASS; waiting other batch reviews, not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch17-20261018",
@@ -365,24 +437,27 @@
       }
     },
     "araucaria-mirabilis": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "owner": "parent-assigned-maker:batch-17",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-17",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
         "turn_id": "01a150d9-377f-74ef-af42-34e5a1c88eff",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88"
+        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88",
+        "evidence_commit": "f8deba913022d9a1a4111a039f1a806032d22b38",
+        "scope": "Independent model QA PASS per parent; not full profile/release approval.",
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Model QA PASS; waiting other batch reviews, not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch17-20261018",
@@ -391,24 +466,27 @@
       }
     },
     "onychonycteris": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "owner": "parent-assigned-maker:batch-17",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-17",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
         "turn_id": "01a150d9-377f-74ef-af42-34e5a1c88eff",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88"
+        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88",
+        "evidence_commit": "f8deba913022d9a1a4111a039f1a806032d22b38",
+        "scope": "Independent model QA PASS per parent; not full profile/release approval.",
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Model QA PASS; waiting other batch reviews, not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch17-20261018",
@@ -417,24 +495,27 @@
       }
     },
     "pillow-lava-outcrop": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_batch_completion",
       "owner": "parent-assigned-maker:batch-17",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-17",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": "01a15048-08ad-76c9-adc3-d76aa869d03f",
         "turn_id": "01a150d9-377f-74ef-af42-34e5a1c88eff",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88"
+        "source_commit": "fa28e9b9743702e64170f646884a035e44c9ff88",
+        "evidence_commit": "f8deba913022d9a1a4111a039f1a806032d22b38",
+        "scope": "Independent model QA PASS per parent; not full profile/release approval.",
+        "reported_by": "parent"
       },
-      "status_note": "Candidate complete and independent QA running, no verdict.",
+      "status_note": "Model QA PASS; waiting other batch reviews, not published.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch17-20261018",
@@ -443,69 +524,159 @@
       }
     },
     "spinolestes": {
-      "status": "building",
+      "status": "reviewing",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-18",
-      "qa": null,
-      "status_note": "Parent confirms maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "in_progress",
+        "verdict": null,
+        "thread_id": "01a150f5-9dfe-77e0-bd27-6cbc89942035",
+        "turn_id": null,
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "source_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "expected_batch_id": "batch-18",
+        "expected_asset_ids": [
+          "spinolestes",
+          "odontogriphus",
+          "trapa",
+          "flint-nodule"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
+      },
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc"
+      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "handoff/batch18-20261018",
+        "commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "reported_by": "parent"
+      }
     },
     "odontogriphus": {
-      "status": "building",
+      "status": "reviewing",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-18",
-      "qa": null,
-      "status_note": "Parent confirms maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "in_progress",
+        "verdict": null,
+        "thread_id": "01a150f5-9dfe-77e0-bd27-6cbc89942035",
+        "turn_id": null,
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "source_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "expected_batch_id": "batch-18",
+        "expected_asset_ids": [
+          "spinolestes",
+          "odontogriphus",
+          "trapa",
+          "flint-nodule"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
+      },
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc"
+      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "handoff/batch18-20261018",
+        "commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "reported_by": "parent"
+      }
     },
     "trapa": {
-      "status": "building",
+      "status": "reviewing",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-18",
-      "qa": null,
-      "status_note": "Parent confirms maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "in_progress",
+        "verdict": null,
+        "thread_id": "01a150f5-9dfe-77e0-bd27-6cbc89942035",
+        "turn_id": null,
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "source_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "expected_batch_id": "batch-18",
+        "expected_asset_ids": [
+          "spinolestes",
+          "odontogriphus",
+          "trapa",
+          "flint-nodule"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
+      },
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc"
+      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "handoff/batch18-20261018",
+        "commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "reported_by": "parent"
+      }
     },
     "flint-nodule": {
-      "status": "building",
+      "status": "reviewing",
       "owner": "maker-thread:01a1506c-76f8-7024-a08b-341acf0e100c",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-18",
-      "qa": null,
-      "status_note": "Parent confirms maker thread/turn running; no completed candidate inferred.",
+      "qa": {
+        "status": "in_progress",
+        "verdict": null,
+        "thread_id": "01a150f5-9dfe-77e0-bd27-6cbc89942035",
+        "turn_id": null,
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "source_commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "expected_batch_id": "batch-18",
+        "expected_asset_ids": [
+          "spinolestes",
+          "odontogriphus",
+          "trapa",
+          "flint-nodule"
+        ],
+        "context_policy": "New independent context; verify exact batch/source/asset set before verdict."
+      },
+      "status_note": "Fresh QA reviewing correct subject; previous wrong-batch response invalid.",
       "maker_thread_id": "01a1506c-76f8-7024-a08b-341acf0e100c",
-      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc"
+      "maker_turn_id": "01a150d2-b467-7453-a491-87cbdf4ec6fc",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": "handoff/batch18-20261018",
+        "commit": "0a44bac24c493bd4eafdd782dc3fbf05af49d0bb",
+        "reported_by": "parent"
+      }
     }
   },
   "latest_publication_checkpoint": {
     "confirmed_by": "parent",
-    "confirmed_live_assets": 67,
-    "main_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb",
-    "pr_number": 9,
-    "gates": {
-      "PR": "pass",
-      "Pages": "pass",
-      "public_Chromium": "pass"
-    },
-    "scope": "Publication/verification explicitly reported by parent; planner did not redeploy or rerun public browser tests."
+    "confirmed_live_assets": 79,
+    "main_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
+    "scope": "Parent explicitly confirms live79; planner did not deploy or rerun public tests."
   },
   "publication_checkpoint": {
-    "last_confirmed_live_assets": 67,
-    "main_commit": "ccf48bb446dd4d0a710ab14dfc05d6fbf7064cdb",
+    "last_confirmed_live_assets": 79,
+    "main_commit": "eb9153eab06f7e95235eac30611b731c8178ffb7",
     "this_round_publication_confirmed": false
   },
   "qa_thread_resolution": {
@@ -528,5 +699,37 @@
       ]
     },
     "method": "Unique full UUID recovered from state history; no guessed suffix."
-  }
+  },
+  "invalidated_qa_attempts": [
+    {
+      "status": "invalid_review_wrong_subject",
+      "verdict": null,
+      "expected_batch_id": "batch-16",
+      "wrong_response_batch_id": "batch-02",
+      "ignored_for_acceptance": true,
+      "previous_attempt": {
+        "status": "in_progress",
+        "verdict": null,
+        "thread_id": "01a15046-f91e-760e-8680-aae72049803f",
+        "turn_id": "01a150d2-9275-77d6-8441-ddf7c646620d",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "source_commit": "6cdac030fec136d23dd45253ec06d1e38cf9a8f3"
+      },
+      "reported_by": "parent",
+      "note": "Invalidates this requested batch review attempt only. Does not invalidate the original historical QA for batch01/02."
+    },
+    {
+      "status": "invalid_review_wrong_subject",
+      "verdict": null,
+      "expected_batch_id": "batch-18",
+      "wrong_response_batch_id": "batch-01",
+      "ignored_for_acceptance": true,
+      "previous_attempt": null,
+      "reported_by": "parent",
+      "note": "Invalidates this requested batch review attempt only. Does not invalidate the original historical QA for batch01/02."
+    }
+  ]
 }
