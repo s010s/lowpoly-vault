@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "asset_id": "cooksonia",
+  "brief_version": "round02-plan-v001",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "batch_id": "batch-04",
+  "display_name": "Stylized Cooksonia sporangial shoots",
+  "generic_fallback_name": "Prehistoric-inspired stem-cluster teaching prop inspired by cooksonia",
+  "purpose": "Enrich a children’s prehistoric museum scene with an original refined low-poly static prop.",
+  "subject": {
+    "taxon_inspiration": "cooksonia",
+    "inventory_name": {
+      "en": "Cooksonia sporangial shoots",
+      "zh": "Cooksonia 裸轴植物"
+    },
+    "category": "plants",
+    "subcategory": "stem-cluster",
+    "planning_eras": [
+      "silurian",
+      "devonian"
+    ],
+    "pose": "Calm static pose selected for natural form, readable silhouette and soft connections; no behavior/animation claim."
+  },
+  "claim_scope": "Named-taxon-inspired art using recognizable basic anatomy; not strict scientific, species/specimen, exact dimension, locomotion or coexistence reconstruction.",
+  "distinctness": {
+    "en": "Terminal capsules on a simple Y-axis network differ from leafy ground ferns and jointed horsetails.",
+    "zh": "简单的Y形枝轴与顶生孢子囊区别于有叶蕨丛和具节木贼。"
+  },
+  "modeling_brief": {
+    "en": "Use slender faceted forks and flattened terminal caps; choose a readable sparse arrangement as an art decision.",
+    "zh": "以细棱柱分叉和扁平顶囊建形；稀疏布局仅为美术选择。"
+  },
+  "shape_plan_zh": "简单 Y 型分叉细轴和末端囊；不加现代蕨类羽状叶或花，囊形厚度和枝数可合理风格化。",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Current user-approved practical profile: eight meaningful fixed views; targeted extra view only for a real concern; no production turntable campaign.",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "scale": {
+    "meters": 0.06,
+    "axis": "shoot patch height",
+    "kind": "nominal art-direction choice; not a fossil measurement; display scale must be separately labeled"
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 480,
+    "microscopic_closeups_supported": false
+  },
+  "style": "Natural refined low-poly, credible proportions, softly connected forms, restrained original palette. Moderate cartooning is welcome for child-friendly scene readability.",
+  "artistic_choices": [
+    "Nominal scale, calm pose, soft colors and unpreserved soft tissue are artistic choices, not fossil observations.",
+    "Avoid primitive assembly, repetitive random spikes, oversized eyes and unnecessarily large textures.",
+    "Tiny organisms need foreground placement or a clearly labeled creative display scale; no distant-camera readability promise."
+  ],
+  "reference_policy": {
+    "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+    "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+    "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+    "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+    "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+    "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+  },
+  "review_bound": "One consolidated independent QA; at most one planned cosmetic repair. Persistent real required failures go to parent; no repeated strict-reconstruction polishing.",
+  "publication_authority": "User authorizes QA-passed batches to push and merge without per-model approval; parent serializes release integration. This planning task does not release.",
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and budgets measured, warnings dispositioned.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-craft",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all eight fixed views and actual-GLB runtime evidence at normal and near scale. Readable silhouette, credible proportions, natural soft connections; no conspicuous detached parts or accidental shading.",
+      "required_sources": []
+    },
+    {
+      "id": "basic-form-and-honest-label",
+      "stage": "factual",
+      "critical": true,
+      "description": "简单 Y 型分叉细轴和末端囊；不加现代蕨类羽状叶或花，囊形厚度和枝数可合理风格化。 Labels must remain stylized-inspired, with sources and artistic uncertainty honest; no required exact species, microscopic anatomy, strata or locomotion reconstruction.",
+      "required_sources": [
+        "FL-cooksonia"
+      ]
+    },
+    {
+      "id": "deliverables-and-source",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable Blend; standalone GLB; deterministic original generator/config and dependency hashes; bilingual metadata/provenance/attribution; original small maps if used; transparent cover; eight fixed QA views; source reopen and two-build semantic equality; exact hashes.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse exact GLB with pinned target loader and record bounds/material/texture metrics/errors.",
+      "required_sources": []
+    },
+    {
+      "id": "functional-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Inspect exact GLB in a declared runtime. Identify software renderer honestly; no unsupported physical-device performance claim.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Simple neutral multiple-copy scene, recorded instance/work counts and observed render result; no museum integration or cross-period coexistence claim.",
+      "required_sources": []
+    }
+  ],
+  "maker": {
+    "model": "GPT-6.1 Sol",
+    "reasoning": "medium"
+  },
+  "independent_reviewer": {
+    "model": "GPT-6 Luna",
+    "reasoning": "xhigh",
+    "dispatcher": "parent; fresh independent task"
+  }
+}
