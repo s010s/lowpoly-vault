@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "proteroctopus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "proteroctopus",
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "proteroctopus"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/proteroctopus/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/proteroctopus/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/proteroctopus/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "proteroctopus/proteroctopus.glb",
+        "proteroctopus/proteroctopus.blend",
+        "proteroctopus/qa.json",
+        "proteroctopus/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "proteroctopus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "proteroctopus",
+      "config": {
+        "profile": "batch05 original palette-only",
+        "seed_config": "proteroctopus"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/proteroctopus/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/proteroctopus/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/work/batch-05/build_batch05.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round02-20261018/items/proteroctopus/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "proteroctopus/proteroctopus.glb",
+        "proteroctopus/proteroctopus.blend",
+        "proteroctopus/qa.json",
+        "proteroctopus/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
