@@ -1,0 +1,25 @@
+{
+  "validated_at": "2026-10-18T01:56:22.634260+00:00",
+  "scope": "Fresh planning/code consistency only; no model generation or asset QA performed here.",
+  "runs": [
+    {
+      "command": "python scripts/test_validate_candidate.py -q",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "----------------------------------------------------------------------\nRan 78 tests in 0.514s\n\nOK\n"
+    },
+    {
+      "command": "python scripts/test_small_fauna_plan.py -q",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": "python scripts/test_remaining_twenty_plan.py -q",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "----------------------------------------------------------------------\nRan 4 tests in 0.006s\n\nOK\n"
+    }
+  ],
+  "all_passed": true
+}
