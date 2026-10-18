@@ -1,0 +1,31 @@
+{
+  "kind": "maker-frozen-independent-review-input-scope",
+  "batch_id": "batch-27",
+  "expected_asset_ids": [
+    "sollasina",
+    "ottoia",
+    "eocladus",
+    "limestone-pavement"
+  ],
+  "expected_source_commit": "bd4a80f1b9595480bf73b2d2369e28aae5770cef",
+  "expected_glb_sha256_by_asset": {
+    "sollasina": "f6d12978189266bfd5fbad4504f3beef6d355c4dcb2683a7ba9c9c6d3a633170",
+    "ottoia": "1a384d0f920016b04faf7e848e821156a60f57ddebfc4e6f14aa935db64ff7c2",
+    "eocladus": "6861da609c64f7433e31d0214541938f8552baa6532c0ea7a10666cd0148fb9a",
+    "limestone-pavement": "b4a061d66caa7023c5f20f004e8f8ec241f3a580b2e14d6798ececb20a5eaccd"
+  },
+  "ready_for_qa": true,
+  "reviewer_model": "GPT-6 Luna",
+  "reviewer_reasoning": "xhigh",
+  "prefer_fresh_independent_context": true,
+  "before_verdict": "Parent supplies actual frozen source/GLB pins. Reviewer echoes exact batch/source/asset set and inspects actual exports; any mismatch invalidates report.",
+  "wrong_subject_action": "Never accept PASS or repair models from a wrong-batch report; retain invalidated attempt and ask parent to restart correct independent review.",
+  "candidate_paths": {
+    "sollasina": "production/continuous-small-life-round09-20261018/work/batch-27/sollasina/r001/candidate.json",
+    "ottoia": "production/continuous-small-life-round09-20261018/work/batch-27/ottoia/r001/candidate.json",
+    "eocladus": "production/continuous-small-life-round09-20261018/work/batch-27/eocladus/r001/candidate.json",
+    "limestone-pavement": "production/continuous-small-life-round09-20261018/work/batch-27/limestone-pavement/r001/candidate.json"
+  },
+  "readiness_scope": "Inputs ready only; no acceptance verdict. Parent must dispatch fresh independent reviewer and verify exact subject echo.",
+  "maker_thread_id": "01a15056-509d-725f-bad0-871371cd7010"
+}
