@@ -36,7 +36,9 @@ try {
     assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0);
     assert.equal(await page.locator('#asset-title').textContent(),asset.name[mobile?'zh':'en']);
     const detailURL=base+lang+`models/${id}/`,staticResponse=await page.request.get(detailURL);assert(staticResponse.ok());const html=await staticResponse.text();assert(html.includes('application/ld+json')&&html.includes('static-route-content'));
-    for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());assert.equal(hash(await response.body()),asset.sha256[key]);}
+    const downloaded={};
+    for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());const bytes=await response.body();assert.equal(hash(bytes),asset.sha256[key]);downloaded[key]=bytes.length;}
+    assert.equal(downloaded.glb,{burgessomedusa:122504,diplomystus:93752,kalligramma:150456}[id]);
     for(const [kind,path] of [['credits',`assets/downloads/${id}-CREDITS.txt`],['bundle',`assets/downloads/${id}.zip`]]) {
      const response=await page.request.get(base+path);assert(response.ok());const bytes=await response.body();assert(bytes.length>0);
      if(kind==='credits'){assert.match(bytes.toString(),/Leon Made This/);assert.match(bytes.toString(),/https:\/\/creativecommons\.org\/licenses\/by\/4\.0\//);}else assert.equal(bytes.subarray(0,2).toString(),'PK');
@@ -45,7 +47,7 @@ try {
     await page.screenshot({path:resolve(out,`${mobile?'touch':'desktop'}-${id}.png`)});
     await page.goto(detailURL);await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');await page.reload();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');
     assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0,'Independent detail reload must draw actual GLB');
-    report.static_routes.push(detailURL);report.cases.push({id,viewport:mobile?'390x844-touch':'1440x1000',status:'pass',glb_bytes:(await(page.request.get(base+asset.glb))).headers()['content-length'],glb_sha256:asset.sha256.glb});
+    report.static_routes.push(detailURL);report.cases.push({id,viewport:mobile?'390x844-touch':'1440x1000',status:'pass',glb_bytes:downloaded.glb,glb_sha256:asset.sha256.glb});
     await page.goto(catalog);await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');
    }
   }finally{await context.close();}
