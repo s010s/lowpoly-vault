@@ -6,6 +6,7 @@ import { initTheme } from './theme.js';
 import { initInteractionMotion, confirmCopy } from './motion.js';
 import { DialogMotion, DIALOG_TIMING } from './dialog-motion.js';
 import { startModelReturn } from './return-motion.js';
+import { startHandoffDissolve } from './handoff-dissolve.js';
 import { words } from './words.js';
 import { routeHref, parseRoute, queryFromParams, filterAndSortCatalog } from './routes.js';
 import './style.css';
@@ -292,19 +293,17 @@ async function animateDialog(from,to,reverse=false,version=detailVersion,flightS
 }
 reduced.addEventListener('change',()=>{if(reduced.matches)modalAnimation?.finish();});
 function releaseHandoff(version){
-  const visual=$('#canvas-host .model-handoff');if(!visual||visual.__dissolvePending||visual.__dissolveCleanup)return;
-  visual.__dissolvePending=true;const generation=visual.__dissolveVersion||0;
-  requestAnimationFrame(()=>{
-    delete visual.__dissolvePending;
-    if(version!==detailVersion||!visual.isConnected||generation!==(visual.__dissolveVersion||0))return;
-    if(reduced.matches||!CSS.supports('mix-blend-mode','plus-lighter')){releaseVisual(visual);return;}
-    const host=$('#canvas-host'),target=host.dataset.modelState==='ready'?host.querySelector('.model-canvas'):host.querySelector('.model-poster');
-    const reveal=target?.animate([{opacity:0},{opacity:1}],{duration:160,easing:'linear',fill:'both'});reveal?.finished.catch(()=>{});
-    let active=true;visual.__dissolveCleanup=()=>{active=false;reveal?.cancel();};
-    const fade=visual.animate([{opacity:1},{opacity:0}],{duration:160,easing:'linear',fill:'both'});
-    fade.finished.catch(()=>{}).finally(()=>{if(active)releaseVisual(visual);});
-  });
+  const visual=$('#canvas-host .model-handoff');
+  if(!visual||visual.__dissolveCleanup||version!==detailVersion)return;
+  if(reduced.matches||!CSS.supports('mix-blend-mode','plus-lighter')){releaseVisual(visual);return;}
+  const host=$('#canvas-host'),target=host.dataset.modelState==='ready'?host.querySelector('.model-canvas'):host.querySelector('.model-poster');
+  if(!target)return;
+  // Ready is emitted only after the matching GLB draw (or decoded fallback).
+  // Start ownership now, so hidden/reduced changes cannot strand a pending RAF.
+  const dissolve=startHandoffDissolve({visual,target,reduced,onFinish:()=>releaseVisual(visual)});
+  if(visual.isConnected)visual.__dissolveCleanup=dissolve.cancel;
 }
+
 async function openAsset(id,{push=false,replace=false}={}){
   if(selectedSummary?.id===id&&!closing&&detailController&&!detailController.signal.aborted&&['loading','ready'].includes($('#canvas-host').dataset.modelState))return;
   const dialog=$('#viewer-dialog'),host=$('#canvas-host'),switching=dialog.open&&!closing;

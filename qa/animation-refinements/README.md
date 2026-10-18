@@ -1,5 +1,7 @@
 # 动画改进交付 / 2026-10-18
 
+后续确切 CI 发现并修复了中文 opening dissolve 慢帧回归。原始记录保留；最新技术说明、独立审查与短录屏请看 [CI 修复说明](ci-regression.md)、[独立 review](independent-review.md)、[约 14 秒操作录屏](selected/animation-walkthrough.mp4)。新提交的 CI 必须按其确切 head 检查，不能把下方旧版本本地通过结果当作 CI 全绿。
+
 云端 `/workspace/lowpoly-vault` 完成；未使用用户 Mac。同步后 main 为 `77720858d73fcb8f6b8845576851762dcba078ef`。独立分支 `codex/animation-refinements-20261018`，实现提交 `ebce4e7f0155982d49f87b41d2792061fd9a4690`。实际发布清单为 16 个模型，原有模型与 GLB/Blend/海报字节未改变。
 
 已按官方 find-animation-opportunities → animate → review-animations 完成三个阶段，读取各自 SKILL.md、RECIPES.md 与 STANDARDS.md。固定官方版本 `2d228630ba1446365f614a108cb8252f1feda202`，原文与 MIT 许可保存在 `.agents/skills/emil-animation/`，第三方声明已补充。

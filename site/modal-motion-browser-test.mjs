@@ -142,7 +142,7 @@ function installProbe() {
   const style = element => {
     if (!element) return null;
     const css = getComputedStyle(element);
-    return { opacity: Number(css.opacity), effective_opacity: opacity(element), transform: transform(css), rect: rect(element),
+    return { opacity: Number(css.opacity), inline_opacity: element.style.opacity, effective_opacity: opacity(element), transform: transform(css), rect: rect(element),
       background_alpha: colorAlpha(css.backgroundColor), visibility: css.visibility, display: css.display,
       isolation: css.isolation, mix_blend_mode: css.mixBlendMode };
   };
@@ -405,6 +405,14 @@ function validateInvariant(test, record, { sourced = false, opening = false } = 
         Boolean(reveal) && fade.duration === 160 && reveal.duration === fade.duration &&
         JSON.stringify(fade.opacity_keyframes.map(Number)) === '[1,0]' && JSON.stringify(reveal.opacity_keyframes.map(Number)) === '[0,1]',
         { fade, reveal });
+    } else if (f.model_state === 'ready' && !baseline) {
+      check(test, record.phase + ': opening dissolve uses one explicit complementary weight without independent animations',
+        f.handoff.inline_opacity !== '' && target.inline_opacity !== '' &&
+        Math.abs(Number(f.handoff.inline_opacity) + Number(target.inline_opacity) - 1) <= 0.00001 &&
+        Math.abs(Number(f.handoff.inline_opacity) - f.handoff.opacity) <= 0.00001 &&
+        Math.abs(Number(target.inline_opacity) - target.opacity) <= 0.00001 &&
+        !f.animations.some(a => ['model-handoff', 'model-canvas'].includes(a.target) && a.opacity_keyframes.length),
+        { bitmap: f.handoff.inline_opacity, target: target.inline_opacity });
     }
   }
 }
@@ -872,6 +880,29 @@ try {
   report.chromium_version = browser.version();
   await runCase('desktop-click', {}, (page, test) => roundTrip(page, test));
   await runCase('desktop-chinese', {}, (page, test) => roundTrip(page, test, { lang: 'zh-CN' }));
+  await runCase('desktop-chinese-slow-frame', {}, async (page, test) => {
+    // Observe the same native ready/bitmap boundary without changing product code.
+    // One stalled main-thread frame must not retire the entire opening blend.
+    await page.addInitScript(() => {
+      addEventListener('DOMContentLoaded', () => {
+        const host = document.querySelector('#canvas-host');
+        const observer = new MutationObserver(() => {
+          if (window.__openingStall || host.dataset.modelState !== 'ready' || !host.querySelector('.model-handoff')) return;
+          window.__openingStall = { duration: 220 };
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            const start = performance.now();
+            while (performance.now() - start < 220) { /* Deliberate one-frame CPU stall. */ }
+            window.__openingStall.actual = performance.now() - start;
+          }));
+          observer.disconnect();
+        });
+        observer.observe(host, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'data-model-state'] });
+      });
+    });
+    await roundTrip(page, test, { lang: 'zh-CN' });
+    const stall = await page.evaluate(() => window.__openingStall);
+    check(test, 'Opening regression actually includes the deliberate slow frame', stall?.actual >= 220, stall);
+  });
   await runCase('mobile-touch', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, (page, test) => roundTrip(page, test, { touch: true }));
   await runCase('reduced-motion', { reducedMotion: 'reduce' }, (page, test) => roundTrip(page, test, { reduced: true }));
   await runCase('keyboard-enter-escape', {}, async (page, test) => {
