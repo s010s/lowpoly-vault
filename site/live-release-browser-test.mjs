@@ -5,20 +5,16 @@ import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {chromium} from 'playwright';
 import {FAUNA_IDS} from './small-fauna-release.mjs';
+import {waitForDeployedRelease} from './live-release-contract.mjs';
 const base='https://s010s.github.io/lowpoly-vault/',out=resolve(process.env.QA_OUTPUT_DIR||'qa/live-fauna-release');
 const expected=JSON.parse(await readFile('assets/manifest.json'));
-const scope=m=>m.assets.map(a=>({id:a.id,glb:a.sha256.glb,blend:a.sha256.blend,preview:a.sha256.preview}));
 const report={status:'running',source_commit:process.env.GITHUB_SHA||null,origin:base,cases:[],static_routes:[],errors:[],resource_errors:[],limitations:['Actual public Pages origin in Chromium SwiftShader; emulated touch, no physical-device performance claim.']};
 const hash=b=>createHash('sha256').update(b).digest('hex');
 let browser;
 try {
  await mkdir(out,{recursive:true});
  // Pages/CDN caches may still return the previous release briefly. Only proceed on the exact expected payload set.
- const deadline=Date.now()+180000;
- while(true){
-  try{const response=await fetch(base+'assets/manifest.json?release='+report.source_commit,{cache:'no-store'});assert(response.ok());const current=await response.json();assert.deepEqual(scope(current),scope(expected));break;}
-  catch(error){if(Date.now()>=deadline)throw error;await new Promise(r=>setTimeout(r,5000));}
- }
+ await waitForDeployedRelease(base+'assets/manifest.json?release='+report.source_commit,expected);
  report.deployed_payload_scope='exact-match';
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});report.browser=browser.version();
  for(const mobile of [false,true]) {
