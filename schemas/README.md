@@ -299,3 +299,7 @@ node site/initial-release.mjs --check
 Tests intentionally include fabricated/mutated fixtures so the gate's rejection
 behavior is observable. Passing synthetic tests are evidence about the gate,
 not evidence that any production model looks good or is factually correct.
+
+## Explicit static candidate contract (rules 2026-10-18.1)
+
+Default `legacy-v1` retains every existing study/production requirement. The explicitly selected `static-stylized-v1` contract supports the owner-approved eight fixed views (`hero`, `reversehero`, `front`, `side`, `rear`, `top`, `clay`, `silhouette`), zero turntable frames, and clearly declared consulted-only references. It requires a candidate/policy hash sidecar; all production stages, budgets, source deliverables, provenance, technical reports and independent approval checks remain mandatory. See [the implementation and boundary guide](../docs/candidate-profile-compatibility.zh-CN.md) for commands and the separate meanings of profile compatibility, record validity, approval and publication authority. Unknown/pending stages and historical record-format failures remain failures or blockers, never inferred approvals. Original records and `legacy_result` are preserved.

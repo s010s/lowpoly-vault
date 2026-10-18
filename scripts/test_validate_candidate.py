@@ -15,7 +15,7 @@ import zlib
 
 from test_qa_glb import fixture, encode
 from qa_glb import audit_glb
-from validate_candidate import STAGES, REPORT_KIND, PRODUCTION_VIEWS, validate_candidate, image_size, json_bytes, check_render_manifest, approval_snapshot_sha256
+from validate_candidate import STATIC_VIEWS, STAGES, REPORT_KIND, PRODUCTION_VIEWS, validate_candidate, image_size, json_bytes, check_render_manifest, approval_snapshot_sha256
 
 
 def digest(raw):
@@ -29,7 +29,7 @@ def png():
             + chunk(b'IDAT', zlib.compress(b'\0\xff\0\0')) + chunk(b'IEND', b''))
 
 
-def build_fixture(root, base='candidate-fixture', glb_name='model.glb', approved=True, profile='production', textured=False):
+def build_fixture(root, base='candidate-fixture', glb_name='model.glb', approved=True, profile='production', textured=False, static_contract=False):
     """Fake assertions intentionally marked synthetic; only exercise the gate's behavior."""
     root = Path(root)
     folder = root / base
@@ -57,8 +57,8 @@ def build_fixture(root, base='candidate-fixture', glb_name='model.glb', approved
         {'id': 'reference-a', 'title': 'SYNTHETIC TEST ONLY', 'url': 'https://example.invalid/fixture', 'license': 'CC0'}]})
     brief = {'schema_version': 1, 'asset_id': 'test-only', 'brief_version': 'brief-v001', 'profile': profile,
              'publication_authority': 'separate', 'required_stages': [],
-             'required_deliverables': [{'role': role, **item} for role, item in deliverables.items()], 'required_views': sorted(PRODUCTION_VIEWS),
-             'turntable_frames': 24 if profile == 'production' else 4,
+             'required_deliverables': [{'role': role, **item} for role, item in deliverables.items()], 'required_views': sorted(STATIC_VIEWS if static_contract else PRODUCTION_VIEWS),
+             'turntable_frames': 0 if static_contract else 24 if profile == 'production' else 4,
              'coverage_justification': 'Synthetic fixture only; not an asset-quality recommendation.',
              'geometry_policy': {'max_triangles': 10, 'max_materials': 8, 'max_primitives': 8, 'max_glb_bytes': 100000},
              'texture_policy': {'max_textures': 1 if textured else 0, 'max_dimension': 1 if textured else 0, 'max_total_bytes': len(png()) if textured else 0, 'max_decoded_bytes': 4 if textured else 0},
