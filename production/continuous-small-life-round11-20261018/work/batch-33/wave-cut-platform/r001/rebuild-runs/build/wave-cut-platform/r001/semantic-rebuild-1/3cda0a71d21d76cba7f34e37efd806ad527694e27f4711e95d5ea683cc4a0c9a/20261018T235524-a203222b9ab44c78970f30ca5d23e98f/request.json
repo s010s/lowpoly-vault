@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/generator.py",
+    "--",
+    "--asset",
+    "wave-cut-platform",
+    "--config",
+    "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/rebuild-runs/build/wave-cut-platform/r001/semantic-rebuild-1/3cda0a71d21d76cba7f34e37efd806ad527694e27f4711e95d5ea683cc4a0c9a/20261018T235524-a203222b9ab44c78970f30ca5d23e98f/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T23:55:24.548306+00:00",
+  "fingerprint": "3cda0a71d21d76cba7f34e37efd806ad527694e27f4711e95d5ea683cc4a0c9a",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9635,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/brief.json",
+        "sha256": "9779339c23a43370b73040fbc3c7cbf914bd970b3cd813556490cd3a7c6e1ee0"
+      },
+      "config": {
+        "bytes": 2362,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/config.json",
+        "sha256": "27a2acb508f6d62730b15290e71ea386ecaa8ba4be75160cc5c624bf117e9912"
+      },
+      "generator": {
+        "bytes": 5370,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/generator.py",
+        "sha256": "758f44cf1daf5c8ab132826302b2e098dadc098250272dddd4804d7a1f54f34f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2727,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/inventory-record.json",
+        "sha256": "41640557ff99a2476c634c0f89aa8261f44462c4a3aff2078778b0a8aa48bc38"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1189,
+        "path": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/references.json",
+        "sha256": "716a48861e611911f0db8352fdd8593cd7db3642e5d3549b79ca0479e9f8b969"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "wave-cut-platform",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "wave-cut-platform",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/brief.json",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "wave-cut-platform/wave-cut-platform.blend",
+        "wave-cut-platform/wave-cut-platform.glb",
+        "wave-cut-platform/qa.json",
+        "wave-cut-platform/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T235524-5074546938e14978957560b7cdf85eb6"
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "wave-cut-platform",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/brief.json",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "wave-cut-platform",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "wave-cut-platform/wave-cut-platform.blend",
+        "wave-cut-platform/wave-cut-platform.glb",
+        "wave-cut-platform/qa.json",
+        "wave-cut-platform/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "wave-cut-platform",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/wave-cut-platform/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/work/batch-33/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch33/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch33/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/brief.json",
+        "references": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch33/production/continuous-small-life-round11-20261018/items/wave-cut-platform/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "wave-cut-platform",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "wave-cut-platform/wave-cut-platform.blend",
+        "wave-cut-platform/wave-cut-platform.glb",
+        "wave-cut-platform/qa.json",
+        "wave-cut-platform/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch33 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
