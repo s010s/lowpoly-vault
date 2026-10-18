@@ -1,10 +1,16 @@
-Batch-22 independent QA | IDs: florissantia, stanleycaris, pahoehoe-lava-surface, staurolite-cross-twin | model source commit SHA: `1bfc3c7e33bbbd2131f86799f5fff5e9971ba0a5`
+Batch-22 independent QA | IDs: florissantia, stanleycaris, pahoehoe-lava-surface, staurolite-cross-twin | model source commit SHA: `1bfc3c7e33bbbd2131f86799f5fff5e9971ba0a5` | handoff commit SHA: `42d05757288c22b3e458414bfaa9747b3d53b301`
 
 # Independent QA: batch-22
 
 **Result: PASS for all four selected artifacts at the exact hashes below. No required rebuilds.** This report records a scoped independent review of these exact Blend/GLB pairs. It does not change candidate stage fields, `approved_for_brief`, or publication authority; those remain as recorded in the handoff.
 
-The checkout is based on handoff tip `42d05757288c22b3e458414bfaa9747b3d53b301` on `candidate/small-life-batch22-20261018`. The scope file pins the model source commit above and these four GLBs. Direct SHA-256 checks of each selected Blend and GLB matched both `candidate.json` and the frozen scope.
+The checkout is based on handoff tip `42d05757288c22b3e458414bfaa9747b3d53b301` on `candidate/small-life-batch22-20261018`; that commit's parent is model source commit `1bfc3c7e33bbbd2131f86799f5fff5e9971ba0a5`. The scope file pins the model source commit above and these four GLBs. Direct SHA-256 checks of each selected Blend and GLB matched both `candidate.json` and the frozen scope.
+
+## Source/handoff binding verification
+
+Compared the two commits directly. `42d0575` adds only six handoff records: `HANDOFF.json`, `HANDOFF.md`, `QA-HANDOFF-SCOPE.json`, `batch22-contact-sheet.jpg`, `planning-checksums.txt`, and `planning-verifier.txt`. It changes or deletes no existing candidate or acceptance-evidence file; in particular, the batch-22 candidate asset tree is unchanged. Thus the four Blend/GLB files and all preexisting QA evidence are byte-identical between source and handoff commits.
+
+I recomputed every hash and byte-size record referenced by `HANDOFF.json`: all 82 records matched. Across the four selected candidate view manifests, all 22 entries per asset (source/runtime frames and contact sheets; 88 total) matched their SHA-256 and byte-size pins. The newly added handoff records therefore bind to the same candidate/source evidence without any asset delta.
 
 | Asset | Verdict | Blend SHA-256 | GLB SHA-256 | GLB bounds (X × Y × Z, meters) | Triangles |
 |---|---|---|---|---:|---:|
