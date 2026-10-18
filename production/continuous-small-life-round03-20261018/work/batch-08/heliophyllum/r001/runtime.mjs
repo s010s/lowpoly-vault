@@ -5,7 +5,7 @@ import {createServer} from 'node:http';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
 import {createHash} from 'node:crypto';
-const [glb,out]=process.argv.slice(2).map(p=>resolve(p)),root=resolve('.'),packages=process.env.BATCH07_NODE_MODULES||resolve('node_modules');await mkdir(out,{recursive:true});
+const [glb,out]=process.argv.slice(2).map(p=>resolve(p)),root=resolve('.'),packages=process.env.BATCH08_NODE_MODULES||resolve('node_modules');await mkdir(out,{recursive:true});
 const bytes=await readFile(glb),sha=createHash('sha256').update(bytes).digest('hex'),errors=[];
 const server=createServer(async(req,res)=>{try{const u=new URL(req.url,'http://localhost').pathname;if(u==='/'){res.setHeader('Content-Type','text/html');res.end('<html><link rel="icon" href="data:,"><style>html,body{margin:0;background:#e8e4dc}canvas{display:block}</style><script type="importmap">{"imports":{"three":"/modules/three/build/three.module.js"}}</script></html>');return;}let data,file;if(u==='/asset.glb'){data=bytes;file=glb;}else{file=resolve(packages,'.'+decodeURIComponent(u).replace(/^\/modules/,''));if(!file.startsWith(packages+'/'))throw Error('bad path');data=await readFile(file);}res.setHeader('Content-Type',extname(file)==='.js'?'text/javascript':'application/octet-stream');res.end(data);}catch(e){res.statusCode=404;res.end(String(e));}});await new Promise(r=>server.listen(0,'127.0.0.1',r));
 let browser;
