@@ -1,0 +1,113 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/generator.py",
+    "--",
+    "--asset",
+    "stanleycaris",
+    "--config",
+    "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/rebuild-runs/build/stanleycaris/r001/semantic-rebuild-2/1efc0227c5a81593037a857abc2e3454ac19c9e72bb0ddb85f2a5d4fb46d5798/20261018T215703-357c422841c64fbb9254f19ba6c1b0e8/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T21:57:04.000767+00:00",
+  "fingerprint": "1efc0227c5a81593037a857abc2e3454ac19c9e72bb0ddb85f2a5d4fb46d5798",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch22/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9911,
+        "path": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/stanleycaris/brief.json",
+        "sha256": "67e70e17d48baeefc7a5af890fbcdcbcd5208a8d1c5149a37dd5cd9f16031c23"
+      },
+      "config": {
+        "bytes": 2336,
+        "path": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/config.json",
+        "sha256": "2694fb4a0c2900c57ed60036527c856a8d52afe5d5f8096755b8040da4758aeb"
+      },
+      "generator": {
+        "bytes": 5694,
+        "path": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/generator.py",
+        "sha256": "887742a40cd0d0909cbfcb760cb43c983e6067344199834ace4f6291849d33a5"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch22/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1276,
+        "path": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/stanleycaris/references.json",
+        "sha256": "2b44f45d663d415530ff83855934bac7420fa7ff41cd088d61a3fa534d426fca"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "stanleycaris",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "stanleycaris",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch22 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch22/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/stanleycaris/brief.json",
+        "config": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/stanleycaris/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch22/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/work/batch-22/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch22/production/continuous-small-life-round08-20261018/items/stanleycaris/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "stanleycaris/stanleycaris.blend",
+        "stanleycaris/stanleycaris.glb",
+        "stanleycaris/qa.json",
+        "stanleycaris/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261018T215701-0f103f07af5642ee9c189ffe6c2209d4"
+}
