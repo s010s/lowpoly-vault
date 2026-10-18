@@ -1,0 +1,23 @@
+diff --git a/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs b/qa/conifer-doc1-integration/.reduced-boundary-after.mjs
+index 32094a5..a502de5 100644
+--- a/qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs
++++ b/qa/conifer-doc1-integration/.reduced-boundary-after.mjs
+@@ -1205,18 +1205,7 @@ try {
+   base = `http://127.0.0.1:${server.address().port}`;
+   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...(cpuDOMRaster ? ['--disable-gpu-rasterization'] : [])] });
+   report.chromium_version = browser.version();
+-  await directDetails();
+-  await roundTrip('desktop-motion');
+-  await roundTrip('desktop-retina-motion', { deviceScaleFactor: 2 });
+-  await roundTrip('mobile-motion', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+   await roundTrip('desktop-reduced-motion', { reducedMotion: 'reduce' });
+-  await roundTrip('desktop-dark-motion', { colorScheme: 'dark' });
+-  await contextLossRecovery();
+-  await earlyLoadFailure();
+-  await interruptedHistory();
+-  await interruptedCanonicalReturn();
+-  await interruptedCanonicalReturn('fading');
+-  await supersededImport();
+   assert.deepEqual(report.page_errors, []); report.status = 'pass';
+   console.log(JSON.stringify({ status: report.status, checks: report.checks }, null, 2));
+ } catch (error) {

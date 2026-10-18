@@ -1,0 +1,33 @@
+zoom button {
+  rect: {
+    x: 269.03125,
+    y: 267,
+    width: 38,
+    height: 40,
+    top: 267,
+    right: 307.03125,
+    bottom: 307,
+    left: 269.03125
+  },
+  hit: '<button id="zoom-in" aria-label="Zoom in">+</button>'
+}
+[{"type":"pointerdown","id":"","tag":"CANVAS","x":140.10000610351562,"y":145.5,"detail":0,"pressed":false,"trusted":true},{"type":"touchstart","id":"","tag":"CANVAS","detail":0,"pressed":false,"trusted":true},{"type":"pointerup","id":"","tag":"CANVAS","x":213.3000030517578,"y":136.35000610351562,"detail":0,"pressed":false,"trusted":true},{"type":"touchend","id":"","tag":"CANVAS","detail":0,"pressed":false,"trusted":true},{"type":"pointerdown","id":"zoom-in","tag":"BUTTON","x":288.0299987792969,"y":287,"detail":0,"pressed":false,"trusted":true},{"type":"touchstart","id":"zoom-in","tag":"BUTTON","detail":0,"pressed":false,"trusted":true},{"type":"pointerup","id":"zoom-in","tag":"BUTTON","x":288.0299987792969,"y":287,"detail":0,"pressed":false,"trusted":true},{"type":"touchend","id":"zoom-in","tag":"BUTTON","detail":0,"pressed":false,"trusted":true}]
+FAILED: trusted-touch-swipe-and-tap
+AssertionError [ERR_ASSERTION]: detail touch zoom changes actual camera distance
+    at check (file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:35:123)
+    at test.viewport.width (file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:470:3)
+    at async test (file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:46:6)
+    at async file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:422:2
+{
+  "status": "failed",
+  "cases": [
+    {
+      "name": "trusted-touch-swipe-and-tap",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: detail touch zoom changes actual camera distance\n    at check (file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:35:123)\n    at test.viewport.width (file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:470:3)\n    at async test (file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:46:6)\n    at async file:///workspace/lowpoly-vault-baseline/site/.touch-zoom-diagnostic.mjs:422:2"
+    }
+  ],
+  "page_errors": [],
+  "screenshots": 3,
+  "videos": 1
+}

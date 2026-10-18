@@ -1,0 +1,30 @@
+
+> lowpoly-vault@1.0.0 build
+> node site/initial-release.mjs --check && vite build && node site/copy-assets.mjs && node site/audit-release.mjs
+
+Publication gate passed: 16 checked assets; quality status: mixed.
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 24 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist/index.html                         9.87 kB │ gzip:   3.59 kB
+../dist/assets/index-C6Ems1m7.css         57.82 kB │ gzip:  12.14 kB
+../dist/assets/presentation-CVFjLfLN.js    0.63 kB │ gzip:   0.42 kB
+../dist/assets/index-CCHM8oo_.js          85.45 kB │ gzip:  30.41 kB
+../dist/assets/viewer-DOT3rl7N.js        617.23 kB │ gzip: 157.62 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.54s
+Image-scrub delivery: 10 published assets, 240 individually lazy-loadable frames, 16 lightweight static posters.
+Release catalog: 16 published assets in 1 summary shards.
+Static HTML: 38 bilingual documents, 16 model detail pairs.
+Release inventory passed: 415 allowlisted files; 16 byte-identical GLB/Blend pairs and ZIPs; no QA, research or experiments.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
