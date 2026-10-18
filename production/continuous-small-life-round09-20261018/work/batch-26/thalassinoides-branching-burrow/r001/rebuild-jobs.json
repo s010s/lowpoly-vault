@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "thalassinoides-branching-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/thalassinoides-branching-burrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/thalassinoides-branching-burrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch26/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch26/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/thalassinoides-branching-burrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/thalassinoides-branching-burrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/thalassinoides-branching-burrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "thalassinoides-branching-burrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "thalassinoides-branching-burrow/thalassinoides-branching-burrow.blend",
+        "thalassinoides-branching-burrow/thalassinoides-branching-burrow.glb",
+        "thalassinoides-branching-burrow/qa.json",
+        "thalassinoides-branching-burrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch26 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "thalassinoides-branching-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/thalassinoides-branching-burrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/thalassinoides-branching-burrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/work/batch-26/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch26/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch26/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/thalassinoides-branching-burrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/thalassinoides-branching-burrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch26/production/continuous-small-life-round09-20261018/items/thalassinoides-branching-burrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "thalassinoides-branching-burrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "thalassinoides-branching-burrow/thalassinoides-branching-burrow.blend",
+        "thalassinoides-branching-burrow/thalassinoides-branching-burrow.glb",
+        "thalassinoides-branching-burrow/qa.json",
+        "thalassinoides-branching-burrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch26 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
