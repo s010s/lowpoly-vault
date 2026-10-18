@@ -1,7 +1,7 @@
 # Batch 19 独立 QA 复核
 
-**源候选：** `candidate/small-life-batch19-20261018` @ `5d137441d8ee2a20fcf5ef96a98e3e1c2ec178dc`  
-**检查规则：** `static-stylized-v1` / `2026-10-18.1`  
+**源候选：** `candidate/small-life-batch19-20261018` @ `5d137441d8ee2a20fcf5ef96a98e3e1c2ec178dc`
+**检查规则：** `static-stylized-v1` / `2026-10-18.1`
 **复核结论：** 四项均通过各自冻结 brief 范围内的视觉、结构、尺度、固定视图和实际 GLB 运行时核验。风格按自然、精致的低多边形教学美术评估，不作严格科考复原结论。
 
 ## 核验方法与结果
