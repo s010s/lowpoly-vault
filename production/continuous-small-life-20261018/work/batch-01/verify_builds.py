@@ -7,6 +7,7 @@ from qa_glb import audit_glb
 GEN=Path(__file__).with_name('build_batch01.py')
 def h(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 for a in sys.argv[1:]:
+ GEN=Path(__file__).with_name('build_'+a+'.py') if Path(__file__).with_name('build_'+a+'.py').exists() else Path(__file__).with_name('build_batch01.py')
  d=ROOT/'assets/candidates/continuous-small-life-20261018/batch-01'/a/'r001';ev=d/'evidence/technical';ev.mkdir(parents=True,exist_ok=True);scratch=ROOT/'production/continuous-small-life-20261018/work/batch-01'/a/'r001/rebuild';config=ROOT/'production/continuous-small-life-20261018/items'/a/'build-config.json'
  commands=[('rebuild',['blender','-b','-t','2','--python-exit-code','1','--python',str(GEN),'--','--asset',a,'--config',str(config),'--output',str(scratch)]),('source-reopen',['blender','-b','-t','2','--disable-autoexec','--python-exit-code','1','--python','scripts/check_source_export.py','--','--source',str(d/(a+'.blend')),'--glb',str(d/(a+'.glb')),'--output',str(ev/'source-export.report.json')]),('clean-import',['blender','-b','-t','2','--factory-startup','--python-exit-code','1','--python','scripts/check_glb_roundtrip.py','--',str(d/(a+'.glb')),'--output-dir',str(ev),'--no-render'])]
  runs=[]

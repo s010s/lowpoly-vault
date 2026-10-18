@@ -1,0 +1,84 @@
+{
+  "status": "pass",
+  "glb_sha256": "08619d89a3ef455b9612b0c55575de2abe84ec161c06ef072f38cf7e0d9e98b1",
+  "rebuilt_glb_sha256": "08619d89a3ef455b9612b0c55575de2abe84ec161c06ef072f38cf7e0d9e98b1",
+  "semantic_sha256": "241dbc02a062d4612faf15cfa12ff63dbe35ad0f617fe9e534b8734c76ef2050",
+  "rebuilt_semantic_sha256": "241dbc02a062d4612faf15cfa12ff63dbe35ad0f617fe9e534b8734c76ef2050",
+  "semantic_match": true,
+  "byte_identical": true,
+  "generator_sha256": "03da42e679f34692c9c4b3211fb57429d8680135abb40d68b0eac4edebbd132f",
+  "config_sha256": "6a1d23ba7aedee59cbf11dc0706f87ddefd011f9968ec61ab7ada24fa99a16db",
+  "helper_sha256": "27fe5c66c3955a003e141debbd96816b0f6eda6f64af991f28234ec42257d8bc",
+  "commands": [
+    {
+      "label": "rebuild",
+      "argv": [
+        "blender",
+        "-b",
+        "-t",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/build_canadaspis.py",
+        "--",
+        "--asset",
+        "canadaspis",
+        "--config",
+        "/workspace/lowpoly-vault/production/continuous-small-life-20261018/items/canadaspis/build-config.json",
+        "--output",
+        "/workspace/lowpoly-vault/production/continuous-small-life-20261018/work/batch-01/canadaspis/r001/rebuild"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.652,
+      "log": "rebuild.txt"
+    },
+    {
+      "label": "source-reopen",
+      "argv": [
+        "blender",
+        "-b",
+        "-t",
+        "2",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "scripts/check_source_export.py",
+        "--",
+        "--source",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/canadaspis/r001/canadaspis.blend",
+        "--glb",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/canadaspis/r001/canadaspis.glb",
+        "--output",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/canadaspis/r001/evidence/technical/source-export.report.json"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.432,
+      "log": "source-reopen.txt"
+    },
+    {
+      "label": "clean-import",
+      "argv": [
+        "blender",
+        "-b",
+        "-t",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "scripts/check_glb_roundtrip.py",
+        "--",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/canadaspis/r001/canadaspis.glb",
+        "--output-dir",
+        "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-20261018/batch-01/canadaspis/r001/evidence/technical",
+        "--no-render"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.667,
+      "log": "clean-import.txt"
+    }
+  ],
+  "scope": "Actual separately executed deterministic build, decoded geometry/material/scene semantic comparison; source archive byte identity not required. No independent visual or scientific verdict."
+}
