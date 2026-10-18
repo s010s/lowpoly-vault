@@ -1,0 +1,107 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+    "--",
+    "--asset",
+    "buthograptus",
+    "--config",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/buthograptus/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/buthograptus/r001/rebuild-runs/build/buthograptus/r001/semantic-rebuild-2/386fde2080e69cb5690312778b40efa011192231365805589b5439e6b4ff7aad/20261018T194158-a648a7a06a7f47539ebcfa81713cc3ea/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-18T19:41:58.874858+00:00",
+  "fingerprint": "386fde2080e69cb5690312778b40efa011192231365805589b5439e6b4ff7aad",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 8809,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/brief.json",
+        "sha256": "e042f7289598c247720d5dc6a8865d905bf5479bf62f17b5aac86b364a8876ee"
+      },
+      "config": {
+        "bytes": 2016,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/buthograptus/r001/config.json",
+        "sha256": "2399e986c1a74eea7fd1ba155d6e9356493ef1a2859ba622f40055ef6f76fedb"
+      },
+      "generator": {
+        "bytes": 17888,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "sha256": "4bac6871e481829d4200fd53dff4e8e5e255bb803aaad3e57c62130994672e57"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1658,
+        "path": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/references.json",
+        "sha256": "3926260c58f3f885288be7033bf1300841f8ea89a454db09828143701f7add52"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "buthograptus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "buthograptus",
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "buthograptus"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/brief.json",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/buthograptus/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "buthograptus/buthograptus.glb",
+        "buthograptus/buthograptus.blend",
+        "buthograptus/qa.json",
+        "buthograptus/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 300
+  },
+  "run_id": "20261018T194155-2a7903f3fc9849dcbb987cf9e8a360ee"
+}

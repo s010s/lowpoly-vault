@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "buthograptus",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/buthograptus/r001/config.json",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/brief.json",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "buthograptus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "buthograptus/buthograptus.glb",
+        "buthograptus/buthograptus.blend",
+        "buthograptus/qa.json",
+        "buthograptus/metadata.json"
+      ],
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "buthograptus"
+      },
+      "timeout_seconds": 300
+    },
+    {
+      "asset_id": "buthograptus",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/build_batch09.py",
+        "config": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/work/batch-09/buthograptus/r001/config.json",
+        "helper": "/workspace/lowpoly-vault-batch09/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch09/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/brief.json",
+        "references": "/workspace/lowpoly-vault-batch09/production/continuous-small-life-round03-20261018/items/buthograptus/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "buthograptus",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "buthograptus/buthograptus.glb",
+        "buthograptus/buthograptus.blend",
+        "buthograptus/qa.json",
+        "buthograptus/metadata.json"
+      ],
+      "config": {
+        "profile": "batch09 original palette-only",
+        "seed_config": "buthograptus"
+      },
+      "timeout_seconds": 300
+    }
+  ]
+}
