@@ -1,0 +1,84 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "isastraea",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "isastraea",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch17 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/isastraea/brief.json",
+        "config": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/isastraea/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/isastraea/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/isastraea/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "isastraea/isastraea.blend",
+        "isastraea/isastraea.glb",
+        "isastraea/qa.json",
+        "isastraea/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "isastraea",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "isastraea",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch17 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch17/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/isastraea/brief.json",
+        "config": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/isastraea/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/isastraea/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch17/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/work/batch-17/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch17/production/continuous-small-life-round06-20261018/items/isastraea/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "isastraea/isastraea.blend",
+        "isastraea/isastraea.glb",
+        "isastraea/qa.json",
+        "isastraea/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
