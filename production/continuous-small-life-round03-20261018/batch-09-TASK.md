@@ -1,3 +1,5 @@
+**最新进度：04–06已发布，父任务确认总数43/main 0bd62cda92814af5ac781e1a706bba6310cecc35；07–09独立模型QA PASS、profile发布记录适配中，未确认55；10–11独立QA进行中无结论，12已独占制作。现state与父任务派发证明优先于下方历史规划/空claim。**
+
 **当前授权以最新state和父任务明确派发证明为准；旧queue/config/工作副本的空claim或未派发文字是历史快照，不得阻塞已被父任务独占授权的worker。以下旧阶段文字不覆盖当前状态。**
 
 当前 `batch-09`：`reviewing`。详情及精确source/QA/发布pins见state.json。
