@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "limnobiophyllum",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "limnobiophyllum",
+      "config": {
+        "profile": "batch12 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/limnobiophyllum/brief.json",
+        "config": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/limnobiophyllum/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/limnobiophyllum/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/limnobiophyllum/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "limnobiophyllum/limnobiophyllum.glb",
+        "limnobiophyllum/limnobiophyllum.blend",
+        "limnobiophyllum/metadata.json",
+        "limnobiophyllum/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "limnobiophyllum",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "limnobiophyllum",
+      "config": {
+        "profile": "batch12 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch12/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/limnobiophyllum/brief.json",
+        "config": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/limnobiophyllum/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/limnobiophyllum/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch12/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/work/batch-12/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch12/production/continuous-small-life-round04-20261018/items/limnobiophyllum/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "limnobiophyllum/limnobiophyllum.glb",
+        "limnobiophyllum/limnobiophyllum.blend",
+        "limnobiophyllum/metadata.json",
+        "limnobiophyllum/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
