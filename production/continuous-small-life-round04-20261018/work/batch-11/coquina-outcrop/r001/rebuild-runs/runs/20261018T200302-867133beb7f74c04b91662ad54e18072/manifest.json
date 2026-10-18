@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "coquina-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "coquina-outcrop",
+      "config": {
+        "profile": "batch11 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/coquina-outcrop/brief.json",
+        "config": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/coquina-outcrop/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/coquina-outcrop/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/coquina-outcrop/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "coquina-outcrop/coquina-outcrop.glb",
+        "coquina-outcrop/coquina-outcrop.blend",
+        "coquina-outcrop/metadata.json",
+        "coquina-outcrop/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "coquina-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "coquina-outcrop",
+      "config": {
+        "profile": "batch11 original palette-only"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch11/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/coquina-outcrop/brief.json",
+        "config": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/coquina-outcrop/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/coquina-outcrop/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch11/scripts/asset_common.py",
+        "mesh_utils": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/work/batch-11/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch11/production/continuous-small-life-round04-20261018/items/coquina-outcrop/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "coquina-outcrop/coquina-outcrop.glb",
+        "coquina-outcrop/coquina-outcrop.blend",
+        "coquina-outcrop/metadata.json",
+        "coquina-outcrop/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 300
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
