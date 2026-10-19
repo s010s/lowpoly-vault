@@ -115,6 +115,54 @@
       "seconds": 13.84,
       "exit_code": 1,
       "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/scroll"
+    },
+    {
+      "name": "redesign-models",
+      "command": [
+        "node",
+        "site/redesign-browser-test.mjs"
+      ],
+      "extra_env": {
+        "QA_REVIEW_SCOPE": "models"
+      },
+      "seconds": 1016.37,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/redesign-models"
+    },
+    {
+      "name": "small-life",
+      "command": [
+        "node",
+        "site/small-life-browser-test.mjs"
+      ],
+      "extra_env": {},
+      "seconds": 14.87,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/small-life"
+    },
+    {
+      "name": "round13",
+      "command": [
+        "node",
+        "site/small-life-browser-test.mjs"
+      ],
+      "extra_env": {
+        "QA_ADDITION_PACK": "prehistoric-small-life-round13-20261018"
+      },
+      "seconds": 23.78,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/round13"
+    },
+    {
+      "name": "live-local-adapter",
+      "command": [
+        "node",
+        "qa/approved-gallery-integration-20261019/live-entrypoint-local-adapter.mjs"
+      ],
+      "extra_env": {},
+      "seconds": 67.89,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/live-local-adapter"
     }
   ],
   "not_run": [

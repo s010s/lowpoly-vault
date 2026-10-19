@@ -11,6 +11,13 @@ The original gallery browser suite has a reproducible test-wait failure, so the
 unmodified full acceptance command must **not** be described as passed. Final
 entrypoint statuses and durations are recorded in `final-1e8b5cb4/entrypoints.json`.
 
+All 13 local entrypoints finished: 9 pass, and 4 fail on that same wait condition
+(`gallery`, `browser`, `scrub`, `scroll`). The separate strict model scope passed
+all 175 models with no fallback, runtime error, or failed resource request, and
+checked 356 bilingual static routes. The small-life, round13 and local deployment
+adapter passed 12, 24 and 24 desktop/touch cases respectively. `summary.json` records
+the completed verdict; there are no background tests left running.
+
 The main suite completed 24/25 cases with no runtime exceptions. The sole failure
 is `native-wheel-stationary-layout-resize-history` in
 `site/gallery-browser-test.mjs:227–228`. The same case blocks wrappers that select
@@ -52,7 +59,7 @@ the unmodified full entrypoints before acceptance is marked green.
   deep search. Real-model cache reuse, one renderer, at most three cache entries and
   a 48 MiB limit; idle inspection stops drawing.
 - Independent final-sort checks cover `name` and `name-desc` locale round trips,
-  retained browsing anchor and keyboard identity, unchanged selected mesh/request
+  retained browsing anchor and keyboard identity, unchanged selected identity/request
   token/GLB count, and the `triangles-asc` filter-select alias.
 - Preserved home, modal/history, bilingual static documents, canonical independent
   detail routes, downloads, wireframe, theme, authored metric reference and reset
@@ -83,6 +90,12 @@ A separate settled mobile-header probe records zero document scroll and zero
 visual viewport offset. No persistent layout clipping or blank selected model was
 observed in these inspected states.
 
+All 12 final model contact sheets (175 actual independent-viewer screenshots) were
+opened, as were the small-life and round13 desktop/mobile contact sheets and the
+local deployment adapter desktop/touch contact sheets. Longer mixed Latin/Chinese
+mobile titles wrap without colliding with interaction/download controls in those
+inspected cases.
+
 Software-rendered Chromium captures relatively few compositor frames during some
 transitions. This evidence checks actual appearance and settled behavior; it does
 not establish smooth physical-device animation, hardware GPU, Safari, or native
@@ -108,5 +121,8 @@ and `GITHUB_SHA`. `visual-check.mjs` uses `QA_VISUAL_ROOT`, `GITHUB_SHA`, and op
 tests are unmodified. Repeated wrapper PNGs are retained locally; committed evidence
 keeps the main matrix, independent visual captures, reports, and selected model
 contact sheets rather than duplicating the same screenshot across every wrapper.
+Full duplicate/raw screenshots remain in the saved cloud workspace at
+`/workspace/scratch/lowpoly-gallery-browser-qa-raw-20261019/`; selected full-size
+model and round13 mobile screenshots are also committed alongside the reports.
 
 The source branch remains unmerged and unpublished. No PR #20 or #22 was modified.
