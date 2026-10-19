@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "burgessia",
+  "revision": "r001",
+  "labels": {
+    "en": "Burgessia-inspired small dome crawler"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "burgessia/r001/burgessia.glb",
+      "sha256": "250e29e4cce77b8514cb3e84c49f8a372dc2274ac1d9e9015c6903365abd6cd5"
+    },
+    "source": {
+      "path": "burgessia/r001/burgessia.blend",
+      "sha256": "fe03d122738bdb83b027c386a651730cd73fd6a78a1d180e4adc2a0be525584e"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "b27a0b84d0dbe804ea1be627d2098ea9b65f368f993d4ec838df406c4b1b15be"
+    },
+    "config": {
+      "path": "burgessia/r001/build-config.json",
+      "sha256": "f263e504ca5a515f6213ec4decaf5bb4c8f3f1e70eb1c5eaea1b89c98bb575ee"
+    },
+    "brief": {
+      "path": "burgessia/r001/brief.json",
+      "sha256": "0861b04a4985ba2d8716ff49c525c810861620926b00cab838c8d79e796d9c74"
+    },
+    "references": {
+      "path": "burgessia/r001/references.json",
+      "sha256": "3967a53a763f8cfc11d9b175bd0a2cb2dbfa7de3f47fd37a8031eb8e66cfbc21"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "88f1e683d30dfa76fa87d17e2f9f6bbb83de14cc2648e090052f7fab7572b61d"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "961a241a5af33edd4c3953525d49f65979e41f32c1a531319a2a3a7418ced7f1"
+    },
+    "images": [
+      {
+        "id": "shared-concept-sheet",
+        "view": "three-quarter/top/side; row 2",
+        "path": "concept-original.png",
+        "sha256": "72545fb059806128469d8a142e70eeef0985aab1edfd32b7c17d42bd447f99b5"
+      }
+    ],
+    "cross_view_consistency_note": "Concept has an oval/pointed top-view shield and apparent tail segmentation. Resolve toward a broad semicircular shield with gently curved rear edge and continuous unsegmented spine per ROM. Surface facets are deliberate rings, not random triangular noise.",
+    "hidden_surface_decisions": "Closed lower shield surfaces; paired volumetric limbs and swimming lobes beneath shells, real hinge/body depth; no camera-specific flattening. Separate closed parts intentionally intersect at joints; not a print-ready union."
+  },
+  "chronology": {
+    "concept_generated_at": "2026-10-19T20:27:31.556Z",
+    "concept_inspected_at": "2026-10-19T20:27:43.080Z",
+    "modeling_started_at": "2026-10-19T20:28:19.820669+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 76.484,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "961a241a5af33edd4c3953525d49f65979e41f32c1a531319a2a3a7418ced7f1"
+      },
+      "note": "Actual tool invocation/return elapsed time for the shared four-row sheet; not per-asset throughput."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Active interpretation time not measured; real chronology captured in events.jsonl."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 1.8677730299999666,
+      "measurement_record": {
+        "path": "burgessia/r001/build-timing.json",
+        "sha256": "1f6a529b3cc20390e76ae261e0ecafa31fbb258ec9e35bdf159d8f29c4c65b0c"
+      },
+      "note": "Measured Blender generator execution only. Human/model code-authoring time is not included."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 38.6308,
+      "measurement_record": {
+        "path": "burgessia/r001/proof/render-manifest.json",
+        "sha256": "54feee88b1d526c3a8b0c3d15883333139f745b39c8d3078d4b7a3b1034ffadb"
+      },
+      "note": "Measured clean-import proof render run, 12 frames at 512px, 16 Cycles CPU samples."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Images actually inspected as labeled contact sheets and critical 512px frames; active review duration not instrumented."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Browser/GPU/populated scene not run here. Node GLTFLoader parse is separately recorded, not browser evidence."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "concept-match",
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "burgessia/r001/proof/render-manifest.json",
+    "sha256": "54feee88b1d526c3a8b0c3d15883333139f745b39c8d3078d4b7a3b1034ffadb"
+  },
+  "thumbnail": {
+    "source_frame_id": "hero",
+    "path": "burgessia/r001/proof/hero.png",
+    "sha256": "e2f212cd1df2372e745f39f97b308291ec88c1f7c1bdd6a1608446b7409586c3"
+  },
+  "review_note": {
+    "path": "burgessia/r001/self-review.md",
+    "sha256": "06ae200c038dacf237f1087122e4af32afaf17027839561716c758423b83ed47"
+  },
+  "inspected_frames": [
+    "concept-match",
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "khronos": {
+    "glb_sha256": "250e29e4cce77b8514cb3e84c49f8a372dc2274ac1d9e9015c6903365abd6cd5",
+    "report": {
+      "path": "burgessia/r001/gltf-validator.report.json",
+      "sha256": "a810a67d87935df5a1758b467f5c4bbb14cb4670e4d90fa787535e415aeec242"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting small scene life; prioritize recognition, keep package lightweight; no universal quality threshold."
+  }
+}

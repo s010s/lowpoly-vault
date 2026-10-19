@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "sanctacaris",
+  "revision": "r001",
+  "labels": {
+    "en": "Sanctacaris-inspired wing-shield swimmer"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "sanctacaris/r001/sanctacaris.glb",
+      "sha256": "56e365b05a9a329c87c43fdd7f5fa13af37107994b7f9e65599827906836e274"
+    },
+    "source": {
+      "path": "sanctacaris/r001/sanctacaris.blend",
+      "sha256": "b2b09ec2231c2a00d3428a9acae55a23ca4c6b239ff54d8188b56a130602c646"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "b27a0b84d0dbe804ea1be627d2098ea9b65f368f993d4ec838df406c4b1b15be"
+    },
+    "config": {
+      "path": "sanctacaris/r001/build-config.json",
+      "sha256": "2da56535833f39344040bc1821a3cd504a426fff0a049844ca035a8adac4b2db"
+    },
+    "brief": {
+      "path": "sanctacaris/r001/brief.json",
+      "sha256": "737f3a28cd741ce900e8a69387da3f62612b1006ada890361ed506bc638a778c"
+    },
+    "references": {
+      "path": "sanctacaris/r001/references.json",
+      "sha256": "cc1d3a288de6693bf55ce841f54d7da92eaa0cd8c8fd3c6e65afd28367b0bb3a"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "88f1e683d30dfa76fa87d17e2f9f6bbb83de14cc2648e090052f7fab7572b61d"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "961a241a5af33edd4c3953525d49f65979e41f32c1a531319a2a3a7418ced7f1"
+    },
+    "images": [
+      {
+        "id": "shared-concept-sheet",
+        "view": "three-quarter/top/side; row 4",
+        "path": "concept-original.png",
+        "sha256": "72545fb059806128469d8a142e70eeef0985aab1edfd32b7c17d42bd447f99b5"
+      }
+    ],
+    "cross_view_consistency_note": "Concept agrees on winged head, medium plate rhythm and broad paddle. Arm counts vary/overlap across concepts; freeze six paired frontal limbs and eleven trunk segments per ROM. Fine setae, detailed claw dentition and podomere counts simplified.",
+    "hidden_surface_decisions": "Closed lower shield surfaces; paired volumetric limbs and swimming lobes beneath shells, real hinge/body depth; no camera-specific flattening. Separate closed parts intentionally intersect at joints; not a print-ready union."
+  },
+  "chronology": {
+    "concept_generated_at": "2026-10-19T20:27:31.556Z",
+    "concept_inspected_at": "2026-10-19T20:27:43.080Z",
+    "modeling_started_at": "2026-10-19T20:28:19.820669+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 76.484,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "961a241a5af33edd4c3953525d49f65979e41f32c1a531319a2a3a7418ced7f1"
+      },
+      "note": "Actual tool invocation/return elapsed time for the shared four-row sheet; not per-asset throughput."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Active interpretation time not measured; real chronology captured in events.jsonl."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 2.1604126709999036,
+      "measurement_record": {
+        "path": "sanctacaris/r001/build-timing.json",
+        "sha256": "8d82aeb2e1033df0f01123a72e44d27bc82cc9298ea938cf40f78ce514e9a2e3"
+      },
+      "note": "Measured Blender generator execution only. Human/model code-authoring time is not included."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 72.5048,
+      "measurement_record": {
+        "path": "sanctacaris/r001/proof/render-manifest.json",
+        "sha256": "c8b627763edd544797ce5c5bf026862964dd023bd2b6d24b55c9bba9a446d99f"
+      },
+      "note": "Measured clean-import proof render run, 12 frames at 512px, 16 Cycles CPU samples."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Images actually inspected as labeled contact sheets and critical 512px frames; active review duration not instrumented."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Browser/GPU/populated scene not run here. Node GLTFLoader parse is separately recorded, not browser evidence."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "concept-match",
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "sanctacaris/r001/proof/render-manifest.json",
+    "sha256": "c8b627763edd544797ce5c5bf026862964dd023bd2b6d24b55c9bba9a446d99f"
+  },
+  "thumbnail": {
+    "source_frame_id": "hero",
+    "path": "sanctacaris/r001/proof/hero.png",
+    "sha256": "4196e0f2c159adf4fcd4890399707d0da86b7859b97d93b9715b527b4b0fbf2b"
+  },
+  "review_note": {
+    "path": "sanctacaris/r001/self-review.md",
+    "sha256": "f9701f56f2eb0af908bebf45988bc52fead75e8924009ca3260e9a39131082fa"
+  },
+  "inspected_frames": [
+    "concept-match",
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "khronos": {
+    "glb_sha256": "56e365b05a9a329c87c43fdd7f5fa13af37107994b7f9e65599827906836e274",
+    "report": {
+      "path": "sanctacaris/r001/gltf-validator.report.json",
+      "sha256": "a44c2c83bcb38266cb0c423576169faeaa5715453a8fb291fbf246f56e6dd8a7"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting small scene life; prioritize recognition, keep package lightweight; no universal quality threshold."
+  }
+}
