@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Small land/air quartet WebGL QA</title>
+  <style>
+    body { margin: 0; padding: 16px; color: #252522; background: #f3f1ec; font: 14px/1.4 system-ui, sans-serif; }
+    h1 { margin: 0 0 8px; font-size: 18px; }
+    pre { min-height: 20px; margin: 0 0 12px; white-space: pre-wrap; }
+    canvas { display: block; width: 1280px; height: 720px; max-width: 100%; background: #e8e4dc; }
+  </style>
+</head>
+<body>
+  <h1>Frozen GLB native-scale scene check</h1>
+  <pre id="status">Loading exact frozen GLBs in Three.js.</pre>
+  <canvas id="scene" width="1280" height="720"></canvas>
+  <script type="importmap">
+    {"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}
+  </script>
+  <script type="module" src="./webgl-scene-check.js"></script>
+</body>
+</html>
