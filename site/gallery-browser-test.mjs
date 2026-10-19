@@ -224,11 +224,19 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
     if(has('scroll')){
       await test('native-wheel-stationary-layout-resize-history',async({page,row})=>{
         const snapshot=()=>page.evaluate(()=>{const rect=selector=>{const r=document.querySelector(selector).getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};};return{header:rect('header'),catalog:rect('.catalog'),workspace:rect('.workspace'),scroll:document.querySelector('#wheel').scrollTop,selected:window.__gallery.state.selected,pageScroll:scrollY};});
-        const before=await snapshot(),box=await page.locator('#wheel').boundingBox();await page.mouse.move(box.x+box.width*.3,box.y+box.height*.5);await page.mouse.wheel(0,900);await page.waitForFunction(()=>window.__gallery.settler.state==='idle'&&document.querySelector('#wheel').scrollTop>0);const after=await snapshot();
+        const before=await snapshot(),box=await page.locator('#wheel').boundingBox();row.native={before};
+        await page.mouse.move(box.x+box.width*.3,box.y+box.height*.5);await page.mouse.wheel(0,900);
+        // wheel() dispatches input without waiting for scrolling. The initial
+        // selected row may already have a nonzero, idle scroll position.
+        try{
+          await page.waitForFunction(previous=>document.querySelector('#wheel').scrollTop>previous,before.scroll);
+          await page.waitForFunction(()=>window.__gallery.settler.state==='idle');
+        }finally{row.native.after=await snapshot();}
+        const after=row.native.after;
         assert(after.scroll>before.scroll);assert.equal(after.selected,before.selected,'Browsing alone cannot change the inspected model');assert.equal(after.pageScroll,before.pageScroll);
         for(const key of ['header','catalog','workspace'])for(const field of ['x','y','width','height'])assert(Math.abs(before[key][field]-after[key][field])<.6,'Native wheel scrolling does not move the surrounding layout');
         const center=await page.evaluate(()=>window.__gallery.state.center);await page.locator(`#slots [data-id="${center}"]`).click();await ready(page,center);await page.goBack();await ready(page,before.selected);assert(Math.abs((await snapshot()).scroll-after.scroll)<1);
-        await page.setViewportSize({width:1100,height:760});await page.waitForTimeout(150);assert.equal(await page.evaluate(()=>window.__gallery.state.selected),before.selected);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));row.native={before,after};
+        await page.setViewportSize({width:1100,height:760});await page.waitForTimeout(150);assert.equal(await page.evaluate(()=>window.__gallery.state.selected),before.selected);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
       });
       await test('touch-wheel-scroll-and-orientation',async({page,context})=>{
         const box=await page.locator('#wheel').boundingBox(),session=await context.newCDPSession(page);const x=box.x+box.width*.5,y=box.y+box.height*.7;
