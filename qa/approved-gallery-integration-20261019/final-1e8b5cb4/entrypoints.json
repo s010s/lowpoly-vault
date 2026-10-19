@@ -1,0 +1,126 @@
+{
+  "source_sha": "1e8b5cb48f5211fa12a2108861591bc71150fce3",
+  "started_utc": "2026-10-19T17:08:27.758842+00:00",
+  "environment": {
+    "CHROMIUM_PATH": "/usr/bin/chromium",
+    "SITE_BASE": "/lowpoly-vault/",
+    "GALLERY_DIR": "dist",
+    "GITHUB_SHA": "1e8b5cb48f5211fa12a2108861591bc71150fce3"
+  },
+  "entrypoints": [
+    {
+      "name": "gallery",
+      "command": [
+        "npm",
+        "run",
+        "test:gallery:browser"
+      ],
+      "extra_env": {},
+      "seconds": 122.13,
+      "exit_code": 1,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/gallery"
+    },
+    {
+      "name": "browser",
+      "command": [
+        "npm",
+        "run",
+        "test:browser"
+      ],
+      "extra_env": {},
+      "seconds": 48.03,
+      "exit_code": 1,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/browser"
+    },
+    {
+      "name": "scrub",
+      "command": [
+        "npm",
+        "run",
+        "test:scrub:browser"
+      ],
+      "extra_env": {},
+      "seconds": 56.73,
+      "exit_code": 1,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/scrub"
+    },
+    {
+      "name": "shared",
+      "command": [
+        "npm",
+        "run",
+        "test:preview:browser"
+      ],
+      "extra_env": {},
+      "seconds": 48.54,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/shared"
+    },
+    {
+      "name": "handoff",
+      "command": [
+        "npm",
+        "run",
+        "test:handoff:browser"
+      ],
+      "extra_env": {},
+      "seconds": 35.8,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/handoff"
+    },
+    {
+      "name": "hover",
+      "command": [
+        "npm",
+        "run",
+        "test:hover:browser"
+      ],
+      "extra_env": {},
+      "seconds": 56.7,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/hover"
+    },
+    {
+      "name": "modal",
+      "command": [
+        "npm",
+        "run",
+        "test:modal:browser"
+      ],
+      "extra_env": {},
+      "seconds": 41.34,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/modal"
+    },
+    {
+      "name": "interaction",
+      "command": [
+        "npm",
+        "run",
+        "test:interaction:browser"
+      ],
+      "extra_env": {},
+      "seconds": 28.36,
+      "exit_code": 0,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/interaction"
+    },
+    {
+      "name": "scroll",
+      "command": [
+        "npm",
+        "run",
+        "test:scroll:browser"
+      ],
+      "extra_env": {},
+      "seconds": 13.84,
+      "exit_code": 1,
+      "output": "qa/approved-gallery-integration-20261019/final-1e8b5cb4/scroll"
+    }
+  ],
+  "not_run": [
+    {
+      "entrypoint": "site/live-release-browser-test.mjs",
+      "reason": "Hard-coded public Pages origin; this exact integration SHA is not published. Local runtime/browser acceptance is separate from post-deployment acceptance."
+    }
+  ]
+}

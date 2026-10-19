@@ -1,0 +1,103 @@
+
+> lowpoly-vault@1.0.0 test:browser
+> node site/browser-test.mjs
+
+{
+  "status": "fail",
+  "cases": [
+    {
+      "name": "full-catalog-virtualized-routes",
+      "status": "pass"
+    },
+    {
+      "name": "deep-search-normalization-and-reload",
+      "status": "pass"
+    },
+    {
+      "name": "no-javascript-linked-documents",
+      "status": "pass"
+    },
+    {
+      "name": "filter-draft-cancel-apply-no-glb",
+      "status": "pass"
+    },
+    {
+      "name": "popover-interruption-keyboard-empty-recovery",
+      "status": "pass"
+    },
+    {
+      "name": "downloads-information-clipboard",
+      "status": "pass"
+    },
+    {
+      "name": "keyboard-center-selection-history",
+      "status": "pass"
+    },
+    {
+      "name": "mobile-lazy-open-back-and-interact",
+      "status": "pass"
+    },
+    {
+      "name": "reduced-motion-chinese-panels",
+      "status": "pass"
+    },
+    {
+      "name": "forced-webgl-fallback-keeps-gallery-functional",
+      "status": "pass"
+    },
+    {
+      "name": "failed-catalog-retains-real-html",
+      "status": "pass"
+    },
+    {
+      "name": "ten-thousand-models-virtualized-deep-search",
+      "status": "pass"
+    },
+    {
+      "name": "native-wheel-stationary-layout-resize-history",
+      "status": "fail"
+    },
+    {
+      "name": "touch-wheel-scroll-and-orientation",
+      "status": "pass"
+    },
+    {
+      "name": "home-modal-keyboard-history-and-cleanup",
+      "status": "pass"
+    }
+  ],
+  "output": "/workspace/lowpoly-vault/qa/approved-gallery-integration-20261019/final-1e8b5cb4/browser/documents-and-models/approved-wheel"
+}
+AssertionError [ERR_ASSERTION]: [
+  {
+    "name": "native-wheel-stationary-layout-resize-history",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(after.scroll>before.scroll)\n\n    at file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:228:9\n    at async test (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:54:94)\n    at async runGalleryBrowserTests (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:225:7)\n    at async file:///workspace/lowpoly-vault/site/redesign-browser-test.mjs:641:22"
+  }
+]
+    at runGalleryBrowserTests (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:278:5)
+    at async file:///workspace/lowpoly-vault/site/redesign-browser-test.mjs:641:22 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+AssertionError [ERR_ASSERTION]: Full document, all-model GPU and wheel matrix acceptance must pass
+
+1 !== 0
+
+    at file:///workspace/lowpoly-vault/site/browser-test.mjs:254:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

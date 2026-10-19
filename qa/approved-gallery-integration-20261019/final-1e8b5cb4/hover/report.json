@@ -1,0 +1,95 @@
+{
+  "baseline": false,
+  "cases": [
+    {
+      "name": "wheel-hover-single-renderer-current-selection",
+      "status": "pass",
+      "hovered": "natural-arch",
+      "pass": true
+    },
+    {
+      "name": "selected-poster-live-and-repeat-supersession",
+      "status": "pass",
+      "state": {
+        "selected": "nereites-lobed-meander",
+        "poster": "nereites-lobed-meander",
+        "live": "nereites-lobed-meander",
+        "canvas": 1,
+        "cache": 2,
+        "bytes": 293328,
+        "limit": 50331648
+      },
+      "pass": true
+    },
+    {
+      "name": "failed-load-poster-and-retry",
+      "status": "pass",
+      "pass": true
+    },
+    {
+      "name": "webgl-context-loss-restores-selected-poster",
+      "status": "pass",
+      "pass": true
+    },
+    {
+      "name": "held-pointer-cannot-orbit-new-selection",
+      "status": "pass",
+      "pass": true
+    },
+    {
+      "name": "scale-reference-reset-authored-dimensions",
+      "status": "pass",
+      "reference_meters": 0.18,
+      "pass": true
+    },
+    {
+      "name": "bounded-real-model-cache-warm-reuse-and-idle",
+      "status": "pass",
+      "stats": {
+        "rendererCount": 1,
+        "requests": 11,
+        "aborted": 0,
+        "stale": 0,
+        "cacheEntries": 3,
+        "estimatedCacheBytes": 169836,
+        "cacheByteLimit": 50331648,
+        "frames": 62,
+        "hoverId": null,
+        "detailId": "uprooted-log",
+        "hoverFirstFrameId": null,
+        "cameraTransition": false,
+        "referenceState": "idle",
+        "detailFirstFrameId": "uprooted-log",
+        "detailFirstFrameToken": 12,
+        "detailStatus": "ready",
+        "logicalWidth": 1440,
+        "logicalHeight": 1000,
+        "pixelRatio": 1,
+        "bufferWidth": 1440,
+        "bufferHeight": 1000
+      },
+      "pass": true
+    },
+    {
+      "name": "hover-premultiplied-alpha-and-exit-cleanup",
+      "status": "pass",
+      "samples": [
+        {
+          "mix": 0.5206250000000011,
+          "error": 0.046463381057268625
+        },
+        {
+          "mix": 0.625,
+          "error": 0.03937224669603524
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Chromium software WebGL on CI; not a physical-device timing benchmark."
+  ],
+  "pass": true,
+  "design_contract": "Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact."
+}

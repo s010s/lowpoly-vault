@@ -1,0 +1,87 @@
+
+> lowpoly-vault@1.0.0 test:scrub:browser
+> node site/image-scrub-browser-test.mjs
+
+{
+  "status": "fail",
+  "cases": [
+    {
+      "name": "filter-draft-cancel-apply-no-glb",
+      "status": "pass"
+    },
+    {
+      "name": "popover-interruption-keyboard-empty-recovery",
+      "status": "pass"
+    },
+    {
+      "name": "downloads-information-clipboard",
+      "status": "pass"
+    },
+    {
+      "name": "keyboard-center-selection-history",
+      "status": "pass"
+    },
+    {
+      "name": "mobile-lazy-open-back-and-interact",
+      "status": "pass"
+    },
+    {
+      "name": "reduced-motion-chinese-panels",
+      "status": "pass"
+    },
+    {
+      "name": "wheel-hover-single-renderer-current-selection",
+      "status": "pass"
+    },
+    {
+      "name": "selected-poster-live-and-repeat-supersession",
+      "status": "pass"
+    },
+    {
+      "name": "failed-load-poster-and-retry",
+      "status": "pass"
+    },
+    {
+      "name": "webgl-context-loss-restores-selected-poster",
+      "status": "pass"
+    },
+    {
+      "name": "held-pointer-cannot-orbit-new-selection",
+      "status": "pass"
+    },
+    {
+      "name": "scale-reference-reset-authored-dimensions",
+      "status": "pass"
+    },
+    {
+      "name": "native-wheel-stationary-layout-resize-history",
+      "status": "fail"
+    },
+    {
+      "name": "touch-wheel-scroll-and-orientation",
+      "status": "pass"
+    }
+  ],
+  "output": "/workspace/lowpoly-vault/qa/approved-gallery-integration-20261019/final-1e8b5cb4/scrub/approved-wheel"
+}
+AssertionError [ERR_ASSERTION]: [
+  {
+    "name": "native-wheel-stationary-layout-resize-history",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(after.scroll>before.scroll)\n\n    at file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:228:9\n    at async test (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:54:94)\n    at async runGalleryBrowserTests (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:225:7)\n    at async file:///workspace/lowpoly-vault/site/image-scrub-browser-test.mjs:262:18"
+  }
+]
+    at runGalleryBrowserTests (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:278:5)
+    at async file:///workspace/lowpoly-vault/site/image-scrub-browser-test.mjs:262:18 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
