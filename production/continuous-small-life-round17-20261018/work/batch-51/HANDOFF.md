@@ -31,3 +31,13 @@ The first exits 0 for a structurally valid pending candidate. The second current
 Git boundary: only this batch candidate/work/necessary planning files were added. No main branch, formal asset directories, release descriptor, website, CI, deployment, PR merge, Google Drive or permission changes. Git author is the verified Leon Made This <8357465+s010s@users.noreply.github.com>.
 
 Original art/renders/prose: CC BY 4.0, Leon Made This / s010s. Executable code: MIT. References are consulted only, with no copied media, meshes or textures.
+
+## Supplemental specification correction v001
+
+The original handoff and every original candidate/model/concept/freeze/evidence file are preserved. See `specification-correction-v001/index.json` and the original handoff copies in `specification-correction-v001/historical-handoff/`. The original source artifact commit remains `ee4e37b3c1cc49ab5e41c807c6ca8e1a155bbc6b`.
+
+Independent QA `925ff855ad0fcc3635cfc44a457101344ffddbde` found two inherited nominal-scale contradictions, not visual defects. New supplemental specification briefs select the existing prompt/construction-design nominal values: Calcite 0.32 m and lapilli 0.28 m. Their exact measured GLB XYZ bounds remain separately recorded; these nominal values are not exact bounding boxes or fossil measurements. All geometry, originals, references and evidence are unchanged.
+
+The new supplemental briefs are for a targeted specification difference review. They are NOT silently substituted for the immutable registered r002 candidate briefs; historical candidate reports remain bound to their original subjects. `QA-HANDOFF.json` distinguishes `candidate_brief` from `corrected_specification_brief` and retains both pins. No formal stage, source receipt, generator configuration, render manifest or approval is relabeled. The current candidate validators remain valid/unapproved; concept completeness remains incomplete because exact provider generation time is unknown. No clock substitution, gate change or new full model QA is authorized by this correction.
+
+Replay the additive metadata/identity checks with `python3 production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/verify_correction.py`. This mechanical result is not independent model or specification acceptance.

@@ -11,15 +11,15 @@
   ],
   "branch": "candidate/small-life-batch51-concept-20261019",
   "source_commit": "ee4e37b3c1cc49ab5e41c807c6ca8e1a155bbc6b",
-  "source_commit_meaning": "Artifact commit. The following handoff-only commit adds this index and instructions; all model/candidate artifact bytes remain pinned to this source commit. Parent must echo this exact source commit and exact four GLB hashes before independent QA.",
+  "source_commit_meaning": "Artifact commit. The following handoff-only commit adds this index and instructions; all model/candidate artifact bytes remain pinned to this source commit. Parent must echo this exact source commit and exact four GLB hashes before independent QA. This current handoff adds a separately versioned supplemental specification correction; source_commit still pins all original model/candidate evidence, not the new correction files.",
   "base_main": "456a53e3cb257032f210da50e005854b4485abca",
   "planning_commit": "e37864b4a894cb82440ae9e0b4a90a707c087dd6",
   "actual_task_thread_id": "01a15652-f6de-707a-90f5-881ee830e019",
   "parent_thread_id": "01a15646-8945-7703-be3c-da5870e32021",
   "qa_subject_guard_ready": true,
-  "independent_review_started": false,
+  "independent_review_started": true,
   "independent_qa_dispatcher": "parent only; exactly one GPT-6 Luna xhigh full model QA; targeted difference review only for actual later repairs",
-  "status": "candidate-with-evidence-blocker",
+  "status": "candidate-with-preserved-evidence-blocker-and-specification-correction-pending-differential-review",
   "evidence_complete": false,
   "publication_performed": false,
   "hardware_gpu_verified": false,
@@ -510,6 +510,21 @@
           "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/bundle-files.sha256",
           "sha256": "5b8c8b7a7a164df5489a2b10ce9f6a92b30e24455cc56d594ed6baa15457549e",
           "bytes": 7132
+        },
+        "corrected_specification_brief": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/calcite-raft-deposit/brief.json",
+          "sha256": "6c7f519dfc5357bf489969f2d4e1a031559d7b92ac5b313baa71c0b72a45f303",
+          "bytes": 16536
+        },
+        "corrected_specification_metadata": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/calcite-raft-deposit/metadata.json",
+          "sha256": "b64118b161f0cf373613e53fc8cc3f5068587f606e5a4d39f5475b930b345eaa",
+          "bytes": 9693
+        },
+        "specification_correction_freeze": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/calcite-raft-deposit/derived-freeze.json",
+          "sha256": "5175cf3c192bae32d4e87df08043cd04c138ddf35e01122a7d52036608b48388",
+          "bytes": 8604
         }
       },
       "stages": {
@@ -533,7 +548,28 @@
           "description": "Real ImageGen prompt/result/original and actual premodel view inspection are retained. Tool did not disclose exact provider generation time; chronology field stays null, and --require-complete cannot pass. Receipt capture time establishes original was retained before construction; it is not relabeled as exact generation time."
         }
       ],
-      "approval": "pending"
+      "approval": "pending",
+      "specification_correction": {
+        "status": "prepared-for-differential-review",
+        "corrected_nominal_design_m": 0.32,
+        "measured_dimensions_glb_xyz_m": [
+          0.33593830466270447,
+          0.02606956660747528,
+          0.25428861379623413
+        ],
+        "registered_candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/candidate-brief.json",
+          "sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+          "bytes": 14988
+        },
+        "supplemental_review_brief": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/calcite-raft-deposit/brief.json",
+          "sha256": "6c7f519dfc5357bf489969f2d4e1a031559d7b92ac5b313baa71c0b72a45f303",
+          "bytes": 16536
+        },
+        "candidate_stages_unchanged": true,
+        "formal_approval_granted": false
+      }
     },
     {
       "asset_id": "accretionary-lapilli-bed",
@@ -743,6 +779,21 @@
           "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/bundle-files.sha256",
           "sha256": "589f93008492d55b97236d6ba105acad14674b6f29e9fc57f703f3fb23b3930a",
           "bytes": 7140
+        },
+        "corrected_specification_brief": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/accretionary-lapilli-bed/brief.json",
+          "sha256": "2afd0c8533c79dd19fae2e28f189ffb800dd14f517dcc5a8eacc707ea9a794df",
+          "bytes": 16865
+        },
+        "corrected_specification_metadata": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/accretionary-lapilli-bed/metadata.json",
+          "sha256": "3664df66f4ec3ef9d451fbe6dc25045d04b5dcd83bd9439c78e3ec5909053dd0",
+          "bytes": 10801
+        },
+        "specification_correction_freeze": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/accretionary-lapilli-bed/derived-freeze.json",
+          "sha256": "8fdc51883d45a70c1f6d7405f7ba464901f81d6f089fc7b13dfbadd9f1160d5e",
+          "bytes": 8711
         }
       },
       "stages": {
@@ -766,7 +817,28 @@
           "description": "Real ImageGen prompt/result/original and actual premodel view inspection are retained. Tool did not disclose exact provider generation time; chronology field stays null, and --require-complete cannot pass. Receipt capture time establishes original was retained before construction; it is not relabeled as exact generation time."
         }
       ],
-      "approval": "pending"
+      "approval": "pending",
+      "specification_correction": {
+        "status": "prepared-for-differential-review",
+        "corrected_nominal_design_m": 0.28,
+        "measured_dimensions_glb_xyz_m": [
+          0.28449925780296326,
+          0.11559999734163284,
+          0.20509090274572372
+        ],
+        "registered_candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/candidate-brief.json",
+          "sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+          "bytes": 15317
+        },
+        "supplemental_review_brief": {
+          "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/accretionary-lapilli-bed/brief.json",
+          "sha256": "2afd0c8533c79dd19fae2e28f189ffb800dd14f517dcc5a8eacc707ea9a794df",
+          "bytes": 16865
+        },
+        "candidate_stages_unchanged": true,
+        "formal_approval_granted": false
+      }
     },
     {
       "asset_id": "conichnus-conical-burrow",
@@ -1006,9 +1078,16 @@
     {
       "action": "Independent acceptance",
       "target": "Exact four selected candidate records",
-      "reason": "Parent has not yet dispatched fresh GPT-6 Luna xhigh QA; visual/factual/specification/gpu/scene are unknown. Technical and runtime_parse automated stages pass. Functional software runtime is not hardware performance or parent scene acceptance.",
-      "outcome": "Pending parent coordination."
+      "reason": "Independent QA 925ff855ad0fcc3635cfc44a457101344ffddbde completed the exact four original model reviews. This versioned correction reconciles Calcite/lapilli nominal metadata with original concept/design values; targeted independent difference review remains pending. Original formal stage records and approval remain unchanged.",
+      "outcome": "One original model QA completed; targeted metadata difference review pending, not another full model round."
     }
   ],
-  "recovery_note": "An actual exec-server transport interruption occurred during final runtime image opening; CreateProcess recovery timed out. A later read-only HEAD probe succeeded. Saved work resumed without rebuilding, and runtime hero/nine-copy images were then actually opened. No Git mutation had been attempted at the interruption."
+  "recovery_note": "An actual exec-server transport interruption occurred during final runtime image opening; CreateProcess recovery timed out. A later read-only HEAD probe succeeded. Saved work resumed without rebuilding, and runtime hero/nine-copy images were then actually opened. No Git mutation had been attempted at the interruption.",
+  "independent_review_commit": "925ff855ad0fcc3635cfc44a457101344ffddbde",
+  "independent_review_scope": "Original exact four GLBs received one independent full model QA. Visual/factual/technical/software-runtime passed; Calcite/lapilli nominal metadata required correction. Candidate stage records remain unchanged. Only this difference awaits recheck.",
+  "specification_correction": {
+    "path": "production/continuous-small-life-round17-20261018/work/batch-51/specification-correction-v001/index.json",
+    "sha256": "b9c2fe68027595cba6dd5b3bc777344c072f60b06d4850a485effaa83739bb33",
+    "bytes": 5142
+  }
 }
