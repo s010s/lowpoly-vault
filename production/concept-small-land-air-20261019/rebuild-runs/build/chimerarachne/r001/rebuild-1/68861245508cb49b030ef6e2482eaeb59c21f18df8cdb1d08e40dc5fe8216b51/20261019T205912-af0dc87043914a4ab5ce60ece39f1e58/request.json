@@ -1,0 +1,103 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/chimerarachne/r001/build-config.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/rebuild-runs/build/chimerarachne/r001/rebuild-1/68861245508cb49b030ef6e2482eaeb59c21f18df8cdb1d08e40dc5fe8216b51/20261019T205912-af0dc87043914a4ab5ce60ece39f1e58/outputs"
+  ],
+  "created_at": "2026-10-19T20:59:12.759953+00:00",
+  "fingerprint": "68861245508cb49b030ef6e2482eaeb59c21f18df8cdb1d08e40dc5fe8216b51",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 2547,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/chimerarachne/r001/brief.json",
+        "sha256": "8b453e1c3dd836b070c78c61a593b2751f21c97a848a201dc8036551ab967766"
+      },
+      "config": {
+        "bytes": 486,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/chimerarachne/r001/build-config.json",
+        "sha256": "468d9933101db5867d24d46fd46c03104e26e07625d48d68e9da7676189b9da4"
+      },
+      "generator": {
+        "bytes": 13980,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+        "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 920,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/chimerarachne/r001/references.json",
+        "sha256": "c93746e53d01952b3f26295e1e4224131ea66ce30781dbac5ad6f6301bd924f6"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "chimerarachne",
+      "config": {
+        "purpose": "Independent executed deterministic rebuild; maker technical self-check, not independent visual QA"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/chimerarachne/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/chimerarachne/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/chimerarachne/r001/references.json"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "chimerarachne/chimerarachne.glb",
+        "chimerarachne/chimerarachne.blend",
+        "chimerarachne/metadata.json",
+        "chimerarachne/qa.json",
+        "chimerarachne/build-timing.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261019T205900-9152999753e84c88802012dbe821fc6c"
+}

@@ -1,0 +1,21 @@
+{
+  "source": "scripts/render_candidate_views.py",
+  "source_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+  "copy": "render_sapeornis_matched.py",
+  "copy_sha256": "9bea48c6adb740a39f4d833b6bcf5e6e67cd8c9164bbd55a45596fa039eb0cb9",
+  "baseline_config": "sapeornis/r001/proof/render-config.json",
+  "baseline_config_sha256": "025b1977c400be2a794841ccebfef42c72874b33deb8f6fdcdbb8ce89bd284cc",
+  "changes": [
+    "resolve imports to repository scripts",
+    "freeze exact r001 camera target and radius; lights remain exact same derived transforms, sizes, powers",
+    "Resolve helper hash paths to the original repository/scripts helpers after copying renderer"
+  ],
+  "target": [
+    0.0,
+    0.020193159580230713,
+    0.02926100790500641
+  ],
+  "radius": 0.49411829495816295,
+  "reason": "Controlled visible wing-width comparison, no geometry normalization",
+  "attempt01": "Failed before producing pixels: local copy used sibling helper hash path; original script snapshot and failed log retained."
+}

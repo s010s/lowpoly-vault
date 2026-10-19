@@ -4,6 +4,9 @@ on:
     branches: ['capture/**']
   pull_request:
     paths:
+      - 'qa/landair-release-20261019/capture-inputs.json'
+      - 'site/accepted-landair-capture.mjs'
+      - 'site/prepare-landair-capture.mjs'
       - 'qa/quartets-release-20261019/capture-inputs.json'
       - 'site/accepted-quartets-capture.mjs'
       - 'site/prepare-quartets-capture.mjs'
@@ -33,11 +36,14 @@ jobs:
           python-version: '3.11'
       - run: npm ci --ignore-scripts
       - run: npx vite build --outDir "$GITHUB_WORKSPACE/qa/capture-inputs-site"
+      - name: Prepare reviewed land-air candidate capture inputs
+        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') != ''
+        run: node site/prepare-landair-capture.mjs
       - name: Prepare reviewed candidate capture inputs
-        if: hashFiles('qa/quartets-release-20261019/capture-inputs.json') != ''
+        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') == '' && hashFiles('qa/quartets-release-20261019/capture-inputs.json') != ''
         run: node site/prepare-quartets-capture.mjs
       - name: Prepare checked capture inputs
-        if: hashFiles('qa/quartets-release-20261019/capture-inputs.json') == ''
+        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') == '' && hashFiles('qa/quartets-release-20261019/capture-inputs.json') == ''
         run: |
           node --input-type=module <<'JS'
           import assert from 'node:assert/strict';

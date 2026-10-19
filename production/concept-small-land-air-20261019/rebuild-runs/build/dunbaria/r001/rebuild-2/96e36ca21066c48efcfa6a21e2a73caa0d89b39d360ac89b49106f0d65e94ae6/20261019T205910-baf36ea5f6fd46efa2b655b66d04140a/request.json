@@ -1,0 +1,103 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/dunbaria/r001/build-config.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/rebuild-runs/build/dunbaria/r001/rebuild-2/96e36ca21066c48efcfa6a21e2a73caa0d89b39d360ac89b49106f0d65e94ae6/20261019T205910-baf36ea5f6fd46efa2b655b66d04140a/outputs"
+  ],
+  "created_at": "2026-10-19T20:59:10.991201+00:00",
+  "fingerprint": "96e36ca21066c48efcfa6a21e2a73caa0d89b39d360ac89b49106f0d65e94ae6",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 2511,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/dunbaria/r001/brief.json",
+        "sha256": "a354aeaa8549eecf09fbe858430aca47eade271f1ecbbe1e11d11018b8f7c02b"
+      },
+      "config": {
+        "bytes": 481,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/dunbaria/r001/build-config.json",
+        "sha256": "9266fa202963600ee0efa521fb98022fb19339d31e33e49d8108c5398976bd0c"
+      },
+      "generator": {
+        "bytes": 13980,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+        "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1596,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/dunbaria/r001/references.json",
+        "sha256": "8e2bd938aa87e9d07e16c744ba85f612a8721fd897b4ddf7b776c76b7142f998"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "dunbaria",
+      "config": {
+        "purpose": "Independent executed deterministic rebuild; maker technical self-check, not independent visual QA"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/dunbaria/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/dunbaria/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/dunbaria/r001/references.json"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "dunbaria/dunbaria.glb",
+        "dunbaria/dunbaria.blend",
+        "dunbaria/metadata.json",
+        "dunbaria/qa.json",
+        "dunbaria/build-timing.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261019T205900-9152999753e84c88802012dbe821fc6c"
+}

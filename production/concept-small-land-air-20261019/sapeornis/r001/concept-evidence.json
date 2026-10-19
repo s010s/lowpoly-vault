@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "sapeornis",
+  "revision": "r001",
+  "labels": {
+    "en": "Sapeornis-inspired broad-winged bird",
+    "zh-CN": "会鸟灵感宽翼小鸟"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "sapeornis/r001/output/sapeornis/sapeornis.glb",
+      "sha256": "7b0aef80ee8327ebc06a8372fc63fce63c393a62451820b4bd183ff868b2755b"
+    },
+    "source": {
+      "path": "sapeornis/r001/output/sapeornis/sapeornis.blend",
+      "sha256": "fe598c50f50823d38e50a15aa1ce903dd1264f17d05cda20194c7b3396d7a734"
+    },
+    "generator": {
+      "path": "generator-r001.py",
+      "sha256": "f7d8e34c1b6e4a531869eba74070f7149a909eafe248d82ddb93f97946946dc7"
+    },
+    "config": {
+      "path": "sapeornis/r001/build-config.json",
+      "sha256": "39e714546e7f690136f57afa0f83b40240382a07b65eb799ecfe2e54e8ff1795"
+    },
+    "brief": {
+      "path": "sapeornis/r001/brief.json",
+      "sha256": "a1931a260a3ee691c7a40bb3b359b5f02fd33d7089b8f310643774845c99b558"
+    },
+    "references": {
+      "path": "sapeornis/r001/references.json",
+      "sha256": "7870b82f5a84b86e29d1bbebdd38a30896dd860885f5a22f12736e603376dd1f"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "cdb7c3cafaad90d33aedb2ab278617681b155dba1146ef910f63b61bcddf3015"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f38345080c8114102f9577a1586e34bd923887c5cc78ebfb95e21fa91b2362d9"
+    },
+    "images": [
+      {
+        "id": "original-sheet",
+        "view": "four rows; paired aesthetic oblique and lateral proposals",
+        "path": "concept-original.png",
+        "sha256": "8f68a38e54029325ccafbc237ff98831814d212dd68abb8f75426c73f2d2e0af"
+      }
+    ],
+    "cross_view_consistency_note": "Both concept views are oblique, not calibrated orthographic. Author full bilateral wings, feather thickness and rounded underside; do not claim an exact count of fossil feathers. Soaring pose and wing span are artistic approximations.",
+    "hidden_surface_decisions": "Full volumetric bodies, closed thick feather/wing meshes and tapered closed limb tubes; underside and paired appendages deliberately authored. No concept image used as texture or plane."
+  },
+  "chronology": {
+    "concept_generated_at": "2026-10-19T20:52:40+00:00",
+    "concept_inspected_at": "2026-10-19T20:52:53+00:00",
+    "modeling_started_at": "2026-10-19T20:55:23.112661+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 47.0,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "f38345080c8114102f9577a1586e34bd923887c5cc78ebfb95e21fa91b2362d9"
+      },
+      "note": "UTC pre-call to observed return, includes tool/orchestration latency; no throughput claim."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Elapsed active work not separately measured; do not infer from mtimes."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 0.617905549999989,
+      "measurement_record": {
+        "path": "sapeornis/r001/output/sapeornis/build-timing.json",
+        "sha256": "27f492ce98d307cbe34f96589eedd93e790e40d5a60cfd96f8bacffee79fc71b"
+      },
+      "note": "Blender geometry construction and export process only; excludes generator authoring, failed renderer retry and QA."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 8.2786,
+      "measurement_record": {
+        "path": "sapeornis/r001/proof/render-manifest.json",
+        "sha256": "beb935c1710cbf06722d5d27a445348babed3e69902349eb39deac01dfc7ed2d"
+      },
+      "note": "Successful final diagnostic render run only; failed copied-renderer attempt is separately retained."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Elapsed active work not separately measured; do not infer from mtimes."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Parent task owns independent runtime/GPU/populated-scene evidence."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "sapeornis/r001/proof/render-manifest.json",
+    "sha256": "beb935c1710cbf06722d5d27a445348babed3e69902349eb39deac01dfc7ed2d"
+  },
+  "thumbnail": {
+    "path": "sapeornis/r001/proof/hero.png",
+    "sha256": "0361f8dfdfc40a7dbdd666692821e2c30a6388fcfd0ec7c4bc5db37802967331",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "sapeornis/r001/maker-review.md",
+    "sha256": "9ac1fb2321cff3e8d82f4da02a35d1c8c768dd782f3f6e7d5b6655a406e33a34"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "khronos": {
+    "glb_sha256": "7b0aef80ee8327ebc06a8372fc63fce63c393a62451820b4bd183ff868b2755b",
+    "report": {
+      "path": "sapeornis/r001/output/sapeornis/gltf-validator.report.json",
+      "sha256": "52e6f5208469c0fd2b061e9cce1abd5d5a42873ca8e1c8793e827c07e4367bdc"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting scene-life candidate. Preserve recognizable volume and editable parts; no byte target establishes quality."
+  }
+}

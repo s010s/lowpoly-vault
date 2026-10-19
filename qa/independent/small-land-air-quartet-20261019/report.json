@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "kind": "independent_candidate_qa_report",
+  "created_at": "2026-10-19",
+  "candidate_branch": "candidate/small-land-air-quartet-main-20261019",
+  "frozen_git_sha": "68483aa3b8eed2d86f9e59a930128d99579b0838",
+  "candidate_state_in_handoff": "candidate_pending_independent_qa",
+  "overall_status": "limited_qa_pass_with_formal_and_release_blockers",
+  "scope": "Independent QA of the four r001 assets only. This report is not publication approval, release decision, inventory approval, scientific reconstruction, hardware GPU certification, or parent-scene acceptance. No model, source, handoff, brief or original metadata was modified.",
+  "checks": {
+    "frozen_source_integrity": {
+      "status": "pass",
+      "evidence": "metadata/freeze-bindings.json",
+      "detail": "All artifact SHA-256 values listed in frozen handoff.json match."
+    },
+    "format_and_glb_static": {
+      "status": "pass_with_documented_warning",
+      "evidence": "technical/<asset>/static-glb.report.json",
+      "detail": "All four GLBs pass the static profile with no errors. Sapeornis has one understood mounting-point warning: lower glTF Y is -0.076228m because it uses flight-body-center mount."
+    },
+    "khronos_glb_validator": {
+      "status": "pass",
+      "validator": "Khronos glTF Validator 2.0.0-dev.3.10",
+      "evidence": "technical/<asset>/gltf-validator.report.json",
+      "detail": "All four assets: 0 errors, 0 warnings, 0 infos, 0 hints."
+    },
+    "blend_to_glb_consistency": {
+      "status": "pass_with_sapeornis_mount_warning",
+      "evidence": "source-export/<asset>/source-export.report.json",
+      "detail": "Fresh .blend source-export checks matched triangle counts and bounds to exact frozen GLBs for all four. Sapeornis retains only its documented flight-body-center mount lower-bound warning."
+    },
+    "fresh_blender_glb_reimport_views": {
+      "status": "pass_visual_observation",
+      "evidence": "renders/<asset>/",
+      "detail": "Imported exact frozen GLBs in Blender, generated and inspected eleven multi-angle hero/reverse/front/rear/left/right/top/bottom/clay/alternate-clay/wire views; added 512px inspection views for Dunbaria and Chimerarachne. This is not candidate approval."
+    },
+    "brief_budget": {
+      "status": "pass",
+      "evidence": "Frozen handoff metrics and production/.../<asset>/r001/brief.json",
+      "detail": "Each asset is below 16,000 triangles, 8 materials, 160 primitives, and 1,000,000 bytes. Counts are 1,418–5,744 triangles, 5–7 exported materials, 26–78 primitives, and 98,176–340,260 bytes."
+    },
+    "concept_provenance_and_visual_review": {
+      "status": "limited_review_no_critical_readability_defect",
+      "evidence": "visual-review.json and production/concept-small-land-air-20261019/<asset>/r001/concept-evidence.json",
+      "detail": "Original ImageGen sheet and exact-GLB views inspected. Concept returned 20:52:40 UTC; the recorded inspection was 20:52:53; briefs froze at 20:53:57; Blender construction began after inspection. Sapeornis r001 pointed outer wing is visible but not a child-style recognition/constructability blocker; r002 paddle tips bring no clear craft gain. No geometry change requested."
+    },
+    "software_webgl_parse_and_small_scenes": {
+      "status": "pass_limited_software_webgl",
+      "evidence": "runtime/software-webgl-scene.report.json and runtime/*.png",
+      "detail": "Three.js 180 / Chromium 154 / WebGL2 on ANGLE SwiftShader. Exact GLB hashes were verified before load; no console or page errors and no context loss."
+    },
+    "candidate_record_and_metadata_gate": {
+      "status": "blocked",
+      "evidence": "metadata/candidate-record-validation.report.json and metadata/metadata-audit.json",
+      "detail": "No candidate.json exists; formal candidate schema/evidence validation fails closed. All four metadata preview paths point to missing files. Sapeornis metadata generator points to generator.py, while the frozen handoff pins generator-r001.py."
+    },
+    "parent_hardware_and_populated_scene": {
+      "status": "not_tested",
+      "detail": "This independent branch tested software SwiftShader only. Target hardware GPU and parent production scene have not been observed."
+    }
+  },
+  "assets": [
+    {
+      "id": "sapeornis",
+      "revision": "r001",
+      "glb_sha256": "7b0aef80ee8327ebc06a8372fc63fce63c393a62451820b4bd183ff868b2755b",
+      "blend_sha256": "fe598c50f50823d38e50a15aa1ce903dd1264f17d05cda20194c7b3396d7a734",
+      "triangles": 5744,
+      "materials": 6,
+      "primitives": 78,
+      "glb_bytes": 340260,
+      "dimensions_glb_xyz_m": [
+        0.9432409405708313,
+        0.2109779715538025,
+        0.4498863220214844
+      ],
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "hints": 0
+      },
+      "static_status": "pass_with_warnings",
+      "static_warnings": [
+        "Lowest glTF Y is -0.076228 m; verify mounting/ground contract"
+      ],
+      "source_export_status": "pass_with_warnings",
+      "source_export_warnings": [
+        "source: Lowest Blender Z is -0.076228 m; verify mount/ground contract",
+        "glb: Lowest glTF Y is -0.076228 m; verify mounting/ground contract"
+      ]
+    },
+    {
+      "id": "longirostravis",
+      "revision": "r001",
+      "glb_sha256": "10668416201cf7ec57e48285019fcd0738e6bb69665fd8fb519559aabaa6bd83",
+      "blend_sha256": "b9ccf3e817136a22c848afcb4a6f48b7791c31acb32ef86b0c7eb841d140ebe3",
+      "triangles": 2428,
+      "materials": 7,
+      "primitives": 35,
+      "glb_bytes": 160264,
+      "dimensions_glb_xyz_m": [
+        0.09134770184755325,
+        0.1364736513933167,
+        0.31862883269786835
+      ],
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "hints": 0
+      },
+      "static_status": "pass",
+      "static_warnings": [],
+      "source_export_status": "pass",
+      "source_export_warnings": []
+    },
+    {
+      "id": "dunbaria",
+      "revision": "r001",
+      "glb_sha256": "2f584412b3318fa3969e6b008271df107f73fe9f00c8f304c04bfa47e134311e",
+      "blend_sha256": "27a429059cbacb2f93563cf7a132a09ebe04eb6b7961e8234c85528d85ea4730",
+      "triangles": 1582,
+      "materials": 7,
+      "primitives": 31,
+      "glb_bytes": 113700,
+      "dimensions_glb_xyz_m": [
+        0.05950000137090683,
+        0.008247961668530479,
+        0.054343411698937416
+      ],
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "hints": 0
+      },
+      "static_status": "pass",
+      "static_warnings": [],
+      "source_export_status": "pass",
+      "source_export_warnings": []
+    },
+    {
+      "id": "chimerarachne",
+      "revision": "r001",
+      "glb_sha256": "848328130f8874bc6c81b0636d8bfc78f76d04b46cfa0786fe7d978f28e3ad6c",
+      "blend_sha256": "02db9598d09e548f42e72cd443a87b8028dd6d76dd40a4676ef79b4070609259",
+      "triangles": 1418,
+      "materials": 5,
+      "primitives": 26,
+      "glb_bytes": 98176,
+      "dimensions_glb_xyz_m": [
+        0.003833540016785264,
+        0.0012331899670243729,
+        0.007156523410230875
+      ],
+      "khronos": {
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "hints": 0
+      },
+      "static_status": "pass",
+      "static_warnings": [],
+      "source_export_status": "pass",
+      "source_export_warnings": []
+    }
+  ],
+  "software_webgl": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "vendor": "Google Inc. (Google)",
+    "three_version": "180",
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "scenarios": [
+      {
+        "id": "one-each",
+        "instances_per_asset": 1,
+        "instances_total": 4,
+        "render_calls": 171,
+        "rendered_triangles": 11174,
+        "frame_ms_median": 1.5,
+        "frame_ms_max": 2.300000000046566,
+        "webgl_context_lost": false
+      },
+      {
+        "id": "normal-8-each",
+        "instances_per_asset": 8,
+        "instances_total": 32,
+        "render_calls": 1361,
+        "rendered_triangles": 89378,
+        "frame_ms_median": 2.199999999953434,
+        "frame_ms_max": 2.5,
+        "webgl_context_lost": false
+      },
+      {
+        "id": "stress-32-each",
+        "instances_per_asset": 32,
+        "instances_total": 128,
+        "render_calls": 5441,
+        "rendered_triangles": 357506,
+        "frame_ms_median": 9.100000000093132,
+        "frame_ms_max": 10.899999999906868,
+        "webgl_context_lost": false
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "runtime/one-each.png",
+        "bytes": 43969,
+        "sha256": "4412dd00de5127275b89cf9bb7b0848a737b3654a33b5e4a41f5a6af68d2a417"
+      },
+      {
+        "path": "runtime/normal-8-each.png",
+        "bytes": 37127,
+        "sha256": "89ded21e6a3a9cd16db2b7b69be2858cde64b0878d40715ab0a7e109bf17cbf8"
+      },
+      {
+        "path": "runtime/stress-32-each.png",
+        "bytes": 25671,
+        "sha256": "ddf71d1bdd765ad85a7a575481cae42aa414ea0a6ab4e043da2605dd263392c7"
+      }
+    ]
+  },
+  "visual_review_path": "qa/independent/small-land-air-quartet-20261019/visual-review.json",
+  "metadata_audit_path": "qa/independent/small-land-air-quartet-20261019/metadata/metadata-audit.json",
+  "freeze_bindings_path": "qa/independent/small-land-air-quartet-20261019/metadata/freeze-bindings.json",
+  "candidate_record_validation_path": "qa/independent/small-land-air-quartet-20261019/metadata/candidate-record-validation.report.json",
+  "blocking_items_for_formal_gate_or_release": [
+    "Create a candidate.json record binding exact brief/reference/GLB and editable Blend where required, review evidence and immutable hashes; rerun scripts/validate_candidate.py.",
+    "Provide each missing metadata preview artifact and point metadata at the exact reviewed poster bytes.",
+    "Correct Sapeornis metadata generator binding to handoff-pinned generator-r001.py or reconcile provenance without changing model geometry.",
+    "Complete parent-owned actual GPU and populated-scene checks. Native-scale WebGL rendering exposes a visibility/layout issue for tiny Chimerarachne; deliberately frame or size its scene instance while retaining frozen asset size.",
+    "Record independent visual, factual and specification evidence against each exact candidate hash; keep Sapeornis outer-wing limitation and stylized taxonomy boundaries explicit."
+  ],
+  "claims_and_limits": [
+    "Sapeornis: broad wings/fan tail are consistent with consulted interpretation, but this is stylized and r001 outer tips differ visibly from concept.",
+    "Longirostravis: long slender rostrum is a supported inspiration; stylized beak and simplified teeth are not a toothless/exact-fossil claim.",
+    "Dunbaria: four main wings, small front lobes and long cerci read as intended; lobe shape and venation remain simplified.",
+    "Chimerarachne: eight walking legs, segmented abdomen and whip tail are visible; spinneret homology, eye count, sex-specific palp and phylogenetic placement are not asserted.",
+    "Counts, byte sizes and dimensions are export facts. Chimerarachne is about 7.16mm across its model bounding box; no fossil measurement claim is made."
+  ]
+}

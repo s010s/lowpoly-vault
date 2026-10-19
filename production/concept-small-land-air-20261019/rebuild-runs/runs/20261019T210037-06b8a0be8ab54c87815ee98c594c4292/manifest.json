@@ -1,0 +1,78 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "sapeornis",
+      "config": {
+        "purpose": "Independent executed deterministic rebuild; maker technical self-check, not independent visual QA"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/sapeornis/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/sapeornis/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator-r001.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/sapeornis/r001/references.json"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "sapeornis/sapeornis.glb",
+        "sapeornis/sapeornis.blend",
+        "sapeornis/metadata.json",
+        "sapeornis/qa.json",
+        "sapeornis/build-timing.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "sapeornis",
+      "config": {
+        "purpose": "Independent executed deterministic rebuild; maker technical self-check, not independent visual QA"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/sapeornis/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/sapeornis/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator-r001.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/sapeornis/r001/references.json"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "sapeornis/sapeornis.glb",
+        "sapeornis/sapeornis.blend",
+        "sapeornis/metadata.json",
+        "sapeornis/qa.json",
+        "sapeornis/build-timing.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

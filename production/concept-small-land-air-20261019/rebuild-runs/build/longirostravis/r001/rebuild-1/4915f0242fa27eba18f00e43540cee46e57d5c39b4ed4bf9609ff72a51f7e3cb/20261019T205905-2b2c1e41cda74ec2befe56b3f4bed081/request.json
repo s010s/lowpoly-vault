@@ -1,0 +1,103 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/longirostravis/r001/build-config.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/rebuild-runs/build/longirostravis/r001/rebuild-1/4915f0242fa27eba18f00e43540cee46e57d5c39b4ed4bf9609ff72a51f7e3cb/20261019T205905-2b2c1e41cda74ec2befe56b3f4bed081/outputs"
+  ],
+  "created_at": "2026-10-19T20:59:05.488490+00:00",
+  "fingerprint": "4915f0242fa27eba18f00e43540cee46e57d5c39b4ed4bf9609ff72a51f7e3cb",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 2461,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/longirostravis/r001/brief.json",
+        "sha256": "e5db584733786b710b4b552c6d7754ed4ea9c97915f2aeaca8676f7561d5b139"
+      },
+      "config": {
+        "bytes": 486,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/longirostravis/r001/build-config.json",
+        "sha256": "d3d714afb2750ca575623062ab30a891ca2ced7faa615f42c7be9071b6e5e69e"
+      },
+      "generator": {
+        "bytes": 13980,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+        "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1444,
+        "path": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/longirostravis/r001/references.json",
+        "sha256": "9c9ffcb2267b0698bf095ccf075f9998cd77fd46c271213d00e51493ae236a36"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "longirostravis",
+      "config": {
+        "purpose": "Independent executed deterministic rebuild; maker technical self-check, not independent visual QA"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/longirostravis/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/longirostravis/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/longirostravis/r001/references.json"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "longirostravis/longirostravis.glb",
+        "longirostravis/longirostravis.blend",
+        "longirostravis/metadata.json",
+        "longirostravis/qa.json",
+        "longirostravis/build-timing.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261019T205900-9152999753e84c88802012dbe821fc6c"
+}

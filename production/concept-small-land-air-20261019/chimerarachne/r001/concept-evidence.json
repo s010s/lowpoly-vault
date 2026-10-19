@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "chimerarachne",
+  "revision": "r001",
+  "labels": {
+    "en": "Chimerarachne-inspired tailed arachnid",
+    "zh-CN": "奇美拉蛛灵感尾鞭蛛形动物"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "chimerarachne/r001/output/chimerarachne/chimerarachne.glb",
+      "sha256": "848328130f8874bc6c81b0636d8bfc78f76d04b46cfa0786fe7d978f28e3ad6c"
+    },
+    "source": {
+      "path": "chimerarachne/r001/output/chimerarachne/chimerarachne.blend",
+      "sha256": "02db9598d09e548f42e72cd443a87b8028dd6d76dd40a4676ef79b4070609259"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+    },
+    "config": {
+      "path": "chimerarachne/r001/build-config.json",
+      "sha256": "468d9933101db5867d24d46fd46c03104e26e07625d48d68e9da7676189b9da4"
+    },
+    "brief": {
+      "path": "chimerarachne/r001/brief.json",
+      "sha256": "8b453e1c3dd836b070c78c61a593b2751f21c97a848a201dc8036551ab967766"
+    },
+    "references": {
+      "path": "chimerarachne/r001/references.json",
+      "sha256": "c93746e53d01952b3f26295e1e4224131ea66ce30781dbac5ad6f6301bd924f6"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "cdb7c3cafaad90d33aedb2ab278617681b155dba1146ef910f63b61bcddf3015"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f38345080c8114102f9577a1586e34bd923887c5cc78ebfb95e21fa91b2362d9"
+    },
+    "images": [
+      {
+        "id": "original-sheet",
+        "view": "four rows; paired aesthetic oblique and lateral proposals",
+        "path": "concept-original.png",
+        "sha256": "8f68a38e54029325ccafbc237ff98831814d212dd68abb8f75426c73f2d2e0af"
+      }
+    ],
+    "cross_view_consistency_note": "Concept pedipalps too large and some legs overlap. Author exactly eight well-separated walking legs plus visibly shorter simple pedipalps; smooth a few abdomen plate transitions, preserve segmentation. Spinnerets simplified. Tail curvature, colour and eye placement artistic; no sex-exact or taxonomic placement assertion.",
+    "hidden_surface_decisions": "Full volumetric bodies, closed thick feather/wing meshes and tapered closed limb tubes; underside and paired appendages deliberately authored. No concept image used as texture or plane."
+  },
+  "chronology": {
+    "concept_generated_at": "2026-10-19T20:52:40+00:00",
+    "concept_inspected_at": "2026-10-19T20:52:53+00:00",
+    "modeling_started_at": "2026-10-19T20:55:41.678415+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 47.0,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "f38345080c8114102f9577a1586e34bd923887c5cc78ebfb95e21fa91b2362d9"
+      },
+      "note": "UTC pre-call to observed return, includes tool/orchestration latency; no throughput claim."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Elapsed active work not separately measured; do not infer from mtimes."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 0.3643020149999643,
+      "measurement_record": {
+        "path": "chimerarachne/r001/output/chimerarachne/build-timing.json",
+        "sha256": "66458ee2e5cd62fc5232ff817fd6ab55a3b425688150329f961059aaf1dfee90"
+      },
+      "note": "Blender geometry construction and export process only; excludes generator authoring, failed renderer retry and QA."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 7.5347,
+      "measurement_record": {
+        "path": "chimerarachne/r001/proof-macro-attempt02/render-manifest.json",
+        "sha256": "58d90626e1508659a3461568577d8d92962935867475ee0133418f2b890f4a5f"
+      },
+      "note": "Successful final diagnostic render run only; failed copied-renderer attempt is separately retained."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Elapsed active work not separately measured; do not infer from mtimes."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Parent task owns independent runtime/GPU/populated-scene evidence."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "chimerarachne/r001/proof-macro-attempt02/render-manifest.json",
+    "sha256": "58d90626e1508659a3461568577d8d92962935867475ee0133418f2b890f4a5f"
+  },
+  "thumbnail": {
+    "path": "chimerarachne/r001/proof-macro-attempt02/hero.png",
+    "sha256": "1c96d5341c2afd0b3e74bde38863b67e74aefe7305db2ea14b4a91bcc853d281",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "chimerarachne/r001/maker-review.md",
+    "sha256": "a474c22814e2a3aa1ea5aea5d8336ecb85d4ca9c29a7d4510979d5a2adb66c23"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "khronos": {
+    "glb_sha256": "848328130f8874bc6c81b0636d8bfc78f76d04b46cfa0786fe7d978f28e3ad6c",
+    "report": {
+      "path": "chimerarachne/r001/output/chimerarachne/gltf-validator.report.json",
+      "sha256": "c1fe572fc0759eb64cdd4767355e5ab762a00fa0e31adce4d49da7c92ae7305d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting scene-life candidate. Preserve recognizable volume and editable parts; no byte target establishes quality."
+  }
+}
