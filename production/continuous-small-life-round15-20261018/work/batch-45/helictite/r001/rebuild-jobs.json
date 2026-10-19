@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "helictite",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/helictite/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/helictite/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch45/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch45/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/helictite/brief.json",
+        "references": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/helictite/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/helictite/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "helictite",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "helictite/helictite.blend",
+        "helictite/helictite.glb",
+        "helictite/qa.json",
+        "helictite/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch45 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "helictite",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/helictite/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/helictite/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch45/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch45/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/helictite/brief.json",
+        "references": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/helictite/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/helictite/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "helictite",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "helictite/helictite.blend",
+        "helictite/helictite.glb",
+        "helictite/qa.json",
+        "helictite/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch45 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
