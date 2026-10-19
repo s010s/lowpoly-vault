@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "pteraspis",
+  "revision": "r001",
+  "labels": {
+    "en": "Pteraspis-inspired swimmer"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "pteraspis/r001/output/pteraspis.glb",
+      "sha256": "3e2672cdef0f412d29a3c6de23b204ca966e65d827e99503850e314fb74b0674"
+    },
+    "source": {
+      "path": "pteraspis/r001/output/pteraspis.blend",
+      "sha256": "73cc00ccf544182481ce56664574ce3b99e55a128f3245263096f1a5654cbc08"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "8836e09eddfc35efcc8d5d1e893cd6b5c999133b0fd78494bce4ae1e4530d66d"
+    },
+    "config": {
+      "path": "pteraspis/r001/build-config.json",
+      "sha256": "89a76794a6545cd92c3c867db444aac800e3c048245baed81113df511ee32667"
+    },
+    "brief": {
+      "path": "pteraspis/r001/brief.json",
+      "sha256": "d2bf788c9e1ba25930538deea12d0412868af16d5a6a21b80def4fbed105cb07"
+    },
+    "references": {
+      "path": "pteraspis/r001/references.json",
+      "sha256": "1b3f3ceb0f3275440c02d013939123fdc5c8352b2c4f4218ef1573cec4096c8f"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "8abb22341b667d52d084d08daf8a88903eaba38ed1dade4af33fdfadfc64cf92"
+    },
+    "generation_record": {
+      "path": "closure-20261019/concept-generation-current.json",
+      "sha256": "20689860056068a1318a63d6592ef0910b142bfd2fc9d46b3db6d2b0b6476a89"
+    },
+    "images": [
+      {
+        "id": "original-sheet",
+        "view": "three-quarter, lateral, top design proposals; four rows",
+        "path": "concept-original.png",
+        "sha256": "73d42622f7fb3a4945f11ca4ae313fc537fbeeab03523939938fb4eb79d3fda1"
+      }
+    ],
+    "cross_view_consistency_note": "See pre-model brief: Falcatus tip-to-nose contact rejected and Pteraspis caudal lobe choice resolved explicitly. Concept has no calibrated camera. Current row 3",
+    "hidden_surface_decisions": "Bilateral paired landmarks; volumetric cross-section loft, closed thick fins, intentional regional belly color; rear and underside independently authored."
+  },
+  "chronology": {
+    "concept_generated_at": "2026-10-19T15:57:08.648462002Z",
+    "concept_inspected_at": null,
+    "modeling_started_at": "2026-10-19T16:01:52.904053+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual wall time unrecorded; no inferred timing or throughput claim."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual wall time unrecorded; no inferred timing or throughput claim."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual wall time unrecorded; no inferred timing or throughput claim."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual wall time unrecorded; no inferred timing or throughput claim."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual wall time unrecorded; no inferred timing or throughput claim."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser/GPU not run in this concept evidence record; Node parse is separately reported."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "pteraspis/r001/proof/render-manifest.json",
+    "sha256": "ca898d613c86b261e59bf89946b7d39bea4b01740924ca89cd13e5cd65763c87"
+  },
+  "thumbnail": {
+    "path": "pteraspis/r001/proof/hero.png",
+    "sha256": "304123568a834f03f1e4c2d4620fb35c8f8f7ec31dd1f41ff3d9af29540553f4",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "pteraspis/r001/self-check.md",
+    "sha256": "1f19cc4a08c6693df310e878dfbf9d34073a2417feb0da706c2eb111df38f1a1"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "khronos": {
+    "glb_sha256": "3e2672cdef0f412d29a3c6de23b204ca966e65d827e99503850e314fb74b0674",
+    "report": {
+      "path": "pteraspis/r001/output/gltf-validator.report.json",
+      "sha256": "cde1b168aaaf7ff1752a17189c8636d8a9652f810f343f2fb686e045bd3bfb8c"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Small supporting child-scene prop, inspected at 128\u2013512 pixels. Geometry spent on volume/identifying landmarks; no runtime or global byte-cap claim."
+  }
+}

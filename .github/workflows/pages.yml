@@ -34,11 +34,6 @@ jobs:
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
       - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
-      - name: Full publication rejection regressions
-        if: steps.reuse.outputs.reused != 'true'
-        run: npm run test:publication
-      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
-        if: steps.reuse.outputs.reused != 'true'
       - run: npm run build
         if: steps.reuse.outputs.reused != 'true'
         id: build_site
@@ -51,9 +46,26 @@ jobs:
         env:
           REQUIRE_COMPLETE_GALLERY: '1'
         run: node site/audit-release.mjs
+      - name: Preserve audited gallery captures for source integration
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-gallery-capture-${{ github.sha }}
+          path: |
+            dist/gallery/
+            dist/assets/manifest.json
+          if-no-files-found: error
+      - name: Full publication rejection regressions
+        if: steps.reuse.outputs.reused != 'true'
+        run: npm run test:publication
+      - if: steps.reuse.outputs.reused != 'true'
+        run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
       - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
         if: steps.reuse.outputs.reused != 'true'
         run: npm run test:gallery:browser
+      - name: Exact seven concept assets, renderer, downloads and bilingual source labels
+        if: steps.reuse.outputs.reused != 'true'
+        run: node site/concept-seven-browser-test.mjs
       - name: Parse original and published models, decoding embedded textures in Chromium
         if: steps.reuse.outputs.reused != 'true'
         run: npm run test:parser
@@ -84,6 +96,7 @@ jobs:
             qa/animation-refinements/interaction/
             qa/threejs-parser.json
             qa/approved-gallery-browser/
+            qa/concept-seven-release-20261019/browser/
       - name: Record exact successful PR build payload
         if: github.event_name == 'pull_request'
         env:
@@ -96,6 +109,7 @@ jobs:
           name: validated-pages-${{ github.run_attempt }}
           path: qa/ci-provenance/pages/
           if-no-files-found: error
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

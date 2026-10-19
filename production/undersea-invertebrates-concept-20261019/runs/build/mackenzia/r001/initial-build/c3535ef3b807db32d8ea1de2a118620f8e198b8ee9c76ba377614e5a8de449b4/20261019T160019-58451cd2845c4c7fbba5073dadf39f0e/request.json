@@ -1,0 +1,88 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/build-config.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/undersea-invertebrates-concept-20261019/runs/build/mackenzia/r001/initial-build/c3535ef3b807db32d8ea1de2a118620f8e198b8ee9c76ba377614e5a8de449b4/20261019T160019-58451cd2845c4c7fbba5073dadf39f0e/outputs"
+  ],
+  "created_at": "2026-10-19T16:00:19.351232+00:00",
+  "fingerprint": "c3535ef3b807db32d8ea1de2a118620f8e198b8ee9c76ba377614e5a8de449b4",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 567,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/build-config.json",
+        "sha256": "466d69098d99c6fdd4b6c414e86c7eac960a526cc30f2a823a51010f0656457d"
+      },
+      "generator": {
+        "bytes": 10482,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/generator.py",
+        "sha256": "427f9b4597ed086e496c59459a98b5527d4a293f31ba41bab15dd5790cfa7193"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "mackenzia",
+      "config": {
+        "concept_frozen": "2026-10-19T15:58:29.842711+00:00"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py"
+      },
+      "job_id": "initial-build",
+      "outputs": [
+        "mackenzia/mackenzia.glb",
+        "mackenzia/mackenzia.blend",
+        "mackenzia/metadata.json",
+        "mackenzia/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261019T160008-9e2d681e1c0343eca04076279256929f"
+}

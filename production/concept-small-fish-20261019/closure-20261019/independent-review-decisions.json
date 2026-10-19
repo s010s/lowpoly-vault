@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent scoped study QA",
+  "requested_qa_model": "GPT-6 Luna XHigh",
+  "candidate_commit": "3196c36c51d5a14487dcd4ebbebcafc00aa933d7",
+  "base_main_commit": "bac6621fc39144b3759c53b1b27231ac1b6e21c6",
+  "decision": "pass_for_bounded_concept_study",
+  "formal_production_acceptance": "not_approved",
+  "release_authorized": false,
+  "model_files_modified": false,
+  "assets": {
+    "metaspriggina": {
+      "decision": "pass",
+      "brief_and_art": "pass",
+      "technical_file": "pass",
+      "source_to_glb": "pass",
+      "facts_within_inspired_claim_scope": "pass",
+      "unresolved_blocker": false,
+      "model_correction_recommended": false,
+      "nonblocking_note": "Clean-import length 0.06552 m versus approximate 0.070 m brief length."
+    },
+    "falcatus": {
+      "decision": "pass",
+      "brief_and_art": "pass",
+      "technical_file": "pass",
+      "source_to_glb": "pass",
+      "facts_within_inspired_claim_scope": "pass",
+      "unresolved_blocker": false,
+      "model_correction_recommended": false,
+      "nonblocking_note": "Clean-import length 0.26712 m versus approximate 0.280 m brief length; male-inspired spine remains separated from the snout."
+    },
+    "pteraspis": {
+      "decision": "pass_for_stylized_scope",
+      "brief_and_art": "pass",
+      "technical_file": "pass",
+      "source_to_glb": "pass",
+      "facts_within_inspired_claim_scope": "pass",
+      "exact_reconstruction_anatomy": "unknown",
+      "unresolved_blocker": false,
+      "model_correction_recommended": false,
+      "nonblocking_note": "Clean-import length 0.23920 m versus approximate 0.230 m brief length; exact shield/tail restoration remains unverified and is not claimed."
+    },
+    "dorypterus": {
+      "decision": "pass_with_scale_note",
+      "brief_and_art": "pass",
+      "technical_file": "pass",
+      "source_to_glb": "pass",
+      "facts_within_inspired_claim_scope": "pass",
+      "unresolved_blocker": false,
+      "model_correction_recommended": false,
+      "nonblocking_note": "Clean-import length 0.09960 m versus approximate 0.120 m brief/config length, 17.0% shorter. Reconcile only if a downstream scene relies on exactly 12 cm."
+    }
+  },
+  "formal_gates_remaining": [
+    "concept_generated_at and concept_inspected_at remain null for all four assets; do not reconstruct them from mtimes",
+    "hardware GPU and 8/32-copy target scene tests were not run; the browser check used SwiftShader and one copy of each asset",
+    "Pteraspis detailed shield/tail anatomy is unverified beyond the stylized concept scope",
+    "GitHub CI incident/queue status was not rerun or used as QA evidence"
+  ]
+}

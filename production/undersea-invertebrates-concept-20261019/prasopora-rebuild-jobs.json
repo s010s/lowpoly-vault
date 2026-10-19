@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "prasopora",
+      "revision": "r003",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "prasopora/prasopora.glb",
+        "prasopora/prasopora.blend",
+        "prasopora/metadata.json",
+        "prasopora/qa.json"
+      ],
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "prasopora",
+      "revision": "r003",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "prasopora/prasopora.glb",
+        "prasopora/prasopora.blend",
+        "prasopora/metadata.json",
+        "prasopora/qa.json"
+      ],
+      "timeout_seconds": 180
+    }
+  ]
+}

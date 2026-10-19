@@ -34,10 +34,14 @@ jobs:
           import {appendFile} from 'node:fs/promises';
           import {resolve} from 'node:path';
           import {prepareRenderCapture} from './site/prepare-render-capture.mjs';
+          import {CONCEPT_SEVEN_IDS} from './site/concept-seven-release.mjs';
           const manifest=await prepareRenderCapture({outDir:resolve(process.env.GALLERY_DIR)});
           const pack=manifest.assets.at(-1).packs[0];
           const ids=manifest.assets.filter(a=>a.packs.includes(pack)).map(a=>a.id);
-          assert.equal(ids.length,12);assert.equal(new Set(ids).size,12);
+          if(manifest.publication?.approved_concept_seven_ids){
+            assert.deepEqual(ids.slice().sort(),CONCEPT_SEVEN_IDS);
+            assert.deepEqual(manifest.publication.approved_concept_seven_ids,CONCEPT_SEVEN_IDS);
+          }else{assert.equal(ids.length,12);assert.equal(new Set(ids).size,12);}
           await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${ids.join(',')}\n`);
           JS
       - run: npx playwright install --with-deps chromium

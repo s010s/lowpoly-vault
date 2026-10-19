@@ -3,7 +3,7 @@ import {spawnSync} from 'node:child_process';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
 const mode=process.argv[2];
-const suites=['initial-release','refined-release','small-life-release','small-fauna-release','small-life-batch-release','small-life-round02-release','small-life-round03-release','small-life-round04-release','small-life-round05-release','small-life-round06-release','small-life-round07-release','small-life-round08-release','small-life-round09-release','small-life-round10-release','small-life-round11-release','small-life-round12-release','small-life-round13-release'];
+const suites=['initial-release','refined-release','small-life-release','small-fauna-release','small-life-batch-release','small-life-round02-release','small-life-round03-release','small-life-round04-release','small-life-round05-release','small-life-round06-release','small-life-round07-release','small-life-round08-release','small-life-round09-release','small-life-round10-release','small-life-round11-release','small-life-round12-release','small-life-round13-release','concept-seven-release'];
 const commands={
  publication:suites.map(name=>({name,command:process.execPath,args:[`site/${name}-test.mjs`]})),
  build:[{name:'publication-check',command:process.execPath,args:['site/ci-publication.mjs']},{name:'vite',command:process.execPath,args:['node_modules/vite/bin/vite.js','build']},{name:'copy-and-package',command:process.execPath,args:['site/copy-assets.mjs']},{name:'full-release-audit',command:process.execPath,args:['site/audit-release.mjs']}]
