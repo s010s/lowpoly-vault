@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "asset_id": "accretionary-lapilli-bed",
+  "brief_version": "round17-plan-v001",
+  "profile": "production",
+  "quality_tier": "environment-prop",
+  "batch_id": "batch-51",
+  "display_name": "Stylized Accretionary lapilli bed",
+  "generic_fallback_name": "Stylized Accretionary lapilli bed teaching prop",
+  "purpose": "Child-friendly seafloor/coastal and natural-history teaching variety, preserving original organ/shell/trace scopes; no exact site or co-occurrence reconstruction.",
+  "subject": {
+    "inventory_name": {
+      "en": "Accretionary lapilli bed",
+      "zh": "增生火山砾层"
+    },
+    "category": "geology",
+    "subcategory": "rock",
+    "planning_eras": [],
+    "representation": "geological-form",
+    "reconstruction_type": "artistic-concept",
+    "pose": "Static teaching presentation, no exact paleolocality or co-occurrence claim.",
+    "process_inspiration": "accretionary-lapilli-bed"
+  },
+  "claim_scope": "Original stylized natural-process or trace-morphology teaching concept; not exact site, dated stratum or excavated specimen duplication.",
+  "distinctness": {
+    "en": "Rounded ash pellets embedded within a visibly layered ash deposit.",
+    "zh": "圆形火山灰团粒嵌在可见层状灰沉积中。"
+  },
+  "modeling_brief": {
+    "en": "Use original low-poly facets to emphasize: rounded ash pellets embedded within a visibly layered ash deposit. Keep secondary texture subordinate to the diagnostic geometry; choose one composition, not counted variants.",
+    "zh": "采用原创低多边形几何突出：圆形火山灰团粒嵌在可见层状灰沉积中。次要纹理服从识别结构；只计一种构图，不靠变体增数。"
+  },
+  "shape_plan_zh": "可读薄灰层与嵌入圆团粒的连续基质，少量剖开粒可显示层次但不伪造微测量；非conglomerate-outcrop缩颗粒改色或蛋窝埋石。只计一种构图，不指定真实喷发/古地点。",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Approved practical profile: eight fixed useful views, no production turntable; add targeted views only for an actual concern.",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "scale": {
+    "meters": 0.6,
+    "axis": "layered ash teaching section width",
+    "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+  },
+  "view_envelope": {
+    "typical_projected_extent_px": [
+      80,
+      240
+    ],
+    "closest_supported_projected_extent_px": 480,
+    "microscopic_closeups_supported": false
+  },
+  "style": "Natural refined low-poly, credible proportions and soft connections; restrained child-friendly cartooning, no mechanical assembly or unnecessary large maps.",
+  "artistic_choices": [
+    "Nominal size, palette and interpretive exposure/section/layout are artistic choices, not measured site data.",
+    "One original inventory ID counts once; color, damage, density and display revisions are not new entries."
+  ],
+  "reference_policy": {
+    "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+    "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+    "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+    "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+    "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+    "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+  },
+  "review_bound": "One independent full model QA round. Required repairs get scoped difference-only recheck, parent coordinates. Release performs necessary launch checks only, no repeated full-batch acceptance.",
+  "publication_authority": "separate",
+  "criteria": [
+    {
+      "id": "technical-integrity",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and measured separate budgets; warnings dispositioned.",
+      "required_sources": []
+    },
+    {
+      "id": "normal-view-craft",
+      "stage": "visual",
+      "critical": true,
+      "description": "All eight fixed QA views and actual-GLB runtime evidence; readable distinct silhouette, credible proportions, soft natural connections at normal/near viewing scale. Counts do not certify beauty.",
+      "required_sources": []
+    },
+    {
+      "id": "basic-form-and-scope",
+      "stage": "factual",
+      "critical": true,
+      "description": "可读薄灰层与嵌入圆团粒的连续基质，少量剖开粒可显示层次但不伪造微测量；非conglomerate-outcrop缩颗粒改色或蛋窝埋石。只计一种构图，不指定真实喷发/古地点。 Preserve original reference scope, uncertainty and representation label. No extra microscopic or precise life-reconstruction obligations.",
+      "required_sources": [
+        "EN-VO3B"
+      ]
+    },
+    {
+      "id": "deliverables-and-label",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable Blend, standalone GLB, deterministic generator/config and dependency hashes, bilingual metadata/scope/provenance/attribution, original small maps if used, transparent cover, eight fixed views and actual-GLB runtime evidence.",
+      "required_sources": []
+    },
+    {
+      "id": "target-loader",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB parsed by pinned target loader; record bounds/material/texture/errors.",
+      "required_sources": []
+    },
+    {
+      "id": "functional-render",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Declared functional graphics runtime; identify software/hardware honestly, no unsupported physical-device performance claim.",
+      "required_sources": []
+    },
+    {
+      "id": "representative-scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts; no actual museum integration or cross-era habitat claim.",
+      "required_sources": []
+    }
+  ],
+  "maker": {
+    "model": "GPT-6.1 Sol",
+    "reasoning": "medium"
+  },
+  "independent_reviewer": {
+    "model": "GPT-6 Luna",
+    "reasoning": "xhigh",
+    "dispatcher": "parent; fresh independent task"
+  },
+  "catalog_facets": {
+    "worlds": [
+      "prehistoric"
+    ],
+    "packs": [
+      "rocks-and-minerals",
+      "volcanic-landscapes"
+    ],
+    "category": "geology",
+    "subcategory": "rock",
+    "taxon_group": null,
+    "eras": [],
+    "biomes": [
+      "volcanic"
+    ],
+    "tags": [
+      "process-analog"
+    ],
+    "representation": "geological-form",
+    "reconstruction_type": "artistic-concept"
+  },
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256",
+    "observed_at_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7"
+  },
+  "candidate_validation_profile": "static-stylized-v1",
+  "candidate_rule_version": "2026-10-18.1",
+  "review_identity_policy": {
+    "prefer_new_context": true,
+    "required_before_verdict": [
+      "exact_batch_id",
+      "exact_asset_id_set",
+      "source_commit",
+      "per_asset_glb_sha256"
+    ],
+    "wrong_subject_result": "invalid_review_wrong_subject; never accepted; do not repair the wrong model"
+  },
+  "review_policy": {
+    "kind": "parent-coordinated-one-independent-review-policy",
+    "authority": "Current explicit parent conveys user instruction",
+    "independent_model_qa_rounds": 1,
+    "maker_model": {
+      "model": "GPT-6.1 Sol",
+      "reasoning": "medium"
+    },
+    "reviewer_model": {
+      "model": "GPT-6 Luna",
+      "reasoning": "xhigh"
+    },
+    "dispatcher": "parent only",
+    "publication_checks": "Necessary deployment/package/identity/availability checks only. Reuse unchanged accepted model evidence; no additional repeated full-batch model acceptance.",
+    "identity_guard": "Match exact batch, four IDs, source and each GLB hash; wrong-subject reply is invalid, not a completed model review.",
+    "changes_or_real_defects": "Mandatory repair sites receive targeted difference-only review against the prior independent findings, not another full-batch independent QA. Parent coordinates exact changed source/GLB evidence; no stale/mismatched PASS.",
+    "publication_authority": "separate",
+    "historical_contract_boundary": "Frozen static profile and integrity/provenance checks retained; workflow does not add a second model-acceptance gate.",
+    "mandatory_repairs_review": "Difference-only recheck of required corrections; exactly one independent full model QA round."
+  }
+}

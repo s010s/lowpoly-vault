@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/diania/r001/generator.py",
+    "--",
+    "--asset",
+    "diania",
+    "--config",
+    "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/diania/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/diania/r001/rebuild-runs/build/diania/r001/semantic-rebuild-2/81e24471edb1d2303ee0e7880d56c1b2f82b93fd1d372075267cdf573ed25585/20261019T033119-61700127f55e47ee8b61147ff0dff633/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-19T03:31:19.689393+00:00",
+  "fingerprint": "81e24471edb1d2303ee0e7880d56c1b2f82b93fd1d372075267cdf573ed25585",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch49/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 11693,
+        "path": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/diania/brief.json",
+        "sha256": "581f2aa7f2d61e89e879a22ca2a41567a308d80444c4ebc82ae3dd4688a8a5fb"
+      },
+      "config": {
+        "bytes": 2338,
+        "path": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/diania/r001/config.json",
+        "sha256": "a4fbe3c0fdca5265853e37af59426ba6a7136421f2f860b7532f1087b2c88691"
+      },
+      "generator": {
+        "bytes": 4898,
+        "path": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/diania/r001/generator.py",
+        "sha256": "0cf341d31a02672f27d70629aef4a803f7013292eb23b0c2f4e4c71dc8d8f7b5"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch49/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 3143,
+        "path": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/diania/inventory-record.json",
+        "sha256": "2366157fc30f604751d0e1991487cefcaf478fbc561f30791c471e8d4ca7adfa"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1350,
+        "path": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/diania/references.json",
+        "sha256": "a8b7612a5473f3628c5ed9bb9c71788a4e016752051264fa9dc62c327a6e575e"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "diania",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "diania",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch49 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch49/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/diania/brief.json",
+        "config": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/diania/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/diania/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch49/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/diania/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/diania/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "diania/diania.blend",
+        "diania/diania.glb",
+        "diania/qa.json",
+        "diania/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T033115-37ab5278b9554e578b6b08b90b228853"
+}
