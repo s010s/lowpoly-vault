@@ -1,0 +1,40 @@
+{
+  "command": [
+    "/usr/bin/blender",
+    "--background",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "scripts/check_source_export.py",
+    "--",
+    "--source",
+    "production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.blend",
+    "--glb",
+    "production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.glb",
+    "--output",
+    "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/source-export/tuzoia.json"
+  ],
+  "elapsed_wall_seconds_monotonic": 1.648442,
+  "finished_at_utc": "2026-10-19T20:53:12.069370+00:00",
+  "input_paths": {
+    "blend": "production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.blend",
+    "glb": "production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.glb"
+  },
+  "input_sha256_after": {
+    "blend": "4f8d4dc532ea26234bddb88f7900b9e795fabef24eb28ae3cc5f3b1faea1501c",
+    "glb": "9f5f09b624b2d99da6c989b0e332903904452ffa9a7f68b2e731a31fb90dfe7c"
+  },
+  "input_sha256_before": {
+    "blend": "4f8d4dc532ea26234bddb88f7900b9e795fabef24eb28ae3cc5f3b1faea1501c",
+    "glb": "9f5f09b624b2d99da6c989b0e332903904452ffa9a7f68b2e731a31fb90dfe7c"
+  },
+  "label": "tuzoia_r003_source_export",
+  "returncode": 0,
+  "started_at_utc": "2026-10-19T20:53:10.420903+00:00",
+  "stderr_log": "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/source-export/tuzoia.stderr.txt",
+  "stdout_log": "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/source-export/tuzoia.stdout.txt"
+}

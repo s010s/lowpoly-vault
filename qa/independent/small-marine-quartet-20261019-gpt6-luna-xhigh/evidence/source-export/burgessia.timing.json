@@ -1,0 +1,40 @@
+{
+  "command": [
+    "/usr/bin/blender",
+    "--background",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "scripts/check_source_export.py",
+    "--",
+    "--source",
+    "production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.blend",
+    "--glb",
+    "production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.glb",
+    "--output",
+    "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/source-export/burgessia.json"
+  ],
+  "elapsed_wall_seconds_monotonic": 2.88344,
+  "finished_at_utc": "2026-10-19T20:53:10.417252+00:00",
+  "input_paths": {
+    "blend": "production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.blend",
+    "glb": "production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.glb"
+  },
+  "input_sha256_after": {
+    "blend": "e9782d5b49947afc0233fcc52e860a51621fb97630525edc6ffef35faa3bac42",
+    "glb": "e75fdf29738520f3d8a3ad3b5d50c582fabd558c086e0a817bbc7a592a315669"
+  },
+  "input_sha256_before": {
+    "blend": "e9782d5b49947afc0233fcc52e860a51621fb97630525edc6ffef35faa3bac42",
+    "glb": "e75fdf29738520f3d8a3ad3b5d50c582fabd558c086e0a817bbc7a592a315669"
+  },
+  "label": "burgessia_r002_source_export",
+  "returncode": 0,
+  "started_at_utc": "2026-10-19T20:53:07.533792+00:00",
+  "stderr_log": "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/source-export/burgessia.stderr.txt",
+  "stdout_log": "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/source-export/burgessia.stdout.txt"
+}
