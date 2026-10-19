@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-19",
+  "source_commit": "fc2f6db4133b62e48b9764e4a33b0fd518e806df",
+  "source_branch": "batch/undersea-invertebrates-concept-20261019",
+  "qa_branch": "qa/undersea-invertebrates-concept-20261019",
+  "reviewed_skill_commit": "bac6621fc39144b3759c53b1b27231ac1b6e21c6",
+  "overall": "pending_final_acceptance",
+  "overall_note": "Three assets pass the reviewed visual and broad factual scope; Ctenoimbricata primary figure pixel review remains unknown. Full-resolution review of every proof frame, target-scene/device performance, and CI remain pending.",
+  "independent_checks": {
+    "blend_reopen_and_exact_glb_import": "pass",
+    "source_to_imported_bounds": "pass; max difference 0 m",
+    "source_to_imported_principled_base_colors": "pass; max absolute linear difference 0.0",
+    "four_asset_chromium_threejs_swiftshader_scene": "pass; zero WebGL errors",
+    "all_proof_frames_opened_individually_at_original_resolution": "partial"
+  },
+  "not_repeated_from_production": [
+    "Khronos glTF Validator",
+    "source/export check",
+    "two deterministic rebuild comparisons",
+    "GitHub Actions / Pages CI"
+  ],
+  "remaining_gates": [
+    "Open all required exact-GLB proof frames individually at original resolution.",
+    "Inspect the original Ctenoimbricata paper Figure 4/5 pixels before factual acceptance.",
+    "Measure physical-device GPU behavior and intended populated target-scene performance.",
+    "Observe queued CI/Pages jobs when the service backlog clears; do not rerun during the incident."
+  ],
+  "assets": [
+    {
+      "asset_id": "mackenzia",
+      "revision": "r001",
+      "visual": "pass",
+      "factual": "pass_for_genus_informed_scope",
+      "model_revision_requested": false,
+      "blend_sha256": "68cc73013eae89fb96fdb9b9feeec7d2743fc5d32943498c64145921858fbdbe",
+      "glb_sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d",
+      "triangles": 1896,
+      "materials": 5,
+      "primitives": 5,
+      "glb_bytes": 103344,
+      "glb_dimensions_mm_xyz": [49.72000048, 140.0000006, 49.72000048]
+    },
+    {
+      "asset_id": "prasopora",
+      "revision": "r003",
+      "visual": "pass",
+      "factual": "pass_for_genus_informed_scope",
+      "model_revision_requested": false,
+      "blend_sha256": "3aaf9fbec27c1be0d7c02a41a21c1fb9baa1fc3b6b821c87870928e4b65cff25",
+      "glb_sha256": "851e07d6c7b66e4e60a14cec6e153d46fbdc11a6f4f4da4480d733dddd075840",
+      "triangles": 8392,
+      "materials": 3,
+      "primitives": 4,
+      "glb_bytes": 451588,
+      "glb_dimensions_mm_xyz": [61.00000069, 26.89000653, 61.00000069]
+    },
+    {
+      "asset_id": "strophomena",
+      "revision": "r003",
+      "visual": "pass",
+      "factual": "pass_for_genus_informed_scope",
+      "model_revision_requested": false,
+      "blend_sha256": "cc40230a5c9d4f5d36846212815ec0cb334d04168307d2928a00e578b5b5a171",
+      "glb_sha256": "2880d555e1ff87e7b191a62f4b27557ab10ca5ee5c0f059701dce4e4430813ca",
+      "triangles": 4656,
+      "materials": 3,
+      "primitives": 3,
+      "glb_bytes": 258128,
+      "glb_dimensions_mm_xyz": [55.59999868, 5.07598149, 41.30000062]
+    },
+    {
+      "asset_id": "ctenoimbricata",
+      "revision": "r001",
+      "visual": "pass_for_concept_led_scope",
+      "factual": "unknown_pending_original_figure_pixels",
+      "model_revision_requested": false,
+      "blend_sha256": "6c85858c168f4839c441ae3e72d4e4f1ce03daf76555fb08eb6a879d7f46b522",
+      "glb_sha256": "f23b40c062dd139c58607f3ade6f22f358c6197eddf451849726511581fb0dc5",
+      "triangles": 2732,
+      "materials": 5,
+      "primitives": 26,
+      "glb_bytes": 174736,
+      "glb_dimensions_mm_xyz": [22.83342555, 2.93999995, 21.32247947]
+    }
+  ],
+  "evidence": {
+    "report": "qa/undersea-invertebrates-concept-20261019/REVIEW.md",
+    "blender_import_audit": "qa/undersea-invertebrates-concept-20261019/evidence/blender-import-audit.json",
+    "browser_runtime_report": "qa/undersea-invertebrates-concept-20261019/evidence/browser-runtime-report.json",
+    "browser_scene_screenshot": "qa/undersea-invertebrates-concept-20261019/evidence/scene-4-assets.png"
+  }
+}
