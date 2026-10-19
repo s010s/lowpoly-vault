@@ -1,0 +1,267 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lowpoly-vault@1.0.0 test:parser
+> node site/parse-models.mjs
+
+PASS natural-arch: 6 meshes, 672 triangles, dimensions match, 0 decoded images
+PASS stratified-cliff: 13 meshes, 1458 triangles, dimensions match, 0 decoded images
+PASS conifer-tree: 15 meshes, 2382 triangles, dimensions match, 0 decoded images
+PASS cycad: 14 meshes, 1944 triangles, dimensions match, 0 decoded images
+PASS fern-cluster: 11 meshes, 2418 triangles, dimensions match, 0 decoded images
+PASS horsetail-cluster: 5 meshes, 1838 triangles, dimensions match, 0 decoded images
+PASS lepidodendron: 8 meshes, 2314 triangles, dimensions match, 0 decoded images
+PASS dinosaur-nest: 10 meshes, 1350 triangles, dimensions match, 0 decoded images
+PASS three-toed-track: 2 meshes, 972 triangles, dimensions match, 0 decoded images
+PASS uprooted-log: 9 meshes, 864 triangles, dimensions match, 0 decoded images
+PASS natural-arch: 4 meshes, 898 triangles, dimensions match, 0 decoded images
+PASS conifer-tree: 3 meshes, 19052 triangles, dimensions match, 0 decoded images
+PASS fern-cluster: 3 meshes, 7736 triangles, dimensions match, 0 decoded images
+PASS asteroxylon: 5 meshes, 5744 triangles, dimensions match, 0 decoded images
+PASS bothriolepis: 8 meshes, 736 triangles, dimensions match, 0 decoded images
+PASS confuciusornis: 4 meshes, 2108 triangles, dimensions match, 0 decoded images
+PASS ichthyornis: 4 meshes, 2432 triangles, dimensions match, 0 decoded images
+PASS juracimbrophlebia: 5 meshes, 2128 triangles, dimensions match, 0 decoded images
+PASS waptia: 7 meshes, 1452 triangles, dimensions match, 0 decoded images
+PASS burgessomedusa: 5 meshes, 6124 triangles, dimensions match, 0 decoded images
+FAIL diplomystus: browserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-P2ERvv --remote-debugging-pipe --no-startup-window
+<launched> pid=31
+[pid=31][err] chrome_crashpad_handler: --database is required
+[pid=31][err] Try 'chrome_crashpad_handler --help' for more information.
+[pid=31][err] [31:31:1020/000349.112731:ERROR:third_party/crashpad/crashpad/util/file/filesystem_posix.cc:63] mkdir : No such file or directory (2)
+[pid=31][err] [31:31:1020/000349.184087:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)
+Call log:
+[2m  - <launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-P2ERvv --remote-debugging-pipe --no-startup-window[22m
+[2m  - <launched> pid=31[22m
+[2m  - [pid=31][err] chrome_crashpad_handler: --database is required[22m
+[2m  - [pid=31][err] Try 'chrome_crashpad_handler --help' for more information.[22m
+[2m  - [pid=31][err] [31:31:1020/000349.112731:ERROR:third_party/crashpad/crashpad/util/file/filesystem_posix.cc:63] mkdir : No such file or directory (2)[22m
+[2m  - [pid=31][err] [31:31:1020/000349.184087:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)[22m
+[2m  - [pid=31] <gracefully close start>[22m
+[2m  - [pid=31] <kill>[22m
+[2m  - [pid=31] <will force kill>[22m
+[2m  - [pid=31] <process did exit: exitCode=null, signal=SIGABRT>[22m
+[2m  - [pid=31] starting temporary directories cleanup[22m
+[2m  - [pid=31] finished temporary directories cleanup[22m
+[2m  - [pid=31] <gracefully close end>[22m
+
+FAIL kalligramma: browserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-wGEVu1 --remote-debugging-pipe --no-startup-window
+<launched> pid=50
+[pid=50][err] [50:50:1020/000349.453774:ERROR:third_party/crashpad/crashpad/util/file/filesystem_posix.cc:63] mkdir : No such file or directory (2)
+[pid=50][err] chrome_crashpad_handler: --database is required
+[pid=50][err] Try 'chrome_crashpad_handler --help' for more information.
+[pid=50][err] [50:50:1020/000349.527048:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)
+Call log:
+[2m  - <launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-wGEVu1 --remote-debugging-pipe --no-startup-window[22m
+[2m  - <launched> pid=50[22m
+[2m  - [pid=50][err] [50:50:1020/000349.453774:ERROR:third_party/crashpad/crashpad/util/file/filesystem_posix.cc:63] mkdir : No such file or directory (2)[22m
+[2m  - [pid=50][err] chrome_crashpad_handler: --database is required[22m
+[2m  - [pid=50][err] Try 'chrome_crashpad_handler --help' for more information.[22m
+[2m  - [pid=50][err] [50:50:1020/000349.527048:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)[22m
+[2m  - [pid=50] <gracefully close start>[22m
+[2m  - [pid=50] <kill>[22m
+[2m  - [pid=50] <will force kill>[22m
+[2m  - [pid=50] <process did exit: exitCode=null, signal=SIGABRT>[22m
+[2m  - [pid=50] starting temporary directories cleanup[22m
+[2m  - [pid=50] finished temporary directories cleanup[22m
+[2m  - [pid=50] <gracefully close end>[22m
+
+PASS archaeopteryx: 14 meshes, 3776 triangles, dimensions match, 0 decoded images
+PASS canadaspis: 14 meshes, 4276 triangles, dimensions match, 0 decoded images
+PASS ceratomyrmex: 11 meshes, 1856 triangles, dimensions match, 0 decoded images
+PASS hydropteris: 6 meshes, 5332 triangles, dimensions match, 0 decoded images
+PASS longipteryx: 8 meshes, 2228 triangles, dimensions match, 0 decoded images
+PASS urasterella: 3 meshes, 6240 triangles, dimensions match, 0 decoded images
+PASS alienopterus: 6 meshes, 1428 triangles, dimensions match, 0 decoded images
+PASS aglaophyton: 3 meshes, 3412 triangles, dimensions match, 0 decoded images
+PASS cephalaspis: 11 meshes, 2998 triangles, dimensions match, 0 decoded images
+PASS saccocoma: 6 meshes, 9436 triangles, dimensions match, 0 decoded images
+PASS archaeocidaris: 7 meshes, 10680 triangles, dimensions match, 0 decoded images
+PASS onoclea: 8 meshes, 12776 triangles, dimensions match, 0 decoded images
+PASS calceola: 8 meshes, 1438 triangles, dimensions match, 0 decoded images
+PASS favosites: 3 meshes, 2602 triangles, dimensions match, 0 decoded images
+PASS opabinia: 8 meshes, 4724 triangles, dimensions match, 0 decoded images
+PASS choia: 4 meshes, 4776 triangles, dimensions match, 0 decoded images
+PASS goniophyllum: 6 meshes, 5326 triangles, dimensions match, 0 decoded images
+PASS halysites: 3 meshes, 8464 triangles, dimensions match, 0 decoded images
+PASS marrella: 6 meshes, 9948 triangles, dimensions match, 0 decoded images
+PASS proteroctopus: 5 meshes, 9896 triangles, dimensions match, 0 decoded images
+PASS aulopora: 3 meshes, 9474 triangles, dimensions match, 0 decoded images
+PASS thamnopora: 2 meshes, 8866 triangles, dimensions match, 0 decoded images
+PASS hallucigenia: 4 meshes, 10304 triangles, dimensions match, 0 decoded images
+PASS fenestella: 3 meshes, 10976 triangles, dimensions match, 0 decoded images
+PASS syringopora: 3 meshes, 8020 triangles, dimensions match, 0 decoded images
+PASS vauxia: 3 meshes, 8944 triangles, dimensions match, 0 decoded images
+PASS halimeda: 4 meshes, 1520 triangles, dimensions match, 0 decoded images
+PASS isoxys: 7 meshes, 6012 triangles, dimensions match, 0 decoded images
+PASS heliophyllum: 3 meshes, 3836 triangles, dimensions match, 0 decoded images
+PASS pirania: 3 meshes, 6036 triangles, dimensions match, 0 decoded images
+PASS bosworthia: 1 meshes, 2212 triangles, dimensions match, 0 decoded images
+PASS haplophrentis: 4 meshes, 4230 triangles, dimensions match, 0 decoded images
+PASS buthograptus: 3 meshes, 7168 triangles, dimensions match, 0 decoded images
+PASS leptomitus: 3 meshes, 8832 triangles, dimensions match, 0 decoded images
+FAIL meandrina: browserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-jUbFgf --remote-debugging-pipe --no-startup-window
+<launched> pid=69
+[pid=69][err] [69:69:1020/000349.765657:ERROR:third_party/crashpad/crashpad/util/file/filesystem_posix.cc:63] mkdir : No such file or directory (2)
+[pid=69][err] chrome_crashpad_handler: --database is required
+[pid=69][err] Try 'chrome_crashpad_handler --help' for more information.
+[pid=69][err] [69:69:1020/000349.845171:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)
+Call log:
+[2m  - <launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-jUbFgf --remote-debugging-pipe --no-startup-window[22m
+[2m  - <launched> pid=69[22m
+[2m  - [pid=69][err] [69:69:1020/000349.765657:ERROR:third_party/crashpad/crashpad/util/file/filesystem_posix.cc:63] mkdir : No such file or directory (2)[22m
+[2m  - [pid=69][err] chrome_crashpad_handler: --database is required[22m
+[2m  - [pid=69][err] Try 'chrome_crashpad_handler --help' for more information.[22m
+[2m  - [pid=69][err] [69:69:1020/000349.845171:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)[22m
+[2m  - [pid=69] <gracefully close start>[22m
+[2m  - [pid=69] <kill>[22m
+[2m  - [pid=69] <will force kill>[22m
+[2m  - [pid=69] <process did exit: exitCode=null, signal=SIGABRT>[22m
+[2m  - [pid=69] starting temporary directories cleanup[22m
+[2m  - [pid=69] finished temporary directories cleanup[22m
+[2m  - [pid=69] <gracefully close end>[22m
+
+PASS thecosmilia: 3 meshes, 9488 triangles, dimensions match, 0 decoded images
+PASS flabellum: 3 meshes, 3966 triangles, dimensions match, 0 decoded images
+PASS horneophyton: 4 meshes, 6444 triangles, dimensions match, 0 decoded images
+PASS wave-ripple-surface: 2 meshes, 5328 triangles, dimensions match, 0 decoded images
+PASS gogia: 4 meshes, 3144 triangles, dimensions match, 0 decoded images
+PASS micrabacia: 1 meshes, 8960 triangles, dimensions match, 0 decoded images
+PASS sengelia: 3 meshes, 3940 triangles, dimensions match, 0 decoded images
+PASS coquina-outcrop: 3 meshes, 11480 triangles, dimensions match, 0 decoded images
+PASS naraoia: 4 meshes, 7400 triangles, dimensions match, 0 decoded images
+PASS cystiphyllum: 2 meshes, 8064 triangles, dimensions match, 0 decoded images
+PASS limnobiophyllum: 4 meshes, 8166 triangles, dimensions match, 0 decoded images
+PASS wielandiella: 4 meshes, 5196 triangles, dimensions match, 0 decoded images
+PASS desiccation-crack-surface: 3 meshes, 4476 triangles, dimensions match, 0 decoded images
+PASS acrocyathus: 3 meshes, 4340 triangles, dimensions match, 0 decoded images
+PASS sawdonia: 4 meshes, 12456 triangles, dimensions match, 0 decoded images
+PASS leanchoilia: 9 meshes, 6980 triangles, dimensions match, 0 decoded images
+PASS septarian-concretion: 4 meshes, 7548 triangles, dimensions match, 0 decoded images
+PASS montlivaltia: 2 meshes, 10800 triangles, dimensions match, 0 decoded images
+PASS cobbania: 5 meshes, 9896 triangles, dimensions match, 0 decoded images
+PASS aysheaia: 4 meshes, 12554 triangles, dimensions match, 0 decoded images
+PASS tafoni-outcrop: 3 meshes, 4750 triangles, dimensions match, 0 decoded images
+PASS beelzebufo: 7 meshes, 6136 triangles, dimensions match, 0 decoded images
+PASS pluricarpellatia: 5 meshes, 4532 triangles, dimensions match, 0 decoded images
+PASS paratingia: 4 meshes, 6196 triangles, dimensions match, 0 decoded images
+PASS stromatolite-mound: 3 meshes, 7220 triangles, dimensions match, 0 decoded images
+PASS pleurodictyum: 1 meshes, 7004 triangles, dimensions match, 0 decoded images
+PASS matonidium: 2 meshes, 2830 triangles, dimensions match, 0 decoded images
+PASS yohoia: 8 meshes, 4224 triangles, dimensions match, 0 decoded images
+PASS gypsum-desert-rose: 4 meshes, 1092 triangles, dimensions match, 0 decoded images
+PASS isastraea: 3 meshes, 8528 triangles, dimensions match, 0 decoded images
+PASS araucaria-mirabilis: 5 meshes, 6914 triangles, dimensions match, 0 decoded images
+PASS onychonycteris: 8 meshes, 12292 triangles, dimensions match, 0 decoded images
+PASS pillow-lava-outcrop: 2 meshes, 7636 triangles, dimensions match, 0 decoded images
+PASS spinolestes: 10 meshes, 7256 triangles, dimensions match, 0 decoded images
+PASS odontogriphus: 3 meshes, 2796 triangles, dimensions match, 0 decoded images
+PASS trapa: 4 meshes, 1932 triangles, dimensions match, 0 decoded images
+PASS flint-nodule: 2 meshes, 2684 triangles, dimensions match, 0 decoded images
+PASS cooksonia: 3 meshes, 5888 triangles, dimensions match, 0 decoded images
+PASS cambroraster: 11 meshes, 9588 triangles, dimensions match, 0 decoded images
+PASS bedrock-pothole: 4 meshes, 6840 triangles, dimensions match, 0 decoded images
+PASS quartz-prism-cluster: 4 meshes, 972 triangles, dimensions match, 0 decoded images
+PASS leclercqia: 2 meshes, 5232 triangles, dimensions match, 0 decoded images
+PASS canadia: 5 meshes, 4220 triangles, dimensions match, 0 decoded images
+PASS salvinia: 4 meshes, 2504 triangles, dimensions match, 0 decoded images
+PASS load-cast-bedding: 2 meshes, 5608 triangles, dimensions match, 0 decoded images
+PASS montsechia: 3 meshes, 3140 triangles, dimensions match, 0 decoded images
+PASS dollocaris: 7 meshes, 6504 triangles, dimensions match, 0 decoded images
+PASS coelurosauravus: 5 meshes, 6628 triangles, dimensions match, 0 decoded images
+PASS columnar-jointed-outcrop: 4 meshes, 614 triangles, dimensions match, 0 decoded images
+PASS florissantia: 3 meshes, 8588 triangles, dimensions match, 0 decoded images
+PASS stanleycaris: 9 meshes, 9340 triangles, dimensions match, 0 decoded images
+PASS pahoehoe-lava-surface: 2 meshes, 10032 triangles, dimensions match, 0 decoded images
+PASS staurolite-cross-twin: 3 meshes, 146 triangles, dimensions match, 0 decoded images
+PASS metasequoia: 2 meshes, 3204 triangles, dimensions match, 0 decoded images
+PASS ovatiovermis: 5 meshes, 9412 triangles, dimensions match, 0 decoded images
+PASS nordenskioldia: 4 meshes, 2860 triangles, dimensions match, 0 decoded images
+PASS waterfall-ledge: 2 meshes, 546 triangles, dimensions match, 0 decoded images
+PASS williamsonia: 3 meshes, 4314 triangles, dimensions match, 0 decoded images
+PASS halkieria: 5 meshes, 8040 triangles, dimensions match, 0 decoded images
+PASS ctenorhabdotus: 4 meshes, 11614 triangles, dimensions match, 0 decoded images
+PASS conglomerate-outcrop: 4 meshes, 7840 triangles, dimensions match, 0 decoded images
+PASS anomalocaris: 7 meshes, 5076 triangles, dimensions match, 0 decoded images
+PASS jimaodanus: 3 meshes, 8368 triangles, dimensions match, 0 decoded images
+PASS hydrothermal-chimney: 3 meshes, 4032 triangles, dimensions match, 0 decoded images
+PASS arenicolites-u-burrow: 2 meshes, 1858 triangles, dimensions match, 0 decoded images
+PASS echinochiton: 5 meshes, 7160 triangles, dimensions match, 0 decoded images
+PASS clypeina: 3 meshes, 11264 triangles, dimensions match, 0 decoded images
+PASS tidal-flat: 1 meshes, 10772 triangles, dimensions match, 0 decoded images
+PASS thalassinoides-branching-burrow: 2 meshes, 2014 triangles, dimensions match, 0 decoded images
+PASS sollasina: 5 meshes, 8050 triangles, dimensions match, 0 decoded images
+PASS ottoia: 4 meshes, 8816 triangles, dimensions match, 0 decoded images
+PASS eocladus: 3 meshes, 9812 triangles, dimensions match, 0 decoded images
+PASS limestone-pavement: 1 meshes, 11812 triangles, dimensions match, 0 decoded images
+PASS marsilea: 4 meshes, 2662 triangles, dimensions match, 0 decoded images
+PASS hurdia: 8 meshes, 3336 triangles, dimensions match, 0 decoded images
+PASS sea-stack: 3 meshes, 454 triangles, dimensions match, 0 decoded images
+PASS fulgurite-tube: 3 meshes, 3710 triangles, dimensions match, 0 decoded images
+PASS azolla: 4 meshes, 7674 triangles, dimensions match, 0 decoded images
+PASS odaraia: 7 meshes, 12452 triangles, dimensions match, 0 decoded images
+PASS pachypteris: 3 meshes, 6532 triangles, dimensions match, 0 decoded images
+PASS sand-spit: 1 meshes, 6514 triangles, dimensions match, 0 decoded images
+PASS peltaspermum: 5 meshes, 3296 triangles, dimensions match, 0 decoded images
+PASS capinatator: 2 meshes, 4760 triangles, dimensions match, 0 decoded images
+PASS cothurnocystis: 4 meshes, 1062 triangles, dimensions match, 0 decoded images
+PASS pyrite-cube-cluster: 3 meshes, 380 triangles, dimensions match, 0 decoded images
+PASS asaphus: 4 meshes, 10808 triangles, dimensions match, 0 decoded images
+PASS hazelia: 3 meshes, 8052 triangles, dimensions match, 0 decoded images
+PASS sea-cave: 1 meshes, 3456 triangles, dimensions match, 0 decoded images
+PASS cruziana-crawling-furrow: 1 meshes, 12136 triangles, dimensions match, 0 decoded images
+PASS ctenocystis: 4 meshes, 2270 triangles, dimensions match, 0 decoded images
+PASS baculites: 3 meshes, 4156 triangles, dimensions match, 0 decoded images
+PASS estuary-basin: 1 meshes, 6202 triangles, dimensions match, 0 decoded images
+PASS cross-bedded-sandstone: 2 meshes, 588 triangles, dimensions match, 0 decoded images
+PASS mucrospirifer: 1 meshes, 11296 triangles, dimensions match, 0 decoded images
+PASS wave-cut-platform: 1 meshes, 6816 triangles, dimensions match, 0 decoded images
+PASS flute-cast-slab: 1 meshes, 11192 triangles, dimensions match, 0 decoded images
+PASS paleodictyon-mesh-trace: 2 meshes, 6660 triangles, dimensions match, 0 decoded images
+PASS takakkawia: 2 meshes, 7932 triangles, dimensions match, 0 decoded images
+PASS sabalites: 2 meshes, 6496 triangles, dimensions match, 0 decoded images
+PASS river-dominated-delta: 1 meshes, 13030 triangles, dimensions match, 0 decoded images
+PASS asteriacites-resting-impression: 1 meshes, 2880 triangles, dimensions match, 0 decoded images
+PASS helicocystis: 1 meshes, 10000 triangles, dimensions match, 0 decoded images
+PASS cooperoceras: 2 meshes, 7204 triangles, dimensions match, 0 decoded images
+PASS cave-drapery: 1 meshes, 8464 triangles, dimensions match, 0 decoded images
+PASS reticulite-clast: 1 meshes, 8884 triangles, dimensions match, 0 decoded images
+PASS gryphaea: 4 meshes, 8412 triangles, dimensions match, 0 decoded images
+PASS folded-strata-outcrop: 6 meshes, 9912 triangles, dimensions match, 0 decoded images
+PASS volcanic-bomb: 1 meshes, 6768 triangles, dimensions match, 0 decoded images
+PASS teredolites-wood-boring-cast: 4 meshes, 6912 triangles, dimensions match, 0 decoded images
+PASS pentremites: 4 meshes, 6850 triangles, dimensions match, 0 decoded images
+PASS schizoneura: 2 meshes, 3200 triangles, dimensions match, 0 decoded images
+PASS tombolo: 1 meshes, 8832 triangles, dimensions match, 0 decoded images
+PASS entobia-sponge-boring-network: 1 meshes, 2042 triangles, dimensions match, 0 decoded images
+PASS diplomoceras: 1 meshes, 10604 triangles, dimensions match, 0 decoded images
+PASS nelumbo: 2 meshes, 6426 triangles, dimensions match, 0 decoded images
+PASS marine-terrace: 4 meshes, 1744 triangles, dimensions match, 0 decoded images
+PASS angular-unconformity-outcrop: 12 meshes, 616 triangles, dimensions match, 0 decoded images
+PASS clavagella: 5 meshes, 9956 triangles, dimensions match, 0 decoded images
+PASS aa-lava-front: 3 meshes, 1646 triangles, dimensions match, 0 decoded images
+PASS native-copper-dendrite: 2 meshes, 1800 triangles, dimensions match, 0 decoded images
+PASS nereites-lobed-meander: 2 meshes, 8620 triangles, dimensions match, 0 decoded images
+PASS metaspriggina: 30 meshes, 2296 triangles, dimensions match, 0 decoded images
+PASS falcatus: 23 meshes, 1628 triangles, dimensions match, 0 decoded images
+PASS pteraspis: 16 meshes, 1336 triangles, dimensions match, 0 decoded images
+PASS dorypterus: 22 meshes, 1532 triangles, dimensions match, 0 decoded images
+PASS mackenzia: 5 meshes, 1896 triangles, dimensions match, 0 decoded images
+PASS prasopora: 4 meshes, 8392 triangles, dimensions match, 0 decoded images
+PASS strophomena: 3 meshes, 4656 triangles, dimensions match, 0 decoded images
+PASS emeraldella: 72 meshes, 2996 triangles, dimensions match, 0 decoded images
+PASS burgessia: 42 meshes, 1862 triangles, dimensions match, 0 decoded images
+PASS tuzoia: 53 meshes, 2176 triangles, dimensions match, 0 decoded images
+PASS sanctacaris: 98 meshes, 3604 triangles, dimensions match, 0 decoded images
+PASS sapeornis: 78 meshes, 5744 triangles, dimensions match, 0 decoded images
+PASS longirostravis: 35 meshes, 2428 triangles, dimensions match, 0 decoded images
+PASS dunbaria: 31 meshes, 1582 triangles, dimensions match, 0 decoded images
+PASS chimerarachne: 26 meshes, 1418 triangles, dimensions match, 0 decoded images
