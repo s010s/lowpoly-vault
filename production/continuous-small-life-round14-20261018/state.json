@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T02:05:48.705384+00:00",
+  "updated_at": "2026-10-19T02:42:57.658970+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "batch40_qa_pass_41_42_making",
+  "status": "model_qa_pass_release_queued",
   "claims": {
     "sidneyia": {
       "batch_id": "batch-40",
@@ -182,7 +182,7 @@
   },
   "batches": {
     "batch-40": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-40",
       "candidate": {
         "maker_status": "completed",
@@ -200,27 +200,28 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
       "recorded_at": "2026-10-19T02:05:48.705384+00:00"
     },
     "batch-41": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-41",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -228,27 +229,28 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
       "recorded_at": "2026-10-19T02:05:48.705384+00:00"
     },
     "batch-42": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-42",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch42-20261018",
         "observed_commit": "7aefeb35f6fd46ea1fecdef0925a83ad857975f2",
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -256,10 +258,11 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
@@ -268,7 +271,7 @@
   },
   "jobs": {
     "sidneyia": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-40",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -290,17 +293,18 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "botrychium": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-40",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -322,17 +326,18 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "barrier-island": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-40",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -354,17 +359,18 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "diplocraterion-spreite-burrow": {
-      "status": "model_qa_pass_awaiting_release_confirmation",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-40",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -386,31 +392,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "selkirkia": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-41",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-41",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -418,31 +425,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "dicroidium": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-41",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-41",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -450,31 +458,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "waterfall-plunge-pool": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-41",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-41",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -482,31 +491,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "cave-boxwork": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-41",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-41",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -514,31 +524,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "conularia": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-42",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-42",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch42-20261018",
         "observed_commit": "7aefeb35f6fd46ea1fecdef0925a83ad857975f2",
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -546,31 +557,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "shale-scree": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-42",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-42",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch42-20261018",
         "observed_commit": "7aefeb35f6fd46ea1fecdef0925a83ad857975f2",
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -578,31 +590,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "boudinaged-rock-layer": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-42",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-42",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch42-20261018",
         "observed_commit": "7aefeb35f6fd46ea1fecdef0925a83ad857975f2",
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -610,31 +623,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     },
     "ophiomorpha-pellet-lined-burrow": {
-      "status": "making",
+      "status": "model_qa_pass_release_queued",
       "owner": "parent-assigned-producer:batch-42",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-42",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch42-20261018",
         "observed_commit": "7aefeb35f6fd46ea1fecdef0925a83ad857975f2",
         "pin_note": "Current fetched head only; actual frozen QA source must come from parent handoff."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -642,14 +656,15 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "Parent explicitly confirms40QA PASS and41/42making; no guessed source/reviewer pins."
+        "pin_note": "Actual reviewer/thread/source/per-GLB pins not supplied in parent report; not inferred from current branch heads.",
+        "scope": "Parent explicitly confirms40–42 all independent model QA PASS and queued. No repeated full-batch acceptance at release."
       },
       "release": {
-        "status": "awaiting_release_confirmation",
+        "status": "release_queued",
         "publication_confirmed": false,
         "release_commit": null
       },
-      "status_note": "Current parent40QA PASS,41/42making; no planner model/review dispatch."
+      "status_note": "Independent model QA PASS and release queued per parent; publication not confirmed."
     }
   },
   "request_resolution": {
@@ -660,9 +675,12 @@
   "latest_publication_checkpoint": {
     "confirmed_by": "parent",
     "confirmed_live_assets": 163,
-    "verified_live_build_sha": null,
+    "publication_target_assets": 175,
+    "publication_target_confirmed": false,
     "observed_main_commit": "081606c10836f95e6d708ea02f1ed1e321595af5",
-    "note": "Parent confirms live163 completed; planner did not rerun public browser verification or infer live build SHA."
+    "verified_live_build_sha": null,
+    "note": "37–39 target175 release integration ongoing, no new live confirmation; planner did not rerun browser verification."
   },
-  "latest_review_workflow_policy": "production/continuous-small-life-round15-20261018/review-policy.json"
+  "latest_review_workflow_policy": "production/continuous-small-life-round16-20261018/review-policy.json",
+  "website_scope_boundary": "Two-column site only PRD discussion, implementation unapproved; no UI/information-architecture mutation."
 }
