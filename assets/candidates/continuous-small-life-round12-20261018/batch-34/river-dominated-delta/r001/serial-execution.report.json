@@ -1,0 +1,50 @@
+{
+  "kind": "owned-serial-execution-check",
+  "asset_id": "river-dominated-delta",
+  "launch_count": 21,
+  "matched_exit_count": 21,
+  "nonzero_exit_count": 2,
+  "retained_failure_dispositions": {
+    "failures": [
+      {
+        "owned_pid": 53294,
+        "returncode": 1,
+        "stage": "runtime",
+        "reason": "Actual20m asset camera160m exceeded fixed far100m, clipping all meshes:0calls/0pixels. Real reportfail retained.",
+        "retained_path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/failed-attempt-01-runtime-clip-and-grid-slopes",
+        "disposition": "Own viewer far sized to asset bounds; full evidence rerun after targeted geometry slope continuity refinement; no fabricated PASS."
+      },
+      {
+        "owned_pid": 53500,
+        "returncode": 1,
+        "stage": "source-export-immutable-guard",
+        "reason": "Old hash report already exists; checker correctly refused overwriting immutable evidence.",
+        "retained_path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/failed-attempt-02-immutable-source-report-guard",
+        "disposition": "Old hash evidence retained outside final output; new final evidence generated at unused paths; guard untouched."
+      }
+    ]
+  },
+  "all_owned_process_groups_exited": true,
+  "lock_file": "/workspace/batch34-control/owned-process.lock",
+  "ledger": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/logs/owned-processes.jsonl",
+  "ledger_sha256": "6f9430b60a8eb155040b06d4f53dec386e88493b19873e4dfae7d791cb803b39",
+  "active_asset_gate": "different asset refuses start until previous lifecycle complete",
+  "orchestration_files": [
+    {
+      "path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/execution-serial_asset.py",
+      "sha256": "41b52971e25b3d83c548ef5f71a11533015bbab0c9248f2c71b347272dea0435"
+    },
+    {
+      "path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/execution-evidence.py",
+      "sha256": "ad95aed44abd0373b984027161ee7ec0627c6a73a680247d8e1b6e2e83d0d0be"
+    },
+    {
+      "path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/execution-package.py",
+      "sha256": "d2a96415af1bd3b5d1e2f85be1c30a97fc45478270b33496facf14b493f82502"
+    },
+    {
+      "path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/execution-finish_item.py",
+      "sha256": "d6f6eb54ea4f630531a9154aad6c6fd8c52b0effe52c0e6a62614b2ff878a952"
+    }
+  ]
+}

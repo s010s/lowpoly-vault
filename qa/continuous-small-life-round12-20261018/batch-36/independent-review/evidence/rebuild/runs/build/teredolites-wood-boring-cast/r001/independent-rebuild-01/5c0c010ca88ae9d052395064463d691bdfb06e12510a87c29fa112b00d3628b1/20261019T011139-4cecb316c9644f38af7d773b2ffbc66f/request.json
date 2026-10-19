@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/generator.py",
+    "--",
+    "--asset",
+    "teredolites-wood-boring-cast",
+    "--config",
+    "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/config.json",
+    "--output",
+    "/tmp/lowpoly-vault-qa-batch36/qa/continuous-small-life-round12-20261018/batch-36/independent-review/evidence/rebuild/runs/build/teredolites-wood-boring-cast/r001/independent-rebuild-01/5c0c010ca88ae9d052395064463d691bdfb06e12510a87c29fa112b00d3628b1/20261019T011139-4cecb316c9644f38af7d773b2ffbc66f/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-19T01:11:39.565793+00:00",
+  "fingerprint": "5c0c010ca88ae9d052395064463d691bdfb06e12510a87c29fa112b00d3628b1",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/tmp/lowpoly-vault-qa-batch36/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 10134,
+        "path": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/items/teredolites-wood-boring-cast/brief.json",
+        "sha256": "2d3c6a197af5e5a449aa8279e6d5d9ec692a0c78b592d6c95d7a023a5d078d1e"
+      },
+      "config": {
+        "bytes": 2381,
+        "path": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/config.json",
+        "sha256": "fb4b74f5ba8eb598ff2241579eda4319a34e3169735672ae4958efddca959625"
+      },
+      "generator": {
+        "bytes": 6903,
+        "path": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/generator.py",
+        "sha256": "0b4da292e7b4b3dad71fbc150674130efebcbb2060284cd5c0378ef44b4b920c"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/tmp/lowpoly-vault-qa-batch36/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 3061,
+        "path": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/items/teredolites-wood-boring-cast/inventory-record.json",
+        "sha256": "97eac80c3ac2756b0baee9eb2680a4ce8be7116f4209ae16f12d2b8acaa93f24"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1348,
+        "path": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/items/teredolites-wood-boring-cast/references.json",
+        "sha256": "8720ffeeed279e4f04d59cdd225a6d1215a1cc2c24b2e4bc057c9204bf0c3c76"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "teredolites-wood-boring-cast",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "teredolites-wood-boring-cast",
+      "config": {
+        "purpose": "Independent deterministic rebuild from exact frozen generator/config inputs",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/tmp/lowpoly-vault-qa-batch36/scripts/qa_glb.py",
+        "brief": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/items/teredolites-wood-boring-cast/brief.json",
+        "config": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/config.json",
+        "generator": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/generator.py",
+        "helper": "/tmp/lowpoly-vault-qa-batch36/scripts/asset_common.py",
+        "inventory": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/items/teredolites-wood-boring-cast/inventory-record.json",
+        "mesh_utils": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/work/batch-36/mesh_utils.py",
+        "references": "/tmp/lowpoly-vault-qa-batch36/production/continuous-small-life-round12-20261018/items/teredolites-wood-boring-cast/references.json"
+      },
+      "job_id": "independent-rebuild-01",
+      "outputs": [
+        "teredolites-wood-boring-cast/teredolites-wood-boring-cast.blend",
+        "teredolites-wood-boring-cast/teredolites-wood-boring-cast.glb",
+        "teredolites-wood-boring-cast/qa.json",
+        "teredolites-wood-boring-cast/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T011128-4010a22b94ad462b87c30d0c0531fc0f"
+}

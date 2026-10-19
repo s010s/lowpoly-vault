@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "volcanic-bomb",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/volcanic-bomb/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/volcanic-bomb/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch36/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch36/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/volcanic-bomb/brief.json",
+        "references": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/volcanic-bomb/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/volcanic-bomb/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "volcanic-bomb",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "volcanic-bomb/volcanic-bomb.blend",
+        "volcanic-bomb/volcanic-bomb.glb",
+        "volcanic-bomb/qa.json",
+        "volcanic-bomb/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch36 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "volcanic-bomb",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/volcanic-bomb/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/volcanic-bomb/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch36/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch36/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/volcanic-bomb/brief.json",
+        "references": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/volcanic-bomb/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/volcanic-bomb/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "volcanic-bomb",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "volcanic-bomb/volcanic-bomb.blend",
+        "volcanic-bomb/volcanic-bomb.glb",
+        "volcanic-bomb/qa.json",
+        "volcanic-bomb/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch36 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "e4bf1a2fc44cee8c900c8a66a2fadc588aaea29ab37a08ccd9ec9191ec7d6679",
+    "brief_sha256": "1e42b4c30158a26e5607746eb174d9f0a617e35fd90c9b40e808fab559542f13",
+    "references_sha256": "dc221b614e019551308d1348a43e963aa5350b9b8010831a7e0f5e1ffcc94b38"
+  },
+  "independent_acceptance": "pending; maker does not sign independent QA",
+  "source_export_status": "pass_with_warnings",
+  "rebuilds": [
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "23c8bc18797e20ef0224866180dd6bdf64cc9004fcc9a5b2e7ab72c0ab6abda7"
+    },
+    {
+      "status": "pass",
+      "semantic_match": true,
+      "semantic_sha256": "23c8bc18797e20ef0224866180dd6bdf64cc9004fcc9a5b2e7ab72c0ab6abda7"
+    }
+  ],
+  "khronos": {
+    "status": "pass",
+    "validator_version": "2.0.0-dev.3.10",
+    "sha256": "e4bf1a2fc44cee8c900c8a66a2fadc588aaea29ab37a08ccd9ec9191ec7d6679",
+    "errors": [],
+    "warnings": [],
+    "num_errors": 0,
+    "num_warnings": 0,
+    "report": "gltf-validator.report.json",
+    "truncated": false
+  },
+  "runtime_status": "pass",
+  "authored_source_vertices": 6517,
+  "evaluated_source_vertices": 6517,
+  "source_triangles": 13030,
+  "exported_position_stream_vertices": 6517,
+  "exported_triangles": 13030,
+  "materials": 1,
+  "primitives": 1,
+  "glb_bytes": 236104,
+  "textures": 0,
+  "texture_bytes": 0,
+  "warning_disposition": [
+    {
+      "warning": "continuous-land-and-bed-birdfoot-delta-with-projecting-distribu: smooth faces require intentional-style review",
+      "maker_disposition": "Continuous terrain slope intentionally uses smooth normals with genuinely gentler slope functions and curved channel centerlines; useful lateral sampling reduces actual diagonal grid steps. Gray/top/near exact-GLB evidence provided; no color change used to conceal geometry.",
+      "independent_review": "pending"
+    }
+  ],
+  "project_checker_returncode": 1,
+  "profile_checker_returncode": 0,
+  "profile_approved_checker_returncode": 1,
+  "profile_contract_status": "pass",
+  "candidate_record_valid": true,
+  "approved_for_brief": false,
+  "project_checker_note": "Actual legacy mismatch retained. Explicit static profile and separate publication policy are pinned by a generated real-hash sidecar; actual profile/record/approval results are separate. Unknown independent stages do not become approved."
+}
