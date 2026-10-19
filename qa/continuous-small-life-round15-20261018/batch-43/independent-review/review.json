@@ -1,0 +1,1329 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent static-stylized-v1 batch acceptance review",
+  "review_date_utc": "2026-10-19",
+  "repository": "s010s/lowpoly-vault",
+  "source": {
+    "candidate_branch": "candidate/small-life-batch43-20261018",
+    "candidate_commit": "5163f72e8d32fc4a8eefd2f191dc46d9956feeb7",
+    "candidate_remote_tip_verified": true,
+    "model_source_commit": "4951bdbb5e0ab0b5f7fb3b115326c1ced7f7f35d",
+    "handoff_path": "production/continuous-small-life-round15-20261018/work/batch-43/HANDOFF.json",
+    "handoff_sha256": "54ce1de88ffbc783090901836ed2ef0cf163ce8f9e3187f30f38507ea6a897a0",
+    "scope_path": "production/continuous-small-life-round15-20261018/work/batch-43/QA-HANDOFF-SCOPE.json",
+    "scope_sha256": "6cc908e1e4d4aaea5bcbf719602874ebab3610595cd5bfaf0284ee6272cd4550"
+  },
+  "profile": {
+    "name": "static-stylized-v1",
+    "revision": "2026-10-18.1"
+  },
+  "requested_reviewer": {
+    "from_scope_model": "GPT-6 Luna",
+    "from_scope_reasoning": "xhigh",
+    "actual_model_subtype_and_reasoning_metadata": "not exposed to this reviewer; exact subtype/reasoning identity cannot be independently verified",
+    "qa_rounds": 1
+  },
+  "scope_echo": {
+    "batch_id": "batch-43",
+    "asset_ids": [
+      "kootenayscolex",
+      "dillhoffia",
+      "beach-ridge",
+      "phycodes-palmate-burrow"
+    ],
+    "expected_source_commit": "4951bdbb5e0ab0b5f7fb3b115326c1ced7f7f35d",
+    "expected_glb_sha256_by_asset": {
+      "kootenayscolex": "0dc9a5fa202a7f36dc39671d77dd2b876b34cb336b0efc5826c445dd7a6156d5",
+      "dillhoffia": "cbaa5715b560533f0068e228b9df3a67ae6e564edb252feedd814e54b5ed116b",
+      "beach-ridge": "a4c9d912ab9c4055e36a847067121f747c743475dd78a01d8aae30cec0dd0060",
+      "phycodes-palmate-burrow": "711e8a32a739fdf3f9b44fee08955c87059ecdcf579e64dfcc4cce012f36ace4"
+    },
+    "all_scope_pins_match": true
+  },
+  "summary": {
+    "verdict": "PASS",
+    "assets_passed": 4,
+    "assets_failed": 0,
+    "required_fixes": [],
+    "sha256_verified_fixed_image_count": 80,
+    "candidate_approval_changed": false
+  },
+  "checks": {
+    "hashes": "Handoff-pinned GLB, Blend, candidate, source-export, reproducibility, view manifest, and source/runtime contact-sheet hashes and byte counts recomputed and matched. All 80 individual fixed-frame hashes and bytes matched their manifest.",
+    "blend_open": "All four exact pinned Blend files opened read-only in Blender 4.3.2 with autoexec disabled; mesh inventory recorded per asset.",
+    "source_export": "Per-asset source-export reports bind exact Blend and GLB hashes, have matching triangle counts and axis-converted bounds, and report no errors. Smooth-face style warnings are individually reviewed below.",
+    "rebuilds": "The two recorded semantic rebuilds per asset each match delivered GLB bytes and semantic hash. Existing reliable records were checked; no redundant rebuild was run.",
+    "khronos": "The supplied Khronos validator records bind the exact candidate GLBs and report zero errors and zero warnings.",
+    "runtime_pixels": "Inspected the actual fixed source views and exact-GLB WebGL runtime pixels/manifests/contact sheets; software renderer attribution is preserved below.",
+    "scope_policy": "Natural, refined low-poly children’s teaching-art scope; no strict specimen-level science requirement or unlimited microdetail pass was imposed."
+  },
+  "known_limits": [
+    "WebGL runtime imagery is ANGLE SwiftShader software rendering; it demonstrates load/render behavior only and is not evidence of hardware-GPU output or physical-device performance.",
+    "The candidate records continue to show formal stages unknown and approval pending. This independent PASS does not mutate candidate gates, approve formal release, publish, or merge.",
+    "The delegated context did not expose exact reviewer model subtype or reasoning metadata. The requested model/reasoning setting is recorded but not asserted as an independently verified identity."
+  ],
+  "items": [
+    {
+      "asset_id": "kootenayscolex",
+      "revision": "r001",
+      "candidate_checkpoint_sha": "3ea6a84be7397441f2f5736bfa47e11afe180685",
+      "verdict": "PASS",
+      "must_fix": [],
+      "brief_fit": "满足 named-taxon-inspired 教学艺术范围的宽中段、两端渐细、头部刚毛/触须及克制的重复结构；不声称精确物种复原、实测尺寸或运动方式。",
+      "independent_visual_review": "连续、轻柔分节的躯干中段较宽、两端收细；顶视与斜视能看见成排侧肢/刚毛，头部一对长触须及短中央结构保留。造型读作温和的海生环节动物，不依赖刺状夸张或替代物改色。",
+      "asset_source": {
+        "glb_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/kootenayscolex.glb",
+        "glb_sha256": "0dc9a5fa202a7f36dc39671d77dd2b876b34cb336b0efc5826c445dd7a6156d5",
+        "glb_bytes": 228408,
+        "blend_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/kootenayscolex.blend",
+        "blend_sha256": "0059843c57b8b434a13f1a419e5aea21e107a01619f5e8e018aabd30433fec5a",
+        "blend_bytes": 960780,
+        "selected_attempt": "attempt-01",
+        "triangles": 11918,
+        "source_authored_vertices": 6299,
+        "source_evaluated_vertices": 6299,
+        "exported_position_vertices": 6299,
+        "materials": 4,
+        "primitives": 6,
+        "textures": 0,
+        "dimensions_m": [
+          0.05123693309724331,
+          0.005299903219565749,
+          0.012210696004331112
+        ]
+      },
+      "read_only_blender_open": {
+        "status": "pass",
+        "version": "4.3.2",
+        "objects": 5,
+        "mesh_objects": 4,
+        "mesh_vertices": 6299,
+        "mesh_polygons": 6132,
+        "collection": [
+          "EXPORT"
+        ]
+      },
+      "source_export": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/source-export.json",
+        "handoff_sha256": "bfc02cd4471f783feb24cd78815899bf2479a70c9704904fdc6e3eae167558ab",
+        "status": "pass_with_warnings",
+        "source_sha256": "0059843c57b8b434a13f1a419e5aea21e107a01619f5e8e018aabd30433fec5a",
+        "glb_sha256": "0dc9a5fa202a7f36dc39671d77dd2b876b34cb336b0efc5826c445dd7a6156d5",
+        "errors": [],
+        "warnings": [
+          "source: continuous-soft-segmented-trunk: smooth faces require intentional-style review",
+          "source: fleshy-parapodia-including-head: smooth faces require intentional-style review",
+          "source: economical-chaetal-fans: smooth faces require intentional-style review",
+          "source: head-and-long-paired-sensory-palps: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 2.3283064365386963e-10
+      },
+      "independent_rebuild_evidence": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/reproducibility.json",
+        "handoff_sha256": "498448bb3222678ee0adf841e18c6ca743d6d076e2ad2e6893b0fb14c00bb8cd",
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "delivered_glb_sha256": "0dc9a5fa202a7f36dc39671d77dd2b876b34cb336b0efc5826c445dd7a6156d5",
+        "semantic_sha256": "24eafa4cda68864ecb797de08acaeaaee1e4d8c4301dfc7a36c8d93ae7343668",
+        "runs": [
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/rebuild-runs/build/kootenayscolex/r001/semantic-rebuild-1/01b3825725b3704bf93a3c544f6c92ca9d73f3d7d5c9aca483d6fc6bf0dcb51b/20261019T021938-d229344f937940738b03912da9129f69/result.json",
+            "result_sha256": "f726235cb07eb13cbeb880ddf4a8863900465f3870c0a1e92448c775e331069a",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/rebuild-runs/build/kootenayscolex/r001/semantic-rebuild-1/01b3825725b3704bf93a3c544f6c92ca9d73f3d7d5c9aca483d6fc6bf0dcb51b/20261019T021938-d229344f937940738b03912da9129f69/outputs/kootenayscolex/kootenayscolex.glb",
+            "glb_sha256": "0dc9a5fa202a7f36dc39671d77dd2b876b34cb336b0efc5826c445dd7a6156d5",
+            "bytes": 228408,
+            "semantic_sha256": "24eafa4cda68864ecb797de08acaeaaee1e4d8c4301dfc7a36c8d93ae7343668",
+            "semantic_match": true,
+            "byte_match": true
+          },
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/rebuild-runs/build/kootenayscolex/r001/semantic-rebuild-2/e912f9bbcde4a2fbaddf67e06b9870f5fedb4ded8ac842d802bdd21c597a20ac/20261019T021941-293c4d50bb304c16b2c20aac36501b1d/result.json",
+            "result_sha256": "1784952e93bf21e8975e8d5da65d0a7e4c44466818aa7027d60446f85515a223",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/rebuild-runs/build/kootenayscolex/r001/semantic-rebuild-2/e912f9bbcde4a2fbaddf67e06b9870f5fedb4ded8ac842d802bdd21c597a20ac/20261019T021941-293c4d50bb304c16b2c20aac36501b1d/outputs/kootenayscolex/kootenayscolex.glb",
+            "glb_sha256": "0dc9a5fa202a7f36dc39671d77dd2b876b34cb336b0efc5826c445dd7a6156d5",
+            "bytes": 228408,
+            "semantic_sha256": "24eafa4cda68864ecb797de08acaeaaee1e4d8c4301dfc7a36c8d93ae7343668",
+            "semantic_match": true,
+            "byte_match": true
+          }
+        ]
+      },
+      "gltf_validator": {
+        "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/gltf-validator.report.json",
+        "handoff_sha256": "b811e0ce84bea18f19e66a9788bb8929e631276a4990a60f9f661225c074c209",
+        "validatorVersion": "2.0.0-dev.3.10",
+        "numErrors": 0,
+        "numWarnings": 0
+      },
+      "fixed_views": {
+        "manifest_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/view-manifest.json",
+        "manifest_sha256": "0aebbc4426ba074985c3254dc173014b65e175face801c0ec5dc8984ebfe1309",
+        "manifest_glb_sha256": "0dc9a5fa202a7f36dc39671d77dd2b876b34cb336b0efc5826c445dd7a6156d5",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "source_view_engine": "Blender4.3.2 Cycles CPU",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime-contact-sheet.jpg",
+        "frames": [
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-hero.png",
+            "sha256": "d455d6146a3f78d8c7c75b5c9d74ed2a2a4f913ba836f3ca92da4332ce6ddfaf",
+            "bytes": 149289,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-reversehero.png",
+            "sha256": "e0dd3ce6897a15288d2afc74f013d45e69d86458707a5e5552aa11656f04e73c",
+            "bytes": 152170,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-front.png",
+            "sha256": "38b16113039443fd1b7f71b6df0f6b08c56bf2d7e6e3eb3195658050c83f73b1",
+            "bytes": 137284,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-side.png",
+            "sha256": "481a931688997f36eea34fd8e3d8cec08470f1740c7172e4b3817102c9796bbf",
+            "bytes": 121864,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-rear.png",
+            "sha256": "f39618d1d7c7c09bd4fc08427f94e5c064c8bf59b3d395e3318229568c0496aa",
+            "bytes": 137302,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-top.png",
+            "sha256": "28de4e2deabd160c47b95666bfd4f3e644d2ab697602881857887d8d9482f98a",
+            "bytes": 164025,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-clay.png",
+            "sha256": "15f1183ed67bde85f3fe01b2d6f5f0fab7082527f69ffa34250866ed9e144779",
+            "bytes": 132601,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/preview-silhouette.png",
+            "sha256": "8fdccd7831e25a4ee295245ae4b94021f7beef5996767f7c567f694742531c83",
+            "bytes": 3028,
+            "width": 128,
+            "height": 128,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-hero.png",
+            "sha256": "933a6560ac9bd234e21d63f3072f5603bcf0ea9ef5b0d221564b99d896250d84",
+            "bytes": 38708,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-reversehero.png",
+            "sha256": "181ebd69bbe36afddf06055c508bf7c4b6043ec8fc09b92ec70025c911ff28b3",
+            "bytes": 40206,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-front.png",
+            "sha256": "0c8bb622d2125593d56cce9e6d14f2a1310885c1bdee0663dd3ad134f8598f6d",
+            "bytes": 32784,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-side.png",
+            "sha256": "0ac06761023fa9eb4b9af6dae5ed81a6abf3861e9a2a6333f2479add0ee5c0a7",
+            "bytes": 76869,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-rear.png",
+            "sha256": "696872077f7af8624cbf483b74dd0b5a4b2769f1d955d8eb82359a3a45fbe027",
+            "bytes": 33035,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-top.png",
+            "sha256": "a77bb530aba621b6c6ed1fa48df662d1cc74d91b59173fa94c90cbedbd2f5931",
+            "bytes": 47970,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-bottom.png",
+            "sha256": "0d2639caafa8ced3e6a9d6f667af679c699c9bfabaac76706276dbd0c9e1ad53",
+            "bytes": 46755,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-80px.png",
+            "sha256": "6922e7548dcb4d36813722a7f817a9a4a3fd6dcad3556616a6281ed474dea801",
+            "bytes": 14673,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-160px.png",
+            "sha256": "0e19eb6ad17a2f441229a8bc29a953fcdef92fcc745078b8f83f2b32efd8a3ba",
+            "bytes": 17953,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/single-240px.png",
+            "sha256": "461d65066f5b9f5eb7227958c708a1f130185a90e8494b736afa6dac7ee931e7",
+            "bytes": 22208,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/scene-hero.png",
+            "sha256": "eb17381b030cd8010184b82581d9d7f53a6753aea896be1d6419b83532a25c22",
+            "bytes": 29722,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex/runtime/scene-top.png",
+            "sha256": "4bb67fc09e19a094a32538f7d38af63d626daafd7b3d9f8b357f46fd524ef7a1",
+            "bytes": 40040,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          }
+        ]
+      },
+      "other_evidence_paths": {
+        "brief": "production/continuous-small-life-round15-20261018/items/kootenayscolex/brief.json",
+        "frozen_references": "production/continuous-small-life-round15-20261018/items/kootenayscolex/references.json",
+        "candidate": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/candidate.json",
+        "freeze": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/freeze.json",
+        "config": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/config.json",
+        "source_scene": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/source-scene.json",
+        "profile_contract": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/profile-contract.json",
+        "profile_gate": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/profile-gate.json",
+        "practical_integrity": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/practical-integrity.json",
+        "runtime_log": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/runtime.txt",
+        "reopen_log": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/source-reopen.txt",
+        "two_rebuilds_log": "production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/two-rebuilds.txt",
+        "asset_directory": "assets/candidates/continuous-small-life-round15-20261018/batch-43/kootenayscolex/r001/attempt-01/kootenayscolex"
+      },
+      "original_candidate_state": {
+        "status": "maker-candidate-awaiting-independent-QA",
+        "formal_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval": {
+          "status": "pending"
+        },
+        "changed_by_this_review": false
+      }
+    },
+    {
+      "asset_id": "dillhoffia",
+      "revision": "r001",
+      "candidate_checkpoint_sha": "9f6b36c6691977e034f923a86bb68db948ca63c8",
+      "verdict": "PASS",
+      "must_fix": [],
+      "brief_fit": "满足单一保存果体、浅外张无裂萼盘与主要放射脊的简化范围；不把它扩写为莲蓬、花朵或完整植物。",
+      "independent_visual_review": "单个细长果体连到浅外张、无裂的盘/漏斗状萼；主要放射脊在上视和反向视图可辨，斜视显示果体贯穿萼盘。轮廓属于原化石果/萼的简化教学件，没有附加母株或无关器官。",
+      "asset_source": {
+        "glb_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/dillhoffia.glb",
+        "glb_sha256": "cbaa5715b560533f0068e228b9df3a67ae6e564edb252feedd814e54b5ed116b",
+        "glb_bytes": 64188,
+        "blend_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/dillhoffia.blend",
+        "blend_sha256": "b7fb48ea0b6743c04b2cd54b63ddadb99a40f760f3479e764d94553c8ff748f9",
+        "blend_bytes": 597524,
+        "selected_attempt": "attempt-02",
+        "triangles": 3164,
+        "source_authored_vertices": 1584,
+        "source_evaluated_vertices": 1584,
+        "exported_position_vertices": 1744,
+        "materials": 3,
+        "primitives": 3,
+        "textures": 0,
+        "dimensions_m": [
+          0.05022467114031315,
+          0.03911051215254702,
+          0.038684000639477745
+        ]
+      },
+      "read_only_blender_open": {
+        "status": "pass",
+        "version": "4.3.2",
+        "objects": 3,
+        "mesh_objects": 2,
+        "mesh_vertices": 1584,
+        "mesh_polygons": 1568,
+        "collection": [
+          "EXPORT"
+        ]
+      },
+      "source_export": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/source-export.json",
+        "handoff_sha256": "95d00de42c2fa840ae021f3ab99190427c5a07bd272ad7dd124343f20ef7cae8",
+        "status": "pass_with_warnings",
+        "source_sha256": "b7fb48ea0b6743c04b2cd54b63ddadb99a40f760f3479e764d94553c8ff748f9",
+        "glb_sha256": "cbaa5715b560533f0068e228b9df3a67ae6e564edb252feedd814e54b5ed116b",
+        "errors": [],
+        "warnings": [
+          "source: single-elongated-indehiscent-fruit: smooth faces require intentional-style review",
+          "source: continuous-unlobed-shallow-funnel-calyx: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 6.111804395914078e-10
+      },
+      "independent_rebuild_evidence": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/reproducibility.json",
+        "handoff_sha256": "e321d197406bff144e3be963272c178383588eb06ccaa7c23be4c983dffc6ee0",
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "delivered_glb_sha256": "cbaa5715b560533f0068e228b9df3a67ae6e564edb252feedd814e54b5ed116b",
+        "semantic_sha256": "53c6eb9bd0105ac9d763e45316848d279bfadceab3ffa423133d4e4e383e57c7",
+        "runs": [
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/rebuild-runs/build/dillhoffia/r001/semantic-rebuild-1/4eda60ee207c51458630cde4b4675f03393e381487b8e45af99d784d4951f0b8/20261019T022231-d40f38ef6dfc416597cfb598e9b20e28/result.json",
+            "result_sha256": "12d122cc07ae14edbc639571bf0e6950fcde61a90ecb7431fef5830ba6d3d072",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/rebuild-runs/build/dillhoffia/r001/semantic-rebuild-1/4eda60ee207c51458630cde4b4675f03393e381487b8e45af99d784d4951f0b8/20261019T022231-d40f38ef6dfc416597cfb598e9b20e28/outputs/dillhoffia/dillhoffia.glb",
+            "glb_sha256": "cbaa5715b560533f0068e228b9df3a67ae6e564edb252feedd814e54b5ed116b",
+            "bytes": 64188,
+            "semantic_sha256": "53c6eb9bd0105ac9d763e45316848d279bfadceab3ffa423133d4e4e383e57c7",
+            "semantic_match": true,
+            "byte_match": true
+          },
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/rebuild-runs/build/dillhoffia/r001/semantic-rebuild-2/78c704a32d53a902edbee03ade310f418a20c37f2c24097b9671285d15e9011a/20261019T022233-40ca009332e74372871b117ff4736a7b/result.json",
+            "result_sha256": "af63771bcffd185f0392cf45b2e51d3a2caadb19cced7a583253709a6a80c210",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/rebuild-runs/build/dillhoffia/r001/semantic-rebuild-2/78c704a32d53a902edbee03ade310f418a20c37f2c24097b9671285d15e9011a/20261019T022233-40ca009332e74372871b117ff4736a7b/outputs/dillhoffia/dillhoffia.glb",
+            "glb_sha256": "cbaa5715b560533f0068e228b9df3a67ae6e564edb252feedd814e54b5ed116b",
+            "bytes": 64188,
+            "semantic_sha256": "53c6eb9bd0105ac9d763e45316848d279bfadceab3ffa423133d4e4e383e57c7",
+            "semantic_match": true,
+            "byte_match": true
+          }
+        ]
+      },
+      "gltf_validator": {
+        "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/gltf-validator.report.json",
+        "handoff_sha256": "ee04b884dad418ea1e4cc171ed50ac5bb6e33491bff067920187ba7c491882c9",
+        "validatorVersion": "2.0.0-dev.3.10",
+        "numErrors": 0,
+        "numWarnings": 0
+      },
+      "fixed_views": {
+        "manifest_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/view-manifest.json",
+        "manifest_sha256": "98470458982d0b252138c24fd311add7425cd06f3ba08e3252c55bfb651ae379",
+        "manifest_glb_sha256": "cbaa5715b560533f0068e228b9df3a67ae6e564edb252feedd814e54b5ed116b",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "source_view_engine": "Blender4.3.2 Cycles CPU",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime-contact-sheet.jpg",
+        "frames": [
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-hero.png",
+            "sha256": "bfca90e90ef0635a804d8251127549b8b1cea49f1d8a0df6d7cd868e26ce6b0b",
+            "bytes": 207424,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-reversehero.png",
+            "sha256": "58c85f835a25d623cccfa93ce473097928f5163e214e8f40f4d781ad74b14dc0",
+            "bytes": 288544,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-front.png",
+            "sha256": "d64b6ddd7e6bade3ab05d1217718e6b63b69f1248e6f36bc94d3211fb3c39ecf",
+            "bytes": 250720,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-side.png",
+            "sha256": "0da251965dd099499187be70f36ae525ab28fc6aa0dc7b1eea5c85e6730d0b00",
+            "bytes": 179977,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-rear.png",
+            "sha256": "8ccf1a03ea46f78bbb0b25d3e6ed16efc7170915be75e806ab41d175bf9fd44e",
+            "bytes": 266562,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-top.png",
+            "sha256": "a91c5a466b9144c8648f769aa2276cb81ee2fdf9f7ef6d453d1d1bada81c5e5b",
+            "bytes": 252174,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-clay.png",
+            "sha256": "51bfa9c5dc540b30fb5e4a2aa49714248a8b72e1580f2f332cb749f0a712cdc1",
+            "bytes": 162092,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/preview-silhouette.png",
+            "sha256": "d827def7eb354f2eab445db2a66b797dfebafff2954041c872d892b61c324bb0",
+            "bytes": 4766,
+            "width": 128,
+            "height": 128,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-hero.png",
+            "sha256": "772139870a5a83ad0d6adfcdb4105769a065d3c0bba10bc89747e94400052ca7",
+            "bytes": 47740,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-reversehero.png",
+            "sha256": "04828eb5e433f4924681e40c8066631432c2c2624fec565a15e9d1a5f2a41364",
+            "bytes": 70091,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-front.png",
+            "sha256": "141f2ce4d72b12e1339119057fb3e82148d804a646e38fdfb0dc08e621c24aaa",
+            "bytes": 81965,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-side.png",
+            "sha256": "6e371e5c753040a02851a0f1dac4e6cddab0aba3884bc6a574903485b5e1b185",
+            "bytes": 54996,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-rear.png",
+            "sha256": "875c070b2a3f9525526eb947e88b43975dd35b07cfec7df80adf862927f885ed",
+            "bytes": 84352,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-top.png",
+            "sha256": "09ed3ec2c2e9af90593b55067fbb1fe76dcf85e3d88a7cf5471b0bbb9fc12ddf",
+            "bytes": 81167,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-bottom.png",
+            "sha256": "2c648aa1f6d84a22403d980550f26889281679cc0677f574c9ed5719e5a60b21",
+            "bytes": 72082,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-80px.png",
+            "sha256": "b6d2fd0c37d8cae174e7186c36f214151d60a5e848d3f82d7f74a197ff91e2e8",
+            "bytes": 15748,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-160px.png",
+            "sha256": "dd92a6fa5ad1aebca2733a1727960cbe8bdb95aa0f0365de25e9d5b32ed3f849",
+            "bytes": 20967,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/single-240px.png",
+            "sha256": "137c4e44454f4a8db2d06a6226eceffa4ee7fa00f8b0631cc13590a6113cdce0",
+            "bytes": 27040,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/scene-hero.png",
+            "sha256": "8c47301a91de63f8c28805fee752f0c96344e94594c4d9c895b9519f73dca263",
+            "bytes": 40511,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia/runtime/scene-top.png",
+            "sha256": "bde3db5ae6ddad1104be3dceace31e505a0fc34a697087ddeea85739944dc33a",
+            "bytes": 54186,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          }
+        ]
+      },
+      "other_evidence_paths": {
+        "brief": "production/continuous-small-life-round15-20261018/items/dillhoffia/brief.json",
+        "frozen_references": "production/continuous-small-life-round15-20261018/items/dillhoffia/references.json",
+        "candidate": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/candidate.json",
+        "freeze": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/freeze.json",
+        "config": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/config.json",
+        "source_scene": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/source-scene.json",
+        "profile_contract": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/profile-contract.json",
+        "profile_gate": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/profile-gate.json",
+        "practical_integrity": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/practical-integrity.json",
+        "runtime_log": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/runtime.txt",
+        "reopen_log": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/source-reopen.txt",
+        "two_rebuilds_log": "production/continuous-small-life-round15-20261018/work/batch-43/dillhoffia/r001/two-rebuilds.txt",
+        "asset_directory": "assets/candidates/continuous-small-life-round15-20261018/batch-43/dillhoffia/r001/attempt-02/dillhoffia"
+      },
+      "original_candidate_state": {
+        "status": "maker-candidate-awaiting-independent-QA",
+        "formal_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval": {
+          "status": "pending"
+        },
+        "changed_by_this_review": false
+      }
+    },
+    {
+      "asset_id": "beach-ridge",
+      "revision": "r001",
+      "candidate_checkpoint_sha": "1735935c80f46d7c16e6ec6f3c7b2065ec8ab73c",
+      "verdict": "PASS",
+      "must_fix": [],
+      "brief_fit": "满足活动前滨后方的低岸平行沉积脊及陆侧过渡的通用地貌概念；14 m 是名义教学裁片宽度，不宣称特定岸线、地层或实测全滩尺度。",
+      "independent_visual_review": "同一地形裁片上的前滨、其后低岸平行脊与陆侧缓坡保持连续；斜向/侧剖面能辨识低脊，顶视颜色/高程过渡较含蓄但仍符合教学性风格化表现。没有读成独立障壁岛、波纹或悬崖。",
+      "asset_source": {
+        "glb_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/beach-ridge.glb",
+        "glb_sha256": "a4c9d912ab9c4055e36a847067121f747c743475dd78a01d8aae30cec0dd0060",
+        "glb_bytes": 256496,
+        "blend_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/beach-ridge.blend",
+        "blend_sha256": "bb84bb12deff39ef40cf593578f4b446783233ed2f8607446c06b5bca7395426",
+        "blend_bytes": 649044,
+        "selected_attempt": "attempt-01",
+        "triangles": 4774,
+        "source_authored_vertices": 2389,
+        "source_evaluated_vertices": 2389,
+        "exported_position_vertices": 9368,
+        "materials": 3,
+        "primitives": 3,
+        "textures": 0,
+        "dimensions_m": [
+          14.0,
+          1.2267518788576126,
+          9.0
+        ]
+      },
+      "read_only_blender_open": {
+        "status": "pass",
+        "version": "4.3.2",
+        "objects": 2,
+        "mesh_objects": 1,
+        "mesh_vertices": 2389,
+        "mesh_polygons": 2297,
+        "collection": [
+          "EXPORT"
+        ]
+      },
+      "source_export": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/source-export.json",
+        "handoff_sha256": "3a8e0a27f801d79813057429a9729d4631976498781d92b5f12f72f084e6269a",
+        "status": "pass",
+        "source_sha256": "bb84bb12deff39ef40cf593578f4b446783233ed2f8607446c06b5bca7395426",
+        "glb_sha256": "a4c9d912ab9c4055e36a847067121f747c743475dd78a01d8aae30cec0dd0060",
+        "errors": [],
+        "warnings": [],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 4.470348358154297e-08
+      },
+      "independent_rebuild_evidence": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/reproducibility.json",
+        "handoff_sha256": "fd9275f9a1c11c6d0a81024528152b2fe7de8947aba77f5cf7e65e435039d950",
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "delivered_glb_sha256": "a4c9d912ab9c4055e36a847067121f747c743475dd78a01d8aae30cec0dd0060",
+        "semantic_sha256": "21926c87b6e3a1e2c020f997ca9add83930c7006288c526467c61916de1ecffa",
+        "runs": [
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/rebuild-runs/build/beach-ridge/r001/semantic-rebuild-1/7c6129d44853c7d3ddabced8c7e00c0f2dc58a893b477faeab43f08ff8520e8f/20261019T022405-f47ec98e6dba4f5d9848148944dc5a91/result.json",
+            "result_sha256": "4ba9931ca459733303b2f10e9b37e78aed66ba60680cb45c33b45db916f465c5",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/rebuild-runs/build/beach-ridge/r001/semantic-rebuild-1/7c6129d44853c7d3ddabced8c7e00c0f2dc58a893b477faeab43f08ff8520e8f/20261019T022405-f47ec98e6dba4f5d9848148944dc5a91/outputs/beach-ridge/beach-ridge.glb",
+            "glb_sha256": "a4c9d912ab9c4055e36a847067121f747c743475dd78a01d8aae30cec0dd0060",
+            "bytes": 256496,
+            "semantic_sha256": "21926c87b6e3a1e2c020f997ca9add83930c7006288c526467c61916de1ecffa",
+            "semantic_match": true,
+            "byte_match": true
+          },
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/rebuild-runs/build/beach-ridge/r001/semantic-rebuild-2/18ffb4c9930a7a25afbec50509a313a3113709fd00db4abe8ad9602825f87b50/20261019T022407-eff4b0d217bd411aab5639ebfbca4776/result.json",
+            "result_sha256": "c6b84c9d5c5aae04f7c72b7235f5794332a7afc04f991333386539a5b4276725",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/rebuild-runs/build/beach-ridge/r001/semantic-rebuild-2/18ffb4c9930a7a25afbec50509a313a3113709fd00db4abe8ad9602825f87b50/20261019T022407-eff4b0d217bd411aab5639ebfbca4776/outputs/beach-ridge/beach-ridge.glb",
+            "glb_sha256": "a4c9d912ab9c4055e36a847067121f747c743475dd78a01d8aae30cec0dd0060",
+            "bytes": 256496,
+            "semantic_sha256": "21926c87b6e3a1e2c020f997ca9add83930c7006288c526467c61916de1ecffa",
+            "semantic_match": true,
+            "byte_match": true
+          }
+        ]
+      },
+      "gltf_validator": {
+        "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/gltf-validator.report.json",
+        "handoff_sha256": "5345eac5e13dd307faa185b825611cd973736ec647d37ab14e63023520743add",
+        "validatorVersion": "2.0.0-dev.3.10",
+        "numErrors": 0,
+        "numWarnings": 0
+      },
+      "fixed_views": {
+        "manifest_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/view-manifest.json",
+        "manifest_sha256": "352fd94f3bc1842cb58a4289c875fbbf49c612933827524324cef066a6e1f064",
+        "manifest_glb_sha256": "a4c9d912ab9c4055e36a847067121f747c743475dd78a01d8aae30cec0dd0060",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "source_view_engine": "Blender4.3.2 Cycles CPU",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime-contact-sheet.jpg",
+        "frames": [
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-hero.png",
+            "sha256": "163d3c45dc0c2b8cccbfd0ddcaae9293638d64f0a5c6c0bdda500779d6955511",
+            "bytes": 180219,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-reversehero.png",
+            "sha256": "2957a0c8151e02eac3ea364da187fe58b71ce566b1376081492b0a28738c5533",
+            "bytes": 175025,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-front.png",
+            "sha256": "2de79cda50c9c0ce669bc5296c00207f4485df2b2faf14c20a2d612dc30fe36f",
+            "bytes": 136185,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-side.png",
+            "sha256": "bcef50361d719a708c06f8709ca4ddcc0fca948f5fca940a809846cfba27abc2",
+            "bytes": 133953,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-rear.png",
+            "sha256": "889f7024e21a801b289e1aaf2c9547ee3bb36ca1f78215963e86767554e7e37c",
+            "bytes": 132113,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-top.png",
+            "sha256": "e3768554e8debadd28d72b0c7455f4317b3890ab448dc9ae865efbaa00094c8b",
+            "bytes": 257045,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-clay.png",
+            "sha256": "fcd3788013716c8e7caf697fd05add2fff71210b88981ea0cbb5208d8cb468af",
+            "bytes": 145436,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/preview-silhouette.png",
+            "sha256": "5b967f5cc09a17696423a1b10ce05ee0d3577688ab462814ca4b75bbcb29521f",
+            "bytes": 4228,
+            "width": 128,
+            "height": 128,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-hero.png",
+            "sha256": "22feeabcb97a680b35d7f888313d8ffc5bb80e91cdfe70da12e1ee8e01db7345",
+            "bytes": 28185,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-reversehero.png",
+            "sha256": "bf1c083289279d41cb509469bec8243aaaffcafe37a7d9d94ab284776627b032",
+            "bytes": 26222,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-front.png",
+            "sha256": "a4ee247c8c4a1207238d3a82dbd5af65baadb6f66331b874440a4421fd1b5d31",
+            "bytes": 14596,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-side.png",
+            "sha256": "8f7bc0d3bc8a3c61d6d549cb03a2feb93b95aac69643764f09a370988a257bbd",
+            "bytes": 14747,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-rear.png",
+            "sha256": "ebe4a3515a3e49462a1e6aa4e2b49ae1d7d69b8ffb254332a26e96257a17be3c",
+            "bytes": 14006,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-top.png",
+            "sha256": "688720da60c74ef850598b3cceba2d33947762bbe2edbdfa1b52ca51014f649a",
+            "bytes": 15531,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-bottom.png",
+            "sha256": "e8b3c36fb777baea553292d03a8724ecae5af334ba115bbf7a68dc293acd4ae5",
+            "bytes": 13242,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-80px.png",
+            "sha256": "62e7a048d6f6aa08b7e7f1e536ff0efcc53063ba818a4a5700861dc898fee66d",
+            "bytes": 14731,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-160px.png",
+            "sha256": "48feac01565a6f60d8c61df1e7ae7e34c2e0d3ca9192ff550884875de9d96446",
+            "bytes": 17580,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/single-240px.png",
+            "sha256": "82c436867c6d608fcf787856dccaedfa2f4686005709e2f9d6666dfef6d0c869",
+            "bytes": 20443,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/scene-hero.png",
+            "sha256": "2145aac4c2ac43546f7733606b87737ed47ce7505b9ab8d060ca1471ca988ed9",
+            "bytes": 31098,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge/runtime/scene-top.png",
+            "sha256": "4799e33a7e57429e7d1c7f21d87a0e27b3a0e0fb59d30fc0bec9cd0831c229c2",
+            "bytes": 24728,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          }
+        ]
+      },
+      "other_evidence_paths": {
+        "brief": "production/continuous-small-life-round15-20261018/items/beach-ridge/brief.json",
+        "frozen_references": "production/continuous-small-life-round15-20261018/items/beach-ridge/references.json",
+        "candidate": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/candidate.json",
+        "freeze": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/freeze.json",
+        "config": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/config.json",
+        "source_scene": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/source-scene.json",
+        "profile_contract": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/profile-contract.json",
+        "profile_gate": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/profile-gate.json",
+        "practical_integrity": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/practical-integrity.json",
+        "runtime_log": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/runtime.txt",
+        "reopen_log": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/source-reopen.txt",
+        "two_rebuilds_log": "production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/two-rebuilds.txt",
+        "asset_directory": "assets/candidates/continuous-small-life-round15-20261018/batch-43/beach-ridge/r001/attempt-01/beach-ridge"
+      },
+      "original_candidate_state": {
+        "status": "maker-candidate-awaiting-independent-QA",
+        "formal_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval": {
+          "status": "pending"
+        },
+        "changed_by_this_review": false
+      }
+    },
+    {
+      "asset_id": "phycodes-palmate-burrow",
+      "revision": "r001",
+      "candidate_checkpoint_sha": "4951bdbb5e0ab0b5f7fb3b115326c1ced7f7f35d",
+      "verdict": "PASS",
+      "must_fix": [],
+      "brief_fit": "满足单主管末端紧凑掌状分枝的 raised-relief 教学概念；不声称特定造迹生物或复制出土标本。",
+      "independent_visual_review": "灰模、顶视及斜视显示一条连续凸起主管，末端紧凑分成掌状扫帚末枝；主管与分叉根部相接并嵌在基岩板上，主要模式没有被颜色或材质遮盖。",
+      "asset_source": {
+        "glb_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/phycodes-palmate-burrow.glb",
+        "glb_sha256": "711e8a32a739fdf3f9b44fee08955c87059ecdcf579e64dfcc4cce012f36ace4",
+        "glb_bytes": 237364,
+        "blend_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/phycodes-palmate-burrow.blend",
+        "blend_sha256": "932258980e345e7d909ea905ff884113788c26a9264923c36e7c6d545d23fbc2",
+        "blend_bytes": 1082144,
+        "selected_attempt": "attempt-01",
+        "triangles": 12566,
+        "source_authored_vertices": 6287,
+        "source_evaluated_vertices": 6287,
+        "exported_position_vertices": 6639,
+        "materials": 2,
+        "primitives": 2,
+        "textures": 0,
+        "dimensions_m": [
+          0.2849999964237213,
+          0.022414841689169407,
+          0.30594296753406525
+        ]
+      },
+      "read_only_blender_open": {
+        "status": "pass",
+        "version": "4.3.2",
+        "objects": 3,
+        "mesh_objects": 2,
+        "mesh_vertices": 6287,
+        "mesh_polygons": 12452,
+        "collection": [
+          "EXPORT"
+        ]
+      },
+      "source_export": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/source-export.json",
+        "handoff_sha256": "2734ee04bd617755e2458a660d1159fa248a4bae39f4773750ff8d1f251219de",
+        "status": "pass_with_warnings",
+        "source_sha256": "932258980e345e7d909ea905ff884113788c26a9264923c36e7c6d545d23fbc2",
+        "glb_sha256": "711e8a32a739fdf3f9b44fee08955c87059ecdcf579e64dfcc4cce012f36ace4",
+        "errors": [],
+        "warnings": [
+          "source: single-continuous-main-tunnel-and-palmate-terminal-broom: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 9.313225746154785e-10
+      },
+      "independent_rebuild_evidence": {
+        "path": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/reproducibility.json",
+        "handoff_sha256": "be569d6a9818afd5c532bcae9c9770cb54157a4e504e935735b7466d57d6cf52",
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "delivered_glb_sha256": "711e8a32a739fdf3f9b44fee08955c87059ecdcf579e64dfcc4cce012f36ace4",
+        "semantic_sha256": "5e1fe8185d2e14a9f9f657c57b1e583ff3f1656ecdc179d6b0dcdb56b7a903f5",
+        "runs": [
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/rebuild-runs/build/phycodes-palmate-burrow/r001/semantic-rebuild-1/ec84f591658d37610ceae0a5377435a6a2250b3d7ebe96db99bdf09117c0525a/20261019T022626-fad8f29e9cbc4e5cb1d313e303c5e027/result.json",
+            "result_sha256": "8ce594708f755f0e7eb80899bfb4b86e3f2ec844e7af35fad8c6032a64dde262",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/rebuild-runs/build/phycodes-palmate-burrow/r001/semantic-rebuild-1/ec84f591658d37610ceae0a5377435a6a2250b3d7ebe96db99bdf09117c0525a/20261019T022626-fad8f29e9cbc4e5cb1d313e303c5e027/outputs/phycodes-palmate-burrow/phycodes-palmate-burrow.glb",
+            "glb_sha256": "711e8a32a739fdf3f9b44fee08955c87059ecdcf579e64dfcc4cce012f36ace4",
+            "bytes": 237364,
+            "semantic_sha256": "5e1fe8185d2e14a9f9f657c57b1e583ff3f1656ecdc179d6b0dcdb56b7a903f5",
+            "semantic_match": true,
+            "byte_match": true
+          },
+          {
+            "result_path": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/rebuild-runs/build/phycodes-palmate-burrow/r001/semantic-rebuild-2/5f857b250fa51d7806cfd59be8d03c76099f4a7aff7a457872a52ac073fdb42f/20261019T022630-b59d87bf4515476b8b8de1771bbfa35f/result.json",
+            "result_sha256": "3d23878a22657da5a2064a0b5daa8df9d349be2ca7bd4b7dbc01cd7c8c23f35f",
+            "glb_path": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/rebuild-runs/build/phycodes-palmate-burrow/r001/semantic-rebuild-2/5f857b250fa51d7806cfd59be8d03c76099f4a7aff7a457872a52ac073fdb42f/20261019T022630-b59d87bf4515476b8b8de1771bbfa35f/outputs/phycodes-palmate-burrow/phycodes-palmate-burrow.glb",
+            "glb_sha256": "711e8a32a739fdf3f9b44fee08955c87059ecdcf579e64dfcc4cce012f36ace4",
+            "bytes": 237364,
+            "semantic_sha256": "5e1fe8185d2e14a9f9f657c57b1e583ff3f1656ecdc179d6b0dcdb56b7a903f5",
+            "semantic_match": true,
+            "byte_match": true
+          }
+        ]
+      },
+      "gltf_validator": {
+        "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/gltf-validator.report.json",
+        "handoff_sha256": "c08c60a762586a3ebe5044396cf392c448bb34eab01cbdfcbe4008ae267a51c5",
+        "validatorVersion": "2.0.0-dev.3.10",
+        "numErrors": 0,
+        "numWarnings": 0
+      },
+      "fixed_views": {
+        "manifest_path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/view-manifest.json",
+        "manifest_sha256": "062ce4ab6d82af15559ca1cf2ff199f66fe5aea0c90d6ab92be6d4e6431717f4",
+        "manifest_glb_sha256": "711e8a32a739fdf3f9b44fee08955c87059ecdcf579e64dfcc4cce012f36ace4",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "source_view_engine": "Blender4.3.2 Cycles CPU",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime-contact-sheet.jpg",
+        "frames": [
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-hero.png",
+            "sha256": "b6a3ae5ce7396d86921db5d3d3bbde43867ccc69249c744ce3bd1cf69d7e093d",
+            "bytes": 182033,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-reversehero.png",
+            "sha256": "aac802d7ea5637b44ea33f5c98175f636085319de4f5980ea058de8d50531dc0",
+            "bytes": 183055,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-front.png",
+            "sha256": "1f6d3ab384f385e20e202b4896550edec5222a7900085e328559d997939ee227",
+            "bytes": 127973,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-side.png",
+            "sha256": "0373da88c0d07e042ff458e11e4f8d312cf49e30bcdfacca63a8abcbf0cad203",
+            "bytes": 128348,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-rear.png",
+            "sha256": "01dd3c0a330278fffef280ea553ef1f4827bb05e1e2c7b6789b22f98eda2bb4b",
+            "bytes": 127522,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-top.png",
+            "sha256": "5c0d9d2430725d380256e68ddf885739e644787b4d6206184aacc854921cb17e",
+            "bytes": 284589,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-clay.png",
+            "sha256": "d1b81a0e7b7f49ddaaf6b3c45a06cb67e3842e2a10830c5ba9f585c58bf80e06",
+            "bytes": 151977,
+            "width": 512,
+            "height": 512,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/preview-silhouette.png",
+            "sha256": "2c32e1fde63b7d1e3d1026b0dbc523cbf403de7bddd30a8e48d21d9ac2f15e28",
+            "bytes": 4464,
+            "width": 128,
+            "height": 128,
+            "origin": "source",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-hero.png",
+            "sha256": "18e726b80b08ad9543e500edb72e49067462beeddf45ccca814b4a0b6a438c77",
+            "bytes": 26175,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-reversehero.png",
+            "sha256": "aad8e49a1d2bc8cf0277b9e6712cb54a416c60d0e698f182cac5420f13b05628",
+            "bytes": 26771,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-front.png",
+            "sha256": "58b54b400e6d0a4478bddf1efaeca4f78bf9f7557b4c17282471332f8ea7e327",
+            "bytes": 17241,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-side.png",
+            "sha256": "dfdf68d798ea8ddf06baf5a3c377ddef6f690314b325b5dfbd53c6c749f0ec1e",
+            "bytes": 18211,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-rear.png",
+            "sha256": "98e6765897b303b2eb34345b9b620ef6c33a6d676ef3df053241457b1464b40e",
+            "bytes": 17883,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-top.png",
+            "sha256": "2558dd1fa7e2cd922cc28dbb94538af4e7034a417631f1d0eb003fa964a60120",
+            "bytes": 40502,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-bottom.png",
+            "sha256": "ce30f0d1846bc2cbdb8e89e32d40d0887b49bc8501915d8ee8eeea439efd118d",
+            "bytes": 17880,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-80px.png",
+            "sha256": "8dbe03da5762556e89c09cad0b9072668fd31bc5eaef255331528a51d55f7e78",
+            "bytes": 15449,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-160px.png",
+            "sha256": "867916fcf1a5a0a288404547075b38913370613f25c5c4b1aab1daa6f2126441",
+            "bytes": 17416,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/single-240px.png",
+            "sha256": "f3dddd27675f6acd7605cb4ae36dca975f5ac92d5552813a395929d753cac2b7",
+            "bytes": 19480,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/scene-hero.png",
+            "sha256": "b229386a37244d8ecd1c698ea42e70f4427c7787908dc33cb7bc49de4fed86b1",
+            "bytes": 27424,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow/runtime/scene-top.png",
+            "sha256": "cb4f54f4250667dfab5708440802c871daa7970d3b6fe91a319330621e143fea",
+            "bytes": 33870,
+            "width": 640,
+            "height": 640,
+            "origin": "exact-glb-runtime",
+            "sha256_verified": true
+          }
+        ]
+      },
+      "other_evidence_paths": {
+        "brief": "production/continuous-small-life-round15-20261018/items/phycodes-palmate-burrow/brief.json",
+        "frozen_references": "production/continuous-small-life-round15-20261018/items/phycodes-palmate-burrow/references.json",
+        "candidate": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/candidate.json",
+        "freeze": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/freeze.json",
+        "config": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/config.json",
+        "source_scene": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/source-scene.json",
+        "profile_contract": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/profile-contract.json",
+        "profile_gate": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/profile-gate.json",
+        "practical_integrity": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/practical-integrity.json",
+        "runtime_log": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/runtime.txt",
+        "reopen_log": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/source-reopen.txt",
+        "two_rebuilds_log": "production/continuous-small-life-round15-20261018/work/batch-43/phycodes-palmate-burrow/r001/two-rebuilds.txt",
+        "asset_directory": "assets/candidates/continuous-small-life-round15-20261018/batch-43/phycodes-palmate-burrow/r001/attempt-01/phycodes-palmate-burrow"
+      },
+      "original_candidate_state": {
+        "status": "maker-candidate-awaiting-independent-QA",
+        "formal_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval": {
+          "status": "pending"
+        },
+        "changed_by_this_review": false
+      }
+    }
+  ]
+}
