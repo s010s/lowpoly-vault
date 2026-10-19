@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
-export const git = (...args) => execFileSync('git', args, { encoding:'utf8' }).trim();
+export const git = (...args) => execFileSync('git', args, { encoding:'utf8', maxBuffer:64*1024*1024 }).trim();
 export const runtimeConfig = () => ({site_base:process.env.SITE_BASE || '/',site_origin:process.env.SITE_ORIGIN || '',node_major:process.versions.node.split('.')[0],platform:process.platform,arch:process.arch});
 export function controlDigest(ref) {
   // A PR may not authorize its own weakened classifier, tests, receipt producer or workflow.

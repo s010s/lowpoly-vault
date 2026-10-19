@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {assertReceipt,sha256} from './ci-provenance.mjs';
+import {assertReceipt,sha256,controlDigest,git} from './ci-provenance.mjs';
 import {assertTrustedRun,assertArtifact} from './ci-reuse.mjs';
 const hash='a'.repeat(64),head='b'.repeat(40),base='c'.repeat(40),tree='d'.repeat(40),repository='owner/repository';
 const expected={kind:'pages',source_tree:tree,repository,run_id:12,run_attempt:1,comparison_base:base,head_sha:head,pull_request:5,validation_ref:'refs/pull/5/merge',control_sha256:hash,runtime_config:{site_base:'/gallery/',site_origin:'https://example.test',node_major:'22'}};
@@ -17,3 +17,8 @@ assert.doesNotThrow(()=>assertArtifact(artifact,run,bytes));
 assert.throws(()=>assertArtifact(artifact,run,Buffer.from('tampered')));
 for(const patch of [{expired:true},{digest:null},{workflow_run:{...artifact.workflow_run,id:13}},{workflow_run:{...artifact.workflow_run,head_repository_id:8}}])assert.throws(()=>assertArtifact({...artifact,...patch},run,bytes));
 console.log('CI provenance: exact-tree hit; changed merge tree, stale source/base/attempt/config, policy forgery, missing receipt, fork, failed checks and tampered/missing artifact digest rejected.');
+
+// The actual asset/QA tree is larger than Node 22's default 1 MiB exec buffer.
+const treeListing=git('ls-tree','-r','HEAD');
+assert.match(controlDigest('HEAD'),/^[0-9a-f]{64}$/);
+console.log(`Complete repository control digest passed (${Buffer.byteLength(treeListing)} bytes of Git tree entries).`);
