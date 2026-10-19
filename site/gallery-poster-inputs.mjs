@@ -52,7 +52,7 @@ export function posterInputKey(asset,shared){
 export async function posterInputState(manifest,resources,{root=process.cwd()}={}){
  const shared=await posterSharedInputs(root);
  let baseline;try{baseline=JSON.parse(await readFile(resolve(root,'site/gallery/approved-poster-inputs.json')));}catch{baseline=null;}
- const valid=[],stale=[];
+ const valid=[],stale=[],approvedIds=[];
  for(const asset of manifest.assets){
   const poster=resources.posters[asset.id];if(!poster)continue;
   const key=posterInputKey(asset,shared),approved=baseline?.posters?.[asset.id];
@@ -61,9 +61,11 @@ export async function posterInputState(manifest,resources,{root=process.cwd()}={
   if(approved){
    assert.equal(approved.poster_sha256,hash(JSON.stringify({poster,seals})),`Approved poster pixels or metadata changed: ${asset.id}; explicitly review a new baseline`);
    assert.equal(approved.input_sha256,key,`Approved poster inputs changed: ${asset.id}; recapture and explicitly review a new baseline`);
-   valid.push(asset.id);
+   valid.push(asset.id);approvedIds.push(asset.id);
   }else if(poster.input_sha256===key&&poster.browser_version===shared.browser)valid.push(asset.id);
   else stale.push(asset.id);
  }
- return {shared,valid,stale};
+ // Repository-authored matching hashes are consistency claims, not generation proof.
+ // A fresh build captures every non-golden ID; only trusted artifact reuse may skip that.
+ return {shared,valid,stale,approved:approvedIds,capture:manifest.assets.filter(asset=>!approvedIds.includes(asset.id)).map(asset=>asset.id)};
 }

@@ -12,7 +12,7 @@ const root = process.cwd(), outputRoot = resolve(process.env.GALLERY_OUTPUT_DIR 
 const manifest = JSON.parse(await readFile(resolve(outputRoot, 'assets/manifest.json'), 'utf8'));
 const initial = await auditGalleryAssets(manifest, { root, outputRoot });
 const verifyRecipe = process.argv.includes('--verify-recipe');
-if (!initial.coverage.missing.length && !verifyRecipe) {
+if (!initial.inputState.capture.length && !verifyRecipe) {
   await auditGalleryAssets(manifest, { root, outputRoot, requireComplete: true });
   if (process.argv.includes('--source-output')) await persistSourceGallery();
   console.log(`Gallery capture complete: ${initial.coverage.matched}/${manifest.assets.length} published assets have sealed detail/wheel posters; nothing to recapture.`);
@@ -132,7 +132,7 @@ try {
   staging = await mkdtemp(resolve(outputRoot, '.gallery-capture-'));
   await cp(resolve(outputRoot, 'gallery'), resolve(staging, 'gallery'), { recursive:true });
   const resources = structuredClone(initial.resources), assets = new Map(manifest.assets.map(asset => [asset.id, asset]));
-  const selected = verifyRecipe ? ['metaspriggina','strophomena','waptia','conifer-tree','confuciusornis','diplomystus'] : initial.coverage.missing;
+  const selected = verifyRecipe ? ['metaspriggina','strophomena','waptia','conifer-tree','confuciusornis','diplomystus'] : initial.inputState.capture;
   for (const [index, id] of selected.entries()) {
     const capture = await capturePair(page,id);
     if (verifyRecipe) {
@@ -154,11 +154,11 @@ try {
     }
     resources.posters[id] = poster;
     assert.equal(errors.length, 0, `Gallery render errors: ${errors.join('; ')}`);
-    console.log(`Gallery capture ${index + 1}/${initial.coverage.missing.length}: ${id}`);
+    console.log(`Gallery capture ${index + 1}/${initial.inputState.capture.length}: ${id}`);
   }
   if (verifyRecipe) process.exitCode = 0;
   else {
-  resources.generated_capture = { renderer:'approved PreviewRenderer.poster', browser:browser.version(), source_renderer_sha256:resources.source_renderer_sha256, runtime_renderer_sha256:sha256(await readFile(resolve(root,'site/gallery/renderer.js'))), assets:initial.coverage.missing, published_total:manifest.assets.length };
+  resources.generated_capture = { renderer:'approved PreviewRenderer.poster', browser:browser.version(), source_renderer_sha256:resources.source_renderer_sha256, runtime_renderer_sha256:sha256(await readFile(resolve(root,'site/gallery/renderer.js'))), assets:initial.inputState.capture, published_total:manifest.assets.length };
   await writeFile(resolve(staging, 'gallery/resources.json'), JSON.stringify(resources, null, 2) + '\n');
   await auditGalleryAssets(manifest, { root, outputRoot:staging, requireComplete:true });
   const previous = resolve(staging, 'previous-gallery');

@@ -15,6 +15,7 @@ try{
  const poster={detail:'gallery/posters/one.png',wheel:'gallery/posters/one-wheel.png',source_glb_sha256:asset.sha256.glb,input_sha256:key,browser_version:'pinned'};
  const resources={posters:{one:poster},files:[]};
  assert.deepEqual((await posterInputState(manifest,resources,{root})).valid,['one']);
+ assert.deepEqual((await posterInputState(manifest,resources,{root})).capture,['one'],'A source-authored matching key is not proof: non-golden pixels must be regenerated');
  assert.equal(posterInputKey({...asset,downloads:{glb:'derived'},file_sizes:{glb:5},qa:'private'},shared),key);
  assert.deepEqual((await posterInputState(manifest,{posters:{one:{...poster,browser_version:'different'}},files:[]},{root})).stale,['one']);
  assert.notEqual(posterInputKey({...asset,sha256:{glb:'b'.repeat(64)}},shared),key);
@@ -31,6 +32,7 @@ try{
  const legacy={...poster};delete legacy.input_sha256;delete legacy.browser_version;resources.posters.one=legacy;
  await writeFile(join(root,'site/gallery/approved-poster-inputs.json'),JSON.stringify({version:1,posters:{one:{input_sha256:key,poster_sha256:sha256(JSON.stringify({poster:legacy,seals:[]}))}}}));
  assert.deepEqual((await posterInputState(manifest,resources,{root})).valid,['one']);
+ assert.deepEqual((await posterInputState(manifest,resources,{root})).capture,[],'Verified golden pairs are preserved');
  await writeFile(join(root,'site/gallery/renderer.js'),'const camera = 43');
  await assert.rejects(()=>posterInputState(manifest,resources,{root}),/Approved poster inputs changed/);
  const changedShared=await posterSharedInputs(root);
