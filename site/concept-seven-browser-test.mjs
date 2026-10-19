@@ -25,6 +25,10 @@ try {
    const snapshot=await page.evaluate(()=>{const p=window.__gallery,r=p.renderer,gl=r.renderer.getContext(),img=document.querySelector('#detail-poster');r.draw();return {selected:p.state.selected,triangles:r.renderer.info.render.triangles,gl_error:gl.getError(),context_lost:gl.isContextLost(),poster:img.currentSrc,poster_width:img.naturalWidth,body_overflow:document.body.scrollWidth>window.innerWidth+1};});
    assert.equal(snapshot.selected,id);assert(snapshot.triangles>0);assert.equal(snapshot.gl_error,0);assert.equal(snapshot.context_lost,false);assert(snapshot.poster.includes(`/gallery/posters/${id}.png`));assert(snapshot.poster_width>0);assert.equal(snapshot.body_overflow,false);
    const asset=manifest.assets.find(a=>a.id===id);
+   await page.locator('#info').click();
+   const sourceLinks=await page.locator('#info-content a').evaluateAll(nodes=>nodes.map(a=>({href:a.href,label:a.textContent.trim()})));
+   for(const source of asset.sources)assert(sourceLinks.some(a=>a.href===source.url&&a.label.length>0),'Every frozen source has a visible accessible label');
+   await page.keyboard.press('Escape');
    for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());assert.equal(createHash('sha256').update(await response.body()).digest('hex'),asset.sha256[key]);}
    await page.screenshot({path:resolve(out,`${mobile?'mobile':'desktop'}-${id}.png`)});report.cases.push({id,viewport:mobile?'390x844':'1440x1000',status:'pass',...snapshot,glb_sha256:asset.sha256.glb,blend_sha256:asset.sha256.blend});
   }
