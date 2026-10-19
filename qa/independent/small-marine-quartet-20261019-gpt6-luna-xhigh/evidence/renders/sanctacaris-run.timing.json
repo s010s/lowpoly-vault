@@ -1,0 +1,51 @@
+{
+  "command": [
+    "/usr/bin/blender",
+    "--background",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "scripts/render_candidate_views.py",
+    "--",
+    "production/concept-small-marine-quartet-20261019/sanctacaris/r002/sanctacaris.glb",
+    "--revision",
+    "r002",
+    "--brief",
+    "production/concept-small-marine-quartet-20261019/sanctacaris/r002/brief.json",
+    "--references",
+    "production/concept-small-marine-quartet-20261019/sanctacaris/r002/references.json",
+    "--output-dir",
+    "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/renders/sanctacaris",
+    "--views",
+    "hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "8"
+  ],
+  "elapsed_wall_seconds_monotonic": 9.275987,
+  "finished_at_utc": "2026-10-19T20:53:50.207572+00:00",
+  "input_paths": {
+    "blend": "production/concept-small-marine-quartet-20261019/sanctacaris/r002/sanctacaris.blend",
+    "glb": "production/concept-small-marine-quartet-20261019/sanctacaris/r002/sanctacaris.glb"
+  },
+  "input_sha256_after": {
+    "blend": "1e914e0936fe8ac5e80a3df77c6c144b559a74b79c424628d9e9c621dfa3f976",
+    "glb": "d51b77469b954e9adc97c48db4dcae78adc622297ab4c4ffbb124de521805a96"
+  },
+  "input_sha256_before": {
+    "blend": "1e914e0936fe8ac5e80a3df77c6c144b559a74b79c424628d9e9c621dfa3f976",
+    "glb": "d51b77469b954e9adc97c48db4dcae78adc622297ab4c4ffbb124de521805a96"
+  },
+  "label": "sanctacaris_r002_fresh_exact_glb_multiview_render",
+  "returncode": 0,
+  "started_at_utc": "2026-10-19T20:53:40.931570+00:00",
+  "stderr_log": "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/renders/sanctacaris-run.stderr.txt",
+  "stdout_log": "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/evidence/renders/sanctacaris-run.stdout.txt"
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "tuzoia",
+  "revision": "r003",
+  "labels": {
+    "en": "Tuzoia-inspired bivalved swimmer"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "tuzoia/r003/tuzoia.glb",
+      "sha256": "9f5f09b624b2d99da6c989b0e332903904452ffa9a7f68b2e731a31fb90dfe7c"
+    },
+    "source": {
+      "path": "tuzoia/r003/tuzoia.blend",
+      "sha256": "4f8d4dc532ea26234bddb88f7900b9e795fabef24eb28ae3cc5f3b1faea1501c"
+    },
+    "generator": {
+      "path": "generator-r003.py",
+      "sha256": "5cb410b5de4a55dc6d01fe42e9df301eb1a8d7c829d72003ad06a9e601f05087"
+    },
+    "config": {
+      "path": "tuzoia/r003/build-config.json",
+      "sha256": "ec9dbe243000bf2608c376c26ff8b2870a11bcb1c20bf1ee609a6fdd7fd4e07e"
+    },
+    "brief": {
+      "path": "tuzoia/r003/brief.json",
+      "sha256": "f1e4f475b7be6437cf13e9d090541f677bd42f5d383f63cba7835c31ed127e95"
+    },
+    "references": {
+      "path": "tuzoia/r003/references.json",
+      "sha256": "21f2af9f28ce7b227d094ce7f2ce209650480bda4b01ad7c8fffee00d61a0389"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "88f1e683d30dfa76fa87d17e2f9f6bbb83de14cc2648e090052f7fab7572b61d"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "961a241a5af33edd4c3953525d49f65979e41f32c1a531319a2a3a7418ced7f1"
+    },
+    "images": [
+      {
+        "id": "shared-concept-sheet",
+        "view": "three-quarter/top/side; row 3",
+        "path": "concept-original.png",
+        "sha256": "72545fb059806128469d8a142e70eeef0985aab1edfd32b7c17d42bd447f99b5"
+      }
+    ],
+    "cross_view_consistency_note": "Concept shows attractive plum palette and ridge but reads too much as a horizontal horseshoe shield. Resolve by standing the paired valves in YZ planes around X thickness, with straight top hinge. Soft parts are a declared genus-level composite, not T. burgessensis exact anatomy. Ridge and sparse spines carry identity; fine polygon network omitted.",
+    "hidden_surface_decisions": "Closed lower shield surfaces; paired volumetric limbs and swimming lobes beneath shells, real hinge/body depth; no camera-specific flattening. Separate closed parts intentionally intersect at joints; not a print-ready union."
+  },
+  "chronology": {
+    "concept_generated_at": "2026-10-19T20:27:31.556Z",
+    "concept_inspected_at": "2026-10-19T20:27:43.080Z",
+    "modeling_started_at": "2026-10-19T20:38:29.085329+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 76.484,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "961a241a5af33edd4c3953525d49f65979e41f32c1a531319a2a3a7418ced7f1"
+      },
+      "note": "Actual tool invocation/return elapsed time for the shared four-row sheet; not per-asset throughput."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Active interpretation time not measured; real chronology captured in events.jsonl."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 2.4006663499999377,
+      "measurement_record": {
+        "path": "tuzoia/r003/build-timing.json",
+        "sha256": "8626088b4dc1512fb4f709b6536fc6e7ef03786b5dad25d7c3840dcc69a34314"
+      },
+      "note": "Measured Blender generator execution only. Human/model code-authoring time is not included."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 46.6477,
+      "measurement_record": {
+        "path": "tuzoia/r003/proof/render-manifest.json",
+        "sha256": "11a057d5c511e87e47584ec5004d1719e1e4b071106e0cd484860fc565302779"
+      },
+      "note": "Measured clean-import proof render run, 12 frames at 512px, 16 Cycles CPU samples."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Images actually inspected as labeled contact sheets and critical 512px frames; active review duration not instrumented."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Browser/GPU/populated scene not run here. Node GLTFLoader parse is separately recorded, not browser evidence."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "concept-match",
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "tuzoia/r003/proof/render-manifest.json",
+    "sha256": "11a057d5c511e87e47584ec5004d1719e1e4b071106e0cd484860fc565302779"
+  },
+  "thumbnail": {
+    "source_frame_id": "hero",
+    "path": "tuzoia/r003/proof/hero.png",
+    "sha256": "16265ebc7afc47908a7c672e882bf33e14af408b8af0670fd9890194200c909c"
+  },
+  "review_note": {
+    "path": "tuzoia/r003/self-review.md",
+    "sha256": "30d35af07b6aea42aec792735c0d88fd93deb05ad7a94665388a611f92d90cc0"
+  },
+  "inspected_frames": [
+    "concept-match",
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "khronos": {
+    "glb_sha256": "9f5f09b624b2d99da6c989b0e332903904452ffa9a7f68b2e731a31fb90dfe7c",
+    "report": {
+      "path": "tuzoia/r003/gltf-validator.report.json",
+      "sha256": "7f8c8ae2194b84b19fc8e0d42987fa574d02b64287023247834046d6d6da9766"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting small scene life; prioritize recognition, keep package lightweight; no universal quality threshold."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "asset_id": "burgessia",
+  "revision": "r001",
+  "frozen_at": "2026-10-19T20:28:14.908585+00:00",
+  "label": "Burgessia-inspired small dome crawler",
+  "scope": "Original child-friendly evidence-informed scene prop, not scientific reconstruction; candidate only, parent integration.",
+  "design": "One apricot low semicircular carapace with thin cream rim, two swept antennae and NO eyes. Ten pairs of slender jointed walking branches and small terminal pair below. Single unsegmented posterior spine 1.4 times carapace length, not a ringed tail. Quiet domed upper shield.",
+  "concept": "../../concept-original.png",
+  "concept_row": 2,
+  "concept_interpretation": "Concept has an oval/pointed top-view shield and apparent tail segmentation. Resolve toward a broad semicircular shield with gently curved rear edge and continuous unsegmented spine per ROM. Surface facets are deliberate rings, not random triangular noise.",
+  "axes": {
+    "forward": "-Y",
+    "up": "+Z",
+    "meters": true
+  },
+  "dimensions": "Nominal authoring unit 0.014m; final actual XYZ bounds measured in metadata. Supporting prop scale is artistic, not a specimen measurement. Burgessia carapace 0.014m; Tuzoia carapace 0.09m; Emeraldella body about 0.065m; Sanctacaris body about 0.075m.",
+  "budgets": {
+    "asset_id": "burgessia",
+    "revision": "r001",
+    "unit_m": 0.014,
+    "seed": 61,
+    "max_triangles": 16000,
+    "max_materials": 7,
+    "max_primitives": 220,
+    "soft_glb_bytes": 1000000,
+    "surface_profile": "palette-only",
+    "role": "supporting small scene life, 128px; inspectable at 512px",
+    "mount_origin": "authored body midline; ground-normalized lowest appendage to Z=0, identity root",
+    "runtime_target": "Three.js 0.180.0; parent independent runtime/GPU/populated-scene QA pending"
+  },
+  "viewing": "Supporting scene at 0.2-1m nominal camera distance; 128px identification, 512px inspection.",
+  "construction": "Explicit closed volumetric profile/radial shell meshes; closed tapered path tubes for antennae, tail and limbs. Editable semantic parts; deliberate flat planes. No texture billboards or borrowed geometry.",
+  "hidden_surfaces": "Closed lower shield surfaces; paired volumetric limbs and swimming lobes beneath shells, real hinge/body depth; no camera-specific flattening. Separate closed parts intentionally intersect at joints; not a print-ready union.",
+  "required_views": [
+    "concept-match",
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "turntable_frames": 0,
+  "proof": "Exact clean-import GLB, shared repository renderer; concept-match uses authored 55deg azimuth/32deg elevation as approximate illustration view, not calibrated camera. All revisions must retain config.",
+  "credits": "Original art/renders/prose CC-BY-4.0 Leon Made This / s010s; code MIT. ROM factual consultation only.",
+  "pending": [
+    "Independent visual/factual/specification QA by parent",
+    "Three.js browser/GPU/populated-scene acceptance",
+    "Unified gallery-renderer poster by parent"
+  ],
+  "revision_policy": "Only adopt bounded revisions with named visible gains; preserve earlier outputs."
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "asset_id": "emeraldella",
+  "brief_version": "r002",
+  "profile": "production",
+  "registered_at": "2026-10-19T21:06:41.421411+00:00",
+  "registration_only": true,
+  "preproduction_freeze_claim": false,
+  "purpose": "Current-time initial candidate registration for already-built, unchanged models. Original pre-model design brief remains separately pinned. All formal stage decisions remain unknown/pending. This supplement is not a retrospectively frozen design or acceptance claim.",
+  "publication_authority": "separate",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Check the exact GLB format, measured dimensions/counts/bytes, source correspondence and reproducibility against the bound original model/configuration.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Independent formal evidence review of silhouette, proportions, full volume and material regions against the unchanged original design brief and references.",
+      "required_sources": [
+        "IV-ROM-EMERALDELLA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify only the explicitly stylized external landmarks and retained uncertainty from the ROM source; no specimen-exact, color or phylogeny claim.",
+      "required_sources": [
+        "IV-ROM-EMERALDELLA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify complete source/generator/configuration, provenance, original brief and current delivery registration; no publication authority is implied.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse the exact GLB with the pinned Three.js loader and bind a formal report; an existing Node parse is supporting evidence only.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Target physical device/browser GPU acceptance remains unverified; software SwiftShader is not a physical GPU or performance pass.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Target deployed/populated gallery scene acceptance remains unverified; the separate software 2x2 QA scene does not establish deployed scene acceptance.",
+      "required_sources": []
+    }
+  ],
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 7,
+    "max_primitives": 220,
+    "max_glb_bytes": 1000000
+  },
+  "budget_note": "Copied original explicit geometry ceilings; the original byte target was advisory. This initial unapproved formal registration records that ceiling without claiming pre-production hard-budget acceptance.",
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/concept-small-marine-quartet-20261019/emeraldella/r002/emeraldella.blend",
+      "sha256": "5edeb335b564c68dddb3e833e90ceb15f8b7469d3360f2a37d3f1f66e828ac60"
+    },
+    {
+      "role": "generator",
+      "path": "production/concept-small-marine-quartet-20261019/generator-r002.py",
+      "sha256": "7708890c6ed62a544df53b38d52e6002ad6d101fd48ae0dfc23552d5cdd78ac7"
+    },
+    {
+      "role": "config",
+      "path": "production/concept-small-marine-quartet-20261019/emeraldella/r002/build-config.json",
+      "sha256": "a8684292ae4813e1c9f2be5f523b4a9ad50ca473d443b0904405048b558e0f08"
+    }
+  ],
+  "original_design_brief": {
+    "path": "production/concept-small-marine-quartet-20261019/emeraldella/r002/brief.json",
+    "sha256": "2f0728499925c7e068d261e0c766ff6ee33b7c2cf6421471a4e8a83fc762c7e1"
+  },
+  "original_evidence_coverage": {
+    "required_views": [
+      "concept-match",
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0,
+    "scope": "Original frozen bounded-study scope; retained unchanged. Existing exact GLB proof comprises twelve fixed views and no turntable."
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "view_exemptions": {},
+  "coverage_justification": "These are the repository legacy production-profile acceptance obligations, not a claim that new detail/turntable evidence exists. Current original twelve-view/zero-turntable proof remains valid for its bounded scope. Formal profile coverage is unknown and needs the parent formal acceptance process.",
+  "scope_limits": "Limb fine anatomy simplified; no precise phylogeny claim. Antennae/tail posture, palette and proportions are artistic."
+}
