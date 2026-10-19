@@ -11,7 +11,7 @@ export function controlDigest(ref) {
   // A PR may not authorize its own weakened classifier, tests, receipt producer or workflow.
   const entries=git('ls-tree','-r',ref).split('\n').filter(line=>{
     const path=line.split('\t')[1];
-    return /^(?:\.github\/|scripts\/|schemas\/|package(?:-lock)?\.json$|vite\.config\.js$)/.test(path)||/^site\/.*\.mjs$/.test(path)||path==='site/gallery/approved-poster-inputs.json';
+    return /^(?:\.github\/|scripts\/|schemas\/|package(?:-lock)?\.json$|vite\.config\.js$)/.test(path)||/^site\/.*\.mjs$/.test(path)||/^qa\/.*\.(?:mjs|js|py)$/.test(path)||path==='site/gallery/approved-poster-inputs.json';
   });
   assert(entries.length>0,'Missing trusted control plane');
   return sha256(entries.join('\n'));
@@ -23,13 +23,14 @@ export function sourceReceipt(kind) {
   assert(/^[0-9a-f]{40}$/.test(base || ''),'A verified comparison base is required');
   return {version:1,kind,source_commit:source,source_tree:tree,comparison_base:base,repository:process.env.GITHUB_REPOSITORY,
     run_id:Number(process.env.GITHUB_RUN_ID),run_attempt:Number(process.env.GITHUB_RUN_ATTEMPT),
+    pull_request:Number(process.env.CI_PR_NUMBER),validation_ref:process.env.GITHUB_REF,
     event:process.env.GITHUB_EVENT_NAME,head_sha:process.env.CI_HEAD_SHA || source,
     control_sha256:controlDigest(source),base_control_sha256:controlDigest(base),runtime_config:runtimeConfig(),
     validation:'awaiting-independent-github-conclusion'};
 }
 export function assertReceipt(receipt, expected) {
   assert(receipt&&receipt.version===1,'Missing or unsupported receipt');
-  for(const key of ['kind','source_tree','repository','run_id','run_attempt','comparison_base','head_sha'])assert.equal(receipt[key],expected[key],`Receipt ${key} mismatch`);
+  for(const key of ['kind','source_tree','repository','run_id','run_attempt','comparison_base','head_sha','pull_request','validation_ref'])assert.equal(receipt[key],expected[key],`Receipt ${key} mismatch`);
   assert.match(receipt.source_commit || '',/^[0-9a-f]{40}$/);
   assert.equal(receipt.control_sha256,expected.control_sha256,'Untrusted control plane');
   assert.equal(receipt.base_control_sha256,expected.control_sha256,'PR modified its own validation policy');

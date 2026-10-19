@@ -7,13 +7,12 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {sha256,git,controlDigest,runtimeConfig,assertReceipt} from './ci-provenance.mjs';
 
-export function assertTrustedRun(run,{repository,head,workflow,pr,base}){
+export function assertTrustedRun(run,{repository,head,workflow}){
   assert.equal(run.event,'pull_request','Fork/push runs cannot supply a PR receipt');
   assert.equal(run.status,'completed');assert.equal(run.conclusion,'success');
   assert.equal(run.path,`.github/workflows/${workflow}`,'Wrong workflow');
   assert.equal(run.repository.full_name,repository);assert.equal(run.head_repository.full_name,repository,'Fork artifact rejected');
   assert.equal(run.head_sha,head);
-  assert(run.pull_requests.some(row=>row.number===pr&&row.base.sha===base&&row.head.sha===head&&row.base.repo.id===row.head.repo.id),'PR provenance mismatch');
   assert(Number.isSafeInteger(run.check_suite_id),'Missing check suite');
 }
 export function assertArtifact(artifact,run,bytes){
@@ -23,7 +22,7 @@ export function assertArtifact(artifact,run,bytes){
   assert.match(artifact.digest || '',/^sha256:[a-f0-9]{64}$/,'Missing GitHub artifact digest');
   assert.equal(`sha256:${sha256(bytes)}`,artifact.digest,'GitHub artifact digest mismatch');
 }
-async function reuse(){
+export async function reuse(){
   if(process.env.GITHUB_EVENT_NAME!=='push'||process.env.GITHUB_REF!=='refs/heads/main')return {reused:false,reason:'Only main push may reuse validated PR outputs'};
   const repository=process.env.GITHUB_REPOSITORY,token=process.env.GITHUB_TOKEN;
   assert(token&&/^[\w.-]+\/[\w.-]+$/.test(repository || ''),'GitHub proof access unavailable');
@@ -45,9 +44,7 @@ async function reuse(){
       for(const summary of candidates){
         try{
           const run=await api(`actions/runs/${summary.id}`);
-          const row=run.pull_requests.find(row=>row.number===pr.number);
-          assert(row,'Missing PR provenance');
-          assertTrustedRun(run,{repository,head:pr.head.sha,workflow,pr:pr.number,base:row.base.sha});
+          assertTrustedRun(run,{repository,head:pr.head.sha,workflow});
           const suite=await api(`check-suites/${run.check_suite_id}`);
           assert.equal(suite.app?.slug,'github-actions');assert.equal(suite.conclusion,'success');assert.equal(suite.head_sha,run.head_sha);
           const artifacts=await api(`actions/runs/${run.id}/artifacts?per_page=100`);
@@ -61,10 +58,17 @@ async function reuse(){
           const archive=join(temp,`${kind}.zip`),target=join(temp,kind);writeFileSync(archive,bytes);mkdirSync(target);
           execFileSync('python3',['-c',`import zipfile,sys,pathlib\nwith zipfile.ZipFile(sys.argv[1]) as z:\n names=z.namelist(); expected=['receipt.json','dist.tar'] if sys.argv[3]=='pages' else ['receipt.json']\n assert sorted(names)==sorted(expected), 'Unexpected artifact members'\n for name in names:\n  info=z.getinfo(name); assert info.file_size < 2000000000 and not ((info.external_attr >> 16) & 0o170000)==0o120000\n  pathlib.Path(sys.argv[2],name).write_bytes(z.read(name))`,archive,target,kind]);
           const receipt=JSON.parse(readFileSync(join(target,'receipt.json')));
-          assertReceipt(receipt,{kind,source_tree:tree,repository,run_id:run.id,run_attempt:run.run_attempt,comparison_base:row.base.sha,head_sha:run.head_sha,control_sha256:control,runtime_config:runtimeConfig()});
+          assert.match(receipt.source_commit || '',/^[0-9a-f]{40}$/,'Missing tested source commit');
           const commit=await api(`git/commits/${receipt.source_commit}`);
           assert.equal(commit.tree.sha,tree,'Merge tree differs from validated tree');
-          assert.deepEqual(commit.parents.map(item=>item.sha),[row.base.sha,run.head_sha],'Receipt is not the tested PR merge commit');
+          assert.equal(commit.parents.length,2,'PR merge commit must have base/head parents');
+          const base=commit.parents[0].sha;
+          assert.equal(commit.parents[1].sha,run.head_sha,'Receipt is not the tested PR head');
+          execFileSync('git',['merge-base','--is-ancestor',base,main]);
+          // PR run relations disappear on merge and their SHAs mutate while open.
+          // Git commit parents and the base control files are independent, immutable proof.
+          assert.equal(controlDigest(base),control,'PR changed the independently verified base control plane');
+          assertReceipt(receipt,{kind,source_tree:tree,repository,run_id:run.id,run_attempt:run.run_attempt,comparison_base:base,head_sha:run.head_sha,pull_request:pr.number,validation_ref:`refs/pull/${pr.number}/merge`,control_sha256:control,runtime_config:runtimeConfig()});
           if(kind==='pages')assert.equal(sha256(readFileSync(join(target,'dist.tar'))),receipt.payload_sha256,'Payload tampered');
           proof={kind,run_id:run.id,check_suite_id:run.check_suite_id,result:suite.conclusion,artifact_id:artifact.id,artifact_sha256:artifact.digest,receipt};break;
         }catch(error){console.log(`Receipt candidate ${summary.id} rejected: ${error.message}`);rmSync(join(temp,kind),{recursive:true,force:true});}

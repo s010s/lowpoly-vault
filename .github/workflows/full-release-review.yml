@@ -6,15 +6,20 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  actions: read
 concurrency:
   group: full-release-review-${{ github.ref }}
   cancel-in-progress: true
 env:
   SITE_BASE: /lowpoly-vault/
   SITE_ORIGIN: https://s010s.github.io
+  QA_PARSER_OUTPUT: qa/ci-parser/threejs-parser.json
 jobs:
   scope:
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+      pull-requests: read
     runs-on: ubuntu-latest
     outputs:
       runtime: ${{ steps.scope.outputs.runtime }}
@@ -50,6 +55,7 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           CI_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CI_PR_NUMBER: ${{ github.event.pull_request.number }}
         run: node site/ci-provenance.mjs review
       - uses: actions/upload-artifact@v4
         if: github.event_name == 'pull_request'
@@ -72,7 +78,7 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - name: Complete and audit the shared exact-catalog build once
@@ -128,7 +134,7 @@ jobs:
             qa/release-matrix/
             qa/release-strict-gpu/
             qa/release-fallback-only/
-            qa/threejs-parser.json
+            qa/ci-parser/threejs-parser.json
             qa/shared-model-preview/
             qa/handoff-continuity/
             qa/release-conifer-handoff/

@@ -6,15 +6,20 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  actions: read
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: true
 env:
   SITE_BASE: /lowpoly-vault/
   SITE_ORIGIN: https://s010s.github.io
+  QA_PARSER_OUTPUT: qa/ci-parser/threejs-parser.json
 jobs:
   build:
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+      pull-requests: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +38,7 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - run: npm run build
         if: steps.reuse.outputs.reused != 'true'
         id: build_site
@@ -94,7 +99,7 @@ jobs:
             qa/release-static/
             qa/release-handoff-smoke/
             qa/animation-refinements/interaction/
-            qa/threejs-parser.json
+            qa/ci-parser/threejs-parser.json
             qa/approved-gallery-browser/
             qa/concept-seven-release-20261019/browser/
       - name: Record exact successful PR build payload
@@ -102,6 +107,7 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           CI_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CI_PR_NUMBER: ${{ github.event.pull_request.number }}
         run: node site/ci-provenance.mjs pages
       - uses: actions/upload-artifact@v4
         if: github.event_name == 'pull_request'

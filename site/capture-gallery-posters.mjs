@@ -57,6 +57,7 @@ async function localSite() {
 
 try {
   const url = process.env.GALLERY_URL || await localSite();
+  assert.equal(process.versions.node.split('.')[0], CAPTURE_POLICY.node_major, 'Capture requires the versioned Node toolchain');
   const executablePath = process.env.CHROMIUM_PATH;
   browser = await chromium.launch({ ...(executablePath ? { executablePath } : {}), headless:true, args:CAPTURE_POLICY.args });
   const toolchain = JSON.parse(await readFile(resolve(root,'node_modules/playwright-core/browsers.json'),'utf8'));

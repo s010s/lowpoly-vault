@@ -26,7 +26,8 @@ export function classify(paths,manifest,full=false,context={}) {
    if(!previous){unknown=true;reasons.push('Missing previous publication manifest');continue;}
    for(const asset of published)if(!isDeepStrictEqual(asset,before.find(old=>old.id===asset.id)))changed.add(asset.id);
    if(before.some(asset=>!published.some(now=>now.id===asset.id))){runtime=true;reasons.push('Published asset removal');}
-   if(!changed.size&&!isDeepStrictEqual(previous,manifest)){runtime=true;reasons.push('Shared publication metadata changed');}
+   const {assets:previousAssets,...previousShared}=previous,{assets:currentAssets,...currentShared}=manifest;
+   if(!isDeepStrictEqual(previousShared,currentShared)){runtime=true;reasons.push('Shared publication metadata changed');}
    continue;
   }
   const owners=ownAsset(path);
