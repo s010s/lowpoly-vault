@@ -1,0 +1,53 @@
+{
+  "asset_id": "pteraspis",
+  "revision": "r001",
+  "review_kind": "maker self-check, not independent acceptance",
+  "inspected_at": "2026-10-19T16:09:56.947204+00:00",
+  "glb_sha256": "3e2672cdef0f412d29a3c6de23b204ca966e65d827e99503850e314fb74b0674",
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "observation": "Pointed rostral armor, thick head shield, posterior trunk, small hard lateral flanges and rear shield spine remain distinct in gray and end views. Head-to-trunk armor edge is deliberately hard. Lower tail lobe is larger by construction. Fine anatomy, plate pattern and hidden oral anatomy are not reconstructed; primary-source access is incomplete.",
+  "technical": {
+    "source_errors": [],
+    "glb_errors": [],
+    "khronos": {
+      "status": "pass",
+      "validator_version": "2.0.0-dev.3.10",
+      "sha256": "3e2672cdef0f412d29a3c6de23b204ca966e65d827e99503850e314fb74b0674",
+      "errors": [],
+      "warnings": [],
+      "num_errors": 0,
+      "num_warnings": 0,
+      "report": "gltf-validator.report.json",
+      "truncated": false
+    }
+  },
+  "warning_review": [
+    {
+      "warning": "Lowest Blender Z is -0.027600 m; verify mount/ground contract",
+      "rationale": "This is a swimming animal with declared midline mounting origin at (0,0,0); negative minimum Z/Y is intentional, not a floor-contact failure."
+    },
+    {
+      "warning": "Lowest glTF Y is -0.027600 m; verify mounting/ground contract",
+      "rationale": "This is a swimming animal with declared midline mounting origin at (0,0,0); negative minimum Z/Y is intentional, not a floor-contact failure."
+    }
+  ],
+  "acceptance": "pending independent visual/factual/specification and runtime/GPU/scene QA",
+  "limits": [
+    "No hardware GPU or populated scene performance measured",
+    "No fossil-exact taxon or colour reconstruction claimed",
+    "Concept image camera is uncalibrated; concept-angle render is only an approximation",
+    "No release or deployment decision"
+  ]
+}
