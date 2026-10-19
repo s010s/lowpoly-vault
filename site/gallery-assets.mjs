@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFile, readdir, realpath } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { posterInputState } from './gallery-poster-inputs.mjs';
 
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const safePath = path => typeof path === 'string' && path.startsWith('gallery/') &&
@@ -90,9 +91,10 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
     assert(Array.isArray(spec.floorPoints) && spec.floorPoints.length >= 3 && spec.floorPoints.every(point => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite)), `Invalid wheel floor contour: ${id}`);
     assert(spec.projectedBounds && ['left', 'right', 'top', 'bottom'].every(key => Number.isFinite(spec.projectedBounds[key])), `Invalid wheel projected bounds: ${id}`);
   }
-  const missing = manifest.assets.filter(asset => !Object.hasOwn(resources.posters, asset.id)).map(asset => asset.id);
+  const inputState = await posterInputState(manifest, resources, { root });
+  const missing = manifest.assets.filter(asset => !Object.hasOwn(resources.posters, asset.id) || inputState.stale.includes(asset.id)).map(asset => asset.id);
   if (requireComplete) assert.equal(missing.length, 0, `Canonical gallery posters missing: ${missing.join(', ')}`);
-  return { resources, coverage: { published: manifest.assets.length, matched: Object.keys(resources.posters).length, missing }, files: files.size, bytes: [...files.values()].reduce((sum, file) => sum + file.bytes, 0) };
+  return { resources, inputState, coverage: { published: manifest.assets.length, matched: inputState.valid.length, stale: inputState.stale, missing }, files: files.size, bytes: [...files.values()].reduce((sum, file) => sum + file.bytes, 0) };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

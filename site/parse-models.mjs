@@ -1,6 +1,6 @@
 // Geometry parsing only. Textured published GLBs use real browser image decoding; no rendering claim.
 import { readFile,readdir,writeFile,mkdir,stat } from 'node:fs/promises';
-import { join,resolve,extname,sep } from 'node:path';
+import { join,resolve,extname,sep,dirname } from 'node:path';
 import { createServer } from 'node:http';
 import assert from 'node:assert/strict';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -64,5 +64,6 @@ try {
   }catch(e){results.push({id:a.id,glb:a.glb,scope:a.parse_scope,status:'fail',error:e.message});console.error(`FAIL ${a.id}: ${e.message}`);}
  }
 }finally{await context?.close();await browser?.close();if(server?.listening)await new Promise(r=>server.close(r));}
-await mkdir('qa',{recursive:true});await writeFile('qa/threejs-parser.json',JSON.stringify({test:'Three.js GLTFLoader geometry and embedded-image decoding',browser_rendering:'not_tested',visual_review:'not_tested',errors:browserErrors,results},null,2)+'\n');
+const report=process.env.QA_PARSER_OUTPUT||'qa/threejs-parser.json';
+await mkdir(dirname(report),{recursive:true});await writeFile(report,JSON.stringify({test:'Three.js GLTFLoader geometry and embedded-image decoding',browser_rendering:'not_tested',visual_review:'not_tested',errors:browserErrors,results},null,2)+'\n');
 if(!results.length||results.some(r=>r.status==='fail')||browserErrors.length)process.exitCode=1;

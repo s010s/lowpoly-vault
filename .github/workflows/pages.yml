@@ -12,27 +12,53 @@ concurrency:
 env:
   SITE_BASE: /lowpoly-vault/
   SITE_ORIGIN: https://s010s.github.io
+  QA_PARSER_OUTPUT: qa/ci-parser/threejs-parser.json
 jobs:
   build:
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+      pull-requests: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
+      - name: Check exact-tree validated PR reuse
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: reuse
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node site/ci-reuse.mjs
+      - name: Set isolated publication memo path
+        run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - name: Brand source contracts when present
+        run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
+        if: steps.reuse.outputs.reused != 'true'
         id: build_site
       - run: npx playwright install --with-deps chromium
         id: install_chromium
       - name: Complete exact-catalog gallery posters with the approved renderer
+        if: steps.reuse.outputs.reused != 'true'
         run: npm run gallery:posters
       - name: Verify all published models have sealed matching gallery resources
         env:
           REQUIRE_COMPLETE_GALLERY: '1'
         run: node site/audit-release.mjs
+      - name: Verify isolated poster recipe matches the application
+        if: steps.reuse.outputs.reused != 'true'
+        run: node site/capture-gallery-posters.mjs --verify-recipe
+      - name: Brand browser contracts when present
+        if: steps.reuse.outputs.reused != 'true'
+        run: if [ -f site/brand-browser-test.mjs ]; then node site/brand-browser-test.mjs; fi
       - name: Preserve audited gallery captures for source integration
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
@@ -43,21 +69,28 @@ jobs:
             dist/assets/manifest.json
           if-no-files-found: error
       - name: Full publication rejection regressions
+        if: steps.reuse.outputs.reused != 'true'
         run: npm run test:publication
-      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
+      - if: steps.reuse.outputs.reused != 'true'
+        run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
       - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
+        if: steps.reuse.outputs.reused != 'true'
         run: npm run test:gallery:browser
       - name: Exact seven concept assets, renderer, downloads and bilingual source labels
+        if: steps.reuse.outputs.reused != 'true'
         run: node site/concept-seven-browser-test.mjs
       - name: Parse original and published models, decoding embedded textures in Chromium
+        if: steps.reuse.outputs.reused != 'true'
         run: npm run test:parser
       - name: Static routes, exact download bytes and attribution for every model
+        if: steps.reuse.outputs.reused != 'true'
         env:
           GALLERY_DIR: dist
           QA_STATIC_ONLY: '1'
           QA_OUTPUT_DIR: qa/release-static
         run: node site/redesign-browser-test.mjs
       - name: Key keyboard, filter, disclosure and clipboard interactions
+        if: steps.reuse.outputs.reused != 'true'
         run: npm run test:interaction:browser
       - name: Thumbnail to real 3D and canonical return smoke
         env:
@@ -69,13 +102,29 @@ jobs:
         with:
           name: gallery-release-qa
           path: |
+            qa/brand-browser/
             qa/ci-timings/
+            qa/ci-provenance/reuse.json
             qa/release-static/
             qa/release-handoff-smoke/
             qa/animation-refinements/interaction/
-            qa/threejs-parser.json
+            qa/ci-parser/threejs-parser.json
             qa/approved-gallery-browser/
             qa/concept-seven-release-20261019/browser/
+      - name: Record exact successful PR build payload
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CI_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CI_PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: node site/ci-provenance.mjs pages
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'pull_request'
+        with:
+          name: validated-pages-${{ github.run_attempt }}
+          path: qa/ci-provenance/pages/
+          if-no-files-found: error
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -105,6 +154,8 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      - name: Set isolated publication memo path
+        run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - name: Actual deployed catalog, direct details, GLB/Blend/ZIP, attribution and previews
