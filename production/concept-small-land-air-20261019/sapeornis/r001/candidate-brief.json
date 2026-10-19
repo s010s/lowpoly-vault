@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "asset_id": "sapeornis",
+  "brief_version": "r001",
+  "profile": "production",
+  "registered_at": "2026-10-19T21:36:43.781021+00:00",
+  "registration_only": true,
+  "preproduction_freeze_claim": false,
+  "purpose": "Current-time initial candidate registration for already-built unchanged r001 models. Original frozen design remains separately pinned. All formal stage decisions remain unknown. This is not retrospective design or acceptance.",
+  "publication_authority": "separate",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Check exact GLB format, measured geometry/counts/bounds/bytes, source correspondence and reproducibility, including explicit flight-body mount warning where applicable.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Independent formal review of silhouette, proportions, full volume and materials against the unchanged original concept and design; keep r001 Sapeornis and its documented outer-wing limitation.",
+      "required_sources": [
+        "ZHENG-2014",
+        "SERRANO-2017"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check only explicitly claimed stylized landmarks and retain cited uncertainty; no species-exact anatomy, color, size or phylogenetic certification.",
+      "required_sources": [
+        "ZHENG-2014",
+        "SERRANO-2017"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Check complete source/generator/configuration, provenance, original design and current delivery records without claiming a retrospective production freeze.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Bind parsing of the exact GLB to a formal candidate report; prior independent Three.js software evidence is supporting evidence only.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Physical target-device GPU/performance acceptance is unverified. ANGLE SwiftShader software rendering does not establish it.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Deployed populated production-gallery acceptance is unverified. Prior software scenes with 1/8/32 copies per asset do not establish it.",
+      "required_sources": []
+    }
+  ],
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 8,
+    "max_primitives": 160,
+    "max_glb_bytes": 1000000
+  },
+  "budget_note": "Original explicit geometry ceilings retained. Original byte target was advisory; this unapproved initial registration records the same ceiling without claiming prior hard-budget acceptance.",
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/concept-small-land-air-20261019/sapeornis/r001/output/sapeornis/sapeornis.blend",
+      "sha256": "fe598c50f50823d38e50a15aa1ce903dd1264f17d05cda20194c7b3396d7a734"
+    },
+    {
+      "role": "generator",
+      "path": "production/concept-small-land-air-20261019/generator-r001.py",
+      "sha256": "f7d8e34c1b6e4a531869eba74070f7149a909eafe248d82ddb93f97946946dc7"
+    },
+    {
+      "role": "config",
+      "path": "production/concept-small-land-air-20261019/sapeornis/r001/build-config.json",
+      "sha256": "39e714546e7f690136f57afa0f83b40240382a07b65eb799ecfe2e54e8ff1795"
+    }
+  ],
+  "original_design_brief": {
+    "path": "production/concept-small-land-air-20261019/sapeornis/r001/brief.json",
+    "sha256": "a1931a260a3ee691c7a40bb3b359b5f02fd33d7089b8f310643774845c99b558"
+  },
+  "original_evidence_coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0,
+    "scope": "Unchanged bounded-study design: eleven fixed views and zero turntable frames."
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "view_exemptions": {},
+  "coverage_justification": "Legacy production-profile obligations are recorded without claiming new detail/orbit evidence exists. Original eleven-view/zero-turntable proof is preserved. Formal profile acceptance remains pending.",
+  "scope_limits": "Stylized inspired prop; artistic colours and approximate dimensions; no fossil-exact species assertion Outer wing silhouette remains narrow/pointed versus the broad-wing concept. R002 widened tips look paddle-like and do not deliver a clear craft improvement under locked camera/light conditions; R002 NOT ADOPTED. R001 remains a candidate with this explicit visual limitation; no visual/brief acceptance claimed."
+}

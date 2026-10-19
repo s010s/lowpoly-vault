@@ -38,7 +38,7 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
       - name: Brand source contracts when present
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
@@ -71,6 +71,8 @@ jobs:
       - name: Reviewed quartet actual-model browser acceptance
         if: hashFiles('assets/releases/concept-quartets-20261019.json') != ''
         run: node site/concept-quartets-browser-test.mjs
+      - name: Reviewed land-air quartet bilingual desktop and mobile browser acceptance
+        run: node site/concept-landair-browser-test.mjs
       - name: Full publication rejection regressions
         if: steps.reuse.outputs.reused != 'true'
         run: npm run test:publication
@@ -115,6 +117,7 @@ jobs:
             qa/approved-gallery-browser/
             qa/concept-seven-release-20261019/browser/
             qa/quartets-release-20261019/browser/
+            qa/landair-release-20261019/browser/
       - name: Record exact successful PR build payload
         if: github.event_name == 'pull_request'
         env:

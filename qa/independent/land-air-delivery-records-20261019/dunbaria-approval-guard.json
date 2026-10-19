@@ -1,0 +1,90 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "scripts/validate_candidate.py",
+    "production/concept-small-land-air-20261019/dunbaria/r001/candidate.json",
+    "--json",
+    "--require-approved"
+  ],
+  "exit_code": 1,
+  "expected_exit_code": 1,
+  "meaning": "Record valid, formal approval correctly rejected",
+  "result": {
+    "valid": true,
+    "approved_for_brief": false,
+    "errors": [],
+    "approval_blockers": [
+      "technical: unknown",
+      "technical-acceptance: unknown",
+      "visual: unknown",
+      "visual-acceptance: unknown",
+      "factual: unknown",
+      "factual-acceptance: unknown",
+      "specification: unknown",
+      "specification-acceptance: unknown",
+      "runtime_parse: unknown",
+      "runtime_parse-acceptance: unknown",
+      "gpu: unknown",
+      "gpu-acceptance: unknown",
+      "scene: unknown",
+      "scene-acceptance: unknown",
+      "open blocker: formal-stage-acceptance-pending",
+      "open blocker: physical-gpu-and-deployed-scene-unknown",
+      "open blocker: formal-profile-coverage-unverified",
+      "open blocker: official-gallery-posters-pending",
+      "approval: pending"
+    ],
+    "required_stages": [
+      "factual",
+      "gpu",
+      "runtime_parse",
+      "scene",
+      "specification",
+      "technical",
+      "visual"
+    ],
+    "measurements": {
+      "triangles": 1582,
+      "materials": 7,
+      "primitives": 31,
+      "glb_bytes": 113700,
+      "texture_count": 0,
+      "texture_max_dimension": 0,
+      "texture_bytes": 0,
+      "decoded_texture_bytes_estimate": 0,
+      "semantic_sha256": "3a527de8b5acf8d152622f0683bcc5b10a132e9db9aa37a3c937fb9e5fb25974"
+    },
+    "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+    "validation_profile": "legacy-v1",
+    "rule_version": "2026-10-18.1",
+    "profile_contract_status": "pass",
+    "asset_id": "dunbaria",
+    "revision": "r001",
+    "subject": {
+      "revision": "r001",
+      "glb_sha256": "2f584412b3318fa3969e6b008271df107f73fe9f00c8f304c04bfa47e134311e",
+      "brief_sha256": "dee56529547768463bb8868e19c87b2165e128d54b8a4dca2c91db96382701cf",
+      "references_sha256": "0dbafa3d009439b03d1891438379cd54281ec45f26ea981d920a91d689a74791"
+    },
+    "artifact_sha256": {
+      "glb": "2f584412b3318fa3969e6b008271df107f73fe9f00c8f304c04bfa47e134311e",
+      "source": "27a429059cbacb2f93563cf7a132a09ebe04eb6b7961e8234c85528d85ea4730",
+      "generator": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6",
+      "config": "9266fa202963600ee0efa521fb98022fb19339d31e33e49d8108c5398976bd0c",
+      "design_brief": "a354aeaa8549eecf09fbe858430aca47eade271f1ecbbe1e11d11018b8f7c02b",
+      "design_references": "8e2bd938aa87e9d07e16c744ba85f612a8721fd897b4ddf7b776c76b7142f998",
+      "references": "0dbafa3d009439b03d1891438379cd54281ec45f26ea981d920a91d689a74791",
+      "metadata": "3058c26b470e87accf70f96bab5cd85835c1da64d887bb30dbc6c39981b027e4",
+      "source_metrics": "0fe8d2bb66bc14fe423a574ddd5d0f84eda268c4cb193760749d108472dc04c7",
+      "static_metrics": "d39372887b540e9491f4d6d97067414c49f4a3c2282affff5fbfda239dd36d20",
+      "preview": "e245854a09a26453b567a15c3f5f19d2e2f4c3b500b717336e0ae0250adf4fe7",
+      "brief": "dee56529547768463bb8868e19c87b2165e128d54b8a4dca2c91db96382701cf"
+    },
+    "approved_visual_image_sha256": [],
+    "profile": "production",
+    "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+    "approval_status": "pending"
+  },
+  "stderr": ""
+}

@@ -1,0 +1,54 @@
+{
+  "npm_test": {
+    "exit_code": 0,
+    "log": "npm-test.txt"
+  },
+  "ui_and_gallery": {
+    "exit_code": 0,
+    "log": "ui-and-gallery-tests.txt",
+    "models": 190
+  },
+  "build_and_output_audit": {
+    "exit_code": 0,
+    "log": "build.txt",
+    "allowlisted_output_files": 2388,
+    "published_assets": 190,
+    "canonical_gallery_pairs_at_local_build": 186,
+    "complete_gallery_acceptance": "CI generation/audit passed, local complete source audit passed after verified eight-file gallery import"
+  },
+  "ci_timing_and_mandatory_failure_tests": {
+    "exit_code": 0,
+    "log": "ci-timed.txt"
+  },
+  "full_parser": {
+    "status": "local_browser_environment_blocker",
+    "details": "parser-environment-limit.json",
+    "full_report": "threejs-parser.json"
+  },
+  "release_rejection_suites": {
+    "landair": {
+      "status": "pass",
+      "checks": 235,
+      "exit_code": 0,
+      "run_mode": "sequential final code with NODE_OPTIONS=--max-old-space-size=512",
+      "log_at_capture": "/tmp/landair-release-final.log"
+    },
+    "marine": {
+      "status": "running sequential final retry"
+    },
+    "earlier_attempts": "Two overlapping resource-limited runs exited137 without completed assertion results; they are not counted as passes."
+  },
+  "current_remote_head": "9271776b639f246ee3925fbf4654a2fd5c965719",
+  "current_pr": 28,
+  "current_head_ci": "pending",
+  "complete_source_gallery_audit": {
+    "status": "pass",
+    "log": "complete-gallery.txt",
+    "published": 190,
+    "matched": 190,
+    "stale": [],
+    "missing": [],
+    "files": 391,
+    "bytes": 55935292
+  }
+}

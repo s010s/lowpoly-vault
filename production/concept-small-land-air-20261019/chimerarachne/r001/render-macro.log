@@ -1,0 +1,48 @@
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+20:57:31 | INFO: Data are loaded, start creating Blender stuff
+20:57:31 | INFO: Blender create Mesh node chelicera--1-mesh
+20:57:31 | INFO: Blender create Mesh node chelicera-1-mesh
+20:57:31 | INFO: Blender create Mesh node dorsal-segment-boundary-0-mesh
+20:57:31 | INFO: Blender create Mesh node dorsal-segment-boundary-1-mesh
+20:57:31 | INFO: Blender create Mesh node dorsal-segment-boundary-2-mesh
+20:57:31 | INFO: Blender create Mesh node dorsal-segment-boundary-3-mesh
+20:57:31 | INFO: Blender create Mesh node dorsal-segment-boundary-4-mesh
+20:57:31 | INFO: Blender create Mesh node front-body-mesh
+20:57:31 | INFO: Blender create Mesh node left-walking-leg-1-mesh
+20:57:31 | INFO: Blender create Mesh node left-walking-leg-2-mesh
+20:57:31 | INFO: Blender create Mesh node left-walking-leg-3-mesh
+20:57:31 | INFO: Blender create Mesh node left-walking-leg-4-mesh
+20:57:31 | INFO: Blender create Mesh node right-walking-leg-1-mesh
+20:57:31 | INFO: Blender create Mesh node right-walking-leg-2-mesh
+20:57:31 | INFO: Blender create Mesh node right-walking-leg-3-mesh
+20:57:31 | INFO: Blender create Mesh node right-walking-leg-4-mesh
+20:57:31 | INFO: Blender create Mesh node segmented-opisthosoma-mesh
+20:57:31 | INFO: Blender create Mesh node segmented-whip-tail-mesh
+20:57:31 | INFO: Blender create Mesh node small-eye--1-mesh
+20:57:31 | INFO: Blender create Mesh node small-eye-1-mesh
+20:57:31 | INFO: Blender create Mesh node small-pedipalp--1-mesh
+20:57:31 | INFO: Blender create Mesh node small-pedipalp-1-mesh
+20:57:31 | INFO: Blender create Mesh node underside-spinneret--1-0-mesh
+20:57:31 | INFO: Blender create Mesh node underside-spinneret--1-1-mesh
+20:57:31 | INFO: Blender create Mesh node underside-spinneret-1-0-mesh
+20:57:31 | INFO: Blender create Mesh node underside-spinneret-1-1-mesh
+20:57:31 | INFO: glTF import finished in 0.02s
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/render_millimeter_views.py", line 258, in <module>
+    main()
+    ~~~~^^
+  File "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/render_millimeter_views.py", line 196, in main
+    'helper_sha256':digest(Path(__file__).with_name('asset_common.py')),
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/production/concept-small-land-air-20261019/render_millimeter_views.py", line 35, in digest
+    with Path(path).open('rb') as stream:
+         ~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 539, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/lowpoly-vault/production/concept-small-land-air-20261019/asset_common.py'
+
+Error: script failed, file: 'production/concept-small-land-air-20261019/render_millimeter_views.py', exiting.
+Blender 4.3.2
+
+Blender quit

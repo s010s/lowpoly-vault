@@ -32,7 +32,9 @@ concurrency:
 jobs:
   integrity-and-queue:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # The complete marine job was about 16 min; the added 235-check land/air
+    # suite took over 6 min locally. Keep every fail-closed check with headroom.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

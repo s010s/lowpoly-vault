@@ -1,0 +1,82 @@
+{
+  "command": "scripts/validate_candidate.py --require-approved --json",
+  "exit_code": 1,
+  "expected_exit_code": 1,
+  "interpretation": "Correct fail-closed rejection of formal approval; the record itself is valid.",
+  "result": {
+    "valid": true,
+    "approved_for_brief": false,
+    "errors": [],
+    "approval_blockers": [
+      "technical: unknown",
+      "technical-acceptance: unknown",
+      "visual: unknown",
+      "visual-acceptance: unknown",
+      "factual: unknown",
+      "factual-acceptance: unknown",
+      "specification: unknown",
+      "specification-acceptance: unknown",
+      "runtime_parse: unknown",
+      "runtime_parse-acceptance: unknown",
+      "gpu: unknown",
+      "gpu-acceptance: unknown",
+      "scene: unknown",
+      "scene-acceptance: unknown",
+      "open blocker: formal-stage-acceptance-pending",
+      "open blocker: physical-gpu-and-deployed-scene-unknown",
+      "open blocker: formal-profile-coverage-unverified",
+      "open blocker: official-gallery-posters-pending",
+      "approval: pending"
+    ],
+    "required_stages": [
+      "factual",
+      "gpu",
+      "runtime_parse",
+      "scene",
+      "specification",
+      "technical",
+      "visual"
+    ],
+    "measurements": {
+      "triangles": 2428,
+      "materials": 7,
+      "primitives": 35,
+      "glb_bytes": 160264,
+      "texture_count": 0,
+      "texture_max_dimension": 0,
+      "texture_bytes": 0,
+      "decoded_texture_bytes_estimate": 0,
+      "semantic_sha256": "30b1b8d4641a5c1f64f71a3adae563102a1012c06d62d26f34e3acd97bf6ecc2"
+    },
+    "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+    "validation_profile": "legacy-v1",
+    "rule_version": "2026-10-18.1",
+    "profile_contract_status": "pass",
+    "asset_id": "longirostravis",
+    "revision": "r001",
+    "subject": {
+      "revision": "r001",
+      "glb_sha256": "10668416201cf7ec57e48285019fcd0738e6bb69665fd8fb519559aabaa6bd83",
+      "brief_sha256": "d856f5671daec0ebdb0501806cd51952e21c19b454bd91de1e9ecdc359e2ac10",
+      "references_sha256": "01b3803036c92808da9781a7374cc3a98849efebee2f462b750019601ea5da75"
+    },
+    "artifact_sha256": {
+      "glb": "10668416201cf7ec57e48285019fcd0738e6bb69665fd8fb519559aabaa6bd83",
+      "source": "b9ccf3e817136a22c848afcb4a6f48b7791c31acb32ef86b0c7eb841d140ebe3",
+      "generator": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6",
+      "config": "d3d714afb2750ca575623062ab30a891ca2ced7faa615f42c7be9071b6e5e69e",
+      "design_brief": "e5db584733786b710b4b552c6d7754ed4ea9c97915f2aeaca8676f7561d5b139",
+      "design_references": "9c9ffcb2267b0698bf095ccf075f9998cd77fd46c271213d00e51493ae236a36",
+      "references": "01b3803036c92808da9781a7374cc3a98849efebee2f462b750019601ea5da75",
+      "metadata": "c7026d6f169f95f8273bb910096580b781b60eb732b453a1501e238ce0a18d89",
+      "source_metrics": "a4bfc005a04d8b1465f5c79a042a39b79209c5435dc59d9c18628e10e22c5ab5",
+      "static_metrics": "9f5762e581f7d50d6e657a34f76831f3aae6056fb27c5d7fdffe398b3402e31a",
+      "preview": "2e226ad9fbf573bca0a4fa7224914b94fe162224f896122d9e4b643c60ca1232",
+      "brief": "d856f5671daec0ebdb0501806cd51952e21c19b454bd91de1e9ecdc359e2ac10"
+    },
+    "approved_visual_image_sha256": [],
+    "profile": "production",
+    "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+    "approval_status": "pending"
+  }
+}

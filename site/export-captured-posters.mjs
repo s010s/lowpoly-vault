@@ -3,18 +3,22 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
+import {LANDAIR_CAPTURE} from './accepted-landair-capture.mjs';
 import {QUARTETS_CAPTURE} from './accepted-quartets-capture.mjs';
 import {CONCEPT_SEVEN_IDS} from './concept-seven-release.mjs';
 const root=resolve(process.env.PREVIEW_OUTPUT||'qa/ci-publication-capture');
 const report=JSON.parse(await readFile(resolve(root,'render-report.json')));
 const index=JSON.parse(await readFile(resolve(root,'assets/turntables/index.json')));
 const ids=process.env.PREVIEW_ASSET_IDS.split(',');
-if(ids.length===QUARTETS_CAPTURE.assets.length)assert.deepEqual(ids.slice().sort(),QUARTETS_CAPTURE.assets.map(a=>a.id).sort());
+const contract=ids.includes(LANDAIR_CAPTURE.assets[0].id)?LANDAIR_CAPTURE:ids.length===QUARTETS_CAPTURE.assets.length?QUARTETS_CAPTURE:null;
+if(ids.includes(LANDAIR_CAPTURE.assets[0].id))assert.deepEqual(ids.slice().sort(),LANDAIR_CAPTURE.assets.map(a=>a.id).sort());
+else if(ids.length===QUARTETS_CAPTURE.assets.length)assert.deepEqual(ids.slice().sort(),QUARTETS_CAPTURE.assets.map(a=>a.id).sort());
 else if(ids.length===7)assert.deepEqual(ids.slice().sort(),CONCEPT_SEVEN_IDS);
 else assert.equal(new Set(ids).size,12);
 assert.equal(report.status,'pass');
 assert.equal(report.chromium_version,report.pinned_chromium_version);
 assert.deepEqual(report.assets.map(a=>a.id).sort(),ids.slice().sort());
+if(contract)for(const asset of contract.assets){assert.equal(report.assets.find(row=>row.id===asset.id)?.source_glb_sha256,asset.glb.sha256,'Capture report must bind the exact reviewed source');assert.equal(index.posters.find(row=>row.id===asset.id)?.source_glb_sha256,asset.glb.sha256,'Capture poster must bind the exact reviewed source');}
 console.log('PUBLICATION_CAPTURE_REPORT '+JSON.stringify({capture_only:true,source_commit:process.env.GITHUB_SHA,report,index}));
 for(const id of ids){
  const entry=index.posters.find(p=>p.id===id);assert(entry);

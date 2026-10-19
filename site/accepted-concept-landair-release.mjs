@@ -1,0 +1,559 @@
+/** Exact independently reviewed land/air pins; bounded website publication only. */
+export const CONCEPT_LANDAIR_RELEASE = {
+  "version": 1,
+  "scope": "concept-landair-20261019",
+  "authorization": "owner_authorized_publish_independent_qa_passed_batches",
+  "acceptance_scope": "independent_qa_accepted_stylized_prop",
+  "formal_profile_acceptance": "BLOCKED",
+  "hardware_gpu_verified": false,
+  "target_scene_verified": false,
+  "base_descriptor": {
+    "path": "assets/releases/concept-quartets-20261019.json",
+    "sha256": "df4e8571463d5d8be98b53d46fd1b8492b3d43a6798caf2069e2a084f1130423"
+  },
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "source_bundle": {
+    "path": "qa/landair-release-20261019/source-bundle.json",
+    "sha256": "1687f12839da22a81a5b05fb9e7140949fbd4836f92e0f8e423de9ee0653e740"
+  },
+  "integration_audit": {
+    "path": "qa/landair-release-20261019/integration-audit/source-integrity.json",
+    "sha256": "efc945e448f73a64d35e6dfd77e6207d8ba5e8a2d8779d3bc02f50e2be82cbef"
+  },
+  "excluded_ids": [
+    "ctenoimbricata"
+  ],
+  "additions": [
+    {
+      "id": "sapeornis",
+      "group": "land-air",
+      "revision": "r001",
+      "source_commit": "e874e99d20b3b98c73cddb8496bcd7e89be4e28c",
+      "review_commit": "3d024e53c36863d1887abd726998fa0f0d7b3831",
+      "delivery_review_commit": "b0426b7e3a696b30fea4de9e8b46c3772bab3f23",
+      "original_review_freeze": "68483aa3b8eed2d86f9e59a930128d99579b0838",
+      "review": {
+        "path": "qa/independent/small-land-air-quartet-20261019/report.json",
+        "sha256": "3551d1d471069218b78fc124b32df0df06e838c36f1cbe2a29e6be0a46ccea14"
+      },
+      "delivery_review": {
+        "path": "qa/independent/land-air-delivery-records-20261019/report.json",
+        "sha256": "f93e5a01768aa5f5fc7e03390383db2c825e9fdbb7b95e92a7575676bd9c3f1c"
+      },
+      "metadata": {
+        "path": "assets/additions/sapeornis/concept-landair-20261019/release-metadata.json",
+        "sha256": "7db3985ba4f28266a2931814042e531a336a4dcb3e718a1b568958e16647e01f"
+      },
+      "source_metadata": {
+        "path": "production/concept-small-land-air-20261019/sapeornis/r001/output/sapeornis/metadata.json",
+        "sha256": "50d58e2a7c7c2a6ff0c04525fe9827176134fd98e26fda22d69aed33bb55662d"
+      },
+      "candidate": {
+        "path": "production/concept-small-land-air-20261019/sapeornis/r001/candidate.json",
+        "sha256": "38fb0b38d4b2ef9f22d68c670e305cf9aca7ebe44bf394b7b3cf8c2d46b2c009"
+      },
+      "candidate_validation": {
+        "path": "production/concept-small-land-air-20261019/sapeornis/r001/candidate-validation.json",
+        "sha256": "e3250debb3007a913b58e5e8488e2ff30f91611a32a5bee7e4ab915091554a20"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/output/sapeornis/sapeornis.glb",
+          "sha256": "7b0aef80ee8327ebc06a8372fc63fce63c393a62451820b4bd183ff868b2755b"
+        },
+        "blend": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/output/sapeornis/sapeornis.blend",
+          "sha256": "fe598c50f50823d38e50a15aa1ce903dd1264f17d05cda20194c7b3396d7a734"
+        },
+        "brief": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/brief.json",
+          "sha256": "a1931a260a3ee691c7a40bb3b359b5f02fd33d7089b8f310643774845c99b558"
+        },
+        "references": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/references.json",
+          "sha256": "7870b82f5a84b86e29d1bbebdd38a30896dd860885f5a22f12736e603376dd1f"
+        },
+        "config": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/build-config.json",
+          "sha256": "39e714546e7f690136f57afa0f83b40240382a07b65eb799ecfe2e54e8ff1795"
+        },
+        "generator": {
+          "path": "production/concept-small-land-air-20261019/generator-r001.py",
+          "sha256": "f7d8e34c1b6e4a531869eba74070f7149a909eafe248d82ddb93f97946946dc7"
+        }
+      },
+      "technical": {
+        "source_export": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/source-export.report.json",
+          "sha256": "b9d29ef26d01e93d33d0440dfcc17bde917592e4c854b8a2c2c4c1c2ae9b904a"
+        },
+        "rebuild_1": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/reproducibility-1.report.json",
+          "sha256": "8bd4cce597b2259ff8474bc48b84450722eba626f50d46232ab602ae69da4606"
+        },
+        "rebuild_2": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/reproducibility-2.report.json",
+          "sha256": "9a21f756639211a4b0148f7af56e97267f917d9452f8d1462036f644164cc791"
+        },
+        "khronos": {
+          "path": "production/concept-small-land-air-20261019/sapeornis/r001/output/sapeornis/gltf-validator.report.json",
+          "sha256": "52e6f5208469c0fd2b061e9cce1abd5d5a42873ca8e1c8793e827c07e4367bdc"
+        },
+        "fresh_glb": {
+          "path": "qa/independent/land-air-delivery-records-20261019/sapeornis-fresh-glb-audit.json",
+          "sha256": "9c1a4edcb0c6b5c6c2784d5399e7e8a2ac11c077615c2756f8ec6dbcb43e6070"
+        },
+        "fresh_blender": {
+          "path": "qa/independent/land-air-delivery-records-20261019/sapeornis-fresh-blender-source.json",
+          "sha256": "864395fb622aa68dcfe03133f6b9e4d6a2eb6d047ee02068f8fc0b81e69e6a51"
+        },
+        "fresh_khronos": {
+          "path": "qa/independent/land-air-delivery-records-20261019/sapeornis-fresh-khronos.json",
+          "sha256": "763490b072281111121bb1b47f7d65ccc1063700307d8346a06793a53eb82485"
+        }
+      },
+      "proof": {
+        "path": "production/concept-small-land-air-20261019/sapeornis/r001/proof/render-manifest.json",
+        "sha256": "beb935c1710cbf06722d5d27a445348babed3e69902349eb39deac01dfc7ed2d"
+      },
+      "runtime": {
+        "path": "qa/independent/small-land-air-quartet-20261019/runtime/software-webgl-scene.report.json",
+        "sha256": "f6fbf69cb4018b51989ceff91793f398f055e8114af80a9911dc33774d1f3185"
+      },
+      "limits": {
+        "asset_id": "sapeornis",
+        "revision": "r001",
+        "length_m": 0.35,
+        "seed": 19,
+        "max_triangles": 16000,
+        "max_materials": 8,
+        "max_primitives": 160,
+        "soft_glb_bytes": 1000000,
+        "surface_profile": "palette-only",
+        "mount_origin": "flight-body center",
+        "role": "supporting scene life; typical128px, inspectable512px",
+        "normal_visible_copies": 8,
+        "stress_visible_copies": 32,
+        "runtime_target": "Three.js0.180.0; parent independent parse/GPU/scene QA pending"
+      },
+      "sha256": {
+        "glb": "7b0aef80ee8327ebc06a8372fc63fce63c393a62451820b4bd183ff868b2755b",
+        "blend": "fe598c50f50823d38e50a15aa1ce903dd1264f17d05cda20194c7b3396d7a734",
+        "preview": "3150996862c56bf8b5b20e4eef0cd5d3027124aba308e88a4bf2b40d916ca62c"
+      },
+      "capture": {
+        "report": {
+          "path": "qa/landair-release-20261019/card-capture/render-report.json",
+          "sha256": "cd8a1d8159d89d2a0434033a3710a35c191e5f606851803266ba786a5bafcb68"
+        },
+        "index": {
+          "path": "qa/landair-release-20261019/card-capture/assets/turntables/index.json",
+          "sha256": "d5feefb37ec2d6e046b4807cd9f642fa56e032d6b9a78ccf148c17e8cba7dd8e"
+        },
+        "reference": {
+          "path": "qa/landair-release-20261019/card-capture/references/sapeornis.png",
+          "sha256": "3150996862c56bf8b5b20e4eef0cd5d3027124aba308e88a4bf2b40d916ca62c"
+        }
+      }
+    },
+    {
+      "id": "longirostravis",
+      "group": "land-air",
+      "revision": "r001",
+      "source_commit": "e874e99d20b3b98c73cddb8496bcd7e89be4e28c",
+      "review_commit": "3d024e53c36863d1887abd726998fa0f0d7b3831",
+      "delivery_review_commit": "b0426b7e3a696b30fea4de9e8b46c3772bab3f23",
+      "original_review_freeze": "68483aa3b8eed2d86f9e59a930128d99579b0838",
+      "review": {
+        "path": "qa/independent/small-land-air-quartet-20261019/report.json",
+        "sha256": "3551d1d471069218b78fc124b32df0df06e838c36f1cbe2a29e6be0a46ccea14"
+      },
+      "delivery_review": {
+        "path": "qa/independent/land-air-delivery-records-20261019/report.json",
+        "sha256": "f93e5a01768aa5f5fc7e03390383db2c825e9fdbb7b95e92a7575676bd9c3f1c"
+      },
+      "metadata": {
+        "path": "assets/additions/longirostravis/concept-landair-20261019/release-metadata.json",
+        "sha256": "228f9a74f992b7a1a8f16f3644c540f48acc7a7510d930113904deeb64b03747"
+      },
+      "source_metadata": {
+        "path": "production/concept-small-land-air-20261019/longirostravis/r001/output/longirostravis/metadata.json",
+        "sha256": "c7026d6f169f95f8273bb910096580b781b60eb732b453a1501e238ce0a18d89"
+      },
+      "candidate": {
+        "path": "production/concept-small-land-air-20261019/longirostravis/r001/candidate.json",
+        "sha256": "660678f4d4a160dcfcd7d97dfac342666f1b5115b32c7a5e616643e85280148c"
+      },
+      "candidate_validation": {
+        "path": "production/concept-small-land-air-20261019/longirostravis/r001/candidate-validation.json",
+        "sha256": "4270309f864cec36b2a889ecd6f4af1f7ae023dce7727f408638d80ecbb1b978"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/output/longirostravis/longirostravis.glb",
+          "sha256": "10668416201cf7ec57e48285019fcd0738e6bb69665fd8fb519559aabaa6bd83"
+        },
+        "blend": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/output/longirostravis/longirostravis.blend",
+          "sha256": "b9ccf3e817136a22c848afcb4a6f48b7791c31acb32ef86b0c7eb841d140ebe3"
+        },
+        "brief": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/brief.json",
+          "sha256": "e5db584733786b710b4b552c6d7754ed4ea9c97915f2aeaca8676f7561d5b139"
+        },
+        "references": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/references.json",
+          "sha256": "9c9ffcb2267b0698bf095ccf075f9998cd77fd46c271213d00e51493ae236a36"
+        },
+        "config": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/build-config.json",
+          "sha256": "d3d714afb2750ca575623062ab30a891ca2ced7faa615f42c7be9071b6e5e69e"
+        },
+        "generator": {
+          "path": "production/concept-small-land-air-20261019/generator.py",
+          "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+        }
+      },
+      "technical": {
+        "source_export": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/source-export.report.json",
+          "sha256": "ac9d473760efe3cb16ebbf99636f67a093582bb9e1a7825c05f826c0e4e7a964"
+        },
+        "rebuild_1": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/reproducibility-1.report.json",
+          "sha256": "3a7c4a6a6e485325c00df75ee1bc3db7c6da5ad53c80f7c0dd249076e02451ce"
+        },
+        "rebuild_2": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/reproducibility-2.report.json",
+          "sha256": "9a7202c8da051a230d3df236e9b6f8287dd23834881622f6dd08b1453ffed9c0"
+        },
+        "khronos": {
+          "path": "production/concept-small-land-air-20261019/longirostravis/r001/output/longirostravis/gltf-validator.report.json",
+          "sha256": "436bc7bf5a7f5d7fc7cdc38de3fd5e0970aa76bc993a1c0a3c496a0b22a1059b"
+        },
+        "fresh_glb": {
+          "path": "qa/independent/land-air-delivery-records-20261019/longirostravis-fresh-glb-audit.json",
+          "sha256": "08de24f42d3dae9a345da6e9a721ae4679c44db3d2cc57a5d0eacebaf2c28538"
+        },
+        "fresh_blender": {
+          "path": "qa/independent/land-air-delivery-records-20261019/longirostravis-fresh-blender-source.json",
+          "sha256": "41f433c01ae916274807b3c6c8912c3b44990c6084a86d182923cbcef4408364"
+        },
+        "fresh_khronos": {
+          "path": "qa/independent/land-air-delivery-records-20261019/longirostravis-fresh-khronos.json",
+          "sha256": "f3c7f94014458dba110a9a70b862ef39678ea5431575bcd7828126247f9d1f41"
+        }
+      },
+      "proof": {
+        "path": "production/concept-small-land-air-20261019/longirostravis/r001/proof/render-manifest.json",
+        "sha256": "1a3c1868cd1530caed15d347094e6cf83195451d6b30d0cf848fb888b1c6e5a2"
+      },
+      "runtime": {
+        "path": "qa/independent/small-land-air-quartet-20261019/runtime/software-webgl-scene.report.json",
+        "sha256": "f6fbf69cb4018b51989ceff91793f398f055e8114af80a9911dc33774d1f3185"
+      },
+      "limits": {
+        "asset_id": "longirostravis",
+        "revision": "r001",
+        "length_m": 0.18,
+        "seed": 19,
+        "max_triangles": 16000,
+        "max_materials": 8,
+        "max_primitives": 160,
+        "soft_glb_bytes": 1000000,
+        "surface_profile": "palette-only",
+        "mount_origin": "floor contact center",
+        "role": "supporting scene life; typical128px, inspectable512px",
+        "normal_visible_copies": 8,
+        "stress_visible_copies": 32,
+        "runtime_target": "Three.js0.180.0; parent independent parse/GPU/scene QA pending"
+      },
+      "sha256": {
+        "glb": "10668416201cf7ec57e48285019fcd0738e6bb69665fd8fb519559aabaa6bd83",
+        "blend": "b9ccf3e817136a22c848afcb4a6f48b7791c31acb32ef86b0c7eb841d140ebe3",
+        "preview": "1e6c4ee2f6b0a5e4ca1736f6daa3443ca044ea9b3f19d8eae9aad77cf623b742"
+      },
+      "capture": {
+        "report": {
+          "path": "qa/landair-release-20261019/card-capture/render-report.json",
+          "sha256": "cd8a1d8159d89d2a0434033a3710a35c191e5f606851803266ba786a5bafcb68"
+        },
+        "index": {
+          "path": "qa/landair-release-20261019/card-capture/assets/turntables/index.json",
+          "sha256": "d5feefb37ec2d6e046b4807cd9f642fa56e032d6b9a78ccf148c17e8cba7dd8e"
+        },
+        "reference": {
+          "path": "qa/landair-release-20261019/card-capture/references/longirostravis.png",
+          "sha256": "1e6c4ee2f6b0a5e4ca1736f6daa3443ca044ea9b3f19d8eae9aad77cf623b742"
+        }
+      }
+    },
+    {
+      "id": "dunbaria",
+      "group": "land-air",
+      "revision": "r001",
+      "source_commit": "e874e99d20b3b98c73cddb8496bcd7e89be4e28c",
+      "review_commit": "3d024e53c36863d1887abd726998fa0f0d7b3831",
+      "delivery_review_commit": "b0426b7e3a696b30fea4de9e8b46c3772bab3f23",
+      "original_review_freeze": "68483aa3b8eed2d86f9e59a930128d99579b0838",
+      "review": {
+        "path": "qa/independent/small-land-air-quartet-20261019/report.json",
+        "sha256": "3551d1d471069218b78fc124b32df0df06e838c36f1cbe2a29e6be0a46ccea14"
+      },
+      "delivery_review": {
+        "path": "qa/independent/land-air-delivery-records-20261019/report.json",
+        "sha256": "f93e5a01768aa5f5fc7e03390383db2c825e9fdbb7b95e92a7575676bd9c3f1c"
+      },
+      "metadata": {
+        "path": "assets/additions/dunbaria/concept-landair-20261019/release-metadata.json",
+        "sha256": "b4f2d9a0e79f342c812c93773dbe11f4c225e3ce394d60165c10de34722d9ef0"
+      },
+      "source_metadata": {
+        "path": "production/concept-small-land-air-20261019/dunbaria/r001/output/dunbaria/metadata.json",
+        "sha256": "3058c26b470e87accf70f96bab5cd85835c1da64d887bb30dbc6c39981b027e4"
+      },
+      "candidate": {
+        "path": "production/concept-small-land-air-20261019/dunbaria/r001/candidate.json",
+        "sha256": "f319c784d3ac8398877696092791fcb41fb27020549c6cf251ee366a38646952"
+      },
+      "candidate_validation": {
+        "path": "production/concept-small-land-air-20261019/dunbaria/r001/candidate-validation.json",
+        "sha256": "ebce0a6cc68c6bd0c38468d4602363774e0ad9cfc73424fbed4bb363eb5c5a9c"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/output/dunbaria/dunbaria.glb",
+          "sha256": "2f584412b3318fa3969e6b008271df107f73fe9f00c8f304c04bfa47e134311e"
+        },
+        "blend": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/output/dunbaria/dunbaria.blend",
+          "sha256": "27a429059cbacb2f93563cf7a132a09ebe04eb6b7961e8234c85528d85ea4730"
+        },
+        "brief": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/brief.json",
+          "sha256": "a354aeaa8549eecf09fbe858430aca47eade271f1ecbbe1e11d11018b8f7c02b"
+        },
+        "references": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/references.json",
+          "sha256": "8e2bd938aa87e9d07e16c744ba85f612a8721fd897b4ddf7b776c76b7142f998"
+        },
+        "config": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/build-config.json",
+          "sha256": "9266fa202963600ee0efa521fb98022fb19339d31e33e49d8108c5398976bd0c"
+        },
+        "generator": {
+          "path": "production/concept-small-land-air-20261019/generator.py",
+          "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+        }
+      },
+      "technical": {
+        "source_export": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/source-export.report.json",
+          "sha256": "0bedeff8c8281765b019fa5544a7276875563d9765ac74b524b3473f6416bd26"
+        },
+        "rebuild_1": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/reproducibility-1.report.json",
+          "sha256": "d9dc9980b9774a9a2b5bd6323a2f7e7395a6cf047dba2ee706f46c5e0023b21d"
+        },
+        "rebuild_2": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/reproducibility-2.report.json",
+          "sha256": "372bca8b576cddc69e4b5ca92eef51c7ffa346a33bc97ec0cb89d0c213b77c14"
+        },
+        "khronos": {
+          "path": "production/concept-small-land-air-20261019/dunbaria/r001/output/dunbaria/gltf-validator.report.json",
+          "sha256": "0b2548d39f226edeacd3a243635ce39ef7aaf285aa6087723392898da4d6bd61"
+        },
+        "fresh_glb": {
+          "path": "qa/independent/land-air-delivery-records-20261019/dunbaria-fresh-glb-audit.json",
+          "sha256": "70c85b5a90d28590c53876185719dd39985f645150c075c8a21a6291bccdb12e"
+        },
+        "fresh_blender": {
+          "path": "qa/independent/land-air-delivery-records-20261019/dunbaria-fresh-blender-source.json",
+          "sha256": "908c240c9b45a5f0ff0dbca04bf11d181f5b2eadeb694bf7d0e0ebaa19d23ddd"
+        },
+        "fresh_khronos": {
+          "path": "qa/independent/land-air-delivery-records-20261019/dunbaria-fresh-khronos.json",
+          "sha256": "ccb4ba19fc8e82eb371b0ad4d4ba9e4411f716a0446785db08f74629380264fa"
+        }
+      },
+      "proof": {
+        "path": "production/concept-small-land-air-20261019/dunbaria/r001/proof/render-manifest.json",
+        "sha256": "0b74743828199915046ee05b19ce84b3e73012131b20589645bfd50f867a0955"
+      },
+      "runtime": {
+        "path": "qa/independent/small-land-air-quartet-20261019/runtime/software-webgl-scene.report.json",
+        "sha256": "f6fbf69cb4018b51989ceff91793f398f055e8114af80a9911dc33774d1f3185"
+      },
+      "limits": {
+        "asset_id": "dunbaria",
+        "revision": "r001",
+        "length_m": 0.035,
+        "seed": 19,
+        "max_triangles": 16000,
+        "max_materials": 8,
+        "max_primitives": 160,
+        "soft_glb_bytes": 1000000,
+        "surface_profile": "palette-only",
+        "mount_origin": "floor contact center",
+        "role": "supporting scene life; typical128px, inspectable512px",
+        "normal_visible_copies": 8,
+        "stress_visible_copies": 32,
+        "runtime_target": "Three.js0.180.0; parent independent parse/GPU/scene QA pending"
+      },
+      "sha256": {
+        "glb": "2f584412b3318fa3969e6b008271df107f73fe9f00c8f304c04bfa47e134311e",
+        "blend": "27a429059cbacb2f93563cf7a132a09ebe04eb6b7961e8234c85528d85ea4730",
+        "preview": "84a475cd3a28f5c19b3b829ac0246d8dbc66d679c628725b83c90ad8b2a96a61"
+      },
+      "capture": {
+        "report": {
+          "path": "qa/landair-release-20261019/card-capture/render-report.json",
+          "sha256": "cd8a1d8159d89d2a0434033a3710a35c191e5f606851803266ba786a5bafcb68"
+        },
+        "index": {
+          "path": "qa/landair-release-20261019/card-capture/assets/turntables/index.json",
+          "sha256": "d5feefb37ec2d6e046b4807cd9f642fa56e032d6b9a78ccf148c17e8cba7dd8e"
+        },
+        "reference": {
+          "path": "qa/landair-release-20261019/card-capture/references/dunbaria.png",
+          "sha256": "84a475cd3a28f5c19b3b829ac0246d8dbc66d679c628725b83c90ad8b2a96a61"
+        }
+      }
+    },
+    {
+      "id": "chimerarachne",
+      "group": "land-air",
+      "revision": "r001",
+      "source_commit": "e874e99d20b3b98c73cddb8496bcd7e89be4e28c",
+      "review_commit": "3d024e53c36863d1887abd726998fa0f0d7b3831",
+      "delivery_review_commit": "b0426b7e3a696b30fea4de9e8b46c3772bab3f23",
+      "original_review_freeze": "68483aa3b8eed2d86f9e59a930128d99579b0838",
+      "review": {
+        "path": "qa/independent/small-land-air-quartet-20261019/report.json",
+        "sha256": "3551d1d471069218b78fc124b32df0df06e838c36f1cbe2a29e6be0a46ccea14"
+      },
+      "delivery_review": {
+        "path": "qa/independent/land-air-delivery-records-20261019/report.json",
+        "sha256": "f93e5a01768aa5f5fc7e03390383db2c825e9fdbb7b95e92a7575676bd9c3f1c"
+      },
+      "metadata": {
+        "path": "assets/additions/chimerarachne/concept-landair-20261019/release-metadata.json",
+        "sha256": "2186c17990619abe7f1052e94f768db5fbd7a45f3fadc0ca612dc34052fe74a2"
+      },
+      "source_metadata": {
+        "path": "production/concept-small-land-air-20261019/chimerarachne/r001/output/chimerarachne/metadata.json",
+        "sha256": "48925de79977c53889cf5ac04ed49e30bf07f44d3c3dfd5fbac8a7bfcd167528"
+      },
+      "candidate": {
+        "path": "production/concept-small-land-air-20261019/chimerarachne/r001/candidate.json",
+        "sha256": "9f1425803ab60620628f2f079be5de5f872e9af276b70ea4fc047870eb3b955e"
+      },
+      "candidate_validation": {
+        "path": "production/concept-small-land-air-20261019/chimerarachne/r001/candidate-validation.json",
+        "sha256": "8719106d5797102704bd0027b81664b957b5ae5a1e19a090e978f53b9f7b3dc3"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/output/chimerarachne/chimerarachne.glb",
+          "sha256": "848328130f8874bc6c81b0636d8bfc78f76d04b46cfa0786fe7d978f28e3ad6c"
+        },
+        "blend": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/output/chimerarachne/chimerarachne.blend",
+          "sha256": "02db9598d09e548f42e72cd443a87b8028dd6d76dd40a4676ef79b4070609259"
+        },
+        "brief": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/brief.json",
+          "sha256": "8b453e1c3dd836b070c78c61a593b2751f21c97a848a201dc8036551ab967766"
+        },
+        "references": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/references.json",
+          "sha256": "c93746e53d01952b3f26295e1e4224131ea66ce30781dbac5ad6f6301bd924f6"
+        },
+        "config": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/build-config.json",
+          "sha256": "468d9933101db5867d24d46fd46c03104e26e07625d48d68e9da7676189b9da4"
+        },
+        "generator": {
+          "path": "production/concept-small-land-air-20261019/generator.py",
+          "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+        }
+      },
+      "technical": {
+        "source_export": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/source-export.report.json",
+          "sha256": "b01fa016e2e59200d6ed12eb34431408d8100d22e6cf4771df15abc42d939097"
+        },
+        "rebuild_1": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/reproducibility-1.report.json",
+          "sha256": "b792a79efda52a523249d5927c1647261aedaa9f2bb7f11846456d92f653d160"
+        },
+        "rebuild_2": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/reproducibility-2.report.json",
+          "sha256": "cebf8349cbc5cc4d648b4f8a3605a952664cb81c678cb224c1eb775e947fa149"
+        },
+        "khronos": {
+          "path": "production/concept-small-land-air-20261019/chimerarachne/r001/output/chimerarachne/gltf-validator.report.json",
+          "sha256": "c1fe572fc0759eb64cdd4767355e5ab762a00fa0e31adce4d49da7c92ae7305d"
+        },
+        "fresh_glb": {
+          "path": "qa/independent/land-air-delivery-records-20261019/chimerarachne-fresh-glb-audit.json",
+          "sha256": "955030be0f868099ee56c887160b323ba3b182d070bcbbd80d429582ed0a4e69"
+        },
+        "fresh_blender": {
+          "path": "qa/independent/land-air-delivery-records-20261019/chimerarachne-fresh-blender-source.json",
+          "sha256": "df27fa05d2fcde560787dc6f85510f5e06da2842ac22b21bf066c9fd4dbe04a2"
+        },
+        "fresh_khronos": {
+          "path": "qa/independent/land-air-delivery-records-20261019/chimerarachne-fresh-khronos.json",
+          "sha256": "55c91bde138a66da9ad51ef4b35397e000d51aa5e5dabb87bc2cbc9e4ce17399"
+        }
+      },
+      "proof": {
+        "path": "production/concept-small-land-air-20261019/chimerarachne/r001/proof-macro-attempt02/render-manifest.json",
+        "sha256": "58d90626e1508659a3461568577d8d92962935867475ee0133418f2b890f4a5f"
+      },
+      "runtime": {
+        "path": "qa/independent/small-land-air-quartet-20261019/runtime/software-webgl-scene.report.json",
+        "sha256": "f6fbf69cb4018b51989ceff91793f398f055e8114af80a9911dc33774d1f3185"
+      },
+      "limits": {
+        "asset_id": "chimerarachne",
+        "revision": "r001",
+        "length_m": 0.003,
+        "seed": 19,
+        "max_triangles": 16000,
+        "max_materials": 8,
+        "max_primitives": 160,
+        "soft_glb_bytes": 1000000,
+        "surface_profile": "palette-only",
+        "mount_origin": "floor contact center",
+        "role": "supporting scene life; typical128px, inspectable512px",
+        "normal_visible_copies": 8,
+        "stress_visible_copies": 32,
+        "runtime_target": "Three.js0.180.0; parent independent parse/GPU/scene QA pending"
+      },
+      "sha256": {
+        "glb": "848328130f8874bc6c81b0636d8bfc78f76d04b46cfa0786fe7d978f28e3ad6c",
+        "blend": "02db9598d09e548f42e72cd443a87b8028dd6d76dd40a4676ef79b4070609259",
+        "preview": "507a818c24dfe50f58897d0a94a4484c4ca772a79ec3c5ec30f90d6e194b07e9"
+      },
+      "capture": {
+        "report": {
+          "path": "qa/landair-release-20261019/card-capture/render-report.json",
+          "sha256": "cd8a1d8159d89d2a0434033a3710a35c191e5f606851803266ba786a5bafcb68"
+        },
+        "index": {
+          "path": "qa/landair-release-20261019/card-capture/assets/turntables/index.json",
+          "sha256": "d5feefb37ec2d6e046b4807cd9f642fa56e032d6b9a78ccf148c17e8cba7dd8e"
+        },
+        "reference": {
+          "path": "qa/landair-release-20261019/card-capture/references/chimerarachne.png",
+          "sha256": "507a818c24dfe50f58897d0a94a4484c4ca772a79ec3c5ec30f90d6e194b07e9"
+        }
+      }
+    }
+  ]
+};

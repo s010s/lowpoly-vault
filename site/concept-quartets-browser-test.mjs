@@ -8,7 +8,7 @@ import { createHash } from 'node:crypto';
 import { CONCEPT_QUARTETS_IDS } from './concept-quartets-release.mjs';
 
 const BASE_COUNT = 182;
-const expectedCount = BASE_COUNT + CONCEPT_QUARTETS_IDS.length;
+const minimumCount = BASE_COUNT + CONCEPT_QUARTETS_IDS.length;
 const expectedIds = ['burgessia', 'emeraldella', 'sanctacaris', 'tuzoia'];
 const root = resolve(process.env.GALLERY_DIR || 'dist');
 const out = resolve(process.env.QA_OUTPUT_DIR || 'qa/quartets-release-20261019/browser');
@@ -16,7 +16,7 @@ const prefix = process.env.SITE_BASE || '/lowpoly-vault/';
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const report = {
   status: 'running', source_commit: process.env.GITHUB_SHA || null,
-  expected_count: expectedCount, cases: [], errors: [],
+  minimum_count: minimumCount, cases: [], errors: [],
   limitations: ['Chromium SwiftShader with emulated mobile; no physical-device or intended museum-scene performance claim.'],
 };
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.webp': 'image/webp', '.glb': 'model/gltf-binary', '.blend': 'application/octet-stream' };
@@ -28,9 +28,11 @@ try {
   const manifest = JSON.parse(await readFile(resolve(root, 'assets/manifest.json'), 'utf8'));
   assert(!manifest.review_only, 'Use the published unified gallery, never an isolated review catalog');
   assert.deepEqual(manifest.publication.approved_concept_quartets_ids, CONCEPT_QUARTETS_IDS);
-  assert.equal(manifest.assets.length, expectedCount);
+  const expectedCount = manifest.assets.length;
+  assert(expectedCount >= minimumCount, 'Later independently accepted releases may extend the catalog');
+  report.expected_count = expectedCount;
   assert.equal(new Set(manifest.assets.map(asset => asset.id)).size, expectedCount);
-  assert.deepEqual(manifest.assets.slice(BASE_COUNT).map(asset => asset.id).sort(), expectedIds);
+  assert.deepEqual(manifest.assets.slice(BASE_COUNT, minimumCount).map(asset => asset.id).sort(), expectedIds);
   assert(!manifest.assets.some(asset => asset.id === 'ctenoimbricata'));
 
   server = createServer(async (req, res) => {

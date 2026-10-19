@@ -1,0 +1,44 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lowpoly-vault@1.0.0 build
+> node site/ci-timed.mjs build
+
+Publication gate passed: 190 checked assets.
+CI timing: {"name":"publication-check","seconds":123.065,"exit_code":0,"signal":null}
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 49 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist/index.html                          12.01 kB │ gzip:   3.78 kB
+../dist/assets/index-DE4E9EqO.css            2.87 kB │ gzip:   1.02 kB
+../dist/assets/main-V1oiSCIa.css            24.67 kB │ gzip:   6.25 kB
+../dist/assets/main-DdbZox0n.css            61.15 kB │ gzip:  12.74 kB
+../dist/assets/presentation-CVFjLfLN.js      0.63 kB │ gzip:   0.42 kB
+../dist/assets/preload-helper-Bq90E7px.js    1.12 kB │ gzip:   0.66 kB
+../dist/assets/index-DBWGFPj7.js             1.46 kB │ gzip:   0.76 kB
+../dist/assets/catalog-source-CgCSfzVn.js    2.93 kB │ gzip:   1.44 kB
+../dist/assets/routes-CsbprPVV.js            3.80 kB │ gzip:   1.71 kB
+../dist/assets/bootstrap-CGmu6CPd.js         8.96 kB │ gzip:   3.16 kB
+../dist/assets/main-20DKkL5k.js             81.99 kB │ gzip:  29.05 kB
+../dist/assets/main-B1p98DlN.js            105.63 kB │ gzip:  36.59 kB
+../dist/assets/viewer-U_FHveyG.js          619.97 kB │ gzip: 158.59 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 4.68s
+CI timing: {"name":"vite","seconds":6.33,"exit_code":0,"signal":null}
+Image-scrub delivery: 10 published assets, 240 individually lazy-loadable frames, 190 lightweight static posters.
+Release catalog: 190 published assets in 1 summary shards.
+Gallery resources: 186/190 canonical poster pairs. Run gallery:posters before publishing if incomplete.
+Static HTML: 400 bilingual documents, 190 model detail pairs.
+CI timing: {"name":"copy-and-package","seconds":13.938,"exit_code":0,"signal":null}
+Release inventory passed: 2388 allowlisted files; 190 byte-identical GLB/Blend pairs and ZIPs; no QA, research or experiments.
+CI timing: {"name":"full-release-audit","seconds":130.054,"exit_code":0,"signal":null}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

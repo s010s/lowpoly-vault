@@ -1,0 +1,1019 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lowpoly-vault@1.0.0 test:redesign
+> node site/catalog-v2-test.mjs && node site/static-routes-test.mjs && node site/viewer-scale-test.mjs && node site/dialog-motion-test.mjs && node site/catalog-scroll-test.mjs
+
+{
+  "result": "Catalog v2 passed",
+  "assets": 10000,
+  "categories": 17,
+  "unevenCounts": true,
+  "multiWorld": true,
+  "multiPack": true,
+  "maxTriangles": true,
+  "requests": 168,
+  "cacheBound": 8,
+  "indexBytes": 30383,
+  "summaryShards": 40,
+  "summaryBytes": 2888068,
+  "buildMilliseconds": 92,
+  "deepPageRequests": 1
+}
+Static route and release tests passed: bilingual real documents, pagination, metadata, custom/project/root deployment, exact sizes, ZIP credits, approved allowlist, no QA/reference files, symlink/traversal refusal.
+PASS metric reference: 10 real GLBs, scale validation, immutable geometry, bounded resources, one-frame toggles, offscreen pause and disposal.
+Dialog motion: overlapping entry, short exit, interrupted reversal, stale completion, reduced motion, and disposal pass.
+Catalog scroll: native passive input, scoped scrollbar, bottom/short/resize/filter/localization/modal state, refresh coalescing and disposal pass.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lowpoly-vault@1.0.0 test:scrub
+> node site/image-scrub-test.mjs && node site/turntable-delivery-test.mjs && node site/turntable-mixed-source-test.mjs
+
+{"status":"pass","checks":24,"limits":{"encodedEntries":12,"encodedBytes":2097152,"decodedEntries":3,"manifestEntries":3,"maxDimension":1024},"covers":["24–36 frames","unsafe metadata","encoded LRU","one active request","abort stale fetch","close stale decode","latest pointer wins","image failure restores static","visibility/offscreen cleanup"]}
+{"status":"pass","checks":15,"assets":10,"frames":240,"source":"immutable original GLB hashes","coverage":"sealed metadata/bytes/dimensions/path allowlist/symlink rejection/static-only fallback"}
+Revision turntable delivery tests passed: 55 checks; deterministic accepted-revision routes, original paths/bytes preserved, exact preset/alpha, frame-0/approved-preview equality, no arbitrary routes.
+Mixed-source regression passed: full original and synthetic revision test suites run after source selection of all three revision routes. No real assets approved.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lowpoly-vault@1.0.0 test:gallery
+> node site/entry-route-test.mjs && node site/gallery-catalog-test.mjs && node site/gallery-assets.mjs && node site/gallery/tests/state-test.mjs && node site/gallery/tests/wheel-title-test.mjs && node site/gallery/tests/focus-center-test.mjs && node site/gallery/tests/wheel-guides-test.mjs && node site/gallery/tests/stage-handoff-test.mjs && node site/gallery/tests/reference-entry-continuity-test.mjs && node site/gallery/tests/reference-presentation-test.mjs && node site/gallery/tests/reference-shadow-footprint-test.mjs && node site/gallery/tests/reset-transition-test.mjs && node site/gallery/tests/model-dimensions-test.mjs && node site/gallery/tests/single-framing-test.mjs && node site/gallery/tests/poster-projection-test.mjs && node site/gallery/tests/selection-orbit-controls-test.mjs && node site/gallery/tests/compare-ground-regression-test.mjs && node site/gallery/tests/model-support-test.mjs
+
+Route entry tests passed: isolated wheel lists, original home/about/detail, locale/base prefixes, cross-app navigation, real HTML pagination, metadata, downloads and no-JS fallback.
+Gallery startup passed: imports are DOM-inert; code/CSS and catalog gate the swap; mount has visible geometry; all rejected prerequisites restore linked SSG and theme.
+Gallery catalog passed: 190 real published models, future catalog growth, exact metadata, source-bound resources, full search/filter URLs and bilingual pagination.
+{
+  "files": 383,
+  "bytes": 54598273,
+  "coverage": {
+    "published": 190,
+    "matched": 186,
+    "stale": [],
+    "missing": [
+      "sapeornis",
+      "longirostravis",
+      "dunbaria",
+      "chimerarachne"
+    ]
+  }
+}
+PASS: bilingual search, facet OR/AND, empty selections, native inertia, interruptible settling, reduced motion and disposal. Center callback has no selection operation.
+{
+  "status": "passed",
+  "checks": [
+    "Repeated tiny movement preserves the visible title and schedules no title work",
+    "12 px boundary hysteresis prevents midpoint jitter; new centre takes over at 200 ms",
+    "Reversal cancels an uncommitted candidate and has the same dead band in both directions",
+    "Fast scrolling skips transient item names and commits only the final stable candidate",
+    "A recently fast candidate waits for 80 ms of quiet before handoff",
+    "Filter/reorder reset, removed owner, empty results and restoration cannot leave stale pending work",
+    "Disposal cancels pending callbacks and refuses further title updates"
+  ]
+}
+{
+  "status": "passed",
+  "checks": [
+    "Explicit activation smoothly reaches the exact row center without an initial jump or overshoot",
+    "Repeated/new activation retargets from the last presented frame",
+    "Identical controller requests do not restart a running centering motion",
+    "Native wheel input immediately owns movement and later uses the original nearest-row settling",
+    "Pointer interruption prevents delayed stale writes and a click without native movement does not trigger snapping",
+    "Removed/reordered target invalidates pending motion; missing IDs never write",
+    "Reduced motion centers immediately, including preference changes during motion",
+    "Mobile immediate placement and disposal leave no animation callbacks"
+  ]
+}
+{
+  "status": "passed",
+  "checks": [
+    "Runtime reads actual circle and row DOM rectangles; left rail center aligns at x=28.5 without assuming an unscaled fixed x",
+    "Offscreen keyboard-retained row and overscan cannot extend either endpoint",
+    "Fractional virtual scrolling and four viewport heights keep both endpoints exactly on the first/last intersecting marker (864 samples)",
+    "First-item and last-item padding produce no floating rail above/below their terminal circles",
+    "Two-result filter connects exactly two circles; one result has no dangling connector; empty results hide both rails",
+    "Partially clipped top circle retains its actual center and shares clipping with its connector",
+    "ResizeObserver refreshes actual geometry, including hidden mobile catalog and its later restoration",
+    "Nested wheel/wrapper clipping uses their intersection rather than assuming identical viewport edges",
+    "Disposed observer cannot mutate guide geometry",
+    "Left connector is continuous; right pair has 3px reference-weighted outer strokes, long transparent tapers, a measured row-height gap, and no extra ticks or scrollbar"
+  ],
+  "scrollSamples": 864
+}
+{
+  "status": "passed",
+  "checks": [
+    "Empty and loading stage renders the fixed backdrop without contact/model pixels",
+    "Matching poster presentation gates mesh attach; successful render plus two RAF boundaries gates controls/ready",
+    "Hidden/offscreen/zero-size/intersection-excluded views cannot acknowledge; visible redraw resumes correctly",
+    "Hiding between render and acknowledgment preserves pending selection until a new visible frame",
+    "New selection cancels the previous frame promise and never acknowledges its model",
+    "Context loss after GLB completion releases an unresolved poster presentation gate",
+    "Context loss cancels pending acknowledgments and clears model; restoration can repaint the same empty backdrop",
+    "Load failure retains the same fixed floor/background without floating contact shadows"
+  ]
+}
+{
+  "status": "passed",
+  "timing": {
+    "layoutDuration": 0.7,
+    "glowDelay": 0.1,
+    "glowFadeInDuration": 0.8,
+    "revealStart": 0.95,
+    "revealDuration": 0.6,
+    "riseDuration": 0.95,
+    "settleStart": 2.2,
+    "settleDuration": 1.3,
+    "landedAt": 3.5,
+    "handRelaxDuration": 0.6,
+    "humanRelaxStart": 1.95,
+    "humanRelaxDuration": 1.4,
+    "glowFadeOutStart": 2.7,
+    "glowFadeOutDuration": 1.1,
+    "total": 4.1
+  },
+  "prelightEvidence": [
+    {
+      "kind": "hand",
+      "time": 0,
+      "move": 0,
+      "y": 0,
+      "glow": 0,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "hand",
+      "time": 0.1,
+      "move": 0.05539358600583092,
+      "y": 0,
+      "glow": 0,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "hand",
+      "time": 0.3,
+      "move": 0.39358600583090386,
+      "y": 0,
+      "glow": 0.15624999999999997,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "hand",
+      "time": 0.5,
+      "move": 0.8017492711370262,
+      "y": 0,
+      "glow": 0.5,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "hand",
+      "time": 0.7,
+      "move": 1,
+      "y": 0,
+      "glow": 0.84375,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "hand",
+      "time": 0.9,
+      "move": 1,
+      "y": 0,
+      "glow": 1,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "hand",
+      "time": 0.95,
+      "move": 1,
+      "y": 0,
+      "glow": 1,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "human",
+      "time": 0,
+      "move": 0,
+      "y": 0,
+      "glow": 0,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "human",
+      "time": 0.1,
+      "move": 0.05539358600583092,
+      "y": 0,
+      "glow": 0,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "human",
+      "time": 0.3,
+      "move": 0.39358600583090386,
+      "y": 0,
+      "glow": 0.15624999999999997,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "human",
+      "time": 0.5,
+      "move": 0.8017492711370262,
+      "y": 0,
+      "glow": 0.5,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "human",
+      "time": 0.7,
+      "move": 1,
+      "y": 0,
+      "glow": 0.84375,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "human",
+      "time": 0.9,
+      "move": 1,
+      "y": 0,
+      "glow": 1,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    },
+    {
+      "kind": "human",
+      "time": 0.95,
+      "move": 1,
+      "y": 0,
+      "glow": 1,
+      "opacity": 0,
+      "gathered": 0,
+      "open": 1,
+      "articulation": 1,
+      "visible": false
+    }
+  ],
+  "checks": [
+    "An explicit 100 ms delay and 800 ms eased prelight reach 15.625%, 50%, 84.375% and 100% glow while either body stays hidden through 950 ms; the main layout still completes at 700 ms",
+    "30/60/120 Hz entrance is continuous: open before visibility, open through rise and full landing, then one smooth finger relaxation; opacity never reverses",
+    "Human uses the same delayed prelight while preserving its prior articulation, rise, landing and reveal exactly 300 ms later; phases and reduced-motion endpoints match the independent expected formula",
+    "Exits interrupted at twelve entry stages preserve the presented morph, fade monotonically and land without negative-Y slicing",
+    "Three real-renderer full entry/exit cycles preserve opacity, morph synchronization, visibility, fixed orientation, shared scale and actual mesh ground clearance",
+    "Body uses prepared transparent depth-writing front faces with a small fixed alpha threshold; visible/custom-depth material modes and shader versions, plus shadow-caster flags, never switch during any sampled frame",
+    "Eight interrupted entry→exit→re-entry flows retain their exact presented first frame and keep fingers unchanged until the hand has landed",
+    "Canceled queued RAF callbacks cannot mutate or duplicate a newer animation, and cannot revive an explicitly finished entrance",
+    "A re-entrant command during draw retains the newer animation and exactly one RAF owner",
+    "Hand and human reduced-motion entrance/exit remain grounded and relaxed, including a preference change during their captured 180 ms fade",
+    "Normal→reduced completion cancels motion and selects the correct settled or absent endpoint",
+    "Reference disposal cancels callbacks and releases each custom depth material exactly once; a stale callback cannot reattach or revive a removed mesh"
+  ],
+  "sequenceCount": 11,
+  "sequences": [
+    "complete entry/exit cycle 1",
+    "complete entry/exit cycle 2",
+    "complete entry/exit cycle 3",
+    "interrupt/re-entry at 200 ms",
+    "interrupt/re-entry at 900 ms",
+    "interrupt/re-entry at 960 ms",
+    "interrupt/re-entry at 1100 ms",
+    "interrupt/re-entry at 1550 ms",
+    "interrupt/re-entry at 2200 ms",
+    "interrupt/re-entry at 3600 ms",
+    "interrupt/re-entry at 3900 ms"
+  ],
+  "frameCount": 3538,
+  "maxSampleStepAcross30To120Hz": {
+    "glow": 0.06235532407407407,
+    "opacity": 0.08324759945130278,
+    "open": 0.08299039780521345,
+    "y": 0.0002840064149292913
+  },
+  "minimumWorldY": 0,
+  "browserRasterVerified": false,
+  "scope": "Production entry/exit formulas, decoded GLB geometry and production renderer animation lifecycle under a deterministic frame queue. No browser or WebGL pixel claim."
+}
+{
+  "status": "passed",
+  "checks": [
+    "Approved V5.2 hand bytes and decoded geometry unchanged by runtime; runtime white body and gray topology preserve the matte physically-lit surface",
+    "Stronger shared reference lighting remains layer isolated without changing global exposure",
+    "Solid depth-writing body retains real shadows and a stable prepared material mode; fine topology does not cast noisy independent shadows",
+    "Coherent 129.6 mm ground pool appears before the already-open hand, with a shallow21.6mm soft base mist and no column",
+    "Soft halo half-maximum diameter is 71.28 mm and its unclipped white-over peak is .98",
+    "Human decoded geometry and morphs stay unchanged while runtime body/grid colors, lighting and ground-emergence shader now match the hand",
+    "Both references keep identical prepared material versions and shadow-caster flags across247frames; light, material reveal, receiver and contact opacity share continuous state uniforms",
+    "Visible and custom-depth shaders use the same project-vertex height hook and identical live uniform objects; shadow alpha uses the same height coverage without double attenuation",
+    "Soft local light stays below 32% height; surface and grid share height reveal while grid coverage is squared to suppress ghostly lines; shadow/contact visibility begins with any positive opacity. Shader source assertions do not claim GPU compilation",
+    "Disposal detaches both reference roots and releases each custom shadow-depth material exactly once"
+  ],
+  "assets": {
+    "hand": "57f27a2693e89240db8dc99b33a8117fcd7bbc04d34d4ec3fc3522d4b154fb72",
+    "human": "89005555b04f5aa9d91ef74398da8c1e774a2e5ca1e08fe6000ae672b80101e6"
+  },
+  "handHalfMaximumHaloDiameterMeters": 0.07128,
+  "geometryHashes": {
+    "hand": "68df2d8d33779e6f3e58184a68fe1dc2ccee1f80141fd7d8053c62d7b76a2a69",
+    "human": "9e022c7f83485ebf61bcf981256f67d0cbf9c9c789d52b19029525f4a9e0b51e"
+  },
+  "depthDisposals": [
+    {
+      "name": "Hand18cm_GrayWhite",
+      "count": 1
+    },
+    {
+      "name": "Human_180cm",
+      "count": 1
+    }
+  ],
+  "browserRasterVerified": false,
+  "limitation": "No final browser pixel/lighting claim; Chromium launch is blocked by socket EPERM."
+}
+{
+  "status": "passed",
+  "cause": "Old receiver 1.7h square clipped projected upper-body/head shadow; light camera frustum contains it. Enlarged reference-only shadow receiver3.2h contains every tested posed body vertex at four common scalars.",
+  "browserVerified": false,
+  "cases": [
+    {
+      "kind": "hand",
+      "scale": 0.25,
+      "testedVerticesAcrossPoses": 40392,
+      "oldReceiverClippedVertices": 11677,
+      "newReceiverMinimumMarginWorld": 0.02188446368434975,
+      "maximumShadowNdc": 0.46924602843335783,
+      "footprintMeters": {
+        "min": [
+          -0.010931735940433285,
+          -0.023200000000000026,
+          -0.20046214526260098
+        ],
+        "max": [
+          0.12528613350183448,
+          -0.02319999999999997,
+          -0.009165426383612285
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.054028004380151984,
+          -0.023200000000000026,
+          -0.20046214526260098
+        ],
+        "max": [
+          0.10272633432058065,
+          -0.02319999999999997,
+          -0.15749183644780995
+        ]
+      }
+    },
+    {
+      "kind": "hand",
+      "scale": 1,
+      "testedVerticesAcrossPoses": 40392,
+      "oldReceiverClippedVertices": 6766,
+      "newReceiverMinimumMarginWorld": 0.10556247012201453,
+      "maximumShadowNdc": 0.46924602843336266,
+      "footprintMeters": {
+        "min": [
+          -0.016285582094279327,
+          -0.005800000000000027,
+          -0.18243752987798545
+        ],
+        "max": [
+          0.119932287347988,
+          -0.005799999999999972,
+          0.008859189001003354
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.048674158226306385,
+          -0.005800000000000027,
+          -0.18243752987798545
+        ],
+        "max": [
+          0.09737248816673327,
+          -0.005799999999999972,
+          -0.13946722106319487
+        ]
+      }
+    },
+    {
+      "kind": "hand",
+      "scale": 5,
+      "testedVerticesAcrossPoses": 40392,
+      "oldReceiverClippedVertices": 5221,
+      "newReceiverMinimumMarginWorld": 0.5518451711228933,
+      "maximumShadowNdc": 0.46924602843336477,
+      "footprintMeters": {
+        "min": [
+          -0.0177132744019719,
+          -0.0011600000000000278,
+          -0.17763096577542134
+        ],
+        "max": [
+          0.11850459504029552,
+          -0.0011599999999999833,
+          0.013665753103567392
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.04724646591861408,
+          -0.0011600000000000278,
+          -0.17763096577542134
+        ],
+        "max": [
+          0.09594479585904088,
+          -0.0011599999999999833,
+          -0.13466065696063087
+        ]
+      }
+    },
+    {
+      "kind": "hand",
+      "scale": 10,
+      "testedVerticesAcrossPoses": 40392,
+      "oldReceiverClippedVertices": 5017,
+      "newReceiverMinimumMarginWorld": 1.1096985473739913,
+      "maximumShadowNdc": 0.46924602843336455,
+      "footprintMeters": {
+        "min": [
+          -0.017891735940433452,
+          -0.0005800000000000249,
+          -0.17703014526260086
+        ],
+        "max": [
+          0.11832613350183402,
+          -0.0005799999999999806,
+          0.014266573616387902
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.04706800438015249,
+          -0.0005800000000000249,
+          -0.17703014526260086
+        ],
+        "max": [
+          0.09576633432057938,
+          -0.0005799999999999806,
+          -0.13405983644781036
+        ]
+      }
+    },
+    {
+      "kind": "human",
+      "scale": 0.25,
+      "testedVerticesAcrossPoses": 18918,
+      "oldReceiverClippedVertices": 2716,
+      "newReceiverMinimumMarginWorld": 0.23051176623658287,
+      "maximumShadowNdc": 0.43077829884789787,
+      "footprintMeters": {
+        "min": [
+          -0.13001620556900306,
+          -0.02320000000000033,
+          -1.9579529350536689
+        ],
+        "max": [
+          0.7293599840343639,
+          -0.023199999999999665,
+          0.20887601185799687
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.4432982793208886,
+          -0.02320000000000033,
+          -1.9579529350536689
+        ],
+        "max": [
+          0.640740884699408,
+          -0.023199999999999665,
+          -1.5825859247667564
+        ]
+      }
+    },
+    {
+      "kind": "human",
+      "scale": 1,
+      "testedVerticesAcrossPoses": 18918,
+      "oldReceiverClippedVertices": 2479,
+      "newReceiverMinimumMarginWorld": 0.9400716803309463,
+      "maximumShadowNdc": 0.43077829884789837,
+      "footprintMeters": {
+        "min": [
+          -0.13537005172284866,
+          -0.005800000000000249,
+          -1.939928319669054
+        ],
+        "max": [
+          0.7240061378805169,
+          -0.005799999999999805,
+          0.2269006272426124
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.43794443316704124,
+          -0.005800000000000249,
+          -1.939928319669054
+        ],
+        "max": [
+          0.6353870385455629,
+          -0.005799999999999805,
+          -1.5645613093821407
+        ]
+      }
+    },
+    {
+      "kind": "human",
+      "scale": 5,
+      "testedVerticesAcrossPoses": 18918,
+      "oldReceiverClippedVertices": 2423,
+      "newReceiverMinimumMarginWorld": 4.724391222167553,
+      "maximumShadowNdc": 0.43077829884789803,
+      "footprintMeters": {
+        "min": [
+          -0.13679774403054099,
+          -0.0011600000000001388,
+          -1.9351217555664897
+        ],
+        "max": [
+          0.7225784455728246,
+          -0.0011599999999997834,
+          0.23170719134517648
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.43651674085934933,
+          -0.0011600000000001388,
+          -1.9351217555664897
+        ],
+        "max": [
+          0.6339593462378705,
+          -0.0011599999999997834,
+          -1.5597547452795764
+        ]
+      }
+    },
+    {
+      "kind": "human",
+      "scale": 10,
+      "testedVerticesAcrossPoses": 18918,
+      "oldReceiverClippedVertices": 2417,
+      "newReceiverMinimumMarginWorld": 9.454790649463312,
+      "maximumShadowNdc": 0.4307782988478978,
+      "footprintMeters": {
+        "min": [
+          -0.1369762055690025,
+          -0.000580000000000247,
+          -1.934520935053669
+        ],
+        "max": [
+          0.7223999840343631,
+          -0.0005799999999998917,
+          0.232308011857997
+        ]
+      },
+      "upper12PercentFootprintMeters": {
+        "min": [
+          0.43633827932088765,
+          -0.000580000000000247,
+          -1.934520935053669
+        ],
+        "max": [
+          0.6337808846994091,
+          -0.0005799999999998917,
+          -1.5591539247667558
+        ]
+      }
+    }
+  ]
+}
+{
+  "passed": 13,
+  "models": 190,
+  "viewports": 4,
+  "checks": [
+    "shortest angle across ±180°",
+    "shortest model quaternion path",
+    "orbit radius stays positive and finite",
+    "Reset begins at current rendered pose, no first-frame teleport",
+    "camera reset and model-left movement run together",
+    "repeated Reset retargets exact current frame",
+    "drag/zoom interrupts camera only; layout still settles",
+    "new comparison/reset can regain camera ownership",
+    "asset switch cancellation prevents old callback writes",
+    "reduced motion performs one settled state without spatial loop",
+    "changing preference mid-flight settles the intended destination",
+    "all published actual GLBs retain dimensions and share exactly the reference scalar",
+    "all published paired baseline frames fit at 4 viewport sizes"
+  ]
+}
+PASS actual renderer lifecycle: 20 total assertions groups.
+PASS pending-load camera ownership: 21 total check groups.
+PASS dynamic preference and pending ownership: 24 total check groups.
+PASS transition-safe zoom bounds: 25 total check groups.
+PASS independent main/reference orientation: 30 total check groups.
+PASS held pointer and isolated lighting: 33 total check groups.
+PASS actual rotated framing: 35 total check groups.
+{
+  "status": "passed",
+  "scope": "Pure formatting plus actual production DOM-writing functions and click handlers in bounded fake DOM; no browser layout or raster verification",
+  "models": 190,
+  "checks": [
+    "Exact cycad identity: 1.37 m height, 2.11 m width, 2.17 m depth in both languages",
+    "Flat-wave caption separates X/Z footprint 1.50 × 1.16 m from Y thickness 8.1 cm in both languages; all other published model captions stay unchanged",
+    "All published primary metrics use Y; X/Y/Z details stay explicit in both languages without mutating metadata or rounding tiny heights to zero",
+    "Production main.js uses modelHeight, and index.html labels it Model height / 模型高度",
+    "Actual production metric assignment and infoContent execute correctly in a bounded fake DOM for all published models × 2 languages",
+    "Actual Compare and language-click handlers update both metric/info labels and live reference wording in both directions; repeated Compare keeps one gesture hint",
+    "Actual label, Compare, language, outside-click, Reset, selection and load-error handlers keep wave measurements tied to the current asset; hand text stays compact",
+    "Existing phone caption width and wrapping are retained; static CSS contract only, not browser layout verification",
+    "Info disclosure explicitly defines authored pose and units and states dimensions stay fixed while rotating"
+  ],
+  "cycad": {
+    "height": "1.37 m",
+    "en": "Height (Y): 1.37 m · Width (X): 2.11 m · Depth (Z): 2.17 m",
+    "zh": "高度 (Y)：1.37 m · 宽度 (X)：2.11 m · 深度 (Z)：2.17 m"
+  }
+}
+PASS: all 190 actual GLBs fit the left-shifted single baseline at 5 viewport sizes; 6% short-axis shift, authored scale and camera angles verified.
+PASS: 190 actual GLBs × 5 viewports, 4273515 projected vertices; maximum poster handoff error 4.687428401686771e-13px. Projection interpolation, input interruption and reset verified.
+{
+  "passed": 18,
+  "checks": [
+    "Cached handoff exposes selected decoded poster, waits its presentation, renders matching mesh, then waits two frame boundaries before crossfade/interaction",
+    "Actual main.js plus PreviewRenderer A→B→C cold selection clears the old model/poster while retaining the stage and rejects stale GLB/image callbacks",
+    "Cached selection ignores legacy preserve/hover pose options and delayed image decode cannot reveal the previous poster",
+    "A stale request error cannot overwrite the newest cached asset status",
+    "Current failure keeps only the selected asset fallback, image fallback is ID-scoped, and Retry starts from a clean baseline",
+    "Compare during entry → switch cancels both RAF owners/reference and resets fog, framing and zoom for the new model",
+    "Reduced-motion selection follows the same independent baseline without transition callbacks",
+    "Context loss during pending load invalidates selection, so late success cannot hide the fallback or enable controls",
+    "Context loss between cached GLB completion and poster decode releases select and cannot resurrect delayed loading text",
+    "Rapid Back/Forward rejects the old post-await navigation continuation as well as its old GLB",
+    "Actual OrbitControls mouse/touch held gestures are discarded on selection; fresh gestures work and listeners stay singular",
+    "Actual controls mobile static/interact/static/interact keeps pan-y/none policy, rejects held touch, and has no duplicate listeners",
+    "Mobile Back/Forward persists the fully restored list/keyboard/scroll snapshot even when unchanged scroll emits no event",
+    "The triangles-asc URL alias displays the available ascending option without changing its query meaning or order when filters are applied",
+    "Language changes re-sort name/name-desc in both directions while preserving the browse anchor, fractional scroll offset, keyboard and selected mesh; other sorts retain their exact result array and scroll with no selection or GLB request",
+    "Browsing warms only declared detail poster/fallback paths in a bounded eight-entry cache and makes no GLB requests",
+    "A real asynchronous source digest delayed beyond immediate-loop cadence still gates mesh readiness and validates reviewed support before selection completes",
+    "Every published GLB completes actual selection parsing, poster gating, frame acknowledgement and a fresh interactive baseline; geometry-only texture fixtures are not browser decode coverage"
+  ],
+  "fullCatalogSelections": 190,
+  "canvasClears": 220
+}
+{
+  "models": 190,
+  "worstReferencePixelDrift": 2.248201624865942e-13,
+  "meanReferencePixelDrift": 2.603591684352243e-14,
+  "pinchDistanceChange": 0,
+  "pinchZoomChange": 1.1999999999999997,
+  "mode": "current",
+  "entryInterruptedZoom": [
+    {
+      "atMilliseconds": 0,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    },
+    {
+      "atMilliseconds": 100,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    },
+    {
+      "atMilliseconds": 350,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    },
+    {
+      "atMilliseconds": 699,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    }
+  ],
+  "pendingLoadZoomDrift": 0,
+  "worstModels": [
+    {
+      "id": "desiccation-crack-surface",
+      "kind": "human",
+      "targetY": 0,
+      "referencePixelsY": 2.248201624865942e-13
+    },
+    {
+      "id": "longipteryx",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": 1.8735013540549517e-13
+    },
+    {
+      "id": "confuciusornis",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": -1.7486012637846216e-13
+    },
+    {
+      "id": "archaeocidaris",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": -1.7486012637846216e-13
+    },
+    {
+      "id": "horsetail-cluster",
+      "kind": "human",
+      "targetY": 0,
+      "referencePixelsY": -1.4988010832439613e-13
+    },
+    {
+      "id": "tafoni-outcrop",
+      "kind": "human",
+      "targetY": 0,
+      "referencePixelsY": 1.4988010832439613e-13
+    },
+    {
+      "id": "ovatiovermis",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": 1.4988010832439613e-13
+    },
+    {
+      "id": "anomalocaris",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": 1.3114509478384662e-13
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "single-touch diagonal drag",
+      "targetY": 0,
+      "referencePixelsY": -1.2490009027033011e-14
+    },
+    {
+      "name": "two-touch pinch",
+      "targetY": 0,
+      "referencePixelsY": -7.494005416219807e-14
+    },
+    {
+      "name": "keyboard yaw only",
+      "targetY": 0,
+      "referencePixelsY": 1.2490009027033011e-14
+    },
+    {
+      "name": "keyboard elevation only",
+      "targetY": 0,
+      "referencePixelsY": 0
+    },
+    {
+      "name": "manual shared camera zoom",
+      "targetY": 0,
+      "referencePixelsY": -1.6237011735142914e-13
+    },
+    {
+      "name": "repeat Compare reset interrupted by drag"
+    },
+    {
+      "name": "drag while reference fades during Reset",
+      "targetY": 0.1949031823897977,
+      "referencePixelsY": 25.38311366738293
+    }
+  ],
+  "output": "/workspace/shared/lowpoly-landair-web-integration/site/gallery/tests/evidence/compare-ground/current-audit.json"
+}
+{
+  "status": "passed",
+  "scope": "Deterministic production renderer, real Three.js OrbitControls and real GLB geometry; geometry-only texture placeholders; browser parser remains authoritative for texture decoding; no browser/raster coverage",
+  "checks": [
+    "all published actual GLBs: real mouse drag changes base-axis yaw only; both grounded, camera/target/layout/reference screen Y and shared scalar invariant",
+    "Cold reference input and entry interruption at 0/100/350/699 ms finish ground framing and pitch recovery before subsequent anchor-stable zoom",
+    "Actual two-pointer pinch changes shared projection zoom and keeps physical camera radius fixed",
+    "A complete 24-step yaw/zoom sweep across all published real GLBs and four viewport sizes keep both ground anchors fixed, meshes grounded and source/model/reference scale unchanged",
+    "Actual production wheel capture callback prevents native double zoom and preserves ctrl/meta browser-default behavior",
+    "Repeated Compare after mid-entry yaw/zoom retargets and resets both interrupted ownership channels",
+    "Reset interruption gives ordinary distance/projection ownership to user; full pitch inspection remains grounded",
+    "Ordinary keyboard/pointer pitch keeps the intended world axis after interrupted Reset with -90/90/173 degree comparison yaw",
+    "Actual ordinary two-touch pinch respects .15× to 8× fit-distance limits across repeated extreme gestures",
+    "Extreme comparison pinch is projection-clamped, leaves physical distance unchanged, and preserves the reference ground line",
+    "Finishing a reduced-motion transition completes required framing without overwriting user yaw/zoom"
+  ],
+  "yawZoomSteps": 18240,
+  "worstReferencePixelDrift": 2.248201624865942e-13
+}
+{
+  "models": 190,
+  "worstReferencePixelDrift": 2.248201624865942e-13,
+  "meanReferencePixelDrift": 2.603591684352243e-14,
+  "pinchDistanceChange": 0,
+  "pinchZoomChange": 1.1999999999999997,
+  "mode": "current",
+  "entryInterruptedZoom": [
+    {
+      "atMilliseconds": 0,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    },
+    {
+      "atMilliseconds": 100,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    },
+    {
+      "atMilliseconds": 350,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    },
+    {
+      "atMilliseconds": 699,
+      "target": [
+        -0.4574614781703201,
+        0,
+        0.4119001650550243
+      ],
+      "referencePixelsY": -2.4980018054066022e-14
+    }
+  ],
+  "pendingLoadZoomDrift": 0,
+  "worstModels": [
+    {
+      "id": "desiccation-crack-surface",
+      "kind": "human",
+      "targetY": 0,
+      "referencePixelsY": 2.248201624865942e-13
+    },
+    {
+      "id": "longipteryx",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": 1.8735013540549517e-13
+    },
+    {
+      "id": "confuciusornis",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": -1.7486012637846216e-13
+    },
+    {
+      "id": "archaeocidaris",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": -1.7486012637846216e-13
+    },
+    {
+      "id": "horsetail-cluster",
+      "kind": "human",
+      "targetY": 0,
+      "referencePixelsY": -1.4988010832439613e-13
+    },
+    {
+      "id": "tafoni-outcrop",
+      "kind": "human",
+      "targetY": 0,
+      "referencePixelsY": 1.4988010832439613e-13
+    },
+    {
+      "id": "ovatiovermis",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": 1.4988010832439613e-13
+    },
+    {
+      "id": "anomalocaris",
+      "kind": "hand",
+      "targetY": 0,
+      "referencePixelsY": 1.3114509478384662e-13
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "single-touch diagonal drag",
+      "targetY": 0,
+      "referencePixelsY": -1.2490009027033011e-14
+    },
+    {
+      "name": "two-touch pinch",
+      "targetY": 0,
+      "referencePixelsY": -7.494005416219807e-14
+    },
+    {
+      "name": "keyboard yaw only",
+      "targetY": 0,
+      "referencePixelsY": 1.2490009027033011e-14
+    },
+    {
+      "name": "keyboard elevation only",
+      "targetY": 0,
+      "referencePixelsY": 0
+    },
+    {
+      "name": "manual shared camera zoom",
+      "targetY": 0,
+      "referencePixelsY": -1.6237011735142914e-13
+    },
+    {
+      "name": "repeat Compare reset interrupted by drag"
+    },
+    {
+      "name": "drag while reference fades during Reset",
+      "targetY": 0.1949031823897977,
+      "referencePixelsY": 25.38311366738293
+    }
+  ],
+  "output": "/workspace/shared/lowpoly-landair-web-integration/site/gallery/tests/evidence/compare-ground/current-audit.json"
+}
+{
+  "status": "passed",
+  "checks": [
+    "All published GLBs: unchanged ordinary authored geometry, equal support/wrist ground depth, 36 yaw/zoom steps per model with stable support and common scalar",
+    "Source binding rejects missing/mismatched fetched digest, catalog digest, id or geometry bounds; all other published assets keep existing origin",
+    "16 partial Reset interruptions preserve every mesh world-matrix while folding foot-centered yaw into ordinary inspection; remaining layout finishes smoothly without an old-pivot position jump",
+    "Production fetch computes reviewed-source SHA256 before selecting measured support"
+  ],
+  "models": 190
+}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

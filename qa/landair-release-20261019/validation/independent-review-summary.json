@@ -1,0 +1,33 @@
+{
+  "status": "reviewed_fixes_pending_final_ci",
+  "baseline_commit": "66e813c233d2f01f4aefb91f3db8a63913441bf6",
+  "verified": {
+    "producer_files_exact": 397,
+    "original_review_files_exact": 129,
+    "delivery_review_files_exact": 50,
+    "existing_asset_records_unchanged": 186,
+    "existing_card_entries_unchanged": 186,
+    "descriptor_references_hash_match": 100,
+    "unique_descriptor_reference_files": 83,
+    "all_four_webp_png_pairs_match_capture": true,
+    "package_lock_viewer_preset_and_golden_baseline_unchanged": true
+  },
+  "findings": [
+    {
+      "issue": "Isolated release fixture omitted viewer.js required by capture binding",
+      "resolution": "Copy unchanged viewer.js into fixture and reject source mutation"
+    },
+    {
+      "issue": "Public WebP plus public index could be rehashed without immutable capture equality",
+      "resolution": "Require exact single public card row equality to archived captured row and verify actual card bytes/length; add coordinated tampering, duplication and removal regressions"
+    },
+    {
+      "issue": "ZIP license wording implied full license text",
+      "resolution": "Document existing attribution and CC BY 4.0 license link accurately"
+    }
+  ],
+  "limits": [
+    "Read-only source review and actual captured image inspection; no duplicate expensive test suite reruns",
+    "Fresh unified gallery captures, browser screenshots and current-head CI remain required"
+  ]
+}
