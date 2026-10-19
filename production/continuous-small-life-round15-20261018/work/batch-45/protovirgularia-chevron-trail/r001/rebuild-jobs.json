@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "protovirgularia-chevron-trail",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/protovirgularia-chevron-trail/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/protovirgularia-chevron-trail/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch45/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch45/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/protovirgularia-chevron-trail/brief.json",
+        "references": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/protovirgularia-chevron-trail/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/protovirgularia-chevron-trail/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "protovirgularia-chevron-trail",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "protovirgularia-chevron-trail/protovirgularia-chevron-trail.blend",
+        "protovirgularia-chevron-trail/protovirgularia-chevron-trail.glb",
+        "protovirgularia-chevron-trail/qa.json",
+        "protovirgularia-chevron-trail/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch45 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "protovirgularia-chevron-trail",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/protovirgularia-chevron-trail/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/protovirgularia-chevron-trail/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch45/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch45/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/protovirgularia-chevron-trail/brief.json",
+        "references": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/protovirgularia-chevron-trail/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/protovirgularia-chevron-trail/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "protovirgularia-chevron-trail",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "protovirgularia-chevron-trail/protovirgularia-chevron-trail.blend",
+        "protovirgularia-chevron-trail/protovirgularia-chevron-trail.glb",
+        "protovirgularia-chevron-trail/qa.json",
+        "protovirgularia-chevron-trail/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch45 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
