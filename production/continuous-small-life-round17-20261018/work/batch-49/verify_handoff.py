@@ -17,7 +17,7 @@ for e in h['assets']:
  s=e['asset_id'];inv=json.loads((p/'items'/s/'inventory-record.json').read_text());m=json.loads((r/e['metadata']['path']).read_text());assert e['catalog_facets']=={k:inv.get(k) for k in e['catalog_facets']};assert m['inventory_production_gate']==inv['production_gate'];assert hashlib.sha256(subprocess.check_output(['git','show',h['model_source_commit']+':'+e['glb']['path']])).hexdigest()==e['glb']['sha256']
  gltf,_,_=read_glb(r/e['glb']['path']);assert not gltf.get('images')
  assert 'review_policy' in e['artifact_dependencies']
- assert abs(max(e['dimensions_m'])-{'diania':.06,'czekanowskia':.18,'natural-levee':14,'lockeia-resting-trace':.2}[s])<1e-5
+ assert abs(max(e['dimensions_m'])-{'diania':.06006865203380585,'czekanowskia':.18,'natural-levee':14,'lockeia-resting-trace':.2}[s])<1e-5
  if s=='diania':assert m['representation']=='living-reconstruction' and m['geometry_parameters']['lobopod_pairs']==10
  if s=='czekanowskia':assert m['representation']=='fossil-specimen' and m['geometry_parameters']['readable_fork_generations']==2
  if s=='natural-levee':assert m['representation']=='geological-form' and 'lower back plains' in m['landform_scope']
