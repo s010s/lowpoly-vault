@@ -1,3 +1,4 @@
+import {ACCEPTED_ROUND13_ASSETS} from './accepted-round13-release.mjs';
 import {ROUND13_IDS,ROUND13_PACK} from './small-life-round13-release.mjs';
 import {ACCEPTED_ROUND12_ASSETS} from './accepted-round12-release.mjs';
 import {ROUND12_IDS,ROUND12_PACK} from './small-life-round12-release.mjs';
@@ -68,7 +69,7 @@ try {
     const detailURL=base+lang+`models/${id}/`,staticResponse=await page.request.get(detailURL);assert(staticResponse.ok());const html=await staticResponse.text();assert(html.includes('application/ld+json')&&html.includes('static-route-content'));
     const downloaded={};
     for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());const bytes=await response.body();assert.equal(hash(bytes),asset.sha256[key]);downloaded[key]=bytes.length;}
-    assert.equal(downloaded.glb,ACCEPTED_ROUND12_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND11_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND10_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND09_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND08_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND07_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND06_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND05_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND04_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND03_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND02_ASSETS[id]?.glb.bytes??ACCEPTED_BATCH_ASSETS[id]?.glb.bytes??{burgessomedusa:122504,diplomystus:93752,kalligramma:150456}[id]);
+    assert.equal(downloaded.glb,ACCEPTED_ROUND13_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND12_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND11_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND10_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND09_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND08_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND07_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND06_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND05_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND04_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND03_ASSETS[id]?.glb.bytes??ACCEPTED_ROUND02_ASSETS[id]?.glb.bytes??ACCEPTED_BATCH_ASSETS[id]?.glb.bytes??{burgessomedusa:122504,diplomystus:93752,kalligramma:150456}[id]);
     for(const [kind,path] of [['credits',`assets/downloads/${id}-CREDITS.txt`],['bundle',`assets/downloads/${id}.zip`]]) {
      const response=await page.request.get(base+path);assert(response.ok());const bytes=await response.body();assert(bytes.length>0);
      if(kind==='credits'){assert.match(bytes.toString(),/Leon Made This/);assert.match(bytes.toString(),/https:\/\/creativecommons\.org\/licenses\/by\/4\.0\//);}else assert.equal(bytes.subarray(0,2).toString(),'PK');
