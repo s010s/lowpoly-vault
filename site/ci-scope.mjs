@@ -41,6 +41,7 @@ export function classify(paths,manifest,full=false,context={}) {
  if(manifest.publication?.round08_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_round08_ids.some(id=>changedIDs.has(id))))tasks.push('round08');
  if(manifest.publication?.round09_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_round09_ids.some(id=>changedIDs.has(id))))tasks.push('round09');
  if(manifest.publication?.round10_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_round10_ids.some(id=>changedIDs.has(id))))tasks.push('round10');
+ if(manifest.publication?.round11_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_round11_ids.some(id=>changedIDs.has(id))))tasks.push('round11');
  if(previews)tasks.push('previews');
  return {runtime,models,previews,ids,tasks:tasks.length?[...new Set(tasks)]:['none']};
 }
