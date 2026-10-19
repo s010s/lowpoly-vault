@@ -11,6 +11,15 @@ export async function checkGalleryStartup({browser,root,baseURL,output,report}){
  const locate=(marker,extension)=>{const found=sources.filter(([name,text])=>name.endsWith(extension)&&text.includes(marker));assert.equal(found.length,1,`Unique built resource for ${marker}`);return 'assets/'+found[0][0];};
  const targets={entry:new URL(entry,baseURL).pathname,bootstrap:locate('Gallery enhancement unavailable','.js'),main:locate('window.__gallery','.js'),css:locate('.slot-image','.css'),manifest:'assets/manifest.json',resources:'gallery/resources.json'};
  const variants=Object.entries(targets);
+ async function captureFirstPaint(page,path){
+  // A deliberately held module/stylesheet can keep document.fonts.ready pending.
+  // Capture the actual interim pixels, not a later font-ready state that cannot
+  // exist until this test releases the request. DOM/layout assertions stay intact.
+  const previous=process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY;
+  process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY='1';
+  try{return await page.screenshot({path});}
+  finally{if(previous===undefined)delete process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY;else process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY=previous;}
+ }
  async function inspectFallback(page,dark){
   await page.locator('#static-route-content').waitFor({state:'visible'});
   const state=await page.evaluate(()=>({
@@ -42,7 +51,7 @@ export async function checkGalleryStartup({browser,root,baseURL,output,report}){
    let timer;await Promise.race([requested,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error('Target prerequisite was never requested: '+kind)),15000))]).finally(()=>clearTimeout(timer));
    if(mode==='fail')await page.waitForLoadState('load');
    row.fallback=await inspectFallback(page,dark);
-   await page.screenshot({path:resolve(output,`${name}-fallback.png`)});
+   await captureFirstPaint(page,resolve(output,`${name}-fallback.png`));
    if(mode==='delay'){
     release();await page.waitForFunction(()=>window.__gallery?.models.length>0,null,{timeout:45000});
     const mounted=await page.evaluate(()=>({legacy:document.querySelectorAll('body>.topbar,#static-route-content').length,headers:document.querySelectorAll('body>header').length,canvas:document.querySelectorAll('canvas.preview-renderer').length,wheelHeight:document.querySelector('#wheel').clientHeight,mainDisplay:getComputedStyle(document.querySelector('body>main')).display,selected:window.__gallery.state.selected}));
@@ -57,13 +66,13 @@ export async function checkGalleryStartup({browser,root,baseURL,output,report}){
     row.expected_resource_errors=errors;
    }
    row.status='pass';
-  }catch(error){row.status='fail';row.error=error.stack;await page.screenshot({path:resolve(output,`${name}-failure.png`)}).catch(()=>{});}
+  }catch(error){row.status='fail';row.error=error.stack;await captureFirstPaint(page,resolve(output,`${name}-failure.png`)).catch(()=>{});}
   finally{release();await context.close();}
  }
  for(const dark of [false,true]){
   const name=`startup-no-javascript-no-external-css-${dark?'dark':'light'}`,row={name,status:'running'};report.cases.push(row);
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844},colorScheme:dark?'dark':'light'}),page=await context.newPage();
-  try{await page.route('**/*.css',route=>route.abort());await page.goto(new URL('zh-CN/models/page/2/',baseURL).href);row.fallback=await inspectFallback(page,dark);await page.screenshot({path:resolve(output,`${name}.png`)});row.status='pass';}
+  try{await page.route('**/*.css',route=>route.abort());await page.goto(new URL('zh-CN/models/page/2/',baseURL).href);row.fallback=await inspectFallback(page,dark);await captureFirstPaint(page,resolve(output,`${name}.png`));row.status='pass';}
   catch(error){row.status='fail';row.error=error.stack;}finally{await context.close();}
  }
 }
