@@ -167,8 +167,33 @@ try {
     });
   }
 
+  // A coordinated image/index rewrite must not reauthorize a different card image,
+  // even when its new byte length and digest form a self-consistent public seal.
+  const publicIndexPath = 'assets/turntables/index.json';
+  const publicCards = (await json(publicIndexPath)).posters.filter(row => expectedIds.includes(row.id));
+  assert.equal(publicCards.length, expectedIds.length);
+  for (const [index, card] of publicCards.entries()) {
+    const file = resolve(root, card.path), original = await readFile(file);
+    const replacement = await readFile(resolve(root, publicCards[(index + 1) % publicCards.length].path));
+    assert.notEqual(sha(replacement), card.sha256);
+    try {
+      await writeFile(file, replacement);
+      await mutate(publicIndexPath, value => {
+        const row = value.posters.find(row => row.id === card.id);
+        row.sha256 = sha(replacement);
+        row.bytes = replacement.length;
+      }, () => assert.rejects(collect, /Public card must match/, `${card.id}: coordinated card/index substitution is rejected`));
+    } finally {
+      await writeFile(file, original);
+    }
+    await mutate(publicIndexPath, value => { value.posters.push(value.posters.find(row => row.id === card.id)); },
+      () => assert.rejects(collect, /Public card must match/, `${card.id}: duplicate public card rows are rejected`));
+    await mutate(publicIndexPath, value => { value.posters = value.posters.filter(row => row.id !== card.id); },
+      () => assert.rejects(collect, /Public card must match/, `${card.id}: missing public card rows are rejected`));
+  }
+
   // Exercise every quartet's public artifacts and the evidence used to support publication.
-  const evidencePaths = new Set([fixed.source_bundle.path, fixed.publication_policy.path, fixed.base_descriptor.path]);
+  const evidencePaths = new Set([fixed.source_bundle.path, fixed.publication_policy.path, fixed.base_descriptor.path, ...publicCards.map(card => card.path)]);
   for (const addition of fixed.additions) {
     const asset = manifest.assets.find(item => item.id === addition.id);
     for (const key of ['glb', 'blend', 'preview']) evidencePaths.add(asset[key]);
@@ -194,15 +219,17 @@ try {
     });
   }
 
-  const artifact = resolve(root, manifest.assets[BASE_COUNT].glb), saved = `${artifact}.saved`;
-  await rename(artifact, saved);
-  try {
-    await symlink(saved, artifact);
-    await assert.rejects(collect, /symlinks forbidden/i, 'Byte-identical symlink substitution is rejected');
-    checks++;
-  } finally {
-    await rm(artifact, { force: true });
-    await rename(saved, artifact);
+  for (const path of [manifest.assets[BASE_COUNT].glb, publicCards[0].path, publicIndexPath]) {
+    const artifact = resolve(root, path), saved = `${artifact}.saved`;
+    await rename(artifact, saved);
+    try {
+      await symlink(saved, artifact);
+      await assert.rejects(collect, /symlinks forbidden/i, `${path}: byte-identical symlink substitution is rejected`);
+      checks++;
+    } finally {
+      await rm(artifact, { force: true });
+      await rename(saved, artifact);
+    }
   }
   assert.deepEqual(await collect(), manifest, 'Every destructive test restores the exact valid release');
   checks++;
