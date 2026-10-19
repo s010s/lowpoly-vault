@@ -61,3 +61,16 @@ python3 scripts/validate_concept_evidence.py \
 ```
 
 No remaining production blocker. Remaining approval/runtime/publication gates belong to the parent scope above.
+
+
+## Delivery completion after independent QA
+
+The initial handoff omitted schema candidate records and the revision-local aliases `dimensions_m`, `axis`, `primitives`, `textures`, `bytes`. This gap is now repaired in all four selected directories. The original GLB/Blend, generators, design briefs, references and original raw QA artifacts remain byte-identical to `7c3cc658c1d10fa595e3ef7d27c6f0b17a842dd1`. New read-only measurements and before/after hashes are under `delivery-completion/evidence/`. `delivery-completion/completion-report.json` binds the four complete candidate/metadata records.
+
+Independent limited QA at commit `45b1411119a624461f84452adfcd0cd83838a074` reported visual/factual/specification, format/source correspondence and software WebGL checks passed, without model rework. The exact review text and commit/path/hash provenance are retained under `delivery-completion/`. This is not formal candidate, physical GPU/device/performance or deployed populated-scene acceptance.
+
+Each new `candidate.json` is an initial, current-time registration: `candidate-brief.json` is a separately dated acceptance-contract supplement, and `candidate-references.json` adds explicit rights/scope fields while pinning the unchanged originals. No post-production document is represented as a pre-model freeze. All seven formal stages remain unknown and approval remains pending. Unknown original candidate registration/review times stay unknown.
+
+The executable legacy production contract records its usual 24-orbit/detail acceptance obligations as **unverified**, while explicitly retaining the original bounded study's twelve fixed views and zero turntable frames. No missing frames are fabricated; neither the old limited QA nor original render manifests are relabeled to approve the newly registered contract. Parent owns any subsequent formal profile/approval handling, gallery posters, integration and publication.
+
+The four CLI `validate_candidate.py candidate.json --json` runs return `valid: true`, `approved_for_brief: false`; this validates pending record structure and measurable artifact bindings, not acceptance. Historical `bundle-hashes.json` was retained verbatim as `delivery-completion/original-bundle-hashes-at-7c3cc658.json`; the root checksum inventory now describes the supplemented delivery.
