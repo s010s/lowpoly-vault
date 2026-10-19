@@ -113,20 +113,29 @@ def clavagella(c,m):
  shell.add(v,f,mi);shell.finish(c)
 
 def aa_lava_front(c,m):
- body=Mesh('coherent-solid-lava-front-body-under-unequal-angular-clinker-cover',m);clasts=Mesh('weighted-unequal-angular-clinker-blocks-embedded-in-flow-front',m);nx=18;ny=14;v=[];f=[]
- def h(x,y):return .12+.13*(y+.45)/.9+.035*math.cos(x*5+y*2)+.035*math.exp(-((y+.15)/.18)**2)
- for j in range(ny+1):
-  y=-.45+.90*j/ny
-  for i in range(nx+1):x=-.60+1.20*i/nx;v.append((x,y,h(x,y)))
- for j in range(ny):
-  for i in range(nx):a=j*(nx+1)+i;f.append((a,a+1,a+nx+2,a+nx+1))
- edge=list(range(nx+1))+[j*(nx+1)+nx for j in range(1,ny+1)]+[ny*(nx+1)+i for i in range(nx-1,-1,-1)]+[j*(nx+1) for j in range(ny-1,0,-1)];off=len(v)
- for a in edge:x,y,z=v[a];v.append((x,y,0))
- for j,a in enumerate(edge):b=edge[(j+1)%len(edge)];f.append((a,off+j,off+(j+1)%len(edge),b))
- center=len(v);v.append((0,0,0))
- for j in range(len(edge)):f.append((center,off+(j+1)%len(edge),off+j))
+ body=Mesh('irregular-sloping-continuous-lava-core-rounded-rubble-bearing-front-no-plinth',m);clasts=Mesh('unequal-angular-clinker-embedded-in-sloping-core-and-irregular-toe',m);N=56;v=[];f=[]
+ def h(x,y):
+  rho=(abs(x/.65)**3+abs(y/.53)**3)**(1/3)
+  return (.125+.135*(y+.50)+.019*math.cos(x*5+y*2))*(1-.40*max(0,min(1,(rho-.52)/.55)))
+ def outline(a,t):
+  r=1+.052*math.sin(5*a+.4)+.032*math.cos(9*a-.3)
+  return (.65*math.copysign(abs(math.cos(a))**.68,math.cos(a))*r*t,.52*math.copysign(abs(math.sin(a))**.68,math.sin(a))*r*t-.030*t*(.5-.5*math.sin(a)))
+ # Grounded irregular footprint and outward rolled toe; no rectangular cut slab or vertical plate sides.
+ for row,t in enumerate([.86,1.01,.96,.76,.39]):
+  for k in range(N):
+   a=2*pi*k/N;x,y=outline(a,t)
+   if row==0:z=0
+   elif row==1:z=.035+.012*(.5+.5*math.sin(3*a+.4))+.020*(.5+.5*math.sin(a))
+   elif row==2:z=h(x,y)*.85
+   else:z=h(x,y)
+   v.append((x,y,z))
+ bot=len(v);v.append((0,0,0));top=len(v);v.append((0,.01,h(0,.01)))
+ for k in range(N):f.append((bot,(k+1)%N,k));f.append((4*N+k,4*N+(k+1)%N,top))
+ for row in range(4):
+  for k in range(N):f.append((row*N+k,row*N+(k+1)%N,(row+1)*N+(k+1)%N,(row+1)*N+k))
  body.add(v,f);body.finish(c,False)
  specs=[(-.40,.25,.19,.15,.16),(-.06,.31,.22,.16,.18),(.32,.26,.20,.18,.17),(-.48,.02,.13,.13,.16),(-.22,.03,.20,.17,.21),(.14,.05,.21,.17,.24),(.45,.02,.15,.15,.16),(-.40,-.22,.20,.14,.18),(-.04,-.22,.20,.15,.16),(.30,-.21,.22,.16,.20),(-.52,-.36,.09,.08,.09),(-.25,-.37,.13,.09,.12),(.10,-.37,.12,.09,.10),(.46,-.35,.10,.09,.11),(-.31,.17,.10,.09,.11),(.15,.25,.09,.10,.13),(-.10,-.05,.10,.08,.12),(.37,-.06,.09,.08,.13),(-.56,.25,.07,.09,.08),(.52,.23,.08,.08,.10),(-.18,-.30,.07,.08,.10),(.23,-.35,.08,.06,.09)]
+ specs += [(-.40,-.46,.11,.09,.10),(-.14,-.50,.09,.075,.08),(.17,-.48,.13,.085,.11),(.40,-.43,.085,.07,.085)]
  for j,(x,y,rx,ry,hh) in enumerate(specs):
   n=6+j%3;vv=[];ff=[];a0=.43*j;z0=h(x,y)-.025
   for row,(s,z) in enumerate([(1,0),(1.06,.43),(.70,1)]):
@@ -189,7 +198,7 @@ def main():
  brief=json.loads((a.config.parent/'brief.json').read_text());refs=json.loads((a.config.parent/'references.json').read_text());desc={'en':'Original evidence-informed stylized teaching form; nominal scale, palette and simplified counts are artistic. Static only; no exact species, location, locomotion or shared habitat reconstruction.','zh':'原创依据基础形态的风格化教学造型；名义尺度、配色及简化数量属美术选择。仅静态，不声称精确种、地点、运动机制或共同栖息地复原。'}
  descriptions={'clavagella': {'en': 'Preserved Clavagella-inspired shell/adventitious calcareous tube specimen only: irregular bulbous enclosure incorporates a small valve region continuously into its wall, narrowing naturally into a long neck with actual solid rim and bounded lumen. No ordinary bottle plus stuck-on shell, living posture, unknown siphon soft tissues or exact species/count/size restoration.', 'zh': '仅保存Clavagella启发壳/附加钙质管标本：不规则膨大包被管壁连续融入小壳瓣区，自然收窄为有真实实壁口缘和有限管腔的长颈。非瓶子贴贝壳，不补生活姿态、未知虹吸软体或精确种/数量/尺度复原。'}, 'aa-lava-front': {'en': 'Original nominal1.2m Aa lava-front representative landscape patch: a coherent solid flow body carries unequal angular clinker masses embedded and piled with visible weight across its front. Quiet structural palette, no equal loose stone scatter, noisy ropy-lava conversion, sharp pillow variant, flame/smoke/flow simulation or named eruption/site.', 'zh': '原创名义1.2米Aa熔岩前缘landscape片：连续实质流体基体承托不等大棱角渣块，前缘嵌入堆覆有重量关系。克制结构配色，非等大散石、绳熔岩加噪声或枕状锐化变体，无火烟流动模拟或具名喷发地点。'}, 'native-copper-dendrite': {'en': 'Original native-copper-inspired dendritic crystal aggregate with unequal continuous flattened branching sheets and blunt irregular flared terminal growth, deliberate coalescent junctions and restrained metal response. Gray shape carries identity; not an old sponge/tree recolor or industrial wire. Nominal15cm span, palette and flat display contact at lower crystal surface are artistic, no measured mineral locality/specimen.', 'zh': '原创自然铜启发枝晶：不等粗连续扁平分枝片、钝不规则外展端部与有意共生融合接点，金属响应克制；灰色结构可识别，非旧海绵树枝换色或工业导线。名义15厘米、配色及下表面平放接触属美术选择，不作实测矿点标本。'}, 'nereites-lobed-meander': {'en': 'Original interpretive raised-fossil-relief Nereites-inspired trace: meandering median backfilled axis with genuinely raised, alternating/slightly offset, partially overlapping ovate lateral lobes on one sediment host. Gray top and oblique carry internal relief; no painted black curve, dense Cruziana variant, known producer species or extra asset counts for synonym names.', 'zh': '原创示意Nereites启发凸浮雕化石迹：曲行中轴回填管及真实隆起、交替略错列且部分重叠的卵形侧叶瓣，置连续沉积宿主。灰顶斜视读内部起伏，非黑曲线、Cruziana加密变体，不指定制造物种或将同义名另计资产。'}}
  desc=descriptions[slug]
- export_asset(slug,brief['subject']['inventory_name'],brief['subject']['category'],c,metadata={'revision':'r001','description':desc,'claim_scope':brief['claim_scope'],'provenance':{'geometry':'Original procedural geometry by Leon Made This / s010s','third_party_assets_incorporated':False},'sources':refs['sources'],'nominal_scale':cfg['nominal_scale'],'representation':brief['subject']['representation'],'reconstruction_type':brief['subject']['reconstruction_type'],'animation_ready':False,'reference_status':'basic-form textual reference support with explicit limits; not strict reconstruction','publication_authority':'separate','candidate_validation_profile':'static-stylized-v1','generator':str(Path(__file__).relative_to(ROOT)),'build_config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest()},output_root=a.output.parent,render=False,max_triangles=14000,max_materials=6,max_primitives=30)
+ export_asset(slug,brief['subject']['inventory_name'],brief['subject']['category'],c,metadata={'revision':'r002','description':desc,'claim_scope':brief['claim_scope'],'provenance':{'geometry':'Original procedural geometry by Leon Made This / s010s','third_party_assets_incorporated':False},'sources':refs['sources'],'nominal_scale':cfg['nominal_scale'],'representation':brief['subject']['representation'],'reconstruction_type':brief['subject']['reconstruction_type'],'animation_ready':False,'reference_status':'basic-form textual reference support with explicit limits; not strict reconstruction','publication_authority':'separate','candidate_validation_profile':'static-stylized-v1','generator':str(Path(__file__).relative_to(ROOT)),'build_config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest()},output_root=a.output.parent,render=False,max_triangles=14000,max_materials=6,max_primitives=30)
  generated=a.output.parent/slug
  if generated!=a.output:
   a.output.mkdir(parents=True,exist_ok=True)
