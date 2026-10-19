@@ -11,7 +11,7 @@ const root=await mkdtemp(join(tmpdir(),'vault-round12-')),file='assets/releases/
 const pin=async path=>({path,sha256:createHash('sha256').update(await readFile(resolve(root,path))).digest('hex')});
 async function mutate(path,change,action){const bytes=await readFile(resolve(root,path));try{const data=JSON.parse(bytes);change(data);await writeFile(resolve(root,path),JSON.stringify(data));await action();checks++;}finally{await writeFile(resolve(root,path),bytes);}}
 try{
- for(const dir of ['assets','production','qa','scripts','package-lock.json'])execFileSync('cp',['-a','--reflink=auto',dir,resolve(root,dir)]);
+ for(const dir of ['assets','production','qa','scripts','experiments','package-lock.json'])execFileSync('cp',['-a','--reflink=auto',dir,resolve(root,dir)]);
  const collect=async()=>collectRound12Release(root,await pin(file));
  const published=await collect(),before=JSON.parse(await readFile('assets/manifest.json'));
  assert.equal(published.assets.length,163);assert.deepEqual(published.assets.slice(0,151),before.assets.slice(0,151));assert.deepEqual(published.assets.slice(151).map(a=>a.id).sort(),ROUND12_IDS);assert(published.assets.slice(151).every(a=>a.approval_provenance.candidate_record_approved_for_brief===false));checks++;
