@@ -1,0 +1,537 @@
+{
+  "status": "fail",
+  "source_commit": "cac612ed06656ff475a7f80833f5461eb62be82d",
+  "groups": [
+    "startup",
+    "routes",
+    "fallback"
+  ],
+  "cases": [
+    {
+      "name": "startup-delay-entry-desktop",
+      "status": "fail",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(246, 243, 236)",
+        "color": "rgb(38, 42, 37)",
+        "giantSVG": false,
+        "width": 1440,
+        "viewport": 1440
+      },
+      "error": "page.screenshot: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n    at checkGalleryStartup (/workspace/lowpoly-vault/site/gallery-startup-browser.mjs:45:15)\n    at async runGalleryBrowserTests (/workspace/lowpoly-vault/site/gallery-browser-test.mjs:44:23)\n    at async file:///workspace/lowpoly-vault/[eval1]:1:73"
+    },
+    {
+      "name": "startup-delay-bootstrap-mobile",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      },
+      "mounted": {
+        "legacy": 0,
+        "headers": 1,
+        "canvas": 1,
+        "wheelHeight": 637,
+        "mainDisplay": "grid",
+        "selected": "urasterella"
+      }
+    },
+    {
+      "name": "startup-delay-main-desktop",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 1440,
+        "viewport": 1440
+      },
+      "mounted": {
+        "legacy": 0,
+        "headers": 1,
+        "canvas": 1,
+        "wheelHeight": 783,
+        "mainDisplay": "grid",
+        "selected": "cooperoceras"
+      }
+    },
+    {
+      "name": "startup-delay-css-mobile",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(246, 243, 236)",
+        "color": "rgb(38, 42, 37)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      },
+      "mounted": {
+        "legacy": 0,
+        "headers": 1,
+        "canvas": 1,
+        "wheelHeight": 637,
+        "mainDisplay": "grid",
+        "selected": "urasterella"
+      }
+    },
+    {
+      "name": "startup-delay-manifest-desktop",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 1440,
+        "viewport": 1440
+      },
+      "mounted": {
+        "legacy": 0,
+        "headers": 1,
+        "canvas": 1,
+        "wheelHeight": 783,
+        "mainDisplay": "grid",
+        "selected": "cooperoceras"
+      }
+    },
+    {
+      "name": "startup-delay-resources-mobile",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      },
+      "mounted": {
+        "legacy": 0,
+        "headers": 1,
+        "canvas": 1,
+        "wheelHeight": 637,
+        "mainDisplay": "grid",
+        "selected": "urasterella"
+      }
+    },
+    {
+      "name": "startup-fail-entry-desktop",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(246, 243, 236)",
+        "color": "rgb(38, 42, 37)",
+        "giantSVG": false,
+        "width": 1440,
+        "viewport": 1440
+      },
+      "expected_resource_errors": []
+    },
+    {
+      "name": "startup-fail-bootstrap-mobile",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      },
+      "expected_resource_errors": [
+        "Failed to fetch dynamically imported module: http://127.0.0.1:36993/lowpoly-vault/assets/bootstrap-x0KJwCCw.js"
+      ]
+    },
+    {
+      "name": "startup-fail-main-desktop",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 1440,
+        "viewport": 1440
+      },
+      "expected_resource_errors": []
+    },
+    {
+      "name": "startup-fail-css-mobile",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(246, 243, 236)",
+        "color": "rgb(38, 42, 37)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      },
+      "expected_resource_errors": []
+    },
+    {
+      "name": "startup-fail-manifest-desktop",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 1440,
+        "viewport": 1440
+      },
+      "expected_resource_errors": []
+    },
+    {
+      "name": "startup-fail-resources-mobile",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      },
+      "expected_resource_errors": []
+    },
+    {
+      "name": "startup-no-javascript-no-external-css-light",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(246, 243, 236)",
+        "color": "rgb(38, 42, 37)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "name": "startup-no-javascript-no-external-css-dark",
+      "status": "pass",
+      "fallback": {
+        "gallery": false,
+        "legacy": [
+          "none",
+          "none"
+        ],
+        "cards": 24,
+        "background": "rgb(29, 36, 32)",
+        "color": "rgb(225, 233, 226)",
+        "giantSVG": false,
+        "width": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "name": "full-catalog-virtualized-routes",
+      "status": "pass",
+      "snapshot": {
+        "ids": [
+          "natural-arch",
+          "stratified-cliff",
+          "conifer-tree",
+          "cycad",
+          "fern-cluster",
+          "horsetail-cluster",
+          "lepidodendron",
+          "dinosaur-nest",
+          "three-toed-track",
+          "uprooted-log",
+          "asteroxylon",
+          "bothriolepis",
+          "confuciusornis",
+          "ichthyornis",
+          "juracimbrophlebia",
+          "waptia",
+          "burgessomedusa",
+          "diplomystus",
+          "kalligramma",
+          "archaeopteryx",
+          "canadaspis",
+          "ceratomyrmex",
+          "hydropteris",
+          "longipteryx",
+          "urasterella",
+          "alienopterus",
+          "aglaophyton",
+          "cephalaspis",
+          "saccocoma",
+          "archaeocidaris",
+          "onoclea",
+          "calceola",
+          "favosites",
+          "opabinia",
+          "choia",
+          "goniophyllum",
+          "halysites",
+          "marrella",
+          "proteroctopus",
+          "aulopora",
+          "thamnopora",
+          "hallucigenia",
+          "fenestella",
+          "syringopora",
+          "vauxia",
+          "halimeda",
+          "isoxys",
+          "heliophyllum",
+          "pirania",
+          "bosworthia",
+          "haplophrentis",
+          "buthograptus",
+          "leptomitus",
+          "meandrina",
+          "thecosmilia",
+          "flabellum",
+          "horneophyton",
+          "wave-ripple-surface",
+          "gogia",
+          "micrabacia",
+          "sengelia",
+          "coquina-outcrop",
+          "naraoia",
+          "cystiphyllum",
+          "limnobiophyllum",
+          "wielandiella",
+          "desiccation-crack-surface",
+          "acrocyathus",
+          "sawdonia",
+          "leanchoilia",
+          "septarian-concretion",
+          "montlivaltia",
+          "cobbania",
+          "aysheaia",
+          "tafoni-outcrop",
+          "beelzebufo",
+          "pluricarpellatia",
+          "paratingia",
+          "stromatolite-mound",
+          "pleurodictyum",
+          "matonidium",
+          "yohoia",
+          "gypsum-desert-rose",
+          "isastraea",
+          "araucaria-mirabilis",
+          "onychonycteris",
+          "pillow-lava-outcrop",
+          "spinolestes",
+          "odontogriphus",
+          "trapa",
+          "flint-nodule",
+          "cooksonia",
+          "cambroraster",
+          "bedrock-pothole",
+          "quartz-prism-cluster",
+          "leclercqia",
+          "canadia",
+          "salvinia",
+          "load-cast-bedding",
+          "montsechia",
+          "dollocaris",
+          "coelurosauravus",
+          "columnar-jointed-outcrop",
+          "florissantia",
+          "stanleycaris",
+          "pahoehoe-lava-surface",
+          "staurolite-cross-twin",
+          "metasequoia",
+          "ovatiovermis",
+          "nordenskioldia",
+          "waterfall-ledge",
+          "williamsonia",
+          "halkieria",
+          "ctenorhabdotus",
+          "conglomerate-outcrop",
+          "anomalocaris",
+          "jimaodanus",
+          "hydrothermal-chimney",
+          "arenicolites-u-burrow",
+          "echinochiton",
+          "clypeina",
+          "tidal-flat",
+          "thalassinoides-branching-burrow",
+          "sollasina",
+          "ottoia",
+          "eocladus",
+          "limestone-pavement",
+          "marsilea",
+          "hurdia",
+          "sea-stack",
+          "fulgurite-tube",
+          "azolla",
+          "odaraia",
+          "pachypteris",
+          "sand-spit",
+          "peltaspermum",
+          "capinatator",
+          "cothurnocystis",
+          "pyrite-cube-cluster",
+          "asaphus",
+          "hazelia",
+          "sea-cave",
+          "cruziana-crawling-furrow",
+          "ctenocystis",
+          "baculites",
+          "estuary-basin",
+          "cross-bedded-sandstone",
+          "mucrospirifer",
+          "wave-cut-platform",
+          "flute-cast-slab",
+          "paleodictyon-mesh-trace",
+          "takakkawia",
+          "sabalites",
+          "river-dominated-delta",
+          "asteriacites-resting-impression",
+          "helicocystis",
+          "cooperoceras",
+          "cave-drapery",
+          "reticulite-clast",
+          "gryphaea",
+          "folded-strata-outcrop",
+          "volcanic-bomb",
+          "teredolites-wood-boring-cast",
+          "pentremites",
+          "schizoneura",
+          "tombolo",
+          "entobia-sponge-boring-network",
+          "diplomoceras",
+          "nelumbo",
+          "marine-terrace",
+          "angular-unconformity-outcrop",
+          "clavagella",
+          "aa-lava-front",
+          "native-copper-dendrite",
+          "nereites-lobed-meander"
+        ],
+        "count": 175,
+        "slots": 15,
+        "renderers": 1,
+        "legacy": false,
+        "label": "175 models"
+      }
+    },
+    {
+      "name": "deep-search-normalization-and-reload",
+      "status": "pass",
+      "deep_id": "nereites-lobed-meander",
+      "result_ids": [
+        "nereites-lobed-meander"
+      ]
+    },
+    {
+      "name": "no-javascript-linked-documents",
+      "status": "pass"
+    },
+    {
+      "name": "forced-webgl-fallback-keeps-gallery-functional",
+      "status": "pass",
+      "gpu": "not-accepted-forced-fallback"
+    },
+    {
+      "name": "failed-catalog-retains-real-html",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "case": "full-catalog-virtualized-routes",
+      "url": "http://127.0.0.1:36993/lowpoly-vault/assets/additions/cooperoceras/small-life-round12-20261018/cooperoceras.glb"
+    },
+    {
+      "case": "full-catalog-virtualized-routes",
+      "url": "http://127.0.0.1:36993/lowpoly-vault/assets/additions/urasterella/small-life-20261018/urasterella.glb"
+    },
+    {
+      "case": "deep-search-normalization-and-reload",
+      "url": "http://127.0.0.1:36993/lowpoly-vault/assets/additions/cooperoceras/small-life-round12-20261018/cooperoceras.glb"
+    },
+    {
+      "case": "deep-search-normalization-and-reload",
+      "url": "http://127.0.0.1:36993/lowpoly-vault/assets/additions/nereites-lobed-meander/small-life-round13-20261018/nereites-lobed-meander.glb"
+    },
+    {
+      "case": "deep-search-normalization-and-reload",
+      "url": "http://127.0.0.1:36993/lowpoly-vault/assets/additions/nereites-lobed-meander/small-life-round13-20261018/nereites-lobed-meander.glb"
+    }
+  ],
+  "limitations": [
+    "Chromium software rendering; mobile and touch are emulated, not physical-device performance."
+  ],
+  "base": "http://127.0.0.1:36993/lowpoly-vault/",
+  "published_count": 175,
+  "browser": "154.0.8037.57",
+  "error": "AssertionError [ERR_ASSERTION]: [\n  {\n    \"name\": \"startup-delay-entry-desktop\",\n    \"status\": \"fail\",\n    \"fallback\": {\n      \"gallery\": false,\n      \"legacy\": [\n        \"none\",\n        \"none\"\n      ],\n      \"cards\": 24,\n      \"background\": \"rgb(246, 243, 236)\",\n      \"color\": \"rgb(38, 42, 37)\",\n      \"giantSVG\": false,\n      \"width\": 1440,\n      \"viewport\": 1440\n    },\n    \"error\": \"page.screenshot: Timeout 20000ms exceeded.\\nCall log:\\n\\u001b[2m  - taking page screenshot\\u001b[22m\\n\\u001b[2m  - waiting for fonts to load...\\u001b[22m\\n\\n    at checkGalleryStartup (/workspace/lowpoly-vault/site/gallery-startup-browser.mjs:45:15)\\n    at async runGalleryBrowserTests (/workspace/lowpoly-vault/site/gallery-browser-test.mjs:44:23)\\n    at async file:///workspace/lowpoly-vault/[eval1]:1:73\"\n  }\n]\n    at runGalleryBrowserTests (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:288:5)\n    at async file:///workspace/lowpoly-vault/[eval1]:1:73"
+}

@@ -1,0 +1,18 @@
+{
+  "source_sha": "cac612ed06656ff475a7f80833f5461eb62be82d",
+  "browser": "154.0.8037.57",
+  "original_command_status": "fail",
+  "original_cases_passed": 18,
+  "original_cases_total": 19,
+  "original_blocker": "startup-delay-entry-desktop screenshot waits for document.fonts.ready while the entry request is intentionally held; fallback structural checks passed",
+  "capture_adaptation": {
+    "env": "PW_TEST_SCREENSHOT_NO_FONTS_READY=1",
+    "verified_implementation": "node_modules/playwright-core/lib/server/screenshotter.js:218",
+    "application_or_test_source_changed": false
+  },
+  "adapted_status": "pass",
+  "adapted_cases": 19,
+  "startup_cases": 14,
+  "runtime_errors": [],
+  "visual_review": "All fourteen fallback first-paint images and six mounted images were opened in contact sheets; entry-delay desktop and no-JS/no-CSS dark mobile were also opened at original size. No giant black SVG, visible legacy Skip link, or permanent blank page. A delayed mobile resources follow-up decoded all thirteen current row images and showed one styled header."
+}

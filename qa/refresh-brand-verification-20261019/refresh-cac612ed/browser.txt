@@ -1,0 +1,117 @@
+{
+  "status": "fail",
+  "cases": [
+    {
+      "name": "startup-delay-entry-desktop",
+      "status": "fail"
+    },
+    {
+      "name": "startup-delay-bootstrap-mobile",
+      "status": "pass"
+    },
+    {
+      "name": "startup-delay-main-desktop",
+      "status": "pass"
+    },
+    {
+      "name": "startup-delay-css-mobile",
+      "status": "pass"
+    },
+    {
+      "name": "startup-delay-manifest-desktop",
+      "status": "pass"
+    },
+    {
+      "name": "startup-delay-resources-mobile",
+      "status": "pass"
+    },
+    {
+      "name": "startup-fail-entry-desktop",
+      "status": "pass"
+    },
+    {
+      "name": "startup-fail-bootstrap-mobile",
+      "status": "pass"
+    },
+    {
+      "name": "startup-fail-main-desktop",
+      "status": "pass"
+    },
+    {
+      "name": "startup-fail-css-mobile",
+      "status": "pass"
+    },
+    {
+      "name": "startup-fail-manifest-desktop",
+      "status": "pass"
+    },
+    {
+      "name": "startup-fail-resources-mobile",
+      "status": "pass"
+    },
+    {
+      "name": "startup-no-javascript-no-external-css-light",
+      "status": "pass"
+    },
+    {
+      "name": "startup-no-javascript-no-external-css-dark",
+      "status": "pass"
+    },
+    {
+      "name": "full-catalog-virtualized-routes",
+      "status": "pass"
+    },
+    {
+      "name": "deep-search-normalization-and-reload",
+      "status": "pass"
+    },
+    {
+      "name": "no-javascript-linked-documents",
+      "status": "pass"
+    },
+    {
+      "name": "forced-webgl-fallback-keeps-gallery-functional",
+      "status": "pass"
+    },
+    {
+      "name": "failed-catalog-retains-real-html",
+      "status": "pass"
+    }
+  ],
+  "output": "/workspace/scratch/gallery-refresh-first-paint-cac612ed"
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: [
+  {
+    "name": "startup-delay-entry-desktop",
+    "status": "fail",
+    "fallback": {
+      "gallery": false,
+      "legacy": [
+        "none",
+        "none"
+      ],
+      "cards": 24,
+      "background": "rgb(246, 243, 236)",
+      "color": "rgb(38, 42, 37)",
+      "giantSVG": false,
+      "width": 1440,
+      "viewport": 1440
+    },
+    "error": "page.screenshot: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n    at checkGalleryStartup (/workspace/lowpoly-vault/site/gallery-startup-browser.mjs:45:15)\n    at async runGalleryBrowserTests (/workspace/lowpoly-vault/site/gallery-browser-test.mjs:44:23)\n    at async file:///workspace/lowpoly-vault/[eval1]:1:73"
+  }
+]
+    at runGalleryBrowserTests (file:///workspace/lowpoly-vault/site/gallery-browser-test.mjs:288:5)
+    at async file:///workspace/lowpoly-vault/[eval1]:1:73 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
