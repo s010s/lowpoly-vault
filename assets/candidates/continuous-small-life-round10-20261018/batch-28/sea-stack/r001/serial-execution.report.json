@@ -1,0 +1,41 @@
+{
+  "kind": "owned-serial-execution-check",
+  "asset_id": "sea-stack",
+  "launch_count": 19,
+  "matched_exit_count": 19,
+  "nonzero_exit_count": 1,
+  "retained_failure_dispositions": {
+    "failures": [
+      {
+        "owned_pid": 38513,
+        "returncode": 1,
+        "owned_process_group_remaining": false,
+        "reason": "Missing helper after sparse worktree index initialization error. Failed before any geometry/export; restored unchanged authorized base tree with append-only recovery checkpoint.",
+        "evidence_dir": "failed-attempt-00-missing-sparse-helper"
+      }
+    ]
+  },
+  "all_owned_process_groups_exited": true,
+  "lock_file": "/workspace/batch28-control/owned-process.lock",
+  "ledger": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/logs/owned-processes.jsonl",
+  "ledger_sha256": "05800b02219dfb9f1abb7113cfa4c1b0ae629408062da803cffca642397eba20",
+  "active_asset_gate": "different asset refuses start until previous lifecycle complete",
+  "orchestration_files": [
+    {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/execution-serial_asset.py",
+      "sha256": "bfc58108e0ba4f199543e800328b2a6b775d0a5cab4c33c310fb956c14899511"
+    },
+    {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/execution-evidence.py",
+      "sha256": "16a4b0bf1d13e8be2bdef99da662a02895629fac0ed2f4809428c62b16726a85"
+    },
+    {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/execution-package.py",
+      "sha256": "b39095ac957a5eedf8317cc2b2997f33b3b07fbdcd5eae85c357990dacc6f5fa"
+    },
+    {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/execution-finish_item.py",
+      "sha256": "6f56df996272320c9960652d2feb68bf890082acddbcffa8f671242a610f8e2a"
+    }
+  ]
+}

@@ -1,0 +1,4275 @@
+/** Immutable accepted payloads and independent evidence; original candidate failures remain explicit. */
+export const ACCEPTED_ROUND10_ASSETS = {
+  "marsilea": {
+    "id": "marsilea",
+    "batch": "28",
+    "source_commit": "b6292286a606aefae53d2cc245d91fb726b2b887",
+    "review_commit": "af76652e73ddecce6181d0f8daaf1eb4dc568924",
+    "handoff_commit": "30a6434ce3ce44b3538a1a805766a0f0812e784d",
+    "review": {
+      "path": "qa/independent-batch28-20261018.json",
+      "sha256": "ad1b6baa239667efbbae6073c184e9014eb5bd178ed02fd9fa14639f4d352660"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/candidate.json",
+      "sha256": "c98cdf252c9da7663ee80c85bd1d66d26ed2d23b59e68994748a30631f4f35e8"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/metadata.json",
+      "sha256": "c3ca31a6765ad02f5bf9d6b5525cf5d8294002b8bee9320969b5e40283c80b9e"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/marsilea.glb",
+      "sha256": "ab9683f2adab1bf3bc3a3e11bd3fbf1e38f6ce3ecd47656ad87be951ad5d19cd",
+      "bytes": 90712
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/marsilea.blend",
+      "sha256": "194326c4d2a599c87abe15155b78dbe23ceb5553d3cc95912f65c9dcb4737290",
+      "bytes": 590952
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/render-manifest.json",
+      "sha256": "29a32cff8373cb2eda79a133fd264d9053d0f11d93314ab43f5bba027c0c6e47"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/runtime-report.json",
+      "sha256": "fc3b370b6ac1d3f9afa938b95a26d5a7a48c5e07d73c724e0c7cb80042ede803"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/runtime-report.json",
+      "sha256": "fc3b370b6ac1d3f9afa938b95a26d5a7a48c5e07d73c724e0c7cb80042ede803"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/source-export.report.json",
+      "sha256": "67a4b97d04500259a9e1fdf0b2efdc9539989755d8995534499af8e7c6194804"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/gltf-validator.report.json",
+      "sha256": "d3a837950eb5d06c6eea23d2d242ee846c0e7756a0ad7ea0d82e78ea8c9779d0"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/candidate.json",
+        "sha256": "c98cdf252c9da7663ee80c85bd1d66d26ed2d23b59e68994748a30631f4f35e8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/marsilea.glb",
+        "sha256": "ab9683f2adab1bf3bc3a3e11bd3fbf1e38f6ce3ecd47656ad87be951ad5d19cd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/brief.json",
+        "sha256": "57240ff1133fbbf373181ad8e0bc0d4aab308e11ec783d07ec1e46857b87108c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/references-profile.json",
+        "sha256": "03dcc02360d75e218b4b01b5feadd66481a286a5204f45179742a4b8cbc7ae2e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/marsilea.blend",
+        "sha256": "194326c4d2a599c87abe15155b78dbe23ceb5553d3cc95912f65c9dcb4737290"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/build.py",
+        "sha256": "9c1b077f03eb971c0187f7aad874c17eaf94ec05d16d9a26ad9ac58c1efdb353"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/config.json",
+        "sha256": "da44c5da4e38fb340b3bbd783bbb172a819398bf8f460c97057d087d0aa1479b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/render-manifest.json",
+        "sha256": "29a32cff8373cb2eda79a133fd264d9053d0f11d93314ab43f5bba027c0c6e47"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/metadata.json",
+        "sha256": "c3ca31a6765ad02f5bf9d6b5525cf5d8294002b8bee9320969b5e40283c80b9e"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/references.json",
+        "sha256": "03dcc02360d75e218b4b01b5feadd66481a286a5204f45179742a4b8cbc7ae2e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/references-profile-mapping.json",
+        "sha256": "db49ef918dee9cd7be68b5e07aa232f29067231ed2220a47b65c4145d05091e1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/reference-access.json",
+        "sha256": "31eae2fe072d2f47b3cd7d994123493e4c75384f1cac3bbb03dc2d63e3395880"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/profile-contract.json",
+        "sha256": "8c5498e4d0a172c8a7aaaa84ba32cd3a13a98d0e4ed91d26abc86a30e1c0aaa6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/evidence-manifest.json",
+        "sha256": "bb6fb11a83a995f3a1df578693708091167a79f1fa2b23f881abe8493009be56"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/source-export.report.json",
+        "sha256": "67a4b97d04500259a9e1fdf0b2efdc9539989755d8995534499af8e7c6194804"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/source-mesh-measurements.json",
+        "sha256": "1b5178205b77429b38ff15d622229214abe5d5c01b08eadf3eaa270a9aba35a8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/profile-checker.report.json",
+        "sha256": "974fc25c0cbf2264b1f68ac872bd44701afd1b220be682dafc5d03e0485c1356"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/profile-approved-check.report.json",
+        "sha256": "974fc25c0cbf2264b1f68ac872bd44701afd1b220be682dafc5d03e0485c1356"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/project-checker.report.json",
+        "sha256": "624ca0666ca99eca4af2045ac36f43e13dc68f72d51b3e17e643bc21e3efe9a4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/checksums.sha256",
+        "sha256": "11ad26c1aea294750e204843269c5627fb33515f77ac55ee54e694a2b7e977f7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/HANDOFF.md",
+        "sha256": "313d7c21aad59790609ed39337f8aa9847b680c581e3537fbfe345fc8778b3bd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/serial-execution.report.json",
+        "sha256": "4da91e7ec2883eede9685ac6ba2fa24a8148a236cd775d57e45b441cd566e374"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/batch-28-QA-SCOPE.json",
+        "sha256": "fa9e110222e7a4e6baa1561148b260f9bbed3385a459b2487bc8e6a386d727bb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/qa.json",
+        "sha256": "9e961e6724704aea2e78f6d418db1459a9bfd41503d170d9ce77f0540066ff27"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/dependency-hashes.json",
+        "sha256": "8650c90a2019b09cccaa6cd168ab0abbb6eeb5ba40a53f21732b9d1df2eb1c99"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/maker-self-check.json",
+        "sha256": "755ae1c70a2270a33901e4780e90412148caed6dd8ad36a79849c4bdd62b8bb7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/maker-visual-inspection.json",
+        "sha256": "267d2ba8c218805f25031bec568084d4cb3f8700e41b46ad235fd7e3e379f647"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/preview-hero.png",
+        "sha256": "8930826c6240e0c66c0abcddd6c0b7bdb1b020721d85f9891f58e97eb76d966d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/qa-contact-sheet.png",
+        "sha256": "4d72e52e424320e626438e1f857514a4a684cfd9e4ea3d983e74cc03c7d8df57"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime-contact-sheet.png",
+        "sha256": "b3e7b6855cb913b1843d1f2cd4561afaecab5c8b50c11cffa73bd0d76cc037ff"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/reproducibility-1.report.json",
+        "sha256": "970fe75c6f23d7f4a5308acb18e6ae9480408b246314d9fa1895190191fc4fa5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/reproducibility-2.report.json",
+        "sha256": "1286f971e3c2c02890e3b131c031c927328d104f817e9e274368b925f67c4242"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-hero.png",
+        "sha256": "3fc30cff5199fa5c57cb84ce847dbadf756d9b5b541caeb1efef7b0f9dd091a4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-reversehero.png",
+        "sha256": "85b2a9dd32fc53e49f835ac2720ce65900eeae321e7332f31f1ada4062cabde0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-front.png",
+        "sha256": "549054d48b414a3224d959263c341055bba842f18c574c6e3160cbd837ece33a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-side.png",
+        "sha256": "0c8c80cda0b94a7e878bd4d464f15df7abd0ebd2308bf4cfcaba42e6ea7aa713"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-rear.png",
+        "sha256": "0f3dd6ca35e212f2208f45f33256b49d214aa04a5f246cee8538fdb106055e12"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-top.png",
+        "sha256": "d7dc5f8d988c4672af8a5228e375902d5791432d6f8e8979f242c627e19e87ff"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-clay.png",
+        "sha256": "2382ad99a7fb89436808f01d9b1c6031c453b5a207159a957bb38955c614ec0a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/preview-silhouette.png",
+        "sha256": "9b372fa9318539bf47f8d8206ece05be359df2c188c1ca90140a09ae53c136b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/runtime-report.json",
+        "sha256": "fc3b370b6ac1d3f9afa938b95a26d5a7a48c5e07d73c724e0c7cb80042ede803"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/front.png",
+        "sha256": "5fb2c41781cbafa81a6f4cdc28fd9f31a6c5303f3f8952788687d474ec27337b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/hero.png",
+        "sha256": "5ed42ee4b4354e7da91cca7b2aedad3b016f9bde30b005efe1a7d68e33b88e2c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/near.png",
+        "sha256": "8a7cf93b267a2131f73711f34cb61c7c3660c1cea1b4f140a5db7a3d012b31d6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/reversehero.png",
+        "sha256": "b3ef8b7d7e03c9f6651b070cc66fb3c85b5fb6616b301b5fbb31b88e5f1ef0c0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/scene-9-copies.png",
+        "sha256": "c3fe66957a8113645ec643e5f3bfba0119580d08509477399aed5b773d161b64"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/side.png",
+        "sha256": "2190d074a9cff36a4dcc4f81d1eaee7763832ddf0ce93fddc5377e6fad7c853f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime/top.png",
+        "sha256": "8a6f39e931b280ae5816c3a50113f002bab674bdd3dd8741feb50afd40bae20f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/view-manifest.json",
+        "sha256": "e4dfcb338414252af25efea0d9e302914984e38a7b18a567eded6884099b0532"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/views/transparent/preview-hero.png",
+        "sha256": "8930826c6240e0c66c0abcddd6c0b7bdb1b020721d85f9891f58e97eb76d966d"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/runs/build/marsilea/r001/semantic-rebuild-1/7e5022f322bc3c767ff3cc43f2857ef8d197aa8a9a9dc693e57b70258de4f3cf/20261018T230536-1e3e74f1a8b449bf85c45f8da9f16c4a/request.json",
+        "sha256": "ac6bd5609474dc2b77ee814235d70f61800e7d8e124575ce7a2e64f95b53dad6"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/runs/build/marsilea/r001/semantic-rebuild-1/7e5022f322bc3c767ff3cc43f2857ef8d197aa8a9a9dc693e57b70258de4f3cf/20261018T230536-1e3e74f1a8b449bf85c45f8da9f16c4a/result.json",
+        "sha256": "10cf981dbb775bbe823d755dc50b596e74941224ae28a054d1dfe0fbe24d6035"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/runs/build/marsilea/r001/semantic-rebuild-2/5c6e247eb66021af31702167fe01fcced1c101bb8ea870eae84d1582690f1e65/20261018T230538-8bc7ceb777024fec9402b7017a9d2150/request.json",
+        "sha256": "132466af99eb99b109d9138703811aee0cd6194314facbf26c6eab5802cc309c"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/marsilea/r001/runs/build/marsilea/r001/semantic-rebuild-2/5c6e247eb66021af31702167fe01fcced1c101bb8ea870eae84d1582690f1e65/20261018T230538-8bc7ceb777024fec9402b7017a9d2150/result.json",
+        "sha256": "24791469d88fb24ddea0018877e6aa5538ac8acfdb170cf85ef0bbe56e9d343e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/build-config.json",
+        "sha256": "b543b41296c0efd51e3a08102b4d7e04be60f14c43d8e9d0c919fb1e05e40b50"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/freeze.json",
+        "sha256": "b11342fa74b1254e9943c97a22998e3c57dbe6163b191267e63c166c7df5adcf"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/gltf-validator.report.json",
+        "sha256": "d3a837950eb5d06c6eea23d2d242ee846c0e7756a0ad7ea0d82e78ea8c9779d0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/inventory-record.json",
+        "sha256": "801beaa4c0e93131378141ece7262f7004ef4e28174252eb7fea6fd8b1e93950"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/marsilea/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/marsilea/candidate.json",
+      "sha256": "60eb4f50d94310fd4a5fa6b5386cce3625d9178dfe2236b9391aee337adf0d33"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/marsilea-contract.json",
+      "sha256": "3308673ab413d2b4607e4783cf4ad73d8d99e84a11056395d7c99800db92ecd0"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/marsilea-result.json",
+      "sha256": "0bbf783177209b40438a758e9079df538ad1945a6d2b6d89732ae3a497afc194"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/marsilea-original-legacy.json",
+      "sha256": "624ca0666ca99eca4af2045ac36f43e13dc68f72d51b3e17e643bc21e3efe9a4"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-28.json",
+      "sha256": "c507c1a44894c2109b5eee328bafce6e8b02041661a52cef196172b1a1b0e3ca"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/final-handoff.jsonl",
+      "sha256": "2e3e088c7f91a8248fd70f5a39b41960801b402e67ebe6e39632e062f8f56e6e"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/marsilea.json",
+      "sha256": "3eebe6ca22884764b48a450ac3d4643e8fb8ec4656ff9ba34f31408eefc64a95"
+    },
+    "dependencies": []
+  },
+  "hurdia": {
+    "id": "hurdia",
+    "batch": "28",
+    "source_commit": "0cd117ebb43065083e13a14d19e82ada5a2392e9",
+    "review_commit": "af76652e73ddecce6181d0f8daaf1eb4dc568924",
+    "handoff_commit": "30a6434ce3ce44b3538a1a805766a0f0812e784d",
+    "review": {
+      "path": "qa/independent-batch28-20261018.json",
+      "sha256": "ad1b6baa239667efbbae6073c184e9014eb5bd178ed02fd9fa14639f4d352660"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/candidate.json",
+      "sha256": "01ed82115063524aab6389a4f66718150fed53c4a016fbee30b02be9029b06d7"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/metadata.json",
+      "sha256": "cf874d0dc99edb43a26af90507bb978b99662b6a8c6b2631017036770fe15abd"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/hurdia.glb",
+      "sha256": "f099aad6a500b66601dc2bb2940ad73b693893178bcce9515ec433537f64167a",
+      "bytes": 105552
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/hurdia.blend",
+      "sha256": "a32a5d8e555da7f6e325f99feee33eda7ddf93d59425af49a1af2f1fc44f24f8",
+      "bytes": 676268
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/render-manifest.json",
+      "sha256": "081de0ae44ae354b282694082ab6ecdc610cd77b597cebcea9fc6e05748b8514"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/runtime-report.json",
+      "sha256": "1ccbf71d84d37d5c726f38a0462b69254ff81a1629583c7aebb440026fadbcc5"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/runtime-report.json",
+      "sha256": "1ccbf71d84d37d5c726f38a0462b69254ff81a1629583c7aebb440026fadbcc5"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/source-export.report.json",
+      "sha256": "c57cf019a3409914bde8a3f7baae5c022f717558a9cc9fbe81727c80ead36b6e"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/gltf-validator.report.json",
+      "sha256": "9b0b48250d1113fb94aa392b934d2fac5e4c3f37ecdb04bc75e597618990ce5d"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/candidate.json",
+        "sha256": "01ed82115063524aab6389a4f66718150fed53c4a016fbee30b02be9029b06d7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/hurdia.glb",
+        "sha256": "f099aad6a500b66601dc2bb2940ad73b693893178bcce9515ec433537f64167a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/brief.json",
+        "sha256": "68743e95c05eec633c799671cb227de402054d3b02d49e116ebb399016d025f5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/references-profile.json",
+        "sha256": "271ca8d54ae248e51af4193cbc16f6fe681e33eb88f9ce98be8d29e56770b78d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/hurdia.blend",
+        "sha256": "a32a5d8e555da7f6e325f99feee33eda7ddf93d59425af49a1af2f1fc44f24f8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/build.py",
+        "sha256": "783195192a2b928c50471994800c4eb932030af64e731c6fceba27a2f7ca8d2a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/config.json",
+        "sha256": "915a54ff8aefa54c41ed482ec5ab52d6bc77a3df9960bc69eb8f4a1ce13f73fa"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/render-manifest.json",
+        "sha256": "081de0ae44ae354b282694082ab6ecdc610cd77b597cebcea9fc6e05748b8514"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/metadata.json",
+        "sha256": "cf874d0dc99edb43a26af90507bb978b99662b6a8c6b2631017036770fe15abd"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/references.json",
+        "sha256": "271ca8d54ae248e51af4193cbc16f6fe681e33eb88f9ce98be8d29e56770b78d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/references-profile-mapping.json",
+        "sha256": "fbfa5b9e1e253be171bac11c852b2e52b2dac4cc89a28aa2ee903d8cc138181f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/reference-access.json",
+        "sha256": "defaf3d48a3250f6306bb419b596a27871cd77b1d66f0e1159abb9962257583c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/profile-contract.json",
+        "sha256": "0a41ebcd317522b647fd9b09908fa9afc67ff7e3363ae8f9a41dbdb875a54a53"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/evidence-manifest.json",
+        "sha256": "3730edf5e2715f8ec28692756a81fb05546863afae77ca0ab0f38b6fd100bd7f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/source-export.report.json",
+        "sha256": "c57cf019a3409914bde8a3f7baae5c022f717558a9cc9fbe81727c80ead36b6e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/source-mesh-measurements.json",
+        "sha256": "18c592fb73341705acb8d9a840154dd8102f88972a224ecfef3e7eced32c8c28"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/profile-checker.report.json",
+        "sha256": "8519dc319f2c1f221047d6570d64f73f16a6b3cff9c7135b62acaca21be23ac3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/profile-approved-check.report.json",
+        "sha256": "8519dc319f2c1f221047d6570d64f73f16a6b3cff9c7135b62acaca21be23ac3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/project-checker.report.json",
+        "sha256": "8f9538922e5bff1aefcc2f9a53efb8b5622bb8c1bcddf8474f09cc5023f6fe11"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/checksums.sha256",
+        "sha256": "8bfd7be75365fbf1e8eb3ee013df2589dee094e02abe347f52232c36096d0ae7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/HANDOFF.md",
+        "sha256": "a77c0fe9441c71d22314344292b27766caf8507a3948cf86fdd4ea8d15e5658b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/serial-execution.report.json",
+        "sha256": "4f35bb066743f8180dc96d0078f6fc80e584e773b073025eb4dc6aabb38f12bd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/batch-28-QA-SCOPE.json",
+        "sha256": "fa9e110222e7a4e6baa1561148b260f9bbed3385a459b2487bc8e6a386d727bb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/qa.json",
+        "sha256": "4ebd1468ae33ead137bbeb251251f6885b01279416ef8f4eb91ac5cada5950db"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/dependency-hashes.json",
+        "sha256": "9231953685ce7667ef575c459658aa9f25238da017b32ce78f9bf2e4887780c2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/maker-self-check.json",
+        "sha256": "ffc93d650212d3a1882c4060f0526224bbd7289b9561e637bd95c7dee9cba8b7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/maker-visual-inspection.json",
+        "sha256": "87d013a7e3406c0771f44eff03526e899fa043e273b52af2854af34ac3365402"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/preview-hero.png",
+        "sha256": "b19641fe9c0cd98db966e7d7c2e01f5cfd664aa0f0740ba612113b4e647d45d4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/qa-contact-sheet.png",
+        "sha256": "1e4ed9910bb722774fb5a941be99089cc133cbb948320dee5b3cf4968320b773"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime-contact-sheet.png",
+        "sha256": "d6a879b8dff7f1766787f51a9ac1c86b7619e3a2225553f6f90017170a766623"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/reproducibility-1.report.json",
+        "sha256": "bb0704fa47c12cd8641682365898609ff29374f82943b005c6303ce277357083"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/reproducibility-2.report.json",
+        "sha256": "bfa32eca3bd4f9640f75ad0c9945d26b2c198474cffbd4b3cc49d33048f743c9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-hero.png",
+        "sha256": "a66a2671fadd825bfb2617d193e028f5e13bfd6d819b37e5bd9295ea1990de9a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-reversehero.png",
+        "sha256": "cbd7990db0514b63e680772100f2733e9018312accd41a4cb5d35444045879a8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-front.png",
+        "sha256": "e4c01f73ce1db83ace88e616b74bbac98066732408cf11238a2a9fae9cadb2db"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-side.png",
+        "sha256": "e96bc0bd9462a2e689a33d9b90ffdf5f11f9d26518f187804a94c5d16e71e29a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-rear.png",
+        "sha256": "12bd9103081d96a06d632fe7caf01b5de50aadd986777b272d15f765c3d282ee"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-top.png",
+        "sha256": "74a526ef334bb5ad58ba5a172ffb43dbb8c4d5c9a0d68ec366843064b200910a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-clay.png",
+        "sha256": "5c5275978e400db6e974466067533e54a65adc4f4bdc629deb533aadabf904e9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/preview-silhouette.png",
+        "sha256": "9a10444dca1127cef52b8d6cf2446c281c3414ff49dfd40b92599077d4ffe6fc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/runtime-report.json",
+        "sha256": "1ccbf71d84d37d5c726f38a0462b69254ff81a1629583c7aebb440026fadbcc5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/front.png",
+        "sha256": "2c46e29fec5a30f5a05d5303127f72038f4f4b189b77e4b24f9dd6bb6f23dffd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/hero.png",
+        "sha256": "7f504853e858ff4f037591647b98813d62421f0a2f3eb15d14b9ec6a23df1be4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/near.png",
+        "sha256": "d4c2e6a39656235456a52f99a80d82c7de28e9ffab1e32d8262311787e87fd77"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/reversehero.png",
+        "sha256": "53a33132281070e6b6bb8b4d037ca11c93dca2a68a48c2ec3448ec90cb1fda0f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/scene-9-copies.png",
+        "sha256": "15fde476fd77a7ac723fe93a4bee28f2ac7d5fd6a1456562db6eaeb593f51dce"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/side.png",
+        "sha256": "7522e57640cab90e36584f2c28253292679059d55fdf7e0450febf2ca307ebc9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime/top.png",
+        "sha256": "f5562eee47ce119987b5fb529730bc2a1aec4d5ae9cee9d44bcf993d8c22689d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/view-manifest.json",
+        "sha256": "1eba54ec1f05d2ab96b0a469fb0a19b5726e7049249ce329b207c3633b50d050"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/views/transparent/preview-hero.png",
+        "sha256": "b19641fe9c0cd98db966e7d7c2e01f5cfd664aa0f0740ba612113b4e647d45d4"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/hurdia/r001/runs/build/hurdia/r001/semantic-rebuild-1/15744a3d03585aaa3ee95f4ce2147c278a58e17a3e8124e6d704e01a8b7a96f3/20261018T230833-ae9933695e5244afa5a6fa1504f61dec/request.json",
+        "sha256": "ae1ba64d3349fe8b3027f60473907146c106e92117f870fd88e0a9a04139b1c4"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/hurdia/r001/runs/build/hurdia/r001/semantic-rebuild-1/15744a3d03585aaa3ee95f4ce2147c278a58e17a3e8124e6d704e01a8b7a96f3/20261018T230833-ae9933695e5244afa5a6fa1504f61dec/result.json",
+        "sha256": "5fdaf670fdad7f965b6cc9dea22262d2614a061d9fd76e144bf42cbf2e71979d"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/hurdia/r001/runs/build/hurdia/r001/semantic-rebuild-2/bc6b4ef57cc6e010bb03dc3a8aef5bd845c7e93bdf10f57c35f2808600305a66/20261018T230835-d183d5198d1a4045984108d9cb3f10ea/request.json",
+        "sha256": "a2f98835899a4c9a6bed234704c8d59e0f493d19a48411d38ad875dc85845491"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/hurdia/r001/runs/build/hurdia/r001/semantic-rebuild-2/bc6b4ef57cc6e010bb03dc3a8aef5bd845c7e93bdf10f57c35f2808600305a66/20261018T230835-d183d5198d1a4045984108d9cb3f10ea/result.json",
+        "sha256": "316e6bc5cf91f000fd0a569ccbda7b16c68d27db6fa13dc6adbb919623da8cce"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/build-config.json",
+        "sha256": "f13c63a487394e634fd71e6b6ad6d09881882ec81c8b6281be59df3ee492696a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/freeze.json",
+        "sha256": "8c9368b3f0216c9728d8c37857bc9ba791e7465afd2937dcfa2079c2e0b91704"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/gltf-validator.report.json",
+        "sha256": "9b0b48250d1113fb94aa392b934d2fac5e4c3f37ecdb04bc75e597618990ce5d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/inventory-record.json",
+        "sha256": "e3048234b2995ec67637496e9e422139a9bf2d6bfea61f291a7b805b72391a78"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/hurdia/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/hurdia/candidate.json",
+      "sha256": "3a0ba6b3e4a3588e8e8da10593d5b16eb91dea4491191768e2e193d17d421e39"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/hurdia-contract.json",
+      "sha256": "12398c43a0c54a3dd3f274086ec404f26f29945374fdea75f1425be518b31bee"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/hurdia-result.json",
+      "sha256": "839ef7508445177f682b1608c97a2eb7b7ede694ae2830e63282c42df5f26c94"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/hurdia-original-legacy.json",
+      "sha256": "8f9538922e5bff1aefcc2f9a53efb8b5622bb8c1bcddf8474f09cc5023f6fe11"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-28.json",
+      "sha256": "c507c1a44894c2109b5eee328bafce6e8b02041661a52cef196172b1a1b0e3ca"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/final-handoff.jsonl",
+      "sha256": "2e3e088c7f91a8248fd70f5a39b41960801b402e67ebe6e39632e062f8f56e6e"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/hurdia.json",
+      "sha256": "d71d742f0c9c9c3920e36d36941cf20dd0bbdd1a70b43f5adf362b9bb584f103"
+    },
+    "dependencies": []
+  },
+  "sea-stack": {
+    "id": "sea-stack",
+    "batch": "28",
+    "source_commit": "76d653b0888eb1b65de074988d6a89dffd3e320c",
+    "review_commit": "af76652e73ddecce6181d0f8daaf1eb4dc568924",
+    "handoff_commit": "30a6434ce3ce44b3538a1a805766a0f0812e784d",
+    "review": {
+      "path": "qa/independent-batch28-20261018.json",
+      "sha256": "ad1b6baa239667efbbae6073c184e9014eb5bd178ed02fd9fa14639f4d352660"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/candidate.json",
+      "sha256": "97845929b81f77550c549cf0430acb5fd85e11211343766659389e30300acd29"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/metadata.json",
+      "sha256": "4e27fea9259c501808c5e444675af0053184565de091a10354ea9b09647f9f29"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/sea-stack.glb",
+      "sha256": "9942438c17285c30ce62e1a8a449c42c1d6726642ba82b40cd162609a2f06720",
+      "bytes": 27756
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/sea-stack.blend",
+      "sha256": "7191c7813ac1be0fc1394a158af40633e20e95ac6fdbf5dbffa05af8d7252411",
+      "bytes": 494584
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/render-manifest.json",
+      "sha256": "95b910d26c1a97d8ad3afcb0f89b38104bcbd8b035516a24a7ab644236348cce"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/runtime-report.json",
+      "sha256": "37dd22434a799c16c8795b3577be836eafbc5ae2069d37b8b4ccc7048847c49e"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/runtime-report.json",
+      "sha256": "37dd22434a799c16c8795b3577be836eafbc5ae2069d37b8b4ccc7048847c49e"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/source-export.report.json",
+      "sha256": "2cda5e75224e1b4c8e1a6a09cb56e4a88b4b6bedf304353bcec5ac8fd271adbc"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/gltf-validator.report.json",
+      "sha256": "15e84f3a3674e6af1fd77e4782be158d3be8f6a671fb962979123ccd50b17ca4"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/candidate.json",
+        "sha256": "97845929b81f77550c549cf0430acb5fd85e11211343766659389e30300acd29"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/sea-stack.glb",
+        "sha256": "9942438c17285c30ce62e1a8a449c42c1d6726642ba82b40cd162609a2f06720"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/brief.json",
+        "sha256": "0fe920a9dc96f3db5ebaa63a0bb973b96570aef9278322ff0e4f01ce86119ed1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/references-profile.json",
+        "sha256": "ebebf91ce8eb77cc518e5c30cb64129c904019e33fcd685e077339a7368e1e22"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/sea-stack.blend",
+        "sha256": "7191c7813ac1be0fc1394a158af40633e20e95ac6fdbf5dbffa05af8d7252411"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/build.py",
+        "sha256": "8fe639194fce89e0e0d19d651dffa05b4f719cb8681efe150ddffcdcc1ad5c6d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/config.json",
+        "sha256": "8d75032a31ba58616445677d167b66e8565ff69b51da2347b738301240d730e3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/render-manifest.json",
+        "sha256": "95b910d26c1a97d8ad3afcb0f89b38104bcbd8b035516a24a7ab644236348cce"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/metadata.json",
+        "sha256": "4e27fea9259c501808c5e444675af0053184565de091a10354ea9b09647f9f29"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/references.json",
+        "sha256": "ebebf91ce8eb77cc518e5c30cb64129c904019e33fcd685e077339a7368e1e22"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/references-profile-mapping.json",
+        "sha256": "c0827fe1681a80ead11fa8052d4c83c104782fc1cce194048805dddc4ed35fbd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/reference-access.json",
+        "sha256": "c46670a51bb29c340677c776aa1df5e644e928321afceb3bb99a316e840fd14f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/profile-contract.json",
+        "sha256": "b79a7fb1d66601d1be46fdccb17fd247d9359422cd9cb5af8cca1a60cdc70eb2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/evidence-manifest.json",
+        "sha256": "847ae935e764d4c865a8d6b881d8b482f8b47e058b34b81ccc571a9d7f10c7a6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/source-export.report.json",
+        "sha256": "2cda5e75224e1b4c8e1a6a09cb56e4a88b4b6bedf304353bcec5ac8fd271adbc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/source-mesh-measurements.json",
+        "sha256": "95f6e0932d77e8e68ac8bcc3186bb56f31032a420d9d9810e2d49f2051f6c52f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/profile-checker.report.json",
+        "sha256": "9996a6c9a6a0c65071506e1f2042dc4bf1ab278892857d75951e22e9c6462849"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/profile-approved-check.report.json",
+        "sha256": "9996a6c9a6a0c65071506e1f2042dc4bf1ab278892857d75951e22e9c6462849"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/project-checker.report.json",
+        "sha256": "d52360d56756bb8c4c713b0131b1ec9897fed34d9b74329850c45e9634f367da"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/checksums.sha256",
+        "sha256": "8e4bd062c8f5cd9cf078bac9306f00a54504723c267c2992dcd105bf5e2aceda"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/HANDOFF.md",
+        "sha256": "9d4f3f356bf4ae746c9c0fcdcd13aa6e344427e2932cafec01234d8bc20986ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/serial-execution.report.json",
+        "sha256": "3fdf6b3bc140e557af6712ed5aa57cda1a90196121a3429f9752451fae084551"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/batch-28-QA-SCOPE.json",
+        "sha256": "fa9e110222e7a4e6baa1561148b260f9bbed3385a459b2487bc8e6a386d727bb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/qa.json",
+        "sha256": "f56dc073541d1d47bca1d8c5985068bf86d3c8791c2a31fc59b97db6bc2ec671"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/dependency-hashes.json",
+        "sha256": "a89eebc017e242ab806efa5bf8434009afeb8ba6fad40ae84813c6eaf677c074"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/maker-self-check.json",
+        "sha256": "edd99656a28998b36dd178e7ff5ecfdb15afaeff2c1e69344fe6954d0d277ce0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/maker-visual-inspection.json",
+        "sha256": "26bdf950510f0963cdb08aa92defc075deb62b66aa271b5118891db11d77b9ba"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/preview-hero.png",
+        "sha256": "f9f7bccf8c5db992cadb70b5a8665f75497aad22f7c385802e397256028f1257"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/qa-contact-sheet.png",
+        "sha256": "0a285ebe860b797f57cc6032f26643da10c54502df8d748e531b295a820ea0e1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime-contact-sheet.png",
+        "sha256": "5bdcc64b809ac2306e94dfc53946cdadabafd6a0f59510087303b9b1f9a9752f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/reproducibility-1.report.json",
+        "sha256": "0b2a43a7f5b5943bcb1bceaf5dd2be6e993f1fc71855f8b96012ee431e323e6e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/reproducibility-2.report.json",
+        "sha256": "25e76aab9922edae33a0e2f000764886047d7a9adf36b9f7f37d62db4c8e5633"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-hero.png",
+        "sha256": "16977f67fc886831c1a66d2dda9059d14bb4c4666bd9509ecafc42e48cf87eb4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-reversehero.png",
+        "sha256": "77a8c094fa80d850e14fa6f12bda8fe04745395ff9cbf6e86736e5cecc947081"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-front.png",
+        "sha256": "1da32a62fbe1431f16a96400586f598f1f6d6c9ad2a097c58e2422fbc59151c9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-side.png",
+        "sha256": "63196ba798330fbf0ff83e146961bf6a6334fe080e42f020bf850779c20860a8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-rear.png",
+        "sha256": "d0b908abf5a243d8fd5f86423127bf31cf3f3f0ccdc807560dbf469f72d798ed"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-top.png",
+        "sha256": "890f3cc4369221dcb366fdf5b2e8ef6255b3772ad8cbff5efb109b747ae53e49"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-clay.png",
+        "sha256": "b0cfe986b219bbba33b2bbf4a256188f702d574682a83dc79db169e9b5bd30ad"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/preview-silhouette.png",
+        "sha256": "8f6f1b4fc300825a77cfebdd74339e7867618fa376efbed1003b12a182a6e710"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/runtime-report.json",
+        "sha256": "37dd22434a799c16c8795b3577be836eafbc5ae2069d37b8b4ccc7048847c49e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/front.png",
+        "sha256": "c379de271a18a93fa47c9091a661c0d247dd83ed491b7efa482958b63029a8f1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/hero.png",
+        "sha256": "b31f0b7a87b6e79bbd00e4a22f7b63590945f371b697cf5a0a58cdf19296913f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/near.png",
+        "sha256": "7b8b5aad4e3b1c69e206582836598a0bc65b4d1d943c7fa23070cf8739e7d000"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/reversehero.png",
+        "sha256": "2fe39f4872c8afa2e485bd01503a923aa62af2aa0de43e3f5291587a40e401b9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/scene-9-copies.png",
+        "sha256": "cc6afd98356c1df9d40b7f2dd2057f863e6d4d6b37246a4c2f14bc114f1ea438"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/side.png",
+        "sha256": "9fda15f95a6e9c9668dd47e3e581797ed121eaace3ee36c19dc8ed5794445237"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime/top.png",
+        "sha256": "ea962e27f1db04deb65ae7d289b34e17b8c28fac29bd3d0f5ae1630d6cb24056"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/view-manifest.json",
+        "sha256": "e49ff0981b8a4a6513cbd282b10097cf35096dc4414244e2ca37c2e043da5c61"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/views/transparent/preview-hero.png",
+        "sha256": "f9f7bccf8c5db992cadb70b5a8665f75497aad22f7c385802e397256028f1257"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/runs/build/sea-stack/r001/semantic-rebuild-1/78e45bd67623faf1b761c16d3299d0a8a0788ea6911f27e8968e74f745abf5c6/20261018T231317-115257eacc454494ab37d79bc8689b67/request.json",
+        "sha256": "8748155b8f70720e945f7f1922a45b5060f5fee6cdd65ab6221149e3f96e615b"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/runs/build/sea-stack/r001/semantic-rebuild-1/78e45bd67623faf1b761c16d3299d0a8a0788ea6911f27e8968e74f745abf5c6/20261018T231317-115257eacc454494ab37d79bc8689b67/result.json",
+        "sha256": "5b096810a0b32d68640fb355a431a3bc9a37c73e0cc7cdad56c65c1a22348ea5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/runs/build/sea-stack/r001/semantic-rebuild-2/1c378e1e773814e18dbeeec60530975a08e2322ec423794051da5b9b50394e1d/20261018T231319-41f684fd99f44054b00dc459e6849007/request.json",
+        "sha256": "71e3c4d77d2158815c0b249ae26fe9d32afbbbeb39e26affc5a1e918b5c1765e"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/runs/build/sea-stack/r001/semantic-rebuild-2/1c378e1e773814e18dbeeec60530975a08e2322ec423794051da5b9b50394e1d/20261018T231319-41f684fd99f44054b00dc459e6849007/result.json",
+        "sha256": "f0981618659ab34a3186c491e821e9a46a1c2db6e88ab254154720dbb5bacfc8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/build-config.json",
+        "sha256": "88007a11922e412ad8643c7b9f23598c6ff1ac07e1dd2580005548ccbfa81b43"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/freeze.json",
+        "sha256": "48689df63b0d12dcb7cedbab104ee412ecb6c8d413fa239d7222605fb0ef155d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/gltf-validator.report.json",
+        "sha256": "15e84f3a3674e6af1fd77e4782be158d3be8f6a671fb962979123ccd50b17ca4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/inventory-record.json",
+        "sha256": "c45042f9217402fe071a1d5a784b03df960a44b37db62192923cb67ddf0b0d65"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/sea-stack/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/sea-stack/candidate.json",
+      "sha256": "04218b38608a267660f27702f24222dea9eb13b7fdcf3ba8548b6e8a01047bdd"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/sea-stack-contract.json",
+      "sha256": "6d009b24c4b405a745af8ce020bda8dfca1d3faf203b536861a900f8d1c83216"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/sea-stack-result.json",
+      "sha256": "92e99f1d5cba5ca641f6c607792c9d140d0e702b09b1f77c6d05ed64a7091308"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/sea-stack-original-legacy.json",
+      "sha256": "d52360d56756bb8c4c713b0131b1ec9897fed34d9b74329850c45e9634f367da"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-28.json",
+      "sha256": "c507c1a44894c2109b5eee328bafce6e8b02041661a52cef196172b1a1b0e3ca"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/final-handoff.jsonl",
+      "sha256": "2e3e088c7f91a8248fd70f5a39b41960801b402e67ebe6e39632e062f8f56e6e"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/sea-stack.json",
+      "sha256": "4b5d671332452b5e8274ce232d8982a4534cf374061d6677a12d182fa3938b52"
+    },
+    "dependencies": []
+  },
+  "fulgurite-tube": {
+    "id": "fulgurite-tube",
+    "batch": "28",
+    "source_commit": "1a1422ef4d51b46e30a0f6bee69839e424d5125a",
+    "review_commit": "af76652e73ddecce6181d0f8daaf1eb4dc568924",
+    "handoff_commit": "30a6434ce3ce44b3538a1a805766a0f0812e784d",
+    "review": {
+      "path": "qa/independent-batch28-20261018.json",
+      "sha256": "ad1b6baa239667efbbae6073c184e9014eb5bd178ed02fd9fa14639f4d352660"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/candidate.json",
+      "sha256": "a1018419ecac6be6fdaf7f71a9cfa220d34fd36c30dd3bc397e55f01151b0134"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/metadata.json",
+      "sha256": "fae9c14033466a5da5f51727382d7c09ae6b0b698fdb5d3d04bf5ddbb6dd03bb"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/fulgurite-tube.glb",
+      "sha256": "b17aa6cacde2071ab75db5f18d6d6ec0e810f9c614f19d25a387583bf095f9d9",
+      "bytes": 176748
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/fulgurite-tube.blend",
+      "sha256": "eed23cdade8ad82539f1f4206b77b1a80990a7830f22ff55a7c74be882c71c63",
+      "bytes": 678216
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/render-manifest.json",
+      "sha256": "78acea96d64c913ed7fe661560bd41160a2778b1d9817fa10a159cb351ffeb97"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/runtime-report.json",
+      "sha256": "0d87ee4b5b7113f80f8930c9dcdbc8f2339dd3080e999a4ab2630cc8d58f2df3"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/runtime-report.json",
+      "sha256": "0d87ee4b5b7113f80f8930c9dcdbc8f2339dd3080e999a4ab2630cc8d58f2df3"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/source-export.report.json",
+      "sha256": "d9f739bce3cc84a155d75e014eeb924fac5c2b2ff3335ef88232ee6b0bc4c434"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/gltf-validator.report.json",
+      "sha256": "07a43b0400e97137657db93816429cb5e925d34118fbe727d1903d9b4fc3e3ba"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/candidate.json",
+        "sha256": "a1018419ecac6be6fdaf7f71a9cfa220d34fd36c30dd3bc397e55f01151b0134"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/fulgurite-tube.glb",
+        "sha256": "b17aa6cacde2071ab75db5f18d6d6ec0e810f9c614f19d25a387583bf095f9d9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/brief.json",
+        "sha256": "f86c30c08516385c14624ddee0bc09fceb7686db67d5f24d450745f05694f8a0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/references-profile.json",
+        "sha256": "230967d49c0730f46aa7eaf56c3dda92cacb677af7890e0ffec86efb4bc16ef3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/fulgurite-tube.blend",
+        "sha256": "eed23cdade8ad82539f1f4206b77b1a80990a7830f22ff55a7c74be882c71c63"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/build.py",
+        "sha256": "b3bf0d7a1908b155dd5d475df69896ade24beabeb113e92f5a0db2aeb45cfddb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/config.json",
+        "sha256": "a89ff8e730318c99ed53e081d410c46d9c4a284f5c24f11e5de07abd5416beb7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/render-manifest.json",
+        "sha256": "78acea96d64c913ed7fe661560bd41160a2778b1d9817fa10a159cb351ffeb97"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/metadata.json",
+        "sha256": "fae9c14033466a5da5f51727382d7c09ae6b0b698fdb5d3d04bf5ddbb6dd03bb"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/references.json",
+        "sha256": "230967d49c0730f46aa7eaf56c3dda92cacb677af7890e0ffec86efb4bc16ef3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/references-profile-mapping.json",
+        "sha256": "dcd0197aa5bbac5717c2a0ff68a68817891f7a6f1e648a175d48b0004f239b7b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/reference-access.json",
+        "sha256": "c36f676112a4ce61ec7bfaf7158d0ceec0921eced831260d53a75e2230a2a0e5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/profile-contract.json",
+        "sha256": "9d20e027b70e76939afe317ee290d1e1f541f0d125d0c26f6a9e155257153e06"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/evidence-manifest.json",
+        "sha256": "dceea91f4b23e8b09b85bebf9c25acb5c1c671410674a8a3400a04f7bb2063db"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/source-export.report.json",
+        "sha256": "d9f739bce3cc84a155d75e014eeb924fac5c2b2ff3335ef88232ee6b0bc4c434"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/source-mesh-measurements.json",
+        "sha256": "32b6563ee74c0071a4fde4a293f74cd19982b64395697c118d3cf6788e47af31"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/profile-checker.report.json",
+        "sha256": "317e742efa079c75dd7220d7ba2f34887421fffb06da9890aa24939ea6c60a76"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/profile-approved-check.report.json",
+        "sha256": "317e742efa079c75dd7220d7ba2f34887421fffb06da9890aa24939ea6c60a76"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/project-checker.report.json",
+        "sha256": "00a0091110075807a70ddb42cda83133a023cd344eb3c50193d246f0d09ba8a3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/checksums.sha256",
+        "sha256": "19746307f45953436b09a93527930e99b7cdb4b38ee0b67a86ef5a65d47ab667"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/HANDOFF.md",
+        "sha256": "3f2fd135a74d7ebdba38cbd461fb43b137cc000b6bc35807001fa83155f497ae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/serial-execution.report.json",
+        "sha256": "7b7ba020c6b68e9728ff441ab624830731e46745a862e407953df221f03ac77d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/batch-28-QA-SCOPE.json",
+        "sha256": "fa9e110222e7a4e6baa1561148b260f9bbed3385a459b2487bc8e6a386d727bb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/qa.json",
+        "sha256": "a0b2041ad68fc55b0a3b7b57fa6b5f3eba0d4c7f05e98cd9f1a7634d187df597"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/dependency-hashes.json",
+        "sha256": "4a344c641e542af9494720a4bce5321acaa1f15525924f0dc835297cc547f282"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/maker-self-check.json",
+        "sha256": "9be09060ba513ae55bee53f5667de8a84ac3d55a8df5c155d51669d3bb022708"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/maker-visual-inspection.json",
+        "sha256": "8b8d164ccf73775423c8b4e149c4c11b851790841f720b47c44ef0d5ee93e66d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/preview-hero.png",
+        "sha256": "91a6f44e904f46bb1303303de25c2abd2f4e724acb0d6c4530e6f0fa4e3ff331"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/qa-contact-sheet.png",
+        "sha256": "8cda4a8ab1e662b2b95a3b8489f6b795cfac809c9cdd041503990f7977f7fede"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime-contact-sheet.png",
+        "sha256": "ed88f5c5be5361e5bf4382b40abd310fe7d880a09c5372de19364b0afb0312ae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/reproducibility-1.report.json",
+        "sha256": "0a48cf6d3d396c0b3575fb69343752e6c449e278d26a15e833064bdc25a85f4c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/reproducibility-2.report.json",
+        "sha256": "97d94d39c2ba31541d824fbd6023f91b384f9ae6da9cfbee8ff5869ecf6b43f7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-hero.png",
+        "sha256": "497a6148a476f3fc6afe54a68274fe8be480c0a166bd96ee0bd3444cb2afe901"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-reversehero.png",
+        "sha256": "09684f4ff4849a65f5658a05444da9605fb3d4de182e3a4415ba7af4c7db7a85"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-front.png",
+        "sha256": "d57ff519290abdd05d056a588ef35e01f5b4b7978eafe30a18ec59b59c2d807a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-side.png",
+        "sha256": "1a8c3bb292a456587c11daffafa4d8453c7f56d90403745356d2d6e4b44a1d79"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-rear.png",
+        "sha256": "1e837a061a108b5418b1263fceabf6c18d97957e25e26a00cb748b74cb487b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-top.png",
+        "sha256": "30a3ca16a6bc3e387807c6b56ebb4c3c83a7e0bb4a41680ea34202d5542b198c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-clay.png",
+        "sha256": "05328cac7e661faa2465b9050c80d51b7174ede84600ba0669cb46161b076e0d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/preview-silhouette.png",
+        "sha256": "94c3bd71754e9932d97eef06ef843957b801eb0a8e75aa9150300bed5b3de7f2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/runtime-report.json",
+        "sha256": "0d87ee4b5b7113f80f8930c9dcdbc8f2339dd3080e999a4ab2630cc8d58f2df3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/front.png",
+        "sha256": "b431774879e5587f4aed1e51beb6e8fcd7e48a2f904becd5add6f6c559f4afab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/hero.png",
+        "sha256": "f701aaabb3d4a543f73b7e82cb3c1150a8ae8c94142e2e51e072ec7992a64423"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/near.png",
+        "sha256": "79d0bdf003cbe67c55a5c93f444f657b4b6db7b23957fdc119aa5fbad06c34d8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/reversehero.png",
+        "sha256": "56e8d876ee55107c8e97c426e1761d6d29dc1c3baaf1b7151c3e5130939b6076"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/scene-9-copies.png",
+        "sha256": "43b73702587fb5f3b8432e46383573240d0a0603efd321800b2fb87e06ac1d3e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/side.png",
+        "sha256": "181209d33b14fccf9e05302e5ff084db0cb435ca66b568e549134843913c990b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime/top.png",
+        "sha256": "f498675b3c726c4adcedb3ccc6c6bad9ba2915f1a1466d08cfd8256619cd4f16"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/view-manifest.json",
+        "sha256": "ae567bca8f525d035b749cba8bcc9562156651cce7a4ff1da01ed49abde05231"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/views/transparent/preview-hero.png",
+        "sha256": "91a6f44e904f46bb1303303de25c2abd2f4e724acb0d6c4530e6f0fa4e3ff331"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/fulgurite-tube/r001/runs/build/fulgurite-tube/r001/semantic-rebuild-1/3119080a690a242ea40d6cc47a401f474d0c54144a956ce1ada512c290cb3442/20261018T231527-9bd307bb5d224d53ad32d4201271d084/request.json",
+        "sha256": "02c0bfcd5cbd99d1bb56b8cb7e5a8eb2ececa515f48a999c1f9ec67ebb608a93"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/fulgurite-tube/r001/runs/build/fulgurite-tube/r001/semantic-rebuild-1/3119080a690a242ea40d6cc47a401f474d0c54144a956ce1ada512c290cb3442/20261018T231527-9bd307bb5d224d53ad32d4201271d084/result.json",
+        "sha256": "6bc0b10f6cd01e7f5bdcce0acc80670dc79c0d6301ab04f45a4456fbe7fddc5a"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/fulgurite-tube/r001/runs/build/fulgurite-tube/r001/semantic-rebuild-2/92bc830bfcbb91ec20b7e6160f28f4baa24c6c13138dcdfe06a883cd2319abae/20261018T231529-1738e32903794bccbb9f2b497110ec7c/request.json",
+        "sha256": "086c2a62c9ba372957d3221a3b4adcb05e7f326cc7d99035f99517c5ee5ae2d4"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-28/fulgurite-tube/r001/runs/build/fulgurite-tube/r001/semantic-rebuild-2/92bc830bfcbb91ec20b7e6160f28f4baa24c6c13138dcdfe06a883cd2319abae/20261018T231529-1738e32903794bccbb9f2b497110ec7c/result.json",
+        "sha256": "15b0f184629252dfaef6cb8ba8b51b91d546ab2a65b1cb7dd406b9637470b55c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/build-config.json",
+        "sha256": "4a790ab7033377ddc8710af89de6fb63c25b167d6dbafef93c1889ddeb0158b7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/freeze.json",
+        "sha256": "0648dfecc28b8ecd88a6b739ea9359efdd151cbe3bdf034282ecf9dc0ffad7b2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/gltf-validator.report.json",
+        "sha256": "07a43b0400e97137657db93816429cb5e925d34118fbe727d1903d9b4fc3e3ba"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/inventory-record.json",
+        "sha256": "a6cd9884b7d7275a60709a4d519888aa7f9dcf7fde38b2f03a3341b1a665e7e3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-28/fulgurite-tube/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/fulgurite-tube/candidate.json",
+      "sha256": "f3c99106d832fda6fa90f50263444ee3046af9152afa0c61cca309cc7aabe369"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/fulgurite-tube-contract.json",
+      "sha256": "dad2c3ac406d3c6eb0347681d12277d29bb6ac293fce3ec8f3306c29b0638c69"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/fulgurite-tube-result.json",
+      "sha256": "6d33537ab6d3cd1875985f01906908b437b635b692076b1dd5d3508d6cfe8b91"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/fulgurite-tube-original-legacy.json",
+      "sha256": "00a0091110075807a70ddb42cda83133a023cd344eb3c50193d246f0d09ba8a3"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-28.json",
+      "sha256": "c507c1a44894c2109b5eee328bafce6e8b02041661a52cef196172b1a1b0e3ca"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-28/final-handoff.jsonl",
+      "sha256": "2e3e088c7f91a8248fd70f5a39b41960801b402e67ebe6e39632e062f8f56e6e"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/fulgurite-tube.json",
+      "sha256": "80eab30a9560921583874303cf94ab077f10e28e9532613c5e10797ae572973d"
+    },
+    "dependencies": []
+  },
+  "azolla": {
+    "id": "azolla",
+    "batch": "29",
+    "source_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review_commit": "397bf38b7388fd2ab03da6d35e06209f860da2ae",
+    "handoff_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/report.md",
+      "sha256": "a722ce653873a031b53e42c26e63addcadf362eed960c7da5a7f51c945dd8bbd"
+    },
+    "candidate": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/candidate.json",
+      "sha256": "68ddb61225ddfa7f6af105d7db8f5de0c49a3c2f6badbd45f0f8791cb5392c15"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/metadata.json",
+      "sha256": "56b5c9637122c626c4b954e40c4889b5be2f998fa4dd96a1ec482bd8b17a0083"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/azolla.glb",
+      "sha256": "3861f85cba1eae4cfa3ac134c0dbd624f0976e9251236b582592ec5512e70710",
+      "bytes": 151728
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/azolla.blend",
+      "sha256": "e8a07997f3818cc2b691dc61be6be4d2bf9eef869878dedcc6319ead2f455711",
+      "bytes": 774092
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/view-manifest.json",
+      "sha256": "f45e69f6c12eccc2bcf357c43f224a43af20f31b1ea21abfb1760800f8c9fd49"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single.json",
+      "sha256": "70ece3fecca463a7cd928534eaefa345998d7d0475c573a90080921a3b50ca10"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/scene.json",
+      "sha256": "70529d821d419683e5572c9dd919951b9eb70f7250ac6c55ee6875fcb9d55137"
+    },
+    "source_export": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/source-export.json",
+      "sha256": "64572893e064038210c402e55e6ee05d176a923e26229b6d155a95dfff0bb653"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/gltf-validator.report.json",
+      "sha256": "c1f065693b78cccc884d4c4a70312341fa645e65e374267924d2367f28f643ea"
+    },
+    "evidence": [
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/candidate.json",
+        "sha256": "68ddb61225ddfa7f6af105d7db8f5de0c49a3c2f6badbd45f0f8791cb5392c15"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/azolla.glb",
+        "sha256": "3861f85cba1eae4cfa3ac134c0dbd624f0976e9251236b582592ec5512e70710"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/azolla.blend",
+        "sha256": "e8a07997f3818cc2b691dc61be6be4d2bf9eef869878dedcc6319ead2f455711"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/generator.py",
+        "sha256": "6db8170941dc9a071cf51a2663a83b3d770d6ba7cdd11ca7798d72d6411011ee"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/config.json",
+        "sha256": "7983efb6a4208667e5849b3ab5869f6196cb441c63f738c9e1b69957a7d8edde"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/azolla/brief.json",
+        "sha256": "5836266b86548c408c7bbaa369a34d8235fb6e6bdead16702a857c2aeaf5015b"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/references.execution.json",
+        "sha256": "689fb66de5cbf3f05ac9843907c4a1d62eeb392d0843c69e9dcc6642f546eacf"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/azolla/references.json",
+        "sha256": "3a1c7fb4e703f63177df23b0694d3c98b590201e6a0185f0dd0b6c25e98768a8"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/azolla/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/azolla/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/inspect_source.py",
+        "sha256": "c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/viewer.html",
+        "sha256": "862fc79e2a8eff6e23dab88f52bcfa22c7e2d5cc17227ae5d0c2fef20161cb59"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/browser_qa.mjs",
+        "sha256": "4f1b08cc2e28e7c6547dbeeac188e4b102cfc56adb3d47ded3662b22839049d2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/verify_item.py",
+        "sha256": "16b6ddb493f27197453b33e038be58ebf7aa9523775f394aefd14d3ff89a856a"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/azolla/package-lock.json",
+        "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/reference-access.json",
+        "sha256": "5d4aade01dd806fdd8c63f7e03153f41d4bf008d61bfe2ea28fc21aac1b531e5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/claim.json",
+        "sha256": "a89d269afb96d677da13a1bad76658ece937839e47a45c42e316bf0c7142227c"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/azolla/inventory-record.json",
+        "sha256": "d11513504f1daf7590e0d43054aa5a033858bb571accfb769a07b3421b2fb6ff"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/gltf-validator.report.json",
+        "sha256": "c1f065693b78cccc884d4c4a70312341fa645e65e374267924d2367f28f643ea"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/source-scene.json",
+        "sha256": "4b967b556bc00bb3749e4dd6b404837b93df2c0e437f5a50c9e0c4540e74119a"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/source-export.json",
+        "sha256": "64572893e064038210c402e55e6ee05d176a923e26229b6d155a95dfff0bb653"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/reproducibility.json",
+        "sha256": "cb3d65c44a7be2aa488b73dc75c44ab80a9ce97f50767caac89b790ec383d4a5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single.json",
+        "sha256": "70ece3fecca463a7cd928534eaefa345998d7d0475c573a90080921a3b50ca10"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/scene.json",
+        "sha256": "70529d821d419683e5572c9dd919951b9eb70f7250ac6c55ee6875fcb9d55137"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/view-manifest.json",
+        "sha256": "f45e69f6c12eccc2bcf357c43f224a43af20f31b1ea21abfb1760800f8c9fd49"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/metadata.json",
+        "sha256": "56b5c9637122c626c4b954e40c4889b5be2f998fa4dd96a1ec482bd8b17a0083"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/qa.json",
+        "sha256": "8b350a942ae8543622c66b123e497731c20a24678e0b0c6cb098b615675a7f59"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/source-contact-sheet.jpg",
+        "sha256": "44f1760589034fdd8145f4d0116159247bb15f35ff8318db90ca98e248677974"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime-contact-sheet.jpg",
+        "sha256": "3cb307c4c4d7815535570a8d4b35c97a3ac27c7087c757b41ffcc4c134909960"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/freeze.json",
+        "sha256": "4a6e03fa848a7acd811dff32daeae4df744a635b2abc149142a4cf3d243ed6f6"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/practical-integrity.json",
+        "sha256": "d206aad436037e37b1723ee27773bfb3d8e8ab8b33d70f9bf909ba154e4460f2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/profile-contract.json",
+        "sha256": "53117766c7672c3fef71ab8e1d6ce57c7c93e47a0a5ec1c715368c1e4dd3de2e"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/profile-gate.json",
+        "sha256": "af6e00033b54196a7a002517ba8cbab1fa6f3eb5d1f3ef32f31ff68f29515718"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/azolla/r001/legacy-gate.json",
+        "sha256": "854c687c03c949259454bce15cb9af05a849f0cb802f80dcd78d32d09927bae2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-hero.png",
+        "sha256": "835b3ac0d726f7fa15a759ae81823bdf4092f6d5c159181b3abf6bef1b57b824"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-reversehero.png",
+        "sha256": "f6fc3cb8885d6cd7af048cc7882489fb8169a0b0c3c8d9e0d765cac11236c31f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-front.png",
+        "sha256": "d66fb946ea320da274584b595de6f1c09f80fb25bbe25c99b54a219d571035f1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-side.png",
+        "sha256": "043d39ba5bc157c762c5a65a418dafe82e4968a4a88197f448387fd6eaed630d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-rear.png",
+        "sha256": "1c4c9009b639ec743a58111e09e646885a8f6066aa55e84d2feaa2d23f45e2bf"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-top.png",
+        "sha256": "43d9444c538b1ceeea4437e84dffc397d7809e829d47b498ac9d4ee5c6cd7077"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-clay.png",
+        "sha256": "3febaae4abab82782a11c0a27b6114e7295c6317547155be17a0ea90b2d16d7c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/preview-silhouette.png",
+        "sha256": "9ec84016647ee9ebe9d5b70b7a17bc0018a3ec6bd301966e20ac087acb6d0cff"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-hero.png",
+        "sha256": "ff94e94e9d83d172226a8463304a2957c160e0397636c0d1886b0408cae55b1e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-reversehero.png",
+        "sha256": "6a78898d0ec18a322ecaee6e4d137203dd61a60bfbe8c2f9407a6a386351182f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-front.png",
+        "sha256": "ef5baf2466b2548105cdabc1bc491d5728e3021ed8c9699d355c9368081bfd1c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-side.png",
+        "sha256": "3c7d63322a98defb854150c567199d77f199c181341d7ec48439e8457a38a673"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-rear.png",
+        "sha256": "87555ff91dbcfe5c9ac03c189a66e470e8e0c6742d6b7126a29f705252c8d20a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-top.png",
+        "sha256": "58ea9e09e3e67b16b5f7480c400a57550934e5d76d122c8616d13d34c1a53184"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-bottom.png",
+        "sha256": "2170eee2b5ddebaab4b262b36ba421cf5f852675dc5febeeb7b406f4a9d94c1e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-80px.png",
+        "sha256": "e5f82456df6ed8cb19769e812e5ba0737c16d9bb9cfba4870f9cc5f4e8ba323f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-160px.png",
+        "sha256": "f9c84210646858dc54d6cb515776ec86d467976cfcb948a0015add8e78fb0952"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/single-240px.png",
+        "sha256": "8002b0ba41142eb58a9c36b391ffb71538025cad1ac671d13b7b1a7990d997f3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/scene-hero.png",
+        "sha256": "ea037c55a45db1409e25ca68f830a73696fb671b3d6b09252c69539e7b7ce256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/azolla/r001/attempt-03/azolla/runtime/scene-top.png",
+        "sha256": "21b1ca65516411d0cd772661b4dd995db7b0810523f474e4d7c5290a2707da32"
+      }
+    ],
+    "review_data": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/evidence.json",
+      "sha256": "ce0fea355ce440d0a1896ea9c01872fa374d273818a4e0d94a87a69bed01deb7"
+    },
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/azolla/candidate.json",
+      "sha256": "f97d16e248f9452ea7595e7bf38c9a4cd59ddd8dbaf906ea09afafa7f5dd8c38"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/azolla-contract.json",
+      "sha256": "18e6eea7e77c60d4c3dd0071ce2bf8f4c3e25f1320c9195ce43e3063af2b6445"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/azolla-result.json",
+      "sha256": "3e234effe9145e4ffca33687ec2a95f7350fad691a9ec019628698ba27569ab6"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: independent-acceptance-pending",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/azolla-original-legacy.json",
+      "sha256": "854c687c03c949259454bce15cb9af05a849f0cb802f80dcd78d32d09927bae2"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-29.json",
+      "sha256": "1306d4452bb087e9c15b68f6a684528c6210ab4322b14ceef338e55fe77bc61f"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/HANDOFF.json",
+      "sha256": "9f48853db2a3f87b34cdd9144f59b511554eceabcfe926b3d9855a7309137559"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/azolla.json",
+      "sha256": "8e6f9516ec32c184539a22e2e62c965cabd81f3e792a7143483a17034cc9ec2d"
+    },
+    "dependencies": []
+  },
+  "odaraia": {
+    "id": "odaraia",
+    "batch": "29",
+    "source_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review_commit": "397bf38b7388fd2ab03da6d35e06209f860da2ae",
+    "handoff_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/report.md",
+      "sha256": "a722ce653873a031b53e42c26e63addcadf362eed960c7da5a7f51c945dd8bbd"
+    },
+    "candidate": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/candidate.json",
+      "sha256": "cd3b3d8ef7caa30de1d9ec5a777da9b633cdeed0bb401ddf1114b8dd07a83459"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/metadata.json",
+      "sha256": "7bbe8817cee114a38ed590fabf205c598811428c9fa3b139a36b60e02a18c532"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/odaraia.glb",
+      "sha256": "f2f6d3ff078b8d4c053ff8ea723aba1474082c02bd221525cbcae648d9818de4",
+      "bytes": 236832
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/odaraia.blend",
+      "sha256": "4ab1f5d6689335d9aebb0f3a48f3732d25bfb6228e36a98578fceba79bb23db0",
+      "bytes": 975880
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/view-manifest.json",
+      "sha256": "204c10461cc8f73586780dd1a27f1dcdf5d9454b6ab3871072da0a8eb8155289"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single.json",
+      "sha256": "34c946d6717f5c697efb3705c09908fa4410f3a9c2273030ad39b64f59493634"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/scene.json",
+      "sha256": "eeed7435e51f7d74a5addb4897270b279df1f21bd150534c59eb28b154156e0b"
+    },
+    "source_export": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/source-export.json",
+      "sha256": "2d796da7c886fb501fa86b93f21d6d206848593f0b8748d8f31c963478c47241"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/gltf-validator.report.json",
+      "sha256": "cfb0851c17756bcb17f29118cb3da50981ba42ebc62db5a4d30399030396373f"
+    },
+    "evidence": [
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/candidate.json",
+        "sha256": "cd3b3d8ef7caa30de1d9ec5a777da9b633cdeed0bb401ddf1114b8dd07a83459"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/odaraia.glb",
+        "sha256": "f2f6d3ff078b8d4c053ff8ea723aba1474082c02bd221525cbcae648d9818de4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/odaraia.blend",
+        "sha256": "4ab1f5d6689335d9aebb0f3a48f3732d25bfb6228e36a98578fceba79bb23db0"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/generator.py",
+        "sha256": "b52f1f261c23d8b33ac14267bc88f906e1121242c5ab086d0eae6f59b1730e3d"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/config.json",
+        "sha256": "22d373a02c6db06d4fd8e23318e46800ed5d9153f8bac072b5f7bd0577d74291"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/odaraia/brief.json",
+        "sha256": "f419121603431cf7cf28eec6014c3196b3437ce0f27c183c10ec2220bb77caee"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/references.execution.json",
+        "sha256": "2df33ef209d5a96771566db6510394bbca471107bd423cd428b280504e68d3cc"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/odaraia/references.json",
+        "sha256": "c8e0a72eed7684af700eaa1d7afdefe698ecd88dfd00cbe86c2a5bb4efb9b47e"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/odaraia/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/odaraia/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/inspect_source.py",
+        "sha256": "c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/viewer.html",
+        "sha256": "862fc79e2a8eff6e23dab88f52bcfa22c7e2d5cc17227ae5d0c2fef20161cb59"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/browser_qa.mjs",
+        "sha256": "4f1b08cc2e28e7c6547dbeeac188e4b102cfc56adb3d47ded3662b22839049d2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/verify_item.py",
+        "sha256": "16b6ddb493f27197453b33e038be58ebf7aa9523775f394aefd14d3ff89a856a"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/odaraia/package-lock.json",
+        "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/reference-access.json",
+        "sha256": "5d4aade01dd806fdd8c63f7e03153f41d4bf008d61bfe2ea28fc21aac1b531e5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/claim.json",
+        "sha256": "a89d269afb96d677da13a1bad76658ece937839e47a45c42e316bf0c7142227c"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/odaraia/inventory-record.json",
+        "sha256": "5c280f680b4a0772a4caa37efd40883a0d33b80080be4315f58bd4600a0221f2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/gltf-validator.report.json",
+        "sha256": "cfb0851c17756bcb17f29118cb3da50981ba42ebc62db5a4d30399030396373f"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/source-scene.json",
+        "sha256": "a5a1a2f299e8f84bc9d712b250100e1da1c773013499d31085ca45a4d13560e2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/source-export.json",
+        "sha256": "2d796da7c886fb501fa86b93f21d6d206848593f0b8748d8f31c963478c47241"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/reproducibility.json",
+        "sha256": "c36e78b42736cbc55677e59761eef901dc32212661c91812a720d3f0973e65d0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single.json",
+        "sha256": "34c946d6717f5c697efb3705c09908fa4410f3a9c2273030ad39b64f59493634"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/scene.json",
+        "sha256": "eeed7435e51f7d74a5addb4897270b279df1f21bd150534c59eb28b154156e0b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/view-manifest.json",
+        "sha256": "204c10461cc8f73586780dd1a27f1dcdf5d9454b6ab3871072da0a8eb8155289"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/metadata.json",
+        "sha256": "7bbe8817cee114a38ed590fabf205c598811428c9fa3b139a36b60e02a18c532"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/qa.json",
+        "sha256": "edf97e2301548759059c7ef7406efb77fd6af8c69e4f76ab08b7f65a9530659e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/source-contact-sheet.jpg",
+        "sha256": "d7b27ee57ccc82b0c6c99e6df51b2d7a5fd16e927858668898d754f85f402f7a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime-contact-sheet.jpg",
+        "sha256": "3975f1819a6915678e720397b78e9eb6ecadc17440f31ca02d54b4aa02ca3e8b"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/freeze.json",
+        "sha256": "213d5617bb82702b0110df5f1f02b3671dd58332832070cca383b405929fedb4"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/practical-integrity.json",
+        "sha256": "ceb67ec0283fec419004100e2d2a4628670d0fd2868ab28a63255d79a0aa51f3"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/profile-contract.json",
+        "sha256": "0ba71ef8f490c4e5b425116e8d3d430143a399c8485a4538f3e5328abce265aa"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/profile-gate.json",
+        "sha256": "e80ce681ae69ddcfa239feb4207e1cafa582f8fad56fdc6f6661c9daa01969ee"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/odaraia/r001/legacy-gate.json",
+        "sha256": "7e5fb81861a4d4954c088eedff807fec7ba3005c3a85ae81f8494b22ea799346"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-hero.png",
+        "sha256": "42eb8a737b1c164021c206618929f6e5deb20818a071c6705bdf76780c5a4aad"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-reversehero.png",
+        "sha256": "bd6440b48388d1409af13811db68cfe8c996728250b6d633ef5c3af8a9a53ab8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-front.png",
+        "sha256": "81783f75718993a2fec940e993c9cacbdba54297d1b24fbfa651cb363ad55db5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-side.png",
+        "sha256": "c374e36525565998f1a07f8830a8bd719a9d4554d86db6d3b87aa9e9de92b992"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-rear.png",
+        "sha256": "67e689d37e86c2b5fd223f9ae80679f64e2f7b52bae71ac4ce8eb20c27b8f470"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-top.png",
+        "sha256": "44f2dc8b685324ca50e33119002f42be0b52eff418cca38c9d6345aadcd1ab89"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-clay.png",
+        "sha256": "23d6eb657d6592a73554e855adf854f5eac358861212e1d9151a3826c38140fe"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/preview-silhouette.png",
+        "sha256": "eb636e69d05d9c5f07428bed20c674b07893873924fbf89f3667883db4754e46"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-hero.png",
+        "sha256": "fc2ecfd052031a6e9bf015f28e85b06900aeafe6ca5609ba4104e47e8b86fb69"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-reversehero.png",
+        "sha256": "bcb6bd9fc761362b0eb5dea8292dff1e39e50f087aac7d4b643d1ed6bdf965d7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-front.png",
+        "sha256": "64d42c545edd7903776f61bf03981a0c1190064ccfa84e89b9d0c04b15d3ea6d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-side.png",
+        "sha256": "b8bea693b50146262cc853ea48cfc9911620f2f876c566d1984cb1c3b7c9fbcc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-rear.png",
+        "sha256": "4e02bf9d679791b7c8894c53663b5e947262125832a7512076cda890e225143c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-top.png",
+        "sha256": "24379e3c066b40887c73cef45dbc42de601f4bf3a5fd00a2b86a8acc5ff50071"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-bottom.png",
+        "sha256": "ad8c56fe1f4c00422cd996a52c027752360fa505dbfdcd1203e253960674945f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-80px.png",
+        "sha256": "d6d29593e755ca530d8d47807f6d6cedc815774482d977b938b833f40a08e7a5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-160px.png",
+        "sha256": "6766e3ef6502aa7e056ebcb440f2e05c77bc73e46906e1c7199f701b6c1f7f26"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/single-240px.png",
+        "sha256": "17df62eb3c76318ccbafc6e76b8717a4eb5cace88472aa6a22ef9d90a0fda910"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/scene-hero.png",
+        "sha256": "16819a8495ea40a12b2f953b6906d1fc69e7c2d1df2574f179f3d4cf24672459"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/odaraia/r001/attempt-01/odaraia/runtime/scene-top.png",
+        "sha256": "4f66c6082c0654c1cde12cb740d17f5432cf8689a8226472161d488fb9029b0d"
+      }
+    ],
+    "review_data": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/evidence.json",
+      "sha256": "ce0fea355ce440d0a1896ea9c01872fa374d273818a4e0d94a87a69bed01deb7"
+    },
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/odaraia/candidate.json",
+      "sha256": "3193bb68b211786c234797bb2aa9fe85291ee90543ac11b9834db0d84d38f22a"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/odaraia-contract.json",
+      "sha256": "94d72ac3c24e7b2098ba0573fe52cc5f97ac5ada4ea0cace9bf6120b57f9a6b0"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/odaraia-result.json",
+      "sha256": "77b71a0856b8f060898b5ee2ef6646b4d492075c72c6d29decba6a29773d5e59"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: independent-acceptance-pending",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/odaraia-original-legacy.json",
+      "sha256": "7e5fb81861a4d4954c088eedff807fec7ba3005c3a85ae81f8494b22ea799346"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-29.json",
+      "sha256": "1306d4452bb087e9c15b68f6a684528c6210ab4322b14ceef338e55fe77bc61f"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/HANDOFF.json",
+      "sha256": "9f48853db2a3f87b34cdd9144f59b511554eceabcfe926b3d9855a7309137559"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/odaraia.json",
+      "sha256": "37776ae0d70a3c15c4471897eb38f19804c699403900709d40a0d7dd283b51c0"
+    },
+    "dependencies": []
+  },
+  "pachypteris": {
+    "id": "pachypteris",
+    "batch": "29",
+    "source_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review_commit": "397bf38b7388fd2ab03da6d35e06209f860da2ae",
+    "handoff_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/report.md",
+      "sha256": "a722ce653873a031b53e42c26e63addcadf362eed960c7da5a7f51c945dd8bbd"
+    },
+    "candidate": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/candidate.json",
+      "sha256": "df29ed760e80fd5247fa5ec499639c9ce83ac430b8cdcc9bf3b577f08b6e825a"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/metadata.json",
+      "sha256": "ab91ea93014351fd10c7b290e3ce739a7bea6dc55829d09327bd7b5a5a8e47b4"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/pachypteris.glb",
+      "sha256": "e8f84e8681fbe2a23578f093a7eb268f79edfa1c60b28fe7f26e8dd175f8faf6",
+      "bytes": 126848
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/pachypteris.blend",
+      "sha256": "94a63c04d6adb6877b4188837b5191fea763424947cea0204c16d46ab94941b2",
+      "bytes": 747556
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/view-manifest.json",
+      "sha256": "275c0640fab52883735faf78f7981e3ff221f49287338437c66a14e28adeffa9"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single.json",
+      "sha256": "4837e656ef058b5ab533e918682841c66cec2d00f6be4ff103772907eadff854"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/scene.json",
+      "sha256": "5615cffbc54ad675821834c9ecd75a17f5a0b33794f521743987d1a1ad776402"
+    },
+    "source_export": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/source-export.json",
+      "sha256": "6fd07891801c23d1990d6be7ef0fe5653637c7a17537ddf3aee2877ad67efe7f"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/gltf-validator.report.json",
+      "sha256": "8525aaa4281115baa26b949da316331d3da7681e7b1a995d59f463779f1054df"
+    },
+    "evidence": [
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/candidate.json",
+        "sha256": "df29ed760e80fd5247fa5ec499639c9ce83ac430b8cdcc9bf3b577f08b6e825a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/pachypteris.glb",
+        "sha256": "e8f84e8681fbe2a23578f093a7eb268f79edfa1c60b28fe7f26e8dd175f8faf6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/pachypteris.blend",
+        "sha256": "94a63c04d6adb6877b4188837b5191fea763424947cea0204c16d46ab94941b2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/generator.py",
+        "sha256": "52baa130198cbb35cbd1465638cd39f9d7d3c3668827a6c8b2a10ebfb33585f7"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/config.json",
+        "sha256": "40cead9556e9f15547913bd8422bb55afa405c23b238f4679f21fd1f1e6bd2bb"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/pachypteris/brief.json",
+        "sha256": "2ad60858e8161fb218963439269f5b92bd023f8733096ec6b1157a2bfd5622f1"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/references.execution.json",
+        "sha256": "5e4b2645f8ed3475c31c798a7a85dd30228bbeb368510505fef9187d307e6186"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/pachypteris/references.json",
+        "sha256": "66a52ecc16a13f635c3e1180a95f6219c2e6b9068cf0bfa8b51e2d1da067b3c2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/pachypteris/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/pachypteris/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/inspect_source.py",
+        "sha256": "c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/viewer.html",
+        "sha256": "862fc79e2a8eff6e23dab88f52bcfa22c7e2d5cc17227ae5d0c2fef20161cb59"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/browser_qa.mjs",
+        "sha256": "4f1b08cc2e28e7c6547dbeeac188e4b102cfc56adb3d47ded3662b22839049d2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/verify_item.py",
+        "sha256": "16b6ddb493f27197453b33e038be58ebf7aa9523775f394aefd14d3ff89a856a"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/pachypteris/package-lock.json",
+        "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/reference-access.json",
+        "sha256": "5d4aade01dd806fdd8c63f7e03153f41d4bf008d61bfe2ea28fc21aac1b531e5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/claim.json",
+        "sha256": "a89d269afb96d677da13a1bad76658ece937839e47a45c42e316bf0c7142227c"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/pachypteris/inventory-record.json",
+        "sha256": "36d534c6ed0e1cb89d9793c432cf5c36d04fa78730118e62e16e0c7629108828"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/gltf-validator.report.json",
+        "sha256": "8525aaa4281115baa26b949da316331d3da7681e7b1a995d59f463779f1054df"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/source-scene.json",
+        "sha256": "9e0ddc3e27d16c0bf8c6de2f4756e379411173e2560f10be508b1f32947d8ae8"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/source-export.json",
+        "sha256": "6fd07891801c23d1990d6be7ef0fe5653637c7a17537ddf3aee2877ad67efe7f"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/reproducibility.json",
+        "sha256": "162b984bea20e18174a4f0b9ea7f696f90fe695610df227cfce177a667c3a797"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single.json",
+        "sha256": "4837e656ef058b5ab533e918682841c66cec2d00f6be4ff103772907eadff854"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/scene.json",
+        "sha256": "5615cffbc54ad675821834c9ecd75a17f5a0b33794f521743987d1a1ad776402"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/view-manifest.json",
+        "sha256": "275c0640fab52883735faf78f7981e3ff221f49287338437c66a14e28adeffa9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/metadata.json",
+        "sha256": "ab91ea93014351fd10c7b290e3ce739a7bea6dc55829d09327bd7b5a5a8e47b4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/qa.json",
+        "sha256": "a927a5c42187e0a2a20d735ff2fa617ac970c26b90133c748a783010a28a774f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/source-contact-sheet.jpg",
+        "sha256": "1234217633ab5a0e50be742d2db399fb43c0acbb8e8841d01c5b2b8ebb400d5b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime-contact-sheet.jpg",
+        "sha256": "d117744e767c2df7e0234e27d1372456dce7400e5cbf648ba51c89d037d0e856"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/freeze.json",
+        "sha256": "9432f5cef1f314cbbdaef62e0d1dd25d65afb86074d5a1068d35be70dd0e4e38"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/practical-integrity.json",
+        "sha256": "ee4f594eb5414dfd4f3af14c243ed783d627762a6d2c2475095adb7b56eada5e"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/profile-contract.json",
+        "sha256": "3d2e556aadf19d60b34dc0d6330f64019ac04c715f18d3ece5e21fe84e003d10"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/profile-gate.json",
+        "sha256": "8e6d233a813031692f9d608dfb7caba268592dbfcfc6da3366c97e28b64bc10b"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/pachypteris/r001/legacy-gate.json",
+        "sha256": "0433cde2b0cdc6eebbdc3fbaf57f61db723dc49b438c54435ca78ce9d2fb60bd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-hero.png",
+        "sha256": "9f5402ec92716f91a2e719df6187dc5afe209a8db414eab6c7cd571ff77b17bc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-reversehero.png",
+        "sha256": "8ac8aa13628fab687bd44ff9ddd5274642294e62ad0a10c358752922da6da582"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-front.png",
+        "sha256": "e0e1849615e4a952c05370da076091be563d7bd334697c73826804c3c182321f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-side.png",
+        "sha256": "beba95dc42d5ba24c5cc7cc2221cb880ab2b2c7c31a6a5385e78035e1686a330"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-rear.png",
+        "sha256": "e2ec02763efcf46992361aa1df5ce5d271727a02b2abfe039daf747e82c0984c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-top.png",
+        "sha256": "11d5424a97a31e61413bb02749a0b80902550dbe5608c5085d04bfbfc29cfb0f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-clay.png",
+        "sha256": "960d5754b159c4a5a713333bd83905a77ce2dff13ed15e91df2c862080589dc9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/preview-silhouette.png",
+        "sha256": "8a796d4634cfe4c68214cc62c22a8993f4a5c45a32b50e6cd5909e1c36ef2966"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-hero.png",
+        "sha256": "c72ab1d7da151a08da5eb3d1940507306e8f649aaa56bc4b2ca74584e06e14ee"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-reversehero.png",
+        "sha256": "b18b79f04e43d3bbfcf3869708806d4594ee6a7469f144c8980689f85488dd39"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-front.png",
+        "sha256": "e987bb552a5cc3041d939a272b4f9b4f1fae0678ca62ca871f91fdcb325802ca"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-side.png",
+        "sha256": "c260f6d3c966d35e8b19d99adf2056c173ab4e4de5182b827ef4049c5a26df78"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-rear.png",
+        "sha256": "a4ba7617a05087a79c8cf76525339d9a34e66008dcdad6dabf5b7e86448698d3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-top.png",
+        "sha256": "8919af75d5dc07f764189b0cd5582c08469c1a8c88467f18760ec35225838fb0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-bottom.png",
+        "sha256": "ad5d0d55ea3016afd181e84ae5fe4371b04578a9cd6772c4fcff13b0030c3259"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-80px.png",
+        "sha256": "0711d885e70aec83ead32995b179dd49621d6aa17f22f7c0f90829cd95384430"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-160px.png",
+        "sha256": "b61de7c84656c21b39576e5fa267480044c92052458cda9b4503f187022e5ef2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/single-240px.png",
+        "sha256": "034f608f30573e5a609b86b7ba58ff3458b1a0d5981ab2bf3e4dd8e7dcbbd0b6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/scene-hero.png",
+        "sha256": "c9b2865d816a8d096d67b83bdd359f2966eec808b50c82d5a3320ebe00c7369c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/pachypteris/r001/attempt-02/pachypteris/runtime/scene-top.png",
+        "sha256": "a2e08afa81517f0bcd4a0e6701797a7d40e9bf7febfd8a7743e0b576f475f729"
+      }
+    ],
+    "review_data": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/evidence.json",
+      "sha256": "ce0fea355ce440d0a1896ea9c01872fa374d273818a4e0d94a87a69bed01deb7"
+    },
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/pachypteris/candidate.json",
+      "sha256": "030bdcf8d42643404640bb734fc38bfe0e3a0ef7d82574148e8c95b013976b48"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/pachypteris-contract.json",
+      "sha256": "7bd94f9fa229ea7e08cf473fdd11780e4257c6d8894cae39a587dc5fb59143f0"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/pachypteris-result.json",
+      "sha256": "258e297b2b801988ed708d2ca605dec8f4aa9c28229b434455f557d5ed1d7ceb"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: independent-acceptance-pending",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/pachypteris-original-legacy.json",
+      "sha256": "0433cde2b0cdc6eebbdc3fbaf57f61db723dc49b438c54435ca78ce9d2fb60bd"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-29.json",
+      "sha256": "1306d4452bb087e9c15b68f6a684528c6210ab4322b14ceef338e55fe77bc61f"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/HANDOFF.json",
+      "sha256": "9f48853db2a3f87b34cdd9144f59b511554eceabcfe926b3d9855a7309137559"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/pachypteris.json",
+      "sha256": "dde71d5eec9be786fdd8553dc7bd0f8d5dae9d37bc131aa4ae5ba774f91b6473"
+    },
+    "dependencies": []
+  },
+  "sand-spit": {
+    "id": "sand-spit",
+    "batch": "29",
+    "source_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review_commit": "397bf38b7388fd2ab03da6d35e06209f860da2ae",
+    "handoff_commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
+    "review": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/report.md",
+      "sha256": "a722ce653873a031b53e42c26e63addcadf362eed960c7da5a7f51c945dd8bbd"
+    },
+    "candidate": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/candidate.json",
+      "sha256": "031c113af87420a490a1a7e098b31a88482121980edc86fa6bdfce74708aa6e6"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/metadata.json",
+      "sha256": "0ea84535a8d4e741d432ad2c159360ef9a1320fa75d6dabef5d6f422a5214891"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/sand-spit.glb",
+      "sha256": "0bf2e41c64cc39ae46df4dd4e8cdef53d6d2e7bf1a00641c6975c9e07cd9cbd5",
+      "bytes": 118844
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/sand-spit.blend",
+      "sha256": "5586aba1cf19ac6c384d0b85dfd1a230b56e4fb2434e89c47bd7f676bd3ca719",
+      "bytes": 655804
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/view-manifest.json",
+      "sha256": "0eeed54e5f0d548b81799dafc3b296686e1947fed1a2080062cab72eae900b19"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single.json",
+      "sha256": "7451dd80b75dc73ca367619c5e2716269642b5992b4625443060519d2bd65b85"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/scene.json",
+      "sha256": "430dd0c25c39e8b1b9e2c30179d27e9d79d873e5426a3abc68f84ac986e702da"
+    },
+    "source_export": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/source-export.json",
+      "sha256": "9c3f3cfdce04f4b0cc066eca40c917479be332761db4a6909c50fb1251e6092f"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/gltf-validator.report.json",
+      "sha256": "31e5496d8547518ea0dafe96979009a7643281e894ba3545e203cec5541fbca3"
+    },
+    "evidence": [
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/candidate.json",
+        "sha256": "031c113af87420a490a1a7e098b31a88482121980edc86fa6bdfce74708aa6e6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/sand-spit.glb",
+        "sha256": "0bf2e41c64cc39ae46df4dd4e8cdef53d6d2e7bf1a00641c6975c9e07cd9cbd5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/sand-spit.blend",
+        "sha256": "5586aba1cf19ac6c384d0b85dfd1a230b56e4fb2434e89c47bd7f676bd3ca719"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/generator.py",
+        "sha256": "bc405196629bdbaa1991cc526ec72394a1b03e2fa125f52d7ce088a86068ee71"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/config.json",
+        "sha256": "cbce7de65a0ebde24474b40b6cab9b79577eda11b4862a0a2bd61f0e2d370563"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/sand-spit/brief.json",
+        "sha256": "dec122fb8226cb3cfa1262befd145f3100e6491101da53007c345fda29723273"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/references.execution.json",
+        "sha256": "3c30f47a571a9f2ef1b9052f211e5dba81968576dc7d6239520f15197c3b065d"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/sand-spit/references.json",
+        "sha256": "ecaeec1d72c86a3d6174e3459831eb9bbcae00dd00b3b8a1d6a6196c59874937"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/sand-spit/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/sand-spit/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/inspect_source.py",
+        "sha256": "c646b1e95c2e6945728624b22d29ad46ab3d29c1030e83e89e433150a159e9f5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/viewer.html",
+        "sha256": "b48f049f2f705b9fbe2f11b914de8c68f1b6a7c4ef0b4ffa0c17c35086784a77"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/browser_qa.mjs",
+        "sha256": "28c9a800c29c0e91961778437073ddb4ef1ec7937ca0b2daba6ae31390fff4c3"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/verify_item.py",
+        "sha256": "83157442a6abc66ec736ed0cc9a3c542893f98f3342bbd26e584409d6a0ee4b8"
+      },
+      {
+        "path": "production/continuous-release-round10-20261018/source-snapshots/sand-spit/package-lock.json",
+        "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/reference-access.json",
+        "sha256": "5d4aade01dd806fdd8c63f7e03153f41d4bf008d61bfe2ea28fc21aac1b531e5"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/claim.json",
+        "sha256": "a89d269afb96d677da13a1bad76658ece937839e47a45c42e316bf0c7142227c"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/items/sand-spit/inventory-record.json",
+        "sha256": "ec698098dd587ad34907cb0bb17274a65f01fd08a666fd5faee2d362ea2fda01"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/gltf-validator.report.json",
+        "sha256": "31e5496d8547518ea0dafe96979009a7643281e894ba3545e203cec5541fbca3"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/source-scene.json",
+        "sha256": "ae29917691cbe99223d43940370c4534952f6b4f1f5c7d848fb39e51d8239c4f"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/source-export.json",
+        "sha256": "9c3f3cfdce04f4b0cc066eca40c917479be332761db4a6909c50fb1251e6092f"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/reproducibility.json",
+        "sha256": "d322a1b335db7c1e053d07617d760284afbe344ee0d0c17c47810679eb9b8c5b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single.json",
+        "sha256": "7451dd80b75dc73ca367619c5e2716269642b5992b4625443060519d2bd65b85"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/scene.json",
+        "sha256": "430dd0c25c39e8b1b9e2c30179d27e9d79d873e5426a3abc68f84ac986e702da"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/view-manifest.json",
+        "sha256": "0eeed54e5f0d548b81799dafc3b296686e1947fed1a2080062cab72eae900b19"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/metadata.json",
+        "sha256": "0ea84535a8d4e741d432ad2c159360ef9a1320fa75d6dabef5d6f422a5214891"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/qa.json",
+        "sha256": "99281a126381eb6e312c63acd669f916db5b1e7a7956b94be10a27d6e69ae265"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/source-contact-sheet.jpg",
+        "sha256": "4e91155ef7e91738ed4d3865b75f7fcc1b0283391d609060552f8a69421da465"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime-contact-sheet.jpg",
+        "sha256": "34ed0e7e10d563fb583207698ece720fdc58537b63d3cf11e735991f4edd3576"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/freeze.json",
+        "sha256": "c1f5a71f01a2e51e59471acce21b30d88e2d94fbbf3f50f237276707cf86196a"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/practical-integrity.json",
+        "sha256": "993d07d560a5dac6033b96368ef71b69c1410c9c252ef42336dacf602a11f493"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/profile-contract.json",
+        "sha256": "e975dc786cc72d8932309e1cb5f1a03bdb2e5bae7b0d305e11f2d5e6c3c05423"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/profile-gate.json",
+        "sha256": "31cd7934f744d6ec0a323082cbd4af8f60e0ba41cd36032afbfdf4d7bb440aa2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-29/sand-spit/r001/legacy-gate.json",
+        "sha256": "cc2128b5b5e21ef3215c637c16ec706d814be8fd28519d5c4050b98b54a348aa"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-hero.png",
+        "sha256": "72c89163e2abb3551fd3e51bcad9bfe139e552d52ecce773a80c3da350194edf"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-reversehero.png",
+        "sha256": "f405c4e7a58f584499a8ef6da455c729b4d3aaebc86566f199b6be7e8c9e4532"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-front.png",
+        "sha256": "bb18038dba38d8809a1b6ba8f30ebc95d747bc82f50a12972abb2bcf982ecb66"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-side.png",
+        "sha256": "80c8f2438d0ad2b660a3bc8c0dfc25b427f020881f3f591a3060662db9a9403a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-rear.png",
+        "sha256": "cdd844fc5772f1ae45a60013b0614a0a31cce41ddfe11edb5ddfe0a566650183"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-top.png",
+        "sha256": "3bd2e456cfa7864b33a4f335f9c5ed67b6ddf08c32a684e4752c3f56a78c2304"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-clay.png",
+        "sha256": "21c0f8240e78a39b254f109b42bef02981be60ff3286d9fee6c5eae0b562752f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/preview-silhouette.png",
+        "sha256": "f5e36e441756d0700a5a9f19acdaeb2d5e8a03f5053248d62fa050d1f71e23fd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-hero.png",
+        "sha256": "e4371a628dcc6132ba2535fb1c74ec43e2f0a0cbfbaa2114b3aff415b4e97ad3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-reversehero.png",
+        "sha256": "eaba626b47050d05a25e967bd48555a733cc441699868e42f11450c15365f170"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-front.png",
+        "sha256": "ab279b6ab1e7da7667b687392a6d06a20c15e2042efc6ff523580550bd0fc62c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-side.png",
+        "sha256": "a7a3b5a73dd463a3f798729dc5dd3bf90b9f6db15cdac6ff8cbb626017a7c59b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-rear.png",
+        "sha256": "3f4300bf36a104b6327e7124414224cae633d7cddcdca40fd860b797e8a6191f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-top.png",
+        "sha256": "5cc146edf8354769a744fe1548bbcffa2a2972cfb81e2aac2437cf8c6342dca0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-bottom.png",
+        "sha256": "85c64d18875e1fbe83ec363f30a3887a399b6d9e22bb05541902f23313de7fa4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-80px.png",
+        "sha256": "bc897c42bfcda113e6af320ed17ec42eb87e4d9524620084a889ea57e340fc7c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-160px.png",
+        "sha256": "99f3bb57a78d233be64c60b6873704915449ee4f93343de075089cbee4ebaa4e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/single-240px.png",
+        "sha256": "422eab52aa322dcba0bfe5ff84c314bfdb3b9abf06f985091d3982073ba1987b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/scene-hero.png",
+        "sha256": "2c86e2c5b860c34d387c04135e3ff8a269844ebb5c8830b1e5faa70af5bcf6ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-29/sand-spit/r001/attempt-02/sand-spit/runtime/scene-top.png",
+        "sha256": "b90d5eae0c50c6082d0e614915e79f44a02b51587b77753e7b11cf2204968278"
+      }
+    ],
+    "review_data": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/reviews/independent-leon/2026-10-18/evidence.json",
+      "sha256": "ce0fea355ce440d0a1896ea9c01872fa374d273818a4e0d94a87a69bed01deb7"
+    },
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/sand-spit/candidate.json",
+      "sha256": "a593e4a362b760f15ee06e4698fe14ee3ce555d39f42f293c9a7ea4e046299ac"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/sand-spit-contract.json",
+      "sha256": "61b8ace7a6631f28574dabfb68acba68e6aca8c7d2186b778515c972f576905d"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/sand-spit-result.json",
+      "sha256": "ed476592094b64e6b5e01771f4352bf7e09d93587d90cdde96e17cb1533fc0aa"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: independent-acceptance-pending",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/sand-spit-original-legacy.json",
+      "sha256": "cc2128b5b5e21ef3215c637c16ec706d814be8fd28519d5c4050b98b54a348aa"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-29.json",
+      "sha256": "1306d4452bb087e9c15b68f6a684528c6210ab4322b14ceef338e55fe77bc61f"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-29/HANDOFF.json",
+      "sha256": "9f48853db2a3f87b34cdd9144f59b511554eceabcfe926b3d9855a7309137559"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/sand-spit.json",
+      "sha256": "acda93d2c2af3eee6727d55919701ce282bd507284227dba4d7a005c1ca79a75"
+    },
+    "dependencies": []
+  },
+  "peltaspermum": {
+    "id": "peltaspermum",
+    "batch": "30",
+    "source_commit": "e49e64e8c3ad92eb7a4c962466648a90f6badccd",
+    "review_commit": "8c8ff80b36c4801bb8feeb205cd0642aaf2aebf1",
+    "handoff_commit": "8364657631781954cb8a855e1fd9bd23371507cd",
+    "review": {
+      "path": "qa/continuous-small-life-round10-20261018/batch-30/independent-review/review.json",
+      "sha256": "004871663fda467d1b4aa014badaa86552db12c564c697cd2231122011fa9e9a"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/candidate.json",
+      "sha256": "a4534d3908e2491ede6e3175d310e02eb1c9d29971e848ad4cd6b7396992affd"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/metadata.json",
+      "sha256": "34767d315d4bb2f7603c99bb969eadcac56fe40c7f594d081cb789ad84c849a3"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/peltaspermum.glb",
+      "sha256": "8881b5b2eb3fb1a26b9f829ecf078ab99b8102e06f17c8e9ad4c431ee0aed53d",
+      "bytes": 111112
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/peltaspermum.blend",
+      "sha256": "1ed28d198578faa1c9458759ec329a0ecca53aac0a1d37b654dcd16bf69fb1d4",
+      "bytes": 612680
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/render-manifest.json",
+      "sha256": "a47653e93eb6bdad49316b5ee8dab3dac4c4d8ff0c4a24e1bffe478d2515b409"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/runtime-report.json",
+      "sha256": "497971e3b0cbc78f15f5e59ecf3346f8db99ea9f31a32788b04d109e5d3ebb26"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/runtime-report.json",
+      "sha256": "497971e3b0cbc78f15f5e59ecf3346f8db99ea9f31a32788b04d109e5d3ebb26"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/source-export.report.json",
+      "sha256": "eede8ddbebf7cd878723a87470a73271b54aac88c14f5490595c85713ad188ec"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/gltf-validator.report.json",
+      "sha256": "712a5d52ab6e0c472f8988e4b643974750318d8ecee4693b8eb61d70d66b8a3f"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/candidate.json",
+        "sha256": "a4534d3908e2491ede6e3175d310e02eb1c9d29971e848ad4cd6b7396992affd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/peltaspermum.glb",
+        "sha256": "8881b5b2eb3fb1a26b9f829ecf078ab99b8102e06f17c8e9ad4c431ee0aed53d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/brief.json",
+        "sha256": "eaff5e31e80102b424bb2ac35d361bbac7beb781c4b8aa083eac44382aab63db"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/references-profile.json",
+        "sha256": "d043ef3fbce4a47ad1a308333956001caaf9eda62bfcfa1845bd34c8691a194e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/peltaspermum.blend",
+        "sha256": "1ed28d198578faa1c9458759ec329a0ecca53aac0a1d37b654dcd16bf69fb1d4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/build.py",
+        "sha256": "ee4a905e95179e869556d6b36690e1a7e9ff4f6e552ff57e2bab85a1e35d3795"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/config.json",
+        "sha256": "5d3c9f8d4c718d69069cb75ead6f4eaeb61cc996bae61b9c16ddef1190a31483"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/render-manifest.json",
+        "sha256": "a47653e93eb6bdad49316b5ee8dab3dac4c4d8ff0c4a24e1bffe478d2515b409"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/metadata.json",
+        "sha256": "34767d315d4bb2f7603c99bb969eadcac56fe40c7f594d081cb789ad84c849a3"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/references.json",
+        "sha256": "d043ef3fbce4a47ad1a308333956001caaf9eda62bfcfa1845bd34c8691a194e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/references-profile-mapping.json",
+        "sha256": "5780380d562530a4d70c372df5a4ec286ae5bcf217851537bee2217da02617e4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/reference-access.json",
+        "sha256": "62b0630fdbd2574951dc27b8a6b7443b993ee66ed2dde13db276a1092fc48f6a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/profile-contract.json",
+        "sha256": "f762e018fe0fc28734710e412a51f407d3d1ad3b174719c668d6d1619fb620c9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/evidence-manifest.json",
+        "sha256": "91ba170cc003820384b331988c58f7549c3f9fa948d30a5a4b5d023cec47c724"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/source-export.report.json",
+        "sha256": "eede8ddbebf7cd878723a87470a73271b54aac88c14f5490595c85713ad188ec"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/source-mesh-measurements.json",
+        "sha256": "e6039b367c2cc8acd7398c5b3194a7bf029545503cf72526be5ff78bded49ee0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/profile-checker.report.json",
+        "sha256": "f5c49f4f95c41d20e16ce7ef116589e21c32fafe4baaec4ab5b288d2fbf03dad"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/profile-approved-check.report.json",
+        "sha256": "f5c49f4f95c41d20e16ce7ef116589e21c32fafe4baaec4ab5b288d2fbf03dad"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/project-checker.report.json",
+        "sha256": "14c515aebde66a4f43229c122c8822e41d0f8efc2fc847c0225f337524372999"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/checksums.sha256",
+        "sha256": "d0e51ea1149ff7ae16b92efeab820049158ed06d99a4551d20a82c9b7cbe10ba"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/HANDOFF.md",
+        "sha256": "2d75063c498755bcec5bc20d110a23750350dce50c1bb99fc3af7b63a1bdd255"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/serial-execution.report.json",
+        "sha256": "7614faeed88b7afc9feb508667f72ca345a3c943ebcdad4ce4d5f989827088c6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/batch-30-QA-SCOPE.json",
+        "sha256": "4b607af7f79e322edb18809d84c33b5a84946c00562855b571a22f359b2876e1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/qa.json",
+        "sha256": "54f1bbf1029dcbee2c6bc9f86b8347f123ba17d4953f9fc16ee25710a8b1b44d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/dependency-hashes.json",
+        "sha256": "902e1cff69acdeb7031e1449eef7f94a5c97762cb169cbc7d45cc7101d98d10d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/maker-self-check.json",
+        "sha256": "3108c9d1e184ef299252bd691cdebe3a980ed24319ff5a866ff6116ef2071f52"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/maker-visual-inspection.json",
+        "sha256": "4ef894515117022690198bc1762b1befd0b72497dbf96847d064d02a045459f3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/preview-hero.png",
+        "sha256": "a25f0dc31414e69fb9f1579b3f92ca740487222eeebb52795e621f30bdaac3e6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/qa-contact-sheet.png",
+        "sha256": "7301e38c939529056ed63779efb57932ccd5ccea45e7938042c7c49505469e3c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime-contact-sheet.png",
+        "sha256": "ab0c2898c677a3db80149e5e6966d1e320e8a5fbafed1c006390df6a118e3e5b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/reproducibility-1.report.json",
+        "sha256": "ac4975273add212a9a4001be4c9edb2f5f089f538cbad5919f82644c78e443f9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/reproducibility-2.report.json",
+        "sha256": "7cbc5cd9190b0ec6e3927431e980ee1aac20cb67b2661b45a2e78a1d861d0bff"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-hero.png",
+        "sha256": "7e6546a8b663b4d92976e0545e3d36836ed70f1063a5decb29a1e92f76e32f3e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-reversehero.png",
+        "sha256": "964c6a49a3e98d7aa1cd17a659dfed3c7558f43e6ea7946c24033dff6d43375b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-front.png",
+        "sha256": "d97e30dcb95b8a6c82801614a11d2740788c418df8698d207ee606cd7dc26e83"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-side.png",
+        "sha256": "b25fcb9e60702efe5b6b0e20547a89c090fc9512f9dcb712158e172d01bdfce9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-rear.png",
+        "sha256": "929ea9a149f48bcde09675539a8507874a19dc1888198de05987798bbb8972bd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-top.png",
+        "sha256": "7e4ad48c777d1cc94967db1e7fd15de39ed55745689394616e49a868358cc605"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-clay.png",
+        "sha256": "c9c2d365b85f937fc57b9ab129ba1b7f5bda63300668da4e2f8278c3ae1de59b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/preview-silhouette.png",
+        "sha256": "81734931f50f14e25186988f253d90421c1a0ade9e291646e1280f4914982aec"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/runtime-report.json",
+        "sha256": "497971e3b0cbc78f15f5e59ecf3346f8db99ea9f31a32788b04d109e5d3ebb26"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/front.png",
+        "sha256": "b947e23fadf56d35302f84da4058912c9a10cbe2ac074e293eabdc9867f8b3cb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/hero.png",
+        "sha256": "5cec3c4a23d04ad8edf92715be779328a49b286e676f60f2211ad72a7ab09a89"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/near.png",
+        "sha256": "4b057f9da20af97095244bb387d905e46781427843c9de6f9db0bcca66141a77"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/reversehero.png",
+        "sha256": "9446667c56d7b608d314e848207b045529104be9e961d7014235db4165cda59a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/scene-9-copies.png",
+        "sha256": "2fe27ba65b0fe8ee45bf20e5dd7f9282e83164d3ca801983cda53d5ec79255e2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/side.png",
+        "sha256": "ef42751f6d59642b4a6d51c6ea2bb64daae54a13997973973dce22cfb3426f10"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime/top.png",
+        "sha256": "8464ad72ff97a14f3d32f4f45846068dbf6d8ef150ced972ac43a9fd5d0077c1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/view-manifest.json",
+        "sha256": "980f3e50b395b69c5c2fe9b36aeaade02c5dbf96f9fa43dba48ee53565917c89"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/views/transparent/preview-hero.png",
+        "sha256": "a25f0dc31414e69fb9f1579b3f92ca740487222eeebb52795e621f30bdaac3e6"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/peltaspermum/r001/runs/build/peltaspermum/r001/semantic-rebuild-1/3d4be0dcf1fc7096916180e39a73a401b9097febd149d2cf28a007cff298ed14/20261018T232808-7e46261ecd2d442690a8c2484bc50b70/request.json",
+        "sha256": "5868cf3cb7e8ddfb8fc0c8688ad162c5042d9bedee880fffb525d6e68372b6d2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/peltaspermum/r001/runs/build/peltaspermum/r001/semantic-rebuild-1/3d4be0dcf1fc7096916180e39a73a401b9097febd149d2cf28a007cff298ed14/20261018T232808-7e46261ecd2d442690a8c2484bc50b70/result.json",
+        "sha256": "c8e83792b3c295966ab71f4441c5275fa0f698f19fd9a5249853f7ed8ecefaa4"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/peltaspermum/r001/runs/build/peltaspermum/r001/semantic-rebuild-2/91676ad96f05d1f8f069fad9bd3978b571771c0d766b7d678522b971e3323489/20261018T232810-c99faae7dff74e7c92da7ca70bf24489/request.json",
+        "sha256": "47815775991bc8c71a0b4a1f2d8a18c04c8349a56d7bf06738b1c367b554c62a"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/peltaspermum/r001/runs/build/peltaspermum/r001/semantic-rebuild-2/91676ad96f05d1f8f069fad9bd3978b571771c0d766b7d678522b971e3323489/20261018T232810-c99faae7dff74e7c92da7ca70bf24489/result.json",
+        "sha256": "122b01875c558e0facac521ecf9c3dbef08457b4f43dc32f52f515ffbdc9d83d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/build-config.json",
+        "sha256": "0812696ee6cf971097bd89b0bef4e2e756b281397498b11a6100ee0d936826e1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/freeze.json",
+        "sha256": "df27e8f8b761c0b1dc5254e1b0ca1c9f4cbcfb4ec3c5be4b32604c6069bffc10"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/gltf-validator.report.json",
+        "sha256": "712a5d52ab6e0c472f8988e4b643974750318d8ecee4693b8eb61d70d66b8a3f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/inventory-record.json",
+        "sha256": "23ffb373e0bbea529a030f9b295b41784f74f96d28a36e90ffdfc2a6735c47ba"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/peltaspermum/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/peltaspermum/candidate.json",
+      "sha256": "dec35ed54e2c819944a6a4ea7001662bd8b29e547d69f72b558c1bd91d624cd6"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/peltaspermum-contract.json",
+      "sha256": "f41697f9fedfc8cef46badc945e3a82d496ff5628d1662ffcc33b9cfc647d7ac"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/peltaspermum-result.json",
+      "sha256": "afe14a00ef06a92f01e9fc6c12fded557bf23633543f3e719fb5e1d2cd98c749"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/peltaspermum-original-legacy.json",
+      "sha256": "14c515aebde66a4f43229c122c8822e41d0f8efc2fc847c0225f337524372999"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-30.json",
+      "sha256": "3d388ad99d0b5a2d4f7ce11ad6ef9f4af0fef72958fbcbea663aedcc5169b143"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-30/final-handoff.jsonl",
+      "sha256": "fc5e64ec764f5db9afa81f2d0cc403eb3c4ccd1408fbff8d7a168e1e51b3fd5a"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/peltaspermum.json",
+      "sha256": "3cb1a53cde2099b6db98224c1387a905b74efc652a04ed0802508bb8c3d985e1"
+    },
+    "dependencies": []
+  },
+  "capinatator": {
+    "id": "capinatator",
+    "batch": "30",
+    "source_commit": "02e5844cb85ac7527e1dfb8fc73c3fe8ec4b36a4",
+    "review_commit": "8c8ff80b36c4801bb8feeb205cd0642aaf2aebf1",
+    "handoff_commit": "8364657631781954cb8a855e1fd9bd23371507cd",
+    "review": {
+      "path": "qa/continuous-small-life-round10-20261018/batch-30/independent-review/review.json",
+      "sha256": "004871663fda467d1b4aa014badaa86552db12c564c697cd2231122011fa9e9a"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/candidate.json",
+      "sha256": "2fca5e3714d64352a162213c34d410d0bd104d82504ef453b8d974e3e5295cb5"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/metadata.json",
+      "sha256": "866101fef76c522c1234a4677de65c52b82c2681ee7a8e46841b5bfa8df93c8f"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/capinatator.glb",
+      "sha256": "05fc25048a80525e84e4e0511ce6943bcbef85c431637ea2d95e6a38bcb6b616",
+      "bytes": 89140
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/capinatator.blend",
+      "sha256": "646752ef69d241fade056edd038d18c07c33775ceadff2244179e45d4bd87f67",
+      "bytes": 630740
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/render-manifest.json",
+      "sha256": "4c2c3bfd932be55413db474bafccd6f34259a815afa2ac858f82931d5244a80a"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/runtime-report.json",
+      "sha256": "bfe3331a1bc2a9be25aba407b44eb33b6aef42a3f14f54c5d867103ec31e4adc"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/runtime-report.json",
+      "sha256": "bfe3331a1bc2a9be25aba407b44eb33b6aef42a3f14f54c5d867103ec31e4adc"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/source-export.report.json",
+      "sha256": "842239b545c742812576eb34f02306e6a0df8c149bdcd2101377bbad471a7573"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/gltf-validator.report.json",
+      "sha256": "fe4d3c154bb391deb74c12b8d3d0be91ecab3de581b31860f7b68ed3bea58c1c"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/candidate.json",
+        "sha256": "2fca5e3714d64352a162213c34d410d0bd104d82504ef453b8d974e3e5295cb5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/capinatator.glb",
+        "sha256": "05fc25048a80525e84e4e0511ce6943bcbef85c431637ea2d95e6a38bcb6b616"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/brief.json",
+        "sha256": "67218c704385f544b3c2dd0dd3f2152f49c4b4542ab6ccaa918265cddef5ac15"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/references-profile.json",
+        "sha256": "b39a329dbf037907e09ebfb681582929316f012bf3662dbd0664c701c6c77d69"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/capinatator.blend",
+        "sha256": "646752ef69d241fade056edd038d18c07c33775ceadff2244179e45d4bd87f67"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/build.py",
+        "sha256": "f63b334e6819685b5cdb5f05ca0648a62dbf944f1020dc45b297b3f4f68f38f2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/config.json",
+        "sha256": "df3b9d02f1b47ecd95d1f4dedf93353854092c22a471c4746e887dff7d82eaaa"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/render-manifest.json",
+        "sha256": "4c2c3bfd932be55413db474bafccd6f34259a815afa2ac858f82931d5244a80a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/metadata.json",
+        "sha256": "866101fef76c522c1234a4677de65c52b82c2681ee7a8e46841b5bfa8df93c8f"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/references.json",
+        "sha256": "b39a329dbf037907e09ebfb681582929316f012bf3662dbd0664c701c6c77d69"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/references-profile-mapping.json",
+        "sha256": "176a7e5050d94e98a0a659015f7510fb4689d0fb0921dc520420d38e37ec0864"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/reference-access.json",
+        "sha256": "dff34496c8fd0e09f31a239e85349116d181737d514c28e0336b04dae9000be4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/profile-contract.json",
+        "sha256": "7fb655dfe60697094fec760ef38bd59fa8ae0f1f1e018f409ae73d6f20485692"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/evidence-manifest.json",
+        "sha256": "7d31c4bb6f291733c1c60fe515f43381f8bbf565206447da95c45606a6940448"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/source-export.report.json",
+        "sha256": "842239b545c742812576eb34f02306e6a0df8c149bdcd2101377bbad471a7573"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/source-mesh-measurements.json",
+        "sha256": "5a7e12f9f09842ec16df36aabccf869b663ee3915f4e22727415342c03d4feee"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/profile-checker.report.json",
+        "sha256": "3b6699fd8f434a15d7d367db403276188f13704e32fdc10e54107a07ba3fed4a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/profile-approved-check.report.json",
+        "sha256": "3b6699fd8f434a15d7d367db403276188f13704e32fdc10e54107a07ba3fed4a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/project-checker.report.json",
+        "sha256": "7d3501a5c8b79733576e5ee3af6928dca68d321d99f8af1d00b097b3bd5dd3e6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/checksums.sha256",
+        "sha256": "735f1205fe587609e05ce4f6ce051184cf820d3e411b94d139ec2f0ed4b79662"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/HANDOFF.md",
+        "sha256": "d55b3ab4b8edf795cee6531861e2486817a86540f374668e6598f572011d7c0a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/serial-execution.report.json",
+        "sha256": "e7c3b1d55a9dfc1a7abf7ab5bb1b981b0d43a026c9a97ef037b3fc00baeab346"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/batch-30-QA-SCOPE.json",
+        "sha256": "4b607af7f79e322edb18809d84c33b5a84946c00562855b571a22f359b2876e1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/qa.json",
+        "sha256": "9ea8602e2a7c3c0b94e81dadf97c95b9cedeb5df8b2507e74941bd75906374b5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/dependency-hashes.json",
+        "sha256": "f29b531c8c4b765f712015d04e42e97af032dab26e875eda252ebd24ef3afc53"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/maker-self-check.json",
+        "sha256": "13727cfa9a62b9bbe8534ec6ca1bb2e78377d4c891ad2ad7a886c91dee3c144e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/maker-visual-inspection.json",
+        "sha256": "6575a7caeb446b93773b931da686dc9b7f600dda2df2461ebd3d9f4845442a22"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/preview-hero.png",
+        "sha256": "611ca8a52cd0436f6ee5335a97937f249cb1c93d70ffb6d3c5134e601660061d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/qa-contact-sheet.png",
+        "sha256": "8f54e59fbc1a5d4ab1064032917662313c69293da1618c6626ddd1423dd93caf"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime-contact-sheet.png",
+        "sha256": "dc5e134656d6bc09177c5534e9016b9e238f17959467dbc7e36afe192e963c6c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/reproducibility-1.report.json",
+        "sha256": "b8e29c0fa2903803bf1de9a5466b8e35b37201df3b059a28b4b9e17e291d5a77"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/reproducibility-2.report.json",
+        "sha256": "dac5c2fb932be9335bc074a53e8ce90e46fbf76c4fedeb8113a00ef918a09ed3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-hero.png",
+        "sha256": "246aae8d8720b270da3ea0417a746c92f098d99f7c9728a4b80230a947c1bc70"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-reversehero.png",
+        "sha256": "f12cf8c0f2ba14bdd2a131c9c67c863f130c35bf81626a1078c4ccbd12f325e5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-front.png",
+        "sha256": "fd8c2000b73a08836884e529abb979f52d08aac82611ba71364b7ef11f9c5caa"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-side.png",
+        "sha256": "f8c7fe108a60f1359e895d0c6c13dbd8707a662b71fc974064e9de78ccd5a3af"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-rear.png",
+        "sha256": "326821188739c6362abde78db62d3b22ba0786420d9ce8b693e4ec035b9f2e5d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-top.png",
+        "sha256": "8f5fd33302396d6ab2915cbb7b994fb159392731a355fbbcaec7efba1bdc6bbe"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-clay.png",
+        "sha256": "9cd6cca7968b6c994aebfceaba31ee6ce560b6c3b729bef56c2cc4e25c89ef03"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/preview-silhouette.png",
+        "sha256": "2cf2a5a5659021fa159536efdd90f76d2ce83fc0c6cc682eeeb5c2c9779d73d2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/runtime-report.json",
+        "sha256": "bfe3331a1bc2a9be25aba407b44eb33b6aef42a3f14f54c5d867103ec31e4adc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/front.png",
+        "sha256": "f15f90482a459a3c0ac77e90b23b0eac6106519a95145e9acca7f207b57e428b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/hero.png",
+        "sha256": "ae9f4ef33b9fd8b637eaf2d55545addb98c5588f703b0af0cb5eb05ab4e626a3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/near.png",
+        "sha256": "08568d073f4b21fe9c5fc11c3c0010e8561970c3229c1a64c25603177ada6289"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/reversehero.png",
+        "sha256": "b0ce803fd95cc9651d92b7302ec8f2236214a76bb69ec990864f38119960b871"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/scene-9-copies.png",
+        "sha256": "4ab814921c3dce4dc91e8207343e08ffd03d0b9e806f8cbbee31fdbe7faca962"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/side.png",
+        "sha256": "9edfee9f227be86df75ca0a0a475990c12ea4a5e9ad9e3fb209c03b94c44555a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime/top.png",
+        "sha256": "c99bdecd66c3f33fe249ec36b587690397f238654fb12c190a4a1a3b5ecc5118"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/view-manifest.json",
+        "sha256": "4aef8a9ca2ec8e87faa5059ad6b33974ac73659fe069d0dcab90a82704e151d8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/views/transparent/preview-hero.png",
+        "sha256": "611ca8a52cd0436f6ee5335a97937f249cb1c93d70ffb6d3c5134e601660061d"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/runs/build/capinatator/r001/semantic-rebuild-1/e32811b1b852af357b29bf67057835dd74132cd268f4fee1a409dfc9601040c3/20261018T233013-5cef90959a8742b6b63569ceda559adf/request.json",
+        "sha256": "9fb326365cae3addd42dee7a3b296b73fd50220aada7d18fe933cf060e1002b3"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/runs/build/capinatator/r001/semantic-rebuild-1/e32811b1b852af357b29bf67057835dd74132cd268f4fee1a409dfc9601040c3/20261018T233013-5cef90959a8742b6b63569ceda559adf/result.json",
+        "sha256": "22fe10c426f06b21d53ae5efc7a6ad80d7f7c3c9368e0b5a76cd7f9e13433ac7"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/runs/build/capinatator/r001/semantic-rebuild-2/595e0be8d59f4e658548c03492b456419a42edca18251724504a414ea502a474/20261018T233015-916a50910cf341efb65bfeddafa887a0/request.json",
+        "sha256": "477bbf5210f0d77d4977a2d5c505dd612863e957ab4d82973c12bc3e111e34eb"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/capinatator/r001/runs/build/capinatator/r001/semantic-rebuild-2/595e0be8d59f4e658548c03492b456419a42edca18251724504a414ea502a474/20261018T233015-916a50910cf341efb65bfeddafa887a0/result.json",
+        "sha256": "b3488f12b0bc8e58bf5f6420bbaa5d5ccb1d8bfbbb3004b5fedeab42c4cfd465"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/build-config.json",
+        "sha256": "26e115fc87a8d95c76c56f2e5fe0c78ebda0e71d89394361295e2e25aeed289f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/freeze.json",
+        "sha256": "b556bd4193072cc180a7b352d84af7776803485d8cd9fff5e7a1f40a2dcb96f9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/gltf-validator.report.json",
+        "sha256": "fe4d3c154bb391deb74c12b8d3d0be91ecab3de581b31860f7b68ed3bea58c1c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/inventory-record.json",
+        "sha256": "97653b52ae83efdf0688c876b1257986f7998f3e0641fc754cfb26e00772b8f5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/capinatator/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/capinatator/candidate.json",
+      "sha256": "b2a0e022f26554c0875452fb96b1e99ce20a5f42aa1ce6cd7b02d9fe265d3ed6"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/capinatator-contract.json",
+      "sha256": "03e8e770a555483cb786b4b218b5547077715a0fd41cbfff62719d0c68954e87"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/capinatator-result.json",
+      "sha256": "ea9772972274b83202127a91984dbf096848f0422130554589c0cbd79fc31bf5"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/capinatator-original-legacy.json",
+      "sha256": "7d3501a5c8b79733576e5ee3af6928dca68d321d99f8af1d00b097b3bd5dd3e6"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-30.json",
+      "sha256": "3d388ad99d0b5a2d4f7ce11ad6ef9f4af0fef72958fbcbea663aedcc5169b143"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-30/final-handoff.jsonl",
+      "sha256": "fc5e64ec764f5db9afa81f2d0cc403eb3c4ccd1408fbff8d7a168e1e51b3fd5a"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/capinatator.json",
+      "sha256": "39d740098f17de152438dd0abe01832f486bbd0b8e9112bc2720dfd06893bd11"
+    },
+    "dependencies": []
+  },
+  "cothurnocystis": {
+    "id": "cothurnocystis",
+    "batch": "30",
+    "source_commit": "bdf75953e0669c340c6f3ac20e43ed1c33c8dc80",
+    "review_commit": "8c8ff80b36c4801bb8feeb205cd0642aaf2aebf1",
+    "handoff_commit": "8364657631781954cb8a855e1fd9bd23371507cd",
+    "review": {
+      "path": "qa/continuous-small-life-round10-20261018/batch-30/independent-review/review.json",
+      "sha256": "004871663fda467d1b4aa014badaa86552db12c564c697cd2231122011fa9e9a"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/candidate.json",
+      "sha256": "bbdc2d8b9d59224118d5da10aa7b69bdc9caccfdb89a6e039c6b54f033c6755e"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/metadata.json",
+      "sha256": "f44ea97561a0b4997293e4b8331fa8683bd5b2f482ea10e6d5f906be30bd7feb"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/cothurnocystis.glb",
+      "sha256": "a85958e6a41329e7b312c5e4ce79c743b3b9aa6444c9af90d699c18952ede398",
+      "bytes": 27620
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/cothurnocystis.blend",
+      "sha256": "020b6e85a1bd99d5e6eb59107a99257a559b948a98436d1dcdee61e32c5a3312",
+      "bytes": 526256
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/render-manifest.json",
+      "sha256": "c631990edfa2d3ee979772aac73354153914af9a2214d5df355dcc1de7d72df8"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/runtime-report.json",
+      "sha256": "7a0575085599e9f7017c25d245a3002b2a9f2e6d7532ffac4b73990bd675b234"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/runtime-report.json",
+      "sha256": "7a0575085599e9f7017c25d245a3002b2a9f2e6d7532ffac4b73990bd675b234"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/source-export.report.json",
+      "sha256": "98c556fb852d83ae47c17b6409df52a094f0887f86a887caaf57bc8aceb062b2"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/gltf-validator.report.json",
+      "sha256": "97907451a3ee428ec90be8011cb0f0b2a1374e491fcfe77c928257b2099d51fb"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/candidate.json",
+        "sha256": "bbdc2d8b9d59224118d5da10aa7b69bdc9caccfdb89a6e039c6b54f033c6755e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/cothurnocystis.glb",
+        "sha256": "a85958e6a41329e7b312c5e4ce79c743b3b9aa6444c9af90d699c18952ede398"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/brief.json",
+        "sha256": "f701163babaa8848ee2bccbfb5b4ce238e4aa7b999f9e5b8f8c38156e6208edc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/references-profile.json",
+        "sha256": "a18f5f261650bcec4c437d2dfe0d75f588e62c999c6b16b5733b4d7f51e5ecd7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/cothurnocystis.blend",
+        "sha256": "020b6e85a1bd99d5e6eb59107a99257a559b948a98436d1dcdee61e32c5a3312"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/build.py",
+        "sha256": "f63b334e6819685b5cdb5f05ca0648a62dbf944f1020dc45b297b3f4f68f38f2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/config.json",
+        "sha256": "9312e51b8f350fc00b926a3d8cce2f824a590bfaeec912a625670397b6f0c8df"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/render-manifest.json",
+        "sha256": "c631990edfa2d3ee979772aac73354153914af9a2214d5df355dcc1de7d72df8"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/metadata.json",
+        "sha256": "f44ea97561a0b4997293e4b8331fa8683bd5b2f482ea10e6d5f906be30bd7feb"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/references.json",
+        "sha256": "a18f5f261650bcec4c437d2dfe0d75f588e62c999c6b16b5733b4d7f51e5ecd7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/references-profile-mapping.json",
+        "sha256": "8c7fa0150dcf500dd187fc61aec132552c5a92aeb31ba7dd0c03229f76f2b8d3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/reference-access.json",
+        "sha256": "ebeb9108ecead538c06de7fbc7e8214871438bda9957c2da8d6b625138d73452"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/profile-contract.json",
+        "sha256": "274d7299b26c3db9884fd86019637a1b2bf5ddc4764e286328f4a8f0b67a55ea"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/evidence-manifest.json",
+        "sha256": "e996c370995be95a0d8c8b2fb445c121cbab72be6a80d000f2acdf247dabb5e9"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/source-export.report.json",
+        "sha256": "98c556fb852d83ae47c17b6409df52a094f0887f86a887caaf57bc8aceb062b2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/source-mesh-measurements.json",
+        "sha256": "02d053a595130ddb74fc71e32553e0d6f6843f29b55ad8475b2ed7059a3c5bc0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/profile-checker.report.json",
+        "sha256": "9fe5d5d721f512f40236f377f5ca335befeb9c073b27999243ee50692b036bab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/profile-approved-check.report.json",
+        "sha256": "9fe5d5d721f512f40236f377f5ca335befeb9c073b27999243ee50692b036bab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/project-checker.report.json",
+        "sha256": "c153439f39d245ed0679b4b42bb80a52849b14a103ea6c6ff9a292024fdc2b73"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/checksums.sha256",
+        "sha256": "e868896eabf924419947b498293c10b391cfe61c4513ac7c652f6845f4f0b3dc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/HANDOFF.md",
+        "sha256": "4556a4edeee812c3ae07af01260bb607d1a3ff0a857870ad51180659d355d128"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/serial-execution.report.json",
+        "sha256": "d40bc69c0297fcf9e48b41e49f6cc381a9a42486f1867dd2c8614746fb994394"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/batch-30-QA-SCOPE.json",
+        "sha256": "4b607af7f79e322edb18809d84c33b5a84946c00562855b571a22f359b2876e1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/qa.json",
+        "sha256": "10a558dee73168214f5465830002e0370996b813d554bb187c8a5807c43c08dd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/dependency-hashes.json",
+        "sha256": "9196d8bfae339e47b97ef3634c11e747f30c3442d9535ca75e9a1224180bc5ec"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/maker-self-check.json",
+        "sha256": "4c6e5e9db5c567d442b89dc139250aa9a3876bb2eb4388997ab6dd10a520ea4d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/maker-visual-inspection.json",
+        "sha256": "0673e31d69905b0afaf5f769c0565b57f50e2f29332d69f3e313bc44150602b7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/preview-hero.png",
+        "sha256": "e55b72420996586a768bc9e523d9fe3e42d222f5243c7eb0209974b3b4c79241"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/qa-contact-sheet.png",
+        "sha256": "c4f310a022d62f54835373e31edc8ea0b369227fa2929310925e9651e033951d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime-contact-sheet.png",
+        "sha256": "9c6bda7187b9072e8085385a6b638d1fe43b367786ac57cbaeb1f5cf88254b52"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/reproducibility-1.report.json",
+        "sha256": "966c2f6ce9176369431d63c4d06580759ebf543c09bb53d08e3020fb39b8ee1f"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/reproducibility-2.report.json",
+        "sha256": "3f73a6af919f2f76bf32e239d887ebf3610f6296875fe2c88eda3502a180563d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-hero.png",
+        "sha256": "e70004fab337ac7891f41b45dd6ae364a58e4aacce1bdd8670fc930343007651"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-reversehero.png",
+        "sha256": "d2a9acec7d25b60f9e5a18b208f1382fa5eb676b6ddc9fe557f2485e5ecccd58"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-front.png",
+        "sha256": "a3cf19723645d51f50f9db297c5b9e9bf4ff72e4b8c1a5212494e1419e596ebb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-side.png",
+        "sha256": "665315111de6cab775d0237cae35ae06af7e98e391a019953ad43a4a6129e430"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-rear.png",
+        "sha256": "bfb56c00db176c02a490ddb539cad2066fdfc54b26e8db158dfdb242de711920"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-top.png",
+        "sha256": "87687e964e069a19f9d0d2d5aef231833f4e4ebb9a86db578be0c9f5a66e3b77"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-clay.png",
+        "sha256": "79daf233b25f4ba63fb214869b477029db2c1e5fd160c5a97cb7eb1576a10abc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/preview-silhouette.png",
+        "sha256": "8d7378c2d1d780037a14a40ec7104c04116fcdd2c7cee56869f026568556de84"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/runtime-report.json",
+        "sha256": "7a0575085599e9f7017c25d245a3002b2a9f2e6d7532ffac4b73990bd675b234"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/front.png",
+        "sha256": "ed1cfc69cf6ffa5bd99864ad434b413de939938e54739b12a96d524e09ac15cd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/hero.png",
+        "sha256": "72472d75e3de35c01b80c4839ddac51a6bf1647754331fe26c35017c54e27396"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/near.png",
+        "sha256": "b97e1a69f6cf4ae6c638e8a3ac134e1785d503daedd0126f78c6f1dafc99eb07"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/reversehero.png",
+        "sha256": "db70fbc9dfc8ac452d205c2daa3df3fb053584c99b422a2b81d696c8087ac8b3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/scene-9-copies.png",
+        "sha256": "78e307fbfeec089ac97aa1ac5faa309d37e599b8b9c69732b2124cf430502046"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/side.png",
+        "sha256": "58c9bed7511bf79db3752321436f99e2a7d53bd88bce8af97fce451f5016d538"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime/top.png",
+        "sha256": "4f2617457d2bfa0edbffecff474661238f743a697acd04a5a78a8dc835690436"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/view-manifest.json",
+        "sha256": "a916b791ae0758e5b8c3849bd767b57525cff19c8ea0abd2d26f0e8319110b27"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/views/transparent/preview-hero.png",
+        "sha256": "e55b72420996586a768bc9e523d9fe3e42d222f5243c7eb0209974b3b4c79241"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/cothurnocystis/r001/runs/build/cothurnocystis/r001/semantic-rebuild-1/9fc14ddc6fbadb6587bfd275ca3fbac8a84a89924318d4a7159899a715347ca4/20261018T233206-48c59974d14a4ce68d52ef9ca49ae67e/request.json",
+        "sha256": "4662d3cded3db29a0f1e3d9c23e3fed9bdab66699d95290de1cded9862c47b6e"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/cothurnocystis/r001/runs/build/cothurnocystis/r001/semantic-rebuild-1/9fc14ddc6fbadb6587bfd275ca3fbac8a84a89924318d4a7159899a715347ca4/20261018T233206-48c59974d14a4ce68d52ef9ca49ae67e/result.json",
+        "sha256": "1581cba53cb4490bd5a0b3af57ae3448a8ae55b0cacf85ee47c1c949069b1bd0"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/cothurnocystis/r001/runs/build/cothurnocystis/r001/semantic-rebuild-2/0adf90308c5a2e5410e728c91d9223620f2f73fd069f86ce363b1dacea3bfac3/20261018T233208-e9e138d8a0f346c99deaaf9a4c7c8e35/request.json",
+        "sha256": "03eafac08e19b1fb2e8903173c135813857adf128e63dc5cd5761d97fc1444bb"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/cothurnocystis/r001/runs/build/cothurnocystis/r001/semantic-rebuild-2/0adf90308c5a2e5410e728c91d9223620f2f73fd069f86ce363b1dacea3bfac3/20261018T233208-e9e138d8a0f346c99deaaf9a4c7c8e35/result.json",
+        "sha256": "58ee4a77d95b49dc3072ccf877ab466cd7785515a2bc0d23ae9935e72d5c409d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/build-config.json",
+        "sha256": "41d6943467ff3095597d8024d555ce3050040338c10c97b0071dcf1c24eea9dd"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/freeze.json",
+        "sha256": "178a1aa4b7010046f67ea9501faba5c7998bc56ca7c90a1daa90ab4f001aa85c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/gltf-validator.report.json",
+        "sha256": "97907451a3ee428ec90be8011cb0f0b2a1374e491fcfe77c928257b2099d51fb"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/inventory-record.json",
+        "sha256": "5083e348aca31720313898e517c67bb45adcc4d9eadea903dd13de897a8dead4"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/cothurnocystis/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/cothurnocystis/candidate.json",
+      "sha256": "48e073fe77986cce95b356e0a0fee2e92129311b8878387aa951b9203f2e7999"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/cothurnocystis-contract.json",
+      "sha256": "039cc65afc465f19c17f9f366591f60058caf7480a7c1316c4f419ebc045fa14"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/cothurnocystis-result.json",
+      "sha256": "8c7c3a24a863f787c09041f50ab407e6de130bec6537c6d2fac4deb57d6442f0"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/cothurnocystis-original-legacy.json",
+      "sha256": "c153439f39d245ed0679b4b42bb80a52849b14a103ea6c6ff9a292024fdc2b73"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-30.json",
+      "sha256": "3d388ad99d0b5a2d4f7ce11ad6ef9f4af0fef72958fbcbea663aedcc5169b143"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-30/final-handoff.jsonl",
+      "sha256": "fc5e64ec764f5db9afa81f2d0cc403eb3c4ccd1408fbff8d7a168e1e51b3fd5a"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/cothurnocystis.json",
+      "sha256": "34a4294abe67d7efe3a0889a0f4e1ad7a4d811128500170d47a99cc2eec8724a"
+    },
+    "dependencies": []
+  },
+  "pyrite-cube-cluster": {
+    "id": "pyrite-cube-cluster",
+    "batch": "30",
+    "source_commit": "5e3b7beb7f26f5d6abbf150eb7ca293037f6ee5d",
+    "review_commit": "8c8ff80b36c4801bb8feeb205cd0642aaf2aebf1",
+    "handoff_commit": "8364657631781954cb8a855e1fd9bd23371507cd",
+    "review": {
+      "path": "qa/continuous-small-life-round10-20261018/batch-30/independent-review/review.json",
+      "sha256": "004871663fda467d1b4aa014badaa86552db12c564c697cd2231122011fa9e9a"
+    },
+    "candidate": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/candidate.json",
+      "sha256": "aee99e95a8a78cd7aa8184e9e382e4b49f481d97a019d5ac64a21059986e7d44"
+    },
+    "source_metadata": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/metadata.json",
+      "sha256": "825ae5bf90d1d5773b4d218f50d5c5ffcd33008229f43aa332cd7be59e26a8d1"
+    },
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/pyrite-cube-cluster.glb",
+      "sha256": "a251f2af26008af409b94dd11e61dd52e76087926a5dbcaad29990cf53ed0ce6",
+      "bytes": 24556
+    },
+    "blend": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/pyrite-cube-cluster.blend",
+      "sha256": "1ce5e585e2458455a9c6a61cced6479540322de4c76f14ae2e0556dfaccd73c0",
+      "bytes": 496016
+    },
+    "views": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/render-manifest.json",
+      "sha256": "0aec823f461d63e4ac8f3f21b8120dd9682e7dbd52607a2e9c8a5ba964e7c7b6"
+    },
+    "runtime": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/runtime-report.json",
+      "sha256": "4dac482e9bb5ecb67d9ea191da77d4f7d3aa87ba5974e2a496580fbd1a056e7d"
+    },
+    "scene": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/runtime-report.json",
+      "sha256": "4dac482e9bb5ecb67d9ea191da77d4f7d3aa87ba5974e2a496580fbd1a056e7d"
+    },
+    "source_export": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/source-export.report.json",
+      "sha256": "cb91551440aa43a65ac2643a831fc70d4d8d197bba2eff11384fa6160752da99"
+    },
+    "validator": {
+      "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/gltf-validator.report.json",
+      "sha256": "d2bd497ce8344d3c541285ed08b5b6b469553bb0cfc0aa3b11dba1d7651f9578"
+    },
+    "evidence": [
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/candidate.json",
+        "sha256": "aee99e95a8a78cd7aa8184e9e382e4b49f481d97a019d5ac64a21059986e7d44"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/pyrite-cube-cluster.glb",
+        "sha256": "a251f2af26008af409b94dd11e61dd52e76087926a5dbcaad29990cf53ed0ce6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/brief.json",
+        "sha256": "40ecfd71edd423f126ec91d08882bae87d58788d192ea2d9b8346289f23b9641"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/references-profile.json",
+        "sha256": "76c0121d644f41b939343f2724ea26f448a621eba5c9729d8306e1224308d2c5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/pyrite-cube-cluster.blend",
+        "sha256": "1ce5e585e2458455a9c6a61cced6479540322de4c76f14ae2e0556dfaccd73c0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/build.py",
+        "sha256": "f63b334e6819685b5cdb5f05ca0648a62dbf944f1020dc45b297b3f4f68f38f2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/config.json",
+        "sha256": "062967d4afa52563b5c1b7000923636035d4319eb5fd9cad45798c1a2d289c52"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/render-manifest.json",
+        "sha256": "0aec823f461d63e4ac8f3f21b8120dd9682e7dbd52607a2e9c8a5ba964e7c7b6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/metadata.json",
+        "sha256": "825ae5bf90d1d5773b4d218f50d5c5ffcd33008229f43aa332cd7be59e26a8d1"
+      },
+      {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/references.json",
+        "sha256": "76c0121d644f41b939343f2724ea26f448a621eba5c9729d8306e1224308d2c5"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/references-profile-mapping.json",
+        "sha256": "914a0ed5f0c1df088c73f39e3d5612f7c7fc3e3745bae32187a75404360ab58e"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/reference-access.json",
+        "sha256": "3c0b483dcf97dc6471b8aeca3003457aa1ea7b96117ec66815a7991a0b593426"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/profile-contract.json",
+        "sha256": "68f2fdaf5458ea26c574457c24a82d799e3f4a6eb57dfccd0ea70a964c43689a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/profile-policy.json",
+        "sha256": "096b5c01583778f97c47c11397f3116cb642585e043cacef61183344cc247b18"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/evidence-manifest.json",
+        "sha256": "275a520738b190c531e0b8ad29b2b903bfa56e6f330a48dcc2134ddcd646dc13"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/source-export.report.json",
+        "sha256": "cb91551440aa43a65ac2643a831fc70d4d8d197bba2eff11384fa6160752da99"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/source-mesh-measurements.json",
+        "sha256": "ef5b01f6df29b2974f5b4a8b56bcd3a386cb5a7e3e1f85f55b10fcf558f72cca"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/profile-checker.report.json",
+        "sha256": "20796576cb1412677515c37636e6bb45a38867703765d5ee5778a7fc7a16cbff"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/profile-approved-check.report.json",
+        "sha256": "20796576cb1412677515c37636e6bb45a38867703765d5ee5778a7fc7a16cbff"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/project-checker.report.json",
+        "sha256": "5370d1ee0a6a7a9fd8b938de5fe23227a093d9db1192be00dd4c4434bc2248e0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/checksums.sha256",
+        "sha256": "3910b30811dc521576054469302fcc2d2b5fc576a18367c7e1cceaa7a9b4cd22"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/HANDOFF.md",
+        "sha256": "396c1a6f616d1016cbba1d8ed0c1a2574941069752fa74e8e5c05e5b4f8abfb3"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/serial-execution.report.json",
+        "sha256": "b3cd045d8e0a80af7065d14323bdf6d850ab88d21b66e567606d5230824541da"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/batch-30-QA-SCOPE.json",
+        "sha256": "4b607af7f79e322edb18809d84c33b5a84946c00562855b571a22f359b2876e1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/qa.json",
+        "sha256": "0552a77459aeae6dc27a40ed43e3bd455d2b1ec960fe56cbbca8571736696e51"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/dependency-hashes.json",
+        "sha256": "9575160bbb01e6df8e21f7ef1c7ccb866dc2b1dcaa2815c7b63d96c56841cbba"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/maker-self-check.json",
+        "sha256": "cc019e5bbfd342059299c21dc252be94745b64b9a6860de4c14791e33b50673b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/maker-visual-inspection.json",
+        "sha256": "0fa1f60e730f7cd3e6cca3d568dffd1764bd5d7d0274aca8b036b4dc8dfe976b"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/preview-hero.png",
+        "sha256": "50dcc9efcbe8f23ec6ca3344b42808937f2a04ffc2bb1d636b698dd16f4bd6b2"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/qa-contact-sheet.png",
+        "sha256": "a6f13ef7cc2e271cef2097ac28d8721d6fb7adc013d74b5d18adf7290c50c56c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime-contact-sheet.png",
+        "sha256": "5168af67e8bbe1ea67b106bfb28b50bd708939cb73e805dd63cfe778fafa66b6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/reproducibility-1.report.json",
+        "sha256": "838c38031ebfaaad0958d5b404f186e59ba276145fb79dee18f5c75502574204"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/reproducibility-2.report.json",
+        "sha256": "f0dffb55d17680558bed854da5b92d91a3f11442ea1de45fa3fd3416a64e3227"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/render-config.json",
+        "sha256": "38cfc6c2773e82b8ae356bf4c7812ce1f2b01734dc248cc98135e77703bc60ab"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-hero.png",
+        "sha256": "1e771717a25df95b100185f68ec50e12a8e6624d58d751a97f391f4c435431ed"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-reversehero.png",
+        "sha256": "e692770e738704306c8fb9d6db7d53556d708ffc20833d2310c1dff9f9bc1711"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-front.png",
+        "sha256": "1a99f45d2d11e0dbf680b9bfbeb1c1af9123319dfd90f0674e158525281af17d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-side.png",
+        "sha256": "77ac65ad242f68bd4a09bbc56c7f9b6410c766b596a5f089021aa4195d72124a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-rear.png",
+        "sha256": "5dd180954e4d9e5bfccd0238cfc7919275139b59215e01b83a6720d5aa849902"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-top.png",
+        "sha256": "83790aa1ec33645a21fd44df31ddf4fade5251caa1a9db73c045c22681c87b1a"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-clay.png",
+        "sha256": "633fbd18a4580175a91a2151a9d50a223b1e7d02b58cae5c76f3069db2eff6f1"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/preview-silhouette.png",
+        "sha256": "0b512732cb96e5e113310417f70d05c761280ba42696f45f7dbfac6579b5449d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/runtime-report.json",
+        "sha256": "4dac482e9bb5ecb67d9ea191da77d4f7d3aa87ba5974e2a496580fbd1a056e7d"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/front.png",
+        "sha256": "cf2fed852cb38825ea8bdaf6d5656e308321c5469c8026938aededfe3f72885c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/hero.png",
+        "sha256": "6aaf42a9113f4f50b7112677afb5b56dfe674efd3734af592a52419b8fdde92c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/near.png",
+        "sha256": "61af99acdc9575c0bf419efa4a8fa1700d129fc672792010ce8053a89cbb6940"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/reversehero.png",
+        "sha256": "6406278017310e49d8a87fad5d6287cba8140a866808bc9dd22c8ccc23075fc7"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/scene-9-copies.png",
+        "sha256": "15836aa0e146bacb6787dd449eb5ce1f00fb184eca08c42ddfc72937411f0f96"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/side.png",
+        "sha256": "d5d59d191fc241be19dc8de157fd92c27ccb2f8f0aceb206adfc917c51469b57"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime/top.png",
+        "sha256": "585425a43a26475b255d6642e40357845c08a7c31dc2e9122cd4da67104f4aae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/view-manifest.json",
+        "sha256": "86494fe57959cf1f8bba122940ce7d48887c3f1892fbebdfc7855f46602a5c19"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/views/transparent/preview-hero.png",
+        "sha256": "50dcc9efcbe8f23ec6ca3344b42808937f2a04ffc2bb1d636b698dd16f4bd6b2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/pyrite-cube-cluster/r001/runs/build/pyrite-cube-cluster/r001/semantic-rebuild-1/e12589adeee1c6d494c073679aacdf6c08a79383ac30b326e53452e283db7daa/20261018T233400-ce3d987a655a45b9a1a19f75dba61de1/request.json",
+        "sha256": "3ab6ce843be87f2eebf9aa7f34fb74f7c8b7cc5f49025f188f3dc87f53282426"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/pyrite-cube-cluster/r001/runs/build/pyrite-cube-cluster/r001/semantic-rebuild-1/e12589adeee1c6d494c073679aacdf6c08a79383ac30b326e53452e283db7daa/20261018T233400-ce3d987a655a45b9a1a19f75dba61de1/result.json",
+        "sha256": "09c2309e79e0f0b931d02ebed3f9f0b0820eee106bd02f3d9dc8ce4bb247fbb2"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/pyrite-cube-cluster/r001/runs/build/pyrite-cube-cluster/r001/semantic-rebuild-2/93d183620c2e8aeeb3c7db4faac644ce81df328d364c0c7512e1c667ad5bb1bc/20261018T233402-1a4b988ea8b941e38606c479fccf6024/request.json",
+        "sha256": "4af1d7153d314a1d10fd8ad7c26cc148e6b51867879bb26df3618796f4faed23"
+      },
+      {
+        "path": "production/continuous-small-life-round10-20261018/work/batch-30/pyrite-cube-cluster/r001/runs/build/pyrite-cube-cluster/r001/semantic-rebuild-2/93d183620c2e8aeeb3c7db4faac644ce81df328d364c0c7512e1c667ad5bb1bc/20261018T233402-1a4b988ea8b941e38606c479fccf6024/result.json",
+        "sha256": "9741d6b9eda37c4dbe27af42a1121ed6803b13eca22fc316191f8a5bb7ff0633"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/LICENSE.txt",
+        "sha256": "db8890e9554fb0b9169d1815dab2dce607891b9af41ad24d8b937f8178045cae"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/build-config.json",
+        "sha256": "2777fe90115b7f468f02d6c89602b702773155cf82aa0ec4f78ae9e152150c13"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/freeze.json",
+        "sha256": "da5c8b209693115678a364b497a831a25c857f738bb82e27a40d3c134b24bd7c"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/gltf-validator.report.json",
+        "sha256": "d2bd497ce8344d3c541285ed08b5b6b469553bb0cfc0aa3b11dba1d7651f9578"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/inspect_source.py",
+        "sha256": "e609fd2bc5fb1a66e961a9574138e3d7460399939142604fde8be5a727ce9f37"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/inventory-record.json",
+        "sha256": "aeb1a3f7647b95d3db9d2653790596567fe53910049a05fff6a7d010756e73f6"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/reference-policy.json",
+        "sha256": "07de739244b965e10be920e0bdbf2872f89ce835a2186a02929b8f3e05dea4b0"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/render.py",
+        "sha256": "aa40f86d2048c10ab7e879b1c4104a037d6fa9b4549d592c0754840eec318bfc"
+      },
+      {
+        "path": "assets/candidates/continuous-small-life-round10-20261018/batch-30/pyrite-cube-cluster/r001/runtime.mjs",
+        "sha256": "92626742d84d0c68d5a26b27d1538a1b0715230c84272aa08d969911acabf563"
+      }
+    ],
+    "profile_candidate": {
+      "path": "production/continuous-release-round10-20261018/records/pyrite-cube-cluster/candidate.json",
+      "sha256": "08af49517fd2f8cea780ff279cb20836bc7276b0ac2b19ecf181694c0bd67542"
+    },
+    "profile_contract": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/pyrite-cube-cluster-contract.json",
+      "sha256": "8e9e3f69b5a97cf62310f558096da05ac4fdb1e1072ad48b1735ce11793ee82b"
+    },
+    "profile_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/pyrite-cube-cluster-result.json",
+      "sha256": "e2cf20ed69702b9790b4c6e9fed90077b580987037eab278c0204fa3ba3e187a"
+    },
+    "profile_outcome": {
+      "valid": true,
+      "approved_for_brief": false,
+      "errors": [],
+      "approval_blockers": [
+        "technical: unknown",
+        "technical-integrity: unknown",
+        "visual: unknown",
+        "normal-view-craft: unknown",
+        "factual: unknown",
+        "basic-form-and-scope: unknown",
+        "specification: unknown",
+        "deliverables-and-label: unknown",
+        "runtime_parse: unknown",
+        "target-loader: unknown",
+        "gpu: unknown",
+        "functional-render: unknown",
+        "scene: unknown",
+        "representative-scene: unknown",
+        "open blocker: normal-view-craft",
+        "open blocker: basic-form-and-scope",
+        "open blocker: deliverables-and-label",
+        "approval: pending"
+      ],
+      "profile_contract_status": "pass"
+    },
+    "original_legacy_result": {
+      "path": "qa/continuous-release-round10-20261018/profile-checks/pyrite-cube-cluster-original-legacy.json",
+      "sha256": "5370d1ee0a6a7a9fd8b938de5fe23227a093d9db1192be00dd4c4434bc2248e0"
+    },
+    "qa_bundle": {
+      "path": "qa/continuous-release-round10-20261018/qa-bindings/batch-30.json",
+      "sha256": "3d388ad99d0b5a2d4f7ce11ad6ef9f4af0fef72958fbcbea663aedcc5169b143"
+    },
+    "handoff": {
+      "path": "production/continuous-small-life-round10-20261018/work/batch-30/final-handoff.jsonl",
+      "sha256": "fc5e64ec764f5db9afa81f2d0cc403eb3c4ccd1408fbff8d7a168e1e51b3fd5a"
+    },
+    "texture_audit": {
+      "path": "qa/continuous-release-round10-20261018/texture-checks/pyrite-cube-cluster.json",
+      "sha256": "3ef3f33fc79f5337ceb2f9ae7e48a824f5d140c68300ce2e2b91c5f02fd74c45"
+    },
+    "dependencies": []
+  }
+};
