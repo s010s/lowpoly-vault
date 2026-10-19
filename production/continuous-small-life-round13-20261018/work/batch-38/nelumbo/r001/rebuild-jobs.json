@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "nelumbo",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/brief.json",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "nelumbo",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "nelumbo/nelumbo.blend",
+        "nelumbo/nelumbo.glb",
+        "nelumbo/qa.json",
+        "nelumbo/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "nelumbo",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/brief.json",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "nelumbo",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "nelumbo/nelumbo.blend",
+        "nelumbo/nelumbo.glb",
+        "nelumbo/qa.json",
+        "nelumbo/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
