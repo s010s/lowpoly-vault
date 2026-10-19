@@ -2,14 +2,23 @@
   "kind": "batch44-owned-serial-chronology-summary",
   "verdict": "pass",
   "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
-  "final_handoff_jsonl_sha256": "d5c1240e719a2ca0a9b276dfad07a8baf4e773ba793767f952b6d6621f70cd78",
+  "final_handoff_jsonl_sha256": "6e88777c4181c654596231d0a03c087266dc1fb7befedae2f72e5f5175b3adaa",
   "overlapping_top_level_owned_launches": 0,
   "all_owned_process_groups_exited": true,
-  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
-  "top_level_launch_count": 50,
+  "asset_lifecycle_order": "Original batch44 serial history remains. Only Joffrea r002 reopened after batch47 completely finished/frozen; original other three models not rebuilt.",
+  "top_level_launch_count": 63,
   "nonzero_exit_count": 0,
   "nonzero_exit_note": "Actual nonzero source failures are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
-  "assets": [
+  "historical_r001_summary": {
+    "path": "history/r001/serial-execution-summary.json",
+    "sha256": "ef9d14438761496f35cba719ab18ac03855538d82263367f3469ca1c645655ae"
+  },
+  "targeted_repair": {
+    "path": "targeted-repair-serial.json",
+    "sha256": "817894b9e07493c26f053c6540cf0472b51d9dbd63355ea7d5bf2237eeba99bb"
+  },
+  "prelaunch_compile_nonzero_count": 1,
+  "historical_r001_assets": [
     {
       "asset_id": "yochelcionella",
       "candidate_commit": "be6b514a9180a87581b54e9ae9f7c4f1324c3786",
@@ -77,6 +86,24 @@
         "failures": []
       },
       "remaining_owned_process_groups": 0
+    }
+  ],
+  "current_candidates": [
+    {
+      "asset_id": "yochelcionella",
+      "commit": "be6b514a9180a87581b54e9ae9f7c4f1324c3786"
+    },
+    {
+      "asset_id": "joffrea",
+      "commit": "ed8e178b94fcbbec0a151f44f77113c4f9699c28"
+    },
+    {
+      "asset_id": "oxbow-lake-basin",
+      "commit": "f3d549acfce729574fbe4b26908fe100210bab1a"
+    },
+    {
+      "asset_id": "stylolite-seam-section",
+      "commit": "943d87a913b4cf306286b40caabe92f409bade68"
     }
   ]
 }
