@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "folded-strata-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/folded-strata-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/folded-strata-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch36/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch36/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/folded-strata-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/folded-strata-outcrop/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/folded-strata-outcrop/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "folded-strata-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "folded-strata-outcrop/folded-strata-outcrop.blend",
+        "folded-strata-outcrop/folded-strata-outcrop.glb",
+        "folded-strata-outcrop/qa.json",
+        "folded-strata-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch36 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "folded-strata-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/folded-strata-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/folded-strata-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch36/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch36/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/folded-strata-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/folded-strata-outcrop/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/items/folded-strata-outcrop/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "folded-strata-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "folded-strata-outcrop/folded-strata-outcrop.blend",
+        "folded-strata-outcrop/folded-strata-outcrop.glb",
+        "folded-strata-outcrop/qa.json",
+        "folded-strata-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch36 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
