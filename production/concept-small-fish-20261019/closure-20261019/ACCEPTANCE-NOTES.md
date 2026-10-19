@@ -46,10 +46,15 @@ The distinction follows the current repository Skill and checker:
   evidence-completeness gate is genuinely open; its requirement is not waived or
   silently edited. The generation time is no longer missing.
 - The same Skill says the supplemental checker cannot grant candidate approval
-  or publication. Formal `accepted_for_brief`/release readiness is not claimed
-  here: the strict chronology record remains incomplete, and no hardware or
-  actual deployed museum scene validation has been performed. Passing the
-  bounded study is a different, already recorded decision.
+  or publication. Its allowance for unrecorded timings means the missing exact
+  clock time alone is **not an explicit Skill instruction to reject the models**.
+  It must not be promoted into a new artistic failure or an automatic formal
+  rejection beyond the strict helper's actual completeness check. Formal
+  `accepted_for_brief`/release readiness is still not asserted: this batch has
+  provisional-study records and a scoped independent pass, rather than a formal
+  production acceptance record. Physical GPU and actual deployed museum scene
+  validation remain unperformed and must be considered only within the relevant
+  frozen runtime profile. No acceptance criteria or checker rules are changed.
 
 ## Delivered size and factual scope
 
