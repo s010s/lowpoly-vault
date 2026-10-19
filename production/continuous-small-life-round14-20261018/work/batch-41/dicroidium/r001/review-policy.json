@@ -1,0 +1,19 @@
+{
+  "kind": "parent-coordinated-one-independent-review-policy",
+  "authority": "Current explicit parent conveys user instruction",
+  "independent_model_qa_rounds": 1,
+  "maker_model": {
+    "model": "GPT-6.1 Sol",
+    "reasoning": "medium"
+  },
+  "reviewer_model": {
+    "model": "GPT-6 Luna",
+    "reasoning": "xhigh"
+  },
+  "dispatcher": "parent only",
+  "publication_checks": "Necessary deployment/package/identity/availability checks only; reuse exact unchanged accepted model/source evidence. No duplicate model acceptance or aesthetic/factual QA at release.",
+  "identity_guard": "Match exact batch, four IDs, source and each GLB hash; wrong-subject reply is invalid, not a completed model review.",
+  "changes_or_real_defects": "No automatic second full model review. Report actual defect or changed hash to parent for necessary scoped resolution; do not reuse mismatched/stale evidence or fabricate PASS.",
+  "publication_authority": "separate",
+  "historical_contract_boundary": "Frozen static profile and integrity/provenance checks retained; workflow does not add a second model-acceptance gate."
+}
