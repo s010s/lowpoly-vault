@@ -1,0 +1,96 @@
+{
+  "kind": "batch47-owned-serial-chronology-summary",
+  "verdict": "pass",
+  "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
+  "final_handoff_jsonl_sha256": "7f05a80e189c3349fde658bbd4e1daf2d1cee97ddb1170e33227bc0d27ea3886",
+  "overlapping_top_level_owned_launches": 0,
+  "all_owned_process_groups_exited": true,
+  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
+  "top_level_launch_count": 73,
+  "nonzero_exit_count": 2,
+  "nonzero_exit_note": "Actual nonzero source failures are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
+  "assets": [
+    {
+      "asset_id": "ecphora",
+      "candidate_commit": "ec87671f91c56fb3250c2456a7cac469c7d538fe",
+      "branch": "candidate/batch47-ecphora-20261018",
+      "ledger_path": "production/continuous-small-life-round16-20261018/work/batch-47/ecphora/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "30991c0d554bdf2a9920beaef60fff8c3da0a8ee71c19be907c11f01dbbddbd1",
+      "first_launch": "2026-10-19T02:59:18.974807+00:00",
+      "last_exit": "2026-10-19T03:01:31.599298+00:00",
+      "lifecycle_complete": "2026-10-19T03:01:53.740153+00:00",
+      "top_level_launch_count": 11,
+      "matching_exit_count": 11,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 80512,
+            "returncode": 1,
+            "reason": "Source guard detected40 near-collinear apical cap triangles below its area threshold. Original script and failure log retained. Replace polygon caps by true center fans; no validator change.",
+            "retained": "failed-attempt-01-apical-cap-tessellation"
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "pteleoidea",
+      "candidate_commit": "f5b6540ed573a840ec53147c3ad5adf53c803303",
+      "branch": "candidate/batch47-pteleoidea-20261018",
+      "ledger_path": "production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "81ab75c8d282053e591745d03537868b19ee066883dc83ec85cf0eaf28d8aa83",
+      "first_launch": "2026-10-19T03:02:10.846578+00:00",
+      "last_exit": "2026-10-19T03:03:25.668349+00:00",
+      "lifecycle_complete": "2026-10-19T03:03:45.881649+00:00",
+      "top_level_launch_count": 10,
+      "matching_exit_count": 10,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "karst-spring-mouth",
+      "candidate_commit": "cb33bfc72123224009c52080e15485af53632750",
+      "branch": "candidate/batch47-karst-spring-mouth-20261018",
+      "ledger_path": "production/continuous-small-life-round16-20261018/work/batch-47/karst-spring-mouth/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "d346a377827fc73ffbbab74304919ba0f6fdb522d0ddc0c808172c71f6efe987",
+      "first_launch": "2026-10-19T03:04:05.442289+00:00",
+      "last_exit": "2026-10-19T03:13:10.164024+00:00",
+      "lifecycle_complete": "2026-10-19T03:13:49.962297+00:00",
+      "top_level_launch_count": 42,
+      "matching_exit_count": 42,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 82999,
+            "returncode": 1,
+            "reason": "Exact boolean source guard found4 tiny sliver triangles at intersections. Failed script/config/log retained; final cleanup dissolves geometric degeneracies and recalculates normals, no validator change.",
+            "retained": "failed-attempt-01-boolean-small-sliver-triangles"
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "shatter-cone-rock",
+      "candidate_commit": "2f0aba4ced145a0166bbce1c8a713f2725afb3e3",
+      "branch": "candidate/batch47-shatter-cone-rock-20261018",
+      "ledger_path": "production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "cdb7276574dab8c5aa065c23d723584f2c772649592f4696af95edecf615d261",
+      "first_launch": "2026-10-19T03:14:17.102298+00:00",
+      "last_exit": "2026-10-19T03:15:57.715096+00:00",
+      "lifecycle_complete": "2026-10-19T03:16:23.978000+00:00",
+      "top_level_launch_count": 10,
+      "matching_exit_count": 10,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    }
+  ]
+}
