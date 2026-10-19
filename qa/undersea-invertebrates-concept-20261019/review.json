@@ -6,13 +6,18 @@
   "qa_branch": "qa/undersea-invertebrates-concept-20261019",
   "reviewed_skill_commit": "bac6621fc39144b3759c53b1b27231ac1b6e21c6",
   "overall": "pending_final_acceptance",
-  "overall_note": "Three assets pass the reviewed visual and broad factual scope; Ctenoimbricata primary figure pixel review remains unknown. Full-resolution review of every proof frame, target-scene/device performance, and CI remain pending.",
+  "overall_note": "Three assets pass the reviewed visual and broad factual scope; Ctenoimbricata passes concept-led visual review but its primary figure pixel review remains unknown. All 148 proof frames were independently reviewed at native 512x512 resolution through unscaled sheets. Target-scene/device performance and CI remain pending, and frozen producer-side frame inspection records remain incomplete.",
   "independent_checks": {
     "blend_reopen_and_exact_glb_import": "pass",
     "source_to_imported_bounds": "pass; max difference 0 m",
     "source_to_imported_principled_base_colors": "pass; max absolute linear difference 0.0",
     "four_asset_chromium_threejs_swiftshader_scene": "pass; zero WebGL errors",
-    "all_proof_frames_opened_individually_at_original_resolution": "partial"
+    "all_proof_frames_reviewed_at_native_resolution_via_lossless_contact_sheets": "pass; 148/148 frames, 37 per asset, each pasted unscaled at 512x512 pixels",
+    "all_frames_individually_opened_as_separate_files": "no; complete native-resolution pixel coverage was provided by the lossless sheets; originals remain pinned and unchanged",
+    "producer_sidecar_visual_inspection_records": "pending; frozen concept-evidence sidecars still report incomplete per-frame review records; not modified by independent QA",
+    "ctenoimbricata_original_figure_4_5_pixel_review": "pending; official PLOS and author-uploaded mirror image targets could not be accessed without bypassing restrictions",
+    "target_populated_scene_and_physical_device_performance": "not_measured; environment-specific deployment acceptance check",
+    "github_actions_pages_ci": "pending; existing jobs were queued during service backlog and were not rerun"
   },
   "not_repeated_from_production": [
     "Khronos glTF Validator",
@@ -21,10 +26,10 @@
     "GitHub Actions / Pages CI"
   ],
   "remaining_gates": [
-    "Open all required exact-GLB proof frames individually at original resolution.",
-    "Inspect the original Ctenoimbricata paper Figure 4/5 pixels before factual acceptance.",
-    "Measure physical-device GPU behavior and intended populated target-scene performance.",
-    "Observe queued CI/Pages jobs when the service backlog clears; do not rerun during the incident."
+    "Inspect the original Ctenoimbricata paper Figure 4/5 pixels before factual acceptance; current official and lawful mirror targets are inaccessible.",
+    "Measure physical-device GPU behavior and intended populated target-scene performance when the deployment environment is available; this is not an observed asset defect.",
+    "Observe the existing queued CI/Pages jobs when the service backlog clears; do not rerun during the incident.",
+    "If the producer's machine-completeness gate is required, record inspection disposition in the frozen concept-evidence sidecars through the producer workflow; independent QA has reviewed all 148 frames, and no model files were changed."
   ],
   "assets": [
     {
@@ -88,6 +93,9 @@
     "report": "qa/undersea-invertebrates-concept-20261019/REVIEW.md",
     "blender_import_audit": "qa/undersea-invertebrates-concept-20261019/evidence/blender-import-audit.json",
     "browser_runtime_report": "qa/undersea-invertebrates-concept-20261019/evidence/browser-runtime-report.json",
-    "browser_scene_screenshot": "qa/undersea-invertebrates-concept-20261019/evidence/scene-4-assets.png"
+    "browser_scene_screenshot": "qa/undersea-invertebrates-concept-20261019/evidence/scene-4-assets.png",
+    "native_resolution_review_sheet_manifest": "qa/undersea-invertebrates-concept-20261019/evidence/full-res-review-sheets.json",
+    "native_resolution_review_sheet_directory": "qa/undersea-invertebrates-concept-20261019/evidence/full-res-review-sheets",
+    "native_resolution_review_sheet_generator": "qa/undersea-invertebrates-concept-20261019/evidence/make_full_res_review_sheets.py"
   }
 }

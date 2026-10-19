@@ -14,7 +14,7 @@
 
 The four exact Blend/GLB pairs are internally consistent and load correctly in a fresh Blender import and a real Chromium/Three.js software-WebGL scene. The three candidates below pass the visual and broad, genus-informed checks in their frozen briefs. Ctenoimbricata passes the concept-led visual check, while its factual review remains **unknown** until the original paper's Figure 4/5 pixels can be inspected. No model changes are requested by this review.
 
-This is not production or publication approval. Full-resolution review of every proof frame is incomplete; the target populated scene and physical-device performance have not been measured; and the GitHub checks remain pending. Ctenoimbricata's figure-image review is an additional factual gate.
+This is not production or publication approval. All 37 proof frames per asset (148 total) have now been visually reviewed at their native 512×512 pixel resolution through lossless contact sheets. Three candidates pass the reviewed visual and broad factual scope. Ctenoimbricata passes the concept-led visual check; its primary-figure factual check remains open because the figure pixels were not accessible. The intended populated scene and physical-device performance have not been measured, and CI remains queued. The candidate-side evidence records also still lack complete per-frame inspection marks; that machine-completeness state is separate from this completed independent visual review.
 
 ## Per-candidate findings
 
@@ -25,7 +25,7 @@ This is not production or publication approval. Full-resolution review of every 
 | `strophomena r003` | **Pass.** The exact GLB preserves the semicircular fan, straight hinge, fine ribs, shallow paired-shell profile, and subdued continuous lavender growth band. Side and top views support the intended thin shell rather than a thick slab. | **Pass for the declared genus-informed scope.** The reviewed Atlas entry supports a semicircular outline, radiating fine ribs, and a profile that changes convexity. The asset depicts only the external shell and makes no species-specific claim. | No model revision requested. |
 | `ctenoimbricata r001` | **Pass for concept-led visual/specification.** The exact GLB is bilaterally symmetric and flattened, with a single marginal ring, four lateral spine pairs, a front comb, and sparse dorsal studs. Its color blocking and scale match the frozen interpretation. | **Unknown pending Figure 4/5 pixel review.** The PLOS article text supports a roughly 20 mm bilateral disc, a single marginal ring, an anterior imbricate roof, and 14 ventral spinose elements. I verified the model contains the corresponding named parts and comb, but could not inspect the original figure pixels to assess their detailed arrangement. | No correction is justified from the accessible evidence. Complete the primary-figure visual check before factual acceptance; revise only if it exposes a material anatomical mismatch. |
 
-The figure image links on the PLOS article page were available, and its text/captions opened. The web fetcher failed on the redirected Figure 4/5 image targets; direct fetches returned HTTP 403, and the alternate PMC page presented a CAPTCHA. The original Figure 4/5 pixels were therefore **not** reviewed. See the [primary article](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038296).
+The figure links, article text, and captions on the official PLOS page opened, but the Figure 4/5 images redirected to inaccessible signed storage targets; direct requests to PLOS returned HTTP 403. The official PDF download also could not be retrieved through the available reader, and direct access was denied. I checked an author-uploaded ResearchGate mirror: the image links returned 404 and direct access returned 403. I stopped at those access restrictions and did not attempt to bypass them. The original Figure 4/5 pixels were therefore **not** reviewed. See the [primary article](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038296).
 
 Other factual references reviewed: [Royal Ontario Museum — Mackenzia costalis](https://burgess-shale.rom.on.ca/fossils/mackenzia-costalis/), [Atlas of Ordovician Life — Prasopora](https://www.ordovicianatlas.org/atlas/bryozoa/stenolaemata/trepostomatida/monticuliporidae/prasopora/), and [Atlas of Ordovician Life — Strophomena](https://www.ordovicianatlas.org/atlas/brachiopoda/strophomenata/strophomenida/strophomenidae/strophomena/). These support the broad stylized claims only; none makes these models specimen-accurate reconstructions.
 
@@ -52,10 +52,11 @@ This establishes real parsing and functional software rendering for the four-fil
 
 ## Coverage and remaining gates
 
-- I inspected the original concept sheet, the concept-versus-exact-GLB comparison, all four full-contact sheets, and selected individual exact-GLB views including hero/top/bottom, top/bottom/detail, top/side, and top/front/side views. I did **not** open all 37 images per asset individually at original 512 px resolution. Full-frame visual completeness remains pending.
-- Ctenoimbricata primary Figure 4/5 pixel review remains pending as detailed above.
-- Physical-device GPU behavior and the intended populated target-scene performance remain unknown. The local four-asset sample scene is not a substitute.
-- CI/Pages jobs were recorded as queued during the service backlog. They were not rerun in this QA task.
+- I inspected the original concept sheet, the concept-versus-exact-GLB comparison, all four exact-GLB full-contact sheets, and the individual exact-GLB views noted above. I also reviewed every proof frame: all 37 source PNGs for each asset (148 total) were included at native 512×512 pixels without scaling in three 4×4 sheets per asset. Each frame is labeled with its view and short source hash; [`evidence/full-res-review-sheets.json`](evidence/full-res-review-sheets.json) records every source path/hash, native dimensions, sheet contents, and sheet hash. At this resolution, no frame revealed a new defect or a reason to request a model revision. The original proof PNGs remain unchanged.
+- Ctenoimbricata's primary Figure 4/5 pixel review remains a factual acceptance blocker, as detailed above. Its accessible text supports broad features but cannot establish detailed arrangement.
+- The four-asset SwiftShader scene establishes software parsing/rendering only. Physical-device GPU behavior and the intended populated target-scene performance remain unmeasured because the target hardware and environment were not available. This is a deployment-performance verification limit, not an observed asset defect.
+- CI/Pages jobs were recorded as queued during the service backlog. They were not rerun in this QA task; the existing run must clear before its result is known.
+- The frozen producer-side `concept-evidence` sidecars still do not record inspection for every proof frame, so their `--require-complete` status remains incomplete. This does not negate the independent 148-frame review documented here. No frozen candidate sidecar was modified.
 - No model, production record, candidate gate, permissions, or main branch was changed. Only this independent QA report and its evidence were added.
 
 ## Evidence files
@@ -64,3 +65,6 @@ This establishes real parsing and functional software rendering for the four-fil
 - `evidence/browser-runtime-report.json` — local Chromium/Three.js runtime metrics and tested views.
 - `evidence/scene-4-assets.png` — rendered four-asset scene at authored scale.
 - `evidence/audit_blender_import.py` — headless Blender reopen/import audit used above.
+- `evidence/full-res-review-sheets.json` — manifest of the 148 native-resolution source frames and 12 contact sheets, including hashes.
+- `evidence/full-res-review-sheets/` — 12 lossless sheets with the complete 37-frame review for each asset.
+- `evidence/make_full_res_review_sheets.py` — reproducible generator for the review sheets.
