@@ -115,18 +115,18 @@ def clavagella(c,m):
 def aa_lava_front(c,m):
  body=Mesh('irregular-sloping-continuous-lava-core-rounded-rubble-bearing-front-no-plinth',m);clasts=Mesh('unequal-angular-clinker-embedded-in-sloping-core-and-irregular-toe',m);N=56;v=[];f=[]
  def h(x,y):
-  rho=(abs(x/.65)**3+abs(y/.53)**3)**(1/3)
-  return (.125+.135*(y+.50)+.019*math.cos(x*5+y*2))*(1-.40*max(0,min(1,(rho-.52)/.55)))
+  rho=(abs(x/.55)**3+abs((y-.04)/.40)**3)**(1/3)
+  return (.125+.135*(y+.50)+.019*math.cos(x*5+y*2))*max(0,1-max(0,(rho-.64)/.40))
  def outline(a,t):
-  r=1+.052*math.sin(5*a+.4)+.032*math.cos(9*a-.3)
-  return (.65*math.copysign(abs(math.cos(a))**.68,math.cos(a))*r*t,.52*math.copysign(abs(math.sin(a))**.68,math.sin(a))*r*t-.030*t*(.5-.5*math.sin(a)))
+  r=1+.085*math.sin(5*a+.4)+.042*math.cos(7*a-.3)
+  return (.55*math.copysign(abs(math.cos(a))**.70,math.cos(a))*r*t,.40*math.copysign(abs(math.sin(a))**.70,math.sin(a))*r*t+.04)
  # Grounded irregular footprint and outward rolled toe; no rectangular cut slab or vertical plate sides.
- for row,t in enumerate([.86,1.01,.96,.76,.39]):
+ for row,t in enumerate([.91,.86,.74,.55,.27]):
   for k in range(N):
    a=2*pi*k/N;x,y=outline(a,t)
    if row==0:z=0
-   elif row==1:z=.035+.012*(.5+.5*math.sin(3*a+.4))+.020*(.5+.5*math.sin(a))
-   elif row==2:z=h(x,y)*.85
+   elif row==1:z=max(.024,h(x,y)*(.78+.20*math.sin(3*a+.4)))
+   elif row==2:z=h(x,y)
    else:z=h(x,y)
    v.append((x,y,z))
  bot=len(v);v.append((0,0,0));top=len(v);v.append((0,.01,h(0,.01)))
@@ -137,7 +137,7 @@ def aa_lava_front(c,m):
  specs=[(-.40,.25,.19,.15,.16),(-.06,.31,.22,.16,.18),(.32,.26,.20,.18,.17),(-.48,.02,.13,.13,.16),(-.22,.03,.20,.17,.21),(.14,.05,.21,.17,.24),(.45,.02,.15,.15,.16),(-.40,-.22,.20,.14,.18),(-.04,-.22,.20,.15,.16),(.30,-.21,.22,.16,.20),(-.52,-.36,.09,.08,.09),(-.25,-.37,.13,.09,.12),(.10,-.37,.12,.09,.10),(.46,-.35,.10,.09,.11),(-.31,.17,.10,.09,.11),(.15,.25,.09,.10,.13),(-.10,-.05,.10,.08,.12),(.37,-.06,.09,.08,.13),(-.56,.25,.07,.09,.08),(.52,.23,.08,.08,.10),(-.18,-.30,.07,.08,.10),(.23,-.35,.08,.06,.09)]
  specs += [(-.40,-.46,.11,.09,.10),(-.14,-.50,.09,.075,.08),(.17,-.48,.13,.085,.11),(.40,-.43,.085,.07,.085)]
  for j,(x,y,rx,ry,hh) in enumerate(specs):
-  n=6+j%3;vv=[];ff=[];a0=.43*j;z0=h(x,y)-.025
+  n=6+j%3;vv=[];ff=[];a0=.43*j;z0=max(0,h(x,y)-.035)
   for row,(s,z) in enumerate([(1,0),(1.06,.43),(.70,1)]):
    for k in range(n):a=a0+2*pi*k/n;rr=s*(1+.12*math.sin(k*2.3+j));vv.append((x+rx*rr*math.cos(a)+.025*z*math.sin(j),y+ry*rr*math.sin(a)-.035*z,z0+hh*z+.018*math.sin(k*1.7+j)*z))
   b=len(vv);vv.extend([(x,y,z0),(x+.012*math.cos(j),y-.016,z0+hh*1.06)])
