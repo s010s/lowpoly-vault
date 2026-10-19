@@ -24,10 +24,12 @@ export class WheelSettler {
     this.state = 'idle';
     this.centeredId = null;
     this.pressed = false;
+    this.moved = false;
   }
 
-  input() {
+  input(scrollIntent = false) {
     this.lastInput = this.now();
+    this.moved = scrollIntent;
     this.stop();
     this.state = 'tracking';
     this.previous = this.read();
@@ -36,6 +38,7 @@ export class WheelSettler {
 
   scrolled() {
     const position = this.read();
+    if (Math.abs(position - this.previous) > .2) this.moved = true;
     const nearest = this.nearest(position);
     if (nearest) this.setCenter(nearest.id);
     if (this.state === 'snapping') return;
@@ -54,7 +57,7 @@ export class WheelSettler {
 
   setCenter(id) { this.centeredId = id; this.center(id); }
   pointerDown() { this.pressed = true; this.input(); }
-  pointerUp() { this.pressed = false; this.input(); }
+  pointerUp() { this.pressed = false; this.lastInput = this.now(); this.stop(); this.state = 'tracking'; this.schedule(); }
 
   schedule() {
     if (!this.raf && !this.destroyed) this.raf = this.frame(() => { this.raf = 0; this.tick(); });
@@ -63,9 +66,10 @@ export class WheelSettler {
   tick() {
     const time = this.now(), position = this.read();
     if (this.state === 'tracking') {
-      if (Math.abs(position - this.previous) > .2) this.lastMovement = time;
+      if (Math.abs(position - this.previous) > .2) { this.lastMovement = time; this.moved = true; }
       this.previous = position;
       if (this.pressed || time - Math.max(this.lastMovement, this.lastInput) < 150) { this.schedule(); return; }
+      if (!this.moved) { this.stop(); return; }
       const target = this.nearest(position);
       if (!target) { this.stop(); return; }
       this.setCenter(target.id);

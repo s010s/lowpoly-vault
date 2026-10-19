@@ -1,0 +1,10 @@
+import {chromium} from 'playwright';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1440,height:900}});
+await page.goto(process.env.PREVIEW_URL||'http://127.0.0.1:5197/');await page.waitForFunction(()=>window.__preview?.renderer?.detail?.model);
+const posters=await page.evaluate(()=>window.__preview.generatePosters());const out=resolve(import.meta.dirname,'app/public/posters');await mkdir(out,{recursive:true});
+for(const [id,data] of Object.entries(posters))await writeFile(resolve(out,id+'.png'),Buffer.from(data.split(',')[1],'base64'));
+await writeFile(resolve(out,'capture.json'),JSON.stringify({renderer:'Chromium / SwiftShader',browser:browser.version(),camera:{azimuth:42,elevation:23.3,fov:38},exposure:1.1,models:Object.keys(posters),scope:'Preview-only canonical camera and lighting, no production asset changed'},null,2)+'\n');
+await browser.close();console.log(`Captured ${Object.keys(posters).length} preview-only matched posters.`);
