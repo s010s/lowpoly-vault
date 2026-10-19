@@ -30,3 +30,9 @@ The production paths copy the reviewed GLB and editable Blend bytes unchanged. P
 Original models, previews and metadata: CC BY 4.0, **Leon Made This / s010s**. Original code: MIT. Existing notices and attribution remain in the downloadable delivery. Reference ledgers, source links, access limits, Pteraspis supplements, generators, configurations, editable sources and rebuild evidence are preserved. Consulted-only scientific references retain their own rights; their media are not incorporated and are not relicensed as original art.
 
 The exact release descriptor, hard-pinned source bundle and release regression test reject changed model/QA bytes, wrong source identities, extra or missing IDs, Ctenoimbricata promotion, and claims of formal/hardware acceptance. The standard candidate checker is unchanged.
+
+## Shared-renderer poster receipt
+
+The seven new detail/wheel pairs were captured by the approved shared renderer in [CI run 39299900230](https://github.com/s010s/lowpoly-vault/actions/runs/39299900230), then imported with `site/capture-gallery-posters.mjs --source-output`. The public manifest matches an independent local build, all 182 published models have sealed pairs, and the previous 175 descriptors plus all 361 existing sealed resource files remain byte-identical. The renderer SHA-256 remains `f31d66d68c5c63c448bb039b9059ef57937e58a9aa65d46d02e1ecd67fd08a6b`.
+
+The receipt at `qa/concept-seven-release-20261019/gallery-capture/verification.json` binds the source commit, capture artifact, delivered manifest, renderer and 14 new PNG hashes. Native-resolution visual inspection found all seven models visible and fully framed in both sizes. This is raster delivery evidence; complete final-head release and browser CI is still separately required. The seven legacy catalog WebPs have their own exact-GLB capture receipt and are not substitutes for these gallery PNGs.
