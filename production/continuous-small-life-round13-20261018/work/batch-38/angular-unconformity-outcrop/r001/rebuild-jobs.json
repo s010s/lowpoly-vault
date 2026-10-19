@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "angular-unconformity-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/angular-unconformity-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/angular-unconformity-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/angular-unconformity-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/angular-unconformity-outcrop/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/angular-unconformity-outcrop/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "angular-unconformity-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "angular-unconformity-outcrop/angular-unconformity-outcrop.blend",
+        "angular-unconformity-outcrop/angular-unconformity-outcrop.glb",
+        "angular-unconformity-outcrop/qa.json",
+        "angular-unconformity-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "angular-unconformity-outcrop",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/angular-unconformity-outcrop/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/angular-unconformity-outcrop/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/angular-unconformity-outcrop/brief.json",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/angular-unconformity-outcrop/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/angular-unconformity-outcrop/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "angular-unconformity-outcrop",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "angular-unconformity-outcrop/angular-unconformity-outcrop.blend",
+        "angular-unconformity-outcrop/angular-unconformity-outcrop.glb",
+        "angular-unconformity-outcrop/qa.json",
+        "angular-unconformity-outcrop/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
