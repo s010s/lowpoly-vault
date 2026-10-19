@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "beach-ridge",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch43/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch43/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/beach-ridge/brief.json",
+        "references": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/beach-ridge/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/beach-ridge/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "beach-ridge",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "beach-ridge/beach-ridge.blend",
+        "beach-ridge/beach-ridge.glb",
+        "beach-ridge/qa.json",
+        "beach-ridge/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch43 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "beach-ridge",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/beach-ridge/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch43/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch43/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/beach-ridge/brief.json",
+        "references": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/beach-ridge/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/beach-ridge/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "beach-ridge",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "beach-ridge/beach-ridge.blend",
+        "beach-ridge/beach-ridge.glb",
+        "beach-ridge/qa.json",
+        "beach-ridge/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch43 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
