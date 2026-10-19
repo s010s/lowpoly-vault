@@ -1,0 +1,971 @@
+{
+  "schema_version": 1,
+  "kind": "independent-qa-report",
+  "review_round": 1,
+  "source_binding": {
+    "handoff_commit": "0eed2d38d04f4b3d2b847eff8f376934769c0102",
+    "handoff_path": "production/continuous-small-life-round13-20261018/work/batch-39/HANDOFF.md",
+    "handoff_sha256": "0e301a7b5888f81aa2668f3ff2c1b0f47cc094b17d79b4f7dd26b043750c6cbc",
+    "final_handoff_path": "production/continuous-small-life-round13-20261018/work/batch-39/final-handoff.jsonl",
+    "final_handoff_sha256": "6e863c6c7b1d0cb46b6c96b8393d7f86c48019ac818fd214f9ba8afa03f05707",
+    "scope_path": "production/continuous-small-life-round13-20261018/work/batch-39/scope.json",
+    "scope_sha256": "3324eac533dcb0d256165ae76a3d37117bc4e09e087a89ef251d37fcae081be4",
+    "scope_pins_final_handoff": true,
+    "base_commit": "2f0a90f833e2607963ec33e5fd4647a8506e1bee",
+    "planning_commit": "73d577b385825ebfa43471b1cb84b47a8ecdbaaa"
+  },
+  "scope": {
+    "batch_id": "batch-39",
+    "asset_ids": [
+      "clavagella",
+      "aa-lava-front",
+      "native-copper-dendrite",
+      "nereites-lobed-meander"
+    ],
+    "candidate_remote": "https://github.com/s010s/lowpoly-vault.git"
+  },
+  "reviewer": {
+    "commit_author": "Leon Made This <8357465+s010s@users.noreply.github.com>",
+    "actual_model_identity": "not independently verified from runtime metadata",
+    "parent_reported_model": "GPT-6 Luna xhigh (request-reported; not independently verified)",
+    "identity_triggered_repeat_qa": false
+  },
+  "profile": {
+    "validation_profile": "static-stylized-v1",
+    "rule_version": "2026-10-18.1",
+    "contract_compatible_for_all": true,
+    "candidate_record_valid_for_all": true,
+    "candidate_approval_for_all": false,
+    "formal_profile_acceptance": "BLOCKED; required stages remain unknown/pending and hardware-GPU evidence is absent"
+  },
+  "summary": {
+    "content_decision": "BLOCKED_MANDATORY_FIX",
+    "content_pass_count": 3,
+    "mandatory_fix_count": 1,
+    "mandatory_fix_asset": "aa-lava-front",
+    "technical_integrity": "PASS for all four exact Blend/GLB pairs",
+    "hardware_gpu": "UNKNOWN_NOT_TESTED",
+    "production_performance_claim": false,
+    "candidate_records_modified": false
+  },
+  "mandatory_fixes": [
+    {
+      "asset_id": "aa-lava-front",
+      "defect_id": "B39-AA-01",
+      "evidence_paths": [
+        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-hero.png",
+        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-front.png",
+        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-side.png",
+        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/hero.png",
+        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/side.png"
+      ],
+      "required_correction": "Replace the display-plinth-like rectangular base read with an irregular coherent flow body and integrated uneven clinker front."
+    }
+  ],
+  "integrity_evidence_path": "evidence/hashes/batch39-integrity.json",
+  "assets": [
+    {
+      "asset_id": "clavagella",
+      "candidate_branch": "candidate/batch39-clavagella-20261018",
+      "candidate_commit_sha": "9965f69214d8234921836885e27d45a51ac10481",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/clavagella.blend",
+        "bytes": 851908,
+        "sha256": "df7099aaf0cfb96003c3fcbafc77e6ed5fffc69f30eb757c91fbe89697fb22a2"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/clavagella.glb",
+        "bytes": 186684,
+        "triangles": 9956,
+        "sha256": "ba1afe1555b5d8d755cacd4ceab594973f579d4a05327ba71b805d57d7667367"
+      },
+      "dimensions_source_blender_m": [
+        0.04448759742081165,
+        0.1599999964237213,
+        0.03793495520949364
+      ],
+      "decision": {
+        "content": "PASS",
+        "visual": "PASS",
+        "factual_scope": "PASS",
+        "technical_integrity": "PASS",
+        "formal_profile_acceptance": "BLOCKED",
+        "note": "Preserved shell/tube scope only. The integrated shallow valve relief, bulbous tube, long narrowing neck, lumen, and small anterior tubules read clearly; no unsupported soft tissue or living posture."
+      },
+      "independent_blender": {
+        "blender_version": "4.3.2",
+        "root_identity": true,
+        "source_triangles": 9956,
+        "reimport_glb_triangles": 9956,
+        "triangles_match": true,
+        "bounds_match_within_1e-4_m": true,
+        "source_closed_finite": true
+      },
+      "source_export": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/source-export.report.json",
+        "report_sha256": "14655eaa0be469aa45b10a2d34acb615aa330e1d758eb8be77549b1ec2b580b9",
+        "status": "pass_with_warnings",
+        "source_sha256_matches_blend": true,
+        "glb_sha256_matches": true,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "warnings": [
+          "source: continuous-preserved-adventitious-calcareous-tube-with-incorpor: smooth faces require intentional-style review",
+          "source: shallow-incorporated-valve-margin-and-original-growth-relief-co: smooth faces require intentional-style review",
+          "source: few-irregular-calcareous-wateringpot-mouths-not-soft-siphons: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/gltf-validator.report.json",
+        "report_sha256": "6529ed7c8b403944eed8c593724868dce6d2e2c59dfbdf31eede7a35dc9853bd",
+        "num_errors": 0,
+        "num_warnings": 0
+      },
+      "rebuilds": [
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/reproducibility-1.report.json",
+          "report_sha256": "484ce36c17edc54233ff8532d6d70305a93390e7b01a900c831fbd51450e4687",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/runs/build/clavagella/r001/semantic-rebuild-1/298bf4f1132ab32e03a881dd5abe40c6b9519252af48dbb7a117fed3bd63796e/20261019T013049-ba82389065c2440ea8d2466f7e8111ac/result.json",
+          "result_sha256": "38149867a3bcb65fd1a35f7935ea0350a87caef917dfe591b9e3d1fed7025c37",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/runs/build/clavagella/r001/semantic-rebuild-1/298bf4f1132ab32e03a881dd5abe40c6b9519252af48dbb7a117fed3bd63796e/20261019T013049-ba82389065c2440ea8d2466f7e8111ac/outputs/clavagella.glb",
+          "rebuilt_glb_sha256": "ba1afe1555b5d8d755cacd4ceab594973f579d4a05327ba71b805d57d7667367",
+          "semantic_sha256": "be1ed422365d9a5e3deabedd9b496841f8dcdcf642b0f2b4f96588e540208001",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        },
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/reproducibility-2.report.json",
+          "report_sha256": "a44a3c1d5704c51177dd771a018f11a2f45cd2cb2df6c32efb8ceb0a02aafd1d",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/runs/build/clavagella/r001/semantic-rebuild-2/1413e87b275c1c8b0ca5bfbbc46c8265d45a46e2d30f22bd5df1cb6dd0811bf0/20261019T013051-b0f2f95fea2549b0b430aab11898e3a1/result.json",
+          "result_sha256": "f13f2d954274182d9903abaf7a1835b6b0fdec1eca77f858db80f965eabdf1ca",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/runs/build/clavagella/r001/semantic-rebuild-2/1413e87b275c1c8b0ca5bfbbc46c8265d45a46e2d30f22bd5df1cb6dd0811bf0/20261019T013051-b0f2f95fea2549b0b430aab11898e3a1/outputs/clavagella.glb",
+          "rebuilt_glb_sha256": "ba1afe1555b5d8d755cacd4ceab594973f579d4a05327ba71b805d57d7667367",
+          "semantic_sha256": "be1ed422365d9a5e3deabedd9b496841f8dcdcf642b0f2b4f96588e540208001",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        }
+      ],
+      "integrity": {
+        "handoff_artifact_pin_count": 32,
+        "all_handoff_pins_match": true,
+        "fixed_views": 8,
+        "runtime_images": 7
+      },
+      "runtime": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/runtime-report.json",
+        "evidence_manifest_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/evidence-manifest.json",
+        "browser_version": "154.0.8037.57",
+        "three_version": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "functional_status": "pass",
+        "hardware_performance_claim": false,
+        "images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/front.png",
+            "sha256": "6378523bf4a0bd00af3919611d1d66585ae418c44440c2980cb0a514aba4898a",
+            "bytes": 9825,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/hero.png",
+            "sha256": "d96e4ddb856780150c7b1cdb0906467d977309bae4d72aee0e832e6e5885ca1b",
+            "bytes": 14926,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/near.png",
+            "sha256": "ba2cad4d44b81d343efd16b856ca45080ae0daf6d6f9ab17d3742bb961f9ee63",
+            "bytes": 13782,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/reversehero.png",
+            "sha256": "f919a2d07a76816ba6c353d0b4e086cdf6308f7902329a7ca8b3ce9bd42ed1b9",
+            "bytes": 13658,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/scene-9-copies.png",
+            "sha256": "ac832fb9bd5045b32bffddb562b5382bdd015d0c46a8452ec97d1205ba50b2bb",
+            "bytes": 14784,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/side.png",
+            "sha256": "579bb1233ed5643b2df8c2ad84d2f94a759bc4919d65d84720f7aed915668665",
+            "bytes": 12849,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/top.png",
+            "sha256": "a3d4b8628c5f6f779bc1377b150123ce1a780c822c8028972270bf869f7e7e72",
+            "bytes": 18656,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "candidate_record": {
+        "valid": true,
+        "approved_for_brief": false,
+        "approval_status": "pending"
+      },
+      "static_profile": {
+        "name": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "validator_exit_code": 0,
+        "candidate_record_valid": true,
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ],
+        "legacy_errors_preserved": [
+          "IV-CLAVAGELLA.license: nonempty text required"
+        ],
+        "contract_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/profile-contract.json",
+        "contract_sha256": "76ecc889eba30507dd112aadbf3736a878e7e72372131a5813c965b24fc45392"
+      },
+      "reference_urls": [
+        "https://rsnz.onlinelibrary.wiley.com/doi/abs/10.1080/00288306.2011.537611"
+      ],
+      "evidence_paths": {
+        "candidate_handoff": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/HANDOFF.md",
+        "candidate_record": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/candidate.json",
+        "profile_contract": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/profile-contract.json",
+        "fixed_view_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/views/render-manifest.json",
+        "fixed_view_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/qa-contact-sheet.png",
+        "runtime_evidence_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/evidence-manifest.json",
+        "runtime_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime/runtime-report.json",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/runtime-contact-sheet.png",
+        "source_export_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/source-export.report.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/gltf-validator.report.json",
+        "rebuild_reports": [
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/reproducibility-1.report.json",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001/reproducibility-2.report.json"
+        ],
+        "independent_blender_audit": "evidence/blender/clavagella.json"
+      }
+    },
+    {
+      "asset_id": "aa-lava-front",
+      "candidate_branch": "candidate/batch39-aa-lava-front-20261018",
+      "candidate_commit_sha": "50a980789119a9d9d2049f15dd05681236cb5152",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/aa-lava-front.blend",
+        "bytes": 524948,
+        "sha256": "98f09b6f01498549fee7ab6afbec57732fa77ddf822fc5cdfc2b3d312853770a"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/aa-lava-front.glb",
+        "bytes": 86436,
+        "triangles": 1614,
+        "sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0"
+      },
+      "dimensions_source_blender_m": [
+        1.2000000476837158,
+        0.9078489243984222,
+        0.4442894756793976
+      ],
+      "decision": {
+        "content": "MUST_FIX",
+        "visual": "MUST_FIX",
+        "factual_scope": "PASS",
+        "technical_integrity": "PASS",
+        "formal_profile_acceptance": "BLOCKED",
+        "note": "At child-viewing scale, the clean rectangular base with flat vertical sides reads as a display tile under stacked rocks, not as a continuous natural lava body with an irregular clinker front."
+      },
+      "independent_blender": {
+        "blender_version": "4.3.2",
+        "root_identity": true,
+        "source_triangles": 1614,
+        "reimport_glb_triangles": 1614,
+        "triangles_match": true,
+        "bounds_match_within_1e-4_m": true,
+        "source_closed_finite": true
+      },
+      "source_export": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/source-export.report.json",
+        "report_sha256": "82a9e872627efb497cc43aa15ed10360249c093c9603ad2e6d24c3147cc534be",
+        "status": "pass",
+        "source_sha256_matches_blend": true,
+        "glb_sha256_matches": true,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "warnings": []
+      },
+      "khronos": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/gltf-validator.report.json",
+        "report_sha256": "d430e1f601e29887ed7ee200923bce83c9b3fc37c9608cad2bea81e9bae9fb2b",
+        "num_errors": 0,
+        "num_warnings": 0
+      },
+      "rebuilds": [
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-1.report.json",
+          "report_sha256": "beb2744620ee7c2f6ec04363d9101a529565981f8775583e5ab816a3b4e2c2f3",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-1/6b2e371b90fb2e37fe390c5f99efe9a25e1f10bbcde93bb1dcb7794a53e8f30c/20261019T013436-d59a278afc1648239785d87497051643/result.json",
+          "result_sha256": "99e2b6d673b63f88e17f2254a20eb01afecc018e613fe899cce590a6ce1a956d",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-1/6b2e371b90fb2e37fe390c5f99efe9a25e1f10bbcde93bb1dcb7794a53e8f30c/20261019T013436-d59a278afc1648239785d87497051643/outputs/aa-lava-front.glb",
+          "rebuilt_glb_sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0",
+          "semantic_sha256": "49b44667f6c00fc3c6c69540c2677df1cdb3b58b91142de6026117f909e877f1",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        },
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-2.report.json",
+          "report_sha256": "acf19b292c8e018186735aeaa4bee4e204921adda2122f52e3a774062ddfa636",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-2/6a4fbd15bf12cc6a129241e19c6671218d219841c79d26355f1828d46f64a77c/20261019T013438-55f5852319b14c1db0b6ca8c07def439/result.json",
+          "result_sha256": "083ecec4d37d840d64568232302c118a43e9815a58e6ced639fb27c49f5b164f",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-2/6a4fbd15bf12cc6a129241e19c6671218d219841c79d26355f1828d46f64a77c/20261019T013438-55f5852319b14c1db0b6ca8c07def439/outputs/aa-lava-front.glb",
+          "rebuilt_glb_sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0",
+          "semantic_sha256": "49b44667f6c00fc3c6c69540c2677df1cdb3b58b91142de6026117f909e877f1",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        }
+      ],
+      "integrity": {
+        "handoff_artifact_pin_count": 32,
+        "all_handoff_pins_match": true,
+        "fixed_views": 8,
+        "runtime_images": 7
+      },
+      "runtime": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/runtime-report.json",
+        "evidence_manifest_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/evidence-manifest.json",
+        "browser_version": "154.0.8037.57",
+        "three_version": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "functional_status": "pass",
+        "hardware_performance_claim": false,
+        "images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/front.png",
+            "sha256": "72597e7244830b0feb070480211666032b9e92a2c23946ee8f3fc8e10ac9e7eb",
+            "bytes": 11787,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/hero.png",
+            "sha256": "7416126beefdf982d02e400c01adcafe85f43060771f81aff97349c5b19970cf",
+            "bytes": 21615,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/near.png",
+            "sha256": "f24961e74305a827a4445348517f8b2f889da21ca9fff1f0c7b69cb64353da8b",
+            "bytes": 19332,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/reversehero.png",
+            "sha256": "a1ff90b1b02944096b1f26dfa249e30efc0e842b1182273145cca4f94514e3f6",
+            "bytes": 15345,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/scene-9-copies.png",
+            "sha256": "f7ca219768e17b562f80f49478de00956f93d5f3e14bc3ea7326204727602901",
+            "bytes": 34524,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/side.png",
+            "sha256": "820e90bee0a3e1999e698032438b725121c3332955ed9c4f39d7bf41ca0b2ed0",
+            "bytes": 8474,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/top.png",
+            "sha256": "83a6301dc79a53671ce3e84d24717b6b71e86427e747d172b676b8fbc63bfdd7",
+            "bytes": 28785,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "candidate_record": {
+        "valid": true,
+        "approved_for_brief": false,
+        "approval_status": "pending"
+      },
+      "static_profile": {
+        "name": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "validator_exit_code": 0,
+        "candidate_record_valid": true,
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ],
+        "legacy_errors_preserved": [
+          "EN-LV.license: nonempty text required"
+        ],
+        "contract_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/profile-contract.json",
+        "contract_sha256": "8cf89711d4e3b1bb428440dcc05d7492a932be5a0f1b6bbc9e722483db366cf7"
+      },
+      "reference_urls": [
+        "https://www.nps.gov/crmo/learn/education/site-tour-1.htm"
+      ],
+      "evidence_paths": {
+        "candidate_handoff": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/HANDOFF.md",
+        "candidate_record": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/candidate.json",
+        "profile_contract": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/profile-contract.json",
+        "fixed_view_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/render-manifest.json",
+        "fixed_view_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/qa-contact-sheet.png",
+        "runtime_evidence_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/evidence-manifest.json",
+        "runtime_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/runtime-report.json",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime-contact-sheet.png",
+        "source_export_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/source-export.report.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/gltf-validator.report.json",
+        "rebuild_reports": [
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-1.report.json",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-2.report.json"
+        ],
+        "independent_blender_audit": "evidence/blender/aa-lava-front.json"
+      },
+      "defect": {
+        "id": "B39-AA-01",
+        "severity": "mandatory_fix",
+        "criterion": "basic-form-and-scope / normal-view-craft",
+        "views": [
+          "views/preview-hero.png",
+          "views/preview-front.png",
+          "views/preview-side.png",
+          "runtime/hero.png",
+          "runtime/side.png"
+        ],
+        "finding": "The flat rectangular substrate and sharp vertical edges read as a display plinth/tray beneath the angular clinker pile. The flow-body front and uneven rubble contact do not read as a continuous natural flow mass at intended scale.",
+        "required_correction": "Reshape the flow body/front silhouette into an irregular natural mass and integrate the unequal clinker visibly across the front edge; remove the square plinth read. Preserve the current generic scope and avoid new eruption/site claims.",
+        "retest_after_future_change": "Bind revised exact GLB SHA and inspect fixed views plus runtime evidence."
+      }
+    },
+    {
+      "asset_id": "native-copper-dendrite",
+      "candidate_branch": "candidate/batch39-native-copper-dendrite-20261018",
+      "candidate_commit_sha": "37a66698356bb847a34ad3fb772d1d828c06a87f",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/native-copper-dendrite.blend",
+        "bytes": 518056,
+        "sha256": "6e08c4af5c4ac513575ea31063fa61d035fa504e503649b73f8a8ddca471179a"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/native-copper-dendrite.glb",
+        "bytes": 95044,
+        "triangles": 1800,
+        "sha256": "bc7e051c9a04f93f9689359142bc673f73cb4944b325565fa523c3ea7a9491ad"
+      },
+      "dimensions_source_blender_m": [
+        0.14999999850988388,
+        0.1310403160750866,
+        0.00474950298666954
+      ],
+      "decision": {
+        "content": "PASS",
+        "visual": "PASS",
+        "factual_scope": "PASS",
+        "technical_integrity": "PASS",
+        "formal_profile_acceptance": "BLOCKED",
+        "note": "The unequal planar branching aggregate reads as a copper dendrite. Terminals are somewhat squared and rhythmically repeated, but are adequate at the intended 15 cm child-friendly low-poly scale; no micro-polish is required."
+      },
+      "independent_blender": {
+        "blender_version": "4.3.2",
+        "root_identity": true,
+        "source_triangles": 1800,
+        "reimport_glb_triangles": 1800,
+        "triangles_match": true,
+        "bounds_match_within_1e-4_m": true,
+        "source_closed_finite": true
+      },
+      "source_export": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/source-export.report.json",
+        "report_sha256": "006391c1294bac7abf281e98938db7a1d7588515c53b30dac377351f146e31ab",
+        "status": "pass",
+        "source_sha256_matches_blend": true,
+        "glb_sha256_matches": true,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "warnings": []
+      },
+      "khronos": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/gltf-validator.report.json",
+        "report_sha256": "2a5ca9d44dfcfc6412f6f0797c27337cca09cc510677d910d51df98d93e5e7ee",
+        "num_errors": 0,
+        "num_warnings": 0
+      },
+      "rebuilds": [
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/reproducibility-1.report.json",
+          "report_sha256": "f0d8ebcea3e862d99a9356f4158565c95f583ebe1eeb607aea1e605ced2236f5",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/runs/build/native-copper-dendrite/r001/semantic-rebuild-1/16d0e0831f5d41db9c0c798a913a2bbddefae92f22c7a7a0002d154c50e9e125/20261019T013857-569091090aa84a90a2ad64c0d28f8aba/result.json",
+          "result_sha256": "e9d44ddaf99c54a492657aee43ba75abeeee1de07e423663712f9a39945e0d19",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/runs/build/native-copper-dendrite/r001/semantic-rebuild-1/16d0e0831f5d41db9c0c798a913a2bbddefae92f22c7a7a0002d154c50e9e125/20261019T013857-569091090aa84a90a2ad64c0d28f8aba/outputs/native-copper-dendrite.glb",
+          "rebuilt_glb_sha256": "bc7e051c9a04f93f9689359142bc673f73cb4944b325565fa523c3ea7a9491ad",
+          "semantic_sha256": "b6291cf1d54edf73ccbac8ae2110fbfc74385c22a975beba8ffb76ddcd257fe0",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        },
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/reproducibility-2.report.json",
+          "report_sha256": "0621726e2dfe5f5bf18e5c4079d0e6a57b5e93a3b5489ddcfea46a07c5183550",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/runs/build/native-copper-dendrite/r001/semantic-rebuild-2/7b32d7552cb63aedad796be21ca6f70d550dab27948533844e0d6c7bb00b9425/20261019T013859-7026bc2b3d3046eb92be0c688d162759/result.json",
+          "result_sha256": "454a0af8d6d72d5275cfc9f7c7fe68786af88348c0d9440665af47a0c5d83436",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/runs/build/native-copper-dendrite/r001/semantic-rebuild-2/7b32d7552cb63aedad796be21ca6f70d550dab27948533844e0d6c7bb00b9425/20261019T013859-7026bc2b3d3046eb92be0c688d162759/outputs/native-copper-dendrite.glb",
+          "rebuilt_glb_sha256": "bc7e051c9a04f93f9689359142bc673f73cb4944b325565fa523c3ea7a9491ad",
+          "semantic_sha256": "b6291cf1d54edf73ccbac8ae2110fbfc74385c22a975beba8ffb76ddcd257fe0",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        }
+      ],
+      "integrity": {
+        "handoff_artifact_pin_count": 34,
+        "all_handoff_pins_match": true,
+        "fixed_views": 8,
+        "runtime_images": 7
+      },
+      "runtime": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/runtime-report.json",
+        "evidence_manifest_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/evidence-manifest.json",
+        "browser_version": "154.0.8037.57",
+        "three_version": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "functional_status": "pass",
+        "hardware_performance_claim": false,
+        "images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/front.png",
+            "sha256": "c5fcaef812b62e34ff3c258db947a0c0c307f329b5116ab99ac122a0313c4c8f",
+            "bytes": 4411,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/hero.png",
+            "sha256": "32125b9e87cdf7c142b478c32e374cc06e8b5868ad76b178ef20b6bc88369424",
+            "bytes": 14912,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/near.png",
+            "sha256": "ad2bda1d2d7fc839e8294843e84831bf2bf8ca1dbed0019483eaf78654816660",
+            "bytes": 12959,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/reversehero.png",
+            "sha256": "0f73f9704d8b0482780e1194be9883818bd7ba0848bf6b640ee0579e14a8362c",
+            "bytes": 15002,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/scene-9-copies.png",
+            "sha256": "0360657693c163377e9e4164ac144e421d702fcf96d56c2c780e244195e78055",
+            "bytes": 22512,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/side.png",
+            "sha256": "490f56f1a8f5a536f29cc510ea250ce6178c6666752737678ff4926ec87753e3",
+            "bytes": 3961,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/top.png",
+            "sha256": "bacf444ac1bcb69080a9b45bac397745f3fe60780f04945798dd6875606d1e34",
+            "bytes": 24843,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "candidate_record": {
+        "valid": true,
+        "approved_for_brief": false,
+        "approval_status": "pending"
+      },
+      "static_profile": {
+        "name": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "validator_exit_code": 0,
+        "candidate_record_valid": true,
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ],
+        "legacy_errors_preserved": [
+          "EN-MI5.license: nonempty text required"
+        ],
+        "contract_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/profile-contract.json",
+        "contract_sha256": "a53553db66a2510395fc5f9afd73e489d299185ed3cdde8643caff184fac1a15"
+      },
+      "reference_urls": [
+        "https://museum.mtu.edu/pdfs/COPPER.pdf"
+      ],
+      "evidence_paths": {
+        "candidate_handoff": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/HANDOFF.md",
+        "candidate_record": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/candidate.json",
+        "profile_contract": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/profile-contract.json",
+        "fixed_view_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/views/render-manifest.json",
+        "fixed_view_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/qa-contact-sheet.png",
+        "runtime_evidence_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/evidence-manifest.json",
+        "runtime_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime/runtime-report.json",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/runtime-contact-sheet.png",
+        "source_export_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/source-export.report.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/gltf-validator.report.json",
+        "rebuild_reports": [
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/reproducibility-1.report.json",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001/reproducibility-2.report.json"
+        ],
+        "independent_blender_audit": "evidence/blender/native-copper-dendrite.json"
+      }
+    },
+    {
+      "asset_id": "nereites-lobed-meander",
+      "candidate_branch": "candidate/batch39-nereites-lobed-meander-20261018",
+      "candidate_commit_sha": "85b15327910c516aea001a42d4feaf51e775d3ed",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/nereites-lobed-meander.blend",
+        "bytes": 775952,
+        "sha256": "31b9369d5c2f5a23d50dbc9f2738e30bcd964e77811a188f0d46b3fe6c61d1b1"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/nereites-lobed-meander.glb",
+        "bytes": 165560,
+        "triangles": 8620,
+        "sha256": "691e88fe743aaf2e04f10bfc68c9fd961211004b0fc28d969ae33c68f20be442"
+      },
+      "dimensions_source_blender_m": [
+        0.29999998211860657,
+        0.22999998927116394,
+        0.01629999838769436
+      ],
+      "decision": {
+        "content": "PASS",
+        "visual": "PASS",
+        "factual_scope": "PASS",
+        "technical_integrity": "PASS",
+        "formal_profile_acceptance": "BLOCKED",
+        "note": "Gray top/oblique views show true raised meandering relief with lateral alternating/offset lobes on one sediment host. The repeated round lobe rhythm is within the interpretive teaching-prop scope."
+      },
+      "independent_blender": {
+        "blender_version": "4.3.2",
+        "root_identity": true,
+        "source_triangles": 8620,
+        "reimport_glb_triangles": 8620,
+        "triangles_match": true,
+        "bounds_match_within_1e-4_m": true,
+        "source_closed_finite": true
+      },
+      "source_export": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/source-export.report.json",
+        "report_sha256": "57471048658e9259388a33987fdd92642fa85f13f5721827733e2f8213d76751",
+        "status": "pass_with_warnings",
+        "source_sha256_matches_blend": true,
+        "glb_sha256_matches": true,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "warnings": [
+          "source: raised-meandering-backfilled-axis-with-alternating-overlapping-: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/gltf-validator.report.json",
+        "report_sha256": "4af2c8bb67093ff391edeadcbdeff541aa6b3fde11e95786920c53a859f3a99b",
+        "num_errors": 0,
+        "num_warnings": 0
+      },
+      "rebuilds": [
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/reproducibility-1.report.json",
+          "report_sha256": "b28247830cce177fc11d8aa84ff669032d46535198f402503ab6da6a5ce8d2d3",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/nereites-lobed-meander/r001/runs/build/nereites-lobed-meander/r001/semantic-rebuild-1/2af5c3cc53e7a0c8db4e557610b7cde6eb1eff4ae2346b595bcc8175b0c12b7e/20261019T014328-2372fdef8f074a44a02d0fe616516549/result.json",
+          "result_sha256": "7fb097b804c17d419d285fc68c2397db175d9ac265515fe7b2f0bdba6bb0c0f0",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/nereites-lobed-meander/r001/runs/build/nereites-lobed-meander/r001/semantic-rebuild-1/2af5c3cc53e7a0c8db4e557610b7cde6eb1eff4ae2346b595bcc8175b0c12b7e/20261019T014328-2372fdef8f074a44a02d0fe616516549/outputs/nereites-lobed-meander.glb",
+          "rebuilt_glb_sha256": "691e88fe743aaf2e04f10bfc68c9fd961211004b0fc28d969ae33c68f20be442",
+          "semantic_sha256": "287e0ab4e7e41cd3b080d55d39997cc86c8559abde9f123a1127ac1d3b92587e",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        },
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/reproducibility-2.report.json",
+          "report_sha256": "616c2d9c990ef98a9463b1e42c275aaa5c3418b273cbe0a2446b253e71985e16",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/nereites-lobed-meander/r001/runs/build/nereites-lobed-meander/r001/semantic-rebuild-2/e658206505f2478b897bbab004801ee3886526208bc5fabd955661dc865d4916/20261019T014330-fc30572dc2084d3497cd7a051df4c0fb/result.json",
+          "result_sha256": "e07e63814b161570c02b83a8999514a54072cd719c6f266f404a163fa89cd615",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/nereites-lobed-meander/r001/runs/build/nereites-lobed-meander/r001/semantic-rebuild-2/e658206505f2478b897bbab004801ee3886526208bc5fabd955661dc865d4916/20261019T014330-fc30572dc2084d3497cd7a051df4c0fb/outputs/nereites-lobed-meander.glb",
+          "rebuilt_glb_sha256": "691e88fe743aaf2e04f10bfc68c9fd961211004b0fc28d969ae33c68f20be442",
+          "semantic_sha256": "287e0ab4e7e41cd3b080d55d39997cc86c8559abde9f123a1127ac1d3b92587e",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        }
+      ],
+      "integrity": {
+        "handoff_artifact_pin_count": 34,
+        "all_handoff_pins_match": true,
+        "fixed_views": 8,
+        "runtime_images": 7
+      },
+      "runtime": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/runtime-report.json",
+        "evidence_manifest_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/evidence-manifest.json",
+        "browser_version": "154.0.8037.57",
+        "three_version": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "functional_status": "pass",
+        "hardware_performance_claim": false,
+        "images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/front.png",
+            "sha256": "d6774a0321612d10b62c4449879ec99fa91d068f8526cab0b767e3e8b2fed59b",
+            "bytes": 4774,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/hero.png",
+            "sha256": "47034a6e1b6f3315e562e30164729d4a129d0cb10c7bdf841019a7b6e4effeed",
+            "bytes": 16122,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/near.png",
+            "sha256": "b0f4fdb248acc2ed4968b6f1b7f9f96f078eabb519a39085161e7e9a3de02126",
+            "bytes": 13124,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/reversehero.png",
+            "sha256": "719791d634e28adee6e25e5ddba0c606a56026c5485618e723ca42a182fa5a83",
+            "bytes": 16099,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/scene-9-copies.png",
+            "sha256": "57c6b76a195ce8c575e626bc8a324d39785b79aef6c714b325652793e26cd954",
+            "bytes": 15784,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/side.png",
+            "sha256": "6be3192eac96cb1e83b4187a4e1720ca26adc4d9af51502ace4ba6bd0885b33d",
+            "bytes": 3450,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/top.png",
+            "sha256": "15818529d77a5fe08a4a9abd37869a5f3c34cea03702dc0c04a8f7e816715bfc",
+            "bytes": 32231,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "candidate_record": {
+        "valid": true,
+        "approved_for_brief": false,
+        "approval_status": "pending"
+      },
+      "static_profile": {
+        "name": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "validator_exit_code": 0,
+        "candidate_record_valid": true,
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ],
+        "legacy_errors_preserved": [
+          "EN-TR2.license: nonempty text required"
+        ],
+        "contract_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/profile-contract.json",
+        "contract_sha256": "194b29d603f713d457692eef1b83411b8d82b54da2d3dc71b7fe19113f1f490a"
+      },
+      "reference_urls": [
+        "https://www.kgs.ku.edu/Publications/Bulletins/245/04_ichno2.html"
+      ],
+      "evidence_paths": {
+        "candidate_handoff": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/HANDOFF.md",
+        "candidate_record": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/candidate.json",
+        "profile_contract": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/profile-contract.json",
+        "fixed_view_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/views/render-manifest.json",
+        "fixed_view_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/qa-contact-sheet.png",
+        "runtime_evidence_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/evidence-manifest.json",
+        "runtime_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime/runtime-report.json",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/runtime-contact-sheet.png",
+        "source_export_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/source-export.report.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/gltf-validator.report.json",
+        "rebuild_reports": [
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/reproducibility-1.report.json",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001/reproducibility-2.report.json"
+        ],
+        "independent_blender_audit": "evidence/blender/nereites-lobed-meander.json"
+      }
+    }
+  ],
+  "limitations": [
+    "Candidate Chromium/Three runtime evidence was hash-checked and its contact-sheet pixels inspected; it was not re-executed in a second browser run.",
+    "Runtime renderer is ANGLE SwiftShader software WebGL; this confirms functional rendering only and cannot support hardware-GPU or production-performance claims.",
+    "Clavagella full-text article was not accessible; factual review is limited to the primary abstract and generic preserved shell/tube concept.",
+    "The independent report does not update candidate stages, candidate approval, or publication state."
+  ]
+}
