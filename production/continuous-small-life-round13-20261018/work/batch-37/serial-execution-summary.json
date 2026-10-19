@@ -1,0 +1,91 @@
+{
+  "kind": "batch37-owned-serial-chronology-summary",
+  "verdict": "pass",
+  "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
+  "final_handoff_jsonl_sha256": "adf6520711b56b4df2695f3a67eebbf6b9c98a7b44b4dbde6a309813facb1081",
+  "overlapping_top_level_owned_launches": 0,
+  "all_owned_process_groups_exited": true,
+  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
+  "top_level_launch_count": 49,
+  "nonzero_exit_count": 1,
+  "nonzero_exit_note": "Actual nonzero source failures are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
+  "assets": [
+    {
+      "asset_id": "pentremites",
+      "candidate_commit": "79db273e561ff145e1c3e092f2153f9f957ad973",
+      "branch": "candidate/batch37-pentremites-20261018",
+      "ledger_path": "production/continuous-small-life-round13-20261018/work/batch-37/pentremites/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "ec954e64fd01a71b30d6d23229fc3130675f4896e1531f2c3117b807792e0502",
+      "first_launch": "2026-10-19T00:58:03.239619+00:00",
+      "last_exit": "2026-10-19T00:58:58.898850+00:00",
+      "lifecycle_complete": "2026-10-19T00:59:27.904887+00:00",
+      "top_level_launch_count": 9,
+      "matching_exit_count": 9,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "schizoneura",
+      "candidate_commit": "9fc2fec2717ae798be984c3e1115d546004f239c",
+      "branch": "candidate/batch37-schizoneura-20261018",
+      "ledger_path": "production/continuous-small-life-round13-20261018/work/batch-37/schizoneura/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "c1a74ca64eb812ef7ab1008a85aa513bc181e9e2320506f41a51f32b92fda1d3",
+      "first_launch": "2026-10-19T00:59:50.683251+00:00",
+      "last_exit": "2026-10-19T01:01:11.679787+00:00",
+      "lifecycle_complete": "2026-10-19T01:01:31.107002+00:00",
+      "top_level_launch_count": 10,
+      "matching_exit_count": 10,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "tombolo",
+      "candidate_commit": "227259bd9e9579192936f75ade88cb021de6ebf0",
+      "branch": "candidate/batch37-tombolo-20261018",
+      "ledger_path": "production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "edfe8621868bbf3f54526a4a9fe72561b4568bb43a27ec60398af3bb373b6c8f",
+      "first_launch": "2026-10-19T01:01:54.911868+00:00",
+      "last_exit": "2026-10-19T01:03:32.050747+00:00",
+      "lifecycle_complete": "2026-10-19T01:03:56.906894+00:00",
+      "top_level_launch_count": 10,
+      "matching_exit_count": 10,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "entobia-sponge-boring-network",
+      "candidate_commit": "c59f4813bbdd6ecdfbd6ca2085a867577aaa59ac",
+      "branch": "candidate/batch37-entobia-sponge-boring-network-20261018",
+      "ledger_path": "production/continuous-small-life-round13-20261018/work/batch-37/entobia-sponge-boring-network/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "763253c8ab28d1d6c320eb49b63d606de0fd145e1533580a0e9e04f8c931f45a",
+      "first_launch": "2026-10-19T01:04:30.472940+00:00",
+      "last_exit": "2026-10-19T01:09:57.398913+00:00",
+      "lifecycle_complete": "2026-10-19T01:10:22.893310+00:00",
+      "top_level_launch_count": 20,
+      "matching_exit_count": 20,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 59548,
+            "returncode": 1,
+            "stage": "source-QA",
+            "reason": "6degenerate triangles at exact Boolean chamber/gallery intersections.",
+            "retained_path": "production/continuous-small-life-round13-20261018/work/batch-37/entobia-sponge-boring-network/r001/failed-attempt-01-csg-intersection-triangulation",
+            "disposition": "Explicit triangulation and subvisual intersection cleanup; same source/glTF integrity checks required. No fake source PASS."
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    }
+  ]
+}

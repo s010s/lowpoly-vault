@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "native-copper-dendrite",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/build.py",
+        "inventory": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/inventory-record.json",
+        "config": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/config.json",
+        "brief": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/brief.json",
+        "references": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/references.json",
+        "freeze": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/freeze.json",
+        "original_config": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/build-config.json",
+        "policy": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/reference-policy.json",
+        "helper": "/workspace/batch39-native-copper-dendrite/scripts/asset_common.py",
+        "audit": "/workspace/batch39-native-copper-dendrite/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "native-copper-dendrite.glb",
+        "native-copper-dendrite.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101817,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "native-copper-dendrite",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/build.py",
+        "inventory": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/inventory-record.json",
+        "config": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/config.json",
+        "brief": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/brief.json",
+        "references": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/references.json",
+        "freeze": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/freeze.json",
+        "original_config": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/build-config.json",
+        "policy": "/workspace/batch39-native-copper-dendrite/production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001/reference-policy.json",
+        "helper": "/workspace/batch39-native-copper-dendrite/scripts/asset_common.py",
+        "audit": "/workspace/batch39-native-copper-dendrite/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "native-copper-dendrite.glb",
+        "native-copper-dendrite.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101817,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

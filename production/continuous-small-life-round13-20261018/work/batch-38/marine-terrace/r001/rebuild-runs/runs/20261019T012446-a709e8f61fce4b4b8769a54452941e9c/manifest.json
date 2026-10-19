@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "marine-terrace",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "marine-terrace",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/brief.json",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "marine-terrace/marine-terrace.blend",
+        "marine-terrace/marine-terrace.glb",
+        "marine-terrace/qa.json",
+        "marine-terrace/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "marine-terrace",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "marine-terrace",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/brief.json",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "marine-terrace/marine-terrace.blend",
+        "marine-terrace/marine-terrace.glb",
+        "marine-terrace/qa.json",
+        "marine-terrace/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

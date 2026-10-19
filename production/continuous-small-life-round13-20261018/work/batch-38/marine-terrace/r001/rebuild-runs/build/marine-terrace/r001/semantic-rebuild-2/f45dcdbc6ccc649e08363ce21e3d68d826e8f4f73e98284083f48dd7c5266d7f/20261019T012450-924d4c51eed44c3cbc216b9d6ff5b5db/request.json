@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/generator.py",
+    "--",
+    "--asset",
+    "marine-terrace",
+    "--config",
+    "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/rebuild-runs/build/marine-terrace/r001/semantic-rebuild-2/f45dcdbc6ccc649e08363ce21e3d68d826e8f4f73e98284083f48dd7c5266d7f/20261019T012450-924d4c51eed44c3cbc216b9d6ff5b5db/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-19T01:24:50.355710+00:00",
+  "fingerprint": "f45dcdbc6ccc649e08363ce21e3d68d826e8f4f73e98284083f48dd7c5266d7f",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9722,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/brief.json",
+        "sha256": "f1b1630b86d2c0dd58cb1c98d9a6e862c6d136649c3da544837339cc4fba02c1"
+      },
+      "config": {
+        "bytes": 2365,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/config.json",
+        "sha256": "5ed00fae301ff70e4c276b95a99b283e2e493db3cad2558a39f64161be5cf6b2"
+      },
+      "generator": {
+        "bytes": 5102,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/generator.py",
+        "sha256": "59c9719762547c22d97e8989dda2890e0215526d089c790ebbffbd8b35a3ab67"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2709,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/inventory-record.json",
+        "sha256": "d94bf32349d774890fcf96be98e78f5a0b2a7467804199c9c6a883733f6b3881"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1247,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/references.json",
+        "sha256": "4ccf3df43e45987ab7aa84cb422389e7a064b6686b5b93f3769478df92ab5356"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "marine-terrace",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "marine-terrace",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/brief.json",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/marine-terrace/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "marine-terrace/marine-terrace.blend",
+        "marine-terrace/marine-terrace.glb",
+        "marine-terrace/qa.json",
+        "marine-terrace/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T012446-a709e8f61fce4b4b8769a54452941e9c"
+}

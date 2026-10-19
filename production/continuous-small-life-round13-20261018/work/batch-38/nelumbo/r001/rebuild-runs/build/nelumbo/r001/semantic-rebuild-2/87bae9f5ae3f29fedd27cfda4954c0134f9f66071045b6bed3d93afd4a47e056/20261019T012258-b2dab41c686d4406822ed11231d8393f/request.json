@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/generator.py",
+    "--",
+    "--asset",
+    "nelumbo",
+    "--config",
+    "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/rebuild-runs/build/nelumbo/r001/semantic-rebuild-2/87bae9f5ae3f29fedd27cfda4954c0134f9f66071045b6bed3d93afd4a47e056/20261019T012258-b2dab41c686d4406822ed11231d8393f/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-19T01:22:58.395326+00:00",
+  "fingerprint": "87bae9f5ae3f29fedd27cfda4954c0134f9f66071045b6bed3d93afd4a47e056",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9796,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/brief.json",
+        "sha256": "64347d1e14290cc51649815a6bbc3e83c34de25456bb56c1d269b41a21cd90b7"
+      },
+      "config": {
+        "bytes": 2323,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/config.json",
+        "sha256": "b43c34a28bec2a1143a7a8d80de4ac8fd3ff7259ece6ed6d97951ff6ae575786"
+      },
+      "generator": {
+        "bytes": 4853,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/generator.py",
+        "sha256": "ba1e2a88aa9199e2e2b0017b0abb677edccbcff7b8c50588436be83644649315"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2479,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/inventory-record.json",
+        "sha256": "23a25cc4741a58452d95f6b5c3677027e5c8439601393e656f7f34fd6b13bd12"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1247,
+        "path": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/references.json",
+        "sha256": "f2fc0631bcce10551dba614f95bee68b2f48c2359d14f2b9c8e31059bca8a4b1"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "nelumbo",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "nelumbo",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch38 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch38/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/brief.json",
+        "config": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch38/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/work/batch-38/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch38/production/continuous-small-life-round13-20261018/items/nelumbo/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "nelumbo/nelumbo.blend",
+        "nelumbo/nelumbo.glb",
+        "nelumbo/qa.json",
+        "nelumbo/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T012255-46d80cd10c9f41638a8b2c2b1ca3d751"
+}
