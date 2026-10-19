@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "clavagella",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/build.py",
+        "inventory": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/inventory-record.json",
+        "config": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/config.json",
+        "brief": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/brief.json",
+        "references": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/references.json",
+        "freeze": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/freeze.json",
+        "original_config": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/build-config.json",
+        "policy": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/reference-policy.json",
+        "helper": "/workspace/batch39-clavagella/scripts/asset_common.py",
+        "audit": "/workspace/batch39-clavagella/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "clavagella.glb",
+        "clavagella.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101815,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "clavagella",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/build.py",
+        "inventory": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/inventory-record.json",
+        "config": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/config.json",
+        "brief": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/brief.json",
+        "references": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/references.json",
+        "freeze": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/freeze.json",
+        "original_config": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/build-config.json",
+        "policy": "/workspace/batch39-clavagella/production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001/reference-policy.json",
+        "helper": "/workspace/batch39-clavagella/scripts/asset_common.py",
+        "audit": "/workspace/batch39-clavagella/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "clavagella.glb",
+        "clavagella.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101815,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

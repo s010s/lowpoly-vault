@@ -2,6 +2,7 @@
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 const tasks = {
+  "round13": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round13-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round13-20261018/site"}},
   "round12": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round12-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round12-20261018/site"}},
   "round06": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round06-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round06-20261018/site"}},
   "round07": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round07-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round07-20261018/site"}},
