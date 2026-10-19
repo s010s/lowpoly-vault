@@ -39,29 +39,17 @@
     "formal_profile_acceptance": "BLOCKED; required stages remain unknown/pending and hardware-GPU evidence is absent"
   },
   "summary": {
-    "content_decision": "BLOCKED_MANDATORY_FIX",
-    "content_pass_count": 3,
-    "mandatory_fix_count": 1,
-    "mandatory_fix_asset": "aa-lava-front",
-    "technical_integrity": "PASS for all four exact Blend/GLB pairs",
+    "content_decision": "PASS_CONTENT; AA B39-AA-01 CLOSED BY TARGETED DIFFERENTIAL",
+    "content_pass_count": 4,
+    "mandatory_fix_count": 0,
+    "mandatory_fix_asset": null,
+    "scope_note": "Three original content PASS decisions are preserved without re-review; only aa-lava-front r002 received a targeted differential check.",
+    "technical_integrity": "PASS for original three frozen pairs and targeted aa-lava-front r002 Blend/GLB pair",
     "hardware_gpu": "UNKNOWN_NOT_TESTED",
     "production_performance_claim": false,
     "candidate_records_modified": false
   },
-  "mandatory_fixes": [
-    {
-      "asset_id": "aa-lava-front",
-      "defect_id": "B39-AA-01",
-      "evidence_paths": [
-        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-hero.png",
-        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-front.png",
-        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-side.png",
-        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/hero.png",
-        "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/side.png"
-      ],
-      "required_correction": "Replace the display-plinth-like rectangular base read with an irregular coherent flow body and integrated uneven clinker front."
-    }
-  ],
+  "mandatory_fixes": [],
   "integrity_evidence_path": "evidence/hashes/batch39-integrity.json",
   "assets": [
     {
@@ -289,44 +277,45 @@
     },
     {
       "asset_id": "aa-lava-front",
-      "candidate_branch": "candidate/batch39-aa-lava-front-20261018",
-      "candidate_commit_sha": "50a980789119a9d9d2049f15dd05681236cb5152",
+      "candidate_branch": "candidate/batch39-aa-lava-front-r002-20261019",
+      "candidate_commit_sha": "1a65d88bd1fe81d0df3211b61235a150d71caa8d",
       "blend": {
-        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/aa-lava-front.blend",
-        "bytes": 524948,
-        "sha256": "98f09b6f01498549fee7ab6afbec57732fa77ddf822fc5cdfc2b3d312853770a"
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/aa-lava-front.blend",
+        "bytes": 528040,
+        "sha256": "1e14854740b6cd9260ce43fdc9caa6ca5270cf038d2be0ca7f5f8366c70ffe41"
       },
       "glb": {
-        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/aa-lava-front.glb",
-        "bytes": 86436,
-        "triangles": 1614,
-        "sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0"
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/aa-lava-front.glb",
+        "bytes": 92640,
+        "triangles": 1646,
+        "sha256": "7960936e5ee17c46db8cd3d5658705ef04643a665ebfe5305e16a2bdefeb243c"
       },
       "dimensions_source_blender_m": [
-        1.2000000476837158,
-        0.9078489243984222,
-        0.4442894756793976
+        1.199999988079071,
+        1.0263023972511292,
+        0.42134737968444824
       ],
       "decision": {
-        "content": "MUST_FIX",
-        "visual": "MUST_FIX",
-        "factual_scope": "PASS",
+        "content": "PASS",
+        "visual": "PASS",
+        "factual_scope": "PASS_PRESERVED_FROM_R001",
         "technical_integrity": "PASS",
         "formal_profile_acceptance": "BLOCKED",
-        "note": "At child-viewing scale, the clean rectangular base with flat vertical sides reads as a display tile under stacked rocks, not as a continuous natural lava body with an irregular clinker front."
+        "note": "Targeted r002 differential closes B39-AA-01: the former rectangular plinth edge is absent in source and GLB runtime hero/front/side views; the irregular recessed continuous core and embedded rubble toe read as one natural flow-front mass at intended small low-poly scale. This is a single-issue differential, not a full asset re-review."
       },
       "independent_blender": {
         "blender_version": "4.3.2",
         "root_identity": true,
-        "source_triangles": 1614,
-        "reimport_glb_triangles": 1614,
+        "source_triangles": 1646,
+        "reimport_glb_triangles": 1646,
         "triangles_match": true,
         "bounds_match_within_1e-4_m": true,
-        "source_closed_finite": true
+        "source_closed_finite": true,
+        "audit_path": "evidence/blender/aa-lava-front-r002.json"
       },
       "source_export": {
-        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/source-export.report.json",
-        "report_sha256": "82a9e872627efb497cc43aa15ed10360249c093c9603ad2e6d24c3147cc534be",
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/source-export.report.json",
+        "report_sha256": "0eb7055cf1da9702e0634c76cae41e9656c692ec2f7f8725a7efa4c1a1cfbb69",
         "status": "pass",
         "source_sha256_matches_blend": true,
         "glb_sha256_matches": true,
@@ -336,110 +325,75 @@
         "warnings": []
       },
       "khronos": {
-        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/gltf-validator.report.json",
-        "report_sha256": "d430e1f601e29887ed7ee200923bce83c9b3fc37c9608cad2bea81e9bae9fb2b",
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/gltf-validator.report.json",
+        "report_sha256": "461c532252ac5f8007ea0dd2ec8d5d83e19d9576576f025f00c950c98371f38d",
         "num_errors": 0,
         "num_warnings": 0
       },
       "rebuilds": [
         {
-          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-1.report.json",
-          "report_sha256": "beb2744620ee7c2f6ec04363d9101a529565981f8775583e5ab816a3b4e2c2f3",
-          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-1/6b2e371b90fb2e37fe390c5f99efe9a25e1f10bbcde93bb1dcb7794a53e8f30c/20261019T013436-d59a278afc1648239785d87497051643/result.json",
-          "result_sha256": "99e2b6d673b63f88e17f2254a20eb01afecc018e613fe899cce590a6ce1a956d",
-          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-1/6b2e371b90fb2e37fe390c5f99efe9a25e1f10bbcde93bb1dcb7794a53e8f30c/20261019T013436-d59a278afc1648239785d87497051643/outputs/aa-lava-front.glb",
-          "rebuilt_glb_sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0",
-          "semantic_sha256": "49b44667f6c00fc3c6c69540c2677df1cdb3b58b91142de6026117f909e877f1",
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/reproducibility-1.report.json",
+          "report_sha256": "2b0fb849a4cf1328fa2e44663335b723a09c09f0c85eaabcba68a3a8fdb502d4",
+          "rebuilt_glb_sha256": "7960936e5ee17c46db8cd3d5658705ef04643a665ebfe5305e16a2bdefeb243c",
+          "semantic_sha256": "a20ec5f769326218331a2869b9c6525957b02844df51c2cc4b8cdeaa561b0875",
           "semantic_match": true,
-          "run_status": "succeeded",
-          "returncode": 0
+          "run_status": "pass"
         },
         {
-          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-2.report.json",
-          "report_sha256": "acf19b292c8e018186735aeaa4bee4e204921adda2122f52e3a774062ddfa636",
-          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-2/6a4fbd15bf12cc6a129241e19c6671218d219841c79d26355f1828d46f64a77c/20261019T013438-55f5852319b14c1db0b6ca8c07def439/result.json",
-          "result_sha256": "083ecec4d37d840d64568232302c118a43e9815a58e6ced639fb27c49f5b164f",
-          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-2/6a4fbd15bf12cc6a129241e19c6671218d219841c79d26355f1828d46f64a77c/20261019T013438-55f5852319b14c1db0b6ca8c07def439/outputs/aa-lava-front.glb",
-          "rebuilt_glb_sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0",
-          "semantic_sha256": "49b44667f6c00fc3c6c69540c2677df1cdb3b58b91142de6026117f909e877f1",
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/reproducibility-2.report.json",
+          "report_sha256": "50c4b417e26aab45bbd3991670f35f1297a4912db958101382fbcfacd8595e2f",
+          "rebuilt_glb_sha256": "7960936e5ee17c46db8cd3d5658705ef04643a665ebfe5305e16a2bdefeb243c",
+          "semantic_sha256": "a20ec5f769326218331a2869b9c6525957b02844df51c2cc4b8cdeaa561b0875",
           "semantic_match": true,
-          "run_status": "succeeded",
-          "returncode": 0
+          "run_status": "pass"
         }
       ],
       "integrity": {
-        "handoff_artifact_pin_count": 32,
-        "all_handoff_pins_match": true,
-        "fixed_views": 8,
-        "runtime_images": 7
+        "candidate_checksums_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/checksums.sha256",
+        "all_listed_candidate_file_hashes_match": true,
+        "remote_ref_matches_handoff_tip": true,
+        "r001_subtree_unchanged": true,
+        "other_three_handoff_rows_byte_identical": true
       },
       "runtime": {
-        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/runtime-report.json",
-        "evidence_manifest_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/evidence-manifest.json",
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/runtime/runtime-report.json",
+        "report_sha256": "b641b1cfed3876af5858cc71b3d6db01913dbe253e7fa2ce85f8acb65a281de7",
+        "evidence_manifest_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/runtime/evidence-manifest.json",
+        "evidence_manifest_sha256": "608887272ca6f17fba0e50e51ba39f688df3c187b6d59a03ae80ef9eab4b3fc9",
         "browser_version": "154.0.8037.57",
         "three_version": "180",
-        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "renderer": "WebKit WebGL",
         "functional_status": "pass",
         "hardware_performance_claim": false,
+        "gl_errors_all_views_zero": true,
+        "reviewed_views": [
+          "hero",
+          "front",
+          "side"
+        ],
         "images": [
           {
-            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/front.png",
-            "sha256": "72597e7244830b0feb070480211666032b9e92a2c23946ee8f3fc8e10ac9e7eb",
-            "bytes": 11787,
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/runtime/hero.png",
+            "sha256": "41aad0259baf0ce9c19cf1b141b6ee2ebcc1e9e206f8f836fc5c66c16749edf8",
+            "bytes": 23842,
             "dimensions_px": [
               512,
               512
             ]
           },
           {
-            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/hero.png",
-            "sha256": "7416126beefdf982d02e400c01adcafe85f43060771f81aff97349c5b19970cf",
-            "bytes": 21615,
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/runtime/front.png",
+            "sha256": "e0c5340e16a614fe707a3c16424020c7bd44ff6dc7e303a56dc543137f1c6e8c",
+            "bytes": 12473,
             "dimensions_px": [
               512,
               512
             ]
           },
           {
-            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/near.png",
-            "sha256": "f24961e74305a827a4445348517f8b2f889da21ca9fff1f0c7b69cb64353da8b",
-            "bytes": 19332,
-            "dimensions_px": [
-              512,
-              512
-            ]
-          },
-          {
-            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/reversehero.png",
-            "sha256": "a1ff90b1b02944096b1f26dfa249e30efc0e842b1182273145cca4f94514e3f6",
-            "bytes": 15345,
-            "dimensions_px": [
-              512,
-              512
-            ]
-          },
-          {
-            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/scene-9-copies.png",
-            "sha256": "f7ca219768e17b562f80f49478de00956f93d5f3e14bc3ea7326204727602901",
-            "bytes": 34524,
-            "dimensions_px": [
-              512,
-              512
-            ]
-          },
-          {
-            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/side.png",
-            "sha256": "820e90bee0a3e1999e698032438b725121c3332955ed9c4f39d7bf41ca0b2ed0",
-            "bytes": 8474,
-            "dimensions_px": [
-              512,
-              512
-            ]
-          },
-          {
-            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/top.png",
-            "sha256": "83a6301dc79a53671ce3e84d24717b6b71e86427e747d172b676b8fbc63bfdd7",
-            "bytes": 28785,
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/runtime/side.png",
+            "sha256": "52c3706b4dba3d02b38e43f64dae1c43e93346b48a5d037c5bf800220b26f9ca",
+            "bytes": 11092,
             "dimensions_px": [
               512,
               512
@@ -456,70 +410,55 @@
         "name": "static-stylized-v1",
         "rule_version": "2026-10-18.1",
         "contract_status": "pass",
-        "validator_exit_code": 0,
         "candidate_record_valid": true,
         "approved_for_brief": false,
         "approval_blockers": [
-          "technical: unknown",
-          "technical-integrity: unknown",
-          "visual: unknown",
-          "normal-view-craft: unknown",
-          "factual: unknown",
-          "basic-form-and-scope: unknown",
-          "specification: unknown",
-          "deliverables-and-label: unknown",
-          "runtime_parse: unknown",
-          "target-loader: unknown",
-          "gpu: unknown",
-          "functional-render: unknown",
-          "scene: unknown",
-          "representative-scene: unknown",
-          "open blocker: normal-view-craft",
-          "open blocker: basic-form-and-scope",
-          "open blocker: deliverables-and-label",
-          "approval: pending"
+          "candidate stages remain unknown/pending; hardware-GPU evidence absent"
         ],
-        "legacy_errors_preserved": [
-          "EN-LV.license: nonempty text required"
-        ],
-        "contract_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/profile-contract.json",
-        "contract_sha256": "8cf89711d4e3b1bb428440dcc05d7492a932be5a0f1b6bbc9e722483db366cf7"
+        "contract_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/profile-contract.json",
+        "contract_sha256": "8d6793281d0eb97ed57cf3f5486b6dcf0154bbe799d644a5ccfe757ac4e56242",
+        "contract_status_source": "updated final-handoff.jsonl"
       },
       "reference_urls": [
         "https://www.nps.gov/crmo/learn/education/site-tour-1.htm"
       ],
       "evidence_paths": {
-        "candidate_handoff": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/HANDOFF.md",
-        "candidate_record": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/candidate.json",
-        "profile_contract": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/profile-contract.json",
-        "fixed_view_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/render-manifest.json",
-        "fixed_view_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/qa-contact-sheet.png",
-        "runtime_evidence_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/evidence-manifest.json",
-        "runtime_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/runtime-report.json",
-        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime-contact-sheet.png",
-        "source_export_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/source-export.report.json",
-        "khronos_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/gltf-validator.report.json",
-        "rebuild_reports": [
-          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-1.report.json",
-          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-2.report.json"
+        "candidate_handoff": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/HANDOFF.md",
+        "fixed_views": [
+          "views/preview-hero.png",
+          "views/preview-front.png",
+          "views/preview-side.png"
         ],
-        "independent_blender_audit": "evidence/blender/aa-lava-front.json"
+        "runtime_views": [
+          "runtime/hero.png",
+          "runtime/front.png",
+          "runtime/side.png"
+        ],
+        "source_export_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/source-export.report.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/gltf-validator.report.json",
+        "rebuild_reports": [
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/reproducibility-1.report.json",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r002/reproducibility-2.report.json"
+        ],
+        "independent_blender_audit": "evidence/blender/aa-lava-front-r002.json",
+        "differential_evidence": "evidence/differential-aa-r002.json"
       },
       "defect": {
         "id": "B39-AA-01",
-        "severity": "mandatory_fix",
+        "severity": "closed_by_targeted_differential",
         "criterion": "basic-form-and-scope / normal-view-craft",
+        "finding": "r001 displayed a flat rectangular base with sharp vertical sides beneath the clinker pile.",
+        "resolution": "r002 replaces that visible base read with an irregular sloping continuous core recessed under unequal clinker, with an uneven rubble toe at the front edge.",
         "views": [
           "views/preview-hero.png",
           "views/preview-front.png",
           "views/preview-side.png",
           "runtime/hero.png",
+          "runtime/front.png",
           "runtime/side.png"
-        ],
-        "finding": "The flat rectangular substrate and sharp vertical edges read as a display plinth/tray beneath the angular clinker pile. The flow-body front and uneven rubble contact do not read as a continuous natural flow mass at intended scale.",
-        "required_correction": "Reshape the flow body/front silhouette into an irregular natural mass and integrate the unequal clinker visibly across the front edge; remove the square plinth read. Preserve the current generic scope and avoid new eruption/site claims.",
-        "retest_after_future_change": "Bind revised exact GLB SHA and inspect fixed views plus runtime evidence."
-      }
+        ]
+      },
+      "revision": "r002"
     },
     {
       "asset_id": "native-copper-dendrite",
@@ -967,5 +906,299 @@
     "Runtime renderer is ANGLE SwiftShader software WebGL; this confirms functional rendering only and cannot support hardware-GPU or production-performance claims.",
     "Clavagella full-text article was not accessible; factual review is limited to the primary abstract and generic preserved shell/tube concept.",
     "The independent report does not update candidate stages, candidate approval, or publication state."
-  ]
+  ],
+  "historical_round_1": {
+    "summary": {
+      "content_decision": "BLOCKED_MANDATORY_FIX",
+      "content_pass_count": 3,
+      "mandatory_fix_count": 1,
+      "mandatory_fix_asset": "aa-lava-front",
+      "technical_integrity": "PASS for all four exact Blend/GLB pairs",
+      "hardware_gpu": "UNKNOWN_NOT_TESTED",
+      "production_performance_claim": false,
+      "candidate_records_modified": false
+    },
+    "mandatory_fixes": [
+      {
+        "asset_id": "aa-lava-front",
+        "defect_id": "B39-AA-01",
+        "evidence_paths": [
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-hero.png",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-front.png",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/preview-side.png",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/hero.png",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/side.png"
+        ],
+        "required_correction": "Replace the display-plinth-like rectangular base read with an irregular coherent flow body and integrated uneven clinker front."
+      }
+    ],
+    "aa_lava_front_r001_asset_record": {
+      "asset_id": "aa-lava-front",
+      "candidate_branch": "candidate/batch39-aa-lava-front-20261018",
+      "candidate_commit_sha": "50a980789119a9d9d2049f15dd05681236cb5152",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/aa-lava-front.blend",
+        "bytes": 524948,
+        "sha256": "98f09b6f01498549fee7ab6afbec57732fa77ddf822fc5cdfc2b3d312853770a"
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/aa-lava-front.glb",
+        "bytes": 86436,
+        "triangles": 1614,
+        "sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0"
+      },
+      "dimensions_source_blender_m": [
+        1.2000000476837158,
+        0.9078489243984222,
+        0.4442894756793976
+      ],
+      "decision": {
+        "content": "MUST_FIX",
+        "visual": "MUST_FIX",
+        "factual_scope": "PASS",
+        "technical_integrity": "PASS",
+        "formal_profile_acceptance": "BLOCKED",
+        "note": "At child-viewing scale, the clean rectangular base with flat vertical sides reads as a display tile under stacked rocks, not as a continuous natural lava body with an irregular clinker front."
+      },
+      "independent_blender": {
+        "blender_version": "4.3.2",
+        "root_identity": true,
+        "source_triangles": 1614,
+        "reimport_glb_triangles": 1614,
+        "triangles_match": true,
+        "bounds_match_within_1e-4_m": true,
+        "source_closed_finite": true
+      },
+      "source_export": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/source-export.report.json",
+        "report_sha256": "82a9e872627efb497cc43aa15ed10360249c093c9603ad2e6d24c3147cc534be",
+        "status": "pass",
+        "source_sha256_matches_blend": true,
+        "glb_sha256_matches": true,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "warnings": []
+      },
+      "khronos": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/gltf-validator.report.json",
+        "report_sha256": "d430e1f601e29887ed7ee200923bce83c9b3fc37c9608cad2bea81e9bae9fb2b",
+        "num_errors": 0,
+        "num_warnings": 0
+      },
+      "rebuilds": [
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-1.report.json",
+          "report_sha256": "beb2744620ee7c2f6ec04363d9101a529565981f8775583e5ab816a3b4e2c2f3",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-1/6b2e371b90fb2e37fe390c5f99efe9a25e1f10bbcde93bb1dcb7794a53e8f30c/20261019T013436-d59a278afc1648239785d87497051643/result.json",
+          "result_sha256": "99e2b6d673b63f88e17f2254a20eb01afecc018e613fe899cce590a6ce1a956d",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-1/6b2e371b90fb2e37fe390c5f99efe9a25e1f10bbcde93bb1dcb7794a53e8f30c/20261019T013436-d59a278afc1648239785d87497051643/outputs/aa-lava-front.glb",
+          "rebuilt_glb_sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0",
+          "semantic_sha256": "49b44667f6c00fc3c6c69540c2677df1cdb3b58b91142de6026117f909e877f1",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        },
+        {
+          "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-2.report.json",
+          "report_sha256": "acf19b292c8e018186735aeaa4bee4e204921adda2122f52e3a774062ddfa636",
+          "result_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-2/6a4fbd15bf12cc6a129241e19c6671218d219841c79d26355f1828d46f64a77c/20261019T013438-55f5852319b14c1db0b6ca8c07def439/result.json",
+          "result_sha256": "083ecec4d37d840d64568232302c118a43e9815a58e6ced639fb27c49f5b164f",
+          "rebuilt_glb_path": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001/runs/build/aa-lava-front/r001/semantic-rebuild-2/6a4fbd15bf12cc6a129241e19c6671218d219841c79d26355f1828d46f64a77c/20261019T013438-55f5852319b14c1db0b6ca8c07def439/outputs/aa-lava-front.glb",
+          "rebuilt_glb_sha256": "102327a1cca1bda3ecee9c4144efab6669db5fef20db866ba2cc52979a95d8f0",
+          "semantic_sha256": "49b44667f6c00fc3c6c69540c2677df1cdb3b58b91142de6026117f909e877f1",
+          "semantic_match": true,
+          "run_status": "succeeded",
+          "returncode": 0
+        }
+      ],
+      "integrity": {
+        "handoff_artifact_pin_count": 32,
+        "all_handoff_pins_match": true,
+        "fixed_views": 8,
+        "runtime_images": 7
+      },
+      "runtime": {
+        "report_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/runtime-report.json",
+        "evidence_manifest_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/evidence-manifest.json",
+        "browser_version": "154.0.8037.57",
+        "three_version": "180",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "functional_status": "pass",
+        "hardware_performance_claim": false,
+        "images": [
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/front.png",
+            "sha256": "72597e7244830b0feb070480211666032b9e92a2c23946ee8f3fc8e10ac9e7eb",
+            "bytes": 11787,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/hero.png",
+            "sha256": "7416126beefdf982d02e400c01adcafe85f43060771f81aff97349c5b19970cf",
+            "bytes": 21615,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/near.png",
+            "sha256": "f24961e74305a827a4445348517f8b2f889da21ca9fff1f0c7b69cb64353da8b",
+            "bytes": 19332,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/reversehero.png",
+            "sha256": "a1ff90b1b02944096b1f26dfa249e30efc0e842b1182273145cca4f94514e3f6",
+            "bytes": 15345,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/scene-9-copies.png",
+            "sha256": "f7ca219768e17b562f80f49478de00956f93d5f3e14bc3ea7326204727602901",
+            "bytes": 34524,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/side.png",
+            "sha256": "820e90bee0a3e1999e698032438b725121c3332955ed9c4f39d7bf41ca0b2ed0",
+            "bytes": 8474,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/top.png",
+            "sha256": "83a6301dc79a53671ce3e84d24717b6b71e86427e747d172b676b8fbc63bfdd7",
+            "bytes": 28785,
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ]
+      },
+      "candidate_record": {
+        "valid": true,
+        "approved_for_brief": false,
+        "approval_status": "pending"
+      },
+      "static_profile": {
+        "name": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "validator_exit_code": 0,
+        "candidate_record_valid": true,
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: normal-view-craft",
+          "open blocker: basic-form-and-scope",
+          "open blocker: deliverables-and-label",
+          "approval: pending"
+        ],
+        "legacy_errors_preserved": [
+          "EN-LV.license: nonempty text required"
+        ],
+        "contract_path": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/profile-contract.json",
+        "contract_sha256": "8cf89711d4e3b1bb428440dcc05d7492a932be5a0f1b6bbc9e722483db366cf7"
+      },
+      "reference_urls": [
+        "https://www.nps.gov/crmo/learn/education/site-tour-1.htm"
+      ],
+      "evidence_paths": {
+        "candidate_handoff": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/HANDOFF.md",
+        "candidate_record": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/candidate.json",
+        "profile_contract": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/profile-contract.json",
+        "fixed_view_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/views/render-manifest.json",
+        "fixed_view_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/qa-contact-sheet.png",
+        "runtime_evidence_manifest": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/evidence-manifest.json",
+        "runtime_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime/runtime-report.json",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/runtime-contact-sheet.png",
+        "source_export_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/source-export.report.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/gltf-validator.report.json",
+        "rebuild_reports": [
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-1.report.json",
+          "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001/reproducibility-2.report.json"
+        ],
+        "independent_blender_audit": "evidence/blender/aa-lava-front.json"
+      },
+      "defect": {
+        "id": "B39-AA-01",
+        "severity": "mandatory_fix",
+        "criterion": "basic-form-and-scope / normal-view-craft",
+        "views": [
+          "views/preview-hero.png",
+          "views/preview-front.png",
+          "views/preview-side.png",
+          "runtime/hero.png",
+          "runtime/side.png"
+        ],
+        "finding": "The flat rectangular substrate and sharp vertical edges read as a display plinth/tray beneath the angular clinker pile. The flow-body front and uneven rubble contact do not read as a continuous natural flow mass at intended scale.",
+        "required_correction": "Reshape the flow body/front silhouette into an irregular natural mass and integrate the unequal clinker visibly across the front edge; remove the square plinth read. Preserve the current generic scope and avoid new eruption/site claims.",
+        "retest_after_future_change": "Bind revised exact GLB SHA and inspect fixed views plus runtime evidence."
+      }
+    }
+  },
+  "differential_update_count": 1,
+  "resolved_mandatory_fixes": [
+    {
+      "asset_id": "aa-lava-front",
+      "defect_id": "B39-AA-01",
+      "previous_revision": "r001",
+      "resolution_revision": "r002",
+      "status": "CLOSED_BY_TARGETED_DIFFERENTIAL",
+      "evidence_path": "evidence/differential-aa-r002.json"
+    }
+  ],
+  "differential_update": {
+    "date": "2026-10-19",
+    "scope": "aa-lava-front only; one differential QA round; no full-batch re-review",
+    "baseline_handoff_commit": "0eed2d38d04f4b3d2b847eff8f376934769c0102",
+    "latest_handoff": {
+      "commit": "aac9a3c9085136469f816862b0c2a4139fc4eb3c",
+      "handoff_path": "production/continuous-small-life-round13-20261018/work/batch-39/HANDOFF.md",
+      "handoff_sha256": "65fe582bb28a4e3a8dee3d7420c5bad2b01cab0aba299f74b94c8ae59a399b9b",
+      "final_handoff_path": "production/continuous-small-life-round13-20261018/work/batch-39/final-handoff.jsonl",
+      "final_handoff_sha256": "0ec64f17bd638638aa6552bc65df487b4c8be786c7d2c01fbaca87afd5c9a1e6",
+      "scope_path": "production/continuous-small-life-round13-20261018/work/batch-39/scope.json",
+      "scope_sha256": "e93958cbd026bf2b125d2ffedf438f71126d780c7cc2a53a76964144c715c1cb"
+    },
+    "candidate_branch": "candidate/batch39-aa-lava-front-r002-20261019",
+    "candidate_commit_sha": "1a65d88bd1fe81d0df3211b61235a150d71caa8d",
+    "visual_decision": "PASS; original rectangular-plinth blocker removed at intended small low-poly scale",
+    "other_three_final_handoff_rows_byte_identical_to_baseline": true,
+    "aa_r001_subtree_unchanged_in_r002_candidate_history": true,
+    "other_assets_re_reviewed": false,
+    "full_batch_revalidation": false,
+    "identity_note": "Actual reviewer model identity is not independently verified from runtime metadata; the parent-reported identity did not trigger a repeated batch QA.",
+    "candidate_checksums_manifest_all_entries_pass": true
+  }
 }
