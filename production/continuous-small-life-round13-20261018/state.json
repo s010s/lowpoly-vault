@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T01:32:01.811326+00:00",
+  "updated_at": "2026-10-19T02:05:48.705384+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "parent_assigned_making_and_qa",
+  "status": "qa_pass_and_required_repair_in_progress",
   "claims": {
     "pentremites": {
       "batch_id": "batch-37",
@@ -182,7 +182,7 @@
   },
   "batches": {
     "batch-37": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-37",
       "candidate": {
         "maker_status": "completed",
@@ -191,8 +191,8 @@
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -207,22 +207,28 @@
           "tombolo",
           "entobia-sponge-boring-network"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "recorded_at": "2026-10-19T01:32:01.811326+00:00"
+      "recorded_at": "2026-10-19T01:32:01.811326+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "batch-38": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-38",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch38-20261018",
         "observed_commit": "f90cf2b91363517a706afce7a366b3df545d9d93",
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -237,22 +243,28 @@
           "marine-terrace",
           "angular-unconformity-outcrop"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "recorded_at": "2026-10-19T01:32:01.811326+00:00"
+      "recorded_at": "2026-10-19T01:32:01.811326+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "batch-39": {
-      "status": "making",
+      "status": "required_repair_in_progress",
       "owner": "parent-assigned-producer:batch-39",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "required_repair",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -267,14 +279,32 @@
           "native-copper-dendrite",
           "nereites-lobed-meander"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "recorded_at": "2026-10-19T01:32:01.811326+00:00"
+      "recorded_at": "2026-10-19T01:32:01.811326+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "repair": {
+        "asset_ids": [
+          "aa-lava-front"
+        ],
+        "required_change": "Exterior silhouette correction only per parent",
+        "review_mode": "difference-only required-repair recheck; no repeated whole-batch QA",
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "new_source_commit": null,
+        "new_glb_sha256": null
+      }
     }
   },
   "jobs": {
     "pentremites": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -287,8 +317,8 @@
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -303,12 +333,18 @@
           "tombolo",
           "entobia-sponge-boring-network"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "schizoneura": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -321,8 +357,8 @@
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -337,12 +373,18 @@
           "tombolo",
           "entobia-sponge-boring-network"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "tombolo": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -355,8 +397,8 @@
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -371,12 +413,18 @@
           "tombolo",
           "entobia-sponge-boring-network"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "entobia-sponge-boring-network": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -389,8 +437,8 @@
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -405,26 +453,32 @@
           "tombolo",
           "entobia-sponge-boring-network"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "diplomoceras": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-38",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch38-20261018",
         "observed_commit": "f90cf2b91363517a706afce7a366b3df545d9d93",
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -439,26 +493,32 @@
           "marine-terrace",
           "angular-unconformity-outcrop"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "nelumbo": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-38",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch38-20261018",
         "observed_commit": "f90cf2b91363517a706afce7a366b3df545d9d93",
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -473,26 +533,32 @@
           "marine-terrace",
           "angular-unconformity-outcrop"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "marine-terrace": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-38",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch38-20261018",
         "observed_commit": "f90cf2b91363517a706afce7a366b3df545d9d93",
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -507,26 +573,32 @@
           "marine-terrace",
           "angular-unconformity-outcrop"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "angular-unconformity-outcrop": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-38",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": "candidate/small-life-batch38-20261018",
         "observed_commit": "f90cf2b91363517a706afce7a366b3df545d9d93",
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -541,26 +613,32 @@
           "marine-terrace",
           "angular-unconformity-outcrop"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "clavagella": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-39",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -575,26 +653,32 @@
           "native-copper-dendrite",
           "nereites-lobed-meander"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "aa-lava-front": {
-      "status": "making",
+      "status": "required_repair_in_progress",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-39",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "required_repair",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -609,26 +693,44 @@
           "native-copper-dendrite",
           "nereites-lobed-meander"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      },
+      "repair": {
+        "asset_ids": [
+          "aa-lava-front"
+        ],
+        "required_change": "Exterior silhouette correction only per parent",
+        "review_mode": "difference-only required-repair recheck; no repeated whole-batch QA",
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "new_source_commit": null,
+        "new_glb_sha256": null
+      }
     },
     "native-copper-dendrite": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-39",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -643,26 +745,32 @@
           "native-copper-dendrite",
           "nereites-lobed-meander"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "nereites-lobed-meander": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-39",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "observed_branch": null,
         "observed_commit": null,
         "pin_note": "Observed branch head, not assumed actual frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
@@ -677,9 +785,15 @@
           "native-copper-dendrite",
           "nereites-lobed-meander"
         ],
-        "pin_note": "Exact QA thread/turn/source/per-GLB pins not supplied; no identity or outcome guessed."
+        "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
+        "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Current explicit parent reports37 under QA,38/39 making. No new sessions created by planner."
+      "status_note": "Only aa-lava-front mandatory silhouette repair; unchanged passed siblings retain model QA, no extra whole-batch acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     }
   },
   "request_resolution": {
@@ -688,12 +802,11 @@
     "blender_started": false
   },
   "latest_publication_checkpoint": {
-    "observed_main_commit": "2f0a90f833e2607963ec33e5fd4647a8506e1bee",
-    "committed_manifest_asset_count": 151,
-    "public_evidence_status": "Not checked by planner; no new parent live count supplied",
-    "confirmed_live_assets": 115,
+    "confirmed_by": "parent",
+    "confirmed_live_assets": 163,
     "verified_live_build_sha": null,
-    "note": "115 historical confirmed checkpoint only; manifest151 separate observation."
+    "observed_main_commit": "081606c10836f95e6d708ea02f1ed1e321595af5",
+    "note": "Parent confirms live163 completed; planner did not rerun public browser verification or infer live build SHA."
   },
-  "latest_review_workflow_policy": "production/continuous-small-life-round14-20261018/review-policy.json"
+  "latest_review_workflow_policy": "production/continuous-small-life-round15-20261018/review-policy.json"
 }
