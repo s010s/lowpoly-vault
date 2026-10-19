@@ -1,5 +1,5 @@
 {
-  "status": "candidate; independent QA pending; user calibration pending",
+  "status": "candidate; independent QA permits user A/B comparison only; user style feedback pending; no production approval",
   "source_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
   "reviewed_reports": [
     {
@@ -18,7 +18,7 @@
     "khronos_zero_errors_zero_warnings": "pass",
     "two_rebuilds_byte_identical": "pass",
     "real_reference_photo_pixels": "unknown; network blocked",
-    "independent_visual_qa": "pending parent",
+    "independent_visual_qa": "see parent-reported QA commit 5f981d9e744932093ea058197abadf7a13b1beb5; A/B comparison only, no production approval",
     "user_baseline_choice": "pending",
     "real_phone_gpu_performance": "unknown; software WebGL only"
   },
@@ -28,5 +28,25 @@
   "authorship": "Leon Made This <8357465+s010s@users.noreply.github.com>",
   "artifacts_license": "CC-BY-4.0",
   "code_license": "MIT",
-  "production_change": false
+  "production_change": false,
+  "evidence_supplement": {
+    "kind": "evidence-only packaging correction",
+    "original_candidate_commit": "1692a5ab57b996c382fa8ed8b1bd182bd1682a92",
+    "independent_qa_commit": "5f981d9e744932093ea058197abadf7a13b1beb5",
+    "qa_disposition_source": "parent handoff; no new QA verdict by maker",
+    "reason": "Original logs/build.log existed locally but *.log ignore rule omitted it from the original push. Add original bytes explicitly; do not recreate historical log.",
+    "restored_log": {
+      "path": "logs/build.log",
+      "bytes": 1138,
+      "sha256": "8dd9ae827e06fd6c1e223e1cc0611dcf907fcad995268bfb2e565c07a70f4f92"
+    },
+    "models_unchanged": {
+      "cross-bedded-sandstone/cross-bedded-sandstone.blend": "43189cbee976e5625dc5f97f7902f1c221bb8e4c6dddd324f6880655bd5e25f1",
+      "cross-bedded-sandstone/cross-bedded-sandstone.glb": "99864f92d2028c0a802ad8c992b8fa07d12ae7ef6e0e9ff46ef6610e45196e41",
+      "hydrothermal-chimney/hydrothermal-chimney.blend": "bf79eee17b5c4fe3acb4d36205f4ed022317f63933a3e80443f9652ab95a07dc",
+      "hydrothermal-chimney/hydrothermal-chimney.glb": "9d60d1b197c160f9fd2f656ad7137acf3bee0bbd6f12db7eed46c3ddc424b798"
+    },
+    "model_or_render_rebuild": false,
+    "production_change": false
+  }
 }
