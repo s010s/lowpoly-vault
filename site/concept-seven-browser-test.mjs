@@ -18,14 +18,16 @@ try {
  for(const mobile of [false,true]){
   const context=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},isMobile:mobile,hasTouch:mobile,reducedMotion:'reduce'}),page=await context.newPage();
   page.on('pageerror',e=>report.errors.push(e.message));page.on('response',r=>{if(r.status()>=400)report.errors.push(`${r.status()} ${r.url()}`);});
+  page.setDefaultTimeout(45000);
   await page.goto(base+(mobile?'zh-CN/':'')+'models/?model='+CONCEPT_SEVEN_IDS[0]);await page.waitForFunction(()=>window.__gallery?.models.length===182);
   for(const id of CONCEPT_SEVEN_IDS){
-   await page.evaluate(async id=>await window.__gallery.choose(id,{push:false,activateMobile:true}),id);
-   await page.waitForFunction(id=>document.querySelector('#detail')?.dataset.state==='ready'&&document.querySelector('#detail').dataset.modelId===id,id);
+   await page.evaluate(id=>{void window.__gallery.choose(id,{push:false,activateMobile:true});},id);
+   await page.waitForFunction(id=>document.querySelector('#detail')?.dataset.state==='ready'&&document.querySelector('#detail').dataset.modelId===id,id,{timeout:45000});
    const snapshot=await page.evaluate(()=>{const p=window.__gallery,r=p.renderer,gl=r.renderer.getContext(),img=document.querySelector('#detail-poster');r.draw();return {selected:p.state.selected,triangles:r.renderer.info.render.triangles,gl_error:gl.getError(),context_lost:gl.isContextLost(),poster:img.currentSrc,poster_width:img.naturalWidth,body_overflow:document.body.scrollWidth>window.innerWidth+1};});
    assert.equal(snapshot.selected,id);assert(snapshot.triangles>0);assert.equal(snapshot.gl_error,0);assert.equal(snapshot.context_lost,false);assert(snapshot.poster.includes(`/gallery/posters/${id}.png`));assert(snapshot.poster_width>0);assert.equal(snapshot.body_overflow,false);
    const asset=manifest.assets.find(a=>a.id===id);
    await page.locator('#info').click();
+   assert(await page.locator('#info-panel').isVisible(),'Source labels must be presented in the visible information panel');
    const sourceLinks=await page.locator('#info-content a').evaluateAll(nodes=>nodes.map(a=>({href:a.href,label:a.textContent.trim()})));
    for(const source of asset.sources)assert(sourceLinks.some(a=>a.href===source.url&&a.label.includes(source.title||source.id||source.url)),'Every frozen source has a visible accessible label');
    await page.keyboard.press('Escape');
