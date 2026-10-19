@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "eiffelia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/eiffelia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/eiffelia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch46/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch46/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/eiffelia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/eiffelia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/eiffelia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "eiffelia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "eiffelia/eiffelia.blend",
+        "eiffelia/eiffelia.glb",
+        "eiffelia/qa.json",
+        "eiffelia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch46 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "eiffelia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/eiffelia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/eiffelia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch46/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch46/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/eiffelia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/eiffelia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/eiffelia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "eiffelia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "eiffelia/eiffelia.blend",
+        "eiffelia/eiffelia.glb",
+        "eiffelia/qa.json",
+        "eiffelia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch46 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
