@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "reviewer": "Leon Made This <8357465+s010s@users.noreply.github.com>",
+  "kind": "independent-asset-qa",
+  "batch_id": "batch-48",
+  "date_utc": "2026-10-19",
+  "source_handoff_commit": "04a4bee524379fa0022bbfc7133fa9640bfa6fdc",
+  "model_source_commit": "cab25e85d03a742b4eaea3b01a4c691363d92613",
+  "source_handoff_file_sha256": "581dd8af9587ff52b7fe81d5ad2f368481441a001d1bcab3fd8067c976decad4",
+  "source_handoff_scope_file_sha256": "ddeb78b6e1670b9524f7990e1dd6f6f097814338d64880cef9896683699e38a0",
+  "expected_asset_ids": [
+    "facivermis",
+    "cave-pearl-pool",
+    "lava-tree-mold-crust",
+    "treptichnus-serial-probe-burrow"
+  ],
+  "conclusion": "pass_for_user_scoped_visual_and_technical_QA",
+  "must_fix": [],
+  "review_scope": "自然、儿童场景友好的静态低模教学道具；按冻结 brief 判断，不要求标本级科研复原。本报告不推断未验证的物种、地点、形成过程、造迹者或行为。",
+  "runtime_evidence_class": "Chromium ANGLE SwiftShader software WebGL2 pixel evidence only; no physical GPU/device performance claim.",
+  "candidate_record_approval_changed": false,
+  "formal_candidate_approval": "pending; static-stylized-v1 candidate records remain approved_for_brief=false, with required stages unknown.",
+  "profile": {
+    "name": "static-stylized-v1",
+    "rule_version": "2026-10-18.1",
+    "contract_status": "pass",
+    "record_valid": true,
+    "record_approved_for_brief": false
+  },
+  "assets": [
+    {
+      "asset_id": "facivermis",
+      "revision": "r001",
+      "decision": "PASS",
+      "must_fix": [],
+      "visual_observation": "五对前部成对附肢与刺列能从多方向区分，主躯干保持长而裸露，后部膨大清楚；头部与附着点刻画克制。",
+      "candidate_checkpoint_sha": "75ff749eed509b67993c5f2f80a1f9b3d10f03d4",
+      "selected_attempt": "attempt-01",
+      "triangles": 8636,
+      "materials": 4,
+      "primitives": 5,
+      "textures": 0,
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/facivermis/r001/attempt-01/facivermis/facivermis.glb",
+        "sha256": "4f0f5c232ae02717a1a1b160b9a9639539e5d07ec26f454621170206d16abd54",
+        "bytes": 165824,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/facivermis/r001/attempt-01/facivermis/facivermis.blend",
+        "sha256": "9a08418a65634f970745d1b3b9f512acb488c3baa9c43c7da67f60ad913c1e72",
+        "bytes": 832628,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "source_scene_sha256": "614875b4f36b019430f27a253208b3b98f4f7c3b8741794e260b31635f484153",
+      "source_export_sha256": "8c01fbe07399cd5e40ac1ce8356fa813ab09402fb6bf133e4de7cc3eee9341fa",
+      "source_parts": [
+        {
+          "name": "continuous-bare-trunk-and-swollen-posterior",
+          "vertices": 1358,
+          "triangles": 2712,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        },
+        {
+          "name": "exactly-five-anterior-arm-pairs",
+          "vertices": 1700,
+          "triangles": 3320,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        },
+        {
+          "name": "restrained-paired-arm-spines",
+          "vertices": 1200,
+          "triangles": 2080,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        },
+        {
+          "name": "subtle-head-eyes-and-posterior-attachment-hooks",
+          "vertices": 278,
+          "triangles": 524,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        }
+      ],
+      "views": {
+        "source_fixed_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "source_fixed_count": 8,
+        "source_fixed_hashes_all_match": true,
+        "turntable_frames": 0,
+        "runtime_single_count": 10,
+        "runtime_scene_count": 2,
+        "runtime_frame_count": 12,
+        "runtime_hashes_match_runtime_and_manifest": true,
+        "runtime_statuses": [
+          "pass",
+          "pass"
+        ],
+        "runtime_errors_and_failed_requests": [],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "software_only": true,
+        "hardware_gpu_tested": false
+      },
+      "source_export": {
+        "status": "pass_with_warnings",
+        "errors": [],
+        "warnings": [
+          "source: continuous-bare-trunk-and-swollen-posterior: smooth faces require intentional-style review",
+          "source: exactly-five-anterior-arm-pairs: smooth faces require intentional-style review",
+          "source: restrained-paired-arm-spines: smooth faces require intentional-style review",
+          "source: subtle-head-eyes-and-posterior-attachment-hooks: smooth faces require intentional-style review"
+        ],
+        "source_sha256": "9a08418a65634f970745d1b3b9f512acb488c3baa9c43c7da67f60ad913c1e72",
+        "glb_sha256": "4f0f5c232ae02717a1a1b160b9a9639539e5d07ec26f454621170206d16abd54",
+        "source_triangles": 8636,
+        "glb_triangles": 8636,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 2.3283064365386963e-10,
+        "blender_version": "4.3.2"
+      },
+      "rebuild": {
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "run_count": 2,
+        "all_two_runs_byte_identical": true,
+        "all_two_runs_semantically_identical": true,
+        "rebuild_glb_sha256": [
+          "4f0f5c232ae02717a1a1b160b9a9639539e5d07ec26f454621170206d16abd54",
+          "4f0f5c232ae02717a1a1b160b9a9639539e5d07ec26f454621170206d16abd54"
+        ]
+      },
+      "khronos": {
+        "report_sha256": "79e22e03a61c6eabf3c3110866e9e6bf5d3b3708692e16d000494da9302f195a",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0
+      },
+      "static_profile": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "candidate_valid": true,
+        "approval_status": "pending",
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ],
+        "legacy_errors": [
+          "IV-FACIVERMIS.license: nonempty text required"
+        ]
+      },
+      "reviewed_image_evidence": [
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/facivermis-source.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/facivermis/r001/attempt-01/facivermis/source-contact-sheet.jpg",
+          "sha256": "8af577bf9dad529e3f1184e355b6cbbb81f57df309bd8b5b99d79f90350cae37",
+          "bytes": 70853
+        },
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/facivermis-runtime.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/facivermis/r001/attempt-01/facivermis/runtime-contact-sheet.jpg",
+          "sha256": "39398e7e0867306375257b9ac05ad3a8fc0dcf7161ffb4fb1cac51550e9813a9",
+          "bytes": 144794
+        }
+      ]
+    },
+    {
+      "asset_id": "cave-pearl-pool",
+      "revision": "r001",
+      "decision": "PASS",
+      "must_fix": [],
+      "visual_observation": "浅矿物杯的真实凹面和八个分离、不等尺寸圆结核在顶视及斜视可读；呈矿物展示道具，不暗示蛋巢。",
+      "candidate_checkpoint_sha": "3dc61c9e05d0fb911ecea4f7c08bc0f7c73b5fb3",
+      "selected_attempt": "attempt-01",
+      "triangles": 4096,
+      "materials": 3,
+      "primitives": 3,
+      "textures": 0,
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/cave-pearl-pool/r001/attempt-01/cave-pearl-pool/cave-pearl-pool.glb",
+        "sha256": "251ccacbf304eb285233f8f1122436a4a7ba09c83fa97b43379bdd0b38d66abb",
+        "bytes": 77444,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/cave-pearl-pool/r001/attempt-01/cave-pearl-pool/cave-pearl-pool.blend",
+        "sha256": "8b74101f3973e1bafe9cf755169bdf9efe6705af4c6ff0805cbb2c71c678a13f",
+        "bytes": 638972,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "source_scene_sha256": "ef903438e997a389bfbc7ee22d210300e0602286ee57bc3515a334f360cf4390",
+      "source_export_sha256": "9e67c1e76e78854b58fc635a2877e18e1cff1123039de1366cc4103b1e23d587",
+      "source_parts": [
+        {
+          "name": "one-continuous-shallow-mineral-cup",
+          "vertices": 898,
+          "triangles": 1792,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        },
+        {
+          "name": "eight-discrete-unequal-rounded-mineral-concretions",
+          "vertices": 1168,
+          "triangles": 2304,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        }
+      ],
+      "views": {
+        "source_fixed_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "source_fixed_count": 8,
+        "source_fixed_hashes_all_match": true,
+        "turntable_frames": 0,
+        "runtime_single_count": 10,
+        "runtime_scene_count": 2,
+        "runtime_frame_count": 12,
+        "runtime_hashes_match_runtime_and_manifest": true,
+        "runtime_statuses": [
+          "pass",
+          "pass"
+        ],
+        "runtime_errors_and_failed_requests": [],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "software_only": true,
+        "hardware_gpu_tested": false
+      },
+      "source_export": {
+        "status": "pass_with_warnings",
+        "errors": [],
+        "warnings": [
+          "source: one-continuous-shallow-mineral-cup: smooth faces require intentional-style review",
+          "source: eight-discrete-unequal-rounded-mineral-concretions: smooth faces require intentional-style review"
+        ],
+        "source_sha256": "8b74101f3973e1bafe9cf755169bdf9efe6705af4c6ff0805cbb2c71c678a13f",
+        "glb_sha256": "251ccacbf304eb285233f8f1122436a4a7ba09c83fa97b43379bdd0b38d66abb",
+        "source_triangles": 4096,
+        "glb_triangles": 4096,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "blender_version": "4.3.2"
+      },
+      "rebuild": {
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "run_count": 2,
+        "all_two_runs_byte_identical": true,
+        "all_two_runs_semantically_identical": true,
+        "rebuild_glb_sha256": [
+          "251ccacbf304eb285233f8f1122436a4a7ba09c83fa97b43379bdd0b38d66abb",
+          "251ccacbf304eb285233f8f1122436a4a7ba09c83fa97b43379bdd0b38d66abb"
+        ]
+      },
+      "khronos": {
+        "report_sha256": "c038ea217720fb5073d80553d5f79a806f230cc6d0d9407c6c61b67e69bddd1e",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0
+      },
+      "static_profile": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "candidate_valid": true,
+        "approval_status": "pending",
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ],
+        "legacy_errors": [
+          "EN-SP.license: nonempty text required"
+        ]
+      },
+      "reviewed_image_evidence": [
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/cave-pearl-pool-source.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/cave-pearl-pool/r001/attempt-01/cave-pearl-pool/source-contact-sheet.jpg",
+          "sha256": "dc2f40660c270c7c7edc9544aad4c641c61308a7a6748542e61db0638e1a121b",
+          "bytes": 93758
+        },
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/cave-pearl-pool-runtime.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/cave-pearl-pool/r001/attempt-01/cave-pearl-pool/runtime-contact-sheet.jpg",
+          "sha256": "f8a0d9caef15846708cf636db19c5e5fce79e5c9e569f7d993772974cb008fd2",
+          "bytes": 145714
+        }
+      ]
+    },
+    {
+      "asset_id": "lava-tree-mold-crust",
+      "revision": "r001",
+      "decision": "PASS",
+      "must_fix": [],
+      "visual_observation": "连续外壳与树干形负空间的口沿可读；近侧口沿在常规英雄视图遮挡腔深。精确 GLB 的中性剖切诊断显示深盲腔、内衬与壁面起伏。",
+      "candidate_checkpoint_sha": "bb9c0b558afb1f959322de7a2f3cc36fcd680e2e",
+      "selected_attempt": "attempt-01",
+      "triangles": 4352,
+      "materials": 2,
+      "primitives": 2,
+      "textures": 0,
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/lava-tree-mold-crust/r001/attempt-01/lava-tree-mold-crust/lava-tree-mold-crust.glb",
+        "sha256": "5e48537aaaf7e26323d26f76c5fef29bbb35c0191df511f5cd8238be98222258",
+        "bytes": 128384,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/lava-tree-mold-crust/r001/attempt-01/lava-tree-mold-crust/lava-tree-mold-crust.blend",
+        "sha256": "90f8f8eac91fa0d626e5aad8181fbf0274ffea4896a37a304a43f2ee46d5990f",
+        "bytes": 615524,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "source_scene_sha256": "5113b8c9cd5e71993d75593b0dd9298a1009b2fdfc0344170112f9b12a922342",
+      "source_export_sha256": "855391858d4d004ed94c9b5af90f104e0340543d41fa109b526c13c42f49386a",
+      "source_parts": [
+        {
+          "name": "continuous-lava-crust-enclosing-deep-negative-trunk-mold",
+          "vertices": 2178,
+          "triangles": 4352,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        }
+      ],
+      "views": {
+        "source_fixed_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "source_fixed_count": 8,
+        "source_fixed_hashes_all_match": true,
+        "turntable_frames": 0,
+        "runtime_single_count": 10,
+        "runtime_scene_count": 2,
+        "runtime_frame_count": 12,
+        "runtime_hashes_match_runtime_and_manifest": true,
+        "runtime_statuses": [
+          "pass",
+          "pass"
+        ],
+        "runtime_errors_and_failed_requests": [],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "software_only": true,
+        "hardware_gpu_tested": false
+      },
+      "source_export": {
+        "status": "pass_with_warnings",
+        "errors": [],
+        "warnings": [
+          "source: continuous-lava-crust-enclosing-deep-negative-trunk-mold: smooth faces require intentional-style review"
+        ],
+        "source_sha256": "90f8f8eac91fa0d626e5aad8181fbf0274ffea4896a37a304a43f2ee46d5990f",
+        "glb_sha256": "5e48537aaaf7e26323d26f76c5fef29bbb35c0191df511f5cd8238be98222258",
+        "source_triangles": 4352,
+        "glb_triangles": 4352,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "blender_version": "4.3.2"
+      },
+      "rebuild": {
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "run_count": 2,
+        "all_two_runs_byte_identical": true,
+        "all_two_runs_semantically_identical": true,
+        "rebuild_glb_sha256": [
+          "5e48537aaaf7e26323d26f76c5fef29bbb35c0191df511f5cd8238be98222258",
+          "5e48537aaaf7e26323d26f76c5fef29bbb35c0191df511f5cd8238be98222258"
+        ]
+      },
+      "khronos": {
+        "report_sha256": "dfd30d9cbfc1a731463b20dee2c003b8e3f5dedb076ace956e20abfd41207a7f",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0
+      },
+      "static_profile": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "candidate_valid": true,
+        "approval_status": "pending",
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ],
+        "legacy_errors": [
+          "EN-LM.license: nonempty text required"
+        ]
+      },
+      "reviewed_image_evidence": [
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/lava-tree-mold-crust-source.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/lava-tree-mold-crust/r001/attempt-01/lava-tree-mold-crust/source-contact-sheet.jpg",
+          "sha256": "973b8bbda15165e3e29d3cd50bcb94fec20670f18fe3059f3966dcb29f2ac894",
+          "bytes": 100136
+        },
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/lava-tree-mold-crust-runtime.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/lava-tree-mold-crust/r001/attempt-01/lava-tree-mold-crust/runtime-contact-sheet.jpg",
+          "sha256": "332b995347c264d000ddfb5c1eeb5d7252812b9c3696784259bbfc08ffe1e712",
+          "bytes": 165084
+        },
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/lava-tree-mold-crust-section-hero.png",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/lava-tree-mold-crust/r001/attempt-01/lava-tree-mold-crust/section-diagnostic/hero.png",
+          "sha256": "8e42bc5685c540f20f4685839cee870f67fe8664b22318924551710390ee38a3",
+          "bytes": 22687
+        },
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/lava-tree-mold-crust-section-front.png",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/lava-tree-mold-crust/r001/attempt-01/lava-tree-mold-crust/section-diagnostic/front.png",
+          "sha256": "0fbe888c8fadbfca9b0af2ebd48b13e8991b5dbf5b3217e8622f2ae1ec9fae37",
+          "bytes": 20767
+        }
+      ]
+    },
+    {
+      "asset_id": "treptichnus-serial-probe-burrow",
+      "revision": "r001",
+      "decision": "PASS",
+      "must_fix": [],
+      "visual_observation": "纵向切开沉积块中的连续凹槽在英雄/正视可读，呈主走向加串联 J 形探槽；顶部作为切面板的轮廓视图不承载识别，不影响核心结构。",
+      "candidate_checkpoint_sha": "cab25e85d03a742b4eaea3b01a4c691363d92613",
+      "selected_attempt": "attempt-02",
+      "triangles": 11712,
+      "materials": 1,
+      "primitives": 1,
+      "textures": 0,
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/treptichnus-serial-probe-burrow/r001/attempt-02/treptichnus-serial-probe-burrow/treptichnus-serial-probe-burrow.glb",
+        "sha256": "ad906a4701463c1b9b313e0629a7abbc34142cf37ab7aca2281eab3f8a6af734",
+        "bytes": 228012,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/treptichnus-serial-probe-burrow/r001/attempt-02/treptichnus-serial-probe-burrow/treptichnus-serial-probe-burrow.blend",
+        "sha256": "20d2ec10bedd893bce1ba444016bf8e6e10ae8162d71c458ee47680c9f8d9b6c",
+        "bytes": 864012,
+        "handoff_and_checkpoint_sha_match": true
+      },
+      "source_scene_sha256": "8045c5969ee1c477c01aaa171bbcec87e94570038d58da7655c34a36b40b600f",
+      "source_export_sha256": "3e8df32110a962e44cdebdb9e8591bbc665d271944222045d3f91168748fede0",
+      "source_parts": [
+        {
+          "name": "continuous-sediment-longitudinal-cutaway-with-serial-J-half-cha",
+          "vertices": 5858,
+          "triangles": 11712,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "closed_edges_check": true
+        }
+      ],
+      "views": {
+        "source_fixed_names": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "source_fixed_count": 8,
+        "source_fixed_hashes_all_match": true,
+        "turntable_frames": 0,
+        "runtime_single_count": 10,
+        "runtime_scene_count": 2,
+        "runtime_frame_count": 12,
+        "runtime_hashes_match_runtime_and_manifest": true,
+        "runtime_statuses": [
+          "pass",
+          "pass"
+        ],
+        "runtime_errors_and_failed_requests": [],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "three": "0.180.0",
+        "software_only": true,
+        "hardware_gpu_tested": false
+      },
+      "source_export": {
+        "status": "pass_with_warnings",
+        "errors": [],
+        "warnings": [
+          "source: continuous-sediment-longitudinal-cutaway-with-serial-J-half-cha: smooth faces require intentional-style review"
+        ],
+        "source_sha256": "20d2ec10bedd893bce1ba444016bf8e6e10ae8162d71c458ee47680c9f8d9b6c",
+        "glb_sha256": "ad906a4701463c1b9b313e0629a7abbc34142cf37ab7aca2281eab3f8a6af734",
+        "source_triangles": 11712,
+        "glb_triangles": 11712,
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "blender_version": "4.3.2"
+      },
+      "rebuild": {
+        "status": "pass",
+        "check": "two_actual_semantic_rebuilds",
+        "run_count": 2,
+        "all_two_runs_byte_identical": true,
+        "all_two_runs_semantically_identical": true,
+        "rebuild_glb_sha256": [
+          "ad906a4701463c1b9b313e0629a7abbc34142cf37ab7aca2281eab3f8a6af734",
+          "ad906a4701463c1b9b313e0629a7abbc34142cf37ab7aca2281eab3f8a6af734"
+        ]
+      },
+      "khronos": {
+        "report_sha256": "4cecdd4f8af72fcf4b0f324f69ef05c1f2b8945b4cfb99a15c0cf35073f8ec78",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0
+      },
+      "static_profile": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "contract_status": "pass",
+        "candidate_valid": true,
+        "approval_status": "pending",
+        "approved_for_brief": false,
+        "approval_blockers": [
+          "technical: unknown",
+          "technical-integrity: unknown",
+          "visual: unknown",
+          "normal-view-craft: unknown",
+          "factual: unknown",
+          "basic-form-and-scope: unknown",
+          "specification: unknown",
+          "deliverables-and-label: unknown",
+          "runtime_parse: unknown",
+          "target-loader: unknown",
+          "gpu: unknown",
+          "functional-render: unknown",
+          "scene: unknown",
+          "representative-scene: unknown",
+          "open blocker: independent-acceptance-pending",
+          "approval: pending"
+        ],
+        "legacy_errors": [
+          "EN-TT.license: nonempty text required"
+        ]
+      },
+      "reviewed_image_evidence": [
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/treptichnus-serial-probe-burrow-source.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/treptichnus-serial-probe-burrow/r001/attempt-02/treptichnus-serial-probe-burrow/source-contact-sheet.jpg",
+          "sha256": "e3c3113fe0c757e3df111ad00947574fee0715a04c68ba9836276062f7ca7e45",
+          "bytes": 84605
+        },
+        {
+          "path": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence/contact-sheets/treptichnus-serial-probe-burrow-runtime.jpg",
+          "source_path": "assets/candidates/continuous-small-life-round16-20261018/batch-48/treptichnus-serial-probe-burrow/r001/attempt-02/treptichnus-serial-probe-burrow/runtime-contact-sheet.jpg",
+          "sha256": "f0628f8fcf97312312a71c3418d45f1916961c95787b48f6b562034adddbbe27",
+          "bytes": 154544
+        }
+      ]
+    }
+  ],
+  "remaining_blockers": [],
+  "state_notes": [
+    "Legacy gate failures for empty consulted-only license text are retained verbatim; static profile validity does not erase them.",
+    "No model, CI, gate, permission, approval or release status was modified.",
+    "This report does not merge or publish the candidate."
+  ],
+  "evidence_dir": "qa/independent/continuous-small-life-round16-20261018/batch-48/evidence"
+}
