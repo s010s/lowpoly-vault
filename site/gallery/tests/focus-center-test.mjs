@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {WheelSettler} from '../state.js';
+let time=0,position=0,serial=0,reduced=false,writes=0,centers=[];
+let targets=Array.from({length:30},(_,i)=>({id:String(i),offset:i*128}));
+const frames=new Map();
+const wheel=new WheelSettler({read:()=>position,write:value=>{position=value;writes++;},targets:()=>targets,center:id=>centers.push(id),reduced:()=>reduced,now:()=>time,frame:fn=>{frames.set(++serial,fn);return serial;},cancel:id=>frames.delete(id)});
+const advance=ms=>{time+=ms;const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();};
+const finish=()=>{for(let i=0;i<35&&frames.size;i++)advance(16);};
+const checks=[];
+assert(wheel.centerOn('3'));assert.equal(position,0);advance(16);assert(position>0&&position<384);let last=position;
+while(frames.size){advance(16);assert(position>=last&&position<=384);last=position;}
+assert.equal(position,384);assert.equal(wheel.state,'idle');assert.equal(centers.at(-1),'3');checks.push('Explicit activation smoothly reaches the exact row center without an initial jump or overshoot');
+wheel.centerOn('10');advance(100);const live=position;wheel.centerOn('1');assert.equal(position,live);finish();assert.equal(position,128);checks.push('Repeated/new activation retargets from the last presented frame');
+wheel.centerOn('9');advance(80);const originalStart=wheel.started;wheel.centerOn('9');assert.equal(wheel.started,originalStart);finish();assert.equal(position,1152);checks.push('Identical controller requests do not restart a running centering motion');
+wheel.centerOn('20');advance(90);wheel.input(true);const wheelPosition=position,before=writes;advance(100);assert.equal(position,wheelPosition);assert.equal(writes,before);position+=41;wheel.scrolled();advance(100);assert.equal(writes,before);finish();assert.equal(position%128,0);checks.push('Native wheel input immediately owns movement and later uses the original nearest-row settling');
+wheel.centerOn('0');advance(70);wheel.pointerDown();const pressedPosition=position;advance(900);assert.equal(position,pressedPosition);wheel.pointerUp();finish();assert.equal(position,pressedPosition);assert.equal(wheel.state,'idle');checks.push('Pointer interruption prevents delayed stale writes and a click without native movement does not trigger snapping');
+wheel.centerOn('18');advance(50);targets=targets.slice(0,3);advance(16);assert.equal(wheel.state,'idle');const missingPosition=position;finish();assert.equal(position,missingPosition);assert.equal(wheel.centerOn('18'),false);checks.push('Removed/reordered target invalidates pending motion; missing IDs never write');
+position=0;reduced=true;wheel.centerOn('2');assert.equal(position,256);assert.equal(frames.size,0);reduced=false;wheel.centerOn('0');advance(40);reduced=true;advance(16);assert.equal(position,0);assert.equal(frames.size,0);checks.push('Reduced motion centers immediately, including preference changes during motion');
+reduced=false;wheel.centerOn('2',{immediate:true});assert.equal(position,256);assert.equal(frames.size,0);wheel.centerOn('0');wheel.dispose();const disposed=position;advance(500);assert.equal(position,disposed);assert.equal(wheel.centerOn('1'),false);assert.equal(frames.size,0);checks.push('Mobile immediate placement and disposal leave no animation callbacks');
+console.log(JSON.stringify({status:'passed',checks},null,2));

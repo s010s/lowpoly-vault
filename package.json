@@ -29,7 +29,10 @@
     "test:preview:browser": "node site/shared-model-browser-test.mjs",
     "test:interaction:browser": "node site/interaction-motion-browser-test.mjs",
     "test:hover:browser": "node site/hover-reveal-browser-test.mjs",
-    "test:scroll:browser": "node site/catalog-scroll-browser-test.mjs"
+    "test:scroll:browser": "node site/catalog-scroll-browser-test.mjs",
+    "test:gallery": "node site/entry-route-test.mjs && node site/gallery-catalog-test.mjs && node site/gallery-assets.mjs && node site/gallery/tests/state-test.mjs && node site/gallery/tests/wheel-title-test.mjs && node site/gallery/tests/focus-center-test.mjs && node site/gallery/tests/wheel-guides-test.mjs && node site/gallery/tests/stage-handoff-test.mjs && node site/gallery/tests/reference-entry-continuity-test.mjs && node site/gallery/tests/reference-presentation-test.mjs && node site/gallery/tests/reference-shadow-footprint-test.mjs && node site/gallery/tests/reset-transition-test.mjs",
+    "gallery:posters": "node site/capture-gallery-posters.mjs",
+    "test:gallery:browser": "node site/gallery-browser-test.mjs"
   },
   "dependencies": {
     "three": "0.180.0"
