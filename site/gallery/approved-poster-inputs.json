@@ -1,0 +1,834 @@
+{
+  "version": 1,
+  "mode": "reviewed-golden-baseline",
+  "reviewed_source_commit": "c72b618d1223052ce65e72b2bad3dda121be3d1f",
+  "note": "Binds previously approved source pixels to the current recipe boundary; does not reconstruct historical generation inputs.",
+  "shared": {
+    "version": 2,
+    "sha256": "04b748ceb68788ff294c9c5f2f94de4334919782a54b7afd9891e667c191c971",
+    "files": [
+      [
+        "package-lock.json",
+        "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+      ],
+      [
+        "package.json",
+        "1bddf73367b09c1c72034cca826c1dfcebc1ae35e1480d9da99b8fd202a34b1b"
+      ],
+      [
+        "site/capture-gallery-posters.mjs",
+        "6675389f460e72f3fd9a666ff8690153edfee19c1496cd042ebcc3a1247bf572"
+      ],
+      [
+        "site/gallery-poster-inputs.mjs",
+        "3e38c4791e8541341a768583bc4cfe0d4ea9e324fa86cca88e6266c358354ab8"
+      ],
+      [
+        "site/gallery/hover-presentation.js",
+        "cd9c3f06412f451bf8cffb65dcbdc5bfe59692551f7b3d52cf8cf5edea9275e8"
+      ],
+      [
+        "site/gallery/hover-turntable.js",
+        "7e8ab8eaa60ad8ac6522f3327e19e7c31e0031329cce98d54a73210a81d66930"
+      ],
+      [
+        "site/gallery/liquid-core.js",
+        "e350d68360308cfa111ce7426aea54799da705f27054d5e4f12d52a34ed1c17a"
+      ],
+      [
+        "site/gallery/model-support.js",
+        "a1bf09e4997527448965dc1aadbb8e4241f69a9d33db25458ef25b0614e4fa74"
+      ],
+      [
+        "site/gallery/reference-entry.js",
+        "5104d47241d775da123f746bcb9ffd33ee8ab8ae86c4b14912f10ff9d8fb9943"
+      ],
+      [
+        "site/gallery/renderer.js",
+        "f31d66d68c5c63c448bb039b9059ef57937e58a9aa65d46d02e1ecd67fd08a6b"
+      ],
+      [
+        "site/gallery/scale-reference.js",
+        "da31270abaff87862147b0379edb3b4217cb4dfc2db466fcfc4dc15f26dc8b86"
+      ],
+      [
+        "site/gallery/urls.js",
+        "3b0fd929466739a8aca78141cd60500f15167fadde5b9bc3a501479926699113"
+      ],
+      [
+        "site/gallery/view-transition.js",
+        "8d18dc9f7f9f6c13d627fe3c4e6b8115504208900d4ed0883e5057ed9ad4caf0"
+      ],
+      [
+        "site/render-preset.js",
+        "8b0bb498d6127e4cd6f858d0811a796966cbc49ea7438e11904b5d9a28bc9044"
+      ],
+      [
+        "site/viewer.js",
+        "3d3e6dd1335c21b0836ebcf32689a4bfc558a8803ac2cc666e407f79ced509d0"
+      ],
+      [
+        "vite.config.js",
+        "e731be1d9c87e5297b9ab3ce3d11291fd3f81444fcc6277f783f6b53bb491c0a"
+      ]
+    ],
+    "policy": {
+      "version": 2,
+      "site_base": "/",
+      "node_major": "22",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "deviceScaleFactor": 1,
+      "reducedMotion": "reduce",
+      "detail": [
+        512,
+        512
+      ],
+      "wheel": [
+        768,
+        432
+      ],
+      "engine": "playwright-pinned-chromium",
+      "args": [
+        "--no-sandbox",
+        "--use-gl=angle",
+        "--use-angle=swiftshader",
+        "--enable-unsafe-swiftshader"
+      ],
+      "fonts": "Not applicable: poster() draws transparent WebGL geometry directly to PNG, with no text or DOM rasterization."
+    },
+    "browser": "141.0.7390.37"
+  },
+  "posters": {
+    "natural-arch": {
+      "input_sha256": "1e2d5d80012e0a301814ede69278d4d2e10157a981564cad14c53df1a2efc735",
+      "poster_sha256": "6865cf9f15e1e40b63b3f61c72959417cf03ae93ddee9ec9c81280717b05be5c"
+    },
+    "stratified-cliff": {
+      "input_sha256": "09f0f42a3784a2483dd0d7e6a7642f2d82df4fd35f52fe4655346730c0f5faa4",
+      "poster_sha256": "e7251c4bdafaaeaeded1b21392c03eb5cfbafc6fbb945e627e54a8b2a4675c87"
+    },
+    "conifer-tree": {
+      "input_sha256": "3a08f6c34f1ec9e33540cec25e56bbb4bf0c7f4702329521dfa8699921fd318b",
+      "poster_sha256": "7b71bce96b56cde98b1b92780fb7977773b776074faf9fe986f677d0598bf374"
+    },
+    "cycad": {
+      "input_sha256": "5798cc42c5ac9c3c369ca6b0ac3ed1f7ad06eee1f14bfbcc3e0b1683e4cffb80",
+      "poster_sha256": "ecd1002d8a4328e590dc5867987634fd1cbdf259ed9ec9d4a8995921be886e6f"
+    },
+    "fern-cluster": {
+      "input_sha256": "5a136f69397b0aa531d07c494b457a3db353b7c9d179d5da1ed39fcd1f69203f",
+      "poster_sha256": "3afb58a57f8d74bb18ad568d818b1e3625b587dc996ba1aa05bc808178834086"
+    },
+    "horsetail-cluster": {
+      "input_sha256": "ef559f9c881de5cc4b09ad508addefbcc5617ccfb45abb9994a7010eb0c0f641",
+      "poster_sha256": "3c07be8e31e22bf0e2b56e408dfbb1564aa2295d5f352536b0e96cfb0e5c5136"
+    },
+    "lepidodendron": {
+      "input_sha256": "f3260e0dfe01c5711336c9bcfe6badfbafd7798e334d0d82c1dc353edf355baf",
+      "poster_sha256": "b363d027652b1c13bcf7c02899799422bc0044e1a266b6044bf5a16a06553425"
+    },
+    "dinosaur-nest": {
+      "input_sha256": "d2a722ed4be5bdbbff1596019e93597663e079086749d2526ae02feb411840d8",
+      "poster_sha256": "32fde1a56ae334d162c6162382dc9abd56631b22f07d0de1683adb11a21d914a"
+    },
+    "three-toed-track": {
+      "input_sha256": "4b833c4f3a2a7daa50d5ef1855ed58fcc0851a4561e40754cdb09e92c8df7a3a",
+      "poster_sha256": "6cfab64471125d082d1e0c785d147f2a6f715c593c3ba972bb3755e579b68634"
+    },
+    "uprooted-log": {
+      "input_sha256": "967335eaf89b4d71ff227b97bfca7f64a24eb5f7ba75e233549f97f257927d3a",
+      "poster_sha256": "81d0aed63fcf048ff8ef038e861399747ceb559175c6d3c66cf178b8a9666555"
+    },
+    "asteroxylon": {
+      "input_sha256": "a06c4637f0fcffde2e5f93f96e5cf4ada8c11dded09bb85fcabbe0a34d4bd4cd",
+      "poster_sha256": "483638d1120734f28692ef7314849244bb1bd94e2b9218d8b4aff8b769561a06"
+    },
+    "bothriolepis": {
+      "input_sha256": "b6bb1b20a1b2e00c88fd3a78efe0f785acea68b51a1abb4c885f7ff140cfc7cb",
+      "poster_sha256": "4feb68b5a0ed69ffef7c65ed4fc321aa63d521b299bdf97f6db4e247258d3735"
+    },
+    "confuciusornis": {
+      "input_sha256": "b85acd3abe9804e25812ab0cb44938907fb5270195b3cf17d965b3b665e9acdc",
+      "poster_sha256": "14a2dbf43a981ce8faf0084f7788d79231e1e498f42d032336cd15f19ae3d5ec"
+    },
+    "ichthyornis": {
+      "input_sha256": "962bb05f1a02f543c01a5dad0263dc5e17ba0cb3a8206b3043b02b6e4a22ee2f",
+      "poster_sha256": "20cf1ef5c2b27315e776155a0b44224246842aedc384367595426b6c900d26b1"
+    },
+    "juracimbrophlebia": {
+      "input_sha256": "97394394e041d343e56a004f858bc7ca4d7eba61787342d1bd049a086a34f69d",
+      "poster_sha256": "75b98a4bd74093710cd78bc0f7569030d31bb573c4c86eb165a7eb9424d294cd"
+    },
+    "waptia": {
+      "input_sha256": "b58fb511c36863033169df72e13cd1cc2574836d4328a8675a2064fb68022818",
+      "poster_sha256": "4ab5740cd9387e5fa47ace5c69f156a6bbec981e4c5ba2211a195bb62d96633c"
+    },
+    "burgessomedusa": {
+      "input_sha256": "b2db8d6bd4422ce74d5ce3ef53f6dbb7a459ac9582ba654129926565286c8ee0",
+      "poster_sha256": "121fe8575e65b82437619b660e62e1de2c69abaaf2556520a3522a1df0598284"
+    },
+    "diplomystus": {
+      "input_sha256": "2f17706e83bbce53d2d67392a29673a415d74015dc8f9e4369a041804073e012",
+      "poster_sha256": "b348b8c22e5dbe8481e86997d466f43610d944eedc828164cd2180d943b4f3e7"
+    },
+    "kalligramma": {
+      "input_sha256": "d3fc053af7e08f07c0d3942ba207c85ea5440bc5c008a404e3b2b0ef65b445f8",
+      "poster_sha256": "5044e8ca65ec4cef809f4d82bedcdc8c6eb4155ad8e43e803dbcf6130f234966"
+    },
+    "archaeopteryx": {
+      "input_sha256": "2ab26f88dabad01fc6ee943c96f4ae9078601071f221c7b9e58afac418e81ed9",
+      "poster_sha256": "b4e834df3e0c72875fcb2e11e42720d643e3b99cf48670190fd2a6be276a42db"
+    },
+    "canadaspis": {
+      "input_sha256": "d2731916fa9d45ed3bfe3cb80463acd2602c2397619a3f6899c0c3acd908b59a",
+      "poster_sha256": "b1f3e225f61498c64af412c5a15ab77afe870c6348369307459250e49f2d7a99"
+    },
+    "ceratomyrmex": {
+      "input_sha256": "0d5532d0af28998a7e4778363521f364968fef7dc775b690e97ce9854c0fd26b",
+      "poster_sha256": "249667531d327f521c6eac3f6a2786aed62585833389a2bbac6effc3ad69a9e8"
+    },
+    "hydropteris": {
+      "input_sha256": "e271b401ba28c3e4cdd23254ed17192fea34ca682a17e7c4ee1d3da93f5eb847",
+      "poster_sha256": "c8404168fd9ef3e5f9c3ad7d214d8ea7c92e8c75d23c33fb7012dc568ec75057"
+    },
+    "longipteryx": {
+      "input_sha256": "989d70d07ff468276d96fee044fde7677bcd8e9bc684478bc6709f2834d4ddeb",
+      "poster_sha256": "8ebf0422712a3f79261091969fa551671cb9350a9f5b1b17f4237ec7e2ba2f8d"
+    },
+    "urasterella": {
+      "input_sha256": "77aaf8f79fdafed9ce4261bae72b0104aaf30c017a1983b19ce18abd49d93a12",
+      "poster_sha256": "9080e531628e6912cd6829a25aece94496b60ff3434b4681e3939ea8226291cd"
+    },
+    "alienopterus": {
+      "input_sha256": "72e69d7762d2b1bf451b63f15eeab972a7bf73585ee87878ef8882039756d254",
+      "poster_sha256": "2b0af0a53cc6455fc66973b51f371a235d7ea6f8fee496b739acf2d9b93bc509"
+    },
+    "aglaophyton": {
+      "input_sha256": "b0b020a7cf4a2ab787bbab24235e447e8ab7d30621af0a3de510e686f1b23064",
+      "poster_sha256": "7cd7ee5b8c454dcca7a912e29a050557867416209cede920e8c110b36da561b5"
+    },
+    "cephalaspis": {
+      "input_sha256": "ef7f207370a9ed9fec2d3480644ee439409b7732218adf1d35ac953c7932064f",
+      "poster_sha256": "005e64c8cb702224fd4abe1465d9b320cbfcce89832344484d4b0272e529a271"
+    },
+    "saccocoma": {
+      "input_sha256": "54a6434dd82a42711ea310a9d201b34880acea0a587bbee5b84ba06746ce6fce",
+      "poster_sha256": "cbf9ce2bc4ebb856ec27cd90cf3e6a3671da1109987f59e819bfbded3f799a12"
+    },
+    "archaeocidaris": {
+      "input_sha256": "54aec1624ed5eff0f3fddcf677131afd8b7f67cab9b0b8c9249e5454fdb82bdb",
+      "poster_sha256": "97cc098959e5ee7d932e84ef2185046f70f5b0df0b68ec08e54c2723b2479fcc"
+    },
+    "onoclea": {
+      "input_sha256": "cd3f3ed5778891d25136010409a9b8fd0027140cf1786f9d13b59468c9cefad9",
+      "poster_sha256": "caa2e7fb70ef0215dfdf03f5933831043f20545da9d3af3b4bdde1a6524cd2e4"
+    },
+    "calceola": {
+      "input_sha256": "61649817304d5f3a3130fad44112dd4230e1943aff38761c760e787118a25f51",
+      "poster_sha256": "20f763c258e04e639087b117eed23bb883ae1d26dd6a3712632d030925a396be"
+    },
+    "favosites": {
+      "input_sha256": "9423a5c20d965e443e6106b061e738b5c396d82fdc9a75054ba0ae9e4618becd",
+      "poster_sha256": "eb9bb44ea7adf14b69c4c5542b6549438a0df3f51b89fd764e6783dd5b40b588"
+    },
+    "opabinia": {
+      "input_sha256": "5f3f813506434636564fe0839e05a756973c767233a426e6fb85608d0fd19678",
+      "poster_sha256": "624d0ae2f46045b37d1965d58c1511fe840e69121553b38bb76ae1874ea134d4"
+    },
+    "choia": {
+      "input_sha256": "463639ae78c20be47e2d9f69f52133f08980104a1957724e34602720c15a6c62",
+      "poster_sha256": "843fe66c0978d46e354ff869fbdfa6ddfe7c08c4505045ad77d958a17688fa16"
+    },
+    "goniophyllum": {
+      "input_sha256": "39701cf4c01647a7cb7325598ea0fd546efd563ead0c6e3489a70496d3253b37",
+      "poster_sha256": "445d7c5692c8271dd369c8cc97a824f80840b6a0e5842304b516b8f89976d188"
+    },
+    "halysites": {
+      "input_sha256": "3c1b0ad5dac54dcbd25d3a77ff4b50923cd0e4cbeca70bb68b80ad71e1de8f44",
+      "poster_sha256": "e81ef408c46955acb86dc26404138502e43e9ba3c5980369993494c0f0e16986"
+    },
+    "marrella": {
+      "input_sha256": "0ef77710f81bc22e1539e7b5609ee540d3244432f9bd81a4779514adb9f4f3cd",
+      "poster_sha256": "13e313c9f793b8ca32b20f1f1de168626adca7b07d6e7f46731a11b7d60743d1"
+    },
+    "proteroctopus": {
+      "input_sha256": "04eb25d40ffc718a33759149a8d1c30af3174cd0aadb043b1a5d717829b0e99b",
+      "poster_sha256": "bec13d6e0bb476bb470540609f32a39a76d626a99d8483b880cc3771b1f9307a"
+    },
+    "aulopora": {
+      "input_sha256": "92f7dfd092ef66c4266e1ee59e3b966e8112187ad9fc89478f18a8263c3b0293",
+      "poster_sha256": "000d7349486ec9b66aed03f2d953ab4f6b997bf485e9c9e80c132bbe388045d9"
+    },
+    "thamnopora": {
+      "input_sha256": "0dea369c934830e36baecc7b7798f044422d4fa9117527b5e86d92865ac0a740",
+      "poster_sha256": "813e5a267966378de7b4558f94d1690b13153b7a3b9f980e8692412650d79156"
+    },
+    "hallucigenia": {
+      "input_sha256": "a4342541d46d65c564c643efa8a2e266f5710c91f458cae34cb904af7f931982",
+      "poster_sha256": "9aa51993181f964a34216b1d2fd5eb8c4d1c5a19c021b72b8ce5be17c2c69a4e"
+    },
+    "fenestella": {
+      "input_sha256": "c4f31544f748ef6ce1345680d40dfc1dbab5f8e3d90ff85738934559ea0a9d72",
+      "poster_sha256": "e2a08a361e9bf6e5a6296ff249b4750c790679268fda2ecb54665f6f76681ff0"
+    },
+    "syringopora": {
+      "input_sha256": "6f4f8dab40f925dc5deadc73eec9b598572e02bdbe6ff60bf7ec9af8c6c50e86",
+      "poster_sha256": "c10d7160ac49ce31355aac005945920529e3c99372878e6489d9466c52305a3d"
+    },
+    "vauxia": {
+      "input_sha256": "d48513bdb1a65cbeb88bdbb933a6d3aa93548071b1b97519b90b76766409844e",
+      "poster_sha256": "384042d26c8fdb5e462f98b3f8ad300dc3f94da2ecd7584f66f7a9abb742ba6e"
+    },
+    "halimeda": {
+      "input_sha256": "da6492c9f601e63f8a374ccb3df2b2a0199bacddc5d164461f0746dfe9e70ec3",
+      "poster_sha256": "06eb41e6c05dd17c7d4049da52304881b696a5628c9bf1d02182481a4454f8a5"
+    },
+    "isoxys": {
+      "input_sha256": "74ab7d00fa20fc91aaa12a16d94fc22485766ced88314729a83a64a121ce10cf",
+      "poster_sha256": "de09c6180d63330d7a834baad751e44527c633ccff1fb85dc5fa990c743ff7c1"
+    },
+    "heliophyllum": {
+      "input_sha256": "3de2607cca170514230b0c33ab113c1db28a0c46bf3315b07f1d29a8650f0dcf",
+      "poster_sha256": "8b4bccce70e8f9d1081e91f772c3c646f7b9dc340b6522694d8e61b0d3961362"
+    },
+    "pirania": {
+      "input_sha256": "d87b0d93fd378ad62f45c75e43322d29e1a3fbd261452a63d8af20672a9ba8b8",
+      "poster_sha256": "9cdc0d47c0900a96011adce16b5e6ee6e18adaab5fde62d3b9c0f55152bb6df7"
+    },
+    "bosworthia": {
+      "input_sha256": "0017c80ef034ee339ee02073945d83dac7118ac30c05a8dff6f92c2c1d6a3a87",
+      "poster_sha256": "2a71f068380489eab9b119fb3594cdeef2f8b568436204ad57d86d86d5074688"
+    },
+    "haplophrentis": {
+      "input_sha256": "fe748c2ce8b7fb87591d19063b0c9db57489bb8393dcfabe534f22b3cd6336e2",
+      "poster_sha256": "93e7f77f3d4afafacaee90264c27bb7d6866b96bbc515cf71bac4aad11fd6a7a"
+    },
+    "buthograptus": {
+      "input_sha256": "aa32359b06f9d5c7e9ef7e79dde88499754ec89a89323c8a39f7a94aed804bce",
+      "poster_sha256": "e28050541482279dffc3804274e8ae7f0d6c667c9f2ca43c0b8e59658a45fca8"
+    },
+    "leptomitus": {
+      "input_sha256": "9255c14804544160f20d85559daf7042342c650a8dd9d5c473e04a8882c1e51c",
+      "poster_sha256": "35941647d51c4ec35d50b8885011b007314d68bc8a5d72fa740e002eb3e9255c"
+    },
+    "meandrina": {
+      "input_sha256": "4c7e8e1e3eaa809c9b3a051939ed10d462beb6bfa4d14f6f3b68ca5789db74e3",
+      "poster_sha256": "63573e721437a1d3aed94ba333b5864a8f6aadf2f1bd933f6bf224ba33418698"
+    },
+    "thecosmilia": {
+      "input_sha256": "395b97ffd451143f6752c4e89c93f34ce265daf595b4122ade28587258dc9053",
+      "poster_sha256": "f57e3b173b2fee3ddc10d2a66430115ce2ae8321ccb32eb2088ca86ca4106504"
+    },
+    "flabellum": {
+      "input_sha256": "4014792d5d228f0265b5e6a933d912bde7ed66f5b0d7c25fd67fa02dc1b27c47",
+      "poster_sha256": "8223c479655ca756f604e2ef8866a6baa134fc2ca1cda3e04980f7690df79f99"
+    },
+    "horneophyton": {
+      "input_sha256": "20b3b17d56aa19a67337bdd56fd556624044dba017d2ad18d6f31943a0b18c1c",
+      "poster_sha256": "c0ba4542120738261ba34978c6d1d4e9afce5ff1789459ef95b3884fd9ae6c26"
+    },
+    "wave-ripple-surface": {
+      "input_sha256": "8a65554b3666c5ddbe777a287c05f0666ad9b460de500d88fb9a970558320bd7",
+      "poster_sha256": "1c3744650b4330e020d71f1328da44448c81aaf279f4ec8027b19132f1e22ff2"
+    },
+    "gogia": {
+      "input_sha256": "da4ffa9b45e3d42237b76deb0d6d9eaabd7812c886cc3cab83d1fbd5ceae3405",
+      "poster_sha256": "1408ffab4a5e63700448333bd48cbba05a4298ea9193ad68f4e15ac883b0119b"
+    },
+    "micrabacia": {
+      "input_sha256": "65b49e21b2b1b73eb8e8312a2a25f362e225c8f811b9a4a582ba600a368c4132",
+      "poster_sha256": "b0ee4ce5825c9bce19dec73fbe420afbcf95a1a433396bf6cb8223f31817ee8f"
+    },
+    "sengelia": {
+      "input_sha256": "bfd741db45e5708a402393622dfe96f25daca8299a09ecd587525a9c586e1078",
+      "poster_sha256": "2a6cdef4db7bb2e2079bce772081e1a284a7fea56e3ec19e2c8a272150ae0ded"
+    },
+    "coquina-outcrop": {
+      "input_sha256": "096e4acfc4c6aa2ccceb801a29190c3cee949d983c079fcef138d821a71f606a",
+      "poster_sha256": "7609d6e67f2c0bc8ce9b6c63f3f911b53b94a0d25e69ce75985055b6ce065a00"
+    },
+    "naraoia": {
+      "input_sha256": "0d20a005fb88c0ee30193f5fce5bd80ada871f002e49340d2c63ea90eba1f514",
+      "poster_sha256": "302d64a6596192654f67fa9873845c121192f133211d807c0befb2074ec312fd"
+    },
+    "cystiphyllum": {
+      "input_sha256": "dc183260e9ed4b6befc200e3a1374a04a6502eb56a5bff8d0b6df88dba17aa48",
+      "poster_sha256": "cb14fcb59d2f011f94aed6741ad88a0e87bcf1ad55ecbc54cfe3628b7d9371fd"
+    },
+    "limnobiophyllum": {
+      "input_sha256": "7f327f6ca98a2595724cf2e0cd9358ead8ad234a1cae1069275b4d13ca3d9c18",
+      "poster_sha256": "b64726c94ca9188dc559db0bff765261e287f3d0c0db1db469c70ebc2eef9511"
+    },
+    "wielandiella": {
+      "input_sha256": "e6b75d78d872304b5da965d7d8b63b3a61b36206d404bcd6e1fecb7ba181e569",
+      "poster_sha256": "62156790466ee65f0aac70a51dd8002fa897407c31509e3544222bd6bcfca7c6"
+    },
+    "desiccation-crack-surface": {
+      "input_sha256": "3d2f3b7c4b11682490387727b0c95c025266ed5f7d47565593285f457a2d634d",
+      "poster_sha256": "1c73df95f54cd795796d6a05b3e09837ea047014675a4f9442c964523f18cab2"
+    },
+    "acrocyathus": {
+      "input_sha256": "c509c6eaa297c6ffd5943dfd88ad25d2c627c25e6ca24065038affb63d7a91c4",
+      "poster_sha256": "7cf80613281238f3eb1a80a55fb3d3d9988a10c60a27b9cef5b0328e9989e3b8"
+    },
+    "sawdonia": {
+      "input_sha256": "d73752cfdb75e699e33d149d44c7a3dcf84af7238b0aa84c4bf7fcf5c17ea31e",
+      "poster_sha256": "bf26c78845a9ca26d4be89f86976c404775eea6ad27ca61cdb857109f3c86912"
+    },
+    "leanchoilia": {
+      "input_sha256": "6aef86ab8d4a26a2cda76f2bacacf931b39a577a58bfa345b286b6e0ec31fdbc",
+      "poster_sha256": "b825c66368f5a7853b95c3aa2371a1e4d5d8aa187e74a2149da6d07cf6cae317"
+    },
+    "septarian-concretion": {
+      "input_sha256": "18459a0bfa0f20439d8646641017662ac18f6247267ff43d4927985c4a0c4c6a",
+      "poster_sha256": "7be9bb6fba5592b58d9b2bcc2871344d7bdde65222ad281ed7ffbbe9f7975b94"
+    },
+    "montlivaltia": {
+      "input_sha256": "efe7ea5ff7897639a2b13832b090cbad5e7bb59706ca2d0cc5496a591ab4a96b",
+      "poster_sha256": "167b1cdb313206fcd4269e0a5537d420bfa7ff6b8f1b2029bc31d7f597a32a75"
+    },
+    "cobbania": {
+      "input_sha256": "b947967504d9f44ea3be485720ee72d749cb7ebc9a061003d9f680f387c664c8",
+      "poster_sha256": "2ef02235303a904d1383adfd9e8cad640e3f94ab9ab203c21cf59ff02ce8782e"
+    },
+    "aysheaia": {
+      "input_sha256": "a0c5ee16416d455dc579bb98e4e8f743fd97fdee2fca5e6ae64658154736b713",
+      "poster_sha256": "b2245d796e63ce0194ef22c5b795b44ee5fe355e7af6eb1b3769965a888836b4"
+    },
+    "tafoni-outcrop": {
+      "input_sha256": "3c34b7b72ea42bd4db6241bc7052b779ec24fc12669ec4f8474996e881878b4f",
+      "poster_sha256": "2f22d6a69515b3903bc51d579211d6c78cc7fccb8993ba2ebf4b7f02bf0d4847"
+    },
+    "beelzebufo": {
+      "input_sha256": "549c354db12946e5254bad14aed6c55ed58629a4edffdd5cbc083fdb4b82960a",
+      "poster_sha256": "cff9d05a6064874cc51c9b877b7c4893cd45bf1f92d42c246f586a9c4aa045c3"
+    },
+    "pluricarpellatia": {
+      "input_sha256": "b94ef9a2d2160dd86df7d13d690f926b20f2522c4518ada1f5bf535aa7107557",
+      "poster_sha256": "3d9e56efde826cfb3f31415ee514bbc486ea1190672885674f703d7b24bdd740"
+    },
+    "paratingia": {
+      "input_sha256": "2534400d16f1be3a919817367fbc7ae277c108ea076d3f2d2c4f9d9e2de1399d",
+      "poster_sha256": "964e76d56508b078ed9af43224eb9ac2aebcbee659163ce00c040ec160224790"
+    },
+    "stromatolite-mound": {
+      "input_sha256": "240013637c4a793e65886bd34b574277406415ea8cb2f364d55e3b662a0348a9",
+      "poster_sha256": "82f36753c412a75466757e23b0aeacc5eaa55d721f99fb8f28b09f8024ce56af"
+    },
+    "pleurodictyum": {
+      "input_sha256": "ec8a9a70ec7e6a2b44b6b5049b5096788a0a568fcc9efbd3a54e71ab17ad27b3",
+      "poster_sha256": "4e216a834f04ef4ac51aaf54bbf31a92bd1fee9769b9944073a052e6056ad845"
+    },
+    "matonidium": {
+      "input_sha256": "b69373a3479f37db07255482960e5bcee3f9902cd791207a5a3d34432807d8cd",
+      "poster_sha256": "9b697e8974dea392fba5e051ce0d3dc1a6f519f83d5b5b532de9be4100ede355"
+    },
+    "yohoia": {
+      "input_sha256": "2d58a53c2d551f61143e7706d54031b40c7013a5f9dad2be9a97df89eb608725",
+      "poster_sha256": "0b55228145c625a4a3eff9ae7e5b0853df3f3a340be42430c0676b5169e8e2c8"
+    },
+    "gypsum-desert-rose": {
+      "input_sha256": "2f8d7916df8d77cb04c0c7a08151c752c86fe30372813e961041f114401dae43",
+      "poster_sha256": "c5b050ef9b9020d150dcd9a343a07f8624e628eff14e5dec954995cbcceec8ff"
+    },
+    "isastraea": {
+      "input_sha256": "87dc630e6a5987a873fa63d2be000c5bfadef620276a0490ecc5a88c5feb14b7",
+      "poster_sha256": "633a747bbafdea2ccaa4afd047d06a6c3e74a91d6ac44dd39191246cbbfcc3e3"
+    },
+    "araucaria-mirabilis": {
+      "input_sha256": "669b0e832e66eea391b0db6f7438c74595ed4fe2d57c44334c012d2fa9c85951",
+      "poster_sha256": "b88607a8590c991ce9b51b6d29cb2610a90216981ed460531b39634f10bfefe9"
+    },
+    "onychonycteris": {
+      "input_sha256": "f3d56dca160fb388c9a3866a51ec33212ec42168f3ebf1bc8a4c4c2a9a8d8bad",
+      "poster_sha256": "c4e9f91b8eb518de72b221859a9e3a5d179b7b497738637325c6e24b4c28c875"
+    },
+    "pillow-lava-outcrop": {
+      "input_sha256": "7985785762ba1598cd62d116869fa25fc252144c0ae4a7385e6e4ca09e887270",
+      "poster_sha256": "b84153076fa152d99f50a00e5a76a414407792df419a0681553fc02a024f7a0d"
+    },
+    "spinolestes": {
+      "input_sha256": "92bc532a355d68c3fcc1301f5a11afa13c7ace31f41bdf939e5ee72778a51e7b",
+      "poster_sha256": "d69da11f9dc99ca861c14c8c057cff230f70370b801f4b2fca119145c6c16cc7"
+    },
+    "odontogriphus": {
+      "input_sha256": "2ba06ab101deac2ea9c62cc36084dbe00df5550fc0e13074d6b8524c957f3fca",
+      "poster_sha256": "1f03b20760a8a5343aa1f57191da6b5d0a869d0452544f5cc23ad014d45b3ed7"
+    },
+    "trapa": {
+      "input_sha256": "927ead525f4cb3935dc5ae9b41c67401ded4bded20455e53ba0e998ac85ebb58",
+      "poster_sha256": "5e693c10de4661bb2fed197a2df1aa5fe0009b8d8ee5efdd9afc79a66aa08676"
+    },
+    "flint-nodule": {
+      "input_sha256": "9bf40a8d715d1a37628b8d996563c5c535c301d4d18620e7573216b62368ce44",
+      "poster_sha256": "40176d585e794bc94edd67952a1c26acaced20575190d61442622bf60a7efd4f"
+    },
+    "cooksonia": {
+      "input_sha256": "b4ca468d877aded7f929a998ce9e829d7d80610faf1a8a24deadca83e5a51f79",
+      "poster_sha256": "443a1924d8f408eceea36c72cc2cf744e25c83ae3b66e0d6669f044e05f1dc6e"
+    },
+    "cambroraster": {
+      "input_sha256": "021266501d2fd815875e0041cd6aa7f95c52e47811fe50c3ee8ac3082ba654c5",
+      "poster_sha256": "b3aac38d5c036a5fe61213aabeae6c05d56c3a088dc836e05e733953b9f83182"
+    },
+    "bedrock-pothole": {
+      "input_sha256": "465d476a82b7a09906827ee616c1f19f9f360493a88e1e0fd54cc4aeefdd9942",
+      "poster_sha256": "c644cbe3c17d3dc4b1f3864d2b795e4f64321f45041522c53f7bd98e125e7a44"
+    },
+    "quartz-prism-cluster": {
+      "input_sha256": "cb5af2e3c381e92ec0438493e8a6521de65c08fd7e3a4575712994a98a1c0bb7",
+      "poster_sha256": "aaf7f2e0ffef260c56f0f888eecfc2a911c8f083a81dd131594326e53b38dbac"
+    },
+    "leclercqia": {
+      "input_sha256": "08df304a325b39afe8f3b6f99d656544d4bdcc39795f5f41c8e870b78474e95a",
+      "poster_sha256": "65360c4e4ddeb9246307e4534fa883e941fa11bd99202bb2fe768bdf77935bf7"
+    },
+    "canadia": {
+      "input_sha256": "2892ee3779aec2faf70cd23a1d3536cab24a86541cde8112b2e1682b99abb0a9",
+      "poster_sha256": "877532c33162eabae998ce0856fd649e0687f9b16a67e834c764c04493e15406"
+    },
+    "salvinia": {
+      "input_sha256": "3c8e4f0fe6f8d04c5933609505898ac46e904a4496a26fdb69feec582e3ceaa3",
+      "poster_sha256": "f7397bbb32ca1199c7cbb12e05df179b88a6e75fcc9223d8002caef2007ee846"
+    },
+    "load-cast-bedding": {
+      "input_sha256": "59ff24d51560a20b62a1df30ae723521ac5d2f15ae922892380dc614a7ed6e67",
+      "poster_sha256": "20ab798e1da0aec4690a15a88e80c12fcff3a567dafafe21f2fcf08334e39822"
+    },
+    "montsechia": {
+      "input_sha256": "83fe12d44dac1928f2514215828842dbc3e2a12b90a89ae931327ab36e5d93e2",
+      "poster_sha256": "6f2fb58c6e782ff6138265203404e48f560274d58c9bfd9eca7f76b94dd8d304"
+    },
+    "dollocaris": {
+      "input_sha256": "58f9e173ac254aa8945cca152d1912f529666211bf2e69945b3ebd349b74442f",
+      "poster_sha256": "bb3b605c048a76f1b56e0fcb8e4c6b62caa675588a3f9457f738d7210555c4ac"
+    },
+    "coelurosauravus": {
+      "input_sha256": "aecc4e1d4bba5ce3c8e4f4f933cb4fdabc52ff80d80d4decdf6d05a6cc3788a9",
+      "poster_sha256": "ad2e7a492d56890528363fb28a8ec897dbcdbe9a561c9ff493d1ddb1cc1e2e47"
+    },
+    "columnar-jointed-outcrop": {
+      "input_sha256": "7cb57f71005774e9c4657f23df6cfc6fe7a22a6b6ffe5716bc0d5505fcc80aa2",
+      "poster_sha256": "d2a14fe93a2361777da421d271333450ba54716fffc5f25b6290778aeee48160"
+    },
+    "florissantia": {
+      "input_sha256": "6d97c624b0fa1c9961edfca3204a3193a658e23203cd50ea8c9ec95e5338ffe9",
+      "poster_sha256": "39827026ec175f3e59cd7c032bf7a33c29a3500027ea6e0ec05505b7974432ae"
+    },
+    "stanleycaris": {
+      "input_sha256": "6df4914bc017366e0a009998ae7f6bbb7474c2f3c8fe88da20a931f2e3e7e91e",
+      "poster_sha256": "72270621c726379c05e643e1ee63f8c0d50e7d0e69ef46d8b8946b0f22a9d455"
+    },
+    "pahoehoe-lava-surface": {
+      "input_sha256": "ee6f002485984622bc05874c72b0083f2f2dff71dff32e9aeb8e5b62c5c25c54",
+      "poster_sha256": "51ef1b2bbbaf84448c10170cbf313476066458c7e1580792d6e3cd89087ff21b"
+    },
+    "staurolite-cross-twin": {
+      "input_sha256": "f9272631de17821a7896a71e7fc70a76384dc36fd25ccce9e428916fb6ff62fb",
+      "poster_sha256": "7fdb4c7b0e20d3d4a3957c9ce25fc8a3bc51e95650a556fa95a3756b13592ad6"
+    },
+    "metasequoia": {
+      "input_sha256": "ee31a5d718505a4a19043dcfc94ce315a83dea1514cee4339f63a1de3ab6493a",
+      "poster_sha256": "de2b67cfa5dd551bc72e83af6519a480123f0fc5399a2ba8941c2927c6ff29ac"
+    },
+    "ovatiovermis": {
+      "input_sha256": "b8661ffe25275af4cea95dcd21ba957c7402718a86311f303e8d0972ddc59fdf",
+      "poster_sha256": "7ce365a6033f19de5cbd01f476fa53e7ebe0cd694f8c840c94f263b7a44d4b95"
+    },
+    "nordenskioldia": {
+      "input_sha256": "0dd3f11fa418a86e172a2aa0c8a2fd44f8a7c809d29a72909146ee7ddcdee420",
+      "poster_sha256": "e923a61e4aac8654764fe632a38eb13df8f90a9ca2f82733b24111ebc788f653"
+    },
+    "waterfall-ledge": {
+      "input_sha256": "9d881590f455fd7e0f94ffb8db8332bb42d26c40364d6d6302e4adbacfa03825",
+      "poster_sha256": "07d8222d0c01957e6fda1291a1766f3ffbfea8500b9e8486a4465da184c2071a"
+    },
+    "williamsonia": {
+      "input_sha256": "b43056c31012ce8dd4caba9b7a8b52001f92a963929afd5c393f671d4a0b000d",
+      "poster_sha256": "092a582b672424f1f6dfb76ee8059a5423f10cd083974b8cedeea7014ea5c02c"
+    },
+    "halkieria": {
+      "input_sha256": "234b0ec46d70e8778059f4008cd418954e645eff6db6693ab71d6f17e99fa7a3",
+      "poster_sha256": "ba6cf32d0fc1114723b658a956ea017c5a1c37d16b185b5cb4e4eca15868a840"
+    },
+    "ctenorhabdotus": {
+      "input_sha256": "f0935da58a5daa970c32c2bfa308da9e3cfe1c3bd509672d0ac982f43a3c6592",
+      "poster_sha256": "ec9a1333518752390be8b7f5fdef568b42d3ddb1618b95e8581e469be254590a"
+    },
+    "conglomerate-outcrop": {
+      "input_sha256": "e37101ff1c221a1c75d2be55c8c6685c2639a0301a88e792dac1415083988bfb",
+      "poster_sha256": "f54395d44098ae41e42d54b494aee083db3bf401cd631975b69ae19a0a7f09a5"
+    },
+    "anomalocaris": {
+      "input_sha256": "0940719be33baa37984304c03146c606e2a75eb7dff75db48a4146f28983d631",
+      "poster_sha256": "44d79ff905a9ee400fd03e20bf9888f47d8db950a212690116b4cf854da780ee"
+    },
+    "jimaodanus": {
+      "input_sha256": "30c9a92ec606aff6bcc59637f89857d29f4744acaf0f8db24d8520a11a59235a",
+      "poster_sha256": "802de8e8b309c84e51e29a4d46b8972f69fd7b7ded8b7f38033c854eb854bfa7"
+    },
+    "hydrothermal-chimney": {
+      "input_sha256": "cfa93ae7f0e56f0df71894802649cf29e84fc973ba337091f2ec6661452a6121",
+      "poster_sha256": "1df6b0512d57961c362edca6e10dff1029b8feba1ff4274414e1e3e9dd81af1c"
+    },
+    "arenicolites-u-burrow": {
+      "input_sha256": "4815442c488830514e4db3f158af1f9b475959bef0a049ea304509405efe521f",
+      "poster_sha256": "b7f8ec79238ea2bb93abe92c2f671a0fbc355fb4d187ba70cf16398e2dadb48b"
+    },
+    "echinochiton": {
+      "input_sha256": "7f30431e9794ccf6494351ca5fceac5a98fbe762ead297d8ef9cab3461e0a6d9",
+      "poster_sha256": "3494fff6bffffe4f4fe714d2ff3e64eb7e836d047afaba6300873617a41d75ec"
+    },
+    "clypeina": {
+      "input_sha256": "1abea08fbb77a158cbeb828b86904a9a2cb054c421b16068bebb09b389df577b",
+      "poster_sha256": "130c32feea1d4d6e1d4a2bf2150ae3a97f25868532f237767f1006e12a3c515e"
+    },
+    "tidal-flat": {
+      "input_sha256": "a2bf0fa87bdfacc1481798020cc27343cf6c794a32e535e80fa4168b3ceb567f",
+      "poster_sha256": "a1e01e38f000b302f2b56d4c472d589410be98aaf53b015aba112588bae9e084"
+    },
+    "thalassinoides-branching-burrow": {
+      "input_sha256": "c4d80f7ec40d8647c78460b27f1c1ba9b80fbfa0b4321adbd7f94b7400486d2b",
+      "poster_sha256": "4d9201e4060cae3c475a93811559ea4a56336f953686675800cce9f7e6adc2be"
+    },
+    "sollasina": {
+      "input_sha256": "78e732048f6bdb4c1e3600134eed705e88f3499f059e4e86618fb20efde74872",
+      "poster_sha256": "4bfe46fbdfa5d39f5aa22a2212cd7bfe857b3f0ea338bbc70b8fe17ef6495472"
+    },
+    "ottoia": {
+      "input_sha256": "a1b17002f1529d05b08ca8b52aafdf72f01ab165fe201129894e142484c5a733",
+      "poster_sha256": "9d6ad62096ad207436649c3db23c5c19c5b44f69a708dee6e35c3dcc002ee4b3"
+    },
+    "eocladus": {
+      "input_sha256": "e9217312d0d8426ccf8c3d625f654788015c6c5be71bca2f2eeeddb74fc9cfbb",
+      "poster_sha256": "6a496509161b7d3a604a375a424d0b1f3b1fc0ff681d676750953f1611413fb5"
+    },
+    "limestone-pavement": {
+      "input_sha256": "0e9c89acc942640c9437c25e8fecf882b5815b3f1712724a962ce322f724466a",
+      "poster_sha256": "32bb559a5304389d0f7667a89b2a95e3b16c2e6fd8151dbb96cb11ed10787691"
+    },
+    "marsilea": {
+      "input_sha256": "af35edfdbaa74941dcc68f9ba4c624266e31df424d41d21c8c7a3f7e9f851d27",
+      "poster_sha256": "2e835c562fd0693d7307e5868f6b30158601c8295488883bea75679d6a770b9e"
+    },
+    "hurdia": {
+      "input_sha256": "a3ac1986f390db7cbff808799cf90d2349964a9f1d76a689066c20d560160ce8",
+      "poster_sha256": "8ebff789d9481fed01c5c892cccf2c7840a4b65b7375b79f81e76b81300d1217"
+    },
+    "sea-stack": {
+      "input_sha256": "db19cd57f8b5bec5b8fba97e01c3157883ddf32c82719ee9a2be07e3abd13902",
+      "poster_sha256": "aca4568504155f35bf4370d8b37d2c076ab0933b8fc9d91d44a785708435caae"
+    },
+    "fulgurite-tube": {
+      "input_sha256": "dacaf5317aa46f636b4b383b1cd368ea119842bb7a75df05805f67de78630b03",
+      "poster_sha256": "c2bc036aae6576d56e1e837ca4c9e74c6c636dfff30921f586547289287946c4"
+    },
+    "azolla": {
+      "input_sha256": "76a6a1a3ce5a32e48b27778318735d0ed38415f95aff0b481bf01e5bf8012cbb",
+      "poster_sha256": "7a1ee5d452f40269b9041fbc9a1b6bcec9771ed5fb9c7d32fb67062aeb6e3ebb"
+    },
+    "odaraia": {
+      "input_sha256": "79fd177403ec7ade69cf435ee38b250ba8ba57c7afb8057fd6bc0d02975cb846",
+      "poster_sha256": "a2e9f27df1fa0d0db5105f1288e92d6dcce05671bbbb5aea58de13e78ec03d85"
+    },
+    "pachypteris": {
+      "input_sha256": "f502f4f7a1e61b2da5cd742aa811fe65451de5bc4137eb12fc85c15b36dca45a",
+      "poster_sha256": "ac5e43f1506ca51bc6b8926099ef9cc1c0a6cde2660753682e65f6c38d2a649b"
+    },
+    "sand-spit": {
+      "input_sha256": "56cbd2d4a23ee79f0dce7c81c2c672b7b32b31848c9a6b39a99f29929cc14bb3",
+      "poster_sha256": "ea909e23dcac42ea7cf4998ff8c771c5856739a7b82db6423e8e2b1022074fb7"
+    },
+    "peltaspermum": {
+      "input_sha256": "f206b88071bb7c3971c113fb7fbf78a070658a9792b2380d41cd9864688f7840",
+      "poster_sha256": "840db821a66b88771a08affe3f7beb4c346868ad9f83b02f646780d2d16a5004"
+    },
+    "capinatator": {
+      "input_sha256": "9917f881b6be5de143bca310117a4ca782cd52d9691e30e15e34ab1c745df76f",
+      "poster_sha256": "6fd7fe6806b2edb5f7da9cf071edee4fa102d1892a13d06d7292f11e90e38127"
+    },
+    "cothurnocystis": {
+      "input_sha256": "3cfd4ab92c76ecf3b546acac0521145bf90fdbde0dba56ed5e44137e558ee7f9",
+      "poster_sha256": "86a294efdd001de5dc5e3e803d15cc6d10fdd8ec6dd30a6d9d58375f118a1c96"
+    },
+    "pyrite-cube-cluster": {
+      "input_sha256": "9d9abfb2c55c2247810a9e70e2a782cf990766fd74b1ddc6fa59092ba1f6aa41",
+      "poster_sha256": "85095e6386a9abcf6e1dc241e83923901e252e3654bf5da725dcc4ceddf8112c"
+    },
+    "asaphus": {
+      "input_sha256": "6ce9b3590c85ecf5cebc0264195b505ba25f53b7ab81260739e069c5c973f017",
+      "poster_sha256": "ed393c459e53fce8a5714ebb778b85b027161936b424594b00bdd5980682bf98"
+    },
+    "hazelia": {
+      "input_sha256": "1f2f8dd937a71667c672cafe09995a31b2275c06a6b334bd0522c5eca93111ec",
+      "poster_sha256": "742f7f794d8dc293b8359ef757d360adbd65d5a2e5cb08574bcb13cbe30c7ccb"
+    },
+    "sea-cave": {
+      "input_sha256": "da31e0072b8bc50116ba1588974b38059f95eb248f97a7dec8345411eb297fc8",
+      "poster_sha256": "1a5a4a7db3704672e567457812bbec2ccfb7fbdcc3752b889087b30cdda1f5ab"
+    },
+    "cruziana-crawling-furrow": {
+      "input_sha256": "c91bd4d5d727c6aafefdb22955d14f1a4087f48a02c3b5e24829bb21822151b2",
+      "poster_sha256": "9c079b4da77c4e0e9584a3994436ab06d1d12c16157ee5fab776a2b4244ba110"
+    },
+    "ctenocystis": {
+      "input_sha256": "eaa039d83db99591c47d236992ae204c3b6149211ad007f5d4d7b7a174f1177c",
+      "poster_sha256": "f66f2c012ade133a1b57a65b6856b24b44229045ce7182ee4da5f82c28203daf"
+    },
+    "baculites": {
+      "input_sha256": "14a716778564b528f0499f2fe208e25ff24a20cac3f36ad0137d657ac079c51f",
+      "poster_sha256": "1ac7cf20a7df7d30fe243fece1d4c641c27bd544c7012f4f461ab46fa7b3bd00"
+    },
+    "estuary-basin": {
+      "input_sha256": "6a00f900a5a5a65e466170caa1c3af983b123e3fb4ca9489f1e50b1a6540e735",
+      "poster_sha256": "9186cdfffa60103a2b33cac6b1c2b36a18be6b1ee0f536fd4ed37f2dbde91bc3"
+    },
+    "cross-bedded-sandstone": {
+      "input_sha256": "4cb2b16b4d4d7694ae6569bfacfdadf7cf653adafa16cb5227bb9c5c734d7138",
+      "poster_sha256": "fb412fb3142a6f366bd9fc2ac9ab4479a5ef68db1708ad9739158f201e956b03"
+    },
+    "mucrospirifer": {
+      "input_sha256": "ccdd6f3d72d458f0ce0961430542b4062fabf5baef4e59e70bdd914867010f65",
+      "poster_sha256": "8143cf19a48394664a4b5ea627967a44393a54de993f31ba3ec9df7453b1009e"
+    },
+    "wave-cut-platform": {
+      "input_sha256": "a9e3a020efbe9ae98de20b1858e655540820f83a6d84d3751a49ebfc05fdc070",
+      "poster_sha256": "cf302d4b19f1840c9d35c85628c605dcf63aebb345625a34ed95dd5f118b180b"
+    },
+    "flute-cast-slab": {
+      "input_sha256": "e214fc25e1421553d9724906ed119c3a8841f1db2fd8d9b27921e2a331b72723",
+      "poster_sha256": "3ace3c6c8aa66ed25502395611a0e8f463fb38bb5238da79073ae1cb5d43bd02"
+    },
+    "paleodictyon-mesh-trace": {
+      "input_sha256": "a4f9d3a2c6d54d432ad40d1d5fd9af3a1cb25574ef1637367d4538a946d02d31",
+      "poster_sha256": "fa64c889bbf2515eb48769fcede80ea08b356491d43f0a0d5ca3d1aa1c68ed3e"
+    },
+    "takakkawia": {
+      "input_sha256": "bbec4c1f1db6e146bbdf60219a80cd0114f30e31568dcdb0f398111c996dbed8",
+      "poster_sha256": "480f0ab969335b6c680848bb0b835190c6ff13bfd6e610646e58e60c5b9451ff"
+    },
+    "sabalites": {
+      "input_sha256": "f1834815ad955a71de3d542c23442a8b79e8500eec23926bbbad94b15b9b2cd1",
+      "poster_sha256": "cabe28d34147476cd0cf93e4f018612ce35b18bed2f70ad5f54a7412d89ea35b"
+    },
+    "river-dominated-delta": {
+      "input_sha256": "29b536d13f1a081a495854858f88214512a2faeb2a3cfef39d22d477c96df216",
+      "poster_sha256": "b84ad6f448bf5b0251e226235cbd9dd759b41708461e42f61e7e24d0aef839e8"
+    },
+    "asteriacites-resting-impression": {
+      "input_sha256": "851504fa2ed5e1132ad961eb3a1087f57a3cdbce753630950588aa8437bbe9f6",
+      "poster_sha256": "1a9ddddce284795255bbe4af7c331f4691764f452311e00765b5a73713810b09"
+    },
+    "helicocystis": {
+      "input_sha256": "846fbd613e92a4238ed819bfd77b449aed19f1023789f1e15da56ebcce1399ab",
+      "poster_sha256": "cf46eb7db2648d79370b8fcf645cadc303e15c67a3689a0086ad420edaa3fc63"
+    },
+    "cooperoceras": {
+      "input_sha256": "0ed8986536160449d24db0fbffffb6db629c27eafaa48d3883d4387fc8b08f20",
+      "poster_sha256": "f2b365e924b5b985a60a788f715d6d7e17c3152a90df389165789cf047c05840"
+    },
+    "cave-drapery": {
+      "input_sha256": "b2150c4faa801ee96380f1e316430dc57ae8ebe40402fdc74045338849ea067a",
+      "poster_sha256": "026a69fa2fa37085faaf9c82e4d783ed715c7d17f32bb69e78cee1865149802d"
+    },
+    "reticulite-clast": {
+      "input_sha256": "db742f0d3d81e5aa3a8137783957a0ae828cf13e628b93782ff0dba1c7ea1562",
+      "poster_sha256": "05dee9637ea0de3c3d8a87c6057ac8dfff50456bcdb5458ad8b604226313df3f"
+    },
+    "gryphaea": {
+      "input_sha256": "9412b12a373e9f3550cc554de54324bf9453bf659e9becae292e22a9648c3d49",
+      "poster_sha256": "f131fa13ce7883c485c9d7b21b16d9a39c5dc3510e2292b12f78243acfb6850f"
+    },
+    "folded-strata-outcrop": {
+      "input_sha256": "6ae88a9e10af17fb42ddba0b6628393c28055eb2b23ae964558aa3a01497fed3",
+      "poster_sha256": "1c675254336fe7f52cbaabc9da630315c18ac3bf069644b46e16fd41eb7252fd"
+    },
+    "volcanic-bomb": {
+      "input_sha256": "73e3610b610bee58c0c867bf3979b7124b3aeff2306094ab98004e3933aec7c2",
+      "poster_sha256": "0b2bde2f5361d50a91f480122b9d72df22eae2e8cb1a8ef396fed8b026f71eff"
+    },
+    "teredolites-wood-boring-cast": {
+      "input_sha256": "4196ee5fa4b2c6ad10bf1d17a4843b05c29b81cc0118c205394cd108ed40444e",
+      "poster_sha256": "bb9cc70aeaeb127c4d98cc414c09e83a2f19157a586b9655e85d315a0d7357ca"
+    },
+    "pentremites": {
+      "input_sha256": "1c4a19029ec4feda1b2706bc5a19ed4aa6dfe1b992314fa64598ef2c4f314267",
+      "poster_sha256": "a8a83ed12914c06273eb5713d8cfe41f692a1ef803442afb1bba54c7110fedd8"
+    },
+    "schizoneura": {
+      "input_sha256": "dbe2a67603f8407416bebfd671821689aa4c0f62505ce7abb921d09f2d6a1be6",
+      "poster_sha256": "3c2877a50461e4f024eecf159236d0ff9485d50874f63e0209921f060a9a2da5"
+    },
+    "tombolo": {
+      "input_sha256": "6cf81fee88b973e6502b3cb2962c0ec40bc5bf93250ff56da11e778c0d0e7996",
+      "poster_sha256": "d98db8722bb15c3451d932559c555f07c5e3b86950b5d092044d1bb7968b4098"
+    },
+    "entobia-sponge-boring-network": {
+      "input_sha256": "269fc40b9c629a96488aa246857561f1a998bb572a6f4d9f58a9422d11202048",
+      "poster_sha256": "7592a7da4d20f7f1a9e4ddbfb8deff80e4a88561c7291084c63f91909489950f"
+    },
+    "diplomoceras": {
+      "input_sha256": "80db9c53da532a8cd329d0773bf2117c012ea8d9469a39b701790e11a77d10f7",
+      "poster_sha256": "82e3bdeac671011a014f05dae4bba91b0539283f5b2f84f698cca63ea6ac2238"
+    },
+    "nelumbo": {
+      "input_sha256": "dd41dd23bdbdb94af27d8651434f9818e75518fba24af6e0a4988b2696d8b5c1",
+      "poster_sha256": "ba43a4475a3e82efccef45bef5b739ec7ea8d1c7a03bacfe4edfd8fdd0f18641"
+    },
+    "marine-terrace": {
+      "input_sha256": "f5e7ba8844322c2da8adf780bbc07cb0880f8ddd211f2e5a9bc5306ae3f0e92c",
+      "poster_sha256": "a1e50cc7b79ee01863a1b1e589e945320706febb9a017b329de92b96250e6fe9"
+    },
+    "angular-unconformity-outcrop": {
+      "input_sha256": "dabe19af60c59acee4b691aaeab1f9e0a514c12acbef056746fa86846661d3e4",
+      "poster_sha256": "2b24587d5d95ece79467f6671655f5fb2563e05484778d7478edf8bc94c1d0cc"
+    },
+    "clavagella": {
+      "input_sha256": "15d7f74325a062e93728a8f2df2609072a8fff90dee1122aee3af79dd8552479",
+      "poster_sha256": "2017c36fe6995f5b832a44b2921ce59e998d55a037add651b92208fb61b328bb"
+    },
+    "aa-lava-front": {
+      "input_sha256": "0b4ba6622309109f5a9b59bd9918d8c1dd8cc75ef0f0334935b44f6938cc52b9",
+      "poster_sha256": "63c75116f60d3cab52e67638cbf049d9bc850ef493d127621f9cbe5fe37a7c36"
+    },
+    "native-copper-dendrite": {
+      "input_sha256": "7954e72848fcfcf7756872e14ae56ab8d4a24c4a28d033c13046d7606fb31aca",
+      "poster_sha256": "81b3c539d30d903142d1478da8e6e02c763ca6a03c4dacb311424765b7b5dfdf"
+    },
+    "nereites-lobed-meander": {
+      "input_sha256": "d971efc17b69156e9368c5841994c37e64f642c6c2828a5c1c2488c2a28b2e08",
+      "poster_sha256": "a5ab1ba9a0767254818fdd71c86bdb7ac6c93cb32686a9291760250adf355bc5"
+    },
+    "metaspriggina": {
+      "input_sha256": "4e35ea79da475f65a7f606c4739e31ede8fe36e3207b83560eeb581fcb584ca4",
+      "poster_sha256": "802ee8d63e76e3928bbcb85362f8416128795411375a22aaecbc46973ecc18ca"
+    },
+    "falcatus": {
+      "input_sha256": "fe496b1b67bc877e78baf5165597c911e2e6a242fc491827c095c761ebc67181",
+      "poster_sha256": "f798058488805d14248fe1ec46ac2ee052fcbd74ed7895d495c8ac1bd8f14e1b"
+    },
+    "pteraspis": {
+      "input_sha256": "464b21bcea26598e853d252f0272df4ab47f9b275c281042230c3dbd325e7152",
+      "poster_sha256": "6164447ab1f28d8a2b35ca4374772d4ccee594219b9a0aa71873809b30b296dd"
+    },
+    "dorypterus": {
+      "input_sha256": "6838959d78d2fdae893534afdb5ff5db9dca4d0b1471cfaf3f857fb4869e276e",
+      "poster_sha256": "5e229827702d477df060a1d62af5de507f1ffa8efaba4a0ea8ed6448a622190c"
+    },
+    "mackenzia": {
+      "input_sha256": "09f295b32e919b91c291f852d77961c92be665821c685cdf27a7d18ab266e571",
+      "poster_sha256": "4e51cf64e9c0a16748a5e495d9bfb54228ceba22727efd6f2a8119375ebf67d9"
+    },
+    "prasopora": {
+      "input_sha256": "01ac4d2dfda62eaa6ebecb687c2eefacc33b5864239013ca03e38ae5e0daba10",
+      "poster_sha256": "bf78e2cd998d0bc802043f84bda8b2f601f4432d5ccd5ade1714c08c1c6e6eaa"
+    },
+    "strophomena": {
+      "input_sha256": "ccea1e6446b116f7a54d6600e51ecda28951d2d5f30fa8eaf136e0604955bb69",
+      "poster_sha256": "830ae7cd91e20fb33214f5705443ef0f2bd26cfaea3040201968af9fe3b6af8f"
+    }
+  }
+}
