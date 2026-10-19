@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "asset_id": "strophomena",
+  "brief_version": "r003",
+  "profile": "production",
+  "purpose": "Isolated concept-first undersea candidate; independent acceptance and publication separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail",
+    "silhouette"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 2000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "IV-STROPHOMENA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify the explicitly genus-informed stylized morphology and scientific limits from sources and brief.md. Colors, enlarged pore count, posture and uncertain soft anatomy are artistic interpretations; no specimen-accurate or coexistence claim.",
+      "required_sources": [
+        "IV-STROPHOMENA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 evenly spaced orbit positions plus full canonical and structural diagnostics. Hero matches ImageGen intended oblique pose; no source geometry normalized.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/strophomena.blend",
+      "sha256": "cc40230a5c9d4f5d36846212815ec0cb334d04168307d2928a00e578b5b5a171"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/generator.py",
+      "sha256": "8a443adcfbf70670c7e9a0303e19661a130297f3265ecf251202521b4a198d07"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/build-config.json",
+      "sha256": "c06c635ab9eef135ada99ca27de8977c3d6e1a0e5fca13e993287bc417d1fe32"
+    }
+  ],
+  "concept_interpretation": {
+    "path": "assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/brief.md",
+    "sha256": "aa8ed72d38970de07d7609383098ca78b89fab6c525c4aaf787cae5a5042fa06"
+  }
+}

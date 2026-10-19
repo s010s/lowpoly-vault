@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "metaspriggina",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/metaspriggina/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "metaspriggina.glb",
+        "metaspriggina.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "metaspriggina",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/metaspriggina/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "metaspriggina.glb",
+        "metaspriggina.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "falcatus",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/falcatus/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "falcatus.glb",
+        "falcatus.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "falcatus",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/falcatus/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "falcatus.glb",
+        "falcatus.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "pteraspis",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/pteraspis/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "pteraspis.glb",
+        "pteraspis.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "pteraspis",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/pteraspis/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "pteraspis.glb",
+        "pteraspis.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "dorypterus",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/dorypterus/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "dorypterus.glb",
+        "dorypterus.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "dorypterus",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/dorypterus/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "dorypterus.glb",
+        "dorypterus.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "asset_id": "prasopora",
+  "brief_version": "r002",
+  "profile": "production",
+  "purpose": "Isolated concept-first undersea candidate; independent acceptance and publication separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail",
+    "silhouette"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 2000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "IV-PRASOPORA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify the explicitly genus-informed stylized morphology and scientific limits from sources and brief.md. Colors, enlarged pore count, posture and uncertain soft anatomy are artistic interpretations; no specimen-accurate or coexistence claim.",
+      "required_sources": [
+        "IV-PRASOPORA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 evenly spaced orbit positions plus full canonical and structural diagnostics. Hero matches ImageGen intended oblique pose; no source geometry normalized.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/prasopora.blend",
+      "sha256": "be97ebf1cda524c173e07d4de69026a4ab9519c8d06b5e95203ad4e6a97b6cea"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/generator.py",
+      "sha256": "7e34bb9064b9b1b0938bd8cc82441226c829e824ec9bfaa4a6e17e46865e7d12"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/build-config.json",
+      "sha256": "2c1ea04a3f43fce0cc4a92b0d4f35f33eba656d5c374fda8c05b835dd3fd9da5"
+    }
+  ],
+  "concept_interpretation": {
+    "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/brief.md",
+    "sha256": "478da1ea06af108400e0a3f6392e6d3ae94533ec9982c0c5bc1784b78769d8f2"
+  }
+}

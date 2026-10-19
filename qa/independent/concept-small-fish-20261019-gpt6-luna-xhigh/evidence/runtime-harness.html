@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Independent Three.js small fish scene</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #edeae4; color: #363331; font: 16px/1.4 system-ui, sans-serif; }
+    main { width: min(1200px, 100vw); margin: 0 auto; padding: 22px 28px 28px; }
+    header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 16px; }
+    h1 { font-size: 18px; font-weight: 600; margin: 0; }
+    .scope { color: #69645d; font-size: 12px; }
+    .scene { position: relative; width: 100%; aspect-ratio: 1.45; overflow: hidden; border: 1px solid #d4cec4; background: #edeae4; }
+    canvas { width: 100%; height: 100%; display: block; }
+    .labels { position: absolute; inset: 0; pointer-events: none; display: grid; grid-template-rows: repeat(4, 1fr); padding: 12px 0; }
+    .labels div { align-self: center; width: 142px; padding: 5px 8px; background: rgba(237,234,228,.85); border-radius: 3px; font-size: 12px; }
+    .note { margin: 10px 0 0; font-size: 12px; color: #69645d; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Independent Three.js GLB load · 1 copy per asset</h1>
+      <div class="scope">Three.js 0.180.0 · Y-up · unlit stage not used</div>
+    </header>
+    <div class="scene">
+      <canvas id="scene"></canvas>
+      <div class="labels">
+        <div>Metaspriggina · 6.6 cm</div>
+        <div>Falcatus · 26.7 cm</div>
+        <div>Pteraspis · 23.9 cm</div>
+        <div>Dorypterus · 10.0 cm</div>
+      </div>
+    </div>
+    <p class="note">Four exact delivered GLBs loaded into one directional-light scene at their exported relative scales. Browser render uses Chromium ANGLE SwiftShader software WebGL.</p>
+  </main>
+  <script type="importmap">
+    { "imports": { "three": "/node_modules/three/build/three.module.js" } }
+  </script>
+  <script type="module">
+    import * as THREE from '../../../../node_modules/three/build/three.module.js';
+    import { GLTFLoader } from '../../../../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+
+    const ids = ['metaspriggina', 'falcatus', 'pteraspis', 'dorypterus'];
+    const base = '/production/concept-small-fish-20261019';
+    const canvas = document.querySelector('#scene');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: true });
+    renderer.setPixelRatio(1);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.NoToneMapping;
+    renderer.toneMappingExposure = 1;
+    renderer.setClearColor(0xedeae4, 1);
+
+    const scene = new THREE.Scene();
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x756c62, 1.05));
+    const key = new THREE.DirectionalLight(0xfff7eb, 2.2);
+    key.position.set(2.1, 2.5, 1.8);
+    scene.add(key);
+    const fill = new THREE.DirectionalLight(0xd6e1e7, 0.65);
+    fill.position.set(-2.0, 0.5, -1.2);
+    scene.add(fill);
+
+    const camera = new THREE.OrthographicCamera(-0.46, 0.46, 0.32, -0.32, 0.01, 5);
+    camera.position.set(1.5, 0.24, 0.35);
+    camera.lookAt(0, 0, 0);
+
+    const loader = new GLTFLoader();
+    const rows = [];
+    try {
+      for (let i = 0; i < ids.length; i++) {
+        const id = ids[i];
+        const url = `${base}/${id}/r001/output/${id}.glb`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`${id}: HTTP ${response.status} for ${url}`);
+        const bytes = await response.arrayBuffer();
+        const gltf = await loader.parseAsync(bytes, '');
+        gltf.scene.position.y = 0.27 - i * 0.18;
+        scene.add(gltf.scene);
+        const bounds = new THREE.Box3().setFromObject(gltf.scene);
+        const dimensions = new THREE.Vector3();
+        bounds.getSize(dimensions);
+        let meshes = 0, primitives = 0, triangles = 0;
+        gltf.scene.traverse((object) => {
+          if (!object.isMesh) return;
+          meshes++;
+          primitives += Array.isArray(object.material) ? object.material.length : 1;
+          triangles += (object.geometry.index?.count ?? object.geometry.attributes.position.count) / 3;
+        });
+        rows.push({ id, bytes: bytes.byteLength, meshes, primitives, triangles, dimensions_xyz_m: dimensions.toArray() });
+      }
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+      renderer.info.reset();
+      renderer.render(scene, camera);
+      const context = renderer.getContext();
+      const debug = context.getExtension('WEBGL_debug_renderer_info');
+      window.__qa = {
+        status: 'done',
+        three_revision: THREE.REVISION,
+        renderer: debug ? context.getParameter(debug.UNMASKED_RENDERER_WEBGL) : 'masked',
+        webgl_version: context.getParameter(context.VERSION),
+        calls: renderer.info.render.calls,
+        triangles: renderer.info.render.triangles,
+        rows
+      };
+      document.body.dataset.qaStatus = 'done';
+    } catch (error) {
+      window.__qa = { status: 'error', message: String(error), rows };
+      document.body.dataset.qaStatus = 'error';
+    }
+  </script>
+</body>
+</html>

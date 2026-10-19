@@ -1,0 +1,126 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+    "--",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/mackenzia.glb",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/brief.md",
+    "--references",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/undersea-invertebrates-concept-20261019/runs/preview/mackenzia/r001/quick-proof/10c1930842b685446abecf88588a7119d56ffda53b71fd54db00942c9331c0c9/20261019T160044-42d2a86f57ad461a894eee42f35027ed/outputs",
+    "--views",
+    "hero,reversehero,right,top,clay",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "256",
+    "--samples",
+    "4"
+  ],
+  "created_at": "2026-10-19T16:00:44.804648+00:00",
+  "fingerprint": "10c1930842b685446abecf88588a7119d56ffda53b71fd54db00942c9331c0c9",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 1452,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/brief.md",
+        "sha256": "7526438d723b91ec04c8f25020c892ccd863fe5de06c728e2184b0f64abfa204"
+      },
+      "glb": {
+        "bytes": 103344,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/mackenzia.glb",
+        "sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 631,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/references.json",
+        "sha256": "feaf4d3eabcfbe10cb9665372ac8440a300c1366f5a409b49385944f8a4d7dfb"
+      },
+      "renderer": {
+        "bytes": 15996,
+        "path": "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+        "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,right,top,clay",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "256",
+        "--samples",
+        "4"
+      ],
+      "asset_id": "mackenzia",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/brief.md",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/mackenzia.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/references.json",
+        "renderer": "/workspace/lowpoly-vault/scripts/render_candidate_views.py"
+      },
+      "job_id": "quick-proof",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "right.png",
+        "top.png",
+        "clay.png"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261019T160034-02eca4690b7f412384c9b768979a9772"
+}

@@ -1,0 +1,38 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "strophomena",
+      "config": {
+        "concept_frozen": "2026-10-19T15:58:29.842711+00:00"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py"
+      },
+      "job_id": "material-polish",
+      "outputs": [
+        "strophomena/strophomena.glb",
+        "strophomena/strophomena.blend",
+        "strophomena/metadata.json",
+        "strophomena/qa.json"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

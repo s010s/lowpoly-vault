@@ -1,0 +1,163 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/production/undersea-invertebrates-concept-20261019/render_exact_glb.py",
+    "--",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/prasopora.glb",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/undersea-invertebrates-concept-20261019/final-runs/render/prasopora/r002/final-full-coverage/22d87cdd2fc6a34614d632920886fe035bb81ee1981e27200b32d63e1a2d1c16/20261019T160621-2aab7133757940fea85a8cd05c9fb2f4/outputs",
+    "--views",
+    "hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire,detail,silhouette",
+    "--turntable-frames",
+    "24",
+    "--resolution",
+    "512",
+    "--samples",
+    "32",
+    "--detail-target",
+    "0.5,0.15,0.55"
+  ],
+  "created_at": "2026-10-19T16:06:21.132748+00:00",
+  "fingerprint": "22d87cdd2fc6a34614d632920886fe035bb81ee1981e27200b32d63e1a2d1c16",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4086,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/brief.json",
+        "sha256": "db15ba576baaf869cd451d45b28c9265091819dde6ac00015dcbb75367d57371"
+      },
+      "glb": {
+        "bytes": 416660,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/prasopora.glb",
+        "sha256": "5432407bd19039f3225055d70afec9952540c880758415c0c168435ce1fe3cdd"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 702,
+        "path": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/references.json",
+        "sha256": "a8cc44a7f1bce1d7d3ab3ec0f68ea5b4645693dfdc33d5ed4eb14a7392aefe8c"
+      },
+      "renderer": {
+        "bytes": 16522,
+        "path": "/workspace/lowpoly-vault/production/undersea-invertebrates-concept-20261019/render_exact_glb.py",
+        "sha256": "ae8491a0bac0aadf4391263423671592f4b3ea4d9055bcee6e34fec82364c6b7"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire,detail,silhouette",
+        "--turntable-frames",
+        "24",
+        "--resolution",
+        "512",
+        "--samples",
+        "32",
+        "--detail-target",
+        "0.5,0.15,0.55"
+      ],
+      "asset_id": "prasopora",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/brief.json",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/prasopora.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/undersea-invertebrates-concept-20261019/render_exact_glb.py"
+      },
+      "job_id": "final-full-coverage",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "turntable.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "rear.png",
+        "left.png",
+        "right.png",
+        "top.png",
+        "bottom.png",
+        "clay.png",
+        "clayalt.png",
+        "wire.png",
+        "detail.png",
+        "silhouette.png",
+        "turntable-000.png",
+        "turntable-001.png",
+        "turntable-002.png",
+        "turntable-003.png",
+        "turntable-004.png",
+        "turntable-005.png",
+        "turntable-006.png",
+        "turntable-007.png",
+        "turntable-008.png",
+        "turntable-009.png",
+        "turntable-010.png",
+        "turntable-011.png",
+        "turntable-012.png",
+        "turntable-013.png",
+        "turntable-014.png",
+        "turntable-015.png",
+        "turntable-016.png",
+        "turntable-017.png",
+        "turntable-018.png",
+        "turntable-019.png",
+        "turntable-020.png",
+        "turntable-021.png",
+        "turntable-022.png",
+        "turntable-023.png"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 900
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261019T160338-9277e3485c584e34a6a4a7b67e7deb72"
+}
