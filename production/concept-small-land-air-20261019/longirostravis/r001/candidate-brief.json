@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "asset_id": "longirostravis",
+  "brief_version": "r001",
+  "profile": "production",
+  "registered_at": "2026-10-19T21:36:43.781021+00:00",
+  "registration_only": true,
+  "preproduction_freeze_claim": false,
+  "purpose": "Current-time initial candidate registration for already-built unchanged r001 models. Original frozen design remains separately pinned. All formal stage decisions remain unknown. This is not retrospective design or acceptance.",
+  "publication_authority": "separate",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Check exact GLB format, measured geometry/counts/bounds/bytes, source correspondence and reproducibility, including explicit flight-body mount warning where applicable.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Independent formal review of silhouette, proportions, full volume and materials against the unchanged original concept and design; keep r001 Sapeornis and its documented outer-wing limitation.",
+      "required_sources": [
+        "HOU-2004",
+        "OCONNOR-2012"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check only explicitly claimed stylized landmarks and retain cited uncertainty; no species-exact anatomy, color, size or phylogenetic certification.",
+      "required_sources": [
+        "HOU-2004",
+        "OCONNOR-2012"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Check complete source/generator/configuration, provenance, original design and current delivery records without claiming a retrospective production freeze.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Bind parsing of the exact GLB to a formal candidate report; prior independent Three.js software evidence is supporting evidence only.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Physical target-device GPU/performance acceptance is unverified. ANGLE SwiftShader software rendering does not establish it.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Deployed populated production-gallery acceptance is unverified. Prior software scenes with 1/8/32 copies per asset do not establish it.",
+      "required_sources": []
+    }
+  ],
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 8,
+    "max_primitives": 160,
+    "max_glb_bytes": 1000000
+  },
+  "budget_note": "Original explicit geometry ceilings retained. Original byte target was advisory; this unapproved initial registration records the same ceiling without claiming prior hard-budget acceptance.",
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/concept-small-land-air-20261019/longirostravis/r001/output/longirostravis/longirostravis.blend",
+      "sha256": "b9ccf3e817136a22c848afcb4a6f48b7791c31acb32ef86b0c7eb841d140ebe3"
+    },
+    {
+      "role": "generator",
+      "path": "production/concept-small-land-air-20261019/generator.py",
+      "sha256": "bf434db894d09ece49928edfcbc8822d9c08a18f2b037fbc6a11884a869399a6"
+    },
+    {
+      "role": "config",
+      "path": "production/concept-small-land-air-20261019/longirostravis/r001/build-config.json",
+      "sha256": "d3d714afb2750ca575623062ab30a891ca2ced7faa615f42c7be9071b6e5e69e"
+    }
+  ],
+  "original_design_brief": {
+    "path": "production/concept-small-land-air-20261019/longirostravis/r001/brief.json",
+    "sha256": "e5db584733786b710b4b552c6d7754ed4ea9c97915f2aeaca8676f7561d5b139"
+  },
+  "original_evidence_coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "clayalt",
+      "wire"
+    ],
+    "turntable_frames": 0,
+    "scope": "Unchanged bounded-study design: eleven fixed views and zero turntable frames."
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "view_exemptions": {},
+  "coverage_justification": "Legacy production-profile obligations are recorded without claiming new detail/orbit evidence exists. Original eleven-view/zero-turntable proof is preserved. Formal profile acceptance remains pending.",
+  "scope_limits": "Stylized inspired prop; artistic colours and approximate dimensions; no fossil-exact species assertion Folded wings and paired narrow tail feathers deliberately simplified, feather counts/tooth detail are not fossil-exact. Neck/head transitions remain visibly faceted. No critical new maker-visible defect found in the eleven inspected frames; this observation is not independent acceptance."
+}

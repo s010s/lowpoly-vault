@@ -1,0 +1,17 @@
+{
+  "npm_test_initial": {
+    "exit_code": 1,
+    "log": "evidence/npm-test-initial.txt",
+    "failure": "test_success_bounded_concurrency_collision_isolation: measured 0.15-second fixture overlap 1, expected 2"
+  },
+  "focused_queue_retry": {
+    "exit_code": 0,
+    "log": "evidence/queue-retry.txt"
+  },
+  "npm_test_retry": {
+    "exit_code": 0,
+    "log": "evidence/npm-test-retry.txt"
+  },
+  "test_code_changed": false,
+  "interpretation": "One transient timing-sensitive fixture failure followed by focused and complete suite passes; all attempts preserved. No browser/hardware or deployed production-scene claim."
+}

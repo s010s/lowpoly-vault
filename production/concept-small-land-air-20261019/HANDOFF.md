@@ -26,3 +26,13 @@ Independent QA, Three.js parse, actual GPU rendering and populated-scene accepta
 Original assets/renders/prose CC BY4.0 — Leon Made This / s010s. Executable code MIT. Third-party sources consulted only, no imported geometry/material/image assets.
 
 Original making branch `candidate/small-land-air-quartet-concept-20261019` was based on c9b0d98d9186402d9821d0ac2b02b7c4da5665e4. Only this candidate bundle was committed and cherry-picked onto latest main for clean handoff; no unrelated UI/CI changes carried over. Historical receipts retain the original making branch.
+
+## Delivery-record completion, 2026-10-19
+
+The paragraphs above describe the original frozen handoff at `68483aa3b8eed2d86f9e59a930128d99579b0838`. Current delivery records now include one valid, unapproved `candidate.json` in each selected `r001` directory. The original handoff, four metadata files and freeze manifest are retained byte-for-byte in `delivery-completion/original-records/`.
+
+Independent limited-scope review at `3d024e53c36863d1887abd726998fa0f0d7b3831` passed its observed visual/technical/Three.js software scene scope (1/8/32 copies each). Exact report copies and provenance are under `delivery-completion/`. This does not sign the new candidate record hashes or establish formal acceptance, physical GPU acceptance, deployed production-scene acceptance or publication approval. All seven formal stages remain `unknown`; approval remains `pending`.
+
+The only asset metadata repairs are truthful delivery paths and freshly measured records. Preview pointers now select existing hash-bound exact-GLB hero diagnostics, using `proof-macro-attempt02/hero.png` for Chimerarachne. These are not official unified-gallery posters. Sapeornis points to its actual `generator-r001.py`; its r001 model remains selected and r002 remains not adopted. Fresh Blender source reads, source/export comparisons, GLB audits and official Khronos checks are recorded without saving or re-exporting models. The understood Sapeornis flight-body-center lower-bound warning is retained.
+
+Every original GLB, Blend, generator, design brief, configuration, reference ledger, technical report and image is unchanged. See `delivery-completion/baseline-files.json`, `self-check.json` and `exact-diff.json` for all-original-file verification and exact before/after record hashes. The current `freeze-manifest.json` is a delivery-completion snapshot, not a replacement claim about pre-model chronology. Catalog, published count, marine PR and release files are untouched.
