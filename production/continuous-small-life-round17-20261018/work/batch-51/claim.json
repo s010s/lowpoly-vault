@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "batch": "batch-51",
+  "assets": [
+    "dicranurus",
+    "calcite-raft-deposit",
+    "accretionary-lapilli-bed",
+    "conichnus-conical-burrow"
+  ],
+  "status": "claimed_awaiting_parent_dispatch",
+  "claimed_at": "2026-10-19T22:38:56.537366+00:00",
+  "owner": "Parent coordinator, reserved exclusively for the batch51 GPT-6.1 Sol medium maker",
+  "task": "Produce batch51 concept-guided candidates",
+  "task_id": null,
+  "thread_id": null,
+  "parent_thread_id": null,
+  "branch": "candidate/small-life-batch51-concept-20261019",
+  "base_main": "456a53e3cb257032f210da50e005854b4485abca",
+  "planning_commit": "f69c7bbead37cd58694c4117cb94f8dbbfd94f91",
+  "exclusive_assignment": "Parent reservation is exclusive for these four IDs. No maker has been launched yet. Parent fills the real task/thread IDs after successful dispatch and records any changed production base.",
+  "coordination_state": "production/continuous-small-life-round17-20261018/state.json",
+  "maker": "GPT-6.1 Sol medium",
+  "concurrency": "One full asset lifecycle at a time; one worker x two Blender threads unless parent explicitly assigns shared capacity.",
+  "independent_qa": "Parent dispatches exactly one fresh-context GPT-6 Luna xhigh review; seven distinct stages and exact subject/hash binding.",
+  "production_start_rule": "Start an isolated candidate branch from then-current main, copying only this batch necessary frozen plans, claim and derived requirements. Do not merge the planning branch or old CI/site/release changes.",
+  "parent_dispatch_overrides_historical_empty_state": true,
+  "dedup_evidence": "preclaim-dedup.json",
+  "derived_requirements": "concept-plan-requirements.json",
+  "hashes": {
+    "preclaim-dedup.json": "7396bbc3fa31e42288b76c998e58172b2ceea614c84c2e08c60a7d0807461f14",
+    "concept-plan-requirements.json": "3391897e1d6b5d2dcd4fb37dff19344e181e7dc9863d860d4ab4776bae4db7cf"
+  },
+  "production_dispatched": false,
+  "concepts_generated": false,
+  "blender_started": false,
+  "publication_authority": "separate; parent only",
+  "frozen_inputs": "round17-plan-v001 remains unchanged. New concept evidence and derived freeze must precede modeling."
+}
