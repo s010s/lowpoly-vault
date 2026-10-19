@@ -22,6 +22,8 @@ export class WheelSettler {
     this.previous = read();
     this.destroyed = false;
     this.state = 'idle';
+    this.centeredId = null;
+    this.pressed = false;
   }
 
   input() {
@@ -35,7 +37,7 @@ export class WheelSettler {
   scrolled() {
     const position = this.read();
     const nearest = this.nearest(position);
-    if (nearest) this.center(nearest.id);
+    if (nearest) this.setCenter(nearest.id);
     if (this.state === 'snapping') return;
     this.previous = position;
     this.lastMovement = this.now();
@@ -45,8 +47,14 @@ export class WheelSettler {
 
   nearest(position) {
     return this.targets().reduce((best, target) => !best ||
-      Math.abs(target.offset - position) < Math.abs(best.offset - position) ? target : best, null);
+      Math.abs(target.offset - position) < Math.abs(best.offset - position) ||
+      (Math.abs(target.offset - position) === Math.abs(best.offset - position) && target.id === this.centeredId)
+      ? target : best, null);
   }
+
+  setCenter(id) { this.centeredId = id; this.center(id); }
+  pointerDown() { this.pressed = true; this.input(); }
+  pointerUp() { this.pressed = false; this.input(); }
 
   schedule() {
     if (!this.raf && !this.destroyed) this.raf = this.frame(() => { this.raf = 0; this.tick(); });
@@ -57,17 +65,19 @@ export class WheelSettler {
     if (this.state === 'tracking') {
       if (Math.abs(position - this.previous) > .2) this.lastMovement = time;
       this.previous = position;
-      if (time - Math.max(this.lastMovement, this.lastInput) < 150) { this.schedule(); return; }
+      if (this.pressed || time - Math.max(this.lastMovement, this.lastInput) < 150) { this.schedule(); return; }
       const target = this.nearest(position);
       if (!target) { this.stop(); return; }
-      this.center(target.id);
+      this.setCenter(target.id);
+      if (this.reduced() || Math.abs(position - target.offset) < 1) { this.stop(); return; }
       this.from = position;
       this.to = target.offset;
       this.started = time;
       this.state = 'snapping';
     }
     if (this.state === 'snapping') {
-      const progress = this.reduced() ? 1 : Math.min(1, (time - this.started) / 280);
+      if (this.reduced()) { this.stop(); return; }
+      const progress = Math.min(1, (time - this.started) / 220);
       this.write(this.from + (this.to - this.from) * (1 - (1 - progress) ** 3));
       if (progress < 1) this.schedule();
       else this.stop();

@@ -31,3 +31,9 @@ Core interaction acceptance:
 Run focused state tests and real Chromium interaction checks: uninterrupted wheel motion, interrupted settling, clicked-vs-centered selection, same-group OR/cross-group AND, chip removal, no results, quick repeated switches, delayed GLB cancellation, return/Back, keyboard and touch controls, Escape, runtime reduced-motion change, visibility pause, first-frame handoff, scale enter/exit camera restoration and responsive layout. Capture actual screenshots and a short interaction recording. Confirm production assets, manifest, entry and workflows have no diff.
 
 Environment: Linux, Node 24.19.0, installed Chromium 154.0.8037.57. Dependency installation succeeded using a writable workspace npm cache. Browser tests will record the actual renderer; software GPU results cannot establish hardware performance.
+
+## Private reference access update
+
+Authenticated Drive metadata reads verified all three supplied files are not shared. The readable-text route retrieved PRD 0.5 successfully; its 51,059-byte source is retained privately outside the repository. The original PNG byte transfers failed because the environment proxy rejects the connector-issued download endpoints with `Tunnel connection failed: 403 Forbidden`, including after a network escalation. The images have not been viewed. No private references, credentials or temporary download URLs are committed.
+
+PRD 0.5 clarified that reduced motion must preserve the natural list stopping position, rather than jumping to the nearest slot. The state implementation and regression test now enforce this, preserve the prior center at equal distances, defer snapping while a pointer is held, and use a 220 ms easing interval. Existing preview/redesign regression tests and the focused state test pass. These are logic checks, not new UI/browser or visual acceptance.
