@@ -1,0 +1,50 @@
+<!doctype html><meta charset="utf-8"><title>Small fish software WebGL population test</title>
+<style>body{margin:0;background:#e8e4dc}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(1200,800);renderer.setPixelRatio(1);renderer.outputColorSpace=T.SRGBColorSpace;
+renderer.toneMapping=T.NoToneMapping;renderer.setClearColor('#E8E4DC');document.body.appendChild(renderer.domElement);
+const scene=new T.Scene(),camera=new T.OrthographicCamera(-1,1,1,-1,.001,100);
+scene.add(new T.HemisphereLight(0xffffff,0x777777,2));
+const key=new T.DirectionalLight(0xffffff,2.5);key.position.set(-3,5,4);scene.add(key);
+const fill=new T.DirectionalLight(0xffffff,.7);fill.position.set(4,2,-3);scene.add(fill);
+const ids=['metaspriggina','falcatus','pteraspis','dorypterus'],models={},metrics={};
+for(const id of ids){
+ const g=await new GLTFLoader().loadAsync(`/production/concept-small-fish-20261019/${id}/r001/output/${id}.glb`);
+ g.scene.updateMatrixWorld(true);let triangles=0,calls=0;
+ g.scene.traverse(o=>{if(o.isMesh){calls++;triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;}});
+ models[id]=g.scene;metrics[id]={triangles,base_calls:calls,dimensions:new T.Box3().setFromObject(g.scene).getSize(new T.Vector3()).toArray()};
+}
+let group;
+function fit(view){
+ const box=new T.Box3().setFromObject(group),c=box.getCenter(new T.Vector3()),s=box.getSize(new T.Vector3()),r=s.length()/2;
+ const direction=new T.Vector3(...(view==='top'?[0,1,.001]:[1,.9,1.6])).normalize();
+ camera.position.copy(c).addScaledVector(direction,r*4);camera.lookAt(c);camera.updateMatrixWorld(true);
+ const pts=[];for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z])pts.push(new T.Vector3(x,y,z).applyMatrix4(camera.matrixWorldInverse));
+ const w=Math.max(...pts.map(p=>p.x))-Math.min(...pts.map(p=>p.x)),h=Math.max(...pts.map(p=>p.y))-Math.min(...pts.map(p=>p.y));
+ const height=Math.max(h,w/1.5)*1.18;camera.left=-height*.75;camera.right=height*.75;camera.top=height/2;camera.bottom=-height/2;camera.updateProjectionMatrix();
+}
+window.runScene=async function(subject,count,view){
+ if(group)scene.remove(group);group=new T.Group();scene.add(group);const columns=count===8?4:8;
+ let expectedTriangles=0,expectedCalls=0;const composition={};
+ for(let i=0;i<count;i++){
+  const id=subject==='mixed'?ids[i%4]:subject;const o=models[id].clone(true);
+  o.rotation.y=Math.PI/2;o.position.set((i%columns)*.38,0,Math.floor(i/columns)*.36);
+  // Numeric metre scale retained. Translation/yaw only, no geometry or size normalization.
+  group.add(o);expectedTriangles+=metrics[id].triangles;expectedCalls+=metrics[id].base_calls;composition[id]=(composition[id]||0)+1;
+ }
+ group.updateMatrixWorld(true);fit(view);
+ for(let i=0;i<5;i++)renderer.render(scene,camera);
+ const times=[];for(let i=0;i<30;i++){
+  await new Promise(requestAnimationFrame);const start=performance.now();renderer.render(scene,camera);renderer.getContext().finish();times.push(performance.now()-start);
+ }
+ const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info'),pixels=new Uint8Array(1200*800*4);gl.readPixels(0,0,1200,800,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
+ const bg=Array.from(pixels.slice(0,3));let foreground=0;for(let i=0;i<pixels.length;i+=4)if(Math.abs(pixels[i]-bg[0])+Math.abs(pixels[i+1]-bg[1])+Math.abs(pixels[i+2]-bg[2])>30)foreground++;
+ const sorted=[...times].sort((a,b)=>a-b),calls=renderer.info.render.calls,triangles=renderer.info.render.triangles,error=gl.getError();
+ return {subject,count,view,composition,three_revision:T.REVISION,webgl2:renderer.capabilities.isWebGL2,renderer:debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),hardware_gpu_verified:false,scale:[1,1,1],expected_triangles:expectedTriangles,render_triangles:triangles,expected_calls:expectedCalls,render_calls:calls,gl_error:error,foreground_pixels:foreground,framebuffer:[1200,800],samples:times.length,render_finish_ms:{median:sorted[15],p95:sorted[28],max:sorted[29]},status:triangles===expectedTriangles&&calls===expectedCalls&&error===gl.NO_ERROR&&foreground>200?'pass':'fail'};
+};
+window.ready=true;
+</script>

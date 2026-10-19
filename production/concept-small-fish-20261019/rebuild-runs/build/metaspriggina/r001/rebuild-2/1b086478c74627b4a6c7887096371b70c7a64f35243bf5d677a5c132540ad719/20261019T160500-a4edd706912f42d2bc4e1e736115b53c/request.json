@@ -1,0 +1,91 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "1",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/production/concept-small-fish-20261019/metaspriggina/r001/build-config.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-fish-20261019/rebuild-runs/build/metaspriggina/r001/rebuild-2/1b086478c74627b4a6c7887096371b70c7a64f35243bf5d677a5c132540ad719/20261019T160500-a4edd706912f42d2bc4e1e736115b53c/outputs"
+  ],
+  "created_at": "2026-10-19T16:05:00.106677+00:00",
+  "fingerprint": "1b086478c74627b4a6c7887096371b70c7a64f35243bf5d677a5c132540ad719",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 533,
+        "path": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/metaspriggina/r001/build-config.json",
+        "sha256": "9ffae0337e8eec9c35e0e83e15bdc6f60f72206f77b6ff0bb168b52b5f828a86"
+      },
+      "generator": {
+        "bytes": 13082,
+        "path": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "sha256": "8836e09eddfc35efcc8d5d1e893cd6b5c999133b0fd78494bce4ae1e4530d66d"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "metaspriggina",
+      "config": {
+        "purpose": "separate deterministic rebuild; no visual acceptance"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/metaspriggina/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/concept-small-fish-20261019/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "metaspriggina.glb",
+        "metaspriggina.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 1,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261019T160429-e9e4f92eb3fa43379b01a47b639fd15d"
+}

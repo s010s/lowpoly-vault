@@ -1,0 +1,17 @@
+# Metaspriggina-inspired small swimmer / r001
+
+Frozen before modeling: 2026-10-19T15:59:15.649263+00:00
+
+Slender jawless spindle with paired large eyes, seven external paired gill-region landmarks and a tapered continuous tail fold. Coral upper body, quiet warm cream belly; no paired appendages or toothed jaws. Repeated gill landmarks are stylized external cues, not a claim that internal arches were exposed.
+
+Original stylized scene prop, not a specimen or scientific reconstruction. Approximate artistic length 0.07 m; X lateral, -Y forward, Z up; swimming midline mount at origin. Palette-only mixed quiet broad planes; closed profile lofts, independently editable eyes, fins, gill/armor landmarks; no billboards.
+
+Concept row 1: retain proportions/palette grouping, avoid decorative overtriangulation. Resolve unseen underside by paired symmetric attachments and cream ventral region. Falcatus concept tip-to-nose contact is rejected; use an open gap. Pteraspis concept upper-lobe dominance is rejected in favor of lower-lobe design, pending primary verification. Metaspriggina gill bars represent a design cue rather than literal exposed internal anatomy.
+
+Use 512px exact-GLB hero and full-angle proof, clay and alternate key, actual triangulated wire. Each view shares within-run bounds/light/color settings from repository renderer. Independent reviewer is assigned by parent; candidate stays unapproved.
+
+Soft GLB target 1,000,000 bytes; working ceiling 16,000 triangles / 7 materials / 90 primitives, chosen to allow resolved eyes/fin curvature for 128–512px viewing, not a quota. No runtime performance claim until measured at 8/32 copies.
+
+Source limit: Source opened. Exact species-level proportions/colour and external appearance of internal anatomy unknown.
+
+Original art, renders, documentation CC BY 4.0 Leon Made This / s010s. Generator MIT. No third-party image/mesh/code incorporated.

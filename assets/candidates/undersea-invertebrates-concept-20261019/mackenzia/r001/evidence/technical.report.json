@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "brief_sha256": "0cfe2cc989352aacc5ea6e77d1b5fe2c04a0fd758b2966264c118b3a3ffa7d61",
+    "glb_sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d",
+    "references_sha256": "feaf4d3eabcfbe10cb9665372ac8440a300c1366f5a409b49385944f8a4d7dfb",
+    "revision": "r001"
+  },
+  "status": "pass",
+  "method": "Actual fresh static GLB audit, official Khronos validator, source Blender read-only check and two separately queued deterministic rebuild comparisons. All raw report bytes retained.",
+  "observations": [
+    "Static audit and official validator report no errors or warnings.",
+    "Source/export evaluated triangle counts and axis-mapped bounds match.",
+    "Both independently executed rebuild semantic geometry/material digests equal this exact GLB."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1896,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 103344,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/evidence/static-glb.report.json",
+        "sha256": "7e4260d850d8a0543b8532d6808e9bb34fe09084b5d21d5cee83c20e24e8357e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/gltf-validator.report.json",
+        "sha256": "fb0dd6cdad18fb7a1828424141501e6101ed1299b08f4f3686979a19b742d2ab"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/evidence/source-export.report.json",
+        "sha256": "4d4cb3cf55d008bbbbd26e79f72dd5e01b49aabdad33914d55b189f71fbd94de"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/evidence/reproducibility-1.report.json",
+        "sha256": "aa9b11bdfd49f614330bad6c5f890dd87cfd7b161748fb16190681b62f2b751d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "6558b3cce6b208ff5e27d0fe56b4ff703ba205f187a51d9d3d178b318ac6bd5d",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/evidence/reproducibility-2.report.json",
+        "sha256": "ce92133ddc62ed3646c427f673d50db0184d575f2e0f1c4db7060a00d4185a0f"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}

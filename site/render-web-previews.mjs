@@ -25,7 +25,15 @@ try{
  await mkdir(out,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}${prefix}`;
  browser=await chromium.launch({args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});report.chromium_version=browser.version();report.pinned_chromium_version=pinnedChromium;if(process.env.VERIFY_SHIPPED_PREVIEWS!=='1')assert.equal(report.chromium_version,pinnedChromium,'Poster generation requires the pinned Playwright Chromium; use verification mode for cross-browser diagnostics');
  const context=await browser.newContext({viewport:{width:imageSize,height:imageSize},deviceScaleFactor:1,reducedMotion:'reduce'}),page=await context.newPage();await page.goto(base+'capture.html');
- await page.evaluate(async module=>{const {ModelStage}=await import(module);window.captureStage=new ModelStage();},base+'assets/'+viewer);
+ await page.evaluate(async module=>{
+  const loaded=await import(module);
+  // Vite may expose the dynamically imported viewer as a namespace when the
+  // gallery also imports its metric helper. Never depend on a minified key.
+  const candidates=[loaded,...Object.values(loaded)].filter(value=>value&&typeof value.ModelStage==='function');
+  const constructors=[...new Set(candidates.map(value=>value.ModelStage))];
+  if(constructors.length!==1)throw Error('Exactly one built ModelStage export is required for pinned capture');
+  window.captureStage=new constructors[0]();
+ },base+'assets/'+viewer);
  for(const asset of selected){
   const started=performance.now();assert.equal(hash(await readFile(resolve(root,asset.glb))),asset.sha256.glb);
   await page.evaluate(async({asset,url})=>{const okay=await window.captureStage.show(document.querySelector('#capture'),url,{mode:'detail',metadata:asset});if(!okay||document.querySelector('#capture').dataset.modelState!=='ready')throw Error('A real 3D first paint is required');},{asset,url:base+asset.glb});

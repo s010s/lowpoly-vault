@@ -1,0 +1,51 @@
+{
+  "observed_at": "2026-10-19 15:56:18 UTC",
+  "commit": "bac6621fc39144b3759c53b1b27231ac1b6e21c6",
+  "method": "GitHub connected read-only fetch_workflow_run_jobs, run IDs obtained from public commit/checks page",
+  "workflows": [
+    {
+      "run_id": 39280614425,
+      "name": "Full release review",
+      "job_id": 118153829268,
+      "job": "scope",
+      "status": "queued",
+      "conclusion": null
+    },
+    {
+      "run_id": 39280614402,
+      "name": "Test standardized asset pipeline",
+      "job_id": 118153828935,
+      "job": "integrity-and-queue",
+      "status": "queued",
+      "conclusion": null
+    },
+    {
+      "run_id": 39280614398,
+      "name": "Validate and deploy asset gallery",
+      "job_id": 118153828323,
+      "job": "build",
+      "status": "queued",
+      "conclusion": null
+    }
+  ],
+  "release_gate": "pending; queued is not passed",
+  "last_observed_at": "2026-10-19T16:05:29.358143+00:00",
+  "parent_update": {
+    "reported": "GitHub official Actions / Pages incident from 2026-10-19 15:49 UTC may explain queue",
+    "url": "https://www.githubstatus.com/incidents/8tzbpcnl75jp",
+    "source": "parent delegation during production",
+    "verification_limit": "web tool could not open incident URL; parent-supplied report retained as such",
+    "instruction": "Do not rerun queued CI; save candidate with ordinary branch pushes. Parent coordinates production merge."
+  },
+  "reruns_requested_by_this_task": 0,
+  "last_connector_observation": {
+    "full_release_scope": "queued",
+    "asset_pipeline_integrity_and_queue": "queued",
+    "pages_build": "queued",
+    "pages_deploy": {
+      "job_id": 118158282912,
+      "status": "queued"
+    },
+    "conclusions": null
+  }
+}

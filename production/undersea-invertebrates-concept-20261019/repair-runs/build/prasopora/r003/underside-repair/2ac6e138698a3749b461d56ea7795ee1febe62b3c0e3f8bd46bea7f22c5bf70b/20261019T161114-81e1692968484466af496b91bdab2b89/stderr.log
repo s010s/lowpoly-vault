@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/generator.py", line 163, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/generator.py", line 161, in main
+    record=export_asset(slug,{'en':slug.title(),'zh':{'mackenzia':'肋囊古生动物','prasopora':'穹顶苔藓动物','strophomena':'宽凹壳腕足动物','ctenoimbricata':'双侧棘缘棘皮动物'}[slug]},'animals',C,metadata={'generator':str(Path(__file__).resolve().relative_to(ROOT)),'description':{'en':cfg['notes'],'zh':'具名属形态启发的原创柔和低多边形概念；非标本级科学复原。'},'scientific_scope':'Genus-informed stylized interpretation; uncertain soft anatomy and colors are artistic; no coexistence claim.','surface_profile':'original-palette-only','config_sha256':__import__('hashlib').sha256(args.config.read_bytes()).hexdigest()},output_root=args.output_dir,render=False,max_triangles=cfg['max_triangles'],max_materials=cfg['max_materials'],max_primitives=cfg['max_primitives'],collection_id='undersea-concept')
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/scripts/asset_common.py", line 420, in export_asset
+    raise RuntimeError('Source QA failed: '+'; '.join(source['errors']))
+RuntimeError: Source QA failed: Closed epitheca with visible concentric lower folds: 48 degenerate triangles
+
+Error: script failed, file: '/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/generator.py', exiting.

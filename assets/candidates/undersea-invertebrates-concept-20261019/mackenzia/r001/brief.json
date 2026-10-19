@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "asset_id": "mackenzia",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Isolated concept-first undersea candidate; independent acceptance and publication separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail",
+    "silhouette"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 2000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "IV-ROM-MACKENZIA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify the explicitly genus-informed stylized morphology and scientific limits from sources and brief.md. Colors, enlarged pore count, posture and uncertain soft anatomy are artistic interpretations; no specimen-accurate or coexistence claim.",
+      "required_sources": [
+        "IV-ROM-MACKENZIA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "24 evenly spaced orbit positions plus full canonical and structural diagnostics. Hero matches ImageGen intended oblique pose; no source geometry normalized.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/mackenzia.blend",
+      "sha256": "68cc73013eae89fb96fdb9b9feeec7d2743fc5d32943498c64145921858fbdbe"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/generator.py",
+      "sha256": "427f9b4597ed086e496c59459a98b5527d4a293f31ba41bab15dd5790cfa7193"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/build-config.json",
+      "sha256": "466d69098d99c6fdd4b6c414e86c7eac960a526cc30f2a823a51010f0656457d"
+    }
+  ],
+  "concept_interpretation": {
+    "path": "assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/brief.md",
+    "sha256": "7526438d723b91ec04c8f25020c892ccd863fe5de06c728e2184b0f64abfa204"
+  }
+}

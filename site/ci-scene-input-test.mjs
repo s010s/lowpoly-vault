@@ -5,7 +5,7 @@ import {existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {resolve,join,dirname} from 'node:path';
 import {spawnSync} from 'node:child_process';
-const manifest=JSON.parse(await readFile('assets/manifest.json')),pack=manifest.assets.at(-1).packs[0],assets=manifest.assets.filter(a=>a.packs.includes(pack));assert.equal(assets.length,12);
+const manifest=JSON.parse(await readFile('assets/manifest.json')),pack='prehistoric-small-life-round13-20261018',assets=manifest.assets.filter(a=>a.packs.includes(pack));assert.equal(assets.length,12);
 const scratch=await mkdtemp(join(tmpdir(),'lpv-scene-input-')),output=join(scratch,'evidence'),probe=resolve('site/ci-scene-browser-test.mjs');
 try{
  await mkdir(join(scratch,'assets'),{recursive:true});const file=join(scratch,'assets/manifest.json');await writeFile(file,JSON.stringify({assets}));for(const a of assets){await mkdir(dirname(join(scratch,a.glb)),{recursive:true});await cp(a.glb,join(scratch,a.glb));}

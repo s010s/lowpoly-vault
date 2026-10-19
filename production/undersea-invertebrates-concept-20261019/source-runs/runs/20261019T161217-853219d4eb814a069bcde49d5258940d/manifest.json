@@ -1,0 +1,37 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "asset_id": "prasopora",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "checker": "/workspace/lowpoly-vault/scripts/check_source_export.py",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/prasopora.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "rebuild_helper": "/workspace/lowpoly-vault/scripts/check_reproducibility.py",
+        "source": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/prasopora.blend"
+      },
+      "job_id": "source-export",
+      "outputs": [
+        "source-export.report.json"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
