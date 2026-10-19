@@ -1,0 +1,13 @@
+{
+  "source": "scripts/render_candidate_views.py",
+  "source_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+  "copy": "render_millimeter_views.py",
+  "copy_sha256": "3d0c8a6d357f1f752fdf81831528d5ddc47cd60353f73d559a5e909a9b0cff1d",
+  "changes": [
+    "Import existing repository helper from repository/scripts rather than local bundle",
+    "Only camera radius floor changed 0.025m to0.000025m; automatic lights scale with actual radius as in original renderer",
+    "Resolve helper hash paths to the original repository/scripts helpers after copying renderer"
+  ],
+  "reason": "The exact millimeter-scale GLB is too small in a 50mm minimum framing sphere. Geometry, GLB bytes, scale and materials remain unchanged. This is diagnostic evidence, never a formal gallery poster.",
+  "attempt01": "Failed before producing pixels: local copy used sibling helper hash path; original script snapshot and failed log retained."
+}
