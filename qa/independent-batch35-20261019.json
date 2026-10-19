@@ -1,0 +1,2452 @@
+{
+  "schema_version": 1,
+  "title": "Independent Static-Stylized QA — Continuous Small Life Batch 35",
+  "review_date": "2026-10-19",
+  "qa_branch": "qa/independent-batch35-20261019",
+  "source_of_truth": {
+    "candidate_branch": "candidate/small-life-batch35-20261018",
+    "candidate_branch_remote_sha": "9a64871c3fda8f791f84c8ed3d66c181aca87e20",
+    "handoff_commit": "9a64871c3fda8f791f84c8ed3d66c181aca87e20",
+    "model_source_commit": "c97058574f3c4bcc063f00ebfdf8bce2ad41da21",
+    "handoff_path": "production/continuous-small-life-round12-20261018/work/batch-35/HANDOFF.json",
+    "handoff_sha256": "6f6d70d5c0fccbe9c10278a38622d3cb2c12c9c41310dc0aef20e1c108c995ca",
+    "qa_handoff_scope_path": "production/continuous-small-life-round12-20261018/work/batch-35/QA-HANDOFF-SCOPE.json",
+    "qa_handoff_scope_sha256": "33fe9dde1fe616bf8c5f33a60242031897037a2a3658246bece54a6659e19e94",
+    "expected_asset_ids": [
+      "helicocystis",
+      "cooperoceras",
+      "cave-drapery",
+      "reticulite-clast"
+    ],
+    "expected_glb_sha256_by_asset": {
+      "helicocystis": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11",
+      "cooperoceras": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e",
+      "cave-drapery": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4",
+      "reticulite-clast": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe"
+    },
+    "source_binding": "Expected source IDs and GLB SHA pins matched the exact candidate and delivered exports."
+  },
+  "standard": {
+    "profile": "static-stylized-v1",
+    "rule_version": "2026-10-18.1",
+    "judgment": "PASS applies to independent visual, artifact-integrity, source/export, profile-compatibility, Khronos, and software-WebGL review of these four exact assets.",
+    "formal_acceptance_boundary": "This report does not promote candidate stage statuses, does not change approved_for_brief=false, and does not claim a hardware-GPU/device-performance pass."
+  },
+  "method": {
+    "repository_guidance_read": [
+      "skills/asset-factual-review/SKILL.md",
+      "skills/blender-lowpoly-pipeline/SKILL.md",
+      "skills/lowpoly-art-direction/SKILL.md",
+      "skills/prehistoric-environment-art/SKILL.md",
+      "skills/blender-lowpoly-pipeline/references/standardized-pipeline.md",
+      "skills/blender-lowpoly-pipeline/references/production-contract.md",
+      "skills/blender-lowpoly-pipeline/references/qa-design.md",
+      "skills/lowpoly-art-direction/references/visual-acceptance.md",
+      "docs/candidate-profile-compatibility.zh-CN.md",
+      "schemas/README.md (static profile section)"
+    ],
+    "animation_skills_under_.agents": "Read; not applicable to these static, non-animated assets.",
+    "fixed_views": "Opened source contact sheets for all four assets; checked exact eight source frame paths, dimensions and SHA-256 from each pinned view manifest.",
+    "runtime": "Independently reloaded the exact GLB files with repository viewer and Chromium; regenerated all 48 software-WebGL captures. Every one was byte-identical to the corresponding frozen capture.",
+    "source_export": "Blender 4.3.2 opened each delivered Blend read-only with autoexec disabled, compared evaluated export geometry and bounds to the exact GLB. Smooth-face review warnings were visually inspected in source/clay/runtime images and treated as intentional shading, not export errors.",
+    "rebuild": "Eight real Blender queue jobs (two per asset) ran in scratch storage. All regenerated GLB files were byte-for-byte identical to the frozen GLBs.",
+    "glb_validation": "Independent Khronos validator rerun on temporary copies; all four had zero errors and zero warnings.",
+    "software_runtime_build": {
+      "browser": "Chromium 154.0.8037.57",
+      "renderer": "ANGLE / SwiftShader (software WebGL2)",
+      "three_revision": "180"
+    },
+    "independent_runtime_replay_summary_path": "/tmp/lowpoly-vault-b35-qa/runtime/summary.json",
+    "independent_runtime_replay_summary_sha256": "71cf026cfce655839656c08d4e09895f37e4b02125e8646663b6d246119449b4",
+    "independent_evidence_root": "/tmp/lowpoly-vault-b35-qa",
+    "reviewer_context": "Fresh independent delegated QA context; the runtime model variant was not exposed to the reviewer and is not asserted."
+  },
+  "batch_verdict": {
+    "qa_result": "PASS",
+    "assets_reviewed": 4,
+    "assets_with_required_source_changes": 0,
+    "formal_candidate_approval": "PENDING / NOT CHANGED",
+    "actual_physical_gpu_device_performance": "UNKNOWN; not tested in the cloud software-renderer run",
+    "representative_scene_scope": "Six instances were captured and draw-call/triangle counts recorded; no timing, thermal, or physical-device claim."
+  },
+  "assets": [
+    {
+      "asset_id": "helicocystis",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "maker_checkpoint_commit": "bd720fbbeb1959567e85e964abefdd20b5b92e8c",
+      "qa_result": "PASS",
+      "visual_review": {
+        "summary": "PASS：小柄与圆杯体连接连续；hero/reversehero 显示宏观螺旋，top 清楚呈现五条内陷沟；轮廓不读作工业螺母或车削螺纹。五沟细节从侧面较柔和，但固定 top/clay/silhouette 提供足够结构识别。",
+        "notes": [
+          "只评价基础形态与原创教学美术，不评价精确板片、软组织或取食机制。"
+        ]
+      },
+      "required_source_changes": [],
+      "core_pins": {
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/candidate.json",
+          "sha256": "58a0b3f68e54cc207673ed728a367359f3f603278e18b99df557504e8036383a"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/helicocystis.blend",
+          "sha256": "5ab8dadeec81af410e3d07912102664cb1f3fba025883e299276339319fb3af9",
+          "bytes": 799376
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/helicocystis.glb",
+          "sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11",
+          "bytes": 181560
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/generator.py",
+          "sha256": "139a013c4bc71645e19e49e551f171d4d3066d5973198da0ab1d54d92a044b7f"
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/config.json",
+          "sha256": "910cdf048ffe71addec828c70d045022808596cbff42cbbc3e499ad332ab6bd3"
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/view-manifest.json",
+          "sha256": "31195fb2a92fb92e039a88228c5e87acdf741a2f2196d47baf3f1187916cd239"
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/source-contact-sheet.jpg",
+          "sha256": "00f6c96e6822cfd09f833566e1d9dca2268ed30d3fd7b3874bcbf929e78ebc88"
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime-contact-sheet.jpg",
+          "sha256": "aee9bae6e6b8bd0638433eeae7e818dfe5dbb662f96d2e7649a6ef6eda4a4756"
+        }
+      },
+      "all_handoff_artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/helicocystis.glb",
+          "sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11",
+          "bytes": 181560,
+          "matches_handoff": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/helicocystis.blend",
+          "sha256": "5ab8dadeec81af410e3d07912102664cb1f3fba025883e299276339319fb3af9",
+          "bytes": 799376,
+          "matches_handoff": true
+        },
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/candidate.json",
+          "sha256": "58a0b3f68e54cc207673ed728a367359f3f603278e18b99df557504e8036383a",
+          "bytes": 10413,
+          "matches_handoff": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/freeze.json",
+          "sha256": "d73567a35eff856126843fc6a9bd8a7ef02fd409c5c3f0658812ae5fdc6a99f9",
+          "bytes": 7013,
+          "matches_handoff": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/generator.py",
+          "sha256": "139a013c4bc71645e19e49e551f171d4d3066d5973198da0ab1d54d92a044b7f",
+          "bytes": 4795,
+          "matches_handoff": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/config.json",
+          "sha256": "910cdf048ffe71addec828c70d045022808596cbff42cbbc3e499ad332ab6bd3",
+          "bytes": 2351,
+          "matches_handoff": true
+        },
+        "references_execution": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/references.execution.json",
+          "sha256": "1950e94067f8f8d2570732ae9e3b1a31d50114594ce09236a81744ddfdcb1f9e",
+          "bytes": 2425,
+          "matches_handoff": true
+        },
+        "integrity": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/practical-integrity.json",
+          "sha256": "77e453c2ba99b4b7629d2929330c3a7c79b53971c2b45803039befe776ade313",
+          "bytes": 490,
+          "matches_handoff": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/profile-contract.json",
+          "sha256": "496868567f4547c49085eddcc7afc0047ef82824efe82c4446788f5bb461f9f5",
+          "bytes": 923,
+          "matches_handoff": true
+        },
+        "profile_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/profile-gate.json",
+          "sha256": "9bb894ea00340e83a31f83a6d7dd2b11b55f2c9e228ae7c17b33e0e27e16a95c",
+          "bytes": 6513,
+          "matches_handoff": true
+        },
+        "legacy_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/legacy-gate.json",
+          "sha256": "d9f8a2bf7625a0c36bd62800071c890188a375368e8cf0554bf87f2e3cf977d0",
+          "bytes": 2553,
+          "matches_handoff": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/source-scene.json",
+          "sha256": "64ae9667c01bcaa19458562ecd866899239e306153c24706129693013e8ca5be",
+          "bytes": 790,
+          "matches_handoff": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/source-export.json",
+          "sha256": "5c069b3a7e94d28cd9a3cb535258ed306ce52ab016316c498f02a673ac2cd7a8",
+          "bytes": 4209,
+          "matches_handoff": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/source-contact-sheet.jpg",
+          "sha256": "00f6c96e6822cfd09f833566e1d9dca2268ed30d3fd7b3874bcbf929e78ebc88",
+          "bytes": 90975,
+          "matches_handoff": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime-contact-sheet.jpg",
+          "sha256": "aee9bae6e6b8bd0638433eeae7e818dfe5dbb662f96d2e7649a6ef6eda4a4756",
+          "bytes": 152485,
+          "matches_handoff": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/view-manifest.json",
+          "sha256": "31195fb2a92fb92e039a88228c5e87acdf741a2f2196d47baf3f1187916cd239",
+          "bytes": 8941,
+          "matches_handoff": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/metadata.json",
+          "sha256": "b93f11107bf07f37ed06cbd533387b6725aea3a2955dbfb9887fcf61b6a965a9",
+          "bytes": 6916,
+          "matches_handoff": true
+        },
+        "khronos": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/gltf-validator.report.json",
+          "sha256": "827e83f481cabb863a4f5feb98fee4ffa81bfac82e84caa922b64e3c51d6d6e0",
+          "bytes": 871,
+          "matches_handoff": true
+        },
+        "two_rebuilds": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/helicocystis/r001/reproducibility.json",
+          "sha256": "9c9ca867b438d876fddb3f09d70d21d1b7d09ccee24194acfd4e2353cbde6f4b",
+          "bytes": 2326,
+          "matches_handoff": true
+        }
+      },
+      "geometry_and_export": {
+        "dimensions_m": [
+          0.052927374839782715,
+          0.10000000149011612,
+          0.05296239256858826
+        ],
+        "triangles": 10000,
+        "source_authored_vertices": 5002,
+        "source_evaluated_vertices": 5002,
+        "exported_position_vertices": 5002,
+        "materials": 1,
+        "primitives": 1,
+        "textures": 0,
+        "independent_blender_version": "4.3.2",
+        "source_export_status": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: stalk-basal-cup-and-five-inset-spiral-ambulacra: smooth faces require intentional-style review"
+        ],
+        "source_export_triangles_match": true,
+        "source_export_bounds_match": true,
+        "source_export_bounds_max_error_m": 0.0,
+        "independent_source_parts": [
+          {
+            "name": "stalk-basal-cup-and-five-inset-spiral-ambulacra",
+            "vertices": 5002,
+            "triangles": 10000,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_scene_inspector_path": "/tmp/lowpoly-vault-b35-qa/source-audit/helicocystis/source-scene.json",
+        "source_scene_inspector_sha256": "64ae9667c01bcaa19458562ecd866899239e306153c24706129693013e8ca5be",
+        "source_mesh_connected_components": [
+          {
+            "name": "stalk-basal-cup-and-five-inset-spiral-ambulacra",
+            "connected_components": 1,
+            "authored_vertices": 5002,
+            "evaluated_vertices": 5002,
+            "triangles": 10000,
+            "modifiers": [],
+            "positive_determinant": true
+          }
+        ],
+        "root_identity": true,
+        "unit_scale": 1,
+        "source_scene_cameras_lights": 0,
+        "khronos": {
+          "status": "PASS",
+          "errors": 0,
+          "warnings": 0,
+          "pinned_khronos_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/gltf-validator.report.json",
+            "sha256": "827e83f481cabb863a4f5feb98fee4ffa81bfac82e84caa922b64e3c51d6d6e0"
+          }
+        }
+      },
+      "profile_record_boundary": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "candidate_stages_as_frozen": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval_as_frozen": "pending",
+        "candidate_record_modified": false
+      },
+      "fixed_view_review": {
+        "manifest_path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/view-manifest.json",
+        "manifest_sha256": "31195fb2a92fb92e039a88228c5e87acdf741a2f2196d47baf3f1187916cd239",
+        "contact_sheet_opened_and_reviewed": true,
+        "required_views": [
+          {
+            "view": "hero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-hero.png",
+            "sha256": "567efb3296fe59df38569efc0f280aa5a01bd312ffe700a3bf76830a194a452b",
+            "bytes": 212132,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "reversehero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-reversehero.png",
+            "sha256": "d9edec7970cee0af2b6cd9071259888585f4992ddd45081c9776bb4d34287e16",
+            "bytes": 207767,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "front",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-front.png",
+            "sha256": "1cef5514879d2cda063f3458a449accb1350ca7575371e486405e7b871554486",
+            "bytes": 206894,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "side",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-side.png",
+            "sha256": "652b0ff162ac55974457583005c174ff315042b1f8c78177552572d044285335",
+            "bytes": 205650,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "rear",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-rear.png",
+            "sha256": "de87ed2943060c5a005ef2c9f3e664825572d3720970f9caaa2062eab5c4a807",
+            "bytes": 203411,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "top",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-top.png",
+            "sha256": "1db6eaaabde224fb248649f625a4b282ccb4771b482b39406634b6f36ecd7e59",
+            "bytes": 287565,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "clay",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-clay.png",
+            "sha256": "cbeffd1050ba3f5c1788b74895d2e6c7ba008ef9064d3514a79168b63d2aa788",
+            "bytes": 168156,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "silhouette",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/preview-silhouette.png",
+            "sha256": "62c30472d976097412ff5a6319c252d7a6e325bda9a8abf225be5b000e3323fe",
+            "bytes": 5012,
+            "dimensions_px": [
+              128,
+              128
+            ],
+            "matches_view_manifest": true
+          }
+        ],
+        "all_8_source_images_hash_and_size_match": true
+      },
+      "runtime_review": {
+        "scope": "Chromium ANGLE SwiftShader software WebGL2; Three.js GLTFLoader; these measurements do not establish physical GPU or device performance.",
+        "independently_rerendered": true,
+        "independent_replay_root": "/tmp/lowpoly-vault-b35-qa/runtime/helicocystis",
+        "single_capture_count": 10,
+        "scene_capture_count": 2,
+        "all_12_images_verified_against_runtime_report": true,
+        "all_12_independent_pixels_byte_identical_to_frozen_runtime_captures": true,
+        "single": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single.json",
+            "sha256": "6cda107075b466f07f33c245f6cf4cb40769f52f71748b1f32e6285fb9f039b6"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11",
+          "status": "pass",
+          "instances": 1,
+          "capture_count": 10,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-hero.png",
+              "sha256": "8cb8f25b0796bc76468392bdbd3bfda8d1f211b41b6659df1fc7a99261c84e9c",
+              "bytes": 43308,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "8cb8f25b0796bc76468392bdbd3bfda8d1f211b41b6659df1fc7a99261c84e9c",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "reversehero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-reversehero.png",
+              "sha256": "14a29deadafa07cc67422dea65b639b680a8aa7f7cb0b9d71039da755e32fbb5",
+              "bytes": 41408,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "14a29deadafa07cc67422dea65b639b680a8aa7f7cb0b9d71039da755e32fbb5",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "front",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-front.png",
+              "sha256": "9a7ba8b3bdc2817a1919f279fd78ad713243f04bcb423d90860a6521f571c85e",
+              "bytes": 54455,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "9a7ba8b3bdc2817a1919f279fd78ad713243f04bcb423d90860a6521f571c85e",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "side",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-side.png",
+              "sha256": "a71a1531cf43c67bc606fbd41a2b213fc124ed3eb4e343c6585a0f43b561416b",
+              "bytes": 51303,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "a71a1531cf43c67bc606fbd41a2b213fc124ed3eb4e343c6585a0f43b561416b",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "rear",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-rear.png",
+              "sha256": "55f9623b60217534bc339f0dac6a773168f3871c3175ed50320a61e26221174d",
+              "bytes": 49317,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "55f9623b60217534bc339f0dac6a773168f3871c3175ed50320a61e26221174d",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-top.png",
+              "sha256": "7ab1f7b4407119427add5cdc0a46ea7332fa4524d7d16f404d40a2c37f53efb2",
+              "bytes": 82609,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "7ab1f7b4407119427add5cdc0a46ea7332fa4524d7d16f404d40a2c37f53efb2",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "bottom",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-bottom.png",
+              "sha256": "fddd59ac3dafb43bb6d487c3fe3ad8ab4552cf9d87bc232f8897c1f22c8ba493",
+              "bytes": 79388,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "fddd59ac3dafb43bb6d487c3fe3ad8ab4552cf9d87bc232f8897c1f22c8ba493",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-80px.png",
+              "sha256": "77babeef70d3913d2e73e555cbd659f8f8d4dd46a5baed97b4cc7001f2b57404",
+              "bytes": 15728,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "77babeef70d3913d2e73e555cbd659f8f8d4dd46a5baed97b4cc7001f2b57404",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-160px.png",
+              "sha256": "7a1ed25b4e733b125f7cd7262190ed90d7e794f36b049d726cbedbb1ba8d7ce8",
+              "bytes": 20068,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "7a1ed25b4e733b125f7cd7262190ed90d7e794f36b049d726cbedbb1ba8d7ce8",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/single-240px.png",
+              "sha256": "c4e6c09e4fad8e16edc3e7a101c083515a51a76ad7709203e1348f66c9319c9e",
+              "bytes": 25259,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "c4e6c09e4fad8e16edc3e7a101c083515a51a76ad7709203e1348f66c9319c9e",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11"
+          }
+        },
+        "six_instance_scene": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/scene.json",
+            "sha256": "4a451186fec8d3f9369f2c837ae0910324cd077bac4f8ba26a667f91e850b009"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11",
+          "status": "pass",
+          "instances": 6,
+          "capture_count": 2,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/scene-hero.png",
+              "sha256": "038ffb587de9a1a7a4d762501a2b1bd640d4935872b9e8c70f318501ae6c4355",
+              "bytes": 42792,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "038ffb587de9a1a7a4d762501a2b1bd640d4935872b9e8c70f318501ae6c4355",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/helicocystis/r001/attempt-02/helicocystis/runtime/scene-top.png",
+              "sha256": "2663044a42bf27ad212e809d797fcb46efa04b67b4012677b7d6ad4a1a3485b8",
+              "bytes": 38637,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "2663044a42bf27ad212e809d797fcb46efa04b67b4012677b7d6ad4a1a3485b8",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "render_calls_per_view": 6,
+          "triangles_per_view": 60000,
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11"
+          }
+        },
+        "actual_hardware_gpu_performance": "NOT TESTED / UNKNOWN"
+      },
+      "independent_rebuilds": {
+        "method": "Frozen batch35 generator/config/helpers; queue manifest root paths resolved to this isolated worktree; outputs written only beneath /tmp.",
+        "independent_report_path": "/tmp/lowpoly-vault-b35-qa/rebuild-assessment.json",
+        "independent_report_sha256": "62daf05b5c266360550cd41bcac26d63f60bf5d2386a504481d5fd7dc98c3ad8",
+        "runs": [
+          {
+            "job_id": "semantic-rebuild-1",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/helicocystis/r001/semantic-rebuild-1/134b432c0cbd4cf6ba24898df4d4761c082f7533aec0f38878371cb154a82116/20261019T004237-adebbb686064475d89eb3b7c1c7c0022/outputs/helicocystis/helicocystis.glb",
+            "glb_sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11",
+            "bytes": 181560,
+            "semantic_sha256": "fb0330124f362700aad208501937ea4d3f85f2b4c04c5861f3a180b5466e509a",
+            "triangles": 10000,
+            "matches_frozen_glb_byte_for_byte": true
+          },
+          {
+            "job_id": "semantic-rebuild-2",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/helicocystis/r001/semantic-rebuild-2/c9a360ac27c128ea8719885e8d82e49134a9dd253853ed0644e9c13bbec60a96/20261019T004239-44e3971b046d4d47bb1d6dfc911a480b/outputs/helicocystis/helicocystis.glb",
+            "glb_sha256": "31f1239e5cad16e5c59ada814c040121fbd376e5b87ef72bea14194751527f11",
+            "bytes": 181560,
+            "semantic_sha256": "fb0330124f362700aad208501937ea4d3f85f2b4c04c5861f3a180b5466e509a",
+            "triangles": 10000,
+            "matches_frozen_glb_byte_for_byte": true
+          }
+        ],
+        "both_runs_glb_byte_exact_to_frozen_delivery": true
+      },
+      "independent_source_export_report": {
+        "path": "/tmp/lowpoly-vault-b35-qa/source-audit/helicocystis/source-export.json",
+        "sha256": "7ef7cc49dc4f88a199a71014aaed91ebab7fa6b7878a600197946024419d39a6"
+      },
+      "reference_review": {
+        "id": "IV-ECHINODERM-FORMS-MAKER-ACCESS",
+        "title": "Exclusively Fossil Taxa — PRI Digital Atlas",
+        "url": "https://www.digitalatlasofancientlife.org/learn/echinodermata/fossil-echinoderms/",
+        "reviewed_scope": "短柄/基底杯、五条内陷且螺旋排列的 ambulacra；模型只主张启发式教学造型。"
+      },
+      "factual_scope": "Original stylized teaching prop; basic form/scope checked against the listed primary source(s). No strict specimen restoration, exact size, behavior, locality or co-occurrence claim."
+    },
+    {
+      "asset_id": "cooperoceras",
+      "revision": "r001",
+      "selected_attempt": "attempt-01",
+      "maker_checkpoint_commit": "0468593653dd8131e5b808972fdcd7b0e1144b66",
+      "qa_result": "PASS",
+      "visual_review": {
+        "summary": "PASS：开放盘卷、终端壳口和外弯角状棘在多视角均可读；shell-only 范围符合冻结 brief，没有添加触手或软体。棘根在视觉上接壳，未见悬浮/断裂。",
+        "notes": [
+          "源 mesh 的棘对象由八个闭合独立组件组成并与壳体连接；独立图像和几何检查未发现可见脱接。"
+        ]
+      },
+      "required_source_changes": [],
+      "core_pins": {
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/candidate.json",
+          "sha256": "8c24d65a89354fdd2589fb5e4daa79fe05972b4e61af325be5fc2536e256d6fd"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/cooperoceras.blend",
+          "sha256": "9e129d3214dc3599067705ccd5fa839f9c5826773550f90bb8efdf05d5d8d1d9",
+          "bytes": 696352
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/cooperoceras.glb",
+          "sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e",
+          "bytes": 132448
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/generator.py",
+          "sha256": "940bc5cd48e4eaa6ad41c754fdf8fd991ec5b8e0349572400d346c9c8aad9696"
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/config.json",
+          "sha256": "bcf6db613c325e024d4113be71a81b2b70e0938c30ecd5c386b14242dd340f31"
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/view-manifest.json",
+          "sha256": "e5de6c487a405d8cdccd9ab22028959ded3666a71e16e6742ba5f55ce7e20f77"
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/source-contact-sheet.jpg",
+          "sha256": "a39cdfebc88e1def44710ebc5b9139fd695c6814e25f8318acf2d3548cbef155"
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime-contact-sheet.jpg",
+          "sha256": "7ad4396243bc1d2a532ed7b7cab5454cd1447a42900fd8e700c29cc571a88684"
+        }
+      },
+      "all_handoff_artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/cooperoceras.glb",
+          "sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e",
+          "bytes": 132448,
+          "matches_handoff": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/cooperoceras.blend",
+          "sha256": "9e129d3214dc3599067705ccd5fa839f9c5826773550f90bb8efdf05d5d8d1d9",
+          "bytes": 696352,
+          "matches_handoff": true
+        },
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/candidate.json",
+          "sha256": "8c24d65a89354fdd2589fb5e4daa79fe05972b4e61af325be5fc2536e256d6fd",
+          "bytes": 10415,
+          "matches_handoff": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/freeze.json",
+          "sha256": "b1af75b8ea4a6a4dec350189d162aad1e338066dc5432fc19320021b792d4c74",
+          "bytes": 7015,
+          "matches_handoff": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/generator.py",
+          "sha256": "940bc5cd48e4eaa6ad41c754fdf8fd991ec5b8e0349572400d346c9c8aad9696",
+          "bytes": 6100,
+          "matches_handoff": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/config.json",
+          "sha256": "bcf6db613c325e024d4113be71a81b2b70e0938c30ecd5c386b14242dd340f31",
+          "bytes": 2343,
+          "matches_handoff": true
+        },
+        "references_execution": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/references.execution.json",
+          "sha256": "cc814cf1b7d0bc239abd294a70d5ca9561e6344196e6cdf8a6cb2bb37ce83b7c",
+          "bytes": 2436,
+          "matches_handoff": true
+        },
+        "integrity": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/practical-integrity.json",
+          "sha256": "8cc9b6ac3853f4dbf5eddbca686fc9326a5778582081d7568fd4f1701dce2f19",
+          "bytes": 490,
+          "matches_handoff": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/profile-contract.json",
+          "sha256": "aa4dfd87eeed12758f6c93e00fd16b72bcc51bf77a3cb7b5ec93dad97f4abd91",
+          "bytes": 923,
+          "matches_handoff": true
+        },
+        "profile_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/profile-gate.json",
+          "sha256": "fcaea66d2761e520b7db50fa4b7478fba2b6776ecba5a7ba89cd41c68dcb2a69",
+          "bytes": 6508,
+          "matches_handoff": true
+        },
+        "legacy_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/legacy-gate.json",
+          "sha256": "6e324e25fe1d1a3fa4c310d5e901d0f5a6913aca1bdb8cd46dd0f38fdcd245ea",
+          "bytes": 2549,
+          "matches_handoff": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/source-scene.json",
+          "sha256": "9e758572ca5cfb603696eb052a8588261c162b087aca25f211e2ecc67710eaaf",
+          "bytes": 1043,
+          "matches_handoff": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/source-export.json",
+          "sha256": "0aa78160b8245f8f4785b34f2c1abc8bd960dc795cd2a9428737fad2c95bd65c",
+          "bytes": 4583,
+          "matches_handoff": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/source-contact-sheet.jpg",
+          "sha256": "a39cdfebc88e1def44710ebc5b9139fd695c6814e25f8318acf2d3548cbef155",
+          "bytes": 109723,
+          "matches_handoff": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime-contact-sheet.jpg",
+          "sha256": "7ad4396243bc1d2a532ed7b7cab5454cd1447a42900fd8e700c29cc571a88684",
+          "bytes": 179761,
+          "matches_handoff": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/view-manifest.json",
+          "sha256": "e5de6c487a405d8cdccd9ab22028959ded3666a71e16e6742ba5f55ce7e20f77",
+          "bytes": 8942,
+          "matches_handoff": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/metadata.json",
+          "sha256": "9a37363c22bb8e3dda5f9884d207dd99ebc14133f2ec15af94a9a3034fbba3ed",
+          "bytes": 6975,
+          "matches_handoff": true
+        },
+        "khronos": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/gltf-validator.report.json",
+          "sha256": "79cbc7ff960bbb5a5af1bc5525be1dd95e682ad8929228be3304a9223273ec0f",
+          "bytes": 870,
+          "matches_handoff": true
+        },
+        "two_rebuilds": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cooperoceras/r001/reproducibility.json",
+          "sha256": "5011f4bdc3cee28d91a9871b60731e30e365e1fb45be9231b51fec2436fcea11",
+          "bytes": 2326,
+          "matches_handoff": true
+        }
+      },
+      "geometry_and_export": {
+        "dimensions_m": [
+          0.15546802431344986,
+          0.16999999899417162,
+          0.11452854052186012
+        ],
+        "triangles": 7204,
+        "source_authored_vertices": 3620,
+        "source_evaluated_vertices": 3620,
+        "exported_position_vertices": 3620,
+        "materials": 1,
+        "primitives": 2,
+        "textures": 0,
+        "independent_blender_version": "4.3.2",
+        "source_export_status": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: original-expanding-open-coil-and-real-shell-aperture: smooth faces require intentional-style review",
+          "source: paired-recurved-hollow-shell-spines: smooth faces require intentional-style review"
+        ],
+        "source_export_triangles_match": true,
+        "source_export_bounds_match": true,
+        "source_export_bounds_max_error_m": 2.7939677238464355e-09,
+        "independent_source_parts": [
+          {
+            "name": "original-expanding-open-coil-and-real-shell-aperture",
+            "vertices": 2260,
+            "triangles": 4516,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "paired-recurved-hollow-shell-spines",
+            "vertices": 1360,
+            "triangles": 2688,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_scene_inspector_path": "/tmp/lowpoly-vault-b35-qa/source-audit/cooperoceras/source-scene.json",
+        "source_scene_inspector_sha256": "9e758572ca5cfb603696eb052a8588261c162b087aca25f211e2ecc67710eaaf",
+        "source_mesh_connected_components": [
+          {
+            "name": "original-expanding-open-coil-and-real-shell-aperture",
+            "connected_components": 1,
+            "authored_vertices": 2260,
+            "evaluated_vertices": 2260,
+            "triangles": 4516,
+            "modifiers": [],
+            "positive_determinant": true
+          },
+          {
+            "name": "paired-recurved-hollow-shell-spines",
+            "connected_components": 8,
+            "authored_vertices": 1360,
+            "evaluated_vertices": 1360,
+            "triangles": 2688,
+            "modifiers": [],
+            "positive_determinant": true
+          }
+        ],
+        "root_identity": true,
+        "unit_scale": 1,
+        "source_scene_cameras_lights": 0,
+        "khronos": {
+          "status": "PASS",
+          "errors": 0,
+          "warnings": 0,
+          "pinned_khronos_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/gltf-validator.report.json",
+            "sha256": "79cbc7ff960bbb5a5af1bc5525be1dd95e682ad8929228be3304a9223273ec0f"
+          }
+        }
+      },
+      "profile_record_boundary": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "candidate_stages_as_frozen": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval_as_frozen": "pending",
+        "candidate_record_modified": false
+      },
+      "fixed_view_review": {
+        "manifest_path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/view-manifest.json",
+        "manifest_sha256": "e5de6c487a405d8cdccd9ab22028959ded3666a71e16e6742ba5f55ce7e20f77",
+        "contact_sheet_opened_and_reviewed": true,
+        "required_views": [
+          {
+            "view": "hero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-hero.png",
+            "sha256": "534645013ea3c2aeede0d028c479bbeef7e5f5a8576cd2536b535690766f1465",
+            "bytes": 204018,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "reversehero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-reversehero.png",
+            "sha256": "66fcadb69b4bd3fbd3e7ad597e6f6416f6ade8e892dbe9f127536e6b3f5e9196",
+            "bytes": 207169,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "front",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-front.png",
+            "sha256": "31e11c6da1c9536c223cda35137af982bb0cdd9cec8ceacc1af47c3e80f31f81",
+            "bytes": 221391,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "side",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-side.png",
+            "sha256": "9b77510360bd7ffe83dfb57b8bfbd4959909a6300198162cc8dabb95a67f1331",
+            "bytes": 196275,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "rear",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-rear.png",
+            "sha256": "187997157f6c3894e7d2439831726e0d53edd7c7441874b0889903c99bc6d60a",
+            "bytes": 216803,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "top",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-top.png",
+            "sha256": "89e708fd4e17006bbe0f529a509df077b35305b736ad884c1fb6cc83287a49d7",
+            "bytes": 197750,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "clay",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-clay.png",
+            "sha256": "19ea7ef56ec6eb05481718bedce61d4688923d313940bfc84eb7659f29862115",
+            "bytes": 172704,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "silhouette",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/preview-silhouette.png",
+            "sha256": "9d73c79974c41ca7feb2cb95f8ead3018eb520c59af4e92985015513af348b73",
+            "bytes": 5406,
+            "dimensions_px": [
+              128,
+              128
+            ],
+            "matches_view_manifest": true
+          }
+        ],
+        "all_8_source_images_hash_and_size_match": true
+      },
+      "runtime_review": {
+        "scope": "Chromium ANGLE SwiftShader software WebGL2; Three.js GLTFLoader; these measurements do not establish physical GPU or device performance.",
+        "independently_rerendered": true,
+        "independent_replay_root": "/tmp/lowpoly-vault-b35-qa/runtime/cooperoceras",
+        "single_capture_count": 10,
+        "scene_capture_count": 2,
+        "all_12_images_verified_against_runtime_report": true,
+        "all_12_independent_pixels_byte_identical_to_frozen_runtime_captures": true,
+        "single": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single.json",
+            "sha256": "29b2c29b4d2569da7b90ff16ac0891595dbe40fd9ed40467cfa020dc4f49d5e8"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e",
+          "status": "pass",
+          "instances": 1,
+          "capture_count": 10,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-hero.png",
+              "sha256": "a92bdd45be29e8dcfaf0b3d63f97d2576784a0f6e248ff19f6e555dbdd77f086",
+              "bytes": 51153,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "a92bdd45be29e8dcfaf0b3d63f97d2576784a0f6e248ff19f6e555dbdd77f086",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "reversehero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-reversehero.png",
+              "sha256": "feded632adfc4c6572d54adcb95005330dc5cb9f96e453527de304296cc7921e",
+              "bytes": 49654,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "feded632adfc4c6572d54adcb95005330dc5cb9f96e453527de304296cc7921e",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "front",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-front.png",
+              "sha256": "abe6e89a5438cbeec593814b4542add6082d8b0bd9d30042f03aacccd0a8c90d",
+              "bytes": 66735,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "abe6e89a5438cbeec593814b4542add6082d8b0bd9d30042f03aacccd0a8c90d",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "side",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-side.png",
+              "sha256": "2f830d8e1f0905cc77348b7e8343521b805f5d1e0d34231d52666a1a4cf1b6f0",
+              "bytes": 51386,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "2f830d8e1f0905cc77348b7e8343521b805f5d1e0d34231d52666a1a4cf1b6f0",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "rear",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-rear.png",
+              "sha256": "df7b5ef15ac080e1f98af7705697dac4c41fc4ec4027f35293a472015a0d0e21",
+              "bytes": 63083,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "df7b5ef15ac080e1f98af7705697dac4c41fc4ec4027f35293a472015a0d0e21",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-top.png",
+              "sha256": "24bfb2bab1bcd12181acfa570eac87550a2fbf78ef57503121caa8bedde06737",
+              "bytes": 58743,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "24bfb2bab1bcd12181acfa570eac87550a2fbf78ef57503121caa8bedde06737",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "bottom",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-bottom.png",
+              "sha256": "3a18633cba9e0cd6f7b17b003782795927f1ee665da9eeb47ea8c5e92bc8915e",
+              "bytes": 61401,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "3a18633cba9e0cd6f7b17b003782795927f1ee665da9eeb47ea8c5e92bc8915e",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-80px.png",
+              "sha256": "f3c94d227202ff0e7420606d9220619cbd8b87f5ed854cf0c5f776dc9ca8b0d6",
+              "bytes": 16599,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "f3c94d227202ff0e7420606d9220619cbd8b87f5ed854cf0c5f776dc9ca8b0d6",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-160px.png",
+              "sha256": "d2fe429a743a94197650821c84159d8b34c9538bc15be42038ee97c7d4c85290",
+              "bytes": 22011,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "d2fe429a743a94197650821c84159d8b34c9538bc15be42038ee97c7d4c85290",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/single-240px.png",
+              "sha256": "bfc39e68ae92bd33d35915685d6133c1dcbf95f1891990eae15b196677bec542",
+              "bytes": 28663,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "bfc39e68ae92bd33d35915685d6133c1dcbf95f1891990eae15b196677bec542",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e"
+          }
+        },
+        "six_instance_scene": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/scene.json",
+            "sha256": "5366bd6787a4190daee6f39eff655621c93a7f78333d4175c823197dc8305a02"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e",
+          "status": "pass",
+          "instances": 6,
+          "capture_count": 2,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/scene-hero.png",
+              "sha256": "9bf31ab2963498f362bea4ca5eceed4d40fe3da2e25b5a37c69c96f298054fdf",
+              "bytes": 46241,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "9bf31ab2963498f362bea4ca5eceed4d40fe3da2e25b5a37c69c96f298054fdf",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cooperoceras/r001/attempt-01/cooperoceras/runtime/scene-top.png",
+              "sha256": "8d94c957497233acdd9a06975cfe11387e511ab1d2f57ae3005a8c2d6a943dd3",
+              "bytes": 38386,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "8d94c957497233acdd9a06975cfe11387e511ab1d2f57ae3005a8c2d6a943dd3",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "render_calls_per_view": 12,
+          "triangles_per_view": 43224,
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e"
+          }
+        },
+        "actual_hardware_gpu_performance": "NOT TESTED / UNKNOWN"
+      },
+      "independent_rebuilds": {
+        "method": "Frozen batch35 generator/config/helpers; queue manifest root paths resolved to this isolated worktree; outputs written only beneath /tmp.",
+        "independent_report_path": "/tmp/lowpoly-vault-b35-qa/rebuild-assessment.json",
+        "independent_report_sha256": "62daf05b5c266360550cd41bcac26d63f60bf5d2386a504481d5fd7dc98c3ad8",
+        "runs": [
+          {
+            "job_id": "semantic-rebuild-1",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/cooperoceras/r001/semantic-rebuild-1/613b25655b1a01168199f7a55b8c082da99aaef3d1d233593d817a84dfa444ab/20261019T004241-8b0283b70adf4bd38c4caa1e1bd2f1c3/outputs/cooperoceras/cooperoceras.glb",
+            "glb_sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e",
+            "bytes": 132448,
+            "semantic_sha256": "059919239f68eea17db133b395e0c1b759cf2348b2f564bf61881aaea6d22e9e",
+            "triangles": 7204,
+            "matches_frozen_glb_byte_for_byte": true
+          },
+          {
+            "job_id": "semantic-rebuild-2",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/cooperoceras/r001/semantic-rebuild-2/1b584c3a339e1b3b6ee697234a689275fc36d302c228e17771c9e7a4f0db4de6/20261019T004242-50e25ff0b21e450ca6f96812686006f9/outputs/cooperoceras/cooperoceras.glb",
+            "glb_sha256": "d987e2aacecfc0f9e2367842c60b6b40e399e422ab031807a545b420158d995e",
+            "bytes": 132448,
+            "semantic_sha256": "059919239f68eea17db133b395e0c1b759cf2348b2f564bf61881aaea6d22e9e",
+            "triangles": 7204,
+            "matches_frozen_glb_byte_for_byte": true
+          }
+        ],
+        "both_runs_glb_byte_exact_to_frozen_delivery": true
+      },
+      "independent_source_export_report": {
+        "path": "/tmp/lowpoly-vault-b35-qa/source-audit/cooperoceras/source-export.json",
+        "sha256": "db68ebccc0943286c2395a7ba83faf54b44b9a5ae171e0b15619e2946e1b7594"
+      },
+      "reference_review": {
+        "id": "IV-COOPEROCERAS-MAKER-ACCESS",
+        "title": "Fossils of the 2020 National Fossil Day Artwork — NPS",
+        "url": "https://home.nps.gov/articles/fossils-of-the-2020-national-fossil-day-artwork.htm",
+        "reviewed_scope": "盘卷 nautiloid 壳与外圈成对、反曲中空突棘；没有把行为假设或未知软体动物写进模型。"
+      },
+      "factual_scope": "Original stylized teaching prop; basic form/scope checked against the listed primary source(s). No strict specimen restoration, exact size, behavior, locality or co-occurrence claim."
+    },
+    {
+      "asset_id": "cave-drapery",
+      "revision": "r001",
+      "selected_attempt": "attempt-03",
+      "maker_checkpoint_commit": "184ae1b00b74033b761019e5b929fac7aee30499",
+      "qa_result": "PASS",
+      "visual_review": {
+        "summary": "PASS：斜向上缘、实体厚度、主次不等的下垂褶皱和下缘卷曲在 front/side/top 与 clay 视图都可读；没有依赖颜色或背景制造体积。",
+        "notes": [
+          "这是顶部挂装的石幔，不是自立物件；handoff/metadata 记录九个顶边安装点，场景需由天花板承接。"
+        ]
+      },
+      "required_source_changes": [],
+      "core_pins": {
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/candidate.json",
+          "sha256": "c82900c508d5f568d6cfb51fc058348039f37960195ed95c526cb58179687c46"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/cave-drapery.blend",
+          "sha256": "37c0fbcf5b198a6979d72ca6282f53d33a4255f5512935ca231fd54a9bf4c3cd",
+          "bytes": 739812
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/cave-drapery.glb",
+          "sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4",
+          "bytes": 153988
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/generator.py",
+          "sha256": "cacad29406c3e38ce257ed4a159c6f42c591dc7545781df3890fefd35daca557"
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/config.json",
+          "sha256": "d7cae5080cb8bdaf15d6d43be774eabebabf85f8b11ab49f09fd2c531a916e52"
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/view-manifest.json",
+          "sha256": "c019f5c6357c39e8ad64a46bfcbe144a099fb6982980366db6558865a7025dd2"
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/source-contact-sheet.jpg",
+          "sha256": "4c2a7692c0cc1663d15a7a30fc5572d85961a75fda12908cccfb0ff018509ae2"
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime-contact-sheet.jpg",
+          "sha256": "eac5bdb58c80c74d1da5f141cd43e743c080f0aa01b91e821343b271a1634277"
+        }
+      },
+      "all_handoff_artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/cave-drapery.glb",
+          "sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4",
+          "bytes": 153988,
+          "matches_handoff": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/cave-drapery.blend",
+          "sha256": "37c0fbcf5b198a6979d72ca6282f53d33a4255f5512935ca231fd54a9bf4c3cd",
+          "bytes": 739812,
+          "matches_handoff": true
+        },
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/candidate.json",
+          "sha256": "c82900c508d5f568d6cfb51fc058348039f37960195ed95c526cb58179687c46",
+          "bytes": 10413,
+          "matches_handoff": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/freeze.json",
+          "sha256": "6e0141ade9131521431de3205d291fde96c84dccebb03dabbbbdd7397f11a2c7",
+          "bytes": 7012,
+          "matches_handoff": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/generator.py",
+          "sha256": "cacad29406c3e38ce257ed4a159c6f42c591dc7545781df3890fefd35daca557",
+          "bytes": 5588,
+          "matches_handoff": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/config.json",
+          "sha256": "d7cae5080cb8bdaf15d6d43be774eabebabf85f8b11ab49f09fd2c531a916e52",
+          "bytes": 2344,
+          "matches_handoff": true
+        },
+        "references_execution": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/references.execution.json",
+          "sha256": "f3c4b3c16f09b788567f63dd88843cf143efbb9e627730b0302361aaa58b5dee",
+          "bytes": 2246,
+          "matches_handoff": true
+        },
+        "integrity": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/practical-integrity.json",
+          "sha256": "5138c8df313e8d7067b35994214728bbc1d686e9e0ff58b3e2c5eba29a9dfaa9",
+          "bytes": 490,
+          "matches_handoff": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/profile-contract.json",
+          "sha256": "3fa9e80cbee7ad502304d425664e17095a035e14d714fd1fa2e18b630dc47b53",
+          "bytes": 923,
+          "matches_handoff": true
+        },
+        "profile_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/profile-gate.json",
+          "sha256": "bea43a007a788dd09ae855476225c95d845bb8ec88c3333eefa09333440e94a7",
+          "bytes": 6498,
+          "matches_handoff": true
+        },
+        "legacy_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/legacy-gate.json",
+          "sha256": "73ac68c038eee0674cd7a19c5975e9c01f55284109ae698562131a956c5b0cc5",
+          "bytes": 2539,
+          "matches_handoff": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/source-scene.json",
+          "sha256": "0273f8ba0e58e61f0fa1760d70f8ec85918e35ba96934ac9f2fc0d18d31a73b9",
+          "bytes": 798,
+          "matches_handoff": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/source-export.json",
+          "sha256": "8bb71cb48e7478f780a9a2ab85b9d3fece49636528d8d01883d4b6af5346f097",
+          "bytes": 4219,
+          "matches_handoff": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/source-contact-sheet.jpg",
+          "sha256": "4c2a7692c0cc1663d15a7a30fc5572d85961a75fda12908cccfb0ff018509ae2",
+          "bytes": 91581,
+          "matches_handoff": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime-contact-sheet.jpg",
+          "sha256": "eac5bdb58c80c74d1da5f141cd43e743c080f0aa01b91e821343b271a1634277",
+          "bytes": 145637,
+          "matches_handoff": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/view-manifest.json",
+          "sha256": "c019f5c6357c39e8ad64a46bfcbe144a099fb6982980366db6558865a7025dd2",
+          "bytes": 8941,
+          "matches_handoff": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/metadata.json",
+          "sha256": "b3aa26160fb9a3e4878004af6b68842dd8d1e30ecc2d5151cf52175e6c831a72",
+          "bytes": 8063,
+          "matches_handoff": true
+        },
+        "khronos": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/gltf-validator.report.json",
+          "sha256": "6287b91b59ad0e24a206ed9a0d74ae2a976be0025e205b65913944ddd606b134",
+          "bytes": 870,
+          "matches_handoff": true
+        },
+        "two_rebuilds": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/reproducibility.json",
+          "sha256": "3b30e664c7b3200cb95251485983099ba66331ff2556ef8b55ea3ddd2812a8ee",
+          "bytes": 2326,
+          "matches_handoff": true
+        }
+      },
+      "geometry_and_export": {
+        "dimensions_m": [
+          0.32601451873779297,
+          0.4500000048428774,
+          0.11170845478773117
+        ],
+        "triangles": 8464,
+        "source_authored_vertices": 4234,
+        "source_evaluated_vertices": 4234,
+        "exported_position_vertices": 4234,
+        "materials": 1,
+        "primitives": 1,
+        "textures": 0,
+        "independent_blender_version": "4.3.2",
+        "source_export_status": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: thick-folded-mineral-drapery-and-sloping-attachment-edge: smooth faces require intentional-style review"
+        ],
+        "source_export_triangles_match": true,
+        "source_export_bounds_match": true,
+        "source_export_bounds_max_error_m": 1.30385160446167e-08,
+        "independent_source_parts": [
+          {
+            "name": "thick-folded-mineral-drapery-and-sloping-attachment-edge",
+            "vertices": 4234,
+            "triangles": 8464,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_scene_inspector_path": "/tmp/lowpoly-vault-b35-qa/source-audit/cave-drapery/source-scene.json",
+        "source_scene_inspector_sha256": "0273f8ba0e58e61f0fa1760d70f8ec85918e35ba96934ac9f2fc0d18d31a73b9",
+        "source_mesh_connected_components": [
+          {
+            "name": "thick-folded-mineral-drapery-and-sloping-attachment-edge",
+            "connected_components": 1,
+            "authored_vertices": 4234,
+            "evaluated_vertices": 4234,
+            "triangles": 8464,
+            "modifiers": [],
+            "positive_determinant": true
+          }
+        ],
+        "root_identity": true,
+        "unit_scale": 1,
+        "source_scene_cameras_lights": 0,
+        "khronos": {
+          "status": "PASS",
+          "errors": 0,
+          "warnings": 0,
+          "pinned_khronos_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/gltf-validator.report.json",
+            "sha256": "6287b91b59ad0e24a206ed9a0d74ae2a976be0025e205b65913944ddd606b134"
+          }
+        }
+      },
+      "profile_record_boundary": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "candidate_stages_as_frozen": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval_as_frozen": "pending",
+        "candidate_record_modified": false
+      },
+      "fixed_view_review": {
+        "manifest_path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/view-manifest.json",
+        "manifest_sha256": "c019f5c6357c39e8ad64a46bfcbe144a099fb6982980366db6558865a7025dd2",
+        "contact_sheet_opened_and_reviewed": true,
+        "required_views": [
+          {
+            "view": "hero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-hero.png",
+            "sha256": "f3cec76aeac174308c16b49d66d38ac2c110bf7c2013eb37c16cfbfd5ea8473f",
+            "bytes": 267078,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "reversehero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-reversehero.png",
+            "sha256": "bf3ada88dde8e6d9d721b71a5556bf1f8b016575a3073ea0588883ba94ed3abf",
+            "bytes": 219097,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "front",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-front.png",
+            "sha256": "fe7bae6ca7c780c644892b144fe87f311d94169bbd32b11569b79bc3aa42a4d7",
+            "bytes": 273494,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "side",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-side.png",
+            "sha256": "a82a873edd7b87987b0fad76aeecf017fe349de91291a19e85fd15382cf74cfa",
+            "bytes": 180594,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "rear",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-rear.png",
+            "sha256": "7a849fbe838381cb881ef2ee2cd06d779ffc36c56caeea5754ba80fba31fe009",
+            "bytes": 258556,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "top",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-top.png",
+            "sha256": "fdb420d42614acaed047d90fb061ba7e7473f569f5a3a337f870aa5ffd91cec1",
+            "bytes": 152001,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "clay",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-clay.png",
+            "sha256": "402a45f9aa9e63b5ee8c63a2ea6c76e84416279277a951e8245ff9cbf4ce4214",
+            "bytes": 186546,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "silhouette",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/preview-silhouette.png",
+            "sha256": "9cac1724f338d677471db6d26aed30b17f348b21fc9943ac90e7ec89034b4f1c",
+            "bytes": 6115,
+            "dimensions_px": [
+              128,
+              128
+            ],
+            "matches_view_manifest": true
+          }
+        ],
+        "all_8_source_images_hash_and_size_match": true
+      },
+      "runtime_review": {
+        "scope": "Chromium ANGLE SwiftShader software WebGL2; Three.js GLTFLoader; these measurements do not establish physical GPU or device performance.",
+        "independently_rerendered": true,
+        "independent_replay_root": "/tmp/lowpoly-vault-b35-qa/runtime/cave-drapery",
+        "single_capture_count": 10,
+        "scene_capture_count": 2,
+        "all_12_images_verified_against_runtime_report": true,
+        "all_12_independent_pixels_byte_identical_to_frozen_runtime_captures": true,
+        "single": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single.json",
+            "sha256": "131604fb6934ee9b45f823891983b507c7174f46e2396a3f86ee68d2f46108f3"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4",
+          "status": "pass",
+          "instances": 1,
+          "capture_count": 10,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-hero.png",
+              "sha256": "4a2b1ed7de1f32cf92dbeaa1ca682943b058fb85eb37023a3a60b50bd9638a54",
+              "bytes": 44514,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "4a2b1ed7de1f32cf92dbeaa1ca682943b058fb85eb37023a3a60b50bd9638a54",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "reversehero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-reversehero.png",
+              "sha256": "c9c96656f37bedec93c5a1f16bde52d371cb9676bffa1684d5bf192912375036",
+              "bytes": 41682,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "c9c96656f37bedec93c5a1f16bde52d371cb9676bffa1684d5bf192912375036",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "front",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-front.png",
+              "sha256": "9b3e4b22928ad0a1103328b67a76a3664c076f1d3fd61fc901f9081466d9376e",
+              "bytes": 50014,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "9b3e4b22928ad0a1103328b67a76a3664c076f1d3fd61fc901f9081466d9376e",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "side",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-side.png",
+              "sha256": "abfad9823c3d7e9d1751adf874c5bfe30299bd0ebe01a3fa406af777dcc47f7b",
+              "bytes": 28978,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "abfad9823c3d7e9d1751adf874c5bfe30299bd0ebe01a3fa406af777dcc47f7b",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "rear",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-rear.png",
+              "sha256": "c34016a28d1476d778f3e07e4469fcc6fe2e13fea72bb8208c5df90f0174c20e",
+              "bytes": 41571,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "c34016a28d1476d778f3e07e4469fcc6fe2e13fea72bb8208c5df90f0174c20e",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-top.png",
+              "sha256": "3e952f0aa3370cdad23c4b490dfd35ec6f02d8fabc4e07dc7a5bd25fb0d96524",
+              "bytes": 29987,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "3e952f0aa3370cdad23c4b490dfd35ec6f02d8fabc4e07dc7a5bd25fb0d96524",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "bottom",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-bottom.png",
+              "sha256": "b8419ee696fc224a87cb9cfa1ee719598811be62b4f144000643052cfc3f6f26",
+              "bytes": 35815,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "b8419ee696fc224a87cb9cfa1ee719598811be62b4f144000643052cfc3f6f26",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-80px.png",
+              "sha256": "b29855509d5c8bdf5393ee68ca4f4417519ab4c1268822e68beee7e1117034ad",
+              "bytes": 15716,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "b29855509d5c8bdf5393ee68ca4f4417519ab4c1268822e68beee7e1117034ad",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-160px.png",
+              "sha256": "d94fc72ce29b72601939f51390bafba6746c95bc26a486cd28e2aa3ac01ce59f",
+              "bytes": 20313,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "d94fc72ce29b72601939f51390bafba6746c95bc26a486cd28e2aa3ac01ce59f",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/single-240px.png",
+              "sha256": "a9ca44f9f357e0c9ccb199b4dc99123655441d71243293f0b6f912ebafafbc3f",
+              "bytes": 25656,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "a9ca44f9f357e0c9ccb199b4dc99123655441d71243293f0b6f912ebafafbc3f",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4"
+          }
+        },
+        "six_instance_scene": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/scene.json",
+            "sha256": "8de261c258244ada3b87463e252cd0251327a7790d7e17355e9359516f107a5d"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4",
+          "status": "pass",
+          "instances": 6,
+          "capture_count": 2,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/scene-hero.png",
+              "sha256": "78e211635b796de40210a464874bc43f388c0749e1b94740eca698f48d16aaa4",
+              "bytes": 44155,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "78e211635b796de40210a464874bc43f388c0749e1b94740eca698f48d16aaa4",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/cave-drapery/r001/attempt-03/cave-drapery/runtime/scene-top.png",
+              "sha256": "fff578032b9cf96b4741089964fc51ee0534efa101754e97bf9200d6bebd6658",
+              "bytes": 22423,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "fff578032b9cf96b4741089964fc51ee0534efa101754e97bf9200d6bebd6658",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "render_calls_per_view": 6,
+          "triangles_per_view": 50784,
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4"
+          }
+        },
+        "actual_hardware_gpu_performance": "NOT TESTED / UNKNOWN"
+      },
+      "independent_rebuilds": {
+        "method": "Frozen batch35 generator/config/helpers; queue manifest root paths resolved to this isolated worktree; outputs written only beneath /tmp.",
+        "independent_report_path": "/tmp/lowpoly-vault-b35-qa/rebuild-assessment.json",
+        "independent_report_sha256": "62daf05b5c266360550cd41bcac26d63f60bf5d2386a504481d5fd7dc98c3ad8",
+        "runs": [
+          {
+            "job_id": "semantic-rebuild-1",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/cave-drapery/r001/semantic-rebuild-1/a252b91a8ce05ee609d57aeab9b311842c40aa262098ec7fc8c1fcaf5a479982/20261019T004244-bec4eadc95ba4237ae27dec19c501e80/outputs/cave-drapery/cave-drapery.glb",
+            "glb_sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4",
+            "bytes": 153988,
+            "semantic_sha256": "40d0d918335449000a2a375d1967bfe3e7d4b0d7276a6364c8cb824dda78ba33",
+            "triangles": 8464,
+            "matches_frozen_glb_byte_for_byte": true
+          },
+          {
+            "job_id": "semantic-rebuild-2",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/cave-drapery/r001/semantic-rebuild-2/26864a8577d3134ba0c5f27ee95ae4d26db045b4bf9cbdb8d1ff8b88a277d299/20261019T004246-87cf6f07f9924d75bab48b38c1a09fbc/outputs/cave-drapery/cave-drapery.glb",
+            "glb_sha256": "5b70ea909b4151038a0b042e7bf10ad65f33c35a779b085111119074e2e358d4",
+            "bytes": 153988,
+            "semantic_sha256": "40d0d918335449000a2a375d1967bfe3e7d4b0d7276a6364c8cb824dda78ba33",
+            "triangles": 8464,
+            "matches_frozen_glb_byte_for_byte": true
+          }
+        ],
+        "both_runs_glb_byte_exact_to_frozen_delivery": true
+      },
+      "independent_source_export_report": {
+        "path": "/tmp/lowpoly-vault-b35-qa/source-audit/cave-drapery/source-export.json",
+        "sha256": "cf4572d89bb5191b633410a93fa64ae36d37126f8ce46a391ff55398dd75c387"
+      },
+      "reference_review": {
+        "id": "EN-SP-MAKER-ACCESS",
+        "title": "Speleothems — NPS",
+        "url": "https://www.nps.gov/subjects/caves/speleothems.htm",
+        "reviewed_scope": "斜顶缝沉积形成薄片，并随生长加深弯曲、在下缘折叠/卷曲；不声称某一洞穴或年代。"
+      },
+      "factual_scope": "Original stylized teaching prop; basic form/scope checked against the listed primary source(s). No strict specimen restoration, exact size, behavior, locality or co-occurrence claim."
+    },
+    {
+      "asset_id": "reticulite-clast",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "maker_checkpoint_commit": "c97058574f3c4bcc063f00ebfdf8bce2ad41da21",
+      "qa_result": "PASS",
+      "visual_review": {
+        "summary": "PASS：多视角可见不规则、三维开放的粗杆泡沫与互通空隙，没有实体核心或表面贴孔；80/160/240px 与六实例场景仍保持空隙识别。暗哑杆状外观接近 USGS 对网状火山玻璃的线状骨架类比，且 brief 允许克制/不透明表现。",
+        "notes": [
+          "Blender mesh 含 195 个闭合但未焊接的连通组件，杆和节点以几何重叠形成视觉连通；handoff 未声称单一布尔合并/水密实体。已核对本次所有固定视角和运行像素，未见断口。若未来作为物理/水密碰撞网格使用，需要单独焊接与复核；本批教学展示 prop 不要求此项。"
+        ]
+      },
+      "required_source_changes": [],
+      "core_pins": {
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/candidate.json",
+          "sha256": "11987337a796ebccc97ba946b57690a35e2a66653c065dbffab5d7fd396f226e"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/reticulite-clast.blend",
+          "sha256": "e534308fc71122562b76bd03ea504e2d33bdedd76acb2282382bd1506dd7d5ab",
+          "bytes": 773148
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/reticulite-clast.glb",
+          "sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe",
+          "bytes": 170872
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/generator.py",
+          "sha256": "24fc58100ce93db8eb780c02f2cf7c048a537811f0eb1b19f0cf71b78dd4427e"
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/config.json",
+          "sha256": "3744d4ae3f0d26b842028291c455c33ddf6aecf4ada09d075e75a2e25b16751e"
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/view-manifest.json",
+          "sha256": "5964b46e6f74487c074d0b1512775c3ef5855994aaba3eab40f8a3bb3d131c1f"
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/source-contact-sheet.jpg",
+          "sha256": "a2f4abb9004f7d152228b1845ac0aecd1567bbaeb32c038a6d877276e80526ef"
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime-contact-sheet.jpg",
+          "sha256": "ebbdf16888208d895484bf232a0f73e2f1de07493a0f9602583f7f5435ad7d59"
+        }
+      },
+      "all_handoff_artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/reticulite-clast.glb",
+          "sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe",
+          "bytes": 170872,
+          "matches_handoff": true
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/reticulite-clast.blend",
+          "sha256": "e534308fc71122562b76bd03ea504e2d33bdedd76acb2282382bd1506dd7d5ab",
+          "bytes": 773148,
+          "matches_handoff": true
+        },
+        "candidate": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/candidate.json",
+          "sha256": "11987337a796ebccc97ba946b57690a35e2a66653c065dbffab5d7fd396f226e",
+          "bytes": 10526,
+          "matches_handoff": true
+        },
+        "freeze": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/freeze.json",
+          "sha256": "9a8c044a8b8410c56e5a2266f758c057ce14627d2b58a5151b0500fc0236e9d0",
+          "bytes": 7129,
+          "matches_handoff": true
+        },
+        "generator": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/generator.py",
+          "sha256": "24fc58100ce93db8eb780c02f2cf7c048a537811f0eb1b19f0cf71b78dd4427e",
+          "bytes": 7567,
+          "matches_handoff": true
+        },
+        "config": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/config.json",
+          "sha256": "3744d4ae3f0d26b842028291c455c33ddf6aecf4ada09d075e75a2e25b16751e",
+          "bytes": 2340,
+          "matches_handoff": true
+        },
+        "references_execution": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/references.execution.json",
+          "sha256": "eee5f6d223f24b35db40d8019ac03f4e756efb719b07307b7e80972aaf42c192",
+          "bytes": 3100,
+          "matches_handoff": true
+        },
+        "integrity": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/practical-integrity.json",
+          "sha256": "736de216b536c0be2d86cf50405b6d33c7f5be5eb850f64bfa6a4f44cb498f11",
+          "bytes": 494,
+          "matches_handoff": true
+        },
+        "profile_contract": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/profile-contract.json",
+          "sha256": "15d36d17216c32be94aefca9a0c119c7b8b34bf53965f54fbf48719408a95bcc",
+          "bytes": 927,
+          "matches_handoff": true
+        },
+        "profile_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/profile-gate.json",
+          "sha256": "5c1d48fecc63663bd912c56aab33513794432752a53152d802f2404124a68505",
+          "bytes": 6510,
+          "matches_handoff": true
+        },
+        "legacy_result": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/legacy-gate.json",
+          "sha256": "06b94a2760387b5600cf698003a40ac05ba00e64242538b43642fa0dd9884c16",
+          "bytes": 2543,
+          "matches_handoff": true
+        },
+        "source_scene": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/source-scene.json",
+          "sha256": "7399a36dd469661bd466fc5593e4770790ccb3e34f3e41c55b4cad09f8cd5dc0",
+          "bytes": 798,
+          "matches_handoff": true
+        },
+        "source_export": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/source-export.json",
+          "sha256": "c6904ae758208ae47b23a1b57e6dcfa0b2385d8299aecb261ed10d485f5f2b4e",
+          "bytes": 4237,
+          "matches_handoff": true
+        },
+        "source_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/source-contact-sheet.jpg",
+          "sha256": "a2f4abb9004f7d152228b1845ac0aecd1567bbaeb32c038a6d877276e80526ef",
+          "bytes": 218966,
+          "matches_handoff": true
+        },
+        "runtime_contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime-contact-sheet.jpg",
+          "sha256": "ebbdf16888208d895484bf232a0f73e2f1de07493a0f9602583f7f5435ad7d59",
+          "bytes": 296548,
+          "matches_handoff": true
+        },
+        "view_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/view-manifest.json",
+          "sha256": "5964b46e6f74487c074d0b1512775c3ef5855994aaba3eab40f8a3bb3d131c1f",
+          "bytes": 9127,
+          "matches_handoff": true
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/metadata.json",
+          "sha256": "e01da934678b633050d6e7a525a038e9741322051ffeee3aec09c296c4532b83",
+          "bytes": 7366,
+          "matches_handoff": true
+        },
+        "khronos": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/gltf-validator.report.json",
+          "sha256": "ac630879a9fd2b301fd205f5a448572516469f57c8b42731440378862b4f4b15",
+          "bytes": 874,
+          "matches_handoff": true
+        },
+        "two_rebuilds": {
+          "path": "production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/reproducibility.json",
+          "sha256": "ee54a40a98f1c3a726f13f9664f6b2835c1833795ce6f4bd3a1c95ee613e5938",
+          "bytes": 2374,
+          "matches_handoff": true
+        }
+      },
+      "geometry_and_export": {
+        "dimensions_m": [
+          0.1600000038743019,
+          0.1438448578119278,
+          0.15284770727157593
+        ],
+        "triangles": 8884,
+        "source_authored_vertices": 4832,
+        "source_evaluated_vertices": 4832,
+        "exported_position_vertices": 4832,
+        "materials": 1,
+        "primitives": 1,
+        "textures": 0,
+        "independent_blender_version": "4.3.2",
+        "source_export_status": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: irregular-three-dimensional-open-cell-glass-strut-foam: smooth faces require intentional-style review"
+        ],
+        "source_export_triangles_match": true,
+        "source_export_bounds_match": true,
+        "source_export_bounds_max_error_m": 0.0,
+        "independent_source_parts": [
+          {
+            "name": "irregular-three-dimensional-open-cell-glass-strut-foam",
+            "vertices": 4832,
+            "triangles": 8884,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_scene_inspector_path": "/tmp/lowpoly-vault-b35-qa/source-audit/reticulite-clast/source-scene.json",
+        "source_scene_inspector_sha256": "7399a36dd469661bd466fc5593e4770790ccb3e34f3e41c55b4cad09f8cd5dc0",
+        "source_mesh_connected_components": [
+          {
+            "name": "irregular-three-dimensional-open-cell-glass-strut-foam",
+            "connected_components": 195,
+            "authored_vertices": 4832,
+            "evaluated_vertices": 4832,
+            "triangles": 8884,
+            "modifiers": [],
+            "positive_determinant": true
+          }
+        ],
+        "root_identity": true,
+        "unit_scale": 1,
+        "source_scene_cameras_lights": 0,
+        "khronos": {
+          "status": "PASS",
+          "errors": 0,
+          "warnings": 0,
+          "pinned_khronos_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/gltf-validator.report.json",
+            "sha256": "ac630879a9fd2b301fd205f5a448572516469f57c8b42731440378862b4f4b15"
+          }
+        }
+      },
+      "profile_record_boundary": {
+        "profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "candidate_stages_as_frozen": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "approval_as_frozen": "pending",
+        "candidate_record_modified": false
+      },
+      "fixed_view_review": {
+        "manifest_path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/view-manifest.json",
+        "manifest_sha256": "5964b46e6f74487c074d0b1512775c3ef5855994aaba3eab40f8a3bb3d131c1f",
+        "contact_sheet_opened_and_reviewed": true,
+        "required_views": [
+          {
+            "view": "hero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-hero.png",
+            "sha256": "50853d36c8ff1070ed3ada0b70d8ee5ce85d2ee998d6cbaeb43a2764e261e2eb",
+            "bytes": 242631,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "reversehero",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-reversehero.png",
+            "sha256": "22fe18c52266e79e046d1a8d5977c23c7b2962d6729445e91175a998ea56a831",
+            "bytes": 252451,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "front",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-front.png",
+            "sha256": "cebb80b2dace5366b371f92c4dd71bd45b4ce25991588acadbaefe222cc57203",
+            "bytes": 259101,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "side",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-side.png",
+            "sha256": "57d74dfb94fc988f9464fbce07d843c2fadc18532647dd3310d0cae25319ae6c",
+            "bytes": 265582,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "rear",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-rear.png",
+            "sha256": "266fb63001e52e365f216ddf8043f4c6d64620130383570728f155530fbc6cc3",
+            "bytes": 262938,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "top",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-top.png",
+            "sha256": "a12af885ad8d4185498ff35081f3064de66d3a19aea516e14acdbeeb631e21cb",
+            "bytes": 263470,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "clay",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-clay.png",
+            "sha256": "31449aa81d8a68196b635773ba922b8feba8c1f594d496bbd2da3e95b35ec95e",
+            "bytes": 206586,
+            "dimensions_px": [
+              512,
+              512
+            ],
+            "matches_view_manifest": true
+          },
+          {
+            "view": "silhouette",
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/preview-silhouette.png",
+            "sha256": "757b18e7f0935e31398a5e31b99e82c6a23c9616f4842b07ef31a268bc31c504",
+            "bytes": 8879,
+            "dimensions_px": [
+              128,
+              128
+            ],
+            "matches_view_manifest": true
+          }
+        ],
+        "all_8_source_images_hash_and_size_match": true
+      },
+      "runtime_review": {
+        "scope": "Chromium ANGLE SwiftShader software WebGL2; Three.js GLTFLoader; these measurements do not establish physical GPU or device performance.",
+        "independently_rerendered": true,
+        "independent_replay_root": "/tmp/lowpoly-vault-b35-qa/runtime/reticulite-clast",
+        "single_capture_count": 10,
+        "scene_capture_count": 2,
+        "all_12_images_verified_against_runtime_report": true,
+        "all_12_independent_pixels_byte_identical_to_frozen_runtime_captures": true,
+        "single": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single.json",
+            "sha256": "ef2cd044056a45d4572c3f7344947b87cab5263b2846683c894a06cee51fb972"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe",
+          "status": "pass",
+          "instances": 1,
+          "capture_count": 10,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-hero.png",
+              "sha256": "1001570e5b339831027b3c5454050a7520604807dbc76412279733929d8adf51",
+              "bytes": 76234,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "1001570e5b339831027b3c5454050a7520604807dbc76412279733929d8adf51",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "reversehero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-reversehero.png",
+              "sha256": "a1f068547d3ae3692e491fdc9234ead9943d3f7f7bb1c5a2009a1470b18a7fd4",
+              "bytes": 83796,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "a1f068547d3ae3692e491fdc9234ead9943d3f7f7bb1c5a2009a1470b18a7fd4",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "front",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-front.png",
+              "sha256": "23c53faf5c0cbe037a929cc36e33861d0963b1f72b4de79b97a453480f8d5bad",
+              "bytes": 114958,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "23c53faf5c0cbe037a929cc36e33861d0963b1f72b4de79b97a453480f8d5bad",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "side",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-side.png",
+              "sha256": "4728d9308c2f093450e1d5f8a8630d6d03081feba57e5e6890604545b8f1b4b0",
+              "bytes": 121467,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "4728d9308c2f093450e1d5f8a8630d6d03081feba57e5e6890604545b8f1b4b0",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "rear",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-rear.png",
+              "sha256": "53b6d450d848026c991b28adaeed380f90b5db5cfc6c8dce14a02d60144dd72b",
+              "bytes": 119525,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "53b6d450d848026c991b28adaeed380f90b5db5cfc6c8dce14a02d60144dd72b",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-top.png",
+              "sha256": "7a6ee85b24e1a5cd8a60638fec08453e403e5d8094942ad9e394176c1e50ae8a",
+              "bytes": 118484,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "7a6ee85b24e1a5cd8a60638fec08453e403e5d8094942ad9e394176c1e50ae8a",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "bottom",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-bottom.png",
+              "sha256": "1ae6f6ea654aa369571a1c795eb6ba0f5c8ea3b969444653da0868bbdcacda18",
+              "bytes": 124267,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "1ae6f6ea654aa369571a1c795eb6ba0f5c8ea3b969444653da0868bbdcacda18",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-80px.png",
+              "sha256": "aea2b5e69cf6d44c15ec5a1f7ffe912808f3b49e114b2d87554fd570274e3bb3",
+              "bytes": 17539,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "aea2b5e69cf6d44c15ec5a1f7ffe912808f3b49e114b2d87554fd570274e3bb3",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-160px.png",
+              "sha256": "937466352c385982c85612585a2206f19ae053b6cee2269979c996ede854ad30",
+              "bytes": 26024,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "937466352c385982c85612585a2206f19ae053b6cee2269979c996ede854ad30",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/single-240px.png",
+              "sha256": "d747c8da5b5315a72975586ec49a6f3b7a32a5a9b9af27dd2128f3dcf5a4eeb5",
+              "bytes": 36587,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "d747c8da5b5315a72975586ec49a6f3b7a32a5a9b9af27dd2128f3dcf5a4eeb5",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe"
+          }
+        },
+        "six_instance_scene": {
+          "pinned_runtime_report": {
+            "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/scene.json",
+            "sha256": "66a5b6df16203d758a41d774286df30bca49b377b34622fc2e152d4a5043adf6"
+          },
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "webgl2": true,
+          "three_revision": "180",
+          "bound_glb_sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe",
+          "status": "pass",
+          "instances": 6,
+          "capture_count": 2,
+          "captures": [
+            {
+              "view": "hero",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/scene-hero.png",
+              "sha256": "a9ffdd5a618fe81e0e21b3ce3071b4c04f116a2f66f92d9c8faae8ea519ef5ec",
+              "bytes": 55374,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "a9ffdd5a618fe81e0e21b3ce3071b4c04f116a2f66f92d9c8faae8ea519ef5ec",
+              "independent_pixel_file_byte_identical": true
+            },
+            {
+              "view": "top",
+              "path": "assets/candidates/continuous-small-life-round12-20261018/batch-35/reticulite-clast/r001/attempt-02/reticulite-clast/runtime/scene-top.png",
+              "sha256": "cca2aa8514440aa6c91a03e848478e9d1ac225024fcabf9646fcf14f5ebe16b1",
+              "bytes": 66469,
+              "dimensions_px": [
+                640,
+                640
+              ],
+              "matches_runtime_json": true,
+              "independently_rerendered_sha256": "cca2aa8514440aa6c91a03e848478e9d1ac225024fcabf9646fcf14f5ebe16b1",
+              "independent_pixel_file_byte_identical": true
+            }
+          ],
+          "render_calls_per_view": 6,
+          "triangles_per_view": 53304,
+          "independent_rerender": {
+            "status": "pass",
+            "page_errors": [],
+            "failed_requests": [],
+            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+            "webgl2": true,
+            "glb_sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe"
+          }
+        },
+        "actual_hardware_gpu_performance": "NOT TESTED / UNKNOWN"
+      },
+      "independent_rebuilds": {
+        "method": "Frozen batch35 generator/config/helpers; queue manifest root paths resolved to this isolated worktree; outputs written only beneath /tmp.",
+        "independent_report_path": "/tmp/lowpoly-vault-b35-qa/rebuild-assessment.json",
+        "independent_report_sha256": "62daf05b5c266360550cd41bcac26d63f60bf5d2386a504481d5fd7dc98c3ad8",
+        "runs": [
+          {
+            "job_id": "semantic-rebuild-1",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/reticulite-clast/r001/semantic-rebuild-1/ad408ba3ec9d81caeaa739e1243d606ef0d78b41fc10b587b9f3933b51e6e5f2/20261019T004247-24e5efdd75b04c598af42eabf2cccf9e/outputs/reticulite-clast/reticulite-clast.glb",
+            "glb_sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe",
+            "bytes": 170872,
+            "semantic_sha256": "574f3e331edc7d89ada5edb0531fbbd6fb9ad7e7dcddd4e0fc7b60b6a215798a",
+            "triangles": 8884,
+            "matches_frozen_glb_byte_for_byte": true
+          },
+          {
+            "job_id": "semantic-rebuild-2",
+            "status": "succeeded",
+            "output_path": "/tmp/lowpoly-vault-b35-qa/rebuild-runs/build/reticulite-clast/r001/semantic-rebuild-2/130e4eed22c94407ecbbe6615d4923f63de2491a5a2e9efb8e8faae22307dd77/20261019T004249-a2b491ea2c994c02b5a5ccb98ae839be/outputs/reticulite-clast/reticulite-clast.glb",
+            "glb_sha256": "110a829107bd0f625b38aca9230771ab3ce7a46debdbeacee2ea4a5a94b3a5fe",
+            "bytes": 170872,
+            "semantic_sha256": "574f3e331edc7d89ada5edb0531fbbd6fb9ad7e7dcddd4e0fc7b60b6a215798a",
+            "triangles": 8884,
+            "matches_frozen_glb_byte_for_byte": true
+          }
+        ],
+        "both_runs_glb_byte_exact_to_frozen_delivery": true
+      },
+      "independent_source_export_report": {
+        "path": "/tmp/lowpoly-vault-b35-qa/source-audit/reticulite-clast/source-export.json",
+        "sha256": "ca3e52975157c1336c5a706283e1a8255a7f8374f274648ee066a783e16fd7a9"
+      },
+      "reference_review": {
+        "id": "USGS-RETICULITE-FORM-MAKER-ACCESS",
+        "title": "Volcano Watch — USGS",
+        "url": "https://www.usgs.gov/observatories/hvo/news/volcano-watch-almost-nothing-enough-reticulite-helps-measure-depth-kilaueas",
+        "reviewed_scope": "开裂互通的气泡由玻璃状细丝维系；只检查粗略开放泡沫概念。继承 Chapter 8 PDF 未能读取，不提出精确标本/泡孔数/孔隙率或地点主张。"
+      },
+      "factual_scope": "Original stylized teaching prop; basic form/scope checked against the listed primary source(s). No strict specimen restoration, exact size, behavior, locality or co-occurrence claim."
+    }
+  ],
+  "boundaries": "No model, candidate, threshold, CI, policy/permission, main, or shared pipeline files were changed. This branch contains only the independent QA report. No force push, merge, Drive upload, or Mac operation."
+}
