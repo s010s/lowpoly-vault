@@ -70,3 +70,31 @@ The maker's frozen source paths are:
 - `production/continuous-small-life-round15-20261018/work/batch-44/<item>/r001/`
 
 This report is the only change in this QA branch. No models, thresholds, CI, profiles, permissions, or publication state were changed.
+
+
+## Targeted difference review — Joffrea r002
+
+**Review date:** 2026-10-19 UTC
+**Scope:** Only the prior `joffrea` MUST FIX finding at r001 (`169b06763a494c8ac7e99ba382306604ed925e0cfd0a6b5df7e39b678025447e`). No other asset and no full-batch criteria were reviewed in this follow-up.
+
+- Updated handoff source: `49b1d6cddd807c89884935974ee2de1bc27bd0fb`. Its `HANDOFF.md` SHA-256 is `0c9739ebf73ea08c6d68935dd3ba806e95ec7f0df2743a4aab68a7604bde9aef`; `final-handoff.jsonl` SHA-256 is `6e88777c4181c654596231d0a03c087266dc1fb7befedae2f72e5f5175b3adaa`. Only the Joffrea JSONL line changed from the original four-row handoff.
+- The fetched remote tip for `candidate/batch44-joffrea-r002-20261019` matches the full r002 candidate commit `ed8e178b94fcbbec0a151f44f77113c4f9699c28`.
+- Exact r002 GLB SHA-256: `1337fd3e1e239bb02d3b1ed0d8f6eaf1857c4f42e88add65bc71ce2c2a3e809f` (178,160 bytes / 9,724 triangles). Exact Blend SHA-256: `768bcb86d2e5b8c517ec2d5b7deaf801abc574c3241f9316e1159e78bfb79849`.
+
+**Verdict: PASS for the two targeted visual criteria, `basic-form-and-scope` and `normal-view-craft`, at the exact r002 hash.** In the actual fixed `views/preview-hero.png` and exact-GLB `runtime/hero.png` / `runtime/near.png`, the five attached organs now read as plump elongated capsules with blunt-curved ends rather than narrow pointed leaf blades. In `diagnostics/gray-top/preview-top.png` and `views/preview-clay.png`, a restrained longitudinal groove/valve shoulder is visible along the pod bodies; the runtime hero also carries this suture relief. The gray views show relief rather than a color-only mark. The long/short shoot junction and stalk attachments remain legible. The correction adds no leaf, seed, open fruit, mixed maturity state, whole plant, or surface micro-noise. It resolves the specific teaching-form defect without expanding the scientific claim.
+
+Actual image files opened and their individual hashes checked against manifests:
+
+| Evidence path relative to r002 candidate directory | SHA-256 | Finding |
+| --- | --- | --- |
+| `views/preview-hero.png` | `c4eb708cec67d3f2dc9bb2ce7ec97f1462748423c19ec1e8bce87d060690522e` | Capsule form and longitudinal relief visible in ordinary hero view |
+| `views/preview-clay.png` | `7bd2e71242d7bad66a8687a4950e0181392437ff0978f87a66301d4584b1b14a` | Gray-shaded relief remains visible |
+| `views/preview-top.png` | `22d97c7dd2e3206d35d42f9ddb645f03ca4d2af525863dcdb71ad880ccc2b6a6` | Longitudinal suture visible along the attached capsules |
+| `runtime/hero.png` | `43c832fc0de1f41ba53523a5b40a62cfd827094eaf4d6277c62144eacd0e8ad9` | Same form and suture on the exact GLB |
+| `runtime/near.png` | `6742cd9b62591f418255ec2b9386cb6b6e724a5554ebefc23175839a038abf03` | Near view retains pod fullness and seam relief |
+
+The fixed manifest `views/render-manifest.json` SHA-256 is `3b9d2886314a518cfbf52530e053abeaecdc76cf69997ef053d36cfb9b5f67b3`; all eight fixed image hashes, byte counts, and dimensions match. The runtime manifest `runtime/evidence-manifest.json` SHA-256 is `3594a2e143c14517f15f37f8ae75de7fa5a50664042cb15b10d5a7b7d7e3232a`; all seven runtime image hashes/byte counts match. The pinned runtime report is `pass` with zero errors and zero GL errors, using ANGLE SwiftShader software WebGL; this says nothing about hardware performance.
+
+The pinned source-export report binds the exact Blend SHA to the exact GLB and reports matching triangle counts/bounds. Two archived rebuild reports are `pass`, byte-identical and semantic matches; their stored outputs have the candidate GLB SHA. These checks were read at the r002 pins; no new export, validator run, rebuild, or broad QA was performed.
+
+The candidate record still has `approved_for_brief: false`; this targeted PASS only resolves the original visual repair finding. It does not update profile, publication, or any candidate-stage record. Reviewer/model identity remains unverified from execution metadata and is not claimed here.
