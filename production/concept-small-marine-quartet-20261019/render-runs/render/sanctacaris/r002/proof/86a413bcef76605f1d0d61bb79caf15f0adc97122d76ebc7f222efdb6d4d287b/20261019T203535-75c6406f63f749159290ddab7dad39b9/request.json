@@ -1,0 +1,133 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+    "--",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/sanctacaris.glb",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render-runs/render/sanctacaris/r002/proof/86a413bcef76605f1d0d61bb79caf15f0adc97122d76ebc7f222efdb6d4d287b/20261019T203535-75c6406f63f749159290ddab7dad39b9/outputs",
+    "--views",
+    "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--baseline-config",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r001/proof/render-config.json"
+  ],
+  "created_at": "2026-10-19T20:35:35.121661+00:00",
+  "fingerprint": "86a413bcef76605f1d0d61bb79caf15f0adc97122d76ebc7f222efdb6d4d287b",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "baseline": {
+        "bytes": 3900,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r001/proof/render-config.json",
+        "sha256": "ba502ee600873df2fda06d9bf0be4498b34cc085129f717af655a5d30948a956"
+      },
+      "brief": {
+        "bytes": 3566,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/brief.json",
+        "sha256": "07b8a7ba853eaadba329bf8f61f77bd86c6ecf61fe9c4008cfb9bcda8e125601"
+      },
+      "glb": {
+        "bytes": 250108,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/sanctacaris.glb",
+        "sha256": "d51b77469b954e9adc97c48db4dcae78adc622297ab4c4ffbb124de521805a96"
+      },
+      "refs": {
+        "bytes": 1240,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/references.json",
+        "sha256": "cc1d3a288de6693bf55ce841f54d7da92eaa0cd8c8fd3c6e65afd28367b0bb3a"
+      },
+      "renderer": {
+        "bytes": 16524,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+        "sha256": "811a92f4525d2d26fc5a46260c8df9ff0f91f66d076550b2d5d93285d9e4fbd9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:refs}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--baseline-config",
+        "{input:baseline}"
+      ],
+      "asset_id": "sanctacaris",
+      "inputs": {
+        "baseline": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r001/proof/render-config.json",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/brief.json",
+        "glb": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/sanctacaris.glb",
+        "refs": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/sanctacaris/r002/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py"
+      },
+      "job_id": "proof",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "concept-match.png",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "rear.png",
+        "left.png",
+        "right.png",
+        "top.png",
+        "bottom.png",
+        "clay.png",
+        "clayalt.png",
+        "wire.png"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 600
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T203437-b1525a5c4f334ee9abc285a43b14454e"
+}

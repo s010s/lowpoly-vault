@@ -1,0 +1,133 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+    "--",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/emeraldella.glb",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render-runs/render/emeraldella/r002/proof/051596ae80b76dc4ee17260bb49eaccab1b4025a8f4cf1e13a7f2ac4ebfe8d67/20261019T203438-9adda403d302426197ffc3c50048da86/outputs",
+    "--views",
+    "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--baseline-config",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r001/proof/render-config.json"
+  ],
+  "created_at": "2026-10-19T20:34:38.632302+00:00",
+  "fingerprint": "051596ae80b76dc4ee17260bb49eaccab1b4025a8f4cf1e13a7f2ac4ebfe8d67",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "baseline": {
+        "bytes": 3901,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r001/proof/render-config.json",
+        "sha256": "33d9a8fe6c4308796b708163575ff3f81b52d1e6618f0981fe54360080569a8d"
+      },
+      "brief": {
+        "bytes": 3514,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/brief.json",
+        "sha256": "2f0728499925c7e068d261e0c766ff6ee33b7c2cf6421471a4e8a83fc762c7e1"
+      },
+      "glb": {
+        "bytes": 202492,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/emeraldella.glb",
+        "sha256": "7c64de69f55bca9a4bb6701dce818b5fbdf4656cef18b87785d0adfb8a1d8b7c"
+      },
+      "refs": {
+        "bytes": 1228,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/references.json",
+        "sha256": "e75d05292e051880ad2503ddd8601271045d604b4e642aa4b9b7b7f8f5909793"
+      },
+      "renderer": {
+        "bytes": 16524,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+        "sha256": "811a92f4525d2d26fc5a46260c8df9ff0f91f66d076550b2d5d93285d9e4fbd9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:refs}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--baseline-config",
+        "{input:baseline}"
+      ],
+      "asset_id": "emeraldella",
+      "inputs": {
+        "baseline": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r001/proof/render-config.json",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/brief.json",
+        "glb": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/emeraldella.glb",
+        "refs": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/emeraldella/r002/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py"
+      },
+      "job_id": "proof",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "concept-match.png",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "rear.png",
+        "left.png",
+        "right.png",
+        "top.png",
+        "bottom.png",
+        "clay.png",
+        "clayalt.png",
+        "wire.png"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 600
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T203437-b1525a5c4f334ee9abc285a43b14454e"
+}
