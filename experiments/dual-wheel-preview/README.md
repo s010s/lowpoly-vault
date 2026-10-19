@@ -9,7 +9,8 @@ This experiment is based on production commit `de413ef720463a2999516faf92c606bcd
 - Only `pages.yml` deploys a website. Its deploy job requires a non-PR event and `refs/heads/main`. Other workflows test, build or upload downloadable evidence; none provides an isolated PR website URL.
 - Existing Pages source/settings were not changed. The authenticated CLI Pages settings query returned Forbidden; the workflow audit does not claim to inspect undisclosed external integrations.
 - Safest small deployment option: an explicitly authorized separate preview repository with its own Pages site and a small self-contained build. This requires repository creation or access to a designated preview repository, plus permission to configure Pages and deployment. No such changes have been made. A production subdirectory would require changing the production build/deployment and is outside this preview's scope.
-- Library direct transfer and the single explicit-destination retry failed. Original pixels and PRD 0.5 are pending an exact design-input Git commit supplied by the parent task. No reference has been overwritten and no visual fidelity is claimed before inspection.
+- Library direct transfer and the single explicit-destination retry failed. The owner subsequently requested private Google Drive transfer; no public design-input branch is expected. The current session's Drive profile read succeeded, and authenticated metadata/fetch tools are available. Exact target IDs and actual local byte accessibility are still pending. No reference has been overwritten and no visual fidelity is claimed before inspection.
+- The parent task is independently checking a Cloudflare Pages GitHub App used by another project. That is separate from GitHub Pages and is not yet configured or verified for this repository. No external service has been enabled by this experiment.
 
 ## Implementation boundary
 
