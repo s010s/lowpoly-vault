@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "joffrea",
+      "revision": "r002",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/build.py",
+        "inventory": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/inventory-record.json",
+        "config": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/config.json",
+        "brief": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/brief.json",
+        "references": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/references.json",
+        "freeze": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/freeze.json",
+        "original_config": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/build-config.json",
+        "policy": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/reference-policy.json",
+        "review_policy": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/review-policy.json",
+        "helper": "/workspace/batch44-joffrea-r002/scripts/asset_common.py",
+        "audit": "/workspace/batch44-joffrea-r002/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "joffrea.glb",
+        "joffrea.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101812,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "joffrea",
+      "revision": "r002",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/build.py",
+        "inventory": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/inventory-record.json",
+        "config": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/config.json",
+        "brief": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/brief.json",
+        "references": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/references.json",
+        "freeze": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/freeze.json",
+        "original_config": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/build-config.json",
+        "policy": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/reference-policy.json",
+        "review_policy": "/workspace/batch44-joffrea-r002/production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/review-policy.json",
+        "helper": "/workspace/batch44-joffrea-r002/scripts/asset_common.py",
+        "audit": "/workspace/batch44-joffrea-r002/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "joffrea.glb",
+        "joffrea.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101812,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

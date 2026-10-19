@@ -1,0 +1,1 @@
+First r002 source build and actual-GLB gray hero only, no complete evidence or independent acceptance. Capsule form improved, but the far three sutures remained grazing in the ordinary hero camera. Final rotates the same single geometric suture22.5degrees around the cross-section toward the presentation side; no extra suture, opening or seeds added.

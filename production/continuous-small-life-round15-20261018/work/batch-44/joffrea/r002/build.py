@@ -125,13 +125,24 @@ def joffrea(c,m):
  specs=[((.027,.017,.009),(.058,-.007,.011),.033,.0048),((.029,.023,.010),(.073,.024,.014),.041,.0055),((.030,.028,.010),(.065,.057,.013),.037,.0049),((.026,.014,.008),(.041,-.027,.010),.034,.0045),((.030,.030,.010),(.036,.080,.011),.039,.0051)]
  for j,(attach,tip,L,W) in enumerate(specs):
   start=Vector(attach);end=Vector(tip);end.z+=.015+.004*(j%3);d=(end-start).normalized();ped=start+d*.008;shoot.tube(smooth_path([start,ped],6),[.00135*(1-.28*i/5) for i in range(6)],0,n=10)
-  u=Vector((-d.y,d.x,0)).normalized();path=smooth_path([tuple(ped),tuple(ped+d*L*.42+u*(.003*(-1 if j%2 else 1))+Vector((0,0,.003))),tuple(ped+d*L+u*.002)],20);verts=[];faces=[];N=16
+  u=Vector((-d.y,d.x,0)).normalized();path=smooth_path([tuple(ped),tuple(ped+d*L*.42+u*(.003*(-1 if j%2 else 1))+Vector((0,0,.003))),tuple(ped+d*L+u*.002)],25);verts=[];faces=[];N=32
+  W*=1.50
+  # Broad capsule midbody with short rounded end transitions; no elongated pointed leaf tip.
   for i,p in enumerate(path):
-   t=i/19;tangent=(path[min(19,i+1)]-path[max(0,i-1)]).normalized();lat=Vector((-tangent.y,tangent.x,0)).normalized();normal=tangent.cross(lat).normalized();w=.00065+W*(math.sin(pi*t)**.60)*(1-.30*t)
+   t=i/24;tangent=(path[min(24,i+1)]-path[max(0,i-1)]).normalized();lat=Vector((-tangent.y,tangent.x,0)).normalized();normal=tangent.cross(lat).normalized()
+   stations=[(0,.18),(.04,.48),(.10,.78),(.20,.95),(.35,1.0),(.5,1.0),(.65,.98),(.8,.92),(.9,.72),(.96,.46),(1,.14)]
+   for (ta,ra),(tb,rb) in zip(stations,stations[1:]):
+    if ta<=t<=tb:radius=ra+(rb-ra)*(t-ta)/(tb-ta);break
+   w=W*radius;seamfade=math.sin(pi*t)**.45
    for k in range(N):
-    a=2*pi*k/N;da=abs(a-pi/2);da=min(da,2*pi-da);groove=1-.17*math.exp(-(da/.28)**2);verts.append(tuple(p+lat*(w*math.cos(a)*groove)+normal*(w*.82*math.sin(a)*groove)))
-  faces.append(tuple(reversed(range(N))));faces.append(tuple(19*N+k for k in range(N)))
-  for i in range(19):
+    a=2*pi*k/N;da=abs((a-5*pi/8+pi)%(2*pi)-pi)
+    # One restrained real longitudinal trough between the upper valve shoulders.
+    groove=1-.40*seamfade*math.exp(-(da/.19)**2)
+    shoulder=1+.035*seamfade*math.exp(-((da-.36)/.16)**2)
+    verts.append(tuple(p+lat*(w*math.cos(a)*groove*shoulder)+normal*(w*.90*math.sin(a)*groove*shoulder)))
+  bottom=len(verts);verts.append(tuple(path[0]));top=len(verts);verts.append(tuple(path[-1]))
+  for k in range(N):faces.extend([(bottom,(k+1)%N,k),(top,24*N+k,24*N+(k+1)%N)])
+  for i in range(24):
    for k in range(N):faces.append((i*N+k,i*N+(k+1)%N,(i+1)*N+(k+1)%N,(i+1)*N+k))
   fruits.add(verts,faces,1)
  shoot.finish(c);fruits.finish(c)
@@ -197,7 +208,7 @@ def main():
  brief=json.loads((a.config.parent/'brief.json').read_text());refs=json.loads((a.config.parent/'references.json').read_text());desc={'en':'Original evidence-informed stylized teaching form; nominal scale, palette and simplified counts are artistic. Static only; no exact species, location, locomotion or shared habitat reconstruction.','zh':'原创依据基础形态的风格化教学造型；名义尺度、配色及简化数量属美术选择。仅静态，不声称精确种、地点、运动机制或共同栖息地复原。'}
  descriptions={'yochelcionella': {'en': 'Original Yochelcionella-inspired preserved shell only: a tall laterally compressed curved cap with an obliquely rising subapical tube, modeled as one continuous wall with a real open tube mouth and shell aperture. No borrowed Clavagella/Haplophrentis geometry, soft body, foot or respiratory-mechanism claim. Nominal22mm cap/tube span, quiet color and economical growth relief are artistic; viewer magnification is separate from real source units.', 'zh': '原创Yochelcionella启发保存壳：较高侧扁弯帽体、壳顶下斜上升管口为单一连续实壁，有真实管口和帽壳开口。不借Clavagella/Haplophrentis网格，不加软体足或断言呼吸机制。名义22毫米壳管跨度、配色及简化生长起伏属美术，viewer展示放大与源米制分开。'}, 'joffrea': {'en': 'Original Joffrea-inspired attached reproductive-shoot specimen only: long/short-shoot junction with several naturally stalked elongate follicles, all represented in one mature twisted-infructescence teaching state supported at abstract/caption level. Shallow geometric follicle sutures, nominal18cm span, count, color and relief are artistic. No whole parent/tree crown, unassociated leaves, loose seeds, seedlings or mixed maturity states added; unrelated inherited Onoclea source is not a diagnostic Joffrea fruit proof.', 'zh': '原创Joffrea启发附果枝标本：长短枝交界与数枚自然果柄相接的长蓇葖，统一采用摘要/图注可支持的成熟扭曲果序教学阶段。几何浅缝、名义18厘米、数量配色与起伏属美术；无整株树冠/未关联叶/散落种子/幼苗/混成熟态，继承Onoclea来源不当作Joffrea果形专证。'}, 'oxbow-lake-basin': {'en': 'Original nominal18m representative floodplain land/bed patch: a current through-river is separate from a horseshoe-shaped abandoned depressed channel. Both old-channel ends close into sediment/land necks, with real basin/bank relief and no water or lights exported. Generic cutoff/infill teaching concept, not a bent estuary, elongated plunge pool, measured river event/site/age, complete watershed or hydrodynamic simulation; landscape scale and original river facet preserved.', 'zh': '原创名义18米泛滥平原土地床面裁片：贯通现主河与马蹄废槽相互分离，旧槽两端由沉积陆颈封闭，凹地岸坡真实几何，无水体灯光导出。通用截弯填淤教学概念，非河口改弯/深潭拉长，不作实测河流事件地点年代/完整流域/水动力模拟，保留landscape尺度与原river生境。'}, 'stylolite-seam-section': {'en': 'Original nominal55cm interpretive rock cut-section: opposing solid rock surfaces have complementary irregular primary and secondary dissolution teeth extending into depth along a continuous narrow seam. The actual interlocking interface and deliberately legible display gap remain readable in gray; no black painted zigzag, random fracture pile, measured stress/pressure direction or locality asserted. Cut outer faces are teaching section boundaries, not an added display plinth.', 'zh': '原创名义55厘米教学岩体裁切剖面：两侧实岩沿连续窄缝以不规则主次溶蚀齿互补嵌合，齿面真实入体；真实互锁界面与为可读性适度夸张的展示细缝在灰模可见。非黑色锯齿贴线/随机碎裂堆，不推定实测应力压力方向地点；外裁面为教学剖切边界，不另加展示底座。'}}
  desc=descriptions[slug]
- export_asset(slug,brief['subject']['inventory_name'],brief['subject']['category'],c,metadata={'revision':'r001','description':desc,'claim_scope':brief['claim_scope'],'provenance':{'geometry':'Original procedural geometry by Leon Made This / s010s','third_party_assets_incorporated':False},'sources':refs['sources'],'nominal_scale':cfg['nominal_scale'],'representation':brief['subject']['representation'],'reconstruction_type':brief['subject']['reconstruction_type'],'animation_ready':False,'reference_status':'basic-form textual reference support with explicit limits; not strict reconstruction','publication_authority':'separate','candidate_validation_profile':'static-stylized-v1','generator':str(Path(__file__).relative_to(ROOT)),'build_config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest()},output_root=a.output.parent,render=False,max_triangles=14000,max_materials=6,max_primitives=30)
+ export_asset(slug,brief['subject']['inventory_name'],brief['subject']['category'],c,metadata={'revision':'r002','description':desc,'claim_scope':brief['claim_scope'],'provenance':{'geometry':'Original procedural geometry by Leon Made This / s010s','third_party_assets_incorporated':False},'sources':refs['sources'],'nominal_scale':cfg['nominal_scale'],'representation':brief['subject']['representation'],'reconstruction_type':brief['subject']['reconstruction_type'],'animation_ready':False,'reference_status':'basic-form textual reference support with explicit limits; not strict reconstruction','publication_authority':'separate','candidate_validation_profile':'static-stylized-v1','generator':str(Path(__file__).relative_to(ROOT)),'build_config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest()},output_root=a.output.parent,render=False,max_triangles=14000,max_materials=6,max_primitives=30)
  generated=a.output.parent/slug
  if generated!=a.output:
   a.output.mkdir(parents=True,exist_ok=True)

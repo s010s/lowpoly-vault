@@ -1,0 +1,9 @@
+{
+  "kind": "observed-prelaunch-compile-failure",
+  "recorded_at": "2026-10-19T03:20:10.803090+00:00",
+  "actual_returncode": 1,
+  "command": "python -m py_compile /workspace/batch44-joffrea-r002-control/*.py production/continuous-small-life-round15-20261018/work/batch-44/joffrea/r002/build.py",
+  "observed_error": "finish_item.py line3 SyntaxError: invalid syntax; sequential substring replacement of +a inside +asset corrupted the wrapper path",
+  "owned_child_started": false,
+  "correction": "Recreate affected wrappers using complete Path(...) expressions rather than overlapping substring prefixes; compile all scripts before first model launch."
+}
