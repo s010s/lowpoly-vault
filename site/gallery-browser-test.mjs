@@ -9,9 +9,10 @@ import { readFile, mkdir, writeFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { modelHeight } from './gallery/model-dimensions.js';
+import {checkGalleryStartup} from './gallery-startup-browser.mjs';
 
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.webp':'image/webp','.txt':'text/plain','.zip':'application/zip'};
-const defaultGroups=process.env.QA_FORCE_WEBGL_FALLBACK==='1'?['fallback']:['routes','interaction','handoff','detail','scroll','resources','scale','modal','fallback'];
+const defaultGroups=process.env.QA_FORCE_WEBGL_FALLBACK==='1'?['fallback']:['startup','routes','interaction','handoff','detail','scroll','resources','scale','modal','fallback'];
 export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(process.env.GALLERY_DIR||'dist'),output=resolve(process.env.QA_OUTPUT_DIR||'qa/approved-gallery-browser'),baseURL=process.env.QA_BASE_URL,modelId=process.env.QA_GALLERY_MODEL_ID}={}) {
   root=resolve(root);output=resolve(output);
   const prefix=process.env.SITE_BASE||'/lowpoly-vault/';
@@ -40,6 +41,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
     browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-gpu-rasterization']});
     report.browser=browser.version();
     const has=group=>groups.includes(group);
+    if(has('startup'))await checkGalleryStartup({browser,root,baseURL,output,report});
     async function ready(page,id){await page.waitForFunction(id=>window.__gallery&&document.querySelector('#detail')?.dataset.state==='ready'&&(!id||document.querySelector('#detail').dataset.modelId===id),id,{timeout:45000});}
     async function boot(page,path=`models/?model=${initial.id}`,mobile=false){await page.goto(new URL(path,baseURL).href);await page.waitForFunction(()=>window.__gallery?.models.length>0,{},{timeout:45000});if(!mobile)await ready(page);if(manifest.review_only)assert(await page.locator('.gallery-review-notice').isVisible(),'The isolated review must remain visibly labeled');}
     async function search(page,value){await page.locator('#search').fill(value);await page.locator('#search').press('Enter');await page.waitForFunction(q=>window.__gallery.state.query===q,value);}

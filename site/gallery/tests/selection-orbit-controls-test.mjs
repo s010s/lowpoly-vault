@@ -68,6 +68,10 @@ r.host=$('#detail');r.controls=r.createControls(r.host);
 r.viewMotion=new ViewTransition({read:()=>r.viewState(),write:(state,ownership)=>r.applyState(state,ownership),reduced:()=>reduced});
 const context=vm.createContext({...dimensionPresentation,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location:new URL(siteRoot),localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history:{replaceState(value){latestHistorySnapshot=structuredClone(value);},pushState(value){latestHistorySnapshot=structuredClone(value);pushes++;}},console:{warn(){}},navigator:{}});
 let source=await readFile(new URL('../main.js',import.meta.url),'utf8');
+assert(source.includes('export async function mountGallery(){'),'The app must mount explicitly after startup prerequisites');
+// Unwrap only the mount boundary so the existing deterministic probes can still
+// inspect its lexical state. All application event wiring remains the real code.
+source=source.replace('export async function mountGallery(){','').replace('mountIcons(document);','').replace(/\n}\s*$/,'');
 source=source.replace(/^import .*;$/gm,'').replace(/^if\(import\.meta\.hot\).*$/gm,'').replace(/if\(state.selected\)await choose\(/m,'if(state.selected)void choose(');
 // Execute the actual UI helper inside this deterministic DOM harness too.
 const uiSource=(await readFile(new URL('../ui-feedback.js',import.meta.url),'utf8')).replace(/^export /gm,'');
