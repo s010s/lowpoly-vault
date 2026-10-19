@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "kind": "executable-original-deterministic-generator-config",
+  "asset_id": "karst-spring-mouth",
+  "batch_id": "batch-47",
+  "revision": "r001",
+  "maker_model": "GPT-6.1 Sol",
+  "maker_reasoning_effort": "medium",
+  "environment": "authorized selected cloud only",
+  "seed": 2026101813,
+  "representation": "geological-form",
+  "reconstruction_type": "artistic-concept",
+  "nominal_scale": {
+    "meters": 3.0,
+    "axis": "representative mouth and channel patch width",
+    "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "preview": {
+    "resolution": 512,
+    "samples": 8,
+    "poster_view": "hero"
+  },
+  "static_only": true,
+  "animation_ready_claim": false,
+  "start_gate": "Next round is planning only; parent explicit exclusive assignment needed. For already assigned workers, latest state and explicit parent dispatch override stale empty claims or initial queue snapshots.",
+  "concurrency": "Parent-coordinated shared host pool; default one worker x two Blender threads, no per-batch full-host allocation.",
+  "candidate_validation_profile": "static-stylized-v1",
+  "candidate_rule_version": "2026-10-18.1",
+  "publication_authority": "separate",
+  "geometry_choices": {
+    "en": "Original nominal3m representative karst spring rock-and-bed patch: a low real cavity beneath a thick continuous rock roof opens directly into a short exposed channel in the attached bed. Geometric cavity, wall thickness and bed connection remain visible without water or blue shading; no water, lights or flow simulation exported. Layout, crop and scale are artistic, not a measured spring, hydrological rate, named site or exact age.",
+    "zh": "原创名义3米岩溶泉口岩床裁片：厚实连续岩顶下低矮真实洞腔直接通向相接床面的短明渠。无水蓝色也可见洞腔壁厚及床面连接，不导出水灯或流动模拟。布局裁片与尺度属美术，非实测泉流地点年代。"
+  },
+  "cavity_floor_connection": "Gallery centerline raised0.05 authored units and entire channel cross-section smoothly blended into the inner gallery floor; final bed edge lies0.002 below real floor to avoid a sill/coincident faces."
+}
