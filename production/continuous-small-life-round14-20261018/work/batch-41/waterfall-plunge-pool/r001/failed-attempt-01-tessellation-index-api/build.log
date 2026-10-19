@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build.py", line 234, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build.py", line 208, in main
+    mats=[make_material(name,color,roughness=.86) for name,color in palettes[slug]];globals()[slug.replace('-','_')](c,mats)
+                                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build.py", line 163, in waterfall_plunge_pool
+    for tri in tessellate_polygon([poly]):f.append(tuple(lookup[tuple(q)] for q in tri))
+                                                   ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build.py", line 163, in <genexpr>
+    for tri in tessellate_polygon([poly]):f.append(tuple(lookup[tuple(q)] for q in tri))
+                                                                ~~~~~^^^
+TypeError: 'int' object is not iterable
+
+Error: script failed, file: '/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+Blender 4.3.2
+
+Blender quit

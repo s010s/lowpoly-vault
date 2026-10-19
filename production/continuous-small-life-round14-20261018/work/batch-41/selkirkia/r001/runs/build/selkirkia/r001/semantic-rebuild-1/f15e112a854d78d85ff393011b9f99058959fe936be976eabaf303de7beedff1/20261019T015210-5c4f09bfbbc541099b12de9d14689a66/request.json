@@ -1,0 +1,132 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build.py",
+    "--",
+    "--config",
+    "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/config.json",
+    "--output",
+    "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/runs/build/selkirkia/r001/semantic-rebuild-1/f15e112a854d78d85ff393011b9f99058959fe936be976eabaf303de7beedff1/20261019T015210-5c4f09bfbbc541099b12de9d14689a66/outputs"
+  ],
+  "created_at": "2026-10-19T01:52:10.478733+00:00",
+  "fingerprint": "f15e112a854d78d85ff393011b9f99058959fe936be976eabaf303de7beedff1",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/batch41-selkirkia/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 11658,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/brief.json",
+        "sha256": "4c1dcd6938f8349d9217b969e26a162219c2031f6428758a4fd927d6a3355cf1"
+      },
+      "config": {
+        "bytes": 2048,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/config.json",
+        "sha256": "7c7d8996021d9e462cc7e2269ad865f6309a1da31949afd85844b9a238673f6a"
+      },
+      "freeze": {
+        "bytes": 1064,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/freeze.json",
+        "sha256": "0289378733b000c0cf9d431f1a062b6d9909d633775044cb3ca48bcb0b98b828"
+      },
+      "generator": {
+        "bytes": 18913,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build.py",
+        "sha256": "56f621663f5bc37a3ed787a0a678a66848f3026070723b6297c5f815315fa69f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/batch41-selkirkia/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 3303,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/inventory-record.json",
+        "sha256": "8b45e101f58a093ede732a8eba32861935b8cc3287d692a192578634f17f73b7"
+      },
+      "original_config": {
+        "bytes": 2214,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build-config.json",
+        "sha256": "5786b8ad227701ac98e4edac458d336b9ffb70ad5a28864f70a81ed54a96fcb9"
+      },
+      "policy": {
+        "bytes": 2928,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/reference-policy.json",
+        "sha256": "8feccb1c9b7cdd1ee5381d35c20756ae6aaf5502879da78aa3f36c294c9a039a"
+      },
+      "references": {
+        "bytes": 1349,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/references.json",
+        "sha256": "98474f29cc5460820bbf029d9933611fc2659435b4cac0da1a93261f72efd0d3"
+      },
+      "review_policy": {
+        "bytes": 1110,
+        "path": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/review-policy.json",
+        "sha256": "5ac60f79f9b84975205b1d646e73c006ca0750c517b2c2fe8e083bf80c230e22"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "selkirkia",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101811
+      },
+      "inputs": {
+        "audit": "/workspace/batch41-selkirkia/scripts/qa_glb.py",
+        "brief": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/brief.json",
+        "config": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/config.json",
+        "freeze": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/freeze.json",
+        "generator": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build.py",
+        "helper": "/workspace/batch41-selkirkia/scripts/asset_common.py",
+        "inventory": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/inventory-record.json",
+        "original_config": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build-config.json",
+        "policy": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/reference-policy.json",
+        "references": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/references.json",
+        "review_policy": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/review-policy.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "selkirkia.glb",
+        "selkirkia.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261019T015210-95da76410c654c4eb3b442ea186720d0"
+}

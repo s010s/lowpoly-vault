@@ -1,0 +1,42 @@
+{
+  "kind": "owned-serial-execution-check",
+  "asset_id": "waterfall-plunge-pool",
+  "launch_count": 12,
+  "matched_exit_count": 12,
+  "nonzero_exit_count": 1,
+  "retained_failure_dispositions": {
+    "failures": [
+      {
+        "owned_pid": 68717,
+        "returncode": 1,
+        "owned_process_group_remaining": false,
+        "cause": "Blender4.3.2 mathutils.geometry.tessellate_polygon returned integer local vertex indices; initial wrapper incorrectly assumed returned Vector objects. TypeError before export; no candidate output or reused success.",
+        "retained": "failed-attempt-01-tessellation-index-api",
+        "resolution": "Index-safe mapping accepts integer triangulation indices directly; rerun with unique build log and full fresh source/evidence."
+      }
+    ]
+  },
+  "all_owned_process_groups_exited": true,
+  "lock_file": "/workspace/batch41-control/owned-process.lock",
+  "ledger": "production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/logs/owned-processes.jsonl",
+  "ledger_sha256": "11a8631c4fb2a1102250c3974809b196b606fcb294c550454531e6049b13b0cf",
+  "active_asset_gate": "different asset refuses start until previous lifecycle complete",
+  "orchestration_files": [
+    {
+      "path": "production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/execution-serial_asset.py",
+      "sha256": "ff58669a0253da8da5ad170a83fff29c5968809e5897025d2951bd482a7fcb54"
+    },
+    {
+      "path": "production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/execution-evidence.py",
+      "sha256": "a7ab4dc47c5c2413682814ab3fd6ba6be7420fced5474101bd092c0f1d6e11a9"
+    },
+    {
+      "path": "production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/execution-package.py",
+      "sha256": "d94919607e3712551c487c303e8012ed8865ba61113cc7c6051d170fdb6b5738"
+    },
+    {
+      "path": "production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/execution-finish_item.py",
+      "sha256": "2da4e7deaad0f5b4e99f1343fcf1b47597ff025a63271f9c6d87211bacaf63b9"
+    }
+  ]
+}

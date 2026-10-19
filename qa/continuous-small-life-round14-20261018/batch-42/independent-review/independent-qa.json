@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "kind": "independent_batch_qa",
+  "review_date": "2026-10-19",
+  "review_profile": "static-stylized-v1",
+  "rule_version": "2026-10-18.1",
+  "scope": {
+    "batch_id": "batch-42",
+    "asset_ids": [
+      "conularia",
+      "shale-scree",
+      "boudinaged-rock-layer",
+      "ophiomorpha-pellet-lined-burrow"
+    ],
+    "source_branch": "candidate/small-life-batch42-20261018",
+    "source_candidate_commit": "658fc5bc4a6e1c7823655ef6388c4bfbe067b67e",
+    "model_source_commit": "a3d499cd7a91940c171c04f6ad0b9d05d5b9d2f0",
+    "handoff_sha256": "6694c2c10ebcf174f4bcca523806965d828d55278282c643380053ef93cef5d3",
+    "qa_handoff_scope_sha256": "03c6158cf911c7b0ce218bd94d70a6a6eda5d0b81581ccfed7fe735cc2ab41ce"
+  },
+  "review_branch": "qa/s010s/batch42-independent-qa-20261019",
+  "reviewer_identity": {
+    "requested_model": "GPT-6 Luna",
+    "requested_reasoning": "xhigh",
+    "actual_model_metadata": "unavailable; identity and reasoning are not independently verified",
+    "repeat_policy": "This is the single requested independent QA round; no additional round was dispatched based on generic model identity."
+  },
+  "content_verdict": "PASS for all four exact pinned assets within their frozen stylized teaching scopes; no required model repair.",
+  "formal_profile_result": "No formal acceptance is granted. Original records remain approved_for_brief=false. This report supplies independent content/visual findings within the frozen stylized scope; it does not claim specimen-level factual certification. Hardware-GPU evidence remains unknown because the available Chromium WebGL2 renderer is ANGLE SwiftShader software rendering.",
+  "stages": {
+    "technical": "pass_with_reviewed_warnings_where_listed",
+    "visual": "pass",
+    "factual": "unknown_beyond_narrow_stylized_claims",
+    "specification": "pass_within_frozen_scope",
+    "runtime_parse": "pass_software_webgl2_only",
+    "gpu": "unknown",
+    "scene": "pass_software_webgl2_only"
+  },
+  "method": {
+    "independent_worktree": true,
+    "worktree_head": "658fc5bc4a6e1c7823655ef6388c4bfbe067b67e",
+    "handoff_integrity": "verify_handoff.py passed 161 exact path/hash/byte references, exact scope, pinned source GLBs, source-only branch path boundary and one-round QA policy.",
+    "source_images": "All four manifests have 8 fixed source views and 12 exact-GLB runtime views; all 20 frame paths, SHA-256 hashes, byte counts and dimensions match. All 8 original-resolution fixed views for each asset were opened and visually inspected; all four source and runtime contact sheets were also reviewed.",
+    "runtime_images": "All four runtime reports bind the exact GLB SHA; each has 10 single views and 2 six-instance scene views, with WebGL2 SwiftShader renderer, no reported scene errors/failures. Runtime contact sheets and full-size actual GLB runtime hero, top, small/medium-size and six-copy scene images were opened and inspected. These captures do not establish hardware performance.",
+    "source_export_and_rebuild": "Read pinned Blender 4.3.2 source reopen/export reports and two deterministic rebuild reports; hashes match the delivered source/export files and all eight rebuild outputs byte-match the GLBs. No unnecessary rebuild was repeated.",
+    "format_validation": "Pinned Khronos reports show 0 errors and 0 warnings for all four GLBs.",
+    "claim_boundary": "Consulted source coverage is limited as recorded by the maker handoff; no specimen-level scientific validation is asserted."
+  },
+  "assets": [
+    {
+      "asset_id": "conularia",
+      "attempt": "attempt-01",
+      "candidate_checkpoint_commit": "7aefeb35f6fd46ea1fecdef0925a83ad857975f2",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/conularia.blend",
+        "sha256": "790c65c831f7b08b97b073ef5d5be33adbf1a667cffd9a28f86cd01c9fbdc197",
+        "bytes": 832596
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/conularia.glb",
+        "sha256": "e0bed18c8384590706d2ed7afdfafe2d8e22e6266133cc14971b06791f1df6ae",
+        "bytes": 190488
+      },
+      "dimensions_m": [
+        0.05640343576669693,
+        0.15000000596046448,
+        0.05640343576669693
+      ],
+      "triangles": 10396,
+      "technical": {
+        "handoff_path_hashes_and_bytes": "pass",
+        "source_export": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: Continuous tapered four-faced ribbed body and infolded aperture: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "two_rebuilds_status": "pass",
+        "two_rebuilds_byte_match": [
+          true,
+          true
+        ],
+        "two_rebuilds_semantic_match": [
+          true,
+          true
+        ]
+      },
+      "visual": {
+        "verdict": "pass",
+        "observation": "The continuous tapered body, four-lobed open aperture, and restrained transverse ribs read clearly in hero, reverse, front, top, clay, and runtime pixels. The 0.15 m scale is preserved. The silhouette and simple teaching form stay within the frozen Conularia-inspired scope.",
+        "required_model_fix": "None."
+      },
+      "factual": {
+        "verdict": "unknown_limited_claim_scope",
+        "limit": "The visual review does not establish exact species, soft-tissue, attachment, or specimen reconstruction. Retain the brief’s stylized/inspired framing."
+      },
+      "profile_record": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "legacy_checker_valid": false,
+        "legacy_checker_scope": "Historical missing consulted-reference license text is preserved; the explicit consulted-only static profile contract passes."
+      },
+      "runtime": {
+        "runtime_parse": "pass",
+        "three_version": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_views": 10,
+        "scene_views": 2,
+        "scene_instances": 6,
+        "scene_draw_calls": 12,
+        "scene_triangles": 62376,
+        "scene_errors": [],
+        "scene_failed": [],
+        "gpu_hardware_performance": "unknown_not_claimed"
+      },
+      "evidence": {
+        "candidate": "production/continuous-small-life-round14-20261018/work/batch-42/conularia/r001/candidate.json",
+        "metadata": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/metadata.json",
+        "view_manifest": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/view-manifest.json",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/runtime-contact-sheet.jpg",
+        "runtime_single_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/runtime/single.json",
+        "runtime_scene_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/runtime/scene.json",
+        "source_scene": "production/continuous-small-life-round14-20261018/work/batch-42/conularia/r001/source-scene.json",
+        "source_export": "production/continuous-small-life-round14-20261018/work/batch-42/conularia/r001/source-export.json",
+        "reproducibility": "production/continuous-small-life-round14-20261018/work/batch-42/conularia/r001/reproducibility.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/conularia/r001/attempt-01/conularia/gltf-validator.report.json",
+        "profile_report": "production/continuous-small-life-round14-20261018/work/batch-42/conularia/r001/profile-gate.json",
+        "legacy_report": "production/continuous-small-life-round14-20261018/work/batch-42/conularia/r001/legacy-gate.json"
+      }
+    },
+    {
+      "asset_id": "shale-scree",
+      "attempt": "attempt-02",
+      "candidate_checkpoint_commit": "ff70813c0641b58e157cb1a927ed20918cb7f550",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/shale-scree.blend",
+        "sha256": "570db8405364580d4ab1b2d86a45f304191dc3e43e50c2a6a7e8525170cfd59a",
+        "bytes": 613908
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/shale-scree.glb",
+        "sha256": "5ddbfeb0cfba1d25e60ede7b25df97842277d06814a13ec17a646c34aa88d244",
+        "bytes": 129184
+      },
+      "dimensions_m": [
+        0.8500000238418579,
+        0.34708401560783386,
+        0.5889253616333008
+      ],
+      "triangles": 2454,
+      "technical": {
+        "handoff_path_hashes_and_bytes": "pass",
+        "source_export": "pass",
+        "source_export_errors": [],
+        "source_export_warnings": [],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "two_rebuilds_status": "pass",
+        "two_rebuilds_byte_match": [
+          true,
+          true
+        ],
+        "two_rebuilds_semantic_match": [
+          true,
+          true
+        ]
+      },
+      "visual": {
+        "verdict": "pass",
+        "observation": "The source ledge and broken bedding feed a connected slope with unequal, angular, overlapping platy fragments and smaller chips. Top, side, hero, gray, and runtime views make the shale/scree relationship legible. The blocky teaching patch reads as designed geology without claiming a locality or exact fragment count as natural fact.",
+        "required_model_fix": "None."
+      },
+      "factual": {
+        "verdict": "unknown_limited_claim_scope",
+        "limit": "Layer, fragment count, thickness, tilt, and palette remain artistic choices under the frozen brief; this is not a site-specific reconstruction."
+      },
+      "profile_record": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "legacy_checker_valid": false,
+        "legacy_checker_scope": "Historical missing consulted-reference license text is preserved; the explicit consulted-only static profile contract passes."
+      },
+      "runtime": {
+        "runtime_parse": "pass",
+        "three_version": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_views": 10,
+        "scene_views": 2,
+        "scene_instances": 6,
+        "scene_draw_calls": 42,
+        "scene_triangles": 14724,
+        "scene_errors": [],
+        "scene_failed": [],
+        "gpu_hardware_performance": "unknown_not_claimed"
+      },
+      "evidence": {
+        "candidate": "production/continuous-small-life-round14-20261018/work/batch-42/shale-scree/r001/candidate.json",
+        "metadata": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/metadata.json",
+        "view_manifest": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/view-manifest.json",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/runtime-contact-sheet.jpg",
+        "runtime_single_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/runtime/single.json",
+        "runtime_scene_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/runtime/scene.json",
+        "source_scene": "production/continuous-small-life-round14-20261018/work/batch-42/shale-scree/r001/source-scene.json",
+        "source_export": "production/continuous-small-life-round14-20261018/work/batch-42/shale-scree/r001/source-export.json",
+        "reproducibility": "production/continuous-small-life-round14-20261018/work/batch-42/shale-scree/r001/reproducibility.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/shale-scree/r001/attempt-02/shale-scree/gltf-validator.report.json",
+        "profile_report": "production/continuous-small-life-round14-20261018/work/batch-42/shale-scree/r001/profile-gate.json",
+        "legacy_report": "production/continuous-small-life-round14-20261018/work/batch-42/shale-scree/r001/legacy-gate.json"
+      }
+    },
+    {
+      "asset_id": "boudinaged-rock-layer",
+      "attempt": "attempt-02",
+      "candidate_checkpoint_commit": "1fbe3503735a009116b99ca537cbd9fafeab054c",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/boudinaged-rock-layer.blend",
+        "sha256": "54aafee5af3e9d2646da60b385cc8b71937e2eb8498f7fc18ca250c96b5f4571",
+        "bytes": 656544
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/boudinaged-rock-layer.glb",
+        "sha256": "aba041be653b5739c87289637c1262fef96df9a00d35f06ad82683b548c066fe",
+        "bytes": 171204
+      },
+      "dimensions_m": [
+        0.8500000238418579,
+        0.2909487783908844,
+        0.2280000001192093
+      ],
+      "triangles": 4064,
+      "technical": {
+        "handoff_path_hashes_and_bytes": "pass",
+        "source_export": "pass",
+        "source_export_errors": [],
+        "source_export_warnings": [],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 0.0,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "two_rebuilds_status": "pass",
+        "two_rebuilds_byte_match": [
+          true,
+          true
+        ],
+        "two_rebuilds_semantic_match": [
+          true,
+          true
+        ]
+      },
+      "visual": {
+        "verdict": "pass",
+        "observation": "Four unequal elongated lenses are readable within a continuous enclosing matrix; the necked gaps and shallow continuous foliation remain visible in hero, front, clay, and runtime pixels. Neutral-gray structure is legible. This is a sectioned teaching illustration, not a measured strain/site reconstruction.",
+        "required_model_fix": "None."
+      },
+      "factual": {
+        "verdict": "unknown_limited_claim_scope",
+        "limit": "No exact strain, locality, age, or specimen claim is established by this review."
+      },
+      "profile_record": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "legacy_checker_valid": false,
+        "legacy_checker_scope": "Historical missing consulted-reference license text is preserved; the explicit consulted-only static profile contract passes."
+      },
+      "runtime": {
+        "runtime_parse": "pass",
+        "three_version": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_views": 10,
+        "scene_views": 2,
+        "scene_instances": 6,
+        "scene_draw_calls": 24,
+        "scene_triangles": 24384,
+        "scene_errors": [],
+        "scene_failed": [],
+        "gpu_hardware_performance": "unknown_not_claimed"
+      },
+      "evidence": {
+        "candidate": "production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/candidate.json",
+        "metadata": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/metadata.json",
+        "view_manifest": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/view-manifest.json",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/runtime-contact-sheet.jpg",
+        "runtime_single_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/runtime/single.json",
+        "runtime_scene_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/runtime/scene.json",
+        "source_scene": "production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/source-scene.json",
+        "source_export": "production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/source-export.json",
+        "reproducibility": "production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/reproducibility.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/boudinaged-rock-layer/r001/attempt-02/boudinaged-rock-layer/gltf-validator.report.json",
+        "profile_report": "production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/profile-gate.json",
+        "legacy_report": "production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/legacy-gate.json"
+      }
+    },
+    {
+      "asset_id": "ophiomorpha-pellet-lined-burrow",
+      "attempt": "attempt-02",
+      "candidate_checkpoint_commit": "a3d499cd7a91940c171c04f6ad0b9d05d5b9d2f0",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/ophiomorpha-pellet-lined-burrow.blend",
+        "sha256": "b5e91b2ff17aeb84bfea49cde477a7c757bedc665aa425cd5b65399a942dd4e9",
+        "bytes": 899516
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/ophiomorpha-pellet-lined-burrow.glb",
+        "sha256": "4767fee02cd3be71b2f7725dcf0c070d33920c2433880357f1663ff5a75e5e3b",
+        "bytes": 194184
+      },
+      "dimensions_m": [
+        0.2500000149011612,
+        0.07513660099357367,
+        0.06390074267983437
+      ],
+      "triangles": 9984,
+      "technical": {
+        "handoff_path_hashes_and_bytes": "pass",
+        "source_export": "pass_with_warnings",
+        "source_export_errors": [],
+        "source_export_warnings": [
+          "source: Continuous sectioned wall and smooth open lumen: smooth faces require intentional-style review",
+          "source: Bonded unequal exterior construction pellets: smooth faces require intentional-style review"
+        ],
+        "triangles_match": true,
+        "bounds_match": true,
+        "bounds_max_error_m": 9.313225746154785e-10,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "two_rebuilds_status": "pass",
+        "two_rebuilds_byte_match": [
+          true,
+          true
+        ],
+        "two_rebuilds_semantic_match": [
+          true,
+          true
+        ]
+      },
+      "visual": {
+        "verdict": "pass",
+        "observation": "The continuous sectioned wall, smooth lumen, cut opening, and bonded exterior pellets are easy to read across hero, reverse, side, top, clay, and runtime views. The repeated pellet rhythm is orderly but still fits the expressly stylized teaching brief; no floating pellets or broken wall are visible.",
+        "required_model_fix": "None."
+      },
+      "factual": {
+        "verdict": "unknown_limited_claim_scope",
+        "limit": "The reviewed source scope supports only a general smooth-interior/nodose-exterior inspired form. This is not a named-producer or exact excavated-specimen reconstruction."
+      },
+      "profile_record": {
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "candidate_valid": true,
+        "approved_for_brief": false,
+        "legacy_checker_valid": false,
+        "legacy_checker_scope": "Historical missing consulted-reference license text is preserved; the explicit consulted-only static profile contract passes."
+      },
+      "runtime": {
+        "runtime_parse": "pass",
+        "three_version": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_views": 10,
+        "scene_views": 2,
+        "scene_instances": 6,
+        "scene_draw_calls": 30,
+        "scene_triangles": 59904,
+        "scene_errors": [],
+        "scene_failed": [],
+        "gpu_hardware_performance": "unknown_not_claimed"
+      },
+      "evidence": {
+        "candidate": "production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/candidate.json",
+        "metadata": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/metadata.json",
+        "view_manifest": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/view-manifest.json",
+        "source_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/source-contact-sheet.jpg",
+        "runtime_contact_sheet": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/runtime-contact-sheet.jpg",
+        "runtime_single_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/runtime/single.json",
+        "runtime_scene_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/runtime/scene.json",
+        "source_scene": "production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/source-scene.json",
+        "source_export": "production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/source-export.json",
+        "reproducibility": "production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/reproducibility.json",
+        "khronos_report": "assets/candidates/continuous-small-life-round14-20261018/batch-42/ophiomorpha-pellet-lined-burrow/r001/attempt-02/ophiomorpha-pellet-lined-burrow/gltf-validator.report.json",
+        "profile_report": "production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/profile-gate.json",
+        "legacy_report": "production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/legacy-gate.json"
+      }
+    }
+  ],
+  "required_model_changes": [],
+  "required_evidence_followup": "No model change or repeat QA is required by this report. If strict formal profile approval is later required, preserve factual claims within the frozen stylized scope and obtain supported hardware-WebGL2 evidence for the exact GLB hashes; do not treat SwiftShader as physical GPU evidence.",
+  "publication_or_merge": "not performed; report-only branch push authorized by the user."
+}

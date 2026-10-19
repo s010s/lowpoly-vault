@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "dicroidium",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/build.py",
+        "inventory": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/inventory-record.json",
+        "config": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/config.json",
+        "brief": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/brief.json",
+        "references": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/references.json",
+        "freeze": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/freeze.json",
+        "original_config": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/build-config.json",
+        "policy": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/reference-policy.json",
+        "review_policy": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/review-policy.json",
+        "helper": "/workspace/batch41-dicroidium/scripts/asset_common.py",
+        "audit": "/workspace/batch41-dicroidium/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "dicroidium.glb",
+        "dicroidium.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101812,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "dicroidium",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/build.py",
+        "inventory": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/inventory-record.json",
+        "config": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/config.json",
+        "brief": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/brief.json",
+        "references": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/references.json",
+        "freeze": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/freeze.json",
+        "original_config": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/build-config.json",
+        "policy": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/reference-policy.json",
+        "review_policy": "/workspace/batch41-dicroidium/production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/review-policy.json",
+        "helper": "/workspace/batch41-dicroidium/scripts/asset_common.py",
+        "audit": "/workspace/batch41-dicroidium/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "dicroidium.glb",
+        "dicroidium.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101812,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

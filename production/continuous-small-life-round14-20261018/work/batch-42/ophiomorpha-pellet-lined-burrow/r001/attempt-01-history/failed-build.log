@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/generator.py", line 50, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/generator.py", line 42, in main
+    c=setup_scene(s,cfg['seed']);m=[make_material(s+'-'+str(i),color,roughness=.80) for i,color in enumerate(['#ad9f85', '#c1b397', '#aa997a', '#b6a88b'])];extra=generate(c,m) or {};ground_asset(c,center_xy=False)
+                                                                                                                                                                  ~~~~~~~~^^^^^
+  File "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/generator.py", line 25, in generate
+    p=Part('Continuous sectioned wall and smooth open lumen',m);p.add(v,f,mi);p.finish(c,True)
+                                                                              ~~~~~~~~^^^^^^^^
+  File "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/mesh_utils.py", line 16, in finish
+    o=mesh_object(self.name,self.v,self.f,self.mats,c)
+  File "/workspace/lowpoly-vault-batch42/scripts/asset_common.py", line 113, in mesh_object
+    collection.objects.link(obj)
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Vector' object has no attribute 'objects'
+
+Error: script failed, file: 'production/continuous-small-life-round14-20261018/work/batch-42/ophiomorpha-pellet-lined-burrow/r001/generator.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+Blender 4.3.2
+
+Blender quit

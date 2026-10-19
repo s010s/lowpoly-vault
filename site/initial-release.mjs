@@ -1,3 +1,4 @@
+import {collectRound14Release} from './small-life-round14-release.mjs';
 import {collectRound13Release} from './small-life-round13-release.mjs';
 /** Owner-authorized initial collection. This does not grant final artistic or scientific approval. */
 import { readFile, writeFile, realpath } from 'node:fs/promises';
@@ -56,7 +57,9 @@ export async function collectInitialRelease(root=process.cwd()) {
 export async function checkPublishedManifest(root=process.cwd()) {
   const current=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   assert(!current.review_only,'A review-only manifest cannot be published');
-  const expected=current.publication?.round13_descriptor
+  const expected=current.publication?.round14_descriptor
+    ?await collectRound14Release(root,current.publication.round14_descriptor)
+    :current.publication?.round13_descriptor
     ?await collectRound13Release(root,current.publication.round13_descriptor)
     :current.publication?.round12_descriptor
     ?await collectRound12Release(root,current.publication.round12_descriptor)

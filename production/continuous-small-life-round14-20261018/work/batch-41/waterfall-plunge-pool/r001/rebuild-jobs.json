@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "waterfall-plunge-pool",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build.py",
+        "inventory": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/inventory-record.json",
+        "config": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/config.json",
+        "brief": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/brief.json",
+        "references": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/references.json",
+        "freeze": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/freeze.json",
+        "original_config": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build-config.json",
+        "policy": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/reference-policy.json",
+        "review_policy": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/review-policy.json",
+        "helper": "/workspace/batch41-waterfall-plunge-pool/scripts/asset_common.py",
+        "audit": "/workspace/batch41-waterfall-plunge-pool/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "waterfall-plunge-pool.glb",
+        "waterfall-plunge-pool.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101813,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "waterfall-plunge-pool",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build.py",
+        "inventory": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/inventory-record.json",
+        "config": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/config.json",
+        "brief": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/brief.json",
+        "references": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/references.json",
+        "freeze": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/freeze.json",
+        "original_config": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/build-config.json",
+        "policy": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/reference-policy.json",
+        "review_policy": "/workspace/batch41-waterfall-plunge-pool/production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/review-policy.json",
+        "helper": "/workspace/batch41-waterfall-plunge-pool/scripts/asset_common.py",
+        "audit": "/workspace/batch41-waterfall-plunge-pool/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "waterfall-plunge-pool.glb",
+        "waterfall-plunge-pool.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101813,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

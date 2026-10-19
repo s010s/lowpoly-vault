@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "botrychium",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/botrychium/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/botrychium/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch40/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch40/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/botrychium/brief.json",
+        "references": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/botrychium/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/botrychium/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "botrychium",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "botrychium/botrychium.blend",
+        "botrychium/botrychium.glb",
+        "botrychium/qa.json",
+        "botrychium/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch40 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "botrychium",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/botrychium/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/botrychium/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch40/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch40/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/botrychium/brief.json",
+        "references": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/botrychium/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/botrychium/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "botrychium",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "botrychium/botrychium.blend",
+        "botrychium/botrychium.glb",
+        "botrychium/qa.json",
+        "botrychium/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch40 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
