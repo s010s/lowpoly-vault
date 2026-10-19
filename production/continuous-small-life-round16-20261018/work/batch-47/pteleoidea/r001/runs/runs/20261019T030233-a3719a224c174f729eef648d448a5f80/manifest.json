@@ -1,0 +1,88 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "pteleoidea",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101812
+      },
+      "inputs": {
+        "audit": "/workspace/batch47-pteleoidea/scripts/qa_glb.py",
+        "brief": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/brief.json",
+        "config": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/config.json",
+        "freeze": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/freeze.json",
+        "generator": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/build.py",
+        "helper": "/workspace/batch47-pteleoidea/scripts/asset_common.py",
+        "inventory": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/inventory-record.json",
+        "original_config": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/build-config.json",
+        "policy": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/reference-policy.json",
+        "references": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/references.json",
+        "review_policy": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/review-policy.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "pteleoidea.glb",
+        "pteleoidea.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "pteleoidea",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101812
+      },
+      "inputs": {
+        "audit": "/workspace/batch47-pteleoidea/scripts/qa_glb.py",
+        "brief": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/brief.json",
+        "config": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/config.json",
+        "freeze": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/freeze.json",
+        "generator": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/build.py",
+        "helper": "/workspace/batch47-pteleoidea/scripts/asset_common.py",
+        "inventory": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/inventory-record.json",
+        "original_config": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/build-config.json",
+        "policy": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/reference-policy.json",
+        "references": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/references.json",
+        "review_policy": "/workspace/batch47-pteleoidea/production/continuous-small-life-round16-20261018/work/batch-47/pteleoidea/r001/review-policy.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "pteleoidea.glb",
+        "pteleoidea.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
