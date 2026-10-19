@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "tombolo",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/build.py",
+        "inventory": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/inventory-record.json",
+        "config": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/config.json",
+        "brief": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/brief.json",
+        "references": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/references.json",
+        "freeze": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/freeze.json",
+        "original_config": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/build-config.json",
+        "policy": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/reference-policy.json",
+        "helper": "/workspace/batch37-tombolo/scripts/asset_common.py",
+        "audit": "/workspace/batch37-tombolo/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "tombolo.glb",
+        "tombolo.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101809,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "tombolo",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/build.py",
+        "inventory": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/inventory-record.json",
+        "config": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/config.json",
+        "brief": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/brief.json",
+        "references": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/references.json",
+        "freeze": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/freeze.json",
+        "original_config": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/build-config.json",
+        "policy": "/workspace/batch37-tombolo/production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001/reference-policy.json",
+        "helper": "/workspace/batch37-tombolo/scripts/asset_common.py",
+        "audit": "/workspace/batch37-tombolo/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "tombolo.glb",
+        "tombolo.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101809,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
