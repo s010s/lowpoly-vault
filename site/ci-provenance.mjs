@@ -11,7 +11,7 @@ export function controlDigest(ref) {
   // A PR may not authorize its own weakened classifier, tests, receipt producer or workflow.
   const entries=git('ls-tree','-r',ref).split('\n').filter(line=>{
     const path=line.split('\t')[1];
-    return /^(?:\.github\/|scripts\/|schemas\/|package(?:-lock)?\.json$|vite\.config\.js$)/.test(path)||/^site\/.*\.mjs$/.test(path);
+    return /^(?:\.github\/|scripts\/|schemas\/|package(?:-lock)?\.json$|vite\.config\.js$)/.test(path)||/^site\/.*\.mjs$/.test(path)||path==='site/gallery/approved-poster-inputs.json';
   });
   assert(entries.length>0,'Missing trusted control plane');
   return sha256(entries.join('\n'));

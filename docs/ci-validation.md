@@ -7,3 +7,40 @@ Pages keeps the exact publication/unchanged-original gate, static contracts, Thr
 `Review gallery in Chromium` remains a manual isolated review entry for both strict GPU and forced fallback. It now builds from the checked publication, which pairs accepted revision GLBs with their sealed revision image paths. Previously it mixed original-ten source metadata with the mixed-release image index and failed at natural-arch/structural-r002 before Chromium could run. It still marks output review-only and cannot deploy.
 
 The asset pipeline tests remain independently scoped to scripts, schemas, skills and their fixtures. Existing dedicated render, hover and modal comparison workflows remain available. Permissions and repository protection are unchanged. Browser screenshots are inspection evidence, not automatic art or scientific approval.
+
+## Deterministic routing and validated-output reuse
+
+The routing table is conservative and executable (`site/ci-scope.mjs`):
+
+- Only the exact README filenames and Markdown under `docs/` are prose-only. File extensions elsewhere do not exempt a change.
+- Published GLB/Blend/preview files, owned asset directories and matching poster files select their published asset IDs. A manifest addition selects the added/changed IDs; removal or shared publication-only changes require full coverage.
+- Shared runtime, renderer, camera/light, tests, workflow, package scripts, toolchain, schemas and validator changes require the full matrix. Unknown paths and unavailable diff/base provenance also require full coverage.
+- Pages still performs the publication/output gates and normal acceptance probes for every newly validated tree. Full release review runs its build, capture and inventory audit once in `prepare`, then every selected original browser task consumes that same immutable run artifact. No assertion is removed from the selected suites.
+
+A main push may reuse a PR build only when all these independent checks succeed:
+
+1. GitHub identifies the main commit as a merged same-repository PR; forks are never eligible.
+2. Both the Pages and Full release review workflows completed successfully for that PR head. Their GitHub-owned check suites must report success and the `github-actions` app. A receipt cannot assert its own success.
+3. Each receipt names the exact tested PR merge commit, its base/head parents, Git tree, run ID/attempt and runtime configuration. Both validated trees must exactly equal the main checkout tree, and both workflows must have tested the same merge commit. A new merge result or changed base therefore misses safely.
+4. Validation control files must be identical to the PR base, including workflows, CI scripts, validator/test modules, package/lock/config files and the golden-poster contract. A PR that changes its own gate or receipt producer cannot qualify itself for reuse. The first deployment of this mechanism runs full verification.
+5. The downloaded immutable artifact's SHA-256 must equal the digest returned independently by GitHub. Its members are allowlisted; the inner payload hash is checked; extraction rejects links, devices, absolute paths and traversal. Artifact contents are never executed by the reuse checker. A read-only Actions token is supplied only on main, never to this step in a PR.
+
+Any unavailable API, missing/expired receipt, different tree/base/config, failed/incomplete check, modified policy or hash mismatch falls back to the normal full verification path. There is no manual “looks similar” override. `qa/ci-provenance/reuse.json` records the source SHA/tree, comparison bases, check-suite IDs/results, artifact hashes and runtime configuration supporting a hit.
+
+Deployment still depends on the Pages build job and uses the existing GitHub Pages environment and permissions. A complete output inventory/poster audit and pre-deploy handoff smoke still run on reuse; the existing deployed-site Chromium smoke runs after every deployment. No merge approval, branch protection or deployment authorization is changed. The only additional token capability is read-only Actions artifact/check metadata access.
+
+### Publication memo within one job
+
+The first `npm run build` publication gate always executes. If the checkout is clean, it writes a source/tree/manifest/runtime/run-bound memo outside the repository in `RUNNER_TEMP`. Repeated output audits in that job may use it only while the complete tracked checkout is unchanged. Repository-authored files cannot provide the memo. Missing, changed or malformed input falls back to the original publication validator. Every output inventory, ZIP, GLB, source-byte and poster audit still runs; publication rejection regression tests invoke the original validator directly and are never memoized.
+
+### Poster recipe contract
+
+Each new capture records a versioned input digest binding the GLB and source asset metadata, rendering source (including camera/light/support calculations), runtime/build configuration, capture policy, package/lockfile, pinned Playwright Chromium version and font files. The generation policy fixes viewport, pixel ratio, dimensions and software-rendering arguments. A custom Chromium version cannot stamp a matching recipe. Existing generated images with missing/stale input receipts are recaptured; verified unchanged images are retained.
+
+`site/gallery/approved-poster-inputs.json` is an explicit golden-baseline migration for the already reviewed 182 source pairs from PR #24. It binds their existing approved pixels to this recipe boundary; it does not claim to reconstruct unavailable historical generation provenance. If a golden pair's inputs change, CI blocks and requires explicit recapture/review of a new baseline rather than silently replacing approved pixels. It does not change catalog membership, GLB approval or the original immutable reviewed resource seal.
+
+### Measured baseline and expected skipped work
+
+PR #24 observed local publication-check phases of 92.8–123.7 seconds, versus roughly 4 seconds for Vite and 12 seconds for copying/packaging. These are observations, not promised CI speedups. The former Full release review repeated build/capture/audit in each matrix job; the new graph performs those phases once. In a build with two later output audits, a valid in-job memo avoids two repeated source-publication traversals. An exact-tree main reuse additionally skips rebuilding, recapturing and the already successful PR regression suites, while retaining inventory and deployment smoke. Artifact transfer, runner queues, browser installation and smoke still cost time. The retained `qa/ci-timings` artifacts provide per-run measurements.
+
+The regression matrix covers docs-only, asset addition/removal, shared renderer/config, unknown files, stale/missing poster keys, changed fonts/toolchain, a different merge tree, modified validation policy, fork origin, failed/missing check evidence, missing receipts and tampered artifact bytes.
