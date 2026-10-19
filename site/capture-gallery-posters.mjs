@@ -6,7 +6,6 @@ import { createHash } from 'node:crypto';
 import { cp, mkdir, mkdtemp, readFile, realpath, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { dirname, extname, resolve, sep } from 'node:path';
 import { auditGalleryAssets } from './gallery-assets.mjs';
-import { normalizeSiteBase } from './routes.js';
 import { CAPTURE_POLICY, posterInputKey, posterRendererFiles } from './gallery-poster-inputs.mjs';
 
 const root = process.cwd(), outputRoot = resolve(process.env.GALLERY_OUTPUT_DIR || 'dist');
@@ -22,7 +21,6 @@ if (!initial.coverage.missing.length && !verifyRecipe) {
 
 let browser, server, reviewServer, staging;
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
-const base = normalizeSiteBase(process.env.SITE_BASE || '/');
 const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.mjs':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.webp':'image/webp', '.glb':'model/gltf-binary', '.svg':'image/svg+xml' };
 async function persistSourceGallery() {
   const sourceStaging = await mkdtemp(resolve(root, 'site/public/.gallery-source-'));
@@ -38,6 +36,7 @@ async function persistSourceGallery() {
   } finally { await rm(sourceStaging, { recursive:true, force:true }); }
 }
 async function localSite() {
+  const base = CAPTURE_POLICY.site_base;
   const rendererFiles = new Set(await posterRendererFiles(root));
   const glbs = new Map(manifest.assets.map(asset => [asset.glb,asset.sha256.glb]));
   const prefix = `${base}__poster_capture__/`;
@@ -72,6 +71,8 @@ async function localSite() {
 // Comparison only: the regular built app runs in a separate browser context/origin.
 // It is never used as the source of a stamped capture.
 async function currentAppSite(){
+ const base=process.env.SITE_BASE||'/';
+ assert(/^\/(?:[a-zA-Z0-9_.-]+\/)*$/.test(base)&&!base.split('/').some(part=>part==='.'||part==='..'),'Comparison requires a normalized local SITE_BASE');
  const parent=await realpath(outputRoot);
  reviewServer=createServer(async(request,response)=>{try{
   const pathname=decodeURIComponent(new URL(request.url,'http://localhost').pathname);

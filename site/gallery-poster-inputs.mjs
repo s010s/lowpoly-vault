@@ -6,7 +6,7 @@ import {parseAst} from 'rollup/parseAst';
 import assert from 'node:assert/strict';
 const canonical=value=>value&&typeof value==='object'?(Array.isArray(value)?value.map(canonical):Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])]))):value;
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const CAPTURE_POLICY={version:2,node_major:'22',viewport:{width:1440,height:900},deviceScaleFactor:1,reducedMotion:'reduce',detail:[512,512],wheel:[768,432],engine:'playwright-pinned-chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'],fonts:'Not applicable: poster() draws transparent WebGL geometry directly to PNG, with no text or DOM rasterization.'};
+export const CAPTURE_POLICY={version:2,site_base:'/',node_major:'22',viewport:{width:1440,height:900},deviceScaleFactor:1,reducedMotion:'reduce',detail:[512,512],wheel:[768,432],engine:'playwright-pinned-chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'],fonts:'Not applicable: poster() draws transparent WebGL geometry directly to PNG, with no text or DOM rasterization.'};
 // Parse the actual isolated renderer import closure, never guess from file extensions.
 // Rollup is supplied by the lockfile-pinned Vite toolchain used for the site build.
 export async function posterRendererFiles(root=process.cwd()){
