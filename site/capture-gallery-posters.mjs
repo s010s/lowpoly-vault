@@ -7,6 +7,7 @@ import { cp, mkdir, mkdtemp, readFile, realpath, rename, rm, stat, writeFile } f
 import { dirname, extname, resolve, sep } from 'node:path';
 import { auditGalleryAssets } from './gallery-assets.mjs';
 import { normalizeSiteBase } from './routes.js';
+import { CAPTURE_POLICY, posterInputKey } from './gallery-poster-inputs.mjs';
 
 const root = process.cwd(), outputRoot = resolve(process.env.GALLERY_OUTPUT_DIR || 'dist');
 const manifest = JSON.parse(await readFile(resolve(outputRoot, 'assets/manifest.json'), 'utf8'));
@@ -57,8 +58,10 @@ async function localSite() {
 try {
   const url = process.env.GALLERY_URL || await localSite();
   const executablePath = process.env.CHROMIUM_PATH;
-  browser = await chromium.launch({ ...(executablePath ? { executablePath } : {}), headless:true, args:['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-  const page = await browser.newPage({ viewport:{ width:1440, height:900 }, deviceScaleFactor:1, reducedMotion:'reduce' });
+  browser = await chromium.launch({ ...(executablePath ? { executablePath } : {}), headless:true, args:CAPTURE_POLICY.args });
+  const toolchain = JSON.parse(await readFile(resolve(root,'node_modules/playwright-core/browsers.json'),'utf8'));
+  assert.equal(browser.version(), toolchain.browsers.find(item => item.name === 'chromium').browserVersion, 'Capture requires the lockfile-pinned Chromium; custom browser versions cannot stamp matching inputs');
+  const page = await browser.newPage({ viewport:CAPTURE_POLICY.viewport, deviceScaleFactor:CAPTURE_POLICY.deviceScaleFactor, reducedMotion:CAPTURE_POLICY.reducedMotion });
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error' && /THREE\.|WebGL|shader|GL_INVALID|CONTEXT_LOST/i.test(message.text())) errors.push(message.text()); });
@@ -85,7 +88,8 @@ try {
       if (gl.isContextLost() || error !== gl.NO_ERROR) throw new Error(`WebGL capture failed for ${id}: ${error}`);
       return { detail, wheel, wheelSpec:preview.renderer.lastPosterSpec };
     }, id);
-    const poster = { source_glb_sha256:assets.get(id).sha256.glb, wheelSpec:capture.wheelSpec };
+    const poster = { source_glb_sha256:assets.get(id).sha256.glb, input_sha256:posterInputKey(assets.get(id),initial.inputState.shared), browser_version:browser.version(), wheelSpec:capture.wheelSpec };
+    resources.files = resources.files.filter(file => ![`gallery/posters/${id}.png`, `gallery/posters/${id}-wheel.png`].includes(file.path));
     for (const kind of ['detail', 'wheel']) {
       const data = capture[kind];
       assert(typeof data === 'string' && data.startsWith('data:image/png;base64,'), `PNG capture failed: ${id} ${kind}`);

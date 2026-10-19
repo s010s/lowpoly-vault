@@ -2,17 +2,11 @@ name: Full release review
 on:
   push:
     branches: [main]
-    paths: &review_paths
-      - 'site/**'
-      - 'assets/**'
-      - 'package*.json'
-      - 'vite.config.js'
-      - '.github/workflows/*.yml'
   pull_request:
-    paths: *review_paths
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: full-release-review-${{ github.ref }}
   cancel-in-progress: true
@@ -32,17 +26,68 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check exact-tree validated PR reuse
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: reuse
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node site/ci-reuse.mjs
       - id: scope
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
           FULL_REVIEW: ${{ github.event_name == 'workflow_dispatch' }}
-        run: node site/ci-scope.mjs
+        run: |
+          if [ "${{ steps.reuse.outputs.reused }}" = "true" ]; then
+            echo 'tasks=["none"]' >> "$GITHUB_OUTPUT"
+          else
+            node site/ci-scope.mjs
+          fi
+      - name: Record independently verifiable PR source
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CI_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node site/ci-provenance.mjs review
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'pull_request'
+        with:
+          name: validated-review-${{ github.run_attempt }}
+          path: qa/ci-provenance/review/
+          if-no-files-found: error
+  prepare:
+    needs: scope
+    if: needs.scope.outputs.tasks != '["none"]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Set isolated publication memo path
+        run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
+      - run: npm ci
+      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Complete and audit the shared exact-catalog build once
+        run: npm run gallery:posters && REQUIRE_COMPLETE_GALLERY=1 node site/audit-release.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: full-review-built-site
+          path: dist/
+          if-no-files-found: error
   build:
     strategy:
       fail-fast: false
       matrix:
         task: ${{ fromJSON(needs.scope.outputs.tasks) }}
-    needs: scope
+    needs: [scope, prepare]
     if: needs.scope.outputs.tasks != '["none"]'
     runs-on: ubuntu-latest
     steps:
@@ -51,14 +96,16 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      - name: Set isolated publication memo path
+        run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
       - run: node site/ci-scope-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
-      - run: npm run build
-        id: build_site
+      - uses: actions/download-artifact@v4
+        with:
+          name: full-review-built-site
+          path: dist/
       - run: npx playwright install --with-deps chromium
         id: install_chromium
-      - name: Complete and audit full-catalog approved gallery posters
-        run: npm run gallery:posters && REQUIRE_COMPLETE_GALLERY=1 node site/audit-release.mjs
       - name: Run selected acceptance scope
         env:
           CI_REVIEW_TASK: ${{ matrix.task }}
