@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/generator.py", line 53, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/lowpoly-vault-batch36/production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/generator.py", line 50, in main
+    export_asset(s,{'en':'Teredolites wood-boring cast','zh':'Teredolites 木质钻孔铸型'},'traces',c,metadata=meta,output_root=a.output,render=False,max_triangles=14000,max_materials=6,max_primitives=30)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault-batch36/scripts/asset_common.py", line 420, in export_asset
+    raise RuntimeError('Source QA failed: '+'; '.join(source['errors']))
+RuntimeError: Source QA failed: Sectioned fossil wood host: 17 degenerate triangles
+
+Error: script failed, file: 'production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/generator.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+Blender 4.3.2
+
+Blender quit
