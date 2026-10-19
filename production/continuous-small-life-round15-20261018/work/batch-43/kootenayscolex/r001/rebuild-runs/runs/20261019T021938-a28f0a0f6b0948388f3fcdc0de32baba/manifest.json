@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "kootenayscolex",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "kootenayscolex",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch43 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch43/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/kootenayscolex/brief.json",
+        "config": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch43/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/kootenayscolex/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/kootenayscolex/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "kootenayscolex/kootenayscolex.blend",
+        "kootenayscolex/kootenayscolex.glb",
+        "kootenayscolex/qa.json",
+        "kootenayscolex/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "kootenayscolex",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "kootenayscolex",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch43 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch43/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/kootenayscolex/brief.json",
+        "config": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/kootenayscolex/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch43/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/kootenayscolex/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/work/batch-43/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch43/production/continuous-small-life-round15-20261018/items/kootenayscolex/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "kootenayscolex/kootenayscolex.blend",
+        "kootenayscolex/kootenayscolex.glb",
+        "kootenayscolex/qa.json",
+        "kootenayscolex/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
