@@ -20,8 +20,9 @@ try {
  if(!base.endsWith('/'))base+='/';report.base=base;
  const manifest=await (await fetch(new URL('assets/manifest.json',base))).json();
  const model=manifest.assets.find(a=>a.id==='cooperoceras')||manifest.assets[0];assert(model);
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,chromiumSandbox:true,headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  report.browser=browser.version();
+ report.launcher='Repository Chromium CI launcher in an isolated test environment; browser process sandbox disabled, matching the existing browser suites.';
  async function capture(name,path,{width=1440,height=1000,javaScriptEnabled=true,colorScheme='light'}={}) {
   const row={name,path,status:'running'},context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,colorScheme,javaScriptEnabled});report.cases.push(row);
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -42,6 +43,11 @@ try {
    assert.equal(row.style.favicon,new URL('brand/favicon.svg',base).href);assert((await page.request.get(row.style.favicon)).ok());
    assert.equal(row.style.brandHref,new URL(path.startsWith('zh-CN/')?'zh-CN/':'',base).href);
    for(const icon of row.style.icons)assert(icon.width<=24&&icon.height<=24,'Utility icons stay bounded');
+   if(javaScriptEnabled&&/^(zh-CN\/)?models\/$/.test(path))assert(await page.locator('#wheel').isVisible(),'No-query mobile route shows the actual list');
+   if(javaScriptEnabled&&width===390&&/models\/[^/?]+\/$/.test(path)){
+    const positions=await page.locator('.viewer-controls button').evaluateAll(buttons=>buttons.filter(button=>button.getBoundingClientRect().width).map(button=>button.getBoundingClientRect().top));
+    assert(positions.length===5&&Math.max(...positions)-Math.min(...positions)<2,'All five mobile detail controls stay together on one row');
+   }
    await page.screenshot({path:resolve(output,name+'.png'),fullPage:true});
    assert.deepEqual(errors,[]);row.status='pass';
   }catch(error){row.status='fail';row.error=error.stack;report.errors.push({name,message:error.message});await page.screenshot({path:resolve(output,name+'-failure.png'),fullPage:true}).catch(()=>{});}
@@ -51,6 +57,7 @@ try {
   await capture(`${locale}-${device}-home`,folder,viewport);
   await capture(`${locale}-${device}-list`,folder+'models/?model='+model.id,viewport);
   await capture(`${locale}-${device}-detail`,folder+'models/'+model.id+'/',viewport);
+  if(device==='mobile')await capture(`${locale}-mobile-catalog`,folder+'models/',viewport);
  }
  await capture('en-desktop-home-dark','',{colorScheme:'dark'});
  await capture('zh-mobile-detail-nojs','zh-CN/models/'+model.id+'/',{width:390,height:844,javaScriptEnabled:false});
