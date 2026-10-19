@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/generator.py",
+    "--",
+    "--asset",
+    "boudinaged-rock-layer",
+    "--config",
+    "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/rebuild-runs/build/boudinaged-rock-layer/r001/semantic-rebuild-1/d7d0ee4f922a22325f5b4492257a2c024729622f9862fd1afe2ac3b7fc041a99/20261019T020422-55a4fed60ffd4f5b929288343c1d9d47/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-19T02:04:22.583917+00:00",
+  "fingerprint": "d7d0ee4f922a22325f5b4492257a2c024729622f9862fd1afe2ac3b7fc041a99",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch42/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 11078,
+        "path": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/items/boudinaged-rock-layer/brief.json",
+        "sha256": "42f260f5ca7196ec92e8c891246fe08f1fdfd1c6ef0319331ecd778689f14878"
+      },
+      "config": {
+        "bytes": 2374,
+        "path": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/config.json",
+        "sha256": "f0444dc6d6ccd2709e9ab1de76b2c7a581eacce02fd62aa42c846d2ac6100bda"
+      },
+      "generator": {
+        "bytes": 5703,
+        "path": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/generator.py",
+        "sha256": "e92d36a91065bbb44a91043cc6be117ad5c2fe050afc0a4b7bbf84c3382dfa38"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch42/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2956,
+        "path": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/items/boudinaged-rock-layer/inventory-record.json",
+        "sha256": "03a624e5de902d5f02f3ea9984d4c70763d3a2e7ab1841a2f2d350c4a7377e6a"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1316,
+        "path": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/items/boudinaged-rock-layer/references.json",
+        "sha256": "5ae60ce0ca8992b479671b3a3ca33ad4ab9f00b6ed0ca775ff402993b640ae4e"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "boudinaged-rock-layer",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "boudinaged-rock-layer",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch42 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch42/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/items/boudinaged-rock-layer/brief.json",
+        "config": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/boudinaged-rock-layer/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch42/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/items/boudinaged-rock-layer/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/work/batch-42/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch42/production/continuous-small-life-round14-20261018/items/boudinaged-rock-layer/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "boudinaged-rock-layer/boudinaged-rock-layer.blend",
+        "boudinaged-rock-layer/boudinaged-rock-layer.glb",
+        "boudinaged-rock-layer/qa.json",
+        "boudinaged-rock-layer/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T020422-d703caf9803c40e6956a089de4c9a55c"
+}
