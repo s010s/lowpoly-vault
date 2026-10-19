@@ -8,7 +8,7 @@ import { createHash } from 'node:crypto';
 import { CONCEPT_SEVEN_IDS } from './concept-seven-release.mjs';
 const root=resolve(process.env.GALLERY_DIR||'dist'),out=resolve(process.env.QA_OUTPUT_DIR||'qa/concept-seven-release-20261019/browser'),prefix=process.env.SITE_BASE||'/lowpoly-vault/';
 const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'))),report={status:'running',cases:[],errors:[],limitations:['Chromium SwiftShader with emulated mobile; no physical-device or intended museum-scene performance claim.']};
-assert.deepEqual(manifest.publication.approved_concept_seven_ids,CONCEPT_SEVEN_IDS);assert.equal(manifest.assets.length,182);assert(!manifest.assets.some(a=>a.id==='ctenoimbricata'));
+assert.deepEqual(manifest.publication.approved_concept_seven_ids,CONCEPT_SEVEN_IDS);assert(manifest.assets.length>=182);for(const id of CONCEPT_SEVEN_IDS)assert(manifest.assets.some(a=>a.id===id));assert(!manifest.assets.some(a=>a.id==='ctenoimbricata'));
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.glb':'model/gltf-binary'};
 const server=createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost');assert(url.pathname.startsWith(prefix));let file=resolve(root,decodeURIComponent(url.pathname.slice(prefix.length))||'index.html');assert(file.startsWith(root+sep));if((await stat(file)).isDirectory())file=resolve(file,'index.html');res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream'}).end(await readFile(file));}catch{res.writeHead(404).end();}});
 let browser;
@@ -20,7 +20,7 @@ try {
   page.on('pageerror',e=>report.errors.push(e.message));page.on('response',r=>{if(r.status()>=400)report.errors.push(`${r.status()} ${r.url()}`);});
   page.on('console',message=>{if(message.type()==='error'&&/THREE\.|WebGL|shader|GL_INVALID|CONTEXT_LOST/i.test(message.text()))report.errors.push(message.text());});
   page.setDefaultTimeout(45000);
-  await page.goto(base+(mobile?'zh-CN/':'')+'models/?model='+CONCEPT_SEVEN_IDS[0]);await page.waitForFunction(()=>window.__gallery?.models.length===182);
+  await page.goto(base+(mobile?'zh-CN/':'')+'models/?model='+CONCEPT_SEVEN_IDS[0]);await page.waitForFunction(count=>window.__gallery?.models.length===count,manifest.assets.length);
   for(const id of CONCEPT_SEVEN_IDS){
    await page.evaluate(id=>{void window.__gallery.choose(id,{push:false,activateMobile:true});},id);
    await page.waitForFunction(id=>document.querySelector('#detail')?.dataset.state==='ready'&&document.querySelector('#detail').dataset.modelId===id,id,{timeout:45000});

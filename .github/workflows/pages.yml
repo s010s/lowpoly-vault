@@ -68,6 +68,9 @@ jobs:
             dist/gallery/
             dist/assets/manifest.json
           if-no-files-found: error
+      - name: Reviewed quartet actual-model browser acceptance
+        if: hashFiles('assets/releases/concept-quartets-20261019.json') != ''
+        run: node site/concept-quartets-browser-test.mjs
       - name: Full publication rejection regressions
         if: steps.reuse.outputs.reused != 'true'
         run: npm run test:publication
@@ -111,6 +114,7 @@ jobs:
             qa/ci-parser/threejs-parser.json
             qa/approved-gallery-browser/
             qa/concept-seven-release-20261019/browser/
+            qa/quartets-release-20261019/browser/
       - name: Record exact successful PR build payload
         if: github.event_name == 'pull_request'
         env:

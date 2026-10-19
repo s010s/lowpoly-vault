@@ -1,6 +1,7 @@
 /** Hash-checked candidate staging is separate from the publication manifest. */
 import assert from 'node:assert/strict';
 import {readFile,writeFile,realpath,mkdir,cp,appendFile} from 'node:fs/promises';
+import {pathToFileURL} from 'node:url';
 import {resolve,dirname} from 'node:path';
 import {createHash} from 'node:crypto';
 import {prepareRenderCapture} from './prepare-render-capture.mjs';
@@ -11,10 +12,10 @@ export async function prepareQuartetsCapture({root=process.cwd(),outDir=resolve(
  async function checked(pin){assert(/^(production|qa)\/[a-zA-Z0-9_./-]+$/.test(pin.path)&&!pin.path.split('/').includes('..'));const p=resolve(root,pin.path);assert.equal(await realpath(p),p);const b=await readFile(p);assert.equal(createHash('sha256').update(b).digest('hex'),pin.sha256);return b;}
  const review=JSON.parse(await checked(descriptor.review));assert.equal(review.scoped_review,'pass');assert.equal(review.formal_candidate_acceptance,'blocked');
  const manifest=await prepareRenderCapture({root,outDir});const ids=[];
- for(const entry of descriptor.assets){const a=JSON.parse(await checked(entry.metadata)),glb=await checked(entry.glb),r=review.assets.find(r=>r.asset_id===entry.id);assert.equal(a.id,entry.id);assert.equal(a.glb,entry.glb.path);assert.equal(a.sha256.glb,entry.glb.sha256);assert.equal(r.independent_scoped_review,'pass');assert.equal(r.glb_sha256,entry.glb.sha256);assert(!manifest.assets.some(p=>p.id===a.id));assert(!ids.includes(a.id));ids.push(a.id);await mkdir(dirname(resolve(outDir,a.glb)),{recursive:true});await writeFile(resolve(outDir,a.glb),glb);manifest.assets.push(a);}
+ for(const entry of descriptor.assets){const a=JSON.parse(await checked(entry.metadata)),glb=await checked(entry.glb),r=review.assets.find(r=>r.asset_id===entry.id);assert.equal(a.id,entry.id);assert.equal(a.glb,entry.glb.path);assert.equal(a.sha256.glb,entry.glb.sha256);assert.equal(r.independent_scoped_review,'pass');assert.equal(r.glb_sha256,entry.glb.sha256);const published=manifest.assets.find(p=>p.id===a.id);if(published)assert.equal(published.sha256.glb,a.sha256.glb);assert(!ids.includes(a.id));ids.push(a.id);await mkdir(dirname(resolve(outDir,a.glb)),{recursive:true});await writeFile(resolve(outDir,a.glb),glb);if(!published)manifest.assets.push(a);}
  manifest.capture_only=true;manifest.capture_only_ids=ids;
  await writeFile(resolve(outDir,'assets/manifest.json'),JSON.stringify(manifest)+'\n');
  if(process.env.GITHUB_ENV)await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${ids.join(',')}\n`);
  console.log(`Staged ${ids.length} exact candidate GLBs for capture only. Published manifest and approval gates are unchanged.`);return manifest;
 }
-await prepareQuartetsCapture();
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)await prepareQuartetsCapture();
