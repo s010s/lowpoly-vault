@@ -141,6 +141,12 @@ def ctenoimbricata():
    ellipsoid('Dorsal imbricate roof %d-%d'%(row,i),(x,y,.0021-row*.00015),(.00070,.00064,.00032),mats[1],6,4)
  for y,xs in [(-.0034,[-.002,0,.002]),(0,[-.003,0,.003]),(.0032,[-.002,0,.002]),(.0058,[0])]:
   for x in xs:ellipsoid('Sparse dorsal stud %s %s'%(x,y),(x,y,.00275),(.00028,.00030,.00024),mats[3],5,3)
+ # Group repeated closed elements by semantic structure while retaining individual mesh islands.
+ for prefix,label in [('Ventral anterior ctenidial','Anterior comb - 14 closed elements'),('Dorsal imbricate','Imbricate dorsal roof'),('Sparse dorsal','Sparse dorsal stud field')]:
+  group=[o for o in C.objects if o.type=='MESH' and o.name.startswith(prefix)]
+  bpy.ops.object.select_all(action='DESELECT')
+  for o in group:o.select_set(True)
+  bpy.context.view_layer.objects.active=group[0];bpy.ops.object.join();group[0].name=label
  return mats
 
 def main():
