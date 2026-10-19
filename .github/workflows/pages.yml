@@ -39,6 +39,8 @@ jobs:
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
       - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - name: Brand source contracts when present
+        run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
         if: steps.reuse.outputs.reused != 'true'
         id: build_site
@@ -51,6 +53,12 @@ jobs:
         env:
           REQUIRE_COMPLETE_GALLERY: '1'
         run: node site/audit-release.mjs
+      - name: Verify isolated poster recipe matches the application
+        if: steps.reuse.outputs.reused != 'true'
+        run: node site/capture-gallery-posters.mjs --verify-recipe
+      - name: Brand browser contracts when present
+        if: steps.reuse.outputs.reused != 'true'
+        run: if [ -f site/brand-browser-test.mjs ]; then node site/brand-browser-test.mjs; fi
       - name: Preserve audited gallery captures for source integration
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
@@ -94,6 +102,7 @@ jobs:
         with:
           name: gallery-release-qa
           path: |
+            qa/brand-browser/
             qa/ci-timings/
             qa/ci-provenance/reuse.json
             qa/release-static/
