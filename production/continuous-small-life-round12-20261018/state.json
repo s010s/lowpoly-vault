@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T00:39:25.236606+00:00",
+  "updated_at": "2026-10-19T01:32:01.811326+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "parent_assigned_production_and_candidate_handoff",
+  "status": "model_qa_pass_awaiting_release_confirmation",
   "claims": {
     "takakkawia": {
       "batch_id": "batch-34",
@@ -182,16 +182,16 @@
   },
   "batches": {
     "batch-34": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -199,13 +199,19 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
       "owner": "parent-assigned-producer:batch-34",
-      "recorded_at": "2026-10-19T00:39:25.236606+00:00"
+      "recorded_at": "2026-10-19T00:39:25.236606+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "batch-35": {
-      "status": "candidate_complete_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch35-20261018",
@@ -213,8 +219,8 @@
         "pin_provenance": "Observed remote head only, not assumed frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -222,22 +228,28 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
       "owner": "parent-assigned-producer:batch-35",
-      "recorded_at": "2026-10-19T00:39:25.236606+00:00"
+      "recorded_at": "2026-10-19T00:39:25.236606+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "batch-36": {
-      "status": "maker_dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "candidate": {
-        "maker_status": "dispatched",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -245,29 +257,35 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
       "owner": "parent-assigned-producer:batch-36",
-      "recorded_at": "2026-10-19T00:39:25.236606+00:00"
+      "recorded_at": "2026-10-19T00:39:25.236606+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     }
   },
   "jobs": {
     "takakkawia": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-34",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-34",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -275,26 +293,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "sabalites": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-34",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-34",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -302,26 +326,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "river-dominated-delta": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-34",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-34",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -329,26 +359,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "asteriacites-resting-impression": {
-      "status": "making",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-34",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-34",
       "candidate": {
-        "maker_status": "in_progress",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -356,12 +392,18 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "helicocystis": {
-      "status": "candidate_complete_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-35",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -374,8 +416,8 @@
         "pin_provenance": "Observed remote head only, not assumed frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -383,12 +425,18 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "cooperoceras": {
-      "status": "candidate_complete_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-35",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -401,8 +449,8 @@
         "pin_provenance": "Observed remote head only, not assumed frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -410,12 +458,18 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "cave-drapery": {
-      "status": "candidate_complete_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-35",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -428,8 +482,8 @@
         "pin_provenance": "Observed remote head only, not assumed frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -437,12 +491,18 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "reticulite-clast": {
-      "status": "candidate_complete_awaiting_independent_qa",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-35",
       "attempts": [],
       "accepted_glb_sha256": null,
@@ -455,8 +515,8 @@
         "pin_provenance": "Observed remote head only, not assumed frozen QA source."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -464,26 +524,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "gryphaea": {
-      "status": "maker_dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-36",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-36",
       "candidate": {
-        "maker_status": "dispatched",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -491,26 +557,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "folded-strata-outcrop": {
-      "status": "maker_dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-36",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-36",
       "candidate": {
-        "maker_status": "dispatched",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -518,26 +590,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "volcanic-bomb": {
-      "status": "maker_dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-36",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-36",
       "candidate": {
-        "maker_status": "dispatched",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -545,26 +623,32 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "teredolites-wood-boring-cast": {
-      "status": "maker_dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-36",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-36",
       "candidate": {
-        "maker_status": "dispatched",
+        "maker_status": "completed",
         "branch": null,
         "commit": null,
         "pin_provenance": "Parent reports assigned/in progress; canonical handoff not supplied."
       },
       "qa": {
-        "status": "awaiting_parent_dispatch",
-        "verdict": null,
+        "status": "completed",
+        "verdict": "pass",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
@@ -572,9 +656,15 @@
         "thread_id": null,
         "turn_id": null,
         "source_commit": null,
-        "pin_note": "No independent QA dispatch/verdict supplied; candidate completion is not model QA PASS."
+        "pin_note": "Reviewer task/source/GLB pins not supplied in parent message; not guessed from current heads.",
+        "scope": "Parent explicitly confirms34–36 independent model QA all PASS; no second model acceptance at release."
       },
-      "status_note": "Current parent dispatch/delivery stage; actual task identities and final source hashes not invented."
+      "status_note": "Independent QA PASS per parent. Release uses necessary deployment checks only; no duplicate model acceptance.",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     }
   },
   "request_resolution": {
@@ -585,11 +675,12 @@
     "new_maker_or_qa_task_spawned": false
   },
   "latest_publication_checkpoint": {
-    "observed_main_commit": "59672a660b45410333e2e0229cd4a9b041517754",
-    "main_reported_asset_count": 127,
-    "public_evidence_status": "Parent verification in progress",
+    "observed_main_commit": "2f0a90f833e2607963ec33e5fd4647a8506e1bee",
+    "committed_manifest_asset_count": 151,
+    "public_evidence_status": "Not checked by planner; no new parent live count supplied",
     "confirmed_live_assets": 115,
     "verified_live_build_sha": null,
-    "note": "115 last parent-confirmed public count; new main127 not independently verified public."
-  }
+    "note": "115 historical confirmed checkpoint only; manifest151 separate observation."
+  },
+  "latest_review_workflow_policy": "production/continuous-small-life-round14-20261018/review-policy.json"
 }
