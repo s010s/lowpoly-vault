@@ -14,3 +14,5 @@ This release adds exactly twelve independently reviewed models to the unchanged 
 Local validation: round13 publication rejection suite 57 checks; 438 source handoff pin occurrences; 1752 frozen source/QA files. CI records complete publication regressions and necessary browser checks. Final live reports and workflow timing evidence are available as GitHub Actions artifacts on the exact merged main SHA.
 
 Capture transport note: the initial capture attempt correctly refused a missing frozen log excluded by `.gitignore`. The following ordinary commit retains all 192 referenced ignored evidence files. No refusal assertion was removed or weakened.
+
+CI runtime repair: the asset-pipeline job hit its existing 10-minute job deadline while running the final round13 rejection suite after all preceding suites passed. Its job budget is extended to 20 minutes so the unchanged full suite can complete; no checks or assertions are removed.
