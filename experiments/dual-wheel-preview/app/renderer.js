@@ -9,7 +9,7 @@ const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 export class PreviewRenderer {
  constructor(detail,onChange){
   this.host=detail;this.onChange=onChange;this.cache=new Map();this.pending=new Map();this.token=0;this.hoverToken=0;this.raf=0;this.wire=false;this.comparison=false;
-  this.stats={rendererCount:1,requests:0,aborted:0,stale:0,cacheEntries:0,frames:0,hoverId:null,detailId:null};
+  this.stats={rendererCount:1,requests:0,aborted:0,stale:0,cacheEntries:0,estimatedCacheBytes:0,cacheByteLimit:48*1024*1024,frames:0,hoverId:null,detailId:null};
   this.renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true,powerPreference:'low-power'});
   this.renderer.domElement.className='preview-renderer';this.renderer.domElement.setAttribute('aria-hidden','true');document.body.append(this.renderer.domElement);
   this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.1;
@@ -47,9 +47,12 @@ export class PreviewRenderer {
   const gltf=await new GLTFLoader().parseAsync(bytes,new URL('.',new URL(asset.glb,document.baseURI)).href);
   if(signal?.aborted){this.disposeRoot(gltf.scene);throw new DOMException('Cancelled','AbortError');}
   const box=new THREE.Box3().setFromObject(gltf.scene),size=box.getSize(new THREE.Vector3());
-  const entry={root:gltf.scene,box,size,bytes:bytes.byteLength};this.cache.set(asset.id,entry);this.stats.cacheEntries=this.cache.size;this.trim();return entry;
+  const buffers=new Set(),textures=new Set();gltf.scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index])if(a?.array?.buffer)buffers.add(a.array.buffer);}for(const m of Array.isArray(o.material)?o.material:[o.material])if(m)for(const v of Object.values(m))if(v?.isTexture)textures.add(v);});const estimatedBytes=[...buffers].reduce((n,b)=>n+b.byteLength,0)+[...textures].reduce((n,t)=>n+Math.ceil((t.image?.width||0)*(t.image?.height||0)*4*4/3),0);
+  const entry={root:gltf.scene,box,size,bytes:bytes.byteLength,estimatedBytes};this.cache.set(asset.id,entry);this.stats.cacheEntries=this.cache.size;this.trim(asset.id);return entry;
  }
- trim(){for(const [id,entry] of this.cache){if(this.cache.size<=3)break;if(id===this.detail.asset?.id||id===this.hover?.asset?.id)continue;this.cache.delete(id);this.disposeRoot(entry.root);}this.stats.cacheEntries=this.cache.size;}
+ trim(pendingId){let total=[...this.cache.values()].reduce((n,e)=>n+e.estimatedBytes,0);for(const [id,entry] of this.cache){if(this.cache.size<=3&&total<=this.stats.cacheByteLimit)break;if(id===pendingId||id===this.detail.asset?.id||id===this.hover?.asset?.id)continue;this.cache.delete(id);total-=entry.estimatedBytes;this.disposeRoot(entry.root);}this.stats.cacheEntries=this.cache.size;this.stats.estimatedCacheBytes=total;}
+ disposeView(view){this.detach(view);for(const o of [view.floor,view.grid,view.contact]){o.geometry.dispose();o.material.map?.dispose();o.material.dispose();}view.key.shadow.map?.dispose();view.key.shadow.mapPass?.dispose();view.scene.clear();}
+
  disposeRoot(root){const gs=new Set(),ms=new Set();root.traverse(o=>{if(o.geometry)gs.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])if(m)ms.add(m);});gs.forEach(g=>g.dispose());ms.forEach(m=>{for(const v of Object.values(m))if(v?.isTexture)v.dispose();m.dispose();});}
  detach(view){if(!view?.model)return;view.model.removeFromParent();view.model.traverse(o=>{for(const m of Array.isArray(o.material)?o.material:[o.material])m?.dispose();});view.model=null;}
  attach(view,asset,entry){
@@ -76,12 +79,12 @@ export class PreviewRenderer {
  }
  suspend(){++this.token;this.controller?.abort();this.stopHover();this.controls.enabled=false;this.detach(this.detail);this.draw();}
  async preview(asset,host){
-  this.stopHover();if(reduced()||!this.detail.model||document.hidden)return false;const token=++this.hoverToken;this.hoverController=new AbortController();const hover=this.makeView(false);hover.host=host;this.hover=hover;this.stats.hoverId=asset.id;
+  this.stopHover();if(reduced()||!this.detail.model||document.hidden)return false;const token=++this.hoverToken;this.hoverController=new AbortController();const hover=this.makeView(false);hover.host=host;hover.surface=document.createElement('canvas');hover.surface.className='hover-surface';hover.surface.setAttribute('aria-hidden','true');host.append(hover.surface);this.hover=hover;this.stats.hoverId=asset.id;
   try{const entry=await this.resource(asset,this.hoverController.signal);if(token!==this.hoverToken)return false;this.attach(hover,asset,entry);hover.fitDistance/=1.3;hover.camera.position.copy(hover.target).add(direction(preset.azimuth,preset.elevation).multiplyScalar(hover.fitDistance));hover.camera.lookAt(hover.target);this.draw();return true;}catch(e){if(e.name!=='AbortError')console.warn('Hover fallback',e.message);if(token===this.hoverToken)this.stopHover();return false;}
  }
  animateHover(){if(!this.hover?.model||reduced())return;const start=performance.now();const tick=now=>{if(!this.hover?.model||document.hidden||reduced()){this.raf=0;return;}const angle=Math.min(15,(now-start)*.006);const h=this.hover;h.camera.position.copy(h.target).add(direction(preset.azimuth+angle,preset.elevation).multiplyScalar(h.fitDistance));h.camera.lookAt(h.target);this.draw();if(angle<15)this.raf=requestAnimationFrame(tick);else this.raf=0;};this.raf=requestAnimationFrame(tick);}
  hoverView(){if(!this.hover?.model)return null;const p=this.hover.camera.position.clone().sub(this.hover.target);return {azimuth:THREE.MathUtils.radToDeg(Math.atan2(p.x,p.z)),elevation:THREE.MathUtils.radToDeg(Math.asin(p.y/p.length()))};}
- stopHover(){++this.hoverToken;this.hoverController?.abort();if(this.raf)cancelAnimationFrame(this.raf);this.raf=0;if(this.hover){this.detach(this.hover);for(const o of [this.hover.floor,this.hover.grid,this.hover.contact]){o.geometry.dispose();if(o.material.map)o.material.map.dispose();o.material.dispose();}this.hover=null;}this.stats.hoverId=null;this.onHoverStop?.();this.draw();}
+ stopHover(){++this.hoverToken;this.hoverController?.abort();if(this.raf)cancelAnimationFrame(this.raf);this.raf=0;if(this.hover){const surface=this.hover.surface;if(surface){surface.style.opacity='0';setTimeout(()=>surface.remove(),reduced()?0:140);}this.disposeView(this.hover);this.hover=null;}this.stats.hoverId=null;this.onHoverStop?.();this.draw();}
  wireframe(value){this.wire=value;this.detail.model?.traverse(o=>{if(o.isMesh)for(const m of Array.isArray(o.material)?o.material:[o.material])m.wireframe=value;});this.draw();}
  zoom(factor){if(!this.detail.model)return;this.cancelCamera();const camera=this.detail.camera,direction=camera.position.clone().sub(this.controls.target);const distance=Math.max(.8,Math.min(25,direction.length()*factor));camera.position.copy(this.controls.target).add(direction.setLength(distance));this.controls.update();this.draw();}
  rotate(azimuth,elevation){this.cancelCamera();const state=this.viewState();const camera=this.detail.camera;camera.position.copy(this.controls.target).add(direction(state.azimuth+azimuth,Math.max(3,Math.min(87,state.elevation+elevation))).multiplyScalar(state.distance));this.controls.update();this.draw();}
@@ -93,9 +96,9 @@ export class PreviewRenderer {
   this.stopHover();this.comparisonSnapshot=this.viewState();this.comparison=true;const v=this.detail,s=v.scale;const span=Math.max(...v.entry.size.toArray());const hand=span<.6;const group=new THREE.Group();const material=new THREE.MeshStandardMaterial({color:'#c9cebf',roughness:1,transparent:true,opacity:.7,flatShading:true});
   const mesh=(geo,x,y,z)=>{const o=new THREE.Mesh(geo,material.clone());o.position.set(x,y,z);o.castShadow=true;group.add(o);return o;};
   if(hand){ // A deliberately schematic 18 cm hand, in the same authored meter units.
-   mesh(new THREE.BoxGeometry(.075,.082,.019),0,.064,0);
-   const heights=[.065,.092,.098,.078];for(let i=0;i<4;i++)mesh(new THREE.CylinderGeometry(.008,.010,heights[i],5),-.028+i*.019,.102+heights[i]/2,0);
-   const thumb=mesh(new THREE.CylinderGeometry(.010,.012,.058,5),.052,.068,.002);thumb.rotation.z=-.65;
+   const palm=new THREE.Shape();palm.moveTo(-.023,.018);palm.lineTo(.023,.018);palm.quadraticCurveTo(.041,.055,.037,.102);palm.lineTo(-.036,.102);palm.quadraticCurveTo(-.042,.055,-.023,.018);const palmGeometry=new THREE.ExtrudeGeometry(palm,{depth:.016,bevelEnabled:true,bevelSegments:1,steps:1,bevelSize:.002,bevelThickness:.002,curveSegments:3});mesh(palmGeometry,0,0,-.008);
+   const heights=[.065,.092,.098,.078];for(let i=0;i<4;i++)mesh(new THREE.CapsuleGeometry(.0085,heights[i]-.017,2,5),-.028+i*.019,.102+heights[i]/2,0);
+   const thumb=mesh(new THREE.CapsuleGeometry(.011,.036,2,5),.052,.068,.002);thumb.rotation.z=-.65;
    // Normalize the schematic's total measured extent to exactly 0.18 m.
    const box=new THREE.Box3().setFromObject(group);group.scale.setScalar(.18/box.getSize(new THREE.Vector3()).y);const bounds=new THREE.Box3().setFromObject(group);group.position.y=-bounds.min.y;
   }else{
@@ -117,11 +120,11 @@ export class PreviewRenderer {
  draw(){if(!this.renderer||this.lost||document.hidden)return;const width=innerWidth,height=innerHeight;const size=this.renderer.getSize(new THREE.Vector2());if(size.x!==width||size.y!==height)this.renderer.setSize(width,height,false);
   this.renderer.setScissorTest(false);this.renderer.setClearColor(0,0);this.renderer.clear(true,true,true);
   if(this.visible)this.renderView(this.detail,this.host.getBoundingClientRect());
-  if(this.hover?.host.isConnected&&this.hover.model){const r=this.hover.host.getBoundingClientRect(),list=document.querySelector('#wheel').getBoundingClientRect();const clip={left:Math.max(r.left,list.left),right:Math.min(r.right,list.right),top:Math.max(r.top,list.top),bottom:Math.min(r.bottom,list.bottom)};clip.width=clip.right-clip.left;clip.height=clip.bottom-clip.top;if(clip.width>0&&clip.height>0)this.renderView(this.hover,r,clip);}
+  if(this.hover?.host.isConnected&&this.hover.model){const r=this.hover.host.getBoundingClientRect(),list=document.querySelector('#wheel').getBoundingClientRect();const clip={left:Math.max(r.left,list.left),right:Math.min(r.right,list.right),top:Math.max(r.top,list.top),bottom:Math.min(r.bottom,list.bottom)};clip.width=clip.right-clip.left;clip.height=clip.bottom-clip.top;if(clip.width>0&&clip.height>0){this.renderer.setClearColor(0,0);this.renderView(this.hover,r,clip);const ratio=this.renderer.getPixelRatio(),surface=this.hover.surface,w=Math.max(1,Math.round(r.width*ratio)),h=Math.max(1,Math.round(r.height*ratio));if(surface.width!==w||surface.height!==h){surface.width=w;surface.height=h;}const ctx=surface.getContext('2d');ctx.clearRect(0,0,w,h);ctx.drawImage(this.renderer.domElement,r.left*ratio,r.top*ratio,r.width*ratio,r.height*ratio,0,0,w,h);this.renderer.setClearColor(0,0);this.renderer.setScissor(clip.left,innerHeight-clip.bottom,clip.width,clip.height);this.renderer.clear(true,true,true);}}
   this.renderer.setScissorTest(false);this.stats.frames++;this.stats.detailId=this.detail.asset?.id||null;
  }
  captureDetail(){this.draw();const rect=this.host.getBoundingClientRect(),ratio=this.renderer.getPixelRatio();const canvas=document.createElement('canvas');canvas.width=Math.round(rect.width*ratio);canvas.height=Math.round(rect.height*ratio);canvas.getContext('2d').drawImage(this.renderer.domElement,rect.left*ratio,rect.top*ratio,rect.width*ratio,rect.height*ratio,0,0,canvas.width,canvas.height);return canvas;}
  async poster(asset){const controller=new AbortController();const entry=await this.resource(asset,controller.signal);const view=this.makeView(false);this.attach(view,asset,entry);
-  const oldSize=this.renderer.getSize(new THREE.Vector2()),oldRatio=this.renderer.getPixelRatio();this.renderer.setPixelRatio(1);this.renderer.setSize(512,512,false);this.renderer.setScissorTest(false);this.renderer.setViewport(0,0,512,512);this.renderer.setClearColor(0,0);this.resizeCamera(view,512,512);this.renderer.clear(true,true,true);this.renderer.render(view.scene,view.camera);const data=this.renderer.domElement.toDataURL('image/png');this.detach(view);for(const o of [view.floor,view.grid,view.contact]){o.geometry.dispose();o.material.map?.dispose();o.material.dispose();}this.renderer.setPixelRatio(oldRatio);this.renderer.setSize(oldSize.x,oldSize.y,false);this.draw();return data;
+  const oldSize=this.renderer.getSize(new THREE.Vector2()),oldRatio=this.renderer.getPixelRatio();this.renderer.setPixelRatio(1);this.renderer.setSize(512,512,false);this.renderer.setScissorTest(false);this.renderer.setViewport(0,0,512,512);this.renderer.setClearColor(0,0);this.resizeCamera(view,512,512);this.renderer.clear(true,true,true);this.renderer.render(view.scene,view.camera);const data=this.renderer.domElement.toDataURL('image/png');this.disposeView(view);this.renderer.setPixelRatio(oldRatio);this.renderer.setSize(oldSize.x,oldSize.y,false);this.draw();return data;
  }
 }
