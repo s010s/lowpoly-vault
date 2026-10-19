@@ -9,6 +9,8 @@ Use deliberately designed planes to communicate identity, weight, material, and 
 
 The current target is refined, textured low-poly. Rich original surface maps and mixed smooth/faceted shading are compatible with this goal. Separate geometry complexity from texture resolution, memory and material cost. Texture cannot repair a wrong outline, missing anatomy or implausible joint. The [Triceratops and environment surface study](../../docs/case-studies/lightweight-triceratops.md) records where inexpensive regional color helped, where fine relief was lost, and why three surface-heavy environment prototypes were rejected. Use its [controlled comparison checklist](../blender-lowpoly-pipeline/references/controlled-optimization.md) for new variants; its accepted byte count is an example, not a preset. Follow the [standardized pipeline](../blender-lowpoly-pipeline/references/standardized-pipeline.md) for frozen briefs, independent review and acceptance records.
 
+For an explicitly concept-first study, use [concept-guided-lowpoly](../concept-guided-lowpoly/SKILL.md) to retain genuine ImageGen concepts, translate them into volumetric briefs and compare exact exported-GLB evidence. Its three-case lessons supplement this art direction; they do not set a universal texture or size policy.
+
 ## Establish the brief
 
 - Record the category, viewing distance, real or explicitly stylized scale, three identifying features, and dominant silhouette. For trace-based assets such as nests and footprint slabs, also name the identifying internal geometry.

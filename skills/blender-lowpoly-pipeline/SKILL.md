@@ -13,6 +13,8 @@ The researched baseline is Blender 4.3.2, verified at `/usr/bin/blender` on 2026
 
 Read [standardized-pipeline.md](references/standardized-pipeline.md) for the required brief-to-review lifecycle and parallel batch boundaries. For surface or delivery-size revisions, use the [controlled optimization checklist](references/controlled-optimization.md) and the [measured lightweight case study](../../docs/case-studies/lightweight-triceratops.md). Use [production-contract.md](references/production-contract.md) for asset decisions and [qa-design.md](references/qa-design.md) for existing executable checks. Official references and observed runtime facts are in [sources.md](references/sources.md).
 
+For requested ImageGen-first production or refinement, add the [concept-guided study](../concept-guided-lowpoly/SKILL.md) checkpoint and evidence sidecar. Reuse this skill’s export and candidate gates; the supplemental checker does not approve production or substitute for target-browser testing.
+
 ## Asset contract
 
 Deliver one editable `.blend`, a standalone `.glb`, the deterministic Blender Python generator and parameters, transparent/neutral previews, and machine-readable metadata plus QA. Write to `assets/<collection_id>/<category>/<slug>/`; default collection is `prehistoric`. Keep the source and presentation scene separate from the exported asset. A generated asset is original geometry; reference photos, diagrams, and scientific facts still need provenance. State artistic reconstruction choices without claiming uncertain anatomy is settled.

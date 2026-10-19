@@ -303,3 +303,7 @@ not evidence that any production model looks good or is factually correct.
 ## Explicit static candidate contract (rules 2026-10-18.1)
 
 Default `legacy-v1` retains every existing study/production requirement. The explicitly selected `static-stylized-v1` contract supports the owner-approved eight fixed views (`hero`, `reversehero`, `front`, `side`, `rear`, `top`, `clay`, `silhouette`), zero turntable frames, and clearly declared consulted-only references. It requires a candidate/policy hash sidecar; all production stages, budgets, source deliverables, provenance, technical reports and independent approval checks remain mandatory. See [the implementation and boundary guide](../docs/candidate-profile-compatibility.zh-CN.md) for commands and the separate meanings of profile compatibility, record validity, approval and publication authority. Unknown/pending stages and historical record-format failures remain failures or blockers, never inferred approvals. Original records and `legacy_result` are preserved.
+
+## Optional concept-first study evidence
+
+For genuine ImageGen-before-modeling studies, the additive [concept-guided skill](../skills/concept-guided-lowpoly/SKILL.md) supplies a brief/prompt template and a supplemental `concept_evidence` sidecar. `scripts/validate_concept_evidence.py` reuses the safe file/hash and render-manifest checks here; it never changes candidate stages, approves a release or reduces profile coverage. See its [commands and limitations](../skills/concept-guided-lowpoly/references/workflow.md).
