@@ -1,0 +1,130 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "asset_id": "mackenzia",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "checker": "/workspace/lowpoly-vault/scripts/check_source_export.py",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/mackenzia.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "rebuild_helper": "/workspace/lowpoly-vault/scripts/check_reproducibility.py",
+        "source": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/mackenzia/r001/mackenzia.blend"
+      },
+      "job_id": "source-export",
+      "outputs": [
+        "source-export.report.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "asset_id": "prasopora",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "checker": "/workspace/lowpoly-vault/scripts/check_source_export.py",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/prasopora.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "rebuild_helper": "/workspace/lowpoly-vault/scripts/check_reproducibility.py",
+        "source": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r002/prasopora.blend"
+      },
+      "job_id": "source-export",
+      "outputs": [
+        "source-export.report.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "asset_id": "strophomena",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "checker": "/workspace/lowpoly-vault/scripts/check_source_export.py",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/strophomena.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "rebuild_helper": "/workspace/lowpoly-vault/scripts/check_reproducibility.py",
+        "source": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/strophomena/r003/strophomena.blend"
+      },
+      "job_id": "source-export",
+      "outputs": [
+        "source-export.report.json"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "asset_id": "ctenoimbricata",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "checker": "/workspace/lowpoly-vault/scripts/check_source_export.py",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/ctenoimbricata/r001/ctenoimbricata.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "rebuild_helper": "/workspace/lowpoly-vault/scripts/check_reproducibility.py",
+        "source": "/workspace/lowpoly-vault/assets/candidates/undersea-invertebrates-concept-20261019/ctenoimbricata/r001/ctenoimbricata.blend"
+      },
+      "job_id": "source-export",
+      "outputs": [
+        "source-export.report.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
