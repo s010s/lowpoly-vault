@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "czekanowskia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/czekanowskia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/czekanowskia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch49/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch49/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/czekanowskia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/czekanowskia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/czekanowskia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "czekanowskia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "czekanowskia/czekanowskia.blend",
+        "czekanowskia/czekanowskia.glb",
+        "czekanowskia/qa.json",
+        "czekanowskia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch49 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "czekanowskia",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/czekanowskia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/czekanowskia/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch49/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch49/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/czekanowskia/brief.json",
+        "references": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/czekanowskia/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/czekanowskia/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "czekanowskia",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "czekanowskia/czekanowskia.blend",
+        "czekanowskia/czekanowskia.glb",
+        "czekanowskia/qa.json",
+        "czekanowskia/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch49 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
