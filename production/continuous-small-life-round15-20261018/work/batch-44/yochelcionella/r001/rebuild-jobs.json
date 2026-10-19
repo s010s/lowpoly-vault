@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "yochelcionella",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/build.py",
+        "inventory": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/inventory-record.json",
+        "config": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/config.json",
+        "brief": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/brief.json",
+        "references": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/references.json",
+        "freeze": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/freeze.json",
+        "original_config": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/build-config.json",
+        "policy": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/reference-policy.json",
+        "review_policy": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/review-policy.json",
+        "helper": "/workspace/batch44-yochelcionella/scripts/asset_common.py",
+        "audit": "/workspace/batch44-yochelcionella/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "yochelcionella.glb",
+        "yochelcionella.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101811,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "yochelcionella",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/build.py",
+        "inventory": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/inventory-record.json",
+        "config": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/config.json",
+        "brief": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/brief.json",
+        "references": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/references.json",
+        "freeze": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/freeze.json",
+        "original_config": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/build-config.json",
+        "policy": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/reference-policy.json",
+        "review_policy": "/workspace/batch44-yochelcionella/production/continuous-small-life-round15-20261018/work/batch-44/yochelcionella/r001/review-policy.json",
+        "helper": "/workspace/batch44-yochelcionella/scripts/asset_common.py",
+        "audit": "/workspace/batch44-yochelcionella/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "yochelcionella.glb",
+        "yochelcionella.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101811,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
