@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "alluvial-fan",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/alluvial-fan/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/alluvial-fan/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch46/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch46/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/alluvial-fan/brief.json",
+        "references": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/alluvial-fan/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/alluvial-fan/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "alluvial-fan",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "alluvial-fan/alluvial-fan.blend",
+        "alluvial-fan/alluvial-fan.glb",
+        "alluvial-fan/qa.json",
+        "alluvial-fan/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch46 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "alluvial-fan",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/alluvial-fan/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/alluvial-fan/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch46/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch46/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/alluvial-fan/brief.json",
+        "references": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/alluvial-fan/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/alluvial-fan/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "alluvial-fan",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "alluvial-fan/alluvial-fan.blend",
+        "alluvial-fan/alluvial-fan.glb",
+        "alluvial-fan/qa.json",
+        "alluvial-fan/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch46 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
