@@ -36,6 +36,15 @@ jobs:
         env:
           REQUIRE_COMPLETE_GALLERY: '1'
         run: node site/audit-release.mjs
+      - name: Preserve audited gallery captures for source integration
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-gallery-capture-${{ github.sha }}
+          path: |
+            dist/gallery/
+            dist/assets/manifest.json
+          if-no-files-found: error
       - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
         run: npm run test:gallery:browser
       - name: Exact seven concept assets, renderer, downloads and bilingual source labels
