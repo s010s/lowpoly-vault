@@ -17,6 +17,12 @@ Our old 250–2,600 **exported-triangle** bands describe the first prehistoric m
 5. **Representation:** decide whether one representation is sufficient, or whether environmental, close-inspection, far, or LOD variants solve a real need. Do not demand a fixed number of LODs.
 6. **Independent limits and proof:** propose separate vertex, triangle, material/primitive, texture-memory, file-size, and shader/overdraw limits. Freeze numerical ceilings only after representative samples pass visual and populated-runtime tests; record measurements and unresolved tests.
 
+## Soft study targets are not production caps
+
+The three-case concept-first study used roughly 1,000,000 bytes per GLB as a soft delivery target, excluding editable `.blend` sources, renders and archives. It retained identifying structure rather than degrading geometry to meet that number. Its R1 files were 18,816, 240,024 and 142,420 bytes; this is observed evidence, not a budget for unrelated assets. Palette-only construction was a study choice, not a prohibition on textures.
+
+R2 coral increased from 3,000 to 4,200 triangles but the user preferred R1. R2 fish gained triangles while its GLB shrank. Neither count direction establishes quality or runtime performance; use matched visual review and measured deployment costs. The 41-primitive fish and double-sided materials remain runtime advisories despite small files and zero Khronos warnings. See [the case record](../../concept-guided-lowpoly/references/pilot-lessons.md).
+
 ## Report explicit counts
 
 Use these field meanings consistently, or declare a different convention before comparing reports. Stored geometry and scene-instance workload are different measurements. Record per-representation/LOD counts as well as any whole-file total; do not charge every stored LOD as simultaneously active in a scene estimate.

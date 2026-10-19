@@ -1,9 +1,9 @@
 ---
 name: blender-lowpoly-pipeline
-description: Create reproducible original low-poly Blender assets, GLB exports, previews, and QA reports for a Three.js prehistoric museum and its environment library. Use for new asset production or revisions, not for copying or relicensing third-party models.
+description: Build original concept-guided low-poly Blender assets, editable sources, GLB exports, exact-export previews and QA records. Use for bounded design studies or formal production revisions across the library; keep their acceptance and publication scopes distinct.
 ---
 
-# Build low-poly museum assets
+# Build original low-poly assets
 
 ## Scope and runtime
 
@@ -13,11 +13,15 @@ The researched baseline is Blender 4.3.2, verified at `/usr/bin/blender` on 2026
 
 Read [standardized-pipeline.md](references/standardized-pipeline.md) for the required brief-to-review lifecycle and parallel batch boundaries. For surface or delivery-size revisions, use the [controlled optimization checklist](references/controlled-optimization.md) and the [measured lightweight case study](../../docs/case-studies/lightweight-triceratops.md). Use [production-contract.md](references/production-contract.md) for asset decisions and [qa-design.md](references/qa-design.md) for existing executable checks. Official references and observed runtime facts are in [sources.md](references/sources.md).
 
-For requested ImageGen-first production or refinement, add the [concept-guided study](../concept-guided-lowpoly/SKILL.md) checkpoint and evidence sidecar. Reuse this skill’s export and candidate gates; the supplemental checker does not approve production or substitute for target-browser testing.
+## Choose the review scope, then establish the concept
+
+For new concept-led geometry, generate genuine ImageGen concepts, inspect them, then freeze the modeling brief before construction. Use [concept-guided-lowpoly](../concept-guided-lowpoly/SKILL.md) for prompts, compatible multiview interpretation, retained provenance and the evidence sidecar. Existing export repairs or revisions may reuse a retained concept; do not invent a new pre-model concept after the model exists. Images guide silhouette, palette and material regions, not unique geometry or factual truth.
+
+A **bounded design study** can deliver editable sources, exact-GLB views, measured checks and explicit unknowns for comparison. Keep it in an isolated study/revision folder; it does not enter production asset paths or release counts. A **formal production candidate** must additionally satisfy the frozen candidate profile, source/export/rebuild, factual/specification and target-runtime gates below. The study checker reports integrity/completeness, never production acceptance. The [standardized lifecycle](references/standardized-pipeline.md) owns both routes and their transition.
 
 ## Asset contract
 
-Deliver one editable `.blend`, a standalone `.glb`, the deterministic Blender Python generator and parameters, transparent/neutral previews, and machine-readable metadata plus QA. Write to `assets/<collection_id>/<category>/<slug>/`; default collection is `prehistoric`. Keep the source and presentation scene separate from the exported asset. A generated asset is original geometry; reference photos, diagrams, and scientific facts still need provenance. State artistic reconstruction choices without claiming uncertain anatomy is settled.
+Deliver one editable `.blend`, a standalone `.glb`, the deterministic Blender Python generator and parameters, exact-export transparent/neutral previews, and machine-readable metadata plus QA. For production assets, write to `assets/<collection_id>/<category>/<slug>/`; default collection is `prehistoric`. Keep the source and presentation scene separate from the exported asset. A generated asset is original geometry; reference photos, diagrams, and scientific facts still need provenance. State artistic reconstruction choices without claiming uncertain anatomy is settled.
 
 Use a dedicated `EXPORT` collection with a single identity-transform root named for the asset. Place the root at the floor contact center (or the explicitly recorded mounting point for a swimming/flying specimen). Author in meters: Blender Z-up and -Y forward, exported glTF Y-up and +Z forward. Retain real-world size across the collection; never independently normalize each asset to a unit cube. Make any display scaling a museum-layout concern.
 
@@ -27,11 +31,13 @@ Choose a palette-only or textured-PBR profile in the brief. The current refined-
 
 ## Reproducible production
 
+The following is the formal-candidate route. For a bounded study, execute the checks in its frozen scope and mark remaining stages unrun; do not call that production acceptance. Share quick full-angle evidence before expensive polish.
+
 1. Start from factory state and build deterministically. Prefer the data API (`bpy.data.meshes.new`, `Mesh.from_pydata`, `bmesh`) over context-sensitive operators; set active object and mode explicitly when an operator is unavoidable. Check invalid mesh input rather than relying on automatic repair.
 2. Store editable semantic parts, material names, palette values, seed, measurements, and source references. Apply or evaluate modifiers deliberately. For mirrored geometry avoid exporting negative determinant transforms; fix winding when baking a reflection. Do not destructively join a rig or destroy useful editable parts merely to reduce object count.
 3. Run source QA on evaluated geometry. Save the `.blend` before temporary preview scene changes. Export only the intended root and descendants with explicit flags; see the tested exporter configuration in the production contract.
 4. Inspect the emitted GLB, run Khronos glTF Validator, and load that exact GLB in the pinned Three.js viewer. Source renders do not establish export correctness. Compare bounds, front direction, colors, silhouette, normals, and ground contact after export.
-5. Produce hero 3/4 plus front/side/rear views with a consistent camera and lighting preset; inspect the actual images. Use a wireframe or clay view when topology/shading needs review. Record performance on the combined museum scene as well as individual assets.
+5. Produce final hero/thumbnail and diagnostic views from a clean import of the delivered GLB, with a consistent camera and lighting preset; inspect the actual images. Source-scene previews are authoring diagnostics only. Map front/side/top to the declared asset axes and label oblique poses honestly. Use a wireframe or clay view when topology/shading needs review. Record performance on the combined museum scene as well as individual assets.
 6. Rebuild twice. Compare semantic metrics and a normalized geometry/material digest; byte-identical `.blend` files are not required. Record checksums of the delivered files for integrity. Deliver only after errors are zero, warnings are reviewed, and visual review is complete.
 
 Freeze each candidate by asset ID, revision, brief/reference hashes and exact GLB hash. Run a fresh independent review task against the brief, reference ledger and actual export evidence, before sharing the maker's verdict. Keep visual craft, factual obligations, specification, parsing, GPU rendering and populated-scene performance separate. Use `scripts/validate_candidate.py` to check record/evidence integrity; it cannot certify beauty or truth. A failed or unknown required gate remains unapproved.

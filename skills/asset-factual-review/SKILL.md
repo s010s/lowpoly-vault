@@ -13,6 +13,12 @@ Read the frozen brief, source/provenance ledger, exact GLB hash, full-angle evid
 
 For each critical feature, require a primary source with an exact section, figure, specimen or measurement. Record edition/date and applicability. A general museum homepage or an attractive third-party model is not a feature-specific authority. Check sources for contradictory restorations, historical mounts, composite specimens and outdated regional standards.
 
+## Match obligations to the declared claim
+
+A stylized decorative fish, coral or rock does not automatically assert a named species, specimen or geological event. Review its explicit design constraints, category label and uncertainty honestly; do not demand scientific reconstruction evidence for claims the brief does not make. Conversely, attractive child-friendly styling cannot excuse a specific factual claim that is made. The formal candidate contract still requires declared critical obligations: use the actual original design brief for invented constraints and applicable primary evidence for external facts, rather than inventing a taxon or silently deleting the gate.
+
+ImageGen and other aesthetic references guide design but are not primary factual authorities. For concept-led work, keep their provenance and cross-view contradictions in the [concept-guided record](../concept-guided-lowpoly/SKILL.md), separate from factual sources. A user selecting an illustration or preferring R1 over R2 records style preference, not scientific or production acceptance.
+
 ## Subject-specific checks
 
 - **Animals:** lock taxon, life stage, pose and reconstruction scope. Check identifying proportions, skeleton/soft-tissue distinction, limb articulation, hands/feet, attachment points and diagnostic structures. Do not count visible nails as all digits. Mark missing/restored anatomy, color, integument, behavior and disputed pose as uncertain or artistic as appropriate.

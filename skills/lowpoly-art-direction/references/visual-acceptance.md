@@ -2,6 +2,12 @@
 
 These are working gates for this project, not universal objective measures of artistic quality. Automated checks establish only what they test. Visual conclusions require opening the actual images.
 
+## Concept comparison and review scope
+
+For concept-led work, inspect the genuine generated concept before modeling, then compare separately labeled exact-GLB renders for outline, proportion, palette and material-region intent. A generated view is not ground-truth geometry; inspect unseen sides, thickness, joins and negative spaces independently. Record contradictory concept views and authored resolutions in the brief.
+
+A bounded study can report what was visibly checked and what remains unknown. The formal-candidate evidence requirements below still apply before production acceptance. Final asset thumbnails must derive from the delivered GLB. Canonical names must match actual camera poses and asset axes; oblique presentation views do not silently satisfy canonical coverage.
+
 ## Minimum evidence per asset
 
 1. A front three-quarter view and an opposite-side three-quarter view under the shared lighting setup.
@@ -40,7 +46,7 @@ Scores are optional comparison notes, never an acceptance threshold. The histori
 
 Follow [asset budgeting](asset-budgeting.md) for separate source/export vertex counts, triangles, materials/primitives, repetition, and viewing assumptions. Review at intended small, medium, and close projected sizes and in the intended population; a normalized thumbnail or an isolated GLB below a cap is insufficient. Optional LODs must actually switch in the target runtime, with transition and identity checks. Mark unavailable device or scene tests unverified rather than inferring performance from counts.
 
-For every structural revision, record the observed weakness, the change, and the expected visible outcome, then compare under matching framing and lighting. "More triangles," "higher resolution," and "more realistic" are not sufficient explanations. Inspect topology spending at bends, joints, terminations, and negative spaces before adding detail elsewhere. Preserve the neutral-gray top-view/internal-relief exception for nests and footprints.
+For every structural revision, record the observed weakness, the change, and the expected visible outcome, then compare under matching framing and lighting. "More triangles," "higher resolution," and "more realistic" are not sufficient explanations. Record whether the revision was actually adopted. The three-case R2 had measurable shape changes, but the user preferred R1 coral and judged the other changes small; none was promoted. Preserve a preferred baseline rather than treating every refinement attempt as progress. Inspect topology spending at bends, joints, terminations, and negative spaces before adding detail elsewhere. Preserve the neutral-gray top-view/internal-relief exception for nests and footprints.
 
 ## Diagnosing generic procedural forms
 
@@ -82,7 +88,7 @@ Decision: pass / rework / conditional pass (state limitations)
 
 ## Independent exact-export evidence
 
-For new production candidates use the [standardized pipeline](../../blender-lowpoly-pipeline/references/standardized-pipeline.md). The list above remains the historical minimum, not sufficient full-angle coverage for a new production approval. Freeze a view plan: a full turntable (24–36 frames is a starting study profile), front/rear/both sides/top/bottom, clay and alternate key, actual wireframe, and subject-specific detail views. Different subjects can justify different sampling; record the reason and inspect uncertain regions with extra views. A montage helps navigate, but retain full-resolution hashed originals. Review every required view; do not approve from a few hero cells.
+For new production candidates use the [standardized pipeline](../../blender-lowpoly-pipeline/references/standardized-pipeline.md). The list above remains the historical minimum, not sufficient full-angle coverage for a new production approval. Freeze the selected profile's view plan: the [explicit static-stylized-v1 contract](../../../schemas/README.md#explicit-static-candidate-contract-rules-2026-10-181) uses its defined eight views and zero turntable frames without waiving other gates. Legacy/other production plans may require a full turntable (24–36 frames is a starting profile), front/rear/both sides/top/bottom, clay and alternate key, actual wireframe, and subject-specific detail views. Different subjects can justify different sampling; record the reason and inspect uncertain regions with extra views. A montage helps navigate, but retain full-resolution hashed originals. Review every required view; do not approve from a few hero cells.
 
 Use `pass`, `fail`, `unknown`, `not_applicable`, or `stale` per criterion. A conditional study verdict does not become a production pass. Each defect records severity, view/location, observation, violated criterion/source, proposed repair and recheck evidence. Give the maker the defect list only after the first independent verdict. A revision needs new export evidence and regression checks in previously passing views.
 

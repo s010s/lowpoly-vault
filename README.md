@@ -21,7 +21,7 @@ Lowpoly Vault is a growing library of original, stylized 3D assets by **Leon Mad
 | Editable **Blender** sources | Portable **GLB** exports | **PNG** previews and a categorized **Web 3D** gallery |
 | Change geometry, materials, and composition | Bring assets into real-time scenes | Find assets by theme and category |
 
-Reproducible scripts and reusable Skills will document the path from modeling to export. The gallery is hosted on [GitHub Pages](https://s010s.github.io/lowpoly-vault/) with English and Simplified Chinese model pages.
+Reproducible scripts and reusable Skills document the path from concept and modeling to export and review. The gallery is hosted on [GitHub Pages](https://s010s.github.io/lowpoly-vault/) with English and Simplified Chinese model pages.
 
 **Choose a theme → find an asset → edit or import → credit the creator.**
 
@@ -53,6 +53,12 @@ assets/
 ```
 
 The published shared catalog lives at `assets/manifest.json`; review builds generate a separate review-only manifest. New metadata can use `worlds` and `packs` without `collection`; legacy `collection` remains a primary-world fallback. See [schema v2](docs/catalog-schema-v2.md).
+
+## Reuse the production skills
+
+Start with [low-poly art direction](skills/lowpoly-art-direction/SKILL.md) for the structural/style brief and [Blender production](skills/blender-lowpoly-pipeline/SKILL.md) for editable geometry, export and QA. New concept-led designs use the integrated [concept-first module](skills/concept-guided-lowpoly/SKILL.md): genuine ImageGen concepts, inspected briefs, exact-GLB previews and matched revision decisions. It includes reusable templates and an evidence checker tested on three representative assets.
+
+Use [factual review](skills/asset-factual-review/SKILL.md) for the claims the brief actually makes and [prehistoric environment guidance](skills/prehistoric-environment-art/SKILL.md) when that subject applies. A bounded study can preserve explicit unknowns; formal production acceptance and authorized publication remain separate. More detailed geometry is not automatically a better revision.
 
 ## License & credit
 

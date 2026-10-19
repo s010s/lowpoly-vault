@@ -2,6 +2,10 @@
 
 For new candidates, follow the versioned [standardized pipeline](standardized-pipeline.md). Historical first-pack defaults below remain useful fixtures; the frozen brief selects the current profile and budgets.
 
+## Concept-guided study route
+
+Use the [standardized lifecycle](standardized-pipeline.md#scope-design-study-or-formal-candidate) to choose study versus formal production. Keep concepts, prompt/receipt, brief, sources and actual-GLB proof distinct. A small study can preserve unknown gates without satisfying this full production contract; it cannot be called production-approved. The three-case pilot's X-aligned fish and oblique cameras are historical choices, not a change to the production axis/view convention below.
+
 ## Proposed output structure
 
 For asset `<slug>`, use `assets/<collection_id>/<category>/<slug>/` containing `<slug>.blend`, `<slug>.glb`, `preview-hero.png`, `preview-reversehero.png`, requested orthographic/diagnostic PNGs, `metadata.json`, `qa.json` and the official validator report. Reproducible generators live in `scripts/models/`. The first collection is `prehistoric`; categories are geology, plants, wood, traces. Preserve this structure for the first pack and keep the collection parameter extensible.
@@ -14,7 +18,7 @@ Metadata should include schema version, slug, display name/taxon, style variant,
 - Keep thin features thick enough to survive the actual museum viewing distance. Inspect negative space between legs, horns, fins, jaws, and the torso at thumbnail size.
 - Baseline static exports contain only meshes and organizational empties. Convert curves and realize Geometry Nodes instances deliberately when the required output is ordinary meshes. Preserve the editable source where helpful.
 - Closed solid body parts should be manifold and outward-facing. A disconnected assembly is not automatically an error. Intentional openings, mouth cavities, open fins, and overlapping anatomical parts need explicit visual review; do not use watertightness as an unconditional pass/fail for every model.
-- Set flat shading explicitly, export normals, and verify the final GLB. glTF triangulates polygons; flat edges can split vertices. A Blender face count is not a shipping triangle or vertex count. Intentional smooth eye or joint surfaces can be documented exceptions.
+- Choose intentional flat, smooth or mixed shading explicitly, export normals, and verify the final GLB. glTF triangulates polygons; flat edges can split vertices. A Blender face count is not a shipping triangle or vertex count. Intentional smooth eye or joint surfaces can be documented exceptions.
 - Bake/apply object scale for ordinary unique static meshes. Avoid negative scale at export and confirm face winding. Keep a stable asset root and named semantic parts. Object origins may remain meaningful for editing, while the asset root defines museum placement.
 
 ## Coordinate and scale conventions
@@ -85,6 +89,8 @@ Record each map's original author/license, dimensions, channel role, encoded byt
 For a surface-only A/B, keep the actual exported triangle positions, normals, pose and camera/light/render settings identical. Use the [controlled optimization checklist](controlled-optimization.md) for fair baselines, format/decoder accounting and safe imported-image handling. Inspect palette baseline, base-color-only, full PBR, clay and alternate key. If UV splitting changes POSITION-stream counts, report that separately from changed geometry. Texture detail is permitted to add realism, but cannot repair wrong proportions or silhouette.
 
 ## Preview preset and visual acceptance
+
+Use a clean import of the exact delivered GLB for final previews and thumbnails. Source-scene images are useful diagnostics but cannot certify the shipped asset. Keep AI concepts separately labeled. Describe camera poses numerically and distinguish canonical, oblique and anatomical directions; a +X camera is not an anatomical side view for an X-aligned fish.
 
 Prefer Cycles CPU for a headless-safe reference render; Eevee requires working graphics support and should first be smoke-tested. Use orthographic camera for front, side, rear; a 35-degree azimuth / 25-degree elevation 3/4 hero and its reverse; fixed soft key/fill/rim areas; transparent PNG and/or neutral background. Keep stage, camera, lights, and labels outside EXPORT. Preserve the `.blend` source before creating temporary preview helpers.
 

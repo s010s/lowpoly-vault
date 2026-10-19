@@ -4,7 +4,7 @@ For new work, the [standardized pipeline](standardized-pipeline.md) adds frozen 
 
 ## Repository interfaces
 
-`../../scripts/asset_common.py` is imported by Blender generators. Its current signatures are:
+`scripts/asset_common.py` (relative to the repository root) is imported by Blender generators. Its current signatures are:
 
 ```python
 collection = setup_scene(slug, seed=0)
@@ -97,9 +97,15 @@ blender --background --factory-startup --python-exit-code 1 --python scripts/che
 
 The script imports the actual GLB into a clean scene, checks count/bounds, and writes isolated GLB-origin hero/wireframe PNGs and `glb-roundtrip.report.json`. It never modifies the source blend, GLB, original QA stages, or metadata. By default the check images are 512 pixels at 32 samples. Exported flat normals split vertices; after re-import this can produce topological boundary-edge counts without a visible hole. Review these as representation warnings rather than automatically rejecting an intact rendered surface. This Blender import is still separate from the Three.js browser gate.
 
-## Final hero-only refinement
+## Concept-study evidence and final exported previews
 
-The first production heroes at 32 samples showed visible CPU path-tracing noise. Final hero images for the first batch are therefore re-rendered at 256 samples after all authors finish writing their models; diagnostics may remain at 32 samples. Do not race a generator that may overwrite the same PNG.
+The [standardized lifecycle](standardized-pipeline.md#scope-design-study-or-formal-candidate) distinguishes a reviewable study from a production-approved candidate. Use `scripts/validate_concept_evidence.py` for supplemental file/hash/chronology records and [the workflow recipe](../../concept-guided-lowpoly/references/workflow.md) for exact-GLB rendering. Its `valid` and `evidence_complete` outputs are distinct, and neither is visual, factual or runtime approval. Missing historical ImageGen receipts/timestamps or render-time manifests stay null/incomplete; a present-day hash cannot recreate an old tool event.
+
+For new final thumbnails use `scripts/render_candidate_views.py` on the actual delivered GLB, retain its hash-bound manifest and inspect the pixels. An ImageGen concept is never a final asset thumbnail. Existing source-preview helpers remain useful for authoring and historical reproducibility, but are not interchangeable with exact-export proof. Keep static advisories such as double-sided materials separate from zero Khronos warnings. Nonzero absolute signed-volume magnitude does not establish outward normals or a printable union; declare the inspection method and limits.
+
+## Historical source-preview hero refinement
+
+The following records the first batch's source-.blend preview route, not the final exact-GLB route for new deliverables. The first production heroes at 32 samples showed visible CPU path-tracing noise. Final hero images for the first batch are therefore re-rendered at 256 samples after all authors finish writing their models; diagnostics may remain at 32 samples. Do not race a generator that may overwrite the same PNG.
 
 For one existing editable source:
 

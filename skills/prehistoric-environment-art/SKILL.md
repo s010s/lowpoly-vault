@@ -55,10 +55,12 @@ Use the model card wording “evidence-informed stylized concept” or “teachi
 
 ## Build and review
 
+For a new concept-led subject, follow the [integrated concept-first route](../concept-guided-lowpoly/SKILL.md) before authoring: generate and inspect the concept, resolve ambiguous views, then freeze the structural brief. Keep its artistic silhouette/palette choices separate from the evidence claims above. Reuse the retained brief for export repairs; no retrospective concept is proof of earlier design intent.
+
 Author original geometry from the structural brief. Viewing a reference is not a reason to download, copy, or lightly alter a third-party model. Do not bundle reference images, institutional text, or source code as if they were original assets.
 
 Review:
-- A monochrome silhouette distinguishes each category without relying on color.
+- For silhouette-led categories, a monochrome silhouette communicates identity without relying on color. For nests and footprint slabs, inspect neutral-gray top views and identifying internal relief instead; their outer silhouette is not an identification gate.
 - Geometry, branching, negative spaces and surface structure express the subject.
 - Names, previews, gallery grouping and metadata make no stronger scientific claim than the brief.
 - Coordinate system, units, origin, intended dimensions and license are explicit.
