@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "brief_sha256": "526130d05b1345ec6f64b791367c537d6d71fb29b547a42325ec92e2b0a0e554",
+    "glb_sha256": "851e07d6c7b66e4e60a14cec6e153d46fbdc11a6f4f4da4480d733dddd075840",
+    "references_sha256": "a8cc44a7f1bce1d7d3ab3ec0f68ea5b4645693dfdc33d5ed4eb14a7392aefe8c",
+    "revision": "r003"
+  },
+  "status": "pass",
+  "method": "Actual fresh static GLB audit, official Khronos validator, source Blender read-only check and two separately queued deterministic rebuild comparisons. All raw report bytes retained.",
+  "observations": [
+    "Static audit and official validator report no errors or warnings.",
+    "Source/export evaluated triangle counts and axis-mapped bounds match.",
+    "Both independently executed rebuild semantic geometry/material digests equal this exact GLB."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 8392,
+    "materials": 3,
+    "primitives": 4,
+    "glb_bytes": 451588,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "851e07d6c7b66e4e60a14cec6e153d46fbdc11a6f4f4da4480d733dddd075840",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/evidence/static-glb.report.json",
+        "sha256": "319421418e6878d4c418e12ea9e4d84200a08b49c57408b9017f992ef62dd536"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "851e07d6c7b66e4e60a14cec6e153d46fbdc11a6f4f4da4480d733dddd075840",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/gltf-validator.report.json",
+        "sha256": "da3f4b8bdaaafd695842936420a3f884c086019b215475691188df0cfd650d91"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "851e07d6c7b66e4e60a14cec6e153d46fbdc11a6f4f4da4480d733dddd075840",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/evidence/source-export.report.json",
+        "sha256": "ff546b4243df9fc46f6efa54d89deda84b93be538a96847f34f73c199c7f792e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "851e07d6c7b66e4e60a14cec6e153d46fbdc11a6f4f4da4480d733dddd075840",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/evidence/reproducibility-1.report.json",
+        "sha256": "6ed29dfc4d8765e111bbad6fa745c523364c043375fa520acba0242be8fd99ba"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "851e07d6c7b66e4e60a14cec6e153d46fbdc11a6f4f4da4480d733dddd075840",
+      "report": {
+        "path": "assets/candidates/undersea-invertebrates-concept-20261019/prasopora/r003/evidence/reproducibility-2.report.json",
+        "sha256": "0d11f473bc2fc603e9d7200af3bc2f12e1b4bc5568842d0d2348fc5dfe6a2d86"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}

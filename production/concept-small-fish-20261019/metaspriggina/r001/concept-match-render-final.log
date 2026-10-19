@@ -1,0 +1,54 @@
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+16:08:19 | INFO: Data are loaded, start creating Blender stuff
+16:08:19 | INFO: Blender create Mesh node continuous-dorsal-tail-fold-mesh
+16:08:19 | INFO: Blender create Mesh node left-catchlight-mesh
+16:08:19 | INFO: Blender create Mesh node left-eye-mesh
+16:08:19 | INFO: Blender create Mesh node left-eye-rim-mesh
+16:08:19 | INFO: Blender create Mesh node left-gill-region-1-mesh
+16:08:19 | INFO: Blender create Mesh node left-gill-region-2-mesh
+16:08:19 | INFO: Blender create Mesh node left-gill-region-3-mesh
+16:08:19 | INFO: Blender create Mesh node left-gill-region-4-mesh
+16:08:19 | INFO: Blender create Mesh node left-gill-region-5-mesh
+16:08:19 | INFO: Blender create Mesh node left-gill-region-6-mesh
+16:08:19 | INFO: Blender create Mesh node left-gill-region-7-mesh
+16:08:19 | INFO: Blender create Mesh node left-myomere-cue-0-mesh
+16:08:19 | INFO: Blender create Mesh node left-myomere-cue-1-mesh
+16:08:19 | INFO: Blender create Mesh node left-myomere-cue-2-mesh
+16:08:19 | INFO: Blender create Mesh node right-catchlight-mesh
+16:08:19 | INFO: Blender create Mesh node right-eye-mesh
+16:08:19 | INFO: Blender create Mesh node right-eye-rim-mesh
+16:08:19 | INFO: Blender create Mesh node right-gill-region-1-mesh
+16:08:19 | INFO: Blender create Mesh node right-gill-region-2-mesh
+16:08:19 | INFO: Blender create Mesh node right-gill-region-3-mesh
+16:08:19 | INFO: Blender create Mesh node right-gill-region-4-mesh
+16:08:19 | INFO: Blender create Mesh node right-gill-region-5-mesh
+16:08:19 | INFO: Blender create Mesh node right-gill-region-6-mesh
+16:08:19 | INFO: Blender create Mesh node right-gill-region-7-mesh
+16:08:19 | INFO: Blender create Mesh node right-myomere-cue-0-mesh
+16:08:19 | INFO: Blender create Mesh node right-myomere-cue-1-mesh
+16:08:19 | INFO: Blender create Mesh node right-myomere-cue-2-mesh
+16:08:19 | INFO: Blender create Mesh node soft-body-mesh
+16:08:19 | INFO: Blender create Mesh node ventral-tail-fold-mesh
+16:08:19 | INFO: glTF import finished in 0.27s
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/production/concept-small-fish-20261019/render_concept_match.py", line 18, in <module>
+    renderer.main()
+    ~~~~~~~~~~~~~^^
+  File "/workspace/lowpoly-vault/scripts/render_candidate_views.py", line 197, in main
+    'audit_helper_sha256':digest(Path(__file__).with_name('qa_glb.py')),
+                          ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/production/concept-small-fish-20261019/render_concept_match.py", line 17, in <lambda>
+    renderer.digest=lambda path: _digest(REPO/'scripts/asset_common.py' if Path(path).name=='asset_common.py' else path)
+                                 ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/scripts/render_candidate_views.py", line 35, in digest
+    with Path(path).open('rb') as stream:
+         ~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 539, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/lowpoly-vault/production/concept-small-fish-20261019/qa_glb.py'
+
+Error: script failed, file: 'production/concept-small-fish-20261019/render_concept_match.py', exiting.
+Blender 4.3.2
+
+Blender quit

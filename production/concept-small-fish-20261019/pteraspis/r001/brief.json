@@ -1,0 +1,58 @@
+{
+  "asset_id": "pteraspis",
+  "revision": "r001",
+  "frozen_at": "2026-10-19T15:59:15.649263+00:00",
+  "label": "Pteraspis-inspired armored swimmer",
+  "scope": "Original stylized child-friendly scene prop inspired by inventory taxon; not a scientific reconstruction. The inventory is unchanged.",
+  "design": "Ochre rounded thick head shield continuing into a pointed rostrum; narrow brown posterior trunk, two small hard lateral shield flanges and a single rear-shield dorsal spine. No separate fleshy pectoral fins. Lower caudal lobe larger than upper; small eyes recessed in the lateral shield. Broad shield must remain a volume in rear and top views.",
+  "concept": "../../concept-original.png",
+  "concept_row": 3,
+  "axes": {
+    "forward": "-Y",
+    "up": "+Z",
+    "meters": true
+  },
+  "budgets": {
+    "asset_id": "pteraspis",
+    "revision": "r001",
+    "length_m": 0.23,
+    "seed": 19,
+    "max_triangles": 16000,
+    "max_materials": 7,
+    "max_primitives": 90,
+    "soft_glb_bytes": 1000000,
+    "surface_profile": "palette-only",
+    "mount_origin": "swimming body midline at (0,0,0), not floor contact",
+    "role": "supporting scene life, typical 128px; inspectable at 512px",
+    "normal_visible_copies": 8,
+    "stress_visible_copies": 32,
+    "runtime_target": "repository pinned Three.js; parent independent runtime/GPU/scene QA pending"
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "turntable_frames": 0,
+  "coverage": "Eight geometric directions plus clay, alternate key and exact triangulated wire. Static bounded candidate for independent QA, no approval or publication.",
+  "critical_obligations": [
+    "Readable independent silhouette and distinctive secondary feature",
+    "Closed volumetric editable body and thick fin components",
+    "Paired landmarks and clean attachment from reverse/top/bottom",
+    "Actual exported-GLB proof and real metrics",
+    "All claims narrowed to stylized inspired scope; scientific limits retained"
+  ],
+  "source_id": "PTER-RESEARCH",
+  "pending": [
+    "independent visual/factual/specification QA",
+    "target Three.js parse/GPU/populated scene validation"
+  ]
+}

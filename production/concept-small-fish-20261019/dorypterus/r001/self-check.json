@@ -1,0 +1,53 @@
+{
+  "asset_id": "dorypterus",
+  "revision": "r001",
+  "review_kind": "maker self-check, not independent acceptance",
+  "inspected_at": "2026-10-19T16:09:56.947204+00:00",
+  "glb_sha256": "33955b1156a50104edbbab7f00bd244c6b17c650ec07bf6d1416ab2d3f7ef06e",
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "observation": "Tall sail, oval deep body, small tail and paired under-head fins read in side and gray views. Top/end/bottom show actual lateral body thickness and biconvex sail. Sail contour and fin bases are more angular than the concept; this is a bounded initial candidate and no superiority over the illustration is asserted.",
+  "technical": {
+    "source_errors": [],
+    "glb_errors": [],
+    "khronos": {
+      "status": "pass",
+      "validator_version": "2.0.0-dev.3.10",
+      "sha256": "33955b1156a50104edbbab7f00bd244c6b17c650ec07bf6d1416ab2d3f7ef06e",
+      "errors": [],
+      "warnings": [],
+      "num_errors": 0,
+      "num_warnings": 0,
+      "report": "gltf-validator.report.json",
+      "truncated": false
+    }
+  },
+  "warning_review": [
+    {
+      "warning": "Lowest Blender Z is -0.026400 m; verify mount/ground contract",
+      "rationale": "This is a swimming animal with declared midline mounting origin at (0,0,0); negative minimum Z/Y is intentional, not a floor-contact failure."
+    },
+    {
+      "warning": "Lowest glTF Y is -0.026400 m; verify mounting/ground contract",
+      "rationale": "This is a swimming animal with declared midline mounting origin at (0,0,0); negative minimum Z/Y is intentional, not a floor-contact failure."
+    }
+  ],
+  "acceptance": "pending independent visual/factual/specification and runtime/GPU/scene QA",
+  "limits": [
+    "No hardware GPU or populated scene performance measured",
+    "No fossil-exact taxon or colour reconstruction claimed",
+    "Concept image camera is uncalibrated; concept-angle render is only an approximation",
+    "No release or deployment decision"
+  ]
+}
