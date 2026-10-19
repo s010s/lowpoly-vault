@@ -37,3 +37,28 @@ Pages and the full-release workflow run capture plus the complete audit before d
 `npm run test:gallery:browser` exercises actual browser routes and interactions, including interruptions and repeated actions. Legacy grid-specific browser acceptance entrypoints detect the new build and run the corresponding wheel/detail scenarios. Static documents, downloads, publication rejection tests and all-asset parsing remain mandatory.
 
 Browser screenshots and raster/interaction results must be reported separately from deterministic geometry checks. Software-rendered Chromium and emulated touch do not establish physical-device or Safari performance.
+
+## Refresh first-paint regression (2026-10-19)
+
+A cold list-page refresh exposed the legacy header before any lazy CSS arrived:
+its SVG had no intrinsic dimensions and became a large filled polygon. The SSG
+head now carries a model-route-only, dependency-free fallback guard. It hides
+inactive app shells while retaining readable linked model cards, with coherent
+saved/system light and dark colors. Template SVGs also have explicit dimensions
+and stroke/fill defaults.
+
+The gallery module is now DOM-inert until `mountGallery()` is called. Bootstrap
+loads its code/CSS and the complete catalog in parallel while retaining the SSG
+article, then swaps and mounts with no intervening network dependency. Geometry
+is measured with the gallery visible; initial GLB loading still uses the approved
+poster/first-frame path. A rejected dependency restores the real SSG document.
+The renderer and approved resource bytes are unchanged.
+
+`node site/gallery-startup-test.mjs` verifies import/mount ordering and rejection
+recovery. The normal gallery browser suite also covers delayed and failed entry,
+bootstrap, main, CSS, manifest and resource requests, plus no-JS/no-external-CSS
+light/dark rendering. A focused real-browser invocation is:
+
+```
+SITE_BASE=/lowpoly-vault/ node --input-type=module -e "import {runGalleryBrowserTests} from './site/gallery-browser-test.mjs'; await runGalleryBrowserTests({groups:['startup','routes','fallback']});"
+```
