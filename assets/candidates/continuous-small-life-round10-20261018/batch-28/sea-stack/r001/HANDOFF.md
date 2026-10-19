@@ -1,0 +1,31 @@
+# sea-stack r001 — independent review pending
+
+Branch `candidate/batch28-sea-stack-20261018`; main base `da272109c96e3c38a7f2421dc2340c192a0153bb`. Worktree `/workspace/batch28-sea-stack`.
+Source thread `01a1187a-1f8d-746a-8448-61f8cb38d0fc`; execution `01a1506d-62ed-70e0-b635-5e8e0a8ac023`; batch28 was explicitly exclusively dispatched by the parent.
+
+Exact GLB SHA-256 `9942438c17285c30ce62e1a8a449c42c1d6726642ba82b40cd162609a2f06720`; **27756 bytes, 454 triangles**. Palette only, no textures. Nominal scale is artistic, not a new fossil measurement. No model geometry was changed during evidence generation.
+
+`views/` contains eight fixed QA views (silhouette 128px, other views 512px), plus a transparent cover from reimported exact GLB. `qa-contact-sheet.png` and `runtime-contact-sheet.png` are navigation aids; full images remain available. Actual Chromium GLTFLoader/ANGLE SwiftShader views, `runtime/near.png`, `runtime/scene-9-copies.png`, runtime report and hashed evidence manifest are provided. Software WebGL proves functional graphics only; local timing is not a physical-device or production benchmark.
+
+`source-export.report.json` reopens the delivered Blend without saving. `source-mesh-measurements.json` directly measures authored/evaluated vertices, finite vertex normals, closed edges, signed volumes, unit scale and root matrix. Two `reproducibility-*.report.json` files bind fresh successful bounded-runner executions to generator/config/helper inputs and exact GLB semantic hashes. The full runner request/results, rebuilt artifacts and stdout/stderr logs remain under `production/continuous-small-life-round10-20261018/work/batch-28/sea-stack/r001/runs/`. One worker × two Blender threads throughout. Khronos output is `gltf-validator.report.json`; separate budget and warning dispositions are in `maker-self-check.json`.
+
+Frozen `brief.json`, `references.json`, planning `build-config.json`, `inventory-record.json`, `freeze.json`, shared `reference-policy.json` and `profile-policy.json` remain unmodified. `references-profile.json` is a byte-identical contract copy because the original already has use='consulted-only' and incorporated=false; the empty change list and both identical hashes are in `references-profile-mapping.json`. It grants no source-media license; source URLs, support and limitations are unchanged. The candidate pins this derived reference hash, never calling it the original frozen hash. Executable `config.json` is separately identified. `reference-access.json` records actual parent textual accesses, failures and uncertainty. No maker institutional-image inspection is claimed. Original geometry and palettes only.
+
+Rebuild in this repository with `blender -b -t 2 --python-exit-code 1 --python build.py -- --config config.json --output /tmp/sea-stack-rebuild`. Helpers are pinned by `dependency-hashes.json`; the bounded-runner manifest pins complete semantic build inputs.
+
+`candidate.json` leaves all seven independent stages unknown/pending. `project-checker.report.json` retains the actual legacy schema failure: consulted-only references do not assert a source-media redistribution license, while legacy still requires the license key. The legacy brief validator also requires at least two turntable frames, conflicting with the agreed zero-frame profile; that later check was not reached in legacy. `profile-contract.json` is generated from real candidate bytes by `scripts/candidate_profile.py`, pins the owner publication policy separately, and selects static-stylized-v1 / 2026-10-18.1. `profile-checker.report.json` and `profile-approved-check.report.json` retain the actual compatibility, candidate validity and independent-approval outcomes; none is prefilled or promoted into publication. Independent criteria remain unknown with structured blockers matching the brief IDs.
+
+No merge, site/CI/permission changes, Drive upload or independent-QA signature performed. Parent coordinates fresh Luna review and release.
+
+One independent steep coastal remnant with a continuous irregular cliff mass and a coherent wave-eroded lower notch, supported by a broad stable foot. Landscape scale retained: nominal 4 m height is a teaching art choice, not an exact locality, measured stack or unit-normalized stone. No water exported.
+单一独立陡立海岸残余岩体，连续不规则峭壁和连贯浪蚀下凹，宽稳岩脚支撑。保留landscape尺度，名义4米高属教学美术，不指定地点、实测岩柱或单位化小石。不导出水体。
+
+Catalog facets preserve the original inventory field-for-field in catalog_facets; worlds/classification/eras/biomes/tags remain original. packs=[] asserts no published pack membership; research_packs holds original planning pack leads. Empty facets remain unspecified.
+
+Original batch-28-QA-SCOPE.json is preserved byte-for-byte and pinned by freeze.qa_scope_sha256. It is planning-only with null source/hash and ready_for_qa=false, not an independent QA execution record. Parent must bind the exact four candidate commits/GLB hashes before fresh review; wrong-subject reports cannot grant PASS.
+
+Workspace setup recovery: sparse-index-recovery.json in this item work records the mistaken no-checkout claim, exact original/recovery commits and full-base tree-object comparisons. The base tree was restored by an append-only ordinary-pushed checkpoint; final net diff contains only this item work/candidate. No main or other branch changed. History is retained.
+
+Retained source launch failure: failed-attempt-00-missing-sparse-helper records an actual owned exit1 before modeling/export because the sparse index had not populated the helper; restored base tree resolved it. Retained craft prototype prototype-01-directional-wave-erosion preserves first complete technical evidence and original ring-waisted rock; maker refined once to a one-sided wave recess, broad rear buttress, stable foot and uneven crest. All final evidence is fresh for the final hash. Landscape scale_class and nominal4m height remain explicit.
+
+Strict serial execution: serial-execution.report.json pins the owned PID/process-group launch/exit ledger. A persistent exclusive lock and active-asset lifecycle gate prevent a second asset from starting before this entire lifecycle completes. All launches were matched by exits with no owned process group remaining. Any nonzero exit is explicitly retained and dispositioned; final evidence checks are reported separately.
