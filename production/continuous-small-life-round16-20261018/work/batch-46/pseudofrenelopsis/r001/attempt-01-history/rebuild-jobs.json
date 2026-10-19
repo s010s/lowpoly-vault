@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "pseudofrenelopsis",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/pseudofrenelopsis/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/pseudofrenelopsis/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch46/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch46/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/pseudofrenelopsis/brief.json",
+        "references": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/pseudofrenelopsis/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/pseudofrenelopsis/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "pseudofrenelopsis",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "pseudofrenelopsis/pseudofrenelopsis.blend",
+        "pseudofrenelopsis/pseudofrenelopsis.glb",
+        "pseudofrenelopsis/qa.json",
+        "pseudofrenelopsis/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch46 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "pseudofrenelopsis",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/pseudofrenelopsis/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/pseudofrenelopsis/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/work/batch-46/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch46/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch46/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/pseudofrenelopsis/brief.json",
+        "references": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/pseudofrenelopsis/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch46/production/continuous-small-life-round16-20261018/items/pseudofrenelopsis/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "pseudofrenelopsis",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "pseudofrenelopsis/pseudofrenelopsis.blend",
+        "pseudofrenelopsis/pseudofrenelopsis.glb",
+        "pseudofrenelopsis/qa.json",
+        "pseudofrenelopsis/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch46 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
