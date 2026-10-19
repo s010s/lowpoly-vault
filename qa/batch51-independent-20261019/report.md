@@ -2,9 +2,21 @@
 
 **结论范围：独立阶段检查，不是正式候选批准。** 核对对象锁定在候选 handoff `6b5bc2793572361242544f7a19afd6bbd71243ab`，资产字节来自材料 commit `ee4e37b3c1cc49ab5e41c807c6ca8e1a155bbc6b`。候选分支为 `candidate/small-life-batch51-concept-20261019`；本报告单独保存在 `qa/batch51-independent-20261019`。
 
+### 2026-10-19 差分复核补充
+
+候选新 head `9000874083b6a6fb8e4e83dc95e4915801eecff4` 保留原 handoff `6b5bc2793572361242544f7a19afd6bbd71243ab` 为祖先，并新增 `specification-correction-v001`。我独立复核后，**Calcite 与 lapilli 的补充名义尺寸说明通过**：Calcite 采用原 prompt/构造计划中的 0.32 m，lapilli 采用 0.28 m；独立解码的未变 GLB 边界被如实单独记录。brief 没有为名义设计尺寸规定与外边界间的数值容差，因此这个通过只表示补充说明消除了互相矛盾的描述值，并不认证任何更严格的尺寸容差。此结论只适用于明确引用该补充 brief/metadata 的描述与尺寸差分检查。
+
+这项补充不能回写旧 r002 候选的正式规格结论：注册的 Calcite/lapilli candidate brief 仍分别写 0.42 m / 0.60 m，候选记录及历史报告仍绑定原 brief 哈希。附录是模型完成后的版本化说明，不是制作前冻结，也没有改变候选阶段、正式批准或概念证据状态。若要让正式候选门禁接受新名义尺寸，需按仓库的不可变修订契约建立并登记明确绑定新 brief 的候选记录，再完成其必需审查；不得把旧候选的历史 PASS 移到新 brief 上。无尺寸原因要求重建模型。
+
+新 index SHA-256 为 `e8d2c00dcee9222b95db16d4630c1aeae14753148f22bbb3615373aecb581616`。来源 checker `verify_correction.py` SHA-256 为 `9ff0634433351b3e5d36f4f7f6762a3ff2627e379d2b3138d384989659922016`；其只读重放通过并验证 772 个受保护原文件、交接 pin 与候选门禁未被改写。我另用独立 GLB POSITION 二进制解码器复算尺寸，并验证 772 个旧 Git blob 与新索引引用。结果和重放脚本见 [差分报告](evidence/differential-v001/report.md)、[机读结果](evidence/differential-v001/independent-verification.json)及 [复核脚本](evidence/differential-v001/verify_spec_correction.py)。
+
+四件原候选的 `--require-approved` 仍全部失败；`--require-complete` 仍全部因 ImageGen 精确生成时间未知而失败。没有用收图时间或文件时间补值。硬件 GPU 和目标父场景不在这次尺寸差分范围内，仍未验证。软件 WebGL 的范围仍仅是此前记录的 SwiftShader 功能重放。
+
 四件模型的标准视图、形体与事实范围通过；GLB 格式、Blender 重开一致性、预算、Khronos 验证和独立软件 WebGL 重放通过。Calcite 与 lapilli 的**名义尺寸字段互相矛盾**，因此规格未通过。所有四件当前 `--require-approved` 都失败；`--require-complete` 也都因精确 ImageGen 生成时间未知而失败。没有改候选、冻结、模型、验证器或生产数据。
 
-## 逐件裁决
+## 原 handoff 逐件裁决（6b5bc 快照）
+
+下表记录旧 handoff 及其注册 brief 的 QA 结果；上方补充仅对新附录中的名义尺寸描述作差分通过判定，不替换表内原候选规格状态。
 
 | 资产 / 修订 | 视觉 | 事实范围 | 规格 | 格式与预算 | 当前正式批准 |
 |---|---|---|---|---|---|
@@ -80,4 +92,4 @@
 - [独立 runtime 报告及逐图哈希比较](evidence/replay/runtime/runtime-replay-summary.json)
 - [Conichnus 独立射线输出、maker 灰模诊断清单和射线记录](evidence/replay/conichnus/)
 
-`verify_inputs.py` 运行结果通过，并确认候选交接 commit 之后没有改动模型或 production 树。此分支只保存独立 QA 与可重放证据；未修改 main、生产 catalog、模型、PR20/PR28，未创建或合并 PR。
+`verify_inputs.py` 运行结果通过，并确认原候选交接 commit 之后没有改动四件模型资产。本补充另检查新候选提交只改了 handoff 指针并新增版本化说明；772 个冻结文件逐一匹配旧 handoff 的 Git blob。此分支只保存独立 QA 与可重放证据；未修改 main、生产 catalog、模型、PR20/PR28，未创建或合并 PR。
