@@ -1,0 +1,656 @@
+{
+  "schema_version": 1,
+  "kind": "independent_batch_qa",
+  "review_date": "2026-10-19",
+  "review_profile": "static-stylized-v1",
+  "rule_version": "2026-10-18.1",
+  "reviewer_context": "Fresh delegated review context, independent of the maker thread; Codex / GPT-6 environment.",
+  "review_commit_author": "Leon Made This <8357465+s010s@users.noreply.github.com>",
+  "scope": {
+    "batch": "batch-36",
+    "source_candidate_branch": "candidate/small-life-batch36-20261018",
+    "source_handoff_commit": "d1974c6e84e4a52f77329419f669ee45dac2c3b9",
+    "model_source_commit": "b0e0b4e7cee3e58d68ba968f91fcb826a4f929bf",
+    "source_main_base": "59672a660b45410333e2e0229cd4a9b041517754",
+    "qa_branch": "qa/s010s/batch36-independent-qa-20261019",
+    "expected_asset_ids": [
+      "gryphaea",
+      "folded-strata-outcrop",
+      "volcanic-bomb",
+      "teredolites-wood-boring-cast"
+    ],
+    "expected_glb_sha256_by_asset": {
+      "gryphaea": "fa7f25433044c572d589ee356625b2767f76f655226d78eff718598e3f750c7e",
+      "folded-strata-outcrop": "dbd2512c5163b8ae8ea2f688ae94a62d62da5aea0d9ec8967e6c7f93e3086dac",
+      "volcanic-bomb": "bb37a65482755f81a6d13ee4f52ff08504d3f2fe1c0212dd2059302701ea7092",
+      "teredolites-wood-boring-cast": "f68a1e3d779205b206d4c968644974797c09fe8946039d135698c37e8e6ba2bb"
+    },
+    "scope_path": "production/continuous-small-life-round12-20261018/work/batch-36/QA-HANDOFF-SCOPE.json"
+  },
+  "content_verdict": "PASS for all four assets within the frozen, expressly stylized teaching-art claim scopes.",
+  "formal_profile_acceptance": "BLOCKED: the profile requires a real hardware-GPU/functional graphics gate for the exact GLBs; this environment provides only ANGLE SwiftShader software WebGL2. Software rendering confirms parse and functional appearance, not physical-device performance.",
+  "must_fix_model_items": [],
+  "required_follow_up": [
+    "For each exact pinned GLB, capture the required WebGL2 functional-render evidence on a supported hardware GPU; record device/renderer, WebGL version, rendered pixels and screenshot SHA-256. Do not upgrade the GPU stage without that evidence. No geometry edit is indicated."
+  ],
+  "nonblocking_notes": [
+    "folded-strata-outcrop GLB (538,828 bytes) exceeds the usual 500,000-byte soft range but is below the 1,000,000-byte hard cap; its six continuous closed solid beds are useful visible geometry.",
+    "Intentional smooth-normal warnings were reviewed against source and GLB pixels. GLB roundtrip boundary-edge warnings are due to flat-normal corner splitting after glTF import; the source parts are closed and rendered surfaces show no missing faces.",
+    "The legacy-v1 checker still reports the consulted-only reference license-field incompatibility. The explicit static-stylized-v1 profile validates; no license is inferred and no gate was altered.",
+    "No candidate, Blend, GLB, maker gate, CI, permissions, Drive or Mac data was changed. Candidate approval remains pending and approved_for_brief remains false."
+  ],
+  "environment": {
+    "blender": "4.3.2",
+    "three_revision": "180",
+    "chromium": "154.0.8037.57",
+    "renderer": "ANGLE SwiftShader software renderer",
+    "api": "WebGL2",
+    "worktree": "/tmp/lowpoly-vault-qa-batch36",
+    "rebuild_workers": 1,
+    "blender_threads_per_job": 2,
+    "hardware_gpu_claim": false
+  },
+  "evidence_root": "qa/continuous-small-life-round12-20261018/batch-36/independent-review/evidence",
+  "assets": [
+    {
+      "asset_id": "gryphaea",
+      "revision": "r001",
+      "selected_attempt": "attempt-03",
+      "candidate_checkpoint_sha": "c04539436d56a2b1bd9bf7b789f7da4898c4a369",
+      "content_verdict": "PASS",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_within_frozen_artistic_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "functional_webgl": "pass_swiftshader_software_only",
+        "hardware_gpu": "unknown",
+        "representative_scene": "pass_swiftshader_software_only"
+      },
+      "profile_check": {
+        "valid": true,
+        "approved_for_brief": false,
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "legacy_checker": false,
+        "legacy_errors": [
+          "IV-CAM-GRYPHAEA.license: nonempty text required"
+        ]
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/gryphaea/r001/attempt-03/gryphaea/gryphaea.blend",
+        "sha256": "df78b68ab5438e6c2849e39e3aea30017ac1e007bbe8db7729f2b1702ff90b5b",
+        "bytes": 790016
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/gryphaea/r001/attempt-03/gryphaea/gryphaea.glb",
+        "sha256": "fa7f25433044c572d589ee356625b2767f76f655226d78eff718598e3f750c7e",
+        "bytes": 159436,
+        "triangles": 8412,
+        "materials": 3,
+        "primitives": 4,
+        "dimensions_m": [
+          0.09000000357627869,
+          0.06924807140603662,
+          0.05240340530872345
+        ],
+        "matches_frozen_scope_pin": true
+      },
+      "source_geometry": {
+        "authored_vertices": 4210,
+        "evaluated_vertices": 4210,
+        "source_export_status": "pass_with_warnings",
+        "source_triangles": 8412,
+        "glb_triangles": 8412,
+        "bounds_max_error_m": 1.3969838619232178e-09,
+        "blender_open_status": "pass",
+        "parts": [
+          {
+            "name": "Deep hooked lower valve",
+            "vertices": 2800,
+            "triangles": 5596,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Flatter upper right lid",
+            "vertices": 1410,
+            "triangles": 2816,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_smooth_normal_warnings_reviewed": [
+          "source: Deep hooked lower valve: smooth faces require intentional-style review",
+          "source: Flatter upper right lid: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "status": "pass",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "sha256": "fa7f25433044c572d589ee356625b2767f76f655226d78eff718598e3f750c7e"
+      },
+      "rebuild": {
+        "two_runs_succeeded": true,
+        "both_glb_bytes_match_delivered": true,
+        "both_semantic_digests_match": true,
+        "rebuild_sha256": [
+          "fa7f25433044c572d589ee356625b2767f76f655226d78eff718598e3f750c7e",
+          "fa7f25433044c572d589ee356625b2767f76f655226d78eff718598e3f750c7e"
+        ]
+      },
+      "runtime": {
+        "three_revision": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_view_count": 10,
+        "single_errors": [],
+        "single_failed_requests": [],
+        "single_gl_errors": [
+          0
+        ],
+        "single_calls": 4,
+        "single_triangles": 8412,
+        "six_instance_scene_view_count": 2,
+        "six_instances": 6,
+        "scene_calls": 24,
+        "scene_triangles": 50472,
+        "scene_errors": [],
+        "scene_failed_requests": [],
+        "hardware_gpu_claim": false
+      },
+      "observations": {
+        "content": "PASS. The export reads as a shell-only Gryphaea-inspired specimen: deep curved, hooked principal valve and a smaller flatter lid that seats along the mouth. Growth relief is visible; no soft tissue, foot, or tentacles are present. The normal and clay pixels preserve the unequal-valve silhouette. Scope remains a stylized shell concept, not an exact specimen reconstruction.",
+        "factual": "Cambridge TF0105 supports two articulated unequal valves, flat upper right and curved lower left, umbo and growth lines. The reviewed model is a shell-only stylized specimen concept.",
+        "visual": "Readable and polished at normal and close viewing sizes; the smaller lid remains visibly attached/aligned, and the hooked principal shell remains distinct in hero, side, rear, top, bottom, clay, silhouette, and runtime views. No must-fix issue."
+      },
+      "must_fix": [],
+      "evidence": {
+        "frozen_artifacts": {
+          "candidate": "production/continuous-small-life-round12-20261018/work/batch-36/gryphaea/r001/candidate.json",
+          "blend": "assets/candidates/continuous-small-life-round12-20261018/batch-36/gryphaea/r001/attempt-03/gryphaea/gryphaea.blend",
+          "glb": "assets/candidates/continuous-small-life-round12-20261018/batch-36/gryphaea/r001/attempt-03/gryphaea/gryphaea.glb",
+          "source_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/gryphaea/r001/attempt-03/gryphaea/source-contact-sheet.jpg",
+          "maker_runtime_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/gryphaea/r001/attempt-03/gryphaea/runtime-contact-sheet.jpg",
+          "source_view_manifest": "assets/candidates/continuous-small-life-round12-20261018/batch-36/gryphaea/r001/attempt-03/gryphaea/view-manifest.json"
+        },
+        "static_profile_check": "evidence/profile/gryphaea.json",
+        "independent_glb_audit": "evidence/glb/gryphaea.json",
+        "independent_khronos_report": "evidence/gltf/gryphaea/gltf-validator.report.json",
+        "blend_source_export": "evidence/blender/gryphaea/source-export.json",
+        "blend_scene_inspection": "evidence/blender/gryphaea/source-scene.json",
+        "glb_blender_roundtrip": "evidence/blender/gryphaea/glb-roundtrip/glb-roundtrip.report.json",
+        "runtime_single": "evidence/runtime/gryphaea/single.json",
+        "runtime_six_copy_scene": "evidence/runtime/gryphaea/scene.json",
+        "rebuilds": "evidence/rebuild/rebuild-comparison.json",
+        "observed_images": [
+          "evidence/runtime/gryphaea/single-hero.png",
+          "evidence/runtime/gryphaea/single-front.png",
+          "evidence/runtime/gryphaea/single-top.png"
+        ]
+      }
+    },
+    {
+      "asset_id": "folded-strata-outcrop",
+      "revision": "r001",
+      "selected_attempt": "attempt-01",
+      "candidate_checkpoint_sha": "fface49adf91aebe4bc3992102e176d9f3bf455a",
+      "content_verdict": "PASS",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_within_frozen_artistic_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "functional_webgl": "pass_swiftshader_software_only",
+        "hardware_gpu": "unknown",
+        "representative_scene": "pass_swiftshader_software_only"
+      },
+      "profile_check": {
+        "valid": true,
+        "approved_for_brief": false,
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "legacy_checker": false,
+        "legacy_errors": [
+          "EN-TE.license: nonempty text required"
+        ]
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/folded-strata-outcrop/r001/attempt-01/folded-strata-outcrop/folded-strata-outcrop.blend",
+        "sha256": "c70a65b36102fd11c9e9e5ffa2e1f800c433e7e505ab32ccfdbadb3c6dc6675d",
+        "bytes": 884808
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/folded-strata-outcrop/r001/attempt-01/folded-strata-outcrop/folded-strata-outcrop.glb",
+        "sha256": "dbd2512c5163b8ae8ea2f688ae94a62d62da5aea0d9ec8967e6c7f93e3086dac",
+        "bytes": 538828,
+        "triangles": 9912,
+        "materials": 4,
+        "primitives": 6,
+        "dimensions_m": [
+          0.9500000178813934,
+          0.42357734590768814,
+          0.256844162940979
+        ],
+        "matches_frozen_scope_pin": true
+      },
+      "source_geometry": {
+        "authored_vertices": 4968,
+        "evaluated_vertices": 4968,
+        "source_export_status": "pass",
+        "source_triangles": 9912,
+        "glb_triangles": 9912,
+        "bounds_max_error_m": 7.450580596923828e-09,
+        "blender_open_status": "pass",
+        "parts": [
+          {
+            "name": "Continuous folded bed 01",
+            "vertices": 828,
+            "triangles": 1652,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Continuous folded bed 02",
+            "vertices": 828,
+            "triangles": 1652,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Continuous folded bed 03",
+            "vertices": 828,
+            "triangles": 1652,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Continuous folded bed 04",
+            "vertices": 828,
+            "triangles": 1652,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Continuous folded bed 05",
+            "vertices": 828,
+            "triangles": 1652,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Continuous folded bed 06",
+            "vertices": 828,
+            "triangles": 1652,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_smooth_normal_warnings_reviewed": []
+      },
+      "khronos": {
+        "status": "pass",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "sha256": "dbd2512c5163b8ae8ea2f688ae94a62d62da5aea0d9ec8967e6c7f93e3086dac"
+      },
+      "rebuild": {
+        "two_runs_succeeded": true,
+        "both_glb_bytes_match_delivered": true,
+        "both_semantic_digests_match": true,
+        "rebuild_sha256": [
+          "dbd2512c5163b8ae8ea2f688ae94a62d62da5aea0d9ec8967e6c7f93e3086dac",
+          "dbd2512c5163b8ae8ea2f688ae94a62d62da5aea0d9ec8967e6c7f93e3086dac"
+        ]
+      },
+      "runtime": {
+        "three_revision": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_view_count": 10,
+        "single_errors": [],
+        "single_failed_requests": [],
+        "single_gl_errors": [
+          0
+        ],
+        "single_calls": 6,
+        "single_triangles": 9912,
+        "six_instance_scene_view_count": 2,
+        "six_instances": 6,
+        "scene_calls": 36,
+        "scene_triangles": 59472,
+        "scene_errors": [],
+        "scene_failed_requests": [],
+        "hardware_gpu_claim": false
+      },
+      "observations": {
+        "content": "PASS. Six continuous, substantial solid beds bend together through an anticline and syncline. The fold and exposed bed thickness remain readable in neutral clay/silhouette and runtime views; this is not a painted stripe effect or a stack of straight bands.",
+        "factual": "NPS tectonic-landforms text supports folding and alternating anticlines/synclines. Bed count, section geometry and nominal scale are appropriately declared as teaching-art choices, without exact strain, site or age claims.",
+        "visual": "Cohesive faceted teaching outcrop with clear fold path and material/face separation. Fresh GLB views and source clay views agree. No must-fix issue. Its 538,828-byte GLB is above the usual 500,000-byte soft range but below the 1,000,000-byte hard limit; the six closed beds justify retaining the structure."
+      },
+      "must_fix": [],
+      "evidence": {
+        "frozen_artifacts": {
+          "candidate": "production/continuous-small-life-round12-20261018/work/batch-36/folded-strata-outcrop/r001/candidate.json",
+          "blend": "assets/candidates/continuous-small-life-round12-20261018/batch-36/folded-strata-outcrop/r001/attempt-01/folded-strata-outcrop/folded-strata-outcrop.blend",
+          "glb": "assets/candidates/continuous-small-life-round12-20261018/batch-36/folded-strata-outcrop/r001/attempt-01/folded-strata-outcrop/folded-strata-outcrop.glb",
+          "source_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/folded-strata-outcrop/r001/attempt-01/folded-strata-outcrop/source-contact-sheet.jpg",
+          "maker_runtime_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/folded-strata-outcrop/r001/attempt-01/folded-strata-outcrop/runtime-contact-sheet.jpg",
+          "source_view_manifest": "assets/candidates/continuous-small-life-round12-20261018/batch-36/folded-strata-outcrop/r001/attempt-01/folded-strata-outcrop/view-manifest.json"
+        },
+        "static_profile_check": "evidence/profile/folded-strata-outcrop.json",
+        "independent_glb_audit": "evidence/glb/folded-strata-outcrop.json",
+        "independent_khronos_report": "evidence/gltf/folded-strata-outcrop/gltf-validator.report.json",
+        "blend_source_export": "evidence/blender/folded-strata-outcrop/source-export.json",
+        "blend_scene_inspection": "evidence/blender/folded-strata-outcrop/source-scene.json",
+        "glb_blender_roundtrip": "evidence/blender/folded-strata-outcrop/glb-roundtrip/glb-roundtrip.report.json",
+        "runtime_single": "evidence/runtime/folded-strata-outcrop/single.json",
+        "runtime_six_copy_scene": "evidence/runtime/folded-strata-outcrop/scene.json",
+        "rebuilds": "evidence/rebuild/rebuild-comparison.json",
+        "observed_images": [
+          "evidence/runtime/folded-strata-outcrop/single-hero.png",
+          "evidence/runtime/folded-strata-outcrop/single-front.png",
+          "evidence/runtime/folded-strata-outcrop/single-top.png"
+        ]
+      }
+    },
+    {
+      "asset_id": "volcanic-bomb",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "candidate_checkpoint_sha": "7de7f002f8f3c0fd85e0655c53de871237bf5bb1",
+      "content_verdict": "PASS",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_within_frozen_artistic_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "functional_webgl": "pass_swiftshader_software_only",
+        "hardware_gpu": "unknown",
+        "representative_scene": "pass_swiftshader_software_only"
+      },
+      "profile_check": {
+        "valid": true,
+        "approved_for_brief": false,
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "legacy_checker": false,
+        "legacy_errors": [
+          "EN-VO3.license: nonempty text required"
+        ]
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/volcanic-bomb/r001/attempt-02/volcanic-bomb/volcanic-bomb.blend",
+        "sha256": "7d54573e0d66b25b9c9e028fa513371ffd21da2a2a64aef5ab0e9bfe97e0d82a",
+        "bytes": 727500
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/volcanic-bomb/r001/attempt-02/volcanic-bomb/volcanic-bomb.glb",
+        "sha256": "bb37a65482755f81a6d13ee4f52ff08504d3f2fe1c0212dd2059302701ea7092",
+        "bytes": 123440,
+        "triangles": 6768,
+        "materials": 1,
+        "primitives": 1,
+        "dimensions_m": [
+          0.25,
+          0.08478078246116638,
+          0.1014842800796032
+        ],
+        "matches_frozen_scope_pin": true
+      },
+      "source_geometry": {
+        "authored_vertices": 3386,
+        "evaluated_vertices": 3386,
+        "source_export_status": "pass_with_warnings",
+        "source_triangles": 6768,
+        "glb_triangles": 6768,
+        "bounds_max_error_m": 0.0,
+        "blender_open_status": "pass",
+        "parts": [
+          {
+            "name": "Single stretched spindle clast with integral cooling crust",
+            "vertices": 3386,
+            "triangles": 6768,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_smooth_normal_warnings_reviewed": [
+          "source: Single stretched spindle clast with integral cooling crust: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "status": "pass",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "sha256": "bb37a65482755f81a6d13ee4f52ff08504d3f2fe1c0212dd2059302701ea7092"
+      },
+      "rebuild": {
+        "two_runs_succeeded": true,
+        "both_glb_bytes_match_delivered": true,
+        "both_semantic_digests_match": true,
+        "rebuild_sha256": [
+          "bb37a65482755f81a6d13ee4f52ff08504d3f2fe1c0212dd2059302701ea7092",
+          "bb37a65482755f81a6d13ee4f52ff08504d3f2fe1c0212dd2059302701ea7092"
+        ]
+      },
+      "runtime": {
+        "three_revision": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_view_count": 10,
+        "single_errors": [],
+        "single_failed_requests": [],
+        "single_gl_errors": [
+          0
+        ],
+        "single_calls": 1,
+        "single_triangles": 6768,
+        "six_instance_scene_view_count": 2,
+        "six_instances": 6,
+        "scene_calls": 6,
+        "scene_triangles": 40608,
+        "scene_errors": [],
+        "scene_failed_requests": [],
+        "hardware_gpu_claim": false
+      },
+      "observations": {
+        "content": "PASS. One continuous, slightly irregular spindle clast reads clearly, with restrained integral shallow surface relief. It is not presented as a modern weapon, eruption scene, damage variant, or exact specimen.",
+        "factual": "NPS Little Springs describes a rounded lava blob with a stretched end and degassing cracks for a spindle bomb. The model is an original stylized concept and its shallow grooves are artistic surface treatment, not a reconstruction of the cited photographed specimen.",
+        "visual": "A clean one-piece spindle silhouette remains recognizable from hero/front/rear/top/side and runtime views; surface relief is subtle and does not fragment the silhouette. No must-fix issue."
+      },
+      "must_fix": [],
+      "evidence": {
+        "frozen_artifacts": {
+          "candidate": "production/continuous-small-life-round12-20261018/work/batch-36/volcanic-bomb/r001/candidate.json",
+          "blend": "assets/candidates/continuous-small-life-round12-20261018/batch-36/volcanic-bomb/r001/attempt-02/volcanic-bomb/volcanic-bomb.blend",
+          "glb": "assets/candidates/continuous-small-life-round12-20261018/batch-36/volcanic-bomb/r001/attempt-02/volcanic-bomb/volcanic-bomb.glb",
+          "source_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/volcanic-bomb/r001/attempt-02/volcanic-bomb/source-contact-sheet.jpg",
+          "maker_runtime_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/volcanic-bomb/r001/attempt-02/volcanic-bomb/runtime-contact-sheet.jpg",
+          "source_view_manifest": "assets/candidates/continuous-small-life-round12-20261018/batch-36/volcanic-bomb/r001/attempt-02/volcanic-bomb/view-manifest.json"
+        },
+        "static_profile_check": "evidence/profile/volcanic-bomb.json",
+        "independent_glb_audit": "evidence/glb/volcanic-bomb.json",
+        "independent_khronos_report": "evidence/gltf/volcanic-bomb/gltf-validator.report.json",
+        "blend_source_export": "evidence/blender/volcanic-bomb/source-export.json",
+        "blend_scene_inspection": "evidence/blender/volcanic-bomb/source-scene.json",
+        "glb_blender_roundtrip": "evidence/blender/volcanic-bomb/glb-roundtrip/glb-roundtrip.report.json",
+        "runtime_single": "evidence/runtime/volcanic-bomb/single.json",
+        "runtime_six_copy_scene": "evidence/runtime/volcanic-bomb/scene.json",
+        "rebuilds": "evidence/rebuild/rebuild-comparison.json",
+        "observed_images": [
+          "evidence/runtime/volcanic-bomb/single-hero.png",
+          "evidence/runtime/volcanic-bomb/single-front.png",
+          "evidence/runtime/volcanic-bomb/single-top.png"
+        ]
+      }
+    },
+    {
+      "asset_id": "teredolites-wood-boring-cast",
+      "revision": "r001",
+      "selected_attempt": "attempt-04",
+      "candidate_checkpoint_sha": "b0e0b4e7cee3e58d68ba968f91fcb826a4f929bf",
+      "content_verdict": "PASS",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_within_frozen_artistic_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "functional_webgl": "pass_swiftshader_software_only",
+        "hardware_gpu": "unknown",
+        "representative_scene": "pass_swiftshader_software_only"
+      },
+      "profile_check": {
+        "valid": true,
+        "approved_for_brief": false,
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "legacy_checker": false,
+        "legacy_errors": [
+          "EN-TW.license: nonempty text required"
+        ]
+      },
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/teredolites-wood-boring-cast/r001/attempt-04/teredolites-wood-boring-cast/teredolites-wood-boring-cast.blend",
+        "sha256": "c2cce630b43fe990a481a6888a70317a661b58dd925a6ea7e789d55dd8548211",
+        "bytes": 728728
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round12-20261018/batch-36/teredolites-wood-boring-cast/r001/attempt-04/teredolites-wood-boring-cast/teredolites-wood-boring-cast.glb",
+        "sha256": "f68a1e3d779205b206d4c968644974797c09fe8946039d135698c37e8e6ba2bb",
+        "bytes": 230688,
+        "triangles": 6912,
+        "materials": 3,
+        "primitives": 4,
+        "dimensions_m": [
+          0.3199999928474426,
+          0.13903184235095978,
+          0.12678097188472748
+        ],
+        "matches_frozen_scope_pin": true
+      },
+      "source_geometry": {
+        "authored_vertices": 3484,
+        "evaluated_vertices": 3484,
+        "source_export_status": "pass_with_warnings",
+        "source_triangles": 6912,
+        "glb_triangles": 6912,
+        "bounds_max_error_m": 0.0,
+        "blender_open_status": "pass",
+        "parts": [
+          {
+            "name": "Sectioned fossil wood host",
+            "vertices": 1644,
+            "triangles": 3284,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Exposed matching club cast 1",
+            "vertices": 420,
+            "triangles": 836,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Exposed matching club cast 3",
+            "vertices": 420,
+            "triangles": 836,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          },
+          {
+            "name": "Restrained longitudinal wood fibers",
+            "vertices": 1000,
+            "triangles": 1956,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0
+          }
+        ],
+        "source_smooth_normal_warnings_reviewed": [
+          "source: Exposed matching club cast 1: smooth faces require intentional-style review",
+          "source: Exposed matching club cast 3: smooth faces require intentional-style review",
+          "source: Restrained longitudinal wood fibers: smooth faces require intentional-style review"
+        ]
+      },
+      "khronos": {
+        "status": "pass",
+        "validator_version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0,
+        "sha256": "f68a1e3d779205b206d4c968644974797c09fe8946039d135698c37e8e6ba2bb"
+      },
+      "rebuild": {
+        "two_runs_succeeded": true,
+        "both_glb_bytes_match_delivered": true,
+        "both_semantic_digests_match": true,
+        "rebuild_sha256": [
+          "f68a1e3d779205b206d4c968644974797c09fe8946039d135698c37e8e6ba2bb",
+          "f68a1e3d779205b206d4c968644974797c09fe8946039d135698c37e8e6ba2bb"
+        ]
+      },
+      "runtime": {
+        "three_revision": "180",
+        "webgl2": true,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "single_view_count": 10,
+        "single_errors": [],
+        "single_failed_requests": [],
+        "single_gl_errors": [
+          0
+        ],
+        "single_calls": 4,
+        "single_triangles": 6912,
+        "six_instance_scene_view_count": 2,
+        "six_instances": 6,
+        "scene_calls": 24,
+        "scene_triangles": 41472,
+        "scene_errors": [],
+        "scene_failed_requests": [],
+        "hardware_gpu_claim": false
+      },
+      "observations": {
+        "content": "PASS. The cut-host section exposes five club-ended blind cavity forms; two matching pale infill casts remain visible in the section and three cavities remain open. The longitudinal host grain is restrained. The underside/top projection is consistent with the intentionally cut sectional display, not a second whole log.",
+        "factual": "PRI Digital Atlas supports Teredolites as borings in fossil wood. KU Ichnology provides the clavate/club-like to flask-shaped tubes-in-wood description and taper from primary chamber to aperture. The candidate avoids claims for an exact specimen, producer or tree species.",
+        "visual": "Internal geometry reads in the neutral-gray clay and actual GLB front/side/top/bottom views; dark cavities and pale infill are separable, and the wood host reads as one module. No must-fix issue."
+      },
+      "must_fix": [],
+      "evidence": {
+        "frozen_artifacts": {
+          "candidate": "production/continuous-small-life-round12-20261018/work/batch-36/teredolites-wood-boring-cast/r001/candidate.json",
+          "blend": "assets/candidates/continuous-small-life-round12-20261018/batch-36/teredolites-wood-boring-cast/r001/attempt-04/teredolites-wood-boring-cast/teredolites-wood-boring-cast.blend",
+          "glb": "assets/candidates/continuous-small-life-round12-20261018/batch-36/teredolites-wood-boring-cast/r001/attempt-04/teredolites-wood-boring-cast/teredolites-wood-boring-cast.glb",
+          "source_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/teredolites-wood-boring-cast/r001/attempt-04/teredolites-wood-boring-cast/source-contact-sheet.jpg",
+          "maker_runtime_contact_sheet": "assets/candidates/continuous-small-life-round12-20261018/batch-36/teredolites-wood-boring-cast/r001/attempt-04/teredolites-wood-boring-cast/runtime-contact-sheet.jpg",
+          "source_view_manifest": "assets/candidates/continuous-small-life-round12-20261018/batch-36/teredolites-wood-boring-cast/r001/attempt-04/teredolites-wood-boring-cast/view-manifest.json"
+        },
+        "static_profile_check": "evidence/profile/teredolites-wood-boring-cast.json",
+        "independent_glb_audit": "evidence/glb/teredolites-wood-boring-cast.json",
+        "independent_khronos_report": "evidence/gltf/teredolites-wood-boring-cast/gltf-validator.report.json",
+        "blend_source_export": "evidence/blender/teredolites-wood-boring-cast/source-export.json",
+        "blend_scene_inspection": "evidence/blender/teredolites-wood-boring-cast/source-scene.json",
+        "glb_blender_roundtrip": "evidence/blender/teredolites-wood-boring-cast/glb-roundtrip/glb-roundtrip.report.json",
+        "runtime_single": "evidence/runtime/teredolites-wood-boring-cast/single.json",
+        "runtime_six_copy_scene": "evidence/runtime/teredolites-wood-boring-cast/scene.json",
+        "rebuilds": "evidence/rebuild/rebuild-comparison.json",
+        "observed_images": [
+          "evidence/runtime/teredolites-wood-boring-cast/single-hero.png",
+          "evidence/runtime/teredolites-wood-boring-cast/single-front.png",
+          "evidence/runtime/teredolites-wood-boring-cast/single-top.png"
+        ]
+      }
+    }
+  ]
+}
