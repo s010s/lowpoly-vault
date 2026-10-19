@@ -1,0 +1,1082 @@
+{
+  "schema_version": 1,
+  "kind": "planning-only-production-backlog-not-executable-runner-manifest",
+  "round": 13,
+  "created_at": "2026-10-19T00:38:28.730907+00:00",
+  "inventory": {
+    "path": "research/prehistoric-1000-v1/inventory.json",
+    "sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "total": 1000
+  },
+  "style_commit": "c8514b8c348777c9a2d81c6c0bbd9cf02cdb5184",
+  "status": "planned_awaiting_parent_dispatch",
+  "start_gate": {
+    "ci_simplification_confirmed": true,
+    "ci_main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
+    "confirmed_by": "parent",
+    "round_dispatched": false,
+    "requires_parent_exclusive_assignment": true,
+    "authorization_precedence": "Current parent explicit assignment and latest state prevail over stale empty-claim snapshots."
+  },
+  "publication": {
+    "qa_passed_batches_authorized": true,
+    "per_model_user_approval_required": false,
+    "planning_branch_merge_allowed": false,
+    "coordinator": "parent; serialize integration against latest main"
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "batches": [
+    {
+      "id": "batch-37",
+      "asset_ids": [
+        "pentremites",
+        "schizoneura",
+        "tombolo",
+        "entobia-sponge-boring-network"
+      ],
+      "maker_task": "production/continuous-small-life-round13-20261018/batch-37-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-37-20261018",
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-37-QA-SCOPE.json"
+    },
+    {
+      "id": "batch-38",
+      "asset_ids": [
+        "diplomoceras",
+        "nelumbo",
+        "marine-terrace",
+        "angular-unconformity-outcrop"
+      ],
+      "maker_task": "production/continuous-small-life-round13-20261018/batch-38-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-38-20261018",
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-38-QA-SCOPE.json"
+    },
+    {
+      "id": "batch-39",
+      "asset_ids": [
+        "clavagella",
+        "aa-lava-front",
+        "native-copper-dendrite",
+        "nereites-lobed-meander"
+      ],
+      "maker_task": "production/continuous-small-life-round13-20261018/batch-39-TASK.md",
+      "suggested_branch": "production/continuous-small-life-batch-39-20261018",
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-39-QA-SCOPE.json"
+    }
+  ],
+  "jobs": [
+    {
+      "inventory_id": "pentremites",
+      "name": {
+        "en": "Pentremites bud-shaped blastoid",
+        "zh": "Pentremites（芽形海蕾类）"
+      },
+      "batch_id": "batch-37",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "五棱芽体与花瓣状食沟补充海底有柄棘皮动物，区别于Helicocystis的环绕螺旋沟。",
+      "basic_form_zh": "有柄五棱芽体、纵向花瓣状食沟与克制细腕丝连续；不是螺旋杯换密度或封闭海百合冠。主要沟区可读，微孔/腕丝计数和未保存软组织不强求。",
+      "representation": "living-reconstruction",
+      "reconstruction_type": "whole-organism",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/pentremites",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-37/pentremites/r001",
+      "release_dir_after_acceptance": "assets/additions/pentremites/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.16,
+        "axis": "bud and stalk height",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "fossil-echinoderm-forms"
+        ],
+        "category": "animals",
+        "subcategory": "echinoderm",
+        "taxon_group": "Echinodermata",
+        "eras": [
+          "carboniferous"
+        ],
+        "biomes": [
+          "marine"
+        ],
+        "tags": [
+          "whole-organism",
+          "marine-form"
+        ],
+        "representation": "living-reconstruction",
+        "reconstruction_type": "whole-organism"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-37-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "schizoneura",
+      "name": {
+        "en": "Schizoneura paired leaf sheaths",
+        "zh": "Schizoneura 裂鞘木贼类"
+      },
+      "batch_id": "batch-37",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "分节枝与宽成对裂叶鞘补充岸边植物器官，区别于细分枝裸轴和整丛木贼。",
+      "basic_form_zh": "严格为化石枝段浅浮雕：节与宽大成对分裂叶鞘轮廓明确，不臆造整株基部、根系、树干或完整活体群落。叶鞘不是随意环绕的一圈独立针叶。",
+      "representation": "fossil-specimen",
+      "reconstruction_type": "specimen",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/schizoneura",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-37/schizoneura/r001",
+      "release_dir_after_acceptance": "assets/additions/schizoneura/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.3,
+        "axis": "preserved jointed shoot span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "prehistoric-paleozoic-flora"
+        ],
+        "category": "plants",
+        "subcategory": "stem-cluster",
+        "taxon_group": "sphenopsids",
+        "eras": [
+          "permian"
+        ],
+        "biomes": [],
+        "tags": [
+          "branch-pattern",
+          "ground-detail"
+        ],
+        "representation": "fossil-specimen",
+        "reconstruction_type": "specimen"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-37-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "tombolo",
+      "name": {
+        "en": "Tombolo",
+        "zh": "连岛沙洲"
+      },
+      "batch_id": "batch-37",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "沉积细颈把离岸岛体连到大陆，为岸边提供连接空间，区别于伸入水中的沙嘴。",
+      "basic_form_zh": "大陆—沉积细颈—离岸岛体连续，细颈两侧海岸线可读；不是sand-spit旋转拉长或石拱移植。18m名义教学裁片不等于实测全貌，水/灯光不计独立资产。",
+      "representation": "geological-form",
+      "reconstruction_type": "artistic-concept",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/tombolo",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-37/tombolo/r001",
+      "release_dir_after_acceptance": "assets/additions/tombolo/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P1",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 18.0,
+        "axis": "representative coast patch width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "prehistoric-landforms"
+        ],
+        "category": "terrain",
+        "subcategory": "coastal",
+        "taxon_group": null,
+        "eras": [],
+        "biomes": [
+          "coast"
+        ],
+        "tags": [
+          "process-analog"
+        ],
+        "representation": "geological-form",
+        "reconstruction_type": "artistic-concept"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-37-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "entobia-sponge-boring-network",
+      "name": {
+        "en": "Entobia sponge-boring network",
+        "zh": "Entobia 海绵钻孔网"
+      },
+      "batch_id": "batch-37",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "碳酸盐内小腔室和细通道网补充生物侵蚀内部结构，区别于木中棒端钻孔。",
+      "basic_form_zh": "原sectional-structure：碳酸盐剖面中腔室由细通道连接，不能只给石块打随机表孔或换色Teredolites。不指定制造者物种/年代，剖切为示意，外石块轮廓不作识别依据。",
+      "representation": "trace-concept",
+      "reconstruction_type": "artistic-concept",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/entobia-sponge-boring-network",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-37/entobia-sponge-boring-network/r001",
+      "release_dir_after_acceptance": "assets/additions/entobia-sponge-boring-network/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.24,
+        "axis": "interpretive carbonate section span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "fossil-traces"
+        ],
+        "category": "traces",
+        "subcategory": "burrow",
+        "taxon_group": "ichnotaxon",
+        "eras": [],
+        "biomes": [
+          "marine"
+        ],
+        "tags": [
+          "trace-evidence"
+        ],
+        "representation": "trace-concept",
+        "reconstruction_type": "artistic-concept"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-37-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "diplomoceras",
+      "name": {
+        "en": "Diplomoceras trombone ammonite",
+        "zh": "Diplomoceras（长号形菊石）"
+      },
+      "batch_id": "batch-38",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "平行长壳管与重复宽发夹弯提供开放长号构型，区别于直壳和盘卷带角壳。",
+      "basic_form_zh": "仅保存壳体：长平行肋管以宽发夹弯连续连接并留清楚空隙；不是工业水管等粗拼接。少量肋纹服从大形，不加未知触手、软体或运动机制；0.9m是展示构图起点非物种实测。",
+      "representation": "fossil-specimen",
+      "reconstruction_type": "specimen",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/diplomoceras",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-38/diplomoceras/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-38/diplomoceras/r001",
+      "release_dir_after_acceptance": "assets/additions/diplomoceras/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.9,
+        "axis": "preserved shell longest span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "fossil-mollusc-forms"
+        ],
+        "category": "animals",
+        "subcategory": "mollusk",
+        "taxon_group": "Mollusca or proposed molluscan affinity",
+        "eras": [
+          "cretaceous"
+        ],
+        "biomes": [
+          "marine"
+        ],
+        "tags": [
+          "fossil-form",
+          "marine-form",
+          "ribbed"
+        ],
+        "representation": "fossil-specimen",
+        "reconstruction_type": "specimen"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-38-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "nelumbo",
+      "name": {
+        "en": "Nelumbo peltate leaf specimen",
+        "zh": "Nelumbo 古莲叶"
+      },
+      "batch_id": "batch-38",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "中央着生的圆盾叶及放射区补充水边叶器官，区别于有延伸中肋的棕榈扇叶。",
+      "basic_form_zh": "仅化石莲叶浅折面浮雕，中央叶柄着生痕和宽放射区可读，局部浅折不变成花。不得添加无依据莲花、莲蓬、根茎或现代物种整株；不以莲叶数量变化另计资产。",
+      "representation": "fossil-specimen",
+      "reconstruction_type": "specimen",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/nelumbo",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-38/nelumbo/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-38/nelumbo/r001",
+      "release_dir_after_acceptance": "assets/additions/nelumbo/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.24,
+        "axis": "preserved leaf span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "prehistoric-cenozoic-flora"
+        ],
+        "category": "plants",
+        "subcategory": "leaf-specimen",
+        "taxon_group": "nelumbonaceous-angiosperms",
+        "eras": [
+          "paleogene"
+        ],
+        "biomes": [],
+        "tags": [
+          "foliage",
+          "diagnostic-outline"
+        ],
+        "representation": "fossil-specimen",
+        "reconstruction_type": "specimen"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-38-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "marine-terrace",
+      "name": {
+        "en": "Marine terrace",
+        "zh": "海成阶地"
+      },
+      "batch_id": "batch-38",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "抬升海岸台面与后方废弃海崖丰富岸边高差，区别于现海面的波切平台。",
+      "basic_form_zh": "主要台面高于当前展示海岸基准、后方旧海崖及前缘关系清楚，不只是wave-cut-platform加厚或瀑布台阶换色。不假称测年、抬升速率、实际古地点；16m为名义裁片。",
+      "representation": "geological-form",
+      "reconstruction_type": "artistic-concept",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/marine-terrace",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-38/marine-terrace/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-38/marine-terrace/r001",
+      "release_dir_after_acceptance": "assets/additions/marine-terrace/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 16.0,
+        "axis": "representative raised coast patch width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "prehistoric-landforms"
+        ],
+        "category": "terrain",
+        "subcategory": "coastal",
+        "taxon_group": null,
+        "eras": [],
+        "biomes": [
+          "coast"
+        ],
+        "tags": [
+          "process-analog"
+        ],
+        "representation": "geological-form",
+        "reconstruction_type": "artistic-concept"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-38-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "angular-unconformity-outcrop",
+      "name": {
+        "en": "Angular unconformity outcrop",
+        "zh": "角度不整合露头"
+      },
+      "batch_id": "batch-38",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "近平新层截切下方倾斜老层，为岩岸剖面增加接触关系，区别于连续褶皱。",
+      "basic_form_zh": "下方倾斜层在接触面真实终止，上方近平层连续覆盖；灰色剖面可辨两组层和截切关系，非贴两种条纹或将旧岩层旋转叠放。通用过程示意，不冒充指定峡谷或实际地层年龄。",
+      "representation": "geological-form",
+      "reconstruction_type": "artistic-concept",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/angular-unconformity-outcrop",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-38/angular-unconformity-outcrop/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-38/angular-unconformity-outcrop/r001",
+      "release_dir_after_acceptance": "assets/additions/angular-unconformity-outcrop/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.85,
+        "axis": "teaching outcrop width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "rocks-and-minerals"
+        ],
+        "category": "geology",
+        "subcategory": "sedimentary-structure",
+        "taxon_group": null,
+        "eras": [],
+        "biomes": [],
+        "tags": [
+          "process-analog"
+        ],
+        "representation": "geological-form",
+        "reconstruction_type": "artistic-concept"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-38-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "clavagella",
+      "name": {
+        "en": "Clavagella bottle-tube bivalve",
+        "zh": "Clavagella（瓶管双壳类）"
+      },
+      "batch_id": "batch-39",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "小壳瓣融入膨大钙质管和长颈，补充底栖管壳标本，区别于钩曲牡蛎。",
+      "basic_form_zh": "仅保存的壳瓣/钙质管结构标本：膨大部、嵌入小壳瓣和长颈有自然连续关系，不是瓶子加普通贝壳。不补未知虹吸管/软体/生活姿态，细管数量和种级尺寸不外推。",
+      "representation": "fossil-specimen",
+      "reconstruction_type": "specimen",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/clavagella",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-39/clavagella/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-39/clavagella/r001",
+      "release_dir_after_acceptance": "assets/additions/clavagella/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P2",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.16,
+        "axis": "preserved tube and neck length",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "fossil-mollusc-forms"
+        ],
+        "category": "animals",
+        "subcategory": "mollusk",
+        "taxon_group": "Mollusca or proposed molluscan affinity",
+        "eras": [
+          "paleogene"
+        ],
+        "biomes": [],
+        "tags": [
+          "fossil-form",
+          "marine-form"
+        ],
+        "representation": "fossil-specimen",
+        "reconstruction_type": "specimen"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-39-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "aa-lava-front",
+      "name": {
+        "en": "Aa lava front",
+        "zh": "渣状熔岩前缘"
+      },
+      "batch_id": "batch-39",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "连续熔岩体上覆盖角砾状渣块，提供与绳状及枕状熔岩不同的前缘结构。",
+      "basic_form_zh": "可读连续基体和不等尺度渣块覆盖前缘，重量/堆积有逻辑；不是给pahoehoe加均匀噪声、散布等大石块或把枕瓣锐化。只计一个构图，无火/烟/模拟或指定海岸火山事件承诺。",
+      "representation": "geological-form",
+      "reconstruction_type": "artistic-concept",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/aa-lava-front",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-39/aa-lava-front/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-39/aa-lava-front/r001",
+      "release_dir_after_acceptance": "assets/additions/aa-lava-front/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P1",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 1.2,
+        "axis": "representative flow-front patch width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "prehistoric-landforms",
+          "volcanic-landscapes"
+        ],
+        "category": "terrain",
+        "subcategory": "volcanic",
+        "taxon_group": null,
+        "eras": [],
+        "biomes": [
+          "volcanic"
+        ],
+        "tags": [
+          "process-analog"
+        ],
+        "representation": "geological-form",
+        "reconstruction_type": "artistic-concept"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-39-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "native-copper-dendrite",
+      "name": {
+        "en": "Native copper dendrite",
+        "zh": "自然铜枝晶"
+      },
+      "batch_id": "batch-39",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "金属分枝晶与不规则扁平端部丰富小型自然标本，区别于立方或十字晶簇。",
+      "basic_form_zh": "不等粗连续分叉、扁平端部与适度金属响应共同识别，不是Vauxia/陆生枝条换铜色或工业导线；形态在灰色也可读。非精确矿点标本，微枝数量不强求，展示支点另记。",
+      "representation": "geological-form",
+      "reconstruction_type": "artistic-concept",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/native-copper-dendrite",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-39/native-copper-dendrite/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-39/native-copper-dendrite/r001",
+      "release_dir_after_acceptance": "assets/additions/native-copper-dendrite/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.15,
+        "axis": "crystal branch span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "rocks-and-minerals"
+        ],
+        "category": "geology",
+        "subcategory": "mineral",
+        "taxon_group": null,
+        "eras": [],
+        "biomes": [],
+        "tags": [
+          "process-analog"
+        ],
+        "representation": "geological-form",
+        "reconstruction_type": "artistic-concept"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-39-QA-SCOPE.json"
+    },
+    {
+      "inventory_id": "nereites-lobed-meander",
+      "name": {
+        "en": "Nereites lobed meander",
+        "zh": "Nereites 叶瓣曲行迹"
+      },
+      "batch_id": "batch-39",
+      "status": "planned_awaiting_parent_dispatch",
+      "owner": null,
+      "reason_zh": "曲行轴管两侧交替交叠叶瓣补充取食迹，区别于网格迹和双叶爬行沟。",
+      "basic_form_zh": "原raised-fossil-relief：轴管曲行、两侧交替重叠叶瓣为真实起伏，不是涂曲线或Cruziana加密。内部灰色顶/斜视读结构，不指定造迹生物；不把Neonereites/Scalarituba另计新对象。",
+      "representation": "trace-concept",
+      "reconstruction_type": "artistic-concept",
+      "plan_dir": "production/continuous-small-life-round13-20261018/items/nereites-lobed-meander",
+      "candidate_dir": "assets/candidates/continuous-small-life-round13-20261018/batch-39/nereites-lobed-meander/r001",
+      "production_dir": "production/continuous-small-life-round13-20261018/work/batch-39/nereites-lobed-meander/r001",
+      "release_dir_after_acceptance": "assets/additions/nereites-lobed-meander/continuous-small-life-v1",
+      "inventory_gate": "reference-ready",
+      "inventory_priority": "P3",
+      "maker": {
+        "model": "GPT-6.1 Sol",
+        "reasoning": "medium"
+      },
+      "reviewer": {
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "dispatcher": "parent; fresh independent task"
+      },
+      "scale": {
+        "meters": 0.3,
+        "axis": "interpretive trace slab span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "geometry_policy": {
+        "max_triangles": 14000,
+        "max_materials": 6,
+        "max_primitives": 30,
+        "max_glb_bytes": 1000000,
+        "soft_glb_bytes": 500000
+      },
+      "texture_policy": {
+        "max_textures": 1,
+        "max_dimension": 256,
+        "max_total_bytes": 65536,
+        "max_decoded_bytes": 524288
+      },
+      "budget_intent": {
+        "usual_glb_bytes_range": [
+          100000,
+          500000
+        ],
+        "max_triangles": 14000,
+        "max_glb_bytes": 1000000,
+        "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+      },
+      "attempts": [],
+      "accepted_glb_sha256": null,
+      "catalog_facets": {
+        "worlds": [
+          "prehistoric"
+        ],
+        "packs": [
+          "fossil-traces"
+        ],
+        "category": "traces",
+        "subcategory": "feeding-trace",
+        "taxon_group": "ichnotaxon",
+        "eras": [
+          "carboniferous"
+        ],
+        "biomes": [
+          "tidal-flat"
+        ],
+        "tags": [
+          "trace-evidence"
+        ],
+        "representation": "trace-concept",
+        "reconstruction_type": "artistic-concept"
+      },
+      "qa_scope": "production/continuous-small-life-round13-20261018/batch-39-QA-SCOPE.json"
+    }
+  ],
+  "marine_organism_ids": [
+    "pentremites",
+    "diplomoceras",
+    "clavagella"
+  ],
+  "whole_organism_ids": [
+    "pentremites"
+  ],
+  "shell_specimen_ids": [
+    "diplomoceras",
+    "clavagella"
+  ],
+  "botanical_specimen_ids": [
+    "schizoneura",
+    "nelumbo"
+  ],
+  "specimen_ids": [
+    "diplomoceras",
+    "clavagella",
+    "schizoneura",
+    "nelumbo"
+  ],
+  "landform_and_rock_ids": [
+    "tombolo",
+    "marine-terrace",
+    "angular-unconformity-outcrop",
+    "aa-lava-front",
+    "native-copper-dendrite"
+  ],
+  "trace_concept_ids": [
+    "entobia-sponge-boring-network",
+    "nereites-lobed-meander"
+  ],
+  "candidate_profile_policy": "profile-policy.json",
+  "selection_priority": "Seafloor and coast teaching variety: one whole marine concept, two shell/tube specimens, two botanical organs, five distinct natural forms and two trace forms; no microvariants.",
+  "request_resolution": {
+    "authority": "Current explicit parent request for round13 planning only",
+    "new_maker_or_qa_task_spawned": false,
+    "blender_started": false
+  },
+  "natural_object_ids": [
+    "tombolo",
+    "marine-terrace",
+    "angular-unconformity-outcrop",
+    "aa-lava-front",
+    "native-copper-dendrite",
+    "entobia-sponge-boring-network",
+    "nereites-lobed-meander"
+  ]
+}
