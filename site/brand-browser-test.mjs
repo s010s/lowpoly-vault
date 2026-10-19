@@ -48,6 +48,17 @@ try {
     const positions=await page.locator('.viewer-controls button').evaluateAll(buttons=>buttons.filter(button=>button.getBoundingClientRect().width).map(button=>button.getBoundingClientRect().top));
     assert(positions.length===5&&Math.max(...positions)-Math.min(...positions)<2,'All five mobile detail controls stay together on one row');
    }
+   if(!javaScriptEnabled&&await page.locator('.static-specs dt').count()){
+    row.specificationLabelContrast=await page.locator('.static-specs dt').first().evaluate(node=>{
+     const rgb=color=>(color.match(/[\d.]+/g)||[]).map(Number),foreground=rgb(getComputedStyle(node).color);
+     let background=[255,255,255],ancestor=node;
+     while(ancestor){const color=rgb(getComputedStyle(ancestor).backgroundColor);if(color.length>=3&&(color[3]===undefined||color[3]===1)){background=color;break;}ancestor=ancestor.parentElement;}
+     const opacity=Number(getComputedStyle(node).opacity),blended=foreground.slice(0,3).map((value,index)=>value*opacity+background[index]*(1-opacity));
+     const luminance=values=>values.slice(0,3).map(value=>value/255).map(value=>value<=.04045?value/12.92:((value+.055)/1.055)**2.4).reduce((sum,value,index)=>sum+value*[.2126,.7152,.0722][index],0);
+     const a=luminance(blended),b=luminance(background);return(Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+    });
+    assert(row.specificationLabelContrast>=4.5,`No-JS ${colorScheme} specification labels need at least 4.5:1 contrast; got ${row.specificationLabelContrast}`);
+   }
    await page.screenshot({path:resolve(output,name+'.png'),fullPage:true});
    assert.deepEqual(errors,[]);row.status='pass';
   }catch(error){row.status='fail';row.error=error.stack;report.errors.push({name,message:error.message});await page.screenshot({path:resolve(output,name+'-failure.png'),fullPage:true}).catch(()=>{});}
@@ -61,7 +72,9 @@ try {
  }
  await capture('en-desktop-home-dark','',{colorScheme:'dark'});
  await capture('zh-mobile-detail-nojs','zh-CN/models/'+model.id+'/',{width:390,height:844,javaScriptEnabled:false});
+ for(const [locale,folder] of [['en',''],['zh','zh-CN/']])await capture(`${locale}-mobile-detail-nojs-dark`,folder+'models/'+model.id+'/',{width:390,height:844,javaScriptEnabled:false,colorScheme:'dark'});
  await capture('en-desktop-404','404.html',{javaScriptEnabled:false});
+ await capture('en-desktop-404-dark','404.html',{javaScriptEnabled:false,colorScheme:'dark'});
  const context=await browser.newContext({viewport:{width:320,height:160},deviceScaleFactor:2});const page=await context.newPage();
  await page.setContent(`<body style="margin:0;background:#f6f3ec;display:flex;align-items:center;justify-content:center;gap:24px;height:160px"><img src="${new URL('brand/favicon.svg',base)}" width="16" height="16" alt="16 pixel favicon"><img src="${new URL('brand/favicon.svg',base)}" width="32" height="32" alt="32 pixel favicon"><img src="${new URL('brand/favicon.svg',base)}" width="64" height="64" alt="64 pixel enlarged inspection"></body>`);
  await page.locator('img').evaluateAll(images=>Promise.all(images.map(img=>img.decode())));await page.screenshot({path:resolve(output,'favicon-16-32.png')});await context.close();

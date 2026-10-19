@@ -25,6 +25,20 @@
   --vault-on-accent:#24382b;
   --vault-accent-soft:#374833;
 }
+/* Native documents must honor the OS theme before any script can run, including
+   when JavaScript is disabled. An explicit theme always takes precedence. */
+@media(prefers-color-scheme:dark) {
+  :root:not([data-theme]):not([data-application=gallery]) {
+    --vault-surface:#20251f;
+    --vault-panel:#282e26;
+    --vault-ink:#f3f1e8;
+    --vault-muted:#b6bbae;
+    --vault-line:#454d40;
+    --vault-accent:#bfd1b6;
+    --vault-on-accent:#24382b;
+    --vault-accent-soft:#374833;
+  }
+}
 html .vault-brand {
   display:inline-flex;align-items:center;gap:12px;flex-shrink:0;
   font-family:var(--vault-font-display);font-size:20px;font-weight:400;

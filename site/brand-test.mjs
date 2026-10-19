@@ -15,6 +15,10 @@ for(const svg of shell.match(/<svg\b[^>]+>/g)||[])assert(/width="\d+" height="\d
 for(const path of [...mark(template).matchAll(/<path d="([^"]+)"/g)].map(match=>match[1]))assert(favicon.includes(`d="${path}"`),'Favicon uses the exact header cube geometry');
 assert.match(favicon,/viewBox="0 0 32 32"/);assert.match(favicon,/fill="#305742"/);
 assert(!/@font-face|https?:\/\/.*fonts/.test(shared),'No network-dependent typography');
+const explicitDark=shared.match(/:root\[data-theme=dark\]:not\(\[data-application=gallery\]\)\s*\{([^}]+)\}/)?.[1];
+const nativeDark=shared.match(/@media\(prefers-color-scheme:dark\)\s*\{\s*:root:not\(\[data-theme\]\):not\(\[data-application=gallery\]\)\s*\{([^}]+)\}/)?.[1];
+assert(explicitDark&&nativeDark,'Native documents have an OS-dark fallback without overriding an explicit theme or the gallery');
+assert.equal(nativeDark.replace(/\s/g,''),explicitDark.replace(/\s/g,''),'Scripted and no-JS dark modes share the full palette');
 for(const source of [home,gallery])for(const variable of ['--vault-font-ui','--vault-font-display','--vault-accent','--vault-line'])assert(source.includes(variable),variable+' is shared');
 const asset={id:'test-model',name:{en:'Test model',zh:'测试模型'},description:{en:'Test',zh:'测试'},category:'plants',worlds:['prehistoric'],preview:'assets/test.png',glb:'assets/test.glb',blend:'assets/test.blend',triangles:120,downloads:{glb:'assets/test.glb',blend:'assets/test.blend'}};
 const root=await mkdtemp(join(tmpdir(),'vault-brand-'));
