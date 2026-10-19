@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-18T23:25:37.135750+00:00",
+  "updated_at": "2026-10-19T00:08:14.707761+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "reviewing_and_dispatched",
+  "status": "model_qa_pass_awaiting_release_confirmation",
   "claims": {
     "marsilea": {
       "batch_id": "batch-28",
@@ -182,7 +182,7 @@
   },
   "batches": {
     "batch-28": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch28-20261018",
@@ -190,28 +190,28 @@
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-28",
-        "expected_asset_ids": [
-          "marsilea",
-          "hurdia",
-          "sea-stack",
-          "fulgurite-tube"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "recorded_at": "2026-10-18T23:25:37.135750+00:00"
+      "recorded_at": "2026-10-18T23:25:37.135750+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "batch-29": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch29-20261018",
@@ -219,356 +219,476 @@
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
       },
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-29",
-        "expected_asset_ids": [
-          "azolla",
-          "odaraia",
-          "pachypteris",
-          "sand-spit"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "recorded_at": "2026-10-18T23:25:37.135750+00:00"
+      "recorded_at": "2026-10-18T23:25:37.135750+00:00",
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "batch-30": {
-      "status": "dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "model": "GPT-6.1 Sol",
       "reasoning": "medium",
       "maker_thread_id": null,
       "maker_turn_id": null,
-      "qa": null,
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
+      },
       "recorded_at": "2026-10-18T23:25:37.135750+00:00",
-      "note": "Parent confirms newly exclusive maker dispatch. No actual process start/completion inferred."
+      "note": "Parent confirms newly exclusive maker dispatch. No actual process start/completion inferred.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "pin_note": "Parent confirms model QA PASS, exact source pin not supplied here."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     }
   },
   "jobs": {
     "marsilea": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-28",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-28",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-28",
-        "expected_asset_ids": [
-          "marsilea",
-          "hurdia",
-          "sea-stack",
-          "fulgurite-tube"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch28-20261018",
         "commit": "c48af0343c48a84772339ab48071ba0da6096811",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "hurdia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-28",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-28",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-28",
-        "expected_asset_ids": [
-          "marsilea",
-          "hurdia",
-          "sea-stack",
-          "fulgurite-tube"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch28-20261018",
         "commit": "c48af0343c48a84772339ab48071ba0da6096811",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "sea-stack": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-28",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-28",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-28",
-        "expected_asset_ids": [
-          "marsilea",
-          "hurdia",
-          "sea-stack",
-          "fulgurite-tube"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch28-20261018",
         "commit": "c48af0343c48a84772339ab48071ba0da6096811",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "fulgurite-tube": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-28",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-28",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-28",
-        "expected_asset_ids": [
-          "marsilea",
-          "hurdia",
-          "sea-stack",
-          "fulgurite-tube"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "handoff/batch28-20261018",
         "commit": "c48af0343c48a84772339ab48071ba0da6096811",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "azolla": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-29",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-29",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-29",
-        "expected_asset_ids": [
-          "azolla",
-          "odaraia",
-          "pachypteris",
-          "sand-spit"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch29-20261018",
         "commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "odaraia": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-29",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-29",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-29",
-        "expected_asset_ids": [
-          "azolla",
-          "odaraia",
-          "pachypteris",
-          "sand-spit"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch29-20261018",
         "commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "pachypteris": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-29",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-29",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-29",
-        "expected_asset_ids": [
-          "azolla",
-          "odaraia",
-          "pachypteris",
-          "sand-spit"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch29-20261018",
         "commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "sand-spit": {
-      "status": "reviewing",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-29",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-29",
       "qa": {
-        "status": "in_progress",
-        "verdict": null,
-        "thread_id": null,
-        "turn_id": null,
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
         "model": "GPT-6 Luna",
         "reasoning": "xhigh",
         "independent": true,
         "dispatcher": "parent",
-        "expected_batch_id": "batch-29",
-        "expected_asset_ids": [
-          "azolla",
-          "odaraia",
-          "pachypteris",
-          "sand-spit"
-        ],
+        "thread_id": null,
+        "turn_id": null,
         "source_commit": null,
-        "note": "Parent confirms QA dispatched; exact reviewer/thread/source pins not supplied here, not guessed."
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
       },
-      "status_note": "QA dispatched but no verdict.",
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
       "candidate": {
         "maker_status": "completed",
         "branch": "candidate/small-life-batch29-20261018",
         "commit": "ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4",
         "pin_provenance": "Observed remote ref head; parent confirms candidate delivery and QA dispatch. Exact reviewed source must come from actual handoff."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
       }
     },
     "peltaspermum": {
-      "status": "dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-30",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-30",
-      "qa": null,
-      "status_note": "Exclusive maker dispatched, no completion/QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
+      },
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "pin_note": "Parent confirms model QA PASS, exact source pin not supplied here."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "capinatator": {
-      "status": "dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-30",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-30",
-      "qa": null,
-      "status_note": "Exclusive maker dispatched, no completion/QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
+      },
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "pin_note": "Parent confirms model QA PASS, exact source pin not supplied here."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "cothurnocystis": {
-      "status": "dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-30",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-30",
-      "qa": null,
-      "status_note": "Exclusive maker dispatched, no completion/QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
+      },
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "pin_note": "Parent confirms model QA PASS, exact source pin not supplied here."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     },
     "pyrite-cube-cluster": {
-      "status": "dispatched",
+      "status": "model_qa_pass_awaiting_release_confirmation",
       "owner": "parent-assigned-producer:batch-30",
       "attempts": [],
       "accepted_glb_sha256": null,
       "release_commit": null,
       "batch_id": "batch-30",
-      "qa": null,
-      "status_note": "Exclusive maker dispatched, no completion/QA inferred."
+      "qa": {
+        "status": "completed",
+        "verdict": "pass",
+        "scope": "Independent model QA all PASS explicitly confirmed by parent; not full profile/publication approval.",
+        "model": "GPT-6 Luna",
+        "reasoning": "xhigh",
+        "independent": true,
+        "dispatcher": "parent",
+        "thread_id": null,
+        "turn_id": null,
+        "source_commit": null,
+        "evidence_commit": null,
+        "pin_note": "Missing actual source/reviewer pins not guessed from current branch heads."
+      },
+      "status_note": "All independent model QA PASS per parent; release not confirmed.",
+      "candidate": {
+        "maker_status": "completed",
+        "branch": null,
+        "commit": null,
+        "pin_note": "Parent confirms model QA PASS, exact source pin not supplied here."
+      },
+      "release": {
+        "status": "awaiting_release_confirmation",
+        "publication_confirmed": false,
+        "release_commit": null
+      }
     }
   },
   "latest_publication_checkpoint": {
     "confirmed_by": "parent",
-    "confirmed_live_assets": 103,
-    "main_commit": null,
+    "confirmed_live_assets": 115,
+    "verified_live_build_sha": null,
     "observed_main_commit": "0ab5ea99dcd3b340324b4fda8b71a9863a142ceb",
-    "note": "Parent confirms live103 but supplies no exact public-build SHA in this message. Observed current main is not automatically asserted as verified live build."
+    "note": "Parent confirms count115; current committed main publishes22–24. Planner did not rerun public deployment/browser acceptance."
   }
 }
