@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "diplocraterion-spreite-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/diplocraterion-spreite-burrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/diplocraterion-spreite-burrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch40/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch40/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/diplocraterion-spreite-burrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/diplocraterion-spreite-burrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/diplocraterion-spreite-burrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "diplocraterion-spreite-burrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "diplocraterion-spreite-burrow/diplocraterion-spreite-burrow.blend",
+        "diplocraterion-spreite-burrow/diplocraterion-spreite-burrow.glb",
+        "diplocraterion-spreite-burrow/qa.json",
+        "diplocraterion-spreite-burrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch40 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "diplocraterion-spreite-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/diplocraterion-spreite-burrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/diplocraterion-spreite-burrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/work/batch-40/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch40/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch40/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/diplocraterion-spreite-burrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/diplocraterion-spreite-burrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch40/production/continuous-small-life-round14-20261018/items/diplocraterion-spreite-burrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "diplocraterion-spreite-burrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "diplocraterion-spreite-burrow/diplocraterion-spreite-burrow.blend",
+        "diplocraterion-spreite-burrow/diplocraterion-spreite-burrow.glb",
+        "diplocraterion-spreite-burrow/qa.json",
+        "diplocraterion-spreite-burrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch40 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "selkirkia",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101811
+      },
+      "inputs": {
+        "audit": "/workspace/batch41-selkirkia/scripts/qa_glb.py",
+        "brief": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/brief.json",
+        "config": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/config.json",
+        "freeze": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/freeze.json",
+        "generator": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build.py",
+        "helper": "/workspace/batch41-selkirkia/scripts/asset_common.py",
+        "inventory": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/inventory-record.json",
+        "original_config": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build-config.json",
+        "policy": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/reference-policy.json",
+        "references": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/references.json",
+        "review_policy": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/review-policy.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "selkirkia.glb",
+        "selkirkia.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "selkirkia",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101811
+      },
+      "inputs": {
+        "audit": "/workspace/batch41-selkirkia/scripts/qa_glb.py",
+        "brief": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/brief.json",
+        "config": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/config.json",
+        "freeze": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/freeze.json",
+        "generator": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build.py",
+        "helper": "/workspace/batch41-selkirkia/scripts/asset_common.py",
+        "inventory": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/inventory-record.json",
+        "original_config": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/build-config.json",
+        "policy": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/reference-policy.json",
+        "references": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/references.json",
+        "review_policy": "/workspace/batch41-selkirkia/production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/review-policy.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "selkirkia.glb",
+        "selkirkia.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

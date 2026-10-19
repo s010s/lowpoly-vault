@@ -1,0 +1,91 @@
+{
+  "kind": "batch41-owned-serial-chronology-summary",
+  "verdict": "pass",
+  "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
+  "final_handoff_jsonl_sha256": "2fd8eee800ac6babb4e2b4f1f2ce7d8b659d274a7237243a56480fd4377aca47",
+  "overlapping_top_level_owned_launches": 0,
+  "all_owned_process_groups_exited": true,
+  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
+  "top_level_launch_count": 42,
+  "nonzero_exit_count": 1,
+  "nonzero_exit_note": "Actual nonzero source failures are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
+  "assets": [
+    {
+      "asset_id": "selkirkia",
+      "candidate_commit": "a3557c8eb9f673e5781f028bb1d93586d050d737",
+      "branch": "candidate/batch41-selkirkia-20261018",
+      "ledger_path": "production/continuous-small-life-round14-20261018/work/batch-41/selkirkia/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "a931c436a0f001023628111671a5de97d0d2b9de3857d0b7e02e44b2bc1e9c99",
+      "first_launch": "2026-10-19T01:51:36.303633+00:00",
+      "last_exit": "2026-10-19T01:52:43.343137+00:00",
+      "lifecycle_complete": "2026-10-19T01:53:03.234993+00:00",
+      "top_level_launch_count": 9,
+      "matching_exit_count": 9,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "dicroidium",
+      "candidate_commit": "350d9a3e77e4c4e61b1bd6701d68c31f44cb84fd",
+      "branch": "candidate/batch41-dicroidium-20261018",
+      "ledger_path": "production/continuous-small-life-round14-20261018/work/batch-41/dicroidium/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "b7ad7d26fe0d56e7f94028dec0d5e92708d98e6b195f0408a7544f1323f72a8c",
+      "first_launch": "2026-10-19T01:53:25.436750+00:00",
+      "last_exit": "2026-10-19T01:54:44.011828+00:00",
+      "lifecycle_complete": "2026-10-19T01:55:06.926162+00:00",
+      "top_level_launch_count": 10,
+      "matching_exit_count": 10,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "waterfall-plunge-pool",
+      "candidate_commit": "28b53366d2f5b682128459e3562829db4d4bb650",
+      "branch": "candidate/batch41-waterfall-plunge-pool-20261018",
+      "ledger_path": "production/continuous-small-life-round14-20261018/work/batch-41/waterfall-plunge-pool/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "11a8631c4fb2a1102250c3974809b196b606fcb294c550454531e6049b13b0cf",
+      "first_launch": "2026-10-19T01:55:32.882078+00:00",
+      "last_exit": "2026-10-19T01:58:49.291857+00:00",
+      "lifecycle_complete": "2026-10-19T01:59:18.043862+00:00",
+      "top_level_launch_count": 12,
+      "matching_exit_count": 12,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 68717,
+            "returncode": 1,
+            "owned_process_group_remaining": false,
+            "cause": "Blender4.3.2 mathutils.geometry.tessellate_polygon returned integer local vertex indices; initial wrapper incorrectly assumed returned Vector objects. TypeError before export; no candidate output or reused success.",
+            "retained": "failed-attempt-01-tessellation-index-api",
+            "resolution": "Index-safe mapping accepts integer triangulation indices directly; rerun with unique build log and full fresh source/evidence."
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "cave-boxwork",
+      "candidate_commit": "631c4da356c01558b4f9fe1c737a5d4f2ce75c49",
+      "branch": "candidate/batch41-cave-boxwork-20261018",
+      "ledger_path": "production/continuous-small-life-round14-20261018/work/batch-41/cave-boxwork/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "daefd1f6195b3649baeaa51a096431c8e00fcb30ca86382229948a6ea063a408",
+      "first_launch": "2026-10-19T01:59:50.629718+00:00",
+      "last_exit": "2026-10-19T02:02:27.166521+00:00",
+      "lifecycle_complete": "2026-10-19T02:03:16.790741+00:00",
+      "top_level_launch_count": 11,
+      "matching_exit_count": 11,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    }
+  ]
+}
