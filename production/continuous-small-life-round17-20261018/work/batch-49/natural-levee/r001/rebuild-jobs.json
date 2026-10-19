@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "natural-levee",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/natural-levee/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/natural-levee/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch49/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch49/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/natural-levee/brief.json",
+        "references": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/natural-levee/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/natural-levee/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "natural-levee",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "natural-levee/natural-levee.blend",
+        "natural-levee/natural-levee.glb",
+        "natural-levee/qa.json",
+        "natural-levee/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch49 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "natural-levee",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/natural-levee/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/natural-levee/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/work/batch-49/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch49/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch49/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/natural-levee/brief.json",
+        "references": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/natural-levee/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch49/production/continuous-small-life-round17-20261018/items/natural-levee/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "natural-levee",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "natural-levee/natural-levee.blend",
+        "natural-levee/natural-levee.glb",
+        "natural-levee/qa.json",
+        "natural-levee/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch49 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
