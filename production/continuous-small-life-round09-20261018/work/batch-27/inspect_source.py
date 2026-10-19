@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: MIT
+import bpy,json,sys,hashlib
+from pathlib import Path
+args=sys.argv[sys.argv.index('--')+1:];src=Path(args[0]);out=Path(args[1]);digest=hashlib.sha256(src.read_bytes()).hexdigest();bpy.ops.wm.open_mainfile(filepath=str(src.resolve()),load_ui=False,use_scripts=False)
+collections=[c for c in bpy.data.collections if c.get('asset_root')];assert len(collections)==1;c=collections[0];root=bpy.data.objects[c['asset_root']];meshes=[o for o in c.all_objects if o.type=='MESH'];deps=bpy.context.evaluated_depsgraph_get();parts=[]
+for o in meshes:
+ e=o.evaluated_get(deps);m=e.to_mesh();m.calc_loop_triangles()
+ adjacency=[[] for _ in m.vertices]
+ for edge in m.edges:
+  a,bb=edge.vertices;adjacency[a].append(bb);adjacency[bb].append(a)
+ unseen=set(range(len(m.vertices)));components=0
+ while unseen:
+  stack=[unseen.pop()];components+=1
+  while stack:
+   for vertex_index in adjacency[stack.pop()]:
+    if vertex_index in unseen:unseen.remove(vertex_index);stack.append(vertex_index)
+ parts.append({'name':o.name,'connected_components':components,'authored_vertices':len(o.data.vertices),'evaluated_vertices':len(m.vertices),'triangles':len(m.loop_triangles),'modifiers':[x.type for x in o.modifiers],'positive_determinant':o.matrix_world.determinant()>0});e.to_mesh_clear()
+assert not any(o.type in ['CAMERA','LIGHT'] for o in bpy.data.objects);assert bpy.context.scene.unit_settings.scale_length==1;assert all(abs(root.matrix_world[i][j]-(1 if i==j else 0))<1e-8 for i in range(4) for j in range(4));assert all(p['positive_determinant'] for p in parts)
+record={'status':'pass','source_sha256':digest,'blender_version':bpy.app.version_string,'unit_scale':1,'root_identity':True,'source_scene_cameras_lights':0,'source_saved_during_check':False,'parts':parts,'source_authored_vertices':sum(p['authored_vertices'] for p in parts),'source_evaluated_vertices':sum(p['evaluated_vertices'] for p in parts),'editable_construction_collection_present':bool(bpy.data.collections.get('SOURCE_CONSTRUCTION')),'limitation':'Construction may intentionally be retained outside EXPORT; only evaluated EXPORT content compared with GLB.'};assert hashlib.sha256(src.read_bytes()).hexdigest()==digest;out.write_text(json.dumps(record,indent=2)+'\n')

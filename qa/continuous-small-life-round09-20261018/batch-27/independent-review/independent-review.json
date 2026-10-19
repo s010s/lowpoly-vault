@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "kind": "independent_batch_qa",
+  "review_date": "2026-10-18",
+  "review_profile": "static-stylized-v1",
+  "rule_version": "2026-10-18.1",
+  "scope": "Only batch27: sollasina, ottoia, eocladus, limestone-pavement.",
+  "source": {
+    "branch": "candidate/small-life-batch27-20261018",
+    "handoff_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+    "model_source_commit": "bd4a80f1b9595480bf73b2d2369e28aae5770cef"
+  },
+  "review_branch": "qa/s010s/batch27-independent-qa-20261018",
+  "content_verdict": "PASS for all four pinned assets within the frozen stylized claim scopes.",
+  "formal_acceptance": "BLOCKED until the required hardware-GPU gate is completed for each exact GLB hash.",
+  "runtime_environment": {
+    "browser": "154.0.8037.57",
+    "three_revision": "180",
+    "api": "WebGL2",
+    "renderer": "ANGLE SwiftShader software renderer",
+    "claims": "functional rendering only; no hardware/performance claim"
+  },
+  "combined_scene": {
+    "view": "hero",
+    "three_version": "180",
+    "webgl2": true,
+    "gl_renderer": "WebKit WebGL",
+    "unmasked_renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "instances": 4,
+    "render_calls": 16,
+    "render_triangles": 38490,
+    "foreground_pixels": 316163,
+    "gl_error": 0,
+    "screenshot": "batch27-relative-scale-scene.png",
+    "screenshot_sha256": "82a9b9ba711c83936e0ff96e26dca918c1f13bee875046aeac0720f0f0781942",
+    "screenshot_bytes": 187388,
+    "input_glb_sha256_by_asset": {
+      "sollasina": "f6d12978189266bfd5fbad4504f3beef6d355c4dcb2683a7ba9c9c6d3a633170",
+      "ottoia": "1a384d0f920016b04faf7e848e821156a60f57ddebfc4e6f14aa935db64ff7c2",
+      "eocladus": "6861da609c64f7433e31d0214541938f8552baa6532c0ea7a10666cd0148fb9a",
+      "limestone-pavement": "b4a061d66caa7023c5f20f004e8f8ec241f3a580b2e14d6798ececb20a5eaccd"
+    },
+    "all_input_hashes_match_handoff": true,
+    "authored_units_scale": [
+      1,
+      1,
+      1
+    ],
+    "reference_bar_m": 0.1,
+    "status": "pass"
+  },
+  "assets": [
+    {
+      "asset_id": "sollasina",
+      "revision": "r001",
+      "selected_attempt": "attempt-01",
+      "candidate_checkpoint_commit": "505a4c0706a85d05464e97f0d9ad60ff35767575",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/sollasina/r001/attempt-01/sollasina/sollasina.blend",
+        "sha256": "6bc87e49512e84f3abb5b8c46c971a5e71f54d0fb52b90bf5100701a8632e452",
+        "bytes": 779436
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/sollasina/r001/attempt-01/sollasina/sollasina.glb",
+        "sha256": "f6d12978189266bfd5fbad4504f3beef6d355c4dcb2683a7ba9c9c6d3a633170",
+        "bytes": 136924
+      },
+      "dimensions_m": [
+        0.061309708282351494,
+        0.012019999558106065,
+        0.060218824073672295
+      ],
+      "triangles": 8050,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "source_branch": "candidate/small-life-batch27-20261018",
+      "handoff_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+      "model_source_commit": "bd4a80f1b9595480bf73b2d2369e28aae5770cef",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "pass"
+      },
+      "content_verdict": "PASS",
+      "formal_profile_result": "BLOCKED: required GPU stage remains unknown",
+      "defects": [],
+      "required_evidence_action": "For this exact GLB SHA-256 f6d12978189266bfd5fbad4504f3beef6d355c4dcb2683a7ba9c9c6d3a633170, capture the required WebGL2 runtime/GPU evidence on a supported hardware GPU (not SwiftShader software rendering), recording device/renderer and screenshot hash. No model edit is indicated.",
+      "observations": {
+        "content_verdict": "PASS within named-taxon-inspired teaching-art scope; no strict species, size, locomotion, or coexistence claim.",
+        "visual_observation": "The low plated central form and radiating podia remain separable in hero, reverse, front, side, rear, top, clay and silhouette views. No missing surfaces or visibly detached podia were observed.",
+        "factual_limit": "Use the generic fallback label for contexts that imply a strict specimen reconstruction. The cited primary paper is in the frozen ledger; this review does not certify specimen-level anatomy."
+      },
+      "evidence": {
+        "blender_audit": "evidence/blender/sollasina.json",
+        "fixed_views_manifest": "evidence/fixed-views/sollasina/render-manifest.json",
+        "fixed_views_contact_sheet": "evidence/fixed-views/sollasina/independent-contact-sheet.jpg",
+        "runtime_report": "evidence/runtime/sollasina/runtime-report.json",
+        "runtime_report_sha256": "4fa9505182b3c5586e0f9591b22ac5618dbff483857ca7c64e9b8cd1154f5cad"
+      }
+    },
+    {
+      "asset_id": "ottoia",
+      "revision": "r001",
+      "selected_attempt": "attempt-01",
+      "candidate_checkpoint_commit": "0372f2b6cdc802b39779d55fb4a7c658ea83d993",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/ottoia/r001/attempt-01/ottoia/ottoia.blend",
+        "sha256": "62ae0ec332bda35ddeb01cfe5ee3393bb329ae45b2fbebc65112bd70d0cf0c6b",
+        "bytes": 786184
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/ottoia/r001/attempt-01/ottoia/ottoia.glb",
+        "sha256": "1a384d0f920016b04faf7e848e821156a60f57ddebfc4e6f14aa935db64ff7c2",
+        "bytes": 163920
+      },
+      "dimensions_m": [
+        0.06713542714715004,
+        0.013342318590730429,
+        0.07003467530012131
+      ],
+      "triangles": 8816,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "source_branch": "candidate/small-life-batch27-20261018",
+      "handoff_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+      "model_source_commit": "bd4a80f1b9595480bf73b2d2369e28aae5770cef",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "pass"
+      },
+      "content_verdict": "PASS",
+      "formal_profile_result": "BLOCKED: required GPU stage remains unknown",
+      "defects": [],
+      "required_evidence_action": "For this exact GLB SHA-256 1a384d0f920016b04faf7e848e821156a60f57ddebfc4e6f14aa935db64ff7c2, capture the required WebGL2 runtime/GPU evidence on a supported hardware GPU (not SwiftShader software rendering), recording device/renderer and screenshot hash. No model edit is indicated.",
+      "observations": {
+        "content_verdict": "PASS within named-taxon-inspired teaching-art scope; small repeated anatomy is intentionally simplified.",
+        "visual_observation": "The curved annulated trunk, short anterior introvert, and posterior hooks read as one connected worm form across the fixed views. Hook detail is subordinate but visible at close/runtime views; no open seam or missing face was observed.",
+        "factual_limit": "No claim is made for hook-row counts, exact length, diet, or an exact fossil posture."
+      },
+      "evidence": {
+        "blender_audit": "evidence/blender/ottoia.json",
+        "fixed_views_manifest": "evidence/fixed-views/ottoia/render-manifest.json",
+        "fixed_views_contact_sheet": "evidence/fixed-views/ottoia/independent-contact-sheet.jpg",
+        "runtime_report": "evidence/runtime/ottoia/runtime-report.json",
+        "runtime_report_sha256": "5a5692aed9bb5968ff0b5f4234dcb5d704ff10a421d9f94c3085038be55233f7"
+      }
+    },
+    {
+      "asset_id": "eocladus",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "candidate_checkpoint_commit": "2886489b9bd180e448afee9de77b8dc448fd4203",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/eocladus/r001/attempt-02/eocladus/eocladus.blend",
+        "sha256": "69bf10e1a602a12436d9745504a9936d1a485e0cba2ac3defb7e687b8f212a9f",
+        "bytes": 824788
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/eocladus/r001/attempt-02/eocladus/eocladus.glb",
+        "sha256": "6861da609c64f7433e31d0214541938f8552baa6532c0ea7a10666cd0148fb9a",
+        "bytes": 190144
+      },
+      "dimensions_m": [
+        0.05337795056402683,
+        0.0013050000416114926,
+        0.14707589149475098
+      ],
+      "triangles": 9812,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "source_branch": "candidate/small-life-batch27-20261018",
+      "handoff_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+      "model_source_commit": "bd4a80f1b9595480bf73b2d2369e28aae5770cef",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "pass"
+      },
+      "content_verdict": "PASS",
+      "formal_profile_result": "BLOCKED: required GPU stage remains unknown",
+      "defects": [],
+      "required_evidence_action": "For this exact GLB SHA-256 6861da609c64f7433e31d0214541938f8552baa6532c0ea7a10666cd0148fb9a, capture the required WebGL2 runtime/GPU evidence on a supported hardware GPU (not SwiftShader software rendering), recording device/renderer and screenshot hash. No model edit is indicated.",
+      "observations": {
+        "content_verdict": "PASS as a preserved algal axis/branchwork specimen concept only; the model does not imply a complete parent thallus.",
+        "visual_observation": "The central axis and nested lateral branching remain readable in silhouette and clay views, with clear negative space and no detached branch tips or visible missing surfaces.",
+        "factual_limit": "Retain the existing needs-specific-reference flag and the narrow specimen-concept wording. The primary paper abstract describes Eocladus laterals branching to fifth order; this pass is not an exact-specimen reconstruction."
+      },
+      "evidence": {
+        "blender_audit": "evidence/blender/eocladus.json",
+        "fixed_views_manifest": "evidence/fixed-views/eocladus/render-manifest.json",
+        "fixed_views_contact_sheet": "evidence/fixed-views/eocladus/independent-contact-sheet.jpg",
+        "runtime_report": "evidence/runtime/eocladus/runtime-report.json",
+        "runtime_report_sha256": "edf1d36638f577f4b166b5e1af99a13e89cbe31aa3d9ec592a2119b89acc5691"
+      }
+    },
+    {
+      "asset_id": "limestone-pavement",
+      "revision": "r001",
+      "selected_attempt": "attempt-02",
+      "candidate_checkpoint_commit": "bd4a80f1b9595480bf73b2d2369e28aae5770cef",
+      "blend": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/limestone-pavement/r001/attempt-02/limestone-pavement/limestone-pavement.blend",
+        "sha256": "2e124144a128f6fdc3d71b510cd72f7b3ff4127319cd374f344cbcca80082f66",
+        "bytes": 836708
+      },
+      "glb": {
+        "path": "assets/candidates/continuous-small-life-round09-20261018/batch-27/limestone-pavement/r001/attempt-02/limestone-pavement/limestone-pavement.glb",
+        "sha256": "b4a061d66caa7023c5f20f004e8f8ec241f3a580b2e14d6798ececb20a5eaccd",
+        "bytes": 214252
+      },
+      "dimensions_m": [
+        3.0,
+        0.5053658564575016,
+        2.2899765968322754
+      ],
+      "triangles": 11812,
+      "validation_profile": "static-stylized-v1",
+      "rule_version": "2026-10-18.1",
+      "source_branch": "candidate/small-life-batch27-20261018",
+      "handoff_commit": "8c16ab8777d98d30674dda79dae90031e11e90bc",
+      "model_source_commit": "bd4a80f1b9595480bf73b2d2369e28aae5770cef",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "pass"
+      },
+      "content_verdict": "PASS",
+      "formal_profile_result": "BLOCKED: required GPU stage remains unknown",
+      "defects": [],
+      "required_evidence_action": "For this exact GLB SHA-256 b4a061d66caa7023c5f20f004e8f8ec241f3a580b2e14d6798ececb20a5eaccd, capture the required WebGL2 runtime/GPU evidence on a supported hardware GPU (not SwiftShader software rendering), recording device/renderer and screenshot hash. No model edit is indicated.",
+      "observations": {
+        "content_verdict": "PASS as an original stylized limestone-pavement process prop; no named locality or coastal/seawater origin claim.",
+        "visual_observation": "The block faces and intervening grikes read as a coherent landscape patch in top, hero, clay and silhouette views. No holes, torn borders, or visible missing faces were observed.",
+        "factual_limit": "Treat the 3 m width as an art-direction scene scale, not a site measurement."
+      },
+      "evidence": {
+        "blender_audit": "evidence/blender/limestone-pavement.json",
+        "fixed_views_manifest": "evidence/fixed-views/limestone-pavement/render-manifest.json",
+        "fixed_views_contact_sheet": "evidence/fixed-views/limestone-pavement/independent-contact-sheet.jpg",
+        "runtime_report": "evidence/runtime/limestone-pavement/runtime-report.json",
+        "runtime_report_sha256": "75f1f565a09b0773709bf0a2faf0e89ebba6b7907a5a5a24a04e644abdc71a13"
+      }
+    }
+  ],
+  "limitations": [
+    "SwiftShader is software rendering; the profile GPU gate is not passed by this evidence.",
+    "Scientific claims remain limited to each frozen claim_scope; this is not strict taxonomic/specimen validation.",
+    "Publication authority is separate and is not granted by this review."
+  ]
+}

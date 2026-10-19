@@ -1,0 +1,33 @@
+Batch-25 independent QA | IDs: anomalocaris, jimaodanus, hydrothermal-chimney, arenicolites-u-burrow | source handoff SHA: `a8395884c8e79a0c1ec3563c849303f1474ab0c7` | `static-stylized-v1` / `2026-10-18.1`
+
+# Independent QA: batch-25
+
+**Scoped result: PASS for all four exact Blend/GLB pairs below; no required model changes.** I read `production/continuous-small-life-round09-20261018/work/batch-25/final-handoff.jsonl` at the pinned handoff commit, then fetched and inspected the four candidate commits named there in separate detached source worktrees. The QA branch/worktree is based on the handoff commit `a8395884c8e79a0c1ec3563c849303f1474ab0c7`; the source candidate commits remain individually bound below. This review does not alter candidate records or their pending formal approval state.
+
+| Asset | Candidate source commit | Blend SHA-256 | GLB SHA-256 | GLB bounds X × Y × Z (m) | Triangles | Verdict |
+|---|---|---|---|---:|---:|---|
+| `anomalocaris` | `334b64ab07e1585edeede66c38442efef89bbb52` | `798013af65bb353eeb25f27eef13ff1770c4bd758b2f28ed91b07c1f0ef430ee` | `7b6ea43bbf6e6cc0b8f8f92087dfc5990a4bc724f7d0fc215d6174b1d028bc90` | `0.146619 × 0.063653 × 0.404049` | 5,076 | **PASS** |
+| `jimaodanus` | `2c97b832c116ea6aff320ebef9489ec3d4c567ac` | `e24c5a0d9e9d907938c2b8cab94e36b05c7539d0fe07114e7257f8d240712a04` | `d380db48cbf862ccf5ab76e83b2d82ec3a7b7d5942fee5cafa32938fdd2db583` | `0.065429 × 0.140000 × 0.064944` | 8,368 | **PASS** |
+| `hydrothermal-chimney` | `cfc984a96844d90302e7c9a5f85b11452f136eb1` | `ee3c593d4ec3d8ebd986350ed2b702e8e6a8e4c6f3490042b658fe734bc64c97` | `247577c08bfcfb0f35bf11704dd05e967c10e73789557a60f6ad2394fa00aa96` | `0.509650 × 0.850000 × 0.492062` | 4,032 | **PASS** |
+| `arenicolites-u-burrow` | `e09df39890528efe7997f909a9fef077adbfed60` | `c13522e0eabc38e5a8e7fff375d76f4d9ec09a1cbb0d878bb576fa859f3b47b1` | `64eede0632c267c190b4165acb5de58a3c0143cd3613f4b757daf688edb6cabf` | `0.240000 × 0.195000 × 0.090000` | 1,858 | **PASS** |
+
+Each handoff candidate commit equals the tip of its listed remote candidate branch. The `.blend` hash matches `candidate.json`; the `.glb` hash and byte count match `candidate.json`, `final-handoff.jsonl`, and the exact runtime report. All four candidate records declare `static-stylized-v1`, rule `2026-10-18.1`, eight required fixed views, and zero turntable frames.
+
+## Visual review
+
+I opened the final candidate `qa-contact-sheet.png` and `runtime-contact-sheet.png` for each asset and inspected the actual GLB-origin runtime PNGs at full size for the identifying structures and important connections. These are the selected `r001` final artifacts and manifests in each candidate commit, not build-attempt or prototype output. The eight source views are present and hash/byte-length verified; the runtime manifests bind seven final GLB screenshots (hero, reversehero, front, side, top, near, and nine-copy scene) plus their runtime report. The user-approved bar here is refined stylized low-poly work; the named fossil-inspired assets do not claim strict scientific reconstruction.
+
+- **anomalocaris — PASS.** The tapered body, paired curved frontal appendages, stalked eyes, lateral swimming flaps, and raised tail fan read together in hero, opposite, front, side, and top views. Contacts appear seated, with no obvious floating appendage or exposed break. This remains the expressly named-taxon-inspired teaching style; fine spine/tooth counts and motion are not judged as exact reconstruction claims.
+- **jimaodanus — PASS.** The narrow preserved axis supports two distinct structures: fine, branched lower whorls and a compact crown of thicker, unbranched club-shaped laterals. Their different scale and branching rhythm remain visible in clay, top, and runtime views; the piece does not add roots or imply a complete living thallus.
+- **hydrothermal-chimney — PASS.** The irregular, layered tower surrounds a genuine narrow open conduit. The final runtime top view shows the opening and inner wall; the source mesh has connected inner/outer walls and annular rims with no closing disk across the bore. The growth shoulders are continuous with the tower wall, not separate inserted pieces. Scale is the nominal 0.85 m teaching choice, not a site measurement.
+- **arenicolites-u-burrow — PASS.** The exposed section shows two narrow shafts joining in a simple basal U bend, with two openings on the top cap. The channel is a cut into the host block rather than a suspended tube; the gray front/clay view keeps the internal geometry legible. The brief correctly labels the section as an interpretive teaching convention, not an excavated specimen or producer claim.
+
+Measured GLB bounds agree with each nominal art scale: anomalocaris body length is nominally 0.30 m (display fan/appendages extend the full bounds to 0.404 m); jimaodanus preserved-axis span is 0.14 m; chimney height is 0.85 m; and the Arenicolites teaching-block width is 0.24 m. The runtime scenes show nine copies per asset and are only per-asset rendering checks, not a mixed-species habitat or real ecological scale claim.
+
+## Hash, source/export, and runtime checks
+
+- All four `checksums.sha256` manifests verified: 60 files each, 240/240 hashes matched. All four eight-view render manifests matched the actual image SHA-256 and byte lengths. All four runtime evidence manifests matched their runtime report and seven PNG hashes/byte lengths.
+- I independently ran `scripts/check_source_export.py` in Blender 4.3.2 on the pinned final Blend and exact GLB from each detached source checkout. All four audits report `pass_with_warnings`, no errors, equal source/GLB triangle counts, and matching converted bounds with maximum error `0 m`. Every audited semantic source part has zero boundary edges and zero non-manifold edges. The warnings are intentional smooth-face review flags; I inspected the corresponding final pixels and found no unintended shading defect.
+- Each pinned Chromium 154 / Three.js 0.180 `GLTFLoader` report loads the exact GLB with WebGL and ANGLE/SwiftShader software rendering, zero GL errors, and no failed views. Nine-copy scenes render 45,684 triangles / 63 calls (anomalocaris), 75,312 / 27 (jimaodanus), 36,288 / 27 (chimney), and 16,722 / 18 (Arenicolites). These captures establish software-WebGL functionality only; they do not establish physical-device performance.
+
+The relevant frozen records are retained in each candidate directory, including `candidate.json`, `checksums.sha256`, `views/render-manifest.json`, `runtime/evidence-manifest.json`, and `source-export.report.json`. The source handoff and four exact candidate refs are recorded in `final-handoff.jsonl` at `a8395884c8e79a0c1ec3563c849303f1474ab0c7`.
