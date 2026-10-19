@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T02:42:57.658970+00:00",
+  "updated_at": "2026-10-19T03:24:05.411116+00:00",
   "ci_confirmation": {
     "confirmed_by": "parent",
     "main_commit": "643534830397824dfd46990485bd16ad66ecf9ce",
@@ -9,7 +9,7 @@
     "dispatch_timestamp": "not supplied; recorded_at is planner observation, not claimed dispatch time"
   },
   "coordinator": "parent",
-  "status": "release_integration_in_progress",
+  "status": "release_committed_public_confirmation_pending",
   "claims": {
     "pentremites": {
       "batch_id": "batch-37",
@@ -182,7 +182,7 @@
   },
   "batches": {
     "batch-37": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-37",
       "candidate": {
         "maker_status": "completed",
@@ -212,15 +212,15 @@
       },
       "recorded_at": "2026-10-19T01:32:01.811326+00:00",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "batch-38": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-38",
       "candidate": {
         "maker_status": "completed",
@@ -250,15 +250,15 @@
       },
       "recorded_at": "2026-10-19T01:32:01.811326+00:00",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "batch-39": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-39",
       "candidate": {
         "maker_status": "completed",
@@ -288,11 +288,11 @@
       },
       "recorded_at": "2026-10-19T01:32:01.811326+00:00",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       },
       "repair": {
         "asset_ids": [
@@ -318,16 +318,16 @@
         "new_source_commit": null,
         "new_glb_sha256": null
       },
-      "repair_followup_note": "Latest parent reports37–39 release integration. Actual aa-lava-front difference-review source/result pins not supplied here; historical required-repair report retained, no guessed new verdict."
+      "repair_followup_note": "Prior aa-lava-front repair record is historical; latest main release descriptor now fixes the accepted published-commit payload. Planner did not rerun model QA or invent a new difference-review verdict."
     }
   },
   "jobs": {
     "pentremites": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-37",
       "candidate": {
         "maker_status": "completed",
@@ -355,21 +355,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "schizoneura": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-37",
       "candidate": {
         "maker_status": "completed",
@@ -397,21 +397,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "tombolo": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-37",
       "candidate": {
         "maker_status": "completed",
@@ -439,21 +439,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "entobia-sponge-boring-network": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-37",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-37",
       "candidate": {
         "maker_status": "completed",
@@ -481,21 +481,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "diplomoceras": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-38",
       "candidate": {
         "maker_status": "completed",
@@ -523,21 +523,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "nelumbo": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-38",
       "candidate": {
         "maker_status": "completed",
@@ -565,21 +565,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "marine-terrace": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-38",
       "candidate": {
         "maker_status": "completed",
@@ -607,21 +607,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "angular-unconformity-outcrop": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-38",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-38",
       "candidate": {
         "maker_status": "completed",
@@ -649,21 +649,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "clavagella": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-39",
       "candidate": {
         "maker_status": "completed",
@@ -691,21 +691,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "aa-lava-front": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-39",
       "candidate": {
         "maker_status": "completed",
@@ -733,13 +733,13 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       },
       "repair": {
         "asset_ids": [
@@ -755,11 +755,11 @@
       }
     },
     "native-copper-dendrite": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-39",
       "candidate": {
         "maker_status": "completed",
@@ -787,21 +787,21 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     },
     "nereites-lobed-meander": {
-      "status": "release_integration_in_progress",
+      "status": "release_committed_public_confirmation_pending",
       "owner": "parent-assigned-producer:batch-39",
       "attempts": [],
       "accepted_glb_sha256": null,
-      "release_commit": null,
+      "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
       "batch_id": "batch-39",
       "candidate": {
         "maker_status": "completed",
@@ -829,13 +829,13 @@
         "pin_note": "Exact reviewer input/output pins not supplied by parent; current ref heads are observations only.",
         "scope": "Parent reports37/38 QA PASS;39 only aa-lava-front needs silhouette correction. Exactly one independent full review; required repair receives difference-only recheck."
       },
-      "status_note": "Parent reports release integration toward175; not published yet. Prior model QA/repair history preserved; no planner re-review.",
+      "status_note": "Exact committed descriptor observed. Prior QA/repair history retained as history, no duplicate model work; public confirmation separate.",
       "release": {
-        "status": "publication_integration_in_progress",
+        "status": "committed_public_confirmation_pending",
         "publication_confirmed": false,
-        "release_commit": null,
-        "target_total_assets": 175,
-        "confirmed_baseline_live_assets": 163
+        "release_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+        "release_descriptor": "assets/releases/small-life-round13-twelve-20261018.json",
+        "provenance": "Exact12 release descriptor and main175 observed; public not checked by planner."
       }
     }
   },
@@ -845,14 +845,12 @@
     "blender_started": false
   },
   "latest_publication_checkpoint": {
-    "confirmed_by": "parent",
+    "observed_main_commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+    "committed_manifest_asset_count": 175,
     "confirmed_live_assets": 163,
-    "publication_target_assets": 175,
-    "publication_target_confirmed": false,
-    "observed_main_commit": "081606c10836f95e6d708ea02f1ed1e321595af5",
     "verified_live_build_sha": null,
-    "note": "37–39 target175 release integration ongoing, no new live confirmation; planner did not rerun browser verification."
+    "note": "163 historical confirmed parent live checkpoint; main175 committed observation does not imply this planner verified public build."
   },
-  "latest_review_workflow_policy": "production/continuous-small-life-round16-20261018/review-policy.json",
+  "latest_review_workflow_policy": "production/continuous-small-life-round17-20261018/review-policy.json",
   "website_scope_boundary": "Two-column site only PRD discussion, implementation unapproved; no UI/information-architecture mutation."
 }
