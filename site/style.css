@@ -150,3 +150,29 @@ html[data-catalog-scroll]::-webkit-scrollbar{display:none}
 }
 [data-theme=light] .catalog-scroll-cue{--scroll-surface:#f3f2ed}
 .catalog-scroll-cue span{font-size:10px;line-height:1.5;letter-spacing:.15px}
+
+/* Carry the approved gallery identity through home, about and real detail URLs.
+   This changes type and chrome only; artwork, layout and motion stay owned above. */
+html:root {font-family:var(--vault-font-ui);--ink:var(--vault-ink);--muted:var(--vault-muted);--line:var(--vault-line);background:var(--vault-surface);color:var(--vault-ink)}
+html .topbar {background:var(--vault-panel);border-color:var(--vault-line)}
+html .primary-nav {font-family:var(--vault-font-ui)}
+html .primary-nav a[aria-current=page]::after {height:1px;background:var(--vault-accent)}
+html .top-actions {gap:20px;font-size:12px}
+html .top-actions button {background:transparent;border:1px solid var(--vault-line);border-radius:var(--vault-radius);color:var(--vault-ink)}
+html .home-copy h1,html .curation-heading h2,html .about-page h1,html .static-route h1,html .static-route h2,html .asset-info h2 {font-family:var(--vault-font-display);font-weight:400;letter-spacing:-.035em}
+html .home-copy h1 {line-height:1.05}
+html .home-copy .edition,html .home-copy p,html .hero-caption {color:#59664f}
+html .edition {font-weight:500;letter-spacing:1.5px}
+html .curation-title {font-family:var(--vault-font-display);font-weight:400}
+html .curation-title>span {font-family:var(--vault-font-ui)}
+html .home-cta {background:#305742;color:#fff;border-radius:var(--vault-radius)}
+html .hero-caption button {border-color:#c6cbbd;border-radius:var(--vault-radius);color:#305742}
+html .home-search>div {background:var(--vault-panel);border-color:var(--vault-line);color:var(--vault-ink);border-radius:var(--vault-radius)}
+html .home-search button {background:var(--vault-accent);color:var(--vault-on-accent);border-radius:6px}
+html .home-search>div:focus-within {outline-color:var(--vault-accent)}
+html .inline-icon,html .home-search svg,html .theme-toggle svg {stroke-width:var(--vault-icon-stroke);stroke-linecap:round;stroke-linejoin:round}
+html .static-route .static-button,html #downloads a.bundle {background:var(--vault-accent)!important;color:var(--vault-on-accent)!important;border-radius:var(--vault-radius)}
+html .static-route .static-downloads a {border-color:var(--vault-line);border-radius:var(--vault-radius)}
+html .static-route .static-downloads a:first-child {background:var(--vault-accent);color:var(--vault-on-accent)}
+html .static-route .static-preview {background:#e8e4dc}
+@media(hover:hover) and (pointer:fine) {html .home-cta:hover {background:#244432}}

@@ -1,0 +1,56 @@
+/* Shared identity: one existing cube, quiet forest/ivory color, serif display
+   and a system UI stack. No remote fonts or route-dependent font requests. */
+:root {
+  --vault-font-display:Georgia,'Songti SC','Noto Serif CJK SC',STSong,serif;
+  --vault-font-ui:'Avenir Next',Avenir,'Segoe UI','PingFang SC','Microsoft YaHei',Arial,sans-serif;
+  --vault-surface:#f6f3ec;
+  --vault-panel:#f9f7f1;
+  --vault-ink:#262a25;
+  --vault-muted:#6b7067;
+  --vault-line:#d9d6cd;
+  --vault-accent:#305742;
+  --vault-on-accent:#fff;
+  --vault-accent-soft:#e1e9db;
+  --vault-radius:9px;
+  --vault-icon-stroke:1.65;
+  font-synthesis:none;
+}
+:root[data-theme=dark]:not([data-application=gallery]) {
+  --vault-surface:#20251f;
+  --vault-panel:#282e26;
+  --vault-ink:#f3f1e8;
+  --vault-muted:#b6bbae;
+  --vault-line:#454d40;
+  --vault-accent:#bfd1b6;
+  --vault-on-accent:#24382b;
+  --vault-accent-soft:#374833;
+}
+html .vault-brand {
+  display:inline-flex;align-items:center;gap:12px;flex-shrink:0;
+  font-family:var(--vault-font-display);font-size:20px;font-weight:400;
+  line-height:1;letter-spacing:2.4px;white-space:nowrap;color:var(--vault-ink);
+}
+html .vault-brand .vault-mark {
+  display:block;width:29px;height:29px;flex:0 0 29px;
+  fill:none;stroke:var(--vault-accent);stroke-width:var(--vault-icon-stroke);
+  stroke-linecap:round;stroke-linejoin:round;
+}
+html .vault-brand .vault-wordmark {color:var(--vault-ink)}
+html .vault-brand .vault-wordmark>span {color:var(--vault-muted);font-weight:400}
+html .vault-icon {display:inline-block;width:20px;height:20px;flex:0 0 20px;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:var(--vault-icon-stroke);stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+html .vault-nav {display:flex;align-items:center;gap:24px;font:12px/1.5 var(--vault-font-ui);white-space:nowrap}
+html .vault-nav>a,html .vault-nav>[aria-current] {position:relative;padding:8px 0;color:var(--vault-muted)}
+html .vault-nav>[aria-current=page] {color:var(--vault-ink)}
+html .vault-nav>[aria-current=page]::after {content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--vault-accent)}
+@media(max-width:760px) {
+  html .vault-brand {gap:8px;font-size:16px;letter-spacing:1.7px}
+  html .vault-brand .vault-mark {width:25px;height:25px;flex-basis:25px}
+}
+/* These small document-shell rules are eager so native/no-JS routes retain the
+   same readable identity before the route-specific application arrives. */
+html .topbar {display:flex;align-items:center;gap:48px;min-height:72px;padding:0 32px;background:var(--vault-panel);border-bottom:1px solid var(--vault-line)}
+html .topbar .primary-nav {display:flex;align-items:center;gap:28px;font:12px/1.5 var(--vault-font-ui);white-space:nowrap}
+html .topbar .primary-nav a {color:var(--vault-muted);text-decoration:none}
+html .topbar .top-actions {margin-left:auto}
+html .vault-brand {text-decoration:none}
+@media(max-width:700px) {html .topbar {gap:16px 22px;flex-wrap:wrap;padding:18px 20px 12px}html .topbar .primary-nav {width:100%;order:3}}

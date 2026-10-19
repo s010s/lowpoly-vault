@@ -141,3 +141,23 @@ body:has(#info-panel:not([hidden])) .heading{z-index:30}
 .gallery-skip{position:fixed;z-index:100;left:12px;top:8px;padding:10px;background:#f9f7f1;transform:translateY(-180%)}.gallery-skip:focus{transform:none}
 
 .gallery-review-notice{font:11px Arial,sans-serif;color:#725520;padding:4px 8px;border:1px solid #b89045;border-radius:5px}@media(max-width:760px){.gallery-review-notice{position:absolute;top:64px;left:12px;z-index:10;background:#faf8f0}}
+
+/* Shared brand/UI layer; the approved wheel geometry and stage stay unchanged. */
+html:root {font-family:var(--vault-font-display);--green:var(--vault-accent);--ink:var(--vault-ink);--line:var(--vault-line);--muted:var(--vault-muted);background:var(--vault-surface);color:var(--vault-ink)}
+html .vault-header {background:var(--vault-panel);border-color:var(--vault-line);gap:28px}
+html .vault-header .tagline {font-family:var(--vault-font-ui);font-size:9px;letter-spacing:1.7px;border-color:var(--vault-line);padding-left:24px}
+html .vault-header .vault-nav {margin-left:auto}
+html .vault-header #language {margin-left:0;font:12px var(--vault-font-ui);min-height:36px;color:var(--vault-accent)}
+html .searchbar,html .summary,html .list-hint,html .tools,html .download-actions,html .metrics span,html #credits,html .download-card small,html #filter-panel,html .info-panel-toolbar,html #info-content,html #subtitle,html .stage-hint,html #excluded,html #comparison-label,html #mobile-back,html #toast {font-family:var(--vault-font-ui)}
+html .search input {font-size:13px;letter-spacing:0}
+html #filters {display:inline-flex;align-items:center;justify-content:center;gap:5px}
+html #filters .vault-icon {width:17px;height:17px;flex-basis:17px}
+html #filters[aria-expanded=true] .vault-icon circle {fill:var(--vault-accent)}
+html #filter-close {display:grid;place-items:center;width:32px;height:32px}
+html .download-actions a {border-radius:var(--vault-radius)}
+html #subtitle {letter-spacing:.4px}
+html .list-hint {letter-spacing:.4px}
+html .tools button,html .download-actions a {font-size:11px}
+@media(min-width:1500px) {html .tools button,html .download-actions a {font-size:12px}}
+@media(max-width:1150px) {html .vault-header .tagline {display:none}html .tools button {font-size:10px}}
+@media(max-width:760px) {html .vault-header {gap:12px}html .vault-header .vault-nav {display:none}html .vault-header #language {margin-left:auto;font-size:11px}}
