@@ -1,4 +1,4 @@
-# Four small fish — independent QA handoff
+# Four small fish — independent QA and scene closure
 
 Branch: `candidate/small-fish-birds-20261019`. Source baseline includes
 `bac6621fc39144b3759c53b1b27231ac1b6e21c6`. Cloud-only Blender 4.3.2;
@@ -27,6 +27,8 @@ and unseen surfaces are explicitly resolved in each `brief.md`. All are labeled
 original inspired scene props; none claims a scientifically exact reconstruction.
 The original R1 preference is respected; no historical R2 is promoted or replaced.
 
+Current closure: [acceptance notes](closure-20261019/ACCEPTANCE-NOTES.md), [independent-QA provenance](closure-20261019/independent-qa-provenance.json), and [8/32-copy software-WebGL report](closure-20261019/software-webgl/report.json). Independent QA at `f4406976` passes all four bounded visual/technical/brief checks with no model repair. Model binaries and frozen build inputs remain unchanged. Dorypterus current delivered length is **0.0996 m (99.6 mm)**; Pteraspis remains an inspired stylized prop rather than an exact scientific reconstruction.
+
 For each `<id>/r001/`, review:
 
 - `brief.json`, `brief.md`, `references.json`, `build-config.json`.
@@ -51,15 +53,19 @@ intentional for the declared swimming-midline origin. Official Khronos Validator
 triangles and axis-converted bounds match. Two separately executed bounded-queue
 rebuilds per asset match both normalized semantics and actual GLB bytes. Queue
 request/result identities and raw logs remain in `rebuild-runs/`. Three.js
-0.180.0 Node GLTFLoader parsing, triangles and dimensions match. This establishes
-parsing only, not browser GPU rendering or populated-scene performance.
+0.180.0 Node GLTFLoader parsing, triangles and dimensions match. That earlier Node result establishes parsing only. The new closure separately renders all four models in Chromium 154 / ANGLE SwiftShader software WebGL2, with 8/32 copies per species and balanced mixed groups in hero/top views: all 20 functional scenarios pass. These synthetic scenes retain actual metre scale and are not hardware-GPU or deployed museum validation.
 
-`concept-integrity.report.json` is **valid=true, evidence_complete=false** for
-each asset. The exact concept-generation and first-inspection timestamps were not
-separately recorded and stay null; they are not reconstructed from file mtimes.
-The genuine image, prompt and available tool identity are present. `--require-complete`
-is expected to fail for those chronology gaps. These supplemental study records
-are not formal production candidate approval records.
+The original `concept-integrity.report.json` files remain historical. Current
+`closure-20261019/*-concept-integrity-current.report.json` files are
+**valid=true, evidence_complete=false**, with one remaining blocker: exact first
+pixel-inspection time is unknown. A real embedded C2PA created-action timestamp
+was recovered from the original PNG: **2026-10-19T15:57:08.648462002Z**. This is
+an unverified provider declaration, not a cryptographically validated trusted
+clock. No mtime or later viewing time is substituted for the missing first-view
+time. `--require-complete` still fails; the Skill permits honestly unrecorded
+study timings, so this does not invalidate the independent bounded visual pass.
+It does prevent claiming strict chronology completeness. Formal production
+acceptance remains separate and is not granted by this update.
 
 Metaspriggina's first shallow-gill attempt is retained under
 `attempt-01-gill-cues-too-shallow/`, including original GLB/Blend/proofs/generator.
@@ -68,23 +74,26 @@ preflights failed while resolving helper paths; their logs are preserved, and th
 separate final `concept-angle-proof/` runs succeeded. No failed run is counted as
 passing evidence.
 
-Remaining gates and limits:
+Current decisions and limits:
 
-- Parent assigns fresh independent artistic/factual/specification QA. Begin with
-  the frozen brief, references and exact GLB/proofs; maker self-check notes are
-  separate and must not supply the independent verdict. No acceptance is claimed.
-- Pteraspis full primary anatomy access remains limited. Original UCL page fetch:
-  web 502; shell `curl: (56) CONNECT tunnel failed, response 403`. Later opened
-  Kermack 1943 abstract supports the hypocercal tail; that consulted-only source
-  is in `references-supplement.json`, without modifying frozen source bindings.
-  Precise plate patterns, proportions and oral anatomy remain unverified.
-- Browser GPU, hardware GPU and populated-scene tests are **not run**. Repeat-copy
-  performance is not inferred from file size, materials or triangle count.
-- Main CI runs for bac6621 were queued on observation during the reported
-  [GitHub Actions/Pages incident](https://www.githubstatus.com/incidents/8tzbpcnl75jp).
-  No workflow was rerun. CI must be confirmed by the parent before any later release.
-- No main merge, manifest/catalog/inventory update, PR20 modification, deployment,
-  force push, remote deletion, permission change, user-computer work or Drive upload.
+- Fresh independent QA is complete at `f4406976378c132e5ec50c51e839a717ed4418fa`:
+  all four bounded stylized candidates pass visual, technical, brief and honest
+  claim-scope review; no geometry repair is recommended. Its GLB/Blend bindings
+  still match all eight delivered model files.
+- The exact first concept-inspection timestamp remains unknown. Current strict
+  concept completeness checks remain intentionally incomplete, as explained above.
+- Pteraspis exact armor layout/proportions/tail ratios are unknown and unclaimed;
+  this is nonblocking for the independently accepted stylized inspired scope.
+- Software WebGL scenes are checked for each species and mixed groups at 8/32
+  copies in hero/top views, with exact counts, GL errors, foreground pixels,
+  renderer identity, timing samples and inspected screenshots. All 20 pass.
+  Physical GPU and the actual deployed museum scene remain unverified. Timings
+  are run-specific software render+finish wall times, not a hardware FPS promise.
+- Main bac6621's three CI runs are now all completed/success, confirmed read-only
+  in `closure-20261019/main-ci-success.json`. No workflow was rerun.
+- No main merge, production manifest/catalog/inventory update, PR20 modification,
+  deployment, force push, remote deletion, permission change, user-computer work
+  or Drive upload. Formal production approval and release remain with parent.
 
 Reproduce from repository root using a **new** output directory:
 

@@ -6,4 +6,4 @@ Four isolated, unapproved candidates selected from inventory (1-based entries): 
 
 Genuine ImageGen concept-original.png retained with exact prompt and available invocation receipt; generation wall time not recorded. Pixels inspected before briefs and before geometry. Each frozen brief states concept contradictions and factual limits. Research inventory remains unchanged.
 
-Main CI was initially queued; must be rechecked before any release. No merge, production manifest update or deployment authorized here. Independent QA is the parent task’s next stage.
+Main CI was initially queued; current read-only closure confirms all three bac6621 runs succeeded. No merge, production manifest update or deployment authorized here. Independent QA at f4406976 now passes all four bounded stylized candidates without geometry repair. See HANDOFF.md and closure-20261019/ACCEPTANCE-NOTES.md for current record/scene closure and remaining formal limits.
