@@ -38,6 +38,8 @@ jobs:
         run: node site/audit-release.mjs
       - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
         run: npm run test:gallery:browser
+      - name: Exact seven concept assets, renderer, downloads and bilingual source labels
+        run: node site/concept-seven-browser-test.mjs
       - name: Parse original and published models, decoding embedded textures in Chromium
         run: npm run test:parser
       - name: Static routes, exact download bytes and attribution for every model
@@ -64,6 +66,7 @@ jobs:
             qa/animation-refinements/interaction/
             qa/threejs-parser.json
             qa/approved-gallery-browser/
+            qa/concept-seven-release-20261019/browser/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
