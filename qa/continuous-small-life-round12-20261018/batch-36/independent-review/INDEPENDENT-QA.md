@@ -12,6 +12,8 @@ The reviewed rule is `static-stylized-v1` / `2026-10-18.1`. Work was done in an 
 
 **Formal profile acceptance: BLOCKED.** The available browser is Chromium 154 / Three.js r180 / WebGL2 on ANGLE SwiftShader software rendering. It loads and renders each exact GLB without browser, request, or WebGL errors, and confirms six-instance workload counts. This is functional software-render evidence; it does not satisfy the hardware-GPU gate and does not establish physical-device performance. To close that gate, record an actual WebGL2 hardware-GPU run for each exact pinned GLB, including device/renderer and screenshot hashes. No model change is indicated.
 
+**Handoff-specific reviewer requirement: pending.** The source `HANDOFF.md` names a fresh `GPT-6 Luna xhigh` reviewer for the required sign-off. This report was produced in a fresh Codex/GPT-6 context, so its content review is independent but it does not satisfy that model-specific dispatch. If the named reviewer requirement remains binding, obtain a Luna xhigh review of the same frozen IDs, source commit and GLB hashes before recording the requested sign-off.
+
 The explicit static profile checker reports each record valid with `profile_contract_status: pass`. `approved_for_brief` remains false. The legacy checker’s consulted-only reference license-field incompatibility is preserved; no license was inferred and no checker or gate was altered.
 
 ## Pinned assets and exact artifacts
