@@ -1,0 +1,1250 @@
+{
+  "schema_version": 1,
+  "report_title": "Batch 37 independent QA",
+  "review_date": "2026-10-19",
+  "review_branch": "qa/independent-batch37-20261019",
+  "base_commit": "4642f57de8be861e2e9ecc44f05167424e7e7973",
+  "source": {
+    "ref": "handoff/batch37-20261018",
+    "commit": "4642f57de8be861e2e9ecc44f05167424e7e7973",
+    "remote_tip": "4642f57de8be861e2e9ecc44f05167424e7e7973",
+    "HANDOFF.md": {
+      "path": "production/continuous-small-life-round13-20261018/work/batch-37/HANDOFF.md",
+      "sha256": "5abe0aa574ba1e6a53e54a9ea01159bf481a589d224beadd18cb282c46c39306"
+    },
+    "final_handoff_jsonl": {
+      "path": "production/continuous-small-life-round13-20261018/work/batch-37/final-handoff.jsonl",
+      "sha256": "adf6520711b56b4df2695f3a67eebbf6b9c98a7b44b4dbde6a309813facb1081"
+    },
+    "scope_json": {
+      "path": "production/continuous-small-life-round13-20261018/work/batch-37/scope.json",
+      "sha256": "ec7299981e05c6fbf36f19d2760c015532b734a0b2ee984da51b29a299aa8be2"
+    },
+    "serial_execution_summary_sha256": "a166abdabc650096ddea316878731910bb8cf430fc73334fe8d48a0ff1ff7a90",
+    "final_handoff_hash_matches_scope": true
+  },
+  "reviewer": {
+    "model_identity": "not independently verified",
+    "requested_model": "GPT-6 Luna xhigh per parent dispatch",
+    "verification_note": "The environment exposed no verifiable model/version/reasoning-effort metadata. Per instruction, identity is recorded unverified; no identity-driven repeat QA was requested or performed."
+  },
+  "scope": "One independent QA round over exactly pentremites, schizoneura, tombolo, and entobia-sponge-boring-network. No model, brief, threshold, CI, permission, candidate approval, or publication record was changed.",
+  "repository_guidance": {
+    "reviewed_skills": [
+      "skills/prehistoric-environment-art/SKILL.md",
+      "skills/lowpoly-art-direction/SKILL.md",
+      "skills/blender-lowpoly-pipeline/SKILL.md",
+      "skills/asset-factual-review/SKILL.md"
+    ],
+    "agents_skill_inventory": "The .agents/skills tree contains animation-only skills; none applies to these static assets.",
+    "profile_contract": "docs/candidate-profile-compatibility.zh-CN.md; static-stylized-v1 2026-10-18.1"
+  },
+  "decision": {
+    "bounded_static_stylized_content_qa": "PASS for all four assets",
+    "model_repairs_required": false,
+    "technical_artifact_integrity": "PASS",
+    "semantic_rebuild_consistency": "PASS based on the two pinned runner rebuild reports per asset, each equal to the exact delivered GLB semantic digest; this review did not rebuild again.",
+    "formal_candidate_approval": "NOT GRANTED; all frozen candidate records remain approved_for_brief=false with required stage blockers unknown/pending.",
+    "hardware_gpu_performance": "NOT VERIFIED; bundled runtime uses Chromium/Three.js over ANGLE SwiftShader software WebGL. Functional rendering only; no physical-device performance inference.",
+    "legacy_checker": "Invalid for consulted-only reference entries with missing nonempty license text. The static profile contract passes without inventing a reuse license. This remains a separate record gate, not a model defect."
+  },
+  "independent_audits": {
+    "candidate_branch_tips_match_handoff": true,
+    "artifact_pins_checked": 134,
+    "artifact_pin_missing_count": 0,
+    "artifact_pin_mismatch_count": 0,
+    "artifact_pin_issues": [],
+    "fixed_view_manifest_images_recomputed": true,
+    "runtime_manifest_images_recomputed": true,
+    "blend_files_opened_read_only": true,
+    "static_profile_validation_exit_zero_for_all_assets": true,
+    "visual_evidence_inspected": [
+      "all eight frozen fixed views per asset",
+      "exact-GLB runtime contact sheet per asset, including hero, reverse hero, orthographic/near views and scene-9 copies"
+    ],
+    "actual_remote_candidate_tips_match_handoff": true,
+    "all_glb_hashes_match_final_handoff": true
+  },
+  "assets": [
+    {
+      "asset_id": "pentremites",
+      "candidate_branch": "candidate/batch37-pentremites-20261018",
+      "candidate_remote_tip": "79db273e561ff145e1c3e092f2153f9f957ad973",
+      "candidate_commit_matches_scope_remote_tip": true,
+      "candidate_path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001",
+      "verdict": "PASS",
+      "mandatory_model_repairs": [],
+      "visual_review": "Five-rayed petaloid bud, longitudinal grooves, stalk, and open fine brachioles remain legible across top, hero, clay, silhouette, and runtime views.",
+      "factual_scope": "Pass as named-taxon-inspired teaching art only; nominal scale, color, exact brachiole count and simplified pod anatomy are not specimen claims.",
+      "nonblocking_observations": [
+        "Two smooth-face source prompts (stalk and brachioles) were reviewed in gray/color/runtime evidence and accepted as deliberate soft secondary surfaces around the faceted bud."
+      ],
+      "external_sources": [
+        {
+          "title": "University of Kentucky Geological Survey — Fossil of the month: Pentremites",
+          "url": "https://www.uky.edu/KGS/fossils/fossil-of-the-month_2023-07_pentremites.php"
+        }
+      ],
+      "deliverables": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/pentremites.blend",
+          "sha256": "fe767ff636ed67c2fada0d3de94ba2acbed7dbe580bb43ac4941a68dbbf486cf"
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/pentremites.glb",
+          "sha256": "59a5ffb6a3329f099826f138848ed7b85e296b88fcb50a9d304335b7a865a28f",
+          "bytes": 264756,
+          "triangles": 6850,
+          "materials": 3,
+          "primitives": 4,
+          "expected_sha256_from_final_handoff": "59a5ffb6a3329f099826f138848ed7b85e296b88fcb50a9d304335b7a865a28f",
+          "hash_matches_final_handoff": true
+        },
+        "artifact_pins_checked": 32
+      },
+      "technical": {
+        "blender_open": {
+          "status": "pass",
+          "version": "4.3.2",
+          "scene_objects": 4,
+          "mesh_objects": 3,
+          "mesh_triangles": 6850
+        },
+        "source_export": {
+          "status": "pass_with_warnings",
+          "source_triangles": 6850,
+          "glb_triangles": 6850,
+          "triangles_match": true,
+          "bounds_max_error_m": 0.0,
+          "sha256_matches_actual_glb": true
+        },
+        "glb_runtime_meshes": 4,
+        "khronos": {
+          "validator_version": "2.0.0-dev.3.10",
+          "error_count": 0,
+          "warning_count": 0,
+          "report_hash_is_handoff_pinned": true
+        },
+        "static_profile_validation": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "record_valid": true,
+          "approved_for_brief": false,
+          "direct_review_command_exit_code": 0,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: normal-view-craft",
+            "open blocker: basic-form-and-scope",
+            "open blocker: deliverables-and-label",
+            "approval: pending"
+          ]
+        },
+        "legacy_checker": {
+          "valid": false,
+          "errors": [
+            "IV-ECHINODERM-FORMS.license: nonempty text required"
+          ]
+        },
+        "fixed_views": {
+          "names": [
+            "hero",
+            "reversehero",
+            "front",
+            "side",
+            "rear",
+            "top",
+            "clay",
+            "silhouette"
+          ],
+          "count": 8,
+          "turntable_frames": 0,
+          "view_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/qa-contact-sheet.png",
+            "sha256": "f97d54a8907ea6032e41743e47672e6633fc3f31adc94a35a2d22b5abe6fb621"
+          }
+        },
+        "runtime": {
+          "status": "pass",
+          "source_glb_sha256_matches_actual": true,
+          "chromium": "154.0.8037.57",
+          "threejs": "180",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "runtime_view_count": 7,
+          "all_gl_errors_zero": true,
+          "errors": [],
+          "runtime_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/runtime-contact-sheet.png",
+            "sha256": "a57c59fa996ee06760c66669139906bd2c6774f4fd6c3d08917079e0d8b7caa4"
+          },
+          "hardware_performance_verified": false
+        },
+        "two_pinned_semantic_rebuilds": [
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "2d973403727b1d27bd0f8aacdfbb708ff655a24974bf0a3f3fbb340bf2cf653b",
+            "rebuilt_semantic_sha256": "2d973403727b1d27bd0f8aacdfbb708ff655a24974bf0a3f3fbb340bf2cf653b",
+            "target_glb_sha256": "59a5ffb6a3329f099826f138848ed7b85e296b88fcb50a9d304335b7a865a28f",
+            "rebuilt_glb_sha256": "59a5ffb6a3329f099826f138848ed7b85e296b88fcb50a9d304335b7a865a28f",
+            "checker_executes_generator": false
+          },
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "2d973403727b1d27bd0f8aacdfbb708ff655a24974bf0a3f3fbb340bf2cf653b",
+            "rebuilt_semantic_sha256": "2d973403727b1d27bd0f8aacdfbb708ff655a24974bf0a3f3fbb340bf2cf653b",
+            "target_glb_sha256": "59a5ffb6a3329f099826f138848ed7b85e296b88fcb50a9d304335b7a865a28f",
+            "rebuilt_glb_sha256": "59a5ffb6a3329f099826f138848ed7b85e296b88fcb50a9d304335b7a865a28f",
+            "checker_executes_generator": false
+          }
+        ]
+      },
+      "evidence": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/pentremites.blend",
+          "sha256": "fe767ff636ed67c2fada0d3de94ba2acbed7dbe580bb43ac4941a68dbbf486cf"
+        },
+        "brief": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/brief.json",
+          "sha256": "7197a9160f5118bccd180c7a38d935d95af3ae7b2918d70d84c19bdff039f2ad"
+        },
+        "frozen_references": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/references.json",
+          "sha256": "0faa05cbd81bc11bae8a9edb1700473abd081fc3969d1f7663c17646b87b9b63"
+        },
+        "contract_reference_copy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/references-profile.json",
+          "sha256": "0faa05cbd81bc11bae8a9edb1700473abd081fc3969d1f7663c17646b87b9b63"
+        },
+        "reference_mapping": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/references-profile-mapping.json",
+          "sha256": "d4b2bee9a90ae38f4142c67c76af88f1ff639a58c3a225731b000fde23819e16"
+        },
+        "reference_access": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/reference-access.json",
+          "sha256": "040c50e8a3ade57b8c03bdf7570259bd30bd6cacf9679b6c554e7cf0e9683f47"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/build.py",
+          "sha256": "2d4d2ab44a18a9cda51cf053d0f0a35e48de91daaee76f84bf77ddede59bfc29"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/config.json",
+          "sha256": "4190f77494ffad9a65d6c04b9f6a608c4522a5c66ae967de0bd3517475a9e4b6"
+        },
+        "candidate": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/candidate.json",
+          "sha256": "32e6adf74f734ef87b4c23241174fc73f46402b37efff48d9e2f8d1c176ea03d"
+        },
+        "profile_contract": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/profile-contract.json",
+          "sha256": "953c57d19fa68f3641682c1ce3e83c7ab80734e84c201e4d1b36975e425a85d5"
+        },
+        "profile_policy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/profile-policy.json",
+          "sha256": "d3b553cc18a6216a7f05868b3e9cd70e1ed456af826aeae8f02bb05e69390f87"
+        },
+        "render_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/views/render-manifest.json",
+          "sha256": "7192dab29f5f012b85314c2eacb382f49f38a641feb6c2f4415b88db4973aa92"
+        },
+        "runtime_evidence_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/runtime/evidence-manifest.json",
+          "sha256": "2fe894901f20e2083e6d1aecccfe9e734fd6949344de35a04571251a1c44fe9b"
+        },
+        "source_export": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/source-export.report.json",
+          "sha256": "450fe14316787c1fcafa66799cad3f5b907bc44889292b173d801c6343342214"
+        },
+        "source_measurements": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/source-mesh-measurements.json",
+          "sha256": "3a12dbc384293e8b778c0c0493c5397d8f37d536a640e895dbd8b8285d7827e6"
+        },
+        "profile_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/profile-checker.report.json",
+          "sha256": "eeb838d4af3c972fb4d87ae24705c3a1de3290c1eff9a9a4aa76246aa16ddeba"
+        },
+        "profile_approved_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/profile-approved-check.report.json",
+          "sha256": "eeb838d4af3c972fb4d87ae24705c3a1de3290c1eff9a9a4aa76246aa16ddeba"
+        },
+        "legacy_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/project-checker.report.json",
+          "sha256": "b0767168777bcef5581a786c215d205a20e545a46c46aed324d18ca12ea04871"
+        },
+        "checksums": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/checksums.sha256",
+          "sha256": "d9a4225c3ebe43f29d90a18b6c36388dd4b1dfca640a025b1dd8dfa2a7b89f0a"
+        },
+        "handoff": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/HANDOFF.md",
+          "sha256": "402f9816d6dca0b1524c36c4c2f2a3febe5ac6e5b024a68c33671ec7d1386b89"
+        },
+        "serial_execution": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/serial-execution.report.json",
+          "sha256": "6dbe1c0a4e069134a6eefbec2387fe8fb9d5b3b3ab3cbe3c4c3ee6f3019c2ad4"
+        },
+        "planning_qa_scope": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/batch-37-QA-SCOPE.json",
+          "sha256": "631d0fd5029c6e50b7f1ec46cd6fe3b3a56944bb6880d2b85cb2b9a41a7c57a8"
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/metadata.json",
+          "sha256": "c7b0597a29b76d4ada10080eb6a245f5b871c16b772972444c4b9fae39018297"
+        },
+        "qa": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/qa.json",
+          "sha256": "3389f978bd105092a4f6c3051c780b7b8892bfccff65ae6d1bea891e59dd0556"
+        },
+        "dependency_hashes": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/dependency-hashes.json",
+          "sha256": "cabcac9e6f41d1fb17b5944184b871f917e076962506017c293ec8f4f44f016a"
+        },
+        "maker_self_check": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/maker-self-check.json",
+          "sha256": "da55ca6818abd3c280fbe957d89e6dc5a493f1d70b6a7bae77100427f9c41f0e"
+        },
+        "maker_visual_inspection": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/maker-visual-inspection.json",
+          "sha256": "47a57fb68ab1dc17dfb75419e9f6d572cde06aff99cdb64bcc2672c93d46d8d1"
+        },
+        "transparent_cover": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/preview-hero.png",
+          "sha256": "86a3525e8b9b2be434859cf5ccc59bf6b3d5795cecd541e2a14100f2fb6945c7"
+        },
+        "fixed8_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/qa-contact-sheet.png",
+          "sha256": "f97d54a8907ea6032e41743e47672e6633fc3f31adc94a35a2d22b5abe6fb621"
+        },
+        "runtime_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/runtime-contact-sheet.png",
+          "sha256": "a57c59fa996ee06760c66669139906bd2c6774f4fd6c3d08917079e0d8b7caa4"
+        },
+        "rebuild_1": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/reproducibility-1.report.json",
+          "sha256": "3e5f93dc1686c66a1c79f71e563d44596a97e4de006eb0919c36961c4ffa1d80"
+        },
+        "rebuild_2": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/pentremites/r001/reproducibility-2.report.json",
+          "sha256": "5101fb2428c31393b05707c7752cfc0259264eb14dbbb0e19c2c78117b3a79f4"
+        }
+      },
+      "actual_remote_ref": "refs/remotes/origin/candidate/batch37-pentremites-20261018",
+      "actual_remote_tip": "79db273e561ff145e1c3e092f2153f9f957ad973",
+      "remote_tip_matches_handoff": true
+    },
+    {
+      "asset_id": "schizoneura",
+      "candidate_branch": "candidate/batch37-schizoneura-20261018",
+      "candidate_remote_tip": "9fc2fec2717ae798be984c3e1115d546004f239c",
+      "candidate_commit_matches_scope_remote_tip": true,
+      "candidate_path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001",
+      "verdict": "PASS",
+      "mandatory_model_repairs": [],
+      "visual_review": "Paired sheaths and jointed axis read clearly in neutral top and oblique views; the shallow host slab remains subordinate and side/front views show relief rather than a flattened whole plant.",
+      "factual_scope": "Pass as a generalized Schizoneura-inspired preserved shoot/leaf-sheath teaching specimen. The paired-fan simplification is not an exact diagnostic whorl or specimen reconstruction; keep the inspiration/generalization label.",
+      "nonblocking_observations": [
+        "Paired broad fans simplify a more varied fused-leaf sheath arrangement described in palaeobotanical literature; within the frozen teaching-art scope, not a species-level anatomical pass."
+      ],
+      "external_sources": [
+        {
+          "title": "Bomfleur et al. (2013) — A reappraisal of Neocalamites and Schizoneura",
+          "url": "https://doi.org/10.1080/03115518.2013.764693",
+          "note": "Peer-reviewed reappraisal; full text was unavailable to browser during this review."
+        }
+      ],
+      "deliverables": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/schizoneura.blend",
+          "sha256": "8dbde9b5f52887101afc700d7c0265d2f01cb5717c77baacf6880acfee420170"
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/schizoneura.glb",
+          "sha256": "26db0627566dbc6743b35e7591c15bf2766346bd036f950e462ccae32272f3da",
+          "bytes": 65572,
+          "triangles": 3200,
+          "materials": 2,
+          "primitives": 2,
+          "expected_sha256_from_final_handoff": "26db0627566dbc6743b35e7591c15bf2766346bd036f950e462ccae32272f3da",
+          "hash_matches_final_handoff": true
+        },
+        "artifact_pins_checked": 34
+      },
+      "technical": {
+        "blender_open": {
+          "status": "pass",
+          "version": "4.3.2",
+          "scene_objects": 3,
+          "mesh_objects": 2,
+          "mesh_triangles": 3200
+        },
+        "source_export": {
+          "status": "pass_with_warnings",
+          "source_triangles": 3200,
+          "glb_triangles": 3200,
+          "triangles_match": true,
+          "bounds_max_error_m": 0.0,
+          "sha256_matches_actual_glb": true
+        },
+        "glb_runtime_meshes": 2,
+        "khronos": {
+          "validator_version": "2.0.0-dev.3.10",
+          "error_count": 0,
+          "warning_count": 0,
+          "report_hash_is_handoff_pinned": true
+        },
+        "static_profile_validation": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "record_valid": true,
+          "approved_for_brief": false,
+          "direct_review_command_exit_code": 0,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: normal-view-craft",
+            "open blocker: basic-form-and-scope",
+            "open blocker: deliverables-and-label",
+            "approval: pending"
+          ]
+        },
+        "legacy_checker": {
+          "valid": false,
+          "errors": [
+            "FL-sphenophyte-lab.license: nonempty text required"
+          ]
+        },
+        "fixed_views": {
+          "names": [
+            "hero",
+            "reversehero",
+            "front",
+            "side",
+            "rear",
+            "top",
+            "clay",
+            "silhouette"
+          ],
+          "count": 8,
+          "turntable_frames": 0,
+          "view_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/qa-contact-sheet.png",
+            "sha256": "0be6d3e568389491445b5d9f45eaaf032e12377f235de0bcc669c149a7047bc5"
+          }
+        },
+        "runtime": {
+          "status": "pass",
+          "source_glb_sha256_matches_actual": true,
+          "chromium": "154.0.8037.57",
+          "threejs": "180",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "runtime_view_count": 7,
+          "all_gl_errors_zero": true,
+          "errors": [],
+          "runtime_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/runtime-contact-sheet.png",
+            "sha256": "6ab90012776fa1cc49acaf0e5224e50f01c6b3dfdf8e39888202d0b3b00dc4e0"
+          },
+          "hardware_performance_verified": false
+        },
+        "two_pinned_semantic_rebuilds": [
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "4888ccd7189d214736527b63b9306128ce632024f027da3e57cf20ffe4d774dc",
+            "rebuilt_semantic_sha256": "4888ccd7189d214736527b63b9306128ce632024f027da3e57cf20ffe4d774dc",
+            "target_glb_sha256": "26db0627566dbc6743b35e7591c15bf2766346bd036f950e462ccae32272f3da",
+            "rebuilt_glb_sha256": "26db0627566dbc6743b35e7591c15bf2766346bd036f950e462ccae32272f3da",
+            "checker_executes_generator": false
+          },
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "4888ccd7189d214736527b63b9306128ce632024f027da3e57cf20ffe4d774dc",
+            "rebuilt_semantic_sha256": "4888ccd7189d214736527b63b9306128ce632024f027da3e57cf20ffe4d774dc",
+            "target_glb_sha256": "26db0627566dbc6743b35e7591c15bf2766346bd036f950e462ccae32272f3da",
+            "rebuilt_glb_sha256": "26db0627566dbc6743b35e7591c15bf2766346bd036f950e462ccae32272f3da",
+            "checker_executes_generator": false
+          }
+        ]
+      },
+      "evidence": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/schizoneura.blend",
+          "sha256": "8dbde9b5f52887101afc700d7c0265d2f01cb5717c77baacf6880acfee420170"
+        },
+        "brief": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/brief.json",
+          "sha256": "12214ad66f8b3b0cc6c50f0a8523fa46de62eb35dd3807097fd0becda56a4801"
+        },
+        "frozen_references": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/references.json",
+          "sha256": "16f19ec2b9cac9e69cf331d5e2237bbe0c77b649d479fc1f5458e185929e3639"
+        },
+        "contract_reference_copy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/references-profile.json",
+          "sha256": "16f19ec2b9cac9e69cf331d5e2237bbe0c77b649d479fc1f5458e185929e3639"
+        },
+        "reference_mapping": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/references-profile-mapping.json",
+          "sha256": "754c52cb27d747c31f3e5093787a9c642668bf99806ad381a125aec3ab828cf2"
+        },
+        "reference_access": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/reference-access.json",
+          "sha256": "2db24ecb339211860e1454cdec353dc59494b04186fc580f90229032c8b14ec9"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/build.py",
+          "sha256": "2d4d2ab44a18a9cda51cf053d0f0a35e48de91daaee76f84bf77ddede59bfc29"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/config.json",
+          "sha256": "4e610f17d4ec4eec180d790f5c32017a03fd1fc636c9ace7b2b4eba35e4c48aa"
+        },
+        "candidate": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/candidate.json",
+          "sha256": "5936fc4e1a5bdc1a17aa9a1b34ac98f1d5cc2d332b8d417286cdb5e226229135"
+        },
+        "profile_contract": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/profile-contract.json",
+          "sha256": "ab4b0d5de0c370e61c0bc29a3a7e44a73389199f4539a08a22c3944cd11908ee"
+        },
+        "profile_policy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/profile-policy.json",
+          "sha256": "d3b553cc18a6216a7f05868b3e9cd70e1ed456af826aeae8f02bb05e69390f87"
+        },
+        "render_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/views/render-manifest.json",
+          "sha256": "68e56b4e1a319bd987367523cb866bae8c64919e58de10c20d4a3998f59fc71a"
+        },
+        "runtime_evidence_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/runtime/evidence-manifest.json",
+          "sha256": "caebcdf298684488f04e3abfa13da12e285241357ccfc037700062ae2a7de271"
+        },
+        "source_export": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/source-export.report.json",
+          "sha256": "66bbedb04cea75106aba576409d9fc1f6229260fec3870378430d44e38221232"
+        },
+        "source_measurements": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/source-mesh-measurements.json",
+          "sha256": "d865aaf092f49bc523334048cd01da6e388ccb8b1c9bdaa239dc894956869d6d"
+        },
+        "profile_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/profile-checker.report.json",
+          "sha256": "daec6ada97071204be8c767560a9ba59bd0fce24ec8581e113bb153e00e99d83"
+        },
+        "profile_approved_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/profile-approved-check.report.json",
+          "sha256": "daec6ada97071204be8c767560a9ba59bd0fce24ec8581e113bb153e00e99d83"
+        },
+        "legacy_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/project-checker.report.json",
+          "sha256": "033ee6c0de188c4e622ccbfa6646a6ca80557d65a91d5d8cbf15316a214ca937"
+        },
+        "checksums": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/checksums.sha256",
+          "sha256": "559ab766d6cb792a07f431f4c233d7959f1fbecfff4872503397f5cbc6b60164"
+        },
+        "handoff": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/HANDOFF.md",
+          "sha256": "7bf7e31febc4edc43af53d1a0ad3021edafecb643bb1270a6483989a48e30773"
+        },
+        "serial_execution": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/serial-execution.report.json",
+          "sha256": "eb26f7fcae44975b17ef4b808e6f8ee3c1d2c5e9456caeab9c79f00665231e72"
+        },
+        "planning_qa_scope": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/batch-37-QA-SCOPE.json",
+          "sha256": "631d0fd5029c6e50b7f1ec46cd6fe3b3a56944bb6880d2b85cb2b9a41a7c57a8"
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/metadata.json",
+          "sha256": "882db5af6a1cec618cbbc9bf73406e29ef75fe1854179c13005df58c2b1aba91"
+        },
+        "qa": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/qa.json",
+          "sha256": "e70600f45eb7b2b5cccdb8f6ec80872a2000230bf83e70499af866efca904506"
+        },
+        "dependency_hashes": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/dependency-hashes.json",
+          "sha256": "221744ddb5cd9b1317befadb85dde9db961839a439208ad8fda9533f2f2b19b1"
+        },
+        "maker_self_check": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/maker-self-check.json",
+          "sha256": "e5d14267fc9ef836c16d20cb5f66676621147ccc9f75d1f001dfe822cfda3b87"
+        },
+        "maker_visual_inspection": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/maker-visual-inspection.json",
+          "sha256": "1c07fef1c8904e6423d0919acd8bb97e88b17056a2d08bdef2d410f5376a84c4"
+        },
+        "transparent_cover": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/preview-hero.png",
+          "sha256": "b466aaa84d72053835324abd056c440b26c06fcbfa78a74cfe6f3b915fb13102"
+        },
+        "fixed8_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/qa-contact-sheet.png",
+          "sha256": "0be6d3e568389491445b5d9f45eaaf032e12377f235de0bcc669c149a7047bc5"
+        },
+        "runtime_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/runtime-contact-sheet.png",
+          "sha256": "6ab90012776fa1cc49acaf0e5224e50f01c6b3dfdf8e39888202d0b3b00dc4e0"
+        },
+        "rebuild_1": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/reproducibility-1.report.json",
+          "sha256": "e9b7e9e4a5f01524ace74bbd3325b6da15af0a79294191599db4d58479a78476"
+        },
+        "rebuild_2": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/reproducibility-2.report.json",
+          "sha256": "510db37f8694a8324293588c4ab8414eaa2666aa6ad7067a8c02c0deca3b081b"
+        },
+        "diagnostic_gray_top": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/diagnostics/gray-top/preview-top.png",
+          "sha256": "fb412911cb6c201135996822c78680e63f7c4c65cefb122a2436c5073a86d9b7"
+        },
+        "diagnostic_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/schizoneura/r001/diagnostics/gray-top/manifest.json",
+          "sha256": "8acff65c6f143fc2fb824f4d3ac28b275e603e1fd12282588c1382e5bdaf19df"
+        }
+      },
+      "actual_remote_ref": "refs/remotes/origin/candidate/batch37-schizoneura-20261018",
+      "actual_remote_tip": "9fc2fec2717ae798be984c3e1115d546004f239c",
+      "remote_tip_matches_handoff": true
+    },
+    {
+      "asset_id": "tombolo",
+      "candidate_branch": "candidate/batch37-tombolo-20261018",
+      "candidate_remote_tip": "227259bd9e9579192936f75ade88cb021de6ebf0",
+      "candidate_commit_matches_scope_remote_tip": true,
+      "candidate_path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001",
+      "verdict": "PASS",
+      "mandatory_model_repairs": [],
+      "visual_review": "Continuous mainland, low sediment neck, and offshore island are distinct in hero/reverse/top and runtime views; lower shoreline margins can be followed. The low bed and simplified relief work as a coastal-process teaching tile.",
+      "factual_scope": "Pass as a process-inspired landform concept without a mapped locality or measured terrain claim. Frozen brief explicitly uses nominal art scale and excludes water and site reconstruction.",
+      "nonblocking_observations": [
+        "One smooth-face prompt on broad landform was reviewed and accepted as deliberate continuous relief; tile is not a surveyed coastal site."
+      ],
+      "external_sources": [
+        {
+          "title": "U.S. National Park Service — Sandy Coast Landforms",
+          "url": "https://www.nps.gov/articles/sandy-coast-landforms.htm"
+        }
+      ],
+      "deliverables": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/tombolo.blend",
+          "sha256": "ce67704b8537918e73703cdebf9198d04343403cc244f2ae125278f3040d8778"
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/tombolo.glb",
+          "sha256": "defec50fe617220529ed6fca54e08956585debc35acbc48555c3d4e0fb3bc0cb",
+          "bytes": 160500,
+          "triangles": 8832,
+          "materials": 1,
+          "primitives": 1,
+          "expected_sha256_from_final_handoff": "defec50fe617220529ed6fca54e08956585debc35acbc48555c3d4e0fb3bc0cb",
+          "hash_matches_final_handoff": true
+        },
+        "artifact_pins_checked": 34
+      },
+      "technical": {
+        "blender_open": {
+          "status": "pass",
+          "version": "4.3.2",
+          "scene_objects": 2,
+          "mesh_objects": 1,
+          "mesh_triangles": 8832
+        },
+        "source_export": {
+          "status": "pass_with_warnings",
+          "source_triangles": 8832,
+          "glb_triangles": 8832,
+          "triangles_match": true,
+          "bounds_max_error_m": 0.0,
+          "sha256_matches_actual_glb": true
+        },
+        "glb_runtime_meshes": 1,
+        "khronos": {
+          "validator_version": "2.0.0-dev.3.10",
+          "error_count": 0,
+          "warning_count": 0,
+          "report_hash_is_handoff_pinned": true
+        },
+        "static_profile_validation": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "record_valid": true,
+          "approved_for_brief": false,
+          "direct_review_command_exit_code": 0,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: normal-view-craft",
+            "open blocker: basic-form-and-scope",
+            "open blocker: deliverables-and-label",
+            "approval: pending"
+          ]
+        },
+        "legacy_checker": {
+          "valid": false,
+          "errors": [
+            "EN-CO2.license: nonempty text required"
+          ]
+        },
+        "fixed_views": {
+          "names": [
+            "hero",
+            "reversehero",
+            "front",
+            "side",
+            "rear",
+            "top",
+            "clay",
+            "silhouette"
+          ],
+          "count": 8,
+          "turntable_frames": 0,
+          "view_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/qa-contact-sheet.png",
+            "sha256": "7119de4831333abf43579f37e0b2f654cec85be983ea73a49bc91bb55f569184"
+          }
+        },
+        "runtime": {
+          "status": "pass",
+          "source_glb_sha256_matches_actual": true,
+          "chromium": "154.0.8037.57",
+          "threejs": "180",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "runtime_view_count": 7,
+          "all_gl_errors_zero": true,
+          "errors": [],
+          "runtime_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/runtime-contact-sheet.png",
+            "sha256": "444e601f2621bcff2dfe163151cd382ffba6ef24c55cae8791c39785b8d0f74c"
+          },
+          "hardware_performance_verified": false
+        },
+        "two_pinned_semantic_rebuilds": [
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "950bc37a5889066faeed14ffbea8c086be4837990e3d2af9cd230878727112b7",
+            "rebuilt_semantic_sha256": "950bc37a5889066faeed14ffbea8c086be4837990e3d2af9cd230878727112b7",
+            "target_glb_sha256": "defec50fe617220529ed6fca54e08956585debc35acbc48555c3d4e0fb3bc0cb",
+            "rebuilt_glb_sha256": "defec50fe617220529ed6fca54e08956585debc35acbc48555c3d4e0fb3bc0cb",
+            "checker_executes_generator": false
+          },
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "950bc37a5889066faeed14ffbea8c086be4837990e3d2af9cd230878727112b7",
+            "rebuilt_semantic_sha256": "950bc37a5889066faeed14ffbea8c086be4837990e3d2af9cd230878727112b7",
+            "target_glb_sha256": "defec50fe617220529ed6fca54e08956585debc35acbc48555c3d4e0fb3bc0cb",
+            "rebuilt_glb_sha256": "defec50fe617220529ed6fca54e08956585debc35acbc48555c3d4e0fb3bc0cb",
+            "checker_executes_generator": false
+          }
+        ]
+      },
+      "evidence": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/tombolo.blend",
+          "sha256": "ce67704b8537918e73703cdebf9198d04343403cc244f2ae125278f3040d8778"
+        },
+        "brief": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/brief.json",
+          "sha256": "2b709bd149830fc276b84c5fad346e7d9870226a29dbcf84fa686d261b8594cf"
+        },
+        "frozen_references": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/references.json",
+          "sha256": "55fb3a9259d622a611add9f9267cd82b609cfda9e1f36e7348de47055d77259c"
+        },
+        "contract_reference_copy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/references-profile.json",
+          "sha256": "55fb3a9259d622a611add9f9267cd82b609cfda9e1f36e7348de47055d77259c"
+        },
+        "reference_mapping": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/references-profile-mapping.json",
+          "sha256": "b66cd94c5c6a02a591bb0117ae4d24380fb8d9eb7e3deddf22b7c41e139f194f"
+        },
+        "reference_access": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/reference-access.json",
+          "sha256": "d8d3f02517e4c31fc6a2726ffe77102e0bdf9d31604c001482cb065e1d5c0de2"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/build.py",
+          "sha256": "2d4d2ab44a18a9cda51cf053d0f0a35e48de91daaee76f84bf77ddede59bfc29"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/config.json",
+          "sha256": "fb37ca6408785f6cec6e3685d9b2d5fb2cdc863fe95cfa0cc2bbfcd301bcbf3c"
+        },
+        "candidate": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/candidate.json",
+          "sha256": "6bbc35eb5da944d2e685f8bd3af37bc1bb117e995d4bb06371ae53c82458e084"
+        },
+        "profile_contract": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/profile-contract.json",
+          "sha256": "484d4a49c7b45e4a0bab7f9525a7eafb64d9e3699f4ac1117b1a0172f6d95c8e"
+        },
+        "profile_policy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/profile-policy.json",
+          "sha256": "d3b553cc18a6216a7f05868b3e9cd70e1ed456af826aeae8f02bb05e69390f87"
+        },
+        "render_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/views/render-manifest.json",
+          "sha256": "6d2577ec00a6ef17496cc24487640c8ccf4a0f9b754dc7a23cac600c37d050fe"
+        },
+        "runtime_evidence_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/runtime/evidence-manifest.json",
+          "sha256": "bd92a03f14b460198519a29a286a9db67710efe354454c155d5c78757acb7683"
+        },
+        "source_export": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/source-export.report.json",
+          "sha256": "cf15299a3a7bbf78f3e0cf42bf779f07459b9acb1e252424df1e38db3586d77d"
+        },
+        "source_measurements": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/source-mesh-measurements.json",
+          "sha256": "06682f2a66d9887230e55ebd44cbfb24bfc9db5abef9479185891eb139f39cde"
+        },
+        "profile_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/profile-checker.report.json",
+          "sha256": "fbf79b8faad115bd735ec97273efb7dbbc821ae754200da545707fdf3edef8c5"
+        },
+        "profile_approved_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/profile-approved-check.report.json",
+          "sha256": "fbf79b8faad115bd735ec97273efb7dbbc821ae754200da545707fdf3edef8c5"
+        },
+        "legacy_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/project-checker.report.json",
+          "sha256": "7b854da4d0dddd863255e8b8aa1851ccdbeec3c322390c388ab891f96671d96d"
+        },
+        "checksums": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/checksums.sha256",
+          "sha256": "3f8598a8355ab7c33007e45c548ff6552bb1acd04e5ab9214e219ffe8d8fd801"
+        },
+        "handoff": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/HANDOFF.md",
+          "sha256": "dbab0b8c82d31092c875251f0d60ad8c82e68e8f6ab5de9b3224a32a18f4be50"
+        },
+        "serial_execution": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/serial-execution.report.json",
+          "sha256": "f198ab7110ffa3f4f14f0cdbc329ac751fae457edfc7090aeb959b429c6144a0"
+        },
+        "planning_qa_scope": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/batch-37-QA-SCOPE.json",
+          "sha256": "631d0fd5029c6e50b7f1ec46cd6fe3b3a56944bb6880d2b85cb2b9a41a7c57a8"
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/metadata.json",
+          "sha256": "31d764139a6296ab28ac5c8a99b9c970dded2a28a34b462f9815f1ed200caead"
+        },
+        "qa": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/qa.json",
+          "sha256": "50ead2094be4a278944df508f9bd4f49fb00db7061d60174b50411d70db23eb5"
+        },
+        "dependency_hashes": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/dependency-hashes.json",
+          "sha256": "ed12c1b869a97a73b5265bd3468b03b125b712a84da8945ab02563e912adc2ed"
+        },
+        "maker_self_check": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/maker-self-check.json",
+          "sha256": "58bd2e9622da820ae74259fc446e1ceef6ab9af508c35805841de9681169e92e"
+        },
+        "maker_visual_inspection": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/maker-visual-inspection.json",
+          "sha256": "1921ff6583db1f722d4d5f15ac84f50fcefc8358ceebccabb4cf4e6efa92d925"
+        },
+        "transparent_cover": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/preview-hero.png",
+          "sha256": "c32aeaf6b935ca6a2f7eb22ac8a3a59b408f9e43f5984ed084628d3a376d219d"
+        },
+        "fixed8_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/qa-contact-sheet.png",
+          "sha256": "7119de4831333abf43579f37e0b2f654cec85be983ea73a49bc91bb55f569184"
+        },
+        "runtime_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/runtime-contact-sheet.png",
+          "sha256": "444e601f2621bcff2dfe163151cd382ffba6ef24c55cae8791c39785b8d0f74c"
+        },
+        "rebuild_1": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/reproducibility-1.report.json",
+          "sha256": "b6be8ad189ce326a66e72a070a457e38931a510acd931b77aa8f87de98a4a471"
+        },
+        "rebuild_2": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/reproducibility-2.report.json",
+          "sha256": "485d7fa3d4f8640ceda2848afd7a74ec5410c579728a67db39f6e22736cbbfa4"
+        },
+        "diagnostic_gray_top": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/diagnostics/gray-top/preview-top.png",
+          "sha256": "1ece148b7204dade63303c10d46651dffd396ff8825a3e2def920210ab00b009"
+        },
+        "diagnostic_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/tombolo/r001/diagnostics/gray-top/manifest.json",
+          "sha256": "c702d4087200350e2b004ed02a7cee16058143da532c78669a14c0b6ced5a6ee"
+        }
+      },
+      "actual_remote_ref": "refs/remotes/origin/candidate/batch37-tombolo-20261018",
+      "actual_remote_tip": "227259bd9e9579192936f75ade88cb021de6ebf0",
+      "remote_tip_matches_handoff": true
+    },
+    {
+      "asset_id": "entobia-sponge-boring-network",
+      "candidate_branch": "candidate/batch37-entobia-sponge-boring-network-20261018",
+      "candidate_remote_tip": "c59f4813bbdd6ecdfbd6ca2085a867577aaa59ac",
+      "candidate_commit_matches_scope_remote_tip": true,
+      "candidate_path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001",
+      "verdict": "PASS",
+      "mandatory_model_repairs": [],
+      "visual_review": "The cut carbonate block exposes a connected chamber-and-gallery network rather than unrelated surface pitting. Top, hero/reverse, gray, and exact-GLB runtime views preserve the voids and connections; section convention is explicit.",
+      "factual_scope": "Pass as an interpretive Entobia-like trace concept; no producer species, locality, age, or copied excavated specimen is asserted.",
+      "nonblocking_observations": [
+        "Editable source-only Boolean cutters are present in Blend and excluded from the single exported host mesh as intended."
+      ],
+      "external_sources": [
+        {
+          "title": "Tapanila (2006) — Devonian Entobia borings from Nevada",
+          "url": "https://pubs.geoscienceworld.org/paleosoc/jpaleontol/article/80/4/760/139588/DEVONIAN-ENTOBIA-BORINGS-FROM-NEVADA-WITH-A",
+          "note": "Primary article; direct page fetch was blocked, but indexed abstract was available."
+        }
+      ],
+      "deliverables": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/entobia-sponge-boring-network.blend",
+          "sha256": "d71a7ff5752534d55cbf839f7e658da43a3531cb0c65510185a589c3315a02e8"
+        },
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/entobia-sponge-boring-network.glb",
+          "sha256": "9565569dae4d8e591408e9e19babd9505f2a04b4bb0d7d499ca0c639f4a727bf",
+          "bytes": 117952,
+          "triangles": 2042,
+          "materials": 1,
+          "primitives": 1,
+          "expected_sha256_from_final_handoff": "9565569dae4d8e591408e9e19babd9505f2a04b4bb0d7d499ca0c639f4a727bf",
+          "hash_matches_final_handoff": true
+        },
+        "artifact_pins_checked": 34
+      },
+      "technical": {
+        "blender_open": {
+          "status": "pass",
+          "version": "4.3.2",
+          "scene_objects": 18,
+          "mesh_objects": 18,
+          "mesh_triangles": 2042
+        },
+        "source_export": {
+          "status": "pass",
+          "source_triangles": 2042,
+          "glb_triangles": 2042,
+          "triangles_match": true,
+          "bounds_max_error_m": 0.0,
+          "sha256_matches_actual_glb": true
+        },
+        "glb_runtime_meshes": 1,
+        "khronos": {
+          "validator_version": "2.0.0-dev.3.10",
+          "error_count": 0,
+          "warning_count": 0,
+          "report_hash_is_handoff_pinned": true
+        },
+        "static_profile_validation": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "record_valid": true,
+          "approved_for_brief": false,
+          "direct_review_command_exit_code": 0,
+          "errors": [],
+          "approval_blockers": [
+            "technical: unknown",
+            "technical-integrity: unknown",
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "runtime_parse: unknown",
+            "target-loader: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: normal-view-craft",
+            "open blocker: basic-form-and-scope",
+            "open blocker: deliverables-and-label",
+            "approval: pending"
+          ]
+        },
+        "legacy_checker": {
+          "valid": false,
+          "errors": [
+            "EN-TEB.license: nonempty text required"
+          ]
+        },
+        "fixed_views": {
+          "names": [
+            "hero",
+            "reversehero",
+            "front",
+            "side",
+            "rear",
+            "top",
+            "clay",
+            "silhouette"
+          ],
+          "count": 8,
+          "turntable_frames": 0,
+          "view_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/qa-contact-sheet.png",
+            "sha256": "144132a3747834ee8da390430d6b55b459343ad434892f6a5d9c672e04f963bc"
+          }
+        },
+        "runtime": {
+          "status": "pass",
+          "source_glb_sha256_matches_actual": true,
+          "chromium": "154.0.8037.57",
+          "threejs": "180",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "runtime_view_count": 7,
+          "all_gl_errors_zero": true,
+          "errors": [],
+          "runtime_image_hashes_recomputed": true,
+          "contact_sheet": {
+            "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/runtime-contact-sheet.png",
+            "sha256": "18448dfd1e59137dd07a4a50b650709b75c6e1d8f0895791811faa4202b47b4e"
+          },
+          "hardware_performance_verified": false
+        },
+        "two_pinned_semantic_rebuilds": [
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "ed5ad5ba4b7934c8c3a10fc84e9bc22d840470610ac520643d4148b2b3e815b2",
+            "rebuilt_semantic_sha256": "ed5ad5ba4b7934c8c3a10fc84e9bc22d840470610ac520643d4148b2b3e815b2",
+            "target_glb_sha256": "9565569dae4d8e591408e9e19babd9505f2a04b4bb0d7d499ca0c639f4a727bf",
+            "rebuilt_glb_sha256": "9565569dae4d8e591408e9e19babd9505f2a04b4bb0d7d499ca0c639f4a727bf",
+            "checker_executes_generator": false
+          },
+          {
+            "status": "pass",
+            "semantic_match": true,
+            "semantic_sha256": "ed5ad5ba4b7934c8c3a10fc84e9bc22d840470610ac520643d4148b2b3e815b2",
+            "rebuilt_semantic_sha256": "ed5ad5ba4b7934c8c3a10fc84e9bc22d840470610ac520643d4148b2b3e815b2",
+            "target_glb_sha256": "9565569dae4d8e591408e9e19babd9505f2a04b4bb0d7d499ca0c639f4a727bf",
+            "rebuilt_glb_sha256": "9565569dae4d8e591408e9e19babd9505f2a04b4bb0d7d499ca0c639f4a727bf",
+            "checker_executes_generator": false
+          }
+        ]
+      },
+      "evidence": {
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/entobia-sponge-boring-network.blend",
+          "sha256": "d71a7ff5752534d55cbf839f7e658da43a3531cb0c65510185a589c3315a02e8"
+        },
+        "brief": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/brief.json",
+          "sha256": "37669baa58d2bafcee02b3c698a7dc66d87ee90508cee387ed2f5744669f61ee"
+        },
+        "frozen_references": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/references.json",
+          "sha256": "886c8e7d5f5349e9ed46908610391f47ac06618373801035fdb68d823446631f"
+        },
+        "contract_reference_copy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/references-profile.json",
+          "sha256": "886c8e7d5f5349e9ed46908610391f47ac06618373801035fdb68d823446631f"
+        },
+        "reference_mapping": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/references-profile-mapping.json",
+          "sha256": "48c0ce9861046574943415389e5a26b9af878d338851ab105500bb134f3bfb8e"
+        },
+        "reference_access": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/reference-access.json",
+          "sha256": "557859f2c3055ae6aba939b12295933a774f694e6e1dadcb597acad9fab78cb8"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/build.py",
+          "sha256": "9d8dd2c1092cff996685f9562103a58b8bed1c1f2497394d97ba96f354f89be7"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/config.json",
+          "sha256": "f36f4de3f982beeb48a60aacf01f19df305b79886b7b7c58313bd145ecad4ff4"
+        },
+        "candidate": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/candidate.json",
+          "sha256": "157e25f7b9c32192d14a55e8556387f8b48bce9c895896e06a97eac20da19045"
+        },
+        "profile_contract": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/profile-contract.json",
+          "sha256": "06e6386abe47e046fedb4967affc8c47c4bcb74d797178a268635aec5b9c4e7d"
+        },
+        "profile_policy": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/profile-policy.json",
+          "sha256": "d3b553cc18a6216a7f05868b3e9cd70e1ed456af826aeae8f02bb05e69390f87"
+        },
+        "render_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/views/render-manifest.json",
+          "sha256": "d3cdf8fea4d16b75678f62fc56865b6de9f5a718e6435eba480de741d0de3ce2"
+        },
+        "runtime_evidence_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/runtime/evidence-manifest.json",
+          "sha256": "3eee11dc3c76cdff1a1fdb2157ee5b9c014122e656f43dfbbc1a9583c89ee6ba"
+        },
+        "source_export": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/source-export.report.json",
+          "sha256": "36a38a9ecf694df4a6adf15d0907b064adc8963a55c62382feb16e5821617a24"
+        },
+        "source_measurements": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/source-mesh-measurements.json",
+          "sha256": "6034ff63de9896325b0dae943ff29e1342a5b043da3e3f47cba67e8804423c85"
+        },
+        "profile_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/profile-checker.report.json",
+          "sha256": "df0b7596460578759c514d59bfdfc93876fc9543dbb11f772e980d2a5a65d125"
+        },
+        "profile_approved_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/profile-approved-check.report.json",
+          "sha256": "df0b7596460578759c514d59bfdfc93876fc9543dbb11f772e980d2a5a65d125"
+        },
+        "legacy_report": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/project-checker.report.json",
+          "sha256": "0d258ad2aca61f38a27690c02705f93fc7e9ab7d9f018eacd498787017c9817f"
+        },
+        "checksums": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/checksums.sha256",
+          "sha256": "14d0d75bf23f62ecd078698b3b572fae4ef173cc9c7daed14623dfd9dcf6a9f4"
+        },
+        "handoff": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/HANDOFF.md",
+          "sha256": "8632fbb4e7ac86120336312b2c288e878f1d64f8a7f8817951d5808878c88178"
+        },
+        "serial_execution": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/serial-execution.report.json",
+          "sha256": "1c223409b14a3d2a00ada05fcb3a8399bb13df9aad2bea47c53c97369fb4a402"
+        },
+        "planning_qa_scope": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/batch-37-QA-SCOPE.json",
+          "sha256": "631d0fd5029c6e50b7f1ec46cd6fe3b3a56944bb6880d2b85cb2b9a41a7c57a8"
+        },
+        "metadata": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/metadata.json",
+          "sha256": "4ab238dee34123cbc548d34d11d09722e35ccac8caaab662d0878f3d2cce132e"
+        },
+        "qa": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/qa.json",
+          "sha256": "d258293377f23d4d7e73ea53885f32d36923d281999410336a491702a0cf2b19"
+        },
+        "dependency_hashes": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/dependency-hashes.json",
+          "sha256": "47691289be850c6197e8cc73e918499fd98cb0c1b4d58c3d52247c578a5b908e"
+        },
+        "maker_self_check": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/maker-self-check.json",
+          "sha256": "a23e40978669a19d76146766b4c355eb7637795ea0af74e103b80d1dfaa94f0b"
+        },
+        "maker_visual_inspection": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/maker-visual-inspection.json",
+          "sha256": "2259e844e0ab3abbb0e78e79f33fa8dd22ed0fd93a3081c9af98ab6c333a0a6b"
+        },
+        "transparent_cover": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/preview-hero.png",
+          "sha256": "909a21edd58bb26344a9f616a8d7b4ec962a0fae976f3b6027d9e4d3a3c7b5a2"
+        },
+        "fixed8_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/qa-contact-sheet.png",
+          "sha256": "144132a3747834ee8da390430d6b55b459343ad434892f6a5d9c672e04f963bc"
+        },
+        "runtime_contact": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/runtime-contact-sheet.png",
+          "sha256": "18448dfd1e59137dd07a4a50b650709b75c6e1d8f0895791811faa4202b47b4e"
+        },
+        "rebuild_1": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/reproducibility-1.report.json",
+          "sha256": "e99b4c611e041f04e446c1175c623f2425eefd2feac4cfb6cae47d99c2406413"
+        },
+        "rebuild_2": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/reproducibility-2.report.json",
+          "sha256": "4b9256bc849dca640d50178e83e281446cd3acd2eb5bc9420f4304471eec5b26"
+        },
+        "diagnostic_gray_top": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/diagnostics/gray-top/preview-top.png",
+          "sha256": "8c954f74a0ff12f92812e52af0f322b1de4bd6b7105d00c58926bd0c8843c7cf"
+        },
+        "diagnostic_manifest": {
+          "path": "assets/candidates/continuous-small-life-round13-20261018/batch-37/entobia-sponge-boring-network/r001/diagnostics/gray-top/manifest.json",
+          "sha256": "15db9c2c0c50af54f69abd109c389f13e5aec4c3c70bb0ed5c7fcdba988a19c5"
+        }
+      },
+      "actual_remote_ref": "refs/remotes/origin/candidate/batch37-entobia-sponge-boring-network-20261018",
+      "actual_remote_tip": "c59f4813bbdd6ecdfbd6ca2085a867577aaa59ac",
+      "remote_tip_matches_handoff": true
+    }
+  ],
+  "citations": [
+    {
+      "title": "University of Kentucky Geological Survey — Fossil of the month: Pentremites",
+      "url": "https://www.uky.edu/KGS/fossils/fossil-of-the-month_2023-07_pentremites.php"
+    },
+    {
+      "title": "Bomfleur et al. (2013) — A reappraisal of Neocalamites and Schizoneura",
+      "url": "https://doi.org/10.1080/03115518.2013.764693"
+    },
+    {
+      "title": "U.S. National Park Service — Sandy Coast Landforms",
+      "url": "https://www.nps.gov/articles/sandy-coast-landforms.htm"
+    },
+    {
+      "title": "Tapanila (2006) — Devonian Entobia borings from Nevada",
+      "url": "https://pubs.geoscienceworld.org/paleosoc/jpaleontol/article/80/4/760/139588/DEVONIAN-ENTOBIA-BORINGS-FROM-NEVADA-WITH-A"
+    }
+  ]
+}
