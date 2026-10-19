@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { collectManifest } from './generate-manifest.mjs';
 import { assetFileAllowlist } from './asset-delivery.mjs';
 import { collectRefinedRelease } from './refined-release.mjs';
+import { collectRound11Release } from './small-life-round11-release.mjs';
 import { collectRound10Release } from './small-life-round10-release.mjs';
 import { collectRound09Release } from './small-life-round09-release.mjs';
 import { collectRound08Release } from './small-life-round08-release.mjs';
@@ -53,7 +54,9 @@ export async function collectInitialRelease(root=process.cwd()) {
 export async function checkPublishedManifest(root=process.cwd()) {
   const current=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   assert(!current.review_only,'A review-only manifest cannot be published');
-  const expected=current.publication?.round10_descriptor
+  const expected=current.publication?.round11_descriptor
+    ?await collectRound11Release(root,current.publication.round11_descriptor)
+    :current.publication?.round10_descriptor
     ?await collectRound10Release(root,current.publication.round10_descriptor)
     :current.publication?.round09_descriptor
     ?await collectRound09Release(root,current.publication.round09_descriptor)
