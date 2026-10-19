@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "sabalites",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 1",
+        "seed": 2026101808
+      },
+      "inputs": {
+        "audit": "/workspace/batch34-sabalites/scripts/qa_glb.py",
+        "brief": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/brief.json",
+        "config": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/config.json",
+        "freeze": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/freeze.json",
+        "generator": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/build.py",
+        "helper": "/workspace/batch34-sabalites/scripts/asset_common.py",
+        "inventory": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/inventory-record.json",
+        "original_config": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/build-config.json",
+        "policy": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/reference-policy.json",
+        "references": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "sabalites.glb",
+        "sabalites.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "sabalites",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "fresh semantic rebuild 2",
+        "seed": 2026101808
+      },
+      "inputs": {
+        "audit": "/workspace/batch34-sabalites/scripts/qa_glb.py",
+        "brief": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/brief.json",
+        "config": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/config.json",
+        "freeze": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/freeze.json",
+        "generator": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/build.py",
+        "helper": "/workspace/batch34-sabalites/scripts/asset_common.py",
+        "inventory": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/inventory-record.json",
+        "original_config": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/build-config.json",
+        "policy": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/reference-policy.json",
+        "references": "/workspace/batch34-sabalites/production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "sabalites.glb",
+        "sabalites.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
