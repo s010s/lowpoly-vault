@@ -5,7 +5,7 @@ R=Path.cwd();B=R/'production/undersea-invertebrates-concept-20261019';A=R/'asset
 H=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();rel=lambda p:str(p.relative_to(R));pin=lambda p:{'path':rel(p),'sha256':H(p)}
 cur=json.loads((B/'current-revisions.json').read_text());now=datetime.now(timezone.utc).isoformat()
 for slug,rev in cur.items():
- d=A/slug/rev;e=d/'evidence';e.mkdir(exist_ok=True);attempts=list((B/'final-runs/render'/slug/rev/'final-full-coverage').glob('*/*/result.json'))
+ d=A/slug/rev;e=d/'evidence';e.mkdir(exist_ok=True);attempts=list((B/'final-runs/render'/slug/rev/'final-full-coverage').glob('*/*/result.json'))+list((B/'repair-final-runs/render'/slug/rev/'final-full-coverage').glob('*/*/result.json'))
  if not attempts:continue
  at=attempts[0].parent
  if json.loads((at/'result.json').read_text())['status']!='succeeded':continue
@@ -19,6 +19,9 @@ for slug,rev in cur.items():
  rt=json.loads((d/'runtime/runtime-report.json').read_text());parse={'schema_version':1,'kind':'runtime_parse_report','stage':'runtime_parse','subject':subject,'status':'pass' if rt['status']=='pass' else 'fail','method':'Actual Chromium GLTFLoader load of exact standalone GLB; measured geometry bounds and triangles, then software WebGL renders.','observations':['Actual browser loader parsed this exact hash with no recorded browser errors.','Software SwiftShader rendering is functional evidence, not physical-device performance approval.'],'errors':rt['errors'],'warnings':[],'warning_review':[],'runtime':{'engine':'Three.js','version':rt['three_version'],'loader':'GLTFLoader','parsed':rt['status']=='pass'},'raw_functional_report':pin(d/'runtime/runtime-report.json'),'reviewed_evidence':[]}
  (e/'runtime-parse.report.json').write_text(json.dumps(parse,indent=2)+'\n')
  c=json.loads((R/'schemas/templates/candidate.template.json').read_text());c.update(asset_id=slug,revision=rev,maker={'id':'gpt-6.1-sol-medium-maker','task_id':'make-undersea-batch-20261019'},artifacts={role:pin(d/name) for role,name in [('glb',slug+'.glb'),('source',slug+'.blend'),('generator','generator.py'),('config','build-config.json'),('brief','brief.json'),('references','references.json'),('concept_interpretation','brief.md')]})
+ c['artifacts']['source_locator_map']=pin(B/'reference-map.json')
+ c['artifacts']['genuine_concept_image']=pin(B/'concepts/original.png')
+ c['artifacts']['imagegen_generation_record']=pin(B/'concepts/generation-record.json')
  c['evidence']=[dict(id='technical-report',kind='technical_report',stage='technical',subject=subject,**pin(e/'technical.report.json')),dict(id='runtime-parse-report',kind='runtime_parse_report',stage='runtime_parse',subject=subject,**pin(e/'runtime-parse.report.json')),dict(id='exact-glb-full-views',kind='render_manifest',stage='visual',subject=subject,**pin(d/'proof/render-manifest.json'))]
  for stage in c['stages']:
   x=c['stages'][stage];x['subject']=subject;x['note']='Independent review pending.' if stage in ['visual','factual','specification'] else 'Physical-device/target populated scene performance remains unknown; actual local SwiftShader functional screenshots retained.'
