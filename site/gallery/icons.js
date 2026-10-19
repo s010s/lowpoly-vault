@@ -12,4 +12,3 @@ export function iconMarkup(name){
  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+paths[name]+'</svg>';
 }
 export function mountIcons(root){for(const slot of root.querySelectorAll('[data-icon]'))slot.innerHTML=iconMarkup(slot.dataset.icon);}
-if(typeof document!=='undefined')mountIcons(document);

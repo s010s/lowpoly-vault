@@ -1,5 +1,5 @@
 import './style.css';
-import './icons.js';
+import {mountIcons} from './icons.js';
 import {createUIFeedback,shouldAnimateBoundary} from './ui-feedback.js';
 import {modelHeight,dimensionDetails,dimensionNote,comparisonText} from './model-dimensions.js';
 import {models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref} from './catalog-source.js';
@@ -9,6 +9,10 @@ import {WheelTitle} from './wheel-title.js';
 import {WheelGuides} from './wheel-guides.js';
 import {filterItems,WheelSettler} from './state.js';
 import {PreviewRenderer,POSTER_IMAGE_SCALE} from './renderer.js';
+// Importing this module prepares code and CSS without touching the SSG document.
+// Bootstrap mounts only after every startup dependency has finished loading.
+export async function mountGallery(){
+mountIcons(document);
 document.documentElement.style.setProperty('--poster-scale',POSTER_IMAGE_SCALE);
 const $=selector=>document.querySelector(selector),all=selector=>[...document.querySelectorAll(selector)];
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -192,3 +196,4 @@ if(state.selected)await choose(state.selected,{push:false,preserve:false,openMob
 window.__gallery=window.__preview;
 
 if(catalog.manifest.review_only){const note=document.createElement('span');note.className='gallery-review-notice';note.setAttribute('role','status');note.textContent=t('Review only · Not approved for publication','仅供审阅 · 尚未批准发布');document.querySelector('header').append(note);}
+}

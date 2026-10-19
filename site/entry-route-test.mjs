@@ -56,6 +56,7 @@ assert.equal(reloads, 1, 'History crossing to the wheel reloads before the legac
 
 const sourceHTML = await readFile(new URL('./index.html', import.meta.url), 'utf8');
 assert(sourceHTML.includes('src="/entry.js"'));
+for(const svg of sourceHTML.matchAll(/<svg\b[^>]*>/g)){assert(/width="\d+"/.test(svg[0])&&/height="\d+"/.test(svg[0]),'Template SVGs have bounded intrinsic dimensions before CSS');assert(svg[0].includes('fill="none"'),'Template stroke icons do not become black polygons without CSS');}
 assert(!sourceHTML.includes('src="/main.js"'));
 const out = await mkdtemp(join(tmpdir(), 'vault-entry-routes-'));
 try {
@@ -80,6 +81,11 @@ try {
         assert(html.includes(`rel="canonical" href="https://example.test${base}${locale}${path}"`));
       }
       const listing = await readFile(join(out, locale, 'models/index.html'), 'utf8');
+      const critical=listing.match(/<style id="gallery-startup-style">([\s\S]*?)<\/style>/)?.[1];
+      assert(critical,'List first-paint guard is rendered into HTML');
+      assert(listing.indexOf('id="gallery-startup-style"')<listing.indexOf('</head>'),'Guard is in the head, outside noscript');
+      assert(critical.includes('>:not(#static-route-content){display:none!important}'),'Only the useful SSG catalog is visible before mount');
+      assert(critical.includes('prefers-color-scheme:dark')&&critical.includes('data-theme="dark"'),'Saved and system dark preference keep a matching background');
       assert(listing.includes(`href="${base}${locale}models/model-0/"`));
       assert(listing.includes(`rel="next" href="${base}${locale}models/page/2/"`));
       const detail = await readFile(join(out, locale, 'models/model-0/index.html'), 'utf8');
