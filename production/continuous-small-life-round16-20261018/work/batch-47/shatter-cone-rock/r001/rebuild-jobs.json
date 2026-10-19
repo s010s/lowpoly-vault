@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "shatter-cone-rock",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/build.py",
+        "inventory": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/inventory-record.json",
+        "config": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/config.json",
+        "brief": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/brief.json",
+        "references": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/references.json",
+        "freeze": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/freeze.json",
+        "original_config": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/build-config.json",
+        "policy": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/reference-policy.json",
+        "review_policy": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/review-policy.json",
+        "helper": "/workspace/batch47-shatter-cone-rock/scripts/asset_common.py",
+        "audit": "/workspace/batch47-shatter-cone-rock/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "shatter-cone-rock.glb",
+        "shatter-cone-rock.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101814,
+        "purpose": "fresh semantic rebuild 1",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "shatter-cone-rock",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/build.py",
+        "inventory": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/inventory-record.json",
+        "config": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/config.json",
+        "brief": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/brief.json",
+        "references": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/references.json",
+        "freeze": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/freeze.json",
+        "original_config": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/build-config.json",
+        "policy": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/reference-policy.json",
+        "review_policy": "/workspace/batch47-shatter-cone-rock/production/continuous-small-life-round16-20261018/work/batch-47/shatter-cone-rock/r001/review-policy.json",
+        "helper": "/workspace/batch47-shatter-cone-rock/scripts/asset_common.py",
+        "audit": "/workspace/batch47-shatter-cone-rock/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "shatter-cone-rock.glb",
+        "shatter-cone-rock.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "seed": 2026101814,
+        "purpose": "fresh semantic rebuild 2",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}
