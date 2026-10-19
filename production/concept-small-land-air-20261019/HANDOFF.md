@@ -1,6 +1,6 @@
 # Four small land/air creature candidates
 
-Branch `candidate/small-land-air-quartet-concept-20261019`; base main `4774ea94c864dca71dbe252fdd1c03230cc8c610`. Candidate-only; no catalog or release count change. Maker gpt-6.1-sol / medium. Pin exact per-artifact hashes in handoff.json; git freeze SHA reported in the delivery message.
+Branch `candidate/small-land-air-quartet-main-20261019`; base main `4774ea94c864dca71dbe252fdd1c03230cc8c610`. Candidate-only; no catalog or release count change. Maker gpt-6.1-sol / medium. Pin exact per-artifact hashes in handoff.json; git freeze SHA reported in the delivery message.
 
 | ID | Revision | Triangles | GLB bytes | Actual GLB bbox X,Y,Z (m) |
 |---|---|---:|---:|---|
@@ -24,3 +24,5 @@ Chimerarachne original common-renderer proof is unreviewably tiny at the0.025m m
 Independent QA, Three.js parse, actual GPU rendering and populated-scene acceptance remain pending parent task. This bundle does not claim independent QA, species-exact reconstruction, approval or publication.
 
 Original assets/renders/prose CC BY4.0 — Leon Made This / s010s. Executable code MIT. Third-party sources consulted only, no imported geometry/material/image assets.
+
+Original making branch `candidate/small-land-air-quartet-concept-20261019` was based on c9b0d98d9186402d9821d0ac2b02b7c4da5665e4. Only this candidate bundle was committed and cherry-picked onto latest main for clean handoff; no unrelated UI/CI changes carried over. Historical receipts retain the original making branch.
