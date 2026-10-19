@@ -14,7 +14,7 @@ import {PACK_LABELS,WORLD_LABELS} from '../../curation.js';
 const rawModels=await publishedModels(),resources=JSON.parse(await readFile(new URL('../../public/gallery/resources.json',import.meta.url),'utf8'));
 const models=prepareModels({assets:rawModels},resources),catalog={manifest:{assets:rawModels,review_only:false},route:{lang:'en',page:0}};
 const restoreTextureLoader=installGeometryOnlyTextureFixture();
-let time=0,serial=0,reduced=false,mobile=false,selectCalls=0,pushes=0;
+let time=0,serial=0,reduced=false,mobile=false,selectCalls=0,pushes=0,latestHistorySnapshot;
 const timers=new Map(),media=new Map(),elements=new Map();
 const schedule=(fn,delay=0)=>{timers.set(++serial,{fn,at:time+delay});return serial;};
 function advance(ms){const end=time+ms;for(let count=0;;count++){assert(count<10000,'timer loop');const next=[...timers].filter(([,t])=>t.at<=end).sort((a,b)=>a[1].at-b[1].at)[0];if(!next)break;time=next[1].at;timers.delete(next[0]);next[1].fn();}time=end;}
@@ -66,7 +66,7 @@ r.host=$('#detail');r.visible=true;
 r.draw=()=>{if(!r.lost){r.renderer.domElement.style.visibility='visible';if(r.detail.model)r.acknowledgeDetailFrame();}draws.push({id:r.detail.asset?.id,model:!!r.detail.model,visibility:r.renderer.domElement.style.visibility});};
 r.host=$('#detail');r.controls=r.createControls(r.host);
 r.viewMotion=new ViewTransition({read:()=>r.viewState(),write:(state,ownership)=>r.applyState(state,ownership),reduced:()=>reduced});
-const context=vm.createContext({...dimensionPresentation,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location:new URL(siteRoot),localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history:{replaceState(){},pushState(){pushes++;}},console:{warn(){}},navigator:{}});
+const context=vm.createContext({...dimensionPresentation,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location:new URL(siteRoot),localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history:{replaceState(value){latestHistorySnapshot=structuredClone(value);},pushState(value){latestHistorySnapshot=structuredClone(value);pushes++;}},console:{warn(){}},navigator:{}});
 let source=await readFile(new URL('../main.js',import.meta.url),'utf8');
 source=source.replace(/^import .*;$/gm,'').replace(/^if\(import\.meta\.hot\).*$/gm,'').replace(/if\(state.selected\)await choose\(/m,'if(state.selected)void choose(');
 // Execute the actual UI helper inside this deterministic DOM harness too.
@@ -76,7 +76,15 @@ vm.runInContext(uiSource+'\n'+guideSource+'\n'+source,context);
 
 const p=window.__preview,checks=[];
 const flush=async()=>{for(let i=0;i<3;i++){await new Promise(resolve=>setImmediate(resolve));advance(40);}};
-const settle=async promise=>{let done=false,value,error;Promise.resolve(promise).then(v=>{done=true;value=v;},e=>{done=true;error=e;});for(let i=0;i<20&&!done;i++)await flush();assert(done,'selection did not settle after a matching mock render and RAF');if(error)throw error;return value;};
+const settle=async promise=>{
+ let done=false,value,error;Promise.resolve(promise).then(v=>{done=true;value=v;},e=>{done=true;error=e;});
+ // RAF uses the deterministic clock, while source SHA256 uses Node's real async
+ // worker pool. A fixed number of immediates can finish before that work runs.
+ const deadline=Date.now()+15000;
+ while(!done&&Date.now()<deadline){await flush();if(!done)await new Promise(resolve=>setTimeout(resolve,1));}
+ assert(done,`Selection ${p.state.selected} did not settle within 15 real seconds after matching render/RAF (status ${r.stats.detailStatus})`);
+ if(error)throw error;return value;
+};
 const settleChoice=(...args)=>settle(p.choose(...args));
 const model=id=>models.find(a=>a.id===id),request=id=>network.findLast(n=>n.path===model(id).glb);
 const active=id=>{assert.equal(p.state.selected,id);assert.equal($('#detail').dataset.modelId,id);assert.equal($('#detail-poster').dataset.modelId,id);assert.equal($('#detail-poster').src,assetURL(model(id).galleryPosters?.detail||model(id).preview));};
@@ -136,10 +144,26 @@ await settleChoice(C);assert.equal(host.style.touchAction,'pan-y');assert.equal(
 await settleChoice(C,{activateMobile:true});baseline();pointer('pointermove',32,'touch',180,150);baseline();pointer('pointerup',32,'touch',180,150);
 assert.equal((host.events.get('pointerdown')||[]).length,1);assert.equal((host.events.get('pointercancel')||[]).length,1);
 checks.push('Actual controls mobile static/interact/static/interact keeps pan-y/none policy, rejects held touch, and has no duplicate listeners');
+await settleChoice(first,{openMobile:false});p.state.mobileOpen=false;$('#wheel').scrollTop=0;
+const savedList={lang:p.state.lang,page:0,selected:first,query:'',facets:emptyFacets(),sort:'curated',scroll:0,keyboard:C,mobileOpen:false};
+await pops[0]({state:savedList});
+assert.equal(p.state.mobileOpen,false);assert.equal(latestHistorySnapshot.mobileOpen,false);
+assert.equal(p.state.keyboard,C);assert.equal(latestHistorySnapshot.keyboard,C);
+assert.equal($('#wheel').scrollTop,0);assert.equal(latestHistorySnapshot.scroll,0);
+checks.push('Mobile Back/Forward persists the fully restored list/keyboard/scroll snapshot even when unchanged scroll emits no event');
 mobile=false;
 
 const requestsBeforePreload=r.stats.requests;for(let i=0;i<models.length;i++){$('#wheel').scrollTop=i*128;p.renderWheel();await new Promise(resolve=>setImmediate(resolve));assert(vm.runInContext('detailPosterCache.size<=DETAIL_POSTER_CACHE_LIMIT',context));assert(vm.runInContext('[...detailPosterCache].every(([id,entry])=>entry.image.src===poster(sample.find(asset=>asset.id===id)))',context));}assert.equal(r.stats.requests,requestsBeforePreload);
 checks.push('Browsing warms only declared detail poster/fallback paths in a bounded eight-entry cache and makes no GLB requests');
+const originalCrypto=Object.getOwnPropertyDescriptor(globalThis,'crypto'),nativeCrypto=globalThis.crypto;let delayedDigests=0;
+assert(nativeCrypto?.subtle&&originalCrypto.configurable,'Native configurable Web Crypto is required for reviewed-source identity checks');
+try{
+ Object.defineProperty(globalThis,'crypto',{configurable:true,value:{subtle:{async digest(...args){delayedDigests++;await new Promise(resolve=>setTimeout(resolve,40));return nativeCrypto.subtle.digest(...args);}}}});
+ const started=Date.now(),delayed=p.choose('confuciusornis',{push:false,openMobile:false});await request('confuciusornis').resolve();
+ assert.equal(r.controls.enabled,false);assert.equal(r.detail.model,null);
+ await settle(delayed);active('confuciusornis');baseline();assert.equal(delayedDigests,1);assert(Date.now()-started>=35);assert(r.detail.supportRule,'Delayed source identity must still validate the reviewed foot support');
+ checks.push('A real asynchronous source digest delayed beyond immediate-loop cadence still gates mesh readiness and validates reviewed support before selection completes');
+}finally{Object.defineProperty(globalThis,'crypto',originalCrypto);}
 let fullCatalogSelections=0;
 for(const asset of models){
  const beforeRequests=network.length,selection=p.choose(asset.id,{push:false,openMobile:false});
