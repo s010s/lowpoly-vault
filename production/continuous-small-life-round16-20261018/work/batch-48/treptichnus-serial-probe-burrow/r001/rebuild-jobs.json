@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "treptichnus-serial-probe-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/treptichnus-serial-probe-burrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/treptichnus-serial-probe-burrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch48/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch48/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/treptichnus-serial-probe-burrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/treptichnus-serial-probe-burrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/treptichnus-serial-probe-burrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "treptichnus-serial-probe-burrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "treptichnus-serial-probe-burrow/treptichnus-serial-probe-burrow.blend",
+        "treptichnus-serial-probe-burrow/treptichnus-serial-probe-burrow.glb",
+        "treptichnus-serial-probe-burrow/qa.json",
+        "treptichnus-serial-probe-burrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch48 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "treptichnus-serial-probe-burrow",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/treptichnus-serial-probe-burrow/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/treptichnus-serial-probe-burrow/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch48/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch48/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/treptichnus-serial-probe-burrow/brief.json",
+        "references": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/treptichnus-serial-probe-burrow/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/treptichnus-serial-probe-burrow/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "treptichnus-serial-probe-burrow",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "treptichnus-serial-probe-burrow/treptichnus-serial-probe-burrow.blend",
+        "treptichnus-serial-probe-burrow/treptichnus-serial-probe-burrow.glb",
+        "treptichnus-serial-probe-burrow/qa.json",
+        "treptichnus-serial-probe-burrow/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch48 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
