@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "cave-pearl-pool",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/cave-pearl-pool/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/cave-pearl-pool/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch48/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch48/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/cave-pearl-pool/brief.json",
+        "references": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/cave-pearl-pool/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/cave-pearl-pool/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cave-pearl-pool",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "cave-pearl-pool/cave-pearl-pool.blend",
+        "cave-pearl-pool/cave-pearl-pool.glb",
+        "cave-pearl-pool/qa.json",
+        "cave-pearl-pool/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch48 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "cave-pearl-pool",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/cave-pearl-pool/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/cave-pearl-pool/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/work/batch-48/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch48/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch48/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/cave-pearl-pool/brief.json",
+        "references": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/cave-pearl-pool/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch48/production/continuous-small-life-round16-20261018/items/cave-pearl-pool/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cave-pearl-pool",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "cave-pearl-pool/cave-pearl-pool.blend",
+        "cave-pearl-pool/cave-pearl-pool.glb",
+        "cave-pearl-pool/qa.json",
+        "cave-pearl-pool/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch48 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}
