@@ -1,0 +1,11 @@
+{
+  "status": "failed_before_render",
+  "workflow_run": 39181347130,
+  "job": 117834565888,
+  "source_commit": "bbedd1cb267db61854be99dd5f2d3f0dff034b80",
+  "assertion": "assert(viewer) at site/render-web-previews.mjs:17",
+  "cause": "Vite resolves relative outDir against its site root, while prepareRenderCapture resolved against repository root. Viewer bundle and checked GLBs were written into different directories.",
+  "correction": "Set the Vite output to the absolute repository-root capture directory. Preserve the viewer assertion and all publication gates.",
+  "model_changes": false,
+  "generated_posters": 0
+}
