@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "reticulite-clast",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "reticulite-clast",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch35 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch35/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/reticulite-clast/brief.json",
+        "config": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch35/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/reticulite-clast/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/reticulite-clast/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "reticulite-clast/reticulite-clast.blend",
+        "reticulite-clast/reticulite-clast.glb",
+        "reticulite-clast/qa.json",
+        "reticulite-clast/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "reticulite-clast",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "reticulite-clast",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch35 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch35/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/reticulite-clast/brief.json",
+        "config": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/reticulite-clast/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch35/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/reticulite-clast/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/reticulite-clast/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "reticulite-clast/reticulite-clast.blend",
+        "reticulite-clast/reticulite-clast.glb",
+        "reticulite-clast/qa.json",
+        "reticulite-clast/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

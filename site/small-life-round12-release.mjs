@@ -1,0 +1,56 @@
+/** Owner-authorized website publication of exact independently reviewed batches 34–36. */
+import assert from 'node:assert/strict';
+import {readFile,realpath} from 'node:fs/promises';
+import {resolve,dirname} from 'node:path';
+import {createHash} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+import {ACCEPTED_ROUND12_ASSETS,SOURCE_BUNDLE} from './accepted-round12-release.mjs';
+import {collectRound11Release} from './small-life-round11-release.mjs';
+import {assetFileAllowlist} from './asset-delivery.mjs';
+export const ROUND12_IDS=Object.keys(ACCEPTED_ROUND12_ASSETS).sort();
+export const ROUND12_PACK='prehistoric-small-life-round12-20261018';
+const hash=b=>createHash('sha256').update(b).digest('hex');
+export async function collectRound12Release(root,p){
+ const cache=new Map();
+ async function checked(pin){assert(pin&&Object.keys(pin).sort().join(',')==='path,sha256');assert(typeof pin.path==='string'&&/^(assets|production|qa|scripts|site)\//.test(pin.path)&&!/[\\\u0000-\u001f?#%:]/.test(pin.path)&&pin.path.split('/').every(s=>s&&s!=='.'&&s!=='..'));assert(/^[a-f0-9]{64}$/.test(pin.sha256));const full=resolve(root,pin.path);assert.equal(await realpath(full),full,'Release symlinks forbidden');let b=cache.get(full);if(!b){b=await readFile(full);cache.set(full,b);}assert.equal(hash(b),pin.sha256,`${pin.path}: release hash mismatch`);return b;}
+ const plain=pin=>({path:pin.path,sha256:pin.sha256}),json=async pin=>JSON.parse(await checked(plain(pin)));
+ assert.equal(p?.path,'assets/releases/small-life-round12-twelve-20261018.json');const release=await json(p);
+ assert.equal(release.version,1);assert.equal(release.scope,'small-life-round12-twelve-20261018');assert.equal(release.authorization,'owner_authorized_publish_independent_qa_passed_batches');assert.equal(release.validation_profile,'static-stylized-v1');assert.equal(release.rule_version,'2026-10-18.1');
+ assert.equal(release.publication_policy.path,'production/policies/qa-passed-batch-publication-20261018.json');const policy=await json(release.publication_policy);assert.equal(policy.authority,'owner_authorized_qa_passed_batch_release');assert.equal(policy.candidate_gate_grants_publication,false);
+ assert.equal(release.base_descriptor.path,'assets/releases/small-life-round11-twelve-20261018.json');assert.deepEqual(release.additions.map(a=>a.id).sort(),ROUND12_IDS);assert.equal(release.batches.length,3);
+ assert.deepEqual(release.source_bundle,SOURCE_BUNDLE);const bundle=await json(SOURCE_BUNDLE);assert.deepEqual(release.batches,bundle.batches);assert.equal(new Set(bundle.files.map(p=>p.path)).size,bundle.files.length);for(const pin of bundle.files)await checked(pin);
+ const additions=[];
+ for(const entry of release.additions){
+  const id=entry.id,accepted=ACCEPTED_ROUND12_ASSETS[id],folder=`assets/additions/${id}/small-life-round12-20261018`,batch=release.batches.find(b=>b.batch===accepted.batch);assert(batch);assert.equal(batch.handoff_commit,accepted.handoff_commit);assert.equal(batch.review_commit,accepted.review_commit);assert.deepEqual(batch.review,accepted.review);assert.deepEqual(batch.handoff,accepted.handoff);assert(batch.ids.includes(id));
+  const text=(await checked(accepted.handoff)).toString(),handoffRows=accepted.batch==='34'?text.trim().split('\n').map(line=>JSON.parse(line)):JSON.parse(text).assets;assert.deepEqual(handoffRows.map(r=>r.asset_id).sort(),batch.ids.slice().sort());const row=handoffRows.find(r=>r.asset_id===id);assert(row);
+  const pins=accepted.batch==='34'?row.artifacts:row;assert.equal(pins.blend.sha256,accepted.blend.sha256);assert.deepEqual(plain(pins.candidate),accepted.candidate);assert.equal(accepted.batch==='34'?row.glb_sha256:pins.glb.sha256,accepted.glb.sha256);if(accepted.batch==='34')assert.equal(row.commit,accepted.source_commit);
+  assert.equal(entry.metadata.path,`${folder}/release-metadata.json`);const a=await json(entry.metadata),source=await json(accepted.source_metadata);assert.equal(a.id,id);assert.equal(a.source_category,source.category);assert.equal(a.category,({'river-dominated-delta':'geology','cave-drapery':'geology','reticulite-clast':'geology','folded-strata-outcrop':'geology','volcanic-bomb':'geology','asteriacites-resting-impression':'traces','teredolites-wood-boring-cast':'traces'})[id]??source.category);assert(['animals','plants','geology','traces'].includes(a.category));assert.equal(a.collection,'prehistoric');assert.deepEqual(a.worlds,['prehistoric']);assert.deepEqual(a.packs,[ROUND12_PACK]);assert.equal(a.license,'CC-BY-4.0');assert.equal(a.author,'Leon Made This / s010s');assert.equal(a.units,'meters');
+  for(const key of Object.keys(source).filter(k=>!['category','glb','blend','preview','sha256','worlds','packs','source_url','scientific_scope','source_revision','qa','review_only','release_status','quality_status','publication','downloads','turntable','card_preview','revision','revision_provenance','independent_qa','independent_acceptance','status','review_state','independent_review','candidate_record','approval_provenance'].includes(k)))assert.deepEqual(a[key],source[key],`Preserve reviewed ${key}`);
+  for(const key of ['name','description','scientific_scope'])for(const lang of ['en','zh'])assert(a[key]?.[lang]?.trim());
+  assert.deepEqual(a.scientific_scope,{en:'Stylized teaching art within the frozen source claim and reference-access limits; no strict specimen, exact-site or coexistence claim.',zh:'冻结来源范围内的风格化教学美术，保留参考访问限制；不作严格标本、精确地点或同域共存主张。'});
+  assert.equal(a.source_url,`https://github.com/s010s/lowpoly-vault/tree/${accepted.source_commit}/${dirname(accepted.glb.path)}`);
+  for(const key of ['qa','review_only','release_status','quality_status','publication','downloads','turntable','card_preview','revision','revision_provenance','independent_qa','independent_acceptance','status','review_state','independent_review','candidate_record','approval_provenance'])assert(!Object.hasOwn(a,key));
+  assert.deepEqual(a.sha256,entry.sha256);assetFileAllowlist({assets:[a]});
+  for(const key of ['glb','blend','preview']){assert.equal(dirname(a[key]),folder);const b=await checked({path:a[key],sha256:entry.sha256[key]});if(key!=='preview'){assert.equal(entry.sha256[key],accepted[key].sha256);assert.equal(b.length,accepted[key].bytes);await checked(plain(accepted[key]));assert.equal(source.sha256[key],entry.sha256[key]);}}
+  for(const pin of accepted.evidence)await checked(pin);
+  const candidate=await json(accepted.candidate);assert.equal(a.source_revision,candidate.revision);const brief=await json(candidate.artifacts.brief),limits=brief.geometry_policy;
+  const run=(file,args)=>{const r=spawnSync('python3',[file,...args],{cwd:root,encoding:'utf8',timeout:30000,maxBuffer:2*1024*1024});assert(!r.error,r.error?.message);assert([0,1].includes(r.status),r.stderr);return JSON.parse(r.stdout);};
+  const measured=run('scripts/qa_glb.py',[source.glb,'--max-triangles',String(limits.max_triangles),'--max-materials',String(limits.max_materials),'--max-primitives',String(limits.max_primitives)]);assert.deepEqual(measured.errors,[]);assert.equal(measured.sha256,a.sha256.glb);assert.equal(measured.scene_triangles,a.triangles);assert(measured.scene_triangles<=limits.max_triangles&&measured.materials<=limits.max_materials&&measured.scene_primitives_estimated_base_draw_calls<=limits.max_primitives&&accepted.glb.bytes<=limits.max_glb_bytes);
+  const frozen=await json(accepted.profile_result),current=run('scripts/validate_candidate.py',[accepted.candidate.path,'--root',resolve(root),'--profile','static-stylized-v1','--profile-contract',accepted.profile_contract.path,'--json']);
+  assert.deepEqual(current,frozen);assert.equal(current.validation_profile,'static-stylized-v1');assert.equal(current.rule_version,release.rule_version);assert.equal(current.profile_contract_status,'pass');assert.equal(current.valid,true);assert.equal(current.approved_for_brief,false);assert.equal(current.legacy_result.approved_for_brief,false);
+  const textures=run('scripts/check_release_textures.py',[accepted.candidate.path,'--root',resolve(root)]);assert.deepEqual(textures,await json(accepted.texture_audit));assert.equal(textures.status,'pass');assert.equal(textures.grants_approval,false);
+  const report=await json(accepted.review);const reviewRow=(report.items??report.assets).find(r=>r.asset_id===id);assert(reviewRow);
+  if(accepted.batch==='34'){
+   assert.equal(report.overall_verdict,'PASS');assert.deepEqual(report.must_fix_items,[]);assert.equal(report.scope.source_handoff_commit,accepted.handoff_commit);assert.equal(report.scope.profile,'static-stylized-v1');assert.equal(report.scope.profile_rule_version,release.rule_version);assert.equal(reviewRow.verdict,'PASS');assert.deepEqual(reviewRow.must_fix_items,[]);assert.equal(reviewRow.artifacts.glb.sha256,a.sha256.glb);assert.equal(reviewRow.artifacts.blend.sha256,a.sha256.blend);assert.equal(reviewRow.candidate_remote_tip,accepted.source_commit);assert.equal(reviewRow.checks.profile.approved_for_brief,false);assert.equal(reviewRow.checks.independent_rebuild.byte_identical,true);
+  }else if(accepted.batch==='35'){
+   assert.equal(report.batch_verdict.qa_result,'PASS');assert.equal(report.batch_verdict.assets_with_required_source_changes,0);assert.equal(report.source_of_truth.handoff_commit,accepted.handoff_commit);assert.equal(report.source_of_truth.handoff_sha256,accepted.handoff.sha256);assert.equal(reviewRow.qa_result,'PASS');assert.deepEqual(reviewRow.required_source_changes,[]);assert.equal(reviewRow.core_pins.glb.sha256,a.sha256.glb);assert.equal(reviewRow.core_pins.blend.sha256,a.sha256.blend);assert.deepEqual(reviewRow.core_pins.candidate,accepted.candidate);assert.equal(reviewRow.profile_record_boundary.approved_for_brief,false);assert.equal(reviewRow.independent_rebuilds.both_runs_glb_byte_exact_to_frozen_delivery,true);
+  }else{
+   assert.equal(accepted.batch,'36');assert(report.content_verdict.startsWith('PASS for all four assets'));assert(report.formal_profile_acceptance.startsWith('BLOCKED:'));assert.deepEqual(report.must_fix_model_items,[]);assert.equal(report.scope.source_handoff_commit,accepted.handoff_commit);assert.equal(reviewRow.content_verdict,'PASS');assert.deepEqual(reviewRow.must_fix,[]);assert.equal(reviewRow.glb.sha256,a.sha256.glb);assert.equal(reviewRow.blend.sha256,a.sha256.blend);assert.equal(reviewRow.profile_check.approved_for_brief,false);assert.equal(reviewRow.rebuild.both_glb_bytes_match_delivered,true);assert.equal(reviewRow.runtime.hardware_gpu_claim,false);
+  }
+  const provenance={source_commit:accepted.source_commit,review_commit:accepted.review_commit,review_sha256:accepted.review.sha256,validation_profile:'static-stylized-v1',rule_version:release.rule_version,candidate_record_approved_for_brief:false};
+  if(accepted.batch==='36')Object.assign(provenance,{formal_profile_acceptance:'BLOCKED',hardware_gpu_verified:false});
+  additions.push({...a,quality_status:'independent_qa_accepted_stylized_prop',approval_provenance:provenance});
+ }
+ const base=await collectRound11Release(root,release.base_descriptor);assert.equal(base.assets.length,151);assert(!additions.some(a=>base.assets.some(b=>a.id===b.id)));
+ return {...base,assets:[...base.assets,...additions],publication:{...base.publication,round12_descriptor:p,approved_round12_ids:ROUND12_IDS}};
+}

@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/generator.py",
+    "--",
+    "--asset",
+    "cave-drapery",
+    "--config",
+    "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/rebuild-runs/build/cave-drapery/r001/semantic-rebuild-1/e12129f0083b299ce0ee952908fa5a0d707ce5fc2055b3ce01c5de58fb070664/20261019T002742-e075a0f761484317bc822b657ebb621a/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-19T00:27:42.217886+00:00",
+  "fingerprint": "e12129f0083b299ce0ee952908fa5a0d707ce5fc2055b3ce01c5de58fb070664",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch35/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9644,
+        "path": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/brief.json",
+        "sha256": "ff167072f852939b7de5a0ea84d0cb88fe5f5b4a7e9217a43cee4d35601c1032"
+      },
+      "config": {
+        "bytes": 2344,
+        "path": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/config.json",
+        "sha256": "9d6acbccb73676b09c446ade35e4cd1ca9129e05d43ec434c427df86036d538e"
+      },
+      "generator": {
+        "bytes": 5599,
+        "path": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/generator.py",
+        "sha256": "e228d819dc53d26f4d770d78521c4b316a25448ef99266008f197375757f8b91"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch35/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2766,
+        "path": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/inventory-record.json",
+        "sha256": "962257a6e6eec84a8a9964075d72cd21c74a80774f05d6df24b78636598aaf96"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1160,
+        "path": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/references.json",
+        "sha256": "680b9f6366bd7a240088d7672423cab18c3946ed80ae68fb7c0478ae785abd97"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cave-drapery",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "cave-drapery",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch35 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch35/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/brief.json",
+        "config": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch35/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "cave-drapery/cave-drapery.blend",
+        "cave-drapery/cave-drapery.glb",
+        "cave-drapery/qa.json",
+        "cave-drapery/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T002741-aa9575b299594e2abae45ea2b9a7926d"
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "cave-drapery",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch35/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch35/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/brief.json",
+        "references": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cave-drapery",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "cave-drapery/cave-drapery.blend",
+        "cave-drapery/cave-drapery.glb",
+        "cave-drapery/qa.json",
+        "cave-drapery/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch35 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "cave-drapery",
+      "revision": "r001",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/generator.py",
+        "config": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/cave-drapery/r001/config.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/work/batch-35/mesh_utils.py",
+        "helper": "/workspace/lowpoly-vault-batch35/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault-batch35/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/brief.json",
+        "references": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/references.json",
+        "inventory": "/workspace/lowpoly-vault-batch35/production/continuous-small-life-round12-20261018/items/cave-drapery/inventory-record.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "cave-drapery",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "outputs": [
+        "cave-drapery/cave-drapery.blend",
+        "cave-drapery/cave-drapery.glb",
+        "cave-drapery/qa.json",
+        "cave-drapery/metadata.json"
+      ],
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch35 serial lifecycle",
+        "threads": 2
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}

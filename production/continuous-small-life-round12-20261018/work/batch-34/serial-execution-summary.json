@@ -1,0 +1,109 @@
+{
+  "kind": "batch34-owned-serial-chronology-summary",
+  "verdict": "pass",
+  "delivery_status": "blocked_auth; no final remote-tip verification or publication",
+  "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
+  "final_handoff_jsonl_sha256": "3180a6815726b1e9c4a56dfc06bb34d905f2c45d1ab1533dc21c59536ba1de01",
+  "overlapping_top_level_owned_launches": 0,
+  "all_owned_process_groups_exited": true,
+  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
+  "top_level_launch_count": 50,
+  "nonzero_exit_count": 3,
+  "nonzero_exit_note": "Actual nonzero model attempts are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
+  "assets": [
+    {
+      "asset_id": "takakkawia",
+      "candidate_commit": "2d2a47052866841f1ab1a4e555486bcd6b2b4a33",
+      "branch": "candidate/batch34-takakkawia-20261018",
+      "ledger_path": "production/continuous-small-life-round12-20261018/work/batch-34/takakkawia/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "62918280430c33126f4d206a191e6312e6b74d7e28a9600285a9a83e0a362371",
+      "first_launch": "2026-10-19T00:20:30.377580+00:00",
+      "last_exit": "2026-10-19T00:21:43.649491+00:00",
+      "lifecycle_complete": "2026-10-19T00:22:04.798073+00:00",
+      "top_level_launch_count": 9,
+      "matching_exit_count": 9,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "sabalites",
+      "candidate_commit": "eb749466e252712fabe6a9f4d3d61b6298af8bad",
+      "branch": "candidate/batch34-sabalites-20261018",
+      "ledger_path": "production/continuous-small-life-round12-20261018/work/batch-34/sabalites/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "cc7f5202684ab1992619aa9d285dd8bfa7f5935bcaf2908e1a4607cced133efe",
+      "first_launch": "2026-10-19T00:23:20.875167+00:00",
+      "last_exit": "2026-10-19T00:24:21.453199+00:00",
+      "lifecycle_complete": "2026-10-19T00:24:48.662198+00:00",
+      "top_level_launch_count": 9,
+      "matching_exit_count": 9,
+      "nonzero_exit_count": 0,
+      "nonzero_exit_dispositions": {
+        "failures": []
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "river-dominated-delta",
+      "candidate_commit": "5fd87c8e933ca410f9b44292e02a87323e72d7ce",
+      "branch": "candidate/batch34-river-dominated-delta-20261018",
+      "ledger_path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "6f9430b60a8eb155040b06d4f53dec386e88493b19873e4dfae7d791cb803b39",
+      "first_launch": "2026-10-19T00:24:59.900917+00:00",
+      "last_exit": "2026-10-19T00:30:56.693929+00:00",
+      "lifecycle_complete": "2026-10-19T00:31:23.880781+00:00",
+      "top_level_launch_count": 21,
+      "matching_exit_count": 21,
+      "nonzero_exit_count": 2,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 53294,
+            "returncode": 1,
+            "stage": "runtime",
+            "reason": "Actual20m asset camera160m exceeded fixed far100m, clipping all meshes:0calls/0pixels. Real reportfail retained.",
+            "retained_path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/failed-attempt-01-runtime-clip-and-grid-slopes",
+            "disposition": "Own viewer far sized to asset bounds; full evidence rerun after targeted geometry slope continuity refinement; no fabricated PASS."
+          },
+          {
+            "owned_pid": 53500,
+            "returncode": 1,
+            "stage": "source-export-immutable-guard",
+            "reason": "Old hash report already exists; checker correctly refused overwriting immutable evidence.",
+            "retained_path": "production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/failed-attempt-02-immutable-source-report-guard",
+            "disposition": "Old hash evidence retained outside final output; new final evidence generated at unused paths; guard untouched."
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    },
+    {
+      "asset_id": "asteriacites-resting-impression",
+      "candidate_commit": "847782dbdd42e00414ee2b3d5df83404ec62b2a4",
+      "branch": "candidate/batch34-asteriacites-resting-impression-20261018",
+      "ledger_path": "production/continuous-small-life-round12-20261018/work/batch-34/asteriacites-resting-impression/r001/logs/owned-processes.jsonl",
+      "ledger_sha256": "51e412bd74e14f5a2ba0134269ef2c34952345fb2fb87fabab9229ceb1c2c0e6",
+      "first_launch": "2026-10-19T00:31:40.542916+00:00",
+      "last_exit": "2026-10-19T00:33:57.466622+00:00",
+      "lifecycle_complete": "2026-10-19T00:34:33.390721+00:00",
+      "top_level_launch_count": 11,
+      "matching_exit_count": 11,
+      "nonzero_exit_count": 1,
+      "nonzero_exit_dispositions": {
+        "failures": [
+          {
+            "owned_pid": 54932,
+            "returncode": 1,
+            "stage": "source-QA",
+            "reason": "5degenerate triangles from planar bottom180-gon triangulation.",
+            "retained_path": "production/continuous-small-life-round12-20261018/work/batch-34/asteriacites-resting-impression/r001/failed-attempt-01-bottom-ngon-triangulation",
+            "disposition": "Explicit bottom center fan triangles replace only automatic bottom ngon; no threshold/helper changes; top negative-impression unchanged."
+          }
+        ]
+      },
+      "remaining_owned_process_groups": 0
+    }
+  ]
+}

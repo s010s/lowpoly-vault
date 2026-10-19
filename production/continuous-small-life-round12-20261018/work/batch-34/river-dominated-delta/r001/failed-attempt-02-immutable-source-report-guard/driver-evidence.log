@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/batch34-control/serial_asset.py", line 32, in <module>
+    code=Path('/workspace/batch34-control/evidence.py').read_text();exec(compile(code,'evidence.py','exec'))
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "evidence.py", line 7, in <module>
+    run(root,['blender','-b','-t','2','--factory-startup','--disable-autoexec','--python-exit-code','1','--python',root/'scripts/check_source_export.py','--','--source',out/(a+'.blend'),'--glb',out/(a+'.glb'),'--output',out/'source-export.report.json'],logs/'source-export.log')
+  File "/workspace/batch34-control/serial_asset.py", line 25, in run
+    if code:raise RuntimeError(str(log)+'\n'+log.read_text()[-5000:])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: /workspace/batch34-river-dominated-delta/production/continuous-small-life-round12-20261018/work/batch-34/river-dominated-delta/r001/logs/final-source-export.log
+Report already exists; choose a new immutable evidence path.
+Blender 4.3.2
+

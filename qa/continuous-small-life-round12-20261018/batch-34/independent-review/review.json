@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "review_id": "batch34-independent-review-20261019",
+  "review_type": "independent_asset_qa",
+  "created_date": "2026-10-19",
+  "repository": "s010s/lowpoly-vault",
+  "overall_verdict": "PASS",
+  "must_fix_items": [],
+  "scope": {
+    "source_handoff_commit": "5284d5574d5088a8f6ee887b391fa4988cbd9bf1",
+    "source_handoff_files": [
+      {
+        "path": "production/continuous-small-life-round12-20261018/work/batch-34/HANDOFF.md",
+        "sha256": "aeeaaae183b5e9c47f6c13df2060534dd9bf18aa7c13fdeab8054222bfa54ae8"
+      },
+      {
+        "path": "production/continuous-small-life-round12-20261018/work/batch-34/final-handoff.jsonl",
+        "sha256": "3180a6815726b1e9c4a56dfc06bb34d905f2c45d1ab1533dc21c59536ba1de01"
+      },
+      {
+        "path": "production/continuous-small-life-round12-20261018/work/batch-34/scope.json",
+        "sha256": "c1655d7f26cc26b26c9d67cb9d2cd5fe6e7cb2e2ae4221680745bd9fae36c9e1"
+      }
+    ],
+    "profile": "static-stylized-v1",
+    "profile_rule_version": "2026-10-18.1",
+    "review_base_main": "a82524f654035556bb938419c843ada481713027"
+  },
+  "reviewer": "Codex independent reviewer",
+  "git_author": {
+    "name": "Leon Made This",
+    "email": "8357465+s010s@users.noreply.github.com"
+  },
+  "method": {
+    "fixed_views": "Eight frozen view angles; reviewed source contact sheets and exact-GLB runtime pixels.",
+    "source_export": "Blender 4.3.2; evaluated source triangle count and Y-up bounds compared with GLB; autoexec disabled.",
+    "rebuild": "Frozen build.py/config.json rerun in isolated /tmp directories; rebuilt output byte-identical to candidate GLB.",
+    "gltf_validator": "Khronos glTF Validator 2.0.0-dev.3.10; all four exact GLBs revalidated with 0 errors and 0 warnings.",
+    "runtime": "Chromium 154 / Three.js 0.180.0 at 512x512; ANGLE SwiftShader software WebGL; functional rendering only, no hardware or performance claim."
+  },
+  "items": [
+    {
+      "asset_id": "takakkawia",
+      "verdict": "PASS",
+      "must_fix_items": [],
+      "candidate_branch": "candidate/batch34-takakkawia-20261018",
+      "candidate_remote_tip": "2d2a47052866841f1ab1a4e555486bcd6b2b4a33",
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/takakkawia.glb",
+          "sha256": "75c6e4b58835a399a35afd096b2b18729cb2303568794c5045676a45a6b6e113",
+          "bytes": 148288,
+          "triangles": 7932,
+          "materials": 2,
+          "primitives": 2,
+          "semantic_sha256": "ef7cc11329adeda61bf8d01b2699347b984d9d785edd2e3b4a2440de6d775842"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/takakkawia.blend",
+          "sha256": "13be0243a1a471bfeb38e536cf0a47dfb49f638a85362a09c8029f42d76893cb",
+          "bytes": 739580
+        },
+        "checksums_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/checksums.sha256",
+          "sha256": "f8bb938ec2e6b569ddbbbcdb9514335b9dc7599e5daf0398fbf504405a5c6114",
+          "entries": 60,
+          "all_match": true
+        }
+      },
+      "checks": {
+        "profile": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "candidate_valid": true,
+          "approved_for_brief": false
+        },
+        "source_export": {
+          "fresh_rerun_status": "pass_with_warnings",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "errors": []
+        },
+        "independent_rebuild": {
+          "byte_identical": true,
+          "rebuilt_glb_sha256": "75c6e4b58835a399a35afd096b2b18729cb2303568794c5045676a45a6b6e113"
+        },
+        "khronos_gltf_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "visual_review": "8 条纵向鳍、外张口缘、开口和中央腔在固定视图与实际 GLB runtime 中清楚可读；连接连续。"
+      },
+      "evidence_files": [
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/HANDOFF.md",
+          "sha256": "818e5ccd785e527b7932ba59123560412936a6cc95e359cf5d092a8b5c5f4437"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/brief.json",
+          "sha256": "5e9443944e41e4e8b0781cc0e00e3562e89b636829fdbb5f92d9030eee527949"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/references.json",
+          "sha256": "bbe1cfac21cfc03578eee833687e8957ab69e14dd5737e0d3b5369dcafcce5db"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/candidate.json",
+          "sha256": "ed6ccd298bead3bb228c73eee37a5af879e718de3961defb34f8893db901d969"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/profile-contract.json",
+          "sha256": "5a20c7a081fe2feb44b7adbae3b9b51f97343c07e923b3f2cb85f6dc89bf217b"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/checksums.sha256",
+          "sha256": "f8bb938ec2e6b569ddbbbcdb9514335b9dc7599e5daf0398fbf504405a5c6114"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/takakkawia.blend",
+          "sha256": "13be0243a1a471bfeb38e536cf0a47dfb49f638a85362a09c8029f42d76893cb"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/takakkawia.glb",
+          "sha256": "75c6e4b58835a399a35afd096b2b18729cb2303568794c5045676a45a6b6e113"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/qa-contact-sheet.png",
+          "sha256": "c02503536a2132fa6f898c691e000413b88dbe6f3edf0a89b2e5955915484914"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/views/view-manifest.json",
+          "sha256": "921e6ce7070074d728877d0b89ba88e352598c0550d3cf58fd248bcd77060782"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/runtime-contact-sheet.png",
+          "sha256": "8c5e14a9f0b04f36a0a8ce5b32a1f99a42d01340b6da6ad3676c67291edc4df5"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/runtime/runtime-report.json",
+          "sha256": "716854f5c9eea6ee5c181354f2f0b0cbca3ea2daf7753071ba75361536b19446"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/source-export.report.json",
+          "sha256": "ea5c6fa3ad86d01dedaf060a8d66b09e0362bf33b0572a69d0f2b91a548d4be7"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/gltf-validator.report.json",
+          "sha256": "f36031cc43360519cd28ffe1901e5381c7ff115aa32592b98511a10ddd3f51bc"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/reproducibility-1.report.json",
+          "sha256": "eb8c808765c521c819b16b06273010047d2e84139a7e56242cb36848d2433d53"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/reproducibility-2.report.json",
+          "sha256": "b693a6cb5991c6eb559f58871b5b02ac7d5d248097cd1fac036a6bab6cedd85b"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/takakkawia/r001/maker-self-check.json",
+          "sha256": "39a124f0116088d4a0d1e4bd4f38364b158a8b82cb478d48e75e8f7e16c39e6f"
+        }
+      ]
+    },
+    {
+      "asset_id": "sabalites",
+      "verdict": "PASS",
+      "must_fix_items": [],
+      "candidate_branch": "candidate/batch34-sabalites-20261018",
+      "candidate_remote_tip": "eb749466e252712fabe6a9f4d3d61b6298af8bad",
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/sabalites.glb",
+          "sha256": "3b1c91874d40025f633eb72f48d3eec273ea8b28e24600b65bf1ebf367ad4255",
+          "bytes": 329896,
+          "triangles": 6496,
+          "materials": 2,
+          "primitives": 2,
+          "semantic_sha256": "ae4daa82c617b20e1b81407cf205fb7b85b88cd2d4b3afab9d479b414bc24384"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/sabalites.blend",
+          "sha256": "72c5dcdff7c9821c5b9ffd7ed4459c401adaaa208bb7c2864fdb74d964bb0824",
+          "bytes": 695832
+        },
+        "checksums_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/checksums.sha256",
+          "sha256": "9b87ad87f6a9ef6966a35568ccab924d41a7f260e2a1b1aa98437e510196b8c6",
+          "entries": 60,
+          "all_match": true
+        }
+      },
+      "checks": {
+        "profile": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "candidate_valid": true,
+          "approved_for_brief": false
+        },
+        "source_export": {
+          "fresh_rerun_status": "pass_with_warnings",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "errors": []
+        },
+        "independent_rebuild": {
+          "byte_identical": true,
+          "rebuilt_glb_sha256": "3b1c91874d40025f633eb72f48d3eec273ea8b28e24600b65bf1ebf367ad4255"
+        },
+        "khronos_gltf_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "visual_review": "扇状叶片、petiole 至 costa 中肋与褶皱在固定视图和实际 GLB runtime 中清楚可读；范围限于灵感型叶器官。"
+      },
+      "evidence_files": [
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/HANDOFF.md",
+          "sha256": "54e897a063c00768d166f3354731ee592a9b56556c561ee3b2b96a75487fda4f"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/brief.json",
+          "sha256": "0d1a9b334baebae8da872d52644a009aa06c695798365085985a96bc9ea68a4b"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/references.json",
+          "sha256": "8123a1470d757e0dfeeeb94ec230e811424fcd65bd98a6171317dc5c93793839"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/candidate.json",
+          "sha256": "72fa854dcaba176921038537a428479942d9b84dbba37264f1997e20d936a279"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/profile-contract.json",
+          "sha256": "c75518ac47a4ba684342f96b23415bd5b77eda3fb30102019626c8cd1debfb55"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/checksums.sha256",
+          "sha256": "9b87ad87f6a9ef6966a35568ccab924d41a7f260e2a1b1aa98437e510196b8c6"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/sabalites.blend",
+          "sha256": "72c5dcdff7c9821c5b9ffd7ed4459c401adaaa208bb7c2864fdb74d964bb0824"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/sabalites.glb",
+          "sha256": "3b1c91874d40025f633eb72f48d3eec273ea8b28e24600b65bf1ebf367ad4255"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/qa-contact-sheet.png",
+          "sha256": "45a05e4affb6ac49c215605217ddbcca2a56d2e33b32797f54071a245acc5033"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/views/view-manifest.json",
+          "sha256": "b11a775326b33707dace35a1bc01974d825d5aeb8dcf2d27c906afa8aa03f581"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/runtime-contact-sheet.png",
+          "sha256": "e239e45b143d72014cc39d5eef7faacfaa4d43ea5b1084682490abf4fd7e5277"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/runtime/runtime-report.json",
+          "sha256": "7fb5879d8429af15533ee79d85b6bdb9b21eca28e72fbf1a73cc5b3abbf7d49d"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/source-export.report.json",
+          "sha256": "71237c03b969690a7d7df13962b79e3548789e5beb907ce5bb10fc3a7a42f69e"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/gltf-validator.report.json",
+          "sha256": "e368e48359c2641c91a64a682a0754fc442a36eb176ea5e1482c22a234e19b58"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/reproducibility-1.report.json",
+          "sha256": "defa31f152ec80b3c8dd4fb1c51e7a5c573aec758059afc38dd0e8c80eae3062"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/reproducibility-2.report.json",
+          "sha256": "336a9bc3b3f37c34891e7f9b6710ef157234755dc4c1f105c0e209fbcf4e0733"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/sabalites/r001/maker-self-check.json",
+          "sha256": "4dc725d8dd56111621bcc3c1fe8b6bd4875f22be5165f3cfd25d78958938b0fc"
+        }
+      ]
+    },
+    {
+      "asset_id": "river-dominated-delta",
+      "verdict": "PASS",
+      "must_fix_items": [],
+      "candidate_branch": "candidate/batch34-river-dominated-delta-20261018",
+      "candidate_remote_tip": "5fd87c8e933ca410f9b44292e02a87323e72d7ce",
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/river-dominated-delta.glb",
+          "sha256": "e4bf1a2fc44cee8c900c8a66a2fadc588aaea29ab37a08ccd9ec9191ec7d6679",
+          "bytes": 236104,
+          "triangles": 13030,
+          "materials": 1,
+          "primitives": 1,
+          "semantic_sha256": "23c8bc18797e20ef0224866180dd6bdf64cc9004fcc9a5b2e7ab72c0ab6abda7"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/river-dominated-delta.blend",
+          "sha256": "b7568a4ae00fecb964d613d172b8112d3840da4522cef918c7581365d5344347",
+          "bytes": 901112
+        },
+        "checksums_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/checksums.sha256",
+          "sha256": "58aac275db873fe86cef9a84ceb8f437423017cfe0ec1e6e94043280a8d55a3b",
+          "entries": 63,
+          "all_match": true
+        }
+      },
+      "checks": {
+        "profile": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "candidate_valid": true,
+          "approved_for_brief": false
+        },
+        "source_export": {
+          "fresh_rerun_status": "pass_with_warnings",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "errors": []
+        },
+        "independent_rebuild": {
+          "byte_identical": true,
+          "rebuilt_glb_sha256": "e4bf1a2fc44cee8c900c8a66a2fadc588aaea29ab37a08ccd9ec9191ec7d6679"
+        },
+        "khronos_gltf_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "visual_review": "主河道连接分流，叶瓣外伸至较低露床；固定视图与 runtime 结构清楚，13,030 triangles 在 brief 的 14,000 上限内。"
+      },
+      "evidence_files": [
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/HANDOFF.md",
+          "sha256": "7000ebded737824a9a33330806bf580bcfded6b3c01fa791cd29db21898cb6a4"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/brief.json",
+          "sha256": "1e42b4c30158a26e5607746eb174d9f0a617e35fd90c9b40e808fab559542f13"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/references.json",
+          "sha256": "dc221b614e019551308d1348a43e963aa5350b9b8010831a7e0f5e1ffcc94b38"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/candidate.json",
+          "sha256": "0679cce816b48e509411dfecbc2a408ec02df1426d526b3ab99710938ffb7362"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/profile-contract.json",
+          "sha256": "546d37571bb713739906f202e7a5087fb87f4c1e8f44c44408dae1838b00da7f"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/checksums.sha256",
+          "sha256": "58aac275db873fe86cef9a84ceb8f437423017cfe0ec1e6e94043280a8d55a3b"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/river-dominated-delta.blend",
+          "sha256": "b7568a4ae00fecb964d613d172b8112d3840da4522cef918c7581365d5344347"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/river-dominated-delta.glb",
+          "sha256": "e4bf1a2fc44cee8c900c8a66a2fadc588aaea29ab37a08ccd9ec9191ec7d6679"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/qa-contact-sheet.png",
+          "sha256": "5d5cc679130f36569e6415046a24ede24559914fca7088ab6ea6618662ca8e88"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/views/view-manifest.json",
+          "sha256": "762a022595ea25e517236b21612ef196a9a7ccbf19712ec4a32a2d13053302fc"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/runtime-contact-sheet.png",
+          "sha256": "8f78606ed05715ab9340694b75a0f5cc05439babc0b631bf2e3cd253366ac622"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/runtime/runtime-report.json",
+          "sha256": "d43ff623c9208e733dd52e2f3e8ab03ab6b6a449748dd8fe6227ea3af3d53e4c"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/source-export.report.json",
+          "sha256": "824caca98f0dc3f6cfa471e5d6c00eb75d1c5dde487cbf79ec83ef22af0b1322"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/gltf-validator.report.json",
+          "sha256": "f18da59656a08d5630253c543f3a4cd9e46035b420be49e0151375d46b473a87"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/reproducibility-1.report.json",
+          "sha256": "5d1f19346662104285f24767918807b6089277e31fa2ccda05c44a4998d573e9"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/reproducibility-2.report.json",
+          "sha256": "0b597ddf0950f61596770f5199b46d4cd885122cd59d34f31d942de6ffff5fe3"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/river-dominated-delta/r001/maker-self-check.json",
+          "sha256": "2370046e75e7ac5910ac000ac1977e832740ddd5745b798bdddd2fb7b3605667"
+        }
+      ]
+    },
+    {
+      "asset_id": "asteriacites-resting-impression",
+      "verdict": "PASS",
+      "must_fix_items": [],
+      "candidate_branch": "candidate/batch34-asteriacites-resting-impression-20261018",
+      "candidate_remote_tip": "847782dbdd42e00414ee2b3d5df83404ec62b2a4",
+      "artifacts": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/asteriacites-resting-impression.glb",
+          "sha256": "7b0b66770f1a9dc3812edc3e84e409c47e76ce493474c4fce86565589bd5d22b",
+          "bytes": 145972,
+          "triangles": 2880,
+          "materials": 1,
+          "primitives": 1,
+          "semantic_sha256": "27628e92f67d3e07b0551b4e80f02713775f92ba782dfc16ff16775fb56d1ce7"
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/asteriacites-resting-impression.blend",
+          "sha256": "4f01904ea9177f0d7780892b83d5ebeabfc28b01fb658b31128d6b8e27e4e706",
+          "bytes": 542344
+        },
+        "checksums_manifest": {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/checksums.sha256",
+          "sha256": "f6f01be688c30beaf9e53ff72e1674a3fa1c8135dd16323e2f1689b593ce97d4",
+          "entries": 63,
+          "all_match": true
+        }
+      },
+      "checks": {
+        "profile": {
+          "profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "contract_status": "pass",
+          "candidate_valid": true,
+          "approved_for_brief": false
+        },
+        "source_export": {
+          "fresh_rerun_status": "pass",
+          "triangles_match": true,
+          "bounds_match": true,
+          "bounds_max_error_m": 0.0,
+          "errors": []
+        },
+        "independent_rebuild": {
+          "byte_identical": true,
+          "rebuilt_glb_sha256": "7b0b66770f1a9dc3812edc3e84e409c47e76ce493474c4fce86565589bd5d22b"
+        },
+        "khronos_gltf_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "visual_review": "沉积板里的五条渐细凹臂和较浅中央体区在灰模、固定视图及实际 GLB runtime 中可读；为解释性负印。"
+      },
+      "evidence_files": [
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/HANDOFF.md",
+          "sha256": "49786f58e4a67977ccb6f77cf358714292e78b9938026775e4301c65b7d41a18"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/brief.json",
+          "sha256": "4040c3cca4d65d0bb604137f5533a5e778f3843e62d851d90ee8c8db0ede5b28"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/references.json",
+          "sha256": "de919432c5f1b28a070ea84fb9a5115d034da35c84bcabee03262977f5217e95"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/candidate.json",
+          "sha256": "aed56a07a639c864af75cfb74b5f17d8bc056527ba59c6cac52e81ffd973a06e"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/profile-contract.json",
+          "sha256": "01f280581677b41b36f6d13002347c3cb4a507e996a42c8a9f8765e3206a6211"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/checksums.sha256",
+          "sha256": "f6f01be688c30beaf9e53ff72e1674a3fa1c8135dd16323e2f1689b593ce97d4"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/asteriacites-resting-impression.blend",
+          "sha256": "4f01904ea9177f0d7780892b83d5ebeabfc28b01fb658b31128d6b8e27e4e706"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/asteriacites-resting-impression.glb",
+          "sha256": "7b0b66770f1a9dc3812edc3e84e409c47e76ce493474c4fce86565589bd5d22b"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/qa-contact-sheet.png",
+          "sha256": "d274004a089d85b4bf1a52d558a2a26541672d43304c68b0f826cbc2c3153793"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/views/view-manifest.json",
+          "sha256": "47fb3274dd6b31cb3092830130dcb3104a1353c41c0e416c0e74c986de949af2"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/runtime-contact-sheet.png",
+          "sha256": "a595227cc081e75bae6e7b38c3308664aca6500a5c2ae8b408bb590271132210"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/runtime/runtime-report.json",
+          "sha256": "99d6b238017706056251ce0a4a7010ec028f7ba4aa7de02ed1a7a61ccbf7289a"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/source-export.report.json",
+          "sha256": "1ccb49b64095bfbae36b451044575600e6ca1993a106470fe34f5ce996fa7001"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/gltf-validator.report.json",
+          "sha256": "ede7bb7850203017472fde80c38ddaaa1fff6022ee27d556026c7d33dff0949c"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/reproducibility-1.report.json",
+          "sha256": "340c331a96af02ed93c717a7661638a3d9f1b89543d4d03fa292b43172f08e77"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/reproducibility-2.report.json",
+          "sha256": "49a6614f196ba437b69005f43d604db81bc11e2c76dad3ebb3460ce186b0aa46"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round12-20261018/batch-34/asteriacites-resting-impression/r001/maker-self-check.json",
+          "sha256": "600380d66e52e4c79048b6dfdaddc607b9eb5a5b8c61fbc661ee10121cea897f"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "PASS is the independent review outcome only; candidate records remain approved_for_brief=false and their existing formal gates remain unknown/pending.",
+    "Sabalites source paper and reference image were unavailable in direct review (PMC reCAPTCHA); pass is scoped to an inspired leaf-organ concept, not strict species morphology.",
+    "WebGL runtime was executed on SwiftShader software renderer; no physical GPU or performance verification is claimed."
+  ],
+  "actions_taken": {
+    "candidate_files_modified": false,
+    "models_modified": false,
+    "gates_or_ci_modified": false,
+    "permissions_modified": false,
+    "merge_performed": false,
+    "report_only_branch": true
+  }
+}
