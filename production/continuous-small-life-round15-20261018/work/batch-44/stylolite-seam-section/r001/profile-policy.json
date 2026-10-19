@@ -1,0 +1,49 @@
+{
+  "kind": "planning-profile-policy-not-validator-sidecar",
+  "validation_profile": "static-stylized-v1",
+  "rule_version": "2026-10-18.1",
+  "publication_authority": "separate",
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256",
+    "observed_at_commit": "081606c10836f95e6d708ea02f1ed1e321595af5"
+  },
+  "current_main_documents_read": [
+    {
+      "path": "docs/candidate-profile-compatibility.zh-CN.md",
+      "sha256": "e236c12af5ba064d4d042fa02257f0d7aa2afd272d8bdb402832ace3ecafb802",
+      "commit": "081606c10836f95e6d708ea02f1ed1e321595af5"
+    },
+    {
+      "path": "schemas/templates/static-profile-contract.template.json",
+      "sha256": "538e12417c3d77e84746e8a4814c3c18701c18d327707b8ac4043fdea32c8ce4",
+      "commit": "081606c10836f95e6d708ea02f1ed1e321595af5"
+    },
+    {
+      "path": "scripts/validate_candidate.py",
+      "sha256": "fe679a8be19d16b9d9b86ee3419a73d2dd16b77dfa371bf1186ce0120d120ff9",
+      "commit": "081606c10836f95e6d708ea02f1ed1e321595af5"
+    },
+    {
+      "path": "scripts/candidate_profile.py",
+      "sha256": "0489ec5378ec5d073ac4e84994b796ac529b122fd1c9c51be7b55623a413ac7d",
+      "commit": "081606c10836f95e6d708ea02f1ed1e321595af5"
+    }
+  ],
+  "fixed_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "entrypoint": "python scripts/validate_candidate.py <candidate.json> --profile static-stylized-v1 --profile-contract <sidecar> --json",
+  "sidecar_generator": "python scripts/candidate_profile.py <candidate.json> --root <repo-root>",
+  "sidecar_status": "not generated; no real model/candidate hashes yet",
+  "legacy_rule": "Explicit new profile only for this fixed8/zero-turntable task; preserve unmodified legacy_result, never fabricate legacy PASS or auto-fallback.",
+  "acceptance_rule": "Profile compatibility, full valid/approved status, independent model QA and publication are separate; all required evidence remains required."
+}
