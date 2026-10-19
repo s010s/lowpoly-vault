@@ -2,14 +2,23 @@
   "kind": "batch39-owned-serial-chronology-summary",
   "verdict": "pass",
   "scope": "Actual top-level owned launcher jobs. Two semantic Blender rebuilds per item run sequentially inside bounded runner; child execution records remain in item work/runs.",
-  "final_handoff_jsonl_sha256": "6e863c6c7b1d0cb46b6c96b8393d7f86c48019ac818fd214f9ba8afa03f05707",
+  "final_handoff_jsonl_sha256": "0ec64f17bd638638aa6552bc65df487b4c8be786c7d2c01fbaca87afd5c9a1e6",
   "overlapping_top_level_owned_launches": 0,
   "all_owned_process_groups_exited": true,
-  "asset_lifecycle_order": "Each preceding lifecycle complete before next first launch",
-  "top_level_launch_count": 40,
+  "asset_lifecycle_order": "Original batch39 serial lifecycle is preserved historically; only Aa r002 was reopened after Batch41 completed. No other model was rebuilt.",
+  "top_level_launch_count": 60,
   "nonzero_exit_count": 0,
   "nonzero_exit_note": "Actual nonzero source failures are retained explicitly; chronology pass only means no overlap and no owned group remaining, not that failed attempts passed.",
-  "assets": [
+  "historical_r001_summary": {
+    "path": "history/r001/serial-execution-summary.json",
+    "sha256": "d34d6df4c8a87511ddc30d91364c252d4cd9d8c653b5b1283c0dc41cfdd23173"
+  },
+  "targeted_repair": {
+    "path": "targeted-repair-serial.json",
+    "sha256": "0a42d8fe8e6ef972cdcffae1241ea91dd8905c3e2ee682efe4dc9bb7236775de"
+  },
+  "prelaunch_wrapper_nonzero_count": 1,
+  "historical_r001_assets": [
     {
       "asset_id": "clavagella",
       "candidate_commit": "9965f69214d8234921836885e27d45a51ac10481",
@@ -77,6 +86,24 @@
         "failures": []
       },
       "remaining_owned_process_groups": 0
+    }
+  ],
+  "current_candidates": [
+    {
+      "asset_id": "clavagella",
+      "commit": "9965f69214d8234921836885e27d45a51ac10481"
+    },
+    {
+      "asset_id": "aa-lava-front",
+      "commit": "1a65d88bd1fe81d0df3211b61235a150d71caa8d"
+    },
+    {
+      "asset_id": "native-copper-dendrite",
+      "commit": "37a66698356bb847a34ad3fb772d1d828c06a87f"
+    },
+    {
+      "asset_id": "nereites-lobed-meander",
+      "commit": "85b15327910c516aea001a42d4feaf51e775d3ed"
     }
   ]
 }
