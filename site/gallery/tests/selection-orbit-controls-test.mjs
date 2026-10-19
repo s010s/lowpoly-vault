@@ -153,6 +153,45 @@ assert.equal($('#wheel').scrollTop,0);assert.equal(latestHistorySnapshot.scroll,
 checks.push('Mobile Back/Forward persists the fully restored list/keyboard/scroll snapshot even when unchanged scroll emits no event');
 mobile=false;
 
+// Sorting UI must preserve URL aliases and reorder only locale-aware sorts.
+p.state.sort=readGalleryQuery(new URLSearchParams('sort=triangles-asc')).sort;
+vm.runInContext('applyResults(false)',context);$('#filters').onclick();
+const aliasSelect=$('#filter-form').children.at(-1).children[1];
+assert.equal(aliasSelect.value,'triangles');assert(aliasSelect.children.some(option=>option.value===aliasSelect.value));
+assert.equal(vm.runInContext('draft.sort',context),'triangles-asc');
+const ascendingIds=p.state.results.map(asset=>asset.id);$('#filter-apply').onclick();
+assert.equal(p.state.sort,'triangles-asc');assert.deepEqual(p.state.results.map(asset=>asset.id),ascendingIds);
+checks.push('The triangles-asc URL alias displays the available ascending option without changing its query meaning or order when filters are applied');
+const selectedBeforeSort=p.state.selected,meshBeforeSort=r.detail.model,rendererTokenBeforeSort=r.token,selectionVersionBeforeSort=vm.runInContext('selectionVersion',context),requestsBeforeSort=r.stats.requests;
+const assertSortKeepsSelection=()=>{assert.equal(p.state.selected,selectedBeforeSort);assert.equal(r.detail.model,meshBeforeSort);assert.equal(r.token,rendererTokenBeforeSort);assert.equal(vm.runInContext('selectionVersion',context),selectionVersionBeforeSort);assert.equal(r.stats.requests,requestsBeforeSort);};
+for(const sort of ['name','name-desc']){
+ p.state.lang='en';p.state.sort=sort;vm.runInContext('applyResults(false)',context);
+ const anchor=p.state.results[50].id,keyboard=p.state.results[5].id,offset=11.25;
+ p.state.keyboard=keyboard;$('#wheel').scrollTop=50*128+offset;p.renderWheel();assert.equal(p.state.center,anchor);
+ for(const lang of ['zh','en']){
+  const previousIds=Array.from(p.state.results,asset=>asset.id);$('#language').onclick();
+  assert.equal(p.state.lang,lang);
+  const expected=Array.from(vm.runInContext('compute().map(asset=>asset.id)',context));
+  assert.notDeepEqual(expected,previousIds,'Published localized names must exercise an actual reorder');
+  assert.deepEqual(Array.from(p.state.results,asset=>asset.id),expected);
+  assert.equal(p.state.center,anchor);assert.equal(p.state.keyboard,keyboard);
+  assert.equal($('#wheel').scrollTop,expected.indexOf(anchor)*128+offset);
+  assert.equal(latestHistorySnapshot.scroll,$('#wheel').scrollTop);assert.equal(latestHistorySnapshot.lang,lang);
+  assertSortKeepsSelection();
+ }
+}
+for(const sort of ['curated','triangles','triangles-asc','triangles-desc']){
+ p.state.lang='en';p.state.sort=sort;vm.runInContext('applyResults(false)',context);
+ $('#wheel').scrollTop=42*128+17.25;p.renderWheel();
+ const results=p.state.results,ids=Array.from(results,asset=>asset.id),scroll=$('#wheel').scrollTop,center=p.state.center;
+ for(const lang of ['zh','en']){
+  $('#language').onclick();assert.equal(p.state.lang,lang);assert.equal(p.state.results,results);
+  assert.deepEqual(Array.from(p.state.results,asset=>asset.id),ids);assert.equal($('#wheel').scrollTop,scroll);assert.equal(p.state.center,center);assertSortKeepsSelection();
+ }
+}
+p.state.sort='curated';vm.runInContext('applyResults(false)',context);
+checks.push('Language changes re-sort name/name-desc in both directions while preserving the browse anchor, fractional scroll offset, keyboard and selected mesh; other sorts retain their exact result array and scroll with no selection or GLB request');
+
 const requestsBeforePreload=r.stats.requests;for(let i=0;i<models.length;i++){$('#wheel').scrollTop=i*128;p.renderWheel();await new Promise(resolve=>setImmediate(resolve));assert(vm.runInContext('detailPosterCache.size<=DETAIL_POSTER_CACHE_LIMIT',context));assert(vm.runInContext('[...detailPosterCache].every(([id,entry])=>entry.image.src===poster(sample.find(asset=>asset.id===id)))',context));}assert.equal(r.stats.requests,requestsBeforePreload);
 checks.push('Browsing warms only declared detail poster/fallback paths in a bounded eight-entry cache and makes no GLB requests');
 const originalCrypto=Object.getOwnPropertyDescriptor(globalThis,'crypto'),nativeCrypto=globalThis.crypto;let delayedDigests=0;
