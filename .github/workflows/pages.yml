@@ -25,11 +25,19 @@ jobs:
       - run: node site/ci-scope-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - name: Full publication rejection regressions
         run: npm run test:publication
-      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub
+      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
       - run: npm run build
         id: build_site
       - run: npx playwright install --with-deps chromium
         id: install_chromium
+      - name: Complete exact-catalog gallery posters with the approved renderer
+        run: npm run gallery:posters
+      - name: Verify all published models have sealed matching gallery resources
+        env:
+          REQUIRE_COMPLETE_GALLERY: '1'
+        run: node site/audit-release.mjs
+      - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
+        run: npm run test:gallery:browser
       - name: Parse original and published models, decoding embedded textures in Chromium
         run: npm run test:parser
       - name: Static routes, exact download bytes and attribution for every model
@@ -55,6 +63,7 @@ jobs:
             qa/release-handoff-smoke/
             qa/animation-refinements/interaction/
             qa/threejs-parser.json
+            qa/approved-gallery-browser/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import {ROUND13_IDS,ROUND13_PACK} from './small-life-round13-release.mjs';
 import {ROUND12_IDS,ROUND12_PACK} from './small-life-round12-release.mjs';
 import {ROUND11_IDS,ROUND11_PACK} from './small-life-round11-release.mjs';
@@ -27,6 +28,7 @@ const root=resolve(process.env.GALLERY_DIR||'dist'),out=resolve(process.env.QA_O
 const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'))),report={status:'running',cases:[],page_errors:[],resource_errors:[],limitations:['Chromium SwiftShader and emulated touch; not physical-device performance.']},requests=[];
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.glb':'model/gltf-binary'};
 const server=createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost');assert(url.pathname.startsWith(prefix));let file=resolve(root,decodeURIComponent(url.pathname.slice(prefix.length))||'index.html');assert(file.startsWith(root+sep));if((await stat(file)).isDirectory())file=resolve(file,'index.html');res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream'}).end(await readFile(file));}catch{res.writeHead(404).end();}});
+const wheelBuild=existsSync(resolve(root,'gallery/resources.json'));
 let browser;
 try {
  await mkdir(out,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}${prefix}`;
@@ -35,18 +37,18 @@ try {
   const context=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},hasTouch:mobile,isMobile:mobile,reducedMotion:'reduce'}),page=await context.newPage();
   page.on('pageerror',e=>report.page_errors.push(e.message));page.on('request',r=>requests.push(r.url()));page.on('response',r=>{if(r.status()>=400)report.resource_errors.push(`${r.status()} ${r.url()}`);});
   const catalog=base+(mobile?'zh-CN/':'')+`models/?pack=${pack}`;
-  await page.goto(catalog);await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');
-  assert.deepEqual((await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),assetIDs);
+  await page.goto(catalog);await page.waitForFunction(wheel=>wheel?window.__gallery?.models.length>0:document.querySelector('#grid')?.ariaBusy==='false',wheelBuild);
+  assert.deepEqual((wheelBuild?await page.evaluate(()=>window.__gallery.state.results.map(a=>a.id)):await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),[...assetIDs].sort());
   for(const id of assetIDs) {
-   const asset=manifest.assets.find(a=>a.id===id),card=page.locator(`#grid .asset-card[data-id="${id}"]`);await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());
-   if(!mobile){await card.hover();await page.waitForFunction(id=>document.querySelector(`[data-id="${id}"]`)?.dataset.previewState==='ready',id);}
-   await card.click();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');
-   assert.equal(await page.locator('#asset-title').textContent(),asset.name[mobile?'zh':'en']);
-   assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0);
-   assert(await page.locator('#viewer-dialog').evaluate(dialog=>dialog.scrollWidth<=dialog.clientWidth+1),'No modal horizontal overflow');
+   const asset=manifest.assets.find(a=>a.id===id),card=page.locator(`${wheelBuild?'#slots .slot':'#grid .asset-card'}[data-id="${id}"]`);if(wheelBuild)await page.locator('#wheel').evaluate((wheel,id)=>{wheel.scrollTop=window.__gallery.state.results.findIndex(a=>a.id===id)*128;},id);await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());
+   if(!mobile&&!wheelBuild){await card.hover();await page.waitForFunction(id=>document.querySelector(`[data-id="${id}"]`)?.dataset.previewState==='ready',id);}
+   await card.click();if(wheelBuild&&mobile)await page.locator('#mobile-interact').tap();await page.waitForFunction(wheel=>wheel?document.querySelector('#detail')?.dataset.state==='ready':document.querySelector('#canvas-host')?.dataset.modelState==='ready',wheelBuild);
+   assert.equal(await page.locator(wheelBuild?'#info-content h2':'#asset-title').textContent(),asset.name[mobile?'zh':'en']);
+   if(wheelBuild){assert.equal(await page.evaluate(()=>window.__gallery.renderer.stats.detailFirstFrameId),id);assert(await page.evaluate(()=>!!window.__gallery.renderer.detail.model&&window.__gallery.renderer.detail.entry.bytes>0));assert.equal(await page.locator('canvas.preview-renderer').count(),1);}else assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0);
+   assert(await page.locator(wheelBuild?'html':'#viewer-dialog').evaluate(node=>node.scrollWidth<=node.clientWidth+1),'No horizontal overflow in the active presentation');
    for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());assert.equal(createHash('sha256').update(await response.body()).digest('hex'),asset.sha256[key]);}
    await page.screenshot({path:resolve(out,`${mobile?'mobile':'desktop'}-${id}.png`)});
-   await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'));
+   if(wheelBuild){if(mobile)await page.locator('#mobile-back').tap();assert(await page.locator('#wheel').isVisible());}else{await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'));}
    assert.equal(new URL(page.url()).searchParams.get('pack'),pack);
    report.cases.push({id,viewport:mobile?'390x844-touch':'1440x1000',status:'pass',glb_sha256:asset.sha256.glb,blend_sha256:asset.sha256.blend});
   }

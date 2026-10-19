@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 /** Real browser regression coverage for shared-model card/detail continuity and interrupted navigation. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -1196,6 +1198,15 @@ async function supersededImport() {
 }
 
 try {
+  // Current list selection is inline: its real continuity contract is selected
+  // poster -> matching live draw, supersession/retry and bounded renderer ownership.
+  // Historical grid flight checks remain executable against baseline artifacts.
+  if(existsSync(resolve(root,'gallery/resources.json'))){
+    const result=await runGalleryBrowserTests({groups:['handoff','detail'],root,output:resolve(output,'approved-wheel')});
+    report.status=result.status;report.cases=result.cases;report.checks=result.cases.map(row=>row.name);report.page_errors=result.errors;report.chromium_version=result.browser;
+    report.scope='approved-wheel-continuity-and-preserved-direct-home-details';
+    report.design_contract='Retired grid card/modal flight geometry is replaced by inline poster/live identity, delayed response, retry, Back/Forward and scale-reset checks.';
+  }else{
   await mkdir(output, { recursive: true }); await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   base = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...(cpuDOMRaster ? ['--disable-gpu-rasterization'] : [])] });
@@ -1218,6 +1229,7 @@ try {
   report.scope = process.env.QA_HANDOFF_SMOKE === '1' ? 'smoke-direct-and-desktop-roundtrip' : 'full';
   assert.deepEqual(report.page_errors, []); report.status = 'pass';
   console.log(JSON.stringify({ status: report.status, checks: report.checks }, null, 2));
+  }
 } catch (error) {
   report.status = 'fail'; report.error = error.stack; process.exitCode = 1; console.error(error);
   try { if (current && !current.isClosed()) await screenshot(current, 'failure'); } catch {}

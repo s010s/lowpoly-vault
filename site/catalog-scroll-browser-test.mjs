@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 /** Native scrolling + stationary catalog geometry through real-model details. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -93,6 +95,12 @@ async function launch(overlay = false) {
   return chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, ignoreDefaultArgs: ['--hide-scrollbars'], args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--disable-gpu-rasterization', overlay ? '--enable-features=OverlayScrollbar,OverlayScrollbars' : '--disable-features=OverlayScrollbar,OverlayScrollbars'] });
 }
 try {
+  if(existsSync(resolve(root,'gallery/resources.json'))){
+    await mkdir(output,{recursive:true});
+    const result=await runGalleryBrowserTests({groups:["scroll", "detail"],root,output:resolve(output,'approved-wheel')});
+    report.pass=result.status==='pass';report.cases=result.cases.map(row=>({...row,pass:row.status==='pass'}));report.page_errors=result.errors;
+    report.design_contract='Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact.';
+  }else{
   await mkdir(output, { recursive: true }); await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   base = `http://127.0.0.1:${server.address().port}`; browser = await launch(); report.browser = browser.version();
   await test('native-scroll-and-cue', async (page, result) => {
@@ -164,6 +172,7 @@ try {
   await test('overlay-requested-roundtrip', async (page, result) => { result.initial = await geometry(page); result.native_scrollbar_width_px = await scrollbarProbe(page); await roundtrip(page, result); });
   report.pass = report.cases.every(result => result.pass) && report.page_errors.length === 0;
   assert(report.pass, 'See catalog-scroll report for failed checks');
+  }
 } finally {
   if (browser) await browser.close(); await new Promise(resolve => server.close(resolve));
   await writeFile(resolve(output, 'report.json'), JSON.stringify(report, null, 2));

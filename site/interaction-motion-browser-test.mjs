@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 /** Real Chromium coverage for frequent-input restraint and native disclosure feedback. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -10,6 +12,14 @@ const report={commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).
 const server=createServer(async(req,res)=>{try{let file=resolve(root,decodeURIComponent(new URL(req.url,'http://localhost').pathname.replace(/^\/lowpoly-vault\//,'')));if(!file.startsWith(root+sep))throw Error('Outside root');if((await stat(file)).isDirectory())file=resolve(file,'index.html');res.setHeader('Content-Type',{'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.webp':'image/webp'}[extname(file)]||'application/octet-stream');res.end(await readFile(file));}catch{res.writeHead(404).end();}});
 let browser;
 try{
+ // The wheel replaces native grid disclosure with interruptible filter/info panels.
+ // Keep the historical branch for baseline builds; current builds run equivalent
+ // keyboard, draft, clipboard, mobile and reduced-motion journeys plus real details.
+ if(existsSync(resolve(root,'gallery/resources.json'))){
+  const result=await runGalleryBrowserTests({groups:['interaction','detail'],root,output:resolve(output,'approved-wheel')});
+  report.browser=result.browser;report.cases=result.cases.map(row=>({...row,pass:row.status==='pass'}));report.errors=result.errors;report.pass=result.status==='pass';
+  report.design_contract='Approved wheel panels and inline selection replace retired grid-only interactions; independent detail/home/modal checks remain.';
+ }else{
  await mkdir(output,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-gpu-rasterization']});report.browser={version:browser.version(),executable:process.env.CHROMIUM_PATH||chromium.executablePath()};
  const origin=`http://127.0.0.1:${server.address().port}`;
@@ -58,4 +68,5 @@ try{
   await page.evaluate(()=>{for(const sheet of document.styleSheets){try{for(let i=sheet.cssRules.length-1;i>=0;i--)if(sheet.cssRules[i].conditionText?.includes('selector(::details-content)'))sheet.deleteRule(i);}catch{}}});await page.locator('.catalog-refine summary').focus();await page.keyboard.press('Enter');assert(await page.locator('#world-filter').isVisible());await page.keyboard.press('Tab');assert(await page.locator('#world-filter').evaluate(el=>el===document.activeElement));await page.keyboard.press('Escape');assert.equal((await disclosure(page)).open,false);r.nativeUsable=true;
  });
  report.pass=report.cases.every(c=>c.pass)&&report.errors.length===0;assert(report.pass,JSON.stringify(report.cases.filter(c=>!c.pass)));
-}finally{if(browser)await browser.close();await new Promise(r=>server.close(r));await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({pass:report.pass,cases:report.cases.map(c=>({name:c.name,pass:c.pass,error:c.error})),errors:report.errors,output},null,2));}
+ }
+}finally{await mkdir(output,{recursive:true});if(browser)await browser.close();await new Promise(r=>server.close(r));await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({pass:report.pass,cases:report.cases.map(c=>({name:c.name,pass:c.pass,error:c.error})),errors:report.errors,output},null,2));}

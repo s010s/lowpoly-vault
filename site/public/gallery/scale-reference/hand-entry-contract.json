@@ -1,0 +1,70 @@
+{
+  "version": "Hand asset V5.2 for runtime V54",
+  "asset": "web/assets/hand-18cm-graywhite-v5-2.glb",
+  "sha256": "57f27a2693e89240db8dc99b33a8117fcd7bbc04d34d4ec3fc3522d4b154fb72",
+  "bytes": 817516,
+  "units": "meters",
+  "reference_length_m": 0.18,
+  "calibration": "Exactly unchanged ArrivalOpen anatomical baseline: wrist sole centroid to middle fingertip",
+  "anchor_gltf_m": [
+    0,
+    0,
+    0
+  ],
+  "entry_order": [
+    "ArrivalOpen=1, ArrivalGathered=0 on first appearance",
+    "Hold the open pose through rise and landing",
+    "Only after landing, ease ArrivalOpen from1 to0 into relaxed Basis",
+    "Keep ArrivalGathered=0 throughout; no initial gathered pose"
+  ],
+  "orientation": "Reference world quaternion fixed throughout",
+  "shadow_rule": "Use the identical live body and grid morph weights in visible and depth/shadow passes; do not use the old relaxed geometry or static depth proxy",
+  "preserved": [
+    "All body and grid ArrivalOpen coordinates, exactly",
+    "All materials and topology",
+    "Ring coordinates in all poses, exactly",
+    "Wrist sole coordinates in all poses, exactly",
+    "V5.1 heel depth in anatomical baseline"
+  ],
+  "changed_vertices": {
+    "body_basis": 426,
+    "grid_basis": 4616
+  },
+  "pose_travel_mm": {
+    "index": 12.7773,
+    "middle": 13.4503,
+    "ring_unchanged": 15.0838,
+    "little": 11.6785,
+    "thumb": 15.2928
+  },
+  "normal_targets": "POSITION and NORMAL morph targets exported for both meshes; normals regenerated on each pose",
+  "notes": "Legacy ArrivalGathered target retained unchanged for compatibility, but is unused by the required entry.",
+  "runtime_v54": {
+    "prelight_seconds": [
+      0.1,
+      0.9
+    ],
+    "first_reveal_seconds": 0.95,
+    "rise_seconds": [
+      0.95,
+      1.9
+    ],
+    "settle_seconds": [
+      2.2,
+      3.5
+    ],
+    "relax_seconds": [
+      3.5,
+      4.1
+    ],
+    "glow_fade_seconds": [
+      2.7,
+      3.8
+    ],
+    "ground_halo_diameter_m": 0.1296,
+    "mist_maximum_height_m": 0.0216,
+    "body_alpha": "authored1; height coverage only, no additional global alpha",
+    "grid_alpha": "height coverage squared",
+    "columns": false
+  }
+}

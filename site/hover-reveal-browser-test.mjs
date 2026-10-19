@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
@@ -18,6 +20,12 @@ const server = createServer(async (req, res) => {
 });
 let browser;
 try {
+  if(existsSync(resolve(root,'gallery/resources.json'))){
+    await mkdir(output,{recursive:true});
+    const result=await runGalleryBrowserTests({groups:["resources", "handoff"],root,output:resolve(output,'approved-wheel')});
+    report.pass=result.status==='pass';report.cases=result.cases.map(row=>({...row,pass:row.status==='pass'}));report.errors=result.errors;
+    report.design_contract='Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact.';
+  }else{
   await mkdir(output, {recursive:true}); await new Promise(r => server.listen(0, '127.0.0.1', r));
   browser = await chromium.launch({executablePath:process.env.CHROMIUM_PATH || undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-gpu-rasterization']});
   const base = `http://127.0.0.1:${server.address().port}/lowpoly-vault/models/?pack=prehistoric-starter`;
@@ -90,5 +98,6 @@ try {
     await test('failed-fetch-keeps-poster',async(page)=>{await page.route('**/*.glb',route=>route.abort());await hover(page);await page.waitForFunction(()=>document.querySelector('#grid [data-id="natural-arch"]')?.dataset.previewState==='fallback');assert.equal(await page.locator('.model-hover-reveal').count(),0);assert.equal(await page.locator(selector+' img').evaluate(img=>Number(getComputedStyle(img).opacity)),1);});
   }
   report.pass=report.cases.every(c=>c.pass)&&!report.errors.length;
+  }
 } catch(e) {report.pass=false;report.error=e.stack;}
 finally {await browser?.close();server.close();await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(!report.pass)process.exitCode=1;}

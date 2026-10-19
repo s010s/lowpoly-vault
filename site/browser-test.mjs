@@ -1,7 +1,10 @@
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { resolve, extname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import { createCatalog } from './catalog-build.mjs';
 const prefix='/lowpoly-vault/',root=resolve(process.env.GALLERY_DIR||'dist');
@@ -238,6 +241,30 @@ async function checkThemes(browser,url){
 }
 
 try{
+ if(existsSync(resolve(root,'gallery/resources.json'))){
+  // The public command remains full acceptance, even when CI scope variables
+  // are present. Real documents and every asset run in strict GPU mode first;
+  // the remaining wheel groups exercise the replacement interaction contract.
+  const output=resolve(process.env.QA_OUTPUT_DIR||'qa/browser-approved-gallery');
+  const documentOutput=resolve(output,'documents-and-models');
+  const result=spawnSync(process.execPath,[fileURLToPath(new URL('./redesign-browser-test.mjs',import.meta.url))],{
+   stdio:'inherit',env:{...process.env,GALLERY_DIR:root,QA_OUTPUT_DIR:documentOutput,QA_BASE_URL:'',QA_REVIEW_SCOPE:'full',QA_MODEL_IDS:'',QA_STATIC_ONLY:'0',QA_ALLOW_WEBGL_FALLBACK:'0',QA_FORCE_WEBGL_FALLBACK:'0'}
+  });
+  if(result.error)throw result.error;
+  assert.equal(result.status,0,'Full document, all-model GPU and wheel matrix acceptance must pass');
+  const documents=JSON.parse(await readFile(resolve(documentOutput,'report.json'),'utf8'));
+  assert.equal(documents.status,'pass');assert.equal(documents.browser_status,'pass');assert.equal(documents.gpu.status,'pass');
+  assert.deepEqual(documents.models.map(model=>model.id),manifest.assets.map(asset=>asset.id),'Every delivered model must receive real browser acceptance');
+  assert(documents.models.every(model=>model.status==='gpu-pass'),'Fallback cannot count as a model rendering pass');
+  const {runGalleryBrowserTests}=await import('./gallery-browser-test.mjs');
+  const wheel=await runGalleryBrowserTests({groups:['handoff','resources','detail'],root,output:resolve(output,'wheel-handoff-resources-detail'),baseURL:null});
+  assert.equal(wheel.status,'pass');
+  report.models=documents.models;report.chromium_version=documents.chromium_version;
+  report.checks=[...documents.checks,...wheel.cases.map(test=>test.name)];
+  report.evidence={documents_and_models:resolve(documentOutput,'report.json'),wheel_handoff_resources_detail:resolve(output,'wheel-handoff-resources-detail/report.json')};
+  report.design_contract='Approved wheel: full bilingual static/no-JS documents, every real model and download, preserved detail theme/wireframe/metric controls, home/modal/history, virtualized search/filter/mobile, native scroll, supersession, hover, bounded renderer resources and explicit fallback. Retired hash/grid/card geometry and list-theme assumptions are not reported as measured.';
+  report.status='pass';console.log(`Browser QA passed: ${report.models.length} real GLBs, preserved documents and approved wheel acceptance. Screenshots require human review; no asset QA state was changed.`);
+ }else{
  await new Promise((r,j)=>{server.once('error',j);server.listen(0,'127.0.0.1',r);});
  const url=`http://127.0.0.1:${server.address().port}${prefix}?browse=grid`;
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
@@ -297,5 +324,6 @@ try{
  await page.unroute('**/assets/catalog.json');await page.unroute('**/assets/catalog/shards/*.json');await page.unroute('**/assets/catalog/details/*.json');
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto(`${url}#catalog`);await page.locator('#language').click();
  intentionalFailure=true;await page.route('**/assets/catalog.json',r=>r.fulfill({status:503,body:'Unavailable'}));await page.reload();await page.waitForFunction(()=>document.querySelector('#grid').textContent.includes('暂时不可用'));assert(await page.locator('#collection').isVisible(),'Catalog load failure must remain visible on the catalog route');assert(await page.locator('#retry').isVisible(),'Catalog load failure must expose its retry control');assert(await page.locator('.asset-card').count()===0);report.checks.push('explicit manifest failure state');assert.deepEqual(report.page_errors,[]);assert.deepEqual(report.resource_errors,[]);report.status='pass';console.log(`Browser QA passed: ${count} real GLBs and gallery interactions. Screenshots require human review; no asset QA state was changed.`);
+ }
 }catch(error){report.status='fail';report.error=error.stack||error.message;try{await page?.screenshot({path:'qa/screenshots/failure.png',fullPage:true});}catch{}console.error(error);process.exitCode=1;}
 finally{await writeFile('qa/browser-report.json',JSON.stringify(report,null,2)+'\n');await browser?.close();server.close();}
