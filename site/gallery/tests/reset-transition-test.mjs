@@ -159,7 +159,7 @@ for(const asset of models){
   p.applyState(interpolateView(upsideDown,baseline,i/20),{cameraOwned:true});
   for(const [width,height] of [[1440,900],[700,700],[390,640],[2048,1175]]){
    p.resizeCamera(p.detail,width,height);p.detail.scene.updateMatrixWorld(true);p.detail.camera.updateMatrixWorld(true);const point=new THREE.Vector3();
-   p.detail.model.traverse(o=>{if(!o.isMesh)return;const position=o.geometry.attributes.position;for(let k=0;k<position.count;k++){point.fromBufferAttribute(position,k).applyMatrix4(o.matrixWorld).project(p.detail.camera);resetWorst=Math.max(resetWorst,Math.abs(point.x),Math.abs(point.y));assert(Math.abs(point.x)<=1&&Math.abs(point.y)<=1,asset.id+' 180-degree Reset intermediate clips');}});
+   p.detail.model.traverse(o=>{if(!o.isMesh)return;const position=o.geometry.attributes.position;for(let k=0;k<position.count;k++){point.fromBufferAttribute(position,k).applyMatrix4(o.matrixWorld).project(p.detail.camera);resetWorst=Math.max(resetWorst,Math.abs(point.x),Math.abs(point.y));assert(Math.abs(point.x)<=1&&Math.abs(point.y)<=1,asset.id+' 180-degree Reset intermediate clips '+JSON.stringify({sample:i,width,height,point:point.toArray(),quaternion:p.detail.orientation.quaternion.toArray(),target:p.controls.target.toArray(),distance:p.detail.camera.position.distanceTo(p.controls.target),fit:p.detail.fitDistance}));}});
   }
  }
  rotatedFits.push({id:asset.id,worstNDC:worst,upsideDownResetWorstNDC:resetWorst});

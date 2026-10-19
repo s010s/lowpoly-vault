@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from '../../site/gallery-browser-test.mjs';
 // Handoff assertions targeted at conifer; distinct failure warmer and matched square sampling.
 /** Real browser regression coverage for shared-model card/detail continuity and interrupted navigation. */
 import { chromium } from 'playwright';
@@ -1201,6 +1203,12 @@ async function supersededImport() {
 }
 
 try {
+  if(existsSync(resolve(root,'gallery/resources.json'))){
+    await mkdir(output,{recursive:true});
+    const result=await runGalleryBrowserTests({groups:["resources", "handoff", "detail"],root,output:resolve(output,'approved-wheel'),modelId:'conifer-tree'});
+    report.status=result.status;report.cases=result.cases;report.checks=result.cases.map(row=>row.name);report.page_errors=result.errors;
+    report.design_contract='Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact.';
+  }else{
   await mkdir(output, { recursive: true }); await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   base = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', ...(cpuDOMRaster ? ['--disable-gpu-rasterization'] : [])] });
@@ -1219,6 +1227,7 @@ try {
   await supersededImport();
   assert.deepEqual(report.page_errors, []); report.status = 'pass';
   console.log(JSON.stringify({ status: report.status, checks: report.checks }, null, 2));
+  }
 } catch (error) {
   report.status = 'fail'; report.error = error.stack; process.exitCode = 1; console.error(error);
   try { if (current && !current.isClosed()) await screenshot(current, 'failure'); } catch {}

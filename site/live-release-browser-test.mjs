@@ -53,19 +53,27 @@ try {
   const page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));page.on('response',r=>{if(r.status()>=400)report.resource_errors.push(`${r.status()} ${r.url()}`);});
   try {
    const catalog=base+lang+'models/?pack='+pack;
-   await page.goto(catalog);await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');
-   assert.deepEqual((await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),ids);
-   assert(await page.locator('html').evaluate(el=>el.hasAttribute('data-catalog-scroll')&&getComputedStyle(el).scrollbarWidth==='none'),'Deployed catalog must use the new scoped native scrolling');
+   await page.goto(catalog);await page.waitForFunction(()=>window.__gallery?.models.length>0);
+   assert.deepEqual((await page.evaluate(()=>window.__gallery.state.results.map(asset=>asset.id))).sort(),[...ids].sort());
+   assert.equal(await page.evaluate(()=>window.__gallery.models.length),expected.assets.length,'Every published model is present, not only the prototype subset');
+   assert(await page.locator('#wheel').evaluate(el=>['auto','scroll'].includes(getComputedStyle(el).overflowY)),'The approved wheel retains native scrolling');
+   assert.equal(await page.locator('#grid').count(),0,'The retired grid is not mounted behind the approved gallery');
    for(const id of ids) {
-    const asset=expected.assets.find(a=>a.id===id),card=page.locator(`#grid [data-id="${id}"]`);await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());assert(await card.locator('img').evaluate(img=>img.naturalWidth>0));
-    if(!mobile){await card.hover();await page.waitForFunction(id=>document.querySelector(`[data-id="${id}"]`)?.dataset.previewState==='ready',id);}
+    const asset=expected.assets.find(a=>a.id===id),card=page.locator(`#slots [data-id="${id}"]`);
+    await page.locator('#wheel').evaluate((wheel,id)=>{wheel.scrollTop=window.__gallery.state.results.findIndex(asset=>asset.id===id)*128;},id);
+    await card.waitFor({state:'visible'});await card.locator('img').evaluate(img=>img.decode());assert(await card.locator('img').evaluate(img=>img.naturalWidth>0));
+    assert.equal(await card.getAttribute('aria-label'),asset.name[mobile?'zh':'en']);
     const before=await page.locator('html').evaluate(el=>({x:el.getBoundingClientRect().x,width:el.getBoundingClientRect().width}));
-    await card.click();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');
-    assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0);
-    const after=await page.locator('html').evaluate(el=>({x:el.getBoundingClientRect().x,width:el.getBoundingClientRect().width,scoped:el.hasAttribute('data-catalog-scroll')}));
-    assert(after.scoped,'Catalog scope persists beneath deployed details');assert(Math.abs(after.x-before.x)<=.5&&Math.abs(after.width-before.width)<=.5,'Deployed catalog must not shift horizontally');
-    assert.equal(await page.locator('.catalog-scroll-cue').isVisible(),false,'Deployed cue is hidden beneath details');
-    assert.equal(await page.locator('#asset-title').textContent(),asset.name[mobile?'zh':'en']);
+    await card.click();
+    if(mobile){assert.equal(await page.locator('#detail').getAttribute('data-state'),'static','Touch detail remains poster-first until explicit interaction');await page.locator('#mobile-interact').tap();}
+    await page.waitForFunction(id=>document.querySelector('#detail')?.dataset.state==='ready'&&window.__gallery.renderer.stats.detailFirstFrameId===id,id);
+    assert(await page.evaluate(()=>!!window.__gallery.renderer.detail.model&&window.__gallery.renderer.detail.entry.bytes>0),'Selected detail must draw an actual loaded GLB');
+    const after=await page.locator('html').evaluate(el=>({x:el.getBoundingClientRect().x,width:el.getBoundingClientRect().width}));
+    assert(Math.abs(after.x-before.x)<=.5&&Math.abs(after.width-before.width)<=.5,'Deployed gallery must not shift horizontally');
+    assert.equal(await page.locator('canvas.preview-renderer').count(),1,'Inline detail and hover share one renderer');
+    assert.equal(await page.locator('#info-content h2').textContent(),asset.name[mobile?'zh':'en']);
+    assert.equal(await page.locator('#download').getAttribute('href'),base+asset.glb);
+    assert.equal(await page.locator('#blend').getAttribute('href'),base+asset.blend);
     const detailURL=base+lang+`models/${id}/`,staticResponse=await page.request.get(detailURL);assert(staticResponse.ok());const html=await staticResponse.text();assert(html.includes('application/ld+json')&&html.includes('static-route-content'));
     const downloaded={};
     for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());const bytes=await response.body();assert.equal(hash(bytes),asset.sha256[key]);downloaded[key]=bytes.length;}
@@ -74,12 +82,12 @@ try {
      const response=await page.request.get(base+path);assert(response.ok());const bytes=await response.body();assert(bytes.length>0);
      if(kind==='credits'){assert.match(bytes.toString(),/Leon Made This/);assert.match(bytes.toString(),/https:\/\/creativecommons\.org\/licenses\/by\/4\.0\//);}else assert.equal(bytes.subarray(0,2).toString(),'PK');
     }
-    await page.locator('#copy-attribution').click();await page.waitForFunction(()=>document.querySelector('#copy-attribution')?.dataset.copyState==='copied');assert((await page.evaluate(()=>navigator.clipboard.readText())).includes('Leon Made This'));
+    await page.locator('#credits').click();await page.waitForFunction(()=>document.querySelector('#credits')?.dataset.copyState==='success');assert((await page.evaluate(()=>navigator.clipboard.readText())).includes('Leon Made This'));
     await page.screenshot({path:resolve(out,`${mobile?'touch':'desktop'}-${id}.png`)});
     await page.goto(detailURL);await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');await page.reload();await page.waitForFunction(()=>document.querySelector('#canvas-host')?.dataset.modelState==='ready');
     assert(Number(await page.locator('#canvas-host').getAttribute('data-render-triangles'))>0,'Independent detail reload must draw actual GLB');
     report.static_routes.push(detailURL);report.cases.push({id,viewport:mobile?'390x844-touch':'1440x1000',status:'pass',glb_bytes:downloaded.glb,glb_sha256:asset.sha256.glb});
-    await page.goto(catalog);await page.waitForFunction(()=>document.querySelector('#grid')?.ariaBusy==='false');
+    await page.goto(catalog);await page.waitForFunction(()=>window.__gallery?.models.length>0);
    }
   }finally{await context.close();}
  }

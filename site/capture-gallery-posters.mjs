@@ -99,7 +99,7 @@ try {
     assert.equal(errors.length, 0, `Gallery render errors: ${errors.join('; ')}`);
     console.log(`Gallery capture ${index + 1}/${initial.coverage.missing.length}: ${id}`);
   }
-  resources.generated_capture = { renderer:'approved PreviewRenderer.poster', browser:browser.version(), source_renderer_sha256:resources.source_renderer_sha256, assets:initial.coverage.missing, published_total:manifest.assets.length };
+  resources.generated_capture = { renderer:'approved PreviewRenderer.poster', browser:browser.version(), source_renderer_sha256:resources.source_renderer_sha256, runtime_renderer_sha256:sha256(await readFile(resolve(root,'site/gallery/renderer.js'))), assets:initial.coverage.missing, published_total:manifest.assets.length };
   await writeFile(resolve(staging, 'gallery/resources.json'), JSON.stringify(resources, null, 2) + '\n');
   await auditGalleryAssets(manifest, { root, outputRoot:staging, requireComplete:true });
   const previous = resolve(staging, 'previous-gallery');

@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 /**
  * Real Chromium regression/evidence for modal chrome, shared live-model return,
  * and canonical transparent-poster coordination.
@@ -872,6 +874,12 @@ async function roundTrip(page, test, { touch = false, reduced = false, lang = ''
 }
 
 try {
+  if(existsSync(resolve(root,'gallery/resources.json'))){
+    await mkdir(output,{recursive:true});
+    const result=await runGalleryBrowserTests({groups:["modal", "detail", "handoff"],root,output:resolve(output,'approved-wheel')});
+    assert(!onlyCases.length,'Legacy modal QA_CASES cannot describe the approved inline gallery; select a gallery group instead');report.status=result.status;report.cases=result.cases.map(row=>({label:row.name,status:row.status,timings:[],assertions:[],error:row.error}));report.page_errors=result.errors;report.targets_ms={};report.scope='approved-inline-gallery-and-retained-home-modal';
+    report.design_contract='Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact.';
+  }else{
   await mkdir(output, { recursive: true });
   await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
   base = `http://127.0.0.1:${server.address().port}`;
@@ -963,6 +971,7 @@ try {
   });
   assert(onlyCases.every(label => report.cases.some(test => test.label === label)), 'QA_CASES includes an unknown case');
   report.status = report.cases.some(test => test.status === 'fail') || report.page_errors.length ? 'fail' : baseline ? 'recorded' : 'pass';
+  }
 } catch (error) { report.status = 'fail'; report.error = error.stack; }
 finally {
   await browser?.close(); if (server.listening) await new Promise(resolve => server.close(resolve));

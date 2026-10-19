@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 /** Independent actual Chromium/WebGL regression for one shared real-model stage. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -116,8 +118,14 @@ json.materials[0].pbrMetallicRoughness.baseColorTexture={index:0};
 let jsonBytes=Buffer.from(JSON.stringify(json));jsonBytes=Buffer.concat([jsonBytes,Buffer.alloc((4-jsonBytes.length%4)%4,32)]);
 fixture=Buffer.alloc(28+jsonBytes.length+binBytes.length);modelBytes.copy(fixture,0,0,12);fixture.writeUInt32LE(fixture.length,8);fixture.writeUInt32LE(jsonBytes.length,12);fixture.writeUInt32LE(0x4e4f534a,16);jsonBytes.copy(fixture,20);fixture.writeUInt32LE(binBytes.length,20+jsonBytes.length);fixture.writeUInt32LE(0x004e4942,24+jsonBytes.length);binBytes.copy(fixture,28+jsonBytes.length);
 
-try{
- await mkdir(output,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));base='http://127.0.0.1:'+server.address().port;
+try {
+  if(existsSync(resolve(root,'gallery/resources.json'))){
+    await mkdir(output,{recursive:true});
+    const result=await runGalleryBrowserTests({groups:["resources", "handoff"],root,output:resolve(output,'approved-wheel')});
+    report.status='passed';report.cases=result.cases.map(row=>({...row,status:row.status==='pass'?'passed':'failed'}));report.page_errors=result.errors;
+    report.design_contract='Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact.';
+  }else{
+  await mkdir(output,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));base='http://127.0.0.1:'+server.address().port;
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:browserArgs});
  report.timing_method='Cold/warm wall time includes the intentional 180ms hover dwell; firstPreviewMilliseconds and lastShowMilliseconds are app load/render timings. ResourceTiming and server byte counts are actual loopback HTTP transfers.';
  report.browser={version:browser.version(),executable:process.env.CHROMIUM_PATH||chromium.executablePath(),args:browserArgs};
@@ -487,6 +495,7 @@ try{
   await page.waitForTimeout(150);await page.evaluate(()=>window.__qaLose.restoreContext());await page.waitForFunction(()=>document.querySelector('[data-id="natural-arch"]')?.dataset.previewState==='ready',null,{timeout:30000});const restored=await stats(page);alpha(c,await pixels(page),'restored context');check(c,'restore reuses renderer GLTF no network/reparse',restored.rendererCreations===original.rendererCreations&&restored.parseCount===original.parseCount&&restored.networkRequests===original.networkRequests,{original,restored});await shot(page,'16-context-restored-real-WebGL');
  });
  report.status=report.cases.every(c=>c.status==='passed')&&report.page_errors.length===0?'passed':'failed';
+  }
 } catch(error){report.status='failed';report.error=error.stack;console.error(error);}
 finally{report.finished=new Date().toISOString();report.requests=requestLog;await save();await browser?.close();await new Promise(r=>server.close(r));}
 console.log(JSON.stringify({status:report.status,cases:report.cases.map(c=>({name:c.name,status:c.status,error:c.error})),page_errors:report.page_errors,screenshots:report.screenshots.length,videos:report.videos.length},null,2));

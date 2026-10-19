@@ -77,3 +77,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+
+## Gallery scale-reference geometry
+
+The 18 cm hand and 1.8 m human comparison references are adaptations of MakeHuman core graphical assets and the Innerscene anatomical hand, provided under CC0 1.0. These illustrative references are separate from the CC BY 4.0 catalog models. Calibration, source links and license texts are retained in `site/public/gallery/scale-reference/SCALE-REFERENCE-LICENSES.txt` in the source repository. Deployed copies are available under `gallery/scale-reference/`.
+
+The gallery uses Three.js and its OrbitControls/GLTFLoader under the existing MIT notice above.

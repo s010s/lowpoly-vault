@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 /** Shared real-model list acceptance; legacy filename retained for QA callers. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -255,6 +257,12 @@ async function touch() {
   } finally { await c.close(); }
 }
 try {
+  if(existsSync(resolve(root,'gallery/resources.json'))){
+    await mkdir(output,{recursive:true});
+    const result=await runGalleryBrowserTests({groups:["interaction", "handoff", "scroll"],root,output:resolve(output,'approved-wheel')});
+    report.status=result.status;report.checks=result.cases.map(row=>row.name);report.page_errors=result.errors;report.measurements.approved_wheel=result.cases;
+    report.design_contract='Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact.';
+  }else{
   await mkdir(output, { recursive: true }); await new Promise(r => server.listen(0, '127.0.0.1', r));
   base = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
@@ -262,6 +270,7 @@ try {
   await desktop(); await races(); await failures(); await touch();
   assert.deepEqual(report.page_errors, []); report.status = 'pass';
   console.log(JSON.stringify({ status: report.status, checks: report.checks, measurements: report.measurements }, null, 2));
+  }
 } catch (error) {
   report.status = 'fail'; report.error = error.stack; console.error(error);
   try { if (current && !current.isClosed()) await screenshot(current, 'failure'); } catch {}

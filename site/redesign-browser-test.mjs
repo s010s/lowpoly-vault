@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { runGalleryBrowserTests } from './gallery-browser-test.mjs';
 /** Review-only acceptance. Never publishes, approves assets, or mutates the release manifest. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -17,6 +19,7 @@ const reviewScope = process.env.QA_REVIEW_SCOPE || 'full';
 assert(['full','models','matrix'].includes(reviewScope), 'Known review scope required');
 const selectedIDs = process.env.QA_MODEL_IDS ? new Set(process.env.QA_MODEL_IDS.split(',')) : null;
 const staticOnly = process.env.QA_STATIC_ONLY === '1';
+const wheelBuild = existsSync(resolve(root,'gallery/resources.json'));
 assert(!forceFallback || allowFallback, 'Forced fallback requires QA_ALLOW_WEBGL_FALLBACK=1');
 const report = {
   status: 'running', commit: process.env.GITHUB_SHA || null, build_directory: root,
@@ -132,7 +135,7 @@ async function waitClosed(page) {
   assert.equal(await page.locator('.model-preview-snapshot,.stage-flight,.return-composite').count(),0,'Completed close leaves only the canonical poster, with no retained snapshot or live return flight');
   assert.equal(await page.evaluate(()=>window.__vaultPreview?.activeId??null),null,'Completed close releases active card inspection');
 }
-async function closeModel(page) { await page.locator('#close').click(); await waitClosed(page); }
+async function closeModel(page) { await page.locator('#close').click(); if(wheelBuild){await page.waitForFunction(()=>window.__gallery?.models.length>0,null,{timeout:45000});assert.equal(await page.locator('#viewer-dialog,.model-canvas,.stage-flight,.return-composite').count(),0);}else await waitClosed(page); }
 
 async function staticChecks() {
   const uniqueTitles = new Set();
@@ -362,14 +365,25 @@ async function actualModelChecks() {
   const context = await newContext();
   const page = await context.newPage(); observe(page, 'Actual models');
   try {
-    await page.goto(urlFor({ type: 'models' })); await waitCatalog(page);
+    if(!wheelBuild){await page.goto(urlFor({ type: 'models' })); await waitCatalog(page);}
     const selected = manifest.assets.filter(asset => !selectedIDs || selectedIDs.has(asset.id));
     assert(selected.length > 0 && (!selectedIDs || selected.length === selectedIDs.size), 'All selected models must exist');
     for (const asset of selected) {
       // Each real model must remain discoverable when the catalog spans pages.
       await page.goto(urlFor({ type: 'models' }) + '?q=' + encodeURIComponent(asset.id));
-      await waitCatalog(page);
-      await page.locator(`#grid .asset-card[data-id="${asset.id}"]`).click();
+      if(wheelBuild){
+        await page.waitForFunction(()=>window.__gallery?.models.length>0,null,{timeout:45000});
+        assert((await page.evaluate(()=>window.__gallery.state.results.map(a=>a.id))).includes(asset.id),'Every model remains discoverable in the full wheel catalog');
+        await page.locator(`#slots [data-id="${asset.id}"]`).click();
+        await page.waitForFunction(id=>document.querySelector('#detail')?.dataset.modelId===id&&['ready','fallback'].includes(document.querySelector('#detail').dataset.state),asset.id,{timeout:45000});
+        const inline=await page.locator('#detail').getAttribute('data-state');
+        if(forceFallback)assert.equal(inline,'fallback');else if(!allowFallback)assert.equal(inline,'ready',asset.id+': inline gallery must render actual GLB');
+        if(inline==='ready')assert.equal(await page.evaluate(()=>window.__gallery.renderer.stats.detailFirstFrameId),asset.id);
+        assert.equal(await page.locator('#download').getAttribute('href'),assetURL(asset.glb));
+        // The independent canonical route retains its original detailed viewer,
+        // wireframe, metric grid, theme continuity and download acceptance below.
+        await page.goto(urlFor({type:'detail',id:asset.id}));
+      }else{await waitCatalog(page);await page.locator(`#grid .asset-card[data-id="${asset.id}"]`).click();}
       const state = await waitModel(page, asset.id);
       const downloads = page.locator('#downloads');
       for (const kind of ['glb', 'blend', 'bundle']) {
@@ -423,9 +437,16 @@ async function actualModelChecks() {
       }
       await screenshot(page, `model-${asset.id}-${state}`);
       await closeModel(page);
-      const stats = await gpu(page);
-      assert.equal(stats.liveScenes, 0); assert.equal(stats.activeRequests, 0); assert.equal(stats.rafPending, 0);
-      assert.equal(stats.referenceObjects, 0); assert.equal(stats.referenceGeometries, 0); assert.equal(stats.referenceMaterials, 0);
+      if(wheelBuild){
+        await page.waitForFunction(()=>window.__gallery?.models.length>0,null,{timeout:45000});
+        assert.equal(await page.locator('#viewer-dialog,.model-canvas,.stage-flight,.return-composite').count(),0,'Closing the independent detail disposes its entire document and legacy stage');
+        assert((await page.locator('canvas.preview-renderer').count())<=1,'The new gallery owns at most one renderer');
+        modelChecks.push('Independent detail closes into the new isolated gallery document');
+      }else{
+        const stats = await gpu(page);
+        assert.equal(stats.liveScenes, 0); assert.equal(stats.activeRequests, 0); assert.equal(stats.rafPending, 0);
+        assert.equal(stats.referenceObjects, 0); assert.equal(stats.referenceGeometries, 0); assert.equal(stats.referenceMaterials, 0);
+      }
       report.models.push({ id: asset.id, glb_sha256: asset.sha256?.glb || null, status: state === 'ready' ? 'gpu-pass' : 'fallback-only', checks: modelChecks });
     }
     check('All actual review assets: downloads, accessible fallback or strict GPU, bounded one-renderer cache and scene cleanup');
@@ -615,18 +636,22 @@ try {
     report.chromium_version = browser.version();
     if (reviewScope !== 'models') {
       await noJavaScriptChecks();
-      await navigationChecks();
-      await visualMatrixChecks();
-      await scaleChecks();
-      await failureRecoveryChecks();
+      if(wheelBuild){
+        const groups=forceFallback?['fallback']:['routes','interaction','scroll','scale','modal','fallback'];
+        const result=await runGalleryBrowserTests({groups,root,output:resolve(output,'approved-wheel'),baseURL:urlFor({type:'home'})});
+        report.approved_wheel=result;
+        check('Approved wheel route/search/filter/mobile/native-scroll matrix, real 10,000-record fixture and explicit fallback; retired grid/pack-map assumptions are not reported as measured');
+      }else{
+        await navigationChecks();await visualMatrixChecks();await scaleChecks();await failureRecoveryChecks();
+      }
     }
     if (reviewScope !== 'matrix') await actualModelChecks();
     assert.deepEqual(report.page_errors, [], 'Unexpected browser exceptions');
     assert.deepEqual(report.resource_errors, [], 'Unexpected failed resource requests');
     report.browser_status = 'pass';
-    report.gpu.status = report.gpu.fallback_models.length ? 'fallback-only-or-partial' : 'pass';
-    report.status = report.gpu.fallback_models.length ? 'pass-with-webgl-fallback' : 'pass';
-    console.log(`${report.status}: scope=${reviewScope}; ${report.models.length} actual models; ${reviewScope === 'models' ? 'fixture not selected' : '10000 metadata fixture'}; ${report.static_routes.length} static routes. ${report.gpu.fallback_models.length ? 'GPU acceptance remains incomplete.' : 'Strict GPU acceptance passed.'} Screenshots still require human visual review.`);
+    report.gpu.status = forceFallback ? 'forced-fallback-not-gpu-accepted' : report.gpu.fallback_models.length ? 'fallback-only-or-partial' : 'pass';
+    report.status = forceFallback || report.gpu.fallback_models.length ? 'pass-with-webgl-fallback' : 'pass';
+    console.log(`${report.status}: scope=${reviewScope}; ${report.models.length} actual models; ${reviewScope === 'models' ? 'fixture not selected' : '10000 metadata fixture'}; ${report.static_routes.length} static routes. ${forceFallback || report.gpu.fallback_models.length ? 'GPU acceptance remains incomplete.' : 'Strict GPU acceptance passed.'} Screenshots still require human visual review.`);
   }
 } catch (error) {
   report.status = report.browser_status === 'blocked' ? 'blocked-browser' : 'fail';
