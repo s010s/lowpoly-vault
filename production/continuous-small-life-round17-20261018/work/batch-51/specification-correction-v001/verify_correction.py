@@ -47,6 +47,8 @@ def run_gate(args):
 def main():
     index = read(HERE / 'index.json')
     assert {item['asset_id'] for item in index['items']} == set(EXPECTED)
+    for pin in index['validation_evidence'].values():
+        checked(pin)
     preserved = read(checked(index['preservation_manifest']))
     for pin in preserved['files']:
         path = checked(pin)
