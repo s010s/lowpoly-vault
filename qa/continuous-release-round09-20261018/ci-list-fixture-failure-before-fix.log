@@ -1,0 +1,46 @@
+3:55:49.9199693Z   CI_RUNTIME: true
+2026-10-18T23:55:49.9199898Z   CI_MODELS: true
+2026-10-18T23:55:49.9200121Z   CI_PREVIEWS: true
+2026-10-18T23:55:49.9200334Z   QA_MODEL_IDS: 
+2026-10-18T23:55:49.9200567Z   PREVIEW_ASSET_IDS: 
+2026-10-18T23:55:49.9200786Z ##[endgroup]
+2026-10-18T23:55:50.0531516Z 
+2026-10-18T23:55:50.0532120Z > lowpoly-vault@1.0.0 test:scrub:browser
+2026-10-18T23:55:50.0532894Z > node site/image-scrub-browser-test.mjs
+2026-10-18T23:55:50.0533251Z 
+2026-10-18T23:56:28.6250094Z locator.hover: Timeout 30000ms exceeded.
+2026-10-18T23:56:28.6250760Z Call log:
+2026-10-18T23:56:28.6251357Z   - waiting for locator('#grid .asset-card[data-id="natural-arch"]')
+2026-10-18T23:56:28.6251841Z 
+2026-10-18T23:56:28.6252473Z     at desktop (/home/runner/work/lowpoly-vault/lowpoly-vault/site/image-scrub-browser-test.mjs:99:16)
+2026-10-18T23:56:28.6253540Z     at async file:///home/runner/work/lowpoly-vault/lowpoly-vault/site/image-scrub-browser-test.mjs:260:3 {
+2026-10-18T23:56:28.6254086Z   name: 'TimeoutError'
+2026-10-18T23:56:28.6254314Z }
+2026-10-18T23:56:28.6698963Z ##[error]Process completed with exit code 1.
+2026-10-18T23:56:28.6805590Z ##[group]Run actions/upload-artifact@v4
+2026-10-18T23:56:28.6806119Z with:
+2026-10-18T23:56:28.6806613Z   name: full-release-list-8dab338ea041d2c7f5f3be8ea75def3e56a7934c
+2026-10-18T23:56:28.6809907Z   path: qa/ci-timings/
+qa/catalog-scroll/
+qa/release-hover-reveal/
+qa/release-matrix/
+qa/release-strict-gpu/
+qa/release-fallback-only/
+qa/threejs-parser.json
+qa/shared-model-preview/
+qa/handoff-continuity/
+qa/release-conifer-handoff/
+qa/modal-motion/
+qa/interaction-motion/
+qa/web-capture-recheck/render-report.json
+qa/small-life-browser/
+qa/small-fauna-release-20261018/site/
+qa/continuous-release-20261018/site/
+qa/continuous-release-round02-20261018/site/
+qa/continuous-release-round03-20261018/site/
+qa/continuous-release-round04-20261018/site/
+qa/continuous-release-round05-20261018/site/
+qa/continuous-release-round06-20261018/site/
+qa/continuous-release-round07-20261018/site/
+qa/continuous-release-round08-20261018/site/
+qa/conti

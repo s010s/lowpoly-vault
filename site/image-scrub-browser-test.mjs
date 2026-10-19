@@ -4,6 +4,7 @@ import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import assert from 'node:assert/strict';
+import { INITIAL_ASSET_IDS } from './initial-release.mjs';
 
 const root = resolve(process.env.GALLERY_DIR || 'dist');
 const manifest = JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
@@ -48,9 +49,10 @@ async function context(options = {}) {
   return { c, page };
 }
 async function catalog(page, lang = '') {
-  await page.goto(base + prefix + lang + 'models/');
+  await page.goto(base + prefix + lang + 'models/?pack=prehistoric-starter');
   await page.waitForFunction(() => document.querySelector('#grid')?.getAttribute('aria-busy') === 'false');
-  assert.equal(await page.locator('#grid .asset-card').count(), Math.min(24,manifest.assets.length));
+  assert.equal(await page.locator('#grid .asset-card').count(), INITIAL_ASSET_IDS.length);
+  assert.deepEqual((await page.locator('#grid .asset-card').evaluateAll(cards=>cards.map(card=>card.dataset.id))).sort(),INITIAL_ASSET_IDS.slice().sort(),'The fixed interaction fixture must contain every original model exactly once');
   assert.equal((await preview(page)).kind, 'shared-real-model');
 }
 async function ready(page, id, frame) {
