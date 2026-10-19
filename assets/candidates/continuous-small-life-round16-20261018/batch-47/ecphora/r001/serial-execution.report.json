@@ -1,0 +1,40 @@
+{
+  "kind": "owned-serial-execution-check",
+  "asset_id": "ecphora",
+  "launch_count": 11,
+  "matched_exit_count": 11,
+  "nonzero_exit_count": 1,
+  "retained_failure_dispositions": {
+    "failures": [
+      {
+        "owned_pid": 80512,
+        "returncode": 1,
+        "reason": "Source guard detected40 near-collinear apical cap triangles below its area threshold. Original script and failure log retained. Replace polygon caps by true center fans; no validator change.",
+        "retained": "failed-attempt-01-apical-cap-tessellation"
+      }
+    ]
+  },
+  "all_owned_process_groups_exited": true,
+  "lock_file": "/workspace/batch47-control/owned-process.lock",
+  "ledger": "production/continuous-small-life-round16-20261018/work/batch-47/ecphora/r001/logs/owned-processes.jsonl",
+  "ledger_sha256": "30991c0d554bdf2a9920beaef60fff8c3da0a8ee71c19be907c11f01dbbddbd1",
+  "active_asset_gate": "different asset refuses start until previous lifecycle complete",
+  "orchestration_files": [
+    {
+      "path": "production/continuous-small-life-round16-20261018/work/batch-47/ecphora/r001/execution-serial_asset.py",
+      "sha256": "28a94de28b3a5ddfc1f3862415cb7bb1639e7ee7f8db3db279b4d904fc7396e9"
+    },
+    {
+      "path": "production/continuous-small-life-round16-20261018/work/batch-47/ecphora/r001/execution-evidence.py",
+      "sha256": "b303df446fc05394408705c51aacde9db1e24e7e49f675f08e8849870adc7510"
+    },
+    {
+      "path": "production/continuous-small-life-round16-20261018/work/batch-47/ecphora/r001/execution-package.py",
+      "sha256": "2a38a04f5a69709983eb5a5bfe5db11b179562761336a698c0c4776448a681f2"
+    },
+    {
+      "path": "production/continuous-small-life-round16-20261018/work/batch-47/ecphora/r001/execution-finish_item.py",
+      "sha256": "5d826a465a4cd4023999da64f858ee5b33010260912d47124122e78bb7947a07"
+    }
+  ]
+}
