@@ -20,6 +20,7 @@ if(unreviewed)assert.equal(unreviewed.galleryPosters,undefined);
 const first=manifest.assets[0],mismatch={posters:{[first.id]:{...resources.posters[first.id],source_glb_sha256:'wrong'}}};
 assert.equal(prepareModels({...full,assets:[first]},mismatch)[0].galleryPosters,undefined,'Stale images never get paired to new model bytes');
 assert.throws(()=>prepareModels({...full,review_only:true},resources));
+assert.equal(prepareModels({...full,review_only:true},resources,{allowReview:true}).length,models.length,'Explicit isolated review renderer does not change publication eligibility');
 assert.throws(()=>prepareModels({...full,assets:[first,first]},resources));
 assert.throws(()=>prepareModels({...full,assets:[{...first,glb:'https://other.test/private.glb'}]},resources));
 const last=models.at(-1);assert(filterItems(models,last.id).some(a=>a.id===last.id),'Search reaches final published model');

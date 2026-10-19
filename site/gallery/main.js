@@ -190,3 +190,5 @@ try{renderer=new PreviewRenderer($('#detail'));renderer.onReferenceError=error=>
 window.__preview={state,models:sample,choose,settler,get renderer(){return renderer;},renderWheel,async generatePosters(){const output={};for(const asset of sample)output[asset.id]=await renderer.poster(asset);return output;},async generateWheelPosters(){const images={},specs={};for(const asset of sample){images[asset.id+'-wheel']=await renderer.poster(asset,{wheel:true});specs[asset.id]=renderer.lastPosterSpec;}return {images,specs};}};
 if(state.selected)await choose(state.selected,{push:false,preserve:false,openMobile:!!initialModel});else{$('#title').textContent=t('No published models yet','暂无已发布模型');$('.download-card').hidden=true;$('#detail').hidden=true;}
 window.__gallery=window.__preview;
+
+if(catalog.manifest.review_only){const note=document.createElement('span');note.className='gallery-review-notice';note.setAttribute('role','status');note.textContent=t('Review only · Not approved for publication','仅供审阅 · 尚未批准发布');document.querySelector('header').append(note);}

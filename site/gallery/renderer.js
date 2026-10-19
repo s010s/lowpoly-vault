@@ -132,13 +132,14 @@ export class PreviewRenderer {
   view.contact.visible=true;view.contact.position.x=view.contact.position.z=0;view.contact.scale.set(Math.max(.45,entry.size.x*view.scale*1.35),Math.max(.45,entry.size.z*view.scale*1.6),1);
   view.metric=metricReferenceSpec(entry.size,asset);this.fit(view,preset.azimuth,preset.elevation);return view;
  }
- fit(view,azimuth=preset.azimuth,elevation=preset.elevation){
+ fit(view,azimuth=preset.azimuth,elevation=preset.elevation,{canonical=true}={}){
   view.camera.zoom=1;view.camera.clearViewOffset();const size=view.entry.size.clone().multiplyScalar(view.scale);const radius=size.length()/2;view.fitDistance=radius/Math.sin(preset.fov*Math.PI/360)*1.08;
   view.camera.position.copy(view.target).add(direction(azimuth,elevation).multiplyScalar(view.fitDistance));view.camera.lookAt(view.target);view.camera.near=.01;view.camera.far=100;view.camera.updateProjectionMatrix();
+  if(canonical&&this.fitProjectedGeometry(view,view.target,.06,0))view.fitDistance=view.camera.position.distanceTo(view.target);
  }
  wheelFrame(view,asset,{rebuild=false}={}){
-  const authored=asset.wheelSpec;if(authored&&!rebuild){this.fit(view,authored.azimuth,authored.elevation);this.resizeCamera(view,1600,900);view.camera.zoom=authored.zoom;view.camera.setViewOffset(1600,900,authored.offset[0],authored.offset[1],1600,900);view.camera.updateProjectionMatrix();view.wheelSpec=authored;return authored;}
-  const pose=WHEEL_POSES[asset.id]||{azimuth:preset.azimuth,elevation:asset.dimensions?.[1]/Math.max(...(asset.dimensions||[1,1,1]))<.25?40:preset.elevation};this.fit(view,pose.azimuth,pose.elevation);this.resizeCamera(view,1600,900);view.camera.updateMatrixWorld(true);
+  const authored=asset.wheelSpec;if(authored&&!rebuild){this.fit(view,authored.azimuth,authored.elevation,{canonical:false});this.resizeCamera(view,1600,900);view.camera.zoom=authored.zoom;view.camera.setViewOffset(1600,900,authored.offset[0],authored.offset[1],1600,900);view.camera.updateProjectionMatrix();view.wheelSpec=authored;return authored;}
+  const pose=WHEEL_POSES[asset.id]||{azimuth:preset.azimuth,elevation:asset.dimensions?.[1]/Math.max(...(asset.dimensions||[1,1,1]))<.25?40:preset.elevation};this.fit(view,pose.azimuth,pose.elevation,{canonical:false});this.resizeCamera(view,1600,900);view.camera.updateMatrixWorld(true);
   const bounds={left:Infinity,right:-Infinity,top:-Infinity,bottom:Infinity},point=new THREE.Vector3();
   // Use actual projected vertices across a turn, rather than a universal square bbox.
   // This preserves thin appendages without breathing or cropping during auto-rotation.
@@ -196,21 +197,26 @@ export class PreviewRenderer {
   const effective=new THREE.Vector3(0,0,1).applyQuaternion(orientation.clone().invert().multiply(c.quaternion));
   return {contactPosition:[this.detail.contact.position.x,this.detail.contact.position.z],azimuth:THREE.MathUtils.radToDeg(Math.atan2(effective.x,effective.z)),elevation:THREE.MathUtils.radToDeg(Math.asin(THREE.MathUtils.clamp(effective.y,-1,1))),cameraAzimuth:THREE.MathUtils.radToDeg(Math.atan2(p.x,p.z)),cameraElevation:THREE.MathUtils.radToDeg(Math.asin(p.y/p.length())),position:c.position.toArray(),target:this.controls.target.toArray(),zoom:c.zoom,screenShift:this.detail.screenShift||0,screenShiftY:this.detail.screenShiftY||0,modelYaw:this.detail.comparisonYaw?.rotation.y||0,distance:p.length(),modelPosition:this.detail.model?.position.toArray(),modelQuaternion:this.detail.orientation?.quaternion.toArray()};
  }
+ fitProjectedGeometry(view,target,shift=0,shiftY=0){
+  // The complete catalog includes very thin surfaces beyond the reviewed sample.
+  // Only enlarge a frame when real vertices overflow the limiting square view.
+  // The original canonical/wheel poses and all already-fitting frames are intact.
+  const camera=view.camera,probe=camera.clone(),point=new THREE.Vector3();let changed=false;
+  if(!view.model)return false;view.model.updateMatrixWorld(true);
+  probe.aspect=1;probe.fov=preset.fov;probe.setViewOffset(1,1,shift,shiftY,1,1);probe.updateProjectionMatrix();
+  for(let attempt=0;attempt<12;attempt++){
+   probe.position.copy(camera.position);probe.quaternion.copy(camera.quaternion);probe.updateMatrixWorld(true);let extent=0;
+   view.model.traverse(object=>{if(!object.isMesh)return;const position=object.geometry.attributes.position;for(let i=0;i<position.count;i++){point.fromBufferAttribute(position,i).applyMatrix4(object.matrixWorld).project(probe);extent=Math.max(extent,Math.abs(point.x),Math.abs(point.y));}});
+   if(extent<=1)return changed;
+   changed=true;const offset=camera.position.clone().sub(target);camera.position.copy(target).add(offset.multiplyScalar(extent+0.002));camera.lookAt(target);
+  }
+  return changed;
+ }
  keepResetFramed(){
   const v=this.detail,c=v.camera;
-  // Extreme thin assets outside the reviewed sample can use the last pixels of
-  // the sphere fit during a reset. Correct only an actually overflowing frame;
-  // canonical framing, poster captures and deliberate inspection zoom are unchanged.
+  // Deliberate inspection zoom is never clamped by a reset-only overflow guard.
   if(!v.model||this.comparison||c.zoom>1.000001||!v.orientation||v.orientation.quaternion.angleTo(new THREE.Quaternion())<1e-7)return;
-  v.model.updateMatrixWorld(true);const point=new THREE.Vector3(),probe=c.clone();
-  // Square is the limiting shorter-axis projection for every responsive aspect.
-  probe.aspect=1;probe.fov=preset.fov;probe.setViewOffset(1,1,v.screenShift||0,v.screenShiftY||0,1,1);probe.updateProjectionMatrix();
-  for(let attempt=0;attempt<6;attempt++){
-   probe.position.copy(c.position);probe.quaternion.copy(c.quaternion);probe.updateMatrixWorld(true);let extent=0;
-   v.model.traverse(object=>{if(!object.isMesh)return;const position=object.geometry.attributes.position;for(let i=0;i<position.count;i++){point.fromBufferAttribute(position,i).applyMatrix4(object.matrixWorld).project(probe);extent=Math.max(extent,Math.abs(point.x),Math.abs(point.y));}});
-   if(extent<=1)return;
-   const offset=c.position.clone().sub(this.controls.target);c.position.copy(this.controls.target).add(offset.multiplyScalar(extent+0.002));c.lookAt(this.controls.target);
-  }
+  this.fitProjectedGeometry(v,this.controls.target,v.screenShift||0,v.screenShiftY||0);
  }
  applyState(state,{cameraOwned=true}={}){
   const c=this.detail.camera;c.position.fromArray(state.position);c.zoom=state.zoom;this.detail.screenShift=state.screenShift||0;this.detail.screenShiftY=state.screenShiftY||0;this.controls.target.fromArray(state.target);

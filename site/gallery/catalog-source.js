@@ -5,8 +5,8 @@ export {siteRoot,assetURL};
 export let models=[];
 export let catalog={};
 const safeAssetPath=value=>typeof value==='string'&&value.startsWith('assets/')&&!/[\\\u0000-\u001f?#%]/.test(value)&&!value.split('/').some(part=>!part||part==='.'||part==='..');
-export function prepareModels(manifest,resources={}) {
-  if(manifest?.review_only||!Array.isArray(manifest?.assets))throw new Error('Published catalog unavailable.');
+export function prepareModels(manifest,resources={}, {allowReview=false}={}) {
+  if((manifest?.review_only&&!allowReview)||!Array.isArray(manifest?.assets))throw new Error('Published catalog unavailable.');
   const ids=new Set();
   return manifest.assets.map(asset=>{
     if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id||'')||ids.has(asset.id)||!asset.name||!['glb','blend','preview'].every(key=>safeAssetPath(asset[key])))throw new Error('Invalid published model.');
@@ -19,7 +19,7 @@ export function prepareModels(manifest,resources={}) {
 export async function loadGalleryCatalog({fetchImpl=fetch}={}) {
   const read=async path=>{const response=await fetchImpl(assetURL(path));if(!response.ok)throw new Error(`Catalog request failed (${response.status}).`);return response.json();};
   const [manifest,resources]=await Promise.all([read('assets/manifest.json'),read('gallery/resources.json')]);
-  models=prepareModels(manifest,resources);catalog={manifest,resources,route:parseRoute(location.pathname,siteRoot.pathname)};
+  models=prepareModels(manifest,resources,{allowReview:document.body.dataset.reviewOnly==='true'});catalog={manifest,resources,route:parseRoute(location.pathname,siteRoot.pathname)};
   return {models,catalog};
 }
 export const emptyFacets=()=>({worlds:[],packs:[],category:[],collection:[],triangleBand:[],triangleMax:[]});

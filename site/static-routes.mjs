@@ -37,7 +37,7 @@ export async function writeStaticRoutes(manifest,outDir,{base=process.env.SITE_B
  async function emit(route,content,title,description,asset){
   const href=routeHref(route,base),url=origin+href;
   let html=metadata(template,{title,description,url,alternateEN:origin+routeHref({...route,lang:'en'},base),alternateZH:origin+routeHref({...route,lang:'zh-CN'},base),image:asset?origin+base+asset.preview:assets[0]?origin+base+assets[0].preview:undefined,lang:route.lang,review,asset,base});
-  html=html.replace(/<body\b([^>]*)>/,`<body$1 data-static-route="${route.type}" data-site-base="${escape(base)}">`);
+  html=html.replace(/<body\b([^>]*)>/,`<body$1 data-static-route="${route.type}"${review?' data-review-only="true"':''} data-site-base="${escape(base)}">`);
   html=html.replace(/(<a\b[^>]*?)href=["'][^"']*["']([^>]*data-route=["'](home|catalog|models|about)["'][^>]*>)/g,(_,start,rest,type)=>`${start}href="${routeHref({type,lang:route.lang},base)}"${rest}`);
   html=html.replace(/href="\.\/THIRD_PARTY_NOTICES.md"/g,`href="${base}THIRD_PARTY_NOTICES.md"`);
   html=html.replace(/(?:src|href)="\.\/home\/([^"]+)"/g,match=>match.replace('./home/',base+'home/'));
