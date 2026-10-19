@@ -23,9 +23,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node site/ci-scope-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
-      - name: Full publication rejection regressions
-        run: npm run test:publication
-      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
       - run: npm run build
         id: build_site
       - run: npx playwright install --with-deps chromium
@@ -45,6 +42,9 @@ jobs:
             dist/gallery/
             dist/assets/manifest.json
           if-no-files-found: error
+      - name: Full publication rejection regressions
+        run: npm run test:publication
+      - run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
       - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
         run: npm run test:gallery:browser
       - name: Exact seven concept assets, renderer, downloads and bilingual source labels
