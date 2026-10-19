@@ -1,0 +1,59 @@
+{
+  "asset_id": "sanctacaris",
+  "revision": "r002",
+  "frozen_at": "2026-10-19T20:34:08.179816+00:00",
+  "label": "Sanctacaris-inspired wing-shield swimmer",
+  "scope": "Original child-friendly evidence-informed scene prop, not scientific reconstruction; candidate only, parent integration.",
+  "design": "Dusty blue angular winged head with small lateral dark eyes. Six PAIRS of forward grasping branches with slender sensory branches, eleven tapering trunk plates, cream paired swimming flaps and thinner walking branches. Broad paddle telson. Blunt tips and open spaces among arms.",
+  "concept": "../../concept-original.png",
+  "concept_row": 4,
+  "concept_interpretation": "Concept agrees on winged head, medium plate rhythm and broad paddle. Arm counts vary/overlap across concepts; freeze six paired frontal limbs and eleven trunk segments per ROM. Fine setae, detailed claw dentition and podomere counts simplified.",
+  "axes": {
+    "forward": "-Y",
+    "up": "+Z",
+    "meters": true
+  },
+  "dimensions": "Nominal authoring unit 0.052m; final actual XYZ bounds measured in metadata. Supporting prop scale is artistic, not a specimen measurement. Burgessia carapace 0.014m; Tuzoia carapace 0.09m; Emeraldella body about 0.065m; Sanctacaris body about 0.075m.",
+  "budgets": {
+    "asset_id": "sanctacaris",
+    "revision": "r001",
+    "unit_m": 0.052,
+    "seed": 61,
+    "max_triangles": 16000,
+    "max_materials": 7,
+    "max_primitives": 220,
+    "soft_glb_bytes": 1000000,
+    "surface_profile": "palette-only",
+    "role": "supporting small scene life, 128px; inspectable at 512px",
+    "mount_origin": "authored body midline; ground-normalized lowest appendage to Z=0, identity root",
+    "runtime_target": "Three.js 0.180.0; parent independent runtime/GPU/populated-scene QA pending"
+  },
+  "viewing": "Supporting scene at 0.2-1m nominal camera distance; 128px identification, 512px inspection.",
+  "construction": "Explicit closed volumetric profile/radial shell meshes; closed tapered path tubes for antennae, tail and limbs. Editable semantic parts; deliberate flat planes. No texture billboards or borrowed geometry.",
+  "hidden_surfaces": "Closed lower shield surfaces; paired volumetric limbs and swimming lobes beneath shells, real hinge/body depth; no camera-specific flattening. Separate closed parts intentionally intersect at joints; not a print-ready union.",
+  "required_views": [
+    "concept-match",
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "turntable_frames": 0,
+  "proof": "Exact clean-import GLB, shared repository renderer; concept-match uses authored 55deg azimuth/32deg elevation as approximate illustration view, not calibrated camera. All revisions must retain config.",
+  "credits": "Original art/renders/prose CC-BY-4.0 Leon Made This / s010s; code MIT. ROM factual consultation only.",
+  "pending": [
+    "Independent visual/factual/specification QA by parent",
+    "Three.js browser/GPU/populated-scene acceptance",
+    "Unified gallery-renderer poster by parent"
+  ],
+  "revision_policy": "Only adopt bounded revisions with named visible gains; preserve earlier outputs.",
+  "bounded_revision": "Replace broad rectangular head-wing outline by swept triangular tips, maintaining wing span and semantic parts; unchanged frontal arm count.",
+  "comparison": "Lock r001 camera target, orthographic scale and lights; compare concept-match/top/right/clay views. Adopt only if the named contour change is visible."
+}

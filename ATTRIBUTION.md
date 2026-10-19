@@ -45,3 +45,7 @@ These examples are practical guidance, not additional license terms. The [full l
 The Metaspriggina-, Falcatus-, Pteraspis-, Dorypterus-, Mackenzia-, Prasopora- and Strophomena-inspired models retain their reviewed source/GLB bytes and original CC BY 4.0 credit above. Publication changes only packaging, bilingual labels and gallery-renderer poster generation. Scientific reference ledgers are consulted-only sources with separate rights; no external reference media are relicensed. See [the exact release scope and limitations](docs/concept-seven-publication.md).
 
 这七件启发式模型保留已审查的源文件与 GLB 字节及上方原创署名；发布仅调整打包、双语标签并生成图库渲染器预览。科学资料仅作查阅，保留各自权利；不将外部参考媒体重新许可为原创资产。具体范围与限制见[发布说明](docs/concept-seven-publication.md)。
+
+### Concept-led marine quartet (2026-10-19)
+
+Emeraldella, Burgessia, Tuzoia and Sanctacaris-inspired scene props, original concept art and exact-model renderer images: **Leon Made This / s010s**, CC BY 4.0. Editable Blender sources and GLB downloads preserve the independently reviewed bytes. Generators and integration code are MIT. These are stylized props with explicit anatomy/scale limits, not specimen-level reconstructions. Royal Ontario Museum Burgess Shale pages were consulted for factual context; no ROM images, textures, geometry or text were redistributed.

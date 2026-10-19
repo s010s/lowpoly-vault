@@ -1,0 +1,133 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+    "--",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.glb",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render-runs/render/burgessia/r002/proof/faae6ff9f98b40099d2b3b3eb7e90b2f22ca82edbd174b86e303a451901d5be0/20261019T203438-00cf5691b82e4f5ba91ee16d3d81bd74/outputs",
+    "--views",
+    "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--baseline-config",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r001/proof/render-config.json"
+  ],
+  "created_at": "2026-10-19T20:34:38.865451+00:00",
+  "fingerprint": "faae6ff9f98b40099d2b3b3eb7e90b2f22ca82edbd174b86e303a451901d5be0",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "baseline": {
+        "bytes": 3837,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r001/proof/render-config.json",
+        "sha256": "7e05db8463de73f2c037c9f2a3aa01b1768d2958d3d8f53f954361b2ce6cdef1"
+      },
+      "brief": {
+        "bytes": 3551,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/brief.json",
+        "sha256": "4e37b041fa88386053a8b9d33c0f4dfa2304b8f5933771eb7aef454e21bfee71"
+      },
+      "glb": {
+        "bytes": 124420,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.glb",
+        "sha256": "e75fdf29738520f3d8a3ad3b5d50c582fabd558c086e0a817bbc7a592a315669"
+      },
+      "refs": {
+        "bytes": 1258,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/references.json",
+        "sha256": "3967a53a763f8cfc11d9b175bd0a2cb2dbfa7de3f47fd37a8031eb8e66cfbc21"
+      },
+      "renderer": {
+        "bytes": 16524,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+        "sha256": "811a92f4525d2d26fc5a46260c8df9ff0f91f66d076550b2d5d93285d9e4fbd9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:refs}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--baseline-config",
+        "{input:baseline}"
+      ],
+      "asset_id": "burgessia",
+      "inputs": {
+        "baseline": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r001/proof/render-config.json",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/brief.json",
+        "glb": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.glb",
+        "refs": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/burgessia/r002/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py"
+      },
+      "job_id": "proof",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "concept-match.png",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "rear.png",
+        "left.png",
+        "right.png",
+        "top.png",
+        "bottom.png",
+        "clay.png",
+        "clayalt.png",
+        "wire.png"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 600
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T203437-b1525a5c4f334ee9abc285a43b14454e"
+}

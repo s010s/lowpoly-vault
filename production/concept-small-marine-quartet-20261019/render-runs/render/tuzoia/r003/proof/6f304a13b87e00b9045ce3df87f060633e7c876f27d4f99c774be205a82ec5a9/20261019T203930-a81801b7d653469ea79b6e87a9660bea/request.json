@@ -1,0 +1,133 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+    "--",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.glb",
+    "--revision",
+    "r003",
+    "--brief",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render-runs/render/tuzoia/r003/proof/6f304a13b87e00b9045ce3df87f060633e7c876f27d4f99c774be205a82ec5a9/20261019T203930-a81801b7d653469ea79b6e87a9660bea/outputs",
+    "--views",
+    "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--baseline-config",
+    "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r001/proof/render-config.json"
+  ],
+  "created_at": "2026-10-19T20:39:30.191099+00:00",
+  "fingerprint": "6f304a13b87e00b9045ce3df87f060633e7c876f27d4f99c774be205a82ec5a9",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "baseline": {
+        "bytes": 3902,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r001/proof/render-config.json",
+        "sha256": "b30034d0ee88ce664f1e829e1a74ae649d2b492e36cd06eb10a9e0fcdde947e4"
+      },
+      "brief": {
+        "bytes": 3695,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/brief.json",
+        "sha256": "f1e4f475b7be6437cf13e9d090541f677bd42f5d383f63cba7835c31ed127e95"
+      },
+      "glb": {
+        "bytes": 152604,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.glb",
+        "sha256": "9f5f09b624b2d99da6c989b0e332903904452ffa9a7f68b2e731a31fb90dfe7c"
+      },
+      "refs": {
+        "bytes": 1272,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/references.json",
+        "sha256": "21f2af9f28ce7b227d094ce7f2ce209650480bda4b01ad7c8fffee00d61a0389"
+      },
+      "renderer": {
+        "bytes": 16524,
+        "path": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py",
+        "sha256": "811a92f4525d2d26fc5a46260c8df9ff0f91f66d076550b2d5d93285d9e4fbd9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r003",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:refs}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "concept-match,hero,reversehero,front,rear,left,right,top,bottom,clay,clayalt,wire",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--baseline-config",
+        "{input:baseline}"
+      ],
+      "asset_id": "tuzoia",
+      "inputs": {
+        "baseline": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r001/proof/render-config.json",
+        "brief": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/brief.json",
+        "glb": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.glb",
+        "refs": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/render_revision_locked.py"
+      },
+      "job_id": "proof",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "concept-match.png",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "rear.png",
+        "left.png",
+        "right.png",
+        "top.png",
+        "bottom.png",
+        "clay.png",
+        "clayalt.png",
+        "wire.png"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 600
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T203929-12c3c5667fa24f9aa5f7a234ebfd1719"
+}

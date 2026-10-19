@@ -2,6 +2,12 @@ name: Capture pinned publication posters
 on:
   push:
     branches: ['capture/**']
+  pull_request:
+    paths:
+      - 'qa/quartets-release-20261019/capture-inputs.json'
+      - 'site/accepted-quartets-capture.mjs'
+      - 'site/prepare-quartets-capture.mjs'
+      - '.github/workflows/publication-poster-capture.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,7 +33,11 @@ jobs:
           python-version: '3.11'
       - run: npm ci --ignore-scripts
       - run: npx vite build --outDir "$GITHUB_WORKSPACE/qa/capture-inputs-site"
+      - name: Prepare reviewed candidate capture inputs
+        if: hashFiles('qa/quartets-release-20261019/capture-inputs.json') != ''
+        run: node site/prepare-quartets-capture.mjs
       - name: Prepare checked capture inputs
+        if: hashFiles('qa/quartets-release-20261019/capture-inputs.json') == ''
         run: |
           node --input-type=module <<'JS'
           import assert from 'node:assert/strict';

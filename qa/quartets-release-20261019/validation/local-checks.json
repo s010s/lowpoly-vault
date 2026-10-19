@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "checked_source_head": "00dfb35e6a4581ba2e34c5a86aee4b0af1efe070",
+  "status": "pass",
+  "commands": [
+    "npm test",
+    "node site/ci-timed-test.mjs",
+    "npm run build",
+    "npm run test:redesign",
+    "npm run test:scrub",
+    "npm run test:gallery",
+    "node site/quartets-capture-test.mjs",
+    "node site/concept-quartets-release-test.mjs"
+  ],
+  "release_rejection_checks": 133,
+  "published_assets": 186,
+  "existing_assets_preserved": 182,
+  "output_allowlisted_files": 2344,
+  "limits": [
+    "Local build had 182 canonical gallery poster pairs; CI must generate and audit the four new pairs.",
+    "No local browser/physical-device acceptance is claimed by this record."
+  ]
+}

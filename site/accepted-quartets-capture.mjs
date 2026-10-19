@@ -1,0 +1,60 @@
+/** Immutable candidate inputs for image capture only; grants no publication. */
+export const QUARTETS_CAPTURE = {
+  "version": 1,
+  "scope": "capture_only_reviewed_marine_20261019",
+  "publication_authority": false,
+  "review": {
+    "path": "qa/independent/small-marine-quartet-20261019-gpt6-luna-xhigh/review.json",
+    "sha256": "79cf934e87644e02a9559fb65b06eb38f748ac55d4e32ae0c35f3ea811d44fab"
+  },
+  "assets": [
+    {
+      "id": "emeraldella",
+      "source_commit": "1c1b5fd0f466feb95457a8c96ed58ed8f219201f",
+      "metadata": {
+        "path": "production/concept-small-marine-quartet-20261019/emeraldella/r002/metadata.json",
+        "sha256": "0fd28696bd1dc46db74c08e31b358b0453d0c50ea94692f6b8da702275fbe8fd"
+      },
+      "glb": {
+        "path": "production/concept-small-marine-quartet-20261019/emeraldella/r002/emeraldella.glb",
+        "sha256": "7c64de69f55bca9a4bb6701dce818b5fbdf4656cef18b87785d0adfb8a1d8b7c"
+      }
+    },
+    {
+      "id": "burgessia",
+      "source_commit": "1c1b5fd0f466feb95457a8c96ed58ed8f219201f",
+      "metadata": {
+        "path": "production/concept-small-marine-quartet-20261019/burgessia/r002/metadata.json",
+        "sha256": "cf3d78c7cd423923723a2fbef75457e75e67494938c2017050db92d3659262a7"
+      },
+      "glb": {
+        "path": "production/concept-small-marine-quartet-20261019/burgessia/r002/burgessia.glb",
+        "sha256": "e75fdf29738520f3d8a3ad3b5d50c582fabd558c086e0a817bbc7a592a315669"
+      }
+    },
+    {
+      "id": "tuzoia",
+      "source_commit": "1c1b5fd0f466feb95457a8c96ed58ed8f219201f",
+      "metadata": {
+        "path": "production/concept-small-marine-quartet-20261019/tuzoia/r003/metadata.json",
+        "sha256": "a514ebe78aa11b58aaeb59c504bd8e468e1c2cdfafd856b1bab8858ac3c08606"
+      },
+      "glb": {
+        "path": "production/concept-small-marine-quartet-20261019/tuzoia/r003/tuzoia.glb",
+        "sha256": "9f5f09b624b2d99da6c989b0e332903904452ffa9a7f68b2e731a31fb90dfe7c"
+      }
+    },
+    {
+      "id": "sanctacaris",
+      "source_commit": "1c1b5fd0f466feb95457a8c96ed58ed8f219201f",
+      "metadata": {
+        "path": "production/concept-small-marine-quartet-20261019/sanctacaris/r002/metadata.json",
+        "sha256": "c02aed0e16f7a29e226c767847a082e16a6a279f498d91750274ed6f969f7505"
+      },
+      "glb": {
+        "path": "production/concept-small-marine-quartet-20261019/sanctacaris/r002/sanctacaris.glb",
+        "sha256": "d51b77469b954e9adc97c48db4dcae78adc622297ab4c4ffbb124de521805a96"
+      }
+    }
+  ]
+};

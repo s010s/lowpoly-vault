@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "tuzoia",
+      "revision": "r003",
+      "job_id": "initial",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/generator-r003.py",
+        "config": "/workspace/lowpoly-vault/production/concept-small-marine-quartet-20261019/tuzoia/r003/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "tuzoia.glb",
+        "tuzoia.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "timeout_seconds": 180
+    }
+  ]
+}
