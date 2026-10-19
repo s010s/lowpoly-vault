@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+    "brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+    "references_sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+  },
+  "status": "pass",
+  "method": "Actual local tools and exact final GLB, hash-bound raw observations; maker automation can pass technical and parse checks only. Independent maker-distinct review required for art, facts, specification and acceptance.",
+  "observations": [
+    "Fresh project audit: {'triangles': 1400, 'materials': 4, 'primitives': 4, 'glb_bytes': 79228, 'texture_count': 0, 'texture_max_dimension': 0, 'texture_bytes': 0}. Source reopened with scripts disabled; source/export bounds and triangles match.",
+    "Two separately executed queue rebuilds have matching decoded semantic geometry/material digests; raw request/results retained.",
+    "Khronos full report retained; {'numErrors': 0, 'numWarnings': 0, 'numInfos': 0, 'numHints': 0, 'messages': [], 'truncated': False}"
+  ],
+  "created_at": "2026-10-19T23:01:26.431858+00:00",
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "hardware_gpu_verified": false,
+  "parent_scene_verified": false,
+  "measurements": {
+    "triangles": 1400,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 79228,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/static-glb.report.json",
+        "sha256": "37ced9ff035fbe9d972c66353687bc8e01585ca92de896fa19a960785ca56d53"
+      },
+      "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/gltf-validator.report.json",
+        "sha256": "303a25636a97c32fa94f9955cacce04edfa9f042a2d5e00024ba1d2046dc032f"
+      },
+      "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/source-export.report.json",
+        "sha256": "6a6a564ae4ae25ed8bf8a3adb70781fe4c5ed85fa474d897e194cbc035d6852d"
+      },
+      "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/rebuild-1.report.json",
+        "sha256": "d01319eab512ba494a6aa3aa2a86cc61f15ef35717daca821d129aa4770d87ab"
+      },
+      "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+      "warning_review": []
+    }
+  ],
+  "second_rebuild": {
+    "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/rebuild-2.report.json",
+    "sha256": "d2e7cd6d6df4d0cb2d77601a4454eb039699e6f08f25cc25941b87a4a5f44335"
+  }
+}

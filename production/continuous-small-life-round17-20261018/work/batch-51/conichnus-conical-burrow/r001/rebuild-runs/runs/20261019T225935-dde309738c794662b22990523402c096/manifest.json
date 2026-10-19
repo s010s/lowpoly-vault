@@ -1,0 +1,80 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "conichnus-conical-burrow",
+      "config": {
+        "blender": "4.3.2",
+        "purpose": "separate deterministic semantic rebuild 1",
+        "seed": 2026101818
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/references.json"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "conichnus-conical-burrow.blend",
+        "conichnus-conical-burrow.glb",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 240
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "conichnus-conical-burrow",
+      "config": {
+        "blender": "4.3.2",
+        "purpose": "separate deterministic semantic rebuild 2",
+        "seed": 2026101818
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/conichnus-conical-burrow/r001/references.json"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "conichnus-conical-burrow.blend",
+        "conichnus-conical-burrow.glb",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 240
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
