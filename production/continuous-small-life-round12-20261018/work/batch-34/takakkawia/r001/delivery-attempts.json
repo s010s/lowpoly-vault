@@ -1,0 +1,25 @@
+{
+  "kind": "delivery-attempts-outside-owned-model-jobs",
+  "observed_at": "2026-10-19T00:22:49.362016+00:00",
+  "local_delivery_commit": "ca19d528e8d0a663b361f441b7803e4a80dd86e8",
+  "attempts": [
+    {
+      "action": "finish_item ordinary git push origin HEAD",
+      "returncode": 128,
+      "stderr_capture": "Initial helper suppresses stderr; direct retry below establishes error"
+    },
+    {
+      "action": "ordinary git push origin HEAD retry",
+      "returncode": 128,
+      "stderr": "fatal: could not read Username for 'https://github.com': No such device or address"
+    },
+    {
+      "action": "git -c credential.helper='!gh auth git-credential' push origin HEAD",
+      "returncode": 128,
+      "stderr": "remote: Invalid username or token. Password authentication is not supported for Git operations. fatal: Authentication failed"
+    }
+  ],
+  "scope": "All source/build/rebuild/render/runtime owned jobs exited0; these are separate actual Git delivery failures, not model-job PASS.",
+  "status": "pending credential restoration; next asset not started",
+  "secrets_logged": false
+}
