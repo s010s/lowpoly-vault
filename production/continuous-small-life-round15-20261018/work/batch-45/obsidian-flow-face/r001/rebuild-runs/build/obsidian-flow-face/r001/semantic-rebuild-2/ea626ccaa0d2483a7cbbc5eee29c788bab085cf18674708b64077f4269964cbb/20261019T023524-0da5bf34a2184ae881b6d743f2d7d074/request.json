@@ -1,0 +1,119 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/obsidian-flow-face/r001/generator.py",
+    "--",
+    "--asset",
+    "obsidian-flow-face",
+    "--config",
+    "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/obsidian-flow-face/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/obsidian-flow-face/r001/rebuild-runs/build/obsidian-flow-face/r001/semantic-rebuild-2/ea626ccaa0d2483a7cbbc5eee29c788bab085cf18674708b64077f4269964cbb/20261019T023524-0da5bf34a2184ae881b6d743f2d7d074/outputs",
+    "--no-preview"
+  ],
+  "created_at": "2026-10-19T02:35:24.739735+00:00",
+  "fingerprint": "ea626ccaa0d2483a7cbbc5eee29c788bab085cf18674708b64077f4269964cbb",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault-batch45/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 11085,
+        "path": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/obsidian-flow-face/brief.json",
+        "sha256": "5ff2eda83f77da489a48bd36f1768cdedad1b091cffee5cea78b854515e2508f"
+      },
+      "config": {
+        "bytes": 2356,
+        "path": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/obsidian-flow-face/r001/config.json",
+        "sha256": "8d039e9a49ce89ecb427eaf7b78ba39c10d1a320de49486918d630fee56a9d15"
+      },
+      "generator": {
+        "bytes": 5426,
+        "path": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/obsidian-flow-face/r001/generator.py",
+        "sha256": "2eb1e6d05be24b51e933cc03c3ce4dfad3aba2a518f2b9d82f5a64a9cb3f160f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault-batch45/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "inventory": {
+        "bytes": 2735,
+        "path": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/obsidian-flow-face/inventory-record.json",
+        "sha256": "427cbc6fecb924a4cd121f0eb709c4d4992d863867ca8b3a2fdff62be189d51e"
+      },
+      "mesh_utils": {
+        "bytes": 3306,
+        "path": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/mesh_utils.py",
+        "sha256": "b9c432dd823f71e3ab621923dc15451dbced524bc50038f25f73f26b3a00214b"
+      },
+      "references": {
+        "bytes": 1234,
+        "path": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/obsidian-flow-face/references.json",
+        "sha256": "072c5dc59ef69d8fc61ce705952e57ef36746a0ad15e7abcf545087047469a13"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--asset",
+        "obsidian-flow-face",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}",
+        "--no-preview"
+      ],
+      "asset_id": "obsidian-flow-face",
+      "config": {
+        "purpose": "two fresh actual original deterministic rebuilds; batch45 serial lifecycle",
+        "threads": 2
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault-batch45/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/obsidian-flow-face/brief.json",
+        "config": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/obsidian-flow-face/r001/config.json",
+        "generator": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/obsidian-flow-face/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault-batch45/scripts/asset_common.py",
+        "inventory": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/obsidian-flow-face/inventory-record.json",
+        "mesh_utils": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/work/batch-45/mesh_utils.py",
+        "references": "/workspace/lowpoly-vault-batch45/production/continuous-small-life-round15-20261018/items/obsidian-flow-face/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "obsidian-flow-face/obsidian-flow-face.blend",
+        "obsidian-flow-face/obsidian-flow-face.glb",
+        "obsidian-flow-face/qa.json",
+        "obsidian-flow-face/metadata.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261019T023520-cf4d45e888434eef9299122ef95c72b8"
+}
