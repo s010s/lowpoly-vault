@@ -98,3 +98,7 @@ try {
   await rm(out, { recursive: true, force: true });
 }
 console.log('Route entry tests passed: isolated wheel lists, original home/about/detail, locale/base prefixes, cross-app navigation, real HTML pagination, metadata, downloads and no-JS fallback.');
+
+// Route entry also owns the first-paint startup contract. Keep this in the
+// existing aggregate entry point without changing the sealed toolchain manifest.
+await import('./gallery-startup-test.mjs');
