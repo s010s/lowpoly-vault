@@ -1,0 +1,69 @@
+{
+  "dom_raster_mode": "cpu",
+  "status": "pass",
+  "commit": "6ff29de5285ac08bf2b524924d15c9c2625b40a4",
+  "checks": [
+    "wheel-hover-single-renderer-current-selection",
+    "selected-poster-live-and-repeat-supersession",
+    "failed-load-poster-and-retry",
+    "webgl-context-loss-restores-selected-poster",
+    "held-pointer-cannot-orbit-new-selection",
+    "scale-reference-reset-authored-dimensions",
+    "preserved-direct-detail-reload-and-close",
+    "preserved-home-about-and-modal-return"
+  ],
+  "cases": [
+    {
+      "name": "wheel-hover-single-renderer-current-selection",
+      "status": "pass",
+      "hovered": "natural-arch"
+    },
+    {
+      "name": "selected-poster-live-and-repeat-supersession",
+      "status": "pass",
+      "state": {
+        "selected": "sanctacaris",
+        "poster": "sanctacaris",
+        "live": "sanctacaris",
+        "canvas": 1,
+        "cache": 2,
+        "bytes": 311628,
+        "limit": 50331648
+      }
+    },
+    {
+      "name": "failed-load-poster-and-retry",
+      "status": "pass"
+    },
+    {
+      "name": "webgl-context-loss-restores-selected-poster",
+      "status": "pass"
+    },
+    {
+      "name": "held-pointer-cannot-orbit-new-selection",
+      "status": "pass"
+    },
+    {
+      "name": "scale-reference-reset-authored-dimensions",
+      "status": "pass",
+      "reference_meters": 0.18
+    },
+    {
+      "name": "preserved-direct-detail-reload-and-close",
+      "status": "pass",
+      "detail": "http://127.0.0.1:43763/lowpoly-vault/models/cooperoceras/"
+    },
+    {
+      "name": "preserved-home-about-and-modal-return",
+      "status": "pass"
+    }
+  ],
+  "page_errors": [],
+  "screenshots": [],
+  "videos": [],
+  "note": "Chromium software rendering and emulated viewport sizes; no physical-device performance claim.",
+  "chromium_version": "141.0.7390.37",
+  "scope": "approved-wheel-continuity-and-preserved-direct-home-details",
+  "design_contract": "Retired grid card/modal flight geometry is replaced by inline poster/live identity, delayed response, retry, Back/Forward and scale-reset checks.",
+  "requests": []
+}

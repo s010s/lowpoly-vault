@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "project": "s010s/lowpoly-vault",
+  "scope": "Marine quartet technical publication evidence; no formal candidate or hardware acceptance",
+  "status": {
+    "pull_request": "verified",
+    "production_deployment": "pending",
+    "production_live_verification": "pending",
+    "formal_candidate_approval": false,
+    "physical_hardware_acceptance": "unverified",
+    "target_scene_acceptance": "unverified"
+  },
+  "release": {
+    "pull_request": 27,
+    "pull_request_url": "https://github.com/s010s/lowpoly-vault/pull/27",
+    "source_head": "66e813c233d2f01f4aefb91f3db8a63913441bf6",
+    "base_commit": "4774ea94c864dca71dbe252fdd1c03230cc8c610",
+    "pr_test_merge": "6ff29de5285ac08bf2b524924d15c9c2625b40a4",
+    "release_merge": "456a53e3cb257032f210da50e005854b4485abca",
+    "release_tree": "1686268aeda83b5f94263fecbb45ab6f5a338dde",
+    "merged_at": "2026-10-19T22:06:17Z",
+    "asset_source_commit": "1c1b5fd0f466feb95457a8c96ed58ed8f219201f",
+    "published_models": 186,
+    "preserved_models": 182,
+    "new_models": [
+      {
+        "id": "emeraldella",
+        "revision": "r002"
+      },
+      {
+        "id": "burgessia",
+        "revision": "r002"
+      },
+      {
+        "id": "tuzoia",
+        "revision": "r003"
+      },
+      {
+        "id": "sanctacaris",
+        "revision": "r002"
+      }
+    ]
+  },
+  "pr_evidence": {
+    "check_runs": {
+      "total": 34,
+      "success": 32,
+      "skipped": 2
+    },
+    "pages_run": 39328320495,
+    "full_review_run": 39328320501,
+    "capture_run": 39328320528,
+    "asset_pipeline_run": 39328320502,
+    "pages_json_reports": 12,
+    "quartet_cases": 8,
+    "quartet_errors": 0,
+    "quartet_pngs": 16,
+    "all_model_actual_render_count": 186,
+    "selected_all_model_pngs": 4,
+    "gallery_byte_equal_files": 384,
+    "card_byte_equal_files": 8
+  },
+  "production_evidence": {
+    "pages_run": 39332548948,
+    "full_review_run": 39332549257,
+    "asset_pipeline_run": 39332548943,
+    "live_url": "https://s010s.github.io/lowpoly-vault/",
+    "status": "pending"
+  },
+  "archive_policy": {
+    "raw_reports": "Copied byte-for-byte from CI artifacts. Paths and localhost URLs inside reports identify original CI runtime locations; they are not archive download links.",
+    "screenshots": "All 16 new-model bilingual browser captures plus 4 corresponding all-model detail captures retained. Older screenshots mentioned by raw reports are intentionally not duplicated.",
+    "source_images": "384 gallery files and 8 card image files already exist in the release merge. SHA-256 and byte-comparison evidence is retained instead of duplicates.",
+    "index": "file-hashes.json lists every archived file except itself; integrity of the index is provided by the archive Git commit."
+  },
+  "limitations": [
+    "Browser QA used Chromium 141.0.7390.37 with software rendering and emulated mobile viewports.",
+    "The strict-gpu CI profile name denotes real WebGL/GLTFLoader execution; it is not physical GPU acceptance.",
+    "Formal candidate approved_for_brief remains false.",
+    "Physical device and target-scene acceptance are unverified.",
+    "The parser report is geometry and embedded-image decoding evidence only; it explicitly does not establish rendering or visual review.",
+    "Build and static checks are not substituted for browser or deployment verification."
+  ]
+}
