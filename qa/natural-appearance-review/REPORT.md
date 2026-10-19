@@ -4,35 +4,63 @@
 
 ## 结论与覆盖
 
-- 冻结基线有 175 件模型；审查范围内有 125 件已发布动物、植物、木材相关资产（另含木材蛀蚀铸型），全部核对了实际模型像素。范围内未找到真菌资产。
-- batches 40–50 最新相关候选范围：26 件实际生成的模型/痕迹/用户指定地貌样本完成像素检查；另有 1 件 Tempskya 只有准备文件，未生成模型，标为未检查。
-- 总覆盖表为 152 行：151 行有图像检查，1 行待图像证据。发布资产的 GLB 与 Blend SHA256 均与冻结清单匹配（125/125）；候选按实际文件独立计算哈希，含 Belosaepia、Joffrea r002、Diania、Czekanowskia、Lockeia 和自然堤。
-- 逐件分类：118 可用、17 建议小幅调整、9 教学标本/剖面呈现、7 遗迹教学模型、1 待证据。分类是自然观感筛查，不是发布验收。
-- Batch49 和 batch50 均为暂停/未完成；本审查没有把它们写成已验收，也不把 maker self-check 当视觉通过。
+- 清单锚点是冻结 `main` / `de413ef720463a2999516faf92c606bcdf9ab1b7` 的 175 件 manifest。当前审查库存为 152 个互不重复的 asset id：125 个已发布记录、26 个有像素的候选模型、1 个未生成候选。一个 id 只计一次；例如 Joffrea 只计指定的 r002，不另计 r001。
+- 正式负责范围（动物、植物、真菌、木材）包括 125 个发布模型 +18 个已有模型的候选 +1 个未生成的植物 Tempskya，共 144 个正式范围 id；其中 143 件可看图，Tempskya 待模型证据。Teredolites wood-boring cast 作为木材相关铸型在正式范围计一次，尽管 manifest 也标记其 trace-concept facet。未发现真菌条目。
+- 补充观察另列 8 个互斥 id：候选动物遗迹教学模型 7 件、自然堤 1 件。它们保留在总审查库存和像素证据中，但不混入正式范围计数。
+- 原 `125 + 26 + 1 = 152` 表示按发布/候选/待生成状态的唯一模型库存分组：125 个已发布正式条目；26 个候选像素条目 =18 个正式动物/植物 +7 个遗迹模型 +自然堤；最后 1 件是正式范围中的 Tempskya 待证据。151 件实际查看像素、1 件没有可查看模型。
+- 按冻结 manifest 分区：175 =125 个正式范围条目（124 个 manifest 中的动物/植物/木材 +1 个木材相关蛀蚀铸型）+50 个本次范围外模型（40 地质、其余 10 件遗迹）。7 个候选动物遗迹与自然堤是额外观察，不会加进冻结 175 件基线或正式范围资产数。125 个已发布条目的 GLB/Blend 哈希均匹配冻结清单；26 个候选模型哈希按其实际文件独立计算。
+- 像素判断分布（与范围分组独立）：118 可用、17 建议小幅调整、9 教学标本/剖面、7 遗迹教学模型、1 待证据。Batch49 与 batch50 仍为暂停/未完成；其中已生成的项目有图像观察，不代表批次已验收。
 
-逐件覆盖和准确源文件/版本/哈希/查看图路径：[CSV](coverage.csv)、[JSON](coverage.json)；多视图和缩略图联系表索引：[证据索引](evidence/INDEX.md)；最新 handoff 快照：[JSON](handoff-snapshot.json)。
+正式范围 id（发布模型 125）：
 
-分类含义：**可用**表示当前缩略图与多视图尺度下自然、可辨，无须为过度细节返工；**建议小幅调整**表示重复、比例或主体结构辨识有具体可改善处；**教学标本/剖面**及**遗迹教学模型**保留其孤立标本或剖面展示语境；**待证据**表示没有可查看模型像素，不能判通过。
+```text
+conifer-tree, cycad, fern-cluster, horsetail-cluster, lepidodendron, uprooted-log, asteroxylon, bothriolepis, confuciusornis, ichthyornis, juracimbrophlebia, waptia
+  burgessomedusa, diplomystus, kalligramma, archaeopteryx, canadaspis, ceratomyrmex, hydropteris, longipteryx, urasterella, alienopterus, aglaophyton, cephalaspis
+  saccocoma, archaeocidaris, onoclea, calceola, favosites, opabinia, choia, goniophyllum, halysites, marrella, proteroctopus, aulopora
+  thamnopora, hallucigenia, fenestella, syringopora, vauxia, halimeda, isoxys, heliophyllum, pirania, bosworthia, haplophrentis, buthograptus
+  leptomitus, meandrina, thecosmilia, flabellum, horneophyton, gogia, micrabacia, sengelia, naraoia, cystiphyllum, limnobiophyllum, wielandiella
+  acrocyathus, sawdonia, leanchoilia, montlivaltia, cobbania, aysheaia, beelzebufo, pluricarpellatia, paratingia, pleurodictyum, matonidium, yohoia
+  isastraea, araucaria-mirabilis, onychonycteris, spinolestes, odontogriphus, trapa, cooksonia, cambroraster, leclercqia, canadia, salvinia, montsechia
+  dollocaris, coelurosauravus, florissantia, stanleycaris, metasequoia, ovatiovermis, nordenskioldia, williamsonia, halkieria, ctenorhabdotus, anomalocaris, jimaodanus
+  echinochiton, clypeina, sollasina, ottoia, eocladus, marsilea, hurdia, azolla, odaraia, pachypteris, peltaspermum, capinatator
+  cothurnocystis, asaphus, hazelia, ctenocystis, baculites, mucrospirifer, takakkawia, sabalites, helicocystis, cooperoceras, gryphaea, teredolites-wood-boring-cast
+  pentremites, schizoneura, diplomoceras, nelumbo, clavagella
+```
+
+正式范围候选 id（18 个已生成）及待生成项：
+
+```text
+sidneyia, botrychium, dicroidium, selkirkia, conularia, kootenayscolex, dillhoffia, joffrea, yochelcionella
+tokummia, eiffelia, pseudofrenelopsis, ecphora, pteleoidea, facivermis, diania, czekanowskia, belosaepia
+```
+待证据：`tempskya`（正式植物候选，尚未生成）。
+
+补充观察 id（8 个）：
+
+  diplocraterion-spreite-burrow, ophiomorpha-pellet-lined-burrow, phycodes-palmate-burrow, protovirgularia-chevron-trail
+  diplichnites-paired-trackway, treptichnus-serial-probe-burrow, natural-levee, lockeia-resting-trace
+
+逐件来源、准确版本、哈希和查看图路径见 [CSV](coverage.csv) 与 [JSON](coverage.json)；图像联系表见[证据索引](evidence/INDEX.md)，40–50 最新 handoff 快照见 [JSON](handoff-snapshot.json)。
 
 ## 范围来源与候选批次状态
 
-已发布模型来源为冻结 `origin/main` 基线 `de413ef720463a2999516faf92c606bcdf9ab1b7` 的 `assets/manifest.json` 与文件树；按动物、植物、木材筛出，并把 Teredolites wood-boring cast 作为直接相关木材铸型纳入。候选来源为下表每批最新有效 candidate/handoff ref；实际模型身份同时用逐项源提交、GLB/Blend SHA 和文件路径锁定。用户明确指定 batch49 natural-levee attempt-02，因此虽属地貌仍纳入。Batch50 的 Tempskya 虽未生成，也保留待证据行。该十一个批次没有其他范围内真菌条目。
+已发布来源是冻结 `origin/main` 的 manifest 和文件树；按用户范围计入动物、植物、木材，另把展示在剖切木材宿主中的 Teredolites 蛀蚀铸型作为 wood-related 正式模型，仅计一次。候选中正式范围只有 animals/plants 18 件；7 件 animal traces 与用户特意指定的 natural-levee 是补充观察。Tempskya 是正式植物候选但仅准备、未生成。没有在范围里发现 fungi。每件仅选一个确切模型版本，以 asset_id 去重。
 
-| 批次 | 最新 ref / commit | 本范围候选 | 当前 handoff 状态 |
+| 批次 | 最新 ref / commit | 本次列入的 ID（†补充观察；*待生成） | 当前 handoff 状态 |
 |---|---|---|---|
-| 40 | `origin/candidate/small-life-batch40-20261018` / `af92e43e0b191f024c72232a40f0fe0f42996fa1` | sidneyia, botrychium, diplocraterion-spreite-burrow | 4 maker candidates delivered; one parent independent QA pending. |
+| 40 | `origin/candidate/small-life-batch40-20261018` / `af92e43e0b191f024c72232a40f0fe0f42996fa1` | sidneyia, botrychium, diplocraterion-spreite-burrow† | 4 maker candidates delivered; one parent independent QA pending. |
 | 41 | `origin/handoff/batch41-20261018` / `a6fabaa18df480e5f73d505162199a51282d25c1` | dicroidium, selkirkia | Maker handoff; independent QA pending. |
-| 42 | `origin/candidate/small-life-batch42-20261018` / `658fc5bc4a6e1c7823655ef6388c4bfbe067b67e` | conularia, ophiomorpha-pellet-lined-burrow | 4 maker candidates delivered; parent independent QA pending. |
-| 43 | `origin/candidate/small-life-batch43-20261018` / `5163f72e8d32fc4a8eefd2f191dc46d9956feeb7` | kootenayscolex, dillhoffia, phycodes-palmate-burrow | 4 maker candidates delivered; independent acceptance pending. |
+| 42 | `origin/candidate/small-life-batch42-20261018` / `658fc5bc4a6e1c7823655ef6388c4bfbe067b67e` | conularia, ophiomorpha-pellet-lined-burrow† | 4 maker candidates delivered; parent independent QA pending. |
+| 43 | `origin/candidate/small-life-batch43-20261018` / `5163f72e8d32fc4a8eefd2f191dc46d9956feeb7` | kootenayscolex, dillhoffia, phycodes-palmate-burrow† | 4 maker candidates delivered; independent acceptance pending. |
 | 44 | `origin/handoff/batch44-20261018` / `49b1d6cddd807c89884935974ee2de1bc27bd0fb` | joffrea, yochelcionella | Targeted Joffrea r002 handoff; no second full-batch QA or independent r002 acceptance. Original r001 QA identified Joffrea as the sole MUST FIX; other three item verdicts remain tied to unchanged hashes. |
-| 45 | `origin/candidate/small-life-batch45-20261018` / `2ef6f5bca0f63b753dbfa7fa0192f925fb2785c3` | tokummia, protovirgularia-chevron-trail | 4 maker candidates delivered; independent acceptance pending. |
-| 46 | `origin/candidate/small-life-batch46-20261018` / `1e100d5b274a40fa264a2aad7c7df884e4381ca5` | eiffelia, pseudofrenelopsis, diplichnites-paired-trackway | 4 maker candidates delivered; independent acceptance pending. |
+| 45 | `origin/candidate/small-life-batch45-20261018` / `2ef6f5bca0f63b753dbfa7fa0192f925fb2785c3` | tokummia, protovirgularia-chevron-trail† | 4 maker candidates delivered; independent acceptance pending. |
+| 46 | `origin/candidate/small-life-batch46-20261018` / `1e100d5b274a40fa264a2aad7c7df884e4381ca5` | eiffelia, pseudofrenelopsis, diplichnites-paired-trackway† | 4 maker candidates delivered; independent acceptance pending. |
 | 47 | `origin/handoff/batch47-20261018` / `4c9a811685c6fa32d67c8157dccc03c41460c135` | ecphora, pteleoidea | Maker handoff; independent QA pending. |
-| 48 | `origin/candidate/small-life-batch48-20261018` / `04a4bee524379fa0022bbfc7133fa9640bfa6fdc` | facivermis, treptichnus-serial-probe-burrow | 4 maker candidates delivered; independent acceptance pending. |
-| 49 | `origin/candidate/small-life-batch49-20261018` / `85671289a3f01b89f0be33e13512be736f5a11d7` | diania, czekanowskia, natural-levee, lockeia-resting-trace | Paused awaiting the revised appearance standard; four generated models exist, with no independent QA. This batch is incomplete. |
-| 50 | `origin/handoff/batch50-20261018` / `396d9d1fa72fb3b9d1dfb564cec8d760d5401b38` | belosaepia, tempskya | Paused recovery handoff; only Belosaepia reached model generation, no independent review. This batch is incomplete. |
+| 48 | `origin/candidate/small-life-batch48-20261018` / `04a4bee524379fa0022bbfc7133fa9640bfa6fdc` | facivermis, treptichnus-serial-probe-burrow† | 4 maker candidates delivered; independent acceptance pending. |
+| 49 | `origin/candidate/small-life-batch49-20261018` / `85671289a3f01b89f0be33e13512be736f5a11d7` | diania, czekanowskia, natural-levee†, lockeia-resting-trace† | Paused awaiting the revised appearance standard; four generated models exist, with no independent QA. This batch is incomplete. |
+| 50 | `origin/handoff/batch50-20261018` / `396d9d1fa72fb3b9d1dfb564cec8d760d5401b38` | belosaepia, tempskya* | Paused recovery handoff; only Belosaepia reached model generation, no independent review. This batch is incomplete. |
 
-Candidate 几何以独立 source refs 为准；尤其 Joffrea 使用 `origin/candidate/batch44-joffrea-r002-20261019` @ `ed8e178b94fcbbec0a151f44f77113c4f9699c28`，handoff 为 `origin/handoff/batch44-20261018` @ `49b1d6cddd807c89884935974ee2de1bc27bd0fb`。只看 r002，没有复述 r001 已解决项。Batch49 四件是 Diania、Czekanowskia、natural-levee attempt-02、Lockeia resting trace；Batch50 仅 Belosaepia 有模型，其 GLB hash `889bfac2d29dc7887fcad1fea4fa4bf1828ca193f9d2eb267198e1e2c8370d03` 是本审查独立按文件计算。
+表内 † 标记是补充观察，* 标记是尚未生成的正式范围植物。Batch49 的四个已生成模型均做了像素外观观察，但 handoff 仍暂停且无独立 QA；Batch50 只有 Belosaepia 生成并已观察，Tempskya 未生成，故 batch49/50 均按未完成。Batch40–48 依最新 handoff 仍有独立 QA/acceptance pending。Handoff JSON 将每批 ID 明确拆为正式范围、补充观察与待生成项。Candidate 几何以独立 source refs 为准；尤其 Joffrea 使用 `origin/candidate/batch44-joffrea-r002-20261019` @ `ed8e178b94fcbbec0a151f44f77113c4f9699c28`，handoff 为 `origin/handoff/batch44-20261018` @ `49b1d6cddd807c89884935974ee2de1bc27bd0fb`。只看 r002，没有复述 r001 已解决项。Batch49 四件是 Diania、Czekanowskia、natural-levee attempt-02、Lockeia resting trace；Batch50 仅 Belosaepia 有模型，其 GLB hash `889bfac2d29dc7887fcad1fea4fa4bf1828ca193f9d2eb267198e1e2c8370d03` 是本审查独立按文件计算。
 
 ## 需要优先处理的自然观感项
 
@@ -173,6 +201,38 @@ Candidate 几何以独立 source refs 为准；尤其 Joffrea 使用 `origin/can
 - 观感：r001/attempt-02 的四视图显示一块浅矩形地表上有两道近乎平行、平滑的隆脊/沟槽；像压褶薄片，河岸高地的偏侧性和渐变不明显。
 - 最小改进：保留教学用地形小样，只让一侧形成不对称的低堤脊并向泛滥平原缓慢变低；沟槽弯曲和脊线高度稍作自然变化。
 - 呈现语境 / 优先级：geomorphology / teaching profile / targeted。
+
+## 17 项有限调整清单
+
+下表是上节逐项审查记录的索引，不增加资产计数；`asset_id` 均唯一。`source commit` 给出完整版本锁定。自然堤是补充观察，其余 16 项属于正式范围。
+
+| asset id | 版本 / source commit | 一句观感理由 |
+|---|---|---|
+| `horsetail-cluster` | `frozen-main` / `de413ef720463a2999516faf92c606bcdf9ab1b7` | 茎节和轮生枝层层等距，整体节奏过于像重复的环状积木。 |
+| `favosites` | `small-life-round02-20261018 @ abc24f3289df` / `abc24f3289df8ccce4ef6fd29c1edb1eeec8253a` | 群体由过于一致、蜂窝般重复的管孔构成，远看更像规则拼装的蜂巢块；管孔开口和群体外缘变化不足。 |
+| `halysites` | `small-life-round02-20261018 @ e968fab0544c` / `e968fab0544ce2dc41814c057b1f9dca43a2b22d` | 链状珊瑚的单元大小和转弯节奏过于均匀，环状管孔有串珠或模块链的机械感。 |
+| `syringopora` | `small-life-round03-20261018 @ d0894b30b0fb` / `d0894b30b0fbeedb4d946d0d976a4e98abeb5aff` | 成束的长管大多平行且间距、粗细近似，重复管件感明显。 |
+| `halimeda` | `small-life-round03-20261018 @ 5ea23624b9e5` / `5ea23624b9e56ccfc4b6700ef9b54774bc5acd6c` | 分段近乎相同大小并按固定节奏排列，低角度下容易像串珠或拼接圆片。 |
+| `pirania` | `small-life-round03-20261018 @ 7327e3cb1022` / `7327e3cb1022028ca488ee8afe23c9b221a7628a` | 直立管状构件几乎同粗、平行排列，整体更像管束而非有机的海绵群体。 |
+| `leptomitus` | `small-life-round03-20261018 @ 18af552039cc` / `18af552039cc1573d676601a531ae4c2728cbabb` | 单根笔直、等粗、光滑的中空长管在常规视角下像吸管，海绵主体与开口/出水孔的层次不够明确。 |
+| `isastraea` | `small-life-round06-20261018 @ fa28e9b97437` / `fa28e9b9743702e64170f646884a035e44c9ff88` | 珊瑚表面近似统一大小的三角拼片，边界与间距过于规则，带有几何铺砖感。 |
+| `odontogriphus` | `small-life-round06-20261018 @ 2b897228411e` / `2b897228411ee19af3fe9ee830e7bfc45735af46` | 整体像一块薄而平的椭圆片，前后端和身体主要区域的起伏差异很弱，动物轮廓容易被读成一片垫片。 |
+| `dollocaris` | `small-life-round07-20261018 @ 76872051f731` / `76872051f73176326d40df9ac4dafbc0dcc9583c` | 眼部相对头胸和躯干显得过分突出，第一眼视觉重量集中于两个球形眼点。 |
+| `nordenskioldia` | `small-life-round08-20261018 @ 00710386584b` / `00710386584b58bdb844e9ea8db5b2c2b0de0920` | 枝端叶片呈过分齐整的放射/轮生节奏，叶片轮廓和展开角度重复。 |
+| `ctenorhabdotus` | `small-life-round08-20261018 @ 15ebe8c0420b` / `15ebe8c0420bcb128f5c9496c7c77f96787ab736` | 背部板片重复尺度和间距过于相同，轮廓读起来有连续硬壳/装甲块的拼装感。 |
+| `jimaodanus` | `small-life-round09-20261018 @ 2c97b832c116` / `2c97b832c116ea6aff320ebef9489ec3d4c567ac` | 叶簇围绕枝轴的大小和间隔很均匀，个别枝端显得像规则的扇形模块。 |
+| `odaraia` | `small-life-round10-20261018 @ ad5f8d9a17a0` / `ad5f8d9a17a0e1c1afa36ceb92dc2d349e6ee9e4` | 躯干过于光滑、等粗的长筒在部分视角中像管子，头胸与尾部的节奏对比不足。 |
+| `peltaspermum` | `small-life-round10-20261018 @ e49e64e8c3ad` / `e49e64e8c3ad92eb7a4c962466648a90f6badccd` | 叶面上的孔洞看起来边缘整齐、尺寸相近，像被打孔的薄片；叶片层次辨识弱于孔洞。 |
+| `diania` | `r001/attempt-01` / `85671289a3f01b89f0be33e13512be736f5a11d7` | 躯干上的叶足几乎等长、等距且平行，背板也以固定节奏重复，显得像等规格的机械排布。 |
+| `natural-levee` | `r001/attempt-02` / `85671289a3f01b89f0be33e13512be736f5a11d7`；补充观察 | r001/attempt-02 的四视图显示一块浅矩形地表上有两道近乎平行、平滑的隆脊/沟槽；像压褶薄片，河岸高地的偏侧性和渐变不明显。 |
+
+实际打开过的图像（四视图证据，链接固定到审查提交 `5633c69a93fcd0f607d7607d723b19ce07cf76bc`）：
+
+- [Favosites 四视图](https://github.com/s010s/lowpoly-vault/blob/5633c69a93fcd0f607d7607d723b19ce07cf76bc/qa/natural-appearance-review/evidence/multiview/published/pub-favosites.jpg)
+- [Leptomitus 四视图](https://github.com/s010s/lowpoly-vault/blob/5633c69a93fcd0f607d723b19ce07cf76bc/qa/natural-appearance-review/evidence/multiview/published/pub-leptomitus.jpg)
+- [Diania 四视图](https://github.com/s010s/lowpoly-vault/blob/5633c69a93fcd0f607d723b19ce07cf76bc/qa/natural-appearance-review/evidence/multiview/candidates/cand-b49-diania.jpg)
+- [natural-levee attempt-02 四视图](https://github.com/s010s/lowpoly-vault/blob/5633c69a93fcd0f607d7607d723b19ce07cf76bc/qa/natural-appearance-review/evidence/multiview/candidates/cand-b49-natural-levee.jpg)
+
 
 ## 教学标本、剖面与遗迹的处理
 
