@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "review_type": "single independent visual and evidence QA",
+  "reviewed_at": "2026-10-19",
+  "source": {
+    "branch": "experiment/two-geology-calibration-20261019",
+    "commit": "1692a5ab57b996c382fa8ed8b1bd182bd1682a92",
+    "path": "experiments/geology-calibration-20261019"
+  },
+  "production_baseline": {
+    "commit": "de413ef720463a2999516faf92c606bcdf9ab1b7",
+    "description": "Merge pull request #19: publish batches 37–39 (175 models)",
+    "cross-bedded-sandstone": {
+      "path": "assets/additions/cross-bedded-sandstone/small-life-round11-20261018/cross-bedded-sandstone.glb",
+      "git_blob": "e182101f659406a712b08fe870d619c107512b9c",
+      "sha256": "1a93b06b2a9a3457f0f11bff876328dc50b5d8c2f3a7a730fe411ebc200b3ac1",
+      "verified_against_metrics_and_render_manifest": true
+    },
+    "hydrothermal-chimney": {
+      "path": "assets/additions/hydrothermal-chimney/small-life-round09-20261018/hydrothermal-chimney.glb",
+      "git_blob": "f6eb7b4ffd795864913f87b61021a3aa59e6a118",
+      "sha256": "247577c08bfcfb0f35bf11704dd05e967c10e73789557a60f6ad2394fa00aa96",
+      "verified_against_metrics_and_render_manifest": true
+    }
+  },
+  "comparison_audit": {
+    "reported_pairs": 18,
+    "per_asset_view_pairs": 8,
+    "per_asset_scene_thumbnail_pairs": 1,
+    "common_pair_settings_checked": [
+      "camera_location",
+      "target",
+      "ortho_scale",
+      "azimuth",
+      "elevation",
+      "resolution",
+      "engine",
+      "samples",
+      "view_transform",
+      "exposure"
+    ],
+    "all_manifest_pair_settings_equal": true,
+    "before_source_hash_matches_production_glb": true,
+    "after_source_hash_matches_candidate_glb": true,
+    "scene_thumbnail_source_hashes_match": true,
+    "visual_files_inspected": [
+      "comparison.jpg",
+      "views/before-front.png",
+      "views/after-front.png",
+      "views/before-back.png",
+      "views/after-back.png",
+      "views/before-clay.png",
+      "views/after-clay.png",
+      "views/before-thumbnail-240.png",
+      "views/after-thumbnail-240.png",
+      "views/before-thumbnail-scene-240.png",
+      "views/after-thumbnail-scene-240.png"
+    ]
+  },
+  "candidates": {
+    "cross-bedded-sandstone": {
+      "before_glb_sha256": "1a93b06b2a9a3457f0f11bff876328dc50b5d8c2f3a7a730fe411ebc200b3ac1",
+      "after_glb_sha256": "99864f92d2028c0a802ad8c992b8fa07d12ae7ef6e0e9ff46ef6610e45196e41",
+      "source_blend_sha256": "43189cbee976e5625dc5f97f7902f1c221bb8e4c6dddd324f6880655bd5e25f1",
+      "before": {
+        "triangles": 588,
+        "bytes": 34128,
+        "materials": 2,
+        "primitives_and_estimated_base_draw_calls": 2
+      },
+      "after": {
+        "triangles": 2276,
+        "bytes": 133172,
+        "materials": 5,
+        "primitives_and_estimated_base_draw_calls": 15
+      },
+      "khronos_validator": {
+        "version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0
+      },
+      "runtime": {
+        "status": "pass",
+        "renderer": "Chromium / ANGLE SwiftShader software WebGL",
+        "gl_errors": 0
+      },
+      "rebuild_report_byte_identical_twice": true,
+      "selected_visual_sha256": {
+        "comparison.jpg": "1a9a910e03e45a6a25df8e62c2b26d7e12db85bb1e93f429f184a8711fceb38b",
+        "views/before-front.png": "81ca8974b498b5d89df47897a0f09191a59db3266873926c0a6950341bb57885",
+        "views/after-front.png": "c92093c372f61c3384bd687653e9c12b65ea1983b58e704d80a6acffcebc288b",
+        "views/before-clay.png": "9031bdf96753901c90d9990b4fe8326acb5d2d3763276a09ff234a2ce785214b",
+        "views/after-clay.png": "ba5924aa7ede55ff99390691c25fb4d11f681fc5e0474d4ee3dd789a727e9188",
+        "views/before-back.png": "7ffea57e76504e0c01cdecc2e0fc3215df1e5434686cd184bd4b2b9d24092852",
+        "views/after-back.png": "d5034c2ad2c62f401faa105610a0d6291baf452aa043aca7e747967a83c6198b",
+        "views/before-thumbnail-240.png": "d18b9426255db05878dbb013074fe48464b15949e0ce02cda15d654356061808",
+        "views/after-thumbnail-240.png": "554c996c1c41ce21d9f829a81442e9ab4d6641af0f8627ece71150ec79a874a1",
+        "views/before-thumbnail-scene-240.png": "a7fae16ba56a8c43b30e9b5291deea1cacd116df21110eb42b87c9c40d296bc9",
+        "views/after-thumbnail-scene-240.png": "686365ecdac3fed17579302f7db4e7d26785f1fd418b2656378634c8cbff3169"
+      },
+      "visual_disposition": "comparison-ready; contour less slab-like; bedding/cross-cut relief weak in clay and small views, so only partial pass for preserving geometric cross-bedding"
+    },
+    "hydrothermal-chimney": {
+      "before_glb_sha256": "247577c08bfcfb0f35bf11704dd05e967c10e73789557a60f6ad2394fa00aa96",
+      "after_glb_sha256": "9d60d1b197c160f9fd2f656ad7137acf3bee0bbd6f12db7eed46c3ddc424b798",
+      "source_blend_sha256": "bf79eee17b5c4fe3acb4d36205f4ed022317f63933a3e80443f9652ab95a07dc",
+      "before": {
+        "triangles": 4032,
+        "bytes": 150088,
+        "materials": 3,
+        "primitives_and_estimated_base_draw_calls": 3
+      },
+      "after": {
+        "triangles": 5760,
+        "bytes": 213240,
+        "materials": 4,
+        "primitives_and_estimated_base_draw_calls": 4
+      },
+      "khronos_validator": {
+        "version": "2.0.0-dev.3.10",
+        "errors": 0,
+        "warnings": 0
+      },
+      "runtime": {
+        "status": "pass",
+        "renderer": "Chromium / ANGLE SwiftShader software WebGL",
+        "gl_errors": 0
+      },
+      "rebuild_report_byte_identical_twice": true,
+      "selected_visual_sha256": {
+        "comparison.jpg": "01d44c0a384a11eddd8c0d1df7d0e78059248e4384e49a4b8fa2b59acc53d415",
+        "views/before-front.png": "3b62ce32df65733942d3994eec4298e64cfb5e51b19a3a3e1ed3ce9971c32c73",
+        "views/after-front.png": "a50768b5edad9fd2c153134ce2365950e23656be386868426b04ea0472f81737",
+        "views/before-back.png": "e6bfea8188ec074adc107974ef3e4cfb4bc13afe661d6c44afde91bcea9df9c9",
+        "views/after-back.png": "36375b27029270463fb7db7eba8d5aae5289a922a646a7cc12fd64accbc08836",
+        "views/before-clay.png": "b0a4847e7baa445f26c6f7fd857fc6c8b7d90b87cad72a0a78142d8c42c36ff8",
+        "views/after-clay.png": "3167fb5c6c368362959481e6e7235e84790ce1b51b8c458acc8ea464ad1c9aaa",
+        "views/before-thumbnail-240.png": "19e48b1c87bbd07693ac8e664d61d657d5da536a8a4c9586ef73fc3e8a141f9b",
+        "views/after-thumbnail-240.png": "ac2e8b7ae82d58b97b96476e7c7ec0db7a39d98c464b7b6503c35881b74fbb21",
+        "views/before-thumbnail-scene-240.png": "0aa69c4c87d84e7f525ee38e654245301705ab1fdce3bb8af320ea1a84f7297c",
+        "views/after-thumbnail-scene-240.png": "9cb2cd991cb4595c916aaa4679c3eb7cc37997de5bcc82520bee82484ca71e88"
+      },
+      "visual_disposition": "comparison-ready; repetitive color banding reduced and top opening retained; hard-edged, blocky color patches remain visible"
+    }
+  },
+  "integrity_manifest": {
+    "listed_entries": 99,
+    "existing_files_matching_sha256": 98,
+    "existing_files_with_hash_mismatch": [],
+    "missing_paths": [
+      "logs/build.log"
+    ],
+    "note": "All existing listed files matched. The one absent build log does not contain the candidate GLBs, render evidence, or validator reports, each of which was cross-checked independently."
+  },
+  "limitations": {
+    "external_reference_photo_pixels": "unknown; source packet reports HTTP 403 and image routes returned text placeholders; this QA did not inspect actual photo pixels",
+    "physical_device_gpu_performance": "unknown; existing runtime evidence is Chromium/ANGLE SwiftShader software WebGL only",
+    "independent_visual_review_is_not_production_approval": true
+  },
+  "production_actions": {
+    "model_files_modified": false,
+    "production_assets_modified": false,
+    "gates_ci_or_permissions_modified": false,
+    "merged_or_published": false
+  }
+}
