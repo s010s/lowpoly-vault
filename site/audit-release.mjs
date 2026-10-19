@@ -8,6 +8,7 @@ import { collectTurntables } from './turntable-delivery.mjs';
 import { checkPublishedManifest } from './initial-release.mjs';
 import { CATALOG_PAGE_SIZE } from './routes.js';
 import { assetFileAllowlist } from './asset-delivery.mjs';
+import { auditGalleryAssets } from './gallery-assets.mjs';
 const root=resolve('dist');
 const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
 assert(!manifest.review_only);
@@ -37,8 +38,10 @@ async function walk(directory='') {
   }
   return result;
 }
+const gallery=await auditGalleryAssets(source,{outputRoot:root,requireComplete:process.env.REQUIRE_COMPLETE_GALLERY==='1'});
+expected.add('gallery/resources.json');for(const file of gallery.resources.files)expected.add(file.path);
 const files=await walk();
-for(const file of files) assert(expected.has(file)||/^assets\/(?:index|viewer|presentation)-[A-Za-z0-9_-]+\.(?:js|css)$/.test(file),`Unexpected deployment file: ${file}`);
+for(const file of files) assert(expected.has(file)||/^assets\/(?:index|viewer|presentation|main|preload-helper|catalog-source|routes|bootstrap)-[A-Za-z0-9_-]+\.(?:js|css)$/.test(file),`Unexpected deployment file: ${file}`);
 for(const file of expected)assert(files.includes(file),`Missing deployment file: ${file}`);
 const jobs=manifest.assets.map(a=>({path:resolve(root,a.downloads.bundle),files:Object.fromEntries(['glb','blend'].map(k=>[a[k].split('/').at(-1),a.sha256[k]])),credits:resolve(root,a.downloads.credits)}));
 const script=`import json,sys,zipfile,hashlib\nfor job in json.load(sys.stdin):\n with zipfile.ZipFile(job['path']) as z:\n  assert sorted(z.namelist())==sorted([*job['files'],'CREDITS.txt'])\n  for name,digest in job['files'].items(): assert hashlib.sha256(z.read(name)).hexdigest()==digest\n  assert z.read('CREDITS.txt')==open(job['credits'],'rb').read()\n`;

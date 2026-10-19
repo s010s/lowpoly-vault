@@ -421,6 +421,9 @@ function showView(view){
   document.querySelectorAll('[data-route]').forEach(anchor=>anchor.setAttribute('aria-current',anchor.dataset.route===view?'page':'false'));
 }
 async function syncRoute(){
+  // The wheel owns model-list documents. History/hash navigation must cross
+  // the same document boundary as an ordinary link, without mounting both apps.
+  if(parseRoute(location.pathname,siteRoot).type==='models'){location.reload();return;}
   if(!index)return;
   if(pendingRoute){queuedRoute=true;detailController?.abort();store.cancelDetail();if(closing&&parseRoute(location.pathname,siteRoot).type!=='detail')return;++detailVersion;rememberInterruptedDialog();cancelDialogMotion();return;}
   pendingRoute=true;
@@ -429,6 +432,7 @@ async function syncRoute(){
     if(oldHash.startsWith('#asset=')){const id=decodeURIComponent(oldHash.slice(7));if(/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(id))history.replaceState(null,'',href('detail',id));}
     else if(['#catalog','#collection','#about'].includes(oldHash))history.replaceState(null,'',href(oldHash==='#about'?'about':'models'));
     const route=parseRoute(location.pathname,siteRoot);const nextLang=route.lang==='zh-CN'?'zh':'en';if(lang!==nextLang){lang=nextLang;paintLanguage();}
+    if(route.type==='models'){location.reload();return;}
     if(route.type==='detail'){
       if(history.state?.vaultDetail){sourceContext=history.state.source;showView(sourceContext?.view||'catalog');await openAsset(route.id);}
       else if(staticContent?.dataset.assetId===route.id){directDetailId=route.id;showView('detail');await openAsset(route.id);}
@@ -442,7 +446,7 @@ async function syncRoute(){
     }
   }finally{pendingRoute=false;if(queuedRoute){queuedRoute=false;syncRoute();}}
 }
-function navigate(view){history.pushState({view},'',view==='catalog'?listURL():href(view));syncRoute();}
+function navigate(view){if(view==='catalog'){location.assign(listURL());return;}history.pushState({view},'',href(view));syncRoute();}
 function paintHome(){
   if(!index)return;document.querySelectorAll('[data-browse] [data-t="exploreAll"]').forEach(e=>e.textContent=lang==='zh'?`浏览全部 ${index.total} 个模型`:`Explore all ${index.total} models`);
   const specs=[['plants','cycad','01'],['geology','natural-arch','02'],['traces','dinosaur-nest','03']];
