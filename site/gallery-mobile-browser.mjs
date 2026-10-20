@@ -44,14 +44,15 @@ export async function checkMobileGallery({browser,baseURL,output,report,assets})
   await page.locator('#wheel').evaluate(el=>{el.scrollTop=65*128;});await page.waitForTimeout(250);
   const pending='.slot-image img[data-thumbnail-visible=true]:is([data-thumbnail-state=pending],[data-thumbnail-state=loading],[data-thumbnail-state=decoding])+.thumbnail-placeholder';
   await page.locator(pending).first().waitFor({state:'visible'});
-  const placeholder=await page.locator(pending).first().evaluate(el=>({opacity:getComputedStyle(el).opacity,color:getComputedStyle(el).color,faces:[...el.querySelectorAll('.thumbnail-placeholder-face')].map(face=>getComputedStyle(face).backgroundColor),animation:getComputedStyle(el.firstElementChild).animationPlayState}));
-  assert.equal(placeholder.opacity,'1');assert(placeholder.faces.every(color=>color==='rgba(0, 0, 0, 0)'));assert.equal(placeholder.animation,'running');
+  const placeholder=await page.locator(pending).first().evaluate(el=>({opacity:getComputedStyle(el).opacity,color:getComputedStyle(el).color,faces:[...el.querySelectorAll('.thumbnail-placeholder-face')].map(face=>getComputedStyle(face).backgroundColor),animation:getComputedStyle(el.firstElementChild).animationPlayState,imageVisibility:getComputedStyle(el.previousElementSibling).visibility}));
+  assert.equal(placeholder.opacity,'1');assert.equal(placeholder.imageVisibility,'hidden');assert(placeholder.faces.every(color=>color==='rgba(0, 0, 0, 0)'));assert.equal(placeholder.animation,'running');
   await page.screenshot({path:resolve(output,'mobile-thumbnail-wireframe-pending.png')});row.placeholder=placeholder;
   await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator(pending).first().evaluate(el=>getComputedStyle(el.firstElementChild).animationName),'none');await page.emulateMedia({reducedMotion:'no-preference'});
   await page.locator('#wheel').evaluate(el=>{el.scrollTop=90*128;});await page.waitForTimeout(250);
   const budget=await page.evaluate(()=>window.__gallery.thumbnailStats);assert(budget.maxActive<=3);assert(budget.cancelled>0,'Offscreen pending thumbnails are cancelled');release();
   await page.waitForFunction(()=>[...document.querySelectorAll('.slot-image img[data-thumbnail-visible=true]')].every(image=>image.dataset.thumbnailState==='ready'||image.dataset.thumbnailState==='error'));await page.waitForTimeout(180);
   assert.equal(await page.locator('.thumbnail-placeholder:visible').count(),0,'Decoded thumbnails replace the placeholder without leaving animation visible');
+  assert(await page.locator('.slot-image img[data-thumbnail-visible=true][data-thumbnail-state=ready]').first().isVisible(),'Decoded model image is visible');
   await page.screenshot({path:resolve(output,'mobile-thumbnail-wireframe-loaded.png')});
   row.fastRequests=fast.length;row.budget=budget;row.scrollGLBs=0;
   let requestedGLB,releaseGLB;const requested=new Promise(done=>requestedGLB=done),glbGate=new Promise(done=>releaseGLB=done);
