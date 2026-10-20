@@ -1,0 +1,48 @@
+--- r001/generator.py
++++ r002/generator.py
+@@ -111,26 +111,28 @@
+     mats=[mat('Sediment upper','#B9A17D'),mat('Sediment middle','#AA906B'),mat('Sediment lower','#957D5D'),mat('Cavity walls','#9C8262')]
+     # Solid sectional annulus: five-sided cavity is deep, not surface embossing.
+     # Remove one complete front sector; cut caps show sediment thickness to floor.
+-    N=5;levels=[(0,.004),(.018,.004),(.052,.012),(.09,.022),(.13,.037)]
++    N=5;zs=[0,.018,.052,.09,.13];ris=[.004,.012,.022,.037]
+     v=[]
+-    for z,ri in levels:
+-        for radius in [.07,ri]:
+-            for k in range(N):
+-                th=2*pi*k/N-pi/2;v.append((radius*math.cos(th),radius*math.sin(th),z))
+-    f=[];mi=[]
+-    # Omitted sector between vertices 0 and 1 faces front-right in hero.
+-    for j in range(len(levels)-1):
++    for z in zs:
++        for k in range(N):
++            th=2*pi*k/N-pi/2;v.append((.07*math.cos(th),.07*math.sin(th),z))
++    for z,ri in zip(zs[1:],ris):
++        for k in range(N):
++            th=2*pi*k/N-pi/2;v.append((ri*math.cos(th),ri*math.sin(th),z))
++    cb=len(v);v.append((0,0,0));cf=len(v);v.append((0,0,.018));f=[];mi=[]
++    for j in range(4):
+         for k in range(1,5):
+-            kk=(k+1)%N
+-            f.append((j*10+k,j*10+kk,(j+1)*10+kk,(j+1)*10+k));mi.append(min(j//2,2))
+-            f.append((j*10+5+k,(j+1)*10+5+k,(j+1)*10+5+kk,j*10+5+kk));mi.append(3)
+-        for k in [0,1]:f.append((j*10+k,(j+1)*10+k,(j+1)*10+5+k,j*10+5+k));mi.append(min(j//2,2))
+-    for j in [0,4]:
++            kk=(k+1)%5;f.append((j*5+k,j*5+kk,(j+1)*5+kk,(j+1)*5+k));mi.append(min(j//2,2))
++    for j in range(3):
+         for k in range(1,5):
+-            kk=(k+1)%5;f.append((j*10+k,j*10+kk,j*10+5+kk,j*10+5+k));mi.append(0 if j==4 else 2)
+-    # Cavity has a real small bottom; the section also opens that bottom sector.
+-    v.append((0,0,.018));center=len(v)-1
+-    for k in range(1,5):f.append((center,15+k,15+(k+1)%5));mi.append(3)
++            kk=(k+1)%5;f.append((25+j*5+k,25+(j+1)*5+k,25+(j+1)*5+kk,25+j*5+kk));mi.append(3)
++    for k in range(1,5):
++        kk=(k+1)%5
++        f.append((20+k,20+kk,40+kk,40+k));mi.append(0)
++        f.append((cb,kk,k));mi.append(2)
++        f.append((cf,25+k,25+kk));mi.append(3)
++    for k in [0,1]:
++        f.append(tuple([j*5+k for j in range(5)]+[25+j*5+k for j in reversed(range(4))]+[cf,cb]));mi.append(1)
+     o=mesh('Pentameral deep cavity sectional sediment',v,f,mats)
+     for poly,m in zip(o.data.polygons,mi):poly.material_index=m
+ else:raise ValueError(slug)
