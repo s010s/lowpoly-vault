@@ -1,0 +1,36 @@
+name: Isolated model-registry capture experiment
+on:
+  push:
+    branches: ['validation/model-registry-capture-20261020']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: model-registry-capture-experiment-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  capture-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Contract and historical-default checks
+        run: node --test site/model-capture-package-test.mjs site/model-capture-runner-test.mjs site/ci-gallery-poster-cache-test.mjs
+      - name: Install lockfile-pinned Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Real seven-model concurrent package experiment
+        run: node site/model-capture-ci-check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unverified-model-capture-experiment-${{ github.run_attempt }}
+          path: qa/model-registry-capture-only/results/
+          if-no-files-found: error
+      - name: State non-publication scope
+        if: always()
+        run: echo 'Isolated real-runtime package writer experiment only. No publication proof, source-review admission, formal approval, merge or deployment is produced.' >> "$GITHUB_STEP_SUMMARY"
