@@ -1,0 +1,562 @@
+{
+  "schema_version": 1,
+  "title": "Batch 74 independent fixed-scope static QA report",
+  "task": "Independent first-pass QA of four immutable batch74 models at exact source commit and handoff revisions. No producer files were changed.",
+  "created_at_utc": "2026-10-20T16:40:57.197398Z",
+  "source_commit": "de198003c15a8f49c840e18d767031e194c08c1f",
+  "branch": "candidate/small-life-batch74-concept-20261020",
+  "worktree_clean_after_review": true,
+  "handoff_path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/work/batch-74/HANDOFF.json",
+  "handoff_sha256": "74e981af728d3edc27a92b10a4b5497c45c19737bdcc5de7dd6b46c51c656638",
+  "base_inventory_commit": "54bbcd99bb3ec96e89cd2b24b7ec5017b8b4ef3c",
+  "base_inventory_sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+  "scope": {
+    "candidate_count": 4,
+    "selected_assets": [
+      {
+        "asset_id": "tribrachidium",
+        "revision": "r002",
+        "glb_sha256": "23c365a5f25b7a10899447dcf6a3fb54c3111638f066dd62654f30d710cbaa54"
+      },
+      {
+        "asset_id": "arete-ridge",
+        "revision": "r001",
+        "glb_sha256": "876d71e9b999159ccf76f0f3f0474e25c4539a65a3a1c8ae24f10b9c21921e8d"
+      },
+      {
+        "asset_id": "crevasse-splay",
+        "revision": "r002",
+        "glb_sha256": "8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee"
+      },
+      {
+        "asset_id": "coal-seam-outcrop",
+        "revision": "r002",
+        "glb_sha256": "f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3"
+      }
+    ],
+    "immutable_source_checkout_verified": true,
+    "production_package_files": 539,
+    "production_package_bytes": 60421153,
+    "tracked_closure_files_checked": 537,
+    "all_final_512px_views_individually_opened_and_viewed": true,
+    "all_four_final_contact_sheets_individually_opened_and_viewed": true,
+    "all_four_selected_generated_concepts_individually_opened_and_viewed": true,
+    "rejected_tribrachidium_concept_opened_and_retained": true,
+    "all_four_actual_consult_only_reference_pixels_individually_opened_and_hash_verified": true,
+    "selected_original_modeling_freezes_and_repair_lineage_hash_verified": true,
+    "fresh_source_read_only_reopen_and_exact_glb_reexport_all_four": true,
+    "fresh_independent_khronos_and_node_three_checks_all_four": true,
+    "two_real_separate_semantic_rebuild_executions_per_final_revision_all_four": true,
+    "no_third_party_reference_pixel_incorporation": true,
+    "no_gpu_scene_or_publication_approval_claim": true
+  },
+  "overall": "ACCEPT BOUNDED for static candidate readiness only; not a GPU, composed-scene, formal/user approval, or publication decision.",
+  "required_stages": {
+    "technical": "pass",
+    "visual": "pass",
+    "factual": "pass_bounded",
+    "specification": "pass",
+    "runtime_parse": "pass",
+    "gpu": "not_run",
+    "scene": "not_run"
+  },
+  "technical_budgets": {
+    "limits": {
+      "triangles": 14000,
+      "glb_bytes": 1000000,
+      "materials": 6,
+      "primitives": 30,
+      "textures": 0
+    },
+    "all_four_pass": true,
+    "per_asset": [
+      {
+        "asset_id": "tribrachidium",
+        "revision": "r002",
+        "triangles": 4798,
+        "glb_bytes": 366404,
+        "materials": 1,
+        "primitives": 1,
+        "textures": 0,
+        "authored_vertices": 2401,
+        "evaluated_vertices": 2401,
+        "exported_position_vertices": 14004,
+        "bounds_blender_xyz_m": [
+          0.04007995128631592,
+          0.04009176045656204,
+          0.0037431707605719566
+        ],
+        "bounds_glb_xyz_m": [
+          0.04007995314896107,
+          0.0037431707605719566,
+          0.04009175859391689
+        ]
+      },
+      {
+        "asset_id": "arete-ridge",
+        "revision": "r001",
+        "triangles": 2222,
+        "glb_bytes": 153084,
+        "materials": 3,
+        "primitives": 3,
+        "textures": 0,
+        "authored_vertices": 1113,
+        "evaluated_vertices": 1113,
+        "exported_position_vertices": 5702,
+        "bounds_blender_xyz_m": [
+          240.0,
+          100.0,
+          59.42856979370117
+        ],
+        "bounds_glb_xyz_m": [
+          240.0,
+          59.42856979370117,
+          100.0
+        ]
+      },
+      {
+        "asset_id": "crevasse-splay",
+        "revision": "r002",
+        "triangles": 8902,
+        "glb_bytes": 579728,
+        "materials": 4,
+        "primitives": 4,
+        "textures": 0,
+        "authored_vertices": 4860,
+        "evaluated_vertices": 4860,
+        "exported_position_vertices": 21768,
+        "bounds_blender_xyz_m": [
+          120.0,
+          120.0,
+          4.114439010620117
+        ],
+        "bounds_glb_xyz_m": [
+          120.0,
+          4.114439010620117,
+          120.0
+        ]
+      },
+      {
+        "asset_id": "coal-seam-outcrop",
+        "revision": "r002",
+        "triangles": 4320,
+        "glb_bytes": 262816,
+        "materials": 4,
+        "primitives": 5,
+        "textures": 0,
+        "authored_vertices": 2232,
+        "evaluated_vertices": 2232,
+        "exported_position_vertices": 9648,
+        "bounds_blender_xyz_m": [
+          3.640000104904175,
+          1.4747756719589233,
+          2.568279504776001
+        ],
+        "bounds_glb_xyz_m": [
+          3.640000104904175,
+          2.568279566243291,
+          1.4747756719589233
+        ]
+      }
+    ]
+  },
+  "unresolved_but_not_model_failures": [
+    "GPU/device rendering was not run; CPU stills and Node parsing do not constitute GPU proof.",
+    "Composed-scene/browser integration was not run.",
+    "No formal or user approval or publication approval is asserted; candidate records remain unapproved.",
+    "Image-generation provider internal timestamps/IDs are unavailable; actual invocation/result observer times are retained. Exact generator-authoring start/duration are unmeasured and are not inferred from filesystem mtimes.",
+    "Copernicus Fig. 3 is a real Kinu breached artificial levee/disaster case; the splay candidate is correctly bounded as a generic educational process form, not a site/natural-levee reconstruction.",
+    "Crevasse-splay retains 812 intentional open water-surface boundary edges clipped to channel margins; static export and node parse pass and warning remains visible."
+  ],
+  "assets": [
+    {
+      "asset_id": "tribrachidium",
+      "revision": "r002",
+      "decision": "ACCEPT BOUNDED",
+      "decision_reason": "Static candidate readiness only: the selected final geometry meets its exact frozen scope, all technical budgets, source/GLB closure, independent static checks and saved-source round-trip; user/formal publication approval is separate.",
+      "final_glb_sha256": "23c365a5f25b7a10899447dcf6a3fb54c3111638f066dd62654f30d710cbaa54",
+      "immutable_bindings": {
+        "candidate_brief": "bd33aabfd64450284764fb624180a6774c30390e74949da3bf79c55b525dbe0c",
+        "references": "9393c926a3823e3f9d4ca1209a0ca7a4f86349f8eed72adc99d9776b4e2a98fd",
+        "source_blend": "9903bca4d0e2dd8cc2f72265f4976e5566f10ffba95ca8077bf2a41a79bd9954",
+        "generator": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7",
+        "config": "eaff3b4b4e4e5299ab6c850320dec0d8ce6f7fe2a9a860436a025ed31713c4cb",
+        "original_premodel_freeze": "687517aff5b6314cfeb08b82ceb8bbd6fdc362fb786882dad4d2343d58e20150",
+        "selected_modeling_freeze": "6e108fbe7887e39b6b75ae8654f6da2ca77fb6355bdc6e5c9acc00cd78d0289a",
+        "final_render_manifest": "d38467af1d7c2b60d50f469d1e2409a9bd1ae72a76655b82c61e936ecfc043bd",
+        "contact_sheet": "1a0127306911b992eca58a30f71ec9a77825effd0a06945b13586c84090fdd89"
+      },
+      "metrics": {
+        "source_reopened_saved_blend_sha256": "9903bca4d0e2dd8cc2f72265f4976e5566f10ffba95ca8077bf2a41a79bd9954",
+        "authored_vertices": 2401,
+        "evaluated_vertices": 2401,
+        "authored_polygons": 4609,
+        "evaluated_polygons": 4609,
+        "exported_position_vertices": 14004,
+        "triangles": 4798,
+        "bytes": 366404,
+        "materials": 1,
+        "primitives": 1,
+        "textures": 0,
+        "bounds_blender_xyz_m": [
+          0.04007995128631592,
+          0.04009176045656204,
+          0.0037431707605719566
+        ],
+        "bounds_glb_xyz_m": [
+          0.04007995314896107,
+          0.0037431707605719566,
+          0.04009175859391689
+        ]
+      },
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_bounded",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "visual_observation": "Top view clearly shows a low round fossil-form disc, three curved raised primary arms sweeping around three shallow inter-arm pits, and a central Y meeting. Relief is modest in hero and clearer in top/clay. No pit-centered knobs or living tentacles appear in the selected final model. The initial rejected concept with knobs/branch-like ornament is preserved separately and not treated as a final target.",
+      "factual_scope": "Bounded original genus-level fossil-form study, not a scan or exact specimen reproduction. Affinity/feeding remain interpretive.",
+      "known_limitations": [],
+      "source_warning_review": [],
+      "reference": {
+        "title": "tribrachidium selected primary reference",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4681345/",
+        "consult_only_pixel_path": "/workspace/shared/batch74-consult-only/tribrachidium.jpg",
+        "consult_only_pixel_sha256": "3ea29c028afddc60a9e96f6e89b2df30a6804228d472b75f880a77712c960f72",
+        "nonincorporated": true
+      },
+      "evidence": {
+        "final_visuals": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/visual-audit.json",
+          "sha256": "453d4998ab3df8754eb4803621fcdbedb1e915729b596f55595611227f028aea"
+        },
+        "technical": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/technical-audit.json",
+          "sha256": "6b9d003026f56453c2bbf19cce4b2ff85d9a8baa57be57f7a0947a197f67d656"
+        },
+        "source_reference_rights": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/source-reference-audit.json",
+          "sha256": "12224525382431bbd643c524cff31b76c2ba176db9ba1a8b578fbf5b5c4c40d8"
+        },
+        "semantic_rebuilds": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/semantic-rebuild-audit.json",
+          "sha256": "42b0c61f4e1bf5d715d56fa7b0e092aab52ee028ef5af10930f9cd7cee47292d"
+        },
+        "final_render_manifest_path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/tribrachidium/r002/proof-final/render-manifest.json"
+      }
+    },
+    {
+      "asset_id": "arete-ridge",
+      "revision": "r001",
+      "decision": "ACCEPT BOUNDED",
+      "decision_reason": "Static candidate readiness only: the selected final geometry meets its exact frozen scope, all technical budgets, source/GLB closure, independent static checks and saved-source round-trip; user/formal publication approval is separate.",
+      "final_glb_sha256": "876d71e9b999159ccf76f0f3f0474e25c4539a65a3a1c8ae24f10b9c21921e8d",
+      "immutable_bindings": {
+        "candidate_brief": "ab1f9aa6a427e67b75b0811be6e676cfa042e2085ddcaaffb756065c7b2ca456",
+        "references": "574a5414bc569c6f5db2aee91dbfb4a19b5bc97fda6315217025980247bcf498",
+        "source_blend": "b61e04adeec6184cfa3a7f56297ea65b9dcf5ca4ada579c8682aa5ae4f2a0839",
+        "generator": "98e0cdf4c12048076f50f324c0818d2fcf708cfe4b8c52a38354509b9bb2df69",
+        "config": "f653707daf15355fb9f95eede22f1fc910b2bdf1b215441fbe257e01498e9d79",
+        "original_premodel_freeze": "e7af44def7d3861cfa379fc4ef1ee37b55d3df7acc00bb4c9c1e8331231af9f8",
+        "selected_modeling_freeze": "e7af44def7d3861cfa379fc4ef1ee37b55d3df7acc00bb4c9c1e8331231af9f8",
+        "final_render_manifest": "998bac1c47fdb1fc7b0a355f6e87d836d94912411cf51b4918b1345106e4727b",
+        "contact_sheet": "1b782898593edb39d7de0791515ab6a2553c74e3c2b59814a963d769d4303496"
+      },
+      "metrics": {
+        "source_reopened_saved_blend_sha256": "b61e04adeec6184cfa3a7f56297ea65b9dcf5ca4ada579c8682aa5ae4f2a0839",
+        "authored_vertices": 1113,
+        "evaluated_vertices": 1113,
+        "authored_polygons": 1937,
+        "evaluated_polygons": 1937,
+        "exported_position_vertices": 5702,
+        "triangles": 2222,
+        "bytes": 153084,
+        "materials": 3,
+        "primitives": 3,
+        "textures": 0,
+        "bounds_blender_xyz_m": [
+          240.0,
+          100.0,
+          59.42856979370117
+        ],
+        "bounds_glb_xyz_m": [
+          240.0,
+          59.42856979370117,
+          100.0
+        ]
+      },
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_bounded",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "visual_observation": "Long narrow continuous serrated crest with unequal teeth and low cols; elongated top footprint and two steep opposing concave flanks keep it visually distinct from a compact pyramidal horn. The rectangular support footprint is part of the generic terrain prop.",
+      "factual_scope": "Generic deglaciated arête, not a Garden Wall locality replica, exact erosion history, or quantitative process simulation.",
+      "known_limitations": [],
+      "source_warning_review": [],
+      "reference": {
+        "title": "arete-ridge selected primary reference",
+        "url": "https://www.nps.gov/articles/nunataksareteshorns.htm",
+        "consult_only_pixel_path": "/workspace/shared/batch74-consult-only/arete.jpg",
+        "consult_only_pixel_sha256": "b352c4ffde6206c1296013e74eb4bb25f2c962efdf295015eba5b431eb87745e",
+        "nonincorporated": true
+      },
+      "evidence": {
+        "final_visuals": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/visual-audit.json",
+          "sha256": "453d4998ab3df8754eb4803621fcdbedb1e915729b596f55595611227f028aea"
+        },
+        "technical": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/technical-audit.json",
+          "sha256": "6b9d003026f56453c2bbf19cce4b2ff85d9a8baa57be57f7a0947a197f67d656"
+        },
+        "source_reference_rights": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/source-reference-audit.json",
+          "sha256": "12224525382431bbd643c524cff31b76c2ba176db9ba1a8b578fbf5b5c4c40d8"
+        },
+        "semantic_rebuilds": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/semantic-rebuild-audit.json",
+          "sha256": "42b0c61f4e1bf5d715d56fa7b0e092aab52ee028ef5af10930f9cd7cee47292d"
+        },
+        "final_render_manifest_path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/proof-final/render-manifest.json"
+      }
+    },
+    {
+      "asset_id": "crevasse-splay",
+      "revision": "r002",
+      "decision": "ACCEPT BOUNDED",
+      "decision_reason": "Static candidate readiness only: the selected final geometry meets its exact frozen scope, all technical budgets, source/GLB closure, independent static checks and saved-source round-trip; user/formal publication approval is separate.",
+      "final_glb_sha256": "8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee",
+      "immutable_bindings": {
+        "candidate_brief": "0687ebd5c9e1852b7bc1ad603817507c2514cf0cce69ab8eb4cd041e48744343",
+        "references": "5efac577e164e8ba069bc2ba68dcb13a148b2b95e6e009b27c03dffc205d9d38",
+        "source_blend": "34c7973c04449eddf94de682029f9267bafc094fc3d326d468613761bba362d3",
+        "generator": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7",
+        "config": "6aba50fbaa0337665b3e78708ed30a7859d36de91dc7ec27f298fe2b74d88063",
+        "original_premodel_freeze": "0b619ac8049f2d6b9e6e5cf1133fa4c7f1198cce89f1cc1721f249b708cb554d",
+        "selected_modeling_freeze": "feab87b59e0ef302af6d8b22e2e2c9ac14b9ff15e1d6d9ab815b21f3f69970cf",
+        "final_render_manifest": "4e2406c8325d9d55f7cc1f512e6e1f91343a8a598192a1bb4dc5d03d66a900aa",
+        "contact_sheet": "d100304c3581772701d8d992496e62d41a8eb9d15fc8a272a413fc57e5daad8a"
+      },
+      "metrics": {
+        "source_reopened_saved_blend_sha256": "34c7973c04449eddf94de682029f9267bafc094fc3d326d468613761bba362d3",
+        "authored_vertices": 4860,
+        "evaluated_vertices": 4860,
+        "authored_polygons": 8449,
+        "evaluated_polygons": 8449,
+        "exported_position_vertices": 21768,
+        "triangles": 8902,
+        "bytes": 579728,
+        "materials": 4,
+        "primitives": 4,
+        "textures": 0,
+        "bounds_blender_xyz_m": [
+          120.0,
+          120.0,
+          4.114439010620117
+        ],
+        "bounds_glb_xyz_m": [
+          120.0,
+          4.114439010620117,
+          120.0
+        ]
+      },
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_bounded",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "visual_observation": "A continuous main-river reach, raised levee, breach, connector, and unequal fan distributaries are visible in hero/reverse/top. Shallow relief matches broad generic educational form. Earlier r001 top view contains small disconnected distal water puddles; r002 visibly connects these branches after a width/weld geometry repair.",
+      "factual_scope": "Generic educational crevasse-splay process/form; not a replica of the Kinu artificial-levee disaster/site, not proof of natural-levee equivalence, and not a hydrodynamic or discharge simulation.",
+      "known_limitations": [
+        "The shallow open water plane has 812 true boundary edges clipped to actual channel margins; this is intentionally disclosed, not blanket nonmanifold rejection."
+      ],
+      "source_warning_review": [
+        "812 intentionally open water surface boundary edges; disclosed and clipped to channel margins."
+      ],
+      "reference": {
+        "title": "crevasse-splay selected primary reference",
+        "url": "https://nhess.copernicus.org/articles/17/1505/2017/",
+        "consult_only_pixel_path": "/workspace/shared/batch74-consult-only/splay-fig3.png",
+        "consult_only_pixel_sha256": "dda7c4f10d22e37efdae270471e1668f58d35d409b4680ca584c7bafd9d79327",
+        "nonincorporated": true
+      },
+      "evidence": {
+        "final_visuals": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/visual-audit.json",
+          "sha256": "453d4998ab3df8754eb4803621fcdbedb1e915729b596f55595611227f028aea"
+        },
+        "technical": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/technical-audit.json",
+          "sha256": "6b9d003026f56453c2bbf19cce4b2ff85d9a8baa57be57f7a0947a197f67d656"
+        },
+        "source_reference_rights": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/source-reference-audit.json",
+          "sha256": "12224525382431bbd643c524cff31b76c2ba176db9ba1a8b578fbf5b5c4c40d8"
+        },
+        "semantic_rebuilds": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/semantic-rebuild-audit.json",
+          "sha256": "42b0c61f4e1bf5d715d56fa7b0e092aab52ee028ef5af10930f9cd7cee47292d"
+        },
+        "final_render_manifest_path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/crevasse-splay/r002/proof-final/render-manifest.json"
+      }
+    },
+    {
+      "asset_id": "coal-seam-outcrop",
+      "revision": "r002",
+      "decision": "ACCEPT BOUNDED",
+      "decision_reason": "Static candidate readiness only: the selected final geometry meets its exact frozen scope, all technical budgets, source/GLB closure, independent static checks and saved-source round-trip; user/formal publication approval is separate.",
+      "final_glb_sha256": "f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3",
+      "immutable_bindings": {
+        "candidate_brief": "e676b68a77f519610cb15983434da58ba9e163840cea7d10dc77907383b1c4af",
+        "references": "7fad77e6bea8d80dbe6eb9628b41b13b32e90d78b012e7d5c56c678ad452dd72",
+        "source_blend": "c424631e5c576ae41a62e5d74bdf909f4b997e4ffa6786a27b788613596fba85",
+        "generator": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7",
+        "config": "511eb9aacf8cd7c6f758e2f1116e8ba13d427e768bdd8c084f210177e02bd495",
+        "original_premodel_freeze": "2f2380510b94a00b03e936fefd58f07b759e451fc549e8bc74e42891f7815974",
+        "selected_modeling_freeze": "f8f50ce690c7c4247638d80fd7e30c59e95e7996a76a4bd1501dcaef120e3cb5",
+        "final_render_manifest": "a119aeb8a80482b5b97f3f29c30d6c6327e2844847d6dc56f0872c65f8fa6bcc",
+        "contact_sheet": "9d047f47e06b62c10c9eb91faf2a73719abc571498bc94d3d42aecdf50f42c09"
+      },
+      "metrics": {
+        "source_reopened_saved_blend_sha256": "c424631e5c576ae41a62e5d74bdf909f4b997e4ffa6786a27b788613596fba85",
+        "authored_vertices": 2232,
+        "evaluated_vertices": 2232,
+        "authored_polygons": 2664,
+        "evaluated_polygons": 2664,
+        "exported_position_vertices": 9648,
+        "triangles": 4320,
+        "bytes": 262816,
+        "materials": 4,
+        "primitives": 5,
+        "textures": 0,
+        "bounds_blender_xyz_m": [
+          3.640000104904175,
+          1.4747756719589233,
+          2.568279504776001
+        ],
+        "bounds_glb_xyz_m": [
+          3.640000104904175,
+          2.568279566243291,
+          1.4747756719589233
+        ]
+      },
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_bounded",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "visual_observation": "A recessed dark coal band is framed by projecting, faceted host beds above and below. Unequal long vertical face-cleat blocks and shorter staggered depth-plane/butt-cleat segmentation read as cleated seam rather than a painted stripe. Original r001 shows pillar-like full-height block separation/visible contact gaps; r002 repairs the actual geometry with host contacts and an inset continuous core, not camera/material concealment.",
+      "factual_scope": "Generic human-scale coal-seam outcrop form, not a named mine, age, coal rank, gas/permeability measurement, or a copied cliff.",
+      "known_limitations": [
+        "Butt-cleat geometry is most subtle in the hero projection and more apparent in depth/profile; no named-site claim is made."
+      ],
+      "source_warning_review": [],
+      "reference": {
+        "title": "coal-seam-outcrop selected primary reference",
+        "url": "https://www.netl.doe.gov/sites/default/files/2018-02/fe0000888-final-report.pdf",
+        "consult_only_pixel_path": "/workspace/shared/batch74-consult-only/coal-fig18.png",
+        "consult_only_pixel_sha256": "d614aafc38804340968f1b2ffe413b110b11a1fc07b1ebccc4914a1e7665d7b2",
+        "nonincorporated": true
+      },
+      "evidence": {
+        "final_visuals": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/visual-audit.json",
+          "sha256": "453d4998ab3df8754eb4803621fcdbedb1e915729b596f55595611227f028aea"
+        },
+        "technical": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/technical-audit.json",
+          "sha256": "6b9d003026f56453c2bbf19cce4b2ff85d9a8baa57be57f7a0947a197f67d656"
+        },
+        "source_reference_rights": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/source-reference-audit.json",
+          "sha256": "12224525382431bbd643c524cff31b76c2ba176db9ba1a8b578fbf5b5c4c40d8"
+        },
+        "semantic_rebuilds": {
+          "path": "/workspace/shared/lowpoly-round30-qa74/semantic-rebuild-audit.json",
+          "sha256": "42b0c61f4e1bf5d715d56fa7b0e092aab52ee028ef5af10930f9cd7cee47292d"
+        },
+        "final_render_manifest_path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/coal-seam-outcrop/r002/proof-final/render-manifest.json"
+      }
+    }
+  ],
+  "source_reference_pixel_audit": {
+    "path": "/workspace/shared/lowpoly-round30-qa74/source-reference-audit.json",
+    "sha256": "12224525382431bbd643c524cff31b76c2ba176db9ba1a8b578fbf5b5c4c40d8",
+    "bytes": 5379
+  },
+  "visual_hash_audit": {
+    "path": "/workspace/shared/lowpoly-round30-qa74/visual-audit.json",
+    "sha256": "453d4998ab3df8754eb4803621fcdbedb1e915729b596f55595611227f028aea",
+    "bytes": 31297
+  },
+  "integrity_evidence": {
+    "path": "/workspace/shared/lowpoly-round30-qa74/integrity-audit.json",
+    "sha256": "d1b5da014306d3cfa596148d3625127372c70be209a9c66a2e45ff421a55324e",
+    "bytes": 2358
+  },
+  "freeze_chronology_evidence": {
+    "path": "/workspace/shared/lowpoly-round30-qa74/freeze-chronology-audit.json",
+    "sha256": "c4eddae6ffb9d5b1572306b37120e9ef2630eca47dc2cca488cbb7860b4b9665",
+    "bytes": 10131
+  },
+  "semantic_rebuild_evidence": {
+    "path": "/workspace/shared/lowpoly-round30-qa74/semantic-rebuild-audit.json",
+    "sha256": "42b0c61f4e1bf5d715d56fa7b0e092aab52ee028ef5af10930f9cd7cee47292d",
+    "bytes": 45865
+  },
+  "fresh_technical_evidence": {
+    "path": "/workspace/shared/lowpoly-round30-qa74/technical-audit.json",
+    "sha256": "6b9d003026f56453c2bbf19cce4b2ff85d9a8baa57be57f7a0947a197f67d656",
+    "bytes": 11022
+  },
+  "primary_text_inspection": [
+    {
+      "asset_id": "tribrachidium",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4681345/",
+      "title": "Rahman et al. 2015, Suspension feeding in the enigmatic Ediacaran organism Tribrachidium",
+      "inspection": "Read primary morphology sections: three raised curved counterclockwise branches, bullae, shallow apical pits, fossil scale/relief, and uncertainty of affinities. Opened actual fossil panels A/B from the consult-only pixel file; did not treat latex-cast C/D scans as the chosen visible form."
+    },
+    {
+      "asset_id": "arete-ridge",
+      "url": "https://www.nps.gov/articles/nunataksareteshorns.htm",
+      "title": "NPS, Nunataks, Arêtes, and Horns",
+      "inspection": "Read NPS landform distinction and compared actual Garden Wall NPS photo: thin jagged crest, steep sides, low cols, elongated ridge rather than compact pyramidal horn."
+    },
+    {
+      "asset_id": "crevasse-splay",
+      "url": "https://nhess.copernicus.org/articles/17/1505/2017/",
+      "title": "Izumida et al. 2017, Kinu crevasse splay study",
+      "inspection": "Read primary summary/limitations and opened actual Fig. 3 orthophoto and DSM pixels. Source explicitly concerns a breached artificial levee and disaster/floodplain context, so candidate is bounded as generic educational morphology, not site copy or natural-levee validation."
+    },
+    {
+      "asset_id": "coal-seam-outcrop",
+      "url": "https://www.netl.doe.gov/sites/default/files/2018-02/fe0000888-final-report.pdf",
+      "title": "DOE/GSA 2014 final report, Fig. 18",
+      "inspection": "Read source text distinguishing long systematic face cleats from shorter, near-orthogonal butt cleats terminating at intersections; opened actual Fig. 18 vertical and bedding-plane outcrop panels. Figure is credited as modified from Pashin et al. 2008 and remains consult-only."
+    }
+  ],
+  "raw_file_manifest": {
+    "path": "/workspace/shared/lowpoly-round30-qa74/raw-file-manifest.json",
+    "sha256": "4b10f0f7f93760ef7f42af78f74d85ac3c7300a6431f0ecbc8c2d720fd331a77",
+    "bytes": 233182
+  },
+  "raw_evidence_directory": "/workspace/shared/lowpoly-round30-qa74",
+  "report_versioning_note": "This is the frozen first report. If corrected, preserve it unchanged and write a separately appended revision."
+}
