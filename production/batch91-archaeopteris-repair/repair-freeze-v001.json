@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "asset_id": "archaeopteris",
+  "revision": "r002",
+  "host_frozen_at": "2026-10-20T23:50:24.410965+00:00",
+  "tool_clock_observed_utc": "2026-10-20T23:49:31Z",
+  "clock_note": "Host and tool clocks differ by roughly two hours. Order is established by exclusive record creation and pinned dependencies, not mtime. Provider/internal times unknown.",
+  "before_new_geometry": true,
+  "original_commit": "7a47ea6412457767bdc9abdf662b3cb92c6965df",
+  "parent_lean_commit": "c6a511b6996055e9ce3803faa2517ab27ea36bbc",
+  "original_inputs": [
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/original-brief.json",
+      "sha256": "9e976a0365caf6920ee1f0f1cf86446a81b280685d80e2feab6472234cea0d71"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/references.json",
+      "sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/config.json",
+      "sha256": "4151a3d82a51ff645d7cbd79c06ca4e137e65a22a19da50a8489b436f3486a77"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/artifacts/archaeopteris.blend",
+      "sha256": "49e88d474213c10872b23b32f5580e7c86f7a75abf266e969aede3a0e4c18c5a"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/artifacts/archaeopteris.glb",
+      "sha256": "c7e7a9d8b7184f1eb7c554ae5060473159c32c58d0a7bf754fb960f051cfcc03"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/tools/generate.py",
+      "sha256": "1ff06b4be2a30fe7817bb2ef4ec17ada62e8f3e1cd8dbb2df88e0c4d932f82b2"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/original-freeze-manifest.json",
+      "sha256": "e56cedd6748cb84796933c50ac4420dbadffe2cb4cbb8d3bd7ce1fac9a940963"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/concepts/archaeopteris-concept.png",
+      "sha256": "4559248441bccc39a968e0ddb7236745fe72483d93c4a0fab82d5d158d7fc4e8"
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch91-independent-qa-20261020/independent-report.json",
+      "sha256": "aca6479a52bd9c3924e5fbd7549fa4a108eabbf147b77fac369f77b52574755f"
+    }
+  ],
+  "failure": "96/576 actual leaves exceed unchanged 0.23m maximum; original whole-tree normalization also enlarged thickness. Original failed evidence retained.",
+  "source_review": {
+    "primary_text": "Read actual archived primary text pp41\u201344, discussion/conclusions/Fig9 caption; Fig9 is a proposed low-tree reconstruction, not a whole fossil. Hypothesis/rights unchanged.",
+    "reference_pixels": "Personally inspected actual Fig9 source pixels and original concept pixels in this repair before freeze. Copyrighted consult-only pixels are not copied into repository.",
+    "concept_decisions": "Retain paddle-shaped paired leaves, ascending woody framework, modest roots and three scars; original correction from decorative diamond scales remains. No unnecessary concept regeneration."
+  },
+  "unchanged_hard_constraints": {
+    "height_m": 3.8,
+    "leaf_length_range_m": [
+      0.15,
+      0.23
+    ],
+    "leaf_width_to_length": 0.62,
+    "leaf_thickness_m": 0.009,
+    "counts": {
+      "trunk": 1,
+      "roots": 6,
+      "structural_limbs": 12,
+      "sprays": 48,
+      "leaves": 576,
+      "scars": 3
+    }
+  },
+  "implementation_plan": "Retain original component construction and leaf directions. Record every leaf base/local offsets. Let woody vertices and leaf bases share one positive uniform skeleton scale, but do not scale leaf-local offsets. Solve the height envelope analytically so max Z is 3.8m after grounding. This preserves true blade dimensions and attachment; report the small necessary skeleton-scale difference rather than loosening limits or deforming a single top leaf.",
+  "measurement_plan": "Reopen actual Blend; recover each connected blade, base-tip/max chord, side width ratio, thickness peak separation, component counts, attachment distances and full bounds; compare actual old/new vertices. Disclose all final component sizes and generator-derived versus hard parameters. Check exported GLB welded geometry too.",
+  "lifecycle": "Low-cost local dimensions/junction/silhouette diagnostics first. If clean, freeze exact final GLB+brief+refs then two real queued semantic rebuilds, source reopen, project/Khronos/Three checks and eight real512 frames inspected individually. Independent QA separate; GPU/scene unknown.",
+  "budget_unique_bytes": 60000000,
+  "remote_actions_authorized": false
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+    "brief_sha256": "bafbe6e295670f1236ce1fc999a5f021b54c628484bb4cd2cc495a44f33fa078",
+    "references_sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+  },
+  "status": "pass",
+  "method": "Exact project audit/Khronos, actual saved source reopen and two separately queued semantic rebuilds; direct source and decoded finalGLB component measurements.",
+  "observations": [
+    "Five checks pass; preserved topology/counts and exact material palette.",
+    "Final blade length, width ratio and thickness measured, not copied labels. Endpoint discrepancies below float32 quantization resolution disclosed separately.",
+    "Full512px final images rendered after exact triplet binding. No GPU/scene or independent acceptance claimed."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 9128,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 650676,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+      "report": {
+        "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/qa/static-glb.report.json",
+        "sha256": "21650cbe37a08d89acb6fb5ec23fb6f64641d2e843c0e4fb2dec02bb434700e9"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+      "report": {
+        "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/gltf-validator.report.json",
+        "sha256": "6056d35c58b606b2894b5f060bc4bf50282099f2ee4c619b5eccacb9c93dadf7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+      "report": {
+        "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/qa/source-export.report.json",
+        "sha256": "528a13504f00a90fc3cb9721f0d27fb008a8274c072d20e05f12faa91264823a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+      "report": {
+        "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/qa/reproducibility-a.report.json",
+        "sha256": "eaf733dc74b456805169bf7cd6d0878555a9cb325f4ca6b897836eb62a05f550"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+      "report": {
+        "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/qa/reproducibility-b.report.json",
+        "sha256": "0a2ac26145f9ac17a1c65a692b33452e7b3534859ed862cba5e5955e716a1e07"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -1.270721197128296,
+      0.0,
+      -1.2708479166030884
+    ],
+    "max": [
+      1.4391402006149292,
+      3.799999952316284,
+      1.3128751516342163
+    ],
+    "size": [
+      2.709861397743225,
+      3.799999952316284,
+      2.5837230682373047
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "woody-tree-flattened-paddle-leafy-sprays",
+      "vertices": 5856,
+      "triangles": 9128,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 24620,
+  "created_at": "2026-10-20T23:55:46.420233+00:00"
+}

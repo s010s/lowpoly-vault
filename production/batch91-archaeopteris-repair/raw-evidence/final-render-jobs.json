@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "lane": "render",
+  "jobs": [
+    {
+      "asset_id": "archaeopteris",
+      "revision": "r002",
+      "job_id": "final-eight-views",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "32",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette"
+      ],
+      "inputs": {
+        "renderer": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/tools/render.py",
+        "glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.glb",
+        "brief": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/delivery-brief.json",
+        "references": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/references.json",
+        "asset_common": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png",
+        "render-manifest.json",
+        "render-config.json"
+      ],
+      "timeout_seconds": 1800
+    }
+  ]
+}

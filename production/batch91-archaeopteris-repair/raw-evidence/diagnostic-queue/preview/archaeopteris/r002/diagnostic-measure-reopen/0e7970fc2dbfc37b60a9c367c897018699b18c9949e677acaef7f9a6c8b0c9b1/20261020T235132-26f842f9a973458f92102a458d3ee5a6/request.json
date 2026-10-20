@@ -1,0 +1,114 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/tools/measure_repair.py",
+    "--",
+    "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.blend",
+    "/workspace/shared/lowpoly-batch91-archaeopteris-repair-evidence/diagnostic-queue/preview/archaeopteris/r002/diagnostic-measure-reopen/0e7970fc2dbfc37b60a9c367c897018699b18c9949e677acaef7f9a6c8b0c9b1/20261020T235132-26f842f9a973458f92102a458d3ee5a6/outputs"
+  ],
+  "created_at": "2026-10-20T23:51:32.117907+00:00",
+  "fingerprint": "0e7970fc2dbfc37b60a9c367c897018699b18c9949e677acaef7f9a6c8b0c9b1",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "check_reproducibility": {
+        "bytes": 9391,
+        "path": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/check_reproducibility.py",
+        "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2"
+      },
+      "check_source_export": {
+        "bytes": 6550,
+        "path": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/check_source_export.py",
+        "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+      },
+      "checker": {
+        "bytes": 9763,
+        "path": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/tools/measure_repair.py",
+        "sha256": "2cac0e96eec741dc2056b9356be20dc17d47b13886a9f1afe38bb19c7b9f187c"
+      },
+      "glb": {
+        "bytes": 650676,
+        "path": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.glb",
+        "sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a"
+      },
+      "old_source": {
+        "bytes": 992360,
+        "path": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/artifacts/archaeopteris.blend",
+        "sha256": "49e88d474213c10872b23b32f5580e7c86f7a75abf266e969aede3a0e4c18c5a"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "source": {
+        "bytes": 992732,
+        "path": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.blend",
+        "sha256": "bfa2c2e1fa30e5da2900f8902bfff4f63b16c530de51f36da7b4506a82d7504f"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:checker}",
+        "--",
+        "{input:source}",
+        "{output_dir}"
+      ],
+      "asset_id": "archaeopteris",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/asset_common.py",
+        "check_reproducibility": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/check_reproducibility.py",
+        "check_source_export": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/check_source_export.py",
+        "checker": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/tools/measure_repair.py",
+        "glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.glb",
+        "old_source": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/artifacts/archaeopteris.blend",
+        "qa_glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/qa_glb.py",
+        "source": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.blend"
+      },
+      "job_id": "diagnostic-measure-reopen",
+      "outputs": [
+        "reopen-reexport.report.json",
+        "archaeopteris-reexport.glb"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 1800
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261020T235132-6163fa4638284abb9609793872d5f027"
+}

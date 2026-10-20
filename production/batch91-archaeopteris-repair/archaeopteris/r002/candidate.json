@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "asset_id": "archaeopteris",
+  "revision": "r002",
+  "maker": {
+    "id": "batch91-archaeopteris-repair-maker",
+    "task_id": "repair_archaeopteris_leaf_dimensions"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.glb",
+      "sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a"
+    },
+    "source": {
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.blend",
+      "sha256": "bfa2c2e1fa30e5da2900f8902bfff4f63b16c530de51f36da7b4506a82d7504f"
+    },
+    "brief": {
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/delivery-brief.json",
+      "sha256": "bafbe6e295670f1236ce1fc999a5f021b54c628484bb4cd2cc495a44f33fa078"
+    },
+    "references": {
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/references.json",
+      "sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+    },
+    "generator": {
+      "path": "production/batch91-archaeopteris-repair/tools/generate-r002.py",
+      "sha256": "242b74770bba4a8be0a779197b403e59c4ef02bb50c26025ba38bb52a8e84c42"
+    },
+    "config": {
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/config.json",
+      "sha256": "d08c878bbbee90d6ccc4b58407c2033317ffd068a3b75fadefdb243b7a3e7cec"
+    },
+    "dependencies": {
+      "path": "production/batch91-archaeopteris-repair/dependencies.json",
+      "sha256": "3625b637edd6a9941606328abbf104ac8ec4f2de886778d609c7d1baaf4e9879"
+    }
+  },
+  "supersedes": {
+    "revision": "r001",
+    "path": "production/small-life-batch91/archaeopteris/r001/candidate.json",
+    "sha256": "98be3a69e2937ae9ec6fa3beff89a511aabc4deabbae834f94d7f186067053a5"
+  },
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+        "brief_sha256": "bafbe6e295670f1236ce1fc999a5f021b54c628484bb4cd2cc495a44f33fa078",
+        "references_sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+      },
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/qa/technical.report.json",
+      "sha256": "ed1d8cceb6bd66b4c1c9b2c836945d49351e14e864612aab62d1a63f3623d770"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+        "brief_sha256": "bafbe6e295670f1236ce1fc999a5f021b54c628484bb4cd2cc495a44f33fa078",
+        "references_sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+      },
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/qa/runtime-parse.report.json",
+      "sha256": "2a35a28343decfdb5b455f24bd5e1fed1ce6360417e1b6621b0d4105c9fd8e63"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+        "brief_sha256": "bafbe6e295670f1236ce1fc999a5f021b54c628484bb4cd2cc495a44f33fa078",
+        "references_sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+      },
+      "path": "production/batch91-archaeopteris-repair/archaeopteris/r002/views/render-manifest.json",
+      "sha256": "be21d1b9d47153a92838e443ef5d1ba157b2ce7f466bfc146dccb00dae05b573"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch91-archaeopteris-repair-maker",
+        "task_id": "repair_archaeopteris_leaf_dimensions"
+      },
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+        "brief_sha256": "bafbe6e295670f1236ce1fc999a5f021b54c628484bb4cd2cc495a44f33fa078",
+        "references_sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Actual bound-subject checks."
+        }
+      ],
+      "note": "Maker automated checks pass, independent acceptance separate.",
+      "reviewed_at": "2026-10-20T23:55:46.432329+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "SNIG2025"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker evidence prepared; fresh independent difference QA pending.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "SNIG2025"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker evidence prepared; fresh independent difference QA pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker evidence prepared; fresh independent difference QA pending."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch91-archaeopteris-repair-maker",
+        "task_id": "repair_archaeopteris_leaf_dimensions"
+      },
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "de929572015716dd525e713fdaf6f94da20e2674112768369de49410b4e9e87a",
+        "brief_sha256": "bafbe6e295670f1236ce1fc999a5f021b54c628484bb4cd2cc495a44f33fa078",
+        "references_sha256": "9cf9ee7961498fe5dc53cc8b17cea994212aa012ff0736ab48b388890a1ab34e"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Actual bound-subject checks."
+        }
+      ],
+      "note": "Maker automated checks pass, independent acceptance separate.",
+      "reviewed_at": "2026-10-20T23:55:46.432342+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Unknown, not run. CPU stills/Node parse are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Unknown, not run. No composed-scene acceptance."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-difference-review-pending",
+      "status": "open",
+      "description": "Do not accept/count until fresh independent visual/factual/specification review."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "GPU/scene unknown; no formal or publication approval."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

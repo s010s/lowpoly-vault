@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "lane": "preview",
+  "jobs": [
+    {
+      "asset_id": "archaeopteris",
+      "revision": "r002",
+      "job_id": "diagnostic-measure-reopen",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:checker}",
+        "--",
+        "{input:source}",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "checker": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/tools/measure_repair.py",
+        "source": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.blend",
+        "glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.glb",
+        "old_source": "/workspace/shared/lowpoly-batch91-20261020/production/small-life-batch91/archaeopteris/r001/artifacts/archaeopteris.blend",
+        "asset_common": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/qa_glb.py",
+        "check_source_export": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/check_source_export.py",
+        "check_reproducibility": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/check_reproducibility.py"
+      },
+      "outputs": [
+        "reopen-reexport.report.json",
+        "archaeopteris-reexport.glb"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "archaeopteris",
+      "revision": "r002",
+      "job_id": "diagnostic-shape",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "r002-diagnostic",
+        "--resolution",
+        "256",
+        "--samples",
+        "8",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,top,silhouette"
+      ],
+      "inputs": {
+        "renderer": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/tools/render.py",
+        "glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/production/batch91-archaeopteris-repair/archaeopteris/r002/artifacts/archaeopteris.glb",
+        "asset_common": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch91-archaeopteris-repair-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "hero.png",
+        "top.png",
+        "silhouette.png",
+        "render-manifest.json"
+      ],
+      "timeout_seconds": 1800
+    }
+  ]
+}
