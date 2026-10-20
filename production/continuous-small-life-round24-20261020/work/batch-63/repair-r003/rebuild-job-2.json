@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "caldera",
+      "revision": "r003",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/generator.py",
+        "config": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/build-config.json",
+        "helper": "/tmp/lowpoly-batch63-20261020/scripts/asset_common.py",
+        "audit": "/tmp/lowpoly-batch63-20261020/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    }
+  ]
+}

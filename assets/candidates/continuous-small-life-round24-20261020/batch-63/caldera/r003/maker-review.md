@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual r003 final512px eight-view pixels inspected against r001 and original frozen brief. Broad low-relief basin and quiet floor retained. One localized southern low saddle now visibly interrupts rim in hero and top, with modest asymmetric adjacent scarp bays rather than periodic radial flutes. Small connected lowered passage is not a dramatic open gap; complete outer footprint and closed underside retained. Actual geometry carries the saddle; existing floor/outer materials follow its lower surface. No new locality, age, impact, eruption or measured-site claim. Independent targeted differential review pending; no maker approval.
+
+Inspected lossless2048x1060 contact-sheet at original resolution, each retained frame512x512. Exact final clean-import GLB hash ca635b44f8007bea8b2b29e83e330663b34acce95a8d3914df69b2a083e2bc95. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.
