@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "erbenochile",
+  "revision": "r004",
+  "labels": {
+    "en": "Erbenochile dorsal-exoskeleton educational prop"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "erbenochile.glb",
+      "sha256": "a8b5966d32d82dcfd2bcbf72029d89f3e793fbde541e37191d868753ac4c6f21"
+    },
+    "source": {
+      "path": "erbenochile.blend",
+      "sha256": "4ac5dbcfb0c6e9d74afb9bb58f14b60abde44782c7673491269f01408301e675"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "44758a3a935312516b1d38797eb5cfd249c11dfb24deeac2189206342a034b71"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "6f8b2ab616be97a6f5104ba4e61b0372951bfad68fc5f37e59000ba92a75ed02"
+    },
+    "brief": {
+      "path": "brief.delivery-v001.json",
+      "sha256": "bf5f68406b74743e76d472cd64fd60aaa5144280999cb2fdd8d81e4ddbee31c4"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "ab89b3a6741f024c1aa90e522f49616eff457c8cab5a691f6f2bb1b8ba0f5f46"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "fda31dc0546b6adf456e4239c470ceec8ba9f8d53274e31e22817d156dccef31"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "147d998ae616cedad54d5ba40c21f70e7040fe6924a2cef853a9cdcd0b9b19e2"
+    },
+    "images": [
+      {
+        "id": "shared-multiview-concept",
+        "view": "hero-front-top",
+        "path": "concepts/original.png",
+        "sha256": "af9fb56520b3511f1d2677e6a9dd9661a6450333d6d945f84c3579045674bab1"
+      }
+    ],
+    "cross_view_consistency_note": "New original concept pixels inspected: curved outer lens walls, hood overhang and axial spine rhythm visible; eye heights differ between views and remain too short versus primary Fig1. Primary Fig1 A/B/D takes structural priority: increase exposed eye elevation while preserving narrow fore-aft curved shape; C establishes crescent/kidney planform, D/E meaningful external overhang. Author hidden inner wall as quiet closed shell, no soft anatomy. Old thorax remains stylistic; modest axial spines justified only by primary lateral photo; exact number deliberately unclaimed.",
+    "hidden_surface_decisions": "New original concept pixels inspected: curved outer lens walls, hood overhang and axial spine rhythm visible; eye heights differ between views and remain too short versus primary Fig1. Primary Fig1 A/B/D takes structural priority: increase exposed eye elevation while preserving narrow fore-aft curved shape; C establishes crescent/kidney planform, D/E meaningful external overhang. Author hidden inner wall as quiet closed shell, no soft anatomy. Old thorax remains stylistic; modest axial spines justified only by primary lateral photo; exact number deliberately unclaimed."
+  },
+  "chronology": {
+    "concept_generated_at": "2026-10-20T07:52:12.474Z",
+    "concept_inspected_at": "2026-10-20T07:53:28.277395+00:00",
+    "modeling_started_at": "2026-10-20T07:54:13.955235+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest-static.json",
+    "sha256": "ee0dbe76d151823687ad50d8dff1432cd28c8674f4e86cd606939a6da537c8c2"
+  },
+  "thumbnail": {
+    "path": "proof-final/hero.png",
+    "sha256": "af89684ccfcc5608a5cafa3799e074bf1e77eaf04acc7369d9204bff2d0dc44b",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "f963c93ff45ee797a18d9a264e810b62bfeb586bcbddd713053069698d0f3381"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a8b5966d32d82dcfd2bcbf72029d89f3e793fbde541e37191d868753ac4c6f21",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "3377e1e34da8a7df24ff418e401eda2e86c7fca68fce2273bab428bd9072ba22"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Example for a small supporting prop. Replace for the actual deployment role."
+  }
+}

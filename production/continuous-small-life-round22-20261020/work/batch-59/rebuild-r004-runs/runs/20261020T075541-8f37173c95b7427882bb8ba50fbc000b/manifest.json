@@ -1,0 +1,64 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "erbenochile",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch59-20261020/scripts/qa_glb.py",
+        "config": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r004/build-config.json",
+        "generator": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r004/generator.py",
+        "helper": "/tmp/lowpoly-batch59-20261020/scripts/asset_common.py"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "erbenochile.glb",
+        "erbenochile.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r004"
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "erbenochile",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch59-20261020/scripts/qa_glb.py",
+        "config": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r004/build-config.json",
+        "generator": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r004/generator.py",
+        "helper": "/tmp/lowpoly-batch59-20261020/scripts/asset_common.py"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "erbenochile.glb",
+        "erbenochile.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r004"
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

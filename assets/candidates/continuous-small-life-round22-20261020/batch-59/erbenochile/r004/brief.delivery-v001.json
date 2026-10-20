@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "asset_id": "erbenochile",
+  "brief_version": "r004-delivery-v001",
+  "profile": "production",
+  "purpose": "Erbenochile dorsal-exoskeleton educational prop: primary-figure-informed stylized shell only, not a whole living animal, specimen replica or original inventory fulfillment. Retain broad cephalon, central glabella, tapered three-lobed ribbed shell and genal spines; correct two elevated narrow fore-aft curved lens-bearing eye walls with strong outward projecting palpebral visors. No legs, ventral soft anatomy, exact lens/rib count, original color or measured specimen size claims.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "FORT-2003-FIG1",
+        "SCOPE-R004"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "FORT-2003-FIG1",
+        "SCOPE-R004"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight canonical/diagnostic views, zero turntable.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r004/erbenochile.blend",
+      "sha256": "4ac5dbcfb0c6e9d74afb9bb58f14b60abde44782c7673491269f01408301e675"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r004/generator.py",
+      "sha256": "44758a3a935312516b1d38797eb5cfd249c11dfb24deeac2189206342a034b71"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r004/build-config.json",
+      "sha256": "6f8b2ab616be97a6f5104ba4e61b0372951bfad68fc5f37e59000ba92a75ed02"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.048,
+    0.073,
+    0.032
+  ],
+  "scale_note": "Illustrative nominal envelope, not measured specimen or locality. Actual bounds reported separately.",
+  "concept_interpretation": "New original concept pixels inspected: curved outer lens walls, hood overhang and axial spine rhythm visible; eye heights differ between views and remain too short versus primary Fig1. Primary Fig1 A/B/D takes structural priority: increase exposed eye elevation while preserving narrow fore-aft curved shape; C establishes crescent/kidney planform, D/E meaningful external overhang. Author hidden inner wall as quiet closed shell, no soft anatomy. Old thorax remains stylistic; modest axial spines justified only by primary lateral photo; exact number deliberately unclaimed.",
+  "claim_scope": "Limited fossil-informed dorsal-exoskeleton educational prop; not a whole organism",
+  "feature_obligations": [
+    {
+      "id": "elevated-eye-walls",
+      "description": "Two conspicuously elevated narrow lens-bearing walls; Fig1A/B/D qualitative ratios, not measured anatomy.",
+      "source": "FORT-2003-FIG1"
+    },
+    {
+      "id": "curved-eye-plan",
+      "description": "Strong fore-aft curved/elongate non-circular eye plan in dorsal view.",
+      "source": "FORT-2003-FIG1"
+    },
+    {
+      "id": "directional-visor",
+      "description": "Palpebral hood projects outward over the whole outer visual surface, not only thin washer trim.",
+      "source": "FORT-2003-FIG1"
+    },
+    {
+      "id": "limited-shell-only",
+      "description": "Public naming says dorsal-exoskeleton educational prop; original whole-organism scope remains unfinished.",
+      "source": "SCOPE-R004"
+    }
+  ],
+  "origin": "floor contact center at z=0",
+  "fulfills_original_inventory_scope": false,
+  "original_whole_organism_obligation": "UNFINISHED",
+  "scope_authority": "Coordinator explicitly authorized new evidence-led shell-only educational revision; no original whole-organism acceptance inferred.",
+  "delivery_freeze_note": "Postbuild artifact declaration only; premodel r004 scope freeze remains unchanged."
+}
