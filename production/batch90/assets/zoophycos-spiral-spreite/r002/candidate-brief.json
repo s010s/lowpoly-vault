@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "asset_id": "zoophycos-spiral-spreite",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational/catalog candidate; not independent, user, GPU, scene or publication approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all final exact views. All concept views inspected. Preserve wide connected spiral sheet and radial curved lamellae. Correct the exaggerated fat pole, dish-like deep depression and overly prominent outer wall to thin shaft, shallowly sloping full sheet and modest integrated margin. Geometry must include full underside; concept underside panel is not treated as evidence of a real specimen.",
+      "required_sources": [
+        "ZHANG2015",
+        "PRI-FEEDING",
+        "KU"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "A broad gently helical full-volume sediment sheet winds1.25turns around a narrow central shaft, with a distinct offset edge and complete underside. Forty curved primary lamellae lie within the spreite sheet from inner axis toward an integrated raised marginal tube; diagnostic morphology is not merely a spiral cord. Simple slightly scalloped circular whorl displayed raised on a solid quiet slab; illustrative exposed morphology, no producer animal, tall staircase, shell or stacked flat disks. Stylized genus-level trace-morphology concept. Zhang et al2015 Figure1a is explicitly a computer reconstruction, distinct from actual Devonian specimen photos e-h. Both were inspected. Broad simple helical sheet, lamellae, marginal tube and cylindrical axial connection supported; exact count,1.25turns, exposures and dimensions artistic. PRI specimen locality/age unknown, inventory eras remain empty. No claim that modeled geometry is a cast of an intact excavated specimen, no assignment of producer or unique behavior.",
+      "required_sources": [
+        "ZHANG2015",
+        "PRI-FEEDING",
+        "KU"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet; static candidate GPU/scene unknown.",
+  "frozen_at": "2026-10-20T21:40:27.260438+00:00",
+  "subject": "Zoophycos spiral spreite",
+  "representation": "trace-concept",
+  "factual_scope": "Stylized genus-level trace-morphology concept. Zhang et al2015 Figure1a is explicitly a computer reconstruction, distinct from actual Devonian specimen photos e-h. Both were inspected. Broad simple helical sheet, lamellae, marginal tube and cylindrical axial connection supported; exact count,1.25turns, exposures and dimensions artistic. PRI specimen locality/age unknown, inventory eras remain empty. No claim that modeled geometry is a cast of an intact excavated specimen, no assignment of producer or unique behavior.",
+  "identifying_features": [
+    "A broad gently helical full-volume sediment sheet winds1.25turns around a narrow central shaft, with a distinct offset edge and complete underside.",
+    "Forty curved primary lamellae lie within the spreite sheet from inner axis toward an integrated raised marginal tube; diagnostic morphology is not merely a spiral cord.",
+    "Simple slightly scalloped circular whorl displayed raised on a solid quiet slab; illustrative exposed morphology, no producer animal, tall staircase, shell or stacked flat disks."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.17,
+      0.15,
+      0.049
+    ],
+    "accuracy": "Artistic dimensions, not complete measured specimen; final measured values reported separately."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact z0, centered basal footprint.",
+  "intended_use": {
+    "role": "Static educational/catalog rotation supporting asset",
+    "viewing": "512px diagnostic stills then independent review; no animation, collision, GPU or composed-scene acceptance"
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no texture planes, transparency or double-sided concealment.",
+  "palette_srgb": {
+    "host": "#9C8661",
+    "edge": "#78674E",
+    "spreite": "#BBA174",
+    "lamella": "#CFB585",
+    "shaft": "#A58B60"
+  },
+  "component_and_cause": {
+    "primary": "A broad gently helical full-volume sediment sheet winds1.25turns around a narrow central shaft, with a distinct offset edge and complete underside.",
+    "secondary": "Forty curved primary lamellae lie within the spreite sheet from inner axis toward an integrated raised marginal tube; diagnostic morphology is not merely a spiral cord.",
+    "tertiary": "Simple slightly scalloped circular whorl displayed raised on a solid quiet slab; illustrative exposed morphology, no producer animal, tall staircase, shell or stacked flat disks.",
+    "quiet_region": "Coarse untraced host sediment subordinate to trace"
+  },
+  "concept_decisions": "All concept views inspected. Preserve wide connected spiral sheet and radial curved lamellae. Correct the exaggerated fat pole, dish-like deep depression and overly prominent outer wall to thin shaft, shallowly sloping full sheet and modest integrated margin. Geometry must include full underside; concept underside panel is not treated as evidence of a real specimen.",
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:40:27.260438+00:00",
+    "path": "production/batch90/concepts/zoophycos-spiral-spreite-concept.png",
+    "sha256": "efba03db91ba25d64666d4cb2173af30bcbae9007b39c1ce70ab7c2bd34195f1"
+  },
+  "parameters": {
+    "slab_dimensions_m": [
+      0.17,
+      0.15,
+      0.014
+    ],
+    "sheet_outer_radius_m": 0.06,
+    "sheet_inner_radius_m": 0.0035,
+    "sheet_turns": 1.25,
+    "sheet_rise_m": 0.02,
+    "sheet_thickness_m": 0.003,
+    "primary_lamellae_count": 40,
+    "lamella_relief_height_m": 0.0014,
+    "shaft_radius_m": 0.004,
+    "shaft_height_m": 0.049,
+    "sheet_angular_segments": 160,
+    "sheet_radial_segments": 12
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos/Three parse",
+    "eight512views and losslesssheet"
+  ],
+  "prohibited": [
+    "Change original ID or inventory scope",
+    "Use concept as primary fact",
+    "Copy external mesh/pixels",
+    "Conceal geometry defects by render changes",
+    "Self-authorize independent or user approval"
+  ],
+  "packaging_adapter": {
+    "created_at": "2026-10-20T21:51:18.193517+00:00",
+    "frozen_design_brief_sha256": "d1e571fc8823e6a31175153d15160c40b69a84ad1b616aa931a120a2e5120c11",
+    "note": "Derived postbuild source/generator/config closure only. Original complete design and ledger byte-identical."
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/source.blend",
+      "sha256": "277f7e959c3a5a40b54eab3719eef54cfd982969f925f1c97ea28529fc2c2dab"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/generator.py",
+      "sha256": "3da45e42f0a84d7a066f246cd8ef0658c04c873466d66b7248822fc5bf9b9b1c"
+    },
+    {
+      "role": "config",
+      "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/build-config.json",
+      "sha256": "4cb36bda1c652dc9abafd0b9da1bf7cba2f7a1453b264fc5ddd6db609f4b6cd7"
+    }
+  ]
+}

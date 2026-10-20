@@ -1,0 +1,97 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch90-evidence/rebuild-runs/build/zoophycos-spiral-spreite/r002/semantic-rebuild-2/da0a144aa87da9e09d798904b942bce30be703d7661f62ec4ebb539ac22c283d/20261020T215114-e43e65431f654f32909aafb57e881301/outputs"
+  ],
+  "created_at": "2026-10-20T21:51:14.594757+00:00",
+  "fingerprint": "da0a144aa87da9e09d798904b942bce30be703d7661f62ec4ebb539ac22c283d",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch90-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 8543,
+        "path": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/brief.json",
+        "sha256": "d1e571fc8823e6a31175153d15160c40b69a84ad1b616aa931a120a2e5120c11"
+      },
+      "config": {
+        "bytes": 1701,
+        "path": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/build-config.json",
+        "sha256": "4cb36bda1c652dc9abafd0b9da1bf7cba2f7a1453b264fc5ddd6db609f4b6cd7"
+      },
+      "generator": {
+        "bytes": 13422,
+        "path": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/generator.py",
+        "sha256": "3da45e42f0a84d7a066f246cd8ef0658c04c873466d66b7248822fc5bf9b9b1c"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch90-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3883,
+        "path": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/references.json",
+        "sha256": "e452737ab50846bee3a03ca72c86fe3351508459d70540cb7bbb3721f672e358"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "zoophycos-spiral-spreite",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch90-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch90-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch90-20261020/production/batch90/assets/zoophycos-spiral-spreite/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "execution.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T215114-2bf66aa95be843a28b0093fcb76c60af"
+}
