@@ -12,7 +12,7 @@ export async function checkGalleryThumbnailAxis({browser,baseURL,root,output,rep
   return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,scroll:wheel.scrollTop,rows:[...document.querySelectorAll('#slots .slot')].map(row=>{
    const host=row.querySelector('.slot-image'),bounds=host.getBoundingClientRect(),copy=row.querySelector('.slot-copy').getBoundingClientRect(),marker=row.querySelector('.slot-marker').getBoundingClientRect(),matrix=new DOMMatrixReadOnly(getComputedStyle(host).transform);
    return {id:row.dataset.id,visible:bounds.bottom>viewport.top&&bounds.top<viewport.bottom,x:bounds.x+bounds.width/2,y:bounds.y,width:bounds.width,height:bounds.height,scale:matrix.a,shift:matrix.e,copyX:copy.x,markerX:marker.x};
-  }).filter(row=>row.visible)};
+  }).filter(row=>row.visible).sort((a,b)=>a.y-b.y)};
  });
  const assertAxis=(state,reduced)=>{
   assert(state.rows.length>=3,'The actual wheel must expose several rows');
