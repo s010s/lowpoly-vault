@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "wave-dominated-delta",
+  "revision": "r002",
+  "labels": {
+    "en": "wave-dominated-delta"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "03ee5b98b897a979e2204ffaede9cdcf152ac0ff966c6e5ef5e4ecf2a66dfcea"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "e98d70b0874c1189c56abf2333d58dd47b31bfc44d132b21e131c70930137e3e"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "0a426d573b40c0a96359a2b5e5ebf33fadf375d594a842a186d3868326b77f22"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "cb658e455c191cfa94479a5889600131e602a8fbaad643826711b2c81ba9e675"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "c9471084c98fef71b4d8238dabc16f92327973e48dfd53fd95203729a213536e"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "dae9e72e2bf2579643aef46a42404d2c8402d7c0af65da774e4c1013df1776d3"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "b859fae4b4bc900f43f0bcca8ef2f20a3891406b89b51683bf468c268898ccae"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "791e18148a44c3bdef1a3985490e060e8124330eb18c9e7d719c659fbd3a9e78"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "945829ab54e37ea318316948a3205caef5d9a661dac61233dae9e05e2ec5d1b1"
+      }
+    ],
+    "cross_view_consistency_note": "Concept has smooth long sandy coastline and limited mouths; keep slight seaward arcuate bulge, few subdued beach ridges and sinuous river. Remove phototextured gridded plain, vegetation or overly deep coastal cliff. Construct low full-volume sediment tile with physical shore, incised main channel, small second distributary, opaque shallow water surface below banks. Ocean occupies front of footprint; no overlapping coplanar land/water surfaces. Subtle longshore ridges integrated into terrain rather than separate floating stripes. No radial wedge regular fan.",
+    "hidden_surface_decisions": "Concept has smooth long sandy coastline and limited mouths; keep slight seaward arcuate bulge, few subdued beach ridges and sinuous river. Remove phototextured gridded plain, vegetation or overly deep coastal cliff. Construct low full-volume sediment tile with physical shore, incised main channel, small second distributary, opaque shallow water surface below banks. Ocean occupies front of footprint; no overlapping coplanar land/water surfaces. Subtle longshore ridges integrated into terrain rather than separate floating stripes. No radial wedge regular fan."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T17:27:08Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 9.0578,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "86a0428d9111739f4688458e930efe456659099d28cf3a6a059d6d63bf2f87e3"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "86a0428d9111739f4688458e930efe456659099d28cf3a6a059d6d63bf2f87e3"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "bda58ab4c3a9bc42ecb08cd3699784cd9a49b5d092a433ed32be25c71d29d4b1",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "2248491486b9face91a4d1bbb50f572e77ebedc39a5ae324e7e3d08f623d228e"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "03ee5b98b897a979e2204ffaede9cdcf152ac0ff966c6e5ef5e4ecf2a66dfcea",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "6adfe2e95da90cfa5eea12c479f95a5d3d95f605f62ac64239023d8afe7f95a5"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

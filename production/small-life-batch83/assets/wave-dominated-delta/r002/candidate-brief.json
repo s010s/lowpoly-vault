@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "wave-dominated-delta",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form landscape teaching module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Broad low sediment plain with smooth arcuate modest seaward shoreline bulge around river mouth, shaped by longshore redistribution; One main sinuous incised channel and one subdued secondary mouth, no birdfoot fingers or tidal linear-island fan; Physical land/beach/sea boundary and real channel depression; no crop/canal grids, exact locality or ecosystem asserted. Scope: Generic wave-dominated delta geological process/form concept informed by actual NPS text and NASA Nile orbital photograph as modern large-scale coast analog. Original coastline and channel geometry, not Nile DEM, named site, precise age, ecosystem, exact dimensions or reconstruction before human modification. NASA photo clearly contains cultivated plain and modern distributary context; these are not modeled. Nominal2400x1800x60m educational tile; shallow water volume and palette artistic. Wave dominance inferred from smooth slight seaward bulge with few mouths, not proved by blue color or plumes.",
+      "required_sources": [
+        "NPS-DELTA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Broad low sediment plain with smooth arcuate modest seaward shoreline bulge around river mouth, shaped by longshore redistribution; One main sinuous incised channel and one subdued secondary mouth, no birdfoot fingers or tidal linear-island fan; Physical land/beach/sea boundary and real channel depression; no crop/canal grids, exact locality or ecosystem asserted. Scope: Generic wave-dominated delta geological process/form concept informed by actual NPS text and NASA Nile orbital photograph as modern large-scale coast analog. Original coastline and channel geometry, not Nile DEM, named site, precise age, ecosystem, exact dimensions or reconstruction before human modification. NASA photo clearly contains cultivated plain and modern distributary context; these are not modeled. Nominal2400x1800x60m educational tile; shallow water volume and palette artistic. Wave dominance inferred from smooth slight seaward bulge with few mouths, not proved by blue color or plumes.",
+      "required_sources": [
+        "NPS-DELTA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views; CPU images not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch83/assets/wave-dominated-delta/r002/source.blend",
+      "sha256": "cb658e455c191cfa94479a5889600131e602a8fbaad643826711b2c81ba9e675"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch83/assets/wave-dominated-delta/r002/generator.py",
+      "sha256": "c9471084c98fef71b4d8238dabc16f92327973e48dfd53fd95203729a213536e"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch83/assets/wave-dominated-delta/r002/build-config.json",
+      "sha256": "dae9e72e2bf2579643aef46a42404d2c8402d7c0af65da774e4c1013df1776d3"
+    }
+  ],
+  "claim_scope": "Generic wave-dominated delta geological process/form concept informed by actual NPS text and NASA Nile orbital photograph as modern large-scale coast analog. Original coastline and channel geometry, not Nile DEM, named site, precise age, ecosystem, exact dimensions or reconstruction before human modification. NASA photo clearly contains cultivated plain and modern distributary context; these are not modeled. Nominal2400x1800x60m educational tile; shallow water volume and palette artistic. Wave dominance inferred from smooth slight seaward bulge with few mouths, not proved by blue color or plumes.",
+  "nominal_dimensions_blender_xyz_m": [
+    2400,
+    1800,
+    60
+  ],
+  "dimension_status": "Illustrative nominal art dimensions; actual exported bounds measured separately, not exact natural/site size.",
+  "recognition_features": [
+    "Broad low sediment plain with smooth arcuate modest seaward shoreline bulge around river mouth, shaped by longshore redistribution",
+    "One main sinuous incised channel and one subdued secondary mouth, no birdfoot fingers or tidal linear-island fan",
+    "Physical land/beach/sea boundary and real channel depression; no crop/canal grids, exact locality or ecosystem asserted"
+  ],
+  "concept_decisions": "Concept has smooth long sandy coastline and limited mouths; keep slight seaward arcuate bulge, few subdued beach ridges and sinuous river. Remove phototextured gridded plain, vegetation or overly deep coastal cliff. Construct low full-volume sediment tile with physical shore, incised main channel, small second distributary, opaque shallow water surface below banks. Ocean occupies front of footprint; no overlapping coplanar land/water surfaces. Subtle longshore ridges integrated into terrain rather than separate floating stripes. No radial wedge regular fan.",
+  "style": "Original full-volume faceted low-poly palette-only geometry",
+  "intended_use": "Static supporting educational geological landscape module at256-512px, world scale preserved",
+  "created_at": "2026-10-20T17:28:48.496106+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T17:40:49.647789+00:00",
+    "frozen_design_brief_sha256": "436fc5a960e2c52c8e479e70d8b58530e14d2b2dbac214bb07e766ffbc0818c5",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
