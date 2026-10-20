@@ -679,7 +679,7 @@ export const BATCH56_RELEASE = {
       "review_commit": "adace4d7fd4cd091ab63f60ee4737f77096ba666",
       "metadata": {
         "path": "assets/additions/deflation-hollow/batch56-20261020/release-metadata.json",
-        "sha256": "345e4887db853d436012ba926e38d90a87933462207dc99e2e8df7c615056f9b"
+        "sha256": "3079e2c699bcf406ad4fff2825d271953610f984775c7de0ee45a680f4c53b98"
       },
       "candidate": {
         "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/deflation-hollow/r001/candidate.json",
@@ -714,7 +714,7 @@ export const BATCH56_RELEASE = {
       "review_commit": "adace4d7fd4cd091ab63f60ee4737f77096ba666",
       "metadata": {
         "path": "assets/additions/arthrophycus-annulated-burrow/batch56-20261020/release-metadata.json",
-        "sha256": "5f31da69efda1be3286b7a41fe81e7a78394401bc0aa82816b677f0262a06677"
+        "sha256": "15356dd4a6781c0d3c94fb0b019f85d939fa805c10af49875ec3759365b06dd7"
       },
       "candidate": {
         "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/arthrophycus-annulated-burrow/r002/candidate.json",

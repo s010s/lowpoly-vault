@@ -3,7 +3,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch56-20261020.json",
-      "sha256": "84f8ce8e967f84c0276d8e65c01a5833fc3df2542845cc3688d3d6df9c2ba8c0"
+      "sha256": "2bb75ad80be5d88e930a09fd44783dc63695a46e6734f6a18adcd9f11678a251"
     },
     "asset_ids": [
       "arthrophycus-annulated-burrow",
