@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/rebuild-runs/build/parvancorina/r001/semantic-rebuild-2/4b1f2d91f0bcec0ea3322ff6e94803bc6d7b4ed72b894b32a507a74da9d18c29/20261020T153120-60650355640e485bab83aefeb764af23/outputs"
+  ],
+  "created_at": "2026-10-20T15:31:20.918577+00:00",
+  "fingerprint": "4b1f2d91f0bcec0ea3322ff6e94803bc6d7b4ed72b894b32a507a74da9d18c29",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6279,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/brief.json",
+        "sha256": "339c247dcf7fc45ca23164dcbed4ba20f8659573bc9bf98ffd069218f8cb7550"
+      },
+      "config": {
+        "bytes": 786,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/build-config.json",
+        "sha256": "e87a53984e2b8329c4cc2f030677be3657c6a22393e274e0fe74dfd33bf73503"
+      },
+      "generator": {
+        "bytes": 9098,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/generator.py",
+        "sha256": "0c03b1c2ac44bde72e6e989a8a54b5a3b4b8968a998bef1d4e67ca99bcd8e6f7"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3163,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/references.json",
+        "sha256": "9470832d72691740a1d07ed967544dddcc92f96fa2126ad6d018ed50189028c9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "parvancorina",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch75-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch75-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/parvancorina/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T153120-90797f07d8aa48b3a225bca2ec34a335"
+}

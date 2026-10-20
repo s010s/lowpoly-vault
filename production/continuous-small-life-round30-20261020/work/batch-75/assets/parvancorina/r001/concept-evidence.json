@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "parvancorina",
+  "revision": "r001",
+  "labels": {
+    "en": "parvancorina"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "6d121aa830daae492b81ff6a4fd99dd491f74105c0273ecb034a907de2b4fd35"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "2bfaafccb0f2e3310785b56fc02161b41960af5e825725064bbac0863578e663"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "9470832d72691740a1d07ed967544dddcc92f96fa2126ad6d018ed50189028c9"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "709c02bfe3dfd9865e3d8ff24dada2ab05f25e52ee83ec132146accaf68bb7e0"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "0c03b1c2ac44bde72e6e989a8a54b5a3b4b8968a998bef1d4e67ca99bcd8e6f7"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "e87a53984e2b8329c4cc2f030677be3657c6a22393e274e0fe74dfd33bf73503"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "2cdf0d4f4778345c1d50905e9af3604930a8c953a2faf8a142ff657b6a1f712c"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e3af71ac4a0bfe6284ba6c466715a4dc490ee424b1e405399eebb46581c30dfb"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "19d51efd29b575b69ebff45107b19c6a318406185707317c22898b6a970ca93e"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept shield, anchor and low matrix; reject photoreal grain and excessive broad high mound. A single continuous closed matrix heightfield integrates shield and raised T relief; no stacked coplanar animal shell. Broad rounded transverse end with tapering opposite end. Anchor stem subordinate to shield. Minor fine ridges omitted because their external status is disputed; no unsupported appendages.",
+    "hidden_surface_decisions": "Retain concept shield, anchor and low matrix; reject photoreal grain and excessive broad high mound. A single continuous closed matrix heightfield integrates shield and raised T relief; no stacked coplanar animal shell. Broad rounded transverse end with tapering opposite end. Anchor stem subordinate to shield. Minor fine ridges omitted because their external status is disputed; no unsupported appendages."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:26:59.427Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 8.2648,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "576608403ed448da0e22240a40370e604d9c2e091cbf1fdd9ce0d449ce32e828"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "576608403ed448da0e22240a40370e604d9c2e091cbf1fdd9ce0d449ce32e828"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "82e663e0070d97ae8d76154b769ad27687e8d4a970ad45b7fff06a9553a8f193",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "77f2dbd34892519c596026e90287e2c7a4de98635768700e4edc7c6546e42c5d"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "6d121aa830daae492b81ff6a4fd99dd491f74105c0273ecb034a907de2b4fd35",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "837a39e5363b0943753bd9af44cd7995edd01a155ee94745be1eed5e6b10b906"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

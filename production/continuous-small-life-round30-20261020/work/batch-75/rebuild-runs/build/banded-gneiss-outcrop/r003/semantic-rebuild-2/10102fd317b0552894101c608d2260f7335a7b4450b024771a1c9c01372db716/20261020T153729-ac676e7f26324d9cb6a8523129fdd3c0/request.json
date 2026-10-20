@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/rebuild-runs/build/banded-gneiss-outcrop/r003/semantic-rebuild-2/10102fd317b0552894101c608d2260f7335a7b4450b024771a1c9c01372db716/20261020T153729-ac676e7f26324d9cb6a8523129fdd3c0/outputs"
+  ],
+  "created_at": "2026-10-20T15:37:29.068212+00:00",
+  "fingerprint": "10102fd317b0552894101c608d2260f7335a7b4450b024771a1c9c01372db716",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6742,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/brief.json",
+        "sha256": "66727ed7e91f343be4ae0de9e04a6d3884a236bd738755fb49047eb571e19bd5"
+      },
+      "config": {
+        "bytes": 1554,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/build-config.json",
+        "sha256": "4a1981e609809dfbff032d106af2fd365f4302341ff5ecfef6f93d184035b655"
+      },
+      "generator": {
+        "bytes": 9866,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/generator.py",
+        "sha256": "688e88c87e9b057e38789bdc5ff424d3aee2eb65d05ed960ac98f4fffc1f7e1b"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 4016,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/references.json",
+        "sha256": "78f10b3b6b804298a0b2b70ba1543ce6e3f053867672f784f4789df077da9a16"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "banded-gneiss-outcrop",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch75-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/brief.json",
+        "config": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch75-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r003/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T153728-aa122b4ca0b34b11b48354e656d498a7"
+}

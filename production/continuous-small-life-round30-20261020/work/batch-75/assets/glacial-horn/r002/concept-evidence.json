@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "glacial-horn",
+  "revision": "r002",
+  "labels": {
+    "en": "glacial-horn"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "dc476400091e3a9375de913d3684cceb8a8400ea9a4af18228516899bb5ed92b"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "478643fa51528c76f4b64506703b8080ad67ef2aea70de7f73b7636a24b1670c"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "769d1da66777828b257389733a6b994a062c417fd78b43b935f8f6063197b08a"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "5634e53b5c27c588e67cc63f12377398e513af32afc5f58dc31ffbb8346abca3"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "0c3cfa788753dc865f0bddb6da83567151dfcb9379f90e674b98441f6cbcb2dc"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "57ba889e8c1df1632811fd864cd4b6c75ae1f8140fc691c463212458cb17abaa"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "51515d1fd522bef3f9f5bffcf6a75fda1162b3220be7da7fd101500166c0d289"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f7b70d991d0fc8e2b428077d35692a11f1cbbb9adeb6a34343dff1fdac8cd261"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "daebf5783817d0b368515ae18a12c235c212209f62d66fb732becaaf5dea5244"
+      }
+    ],
+    "cross_view_consistency_note": "Retain pyramidal summit and cirque hollows from concept. Simplify concept detailed talus and secondary pinnacles into one compact four-face summit. Four sharp short ridges separate physically concave faces. One closed terrain surface volume avoids nested cliff/terrain skin overlaps. No snow/trees/water used to imply identification.",
+    "hidden_surface_decisions": "Retain pyramidal summit and cirque hollows from concept. Simplify concept detailed talus and secondary pinnacles into one compact four-face summit. Four sharp short ridges separate physically concave faces. One closed terrain surface volume avoids nested cliff/terrain skin overlaps. No snow/trees/water used to imply identification."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:26:59.959Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 19.7998,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "bfb5422bed444f65e2da90f188213f8c7e4b5c22a0c523a2ad4cb4d9d0752457"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "bfb5422bed444f65e2da90f188213f8c7e4b5c22a0c523a2ad4cb4d9d0752457"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "d5adc018694777e5949ef54b3b6f0f82cefc8ed736f48e8a179fc2296573a806",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "c1e87926de02e14f8721666170234c897afcf267702a7eb44c2a290ab9dbf481"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "dc476400091e3a9375de913d3684cceb8a8400ea9a4af18228516899bb5ed92b",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "0f05d90e6803a94a188c441d8ff9e3491232b0b471b93d6bb7c4d25bb9e555f3"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

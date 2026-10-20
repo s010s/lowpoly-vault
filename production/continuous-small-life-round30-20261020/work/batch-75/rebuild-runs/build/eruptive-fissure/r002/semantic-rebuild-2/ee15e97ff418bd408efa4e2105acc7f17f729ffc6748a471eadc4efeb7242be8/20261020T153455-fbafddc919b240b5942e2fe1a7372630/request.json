@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/rebuild-runs/build/eruptive-fissure/r002/semantic-rebuild-2/ee15e97ff418bd408efa4e2105acc7f17f729ffc6748a471eadc4efeb7242be8/20261020T153455-fbafddc919b240b5942e2fe1a7372630/outputs"
+  ],
+  "created_at": "2026-10-20T15:34:55.238015+00:00",
+  "fingerprint": "ee15e97ff418bd408efa4e2105acc7f17f729ffc6748a471eadc4efeb7242be8",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6017,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/brief.json",
+        "sha256": "5a17befc93bd98995050e9fede8867800788799044c77a4466a9211c63a812a7"
+      },
+      "config": {
+        "bytes": 1252,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/build-config.json",
+        "sha256": "438213464e1da425676c7cb6882079924d2f6af8c4b282e1a22838cb7a19b153"
+      },
+      "generator": {
+        "bytes": 10034,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/generator.py",
+        "sha256": "0c3cfa788753dc865f0bddb6da83567151dfcb9379f90e674b98441f6cbcb2dc"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2294,
+        "path": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/references.json",
+        "sha256": "8119536a94b196802b921c1616a1da54d17207eeddba8967a886105c525440b4"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "eruptive-fissure",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch75-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch75-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch75-20261020/production/continuous-small-life-round30-20261020/work/batch-75/assets/eruptive-fissure/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T153455-e268e300f0b545b5b9ecc208e3b2fcdd"
+}

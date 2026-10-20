@@ -1,0 +1,34 @@
+def gneiss():
+ N=12;perim=[(i,0) for i in range(N)]+[(N,j) for j in range(N)]+[(i,N) for i in range(N,0,-1)]+[(0,j) for j in range(N,0,-1)];n=len(perim);units=8;vs=[];fs=[];ms=[];records=[];th=[.7,1.12,.82,1.23,.77,1.04,.92,1.16];levels=[0]
+ for v in th:levels.append(levels[-1]+v/sum(th)*2.2)
+ def folded(x,y):return .32*math.sin(x*1.85+.35+y*.22)+.10*math.sin(x*3.15-.5)
+ for j in range(units):
+  lo,hi=levels[j:j+2]
+  for q,f in enumerate([0,.22,.5,.78]):
+   h=(lo+(hi-lo)*f)/2.2;records.append((j,q))
+   for i,(ix,iy) in enumerate(perim):
+    cx=-1+2*ix/N;cy=-1+2*iy/N;t=math.atan2(cy,cx);rough=.025*math.sin(t*7+j*1.7+q*.8)+.013*math.sin(t*11-j*.8);rib=[-.012,.035,.023,-.012][q]*(1 if j%2==0 else .6);shape=.91+.07*math.sin(math.pi*h)-.04*h
+    x=(1.7*shape+rib+rough)*cx*(1+.035*math.sin(t*5+.3));y=(.8*shape+rib*.65+rough*.6)*cy
+    z=2.2*h+folded(x,y)*math.sin(math.pi*h)+.012*math.sin(t*5+j+q*.7)*math.sin(math.pi*h);vs.append((x,y,z))
+ records.append((units-1,4));topstart=len(vs)
+ for ix,iy in perim:
+  cx=-1+2*ix/N;cy=-1+2*iy/N;t=math.atan2(cy,cx);x=1.7*.87*cx*(1+.035*math.sin(t*5+.3));y=.8*.87*cy;vs.append((x,y,2.30+.025*math.sin(t*7+.6)))
+ for j in range(len(records)-1):
+  unit,q=records[j]
+  for i in range(n):
+   k=(i+1)%n;a=j*n+i;b=j*n+k;c=a+n;d=b+n;mat='felsic' if unit%2==0 else 'mafic'
+   if unit%2==0 and (i*7+j*11)%19<3:mat='feldspar'
+   if unit%2==1 and (i*11+j*7)%23<2:mat='matrix'
+   for f in [(a,b,d),(a,d,c)]:fs.append(f);ms.append(mat)
+ fs.append(tuple(range(n-1,-1,-1)));ms.append('matrix')
+ # Cartesian shared-boundary fracture cap avoids radial sliver/starburst triangles.
+ top={p:topstart+i for i,p in enumerate(perim)}
+ for iy in range(1,N):
+  for ix in range(1,N):
+   u=-1+2*ix/N;v=-1+2*iy/N;t=math.atan2(v,u);x=1.7*.87*u*(1+.035*math.sin(t*5+.3));y=.8*.87*v;z=2.30+.030*math.sin(x*4.1+y*2.2)+.016*math.cos(y*6.3+x*.7);top[(ix,iy)]=len(vs);vs.append((x,y,z))
+ for iy in range(N):
+  for ix in range(N):
+   a=top[(ix,iy)];b=top[(ix+1,iy)];c=top[(ix,iy+1)];d=top[(ix+1,iy+1)]
+   for f in [(a,b,d),(a,d,c)]:
+    fs.append(f);x=sum(vs[k][0] for k in f)/3;y=sum(vs[k][1] for k in f)/3;z=sum(vs[k][2] for k in f)/3;phase=z-folded(x,y);ms.append('felsic' if int(phase/.24)%2==0 else 'mafic')
+ o=multi('solid_coarse_eight_band_folded_gneiss_with_broken_cartesian_fracture_cap',vs,fs,ms);o['scope']='Generic coarse folded foliation, not sedimentary layers/BIF/vein';o['structure']='Eight unequal broad mineral bands with physical erosion ribs; one closed shell and shared-boundary rough top'

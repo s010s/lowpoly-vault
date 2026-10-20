@@ -1,0 +1,82 @@
+{
+  "updated_at": "2026-10-20T15:26:50.412024+00:00",
+  "policy": "Maintain two new maker lanes and rolling independent QA/repairs. No production wait for publication. Only actual resource/QA capacity imposes bounded limits.",
+  "full_qa_pending": [
+    {
+      "batch": 70,
+      "source_commit": "81a597db057f85c16395067420fbf7fe3d213056",
+      "ids": [
+        "waputikia",
+        "linear-dune",
+        "kettle-basin",
+        "rimstone-dam"
+      ],
+      "worktree": "/workspace/shared/lowpoly-batch70-20261020",
+      "handoff": "production/continuous-small-life-round28-20261020/work/batch-70/HANDOFF.json",
+      "reference_pixels": "/workspace/shared/batch70-consult-only"
+    },
+    {
+      "batch": 71,
+      "source_commit": "ac4829aadbeb464894ad56457bb8401c10de7911",
+      "ids": [
+        "eldonia",
+        "roche-moutonnee",
+        "maar-crater",
+        "river-terrace"
+      ],
+      "worktree": "/workspace/shared/lowpoly-batch71-20261020",
+      "handoff": "production/continuous-small-life-round28-20261020/work/batch-71/handoff.json"
+    },
+    {
+      "batch": 72,
+      "source_commit": "1a11f05899680c5bfba452ea56a2bcbc8f75d409",
+      "ids": [
+        "baiera",
+        "transverse-dune-ridge",
+        "braided-river-reach",
+        "geode-cavity"
+      ],
+      "worktree": "/workspace/shared/lowpoly-batch72-20261020",
+      "handoff": "production/continuous-small-life-round29-20261020/work/batch-72/HANDOFF.json"
+    },
+    {
+      "batch": 73,
+      "source_commit": "c83b49b1e4d4e4c356aa66ab1b9760c8016f198d",
+      "ids": [
+        "fractofusus",
+        "striated-bedrock",
+        "fumarole-vent",
+        "banded-iron-formation"
+      ],
+      "worktree": "/workspace/shared/lowpoly-batch73-20261020",
+      "handoff": "production/continuous-small-life-round29-20261020/work/batch-73/handoff.json"
+    }
+  ],
+  "repair_pending": [
+    {
+      "batch": 67,
+      "asset": "desert-pavement",
+      "reason": "uniform fitted clasts look like mechanical Voronoi tiles; real size/crown irregularity needed, original full QA preserved"
+    },
+    {
+      "batch": 68,
+      "asset": "lava-dome",
+      "reason": "circumferential block belt and smooth summit still visible; local original-scope geometry repair needed"
+    }
+  ],
+  "repair_active": [
+    {
+      "batch": 65,
+      "asset": "breccia-outcrop",
+      "revision": "r004 not yet fixed",
+      "reason": "strict coplanar test passed r003 but exact website images still fail. Maker now addresses real near-coplanar prism volume intersections; unchanged renderer and true new evidence required"
+    }
+  ],
+  "active_new_makers": [
+    74,
+    75
+  ],
+  "effective_static_candidate_count": 29,
+  "live_count_last_root_verified": 232,
+  "formal_boundary": "No candidate QA result is formal/user/website/GPU/scene/release/live approval."
+}

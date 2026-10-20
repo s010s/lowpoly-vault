@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "asset_id": "banded-gneiss-outcrop",
+  "brief_version": "r003",
+  "profile": "production",
+  "purpose": "Original source-informed static teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Coarse alternating pale and dark mineral foliation coherently folded across chunky solid outcrop; Physically eroded folded ribs and recesses plus integrated angular coarse grain facets, not paint-only bands; Broad few bands distinctly coarser than BIF fine lamination, not sedimentary bedding or injected crosscutting vein. Scope: Generic original folded banded-gneiss outcrop, not named locality or exact source specimen. Coarse contrasting mineral bands and aligned platy/blocky grains informed by actual NPS gneiss references; fold amplitude, dimensions, weathering and palette artistic. No exact protolith, mineral proportions, pressure-temperature history, age or geological coexistence asserted.",
+      "required_sources": [
+        "NPS-GNEISS"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Coarse alternating pale and dark mineral foliation coherently folded across chunky solid outcrop; Physically eroded folded ribs and recesses plus integrated angular coarse grain facets, not paint-only bands; Broad few bands distinctly coarser than BIF fine lamination, not sedimentary bedding or injected crosscutting vein. Scope: Generic original folded banded-gneiss outcrop, not named locality or exact source specimen. Coarse contrasting mineral bands and aligned platy/blocky grains informed by actual NPS gneiss references; fold amplitude, dimensions, weathering and palette artistic. No exact protolith, mineral proportions, pressure-temperature history, age or geological coexistence asserted.",
+      "required_sources": [
+        "NPS-GNEISS"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight canonical512px views; no turntable by dispatch. CPU proof is not GPU or composed-scene evidence.",
+  "required_deliverables": [],
+  "claim_scope": "Generic original folded banded-gneiss outcrop, not named locality or exact source specimen. Coarse contrasting mineral bands and aligned platy/blocky grains informed by actual NPS gneiss references; fold amplitude, dimensions, weathering and palette artistic. No exact protolith, mineral proportions, pressure-temperature history, age or geological coexistence asserted.",
+  "nominal_dimensions_blender_xyz_m": [
+    3.4,
+    1.6,
+    2.2
+  ],
+  "dimension_status": "Illustrative nominal targets not measured natural specimen/site; actual bounds reported separately.",
+  "recognition_features": [
+    "Coarse alternating pale and dark mineral foliation coherently folded across chunky solid outcrop",
+    "Physically eroded folded ribs and recesses plus integrated angular coarse grain facets, not paint-only bands",
+    "Broad few bands distinctly coarser than BIF fine lamination, not sedimentary bedding or injected crosscutting vein"
+  ],
+  "concept_decisions": "Retain concept coarse open fold, thick contrasting mineral bands, chunky broken faces. Simplify photoreal microtexture into integrated angular coarse mineral facets. Use one closed surface mesh with folded full-depth foliation coordinates, physical differential erosion ribs; no colored shells or coplanar tiles. Eight coarse uneven bands, not dozens of BIF laminae. Avoid treating the crosscutting pale veins in supplemental USGS DeathValley photo as foliation.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop at256-512px",
+  "created_at": "2026-10-20T15:28:24.339672+00:00",
+  "validation_profile": "static-stylized-v1",
+  "repair_design": "Actual BVH found14 intersections, principally near lower cap from fold amplification and upper boundary. Actual top pixels show undesirable radial triangle striping/starburst. Replace cap with shared-boundary Cartesian triangulated coarse broken top; use monotonic bounded fold deformation and low-frequency grain relief. Preserve coarse8-band folded scope, not camera/material bias concealment. Retain all failed r002 outputs.",
+  "derived_from_original_premodel_file_sha256": "23f3ce255a43d254bdca3bf20f23658fed945327ace56d2d8fa69ee461dd86bc",
+  "derived_from_prior_revision_file_sha256": "632626d0c77cf1311f18a8405d9ca80bdec0cf7b16c21ab3e884bc29cf02db36"
+}

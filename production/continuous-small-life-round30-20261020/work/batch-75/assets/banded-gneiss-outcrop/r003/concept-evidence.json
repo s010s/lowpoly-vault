@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "banded-gneiss-outcrop",
+  "revision": "r003",
+  "labels": {
+    "en": "banded-gneiss-outcrop"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "ead8a0740aae860dce43f982ebb9a0ba72800b976a322c37ea18cef17630e638"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "11d412dc7dbec5a973ae4313731da6d3a021027542784fe0f44e2dd72bdb1bc0"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "78f10b3b6b804298a0b2b70ba1543ce6e3f053867672f784f4789df077da9a16"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "5077bdd5c5f44bdcd9b9daff1f884bd3d3941ec7e3afa0a5bb5437cb4d4c4563"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "688e88c87e9b057e38789bdc5ff424d3aee2eb65d05ed960ac98f4fffc1f7e1b"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "4a1981e609809dfbff032d106af2fd365f4302341ff5ecfef6f93d184035b655"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "084da6769f354ac7ce54dc0cf1b2dff7311719995fe97375570b871da38bb304"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "79da5e716289ae4367cd4b2ad987e7ba5ba7e5c80b66e79169201aa702fa97c7"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "538d6d10f8adf6bb08abf436f8748e1c9b9be7b3228fb9c1bcd9c60ee1d17fd2"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept coarse open fold, thick contrasting mineral bands, chunky broken faces. Simplify photoreal microtexture into integrated angular coarse mineral facets. Use one closed surface mesh with folded full-depth foliation coordinates, physical differential erosion ribs; no colored shells or coplanar tiles. Eight coarse uneven bands, not dozens of BIF laminae. Avoid treating the crosscutting pale veins in supplemental USGS DeathValley photo as foliation.",
+    "hidden_surface_decisions": "Retain concept coarse open fold, thick contrasting mineral bands, chunky broken faces. Simplify photoreal microtexture into integrated angular coarse mineral facets. Use one closed surface mesh with folded full-depth foliation coordinates, physical differential erosion ribs; no colored shells or coplanar tiles. Eight coarse uneven bands, not dozens of BIF laminae. Avoid treating the crosscutting pale veins in supplemental USGS DeathValley photo as foliation."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:27:01.034Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 20.4463,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "60182db1817ef9097acf79dc128074197f11c63022c3f69e5f6738aec0dadcb2"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "60182db1817ef9097acf79dc128074197f11c63022c3f69e5f6738aec0dadcb2"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "ddab8e35f97390fff7979426a6c9a66c88a21a53b254301a0e92a7df77e29dac",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "69749e799a6c591f1f90e23d1f699a37bf36b5281e6093496ffd07972fac31e7"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "ead8a0740aae860dce43f982ebb9a0ba72800b976a322c37ea18cef17630e638",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "549c888968cbb9cd25879efe242ee31c540ac0359d665dbf762b2a565019e449"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
