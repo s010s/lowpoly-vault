@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/rebuild-runs/build/tower-karst/r003/semantic-rebuild-1/057a7140c341b4274c27676d5712e526a52b6d98beef214dbc5e6d5ff28eab5a/20261020T205237-f6cd8b19116f458b9b663f7cb9432f4e/outputs"
+  ],
+  "created_at": "2026-10-20T20:52:37.367744+00:00",
+  "fingerprint": "057a7140c341b4274c27676d5712e526a52b6d98beef214dbc5e6d5ff28eab5a",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5969,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/brief.json",
+        "sha256": "17211a48c45288faf74e61d9ca2746a6f4a2f29a311c37937ea4e0d084c83ae7"
+      },
+      "config": {
+        "bytes": 1270,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/build-config.json",
+        "sha256": "bb97e56594ca58f2874fbe82bc65b4ee5c31c5e9bab853140433accf7c2857be"
+      },
+      "generator": {
+        "bytes": 12154,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/generator.py",
+        "sha256": "b2c50312dee4ee55c88e54ed182dee6163f5c1a480fd13fadffd76a03d2add51"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2263,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/references.json",
+        "sha256": "19b3694904210b0e9622162fec779edb388c38ec0eee1cb96d64fc8487ea062e"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "tower-karst",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch86-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/brief.json",
+        "config": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch86-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/tower-karst/r003/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T205237-c2228abc6e024a3c8fcf20c334792333"
+}

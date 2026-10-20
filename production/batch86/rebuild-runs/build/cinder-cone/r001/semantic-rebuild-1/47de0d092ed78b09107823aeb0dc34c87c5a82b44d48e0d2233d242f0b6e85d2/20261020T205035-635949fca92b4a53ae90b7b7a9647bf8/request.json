@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/rebuild-runs/build/cinder-cone/r001/semantic-rebuild-1/47de0d092ed78b09107823aeb0dc34c87c5a82b44d48e0d2233d242f0b6e85d2/20261020T205035-635949fca92b4a53ae90b7b7a9647bf8/outputs"
+  ],
+  "created_at": "2026-10-20T20:50:35.595886+00:00",
+  "fingerprint": "47de0d092ed78b09107823aeb0dc34c87c5a82b44d48e0d2233d242f0b6e85d2",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5974,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/brief.json",
+        "sha256": "0d03b02e041270ed3fd831c0ebc5656d6dd128af7c416e3419816b60313c14f2"
+      },
+      "config": {
+        "bytes": 948,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/build-config.json",
+        "sha256": "d71d4925fa45300ee303a18d9e8d8721fe324f278e91d1078c2dfecaf81aec4c"
+      },
+      "generator": {
+        "bytes": 10781,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/generator.py",
+        "sha256": "fdb7df59b628d91df24eb0fa9273f737e085add163005eedbe1322d1e4e476af"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2241,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/references.json",
+        "sha256": "ce08e1fe1c2c3516ec10129ae2232542ea6b27027efdd282bb3711e17c870799"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "cinder-cone",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch86-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch86-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/cinder-cone/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T205035-b66094f89813495985e882007932f484"
+}

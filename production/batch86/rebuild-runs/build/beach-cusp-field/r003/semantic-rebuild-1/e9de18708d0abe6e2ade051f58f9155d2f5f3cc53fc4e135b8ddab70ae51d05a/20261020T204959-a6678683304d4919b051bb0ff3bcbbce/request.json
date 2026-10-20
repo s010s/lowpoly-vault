@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch86-20261020/production/batch86/rebuild-runs/build/beach-cusp-field/r003/semantic-rebuild-1/e9de18708d0abe6e2ade051f58f9155d2f5f3cc53fc4e135b8ddab70ae51d05a/20261020T204959-a6678683304d4919b051bb0ff3bcbbce/outputs"
+  ],
+  "created_at": "2026-10-20T20:49:59.620935+00:00",
+  "fingerprint": "e9de18708d0abe6e2ade051f58f9155d2f5f3cc53fc4e135b8ddab70ae51d05a",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6097,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/brief.json",
+        "sha256": "02ee71b61a3150e1a2ad96e60cd0826cdde9473d943e85975d6570a59ad1f1dd"
+      },
+      "config": {
+        "bytes": 1227,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/build-config.json",
+        "sha256": "652b1428e9de7e9644f431a07597ce4ffaa70a10a056d712fb3b1686adefd4dd"
+      },
+      "generator": {
+        "bytes": 11988,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/generator.py",
+        "sha256": "c3ec985e94745541b0b7d84c9979d985ec0f53add94b8df61e5dd66739632b92"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2248,
+        "path": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/references.json",
+        "sha256": "97df9e97d67ed6022f8a2758c84a0295b65b50fd24bb1c2423a50254353e01f0"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "beach-cusp-field",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch86-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/brief.json",
+        "config": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch86-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch86-20261020/production/batch86/assets/beach-cusp-field/r003/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T204959-785da268c12a4da1be6dbfdd79e5b11c"
+}

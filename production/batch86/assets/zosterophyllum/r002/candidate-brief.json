@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "asset_id": "zosterophyllum",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static educational whole-organism reconstruction concept",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Check all recognition features: A broad tuft of smooth naked axes with exposed low horizontal basal H/K-like branches and upper forks, not foliage or fern fronds; Small flattened round-to-reniform sporangia on short upward lateral stalks, loosely spaced along upper axes rather than compact terminal spikes; Compact branched rhizome bears fine descending root-like axes without root hairs or caps; above-ground tuft approximately10cm tall/wide and roots approximately2cm. Respect claim scope: Conservative stylized whole-organism reconstruction concept of Zosterophyllum shengfengense based consistently on Hao2010 holotype PUH-QXI01-1 architecture. Source supports naked branching tuft, loose lateral sporangia and compact root-like system. Representative axis counts are reduced for512px legibility, not a census of the fossil; exact branch connectivity, depth, color and pose are artistic. No tissue anatomy or root caps/hairs asserted. Early Devonian association is supported, not an ecosystem reconstruction.",
+      "required_sources": [
+        "HAO2010",
+        "HAO-FIGURES"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check all recognition features: A broad tuft of smooth naked axes with exposed low horizontal basal H/K-like branches and upper forks, not foliage or fern fronds; Small flattened round-to-reniform sporangia on short upward lateral stalks, loosely spaced along upper axes rather than compact terminal spikes; Compact branched rhizome bears fine descending root-like axes without root hairs or caps; above-ground tuft approximately10cm tall/wide and roots approximately2cm. Respect claim scope: Conservative stylized whole-organism reconstruction concept of Zosterophyllum shengfengense based consistently on Hao2010 holotype PUH-QXI01-1 architecture. Source supports naked branching tuft, loose lateral sporangia and compact root-like system. Representative axis counts are reduced for512px legibility, not a census of the fossil; exact branch connectivity, depth, color and pose are artistic. No tissue anatomy or root caps/hairs asserted. Early Devonian association is supported, not an ecosystem reconstruction.",
+      "required_sources": [
+        "HAO2010",
+        "HAO-FIGURES"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight actual512px fixed views; CPU stills not GPU/scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch86/assets/zosterophyllum/r002/source.blend",
+      "sha256": "d0aab41fa2c2e742d67ceb4cb05ad6bb34472df80fd2fb75ecb56d97f57305ea"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch86/assets/zosterophyllum/r002/generator.py",
+      "sha256": "ffe53871e75e4102b6aa161651360ddba064915e7b5ce3e991bff5f18c074bf7"
+    },
+    {
+      "role": "config",
+      "path": "production/batch86/assets/zosterophyllum/r002/build-config.json",
+      "sha256": "5f13896c558b08eb919662dd8b51a4432673b4ce4ba7ee4776e8723b3c88c6ee"
+    }
+  ],
+  "claim_scope": "Conservative stylized whole-organism reconstruction concept of Zosterophyllum shengfengense based consistently on Hao2010 holotype PUH-QXI01-1 architecture. Source supports naked branching tuft, loose lateral sporangia and compact root-like system. Representative axis counts are reduced for512px legibility, not a census of the fossil; exact branch connectivity, depth, color and pose are artistic. No tissue anatomy or root caps/hairs asserted. Early Devonian association is supported, not an ecosystem reconstruction.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.1,
+    0.1,
+    0.12
+  ],
+  "dimension_status": "Illustrative targets, measured source/export bounds reported separately.",
+  "recognition_features": [
+    "A broad tuft of smooth naked axes with exposed low horizontal basal H/K-like branches and upper forks, not foliage or fern fronds",
+    "Small flattened round-to-reniform sporangia on short upward lateral stalks, loosely spaced along upper axes rather than compact terminal spikes",
+    "Compact branched rhizome bears fine descending root-like axes without root hairs or caps; above-ground tuft approximately10cm tall/wide and roots approximately2cm"
+  ],
+  "concept_decisions": "Concept inspected: retain broad bowl-like branching tuft, naked axes and loose lateral capsules. Correct concept root overlength/spreading: root-like axes are about20mm below a compact10mm rhizome, not broad deep modern roots. Correct terminal-dominated concept: place most capsules laterally on short20-40degree stalks with naked axis extending beyond; do not cap every axis like Cooksonia. Flatten capsules, keep subtle reniform notch, no spherical berries or leaves. Approximately40-60 visible fertile axis ends,60-110 capsules and24-32 descending root-like axes are explicit low-poly reductions; source estimated many more. Preserve basal horizontal branching and upper forks. No soil disk.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static educational asset at256-512px; source world scale retained.",
+  "created_at": "2026-10-20T20:39:34.358939+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T20:48:53.157547+00:00",
+    "frozen_design_brief_sha256": "5f90fa57cbab38749fba47f13d7b7e922fc26be39f0666fd8cf726317117a80f",
+    "note": "Postbuild source/generator/config hash closure only; original design and reference ledger unchanged."
+  }
+}

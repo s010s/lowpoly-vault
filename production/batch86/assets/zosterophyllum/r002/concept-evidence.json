@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "zosterophyllum",
+  "revision": "r002",
+  "labels": {
+    "en": "zosterophyllum"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "9e7a8d162e23ba09ec1baa0d0e77dea4220fb89fb016d1f4b12602cf25b6be90"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "da3ad26cc9b2c15c38cb53d1f203b46c8ce235391176258d98848b67f4887232"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "8c4a813134d88be23d8acf738fac2e3046beb2130b6d970562d27b07531b15e6"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "d0aab41fa2c2e742d67ceb4cb05ad6bb34472df80fd2fb75ecb56d97f57305ea"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "ffe53871e75e4102b6aa161651360ddba064915e7b5ce3e991bff5f18c074bf7"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "5f13896c558b08eb919662dd8b51a4432673b4ce4ba7ee4776e8723b3c88c6ee"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "7397e0ac6fabdd15835bd5977f0d1fdbb9db43e6372e41e71e45f78aacf83f68"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "10ec3e7e7940c38c76d07e4990bd2090e4e59ef06d4e566fd554301d66689761"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "d699b262b9b0040eee2f996cd76075b2eae8840c429801d8df3569f311ef8e5c"
+      }
+    ],
+    "cross_view_consistency_note": "Concept inspected: retain broad bowl-like branching tuft, naked axes and loose lateral capsules. Correct concept root overlength/spreading: root-like axes are about20mm below a compact10mm rhizome, not broad deep modern roots. Correct terminal-dominated concept: place most capsules laterally on short20-40degree stalks with naked axis extending beyond; do not cap every axis like Cooksonia. Flatten capsules, keep subtle reniform notch, no spherical berries or leaves. Approximately40-60 visible fertile axis ends,60-110 capsules and24-32 descending root-like axes are explicit low-poly reductions; source estimated many more. Preserve basal horizontal branching and upper forks. No soil disk.",
+    "hidden_surface_decisions": "Concept inspected: retain broad bowl-like branching tuft, naked axes and loose lateral capsules. Correct concept root overlength/spreading: root-like axes are about20mm below a compact10mm rhizome, not broad deep modern roots. Correct terminal-dominated concept: place most capsules laterally on short20-40degree stalks with naked axis extending beyond; do not cap every axis like Cooksonia. Flatten capsules, keep subtle reniform notch, no spherical berries or leaves. Approximately40-60 visible fertile axis ends,60-110 capsules and24-32 descending root-like axes are explicit low-poly reductions; source estimated many more. Preserve basal horizontal branching and upper forks. No soil disk."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T20:39:34.357329+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. Each asset complete original freeze preceded its own generator authoring; all four per-asset freezes preceded the common generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 31.929,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "10ec3e7e7940c38c76d07e4990bd2090e4e59ef06d4e566fd554301d66689761"
+      },
+      "note": "Actual orchestrator invocation-to-return observation interval; provider internal timing unavailable."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 24.6463,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "46c11c38e99e77c5946083c6f11030c6c1fe30424d9f27415ee34a324b3302b3"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "46c11c38e99e77c5946083c6f11030c6c1fe30424d9f27415ee34a324b3302b3"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "696c6da544cb135064563350d573422844b1ab05f8a5bb01f1f7d92f86b687bb",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "b69276983838cdb804862e9927ea524aace5196e21422093d0d7bfd8b55f6750"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "9e7a8d162e23ba09ec1baa0d0e77dea4220fb89fb016d1f4b12602cf25b6be90",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "c16389e932a0a6bed2f6d429e80985b2e2f1b5fbddcb31faa99f28a94ccba81e"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
