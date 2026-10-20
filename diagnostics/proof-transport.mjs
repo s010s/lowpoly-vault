@@ -26,7 +26,15 @@ async function tracedFetch(url,options={}){
  emit({stage:'request',id,...target,idle_ms:began-lastEnd,signal_aborted:options.signal?.aborted===true});
  try{
   const response=await fetch(url,options);lastEnd=Date.now();emit({stage:'response',id,status:response.status,elapsed_ms:lastEnd-began});
-  return new Proxy(response,{get(object,key){if(['json','arrayBuffer'].includes(key))return async()=>{const at=Date.now();try{const value=await object[key]();lastEnd=Date.now();emit({stage:'body-complete',id,format:key,elapsed_ms:lastEnd-at});return value;}catch(error){emit({stage:'body-error',id,error:safeError(error),signal_aborted:options.signal?.aborted===true});throw error;}};const value=Reflect.get(object,key,object);return typeof value==='function'?value.bind(object):value;}});
+  return new Proxy(response,{get(object,key){
+   if(key==='body'&&object.body?.getReader)return new Proxy(object.body,{get(body,bodyKey){
+    if(bodyKey==='getReader')return (...args)=>{const reader=body.getReader(...args);let received=0;return new Proxy(reader,{get(target,readerKey){
+     if(readerKey==='read'||readerKey==='cancel')return async(...readerArgs)=>{try{const value=await target[readerKey](...readerArgs);lastEnd=Date.now();if(readerKey==='read'){received+=value.value?.byteLength||0;if(value.done)emit({stage:'body-complete',id,format:'stream',bytes:received});}return value;}catch(error){emit({stage:'body-error',id,format:'stream',operation:readerKey,error:safeError(error),signal_aborted:options.signal?.aborted===true});throw error;}};
+     const value=Reflect.get(target,readerKey,target);return typeof value==='function'?value.bind(target):value;
+    }});};
+    const value=Reflect.get(body,bodyKey,body);return typeof value==='function'?value.bind(body):value;
+   }});
+   if(['json','arrayBuffer'].includes(key))return async()=>{const at=Date.now();try{const value=await object[key]();lastEnd=Date.now();emit({stage:'body-complete',id,format:key,elapsed_ms:lastEnd-at});return value;}catch(error){emit({stage:'body-error',id,error:safeError(error),signal_aborted:options.signal?.aborted===true});throw error;}};const value=Reflect.get(object,key,object);return typeof value==='function'?value.bind(object):value;}});
  }catch(error){lastEnd=Date.now();emit({stage:'request-error',id,elapsed_ms:lastEnd-began,error:safeError(error),signal_aborted:options.signal?.aborted===true});throw error;}
 }
 const {fetchVerifiedBaseProof}=await import(pathToFileURL(resolve(ROOT,'site/ci-model-cache.mjs')));
