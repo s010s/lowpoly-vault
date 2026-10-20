@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/rebuild-runs/build/dickinsonia/r002/semantic-rebuild-1/7a3eabbd1d3ff1bb0eb9fd40f1224ba9098c16aec77a644caf71ab040759370f/20261020T163214-2a9e04dd94834843892319ceeca0e890/outputs"
+  ],
+  "created_at": "2026-10-20T16:32:14.167789+00:00",
+  "fingerprint": "7a3eabbd1d3ff1bb0eb9fd40f1224ba9098c16aec77a644caf71ab040759370f",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 7066,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/brief.json",
+        "sha256": "51996e0dcf39225d4529a74979f242fca588c06c6fca0af54c8b4cfea4ebdc4b"
+      },
+      "config": {
+        "bytes": 1026,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/build-config.json",
+        "sha256": "32d046cdc662e2994bc1e63b2042fb7734b1197f054a23af52b956e6339de84f"
+      },
+      "generator": {
+        "bytes": 8786,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/generator.py",
+        "sha256": "0f385a6f6777f285117144f48f5d600d44907ed8c59297fa7552eb2f38f0baa6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3910,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/references.json",
+        "sha256": "cd3cf4276d34d1191a228b906790a47d1d8cdca54d4bbd82dd47fb578ed5e597"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "dickinsonia",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch79-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch79-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/dickinsonia/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T163213-74f7feec77fd4f4da6d4aa42ce5eede0"
+}

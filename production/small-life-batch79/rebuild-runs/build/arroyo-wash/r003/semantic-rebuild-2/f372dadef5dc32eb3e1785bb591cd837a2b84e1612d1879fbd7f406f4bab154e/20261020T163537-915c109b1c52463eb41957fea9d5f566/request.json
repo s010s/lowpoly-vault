@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/rebuild-runs/build/arroyo-wash/r003/semantic-rebuild-2/f372dadef5dc32eb3e1785bb591cd837a2b84e1612d1879fbd7f406f4bab154e/20261020T163537-915c109b1c52463eb41957fea9d5f566/outputs"
+  ],
+  "created_at": "2026-10-20T16:35:37.245773+00:00",
+  "fingerprint": "f372dadef5dc32eb3e1785bb591cd837a2b84e1612d1879fbd7f406f4bab154e",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6048,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/brief.json",
+        "sha256": "351140124c91c22b3c6ca82835ca20888622d2e3fe7930aaa1e08a1ef6ab986f"
+      },
+      "config": {
+        "bytes": 881,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/build-config.json",
+        "sha256": "b6d540f6d2fbb999125cee4b45bb94542e92b38a465306ede91172f4a5d3b49b"
+      },
+      "generator": {
+        "bytes": 8759,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/generator.py",
+        "sha256": "6bd4b6cd4caaff071b6cb948dc5f951a1d0048c98faf3774b0a8a02455c2a80a"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2060,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/references.json",
+        "sha256": "42ec36a413b8372be11ca62d418d446142dc0244fc589ecf81ff8f72c4b2c243"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "arroyo-wash",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch79-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/brief.json",
+        "config": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch79-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/arroyo-wash/r003/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T163537-c2a8e8c31fc84a249a855ddf753e3031"
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "dickinsonia",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static fossil/geological teaching prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Low-relief broadly oval fossil mould with serial curved transverse rib-like units and enlarged undivided anterior region; Subtle irregular central seam with slight stagger; no claim that offset symmetry is settled living anatomy; Integral relief in original irregular thin sandstone matrix slab, not a fleshy complete living organism. Scope: Original genus-level fossil-specimen interpretation informed by the named Dickinsonia costata holotype SAM P47720, Evans et al2023 Fig1A. Not a scan, specimen facsimile or measured reconstruction. Source holotype is broadly oval with an undivided region and serial units. Ivantsov et al2019 argues the common ribbed mould represents decomposition-resistant support under an integument rather than complete exterior: this model is explicitly a preserved mould-form only, not whole living anatomy. Affinity, original tissues, fine symmetry and color remain uncertain. Nominal150x180x12mm slab, fossil about115x130mm illustrative, not measured SAM dimensions.",
+      "required_sources": [
+        "EVANS2023"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Low-relief broadly oval fossil mould with serial curved transverse rib-like units and enlarged undivided anterior region; Subtle irregular central seam with slight stagger; no claim that offset symmetry is settled living anatomy; Integral relief in original irregular thin sandstone matrix slab, not a fleshy complete living organism. Scope: Original genus-level fossil-specimen interpretation informed by the named Dickinsonia costata holotype SAM P47720, Evans et al2023 Fig1A. Not a scan, specimen facsimile or measured reconstruction. Source holotype is broadly oval with an undivided region and serial units. Ivantsov et al2019 argues the common ribbed mould represents decomposition-resistant support under an integument rather than complete exterior: this model is explicitly a preserved mould-form only, not whole living anatomy. Affinity, original tissues, fine symmetry and color remain uncertain. Nominal150x180x12mm slab, fossil about115x130mm illustrative, not measured SAM dimensions.",
+      "required_sources": [
+        "EVANS2023"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU stills not target GPU/scene proof.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch79/assets/dickinsonia/r004/source.blend",
+      "sha256": "e826f86706e2743757ccb6bba9c67c55a44047801478505ce6e1679b763efbfe"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch79/assets/dickinsonia/r004/generator.py",
+      "sha256": "84e5b50667a0cfdbe5fc36ea44c1011654801f5c5365fd2ce8490154d07866c8"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch79/assets/dickinsonia/r004/build-config.json",
+      "sha256": "32d046cdc662e2994bc1e63b2042fb7734b1197f054a23af52b956e6339de84f"
+    }
+  ],
+  "claim_scope": "Original genus-level fossil-specimen interpretation informed by the named Dickinsonia costata holotype SAM P47720, Evans et al2023 Fig1A. Not a scan, specimen facsimile or measured reconstruction. Source holotype is broadly oval with an undivided region and serial units. Ivantsov et al2019 argues the common ribbed mould represents decomposition-resistant support under an integument rather than complete exterior: this model is explicitly a preserved mould-form only, not whole living anatomy. Affinity, original tissues, fine symmetry and color remain uncertain. Nominal150x180x12mm slab, fossil about115x130mm illustrative, not measured SAM dimensions.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.15,
+    0.18,
+    0.012
+  ],
+  "dimension_status": "Illustrative nominal target, actual export measured separately.",
+  "recognition_features": [
+    "Low-relief broadly oval fossil mould with serial curved transverse rib-like units and enlarged undivided anterior region",
+    "Subtle irregular central seam with slight stagger; no claim that offset symmetry is settled living anatomy",
+    "Integral relief in original irregular thin sandstone matrix slab, not a fleshy complete living organism"
+  ],
+  "concept_decisions": "Retain concept fossil slab and integral serial relief; correct concept over-elongated oval to broad oval closer to SAM P47720. Reduce relief height to restrained fossil mould, not swollen isolated organism. Ribs curve gently toward margin and become shorter at ends, with an enlarged undivided anterior area and slight seam stagger treated as stylized preservation interpretation. Rib count simplified35 per side, not exact specimen count; no eyes mouth legs organs cilia or conjectural tuberculate living cover. Closed slab underside is artistic mounting matrix, not animal ventral anatomy. Reject concept photoreal grain and deep perfect bilateral chevrons.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop256-512px",
+  "created_at": "2026-10-20T16:28:29.215747+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:37:05.060354+00:00",
+    "frozen_design_brief_sha256": "51996e0dcf39225d4529a74979f242fca588c06c6fca0af54c8b4cfea4ebdc4b",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

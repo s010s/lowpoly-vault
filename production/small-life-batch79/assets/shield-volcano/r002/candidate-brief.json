@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "shield-volcano",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static fossil/geological teaching prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Very broad coherent low-angle convex shield body much wider than tall and flatter near summit; Small shallow summit depression about90m across and10m deep, subordinate to broad shoulders; Natural irregular elongated footprint and subdued integral cooled-flow relief, not cone or foreground caldera. Scope: Generic original shield-volcano geological-form teaching asset informed by actual USGS Mauna Loa viewed from Mauna Kea photo on official NPS Shield Volcanoes and NPS descriptions. Not a Mauna Loa DEM, named island, exact survey, geological date or active eruption. Illustrative nominal1600x1300x120m module, not source natural dimensions. Actual dimensions separately measured. No active lava, snow or ecosystem claim.",
+      "required_sources": [
+        "NPS-SHIELD"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Very broad coherent low-angle convex shield body much wider than tall and flatter near summit; Small shallow summit depression about90m across and10m deep, subordinate to broad shoulders; Natural irregular elongated footprint and subdued integral cooled-flow relief, not cone or foreground caldera. Scope: Generic original shield-volcano geological-form teaching asset informed by actual USGS Mauna Loa viewed from Mauna Kea photo on official NPS Shield Volcanoes and NPS descriptions. Not a Mauna Loa DEM, named island, exact survey, geological date or active eruption. Illustrative nominal1600x1300x120m module, not source natural dimensions. Actual dimensions separately measured. No active lava, snow or ecosystem claim.",
+      "required_sources": [
+        "NPS-SHIELD"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU stills not target GPU/scene proof.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch79/assets/shield-volcano/r002/source.blend",
+      "sha256": "17c0d6e0560ce8a972e0338ff07c7bea4d5e51e1670525a1429f0992b310233b"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch79/assets/shield-volcano/r002/generator.py",
+      "sha256": "0f385a6f6777f285117144f48f5d600d44907ed8c59297fa7552eb2f38f0baa6"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch79/assets/shield-volcano/r002/build-config.json",
+      "sha256": "5db3e63c6ffca9d2eeca5b9d9a69e5e4b157567e3cbcb44d792515e137440f63"
+    }
+  ],
+  "claim_scope": "Generic original shield-volcano geological-form teaching asset informed by actual USGS Mauna Loa viewed from Mauna Kea photo on official NPS Shield Volcanoes and NPS descriptions. Not a Mauna Loa DEM, named island, exact survey, geological date or active eruption. Illustrative nominal1600x1300x120m module, not source natural dimensions. Actual dimensions separately measured. No active lava, snow or ecosystem claim.",
+  "nominal_dimensions_blender_xyz_m": [
+    1600,
+    1300,
+    120
+  ],
+  "dimension_status": "Illustrative nominal target, actual export measured separately.",
+  "recognition_features": [
+    "Very broad coherent low-angle convex shield body much wider than tall and flatter near summit",
+    "Small shallow summit depression about90m across and10m deep, subordinate to broad shoulders",
+    "Natural irregular elongated footprint and subdued integral cooled-flow relief, not cone or foreground caldera"
+  ],
+  "concept_decisions": "Retain concept broad gently convex low profile, flatter summit shoulders and small shallow depression. No artificial ring terraces or overlarge crater. Whole footprint continuous with irregular low-margin lava surfaces, not stacked intersecting flow plates. Use restrained irregular surface relief and subdued two-tone cooled-flow zones, no radial tiled pattern. Reference photo background Mauna Loa supplies profile only; foreground cinder cones not copied. Concept near-side edge forms are softened rather than mechanical teeth. No copied DEM/photo texture.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop256-512px",
+  "created_at": "2026-10-20T16:28:29.225681+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:31:31.167666+00:00",
+    "frozen_design_brief_sha256": "6cac778e6174ca9d2a63f5e301f9f2683ce0afe5d450327332080742e7ccfd18",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "schist-outcrop",
+  "revision": "r006",
+  "labels": {
+    "en": "schist-outcrop"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "8cdc8d2768f76c77ab0811a16ab5b205d3c47bd9239c2f3a16521c43a9a84c2f"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "33f17c58a93e7eb7a50f2cde071a64cc2f4f45717d0d95a8015446b88dd9a896"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "1f2a22e6b58294c78005be417957a2dd0490a9d1e7d246c7f67a89e19ddab9c5"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "7677ed97efa69b5dad95fe86b548dd79bbb139666379e56fe63690a1e8dc9318"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "d03bc8fdf5e6be037d76208e887b66a032b107def60c7139072fbc52bb9ad8ec"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ddb61eced4471ea4bb89313b731f43e3157a3e51bd47637194002c4b48b594c9"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "f00045112fdbaa533c889cf0b2e77267af21785b56fb1c77f2bf79b59b0a8e34"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "672804794dc1d760076a546977015929c7f6f864110b06fe298e4ca8d46f6033"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "cdab5cc1af87fb2c38fede8b300ca8190bda0727df856b6e55af65d5dbd2f028"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept wavy steep aligned flaky foliation with broad coherent mass. Remove photoreal grain and repeated equal plate thickness; use unequal foliation-controlled ledges and localized small folds across visible front and back. Physical continuous surface relief, no disconnected overlapping flakes or coplanar slabs. Predominantly same gray mineral family with subdued mica facets, not alternating dark pale coarse gneiss bands. Irregular top and sides, no rectangle plinth. NPS claim oldest-world not adopted. Source ranger and vegetation omitted.",
+    "hidden_surface_decisions": "Retain concept wavy steep aligned flaky foliation with broad coherent mass. Remove photoreal grain and repeated equal plate thickness; use unequal foliation-controlled ledges and localized small folds across visible front and back. Physical continuous surface relief, no disconnected overlapping flakes or coplanar slabs. Predominantly same gray mineral family with subdued mica facets, not alternating dark pale coarse gneiss bands. Irregular top and sides, no rectangle plinth. NPS claim oldest-world not adopted. Source ranger and vegetation omitted."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:27:12Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 14.2544,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "86b44e4c68b64dd82d1925dbc3a142df894ab310440750b6f3e038a78117efdb"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "86b44e4c68b64dd82d1925dbc3a142df894ab310440750b6f3e038a78117efdb"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "ba63d08f3e89608f9250f1434180c1e7d515ca87060ce50c6fd246e543f4f54b",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "9fed72f40eac49c787bb8a232e17bc266cd9422556309e73c46537bcf6934d8b"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "8cdc8d2768f76c77ab0811a16ab5b205d3c47bd9239c2f3a16521c43a9a84c2f",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "2ced1d8e11c26fa7a3691e65703eb7426770e5d216d23fecca115a1fe21e196f"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

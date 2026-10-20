@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "schist-outcrop",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static fossil/geological teaching prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Wavy steeply dipping fine foliation physically shapes flaky plate-like fractures and uneven short ledges; Coherent irregular full-volume gray micaceous outcrop with small folds and staggered unequal relief; No coarse gneiss/BIF colored stripes, no equally spaced accordion sheets or disconnected rock tiles. Scope: Generic original schist outcrop geological-form teaching asset informed by NPS Wind Cave Stop6 actual outcrop photo and official mica/foliation description. Not exact Black Hills site, specimen, age or structural survey. Nominal3.2x1.8x2.2m human-scale illustrative outcrop; mineral colors artistic. Foliation simplified for512px but must remain physical wavy/flaky fracture geometry, not painted stripes.",
+      "required_sources": [
+        "NPS-SCHIST"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Wavy steeply dipping fine foliation physically shapes flaky plate-like fractures and uneven short ledges; Coherent irregular full-volume gray micaceous outcrop with small folds and staggered unequal relief; No coarse gneiss/BIF colored stripes, no equally spaced accordion sheets or disconnected rock tiles. Scope: Generic original schist outcrop geological-form teaching asset informed by NPS Wind Cave Stop6 actual outcrop photo and official mica/foliation description. Not exact Black Hills site, specimen, age or structural survey. Nominal3.2x1.8x2.2m human-scale illustrative outcrop; mineral colors artistic. Foliation simplified for512px but must remain physical wavy/flaky fracture geometry, not painted stripes.",
+      "required_sources": [
+        "NPS-SCHIST"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU stills not target GPU/scene proof.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch79/assets/schist-outcrop/r002/source.blend",
+      "sha256": "a1d3f90b8ce04c34e8a5682ce7923dbaeab79e23835ad9496ca8c55e55835911"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch79/assets/schist-outcrop/r002/generator.py",
+      "sha256": "0f385a6f6777f285117144f48f5d600d44907ed8c59297fa7552eb2f38f0baa6"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch79/assets/schist-outcrop/r002/build-config.json",
+      "sha256": "ddb61eced4471ea4bb89313b731f43e3157a3e51bd47637194002c4b48b594c9"
+    }
+  ],
+  "claim_scope": "Generic original schist outcrop geological-form teaching asset informed by NPS Wind Cave Stop6 actual outcrop photo and official mica/foliation description. Not exact Black Hills site, specimen, age or structural survey. Nominal3.2x1.8x2.2m human-scale illustrative outcrop; mineral colors artistic. Foliation simplified for512px but must remain physical wavy/flaky fracture geometry, not painted stripes.",
+  "nominal_dimensions_blender_xyz_m": [
+    3.2,
+    1.8,
+    2.2
+  ],
+  "dimension_status": "Illustrative nominal target, actual export measured separately.",
+  "recognition_features": [
+    "Wavy steeply dipping fine foliation physically shapes flaky plate-like fractures and uneven short ledges",
+    "Coherent irregular full-volume gray micaceous outcrop with small folds and staggered unequal relief",
+    "No coarse gneiss/BIF colored stripes, no equally spaced accordion sheets or disconnected rock tiles"
+  ],
+  "concept_decisions": "Retain concept wavy steep aligned flaky foliation with broad coherent mass. Remove photoreal grain and repeated equal plate thickness; use unequal foliation-controlled ledges and localized small folds across visible front and back. Physical continuous surface relief, no disconnected overlapping flakes or coplanar slabs. Predominantly same gray mineral family with subdued mica facets, not alternating dark pale coarse gneiss bands. Irregular top and sides, no rectangle plinth. NPS claim oldest-world not adopted. Source ranger and vegetation omitted.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop256-512px",
+  "created_at": "2026-10-20T16:28:29.229363+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:31:53.027250+00:00",
+    "frozen_design_brief_sha256": "0f1244c1c2ef640e3e329a397a2454209069ef066333c094964540d946e54b18",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

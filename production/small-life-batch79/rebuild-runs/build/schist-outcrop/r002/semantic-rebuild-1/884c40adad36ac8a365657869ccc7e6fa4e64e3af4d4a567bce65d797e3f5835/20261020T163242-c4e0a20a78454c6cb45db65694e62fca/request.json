@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/rebuild-runs/build/schist-outcrop/r002/semantic-rebuild-1/884c40adad36ac8a365657869ccc7e6fa4e64e3af4d4a567bce65d797e3f5835/20261020T163242-c4e0a20a78454c6cb45db65694e62fca/outputs"
+  ],
+  "created_at": "2026-10-20T16:32:42.247298+00:00",
+  "fingerprint": "884c40adad36ac8a365657869ccc7e6fa4e64e3af4d4a567bce65d797e3f5835",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6127,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/brief.json",
+        "sha256": "0f1244c1c2ef640e3e329a397a2454209069ef066333c094964540d946e54b18"
+      },
+      "config": {
+        "bytes": 921,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/build-config.json",
+        "sha256": "ddb61eced4471ea4bb89313b731f43e3157a3e51bd47637194002c4b48b594c9"
+      },
+      "generator": {
+        "bytes": 8786,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/generator.py",
+        "sha256": "0f385a6f6777f285117144f48f5d600d44907ed8c59297fa7552eb2f38f0baa6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2069,
+        "path": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/references.json",
+        "sha256": "1f2a22e6b58294c78005be417957a2dd0490a9d1e7d246c7f67a89e19ddab9c5"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "schist-outcrop",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch79-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch79-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch79-20261020/production/small-life-batch79/assets/schist-outcrop/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T163242-f511bb4416db4239b34c338d74725041"
+}

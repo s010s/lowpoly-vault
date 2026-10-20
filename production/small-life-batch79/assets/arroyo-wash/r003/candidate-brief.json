@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "arroyo-wash",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static fossil/geological teaching prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Normally dry broad shallow sinuous channel visibly incised below arid surrounding ground; Unequal eroded banks with scalloped notches, broad sand/gravel bed entering and exiting opposite ends; One coherent terrain volume, no blue water, perennial river, deep slot canyon or archaeological structures. Scope: Generic original normally dry shallow arroyo wash geological process/form, informed by actual official Organ Pipe Cactus National Monument wash photograph and text. No period, named-site geometry, flood height, modern water state or coexistence ecosystem asserted. Nominal14x22m terrain module,0.9m incision above a0.6m artificial cutaway thickness illustrative. Palette artistic, not measured source color.",
+      "required_sources": [
+        "NPS-WASH"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Normally dry broad shallow sinuous channel visibly incised below arid surrounding ground; Unequal eroded banks with scalloped notches, broad sand/gravel bed entering and exiting opposite ends; One coherent terrain volume, no blue water, perennial river, deep slot canyon or archaeological structures. Scope: Generic original normally dry shallow arroyo wash geological process/form, informed by actual official Organ Pipe Cactus National Monument wash photograph and text. No period, named-site geometry, flood height, modern water state or coexistence ecosystem asserted. Nominal14x22m terrain module,0.9m incision above a0.6m artificial cutaway thickness illustrative. Palette artistic, not measured source color.",
+      "required_sources": [
+        "NPS-WASH"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU stills not target GPU/scene proof.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch79/assets/arroyo-wash/r003/source.blend",
+      "sha256": "3e2ec1cd8322ddb90aa70456dc2f3f4b3f387286ca8cdf2e945044acc5efce74"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch79/assets/arroyo-wash/r003/generator.py",
+      "sha256": "6bd4b6cd4caaff071b6cb948dc5f951a1d0048c98faf3774b0a8a02455c2a80a"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch79/assets/arroyo-wash/r003/build-config.json",
+      "sha256": "b6d540f6d2fbb999125cee4b45bb94542e92b38a465306ede91172f4a5d3b49b"
+    }
+  ],
+  "claim_scope": "Generic original normally dry shallow arroyo wash geological process/form, informed by actual official Organ Pipe Cactus National Monument wash photograph and text. No period, named-site geometry, flood height, modern water state or coexistence ecosystem asserted. Nominal14x22m terrain module,0.9m incision above a0.6m artificial cutaway thickness illustrative. Palette artistic, not measured source color.",
+  "nominal_dimensions_blender_xyz_m": [
+    14,
+    22,
+    1.5
+  ],
+  "dimension_status": "Illustrative nominal target, actual export measured separately.",
+  "recognition_features": [
+    "Normally dry broad shallow sinuous channel visibly incised below arid surrounding ground",
+    "Unequal eroded banks with scalloped notches, broad sand/gravel bed entering and exiting opposite ends",
+    "One coherent terrain volume, no blue water, perennial river, deep slot canyon or archaeological structures"
+  ],
+  "concept_decisions": "Retain concept dry incised gently winding broad bed and unequal bank erosion. Subdue rectangular display edges into irregular footprint while retaining terrain-module full depth. Integrated gravel-scale angular relief, not coplanar disconnected clast overlays. Actual source gravel wash has low banks partly obscured by vegetation; original terrain omits plants so diagnostic incision remains visible. No blue material, water or deep trench. Background/trees omitted, no precise boulder size claim.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop256-512px",
+  "created_at": "2026-10-20T16:28:29.221501+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:34:26.703423+00:00",
+    "frozen_design_brief_sha256": "351140124c91c22b3c6ca82835ca20888622d2e3fe7930aaa1e08a1ef6ab986f",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
