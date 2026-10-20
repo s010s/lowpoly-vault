@@ -1,0 +1,5 @@
+# Maker observations, not independent approval
+
+Personally opened all8 exact512px r004 finalframes. Nested unequal split depths now read as divided small fan blades rather than r003 comb teeth. Hero/reverse/front/rear show airy slender connected axis framework with tiny terminal leaf pairs, no floating parent-axis attachments. Top exposes unequal repeated divisions; side proves shallow volumetric folded foliage rather than image cards. Clay/silhouette retain fullvolume hierarchy. Actual worldvertex projections of all24 blades satisfy frozen2.2–5mm longitudinal and1.7–4.8mm transverse spans, with no normalize/globalscale. Basaljunction,wholehabit,size,count,color and3Dpose artistic; not fullplantfossil measurement. CPU only, independent/GPU/scene pending.
+
+Every individual final512px frame was personally opened. Final contact sheet is a lossless arrangement without image resampling, not a substitute for individual inspection. Exact subject GLB 5c810c56560ed16f53cd7a12255d2e63ede479f5c66d786d886c97dd302cac2f. Original source uncertainty retained in frozen brief and ledger. No GPU, scene, formal, independent or user approval.

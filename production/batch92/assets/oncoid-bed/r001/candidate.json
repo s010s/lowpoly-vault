@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "oncoid-bed",
+  "revision": "r001",
+  "maker": {
+    "id": "batch92 maker",
+    "task_id": "/root/resume_parallel_model_production/produce_batch92_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch92/assets/oncoid-bed/r001/model.glb",
+      "sha256": "e18d0eb0817ad70bc1dbc5c4106d8ec536a11e20d5e090794094d119ac9f9da8"
+    },
+    "brief": {
+      "path": "production/batch92/assets/oncoid-bed/r001/candidate-brief.json",
+      "sha256": "689fc8ce72b60e78c49677e8e190563eb64e84181293bc890a16d49ca4d4f9d0"
+    },
+    "references": {
+      "path": "production/batch92/assets/oncoid-bed/r001/references.json",
+      "sha256": "1a555af4d3bf250bdfae3a0910f27851da9d1c65489ca06d7d957af1d86c3c2f"
+    },
+    "source": {
+      "path": "production/batch92/assets/oncoid-bed/r001/source.blend",
+      "sha256": "115e5fa3532355bdaa000ceeee7725652abbf63174de434c6cd37f50ecb27c1a"
+    },
+    "generator": {
+      "path": "production/batch92/assets/oncoid-bed/r001/generator.py",
+      "sha256": "5d4c6cbe1e60a6880150229b78967d712bea9e6cb58137b24171172ca1132548"
+    },
+    "config": {
+      "path": "production/batch92/assets/oncoid-bed/r001/build-config.json",
+      "sha256": "5f01f8cd530f18ec5a6728098ad62bb4bbe7c0c020e09b790c1120e9259ce5c7"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "e18d0eb0817ad70bc1dbc5c4106d8ec536a11e20d5e090794094d119ac9f9da8",
+        "brief_sha256": "689fc8ce72b60e78c49677e8e190563eb64e84181293bc890a16d49ca4d4f9d0",
+        "references_sha256": "1a555af4d3bf250bdfae3a0910f27851da9d1c65489ca06d7d957af1d86c3c2f"
+      },
+      "path": "production/batch92/assets/oncoid-bed/r001/proof-final/render-manifest.json",
+      "sha256": "1944b98c5dad7d7f9c697e4675e9bd8d0560d15083b13304756807e32d1d1587"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and actual reference pixels inspected before freeze. Unavailable inventory sources, secondary-host Eophyllophyton plate and Caytonia organ-association/3D uncertainty explicitly disclosed in own frozen ledgers. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/metrics.json",
+      "sha256": "76d4bc1e33eaf7f32c1aabaa5e1a08356a36b13b947a3a7654eabb9ecaf9021d"
+    },
+    "source-metrics.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/source-metrics.json",
+      "sha256": "1ea6da2379670bef89d36a41f9ee124beac1f74779d7034715079a992704a6cf"
+    },
+    "project-audit.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/project-audit.json",
+      "sha256": "451cb783f203a8c2ede02a707aed0514c499065a982009257e7b05cd44a0d7bf"
+    },
+    "source-final.report.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/source-final.report.json",
+      "sha256": "93daf30d5e25afe8dde543c1dd5d94ee57c359e2881719797521de84e1422875"
+    },
+    "source-vertex-counts.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/source-vertex-counts.json",
+      "sha256": "4242e102252f172e9da2d805638cc8da594b59c7981e206c9817c520641c4ac7"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/repro-final-1.report.json",
+      "sha256": "92125c873e77eb955e72b47a8f6e3b4e6b1022a13bc30b3dd9b1408675aedcaa"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/repro-final-2.report.json",
+      "sha256": "48291699d001e572886c293a9a4aa620ddeb6c56460b9c5eaefb30e39bff3b15"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/gltf-validator.report.json",
+      "sha256": "9b2c71f953dbb5aec30a59e9d16da5d5fad6e56b289c8b635b61e42a85fd0450"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/runtime-parse.report.json",
+      "sha256": "048f2b1f27467c9ffc9554aa32c27e6afcaf4d127387be1c431a3705a24138d4"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/build-dependencies.json",
+      "sha256": "268e61f1a4cf5471b60572acab2781ec6544cb5dabbc8f690a6d79c2327cbb6e"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/pixel-inspection.json",
+      "sha256": "6656c1eddb74ab0196263a6941eed00d1cb0d8e8de13d8de2eb184092f6bb890"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch92/assets/oncoid-bed/r001/contact-sheet.png",
+      "sha256": "0afdf2cbf1fd4a09459acd04fc635ff63fab877ba96119d2920c979783ef2554"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch92/assets/oncoid-bed/r001/preproof-binding.json",
+      "sha256": "4eba4f2589e4b66cddfa5e2c61fdd5efc99f45815fadf19bb30b7c861e9bf3f6"
+    }
+  }
+}

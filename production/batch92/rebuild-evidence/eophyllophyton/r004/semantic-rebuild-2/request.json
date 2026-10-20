@@ -1,0 +1,97 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch92-evidence/rebuild-runs/build/eophyllophyton/r004/semantic-rebuild-2/d29d2f8f95c7697b47b89ac8e02da4327b9c2be80b0d8c1d13d9254c3de4538a/20261020T223530-64296c1acfae4471a76e585576283fec/outputs"
+  ],
+  "created_at": "2026-10-20T22:35:30.396181+00:00",
+  "fingerprint": "d29d2f8f95c7697b47b89ac8e02da4327b9c2be80b0d8c1d13d9254c3de4538a",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch92-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9387,
+        "path": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/brief.json",
+        "sha256": "689c34afae4473c212117855422c038c7f77635eaee013324ce20981910f198c"
+      },
+      "config": {
+        "bytes": 1678,
+        "path": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/build-config.json",
+        "sha256": "c64e7c853c6561235ef3955419e78557a37262f43959b5a8f1bf3517cc76d296"
+      },
+      "generator": {
+        "bytes": 13375,
+        "path": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/generator.py",
+        "sha256": "36e3fed93e7e10b9094dc28cc4ef6162ffc239d8dced51ace044c0bc8a3b11a0"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch92-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2586,
+        "path": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/references.json",
+        "sha256": "9e8e3e939a78699c480838a1688dfc7cf3ac07358fc68690e4d104403707a8ca"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "eophyllophyton",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch92-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/brief.json",
+        "config": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch92-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch92-20261020/production/batch92/assets/eophyllophyton/r004/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "execution.json"
+      ],
+      "revision": "r004"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T223530-3655daf74853423ba3d5a959e729949f"
+}
