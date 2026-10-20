@@ -62,6 +62,8 @@ Measured baseline: [main Pages run 39339026121](https://github.com/s010s/lowpoly
 
 Shard identities bind the workflow run attempt. If a shard must be retried, use **Re-run all jobs** so plan, prepared build and coverage receipts share the new attempt. A failed-jobs-only retry that retains successful old-attempt artifacts is intentionally rejected rather than mixing evidence.
 
+Browser installation alone has a bounded in-job retry: the exact official `npx playwright install --with-deps chromium` command runs at most three times, with 10- and 20-second delays. Every attempt inherits the job log; exhaustion preserves a nonzero result and cancellation is not retried. No apt source, signature/security setting, application assertion or workflow-attempt identity is changed. This may recover transient package-server failures before validation begins; persistent failures still block the job.
+
 
 ## Incremental render evidence (separate from publication authority)
 

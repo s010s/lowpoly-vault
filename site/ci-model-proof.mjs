@@ -54,8 +54,8 @@ export const MODEL_PROOF_ENTRYPOINTS=Object.freeze(['vite.config.js','site/copy-
   'site/ci-clean-gallery.mjs','site/ci-review.mjs','site/render-web-previews.mjs','site/ci-incremental-models.mjs','site/gallery-assets.mjs',
   'site/ci-model-proof.mjs','site/ci-model-cache.mjs','site/ci-model-shards.mjs','site/ci-card-preview-proof.mjs',
   'site/gallery-poster-inputs.mjs','site/gallery-poster-proof.mjs','site/gallery-poster-cache.mjs','site/gallery-poster-orchestration.mjs',
-  'site/ci-provenance.mjs','site/ci-timed.mjs','site/ci-scene-browser-test.mjs',
-  ...['catalog-data','ci-card-preview-proof','ci-model-proof','ci-model-cache','ci-incremental-models','ci-scope','ci-model-shards','ci-timed','ci-scene-input','ci-archival-inputs','ci-clean-gallery','ci-archival-models'].map(name=>`site/${name}-test.mjs`)]);
+  'site/ci-provenance.mjs','site/ci-timed.mjs','site/ci-scene-browser-test.mjs','site/ci-install-chromium.mjs',
+  ...['ci-install-chromium','catalog-data','ci-card-preview-proof','ci-model-proof','ci-model-cache','ci-incremental-models','ci-scope','ci-model-shards','ci-timed','ci-scene-input','ci-archival-inputs','ci-clean-gallery','ci-archival-models'].map(name=>`site/${name}-test.mjs`)]);
 const POLICY_ROOTS=['site','.github','scripts','schemas','qa','package.json','package-lock.json','vite.config.js'];
 const verifiedBuiltInputs=new WeakSet();
 const HASH=/^[a-f0-9]{64}$/,SHA=/^[a-f0-9]{40}$/,ID=/^[a-z0-9-]+$/;

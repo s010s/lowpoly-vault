@@ -34,7 +34,7 @@ assert(source.includes('npm run build')&&source.includes('raw-full-review-built-
 assert(clean.includes('needs: [scope, prepare-source]')&&clean.includes('npm ci --ignore-scripts'));
 const commands=[...clean.matchAll(/\brun: (.+)/g)].map(match=>match[1]);
 assert.deepEqual(commands,[
- 'npm ci --ignore-scripts','node site/ci-clean-gallery.mjs','npx playwright install --with-deps chromium',
+ 'npm ci --ignore-scripts','node site/ci-clean-gallery.mjs','node site/ci-install-chromium.mjs',
  'npm run gallery:posters && node site/gallery-assets.mjs --dist --complete','node site/ci-incremental-models.mjs plan','node site/ci-model-shards.mjs seal-build'
 ]);
 assert(!clean.includes('site/audit-release.mjs')&&!clean.includes('site/ci-publication.mjs'));
