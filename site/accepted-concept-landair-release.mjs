@@ -6240,7 +6240,7 @@ export const BATCH53_RELEASE = {
   "review_commit": "19bf7332eb3cf5138a8b91820d495599f790d727",
   "source_bundle": {
     "path": "qa/batch53-20261020/source-bundle.json",
-    "sha256": "5281f8ed687e8d4effcc82eafdae16bfa8140235365337985a307b0b7471e690"
+    "sha256": "407fd7fe7444c439d11e995277820d6ae1b0a6cf93f917b85676018ee9780bd5"
   },
   "review": {
     "path": "qa/continuous-small-life-round18-20261020/batch-53/INDEPENDENT-REVIEW.md",
@@ -6438,6 +6438,12 @@ export const BATCH53_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/concepts/generation-record.json",
       "sha256": "ced46ee3afaad114ea63039078705dab63350767c4ec8b527649d9e66dfd112c",
+      "origin": "source",
+      "owner": "halopoa-furrowed-burrow"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/concepts/original.png",
+      "sha256": "10d34a7be437bf9b1627a324ad628c1e604e81477cb16cc1dc9ae6221008f422",
       "origin": "source",
       "owner": "halopoa-furrowed-burrow"
     },
@@ -7228,6 +7234,12 @@ export const BATCH53_RELEASE = {
       "owner": "iodes-brownii"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/concepts/original.png",
+      "sha256": "81d1648c96cdc3780c1f07e13fc0afb0ce9383c9ca4626e1fc2afa1edc4ceeca",
+      "origin": "source",
+      "owner": "iodes-brownii"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/concepts/prompt.txt",
       "sha256": "6b5badbcb0ddba9e8dc3104c7ff8fefb53634776bcbabe1e0c7b71083ee4b1d9",
       "origin": "source",
@@ -7614,6 +7626,12 @@ export const BATCH53_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/concepts/generation-record.json",
       "sha256": "58c84e9fa75b654a95f2a1ea7c7a665b2a80c8047b669dec0eae5a593c107cc6",
+      "origin": "source",
+      "owner": "welded-ignimbrite-outcrop"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/concepts/original.png",
+      "sha256": "2e675c167302a5b9c625f6c4cd43f4e5de022392c757e46f90a9fd17341de76e",
       "origin": "source",
       "owner": "welded-ignimbrite-outcrop"
     },
@@ -9323,7 +9341,7 @@ export const BATCH53_RELEASE = {
     },
     {
       "path": "qa/batch53-20261020/process-archive-index.json",
-      "sha256": "762b8e75132d361d5209a09a79414d6f8262b3dd9b4449a4a8677b4e1c77d0bd",
+      "sha256": "d1c5f5cb961760604713fe935972f6b331d22534e76fbf70f59c0fd485ca268f",
       "origin": "release",
       "owner": "$batch"
     }
@@ -9356,7 +9374,7 @@ export const BATCH56_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch56-release-20261020/source-bundle.json",
-    "sha256": "8cae5b94778e699c287fd4a03e1b753dbb4149b7fd0ca02c6e45cfed8af62c5e"
+    "sha256": "a007bf5c4142f4c7121c436597f5f0b69077bc1a2c59aa67f3ba2f86b2d03965"
   },
   "review": {
     "path": "qa/batch56-independent-20261020/disposition.md",
@@ -9691,6 +9709,12 @@ export const BATCH56_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/arthrophycus-annulated-burrow/r002/concept-generation.json",
       "sha256": "03662507be4e1c578f28294891d85cf582533fdb8de8579ac392c0a202099950",
+      "origin": "source",
+      "owner": "arthrophycus-annulated-burrow"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/arthrophycus-annulated-burrow/r002/concept-original.png",
+      "sha256": "7285ce56f8ede05348925a4480669500f32dc7ee9f2c7f53f1cd0f8fa19fb246",
       "origin": "source",
       "owner": "arthrophycus-annulated-burrow"
     },
@@ -10337,6 +10361,12 @@ export const BATCH56_RELEASE = {
       "owner": "cycadeoidea"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/concept-original.png",
+      "sha256": "7285ce56f8ede05348925a4480669500f32dc7ee9f2c7f53f1cd0f8fa19fb246",
+      "origin": "source",
+      "owner": "cycadeoidea"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/concept-prompt.txt",
       "sha256": "6c9914d0db89a006731268e03ce94b65cd2873657604b2aed5a220e98d24a31c",
       "origin": "source",
@@ -10669,6 +10699,12 @@ export const BATCH56_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/deflation-hollow/r001/concept-generation.json",
       "sha256": "03662507be4e1c578f28294891d85cf582533fdb8de8579ac392c0a202099950",
+      "origin": "source",
+      "owner": "deflation-hollow"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/deflation-hollow/r001/concept-original.png",
+      "sha256": "7285ce56f8ede05348925a4480669500f32dc7ee9f2c7f53f1cd0f8fa19fb246",
       "origin": "source",
       "owner": "deflation-hollow"
     },
@@ -11095,6 +11131,12 @@ export const BATCH56_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/gondwanagaricites/r002/concept-generation.json",
       "sha256": "03662507be4e1c578f28294891d85cf582533fdb8de8579ac392c0a202099950",
+      "origin": "source",
+      "owner": "gondwanagaricites"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-56/gondwanagaricites/r002/concept-original.png",
+      "sha256": "7285ce56f8ede05348925a4480669500f32dc7ee9f2c7f53f1cd0f8fa19fb246",
       "origin": "source",
       "owner": "gondwanagaricites"
     },
@@ -11862,7 +11904,7 @@ export const BATCH56_RELEASE = {
     },
     {
       "path": "qa/batch56-release-20261020/process-archive-index.json",
-      "sha256": "d254c2c4f725c1b21a4406e8fa404206e12e608c97f9340b4f6dcbdaa6b1d6a5",
+      "sha256": "95d471db72c7871e92889fadcf5dc4e5aaa96968ab83a80a5ca3f9bb94f2c296",
       "origin": "release",
       "owner": "$batch"
     }
@@ -11891,7 +11933,7 @@ export const BATCH57_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch57-release-20261020/source-bundle.json",
-    "sha256": "d5147d145c0df96d6826fd968735d6988ab2b8c390eacfdaae2c232a62658757"
+    "sha256": "d3d065b95f8fadb079c7a34ca575d3675aec908074528543152129498d29fc8f"
   },
   "review": {
     "path": "qa/batch57-independent-20261020/disposition.md",
@@ -12220,6 +12262,12 @@ export const BATCH57_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/concepts/inspection.json",
       "sha256": "10afea004a7acfeedfc2750e355cf5621810cb7a55442b0d5dc013b6a778348e",
+      "origin": "source",
+      "owner": "cave-column"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/concepts/original.png",
+      "sha256": "5d6f216cf02b3028d1543365ccedac024410b67e26105544933a42d17f81140a",
       "origin": "source",
       "owner": "cave-column"
     },
@@ -13364,6 +13412,12 @@ export const BATCH57_RELEASE = {
       "owner": "quatsinoporites"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r004/concepts/original.png",
+      "sha256": "5d6f216cf02b3028d1543365ccedac024410b67e26105544933a42d17f81140a",
+      "origin": "source",
+      "owner": "quatsinoporites"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r004/concepts/prompt.txt",
       "sha256": "67f773fe3d2eed1fc06b27d45343fb3bc6f80d739301cfeac90950870bc3ee18",
       "origin": "source",
@@ -13684,6 +13738,12 @@ export const BATCH57_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/rusophycus-resting-excavation/r001/concepts/inspection.json",
       "sha256": "10afea004a7acfeedfc2750e355cf5621810cb7a55442b0d5dc013b6a778348e",
+      "origin": "source",
+      "owner": "rusophycus-resting-excavation"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/rusophycus-resting-excavation/r001/concepts/original.png",
+      "sha256": "5d6f216cf02b3028d1543365ccedac024410b67e26105544933a42d17f81140a",
       "origin": "source",
       "owner": "rusophycus-resting-excavation"
     },
@@ -14973,7 +15033,7 @@ export const BATCH57_RELEASE = {
     },
     {
       "path": "qa/batch57-release-20261020/process-archive-index.json",
-      "sha256": "feaee2cee14c115e15c399ac81bf0ba7634829a55123fe1a9595265ecc068285",
+      "sha256": "317e52ce133bda87dd2d65a670caccafb3c41aa0c63c1fa15b418fdbab791dd6",
       "origin": "release",
       "owner": "$batch"
     }
@@ -14984,7 +15044,7 @@ export const BATCHES5155_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/batch51-20261020.json",
-      "sha256": "4f0ea20d4d77f0eceb932c65ef9d4f56fba22cf5825cb0b3e3cbdf08ca6c5266"
+      "sha256": "32875450a5bf36a479e3bb40dc72f383f7908cd60a2f9e2025974844b48a105e"
     },
     "release": {
       "version": 1,
@@ -14998,7 +15058,7 @@ export const BATCHES5155_RELEASES = [
       "review_commit": "2b61ba2f70110f3bd01df45972558bc94f134566",
       "source_bundle": {
         "path": "qa/batch51-release-20261020/source-bundle.json",
-        "sha256": "678e68dbf3e83f089c5e62f3c8e306b7cd767213c88a017d4a2d0a46ae9c938e"
+        "sha256": "e222a8ef5acccba52f33ef23bc03f6cf7c0ba11f85e3c25137422fa0c9440fa7"
       },
       "source_scope_review": {
         "path": "qa/batches51-55-release-20261020/source-scope-review/review-summary.json",
@@ -15636,6 +15696,12 @@ export const BATCHES5155_RELEASES = [
           "owner": "$batch"
         },
         {
+          "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/concepts/original.png",
+          "sha256": "0a71d024dd5550445c94a54204b3cdcce3e8ef8d9ce2d541ff7c4c325b2ad5e7",
+          "origin": "source",
+          "owner": "$batch"
+        },
+        {
           "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/concepts/prompt.txt",
           "sha256": "bf17fc74b41b04dfe0a51670f4efed0bcbf1543418039e7d5b614de4fa3cc801",
           "origin": "source",
@@ -16242,6 +16308,12 @@ export const BATCHES5155_RELEASES = [
           "owner": "$batch"
         },
         {
+          "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/concepts/original.png",
+          "sha256": "07140bd478b0f36c4e97281d70559f392010bbb6e9f50830da31e07e41368cfa",
+          "origin": "source",
+          "owner": "$batch"
+        },
+        {
           "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/concepts/prompt.txt",
           "sha256": "3785718352897fe890639ee618899b68a20be934e1fd9f4354529f3a0583dc68",
           "origin": "source",
@@ -16670,6 +16742,12 @@ export const BATCHES5155_RELEASES = [
         {
           "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/concepts/inspection.json",
           "sha256": "dbbf2f629930fd4cbb30785401a81e7137eca5000c7f238d302cb2157ff41a9b",
+          "origin": "source",
+          "owner": "$batch"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/concepts/original.png",
+          "sha256": "7c2cb8dd3ba7578ffe702e2818b2cc33abb6ec6a297b31c08895dd9654a80585",
           "origin": "source",
           "owner": "$batch"
         },
@@ -17132,6 +17210,12 @@ export const BATCHES5155_RELEASES = [
         {
           "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/concepts/inspection.json",
           "sha256": "29bb8bfbb83b4e7c95d883fee65e00c9e296076b0f613748977dc70184d2e509",
+          "origin": "source",
+          "owner": "$batch"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/concepts/original.png",
+          "sha256": "a8c8eaf0df9efe39148dc92ac980a5f2d64fd34c529cf4e94166be83f3055932",
           "origin": "source",
           "owner": "$batch"
         },
@@ -19135,7 +19219,7 @@ export const BATCHES5155_RELEASES = [
         },
         {
           "path": "qa/batch51-release-20261020/process-archive-index.json",
-          "sha256": "61f0d12e53e5736bbbfdb0c8fe3357a9d539bb70ef8aec405b40834b3fdd2eba",
+          "sha256": "381f49f32e725272325fb4c41705cddbed1db3fff5abcbbc7a7fde1feabd8145",
           "origin": "release",
           "owner": "$batch"
         }
@@ -22383,7 +22467,7 @@ export const BATCH58_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch58-release-20261020/source-bundle.json",
-    "sha256": "e46775df4accd8e669760430ee2577594dac742221935cfa04b59c69ead3649f"
+    "sha256": "6f410014c35298134589a6e811263cd2702809cfd7297c1b3157e00977f632dc"
   },
   "protected_source_inputs": [
     {
@@ -22750,6 +22834,12 @@ export const BATCH58_RELEASE = {
       "owner": "barchan-dune"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/concept-original.png",
+      "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/concept-prompt.txt",
       "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a",
       "origin": "source",
@@ -23070,6 +23160,12 @@ export const BATCH58_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/concept-generation.json",
       "sha256": "cd8ee9a2c64c6f8c40effef8d4d37042c29e9be157d3fdbac791d9a04b8382dc",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/concept-original.png",
+      "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3",
       "origin": "source",
       "owner": "calamophyton"
     },
@@ -23398,6 +23494,12 @@ export const BATCH58_RELEASE = {
       "owner": "current-ripple-surface"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/concept-original.png",
+      "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/concept-prompt.txt",
       "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a",
       "origin": "source",
@@ -23718,6 +23820,12 @@ export const BATCH58_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/concept-generation.json",
       "sha256": "e1f59d2b28030f76d793d5af3ec0af5224fe33d7adc60791abc806e52111b02a",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/concept-original.png",
+      "sha256": "2404e7259c082d931d34cbc1e61b0ba18291e6b69006b92dd52c99742cafbda9",
       "origin": "source",
       "owner": "perspicaris"
     },
@@ -24491,7 +24599,7 @@ export const BATCH58_RELEASE = {
     },
     {
       "path": "qa/batch58-release-20261020/process-archive-index.json",
-      "sha256": "40ad7b1cb57dfa1421d430cd033eab56f614239bfac2f7318c5657b25cd4ef4a",
+      "sha256": "6dc605d28be550f084928d75817ed6ed99550a5326e25c3c8c13ebec614d28c3",
       "origin": "release",
       "owner": "$batch"
     }
@@ -24520,7 +24628,7 @@ export const BATCH59_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch59-release-20261020/source-bundle.json",
-    "sha256": "b54a6ea5f6079bc562e103e82f6f8b5b0d17a9586452a888a8184ba714c1e74a"
+    "sha256": "00d1ed5bd337444f8b0053d517eaf4572b3400f05c00dcf4009ac5064652f89c"
   },
   "protected_source_inputs": [
     {
@@ -24859,6 +24967,12 @@ export const BATCH59_RELEASE = {
       "owner": "glacial-erratic"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concepts/original.png",
+      "sha256": "ab336656469263436be00788818db00a2d119872623e0d7e9c43e5d01086780a",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concepts/prompt.txt",
       "sha256": "6c7fa0f06398703ed9ae6a52dae1f058d0e9be14f14cefcb4c20b218dfb2b853",
       "origin": "source",
@@ -25135,6 +25249,12 @@ export const BATCH59_RELEASE = {
       "owner": "gypsum-cave-flower"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concepts/original.png",
+      "sha256": "4f0e5e478813fe50e09be25967bd46d3f4cf2348d6000e8d24e287ec0a2fb7d0",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concepts/prompt.txt",
       "sha256": "2a960403e40e63fe277b0ff39533b1500b14c016a489e2faf8d3de4b5bc2198a",
       "origin": "source",
@@ -25407,6 +25527,12 @@ export const BATCH59_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concepts/inspection.json",
       "sha256": "157199b73769c27de9b2f4e55bd8f4e115f2ae80e688180ef8235efc69704b92",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concepts/original.png",
+      "sha256": "ab336656469263436be00788818db00a2d119872623e0d7e9c43e5d01086780a",
       "origin": "source",
       "owner": "stalactite-group"
     },
@@ -26060,7 +26186,7 @@ export const BATCH59_RELEASE = {
     },
     {
       "path": "qa/batch59-release-20261020/process-archive-index.json",
-      "sha256": "12dba652265a5960ebc58f9eb805223ff8a91159f45cea498086b7718a49b609",
+      "sha256": "6db50c277af09548de4eb13589c1fc8dadc617f18658e2477552c941d24ce1c9",
       "origin": "release",
       "owner": "$batch"
     }
@@ -26085,7 +26211,7 @@ export const BATCH60_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch60-release-20261020/source-bundle.json",
-    "sha256": "aac8e683171465a93cbcb7db07c0935354f2f45d356037bdb7f9ee7900b27432"
+    "sha256": "772eeb39916773de3e48043332602df40ffd4605b294bfeecc7a34c1e856a0a3"
   },
   "protected_source_inputs": [
     {
@@ -26439,6 +26565,12 @@ export const BATCH60_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/aragonite-frostwork/r001/concept-generation.json",
       "sha256": "9d40028d8cd5e40cea8288bc9f1df5dc5aa4e1b8890a7db73e5dcece4c9c33ca",
+      "origin": "source",
+      "owner": "aragonite-frostwork"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/aragonite-frostwork/r001/concept-original.png",
+      "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5",
       "origin": "source",
       "owner": "aragonite-frostwork"
     },
@@ -26875,6 +27007,12 @@ export const BATCH60_RELEASE = {
       "owner": "collinsium"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/collinsium/r002/concept-original.png",
+      "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5",
+      "origin": "source",
+      "owner": "collinsium"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/collinsium/r002/concept-prompt.txt",
       "sha256": "3b8c6d88876bf7e68bf86878b6dcd55ff26b1c7bd7d9a1bcfb251e23f6fdc951",
       "origin": "source",
@@ -27159,6 +27297,12 @@ export const BATCH60_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/glacial-cirque/r001/concept-generation.json",
       "sha256": "9d40028d8cd5e40cea8288bc9f1df5dc5aa4e1b8890a7db73e5dcece4c9c33ca",
+      "origin": "source",
+      "owner": "glacial-cirque"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/glacial-cirque/r001/concept-original.png",
+      "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5",
       "origin": "source",
       "owner": "glacial-cirque"
     },
@@ -27591,6 +27735,12 @@ export const BATCH60_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/concept-generation.json",
       "sha256": "9d40028d8cd5e40cea8288bc9f1df5dc5aa4e1b8890a7db73e5dcece4c9c33ca",
+      "origin": "source",
+      "owner": "yardang"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/concept-original.png",
+      "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5",
       "origin": "source",
       "owner": "yardang"
     },
@@ -28436,7 +28586,7 @@ export const BATCH60_RELEASE = {
     },
     {
       "path": "qa/batch60-release-20261020/process-archive-index.json",
-      "sha256": "2e9b0f3e31e12c3feaf27e558225d16e50cc0f275f417c513f6077ac1febf526",
+      "sha256": "3f46d81dde708bce320051da3a29e0dc4beaa196b357ee7ded2a4412ddefffed",
       "origin": "release",
       "owner": "$batch"
     }
@@ -28461,7 +28611,7 @@ export const BATCH61_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch61-release-20261020/source-bundle.json",
-    "sha256": "ee9d12f76757a81d6878f61b531762f1c2808cde6c0df312788862f2d1a8a48d"
+    "sha256": "c14bb9ad444faa1c82d47114c6d781a8517d75b203fe7bb35a8222e721baa54f"
   },
   "protected_source_inputs": [
     {
@@ -28987,6 +29137,12 @@ export const BATCH61_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/daemonelix-helical-burrow/r002/concept-generation.json",
       "sha256": "655a51f56f7f13e439474f4947d14b694a1cb3fec5016859790c86579634b7fd",
+      "origin": "source",
+      "owner": "daemonelix-helical-burrow"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/daemonelix-helical-burrow/r002/concept-original.png",
+      "sha256": "32aeb6670ee245b0cf6a4908a0f3758a6a303cae0f96374fb4c7238fadec96a5",
       "origin": "source",
       "owner": "daemonelix-helical-burrow"
     },
@@ -29555,6 +29711,12 @@ export const BATCH61_RELEASE = {
       "owner": "drumlin"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/concept-original.png",
+      "sha256": "e94235826df1a04fa0d0ee98fb6af814cf1fb89433927475b154e4497767e9ea",
+      "origin": "source",
+      "owner": "drumlin"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/concept-prompt.txt",
       "sha256": "331ab351546c46bfe8ded438230d4cf2a31cdafb8159b5d82b0c0329b4664ec8",
       "origin": "source",
@@ -30115,6 +30277,12 @@ export const BATCH61_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/concept-generation.json",
       "sha256": "3d08a00f1fd73647658bf5670f73dc38a7b9064354b8b2572a711fec0f3a63dc",
+      "origin": "source",
+      "owner": "mesa"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/concept-original.png",
+      "sha256": "76906af0145097f4e4f9161d5702d6de10f1e17834c5f0b5f340ceb587ce0ee2",
       "origin": "source",
       "owner": "mesa"
     },
@@ -30853,6 +31021,12 @@ export const BATCH61_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/concept-generation.json",
       "sha256": "b1557d63032c1d1e77b14e18d1645f8d5e969298846241b259cd0036104ebc14",
+      "origin": "source",
+      "owner": "pseudopulex"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/concept-original.png",
+      "sha256": "44c688424225dac208f57bbe75f66fe1b37113cf68860dd03393fcac5fea89ad",
       "origin": "source",
       "owner": "pseudopulex"
     },
@@ -32130,7 +32304,7 @@ export const BATCH61_RELEASE = {
     },
     {
       "path": "qa/batch61-release-20261020/process-archive-index.json",
-      "sha256": "11b6da347b282e0f4cd43a83ea52415f3b627517524146aa4e8b01b11d573f62",
+      "sha256": "20a5eb9eb13b91b925610678c7363345a92586c8eac40b11eae6eaf5c25c238b",
       "origin": "release",
       "owner": "$batch"
     }
@@ -32155,7 +32329,7 @@ export const BATCH62_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch62-release-20261020/source-bundle.json",
-    "sha256": "afa7f08277d8d37ad1f54fe8533c67ce17fc4c5165f7e5ed003e421f072f93c3"
+    "sha256": "bb6f8672a73a23043ab3efc9a9f1674765da4562b721da5c7333c4966e373a35"
   },
   "protected_source_inputs": [
     {
@@ -32644,6 +32818,12 @@ export const BATCH62_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/dinomischus/r002/concept-original.png",
+      "sha256": "8a1ea28dd0961714c5b5f4143b06efea5533c1cf423355978c1033824b993882",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/dinomischus/r002/concept-prompt.txt",
       "sha256": "0a5c06561cef0a8274afedef3457eeca2dcd1fdf9a98f14a618e856ae503bbd8",
       "origin": "source",
@@ -33076,6 +33256,12 @@ export const BATCH62_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/flowstone-cascade/r002/concept-original.png",
+      "sha256": "abae904184f8ee839c13caf947103f6a95a66d0dd1547529da4706a8d478f128",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/flowstone-cascade/r002/concept-prompt.txt",
       "sha256": "b531e45b2cb7ac7de263be5a1fdfec2cbeb78496681ba32de308dabe37fe5901",
       "origin": "source",
@@ -33366,6 +33552,12 @@ export const BATCH62_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/slot-canyon/r001/concept-generation.json",
       "sha256": "8d4ddf3c9c948327d48ab7d9000db7ae1693b11e80fa51e925fc4033052b6017",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/slot-canyon/r001/concept-original.png",
+      "sha256": "77b9fac4f4e8a4a72a829cd75409e04f945bc6e9ff4825e922d95956d346818d",
       "origin": "source",
       "owner": "$batch"
     },
@@ -33810,6 +34002,12 @@ export const BATCH62_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/star-dune/r002/concept-generation.json",
       "sha256": "0970db10c743707312b4c92e6732a53d24d5ebe8934b0691f45f6e68a2f857e5",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/star-dune/r002/concept-original.png",
+      "sha256": "74f7f37c68b327006945352451cf03a9fa5fbe6bef44cfbaf9600d3dbe57e35b",
       "origin": "source",
       "owner": "$batch"
     },
@@ -34877,7 +35075,7 @@ export const BATCH62_RELEASE = {
     },
     {
       "path": "qa/batch62-release-20261020/process-archive-index.json",
-      "sha256": "cd7e6bd7972865a834d66f92c396512243ea082eed43e29b50049947c5d1a851",
+      "sha256": "07206e59310e8b9cd1f14143f676c062239cbc7dfba1100a8d0a820d87d55a91",
       "origin": "release",
       "owner": "$batch"
     }
@@ -34902,7 +35100,7 @@ export const BATCH63_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch63-release-20261020/source-bundle.json",
-    "sha256": "4e920cd8fb92da932cb464cbf698e4913b7b5328120ccecc0d4b2a82c14f8d6b"
+    "sha256": "5a71a7cd7d8fdf2ee69820bdd5c43f1e74f24994f6a11f07f15bd46d74d08eef"
   },
   "protected_source_inputs": [
     {
@@ -35605,6 +35803,12 @@ export const BATCH63_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/concept-original.png",
+      "sha256": "977bf4953fbf67d2bc75226141fedf8d75a10445aaf166a2d58151381e9b733b",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/concept-prompt.txt",
       "sha256": "3f52c8d1eb465455b31fa83a500905db0e435cbcafd69db9d2329ddb0aeb5995",
       "origin": "source",
@@ -36013,6 +36217,12 @@ export const BATCH63_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/concept-original.png",
+      "sha256": "181535baee7f5471d73a187c9c836d47fad409c4680040af7efdedd5fe2e381a",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/concept-prompt.txt",
       "sha256": "004315b5eab55ea14d69d94ed2a0bb61110a9dbb7e4b470346390f244b8d11f7",
       "origin": "source",
@@ -36283,6 +36493,12 @@ export const BATCH63_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/esker/r001/concept-original.png",
+      "sha256": "631087c97ed72a78b637b14cfd21ab6f0d3a25e58fe690168a13366fd556f2ba",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/esker/r001/concept-prompt.txt",
       "sha256": "f83ef575e4a7936f35098910bc5597489131c689e249af9a4b59d75afdcf8112",
       "origin": "source",
@@ -36549,6 +36765,12 @@ export const BATCH63_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/siphusauctum/r001/concept-generation.json",
       "sha256": "562cebc9b87313d3a2f44d154f5b5e4db60c9920ed7855a1a211ed6f1d7e6eaa",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/siphusauctum/r001/concept-original.png",
+      "sha256": "30b6248b9ffd088fb96af0d013e2157a422b30f3d204d5f3060e1e05d8412cfa",
       "origin": "source",
       "owner": "$batch"
     },
@@ -37916,7 +38138,7 @@ export const BATCH63_RELEASE = {
     },
     {
       "path": "qa/batch63-release-20261020/process-archive-index.json",
-      "sha256": "2b9fc9078b743e4665d86ea49f27c4a1dbb82f05cb7e32e55aab855c83393aac",
+      "sha256": "8a23a1c37741ab347779b30130976406ca072e435ccfa92aa3939c4a7186eb0d",
       "origin": "release",
       "owner": "$batch"
     }
@@ -37941,7 +38163,7 @@ export const BATCH64_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch64-release-20261020/source-bundle.json",
-    "sha256": "6b0abacb3185fbd44c5ddb9ee0c1e018314eb7885d6c6cc3661d297793dfc5a1"
+    "sha256": "bacfec47b7268d222a7382089b3598bae58a17cd654724a288e13e3a200c9d40"
   },
   "protected_source_inputs": [
     {
@@ -38286,6 +38508,12 @@ export const BATCH64_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/concept-original.png",
+      "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/concept-prompt.txt",
       "sha256": "baacbf6100b8babb057d1595f0c3efeee8c15ad6c8eb9ea218f5bfad52705bc4",
       "origin": "source",
@@ -38570,6 +38798,12 @@ export const BATCH64_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/concept-generation.json",
       "sha256": "872fcd4ce71a2b4ee2c06cf8f2cacbf46e45b20706cfc586332c344c59b7a786",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/concept-original.png",
+      "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39",
       "origin": "source",
       "owner": "$batch"
     },
@@ -38862,6 +39096,12 @@ export const BATCH64_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/concept-original.png",
+      "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/concept-prompt.txt",
       "sha256": "baacbf6100b8babb057d1595f0c3efeee8c15ad6c8eb9ea218f5bfad52705bc4",
       "origin": "source",
@@ -39146,6 +39386,12 @@ export const BATCH64_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/terminal-moraine/r001/concept-generation.json",
       "sha256": "872fcd4ce71a2b4ee2c06cf8f2cacbf46e45b20706cfc586332c344c59b7a786",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-64/terminal-moraine/r001/concept-original.png",
+      "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39",
       "origin": "source",
       "owner": "$batch"
     },
@@ -39835,7 +40081,7 @@ export const BATCH64_RELEASE = {
     },
     {
       "path": "qa/batch64-release-20261020/process-archive-index.json",
-      "sha256": "f805e1f554789a6a892fc7cec9f1fc90e7ed4da0fd66a884dc1a680e0a99278f",
+      "sha256": "db4aa4259f243f29c82aca55ddb334814ac4a1d7a83dcb3762f54436572b0b09",
       "origin": "release",
       "owner": "$batch"
     }
@@ -39860,7 +40106,7 @@ export const BATCH65_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch65-release-20261020/source-bundle.json",
-    "sha256": "4eafc63b1ad7552ae82eac92f14044d6f23b3eba3001c62dacc0ca8738918db3"
+    "sha256": "29b81a3e02f643267e7c065bf391c3bf3f40b46532f3e21741129d69b84dd70e"
   },
   "protected_source_inputs": [
     {
@@ -40587,6 +40833,12 @@ export const BATCH65_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/burgessochaeta/r002/concept-original.png",
+      "sha256": "5ada5ec6a5d04083f396136f8bf722f0bc6145a0d9e9f0d04519cc15ddaacd62",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/burgessochaeta/r002/concept-prompt.txt",
       "sha256": "602b01cf529a4944e680d67732f60126f02541c672e3f1c90e11e75162c78133",
       "origin": "source",
@@ -40859,6 +41111,12 @@ export const BATCH65_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/concept-generation.json",
       "sha256": "8e9621441c746c97133f36e5322ebc1470a1b2b9d6f4e9a76b5935c30b0c0938",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/concept-original.png",
+      "sha256": "5ada5ec6a5d04083f396136f8bf722f0bc6145a0d9e9f0d04519cc15ddaacd62",
       "origin": "source",
       "owner": "$batch"
     },
@@ -41968,7 +42226,7 @@ export const BATCH65_RELEASE = {
     },
     {
       "path": "qa/batch65-release-20261020/process-archive-index.json",
-      "sha256": "fa51bafa45658669591d0b6f0952b4148601c344f8a48b41bbacf0014efa8e93",
+      "sha256": "a4e832cfddc054830d9d733e4fa59e8d799a27e189e382547930a20d0d11a630",
       "origin": "release",
       "owner": "$batch"
     }
@@ -41993,7 +42251,7 @@ export const BATCH66_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch66-release-20261020/source-bundle.json",
-    "sha256": "c7029083cc3c50aad6e188f4d5f7abf079ff0b3d13ae7b360d9f7dd82c2a2434"
+    "sha256": "37495df384ad84677a965b2903816e1c133ee966d3e18e9e41cbefa5eae96177"
   },
   "protected_source_inputs": [
     {
@@ -42242,6 +42500,12 @@ export const BATCH66_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/concept-generation.json",
       "sha256": "c6f493b5adb3125e9d4df1bcfe9baa881f9175de0b6afe2e137afd6a3b209387",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/concept-original.png",
+      "sha256": "a0fece5aaccb6ace5f163f135e9739ed5519bf76f942995f141911ed68af2643",
       "origin": "source",
       "owner": "$batch"
     },
@@ -43104,6 +43368,12 @@ export const BATCH66_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/concept-original.png",
+      "sha256": "c97ea60ffd273f402f760e01fa4190073fa5edfc0ef8cbf1810a0ba1e5768e6c",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/concept-prompt.txt",
       "sha256": "9dc340c6e546eb64118d5f39bc455ac1b3cd0fe29f8866a05ff00791822401f8",
       "origin": "source",
@@ -43837,7 +44107,7 @@ export const BATCH66_RELEASE = {
     },
     {
       "path": "qa/batch66-release-20261020/process-archive-index.json",
-      "sha256": "0266852bf8308f8879ee49965b3235a978c78facb4dfe37aeaee0e9e8aa9428d",
+      "sha256": "f6b01c590721bece7987f66201669d56c533adda72c5459c7a4e884234554aa0",
       "origin": "release",
       "owner": "$batch"
     }
@@ -43862,7 +44132,7 @@ export const BATCH67_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch67-release-20261020/source-bundle.json",
-    "sha256": "bb25b91472c6ab806aac0725f4fc83a553c29673ddffa3140db0e75eb5a0c7da"
+    "sha256": "21d2956e17f00df967385f70de6b5df7a458282bd3c6f7543ab3dcaefcce0768"
   },
   "protected_source_inputs": [
     {
@@ -44151,6 +44421,12 @@ export const BATCH67_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/balanced-rock/r001/concept-generation.json",
       "sha256": "e9466a361a8a99945a8aeff388613b9eb3c99a6229e470f97302339c19826422",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/balanced-rock/r001/concept-original.png",
+      "sha256": "46abe354341f37c26d4e8805b7fe1726395d88ce9c000666655327ac52bc99a9",
       "origin": "source",
       "owner": "$batch"
     },
@@ -44605,6 +44881,12 @@ export const BATCH67_RELEASE = {
       "owner": "$batch"
     },
     {
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/marpolia/r001/concept-original.png",
+      "sha256": "46abe354341f37c26d4e8805b7fe1726395d88ce9c000666655327ac52bc99a9",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
       "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/marpolia/r001/concept-prompt.txt",
       "sha256": "740f94e8d7ab699dd1c5ebbc6d15fa591f9d6dab4e645ccf49867ed732ed73f8",
       "origin": "source",
@@ -44859,6 +45141,12 @@ export const BATCH67_RELEASE = {
     {
       "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/u-shaped-glacial-valley/r001/concept-generation.json",
       "sha256": "e9466a361a8a99945a8aeff388613b9eb3c99a6229e470f97302339c19826422",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/u-shaped-glacial-valley/r001/concept-original.png",
+      "sha256": "46abe354341f37c26d4e8805b7fe1726395d88ce9c000666655327ac52bc99a9",
       "origin": "source",
       "owner": "$batch"
     },
@@ -45722,7 +46010,7 @@ export const BATCH67_RELEASE = {
     },
     {
       "path": "qa/batch67-release-20261020/process-archive-index.json",
-      "sha256": "9762f4d0275e1aa92355b66014bcaed04a57849b3083d67043e11bb81b9044ef",
+      "sha256": "4aecda50ff457f7d20459f87d29c759a680829af07341519d1fc75119fb4bdae",
       "origin": "release",
       "owner": "$batch"
     }
