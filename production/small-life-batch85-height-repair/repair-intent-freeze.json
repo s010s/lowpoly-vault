@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-20T21:50:13.542600+00:00",
+  "purpose": "Three isolated real geometry height repairs only; original freezes and failed bytes remain immutable.",
+  "parent_local_commit": "28261ac79bf82fee9a056e80a1317b89ce298bf0",
+  "public_source_url": null,
+  "original_maker_commit": "b727e577737d5108f5316ab898e8d7cbc4948f9f",
+  "original_qa": {
+    "path": "/workspace/shared/lowpoly-batch85-independent-qa-20261020/independent-qa.report.json",
+    "sha256": "7ddbcf2f7f1ad97ade71917ef4072d409ec8807fd3b1f00edb2fa1e1612ade5b"
+  },
+  "original_qa_measurement_algorithm": {
+    "path": "/workspace/shared/lowpoly-batch85-independent-qa-20261020/measure_parameters.py",
+    "sha256": "52c1ab37bc295503fc1adb2ae02c8a8d900a59804a726e114474097b7189361b"
+  },
+  "source_inspection": {
+    "at": "2026-10-20T21:50:13.542833+00:00",
+    "text_urls": [
+      "https://www.nps.gov/articles/valleyandpiedmontglaciers.htm",
+      "https://www.nps.gov/places/malaspina-glacier.htm",
+      "https://www.usgs.gov/media/images/fissure-8-lava-channel",
+      "https://ojs.zrc-sazu.si/carsologica/article/download/277/266/544"
+    ],
+    "personally_inspected_pixels": [
+      {
+        "path": "/workspace/shared/lowpoly-batch85-evidence/consult-only/piedmont.jpg",
+        "sha256": "4a1a50a5f6d75fae39c9a251e29d88b2dcf9d9caf442ea1e723f60c4246ac88b"
+      },
+      {
+        "path": "/workspace/shared/lowpoly-batch85-evidence/consult-only/lava.jpg",
+        "sha256": "2457716a979ceece505a9d78f5c2d844ca05a17cdcfced6e583dc40391610850"
+      },
+      {
+        "path": "/workspace/shared/lowpoly-batch85-evidence/consult-only/polje-page7.png",
+        "sha256": "b3302f9dd184bbfa2ee30a53cdeb6c7b3c825cd0f637e27d30961876402e2971"
+      }
+    ],
+    "observations": {
+      "piedmont": "Primary aerial and NPS text show confined mountain outlet spreading into broad foreland lobe. Generic art scale remains, no Malaspina survey claim.",
+      "lava": "USGS image and description support higher irregular levee, lower cooling lava floor. Model remains generic inactive form, no emission.",
+      "polje": "Gams p27 definition and p31 actual photographs show broad flat sediment basin enclosed by higher circumference. No universal genesis or hydrology simulation asserted."
+    },
+    "consult_only": true,
+    "rights": "Reference pixels retained outside repository; not redistributed, incorporated or used as textures."
+  },
+  "invariants": [
+    "Original renderer, palette, scale, sampling, topology and factual scope unchanged except bounded height vertices.",
+    "No Namacalathus change or re-review.",
+    "Small diagnostic and component measurements before final lifecycle; final triplet binds before eight fresh512px views.",
+    "GPU and scene not run; independent visual/factual/specification approval pending."
+  ],
+  "items": [
+    {
+      "asset_id": "piedmont-glacier",
+      "from_revision": "r004",
+      "new_revision": "r005",
+      "repair_intent": "Preserve r004 25-section ice, substrate and rear cap separation exactly. Scale only east shoulder relief above z52 by0.98, retaining x/y coordinates and all west shoulder vertices. Frozen maximum390m remains unchanged; expected east max387.634m.",
+      "original_brief": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r001/original-brief.json",
+        "sha256": "e08d743ab3d0672fc84d34ec53146843224dd43a54337edc6192dcf7f27faf4e"
+      },
+      "original_config": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r001/config.json",
+        "sha256": "fe74e46b70c913dff4002b21ff7fdc1d743fafbb6b85f7d5cd3fa1feb24398e3"
+      },
+      "original_references": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r001/references.json",
+        "sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+      },
+      "failed_glb": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r004/artifacts/piedmont-glacier.glb",
+        "sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba"
+      },
+      "previous_final_views": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r004/views/render-manifest.json",
+        "sha256": "2eeb0f954dad1036e1aaa003f947ec9d7a86eb55ac37249dd49bd2eab1c71f97"
+      },
+      "concept_pixels_inspected": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/concepts/piedmont-glacier-concept.png",
+        "sha256": "8edaf6049be5bcd875ed429a68481670d7259374c34833a6e5941d290d254f4a"
+      }
+    },
+    {
+      "asset_id": "lava-channel",
+      "from_revision": "r002",
+      "new_revision": "r003",
+      "repair_intent": "Preserve the full S-plan, quiet lowered floor and all longitudinal/crosswise sampling. Lower only right bank center crest column j9 by1.7m (nominal base12 to10.3), preserving its irregular oscillations and all other columns. Both per-section crest ranges remain8\u201313m; no clipping or flat cap.",
+      "original_brief": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/lava-channel/r001/original-brief.json",
+        "sha256": "f034e7111cbf29bec8b41de5fdd4408a7a1b34fefddbcc16c0cbd2f49ea0b0bb"
+      },
+      "original_config": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/lava-channel/r001/config.json",
+        "sha256": "a74c096de1697173e010f6bf32fd0b641d18645b040f54edb70fe90aa228aff0"
+      },
+      "original_references": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/lava-channel/r001/references.json",
+        "sha256": "6b049e21e098df0f7f205345e5431073bc6ce42e1f8eae6afd59554316fd166f"
+      },
+      "failed_glb": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/lava-channel/r002/artifacts/lava-channel.glb",
+        "sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5"
+      },
+      "previous_final_views": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/lava-channel/r002/views/render-manifest.json",
+        "sha256": "520705d2d23b0feed080fae577613876072153bffdc08f40aca55e65052318f3"
+      },
+      "concept_pixels_inspected": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/concepts/lava-channel-concept.png",
+        "sha256": "c3aadee240fe9a6c5680cb517076ba2a95e1fd521b097609042ff6bc3e60f899"
+      }
+    },
+    {
+      "asset_id": "karst-polje",
+      "from_revision": "r002",
+      "new_revision": "r003",
+      "repair_intent": "Retain all x/y positions, z45 sediment floor, foot-slope and outer skirt. For each56angular sectors compute original maximum of radial rings4/5, target=175+0.55*(old_crest-128), and rescale only those two upper-ring reliefs about z45 by(target-45)/(old_crest-45). This preserves variable crest positions and irregular heights; expected sector maxima175.37\u2013235.96m within170\u2013270. No raising of the floor/base or new plinth.",
+      "original_brief": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/karst-polje/r001/original-brief.json",
+        "sha256": "d2940b22acf32ec4afaa6951f9a00da3d4c887dd0c8a05cda43cc2ceb0438592"
+      },
+      "original_config": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/karst-polje/r001/config.json",
+        "sha256": "8b744b0bc6ddc9634a1d5ac23dcb22105404cd3b2a919fd2af0aa0fead1d8607"
+      },
+      "original_references": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/karst-polje/r001/references.json",
+        "sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+      },
+      "failed_glb": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/karst-polje/r002/artifacts/karst-polje.glb",
+        "sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41"
+      },
+      "previous_final_views": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/karst-polje/r002/views/render-manifest.json",
+        "sha256": "075c1b94e5eae7b6605556d318fdca66bc7c6e636ab4409b873a7db534906a82"
+      },
+      "concept_pixels_inspected": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/concepts/karst-polje-concept.png",
+        "sha256": "dc5f7557e08105790c683ef8541c251213de37203e9197707f787a851ce67892"
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/tools/source_reexport.py",
+    "--",
+    "/workspace/shared/lowpoly-batch85-height-repair-20261020",
+    "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts",
+    "/workspace/shared/lowpoly-batch85-height-repair-evidence-20261020/source-queue/build/lava-channel/r003/source-reopen-reexport/7ab01fb7fcfb618121dcce2522044e456bd24546bb18dd7fd15c6dbdd01cacd5/20261020T215508-597d1c6f93a344daa22454e5905cae0a/outputs/saved-source"
+  ],
+  "created_at": "2026-10-20T21:55:08.446367+00:00",
+  "fingerprint": "7ab01fb7fcfb618121dcce2522044e456bd24546bb18dd7fd15c6dbdd01cacd5",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "checker": {
+        "bytes": 4455,
+        "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/tools/source_reexport.py",
+        "sha256": "80cdd4c293e307c3181d1907f0994611042449860a95bc7e6a4c4a9c0e103bf7"
+      },
+      "glb": {
+        "bytes": 73992,
+        "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts/lava-channel.glb",
+        "sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba"
+      },
+      "metadata": {
+        "bytes": 3195,
+        "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts/metadata.json",
+        "sha256": "1f9b48208a80770acf5c33ad869d148a09c1a53bc980023a0585bd03c179f8b5"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "source": {
+        "bytes": 551056,
+        "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts/lava-channel.blend",
+        "sha256": "788edf508e8569c662a9e04512920180333720942d97feba76d465ac919c6e09"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:checker}",
+        "--",
+        "/workspace/shared/lowpoly-batch85-height-repair-20261020",
+        "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts",
+        "{output_dir}/saved-source"
+      ],
+      "asset_id": "lava-channel",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch85-height-repair-20261020/scripts/asset_common.py",
+        "checker": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/tools/source_reexport.py",
+        "glb": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts/lava-channel.glb",
+        "metadata": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts/metadata.json",
+        "qa_glb": "/workspace/shared/lowpoly-batch85-height-repair-20261020/scripts/qa_glb.py",
+        "source": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/artifacts/lava-channel.blend"
+      },
+      "job_id": "source-reopen-reexport",
+      "outputs": [
+        "saved-source/source-reexport.report.json",
+        "saved-source/saved-source-reexport.glb"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 1200
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1200
+  },
+  "run_id": "20261020T215505-280997dc41c343989a9ea784e759a5e8"
+}

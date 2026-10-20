@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "asset_id": "karst-polje",
+  "revision": "r003",
+  "maker": {
+    "id": "batch85-height-repair-maker",
+    "task_id": "repair_batch85_height_limits"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/artifacts/karst-polje.glb",
+      "sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7"
+    },
+    "brief": {
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/delivery-brief.json",
+      "sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891"
+    },
+    "references": {
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/references.json",
+      "sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+    },
+    "source": {
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/artifacts/karst-polje.blend",
+      "sha256": "3fa38d62fe1665955bdfe12078be0aa29a6926955039afe4411ff5b350fc2db9"
+    },
+    "generator": {
+      "path": "production/small-life-batch85-height-repair/tools/generate.py",
+      "sha256": "26751bae0a598103e71cfa6ea8a5ba5570949223ad99dd5dffb0ecefecb61e28"
+    },
+    "config": {
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/config.json",
+      "sha256": "64df56738e64813338002ad3fa3e61e4b585d15651ee71a44c37e28daf6993b3"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch85-height-repair/dependencies.json",
+      "sha256": "3d17758576d75a5dc11da7f51b3912741d3872b60d7071ebde349147f7e71d69"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+        "brief_sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891",
+        "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+      },
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/technical.report.json",
+      "sha256": "515038b7ef1c4e6847360dde469f290e1b27cd549985025cda5ffc907e5c9457"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+        "brief_sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891",
+        "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+      },
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/runtime-parse.report.json",
+      "sha256": "533fc4da522a8834c0109ab9ba451e9028fd4f5a2943420fbd59d05b20e74509"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+        "brief_sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891",
+        "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+      },
+      "path": "production/small-life-batch85-height-repair/karst-polje/r003/views/render-manifest.json",
+      "sha256": "2a0cd6b9c299d6e7ee00629f6eb5090585b4cdd02ec4518fc3e31dfd7a1102d5"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch85-height-repair-maker",
+        "task_id": "repair_batch85_height_limits"
+      },
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+        "brief_sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891",
+        "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Actual checks and raw provenance pinned."
+        }
+      ],
+      "note": "Maker automated exact-subject checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-20T21:58:47.909806+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "GAMS2005"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker inspection and original frozen-height repair completed; fresh independent approval pending.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "GAMS2005"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker inspection and original frozen-height repair completed; fresh independent approval pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker inspection and original frozen-height repair completed; fresh independent approval pending."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch85-height-repair-maker",
+        "task_id": "repair_batch85_height_limits"
+      },
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+        "brief_sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891",
+        "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Actual checks and raw provenance pinned."
+        }
+      ],
+      "note": "Maker automated exact-subject checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-20T21:58:47.909878+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run; CPU stills do not establish GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run; no intended composed scene or website acceptance."
+    }
+  },
+  "blockers": [
+    {
+      "id": "fresh-independent-difference-review-pending",
+      "status": "open",
+      "description": "Independent visual/factual/specification difference review of these exact new revisions pending."
+    },
+    {
+      "id": "gpu-scene-not-run",
+      "status": "open",
+      "description": "GPU and composed scene unrun; no formal/user/publication approval."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

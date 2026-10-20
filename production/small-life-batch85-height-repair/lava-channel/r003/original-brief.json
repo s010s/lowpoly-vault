@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "asset_id": "lava-channel",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Original static low-poly catalog candidate; not formal approval or public release.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect eight individual512px exact-GLB views. All three identifying features must read, no visible coplanar overlap, faceted coherent surfaces, full volume. Actual concept hero/side/top inspected: open trough readable but banks resemble masonry in places. Use continuous irregular welded faceted ridges rather than stacked identical cubes. Retain S plan and quieter inset floor; no emissive material.",
+      "required_sources": [
+        "USGS-CHANNEL"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify: Long open S-bending trough with a continuous lowered solid floor. Two unequal built-up irregular lava levees stand well above floor, no roof. Cooled fractured floor planar relief subordinate to major trough; open at both truncated ends. Preserve uncertainty: Generic inactive cooled channel process-form. USGS photo supports levee/floor height relation, not this illustrative size, shape or current temperature. No eruption simulation, real site copy or geological date.",
+      "required_sources": [
+        "USGS-CHANNEL"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight fixed512px views, no turntable. GPU and scene remain separate required later gates.",
+  "frozen_at": "2026-10-20T20:36:19.485050+00:00",
+  "subject": "Cooled lava channel",
+  "representation": "geological-form",
+  "factual_scope": "Generic inactive cooled channel process-form. USGS photo supports levee/floor height relation, not this illustrative size, shape or current temperature. No eruption simulation, real site copy or geological date.",
+  "identifying_features": [
+    "Long open S-bending trough with a continuous lowered solid floor.",
+    "Two unequal built-up irregular lava levees stand well above floor, no roof.",
+    "Cooled fractured floor planar relief subordinate to major trough; open at both truncated ends."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      55,
+      120,
+      13
+    ],
+    "accuracy": "illustrative; not measured subject"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact center; all terrain substrates bottom z0. Isolated skeletal stem bottomz0.",
+  "intended_use": {
+    "role": "static low-poly museum catalog asset",
+    "viewing": "512px diagnostics; desktop gallery and close rotation later",
+    "no_claim": "No collision, dynamics, animation, site or live ecosystem compatibility established."
+  },
+  "surface_profile": "palette-only, opaque, flat faceted, no textures/emission/double-sided concealment",
+  "palette_srgb": [
+    "#363B3E",
+    "#4C5152",
+    "#626361",
+    "#77776E"
+  ],
+  "component_and_cause": {
+    "primary": "Long open S-bending trough with a continuous lowered solid floor.",
+    "secondary": "Two unequal built-up irregular lava levees stand well above floor, no roof.",
+    "tertiary": "Cooled fractured floor planar relief subordinate to major trough; open at both truncated ends.",
+    "quiet_region": "Cup panels / glacier interior / trough floor / sediment basin, respectively; no uniform micro-noise."
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T20:36:19.485050+00:00",
+    "path": "production/small-life-batch85/concepts/lava-channel-concept.png",
+    "sha256": "c3aadee240fe9a6c5680cb517076ba2a95e1fd521b097609042ff6bc3e60f899",
+    "decisions": "Actual concept hero/side/top inspected: open trough readable but banks resemble masonry in places. Use continuous irregular welded faceted ridges rather than stacked identical cubes. Retain S plan and quieter inset floor; no emissive material."
+  },
+  "parameters": {
+    "length_m": 120,
+    "channel_width_m": 13,
+    "module_width_m": 48,
+    "floor_height_m": 3,
+    "levee_height_range_m": [
+      8,
+      13
+    ],
+    "longitudinal_segments": 32,
+    "cross_sections": 13,
+    "sinuosity_amplitude_m": 9
+  },
+  "deliverable_plan": [
+    "editable Blender source",
+    "standalone GLB",
+    "deterministic generator, frozen config and dependency closure",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project and Khronos checks",
+    "Three.js exact-GLB parse",
+    "eight actual512px images and lossless sheet"
+  ],
+  "prohibited": [
+    "Copy source image or mesh",
+    "Treat ImageGen as scientific evidence",
+    "Narrow original scope after build",
+    "Change source inventory",
+    "Claim CPU image/Node parse as GPU or composed-scene evidence"
+  ]
+}

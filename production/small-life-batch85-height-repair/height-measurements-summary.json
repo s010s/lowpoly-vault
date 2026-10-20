@@ -1,0 +1,169 @@
+[
+  {
+    "schema_version": 1,
+    "asset_id": "piedmont-glacier",
+    "revision": "r005",
+    "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+    "measured_at": "2026-10-20T21:51:58.260679+00:00",
+    "measurements": {
+      "shoulder_max_z_m": 387.6339416503906,
+      "frozen_max_shoulder_height_m": 390,
+      "shoulder_maxima_m": {
+        "east-mountain-shoulder-mesh": 387.6339416503906,
+        "west-mountain-shoulder-mesh": 345.9754943847656
+      },
+      "rear_throat_width_m": 250.0,
+      "lobe_width_m": 1082.5,
+      "lobe_to_throat_ratio": 4.33,
+      "unchanged_components": "Foreland substrate, continuous ice throat/lobe and west shoulder vertex coordinates byte-float-identical to r004."
+    },
+    "checks": {
+      "shoulder_maximum": true,
+      "lobe_at_least_three_times_throat": true,
+      "palette_materials_unchanged": true
+    },
+    "status": "pass",
+    "method": "Actual GLB POSITION component vertices; axis conversion(x,-z,y). Same crest grouping and56sector algorithm as original independent QA, not foot slopes or floor mistaken for crest.",
+    "independent_qa_algorithm_sha256": "52c1ab37bc295503fc1adb2ae02c8a8d900a59804a726e114474097b7189361b"
+  },
+  {
+    "schema_version": 1,
+    "asset_id": "lava-channel",
+    "revision": "r003",
+    "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+    "measured_at": "2026-10-20T21:51:58.342417+00:00",
+    "measurements": {
+      "longitudinal_rows": 33,
+      "cross_section_vertices": [
+        13
+      ],
+      "left_crest_range_m": [
+        8.85939884185791,
+        12.964069366455078
+      ],
+      "right_crest_range_m": [
+        8.772561073303223,
+        12.880973815917969
+      ],
+      "floor_z_range_m": [
+        2.606297492980957,
+        3.959904432296753
+      ],
+      "frozen_levee_height_range_m": [
+        8,
+        13
+      ],
+      "changed_top_vertices": 33,
+      "height_delta_range_m": [
+        -1.7000007629394531,
+        -1.6999998092651367
+      ]
+    },
+    "checks": {
+      "both_bank_crest_ranges": true,
+      "sampling_unchanged": true,
+      "palette_materials_unchanged": true
+    },
+    "status": "pass",
+    "method": "Actual GLB POSITION component vertices; axis conversion(x,-z,y). Same crest grouping and56sector algorithm as original independent QA, not foot slopes or floor mistaken for crest.",
+    "independent_qa_algorithm_sha256": "52c1ab37bc295503fc1adb2ae02c8a8d900a59804a726e114474097b7189361b"
+  },
+  {
+    "schema_version": 1,
+    "asset_id": "karst-polje",
+    "revision": "r003",
+    "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+    "measured_at": "2026-10-20T21:51:58.388986+00:00",
+    "measurements": {
+      "floor_height_m": 45,
+      "flat_floor_vertices": 169,
+      "floor_bounds_xy_m": [
+        [
+          -405.9181823730469,
+          427.261962890625
+        ],
+        [
+          -783.1632080078125,
+          753.840576171875
+        ]
+      ],
+      "sector_count": 56,
+      "sector_crest_z_m": [
+        223.8174285888672,
+        230.04908752441406,
+        234.2052001953125,
+        223.9498748779297,
+        214.38938903808594,
+        210.10989379882812,
+        214.3435821533203,
+        214.0491943359375,
+        220.98658752441406,
+        220.07994079589844,
+        201.285400390625,
+        179.20387268066406,
+        175.37322998046875,
+        193.98680114746094,
+        214.71224975585938,
+        214.45751953125,
+        204.2229461669922,
+        205.98257446289062,
+        219.9176483154297,
+        226.8516387939453,
+        219.9109344482422,
+        214.72120666503906,
+        217.3866424560547,
+        224.23887634277344,
+        228.96047973632812,
+        226.97203063964844,
+        217.95556640625,
+        199.8287811279297,
+        187.37408447265625,
+        181.33673095703125,
+        199.79150390625,
+        217.56198120117188,
+        211.03298950195312,
+        193.83543395996094,
+        195.5907440185547,
+        206.6147918701172,
+        218.94374084472656,
+        217.302734375,
+        214.62020874023438,
+        220.6122589111328,
+        231.95806884765625,
+        235.9553680419922,
+        227.33575439453125,
+        215.48464965820312,
+        203.1083526611328,
+        193.8335723876953,
+        195.9879608154297,
+        210.5310516357422,
+        220.01937866210938,
+        205.9427947998047,
+        184.01104736328125,
+        179.70643615722656,
+        196.4619140625,
+        214.53982543945312,
+        216.0411376953125,
+        211.5570526123047
+      ],
+      "local_rim_crest_range_m": [
+        175.37322998046875,
+        235.9553680419922
+      ],
+      "frozen_rim_height_range_m": [
+        170,
+        270
+      ],
+      "below170_count": 0,
+      "above270_count": 0,
+      "floor_and_plan": "All floor vertices and every planar coordinate unchanged; only upper rim rings altered."
+    },
+    "checks": {
+      "all_56_crest_ranges": true,
+      "palette_materials_unchanged": true
+    },
+    "status": "pass",
+    "method": "Actual GLB POSITION component vertices; axis conversion(x,-z,y). Same crest grouping and56sector algorithm as original independent QA, not foot slopes or floor mistaken for crest.",
+    "independent_qa_algorithm_sha256": "52c1ab37bc295503fc1adb2ae02c8a8d900a59804a726e114474097b7189361b"
+  }
+]
