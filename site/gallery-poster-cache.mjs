@@ -7,9 +7,10 @@ import {mkdir,writeFile,rm} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 import {appendFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
-import {modelPolicyDigest,modelPolicyDigestAtCommit,assertModelArchivalAppendAtCommit} from './ci-model-proof.mjs';
+import {modelPolicyDigest,modelPolicyDigestAtCommit,modelPolicySnapshotAtCommit,assertModelArchivalAppendAtCommit} from './ci-model-proof.mjs';
 import {controlDigest} from './ci-provenance.mjs';
 import {proofGet} from './ci-proof-fetch.mjs';
+import {proofReadBudget} from './ci-proof-budget.mjs';
 import {posterSharedInputs,posterInputKey} from './gallery-poster-inputs.mjs';
 import {assertTrustedMainRun,assertTrustedSuite} from './ci-model-cache.mjs';
 import {POSTER_PROOF_FILE,posterArtifactName,posterHash,posterObjectHash,posterRuntime,assertPosterPNG,assertPosterProof} from './gallery-poster-proof.mjs';
@@ -42,20 +43,23 @@ export function assertPosterArtifact(metadata,run,bytes){
  assert.equal(metadata.workflow_run?.id,run.id);assert.equal(metadata.workflow_run?.head_sha,run.head_sha);assert.equal(metadata.workflow_run?.repository_id,run.repository.id);assert.equal(metadata.workflow_run?.head_repository_id,run.repository.id,'Fork poster artifact');
  assert.match(metadata.digest||'',/^sha256:[a-f0-9]{64}$/,'Missing independent gallery digest');assert(bytes.length<=MAX_POSTER_ARCHIVE_BYTES);assert.equal(`sha256:${posterHash(bytes)}`,metadata.digest,'Independent gallery artifact digest differs');
 }
-function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch}){
+function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch,budget=proofReadBudget(180000,{maximumMs:180000})}){
  assert(/^[\w.-]+\/[\w.-]+$/.test(repository||''));assert(token,'Read-only GitHub poster token unavailable');
- const signal=AbortSignal.timeout(180000),url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`,headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
- const api=async path=>{const response=await proofGet(url(path),{headers,signal},{fetchImpl,stage:`gallery API ${path.split('?')[0]||'repository metadata'}`});assert(response.ok,`GitHub poster read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
+ const {signal}=budget;
+ const get=(url,options,stage)=>{budget.check();return proofGet(url,options,{fetchImpl,stage,checkBudget:budget.check}).then(response=>{budget.check();return response;});};
+ const url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`,headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+ const api=path=>budget.measureAsync(`gallery API ${path.split('?')[0]||'repository metadata'}`,async()=>{const response=await get(url(path),{headers,signal},`gallery API ${path.split('?')[0]||'repository metadata'}`);assert(response.ok,`GitHub poster read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();});
  const artifact=async run=>{
   const listed=await api(`actions/runs/${run.id}/artifacts?per_page=100`),matches=listed.artifacts.filter(item=>item.name===posterArtifactName(run.run_attempt));assert.equal(matches.length,1,'Missing or ambiguous dedicated gallery artifact');
   const metadata=await api(`actions/artifacts/${matches[0].id}`);assert.equal(metadata.id,matches[0].id);
-  const redirect=await proofGet(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'},{fetchImpl,stage:'gallery artifact redirect'});assert.equal(redirect.status,302,'Missing gallery download redirect');
+  const redirect=await get(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'},'gallery artifact redirect');assert.equal(redirect.status,302,'Missing gallery download redirect');
   const destination=new URL(redirect.headers.get('location'));assert.equal(destination.protocol,'https:');assert.equal(destination.username,'');assert.equal(destination.password,'');
-  const download=await proofGet(destination.href,{signal},{fetchImpl,stage:'gallery artifact storage'});assert(download.ok,'Gallery artifact download failed');assert(Number(download.headers.get('content-length')||0)<=MAX_POSTER_ARCHIVE_BYTES);
+  const download=await get(destination.href,{signal},'gallery artifact storage');assert(download.ok,'Gallery artifact download failed');assert(Number(download.headers.get('content-length')||0)<=MAX_POSTER_ARCHIVE_BYTES);
+  const data=await budget.measureAsync('gallery artifact body',async()=>{
   const chunks=[];let length=0;
   if(download.body?.getReader){const reader=download.body.getReader();try{while(true){const {done,value}=await reader.read();if(done)break;length+=value.length;assert(length<=MAX_POSTER_ARCHIVE_BYTES,'Oversized streamed gallery artifact');chunks.push(Buffer.from(value));}}finally{await reader.cancel();}}
   else {const value=Buffer.from(await download.arrayBuffer());assert(value.length<=MAX_POSTER_ARCHIVE_BYTES);chunks.push(value);}
-  const data=Buffer.concat(chunks);assertPosterArtifact(metadata,run,data);return {...extractPosterArtifact(data),metadata};
+  return Buffer.concat(chunks);});assertPosterArtifact(metadata,run,data);return {...extractPosterArtifact(data),metadata};
  };
  return {api,artifact};
 }
@@ -65,31 +69,36 @@ async function sourceManifest(api,sha){
  assert.equal(blob.encoding,'base64');if(blob!==file)assert.equal(blob.sha,file.sha);return JSON.parse(Buffer.from(blob.content.replace(/\s/g,''),'base64').toString('utf8'));
 }
 /** Ordering is local only; every candidate still needs independent API ancestry. */
-export function rankPosterCandidates(candidates,{root,baseSha}){
- const distance=sha=>{try{assert(SHA.test(sha||''));execFileSync('git',['merge-base','--is-ancestor',sha,baseSha],{cwd:root,stdio:'ignore'});return Number(execFileSync('git',['rev-list','--count',`${sha}..${baseSha}`],{cwd:root,encoding:'utf8'}));}catch{return Number.MAX_SAFE_INTEGER;}};
- const distances=new Map(candidates.map(run=>[run.head_sha,distance(run.head_sha)]));
+export function rankPosterCandidates(candidates,{root,baseSha,budget}){
+ const distance=sha=>{try{assert(SHA.test(sha||''));execFileSync('git',['merge-base','--is-ancestor',sha,baseSha],{cwd:root,stdio:'ignore',timeout:budget?.remaining()});return Number(execFileSync('git',['rev-list','--count',`${sha}..${baseSha}`],{cwd:root,encoding:'utf8',timeout:budget?.remaining()}));}catch{budget?.check();return Number.MAX_SAFE_INTEGER;}};
+ const distances=new Map([...new Set(candidates.map(run=>run.head_sha))].map(sha=>{budget?.check();return [sha,distance(sha)];}));
  return [...candidates].sort((a,b)=>distances.get(a.head_sha)-distances.get(b.head_sha)||b.id-a.id);
 }
-export async function fetchVerifiedPosterBaseline({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,shared,policy_sha256=modelPolicyDigest(root),runtime=posterRuntime(shared),token,fetchImpl}={}){
+export async function fetchVerifiedPosterBaseline({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,shared,policy_sha256=modelPolicyDigest(root),runtime=posterRuntime(shared),token,fetchImpl,timeoutMs=180000,onTiming}={}){
  const reasons=[];
  try{
   assert(!process.env.CHROMIUM_PATH,'Custom browser executable cannot reuse poster proof');
   assert(SHA.test(baseSha||'')&&!/^0+$/.test(baseSha),'No exact poster comparison base');assert(SHA.test(currentSha||''));
-  const {api,artifact}=client({repository,token,fetchImpl}),repo=await api('');assert.equal(repo.full_name,repository);assert.equal(repo.default_branch,'main');
+  const budget=proofReadBudget(timeoutMs,{maximumMs:180000,onTiming}),snapshots=new Map();
+  const {api,artifact}=client({repository,token,fetchImpl,budget}),repo=await api('');assert.equal(repo.full_name,repository);assert.equal(repo.default_branch,'main');
   const main=await api('git/ref/heads/main');assert.equal(main.ref,'refs/heads/main');await assertAncestor(api,baseSha,currentSha);await assertAncestor(api,baseSha,main.object.sha);
   const workflow=await api('actions/workflows/full-release-review.yml');assert.equal(workflow.path,WORKFLOW);assert(Number.isSafeInteger(workflow.id));
-  const listed=await api(`actions/workflows/${workflow.id}/runs?branch=main&status=success&per_page=100`),candidates=rankPosterCandidates(listed.workflow_runs.filter(run=>run.head_sha!==currentSha).slice(0,100),{root,baseSha});
-  for(const summary of candidates){try{
-   await assertAncestor(api,summary.head_sha,baseSha);assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root}),policy_sha256,'Poster protected control plane changed; full baseline required');
-   assertModelArchivalAppendAtCommit(summary.head_sha,{root});
+  const listed=await api(`actions/workflows/${workflow.id}/runs?branch=main&status=success&per_page=100`),candidates=budget.measure('poster candidate ranking',()=>rankPosterCandidates(listed.workflow_runs.filter(run=>run.head_sha!==currentSha).slice(0,100),{root,baseSha,budget}));
+  for(const summary of candidates){budget.check();try{
+   await assertAncestor(api,summary.head_sha,baseSha);
+   if(!snapshots.has(summary.head_sha))snapshots.set(summary.head_sha,budget.measure('poster committed policy',()=>modelPolicySnapshotAtCommit(summary.head_sha,{root,budget})));
+   const snapshot=snapshots.get(summary.head_sha);
+   assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root,snapshot,budget}),policy_sha256,'Poster protected control plane changed; full baseline required');
+   budget.measure('poster current archive append',()=>assertModelArchivalAppendAtCommit(summary.head_sha,{root,snapshot,budget}));
    const run=await api(`actions/runs/${summary.id}`);assertTrustedMainRun(run,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});
    const attempt=await api(`actions/runs/${run.id}/attempts/${run.run_attempt}`);assertTrustedMainRun(attempt,{repository,repositoryId:repo.id,sourceSha:run.head_sha,workflowId:workflow.id});assert.equal(attempt.id,run.id);assert.equal(attempt.run_attempt,run.run_attempt);assert.equal(attempt.check_suite_id,run.check_suite_id);assert.equal(attempt.event,run.event);
    await assertTrustedSuite(await api(`check-suites/${run.check_suite_id}`),run);
    const bundle=await artifact(run),manifest=await sourceManifest(api,run.head_sha);
    assertPosterProof(bundle.proof,{repository,sourceSha:run.head_sha,runId:run.id,runAttempt:run.run_attempt,policy_sha256,runtime,manifest});
    const verification={version:1,kind:'independently-verified-gallery-artifact',repository,source_commit:run.head_sha,comparison_base:baseSha,run_id:run.id,run_attempt:run.run_attempt,workflow_id:workflow.id,check_suite_id:run.check_suite_id,artifact_id:bundle.metadata.id,artifact_sha256:bundle.metadata.digest,proof_sha256:posterObjectHash(bundle.proof)};
-   return {verified:authenticatePosterBundle(bundle.proof,bundle.files,verification),reasons};
-  }catch(error){reasons.push(`Poster candidate ${summary.id} rejected: ${error.message}`);}}
+   const verified=authenticatePosterBundle(bundle.proof,bundle.files,verification);
+   budget.check();return {verified,reasons};
+  }catch(error){reasons.push(`Poster candidate ${summary.id} rejected: ${error.message}`);budget.check();}}
   throw Error('No independently successful compatible main poster baseline');
  }catch(error){return {verified:null,reasons:[...reasons,error.message]};}
 }

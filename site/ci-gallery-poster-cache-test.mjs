@@ -43,11 +43,11 @@ try{
  const shadow=mkdtempSync(join(tmpdir(),'poster-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
  try{for(const module of ['zipfile','json'])writeFileSync(join(shadow,`${module}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractPosterArtifact(original).proof,proof,'Isolated poster decoding ignores checkout/PYTHONPATH modules');}
  finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
- async function lookup({document=proof,download,alterRun,alterSuite,alterArtifact,missing=false,source=baseManifest,ancestry=true,currentPolicy=policy_sha256,actualRuntime=runtime,independentDigest,attempt=1,apiFailure=false,socketAt,socketFailures=0}={}){
+ async function lookup({document=proof,download,alterRun,alterSuite,alterArtifact,missing=false,source=baseManifest,ancestry=true,currentPolicy=policy_sha256,actualRuntime=runtime,independentDigest,attempt=1,apiFailure=false,socketAt,socketFailures=0,retryCandidate=false,timeoutMs,onTiming}={}){
   const bytes=download||archive(document),r=structuredClone(run),s=structuredClone(suite),a={id:303,name:posterArtifactName(1),expired:false,digest:independentDigest||`sha256:${posterHash(bytes)}`,workflow_run:{id:101,head_sha:baseSha,repository_id:12,head_repository_id:12}};
-  alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);let socketCalls=0,firstSocketOptions;
+  alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[],timings=[];let socketCalls=0,firstSocketOptions;
   const fetchImpl=async(url,options={})=>{
-   url=String(url);
+   url=String(url);requests.push(url);
    if(socketAt&&url.endsWith(socketAt)){
     socketCalls++;if(firstSocketOptions)assert.equal(options,firstSocketOptions,'Retries keep the original signal/options');else firstSocketOptions=options;
     if(socketCalls<=socketFailures)throw Object.assign(new TypeError('sensitive transport text'),{cause:{code:'UND_ERR_SOCKET'}});
@@ -63,7 +63,8 @@ try{
    else if(path==='git/ref/heads/main')value={ref:'refs/heads/main',object:{sha:currentSha}};
    else if(path.startsWith('compare/'))value={status:ancestry?'ahead':'diverged',merge_base_commit:{sha:baseSha}};
    else if(path==='actions/workflows/full-release-review.yml')value={id:99,path:'.github/workflows/full-release-review.yml'};
-   else if(path.startsWith('actions/workflows/99/runs?'))value={workflow_runs:missing?[]:[{id:101,head_sha:baseSha}]};
+   else if(path.startsWith('actions/workflows/99/runs?'))value={workflow_runs:missing?[]:[...(retryCandidate?[{id:102,head_sha:baseSha}]:[]),{id:101,head_sha:baseSha}]};
+   else if(path==='actions/runs/102')value={...r,id:102,conclusion:'failure'};
    else if(path==='actions/runs/101')value=r;
    else if(path===`actions/runs/101/attempts/${r.run_attempt}`)value={...r,run_attempt:attempt};
    else if(path==='check-suites/202')value=s;
@@ -75,8 +76,25 @@ try{
    else throw Error(`Unexpected fixture URL ${url}`);
    return new Response(JSON.stringify(value),{headers:{'content-type':'application/json'}});
   };
-  const result=await fetchVerifiedPosterBaseline({root,repository,baseSha,currentSha,shared,policy_sha256:currentPolicy,runtime:actualRuntime,token:'fixture-token',fetchImpl});return {...result,socketCalls};
+  const result=await fetchVerifiedPosterBaseline({root,repository,baseSha,currentSha,shared,policy_sha256:currentPolicy,runtime:actualRuntime,token:'fixture-token',fetchImpl,timeoutMs,onTiming:entry=>{timings.push(entry);onTiming?.(entry);}});return {...result,socketCalls,requests,timings};
  }
+ const rerun=await lookup({retryCandidate:true});assert(rerun.verified,rerun.reasons.join('; '));
+ assert.equal(rerun.timings.filter(row=>row.stage==='poster committed policy').length,1,'Same-commit reruns share one authenticated policy snapshot');
+ assert.equal(rerun.timings.filter(row=>row.stage==='poster current archive append').length,2,'Mutable worktree is not cached');
+ const noBudget=await lookup({timeoutMs:0});assert.equal(noBudget.verified,null);assert.equal(noBudget.requests.length,0);
+ const exhaustedLocal=await lookup({retryCandidate:true,timeoutMs:1000,onTiming:entry=>{if(entry.stage==='poster committed policy')Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,1010);}});
+ assert.equal(exhaustedLocal.verified,null);assert.equal(exhaustedLocal.reasons.filter(reason=>reason.startsWith('Poster candidate ')).length,1,'Budget exhaustion stops the candidate loop');
+ assert(!exhaustedLocal.requests.some(url=>/\/actions\/runs\//.test(url)),'No run metadata GET starts after local validation exhausts the total budget');
+ // The final authenticated bundle copy is synchronous too: expiry there must
+ // not return a reusable handle after the last API and validation checks.
+ const originalClone=globalThis.structuredClone;let tailCopies=0;
+ globalThis.structuredClone=(value,...options)=>{if(value?.kind==='gallery-poster-capture-proof'){tailCopies++;Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,1010);}return originalClone(value,...options);};
+ try{
+  const exhaustedTail=await lookup({download:original,timeoutMs:1000});
+  assert.equal(tailCopies,1,'Exercise the final authenticated bundle copy');
+  assert.equal(exhaustedTail.verified,null,'Synchronous final copying cannot return a handle past the total deadline');
+  assert(exhaustedTail.reasons.some(reason=>reason.includes('budget exhausted')));
+ }finally{globalThis.structuredClone=originalClone;}
  const found=await lookup();assert(found.verified,found.reasons.join('; '));
  assert((await lookup({apiFailure:true})).reasons.some(reason=>reason==='GitHub poster read failed (503) at repository metadata'),'A failed read reports the safe endpoint, not credentials');
  for(const socketAt of ['/actions/runs/101','/actions/artifacts/303/zip','/posters.zip']){

@@ -243,30 +243,47 @@ print(json.dumps(valid))
   assert(Array.isArray(valid)&&valid.every(path=>checks.some(row=>row.path===path))&&new Set(valid).size===valid.length,'Invalid generated Python cache verification');
   return new Set(valid);
 }
-function currentPolicy(root){
+function currentPolicy(root,{budget}={}){
+  budget?.check();
   const paths=POLICY_ROOTS.flatMap(path=>files(root,path));
   // Imported local data can live outside the usual source roots.
-  const read=path=>bytes(root,path);
+  const read=path=>{budget?.check();return bytes(root,path);};
   // A single source scan inventories repository directories, not node_modules or builds.
   const extra=['assets','production'].flatMap(path=>files(root,path));
   const inventory=[...paths,...extra],generated=generatedPythonCaches(root,inventory);
-  return policyInputs(inventory.filter(path=>!generated.has(path)),read,path=>lstatSync(resolve(root,path)).mode);
+  const policy=policyInputs(inventory.filter(path=>!generated.has(path)),read,path=>lstatSync(resolve(root,path)).mode);
+  budget?.check();return policy;
 }
 export function modelPolicyDigest(root=process.cwd()){return currentPolicy(resolve(root)).digest;}
-export function modelArchivalInputs(root=process.cwd()){return currentPolicy(resolve(root)).archives;}
-function policyAtCommit(ref,{root=process.cwd()}={}){
+export function modelArchivalInputs(root=process.cwd(),options){return currentPolicy(resolve(root),options).archives;}
+function policyAtCommit(ref,{root=process.cwd(),budget}={}){
   assert(SHA.test(ref),'Exact policy commit required');
-  const git=(...args)=>execFileSync('git',args,{cwd:root,maxBuffer:128*1024*1024});
+  const git=(...args)=>{const output=execFileSync('git',args,{cwd:root,maxBuffer:128*1024*1024,timeout:budget?.remaining()});budget?.check();return output;};
   const entries=git('ls-tree','-r','-z',ref).toString().split('\0').filter(Boolean).map(line=>{const [header,path]=line.split('\t');return {mode:header.split(' ')[0],path};});
   const byPath=new Map(entries.map(row=>[row.path,row])),cache=new Map();
   const read=path=>{assert.equal(byPath.get(path)?.mode,'100644',`Nonregular policy input: ${path}`);if(!cache.has(path))cache.set(path,git('show',`${ref}:${path}`));return cache.get(path);};
   assert(byPath.has('site/ci-model-proof.mjs'),'Base has no v2 model proof policy; full baseline required');
   return policyInputs([...byPath.keys()],read,path=>byPath.get(path)?.mode);
 }
-export function modelPolicyDigestAtCommit(ref,options){return policyAtCommit(ref,options).digest;}
-export function modelArchivalInputsAtCommit(ref,options){return policyAtCommit(ref,options).archives;}
-export function assertModelArchivalAppendAtCommit(ref,{root=process.cwd()}={}){
-  const before=modelArchivalInputsAtCommit(ref,{root}),after=modelArchivalInputs(root),oldIDs=new Set(before.modelIDs);
+// Only this process can mint an exact-root/exact-commit snapshot. It retains the
+// original frozen, identity-authenticated archival inventory, never a JSON copy.
+// Consumers own their short-lived cache; mutable worktree inputs are never cached.
+const verifiedPolicySnapshots=new WeakMap();
+export function modelPolicySnapshotAtCommit(ref,{root=process.cwd(),budget}={}){
+  root=resolve(root);const {digest,archives}=policyAtCommit(ref,{root,budget});budget?.check();
+  const snapshot=Object.freeze({root,commit:ref,digest});
+  verifiedPolicySnapshots.set(snapshot,{root,commit:ref,digest,archives});return snapshot;
+}
+function snapshotPolicy(ref,{root=process.cwd(),snapshot,budget}={}){
+  budget?.check();if(snapshot===undefined)return policyAtCommit(ref,{root,budget});
+  const policy=verifiedPolicySnapshots.get(snapshot);
+  assert(policy&&policy.root===resolve(root)&&policy.commit===ref,'Policy snapshot requires the same verified root and exact commit, never JSON');
+  return policy;
+}
+export function modelPolicyDigestAtCommit(ref,options){return snapshotPolicy(ref,options).digest;}
+export function modelArchivalInputsAtCommit(ref,options){return snapshotPolicy(ref,options).archives;}
+export function assertModelArchivalAppendAtCommit(ref,{root=process.cwd(),snapshot,budget}={}){
+  const before=modelArchivalInputsAtCommit(ref,{root,snapshot,budget}),after=modelArchivalInputs(root,{budget}),oldIDs=new Set(before.modelIDs);
   return assertArchivalAppend(before,after,{beforePaths:before.repositoryPaths,oldIDs,newIDs:after.modelIDs.filter(id=>!oldIDs.has(id))});
 }
 export function catalogIDs(manifest){
