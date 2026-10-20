@@ -15,6 +15,7 @@ let result=await trial([{status:100},{status:0}]);assert.equal(result.status,0);
 result=await trial([{status:7},{status:8},{status:9}]);assert.equal(result.status,9,'Exhaustion preserves the final nonzero exit');assert.equal(result.calls.length,3);assert.deepEqual(result.waits,[10000,20000]);
 result=await trial([{status:0}]);assert.equal(result.status,0);assert.equal(result.calls.length,1);assert.deepEqual(result.waits,[]);
 result=await trial([{status:null,signal:'SIGTERM'}]);assert.equal(result.status,143);assert.equal(result.calls.length,1);assert.deepEqual(result.waits,[]);
+for(const status of [130,143]){result=await trial([{status,signal:null}]);assert.equal(result.status,status);assert.equal(result.calls.length,1,'A wrapper cancellation exit must not restart installation');assert.deepEqual(result.waits,[]);}
 result=await trial([new Error('spawn failed'),new Error('spawn failed'),new Error('spawn failed')]);assert.equal(result.status,1);assert.equal(result.calls.length,3);assert.equal(result.logs.filter(line=>line.includes('spawn failed')).length,3);
 result=await trial([{status:0,error:new Error('not a success')},{status:0}]);assert.equal(result.calls.length,2,'An error cannot be mistaken for exit-zero success');
 const cli=spawnSync(process.execPath,['site/ci-install-chromium.mjs','--ignore-failure'],{encoding:'utf8'});assert.notEqual(cli.status,0);assert(cli.stderr.includes('accepts no alternate command'));

@@ -14,6 +14,7 @@ export async function installChromium({run=spawnSync,sleep=delay,log=console.log
   log(`Chromium installation attempt ${attempt}/3 failed: ${result?.signal||result?.error?.message||`exit ${status}`}`);
   // Respect cancellation instead of restarting a deliberately stopped process.
   if(result?.signal)return result.signal==='SIGINT'?130:result.signal==='SIGTERM'?143:1;
+  if(status===130||status===143)return status;
   if(attempt===3)return status;
   const wait=attempt*10000;log(`Retrying the unchanged installer in ${wait/1000}s.`);await sleep(wait);
  }
