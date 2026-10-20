@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "daemonelix-helical-burrow",
+  "revision": "r002",
+  "labels": {
+    "en": "daemonelix-helical-burrow"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "c415fbe405e75ac182bb39512ea33b43f81d574723263f04378422fb0221aa82"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "2fcfd328842918ca9e1bc75bbb542692960c9a1f0644eb678bd8cca5a5056896"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "9f76d189a6c74522a08af4c200898e30591f3cd7960bf3e44212b912a52ac075"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "802c13dc3117cadd7748201ca2dc5fce4b3a50cc60ab5791e0042ba463ea6248"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "15b9358a2862c867b2d9cc4fa83c4a4ce9fd8437a319d8b0ff7c3c94d15f6cf3"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "4dd4b205ba3af0a3a9ba2c5126dffe69f80e7a1c6935309864ac36c8e4197f60"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "655a51f56f7f13e439474f4947d14b694a1cb3fec5016859790c86579634b7fd"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "32aeb6670ee245b0cf6a4908a0f3758a6a303cae0f96374fb4c7238fadec96a5"
+      }
+    ],
+    "cross_view_consistency_note": "Concept inspected: descending continuous corkscrew, open coil gaps and lower lateral chamber adopted. Top concept incorrectly shows a hollow entry despite solid-cast prompt. Resolve before modeling: cap entry with solid sediment end, no hollow-bore claim. Freeze4.5 helical turns with natural small radius and pitch variation, continuous terminal tube blending into modest elongated closed chamber and short top entry neck. Small irregular sediment footing supports lower tunnel, not obscuring upper coil negative spaces. Exact coil count, chamber outline, exposure, scale and color illustrative; source supports spiral burrow cast and bottom chamber, not measured here.",
+    "hidden_surface_decisions": "Concept inspected: descending continuous corkscrew, open coil gaps and lower lateral chamber adopted. Top concept incorrectly shows a hollow entry despite solid-cast prompt. Resolve before modeling: cap entry with solid sediment end, no hollow-bore claim. Freeze4.5 helical turns with natural small radius and pitch variation, continuous terminal tube blending into modest elongated closed chamber and short top entry neck. Small irregular sediment footing supports lower tunnel, not obscuring upper coil negative spaces. Exact coil count, chamber outline, exposure, scale and color illustrative; source supports spiral burrow cast and bottom chamber, not measured here."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T08:14:49Z",
+    "modeling_started_at": null,
+    "note": "Observer invocation/completion boundaries and actual original tool metadata retained. No internal provider timestamp/model seed returned. Original modeling starts only bounded after08:17:16Z freeze and before08:19:37Z first build; exact authoring-start timestamp not sampled. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.9025,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "3431d1a39a26fc052f4e9d8b503d1e0a9b36592145e7ea610ebbe2d1e508067b"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "3431d1a39a26fc052f4e9d8b503d1e0a9b36592145e7ea610ebbe2d1e508067b"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "81e40cb620a98368caf560763beb4f29acbbbbca79ea5dca43b95e3c517ae906",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "42401c09f3e670671c358dacd5e8510781d5c85e159603ba317aa1449e158cfe"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "c415fbe405e75ac182bb39512ea33b43f81d574723263f04378422fb0221aa82",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "a03b843f615bdada2188492acbf07302ae10cdaaed7f64a39df5c94b913f806a"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

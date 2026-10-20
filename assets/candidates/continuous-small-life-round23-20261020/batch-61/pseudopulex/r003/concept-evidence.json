@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "pseudopulex",
+  "revision": "r003",
+  "labels": {
+    "en": "pseudopulex"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "75f6799431a7bf6037881c78d12e7cf731670fcb2fdea82b66576dadc8cdf99c"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "3ee0ecc2d4a18b634c4d94eddea7fa985ce458c91538749388d230695f8fbe67"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "c8baa4dcbba35500e6be35306785fb2fb089d9f8ba3df880a2fb4622f606061b"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "e572b15e3efffc4331f3b865c4fe74fb37d29632893b459904cc87fc233b8415"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "dbea2e8a1f20cb6aee504e3fafc0172163d7d3d92d17150e47faaf65cf2d60c9"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "d6251ca73a13d7395f7ed2d7cafb5f012d76c8e0f60132d65d50e10af20a3555"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "eb16de5de319e3fe97e6bdd39dfb67dfdb897bd72ba98ed1e8f25801c18f0578"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "b1557d63032c1d1e77b14e18d1645f8d5e969298846241b259cd0036104ebc14"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "44c688424225dac208f57bbe75f66fe1b37113cf68860dd03393fcac5fea89ad"
+      }
+    ],
+    "cross_view_consistency_note": "Concept inspected: broad dominant abdomen and six similar long legs adopted; concept top omits stylet and shows inconsistent leg insertion, hero exaggerates segmentation and patchy stripes. Reject those contradictions. Freeze all six leg roots on compact thorax, long paired toothed stylet projecting anterior/ventral to head, modest consistent abdomen bands, 16 compact antennal beads per side as a simplified visible flagellum interpretation. Body head-to-abdomen length nominal17mm, thorax about one fifth abdomen; abdomen broad dorsoventrally flattened volume, not modern flea lateral compression. Sparse enlarged posterior bristles and tibial combs simplify dense setae. Five tarsal subdivisions and paired hooks authored per leg. Paired lateral reduced eyes, no ocelli or wing surfaces. Palp counts echo preserved three/four segments without asserting uncertain total counts. Stance, dorsoventral depth and colors artistic, bilateral hidden surfaces inferred. No species blending.",
+    "hidden_surface_decisions": "Concept inspected: broad dominant abdomen and six similar long legs adopted; concept top omits stylet and shows inconsistent leg insertion, hero exaggerates segmentation and patchy stripes. Reject those contradictions. Freeze all six leg roots on compact thorax, long paired toothed stylet projecting anterior/ventral to head, modest consistent abdomen bands, 16 compact antennal beads per side as a simplified visible flagellum interpretation. Body head-to-abdomen length nominal17mm, thorax about one fifth abdomen; abdomen broad dorsoventrally flattened volume, not modern flea lateral compression. Sparse enlarged posterior bristles and tibial combs simplify dense setae. Five tarsal subdivisions and paired hooks authored per leg. Paired lateral reduced eyes, no ocelli or wing surfaces. Palp counts echo preserved three/four segments without asserting uncertain total counts. Stance, dorsoventral depth and colors artistic, bilateral hidden surfaces inferred. No species blending."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T08:12:05Z",
+    "modeling_started_at": null,
+    "note": "Observer invocation/completion boundaries and actual original tool metadata retained. No internal provider timestamp/model seed returned. Original modeling starts only bounded after08:17:16Z freeze and before08:19:37Z first build; exact authoring-start timestamp not sampled. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 9.5598,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "3184ea7210d264342da2faa6f3ee0ccccb7c6dbb52d9659f4c53afb74fa57441"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "3184ea7210d264342da2faa6f3ee0ccccb7c6dbb52d9659f4c53afb74fa57441"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "744b40f02e8e31c0abf59aac0d0513f745cb50f0aa71f441b05aeed8d6897a4e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "81a94a7ece0b7add684f7b64c65a615d6fcab899b76f5fc567f10ecc8608f868"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "75f6799431a7bf6037881c78d12e7cf731670fcb2fdea82b66576dadc8cdf99c",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "ff948d787fdc19c4a8daed83cc240bc696a8fa6f59444a605023a8bc5cc55c4a"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

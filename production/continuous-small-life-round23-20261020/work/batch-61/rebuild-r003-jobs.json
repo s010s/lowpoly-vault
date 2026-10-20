@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "pseudopulex",
+      "revision": "r003",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/generator.py",
+        "config": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/build-config.json",
+        "helper": "/tmp/lowpoly-batch61-20261020/scripts/asset_common.py",
+        "audit": "/tmp/lowpoly-batch61-20261020/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    },
+    {
+      "asset_id": "pseudopulex",
+      "revision": "r003",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/generator.py",
+        "config": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/build-config.json",
+        "helper": "/tmp/lowpoly-batch61-20261020/scripts/asset_common.py",
+        "audit": "/tmp/lowpoly-batch61-20261020/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    }
+  ]
+}
