@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "ernietta",
+  "revision": "r004",
+  "labels": {
+    "en": "ernietta"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "cf1533f03d458d13d62e3836a01f2cd1470a2e410bfee9ace39f1d90bb6e4da3"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "4a4d2c37cf1c4b9bfa9933c033617e22b42a05f06676d78690022388350927fc"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "1d9e1f03ee1c23190ff5c533f5494ec1250331a3c1162444dc23467b278f6f3b"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "a00a5b4a8e51f368c0dc94f07cb5488689b6923a1ccd7acde9602b1f9f895d0f"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "b8d22345272d8dca5fd2f8274b5b8d1473731835fd4b273ee70e2aa83b3cbe4a"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "edb2a457802d5f61f50c0070afb62ac00a6c69579d5b82280aba996f92370d07"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "e73aa5153313bd125c39810f07575308e83b96c22a8d65ce1425ac47437f13d7"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "3398f991a550ca2f03e063cafb21841801d74d4b9a22d3e2650bb45145c75dca"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "83e71efc37cd370eb76008b75220a56c48c4f2a0ac0a927abcc44c58d3352a5c"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept hollow truncated sack, tubular relief and basal seam. Correct concept round-vase appearance to a compressed elliptical fossil sack; fewer, finer 30 parallel ribs and an irregular but not ornamental broken rim. Ribs are integral undulations in one closed wall surface, not disconnected pipes. Modest infill is continuous with cavity floor, no coplanar overlay. No high fanlike sculptural walls: short uneven truncated margins, not preserved complete fans. Omit concept photoreal grain. Natural original morphology, not exact replica of a fossil.",
+    "hidden_surface_decisions": "Retain concept hollow truncated sack, tubular relief and basal seam. Correct concept round-vase appearance to a compressed elliptical fossil sack; fewer, finer 30 parallel ribs and an irregular but not ornamental broken rim. Ribs are integral undulations in one closed wall surface, not disconnected pipes. Modest infill is continuous with cavity floor, no coplanar overlay. No high fanlike sculptural walls: short uneven truncated margins, not preserved complete fans. Omit concept photoreal grain. Natural original morphology, not exact replica of a fossil."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:54:22.658Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 16.1533,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "0f6b6e355cf0a6c99f9fbd741ef30994f38f55800f80c50fb5af82a72dd3edd6"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "0f6b6e355cf0a6c99f9fbd741ef30994f38f55800f80c50fb5af82a72dd3edd6"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "e95784ff7ad07d5723e555a92c06e916678e457f0f10e6af933be77bfed06314",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "b382cededd45c0b4af0b388709ddf6d70e3416d627e32c4f75620b6d7f672810"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "cf1533f03d458d13d62e3836a01f2cd1470a2e410bfee9ace39f1d90bb6e4da3",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "69233b1f719c25a380f68365c4168c9886320bf294c792dcb7f0e99b6f9de5fe"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

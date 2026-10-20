@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "example-prop",
+  "revision": "r001",
+  "labels": {
+    "en": "Example prop",
+    "zh-CN": "示例道具"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": null
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": null
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": null
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": null
+    },
+    "brief": {
+      "path": "brief.md",
+      "sha256": null
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": null
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": null
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": null
+    },
+    "images": [
+      {
+        "id": "concept-hero",
+        "view": "hero",
+        "path": "concepts/original.png",
+        "sha256": null
+      }
+    ],
+    "cross_view_consistency_note": "Record actual view comparison, or that only one concept view exists.",
+    "hidden_surface_decisions": "Describe authored depth, rear, underside and paired parts."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": null,
+    "modeling_started_at": null
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Replace with a factual observation; time is not an acceptance verdict."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Replace with a factual observation; time is not an acceptance verdict."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Replace with a factual observation; time is not an acceptance verdict."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Replace with a factual observation; time is not an acceptance verdict."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Replace with a factual observation; time is not an acceptance verdict."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Replace with a factual observation; time is not an acceptance verdict."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "right",
+      "top"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof/render-manifest.json",
+    "sha256": null
+  },
+  "thumbnail": {
+    "path": "proof/hero.png",
+    "sha256": null,
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "review.md",
+    "sha256": null
+  },
+  "inspected_frames": [],
+  "khronos": {
+    "glb_sha256": null,
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": null
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Example for a small supporting prop. Replace for the actual deployment role."
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "loess-bluff",
+  "revision": "r005",
+  "labels": {
+    "en": "loess-bluff"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "eb824a1302d10cde887467418e7ba2ba38158d37ae95a4a67807b0d1da273c5a"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "84b415efdd98cde8324a090737c1c3fb6b19bf1789a11416cb877b060f37b274"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "124bec69f5fa8532ea241377857b8f784b774f5fb83fdd869df0b99b4d4c620d"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "5121dc0b18cb915a0cc9df0850f33ef8ea6c739421655f9fc434c80414dcd82e"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "fec67daeb96d04b52d6e9e0016915bb2384e71d08c447af22add01455de7acd3"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "e938197f051b59ab7dc38df3e4b11af5674f71a24ac56efbefb24b1fbf0d4b7b"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "09082b53fa804c44c4d0df843919da4394e8ceb024a0b0638e43141fe03cb9a2"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "b5a489ff21e106543561f12017de0d0a163a60eb4178b6f50aefe73668516e47"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "7366df5d63be2c89418a323013af16b21846e209b5319594d274aae2ddba8557"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept wide cohesive silt wall, steep joints, eroded apron and irregular crest. Reduce concept fine grain and layered sandstone-like horizontal markings: broad homogeneous sediment facets with only subtle soil cap. Unequal vertical incisions continue into crest gullies. One continuous closed volume, not separate column cylinders or a cliff skin stacked on terrain. Sloping rear and irregular natural ends, no rectangular pedestal or tiled face. No sign, road, plants or landscape used as substitute for the face.",
+    "hidden_surface_decisions": "Retain concept wide cohesive silt wall, steep joints, eroded apron and irregular crest. Reduce concept fine grain and layered sandstone-like horizontal markings: broad homogeneous sediment facets with only subtle soil cap. Unequal vertical incisions continue into crest gullies. One continuous closed volume, not separate column cylinders or a cliff skin stacked on terrain. Sloping rear and irregular natural ends, no rectangular pedestal or tiled face. No sign, road, plants or landscape used as substitute for the face."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:54:24.033Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.4514,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "d09ba5285d64ba6d8a17b80d8be96ef1a9e6f6beb15739ab74cdd241de3a4290"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "d09ba5285d64ba6d8a17b80d8be96ef1a9e6f6beb15739ab74cdd241de3a4290"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "8cadfcbc1178ee8d379501c730f77e19861a28784528dd6d9a2a3578fee2ac8d",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "860b2e3bf525e719ab0cf327632fba4cd6e50563dfc1c240cf8c74854c266090"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "eb824a1302d10cde887467418e7ba2ba38158d37ae95a4a67807b0d1da273c5a",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "ced1574a28a778a05226b71a1a3bd8b04979d505b7865511618a142bae80ac85"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

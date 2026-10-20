@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "slump-folded-bed",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original source-informed static fossil/geological teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Contorted asymmetric folded soft-sediment middle interval clearly bounded above and below by more orderly subhorizontal strata; Coherent pale thin sediment laminae follow unequal rounded/angular fold and are truncated beneath flatter cap; Chunky full-depth weathered outcrop with irregular margins, not metamorphic mineral foliation or decorative belts. Scope: Generic original soft-sediment slump-folded sedimentary bed informed by primary Alsop and Marco2012 actual Fig5c/d Almog bounded folds and e/f/g other slump examples. Not exact Dead Sea site, paleoslope analysis, earthquake attribution, geological date or quantitative measured reconstruction. Nominal8x2.6x4m teaching section illustrative; palette artistic. No inference of modern tectonic folding or whole-outcrop metamorphism.",
+      "required_sources": [
+        "ALSOP2012"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Contorted asymmetric folded soft-sediment middle interval clearly bounded above and below by more orderly subhorizontal strata; Coherent pale thin sediment laminae follow unequal rounded/angular fold and are truncated beneath flatter cap; Chunky full-depth weathered outcrop with irregular margins, not metamorphic mineral foliation or decorative belts. Scope: Generic original soft-sediment slump-folded sedimentary bed informed by primary Alsop and Marco2012 actual Fig5c/d Almog bounded folds and e/f/g other slump examples. Not exact Dead Sea site, paleoslope analysis, earthquake attribution, geological date or quantitative measured reconstruction. Nominal8x2.6x4m teaching section illustrative; palette artistic. No inference of modern tectonic folding or whole-outcrop metamorphism.",
+      "required_sources": [
+        "ALSOP2012"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch77/assets/slump-folded-bed/r002/source.blend",
+      "sha256": "c6297c7af88c5329a8ac477fcc19f1d810f2847dc158d215674f843da98193f4"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch77/assets/slump-folded-bed/r002/generator.py",
+      "sha256": "7e811e146abbceba6dd1dbec03a450aed801ceb220e51be9eeab8187f490c369"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch77/assets/slump-folded-bed/r002/build-config.json",
+      "sha256": "c9d886ccdee7d87ea1cd50a1551d2d37870eda1096e0ecf5786849de4a905eda"
+    }
+  ],
+  "claim_scope": "Generic original soft-sediment slump-folded sedimentary bed informed by primary Alsop and Marco2012 actual Fig5c/d Almog bounded folds and e/f/g other slump examples. Not exact Dead Sea site, paleoslope analysis, earthquake attribution, geological date or quantitative measured reconstruction. Nominal8x2.6x4m teaching section illustrative; palette artistic. No inference of modern tectonic folding or whole-outcrop metamorphism.",
+  "nominal_dimensions_blender_xyz_m": [
+    8,
+    2.6,
+    4
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "Contorted asymmetric folded soft-sediment middle interval clearly bounded above and below by more orderly subhorizontal strata",
+    "Coherent pale thin sediment laminae follow unequal rounded/angular fold and are truncated beneath flatter cap",
+    "Chunky full-depth weathered outcrop with irregular margins, not metamorphic mineral foliation or decorative belts"
+  ],
+  "concept_decisions": "Retain concept folded central laminated interval and orderly bounding strata. Simplify many micro-laminae to14 unequal visually readable sediment bands across central and bounding intervals. One asymmetric fold with stronger rounded hinge, subordinate opposite bend; deformation tapers towards lower and upper orderly beds. Upper truncation separates contorted interval from flatter overburden. Single closed outcrop surface with physically differential erosion tied to sediment coordinates; no parallel floating ribbons, plates or overlapping cliff skins. Irregular broken top and ends, not perfectly rectangular educational cube.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop at256-512px",
+  "created_at": "2026-10-20T15:55:52.457440+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:04:25.365804+00:00",
+    "frozen_design_brief_sha256": "043275ed9910dff0eb603a4778fb2089af9361443057abea209f213623643664",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

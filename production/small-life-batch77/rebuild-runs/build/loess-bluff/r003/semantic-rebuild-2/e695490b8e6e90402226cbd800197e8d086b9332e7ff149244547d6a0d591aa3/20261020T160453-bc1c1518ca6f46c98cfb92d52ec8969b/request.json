@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/rebuild-runs/build/loess-bluff/r003/semantic-rebuild-2/e695490b8e6e90402226cbd800197e8d086b9332e7ff149244547d6a0d591aa3/20261020T160453-bc1c1518ca6f46c98cfb92d52ec8969b/outputs"
+  ],
+  "created_at": "2026-10-20T16:04:53.331080+00:00",
+  "fingerprint": "e695490b8e6e90402226cbd800197e8d086b9332e7ff149244547d6a0d591aa3",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5755,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/brief.json",
+        "sha256": "238a6fa9c69d2b2cead84a0f93e8209f1ec0f018e6524246362451b47ec25880"
+      },
+      "config": {
+        "bytes": 888,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/build-config.json",
+        "sha256": "e938197f051b59ab7dc38df3e4b11af5674f71a24ac56efbefb24b1fbf0d4b7b"
+      },
+      "generator": {
+        "bytes": 10592,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/generator.py",
+        "sha256": "3039515ba6aaaa0f869a7833abb72a8751ec1cedab24599ebe7f921178e649b6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2939,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/references.json",
+        "sha256": "124bec69f5fa8532ea241377857b8f784b774f5fb83fdd869df0b99b4d4c620d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "loess-bluff",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch77-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/brief.json",
+        "config": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch77-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r003/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T160452-f1509f64ca894de2b4a9bf464a5a2b7f"
+}

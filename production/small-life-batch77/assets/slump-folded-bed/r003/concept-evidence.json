@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "slump-folded-bed",
+  "revision": "r003",
+  "labels": {
+    "en": "slump-folded-bed"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "6b28721c6563de8a3510b5b188aa6cb68c1e517ee18887b9d28f9e1c06aea172"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "64f99583a9daaf02129a8275730f98011f221356874c6c082e04ab9bcbb2b186"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "f3fb2f2c4e1b5feca1174a515004d474445c26849fa73905d2942e0a36006a95"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "b2d5048dd02bb821b6b882eddb631fae602a4ca9c61cc8a7364484ff6d9011ed"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "ff186590419997435eed41adf3e7eddc317e8d26a52a6b0124a3b504e36be4ee"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "c9d886ccdee7d87ea1cd50a1551d2d37870eda1096e0ecf5786849de4a905eda"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "72a2bf401c85c8ba9905023621f66861bb6b57abf8472c925b6455d46f5a4afd"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "2a1af0d90b46334b407e7bdb27358a95f22e6b1ae37a3cbbe6a57cfdc570e9a0"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "188227cf209ceb59ed3c97e8ff21ec4b08582fd4abd4df51289fe5b2c1ebc162"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept folded central laminated interval and orderly bounding strata. Simplify many micro-laminae to14 unequal visually readable sediment bands across central and bounding intervals. One asymmetric fold with stronger rounded hinge, subordinate opposite bend; deformation tapers towards lower and upper orderly beds. Upper truncation separates contorted interval from flatter overburden. Single closed outcrop surface with physically differential erosion tied to sediment coordinates; no parallel floating ribbons, plates or overlapping cliff skins. Irregular broken top and ends, not perfectly rectangular educational cube.",
+    "hidden_surface_decisions": "Retain concept folded central laminated interval and orderly bounding strata. Simplify many micro-laminae to14 unequal visually readable sediment bands across central and bounding intervals. One asymmetric fold with stronger rounded hinge, subordinate opposite bend; deformation tapers towards lower and upper orderly beds. Upper truncation separates contorted interval from flatter overburden. Single closed outcrop surface with physically differential erosion tied to sediment coordinates; no parallel floating ribbons, plates or overlapping cliff skins. Irregular broken top and ends, not perfectly rectangular educational cube."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:54:26.561Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.5193,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "aa04b932691c9fe1d3e8c83e38f59de27c9b4370da5e8301c06152a48f678732"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "aa04b932691c9fe1d3e8c83e38f59de27c9b4370da5e8301c06152a48f678732"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "62fa1afc49bb43b9a738434c80153719d432ed873f8b4887c245e4846952d161",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "010ec5a03122bfc7c0b816252b137c53c3f009e7fc54c9431f1b462c7f21d2a5"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "6b28721c6563de8a3510b5b188aa6cb68c1e517ee18887b9d28f9e1c06aea172",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "c02432b864e1647b82a35c0bb0659c5ffa2a09e983aa36b2fce5a856cab7d4f8"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

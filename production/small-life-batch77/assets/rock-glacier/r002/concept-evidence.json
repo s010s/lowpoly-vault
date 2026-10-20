@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "rock-glacier",
+  "revision": "r002",
+  "labels": {
+    "en": "rock-glacier"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "a66f2c03cc1f26885209973ea1123c6fda9d3138a9accb38117c60a8e618acc7"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "f073b4965db2d8ec1bb50e1209f9aa5474f7fafd94c6eadc1055ca214a7564fb"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "b357656a5987ad6aea92d6ef4a49060454628d8353ebcf26fd19834e4190a03d"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "b73091dc02eeb925d9365b630d06555b280564f606a0f03eb455720170263487"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "f886d5f9576a3d3bcf7c5dd35e67789faba0b33f7475d246f0b6aeea7fb562ee"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "9b0d50737696a2d8fb633ce20e0f4534d305ec30597a9e54bc17e10bbaf60b59"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "5331a042a8321429a496b811e59ca3990c10daf2a887c386d797fef947e33802"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "1bf0180beedda6b20566e5112550572165356baa4192e488309a4e18afcd0b95"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "01f1fa956d883d1aec7c570be603f4c65b0a82d20d509caf3adcaf4197b91146"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept elongated lobate toe and arcuate rubble relief; reject overly equal repetitive conveyor-belt ridges and excessive photoreal grain. Use three to four unequal low curved ridge zones, locally interrupted and varying in height, merging into irregular lateral rubble. Integral angular triangulated clast-like relief in one continuous closed volume with variable-sized facets, not separate intersecting boulder pile or tiles. No isolated mountain backdrop, snow or exposed ice; gray palette artistic.",
+    "hidden_surface_decisions": "Retain concept elongated lobate toe and arcuate rubble relief; reject overly equal repetitive conveyor-belt ridges and excessive photoreal grain. Use three to four unequal low curved ridge zones, locally interrupted and varying in height, merging into irregular lateral rubble. Integral angular triangulated clast-like relief in one continuous closed volume with variable-sized facets, not separate intersecting boulder pile or tiles. No isolated mountain backdrop, snow or exposed ice; gray palette artistic."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:54:25.289Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 10.6272,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "55a4364709ff17090488ecfd1f501d5d43c2b343cc86aeaa1581738669a67316"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "55a4364709ff17090488ecfd1f501d5d43c2b343cc86aeaa1581738669a67316"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "80f600719d319e00c61d8ea7ec93d322282b2356b45e50159009818f5b6a84d5",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "da760a501228b512255c4271dfae0db118f2547cf38bf42c0477f20ea612ee06"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a66f2c03cc1f26885209973ea1123c6fda9d3138a9accb38117c60a8e618acc7",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "f6429912cf1efef3c925a174e6fff1d192de0c12f2ccc69437e3fc8f7bb328d6"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

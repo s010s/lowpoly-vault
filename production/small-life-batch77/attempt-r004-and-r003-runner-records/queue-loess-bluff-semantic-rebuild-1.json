@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "loess-bluff",
+      "revision": "r004",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r004/generator.py",
+        "config": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r004/build-config.json",
+        "helper": "/workspace/shared/lowpoly-batch77-20261020/scripts/asset_common.py",
+        "audit": "/workspace/shared/lowpoly-batch77-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r004/brief.json",
+        "references": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/loess-bluff/r004/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    }
+  ]
+}

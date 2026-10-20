@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/rebuild-runs/build/rock-glacier/r002/semantic-rebuild-1/05f4659a3aa5ec2df112981892472fd9166ee0e44b2d3991aed9f6b85754a13f/20261020T160501-62bab6ec560a4d429dc451c5ae360900/outputs"
+  ],
+  "created_at": "2026-10-20T16:05:01.083777+00:00",
+  "fingerprint": "05f4659a3aa5ec2df112981892472fd9166ee0e44b2d3991aed9f6b85754a13f",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5970,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/brief.json",
+        "sha256": "14e3938662b87309fe20655b940c0bf8df07217e9c5f23934937e316b7a9681e"
+      },
+      "config": {
+        "bytes": 880,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/build-config.json",
+        "sha256": "9b0d50737696a2d8fb633ce20e0f4534d305ec30597a9e54bc17e10bbaf60b59"
+      },
+      "generator": {
+        "bytes": 10285,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/generator.py",
+        "sha256": "f886d5f9576a3d3bcf7c5dd35e67789faba0b33f7475d246f0b6aeea7fb562ee"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2074,
+        "path": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/references.json",
+        "sha256": "b357656a5987ad6aea92d6ef4a49060454628d8353ebcf26fd19834e4190a03d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "rock-glacier",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch77-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch77-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch77-20261020/production/small-life-batch77/assets/rock-glacier/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T160500-72ff4908f7374026aace178889b682dc"
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "loess-bluff",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original source-informed static fossil/geological teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Broad fine-sediment bluff wall with near-vertical unequal joints and irregular columns; Gullied irregular crest connected to steep face and subdued eroded foot apron; Coherent fine-silt body, not sandstone hoodoos, stone blocks or generic mountain. Scope: Generic original loess fine-sediment bluff form informed by the specific official NPS Natchez Trace Milepost12.4 exposed face photograph and Iowa DNR loess properties. Not an exact Natchez site, age, lithologic survey or prehistoric ecosystem. Nominal16x7x8m illustrative dimensions; palette artistic, no measured source color claim.",
+      "required_sources": [
+        "NPS-LOESS"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Broad fine-sediment bluff wall with near-vertical unequal joints and irregular columns; Gullied irregular crest connected to steep face and subdued eroded foot apron; Coherent fine-silt body, not sandstone hoodoos, stone blocks or generic mountain. Scope: Generic original loess fine-sediment bluff form informed by the specific official NPS Natchez Trace Milepost12.4 exposed face photograph and Iowa DNR loess properties. Not an exact Natchez site, age, lithologic survey or prehistoric ecosystem. Nominal16x7x8m illustrative dimensions; palette artistic, no measured source color claim.",
+      "required_sources": [
+        "NPS-LOESS"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch77/assets/loess-bluff/r003/source.blend",
+      "sha256": "cd9a1ec8d7d1d3e7c2d422291331cbb2d2dc6dc3d6aa6e8acb2b8fd0a3febae5"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch77/assets/loess-bluff/r003/generator.py",
+      "sha256": "3039515ba6aaaa0f869a7833abb72a8751ec1cedab24599ebe7f921178e649b6"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch77/assets/loess-bluff/r003/build-config.json",
+      "sha256": "e938197f051b59ab7dc38df3e4b11af5674f71a24ac56efbefb24b1fbf0d4b7b"
+    }
+  ],
+  "claim_scope": "Generic original loess fine-sediment bluff form informed by the specific official NPS Natchez Trace Milepost12.4 exposed face photograph and Iowa DNR loess properties. Not an exact Natchez site, age, lithologic survey or prehistoric ecosystem. Nominal16x7x8m illustrative dimensions; palette artistic, no measured source color claim.",
+  "nominal_dimensions_blender_xyz_m": [
+    16,
+    7,
+    8
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "Broad fine-sediment bluff wall with near-vertical unequal joints and irregular columns",
+    "Gullied irregular crest connected to steep face and subdued eroded foot apron",
+    "Coherent fine-silt body, not sandstone hoodoos, stone blocks or generic mountain"
+  ],
+  "concept_decisions": "Retain concept wide cohesive silt wall, steep joints, eroded apron and irregular crest. Reduce concept fine grain and layered sandstone-like horizontal markings: broad homogeneous sediment facets with only subtle soil cap. Unequal vertical incisions continue into crest gullies. One continuous closed volume, not separate column cylinders or a cliff skin stacked on terrain. Sloping rear and irregular natural ends, no rectangular pedestal or tiled face. No sign, road, plants or landscape used as substitute for the face.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop at256-512px",
+  "created_at": "2026-10-20T15:55:52.432956+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:03:35.530596+00:00",
+    "frozen_design_brief_sha256": "238a6fa9c69d2b2cead84a0f93e8209f1ec0f018e6524246362451b47ec25880",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
