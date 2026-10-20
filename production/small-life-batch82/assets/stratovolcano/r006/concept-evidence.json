@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "stratovolcano",
+  "revision": "r006",
+  "labels": {
+    "en": "stratovolcano"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "94a39e7d4d31e22df87b33cbf48c7db332920566d24cef297874f26b229679a4"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "cd669590db5a53e707086dde4b6434b822d0284c3ec4770b99c57c389f1842b4"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "ebce3fb83c8205a547fff0fd2e3fa6938f1a9c41552c7d39d66655955fd40d90"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "03a8a0b416c113525c6b57cde25586eec6189673eb461bd5e812ac2df7dfde78"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "bc222ca15190e2bbbf2165d51c1ff8c23ccd0f36b90631b54b67e0b56b5ce6c5"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "1c94028604734f1c3f0aa550c6d508bd32e94c51dc59bf67b89925ac61e72d8f"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "ded7393034bad979238e05d6c90507d7d9496b519a2c9d65197b9f0910d71fff"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "ebe1fd448aee852e1c476375eed0dac65eae9b0563dfb0692ab2a5dfa9ff6ebf"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "0060bcb028f42d61e05627fc997c99a165d311c60f7c1384d964e5e18e30286f"
+      }
+    ],
+    "cross_view_consistency_note": "Keep steep concave profile and small summit vent. Strip concept orderly layers if any. Build coherent full-volume main mountain, broad lower skirt with radial dissection, sharper upper profile and small depressed vent. Use uneven branching/merging flank gullies and integrated divides, not repeated radial wedges like a lampshade. Snow in actual reference obscures rock, so snow-free subdued rock palette and erosional strength artistic. Material regions irregular not stratigraphic claims. Strong height to base ratio differs materially from batch79 shield.",
+    "hidden_surface_decisions": "Keep steep concave profile and small summit vent. Strip concept orderly layers if any. Build coherent full-volume main mountain, broad lower skirt with radial dissection, sharper upper profile and small depressed vent. Use uneven branching/merging flank gullies and integrated divides, not repeated radial wedges like a lampshade. Snow in actual reference obscures rock, so snow-free subdued rock palette and erosional strength artistic. Material regions irregular not stratigraphic claims. Strong height to base ratio differs materially from batch79 shield."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:56:43.817169+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.8857,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "c0522994d8d521e309f51224d70b8a474bdbb8751af0106680a3fbea893e510d"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "c0522994d8d521e309f51224d70b8a474bdbb8751af0106680a3fbea893e510d"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "c8e758ce98300cffd51dcde0e18273b425773233081680053a2af6be1731eaf5",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "d3c4dc39ba8d3fe80658b4fdb231642b6aa055add50ca1b601c50c5523433831"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "94a39e7d4d31e22df87b33cbf48c7db332920566d24cef297874f26b229679a4",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "327df463c9133008b803743bd2443e50ff5f5409bea914d8bfb798adb632f9ee"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

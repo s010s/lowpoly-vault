@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight original512px final frames personally opened. Steep upper cone, broad concave lower flanks, small depressed summit vent and unequal integrated radial buttresses read in the exact model. Reversehero/top/side show stronger lower shoulders and joining subordinate ridges; hero/clay are more subdued under the fixed lighting. Coherent gray rock palette removes prior light rectangular patches; no orderly stripe strata, eruption plume or snow/ice inference. Unequal footprint and asymmetric lower profile break the earlier lampshade-like periodicity. Full contact bottom edge is clean; no exposed surface crossing observed. This is a generic original composite volcano, not Iliamna replica, DEM or measured site.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 94a39e7d4d31e22df87b33cbf48c7db332920566d24cef297874f26b229679a4. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.
