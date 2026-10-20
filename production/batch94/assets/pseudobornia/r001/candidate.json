@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "pseudobornia",
+  "revision": "r001",
+  "maker": {
+    "id": "batch94 maker",
+    "task_id": "/root/resume_parallel_model_production/resume_batch94_recovery2"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch94/assets/pseudobornia/r001/model.glb",
+      "sha256": "54c683a7e9a8efdcab16c49dc61a577a67e200122a043b00b357243fe5cb77e2"
+    },
+    "brief": {
+      "path": "production/batch94/assets/pseudobornia/r001/candidate-brief.json",
+      "sha256": "a99d18d8c41932ddcfbf51246fe17f2a420b9051e527131a40c28c3ab56ad329"
+    },
+    "references": {
+      "path": "production/batch94/assets/pseudobornia/r001/references.json",
+      "sha256": "b72255c11959f5fce5f8fd5887cc078e1b74f0b192694de5be67cf550eac6ee1"
+    },
+    "source": {
+      "path": "production/batch94/assets/pseudobornia/r001/source.blend",
+      "sha256": "656c25cf6066dcb15d5e42263aae229db47d18549c5197c6579d41b4b8f50894"
+    },
+    "generator": {
+      "path": "production/batch94/assets/pseudobornia/r001/generator.py",
+      "sha256": "1d9028140b1e906692318438ef825b9455d6755f17cb19a49695bed78fb82d91"
+    },
+    "config": {
+      "path": "production/batch94/assets/pseudobornia/r001/build-config.json",
+      "sha256": "17e2b060bfa4a4d7e74e74b25cef97ed9d740d0956b1f903709f590efe19b374"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "54c683a7e9a8efdcab16c49dc61a577a67e200122a043b00b357243fe5cb77e2",
+        "brief_sha256": "a99d18d8c41932ddcfbf51246fe17f2a420b9051e527131a40c28c3ab56ad329",
+        "references_sha256": "b72255c11959f5fce5f8fd5887cc078e1b74f0b192694de5be67cf550eac6ee1"
+      },
+      "path": "production/batch94/assets/pseudobornia/r001/proof-final/render-manifest.json",
+      "sha256": "2e8b6bdec131ff367a095771321a76e9c8cc77876f875b78b040091e9ecac6ae"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and actual reference pixels inspected before original freeze. Exact species/habit, organ-association and scale uncertainties remain explicit in own frozen ledgers. Generated concepts are design aids, not factual sources. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/metrics.json",
+      "sha256": "360724f0ee3db1ec3ba917355536b3dd3d94b6d84e4cdd4b7858f4bef680656c"
+    },
+    "source-metrics.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/source-metrics.json",
+      "sha256": "605d9cd943d2da0eb02f0be09ad6255f7b0321e8f92f7552c8f6e92c29952f89"
+    },
+    "project-audit.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/project-audit.json",
+      "sha256": "c89fffcd5e241ef10efb14427e9f7518f98502cd55dc193180907d4b8f137851"
+    },
+    "source-final.report.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/source-final.report.json",
+      "sha256": "5452867fb3001586e1bb57548c022d80537582e312c4ac96a383d5f96e98eebd"
+    },
+    "final-measurement.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/final-measurement.json",
+      "sha256": "78b527b60980b136ebef513a2c1832aee09558c875028b525614bffd811feaee"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/repro-final-1.report.json",
+      "sha256": "33f2a725208ce46f432638fe1b554644af9f379bc277adb7ca3f8ca927648268"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/repro-final-2.report.json",
+      "sha256": "b1f267f2c775e97eb0b8d378d7f4272df9d64df286ca241242d4a5516f7cf287"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/gltf-validator.report.json",
+      "sha256": "df85a8418af3960ab9ccc69f3867306f1f9777965428c9fea5a5199bade8e08a"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/runtime-parse.report.json",
+      "sha256": "5e0c7489a04487837c0c5d9db6882cd1b368e33d1324a9b33406d3ad52bc9559"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/build-dependencies.json",
+      "sha256": "adae15157476fddde2bfcc667d68ffa394bb6bb469b19c45c4175f04dd46fe15"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/pixel-inspection.json",
+      "sha256": "6ad8d3b5033b95f4108c742b3831758f8a1820297a570e1bda654068a44804ff"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch94/assets/pseudobornia/r001/contact-sheet.png",
+      "sha256": "4e95c8924e44da7473d48bc6c11b5b97ef8a680972917ae1eba9a3affbb36adb"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch94/assets/pseudobornia/r001/preproof-binding.json",
+      "sha256": "67566a0bd1cb1f5a125defb108f0decf3f2cda36a8304b6b24b9ef472ac752ba"
+    }
+  }
+}

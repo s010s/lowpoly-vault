@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "sigillaria",
+  "revision": "r001",
+  "maker": {
+    "id": "batch94 maker",
+    "task_id": "/root/resume_parallel_model_production/resume_batch94_recovery2"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch94/assets/sigillaria/r001/model.glb",
+      "sha256": "c0b7a2040741e5583d957efdd5b0244314a1611bf840965b5b84673e32847b20"
+    },
+    "brief": {
+      "path": "production/batch94/assets/sigillaria/r001/candidate-brief.json",
+      "sha256": "154bd16ac69627421209d227bd4745baa25ac4d4db6f5c50cd0ce0c65bc4d0df"
+    },
+    "references": {
+      "path": "production/batch94/assets/sigillaria/r001/references.json",
+      "sha256": "919d890a19c0591520b929fe85ea4d2cc7f5fa7a5603e2ef1b88560c507785c1"
+    },
+    "source": {
+      "path": "production/batch94/assets/sigillaria/r001/source.blend",
+      "sha256": "16856d66a867728250045bf3f1e84684972db5dfda0b423644b83c1efa1e2e9c"
+    },
+    "generator": {
+      "path": "production/batch94/assets/sigillaria/r001/generator.py",
+      "sha256": "1d9028140b1e906692318438ef825b9455d6755f17cb19a49695bed78fb82d91"
+    },
+    "config": {
+      "path": "production/batch94/assets/sigillaria/r001/build-config.json",
+      "sha256": "6334878ad7750881f17a00c0941b17fad0beef4660dffa97d28787587950b3fb"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "c0b7a2040741e5583d957efdd5b0244314a1611bf840965b5b84673e32847b20",
+        "brief_sha256": "154bd16ac69627421209d227bd4745baa25ac4d4db6f5c50cd0ce0c65bc4d0df",
+        "references_sha256": "919d890a19c0591520b929fe85ea4d2cc7f5fa7a5603e2ef1b88560c507785c1"
+      },
+      "path": "production/batch94/assets/sigillaria/r001/proof-final/render-manifest.json",
+      "sha256": "a639b6d084660f767882ad200f0ce9306d9593b9ec2d724ab1952034210cf558"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and actual reference pixels inspected before original freeze. Exact species/habit, organ-association and scale uncertainties remain explicit in own frozen ledgers. Generated concepts are design aids, not factual sources. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch94/assets/sigillaria/r001/metrics.json",
+      "sha256": "5deff7a4d7a9aab094e7e4c4b62b72c9672660ecf311e4c5a290e4f74dc058fd"
+    },
+    "source-metrics.json": {
+      "path": "production/batch94/assets/sigillaria/r001/source-metrics.json",
+      "sha256": "4336324583aafb843f723ff884fbb70cbfeb0dcb2b519d10ef01daf601c3c416"
+    },
+    "project-audit.json": {
+      "path": "production/batch94/assets/sigillaria/r001/project-audit.json",
+      "sha256": "f9612569c60238a92c0d997a14d76a2166772096490651c2d3d08b39ce9123d3"
+    },
+    "source-final.report.json": {
+      "path": "production/batch94/assets/sigillaria/r001/source-final.report.json",
+      "sha256": "56c9700f2b304971f58c97d49679810a3134d5d7f5ca3fb706ce0698cba7824c"
+    },
+    "final-measurement.json": {
+      "path": "production/batch94/assets/sigillaria/r001/final-measurement.json",
+      "sha256": "f6c3f3e3a04ae4186a0d580f7e923a52405db6c8d6c36d4f36a34c089aac44d4"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch94/assets/sigillaria/r001/repro-final-1.report.json",
+      "sha256": "f8376252041a2c18d098b920d899ac248332a14edfcbc5f257ac8859711e70de"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch94/assets/sigillaria/r001/repro-final-2.report.json",
+      "sha256": "efb536a79db01b973ba6635bddd1a2cf8959754682b19117685549aa177a8f35"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch94/assets/sigillaria/r001/gltf-validator.report.json",
+      "sha256": "1a33a0589f759c62bcece246c366dac15c3d37a7459b9dafc2d5095d33fa9d3e"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch94/assets/sigillaria/r001/runtime-parse.report.json",
+      "sha256": "cfc3511da1d676cfbf28b6abe60a1f1c03d57eec9f83bde0430cb2f0ccaf2707"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch94/assets/sigillaria/r001/build-dependencies.json",
+      "sha256": "832a0832825161afba94c4e4199e94e621f8ff19ce96898974c2b2c8949db48d"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch94/assets/sigillaria/r001/pixel-inspection.json",
+      "sha256": "b713741c5444b7494cd9b9c63dee4f5bf87d5ca9259f7fa5bf01448c1a3c1fe5"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch94/assets/sigillaria/r001/contact-sheet.png",
+      "sha256": "49092b2c0929fed071883e380783b9e6660eacc4384f4b2d65707de6227b4ee6"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch94/assets/sigillaria/r001/preproof-binding.json",
+      "sha256": "59d9735dd7f025c73eb75ad4271d58e25d1e8177520b6d198383e259dd5b163c"
+    }
+  }
+}
