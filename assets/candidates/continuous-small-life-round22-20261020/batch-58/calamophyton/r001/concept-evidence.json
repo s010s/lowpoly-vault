@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "calamophyton",
+  "revision": "r001",
+  "labels": {
+    "en": "calamophyton"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "0d2ee0cd978526b243f687a02f25aa717e38839a407a4e0396ba38497aeb0c8c"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "366bd4f247b7aac8c94073813ab467b8f4924b86fdaf71b0ad4f6421fda073ad"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "01730a05cce3e638e1fe0305a99f93c25efbbbffb6fc16cb523cc05e08fbc4f9"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "122cdad002098cf19cbce77843a23e03691fdab7b51d3f9ee29de64d862ab8fc"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "cd8ee9a2c64c6f8c40effef8d4d37042c29e9be157d3fdbac791d9a04b8382dc"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3"
+      }
+    ],
+    "cross_view_consistency_note": "Actual original concept pixels inspected; contradictions resolved explicitly in frozen brief.concept_decisions; unused Conularia panel in provisional sheet rejected, not part of this asset. Perspicaris separate replacement sheet used.",
+    "hidden_surface_decisions": "Original sheet panel A supplies faceting, airy crown and warm trunk, but its thick repeatedly divided modern-tree boughs are NOT anatomical authority. Replace with slender lateral digitate branch sprays inserted along upper trunk, which continues unbranched to a domed apex. Approximate 6 vertical insertion ranks, 3 uneven levels, each primary branch divides distally into 3-5 finger-like axes carrying terminal dichotomous twigs. Narrow lower trunk, flared basal foot with slender non-branching roots, not oak buttresses. 18 sprays artistic simplification; no leaves/fronds/sporangia modeled, no exact crown density or internal hollow-trunk claim."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T07:13:43.304723600Z",
+    "modeling_started_at": "2026-10-20T07:18:05Z",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 20.5281,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "42150cba486a47f5806785d0f345fef3ebfb9a197bf55246677c61f4abff70b0"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "42150cba486a47f5806785d0f345fef3ebfb9a197bf55246677c61f4abff70b0"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "7e75660b7127abb53cfaf2f124fe58dfa2736e31942c6df508660052992874d0",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "8a79c061abba1b77706fea9a2246a109dd16badaa24442abf025c65f58872bbe"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "4a0f63254a618c533f415c54522ec6786a9f6625ddbe5a26005aa6655ca6ce9d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

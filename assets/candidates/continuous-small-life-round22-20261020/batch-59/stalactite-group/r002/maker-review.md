@@ -1,0 +1,2 @@
+All eight exact-GLB frames inspected. Five unequal rooted pendants read in front/rear, some overlap in hero/side. True top is intentionally ceiling patch; concept top was underside. r002 irregular outline improves mounting shape slightly, but top remains a simple broad quiet plane. Negative height is the declared ceiling mount, not failed ground contact.
+Maker inspection only. Physical GPU/populated scene unrun; formal QA pending.

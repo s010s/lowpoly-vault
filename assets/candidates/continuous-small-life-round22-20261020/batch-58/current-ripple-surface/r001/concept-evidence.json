@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "current-ripple-surface",
+  "revision": "r001",
+  "labels": {
+    "en": "current-ripple-surface"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "eff771e6df13518527323cbdea9a721f36c575729d85d9ee84b30d66543bc7ba"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "b5008bb387b011678c61fa23fd51ee1f51e1a1c55e1827dac038872c16bf91e2"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "873e86fcba5a02e53395bf963cd863e67d49dc221c93d3beb93a718878b8758f"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "402866fb029f5fb5c05ad67a8b3098de8c86e6f5fe7e4b80f9c9409649b75d02"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "cd8ee9a2c64c6f8c40effef8d4d37042c29e9be157d3fdbac791d9a04b8382dc"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3"
+      }
+    ],
+    "cross_view_consistency_note": "Actual original concept pixels inspected; contradictions resolved explicitly in frozen brief.concept_decisions; unused Conularia panel in provisional sheet rejected, not part of this asset. Perspicaris separate replacement sheet used.",
+    "hidden_surface_decisions": "Panel D surface rhythm and closed cutaway retained. Its small side sketch looks symmetric, reject it: explicit analytic asymmetric cross-sections are long gentle +Y-to-Ydecreasing stoss and short steep downcurrent -Y lee. Use 8 ridges with gently sinuous crest drift across X, no random faceting, no water/fossils/burrows. Slab surface is a single continuous top mesh with actual relief and a closed cutaway underside; quiet edge border only, not additional scenic platform."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T07:13:43.304723600Z",
+    "modeling_started_at": "2026-10-20T07:18:05Z",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 24.7236,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "f855477019d11b7f0bf2586d5dd45fab583ac2fe3a6f4cb0b2f2f25352d80b09"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "f855477019d11b7f0bf2586d5dd45fab583ac2fe3a6f4cb0b2f2f25352d80b09"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "7baf1703168b07f8928e7c44f29587863f246c343c5b16f20a9ce24c87a715b6",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "2b3e08f747734121bda91a310f2f6cc1236b18b4b4bf3a0a0de67a4a83481766"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "eee6c0461d375cb9e514f9a24adbd0ccb217626f2a228c742a6352cc1fa73af3"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "calamophyton",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original concept-guided evidence-informed stylized teaching prop; candidate only",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical subject features: Slender upright trunk with expanded basal foot, narrowed middle and slightly broader domed apex; Upper crown of digitate leafless branch sprays with visible air gaps; Short retained branch bases in approximate longitudinal ranks below crown. Scope: Evidence-informed genus-level exterior living reconstruction, not a measured specimen or internal anatomy model. Leafless digitate branch architecture and abscission stubs follow cited fossils; color, exact spray count/pose, hidden surfaces and 2.7m illustrative scale are artistic.",
+      "required_sources": [
+        "CAL-2013"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical subject features: Slender upright trunk with expanded basal foot, narrowed middle and slightly broader domed apex; Upper crown of digitate leafless branch sprays with visible air gaps; Short retained branch bases in approximate longitudinal ranks below crown. Scope: Evidence-informed genus-level exterior living reconstruction, not a measured specimen or internal anatomy model. Leafless digitate branch architecture and abscission stubs follow cited fossils; color, exact spray count/pose, hidden surfaces and 2.7m illustrative scale are artistic.",
+      "required_sources": [
+        "CAL-2013"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed eight views zero turntable, all seven independent stages retained.",
+  "required_deliverables": [],
+  "claim_scope": "Evidence-informed genus-level exterior living reconstruction, not a measured specimen or internal anatomy model. Leafless digitate branch architecture and abscission stubs follow cited fossils; color, exact spray count/pose, hidden surfaces and 2.7m illustrative scale are artistic.",
+  "nominal_dimensions_blender_xyz_m": [
+    1.65,
+    1.65,
+    2.7
+  ],
+  "dimension_status": "Illustrative nominal targets, not measured specimen; actual bounds retained separately",
+  "recognition_features": [
+    "Slender upright trunk with expanded basal foot, narrowed middle and slightly broader domed apex",
+    "Upper crown of digitate leafless branch sprays with visible air gaps",
+    "Short retained branch bases in approximate longitudinal ranks below crown"
+  ],
+  "concept_decisions": "Original sheet panel A supplies faceting, airy crown and warm trunk, but its thick repeatedly divided modern-tree boughs are NOT anatomical authority. Replace with slender lateral digitate branch sprays inserted along upper trunk, which continues unbranched to a domed apex. Approximate 6 vertical insertion ranks, 3 uneven levels, each primary branch divides distally into 3-5 finger-like axes carrying terminal dichotomous twigs. Narrow lower trunk, flared basal foot with slender non-branching roots, not oak buttresses. 18 sprays artistic simplification; no leaves/fronds/sporangia modeled, no exact crown density or internal hollow-trunk claim.",
+  "style": "Original restrained palette-only refined low-poly, broad quiet planes, diagnostic silhouette/relief",
+  "intended_use": "Supporting teaching asset, 256-512px views; not museum-grade scientific replica",
+  "created_at": "2026-10-20T07:17:44.014432+00:00",
+  "validation_profile": "static-stylized-v1"
+}
