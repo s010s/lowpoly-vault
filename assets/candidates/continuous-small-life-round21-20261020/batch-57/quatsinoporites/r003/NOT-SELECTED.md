@@ -1,0 +1,1 @@
+Initial local repair attempt only, not selected or accepted. Some cutter tops failed to reach surface. Final r004 corrects every cutter top and alone is proposed to replace r001. Any r003 evidence is historical attempt evidence, not acceptance.
