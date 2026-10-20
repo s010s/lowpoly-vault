@@ -5,7 +5,6 @@ import {mountIcons} from './icons.js';
 import {createUIFeedback,shouldAnimateBoundary} from './ui-feedback.js';
 import {modelHeight,dimensionDetails,dimensionNote,comparisonText} from './model-dimensions.js';
 import {models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref} from './catalog-source.js';
-import {PACK_LABELS,WORLD_LABELS} from '../curation.js';
 import {parseRoute} from '../routes.js';
 import {modelShortName} from './presentation-labels.js';
 import {HoverTurntable} from './hover-turntable.js';
@@ -25,8 +24,10 @@ const mobile=()=>matchMedia('(max-width:760px)').matches;
 const t=(en,zh)=>state.lang==='zh'?zh:en;
 const short=a=>modelShortName(a,state.lang);
 const categories={animals:['Animal forms','动物形态'],plants:['Plants','植物'],geology:['Geology','地质'],wood:['Wood','木材'],traces:['Traces','痕迹']};
+const packLabels=Object.fromEntries((catalog.packs||[]).map(record=>[record.id,record.name]));
+const worldLabels=Object.fromEntries((catalog.worlds||[]).map(record=>[record.id,record.name]));
 const packNames={'prehistoric-starter':['Starter collection','初始精选'],'prehistoric-small-life-round12-20261018':['Small life · XII','小生命 · XII']};
-function packLabel(id){return PACK_LABELS[id]?.[state.lang]||packNames[id]?.[state.lang==='zh'?1:0]||id.replace('prehistoric-small-life-','Small life · ').replace('-20261018','').replace('round','');}
+function packLabel(id){return packLabels[id]?.[state.lang]||packNames[id]?.[state.lang==='zh'?1:0]||id.replace('prehistoric-small-life-','Small life · ').replace('-20261018','').replace('round','');}
 const sample=models.map(a=>({...a,triangleBand:Number.isFinite(a.triangles)?a.triangles<=5000?'under5k':a.triangles<=10000?'5to10k':'over10k':'unknown'}));
 const initial=new URL(location.href).searchParams,queryState=readGalleryQuery(initial);
 const initialModel=initial.get('model'),savedState=history.state?.gallery?history.state:null;
@@ -71,7 +72,7 @@ function toast(message){$('#toast').textContent=message;$('#toast').classList.ad
 function updateComparisonLabel(kind){const label=$('#comparison-label');label.dataset.kind=kind;label.textContent=comparisonText(kind,state.lang,sample.find(asset=>asset.id===state.selected));}
 function translate(){$('#gallery-github').ariaLabel=t('GitHub repository (opens in a new tab)','GitHub 代码仓库（在新标签页打开）');document.documentElement.lang=state.lang==='zh'?'zh-CN':'en';document.title=t('All models | Lowpoly Vault','全部模型 | Lowpoly Vault');for(const link of all('[data-gallery-route]'))link.href=new URL((state.lang==='zh'?'zh-CN/':'')+(link.dataset.galleryRoute==='home'?'':'about/'),siteRoot).href;all('[data-en]').forEach(el=>el.textContent=el.dataset[state.lang]);$('#language').textContent=state.lang==='zh'?'中文 / EN':'EN / 中文';$('#search').placeholder=t('Search the collection','搜索精选模型');$('#search').ariaLabel=t('Search models','搜索模型');wheel.ariaLabel=t('Model collection','模型列表');$('#info').ariaLabel=t('Model information','模型说明');$('#detail').ariaLabel=t('3D model. Drag to rotate, wheel or plus/minus to zoom, arrows to rotate.','3D模型。拖拽旋转，滚轮或加减号缩放，方向键旋转。');$('#filters').setAttribute('aria-label',t('Filters','筛选'));$('#info-content').setAttribute('aria-label',t('Model details and sources','模型说明与来源'));if(renderer?.comparison&&$('#comparison-label').dataset.kind)updateComparisonLabel($('#comparison-label').dataset.kind);}
 function facetLabels(){return {worlds:t('World','世界主题'),collection:t('Collection','集合'),triangleMax:t('Maximum triangles','最高三角面数'),packs:t('Theme · collection','主题 · 集合'),category:t('Object type','物体类型'),triangleBand:t('Specification · triangles','技术规格 · 三角面')};}
-function valueLabel(group,id){if(group==='worlds')return WORLD_LABELS[id]?.[state.lang]||id;if(group==='collection')return WORLD_LABELS[id]?.[state.lang]||id;if(group==='triangleMax')return t('Up to ','不超过 ')+Number(id).toLocaleString();if(group==='category')return categories[id]?.[state.lang==='zh'?1:0]||id;if(group==='packs')return packLabel(id);return {under5k:t('Up to 5,000','5千及以下'),'5to10k':t('5,001–10,000','5千至1万'),over10k:t('Over 10,000','超过1万')}[id]||id;}
+function valueLabel(group,id){if(group==='worlds')return worldLabels[id]?.[state.lang]||id;if(group==='collection')return worldLabels[id]?.[state.lang]||id;if(group==='triangleMax')return t('Up to ','不超过 ')+Number(id).toLocaleString();if(group==='category')return categories[id]?.[state.lang==='zh'?1:0]||id;if(group==='packs')return packLabel(id);return {under5k:t('Up to 5,000','5千及以下'),'5to10k':t('5,001–10,000','5千至1万'),over10k:t('Over 10,000','超过1万')}[id]||id;}
 function measure(){if(!wheel.clientHeight)return measuredPad;const pad=measuredPad=Math.max(0,wheel.clientHeight/2-SLOT/2);slots.style.height=`${state.results.length*SLOT+pad*2}px`;slots.style.setProperty('--pad',pad+'px');return pad;}
 function stopHover(){activeTable?.stop();activeTable=null;clearTimeout(hoverTimer);hoverTimer=null;hoverCooldown=true;renderer?.stopHover();hoverActive=null;hoverRow=null;}
 function renderWheel(){
@@ -90,7 +91,7 @@ function renderWheel(){
    row.addEventListener('pointerleave',()=>{if(hoverRow===row)stopHover();});slots.append(row);
   }
   existing.delete(asset.id);row.dataset.browseCenter=String(asset.id===browseId);row.dataset.nameVisible=String(asset.id===browseId);row.setAttribute('aria-label',asset.name[state.lang]||asset.name.en);row.style.top=`${pad+i*SLOT}px`;row.setAttribute('aria-selected',String(state.selected===asset.id));row.setAttribute('aria-posinset',String(i+1));row.setAttribute('aria-setsize',String(state.results.length));row.querySelector('strong').textContent=short(asset);row.querySelector('small').textContent=String(i+1).padStart(3,'0');row.querySelector('.current').textContent=state.selected===asset.id?t('CURRENT','当前'):'';
-  const d=(i*SLOT-position)/SLOT,s=reduced()?1:.58+.42*Math.exp(-.65*d*d);row.querySelector('.slot-image').style.transform=`translateX(${reduced()?0:18*Math.exp(-.7*d*d)}px) scale(${s})`;row.querySelector('.slot-image').style.opacity=String(reduced()?1:Math.max(.55,1-.1*Math.abs(d)));
+  const d=(i*SLOT-position)/SLOT,s=reduced()?1:.58+.42*Math.exp(-.65*d*d);row.querySelector('.slot-image').style.transform=`translateX(${reduced()||mobile()?0:18*Math.exp(-.7*d*d)}px) scale(${s})`;row.querySelector('.slot-image').style.opacity=String(reduced()?1:Math.max(.55,1-.1*Math.abs(d)));
  }
  for(const row of existing.values()){if(row===hoverRow)stopHover();row.remove();}
  if(keyIndex>=0&&$('#option-'+state.keyboard))wheel.setAttribute('aria-activedescendant','option-'+state.keyboard);else wheel.removeAttribute('aria-activedescendant');

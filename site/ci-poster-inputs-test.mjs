@@ -31,13 +31,8 @@ try{
  assert.deepEqual((await posterInputState(manifest,missing,{root})).stale,['one']);
  const legacy={...poster};delete legacy.input_sha256;delete legacy.browser_version;resources.posters.one=legacy;
  await writeFile(join(root,'site/gallery/approved-poster-inputs.json'),JSON.stringify({version:1,posters:{one:{input_sha256:key,poster_sha256:sha256(JSON.stringify({poster:legacy,seals:[]}))}}}));
- assert.deepEqual((await posterInputState(manifest,resources,{root})).valid,['one']);
- assert.deepEqual((await posterInputState(manifest,resources,{root})).capture,[],'Verified golden pairs are preserved');
- await writeFile(join(root,'site/gallery/renderer.js'),'const camera = 43');
- await assert.rejects(()=>posterInputState(manifest,resources,{root}),/Approved poster inputs changed/);
- const changedShared=await posterSharedInputs(root);
- resources.posters.one={...legacy,input_sha256:posterInputKey(asset,changedShared),browser_version:changedShared.browser};
- await assert.rejects(()=>posterInputState(manifest,resources,{root}),/Approved poster pixels or metadata changed/);
+ await assert.rejects(()=>posterInputState(manifest,resources,{root}),/Historical approval catalog bytes changed/,'Repository JSON cannot mint a golden approval');
+ await rm(join(root,'site/gallery/approved-poster-inputs.json'));
  await writeFile(join(root,'site/gallery/renderer.js'),"import(dynamicName)");
  await assert.rejects(()=>posterRendererFiles(root),/Computed poster dependencies/);
  await symlink('helper.js',join(root,'site/gallery/linked.js'));

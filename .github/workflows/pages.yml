@@ -28,6 +28,9 @@ jobs:
       checks: read
       pull-requests: read
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,13 +48,13 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-publication-shards-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
+      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-publication-shards-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
       - name: Brand source contracts when present
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
         if: steps.reuse.outputs.reused != 'true'
         id: build_site
-      - run: npx playwright install --with-deps chromium
+      - run: node site/ci-install-chromium.mjs
         id: install_chromium
       - name: Complete exact-catalog gallery posters with the approved renderer
         if: steps.reuse.outputs.reused != 'true'
@@ -168,7 +171,7 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - run: node site/ci-install-chromium.mjs
       - name: Actual deployed catalog, direct details, GLB/Blend/ZIP, attribution and previews
         run: node site/live-release-browser-test.mjs
       - uses: actions/upload-artifact@v4

@@ -3,6 +3,9 @@ import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import {readFileSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
 import {modelPlan,modelReceipt,verifyBuild} from './ci-model-shards.mjs';
+import {computeModelInputs,freshModelRecords,assertBuiltRenderInputs} from './ci-model-proof.mjs';
+import {assertAdditionsReport} from './ci-additions-browser-contract.mjs';
+import {freshCardPreviewRecords} from './ci-card-preview-proof.mjs';
 const tasks = {
   "round13": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round13-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round13-20261018/site"}},
   "round12": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round12-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round12-20261018/site"}},
@@ -99,8 +102,9 @@ const tasks = {
 };
 const task = process.env.CI_REVIEW_TASK;
 const modelShard=task?.startsWith('models-');
+const cardProof=task==='previews'&&process.env.CI_MODEL_PROOF_ACTIVE==='true';
 const manifest=modelShard?JSON.parse(readFileSync('assets/manifest.json')):null;
-const plan=modelShard?modelPlan(manifest,{runtime:process.env.CI_RUNTIME==='true',ids:process.env.QA_MODEL_IDS||''}):null;
+const plan=modelShard?modelPlan(manifest,{runtime:process.env.CI_MODEL_PROOF_ACTIVE!=='true'&&process.env.CI_RUNTIME==='true',ids:process.env.QA_MODEL_IDS||''}):null;
 const shard=plan?.find(entry=>entry.task===task);
 assert(modelShard?shard:Object.hasOwn(tasks,task), 'Known CI task required');
 const {command,env} = tasks[modelShard?'models':task];
@@ -110,19 +114,41 @@ if(modelShard){
   build=verifyBuild('dist');
   env.QA_REVIEW_SCOPE='models';
   env.QA_MODEL_IDS=shard.ids.join(',');
+  if(process.env.CI_MODEL_PROOF_ACTIVE==='true')env.QA_ADDED_MODEL_IDS=shard.ids.join(',');
   env.QA_OUTPUT_DIR=`qa/release-strict-gpu/${task}`;
+}
+if(cardProof){
+  rmSync('qa/ci-card-preview-proof/receipt.json',{force:true});
+  rmSync('qa/web-capture-recheck/render-report.json',{force:true});
+  assert(process.env.PREVIEW_ASSET_IDS,'Incremental card task requires a nonempty exact selection');
+  build=verifyBuild('dist');
 }
 // Static/download integrity is always checked by Pages. Runtime changes cover all models.
 if (task === 'models' || task === 'fallback') env.QA_REVIEW_SCOPE = task === 'models' ? 'models' : 'matrix';
 if (task === 'fallback' && process.env.FULL_REVIEW === 'true') env.QA_REVIEW_SCOPE = 'full';
 if (task === 'models' && process.env.CI_RUNTIME === 'true') env.QA_MODEL_IDS = '';
-if (task === 'previews' && process.env.CI_RUNTIME === 'true') env.PREVIEW_ASSET_IDS = '';
+if (task === 'previews' && !cardProof && process.env.CI_RUNTIME === 'true') env.PREVIEW_ASSET_IDS = '';
 const result = spawnSync(command, {shell:true,stdio:'inherit',env:{...process.env,...env}});
 if (result.error) throw result.error;
 if(modelShard&&result.status===0){
+  let acceptance;
+  if(process.env.CI_MODEL_PROOF_ACTIVE==='true'){
+    const acceptanceDirectory=`${env.QA_OUTPUT_DIR}/desktop-touch`;
+    const browserResult=spawnSync(process.execPath,['site/ci-additions-browser-test.mjs'],{stdio:'inherit',env:{...process.env,...env,QA_DESKTOP_REPORT:`${env.QA_OUTPUT_DIR}/report.json`,QA_OUTPUT_DIR:acceptanceDirectory}});
+    if(browserResult.error)throw browserResult.error;assert.equal(browserResult.status,0,'Exact fresh desktop/touch acceptance failed');
+    acceptance=assertAdditionsReport(JSON.parse(readFileSync(`${acceptanceDirectory}/report.json`)),{manifest,selectedIDs:shard.ids,identity:build.identity});
+  }
   const report=JSON.parse(readFileSync(`${env.QA_OUTPUT_DIR}/report.json`));
   const receipt=modelReceipt(manifest,plan,shard,report,build);
+  if(acceptance)receipt.browser_acceptance=acceptance;
+  if(process.env.CI_MODEL_PROOF_ACTIVE==='true')receipt.proof_records=freshModelRecords({inputs:computeModelInputs({built:await assertBuiltRenderInputs({})}),selectedIDs:shard.ids,browser:report,identity:build.identity,payload_sha256:build.payload_sha256});
   mkdirSync('qa/ci-model-shards',{recursive:true});
   writeFileSync(`qa/ci-model-shards/${task}.json`,JSON.stringify(receipt,null,2)+'\n');
+}
+if(cardProof&&result.status===0){
+  const report=JSON.parse(readFileSync(`${env.PREVIEW_OUTPUT}/render-report.json`));
+  const records=freshCardPreviewRecords({inputs:computeModelInputs({built:await assertBuiltRenderInputs({})}),selectedIDs:process.env.PREVIEW_ASSET_IDS.split(','),report,identity:build.identity,payload_sha256:build.payload_sha256});
+  mkdirSync('qa/ci-card-preview-proof',{recursive:true});
+  writeFileSync('qa/ci-card-preview-proof/receipt.json',JSON.stringify({version:1,kind:'card-preview-shard',identity:build.identity,payload_sha256:build.payload_sha256,records},null,2)+'\n');
 }
 process.exit(result.status ?? 1);

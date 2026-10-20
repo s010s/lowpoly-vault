@@ -1,10 +1,10 @@
 /** Sharding may change scheduling, never exact required coverage or artifact identity. */
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync, existsSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { modelPlan, expandModelTasks, modelReceipt, assertModelCoverage, readModelReceipts, payloadDigest, verifyBuild, BUILD_RECEIPT } from './ci-model-shards.mjs';
+import { modelPlan, expandModelTasks, modelReceipt, assertModelCoverage, readModelReceipts, payloadDigest, verifyBuild, auditBuild, BUILD_RECEIPT } from './ci-model-shards.mjs';
 import { sha256 } from './ci-provenance.mjs';
 import { classify } from './ci-scope.mjs';
 const clone = value => structuredClone(value);
@@ -71,6 +71,19 @@ try {
   rmSync(join(root, 'extra')); rmSync(join(root, 'assets/model.glb')); assert.throws(() => verifyBuild(root, identity));
   writeFileSync(join(root, 'assets/model.glb'), 'model');
   assert.throws(() => verifyBuild(root, { ...identity, source_tree: 'changed' }));
+  const sealBytes = readFileSync(join(root, BUILD_RECEIPT));
+  const sameSeal = () => assert.deepEqual(readFileSync(join(root, BUILD_RECEIPT)), sealBytes, 'Exact seal bytes restored after every audit result');
+  const strictAudit = () => assert.deepEqual(readdirSync(root).sort(), ['assets', 'index.html'], 'Original deployment inventory does not allow an internal CI seal');
+  assert.deepEqual(auditBuild(root, identity, strictAudit), sealed); sameSeal();
+  assert.throws(() => auditBuild(root, identity, () => { strictAudit(); throw Error('Original audit failed'); }), /Original audit failed/); sameSeal();
+  assert.throws(() => auditBuild(root, identity, () => { writeFileSync(join(root, 'index.html'), 'evil'); }), /Audit changed the sealed deployment payload/); sameSeal();
+  writeFileSync(join(root, 'index.html'), 'page');
+  assert.throws(() => auditBuild(root, identity, () => { writeFileSync(join(root, 'unexpected'), 'not allowed'); strictAudit(); }), /Original deployment inventory/); sameSeal(); rmSync(join(root, 'unexpected'));
+  assert.throws(() => auditBuild(root, identity, () => writeFileSync(join(root, BUILD_RECEIPT), '{}')), /reserved build seal/); sameSeal();
+  assert.throws(() => auditBuild(root, identity, () => symlinkSync('missing-target', join(root, BUILD_RECEIPT))), /reserved build seal/); sameSeal();
+  let invoked = false; writeFileSync(join(root, 'extra'), 'unsealed');
+  assert.throws(() => auditBuild(root, identity, () => { invoked = true; })); assert.equal(invoked, false); sameSeal(); rmSync(join(root, 'extra'));
+  assert.throws(() => auditBuild(root, { ...identity, run_id: 'wrong' }, strictAudit)); sameSeal();
   symlinkSync('index.html', join(root, 'linked')); assert.throws(() => payloadDigest(root));
 } finally { rmSync(root, { recursive: true, force: true }); }
 // Exercise the real scope -> wrapper -> receipt path with a tiny fake browser,
@@ -92,11 +105,26 @@ try {
     const report={status:'pass',browser_status:'pass',profile:'strict-gpu',review_scope:'models',commit:process.env.GITHUB_SHA,gpu:{status:'pass'},page_errors:[],resource_errors:[],selected_model_ids:ids,models:ids.map(id=>({id,status:'gpu-pass',glb_sha256:manifest.assets.find(a=>a.id===id).sha256.glb}))};
     mkdirSync(process.env.QA_OUTPUT_DIR,{recursive:true});writeFileSync(process.env.QA_OUTPUT_DIR+'/report.json',JSON.stringify(report));
   `);
+  writeFileSync(join(fixture, 'site/audit-release.mjs'), `
+    import assert from 'node:assert/strict';
+    import {readdirSync,writeFileSync} from 'node:fs';
+    assert.equal(process.env.REQUIRE_COMPLETE_GALLERY, '1');
+    assert.deepEqual(readdirSync('dist'), ['index.html']);
+    if (process.env.AUDIT_FIXTURE_FAIL === '1') process.exit(37);
+    if (process.env.AUDIT_FIXTURE_TAMPER === '1') writeFileSync('dist/index.html', 'changed-build');
+  `);
   const git = (...args) => execFileSync('git', args, { cwd: fixture, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
   git('init', '-q'); git('add', '.'); git('-c', 'user.name=CI fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'fixture');
   const env = { ...process.env, GITHUB_SHA: git('rev-parse', 'HEAD'), GITHUB_RUN_ID: '123', GITHUB_RUN_ATTEMPT: '1', CI_RUNTIME: 'true', CI_REVIEW_TASK: plan[2].task, QA_MODEL_IDS: '' };
   const run = (script, args = [], extra = {}) => spawnSync(process.execPath, [resolve('site/' + script), ...args], { cwd: fixture, encoding: 'utf8', env: { ...env, ...extra } });
   let result = run('ci-model-shards.mjs', ['seal-build']); assert.equal(result.status, 0, result.stderr);
+  const originalSeal = readFileSync(join(fixture, 'dist', BUILD_RECEIPT));
+  result = run('ci-model-shards.mjs', ['audit-build']); assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(readFileSync(join(fixture, 'dist', BUILD_RECEIPT)), originalSeal);
+  result = run('ci-model-shards.mjs', ['audit-build'], { AUDIT_FIXTURE_FAIL: '1' }); assert.notEqual(result.status, 0);
+  assert.deepEqual(readFileSync(join(fixture, 'dist', BUILD_RECEIPT)), originalSeal);
+  result = run('ci-model-shards.mjs', ['audit-build'], { AUDIT_FIXTURE_TAMPER: '1' }); assert.notEqual(result.status, 0);
+  assert.deepEqual(readFileSync(join(fixture, 'dist', BUILD_RECEIPT)), originalSeal); writeFileSync(join(fixture, 'dist/index.html'), 'fixture-build');
   result = run('ci-review.mjs'); assert.equal(result.status, 0, result.stderr);
   const receiptPath = join(fixture, 'qa/ci-model-shards', plan[2].task + '.json');
   assert.deepEqual(JSON.parse(readFileSync(receiptPath)).models.map(row => row.id), plan[2].ids);
@@ -110,9 +138,20 @@ const workflow = readFileSync('.github/workflows/full-release-review.yml', 'utf8
 assert.match(workflow, /max-parallel: 6/);
 assert.match(workflow, /ci-model-shards\.mjs seal-build/);
 assert.match(workflow, /ci-model-shards\.mjs verify-build/);
-assert.match(workflow, /needs: \[scope, prepare, build\]/);
+assert.match(workflow, /needs: \[scope, prepare, build, audit-prepared-build\]/);
 assert.match(workflow, /if: always\(\) && needs\.scope\.result == 'success' && needs\.scope\.outputs\.models == 'true'/);
-assert.match(workflow, /test "\$PREPARE_RESULT" = success && test "\$BUILD_RESULT" = success/);
-assert.match(workflow, /ci-model-shards\.mjs aggregate/);
+assert.match(workflow, /test "\$PREPARE_RESULT" = success && test "\$BUILD_RESULT" = success && test "\$AUDIT_RESULT" = success/);
+assert.match(workflow, /ci-incremental-models\.mjs aggregate/);
+const incremental=readFileSync('site/ci-incremental-models.mjs','utf8');
+assert.match(incremental,/assertModelCoverage\(manifest,shards,receipts,identity,build\)/);
+assert.match(incremental,/aggregateModelProof\(/);
+assert.match(incremental,/await fetchVerifiedBaseProof\(\{inputs\}\)/);
+assert.match(workflow,/PREVIEW_ASSET_IDS: \$\{\{ needs\.prepare\.outputs\.fresh_ids \}\}/);
+assert.match(workflow,/name: card-preview-proof/);
+assert.match(incremental,/freshCardRecords:cardRecords/);
+assert.match(incremental,/Card proof build differs/);
+assert.match(incremental,/Live render policy differs from the exact committed source/);
 assert.match(workflow, /merge-multiple: false/);
+assert.match(workflow, /ci-model-shards\.mjs audit-build/);
+console.log('Sealed deployment audit: original strict inventory, exact seal restoration, original failure, unknown files, same-size payload mutation, forged/link seals and real child-process refusal passed.');
 console.log('Model shards: deterministic 190/5 exact coverage, selective paths, wrong hashes/policy/run, incomplete GPU results and tampered build all fail closed.');

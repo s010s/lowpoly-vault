@@ -1,3 +1,7 @@
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+import {assertHistoricalPosterRecipe,assertHistoricalPosterApprovals} from './gallery-poster-compat.mjs';
+const historicalRecipes=new WeakMap();
+// END GALLERY POSTER V3 ORCHESTRATION
 /** Versioned WebGL poster recipe. UI styles/fonts are not rasterized into these transparent canvases. */
 import {createHash} from 'node:crypto';
 import {readFile,realpath} from 'node:fs/promises';
@@ -42,6 +46,9 @@ export async function posterSharedInputs(root=process.cwd()){
  const paths=[...await posterRendererFiles(root),'site/capture-gallery-posters.mjs','site/gallery-poster-inputs.mjs','package.json','package-lock.json','vite.config.js'].sort(),files=[];
  for(const path of paths){assert.equal(await realpath(resolve(root,path)),resolve(root,path));files.push([path,hash(await readFile(resolve(root,path)))]);}
  const browsers=JSON.parse(await readFile(resolve(root,'node_modules/playwright-core/browsers.json'))),browser=browsers.browsers.find(item=>item.name==='chromium').browserVersion;
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+ return {version:3,sha256:hash(JSON.stringify({domain:'gallery-poster-capture-v3',policy:CAPTURE_POLICY,files,browser})),files,policy:CAPTURE_POLICY,browser};
+// END GALLERY POSTER V3 ORCHESTRATION
  return {version:2,sha256:hash(JSON.stringify({policy:CAPTURE_POLICY,files,browser})),files,policy:CAPTURE_POLICY,browser};
 }
 export function posterInputKey(asset,shared){
@@ -52,11 +59,23 @@ export function posterInputKey(asset,shared){
 export async function posterInputState(manifest,resources,{root=process.cwd()}={}){
  const shared=await posterSharedInputs(root);
  let baseline;try{baseline=JSON.parse(await readFile(resolve(root,'site/gallery/approved-poster-inputs.json')));}catch{baseline=null;}
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+ await assertHistoricalPosterApprovals({root,baseline});
+// END GALLERY POSTER V3 ORCHESTRATION
  const valid=[],stale=[],approvedIds=[];
  for(const asset of manifest.assets){
   const poster=resources.posters[asset.id];if(!poster)continue;
   const key=posterInputKey(asset,shared),approved=baseline?.posters?.[asset.id];
   const seals=resources.files.filter(file=>[poster.detail,poster.wheel].includes(file.path)).sort((a,b)=>a.path.localeCompare(b.path));
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+  if(approved&&baseline.shared){
+   if(!historicalRecipes.has(baseline))historicalRecipes.set(baseline,assertHistoricalPosterRecipe({root,baseline,shared}));
+   const historical=await historicalRecipes.get(baseline);
+   assert.equal(approved.poster_sha256,hash(JSON.stringify({poster,seals})),`Approved poster pixels or metadata changed: ${asset.id}; explicitly review a new baseline`);
+   assert.equal(approved.input_sha256,posterInputKey(asset,historical),`Approved poster inputs changed: ${asset.id}; explicitly review a new baseline`);
+   valid.push(asset.id);approvedIds.push(asset.id);continue;
+  }
+// END GALLERY POSTER V3 ORCHESTRATION
   // Golden approved pixels are preserved, never silently re-signed for a changed recipe.
   if(approved){
    assert.equal(approved.poster_sha256,hash(JSON.stringify({poster,seals})),`Approved poster pixels or metadata changed: ${asset.id}; explicitly review a new baseline`);
