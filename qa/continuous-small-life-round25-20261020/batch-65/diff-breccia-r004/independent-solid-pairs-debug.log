@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-round25-qa65/diff-breccia-r004/independent_solid_pairs_debug.py", line 49, in hull
+    try:h=ConvexHull(p)
+          ^^^^^^^^^^^^^
+  File "scipy/spatial/_qhull.pyx", line 2492, in scipy.spatial._qhull.ConvexHull.__init__
+  File "scipy/spatial/_qhull.pyx", line 356, in scipy.spatial._qhull._Qhull.__init__
+scipy.spatial._qhull.QhullError: QH6154 Qhull precision error: Initial simplex is flat (facet 1 is coplanar with the interior point)
+
+While executing:  | qhull i Qt
+Options selected for Qhull 2020.2.r 2020/08/31:
+  run-id 1833524812  incidence  Qtriangulate  _pre-merge  _zero-centrum
+  _max-width 0.18  Error-roundoff 2.4e-15  _one-merge 1.7e-14
+  _near-inside 8.3e-14  Visible-distance 4.8e-15  U-max-coplanar 4.8e-15
+  Width-outside 9.5e-15  _wide-facet 2.9e-14  _maxoutside 1.9e-14
+
+The input to qhull appears to be less than 3 dimensional, or a
+computation has overflowed.
+
+Qhull could not construct a clearly convex simplex from points:
+- p3(v4):  0.33   1.9 -0.54
+- p0(v3):  0.51   1.7 -0.37
+- p2(v2):  0.51   1.9 -0.37
+- p1(v1):  0.33   1.7 -0.54
+
+The center point is coplanar with a facet, or a vertex is coplanar
+with a neighboring facet.  The maximum round off error for
+computing distances is 2.4e-15.  The center point, facets and distances
+to the center point are as follows:
+
+center point   0.4186    1.782  -0.4574
+
+facet p0 p2 p1 distance= 5.6e-17
+facet p3 p2 p1 distance= 5.6e-17
+facet p3 p0 p1 distance= -5.6e-17
+facet p3 p0 p2 distance= -5.6e-17
+
+These points either have a maximum or minimum x-coordinate, or
+they maximize the determinant for k coordinates.  Trial points
+are first selected from points that maximize a coordinate.
+
+The min and max coordinates for each dimension are:
+  0:    0.3297    0.5075  difference= 0.1778
+  1:     1.692     1.873  difference= 0.1808
+  2:   -0.5448  -2.225e-308  difference= 0.5448
+
+If the input should be full dimensional, you have several options that
+may determine an initial simplex:
+  - use 'QJ'  to joggle the input and make it full dimensional
+  - use 'QbB' to scale the points to the unit cube
+  - use 'QR0' to randomly rotate the input for different maximum points
+  - use 'Qs'  to search all points for the initial simplex
+  - use 'En'  to specify a maximum roundoff error less than 2.4e-15.
+  - trace execution with 'T3' to see the determinant for each point.
+
+If the input is lower dimensional:
+  - use 'QJ' to joggle the input and make it full dimensional
+  - use 'Qbk:0Bk:0' to delete coordinate k from the input.  You should
+    pick the coordinate with the least range.  The hull will have the
+    correct topology.
+  - determine the flat containing the points, rotate the points
+    into a coordinate plane, and delete the other coordinates.
+  - add one or more points to make the input full dimensional.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-round25-qa65/diff-breccia-r004/independent_solid_pairs_debug.py", line 88, in <module>
+    paths=sys.argv[1:3];res=[check(p) for p in paths];out={'method':'Independent exact-GLB indexed-topology connected-component extraction followed by 3D convex hull volume and separating-axis theorem (both hull facet normals plus all unique edge cross-products). Pairwise test is limited to clast-versus-clast solids, not intentional clast-host embedding. SAT is exact only where components match their convex hulls; the report records hull/mesh volume ratio to expose nonconvex components. Positive axis overlap required on every axis; 1e-8m contact tolerance.','results':res,'comparison':{'r003_r004_pair_overlap_counts':[x['positive_volume_clast_pair_intersections'] for x in res],'all_components_convex':all(x['all_clast_meshes_convex_within_1e-5_rel'] for x in res)}}
+                             ^^^^^^^^
+  File "/workspace/shared/lowpoly-round25-qa65/diff-breccia-r004/independent_solid_pairs_debug.py", line 75, in check
+    raw,d,blob=load(path);pcs=mesh_comps(d,blob);host=[p for p in pcs if p['mesh']==0];clasts=[hull(p) for p in pcs if p['mesh']!=0]
+                                                                                               ^^^^^^^
+  File "/workspace/shared/lowpoly-round25-qa65/diff-breccia-r004/independent_solid_pairs_debug.py", line 50, in hull
+    except Exception as e: raise RuntimeError({'mesh':piece['mesh'],'primitive':piece['primitive'],'component':piece['component'],'npoints':len(p),'nfaces':len(piece['faces']),'min':p.min(0).tolist(),'max':p.max(0).tolist(),'points':p.tolist(),'err':str(e)[:600]})
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: {'mesh': 1, 'primitive': 0, 'component': 9, 'npoints': 4, 'nfaces': 2, 'min': [0.3297039270401001, 1.691727239638567, -0.544846385717392], 'max': [0.5075177550315857, 1.8725405521690845, -0.369986355304718], 'points': [[0.5068404078483582, 1.691727239638567, -0.37013906240463257], [0.3297039270401001, 1.692541915923357, -0.544846385717392], [0.5075177550315857, 1.8717258758842945, -0.369986355304718], [0.33038127422332764, 1.8725405521690845, -0.5446936786174774]], 'err': 'QH6154 Qhull precision error: Initial simplex is flat (facet 1 is coplanar with the interior point)\n\nWhile executing:  | qhull i Qt\nOptions selected for Qhull 2020.2.r 2020/08/31:\n  run-id 1833524812  incidence  Qtriangulate  _pre-merge  _zero-centrum\n  _max-width 0.18  Error-roundoff 2.4e-15  _one-merge 1.7e-14\n  _near-inside 8.3e-14  Visible-distance 4.8e-15  U-max-coplanar 4.8e-15\n  Width-outside 9.5e-15  _wide-facet 2.9e-14  _maxoutside 1.9e-14\n\nThe input to qhull appears to be less than 3 dimensional, or a\ncomputation has overflowed.\n\nQhull could not construct a clearly convex simplex fro'}
