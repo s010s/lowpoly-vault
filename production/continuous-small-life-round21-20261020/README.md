@@ -1,0 +1,13 @@
+# Round 21: exclusive batches 56 and 57
+
+Batch 56 contains Cycadeoidea, Gondwanagaricites, Deflation hollow and Arthrophycus annulated burrow. Batch 57 contains Quatsinoporites, Nidula baltica, Cave column and Rusophycus resting excavation. These are eight unchanged reference-ready IDs from the approved prehistoric-1000-v1 inventory, not newly invented assets or variants.
+
+This package registers two exclusive parent reservations only. No producer, ImageGen, Blender or QA has been launched. Parent fills real task/thread IDs after confirmed dispatch and checks live maker capacity. Two non-overlapping makers may run in parallel in isolated saved cloud environments, one Blender process at two threads each. All earlier batches and paused work remain untouched.
+
+Start each candidate branch from then-current main and copy only the necessary round 21 inputs. Never merge this planning branch or import its historical site/CI/release changes. The source freeze is NOT a modeling freeze. Genuine concepts and pixel inspection must precede new derived per-asset briefs/configs and a new hash-bound modeling freeze. Original reference-ready is not a new factual PASS.
+
+The original inventory objects and inherited policies are unchanged. Historical named reference-policy notes apply only to those named IDs; the common policy and these assets' unchanged records and dispatch boundaries govern this round. Claims and state are mutable coordination records, not frozen design inputs.
+
+Preclaim evidence checked all 326 advertised refs: 291 branch heads, 34 pull request refs, 0 tags and HEAD. It checked committed model and work paths, 127 unique claim blobs, 39 state blobs, 21 queue blobs and 730 code blobs. Accessible local named asset directories and claim/state files were checked too. No selected-ID matches were found. All 234 previously planned IDs are excluded. Read preclaim-dedup.json for exact refs and discovery limits.
+
+Validate static inputs with sha256sum --check checksums.sha256 from this directory. The manifest covers the full round package; verify against the full original package rather than rewriting it for a copied subset. Preserve seven separate acceptance stages: technical, visual, factual, specification, runtime_parse, gpu and scene. Parent dispatches exactly one fresh-context GPT-6 Luna xhigh independent full QA per four-ID batch, pinned to the actual frozen candidate source commit and four GLB hashes. Only targeted difference review follows required repairs. Record observed stage times or unrecorded/unknown; this package makes no production-start or completion claim.

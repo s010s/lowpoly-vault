@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "asset_id": "cave-column",
+  "brief_version": "r002",
+  "profile": "production",
+  "purpose": "One floor-to-ceiling mineral pillar with fused growth contours and readable upper and lower attachments. Preserve the continuous connecting volume, not a floating stalactite, a generic architectural cylinder or two disconnected cones. A limited surrounding support is illustrative; do not claim a real cave, precise age, locality or measured dimensions.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-SP"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-SP"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight fixed views; zero-turntable explicit dispatch.",
+  "required_deliverables": [],
+  "nominal_dimensions_blender_xyz_m": [
+    2.5,
+    1.95,
+    3.15
+  ],
+  "scale_note": "Illustrative nominal display envelope, not measured fossil/site dimensions. Actual XYZ reported separately after export. Nidula is an enlarged teaching prop; no original tissue color claim.",
+  "concept_interpretation": "Row 3 consistent continuous pillar; attachment outlines vary across views. Author one continuous fluted volume with limited broad patches at floor and ceiling, irregular lower accumulation and narrow fused middle.",
+  "bounded_repair": "Replace symmetrical spool flare with offset fused growth, scalloped irregular stepped foot and upper attachment; one uninterrupted mineral volume."
+}

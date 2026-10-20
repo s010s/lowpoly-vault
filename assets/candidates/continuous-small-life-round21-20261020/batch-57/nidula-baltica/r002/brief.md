@@ -1,0 +1,5 @@
+One fossil cup with overlapping scale-edged rim and a visible internal lenticular peridiole, using the corrected Baltic holotype views. Preserve the original correction: figures 1–2 are holotype AF-9-20B; figure 3 is Cyathus and must not be used as this asset. Do not invent hidden exterior detail or original tissue color. Any transparent display support is an artistic choice, not copied amber geometry or fossil evidence.
+
+Row 2 is much too broad compared with author description of narrowly obconic vase. Resolve to narrow high cup, one small lenticular body, restrained overlapping rim scales; unseen outer wall is simplified artistic interpolation. Corrected figures 1–2 AF-9-20B remain authority; figure 3 excluded. Corrected full figure pixels could not be retrieved, so specimen-specific conformity remains unknown.
+
+Illustrative nominal display envelope, not measured fossil/site dimensions. Actual XYZ reported separately after export. Nidula is an enlarged teaching prop; no original tissue color claim.

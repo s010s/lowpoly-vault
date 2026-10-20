@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "asset_id": "nidula-baltica",
+  "brief_version": "delivery-v003",
+  "profile": "production",
+  "purpose": "One fossil cup with overlapping scale-edged rim and a visible internal lenticular peridiole, using the corrected Baltic holotype views. Preserve the original correction: figures 1\u20132 are holotype AF-9-20B; figure 3 is Cyathus and must not be used as this asset. Do not invent hidden exterior detail or original tissue color. Any transparent display support is an artistic choice, not copied amber geometry or fossil evidence.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "FL-nidula",
+        "FL-nidula-corrigendum"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "FL-nidula",
+        "FL-nidula-corrigendum"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight fixed views; zero-turntable explicit dispatch.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/nidula-baltica/r002/nidula-baltica.blend",
+      "sha256": "ea67e24dac4adde47c02b2186713cffdcc4235d52b9a788e0615e9274fcaa9fe"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/nidula-baltica/r002/generator.py",
+      "sha256": "9e3c5fa21ab52aff134a5c235ae156b8db1b5e12fa50006af6fe3fc61ef424d5"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/nidula-baltica/r002/build-config.json",
+      "sha256": "cc1a28d157a99a22be5fcd6bf4b581cba8ad9646abf63f70c6d133530c1b0b7d"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.066,
+    0.066,
+    0.135
+  ],
+  "scale_note": "Illustrative nominal display envelope, not measured fossil/site dimensions. Actual XYZ reported separately after export. Nidula is an enlarged teaching prop; no original tissue color claim.",
+  "concept_interpretation": "Row 2 is much too broad compared with author description of narrowly obconic vase. Resolve to narrow high cup, one small lenticular body, restrained overlapping rim scales; unseen outer wall is simplified artistic interpolation. Corrected figures 1\u20132 AF-9-20B remain authority; figure 3 excluded. Corrected full figure pixels could not be retrieved, so specimen-specific conformity remains unknown.",
+  "delivery_freeze_note": "Post-build delivery declaration version. Original pre-model brief.json and modeling-freeze.json preserved unchanged; no backdated chronology."
+}
