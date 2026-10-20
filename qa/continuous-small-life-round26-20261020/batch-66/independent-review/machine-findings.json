@@ -1,0 +1,1170 @@
+{
+  "schema": "independent-lowpoly-batch66-review-v1",
+  "reviewed_at_utc": "2026-10-20T14:08:30Z",
+  "reviewer_scope": "Independent read-only QA. No producer source changes, push, release, GPU run, composed-scene run, or approval.",
+  "source": {
+    "repo": "/workspace/shared/lowpoly-batch66-20261020",
+    "branch": "candidate/small-life-batch66-concept-20261020",
+    "commit": "c0a2ef787b8744495603fc4f1d3258891421504b",
+    "git_clean_before": true,
+    "git_clean_after": true
+  },
+  "global_checks": {
+    "original_inventory_sha256_head_parent_and_head": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "inventory_registry_diff": "none",
+    "original_refs_and_rights_ledgers": "present, hashes pinned, no third-party asset incorporation claimed",
+    "original_freezes": "preserved; premodel source brief and refs unchanged; final delivery brief adds packaging_adapter only for postbuild deliverable path/hash closure",
+    "provider_generation_timestamp": "unknown, producer freeze explicitly leaves null; no mtime inference",
+    "generator_authoring_start_timestamp": "unknown; no reliable independent evidence",
+    "external_reference_pixels": "inspected exact pixel files from cited primary source pages and matched hashes to consultation ledger; no reference pixels copied into this QA directory",
+    "candidate_validators": "valid evidence bundles, but approved_for_brief false and approval pending; not a release approval",
+    "projected_build_reproduction": "two distinct semantic rebuild queue records per final asset, unique job IDs/fingerprints/PIDs/timestamps, successful return codes, output files + hashes, semantic match and byte-identical model.glb. Queue provenance remains attestational, not cryptographic proof of process correctness."
+  },
+  "primary_reference_pins": [
+    {
+      "subject": "Louisella; ROM actual reconstruction, USNM57558 and complete USNM57616 fossil photos",
+      "page": "https://burgess-shale.rom.on.ca/fossils/louisella-pedunculata/",
+      "images_sha256": [
+        "ac7310f5aad490917a1a7c84951e02110ed76913570e53497c7ece0393bec8b5",
+        "2691bd6c0961e66e5b73d318d8e61d6819c791bbda847a5970140814c3010496",
+        "e6b5b60a0e942fd9f461a6aa519a0a24280b2bdb3d28dc81bd3335d9e8da96e2"
+      ],
+      "inspection": "Actual pixels personally inspected in this review; retouched historical diagrams not conflated with direct fossil photographs."
+    },
+    {
+      "subject": "Hoodoo weathering sequence",
+      "page": "https://www.nps.gov/brca/learn/nature/hoodoos.htm",
+      "images_sha256": [
+        "4e4e4de9e2217762d999ca51160928d6124df41b4b9f3b1f3315305a8e4d8340"
+      ],
+      "inspection": "Actual NPS image pixels inspected; irregular cap-protected spires and differential ledges."
+    },
+    {
+      "subject": "Graben and normal fault",
+      "page": "https://www.usgs.gov/media/images/horstgrabenjpg",
+      "images_sha256": [
+        "3a71d15ce73a466a444202c4324a4a2f4f1bf0aa727ca3d551a4cad9b977d154",
+        "a33922cf8da0892b3642fa49140835ddb9f37368f839edf6f3ac81df3227ee6b"
+      ],
+      "inspection": "Exact USGS horst-graben and Normal Fault-01 pixels inspected and verified to consultation ledger hashes. Bulletin1327 PDF fetch403 and is not claimed as consulted."
+    },
+    {
+      "subject": "Meandering river",
+      "page": "https://www.nps.gov/articles/meandering-stream.htm",
+      "images_sha256": [
+        "4c820563204fccd49393f44a7ba0e279b7b542fa0883945bf0b860e6d00c76ff"
+      ],
+      "inspection": "Actual NPS diagram pixels inspected; point bar is inside bend, cutbank outside."
+    }
+  ],
+  "assets": {
+    "louisella": {
+      "static_disposition": "REVISE",
+      "stage_dispositions": {
+        "technical": "ACCEPT",
+        "visual": "REVISE",
+        "factual": "REVISE",
+        "specification": "REVISE",
+        "runtime_parse": "ACCEPT",
+        "gpu": "BLOCKED (not run; unknown)",
+        "scene": "BLOCKED (not run; unknown)"
+      },
+      "independent_visual_review": "Reopened genuine original concept and personally inspected the three actual ROM pixels above. On all eight final 512px views and sheet, a very sharply tapering pointed posterior remains, contradicting frozen rounded/blunt posterior; paired dorsal papilla rows exist in geometry but read weakly/near a single line at output scale, and the four trunk zones are not visually well separated. Ringed proboscis and unspined posterior segment are present, but this still risks generic long annulated worm/long Ottoia rather than recognizable Louisella. Recommend revise posterior silhouette and improve paired row/zonal legibility; do not describe as simply “long Ottoia.” Miskoia is synonym, not a second species/count. Geometry has a modeled recessed aperture, but it is not visually legible, so do not credit visual terminal opening.",
+      "artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/model.glb",
+          "sha256": "4632a79722f7caaa3b4df476237b438cc9277ab28f3075f3afdd5e2a488e4b62",
+          "bytes": 543760
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/source.blend",
+          "sha256": "dc200005bdf3030b68ccd7aee829fee0660fad751e998e3473ad5c9cfffbe507",
+          "bytes": 928868
+        },
+        "original_design_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/brief.json",
+          "sha256": "b1055998c889ef9c29919fee8945aa81f9af75256d7db28cdc2d8a3dffbbcd74"
+        },
+        "packaged_candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/candidate-brief.json",
+          "sha256": "cdcb3d56b951da41a287c7f7492efc7bcf5a2a2feb04682dd1ca9ca218575b1c",
+          "packaging_adapter_only": true,
+          "frozen_brief_sha256_claimed": "b1055998c889ef9c29919fee8945aa81f9af75256d7db28cdc2d8a3dffbbcd74"
+        },
+        "references": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/references.json",
+          "sha256": "03b197a0d42d680e4d77058834c73d0105bac05663a07fa2d988fa3ede145534"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/generator.py",
+          "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/build-config.json",
+          "sha256": "877e05c779b798dc0b4d228c6b2358270a1547caaa62be185f2303955d0fde02"
+        },
+        "original_concept": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/concept-original.png",
+          "sha256": "89e8e87d6716e011066211674838393520648ca5e46de1b34bb69be85701a104",
+          "pixels": [
+            1536,
+            1024
+          ]
+        }
+      },
+      "geometry_runtime": {
+        "triangles": 10272,
+        "materials": 6,
+        "primitives": 9,
+        "textures": false,
+        "glb_bounds_xyz_m": [
+          0.050810592249035835,
+          0.02983016928192228,
+          0.3010125607252121
+        ],
+        "source_triangles": 10272,
+        "bounds_match": true,
+        "source_saved_during_read_only_reopen": false,
+        "source_vertex_count": 5714,
+        "source_parts": 6,
+        "open_or_nonmanifold_edges": 0,
+        "technical_static": "ACCEPT",
+        "static_audit": "pass",
+        "khronos_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "three_gltfloader": {
+          "version": "0.180.0",
+          "parser": "Node GLTFLoader.parseAsync",
+          "status": "pass",
+          "gpu": "not_run",
+          "scene": "not_run"
+        }
+      },
+      "budget": {
+        "triangles_limit": 14000,
+        "glb_bytes_limit": 1000000,
+        "materials_limit": 6,
+        "primitives_limit": 30,
+        "all_limits_pass": true,
+        "textures": 0
+      },
+      "dependency_pins": {
+        "blender_version": "4.3.2",
+        "three_version": "0.180.0",
+        "generator_sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361",
+        "config_sha256": "877e05c779b798dc0b4d228c6b2358270a1547caaa62be185f2303955d0fde02",
+        "seed": 66,
+        "files": {
+          "scripts/asset_common.py": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "scripts/qa_glb.py": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "package-lock.json": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2",
+          "scripts/check_source_export.py": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a",
+          "scripts/check_reproducibility.py": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2",
+          "production/continuous-small-life-round26-20261020/work/batch-66/render-fixed8.py": "33ed7fc4b39a41e67f79e51d41fd4457f2a3087085837e59c8981d87e7bb412d"
+        },
+        "note": "Deterministic original generator; existing read-only node_modules symlink, no installs."
+      },
+      "source_reopen_report": {
+        "path": "interim/source-reopen-louisella.json",
+        "sha256": "044d921752cab3684e5e991ffa429583a94b6c5429a432b3fb96143b42b62f6d"
+      },
+      "two_semantic_rebuilds": [
+        {
+          "job_id": "semantic-rebuild-1",
+          "fingerprint": "ee3c22739a2e3371b8c8cbc5922a7be73cb4a5273cafe95c623e5bb6d41aed75",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/louisella/r001/semantic-rebuild-1/ee3c22739a2e3371b8c8cbc5922a7be73cb4a5273cafe95c623e5bb6d41aed75/20261020T134100-591e673a2857477ea0fca90ac377632f/request.json",
+          "request_sha256": "99da2ed67feb4993533b8cea32aa7ebdd27bbe10cdbe50e506296b03fb942147",
+          "request_created_at": "2026-10-20T13:41:00.798615+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/louisella/r001/semantic-rebuild-1/ee3c22739a2e3371b8c8cbc5922a7be73cb4a5273cafe95c623e5bb6d41aed75/20261020T134100-591e673a2857477ea0fca90ac377632f/result.json",
+          "result_sha256": "bfbe215c49f124659dcb295bb170cffecb268dbbde4e580d475e74c3f17275d6",
+          "pid": 372,
+          "started_at": "2026-10-20T13:41:00.801936+00:00",
+          "finished_at": "2026-10-20T13:41:04.338048+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 4122,
+              "sha256": "06e22ec90b26caa04dbf995333c314044798422380a7c7bc20813a9b802df345"
+            },
+            "model.glb": {
+              "bytes": 543760,
+              "sha256": "4632a79722f7caaa3b4df476237b438cc9277ab28f3075f3afdd5e2a488e4b62"
+            },
+            "source-metrics.json": {
+              "bytes": 1534,
+              "sha256": "2c03ace5e2e1defdff73d8a13cf8849e6592af4890ca449f748e383347d5bf7f"
+            },
+            "source.blend": {
+              "bytes": 928868,
+              "sha256": "049a2c4ba31fbbd3976b23684441e115d31cd2c60f7962a4c409ea0c9d011512"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/repro-final-1.report.json",
+          "semantic_report_sha256": "5171d5728fc0272ee474bce48d75c04c9975b0467db094454a5ff121f8853998",
+          "semantic_sha256": "be1caabcb7d8b989214e498fe795e58fc6dd3d8866f38bd2ea742111e93c464e",
+          "rebuilt_semantic_sha256": "be1caabcb7d8b989214e498fe795e58fc6dd3d8866f38bd2ea742111e93c464e",
+          "semantic_match": true,
+          "byte_identical": true
+        },
+        {
+          "job_id": "semantic-rebuild-2",
+          "fingerprint": "6c3b7cbb17ebe2566c18537e21d926078dc66cad0bd110abb548609f0a96d1f9",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/louisella/r001/semantic-rebuild-2/6c3b7cbb17ebe2566c18537e21d926078dc66cad0bd110abb548609f0a96d1f9/20261020T134104-62446f5d64e74b09ae032a74f267b3ec/request.json",
+          "request_sha256": "f0d2dcc94da8e1cf870d40609d45b38c99cae479ee6decf32ab5101661df622f",
+          "request_created_at": "2026-10-20T13:41:04.437488+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/louisella/r001/semantic-rebuild-2/6c3b7cbb17ebe2566c18537e21d926078dc66cad0bd110abb548609f0a96d1f9/20261020T134104-62446f5d64e74b09ae032a74f267b3ec/result.json",
+          "result_sha256": "0134dbeda9f3e5824c8d34ebac8bf4cc60cb51702998b099ff24279b8eae31f5",
+          "pid": 394,
+          "started_at": "2026-10-20T13:41:04.440545+00:00",
+          "finished_at": "2026-10-20T13:41:08.018695+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 4122,
+              "sha256": "d9cea92804708576d3dcb761f8aef0bf211b2e9dd20566d885d458b1f9d17f0b"
+            },
+            "model.glb": {
+              "bytes": 543760,
+              "sha256": "4632a79722f7caaa3b4df476237b438cc9277ab28f3075f3afdd5e2a488e4b62"
+            },
+            "source-metrics.json": {
+              "bytes": 1534,
+              "sha256": "2c03ace5e2e1defdff73d8a13cf8849e6592af4890ca449f748e383347d5bf7f"
+            },
+            "source.blend": {
+              "bytes": 928868,
+              "sha256": "445aa8874d146187a1ed227e32179cdf16dcaf4d30573f31f0f6dba2ad228ea5"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/repro-final-2.report.json",
+          "semantic_report_sha256": "ca7cfa8ef7e7cf6f3c3ee93cacec693d8eda82be6d2d29494aada1263e358436",
+          "semantic_sha256": "be1caabcb7d8b989214e498fe795e58fc6dd3d8866f38bd2ea742111e93c464e",
+          "rebuilt_semantic_sha256": "be1caabcb7d8b989214e498fe795e58fc6dd3d8866f38bd2ea742111e93c464e",
+          "semantic_match": true,
+          "byte_identical": true
+        }
+      ],
+      "final_view_frames": [
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/clay.png",
+          "sha256": "d06337af77e52afdfbe1f3b69ba0bd849b60f1ffd24067167cd8aa7561580bd4",
+          "bytes": 147892,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/front.png",
+          "sha256": "daeb698d0b142c1ed795f5c0b3d4f5b40d67d49d2bf5e627d5480e90e9ab91f8",
+          "bytes": 142938,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/hero.png",
+          "sha256": "c9af7afc7d9cad4726ef90c2c2e6f4b2c9d72224c5cb01d6b8d2a8e76c202eb9",
+          "bytes": 157707,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/rear.png",
+          "sha256": "4e36b50021196d02f89a62e5cd114e50df8f10f9c1dd2c158efc03c138fae0aa",
+          "bytes": 142908,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/reversehero.png",
+          "sha256": "61a1d51307bbe826ce442d40a47f915c4797c56bcc6d821aa8a95423b05f2857",
+          "bytes": 159856,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/side.png",
+          "sha256": "d4f4d54dfdeee2900518b8f1b8124a904f21260e648951995c82dc79e1990cb9",
+          "bytes": 161420,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/silhouette.png",
+          "sha256": "3ef40a2b49d384889461e083028b39b42fc9bf9911b7b6edb5975af06b595527",
+          "bytes": 17209,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/proof-final/top.png",
+          "sha256": "f16c345280b8e6689a7581b73802a0300554d341746bd93dc645022cee0ef7c3",
+          "bytes": 176697,
+          "pixels": [
+            512,
+            512
+          ]
+        }
+      ],
+      "contact_sheet": {
+        "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/contact-sheet.png",
+        "sha256": "1e496f133094c2f346599fdd0030187aa3f99d4280371b19031616b61937937c",
+        "bytes": 460123,
+        "pixels": [
+          2048,
+          1060
+        ],
+        "visually_inspected": true
+      },
+      "evidence_caveat": "Candidate evidence checker valid is not approval; no GPU or composed scene exercised."
+    },
+    "hoodoo": {
+      "static_disposition": "REVISE",
+      "stage_dispositions": {
+        "technical": "ACCEPT",
+        "visual": "REVISE",
+        "factual": "ACCEPT",
+        "specification": "REVISE",
+        "runtime_parse": "ACCEPT",
+        "gpu": "BLOCKED (not run; unknown)",
+        "scene": "BLOCKED (not run; unknown)"
+      },
+      "independent_visual_review": "Inspected original concept, frozen brief and all eight final views/sheet. Correctly slender, irregular radial form with modest protective cap and faceted side outline, yet four similarly spaced full-rim ledges with aligned pale bands create an overly regular tier-stack rhythm even after refinement. Retained earlier overregular attempt is correctly kept rather than overwritten; current r001 is the refined two-run subject. Recommend make the cap-protected pillar more irregular and break repeated tier spacing; not a named-location/measurement claim.",
+      "artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/model.glb",
+          "sha256": "769455c71d8b433913e37e12b961fb06fda15f7a7d0c84eddaa2332b016e2038",
+          "bytes": 70072
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/source.blend",
+          "sha256": "a22d03967803212873fce5ade5ccc4e6931f8f2481edfd2f3850d127d6d255bf",
+          "bytes": 545764
+        },
+        "original_design_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/brief.json",
+          "sha256": "cf6d2fe0230975d98df91841b006117a27c30ca4add4b2c318d67ae448b4738b"
+        },
+        "packaged_candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/candidate-brief.json",
+          "sha256": "fcc8db266f8559acda4ab8e1196ffb4a90e47b4f8028f177d0ec6034851313ce",
+          "packaging_adapter_only": true,
+          "frozen_brief_sha256_claimed": "cf6d2fe0230975d98df91841b006117a27c30ca4add4b2c318d67ae448b4738b"
+        },
+        "references": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/references.json",
+          "sha256": "5051775a0fd9611a8904b5117236ab38c9958d50a0cdd8315bd8fd5ba62a84e3"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/generator.py",
+          "sha256": "69064f517f6e6c797eee69c4026a59970421ebfa899906286fd4a0361ff3fbef"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/build-config.json",
+          "sha256": "bb5a9593fd8e8b2e32647097de1e691de96b7131759153105d3df04ac5a470f7"
+        },
+        "original_concept": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/concept-original.png",
+          "sha256": "b91135125d3369bff277060cc1ddced375e8d1eb70bdb82d3e43e9c30463e2db",
+          "pixels": [
+            1536,
+            1024
+          ]
+        }
+      },
+      "geometry_runtime": {
+        "triangles": 1244,
+        "materials": 4,
+        "primitives": 4,
+        "textures": false,
+        "glb_bounds_xyz_m": [
+          3.5006065368652344,
+          8.137832641601562,
+          2.933351755142212
+        ],
+        "source_triangles": 1244,
+        "bounds_match": true,
+        "source_saved_during_read_only_reopen": false,
+        "source_vertex_count": 624,
+        "source_parts": 1,
+        "open_or_nonmanifold_edges": 0,
+        "technical_static": "ACCEPT",
+        "static_audit": "pass",
+        "khronos_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "three_gltfloader": {
+          "version": "0.180.0",
+          "parser": "Node GLTFLoader.parseAsync",
+          "status": "pass",
+          "gpu": "not_run",
+          "scene": "not_run"
+        }
+      },
+      "budget": {
+        "triangles_limit": 14000,
+        "glb_bytes_limit": 1000000,
+        "materials_limit": 6,
+        "primitives_limit": 30,
+        "all_limits_pass": true,
+        "textures": 0
+      },
+      "dependency_pins": {
+        "blender_version": "4.3.2",
+        "three_version": "0.180.0",
+        "generator_sha256": "69064f517f6e6c797eee69c4026a59970421ebfa899906286fd4a0361ff3fbef",
+        "config_sha256": "bb5a9593fd8e8b2e32647097de1e691de96b7131759153105d3df04ac5a470f7",
+        "seed": 66,
+        "files": {
+          "scripts/asset_common.py": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "scripts/qa_glb.py": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "package-lock.json": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2",
+          "scripts/check_source_export.py": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a",
+          "scripts/check_reproducibility.py": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2",
+          "production/continuous-small-life-round26-20261020/work/batch-66/render-fixed8.py": "33ed7fc4b39a41e67f79e51d41fd4457f2a3087085837e59c8981d87e7bb412d"
+        },
+        "note": "Deterministic original generator; existing read-only node_modules symlink, no installs."
+      },
+      "source_reopen_report": {
+        "path": "interim/source-reopen-hoodoo.json",
+        "sha256": "0f8748de9daf57edcce59242fab143286c5ae7ce7d5b9ccfd0bdc3ddafc37c80"
+      },
+      "two_semantic_rebuilds": [
+        {
+          "job_id": "semantic-rebuild-1",
+          "fingerprint": "2869d161a50e993be23d7ca4c7db6a36b512782f2baea31dcdf10f30e5383fb3",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs-hoodoo-refined/build/hoodoo/r001/semantic-rebuild-1/2869d161a50e993be23d7ca4c7db6a36b512782f2baea31dcdf10f30e5383fb3/20261020T134302-2b9ab7b3772e4ebfa8f69d95079aa333/request.json",
+          "request_sha256": "1f92077a4de7c2679b1f8b6778575173ae41f4b22f6f68a9adc5e1751aa6791c",
+          "request_created_at": "2026-10-20T13:43:02.696913+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs-hoodoo-refined/build/hoodoo/r001/semantic-rebuild-1/2869d161a50e993be23d7ca4c7db6a36b512782f2baea31dcdf10f30e5383fb3/20261020T134302-2b9ab7b3772e4ebfa8f69d95079aa333/result.json",
+          "result_sha256": "1d99ef38276a7002801eff859c7c08b16ab240ed41074fad5ea991f030663b1c",
+          "pid": 124,
+          "started_at": "2026-10-20T13:43:02.796362+00:00",
+          "finished_at": "2026-10-20T13:43:06.446545+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 3139,
+              "sha256": "7cd7f25b98b07acec431da9cc36a205cca9b9c9204d8033f6b6c0bcbd775b2bc"
+            },
+            "model.glb": {
+              "bytes": 70072,
+              "sha256": "769455c71d8b433913e37e12b961fb06fda15f7a7d0c84eddaa2332b016e2038"
+            },
+            "source-metrics.json": {
+              "bytes": 649,
+              "sha256": "22269204491160f6e82d3faad51952da139b734157784ddf4c2c6b646b8f43af"
+            },
+            "source.blend": {
+              "bytes": 545764,
+              "sha256": "443b40447429f9b551d92ea5059e3b7aa5b2e71dd17bb71c84aeb651fcb4ef49"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/repro-final-1.report.json",
+          "semantic_report_sha256": "2a8b07d12064bb4d15ba613f4bbbd75736f813a88a79f56a113ed7c01328c25a",
+          "semantic_sha256": "e78159649573e8d5a80d3c1dda944b69f7a7d9cca04fc7b97d2a3b9735d7a65a",
+          "rebuilt_semantic_sha256": "e78159649573e8d5a80d3c1dda944b69f7a7d9cca04fc7b97d2a3b9735d7a65a",
+          "semantic_match": true,
+          "byte_identical": true
+        },
+        {
+          "job_id": "semantic-rebuild-2",
+          "fingerprint": "b05b1c1320338f7d4ecc22098fde9975499e877fa1e09cd42ecd0c4dce805c45",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs-hoodoo-refined/build/hoodoo/r001/semantic-rebuild-2/b05b1c1320338f7d4ecc22098fde9975499e877fa1e09cd42ecd0c4dce805c45/20261020T134306-c351492c842c468098cff7444f4496be/request.json",
+          "request_sha256": "0a3a82365511625574ea8479c13ab10c98ae3ba71d8e6dbc6a804661c2997902",
+          "request_created_at": "2026-10-20T13:43:06.609979+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs-hoodoo-refined/build/hoodoo/r001/semantic-rebuild-2/b05b1c1320338f7d4ecc22098fde9975499e877fa1e09cd42ecd0c4dce805c45/20261020T134306-c351492c842c468098cff7444f4496be/result.json",
+          "result_sha256": "76f7ee68699015524753a2ae6e30307c4e4a7074c359bd7504d6f5afcb5432b4",
+          "pid": 146,
+          "started_at": "2026-10-20T13:43:06.616538+00:00",
+          "finished_at": "2026-10-20T13:43:11.333212+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 3139,
+              "sha256": "66d0039eff20a8e5da9e719fe7424581f52cc6d80eadf0986aff044a4d5eb2c4"
+            },
+            "model.glb": {
+              "bytes": 70072,
+              "sha256": "769455c71d8b433913e37e12b961fb06fda15f7a7d0c84eddaa2332b016e2038"
+            },
+            "source-metrics.json": {
+              "bytes": 649,
+              "sha256": "22269204491160f6e82d3faad51952da139b734157784ddf4c2c6b646b8f43af"
+            },
+            "source.blend": {
+              "bytes": 545764,
+              "sha256": "258be987968134640e9dba6af1e91a5c5189b83f34daa11ceb5fe8d3699619e3"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/repro-final-2.report.json",
+          "semantic_report_sha256": "c3ca0b44a75b30423874d92c011ae819495dabc979bf882c44bcda473cb77b79",
+          "semantic_sha256": "e78159649573e8d5a80d3c1dda944b69f7a7d9cca04fc7b97d2a3b9735d7a65a",
+          "rebuilt_semantic_sha256": "e78159649573e8d5a80d3c1dda944b69f7a7d9cca04fc7b97d2a3b9735d7a65a",
+          "semantic_match": true,
+          "byte_identical": true
+        }
+      ],
+      "final_view_frames": [
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/clay.png",
+          "sha256": "ee4d18cd374737bd3786d304dede30d7f64e9069859a9d9450e67b55527d8bdd",
+          "bytes": 171464,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/front.png",
+          "sha256": "ff1b9f96091a25222c4fa30f91cfd3adbcb507335d6d6fa209e7447060fe0044",
+          "bytes": 217198,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/hero.png",
+          "sha256": "262ef027379cd46350e79ddd20416e4b9a3d94ed99dbd9cbe97a400fb78df431",
+          "bytes": 216856,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/rear.png",
+          "sha256": "86cfc7205edebce40192af18cdc67db9779576e1463d34f8920eeabcd8b16752",
+          "bytes": 209918,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/reversehero.png",
+          "sha256": "f7359f3a63597b509fb172e7c12f7b4c769b1b475b94e0f370e8caa13108c643",
+          "bytes": 213762,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/side.png",
+          "sha256": "8a088c4be48293c976689bf97e8b0f634bcef182894382092a5b645a076a2e88",
+          "bytes": 207880,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/silhouette.png",
+          "sha256": "315cede30f129306b67eb0217dc037a6683883539d58d9435a70a2048d9e819d",
+          "bytes": 36834,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/proof-final/top.png",
+          "sha256": "42527f4a68c028942a5e23af9f28f0c40ae77b206726a488ddb872bcea6433d4",
+          "bytes": 175331,
+          "pixels": [
+            512,
+            512
+          ]
+        }
+      ],
+      "contact_sheet": {
+        "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r001/contact-sheet.png",
+        "sha256": "77156d336ebdebaf8a93d9638095edca7a5c52350d35b084a1cda405fc6b4964",
+        "bytes": 758423,
+        "pixels": [
+          2048,
+          1060
+        ],
+        "visually_inspected": true
+      },
+      "evidence_caveat": "Candidate evidence checker valid is not approval; no GPU or composed scene exercised."
+    },
+    "graben-basin": {
+      "static_disposition": "ACCEPT",
+      "stage_dispositions": {
+        "technical": "ACCEPT",
+        "visual": "ACCEPT",
+        "factual": "ACCEPT",
+        "specification": "ACCEPT",
+        "runtime_parse": "ACCEPT",
+        "gpu": "BLOCKED (not run; unknown)",
+        "scene": "BLOCKED (not run; unknown)"
+      },
+      "independent_visual_review": "Inspected concept and eight final views/sheet. This is a visibly down-dropped central block between higher shoulders with opposing normal-fault scarps and offset marker layers, not an eroded valley. Correctly illustrative geology with no site/age/measurement overclaim. Actual USGS diagrams are consistent primary evidence.",
+      "artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/model.glb",
+          "sha256": "27c5dc00cfadcefd096555918a6163cfe6df2c5577721a06c062fab10e413fc6",
+          "bytes": 68332
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/source.blend",
+          "sha256": "7596f1fa32b2469af815f9368d1b45f2c0f414f98d160238dbe8298ff2e27caa",
+          "bytes": 617240
+        },
+        "original_design_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/brief.json",
+          "sha256": "e23501cac3b592f8520b189ed06723a30a60c53bf7e600a255ea898d59068439"
+        },
+        "packaged_candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/candidate-brief.json",
+          "sha256": "8e50cda65bd17bebc73e7c2bff1fa8a78a3d977177b8d78e60f63bd0539c3ff6",
+          "packaging_adapter_only": true,
+          "frozen_brief_sha256_claimed": "e23501cac3b592f8520b189ed06723a30a60c53bf7e600a255ea898d59068439"
+        },
+        "references": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/references.json",
+          "sha256": "1e8d4e0362740999dbc35bd31b96773a89fdf58d9e54b1261c3ac5fc248be39e"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/generator.py",
+          "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/build-config.json",
+          "sha256": "f1fa2751b4c524091ee6345b71cf7ce774ca4cd4eeb83a7916c048fa898377c5"
+        },
+        "original_concept": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/concept-original.png",
+          "sha256": "a0fece5aaccb6ace5f163f135e9739ed5519bf76f942995f141911ed68af2643",
+          "pixels": [
+            1448,
+            1086
+          ]
+        }
+      },
+      "geometry_runtime": {
+        "triangles": 1184,
+        "materials": 5,
+        "primitives": 13,
+        "textures": false,
+        "glb_bounds_xyz_m": [
+          80,
+          15.54270076751709,
+          60.59391403198242
+        ],
+        "source_triangles": 1184,
+        "bounds_match": true,
+        "source_saved_during_read_only_reopen": false,
+        "source_vertex_count": 656,
+        "source_parts": 13,
+        "open_or_nonmanifold_edges": 0,
+        "technical_static": "ACCEPT",
+        "static_audit": "pass",
+        "khronos_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "three_gltfloader": {
+          "version": "0.180.0",
+          "parser": "Node GLTFLoader.parseAsync",
+          "status": "pass",
+          "gpu": "not_run",
+          "scene": "not_run"
+        }
+      },
+      "budget": {
+        "triangles_limit": 14000,
+        "glb_bytes_limit": 1000000,
+        "materials_limit": 6,
+        "primitives_limit": 30,
+        "all_limits_pass": true,
+        "textures": 0
+      },
+      "dependency_pins": {
+        "blender_version": "4.3.2",
+        "three_version": "0.180.0",
+        "generator_sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361",
+        "config_sha256": "f1fa2751b4c524091ee6345b71cf7ce774ca4cd4eeb83a7916c048fa898377c5",
+        "seed": 66,
+        "files": {
+          "scripts/asset_common.py": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "scripts/qa_glb.py": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "package-lock.json": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2",
+          "scripts/check_source_export.py": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a",
+          "scripts/check_reproducibility.py": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2",
+          "production/continuous-small-life-round26-20261020/work/batch-66/render-fixed8.py": "33ed7fc4b39a41e67f79e51d41fd4457f2a3087085837e59c8981d87e7bb412d"
+        },
+        "note": "Deterministic original generator; existing read-only node_modules symlink, no installs."
+      },
+      "source_reopen_report": {
+        "path": "interim/source-reopen-graben-basin.json",
+        "sha256": "63ea3159efda0f6c73ce88c2cf4ce3c6e39df40e32c18c54d2eb38a864b412a5"
+      },
+      "two_semantic_rebuilds": [
+        {
+          "job_id": "semantic-rebuild-1",
+          "fingerprint": "b3c138f8a15a06f8e8a185d684ee13f2c3e3255d26aa93aed5ef252bdd87856a",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/graben-basin/r001/semantic-rebuild-1/b3c138f8a15a06f8e8a185d684ee13f2c3e3255d26aa93aed5ef252bdd87856a/20261020T134113-990547649df64551b218b3d653bc1a3f/request.json",
+          "request_sha256": "53547140777a26ff6f3ccd7c4b9b1df2322f98bbacde427e378206efd2a95828",
+          "request_created_at": "2026-10-20T13:41:13.803855+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/graben-basin/r001/semantic-rebuild-1/b3c138f8a15a06f8e8a185d684ee13f2c3e3255d26aa93aed5ef252bdd87856a/20261020T134113-990547649df64551b218b3d653bc1a3f/result.json",
+          "result_sha256": "685d4b6c410580f2dab25cc14e9f738f73c4851bb70cf9cd2e3a82fbe517a0d5",
+          "pid": 460,
+          "started_at": "2026-10-20T13:41:13.806809+00:00",
+          "finished_at": "2026-10-20T13:41:16.511345+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 5042,
+              "sha256": "618ea8a84f843d707a498edb0130e0d4785cd0868612a98496d2a30853010343"
+            },
+            "model.glb": {
+              "bytes": 68332,
+              "sha256": "27c5dc00cfadcefd096555918a6163cfe6df2c5577721a06c062fab10e413fc6"
+            },
+            "source-metrics.json": {
+              "bytes": 2460,
+              "sha256": "dd4a0e006bea048117d87aeb7ec07aa664d8a896c2a3b748b7480ff53ba54c41"
+            },
+            "source.blend": {
+              "bytes": 617240,
+              "sha256": "56b05c7e4e5b43577ecae27f272d1c9caf7fef3d5c37b060a0705efd54a7b1c6"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/repro-final-1.report.json",
+          "semantic_report_sha256": "a34c0cd64e50b7fe8996cbb6d5e5b0d1d9d14a0ea6ac19685e7f3848fec182ba",
+          "semantic_sha256": "4ddadb951a2ab7b9ec231e1ac3331ae8df66c84f52268cafeb02e25e94cdd38b",
+          "rebuilt_semantic_sha256": "4ddadb951a2ab7b9ec231e1ac3331ae8df66c84f52268cafeb02e25e94cdd38b",
+          "semantic_match": true,
+          "byte_identical": true
+        },
+        {
+          "job_id": "semantic-rebuild-2",
+          "fingerprint": "1468f49de04bbbcf86983b4519ff00087d9f343dcf4387fb09359bd5a4edc382",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/graben-basin/r001/semantic-rebuild-2/1468f49de04bbbcf86983b4519ff00087d9f343dcf4387fb09359bd5a4edc382/20261020T134116-38907f9097e2403caf3fde0787108d56/request.json",
+          "request_sha256": "60e0c81c78fe5f77fd6d18d00c751e1ddd18277c293448fb49a1693d6a16abf2",
+          "request_created_at": "2026-10-20T13:41:16.608381+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/graben-basin/r001/semantic-rebuild-2/1468f49de04bbbcf86983b4519ff00087d9f343dcf4387fb09359bd5a4edc382/20261020T134116-38907f9097e2403caf3fde0787108d56/result.json",
+          "result_sha256": "7cb4f894bb5954765688c6e37dc195ad27cb855f303926c8ad7fb00ce7c7e40b",
+          "pid": 482,
+          "started_at": "2026-10-20T13:41:16.611474+00:00",
+          "finished_at": "2026-10-20T13:41:19.573197+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 5042,
+              "sha256": "b0e25023da734ad8a33986c7898d244b614e1d0b0ff2d5a1bb48adbefa1bfc2d"
+            },
+            "model.glb": {
+              "bytes": 68332,
+              "sha256": "27c5dc00cfadcefd096555918a6163cfe6df2c5577721a06c062fab10e413fc6"
+            },
+            "source-metrics.json": {
+              "bytes": 2460,
+              "sha256": "dd4a0e006bea048117d87aeb7ec07aa664d8a896c2a3b748b7480ff53ba54c41"
+            },
+            "source.blend": {
+              "bytes": 617240,
+              "sha256": "91ff34df4ea93cfe6be00e4d9ce1e9041f82cdc074f357b8b41d4553387ed854"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/repro-final-2.report.json",
+          "semantic_report_sha256": "cf6980e9aa73f7d0885109253a6d07d6bb3fc90d1de1ae546aabf78d58428cac",
+          "semantic_sha256": "4ddadb951a2ab7b9ec231e1ac3331ae8df66c84f52268cafeb02e25e94cdd38b",
+          "rebuilt_semantic_sha256": "4ddadb951a2ab7b9ec231e1ac3331ae8df66c84f52268cafeb02e25e94cdd38b",
+          "semantic_match": true,
+          "byte_identical": true
+        }
+      ],
+      "final_view_frames": [
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/clay.png",
+          "sha256": "7b63585910898992c088550bbfb6aef00387d637b18e313baece68a3314a2dbf",
+          "bytes": 170133,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/front.png",
+          "sha256": "bf8525995afbd0a642fc759e1524f93939194b6eabb69814ace54c682957f116",
+          "bytes": 162351,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/hero.png",
+          "sha256": "6dc66120b8279b83f2fe2f521f28e2ede77f6b6b5925d4fc31158eeec41fe132",
+          "bytes": 222032,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/rear.png",
+          "sha256": "9db3f71b6dee43cc5c93771f8c1b891a481bcad778132b52b76821b64d06beca",
+          "bytes": 158207,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/reversehero.png",
+          "sha256": "4563151ef9373840fd58795c1a15a2081c428cd2ed87e6ed76b3b2c0d3842eb2",
+          "bytes": 222382,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/side.png",
+          "sha256": "d45cc1cb654128fccd432934d660fe9d0b727b72b19c59d8d349b46722ecc1ce",
+          "bytes": 156003,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/silhouette.png",
+          "sha256": "5b8a68adbc4b029fca59349d3bcbb5219650e32fbd84f002a5afb863841bcb31",
+          "bytes": 45407,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/proof-final/top.png",
+          "sha256": "5a973dee5dd5ffa8c2559cb2054661cd83dd1de610d2ed63745ea62d07ae5d39",
+          "bytes": 273526,
+          "pixels": [
+            512,
+            512
+          ]
+        }
+      ],
+      "contact_sheet": {
+        "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/graben-basin/r001/contact-sheet.png",
+        "sha256": "04c2e032847e6961253c44c906d5dd25c0ee6705629c2aa17c1cce0ebd5f40a0",
+        "bytes": 833750,
+        "pixels": [
+          2048,
+          1060
+        ],
+        "visually_inspected": true
+      },
+      "evidence_caveat": "Candidate evidence checker valid is not approval; no GPU or composed scene exercised."
+    },
+    "meandering-river-reach": {
+      "static_disposition": "ACCEPT",
+      "stage_dispositions": {
+        "technical": "ACCEPT",
+        "visual": "ACCEPT",
+        "factual": "ACCEPT",
+        "specification": "ACCEPT",
+        "runtime_parse": "ACCEPT",
+        "gpu": "BLOCKED (not run; unknown)",
+        "scene": "BLOCKED (not run; unknown)"
+      },
+      "independent_visual_review": "Inspected concept and eight final views/sheet. Continuous sinuous reach with inset channel and inside point-bar versus outside cutbank contrasts; three bends remain connected, not braided/oxbow. Unified source terrain mesh is appropriate. Illustrative, no site/age/measurement claim.",
+      "artifact_pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/model.glb",
+          "sha256": "a1eb45790b033e06f7bfaf7084d361e0701de426413fb1d74d69307f041b2af4",
+          "bytes": 187652
+        },
+        "blend": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/source.blend",
+          "sha256": "0630010191a5da2573295bef6e7893993b2ee6128efcaff17d32c97425faf289",
+          "bytes": 679864
+        },
+        "original_design_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/brief.json",
+          "sha256": "988824de82cc29ca82e69dade098425e3ae3ec6d93044dc83de5ca54ee0f24f0"
+        },
+        "packaged_candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/candidate-brief.json",
+          "sha256": "e3a52596b14119c16d2d4f510ebe330addf42963813f8fbf98900cd6eb010c12",
+          "packaging_adapter_only": true,
+          "frozen_brief_sha256_claimed": "988824de82cc29ca82e69dade098425e3ae3ec6d93044dc83de5ca54ee0f24f0"
+        },
+        "references": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/references.json",
+          "sha256": "246593327448208e7723ff0ef1bc06db41c5151d880a67d9b4faf3886bb705a3"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/generator.py",
+          "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/build-config.json",
+          "sha256": "ff04da2c57dba8bf8995dcee670ceea495fc965dd4fba395359898237035ca88"
+        },
+        "original_concept": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/concept-original.png",
+          "sha256": "c97ea60ffd273f402f760e01fa4190073fa5edfc0ef8cbf1810a0ba1e5768e6c",
+          "pixels": [
+            1536,
+            1024
+          ]
+        }
+      },
+      "geometry_runtime": {
+        "triangles": 3142,
+        "materials": 5,
+        "primitives": 5,
+        "textures": false,
+        "glb_bounds_xyz_m": [
+          60,
+          4.929998874664307,
+          90
+        ],
+        "source_triangles": 3142,
+        "bounds_match": true,
+        "source_saved_during_read_only_reopen": false,
+        "source_vertex_count": 1573,
+        "source_parts": 1,
+        "open_or_nonmanifold_edges": 0,
+        "technical_static": "ACCEPT",
+        "static_audit": "pass",
+        "khronos_validator": {
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0
+        },
+        "three_gltfloader": {
+          "version": "0.180.0",
+          "parser": "Node GLTFLoader.parseAsync",
+          "status": "pass",
+          "gpu": "not_run",
+          "scene": "not_run"
+        }
+      },
+      "budget": {
+        "triangles_limit": 14000,
+        "glb_bytes_limit": 1000000,
+        "materials_limit": 6,
+        "primitives_limit": 30,
+        "all_limits_pass": true,
+        "textures": 0
+      },
+      "dependency_pins": {
+        "blender_version": "4.3.2",
+        "three_version": "0.180.0",
+        "generator_sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361",
+        "config_sha256": "ff04da2c57dba8bf8995dcee670ceea495fc965dd4fba395359898237035ca88",
+        "seed": 66,
+        "files": {
+          "scripts/asset_common.py": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "scripts/qa_glb.py": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "package-lock.json": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2",
+          "scripts/check_source_export.py": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a",
+          "scripts/check_reproducibility.py": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2",
+          "production/continuous-small-life-round26-20261020/work/batch-66/render-fixed8.py": "33ed7fc4b39a41e67f79e51d41fd4457f2a3087085837e59c8981d87e7bb412d"
+        },
+        "note": "Deterministic original generator; existing read-only node_modules symlink, no installs."
+      },
+      "source_reopen_report": {
+        "path": "interim/source-reopen-meandering-river-reach.json",
+        "sha256": "beded6b6d8edbdee2c5a4b25eeebcd87124c412ce69049bd38878b02f55296e2"
+      },
+      "two_semantic_rebuilds": [
+        {
+          "job_id": "semantic-rebuild-1",
+          "fingerprint": "4303ea0c1a1db397134e48e9bc0a3500cbf33bd3a5ee2ed4d7e73b0c70abde3b",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/meandering-river-reach/r001/semantic-rebuild-1/4303ea0c1a1db397134e48e9bc0a3500cbf33bd3a5ee2ed4d7e73b0c70abde3b/20261020T134119-b00157134d9e438598eb8ea67a6aae4a/request.json",
+          "request_sha256": "47dddfc74ad9332d3119e415d33599551ca337bbba80b76fd1e382b3c5629264",
+          "request_created_at": "2026-10-20T13:41:19.699569+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/meandering-river-reach/r001/semantic-rebuild-1/4303ea0c1a1db397134e48e9bc0a3500cbf33bd3a5ee2ed4d7e73b0c70abde3b/20261020T134119-b00157134d9e438598eb8ea67a6aae4a/result.json",
+          "result_sha256": "d518c256a12b96640bb8273877d552fe74b2e4c9867f77a7fadc7ff92252e62e",
+          "pid": 504,
+          "started_at": "2026-10-20T13:41:19.706639+00:00",
+          "finished_at": "2026-10-20T13:41:22.669944+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 2940,
+              "sha256": "bf7baee577f0d357de9443f3643c6960e113541a6ec196dc2f2163402d339ffd"
+            },
+            "model.glb": {
+              "bytes": 187652,
+              "sha256": "a1eb45790b033e06f7bfaf7084d361e0701de426413fb1d74d69307f041b2af4"
+            },
+            "source-metrics.json": {
+              "bytes": 583,
+              "sha256": "951d8d4954eeffc869459903807f3b47b3b50ffb6ed5a3a6172b0150c44607cd"
+            },
+            "source.blend": {
+              "bytes": 679864,
+              "sha256": "c3d3d2e7a1adca4fa01c952cf55bbd6b2ab73fe2a8f08ea4ec11c39aad87a060"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/repro-final-1.report.json",
+          "semantic_report_sha256": "ebcbd1e116f90a475643cfad182d0cb92b065c2bf4b43d11f0d168baf0bfd4cd",
+          "semantic_sha256": "773f64af86a211edaacb8b88ff366815f9f53b210fd1e08dcb0c5bec40f519dd",
+          "rebuilt_semantic_sha256": "773f64af86a211edaacb8b88ff366815f9f53b210fd1e08dcb0c5bec40f519dd",
+          "semantic_match": true,
+          "byte_identical": true
+        },
+        {
+          "job_id": "semantic-rebuild-2",
+          "fingerprint": "b92da509ce95e87ae98303293d60826bbca88eddfec928218e73f8aab1a82ac2",
+          "request_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/meandering-river-reach/r001/semantic-rebuild-2/b92da509ce95e87ae98303293d60826bbca88eddfec928218e73f8aab1a82ac2/20261020T134122-77356831cafb4664b3c03443de909aae/request.json",
+          "request_sha256": "b0e26bb8335474ac9d2064989bc0b1dd70985f12a5a2ad95425a7ac7eee56bf4",
+          "request_created_at": "2026-10-20T13:41:22.777651+00:00",
+          "result_path": "production/continuous-small-life-round26-20261020/work/batch-66/rebuild-runs/build/meandering-river-reach/r001/semantic-rebuild-2/b92da509ce95e87ae98303293d60826bbca88eddfec928218e73f8aab1a82ac2/20261020T134122-77356831cafb4664b3c03443de909aae/result.json",
+          "result_sha256": "2969f195c332d2c12052917780e898e8dfdd4d8eb087ff3b611f433f9b671e22",
+          "pid": 526,
+          "started_at": "2026-10-20T13:41:22.780081+00:00",
+          "finished_at": "2026-10-20T13:41:25.723378+00:00",
+          "status": "succeeded",
+          "returncode": 0,
+          "outputs": {
+            "metrics.json": {
+              "bytes": 2940,
+              "sha256": "eaed8d311e4e121f53b325df29fe0fdc65f6168782da53ce5ed061abdb294471"
+            },
+            "model.glb": {
+              "bytes": 187652,
+              "sha256": "a1eb45790b033e06f7bfaf7084d361e0701de426413fb1d74d69307f041b2af4"
+            },
+            "source-metrics.json": {
+              "bytes": 583,
+              "sha256": "951d8d4954eeffc869459903807f3b47b3b50ffb6ed5a3a6172b0150c44607cd"
+            },
+            "source.blend": {
+              "bytes": 679864,
+              "sha256": "940cba9c51dcdb347959cb6d2b6c2ce85c0e190fda5131e9422cee75da773091"
+            }
+          },
+          "semantic_report": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/repro-final-2.report.json",
+          "semantic_report_sha256": "d20cadd6312dd608180e8e4741afc58196c055de2492a770b0a0d2002f79fd14",
+          "semantic_sha256": "773f64af86a211edaacb8b88ff366815f9f53b210fd1e08dcb0c5bec40f519dd",
+          "rebuilt_semantic_sha256": "773f64af86a211edaacb8b88ff366815f9f53b210fd1e08dcb0c5bec40f519dd",
+          "semantic_match": true,
+          "byte_identical": true
+        }
+      ],
+      "final_view_frames": [
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/clay.png",
+          "sha256": "be2221e92b28a1c9d52e395cabeb1944f29e4081667e4e34ba7fc9b82b4e7ec7",
+          "bytes": 162098,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/front.png",
+          "sha256": "eba30772b7ef7de7c1875a9496515bbabf0cb67b1bd0e41109f3a961123ecbd9",
+          "bytes": 144522,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/hero.png",
+          "sha256": "971ed9dab03e6c4ceced207424a6d43e0abb201bab42bc9f777f76fde00f90e6",
+          "bytes": 198135,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/rear.png",
+          "sha256": "a5032865978a664d61744637bcc698cceb570836ae974b313a11bebe29a768aa",
+          "bytes": 143577,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/reversehero.png",
+          "sha256": "94a1d9366f2e09a713b97a8365a54d145fc9a8363e62fc1f804ef7bf2ea62e1d",
+          "bytes": 201072,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/side.png",
+          "sha256": "8a01949f627ea7e02752e560efe3bc0069a4a07145044a1a36ebf23a0b725188",
+          "bytes": 144126,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/silhouette.png",
+          "sha256": "a31d099ca3c07598912db8fb780e7213d0d0d64a71318b1e249c8f15786a38a1",
+          "bytes": 35393,
+          "pixels": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/proof-final/top.png",
+          "sha256": "924597765d8247bf5b39c25b496ece698d25c9709a4f650d84513ea3d2025138",
+          "bytes": 270022,
+          "pixels": [
+            512,
+            512
+          ]
+        }
+      ],
+      "contact_sheet": {
+        "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/contact-sheet.png",
+        "sha256": "c3eb60fb9fb555ff5f60a8c8a9e5a46e0dc4b0a42986ba48a1bc035aa547d561",
+        "bytes": 714705,
+        "pixels": [
+          2048,
+          1060
+        ],
+        "visually_inspected": true
+      },
+      "evidence_caveat": "Candidate evidence checker valid is not approval; no GPU or composed scene exercised."
+    }
+  }
+}
