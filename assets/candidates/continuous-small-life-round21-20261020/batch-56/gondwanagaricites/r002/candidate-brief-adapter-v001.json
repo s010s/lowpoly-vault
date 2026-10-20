@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "asset_id": "gondwanagaricites",
+  "brief_version": "r002",
+  "profile": "production",
+  "purpose": "Original evidence-informed stylized fossil/environment prop; candidate only",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "FL-gondwanagaricites",
+        "FL-gondwanagaricites-correction"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "FL-gondwanagaricites",
+        "FL-gondwanagaricites-correction"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed eight views, zero turntable per batch dispatch",
+  "claim_scope": "One mineralized fruiting-body fossil specimen using the preserved side silhouette, cap, stalk and shallow exposed gill relief. Do not turn it into a decorative living mushroom, add spots or an invented ring, or extend it into a complete mycelium. Preserve the corrected Gondwanagaricites magnificus name and unknown original color. Any support or unpreserved thickness is an explicitly illustrative display choice.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.026,
+    0.055,
+    0.007
+  ],
+  "dimension_status": "Artistic nominal overall target; measured bounds recorded separately after build, not specimen measurement",
+  "recognition_features": [
+    "Compressed mineralized cap and long stalk side silhouette",
+    "Shallow exposed gill relief under cap margin",
+    "Thin irregular illustrative limestone support"
+  ],
+  "concept_decisions": "Fossil lies flat on slab, not upright living mushroom. Cap width .010 m versus stalk length .034 m follows paper basic proportions. Slab and .002 m relief thickness illustrative; original color unknown. Concept B overly wide cap and upright appearance rejected.",
+  "style": "Original restrained palette-only refined low-poly; broad quiet planes and diagnostic relief",
+  "intended_use": "Small supporting teaching prop, 256\u2013512px diagnostic inspection",
+  "created_at": "2026-10-20T02:04:50.460580+00:00",
+  "revision_reason": "Increase stalk diameter toward paper basic-form proportions; clarify shallow gills.",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T02:08:58.110931+00:00",
+    "frozen_design_brief_sha256": "ca5dcb8fe58a9034b4a7c5ace7d4a04202d05e390b15d71f10f318c58dc88fc3",
+    "note": "Schema adapter after build: profile field expresses lifecycle production; static-stylized-v1 remains explicit separate validation profile. Empty deliverable list omitted for hash-bound source/generator/config inference. No design criterion, geometry budget, required stage, view plan, scope or nominal dimension changed. Original pre-model design freeze preserved."
+  }
+}

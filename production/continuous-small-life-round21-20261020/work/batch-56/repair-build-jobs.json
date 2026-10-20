@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "cycadeoidea",
+      "revision": "r002",
+      "job_id": "candidate-build",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r002/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r002/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    },
+    {
+      "asset_id": "gondwanagaricites",
+      "revision": "r002",
+      "job_id": "candidate-build",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-56/gondwanagaricites/r002/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-56/gondwanagaricites/r002/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    }
+  ]
+}
