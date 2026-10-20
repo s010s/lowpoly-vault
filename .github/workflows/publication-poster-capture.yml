@@ -53,7 +53,7 @@ jobs:
           if(entry.id==='aturia'){const r=JSON.parse(reviewBytes);assert.equal(r.artifact.glb_sha256,entry.glb.sha256);assert.equal(r.original_finding.r003_retest,'pass_finding_closed');assert.equal(r.scope.repair_candidate_commit,entry.source_commit);}
           else if(entry.batch===52){const r=JSON.parse(reviewBytes).verdicts[entry.id];assert.equal(r.glb_sha256,entry.glb.sha256);assert.equal(r.technical,entry.id==='curvolithus-trilobed-trail'?'pass_with_reviewed_source_style_warning':'pass');assert.equal(r.specification,'pass');assert(r.visual.startsWith('pass'));}
           else {const r=reviewBytes.toString();assert(r.includes(entry.glb.sha256));assert(r.includes(entry.source_commit));assert(r.includes('Asset-level technical, specification, visual, and factual review passed for all four frozen r001 assets.'));}
-          const target=resolve(process.env.GALLERY_DIR,a.glb);await mkdir(dirname(target),{recursive:true});await writeFile(target,b);assets.push(a);}
+          const target=resolve(process.env.GALLERY_DIR,a.glb);await mkdir(dirname(target),{recursive:true});await writeFile(target,b);const captureAsset={...a};delete captureAsset.revision;delete captureAsset.revision_provenance;assets.push(captureAsset);}
           assert.equal(assets.length,8);await mkdir(resolve(process.env.GALLERY_DIR,'assets'),{recursive:true});await writeFile(resolve(process.env.GALLERY_DIR,'assets/manifest.json'),JSON.stringify({capture_only:true,publication_authority:false,assets}));await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${assets.map(a=>a.id).join(',')}\n`);
           JS
       - run: npx playwright install --with-deps chromium
