@@ -1,0 +1,24 @@
+{
+  "command": [
+    "flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch88-independent-qa-20261020/inspect-source.py",
+    "--",
+    "phycosiphon-looping-trace",
+    "r002"
+  ],
+  "runner_pid": 52,
+  "started_at": "2026-10-20T21:52:55.057650+00:00",
+  "ended_at": "2026-10-20T21:52:59.238524+00:00",
+  "wall_seconds": 4.1811563030059915,
+  "exit_code": 0
+}
