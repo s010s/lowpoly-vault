@@ -14,7 +14,9 @@ import {collectTurntables,publishedImagePaths} from './turntable-delivery.mjs';
 import {payloadDigest} from './ci-model-shards.mjs';
 import {CARD_RENDER_PRESET} from './render-preset.js';
 import {assertCardPreviewRecord} from './ci-card-preview-proof.mjs';
-import {collectArchivalInputs,assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
+import {collectArchivalInputs,collectArchivalDeclarations,prepareArchivalInheritance,assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
+import {immutableGitEnv} from './ci-git.mjs';
+import {authenticatedModelBaseline} from './ci-model-cache.mjs';
 
 export const MODEL_PROOF_VERSION=2;
 export const MODEL_PROOF_FILE='model-proof.json';
@@ -56,7 +58,7 @@ export const MODEL_PROOF_ENTRYPOINTS=Object.freeze(['vite.config.js','site/copy-
   'site/gallery-poster-inputs.mjs','site/gallery-poster-proof.mjs','site/gallery-poster-cache.mjs','site/gallery-poster-orchestration.mjs',
   'site/ci-provenance.mjs','site/ci-timed.mjs','site/ci-scene-browser-test.mjs','site/ci-install-chromium.mjs','site/ci-browser-task-proof.mjs','site/ci-browser-task-proof-test.mjs',
   'site/small-life-browser-test.mjs','site/ci-additions-browser-test.mjs','site/ci-additions-browser-contract.mjs','site/ci-additions-browser-contract-test.mjs',
-  ...['ci-install-chromium','catalog-data','ci-card-preview-proof','ci-model-proof','ci-model-cache','ci-incremental-models','ci-scope','ci-model-shards','ci-timed','ci-scene-input','ci-archival-inputs','ci-clean-gallery','ci-archival-models'].map(name=>`site/${name}-test.mjs`)]);
+  ...['ci-install-chromium','catalog-data','ci-card-preview-proof','ci-model-proof','ci-model-cache','ci-incremental-archive','ci-incremental-models','ci-scope','ci-model-shards','ci-timed','ci-scene-input','ci-archival-inputs','ci-clean-gallery','ci-archival-models'].map(name=>`site/${name}-test.mjs`)]);
 const POLICY_ROOTS=['site','.github','scripts','schemas','qa','package.json','package-lock.json','vite.config.js'];
 const verifiedBuiltInputs=new WeakSet();
 const HASH=/^[a-f0-9]{64}$/,SHA=/^[a-f0-9]{40}$/,ID=/^[a-z0-9-]+$/;
@@ -192,9 +194,9 @@ export function modelExecutionDependencies(paths,read){
   for(const path of EXECUTED_QA_ENTRYPOINTS)if(available.has(path))visit(path);
   return found;
 }
-function policyInputs(paths,read,mode){
-  const closure=modelExecutionDependencies(paths,read);
-  const archives=collectArchivalInputs({paths,read,mode,manifest:paths.includes('assets/manifest.json')?JSON.parse(read('assets/manifest.json')):undefined,protectedPaths:closure});
+function policyInputs(paths,read,mode,{archives,closure}={}){
+  closure??=modelExecutionDependencies(paths,read);
+  archives??=collectArchivalInputs({paths,read,mode,manifest:paths.includes('assets/manifest.json')?JSON.parse(read('assets/manifest.json')):undefined,protectedPaths:closure});
   const excluded=new Set(archives.excludedPaths),archived=new Set(archives.files.map(row=>row.path));
   const selected=paths.filter(path=>!excluded.has(path)&&(protectedModelPath(path)||(publicationOnly.has(path)&&closure.has(path)))).sort();
   for(const path of closure)if((/\.(?:mjs|cjs|js|css|html)$/.test(path)||archived.has(path))&&!selected.includes(path))selected.push(path);
@@ -243,7 +245,7 @@ print(json.dumps(valid))
   assert(Array.isArray(valid)&&valid.every(path=>checks.some(row=>row.path===path))&&new Set(valid).size===valid.length,'Invalid generated Python cache verification');
   return new Set(valid);
 }
-function currentPolicy(root,{budget}={}){
+function currentPolicy(root,{budget,sourceContext}={}){
   budget?.check();
   const paths=POLICY_ROOTS.flatMap(path=>files(root,path));
   // Imported local data can live outside the usual source roots.
@@ -251,14 +253,24 @@ function currentPolicy(root,{budget}={}){
   // A single source scan inventories repository directories, not node_modules or builds.
   const extra=['assets','production'].flatMap(path=>files(root,path));
   const inventory=[...paths,...extra],generated=generatedPythonCaches(root,inventory);
-  const policy=policyInputs(inventory.filter(path=>!generated.has(path)),read,path=>lstatSync(resolve(root,path)).mode);
+  let options={};
+  if(sourceContext!==undefined){
+    const context=sourcePolicyContext(sourceContext,{root});
+    const closure=modelExecutionDependencies(inventory,read);
+    assert.deepEqual([...closure].sort(),[...context.current.closure].sort(),'Live execution dependencies differ from the exact committed source');
+    assert.equal(hashBytes(read('assets/manifest.json')),context.sourceManifestSha256,'Live source manifest differs from archive context');
+    options={archives:context.current.archives,closure};
+  }
+  const policy=policyInputs(inventory.filter(path=>!generated.has(path)),read,path=>lstatSync(resolve(root,path)).mode,options);
+  if(sourceContext!==undefined)assert.equal(policy.digest,sourcePolicyContext(sourceContext,{root}).current.digest,'Live render policy differs from the exact committed source');
   budget?.check();return policy;
 }
-export function modelPolicyDigest(root=process.cwd()){return currentPolicy(resolve(root)).digest;}
+export function modelPolicyDigest(root=process.cwd(),options){return currentPolicy(resolve(root),options).digest;}
 export function modelArchivalInputs(root=process.cwd(),options){return currentPolicy(resolve(root),options).archives;}
-function policyAtCommit(ref,{root=process.cwd(),budget}={}){
+function immutablePolicySource(ref,{root=process.cwd(),budget,onInputRead}={}){
   assert(SHA.test(ref),'Exact policy commit required');
-  const git=(...args)=>{const output=execFileSync('git',args,{cwd:root,maxBuffer:128*1024*1024,timeout:budget?.remaining()});budget?.check();return output;};
+  const run=(args,input)=>{const output=execFileSync('git',args,{cwd:root,env:immutableGitEnv(),stdio:['pipe','pipe','pipe'],input,maxBuffer:128*1024*1024,timeout:budget?.remaining()});budget?.check();return output;};
+  const git=(...args)=>run(args);
   const entries=git('ls-tree','-r','-z',ref).toString().split('\0').filter(Boolean).map(line=>{const [header,path]=line.split('\t'),[mode,type,object]=header.split(' ');return {mode,type,object,path};});
   const byPath=new Map(entries.map(row=>[row.path,row])),cache=new Map();
   // Small immutable Git blobs benefit from reuse across parser and policy reads.
@@ -266,39 +278,149 @@ function policyAtCommit(ref,{root=process.cwd(),budget}={}){
   // collector has discarded it. Cache hits use object identity from this exact
   // tree, not a caller-supplied pin or a mutable worktree path.
   const MAX_CACHED_BYTES=8*1024*1024,MAX_CACHED_BLOB_BYTES=1024*1024,MAX_CACHED_BLOBS=256;let cachedBytes=0;
+  const remember=(oid,value)=>{
+    if(value.length>MAX_CACHED_BLOB_BYTES)return;
+    if(cache.has(oid)){cachedBytes-=cache.get(oid).length;cache.delete(oid);}
+    while(cache.size&&(cachedBytes+value.length>MAX_CACHED_BYTES||cache.size>=MAX_CACHED_BLOBS)){const oldest=cache.keys().next().value;cachedBytes-=cache.get(oldest).length;cache.delete(oldest);}
+    cache.set(oid,value);cachedBytes+=value.length;
+  };
+  // Batch only paths the collector is about to consume. In a partial clone,
+  // asking for sizes of all old blobs would download their bodies implicitly.
+  // Here both size queries and body reads are confined to required declarations
+  // and fresh/final inputs, with the same bounded LRU as ordinary exact reads.
+  const prefetch=paths=>{
+    const selected=new Map();
+    for(const path of paths){
+      const entry=byPath.get(path);assert.equal(entry?.mode,'100644',`Nonregular policy input: ${path}`);assert.equal(entry.type,'blob',`Non-blob policy input: ${path}`);
+      if(!cache.has(entry.object)&&!selected.has(entry.object))selected.set(entry.object,path);
+    }
+    if(!selected.size)return;
+    const oids=[...selected.keys()],sizes=run(['cat-file','--batch-check=%(objectname) %(objecttype) %(objectsize)'],oids.join('\n')+'\n').toString().trim().split('\n');
+    assert.equal(sizes.length,oids.length,'Incomplete required Git blob metadata');
+    let group=[],groupBytes=0;
+    const flush=()=>{
+      if(!group.length)return;
+      const output=run(['cat-file','--batch'],group.map(row=>row.oid).join('\n')+'\n');let offset=0;
+      for(const {oid,size} of group){
+        const end=output.indexOf(10,offset);assert(end>=offset,'Truncated required Git blob header');
+        assert.equal(output.subarray(offset,end).toString(),`${oid} blob ${size}`,'Required Git blob identity differs');offset=end+1;
+        assert(offset+size<output.length&&output[offset+size]===10,'Truncated required Git blob body');
+        const value=Buffer.from(output.subarray(offset,offset+size));offset+=size+1;
+        remember(oid,value);onInputRead?.({commit:ref,path:selected.get(oid),bytes:value.length});
+      }
+      assert.equal(offset,output.length,'Unexpected required Git blob output');group=[];groupBytes=0;
+    };
+    sizes.forEach((line,index)=>{
+      const [oid,type,length]=line.split(' '),size=Number(length);
+      assert.equal(oid,oids[index]);assert.equal(type,'blob');assert(Number.isSafeInteger(size)&&size>=0,'Invalid required Git blob size');
+      if(size>MAX_CACHED_BLOB_BYTES)return;
+      if(groupBytes+size>MAX_CACHED_BYTES||group.length>=MAX_CACHED_BLOBS)flush();
+      group.push({oid,size});groupBytes+=size;
+    });flush();
+  };
   const read=path=>{
     const entry=byPath.get(path);assert.equal(entry?.mode,'100644',`Nonregular policy input: ${path}`);
     assert.equal(entry.type,'blob',`Non-blob policy input: ${path}`);
-    if(cache.has(entry.object)){const value=cache.get(entry.object);cache.delete(entry.object);cache.set(entry.object,value);return value;}
-    const value=git('cat-file','blob',entry.object);
-    if(value.length<=MAX_CACHED_BLOB_BYTES){
-      while(cache.size&&(cachedBytes+value.length>MAX_CACHED_BYTES||cache.size>=MAX_CACHED_BLOBS)){const oldest=cache.keys().next().value;cachedBytes-=cache.get(oldest).length;cache.delete(oldest);}
-      cache.set(entry.object,value);cachedBytes+=value.length;
-    }
+    if(cache.has(entry.object)){const value=cache.get(entry.object);cache.delete(entry.object);cache.set(entry.object,value);onInputRead?.({commit:ref,path,bytes:value.length});return value;}
+    const value=git('cat-file','blob',entry.object);onInputRead?.({commit:ref,path,bytes:value.length});
+    remember(entry.object,value);
     return value;
   };
   assert(byPath.has('site/ci-model-proof.mjs'),'Base has no v2 model proof policy; full baseline required');
-  return policyInputs([...byPath.keys()],read,path=>byPath.get(path)?.mode);
+  const paths=[...byPath.keys()],mode=path=>byPath.get(path)?.mode;
+  const identities=new Map(entries.map(({path,mode,type,object})=>[path,Object.freeze({oid:object,mode,type})]));
+  return {root:resolve(root),commit:ref,tree:git('rev-parse',`${ref}^{tree}`).toString().trim(),paths,read,mode,prefetch,identities};
 }
+function policyAtCommit(ref,options={}){
+  const source=immutablePolicySource(ref,options);
+  return policyInputs(source.paths,source.read,source.mode);
+}
+// This map is process-local authority, never an on-disk receipt or a caller SHA.
+const verifiedSourceContexts=new WeakMap(),pendingArchiveContexts=new WeakMap();
+function sourcePolicyContext(context,{root=process.cwd(),ref}={}){
+  const state=verifiedSourceContexts.get(context);
+  assert(state&&state.root===resolve(root),'Source context requires the same independently verified root, never JSON');
+  const head=execFileSync('git',['rev-parse','HEAD'],{cwd:root,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8'}).trim();
+  assert.equal(head,state.currentSha,'Source context HEAD changed');
+  if(ref!==undefined)assert([state.sourceCommit,state.currentSha].includes(ref),'Source context is for another exact commit');
+  return state;
+}
+// Called only by the collector's opaque-handle factory. Returning copies prevents
+// a consumer from mutating the private identity maps and minting later trust.
+export function authenticatedArchiveInheritance(context){
+  const state=pendingArchiveContexts.get(context);
+  assert(state,'Archive inheritance requires authenticated process-local evidence, never JSON');
+  return {...state,beforeIdentities:new Map(state.beforeIdentities),afterIdentities:new Map(state.afterIdentities)};
+}
+export function modelRuntimeConfig(){
+  return {site_base:process.env.SITE_BASE||'/',site_origin:process.env.SITE_ORIGIN||'',node_major:process.versions.node.split('.')[0],platform:process.platform,arch:process.arch};
+}
+export function assertCompleteArchiveProof(proof,catalog_ids){
+  assert.deepEqual(proof.models.map(row=>row.id).sort(),catalog_ids,'Archive baseline requires every catalog model record');
+  for(const key of ['fresh_ids','reused_ids']){
+    assert(Array.isArray(proof[key]),`Archive baseline missing ${key}`);
+    assert.equal(new Set(proof[key]).size,proof[key].length,`Duplicate archive baseline ${key}`);
+  }
+  assert.deepEqual([...proof.fresh_ids,...proof.reused_ids].sort(),catalog_ids,'Archive baseline fresh/reused coverage must exactly equal its catalog');
+}
+/** Authenticate first, parse bounded declarations second, then inherit only exact
+ * immutable inert objects. Default worktree entry points never use this path. */
+export function prepareModelPolicyContext(candidate,{root=process.cwd(),currentSha,budget,onInputRead}={}){
+  root=resolve(root);
+  const authenticated=authenticatedModelBaseline(candidate,{root,currentSha});
+  const {proof,repository,runId,runAttempt,sourceCommit}=authenticated;
+  const beforeSource=immutablePolicySource(sourceCommit,{root,budget,onInputRead}),currentSource=immutablePolicySource(currentSha,{root,budget,onInputRead});
+  const declarationPolicy=source=>{
+    const protectedPaths=modelExecutionDependencies(source.paths,source.read),manifest=JSON.parse(source.read('assets/manifest.json'));
+    const options={paths:source.paths,read:source.read,mode:source.mode,prefetch:source.prefetch,manifest,protectedPaths};
+    const archives=collectArchivalDeclarations(options);
+    return {policy:policyInputs(source.paths,source.read,source.mode,{archives,closure:protectedPaths}),options};
+  };
+  const before=declarationPolicy(beforeSource),current=declarationPolicy(currentSource);
+  assertBaseModelProof(proof,{repository,baseSha:sourceCommit,sourceTree:beforeSource.tree,runId,runAttempt,policy_sha256:before.policy.digest,runtime_config:modelRuntimeConfig(),catalog_ids:catalogIDs(before.options.manifest)});
+  assertCompleteArchiveProof(proof,catalogIDs(before.options.manifest));
+  assert.equal(current.policy.digest,before.policy.digest,'Protected source changed; new full main baseline required');
+  const pending=Object.freeze({});
+  pendingArchiveContexts.set(pending,{before:before.policy.archives,after:current.policy.archives,beforeIdentities:beforeSource.identities,afterIdentities:currentSource.identities,options:current.options});
+  let inheritance;
+  try{inheritance=prepareArchivalInheritance(pending);}finally{pendingArchiveContexts.delete(pending);}
+  const archives=collectArchivalInputs({...current.options,inheritance});
+  const currentPolicy={...current.policy,archives};
+  const context=Object.freeze({root,currentSha,sourceCommit});
+  // The collector's authenticated factory also certifies the exact baseline
+  // inventory; append checks retain their original WeakSet trust boundary.
+  verifiedSourceContexts.set(context,{root,currentSha,sourceCommit,current:currentPolicy,before:before.policy,sourceManifestSha256:hashBytes(currentSource.read('assets/manifest.json'))});
+  sourcePolicyContext(context,{root});
+  const live=currentPolicyDigestForContext(root,context);
+  assert.equal(live,currentPolicy.digest,'Live render policy differs from the exact committed source');
+  return context;
+}
+function currentPolicyDigestForContext(root,sourceContext){return currentPolicy(root,{sourceContext}).digest;}
 // Only this process can mint an exact-root/exact-commit snapshot. It retains the
 // original frozen, identity-authenticated archival inventory, never a JSON copy.
 // Consumers own their short-lived cache; mutable worktree inputs are never cached.
 const verifiedPolicySnapshots=new WeakMap();
-export function modelPolicySnapshotAtCommit(ref,{root=process.cwd(),budget}={}){
-  root=resolve(root);const {digest,archives}=policyAtCommit(ref,{root,budget});budget?.check();
+export function modelPolicySnapshotAtCommit(ref,{root=process.cwd(),budget,sourceContext}={}){
+  root=resolve(root);const {digest,archives}=snapshotPolicy(ref,{root,budget,sourceContext});budget?.check();
   const snapshot=Object.freeze({root,commit:ref,digest});
   verifiedPolicySnapshots.set(snapshot,{root,commit:ref,digest,archives});return snapshot;
 }
-function snapshotPolicy(ref,{root=process.cwd(),snapshot,budget}={}){
-  budget?.check();if(snapshot===undefined)return policyAtCommit(ref,{root,budget});
+function snapshotPolicy(ref,{root=process.cwd(),snapshot,budget,sourceContext}={}){
+  budget?.check();
+  if(sourceContext!==undefined){
+    const context=sourcePolicyContext(sourceContext,{root,ref});
+    if(ref===context.sourceCommit)return context.before;
+    if(ref===context.currentSha)return context.current;
+  }
+  if(snapshot===undefined)return policyAtCommit(ref,{root,budget});
   const policy=verifiedPolicySnapshots.get(snapshot);
   assert(policy&&policy.root===resolve(root)&&policy.commit===ref,'Policy snapshot requires the same verified root and exact commit, never JSON');
   return policy;
 }
 export function modelPolicyDigestAtCommit(ref,options){return snapshotPolicy(ref,options).digest;}
 export function modelArchivalInputsAtCommit(ref,options){return snapshotPolicy(ref,options).archives;}
-export function assertModelArchivalAppendAtCommit(ref,{root=process.cwd(),snapshot,budget}={}){
-  const before=modelArchivalInputsAtCommit(ref,{root,snapshot,budget}),after=modelArchivalInputs(root,{budget}),oldIDs=new Set(before.modelIDs);
+export function assertModelArchivalAppendAtCommit(ref,{root=process.cwd(),snapshot,budget,sourceContext}={}){
+  const before=modelArchivalInputsAtCommit(ref,{root,snapshot,budget,sourceContext}),after=modelArchivalInputs(root,{budget,sourceContext}),oldIDs=new Set(before.modelIDs);
   return assertArchivalAppend(before,after,{beforePaths:before.repositoryPaths,oldIDs,newIDs:after.modelIDs.filter(id=>!oldIDs.has(id))});
 }
 export function catalogIDs(manifest){
@@ -435,7 +557,7 @@ export async function assertBuiltRenderInputs({root=process.cwd(),outputRoot='di
   const result=Object.freeze({version:1,root,source_sha256,shared_sha256,payload_sha256,models:Object.freeze(models.map(row=>Object.freeze(row)))});
   verifiedBuiltInputs.add(result);return result;
 }
-export function computeModelInputs({root=process.cwd(),manifest=json(root,'assets/manifest.json'),runtime,built}={}){
+export function computeModelInputs({root=process.cwd(),manifest=json(root,'assets/manifest.json'),runtime,built,sourceContext}={}){
   root=resolve(root);
   if(built){assert(verifiedBuiltInputs.has(built),'Built inputs require independent in-process verification');assert.equal(built.root,root,'Built input root differs');assert.equal(built.source_sha256,hashObject(manifest),'Built source manifest changed');}
   const ids=catalogIDs(manifest),perModel=new Map(ids.map(id=>[id,{paths:new Set(),data:{}}])),shared={};
@@ -483,12 +605,12 @@ export function computeModelInputs({root=process.cwd(),manifest=json(root,'asset
   }
   const mapped=new Set(['assets/manifest.json','site/gallery/wheel-framing.json','site/gallery/approved-poster-inputs.json','site/public/gallery/resources.json','site/catalog-data.json']);
   const ownResources=new Set([...perModel.values()].flatMap(row=>[...row.paths]));
-  const policy=currentPolicy(root);
+  const policy=currentPolicy(root,{sourceContext});
   const sharedFiles=[...new Set([...files(root,'site'),...policy.closure])].filter(path=>!mapped.has(path)&&!ownResources.has(path)&&!path.startsWith('site/public/gallery/posters/')&&!path.startsWith('site/gallery/tests/evidence/')&&(!built||!publicationOnly.has(path)||policy.closure.has(path))&&(!built||path!==ARCHIVAL_REGISTRY_PATH||!policy.archives.registryMasked));
   // Unknown files under the public poster namespace are not silently ignored.
   for(const path of files(root,'site/public/gallery/posters'))assert(ownResources.has(path),`Unowned public poster: ${path}`);
   const policy_sha256=policy.digest;
-  const runtime_config=runtime||{site_base:process.env.SITE_BASE||'/',site_origin:process.env.SITE_ORIGIN||'',node_major:process.versions.node.split('.')[0],platform:process.platform,arch:process.arch};
+  const runtime_config=runtime||modelRuntimeConfig();
   const shared_input_sha256=hashObject({policy_sha256,runtime_config,gpu_policy:GPU_POLICY,card_preview_renderer,built_render:built?{version:built.version,shared_sha256:built.shared_sha256}:null,files:sharedFiles.sort().map(path=>[path,hashBytes(bytes(root,path))]),data:shared});
   const {assets,publication,...manifestShared}=manifest;
   const models=manifest.assets.map(asset=>{

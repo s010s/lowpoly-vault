@@ -30,6 +30,10 @@ try{
 const workflow=readFileSync('site/../.github/workflows/full-release-review.yml','utf8');
 const job=name=>{const start=workflow.indexOf(`  ${name}:\n`);assert(start>=0,`Missing job ${name}`);const end=workflow.slice(start+3).search(/^  [\w-]+:\n/m);return end<0?workflow.slice(start):workflow.slice(start,start+3+end);};
 const source=job('prepare-source'),clean=job('prepare'),audit=job('audit-prepared-build'),aggregate=job('model-coverage');
+const cleanConsumer=readFileSync('site/ci-clean-gallery.mjs','utf8');
+assert(cleanConsumer.indexOf('await prepareModelSource(')<cleanConsumer.indexOf('assert.equal(modelPolicyDigest('),'Authenticate before the pre-capture archive policy calculation');
+assert.match(cleanConsumer,/modelPolicyDigest\(process\.cwd\(\),\{sourceContext\}\)/);
+assert.match(cleanConsumer,/modelPolicyDigestAtCommit\(identity\.source_commit,\{sourceContext\}\)/);
 assert(source.includes('npm run build')&&source.includes('raw-full-review-built-site'));
 assert(clean.includes('needs: [scope, prepare-source]')&&clean.includes('npm ci --ignore-scripts'));
 const commands=[...clean.matchAll(/\brun: (.+)/g)].map(match=>match[1]);

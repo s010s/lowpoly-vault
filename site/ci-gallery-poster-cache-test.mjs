@@ -11,6 +11,17 @@ import {rankPosterCandidates,extractPosterArtifact,fetchVerifiedPosterBaseline,p
 import {historicalPosterSource,assertHistoricalPosterRecipe} from './gallery-poster-compat.mjs';
 import {posterSharedInputs} from './gallery-poster-inputs.mjs';
 
+assert.equal(await writePosterProof({root:'/not-a-checkout',shared:{},directory:''}),null,'No proof destination must not trigger eager archive policy reads');
+let prematureReads=0;
+const noDefaultBudget=await fetchVerifiedPosterBaseline({root:'/not-a-checkout',repository:'owner/repo',baseSha:'a'.repeat(40),currentSha:'b'.repeat(40),shared:{},timeoutMs:0,fetchImpl:async()=>{prematureReads++;throw Error('Unexpected read');}});
+assert.equal(noDefaultBudget.verified,null);assert.equal(prematureReads,0);assert(noDefaultBudget.reasons.some(reason=>reason.includes('budget')),'Expired budget must not evaluate default archive policy or fetch model provenance');
+const orchestration=readFileSync('site/gallery-poster-orchestration.mjs','utf8');
+assert(orchestration.indexOf('await prepareModelSource(')<orchestration.indexOf('policy_sha256=modelPolicyDigest('),'Poster policy must use independently prepared source before archive reads');
+assert.match(orchestration,/fetchVerifiedPosterBaseline\(\{root,shared,policy_sha256,runtime,sourceContext\}\)/,'Poster artifact provenance remains independent of model archive trust');
+const cacheSource=readFileSync('site/gallery-poster-cache.mjs','utf8');
+assert.match(cacheSource,/modelPolicySnapshotAtCommit\(summary\.head_sha,\{root,budget,sourceContext\}\)/);
+assert.match(cacheSource,/assertModelArchivalAppendAtCommit\(summary\.head_sha,\{root,snapshot,budget,sourceContext\}\)/);
+
 const root=mkdtempSync(join(tmpdir(),'poster-cache-test-')),repository='owner/gallery';
 const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
 const put=(path,data)=>{mkdirSync(join(root,path,'..'),{recursive:true});writeFileSync(join(root,path),typeof data==='string'||Buffer.isBuffer(data)?data:JSON.stringify(data));};

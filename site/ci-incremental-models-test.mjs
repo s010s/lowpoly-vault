@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {LEGACY_OUTPUTS,encode,hashBytes,importLegacySnapshot,recordReference} from './model-registry.mjs';
 import {readFileSync} from 'node:fs';
-import {assessIncrementalDiff,tasksForModelPlan,acceptanceExecutionPlan} from './ci-incremental-models.mjs';
+import {execFileSync} from 'node:child_process';
+import {assessIncrementalDiff,eligibilityFromGit,tasksForModelPlan,acceptanceExecutionPlan} from './ci-incremental-models.mjs';
 import {fixture,identity as fixtureIdentity,finish as finishModelFixture,verification} from './ci-model-proof-test.mjs';
 import {computeModelInputs,planModelReuse} from './ci-model-proof.mjs';
 import {planBrowserTasks,aggregateBrowserCoverage,assertBrowserCoverage,HISTORICAL_BROWSER_PACKS} from './ci-browser-task-proof.mjs';
@@ -72,6 +73,32 @@ console.log('Registry append scope: two independent batches select exactly four 
 assert.deepEqual(tasksForModelPlan(['models-1-of-5','models-2-of-5','handoff'],{fresh_ids:good.added_ids},after),['models-1-of-4','models-2-of-4','models-3-of-4','models-4-of-4','previews','handoff']);assert.deepEqual(tasksForModelPlan(['models-1-of-5','previews','handoff'],{fresh_ids:[]},after),['handoff']);
 console.log('Incremental eligibility: exact owned additions, old-record preservation, explicit known publication role; unknown code/renderer/golden changes require full.');
 
+// Root and authenticated-proof source are separate from the PR comparison base.
+// This uses normal full-byte APIs, not a fabricated archive shortcut capability.
+const history=fixture(1);
+try{
+ const git=(...args)=>execFileSync('git',args,{cwd:history.root,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
+ const commit=message=>{git('add','.');git('commit','-qm',message);return git('rev-parse','HEAD');};
+ const addOwned=()=>{
+  history.add(1);const asset=history.manifest.assets.at(-1),id=`owned-${asset.id}`;
+  history.catalog.packs[0].asset_ids.pop();asset.packs=[id];
+  history.catalog.packs.push({id,name:{en:id,zh:id},description:{en:'Fixture',zh:'测试'},asset_ids:[asset.id]});
+  history.put('assets/manifest.json',history.manifest);history.put('site/catalog-data.json',history.catalog);
+ };
+ git('init','-q');git('config','user.name','Incremental source fixture');git('config','user.email','fixture@example.invalid');
+ const proofSource=commit('Successful proof source');
+ history.put('README.md','Comparison base may be newer than the successful proof.\n');const comparisonBase=commit('Documentation comparison base');
+ addOwned();commit('One owned model addition');
+ const scoped=eligibilityFromGit(comparisonBase,{root:history.root,sourceCommit:proofSource});
+ assert.equal(scoped.eligible,true,scoped.reasons.join('; '));assert.deepEqual(scoped.added_ids,['model-002']);
+ assert(scoped.reasons.some(reason=>reason.includes(proofSource)&&reason.includes(comparisonBase)),'Explain the distinct authenticated ancestor and comparison base');
+ assert.equal(eligibilityFromGit(comparisonBase,{root:history.root,sourceContext:{},sourceCommit:proofSource}).eligible,false,'Ordinary JSON cannot authorize an archive source');
+ history.put('site/viewer.js','export const syntheticViewer = "changed";\n');const rendererBase=commit('Renderer changed after old proof');
+ addOwned();commit('Another owned model addition');
+ assert.equal(eligibilityFromGit(rendererBase,{root:history.root}).eligible,true,'The immediate comparison diff alone is append-only');
+ assert.equal(eligibilityFromGit(rendererBase,{root:history.root,sourceCommit:proofSource}).eligible,false,'Older proof comparison must include intervening protected changes');
+}finally{history.close();}
+
 // Real orchestrator, synthetic evidence: a valid GPU/card baseline cannot bypass
 // missing or incompatible browser coverage. No browser execution is claimed.
 const f=fixture(before.assets.length);
@@ -81,6 +108,10 @@ try{
  const first=planModelReuse({inputs:oldInputs}),id=fixtureIdentity(),proof=finishModelFixture(oldInputs,first,id);
  const inputs=clone(oldInputs);for(const asset of after.assets.filter(row=>!oldIDs.includes(row.id))){const row=clone(inputs.models[0]);row.id=asset.id;row.input_key=asset.id.charCodeAt(asset.id.length-1).toString(16).padStart(2,'0').repeat(32);inputs.models.push(row);}inputs.models.sort((a,b)=>a.id.localeCompare(b.id));
  const options={inputs,manifest:after,eligibility:good,requestedTasks:['models']};
+ const unavailable=acceptanceExecutionPlan({...options,eligibility:{eligible:false}});
+ const laterEligible=acceptanceExecutionPlan(options);
+ assert.deepEqual(laterEligible.browser_plan,unavailable.browser_plan,'Full fresh coverage remains identical if an archive baseline becomes available during execution');
+ assert.deepEqual(laterEligible.tasks,unavailable.tasks);
  const testFull=(base,label)=>{const verifiedBaseProof=verification(base);assert.equal(planModelReuse({inputs,baseProof:base,verifiedBaseProof}).reused_ids.length,before.assets.length,'GPU/card proof is independently compatible in this fixture');const result=acceptanceExecutionPlan({...options,baseProof:base,verifiedBaseProof});assert.deepEqual(result.reused_ids,[],label);assert.equal(result.fresh_ids.length,after.assets.length,label);assert.equal(result.browser_plan.mode,'full');assert.deepEqual(result.browser_plan.fresh_pack_tasks,HISTORICAL_BROWSER_PACKS.map(row=>row.task));};
  testFull(proof,'Missing browser coverage forces every catalog model fresh');
  const fullBrowser=planBrowserTasks({inputs:oldInputs,manifest:before,modelPlan:first,eligibility:{eligible:false},requestedTasks:['models']});

@@ -3,16 +3,18 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdirSync,existsSync,appendFileSync,readdirSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
+import {resolve} from 'node:path';
 import {LEGACY_OUTPUTS,composeRegistry,encode,hashBytes,importLegacySnapshot,recordReference} from './model-registry.mjs';
 import {inspectCatalogDataAppend} from './curation.js';
 import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit,modelArchivalInputs,modelArchivalInputsAtCommit,gallerySharedData} from './ci-model-proof.mjs';
 import {assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
-import {fetchVerifiedBaseProof} from './ci-model-cache.mjs';
+import {prepareModelSource} from './ci-model-cache.mjs';
+import {immutableGitEnv} from './ci-git.mjs';
 import {planBrowserTasks,aggregateBrowserCoverage,assertBrowserCoverage,browserProofHash} from './ci-browser-task-proof.mjs';
 import {assertAdditionsReport} from './ci-additions-browser-contract.mjs';
 import {modelPlan,readModelReceipts,assertModelCoverage,currentIdentity,BUILD_RECEIPT} from './ci-model-shards.mjs';
 const read=path=>JSON.parse(readFileSync(path));
-const git=(...args)=>execFileSync('git',args,{encoding:'utf8',maxBuffer:128*1024*1024});
+const git=(...args)=>execFileSync('git',args,{encoding:'utf8',maxBuffer:128*1024*1024,env:immutableGitEnv()});
 const equal=(actual,expected,label)=>assert.deepEqual(actual,expected,label);
 function appendRecords(before,after,newIDs,key='id'){
  const retained=after.filter(row=>!newIDs.has(row[key]));equal(retained,before,'Existing mapped records changed');
@@ -91,12 +93,19 @@ export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,a
   return {eligible:true,added_ids:[...newIDs].sort(),reasons:['Owned additions or known publication-only change; full publication gates remain mandatory']};
  }catch(error){return {eligible:false,added_ids:[],reasons:[error.message]};}
 }
-export function eligibilityFromGit(baseSha){
+export function eligibilityFromGit(baseSha,{root=process.cwd(),sourceContext,sourceCommit=baseSha}={}){
  try{
-  assert.match(baseSha||'',/^[a-f0-9]{40}$/);const before=path=>JSON.parse(git('show',`${baseSha}:${path}`)),after=path=>JSON.parse(readFileSync(path));
-  const paths=git('diff','--name-only','-z',baseSha,'HEAD').split('\0').filter(Boolean);
-  const archivalState={before:modelArchivalInputsAtCommit(baseSha),after:modelArchivalInputs(),beforePaths:git('ls-tree','-r','--name-only','-z',baseSha).split('\0').filter(Boolean)};
-  return assessIncrementalDiff({paths,before:before('assets/manifest.json'),after:after('assets/manifest.json'),readBefore:before,readAfter:after,authorizationOnlyPaths:PUBLICATION_ONLY_MODULES,archivalState,registryState:{beforePaths:archivalState.beforePaths,readAfterBytes:path=>readFileSync(path)}});
+  root=resolve(root);assert.match(baseSha||'',/^[a-f0-9]{40}$/);assert.match(sourceCommit||'',/^[a-f0-9]{40}$/);
+  const exactGit=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024,env:immutableGitEnv()});
+  // An authenticated successful ancestor can predate the PR comparison base.
+  // Its immutable inventory, not BASE_SHA repository JSON, bounds all reuse.
+  const before=path=>JSON.parse(exactGit('show',`${sourceCommit}:${path}`)),after=path=>JSON.parse(readFileSync(resolve(root,path)));
+  const paths=exactGit('diff','--name-only','-z',sourceCommit,'HEAD').split('\0').filter(Boolean);
+  const prior=modelArchivalInputsAtCommit(sourceCommit,{root,sourceContext});
+  const archivalState={before:prior,after:modelArchivalInputs(root,{sourceContext}),beforePaths:prior.repositoryPaths};
+  const result=assessIncrementalDiff({paths,before:before('assets/manifest.json'),after:after('assets/manifest.json'),readBefore:before,readAfter:after,authorizationOnlyPaths:PUBLICATION_ONLY_MODULES,archivalState,registryState:{beforePaths:archivalState.beforePaths,readAfterBytes:path=>readFileSync(resolve(root,path))}});
+  if(sourceCommit!==baseSha)result.reasons.push(`Append eligibility compared with authenticated proof ancestor ${sourceCommit}, not comparison base ${baseSha}`);
+  return result;
  }catch(error){return {eligible:false,added_ids:[],reasons:[`Diff provenance unavailable: ${error.message}`]};}
 }
 export function tasksForModelPlan(tasks,plan,manifest){
@@ -109,17 +118,26 @@ export function acceptanceExecutionPlan({inputs,manifest,eligibility,requestedTa
  let browser_plan=planBrowserTasks({inputs,manifest,modelPlan:plan,baseProof,eligibility,requestedTasks});
  if(browser_plan.requires_full_models){
   plan=planModelReuse({inputs,reasons:[...reasons,`Browser coverage requires full validation: ${browser_plan.reason}`]});
-  browser_plan=planBrowserTasks({inputs,manifest,modelPlan:plan,eligibility,requestedTasks});
+  // Once every model is fresh, append eligibility cannot reduce browser work.
+  // Keep the canonical full plan stable if baseline availability changes later.
+  browser_plan=planBrowserTasks({inputs,manifest,modelPlan:plan,eligibility:{eligible:false},requestedTasks});
  }
  return {...plan,eligibility,browser_plan,tasks:tasksForModelPlan(browser_plan.tasks,plan,manifest)};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const directory='qa/ci-model-proof';mkdirSync(directory,{recursive:true});
- const built=await assertBuiltRenderInputs({}),inputs=computeModelInputs({built}),manifest=read('assets/manifest.json');
- assert.equal(inputs.policy_sha256,modelPolicyDigestAtCommit(git('rev-parse','HEAD').trim()),'Live render policy differs from the exact committed source; untracked/generated code cannot establish a reusable baseline');
+ // Each CLI invocation, including aggregation, authenticates its own baseline.
+ // Neither uploaded plan JSON nor another process can supply this capability.
+ const forceFull=process.env.FULL_REVIEW==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch';
+ const prepared=await prepareModelSource({forceFull}),{sourceContext}=prepared;
+ const built=await assertBuiltRenderInputs({}),inputs=computeModelInputs({built,sourceContext}),manifest=read('assets/manifest.json');
+ assert.equal(inputs.policy_sha256,modelPolicyDigestAtCommit(git('rev-parse','HEAD').trim(),{sourceContext}),'Live render policy differs from the exact committed source; untracked/generated code cannot establish a reusable baseline');
+ // Without an authenticated compatible baseline the current full validation is
+ // sufficient. Do not scan an obsolete BASE_SHA merely to reject its evidence.
+ const eligibility=sourceContext?eligibilityFromGit(process.env.BASE_SHA,{sourceContext,sourceCommit:prepared.sourceCommit}):{eligible:false,added_ids:[],reasons:['No authenticated compatible archive baseline; full current validation required']};
+ const force=forceFull||!eligibility.eligible;
+ const found=force?{reasons:['Full validation required',...prepared.reasons,...eligibility.reasons]}:prepared;
  if(process.argv[2]==='plan'){
-  const eligibility=eligibilityFromGit(process.env.BASE_SHA),force=process.env.FULL_REVIEW==='true'||!eligibility.eligible;
-  const found=force?{reasons:['Full validation required',...eligibility.reasons]}:await fetchVerifiedBaseProof({inputs});
   const plan=acceptanceExecutionPlan({inputs,manifest,eligibility,requestedTasks:JSON.parse(process.env.CI_REVIEW_TASKS),...found}),tasks=plan.tasks;
   writeFileSync(`${directory}/plan.json`,JSON.stringify({...plan,eligibility,tasks},null,2)+'\n');writeFileSync(`${directory}/inputs.json`,JSON.stringify(inputs,null,2)+'\n');
   if(found.baseProof)writeFileSync(`${directory}/base-proof.json`,JSON.stringify(found.baseProof,null,2)+'\n');
@@ -127,10 +145,13 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   console.log(JSON.stringify({fresh:plan.fresh_ids.length,reused:plan.reused_ids.length,eligibility,browser_mode:plan.browser_plan.mode,fresh_pack_tasks:plan.browser_plan.fresh_pack_tasks,reused_pack_tasks:plan.browser_plan.reused_pack_tasks,shared_tasks:plan.browser_plan.shared_tasks,folded_shared_tasks:plan.browser_plan.folded_shared_tasks,tasks,reasons:plan.reasons}));
  }else if(process.argv[2]==='aggregate'){
   const plan=read(`${directory}/plan.json`);equal(inputs,read(`${directory}/inputs.json`),'Model inputs changed since planning');
-  // Saved JSON is not authority: independently re-fetch provenance before combining evidence.
-  const found=plan.reused_ids.length?await fetchVerifiedBaseProof({inputs}):{};
+  // Saved JSON is not authority: preparation above independently re-fetched
+  // provenance and the exact immutable source before combining any evidence.
   if(plan.reused_ids.length){assert(found.verifiedBaseProof,'Baseline proof no longer independently verifiable');equal(found.verifiedBaseProof,plan.verified_base_proof,'Baseline provenance changed');}
-  const independent=acceptanceExecutionPlan({inputs,manifest,eligibility:eligibilityFromGit(process.env.BASE_SHA),requestedTasks:JSON.parse(process.env.CI_REVIEW_TASKS),...found});
+  // A full plan still proves every model fresh if a new baseline became
+  // available during its run. Never silently replace its executed evidence.
+  const aggregateFound=plan.reused_ids.length?found:{};
+  const independent=acceptanceExecutionPlan({inputs,manifest,eligibility,requestedTasks:JSON.parse(process.env.CI_REVIEW_TASKS),...aggregateFound});
   for(const key of ['fresh_ids','reused_ids','verified_base_proof','browser_plan','tasks'])equal(plan[key],independent[key],`Independent acceptance plan differs: ${key}`);
   equal(JSON.parse(process.env.CI_REVIEW_EXECUTED_TASKS),plan.tasks,'Actual matrix differs from independently recomputed task plan');
   const build=read('qa/ci-model-build/'+BUILD_RECEIPT),identity=currentIdentity();
@@ -148,8 +169,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
     equal(readdirSync(cardDirectory).sort(),['receipt.json'],'Unexpected or missing separate card proof files');
     const card=read(`${cardDirectory}/receipt.json`);assert.equal(card.version,1);assert.equal(card.kind,'card-preview-shard');equal(card.identity,identity,'Card proof source/run differs');assert.equal(card.payload_sha256,build.payload_sha256,'Card proof build differs');cardRecords=card.records;
   }else assert(!existsSync(cardDirectory)||!readdirSync(cardDirectory).length,'Unexpected fresh card evidence');
-  const proof=aggregateModelProof({inputs,scopePlan:plan,freshRecords:records,freshCardRecords:cardRecords,identity,build,baseProof:found.baseProof});
-  proof.browser_task_coverage=aggregateBrowserCoverage({inputs,baseProof:found.baseProof,modelPlan:plan,browserPlan:plan.browser_plan,freshModelRecords:browserRecords,identity,payload_sha256:build.payload_sha256,executedTasks:JSON.parse(process.env.CI_REVIEW_EXECUTED_TASKS),expectedTasks:plan.tasks});
+  const proof=aggregateModelProof({inputs,scopePlan:plan,freshRecords:records,freshCardRecords:cardRecords,identity,build,baseProof:aggregateFound.baseProof});
+  proof.browser_task_coverage=aggregateBrowserCoverage({inputs,baseProof:aggregateFound.baseProof,modelPlan:plan,browserPlan:plan.browser_plan,freshModelRecords:browserRecords,identity,payload_sha256:build.payload_sha256,executedTasks:JSON.parse(process.env.CI_REVIEW_EXECUTED_TASKS),expectedTasks:plan.tasks});
   assertBrowserCoverage(proof);
   writeFileSync(`${directory}/model-proof.json`,JSON.stringify(proof,null,2)+'\n');console.log(`Complete exact model proof: ${proof.fresh_ids.length} freshly tested + ${proof.reused_ids.length} trusted unchanged = ${proof.catalog_ids.length}.`);
  }else throw Error('Expected plan or aggregate');

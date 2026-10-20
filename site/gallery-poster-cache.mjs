@@ -12,7 +12,8 @@ import {controlDigest} from './ci-provenance.mjs';
 import {proofGet} from './ci-proof-fetch.mjs';
 import {proofReadBudget} from './ci-proof-budget.mjs';
 import {posterSharedInputs,posterInputKey} from './gallery-poster-inputs.mjs';
-import {assertTrustedMainRun,assertTrustedSuite} from './ci-model-cache.mjs';
+import {assertTrustedMainRun,assertTrustedSuite,prepareModelSource} from './ci-model-cache.mjs';
+import {immutableGitEnv} from './ci-git.mjs';
 import {POSTER_PROOF_FILE,posterArtifactName,posterHash,posterObjectHash,posterRuntime,assertPosterPNG,assertPosterProof} from './gallery-poster-proof.mjs';
 
 // Only independently verified in-process handles are usable; JSON cannot forge one.
@@ -70,26 +71,33 @@ async function sourceManifest(api,sha){
 }
 /** Ordering is local only; every candidate still needs independent API ancestry. */
 export function rankPosterCandidates(candidates,{root,baseSha,budget}){
- const distance=sha=>{try{assert(SHA.test(sha||''));execFileSync('git',['merge-base','--is-ancestor',sha,baseSha],{cwd:root,stdio:'ignore',timeout:budget?.remaining()});return Number(execFileSync('git',['rev-list','--count',`${sha}..${baseSha}`],{cwd:root,encoding:'utf8',timeout:budget?.remaining()}));}catch{budget?.check();return Number.MAX_SAFE_INTEGER;}};
+ const distance=sha=>{try{assert(SHA.test(sha||''));execFileSync('git',['merge-base','--is-ancestor',sha,baseSha],{cwd:root,stdio:'ignore',timeout:budget?.remaining(),env:immutableGitEnv()});return Number(execFileSync('git',['rev-list','--count',`${sha}..${baseSha}`],{cwd:root,encoding:'utf8',timeout:budget?.remaining(),env:immutableGitEnv()}));}catch{budget?.check();return Number.MAX_SAFE_INTEGER;}};
  const distances=new Map([...new Set(candidates.map(run=>run.head_sha))].map(sha=>{budget?.check();return [sha,distance(sha)];}));
  return [...candidates].sort((a,b)=>distances.get(a.head_sha)-distances.get(b.head_sha)||b.id-a.id);
 }
-export async function fetchVerifiedPosterBaseline({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,shared,policy_sha256=modelPolicyDigest(root),runtime=posterRuntime(shared),token,fetchImpl,timeoutMs=180000,onTiming}={}){
+export async function fetchVerifiedPosterBaseline({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,shared,policy_sha256,sourceContext,runtime=posterRuntime(shared),token,fetchImpl,timeoutMs=180000,onTiming}={}){
  const reasons=[];
  try{
   assert(!process.env.CHROMIUM_PATH,'Custom browser executable cannot reuse poster proof');
   assert(SHA.test(baseSha||'')&&!/^0+$/.test(baseSha),'No exact poster comparison base');assert(SHA.test(currentSha||''));
   const budget=proofReadBudget(timeoutMs,{maximumMs:180000,onTiming}),snapshots=new Map();
+  // No eager worktree archive scan in a default parameter. An explicit policy
+  // remains supported, but never grants archive or poster artifact authority.
+  if(policy_sha256===undefined){
+   if(sourceContext===undefined)({sourceContext}=await prepareModelSource({root,repository,baseSha,currentSha,token,fetchImpl,timeoutMs:Math.min(budget.remaining(),120000)}));
+   policy_sha256=modelPolicyDigest(root,{sourceContext});
+   budget.check();
+  }
   const {api,artifact}=client({repository,token,fetchImpl,budget}),repo=await api('');assert.equal(repo.full_name,repository);assert.equal(repo.default_branch,'main');
   const main=await api('git/ref/heads/main');assert.equal(main.ref,'refs/heads/main');await assertAncestor(api,baseSha,currentSha);await assertAncestor(api,baseSha,main.object.sha);
   const workflow=await api('actions/workflows/full-release-review.yml');assert.equal(workflow.path,WORKFLOW);assert(Number.isSafeInteger(workflow.id));
   const listed=await api(`actions/workflows/${workflow.id}/runs?branch=main&status=success&per_page=100`),candidates=budget.measure('poster candidate ranking',()=>rankPosterCandidates(listed.workflow_runs.filter(run=>run.head_sha!==currentSha).slice(0,100),{root,baseSha,budget}));
   for(const summary of candidates){budget.check();try{
    await assertAncestor(api,summary.head_sha,baseSha);
-   if(!snapshots.has(summary.head_sha))snapshots.set(summary.head_sha,budget.measure('poster committed policy',()=>modelPolicySnapshotAtCommit(summary.head_sha,{root,budget})));
+   if(!snapshots.has(summary.head_sha))snapshots.set(summary.head_sha,budget.measure('poster committed policy',()=>modelPolicySnapshotAtCommit(summary.head_sha,{root,budget,sourceContext})));
    const snapshot=snapshots.get(summary.head_sha);
-   assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root,snapshot,budget}),policy_sha256,'Poster protected control plane changed; full baseline required');
-   budget.measure('poster current archive append',()=>assertModelArchivalAppendAtCommit(summary.head_sha,{root,snapshot,budget}));
+   assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root,snapshot,budget,sourceContext}),policy_sha256,'Poster protected control plane changed; full baseline required');
+   budget.measure('poster current archive append',()=>assertModelArchivalAppendAtCommit(summary.head_sha,{root,snapshot,budget,sourceContext}));
    const run=await api(`actions/runs/${summary.id}`);assertTrustedMainRun(run,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});
    const attempt=await api(`actions/runs/${run.id}/attempts/${run.run_attempt}`);assertTrustedMainRun(attempt,{repository,repositoryId:repo.id,sourceSha:run.head_sha,workflowId:workflow.id});assert.equal(attempt.id,run.id);assert.equal(attempt.run_attempt,run.run_attempt);assert.equal(attempt.check_suite_id,run.check_suite_id);assert.equal(attempt.event,run.event);
    await assertTrustedSuite(await api(`check-suites/${run.check_suite_id}`),run);
@@ -105,8 +113,12 @@ export async function fetchVerifiedPosterBaseline({root=process.cwd(),repository
 
 /** Promote only the separately successful exact-tree PR poster artifact. A model
  * proof cannot stand in for this artifact, even when its build tree is identical. */
-export async function promoteVerifiedPRPosterProof({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,currentSha=process.env.GITHUB_SHA,shared,policy_sha256=modelPolicyDigest(root),runtime=posterRuntime(shared),token,fetchImpl,runId=Number(process.env.GITHUB_RUN_ID),runAttempt=Number(process.env.GITHUB_RUN_ATTEMPT)}={}){
- const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}).trim();
+export async function promoteVerifiedPRPosterProof({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,currentSha=process.env.GITHUB_SHA,shared,policy_sha256,sourceContext,runtime=posterRuntime(shared),token,fetchImpl,runId=Number(process.env.GITHUB_RUN_ID),runAttempt=Number(process.env.GITHUB_RUN_ATTEMPT)}={}){
+ if(policy_sha256===undefined){
+  if(sourceContext===undefined)({sourceContext}=await prepareModelSource({root,repository,currentSha,token,fetchImpl}));
+  policy_sha256=modelPolicyDigest(root,{sourceContext});
+ }
+ const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024,env:immutableGitEnv()}).trim();
  assert.equal(process.env.GITHUB_EVENT_NAME,'push');assert.equal(process.env.GITHUB_REF,'refs/heads/main');assert.equal(git('rev-parse','HEAD'),currentSha);assert.equal(git('status','--porcelain','--untracked-files=no'),'');
  const mainTree=git('rev-parse','HEAD^{tree}'),control=controlDigest(currentSha),{api,artifact}=client({repository,token,fetchImpl}),repo=await api('');assert.equal(repo.full_name,repository);assert.equal(repo.default_branch,'main');
  const pulls=await api(`commits/${currentSha}/pulls`),pr=pulls.find(row=>row.merged_at&&row.base.ref==='main'&&row.merge_commit_sha===currentSha&&row.head.repo?.full_name===repository&&row.base.repo.full_name===repository);assert(pr,'No exact merged same-repository PR for poster promotion');
@@ -120,7 +132,7 @@ export async function promoteVerifiedPRPosterProof({root=process.cwd(),repositor
   assertTrustedSuite(await api(`check-suites/${run.check_suite_id}`),run);
   const bundle=await artifact(run),proof=bundle.proof;assert(SHA.test(proof.source_commit||''));
   const source=await api(`git/commits/${proof.source_commit}`);assert.equal(source.tree.sha,mainTree);assert.equal(source.parents.length,2);assert.equal(source.parents[1].sha,pr.head.sha);
-  const base=source.parents[0].sha;await assertAncestor(api,base,currentSha);assert.equal(controlDigest(base),control,'PR changed its exact-tree control plane');assert.equal(modelPolicyDigestAtCommit(base,{root}),policy_sha256,'PR changed protected poster policy');
+  const base=source.parents[0].sha;await assertAncestor(api,base,currentSha);assert.equal(controlDigest(base),control,'PR changed its exact-tree control plane');assert.equal(modelPolicyDigestAtCommit(base,{root,sourceContext}),policy_sha256,'PR changed protected poster policy');
   const manifest=await sourceManifest(api,proof.source_commit);assertPosterProof(proof,{repository,sourceSha:proof.source_commit,runId:run.id,runAttempt:run.run_attempt,policy_sha256,runtime,manifest});
   assert.equal(proof.shared_sha256,shared.sha256,'PR renderer recipe differs');assert.equal(proof.posters.length,proof.catalog_ids.length,'Incomplete PR poster proof cannot establish a main baseline');
   for(const row of proof.posters){const asset=manifest.assets.find(asset=>asset.id===row.id);assert.equal(row.input_sha256,posterInputKey(asset,shared),'PR poster input differs');}
