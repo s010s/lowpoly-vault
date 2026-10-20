@@ -1,21 +1,78 @@
 {
-  "valid": false,
+  "valid": true,
   "approved_for_brief": false,
-  "errors": [
-    "maker.task_id: nonempty text required"
+  "errors": [],
+  "approval_blockers": [
+    "technical: unknown",
+    "technical-acceptance: unknown",
+    "visual: unknown",
+    "visual-acceptance: unknown",
+    "factual: unknown",
+    "factual-acceptance: unknown",
+    "specification: unknown",
+    "specification-acceptance: unknown",
+    "runtime_parse: unknown",
+    "runtime_parse-acceptance: unknown",
+    "gpu: unknown",
+    "gpu-acceptance: unknown",
+    "scene: unknown",
+    "scene-acceptance: unknown",
+    "open blocker: independent-QA-pending",
+    "approval: pending"
   ],
-  "approval_blockers": [],
-  "required_stages": [],
-  "measurements": {},
+  "required_stages": [
+    "factual",
+    "gpu",
+    "runtime_parse",
+    "scene",
+    "specification",
+    "technical",
+    "visual"
+  ],
+  "measurements": {
+    "triangles": 2218,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 119408,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0,
+    "semantic_sha256": "5079c6b96a67f8933bd7699dc6c91c5fc55ab75c90cf1419c2ddf47a0403fd5b"
+  },
   "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
   "validation_profile": "static-stylized-v1",
   "rule_version": "2026-10-18.1",
-  "profile_contract_status": "not_checked",
+  "profile_contract_status": "pass",
+  "asset_id": "welded-ignimbrite-outcrop",
+  "revision": "r001",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "83b7d4170c8cb51870e2ea643294306e4cc6a62a2386712457cfb887ff0c2704",
+    "brief_sha256": "83d2a796cd7b7e704600e4302252e6e7415e5d4e706f69ac88e9e936baf8ec26",
+    "references_sha256": "a00a50d829635fce808dd1c38d77ddbde70980603744419b0ec2304ffc89c68f"
+  },
+  "artifact_sha256": {
+    "glb": "83b7d4170c8cb51870e2ea643294306e4cc6a62a2386712457cfb887ff0c2704",
+    "source": "1e1cdcb3bfd64ed630455fb6b6bcda8f66b83704823a17fb7a0914a0bb3f5357",
+    "brief": "83d2a796cd7b7e704600e4302252e6e7415e5d4e706f69ac88e9e936baf8ec26",
+    "references": "a00a50d829635fce808dd1c38d77ddbde70980603744419b0ec2304ffc89c68f",
+    "generator": "4e8b52198a421df76cd7f4b95553328f50808777b832068be68a43c605ba7368",
+    "config": "6493b585ed5bc221bea77e667a504f0103af44bf13673f7be2e73aaba95bfcd3"
+  },
+  "approved_visual_image_sha256": [],
+  "profile_contract": {
+    "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/profile-contract.json",
+    "sha256": "99f1b1e22f72acace0607e1024c600df0e219c428d3ff2976e87cd43e31bb640"
+  },
+  "profile": "production",
+  "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+  "approval_status": "pending",
   "legacy_result": {
     "valid": false,
     "approved_for_brief": false,
     "errors": [
-      "maker.task_id: nonempty text required"
+      "brief.turntable_frames: integer >= 2 required"
     ],
     "approval_blockers": [],
     "required_stages": [],
@@ -23,6 +80,23 @@
     "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
     "validation_profile": "legacy-v1",
     "rule_version": "2026-10-18.1",
-    "profile_contract_status": "not_checked"
+    "profile_contract_status": "not_checked",
+    "asset_id": "welded-ignimbrite-outcrop",
+    "revision": "r001",
+    "subject": {
+      "revision": "r001",
+      "glb_sha256": "83b7d4170c8cb51870e2ea643294306e4cc6a62a2386712457cfb887ff0c2704",
+      "brief_sha256": "83d2a796cd7b7e704600e4302252e6e7415e5d4e706f69ac88e9e936baf8ec26",
+      "references_sha256": "a00a50d829635fce808dd1c38d77ddbde70980603744419b0ec2304ffc89c68f"
+    },
+    "artifact_sha256": {
+      "glb": "83b7d4170c8cb51870e2ea643294306e4cc6a62a2386712457cfb887ff0c2704",
+      "source": "1e1cdcb3bfd64ed630455fb6b6bcda8f66b83704823a17fb7a0914a0bb3f5357",
+      "brief": "83d2a796cd7b7e704600e4302252e6e7415e5d4e706f69ac88e9e936baf8ec26",
+      "references": "a00a50d829635fce808dd1c38d77ddbde70980603744419b0ec2304ffc89c68f",
+      "generator": "4e8b52198a421df76cd7f4b95553328f50808777b832068be68a43c605ba7368",
+      "config": "6493b585ed5bc221bea77e667a504f0103af44bf13673f7be2e73aaba95bfcd3"
+    },
+    "approved_visual_image_sha256": []
   }
 }
