@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r004",
+    "glb_sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d",
+    "brief_sha256": "e1d7026591f3d633681b5ae95a5935e1c563e7436bd530e486524c3041bad084",
+    "references_sha256": "9738e750e475dd92040badfc5b713e433e2fca41a2c7d39c04807c22d91517aa"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 13568,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 930348,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d",
+      "report": {
+        "path": "production/small-life-batch93/omphalophloios/r004/qa/static-glb.report.json",
+        "sha256": "e3c3831a8f4b81d5a831025a3a97928ddd8ff77802e1d129e54aa31b5ab20b5f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d",
+      "report": {
+        "path": "production/small-life-batch93/omphalophloios/r004/artifacts/gltf-validator.report.json",
+        "sha256": "59f1fee1cb4ec797ab9314b690a128a0b78b78370337336630f78070bf30e991"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d",
+      "report": {
+        "path": "production/small-life-batch93/omphalophloios/r004/qa/source-export.report.json",
+        "sha256": "726f872ed2eb226f6a40b09771447cef9b896e5b578d93a74bb818619ccaf47b"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d",
+      "report": {
+        "path": "production/small-life-batch93/omphalophloios/r004/qa/reproducibility-a.report.json",
+        "sha256": "67866418ac01a8e2abb883caa34b54f53cc237e84d3ea0e9da25e9c41874804f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d",
+      "report": {
+        "path": "production/small-life-batch93/omphalophloios/r004/qa/reproducibility-b.report.json",
+        "sha256": "21b6cfaef33c0f1462aa01b0bcad979e5abbf77f9017b33c667337d11ec7edbf"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.8850624561309814,
+      0.0,
+      -0.9804906249046326
+    ],
+    "max": [
+      0.9426807165145874,
+      3.0,
+      0.9034217596054077
+    ],
+    "size": [
+      1.8277431726455688,
+      3.0,
+      1.8839123845100403
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "five-order-dichotomous-crown-elongated-fertile-axes",
+      "vertices": 9138,
+      "triangles": 13568,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 35200,
+  "created_at": "2026-10-20T23:28:21.474854+00:00"
+}

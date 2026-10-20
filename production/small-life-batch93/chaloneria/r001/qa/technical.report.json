@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127",
+    "brief_sha256": "c67a9c9e612f356a1a81ed816654622d8070c32caf0aca7cd4ff6ae604d80e1b",
+    "references_sha256": "0332731e547281aeb652decba5a9696dd809235690b1bd0ecf7eb1aeb160411d"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 2740,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 198908,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127",
+      "report": {
+        "path": "production/small-life-batch93/chaloneria/r001/qa/static-glb.report.json",
+        "sha256": "b790ae0586bdc1aa46caa0ff93437b64efbcff3e95336466418aac5a611fbe63"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127",
+      "report": {
+        "path": "production/small-life-batch93/chaloneria/r001/artifacts/gltf-validator.report.json",
+        "sha256": "f48a16229d9eb5e183c78dd8197f847903651031eeffd48c119400c72808e264"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127",
+      "report": {
+        "path": "production/small-life-batch93/chaloneria/r001/qa/source-export.report.json",
+        "sha256": "3d7d17c2d7f23484b3d19aa42549ee32511b323dad132bddbee39ca681e29df2"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127",
+      "report": {
+        "path": "production/small-life-batch93/chaloneria/r001/qa/reproducibility-a.report.json",
+        "sha256": "bc7e27a85fd4ff9e3d0f13f239888d964b4c5144afab3ee3f25d7a197d629b50"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127",
+      "report": {
+        "path": "production/small-life-batch93/chaloneria/r001/qa/reproducibility-b.report.json",
+        "sha256": "cde2e68b20cd3887ca22a8808b07d7b333baec2fb7d00c436656802a7bbaf03f"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.20480047166347504,
+      0.0,
+      -0.2074151337146759
+    ],
+    "max": [
+      0.2037200778722763,
+      2.0,
+      0.20329713821411133
+    ],
+    "size": [
+      0.40852054953575134,
+      2.0,
+      0.41071227192878723
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "unbranched-cormose-plant-continuous-fertile-apex",
+      "vertices": 1912,
+      "triangles": 2740,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 7476,
+  "created_at": "2026-10-20T23:28:22.095744+00:00"
+}

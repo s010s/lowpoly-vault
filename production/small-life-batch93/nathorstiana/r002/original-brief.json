@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "asset_id": "nathorstiana",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate preparation; independent acceptance, GPU, scene and release separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all exact final views against original scope. Actual concept personally inspected22:38:05UTC. Keep short bare stem, narrow terminal leaves and swollen ribbed base; reduce massive root-scar pegs, preserve thin rooted base. Concept is a living hypothesis and not proof of known reproduction.",
+      "required_sources": [
+        "RICHTER1909",
+        "ALAGAPPA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Small whole plant with short erect unbranched bare stem and terminal tuft of20 narrow quill-like leaves with expanded bases. Elongate swollen rooting base has shallow meridional ribs and rootlets emerging from the lower base; rooting anatomy is not a four-legged tree stump. No cones, sporangia, flowers or seeds: reproductive organs are unknown in the selected evidence; roots and foliage remain simple. Genus-level reconstruction, not a complete fossil or single age-stage. Richter1909 actual text/PlateX supports unbranched stems, expanded narrow leaf bases, meridional basal depressions and root scars. Historical reproductive speculation is not adopted. A teaching reconstruction is secondary visual context, not primary proof. Nominal22cm includes artistic root spread/crown; exact colors,12 ribs,20 leaves and18 roots are design counts not taxonomic constants. Root form and basal development vary with age and preservation.",
+      "required_sources": [
+        "RICHTER1909",
+        "ALAGAPPA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet, independent review separate; GPU/scene unknown unrun.",
+  "frozen_at": "2026-10-20T22:41:47.170277+00:00",
+  "subject": "Nathorstiana small quill-leaf isoetalean",
+  "representation": "living-reconstruction",
+  "factual_scope": "Genus-level reconstruction, not a complete fossil or single age-stage. Richter1909 actual text/PlateX supports unbranched stems, expanded narrow leaf bases, meridional basal depressions and root scars. Historical reproductive speculation is not adopted. A teaching reconstruction is secondary visual context, not primary proof. Nominal22cm includes artistic root spread/crown; exact colors,12 ribs,20 leaves and18 roots are design counts not taxonomic constants. Root form and basal development vary with age and preservation.",
+  "identifying_features": [
+    "Small whole plant with short erect unbranched bare stem and terminal tuft of20 narrow quill-like leaves with expanded bases.",
+    "Elongate swollen rooting base has shallow meridional ribs and rootlets emerging from the lower base; rooting anatomy is not a four-legged tree stump.",
+    "No cones, sporangia, flowers or seeds: reproductive organs are unknown in the selected evidence; roots and foliage remain simple."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.19,
+      0.19,
+      0.22
+    ],
+    "bounds_interpretation": "ART PLANNING TARGETS ONLY, not independent hard equality/minimum/maximum thresholds. Measure and disclose final bounds. Frozen component counts, real open lumen/radial channels and named identifying morphology are mandatory; no threshold may be invented from this bbox.",
+    "accuracy": "Artistic, not measured complete specimen or exact track-site cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom support contact z0; horizontal center of support footprint.",
+  "intended_use": {
+    "role": "static educational museum/catalog rotation candidate",
+    "viewing": "512px diagnostic stills, later web inspection",
+    "limits": "No GPU/composed-scene/collision/dynamics acceptance established."
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no textures, emission, transparent planes or double-sided concealment.",
+  "palette_srgb": [
+    "#8D7047",
+    "#B19660",
+    "#687844",
+    "#8C9955"
+  ],
+  "component_and_cause": {
+    "primary": "Small whole plant with short erect unbranched bare stem and terminal tuft of20 narrow quill-like leaves with expanded bases.",
+    "secondary": "Elongate swollen rooting base has shallow meridional ribs and rootlets emerging from the lower base; rooting anatomy is not a four-legged tree stump.",
+    "tertiary": "No cones, sporangia, flowers or seeds: reproductive organs are unknown in the selected evidence; roots and foliage remain simple.",
+    "quiet_region": "Bare lower stem or subdued calcified surface"
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-20T22:41:47.170277+00:00",
+    "path": "production/small-life-batch93/concepts/nathorstiana-concept.png",
+    "sha256": "02a9c9f8ca9f8b97d56dd89c7db1c4a51a5ce06686ce4d31b45d437649f001de",
+    "decisions": "Actual concept personally inspected22:38:05UTC. Keep short bare stem, narrow terminal leaves and swollen ribbed base; reduce massive root-scar pegs, preserve thin rooted base. Concept is a living hypothesis and not proof of known reproduction."
+  },
+  "parameters": {
+    "art_total_height_m": 0.22,
+    "base_radius_m": 0.022,
+    "base_height_m": 0.044,
+    "stem_height_m": 0.09,
+    "stem_radius_m": 0.007,
+    "basal_meridional_ribs": 12,
+    "leaf_count": 20,
+    "leaf_length_m": 0.13,
+    "leaf_width_m": 0.007,
+    "root_count": 18
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "source reopen",
+    "two distinct real queued semantic rebuilds",
+    "project/Khronos/Three.js parse",
+    "eight actual512px final images and lossless sheet"
+  ],
+  "prohibited": [
+    "Alter original inventory or frozen scope",
+    "Treat concept as primary evidence",
+    "Copy source imagery/meshes",
+    "Hide defects with renderer tricks",
+    "Claim CPU or Node parse proves GPU/scene"
+  ]
+}

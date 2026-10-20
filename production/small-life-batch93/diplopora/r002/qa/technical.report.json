@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429",
+    "brief_sha256": "62705b4c7d45bc5245152ca98b92029936083cddbe00330b57007685c2718bbf",
+    "references_sha256": "74f024c23f75c7d8b1f3c081fbc26f5001ec2937c22cd22cd11762995d6edd1b"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 4736,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 258228,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429",
+      "report": {
+        "path": "production/small-life-batch93/diplopora/r002/qa/static-glb.report.json",
+        "sha256": "590c96c4b2ccc9f0ef611b9196eca3fad03d5e8a7935072095a11710565174f8"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429",
+      "report": {
+        "path": "production/small-life-batch93/diplopora/r002/artifacts/gltf-validator.report.json",
+        "sha256": "0d23e7db2458132257e155070d78bb524b5cf285ebdedb8d0cd31b2482286251"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429",
+      "report": {
+        "path": "production/small-life-batch93/diplopora/r002/qa/source-export.report.json",
+        "sha256": "8fb7db6e2e9989be131a607cc8050da9f36fa3c57992fadfec921cba026702e7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429",
+      "report": {
+        "path": "production/small-life-batch93/diplopora/r002/qa/reproducibility-a.report.json",
+        "sha256": "7968d9873afd9f242624e751b62689b71223d9af863a2e42931f603f1ff82f30"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429",
+      "report": {
+        "path": "production/small-life-batch93/diplopora/r002/qa/reproducibility-b.report.json",
+        "sha256": "6f66287d325fd872f773dc223608d9a1289dd233dc98deb61b5c671357d60ac8"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.01600000075995922,
+      0.0,
+      -0.01600000075995922
+    ],
+    "max": [
+      0.01600000075995922,
+      0.10333467274904251,
+      0.01600000075995922
+    ],
+    "size": [
+      0.03200000151991844,
+      0.10333467274904251,
+      0.03200000151991844
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "annulated-fossil-wall-96-through-pores-open-lumen",
+      "vertices": 2176,
+      "triangles": 4736,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 9472,
+  "created_at": "2026-10-20T23:28:22.293758+00:00"
+}

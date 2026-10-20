@@ -1,0 +1,95 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/tools/generate.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch93-evidence/rebuild-queue/build/chaloneria/r001/semantic-rebuild-b/82ddf99fc04bd4086260248524eef1a940437b132aa5c3647aa9b8ffa2a6e78b/20261020T224917-ce2445df1ea24e6c9d88d38da85d2ab1/outputs"
+  ],
+  "created_at": "2026-10-20T22:49:17.998404+00:00",
+  "fingerprint": "82ddf99fc04bd4086260248524eef1a940437b132aa5c3647aa9b8ffa2a6e78b",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch93-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 774,
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/config.json",
+        "sha256": "4a2021281e0cb35c336a6e05cf1f3e9165f162178062de93d9f22eab94caeebf"
+      },
+      "generator": {
+        "bytes": 10317,
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/tools/generate.py",
+        "sha256": "624946b52cb1e7a5f8a3c5bd80d32819d0503f3f82cf64ca8eca852ed67be5c7"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch93-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "chaloneria",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch93-20261020/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/config.json",
+        "generator": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/tools/generate.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch93-20261020/scripts/qa_glb.py"
+      },
+      "job_id": "semantic-rebuild-b",
+      "outputs": [
+        "chaloneria/chaloneria.glb",
+        "chaloneria/chaloneria.blend",
+        "chaloneria/qa.json",
+        "chaloneria/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261020T224904-b470cb7192c64d06a50d7b02bc62a348"
+}
