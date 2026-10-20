@@ -1,6 +1,8 @@
 /** Small, cancelable image-only queue. Passing a model is never a GLB request. */
 export class ThumbnailQueue {
- constructor({concurrency=3,delay=120,setTimer=setTimeout,clearTimer=clearTimeout}={}){
+ // Wrap Window timers: calling a native timer as this.setTimer gives it an
+ // invalid receiver in real browsers, even though Node timer mocks allow it.
+ constructor({concurrency=3,delay=120,setTimer=(...args)=>setTimeout(...args),clearTimer=(...args)=>clearTimeout(...args)}={}){
   Object.assign(this,{concurrency,delay,setTimer,clearTimer});this.active=new Map();this.desired=new Map();this.timer=0;this.stats={started:0,cancelled:0,active:0,maxActive:0};
  }
  update(items){

@@ -1,5 +1,16 @@
 import assert from 'node:assert/strict';
 import {ThumbnailQueue} from '../thumbnail-queue.js';
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+// Browser timer functions reject a foreign receiver. Node's permissive timers
+// and injected arrow fakes must not conceal an illegal Window API invocation.
+const timerReceivers=[];
+const browserQueue=vm.runInNewContext(readFileSync(new URL('../thumbnail-queue.js',import.meta.url),'utf8').replace('export class','class')+';new ThumbnailQueue()', {
+ setTimeout:function(){assert.equal(this,undefined,'Native timer must not receive the queue as its receiver');timerReceivers.push('set');return 1;},
+ clearTimeout:function(){assert.equal(this,undefined,'Native timer must not receive the queue as its receiver');timerReceivers.push('clear');}
+});
+browserQueue.update([{image:{dataset:{}},url:'/one.png'}]);browserQueue.clear();
+assert.deepEqual(timerReceivers,['clear','set','clear']);
 let next=0;const timers=new Map(),calls=[];
 const queue=new ThumbnailQueue({concurrency:3,setTimer:callback=>{timers.set(++next,callback);return next;},clearTimer:id=>timers.delete(id)});
 const tick=()=>{const callbacks=[...timers.values()];timers.clear();callbacks.forEach(callback=>callback());};
