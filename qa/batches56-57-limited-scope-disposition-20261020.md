@@ -1,0 +1,50 @@
+# Batch 56–57 limited-scope QA disposition
+
+Date: 2026-10-20 UTC  
+Reviewer scope: `independent_qa_accepted_stylized_prop` only. This is a dated supplemental disposition; it does not rewrite either earlier independent audit or the focused correction report.
+
+## Decision
+
+**Accept the seven selected, hash-pinned models for the limited stylized educational/museum-prop scope below.** This disposition is not formal-profile acceptance, not specimen-exact certification, not a promotion of maker approval fields, and not release/publication authorization. No new geometry was introduced in the preparation branch: source candidate, staged GLB, staged Blend, candidate record, metadata and frozen-brief pins were reconciled to the two final source commits. Each staged GLB/Blend is byte-identical to the exact source output.
+
+This decision closes only the earlier narrow visual blockers on Cycadeoidea r003 and Quatsinoporites r004 in the previously completed focused review. It does not repeat candidate validation, source/export, Khronos, runtime, rebuild, or eight-view QA. Existing execution reports remain attributed to their original maker runs; they are not represented as newly executed here.
+
+| Batch / selected revision | Source commit | Selected GLB SHA-256 | Selected Blend SHA-256 | Frozen `brief.json` SHA-256 | Exact captured PNG SHA-256 | Limited-scope disposition |
+|---|---|---|---|---|---|---|
+| 56 / Cycadeoidea r003 | `1e90635f5d3bc9940f23fb17d3d581cd8f409170` | `d326b3d5f2c3e14256d56afaf444db61b7f14963dc9cb0105aece89c5545cedf` | `b0ce63feec724a9b66236bce3429bae08c86ddc1a1c07e55b4d5d233a6a00a63` | `565e599fe3326edcfe53774d1da297c7c44623cbc83db884c068bb0154aa91e4` | `11de5a9d35f3f1084666f37ad577398687888fa39e8efd6ce4ac1b44fb6f18d8` | **Accept, bounded.** Editable source has exactly three connected recessed sites; prior focused eight-view review confirms three total. This new ModelStage card angle exposes two clearly, so the card alone is not proof of the count. Treat as a stylized cycad trunk, not a specimen/anatomy reconstruction. |
+| 56 / Gondwanagaricites r002 | `1e90635f5d3bc9940f23fb17d3d581cd8f409170` | `8133ad81f4f3d18b4d0ebd5d29ca2fe540039254b6efc8522fe20d2ec4b4036a` | `51c397d4219f9bac1bfafc13790cf65e6adadba9bb6eeb3018a9f1ba80b84816` | `ca5dcb8fe58a9034b4a7c5ace7d4a04202d05e390b15d71f10f318c58dc88fc3` | `2853d0b7d6909d5aa12bbf25ea0495fa275b6263d01cb2809d35761376f98935` | **Accept, bounded.** Slender stipe and small cap on slab read; gills are difficult to see at the single card angle and were already noted as shallow/small. No unsupported ring or original-color claim. |
+| 56 / Deflation hollow r001 | `1e90635f5d3bc9940f23fb17d3d581cd8f409170` | `c679676d46d8e51789a690db2f1590baa89c766cd50eb29700347150b43fd7be` | `4cc24271c53a23cc3d65c92a04c0bf0be70726022208d78ef8d51673d4cf1534` | `b5dca761406ec90f845ab283f9efc55b305acf66a316052439ad54c655da26ac` | `2f01afbfb29c8564d5ad353c5bc1c195d4eeea3991c088b5756a4e97efc5e6b2` | **Accept, bounded.** Reads as a shallow scoop/hollow. The bowl/rim is illustrative; do not attach a named locality, age, or measured scale. |
+| 56 / Arthrophycus annulated burrow r002 | `1e90635f5d3bc9940f23fb17d3d581cd8f409170` | `a32b30732582580884b7f6de257a22c701df20f2359e9183585a10a8f959834c` | `3c9acb026a5bfbf485a802b887cef664b462d9208410e03cec086cd84838cc3f` | `ba3a9d13f09d0a7da99b4f39f23907e7fdc6b1d085e868cc808516392c0d32d3` | `1c00c7b171083753aba0a485da5806ab7ff5fec574d7813f39698266d591204f` | **Accept, bounded.** Three raised curved annulated traces are legible. Slab and scale are stylized; no producer-species attribution. |
+| 57 / Quatsinoporites r004 | `75f08656c73718ad707c0493e9bf8137f3efb45d` | `22e3a5e8c35086c7931b25f9caa5198c5d533f379c8f080311e6bcd1b0b6ec4b` | `558150cd76ec6e9ac581a42268d7e88d719676e26056f614a814a59b3a320e9e` | `1d4c516bd4dbb5cd893615f785a35f5b5a7bcc894c8404e174a00cb39813a64f` | `42947b74d001ca8c8022ef6a7eaa71959aa9047efeb1e3ece5c0d0f6f4c8aead` | **Accept, bounded.** Prior focused eight-view/source review found varied pore shape, size and spacing, and verified 43 openings terminate at blind floors. The new card presents a somewhat orderly top-facing arrangement; use only as a stylized pore-bearing fragment, not an exact specimen or complete fungus. |
+| 57 / Cave column r002 | `75f08656c73718ad707c0493e9bf8137f3efb45d` | `2659a158b5c3bf2a50b32057e58e6a28c42ed36827ed27f968918274fc48679a` | `d5480f4750afaa5952513bd6ee2444a73685a865891f82aef6c8fd9ebb26d112` | `717a796450a262f97e204e51926fdc69b0f4c23277d47162977f454030299a36` | `eb2f80ad46fed8a1031b114c899de6ab5d69e9a5017b7d6aead23de4892dcd70` | **Accept, bounded.** Connected central column and upper/lower attachments read. No claim of a specific cave, age, locality, or measured dimensions. |
+| 57 / Rusophycus resting excavation r001 | `75f08656c73718ad707c0493e9bf8137f3efb45d` | `7493f6df58164496ae64161395138520787fa2be9a9eb0f2363c56ef4f276751` | `38449be768534e005e337bf38fea0a3757ec59a979e321ae7f6a58c67b64ace8` | `ebc8ec5192edaa9749210f8ab36684d1e201d4ba8a2835ff1f13ae282dc4443b` | `48d14d0033de970b190e31381df9ca60d07db472f671019a66bb94799861ff45` | **Accept, bounded.** Bilobed negative resting trace reads in the card. Do not claim species-level producer or behavioral certainty. |
+
+Frozen brief hashes above refer to each revision's original `brief.json`. Candidate records may separately pin delivery-repair/candidate-brief files; those were not substituted for, or used to rewrite, the frozen briefs. Cycadeoidea r003 and Quatsinoporites r004 preserve the same frozen brief pins documented in the focused report. The earlier Cycadeoidea r002 and Quatsinoporites r001 files/revisions remain untouched and unselected.
+
+## Capture and pin verification
+
+The new card pixels were inspected directly, not rerendered. All seven PNGs are 768×768; local file SHA-256 matches the value in the capture provenance for each. That provenance also records exact-source match, matching card WebP bytes/hash, and no edge clipping. The `render-report.json` source GLB SHA for each ID matches the selected GLB above.
+
+Read-only GitHub run/artifact verification:
+- Repository: `s010s/lowpoly-vault` (not timber-bear).
+- Capture workflow run `39366544476`; capture job completed successfully, including exact-seven staging, Vite build, pinned Playwright Chromium installation, `node site/render-web-previews.mjs`, and artifact upload.
+- Run head: `ef9807cf5d0637472baeee5441a31c419224226b`, branch `capture/batches56-57-reviewed-20261020`.
+- Artifact `pinned-publication-capture`, ID `12240255243`, API size 464,466 bytes, GitHub digest `sha256:de6de4921be36780cb5cef164168cdef1982689422cf8c7961a587e1049e98a6`. GitHub's digest is recorded; the ZIP digest was not independently recomputed locally (`zip_digest_locally_recomputed=false` in the provenance).
+- Renderer is the existing built Three.js `ModelStage` through `site/render-web-previews.mjs`, not a static mock. The script waits for `dataset.modelState === 'ready'`, then captures the canvas. Report binds `viewer_source_sha256=3d3e6dd1335c21b0836ebcf32689a4bfc558a8803ac2cc666e407f79ced509d0` and `render_preset_sha256=2d3b55d5bc79348e50d7d5591489ea79e567c1c5b6e743c68a446809e31364ff`; pinned Chromium is `141.0.7390.37`. The workflow uses SwiftShader (`--use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader`), not a physical GPU. The seven outputs are one poster frame per asset, not turntables.
+- Source viewer and render recipe pins match the preparation tree's existing source. Capture proof is for the seven staged GLBs/metadata listed above; it is not evidence that those assets are on live `main`.
+
+The independent focused source-geometry check already recorded for Cycadeoidea r003 found exactly three connected recess components; the Quatsinoporites r004 check confirmed all 43 seeded blind cavities and a closed mesh. These are prior executed reviewer checks, not rerun for this disposition. Maker static/source-export/Khronos/Node/rebuild reports were reviewed as old evidence and not represented as tests run by this reviewer.
+
+## Exclusion and unchanged formal/release status
+
+- **Nidula baltica is not included in this first seven-asset disposition.** The corrected holotype plate pixels remain unavailable, so exact specimen-level image comparison is unknown. Generic genus-level support is not the same as a specimen match. This is an intentional batch-57 selection exclusion, not a defect inferred for these seven.
+- Candidate-level `approved_for_brief` remains false. The preparation artifacts continue to record `publication_authority:false`, `formal_acceptance:BLOCKED`, physical GPU unverified, target scene unrun, and provider generation time unknown. None of these fields was edited or promoted.
+- The release worktree remains a preparation stage, not ready-to-release: it intentionally has only QA capture cards so far, and the 190-entry live-manifest snapshot does not include these new IDs. Metadata preview destinations have not yet been populated from the verified cards. These are remaining packaging/collector gates, not newly discovered model QA defects. No files were copied into release destinations, no manifest/catalog was updated, and no publication occurred.
+- No remote write, PR, merge, push, or deployment was performed. Existing briefs, candidate records, formal states, and prior assets were preserved.
+
+## Evidence pointers
+
+- Earlier batch audits: `qa/batch56-release-20261020/review/lowpoly-batches56-57-independent-audit.md` and `qa/batch57-release-20261020/review/lowpoly-batches56-57-independent-audit.md`.
+- Focused correction closure: `/workspace/scratch/f9208c421601/lowpoly-round21-repair56-57-focused-qa.md`.
+- Batch capture reports and PNGs: `qa/batch56-release-20261020/capture/` and `qa/batch57-release-20261020/capture/`, with provenance next to each preparation record.
+- Preparation commit under review: `f161fc7409c6b6cb1907f62243afed1854671527` (`release/batches56-57-preparation-20261020`). This report is local and supplemental; it is not a commit to that branch.

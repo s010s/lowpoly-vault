@@ -1,0 +1,60 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "cycadeoidea",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/qa_glb.py",
+        "config": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/asset_common.py"
+      },
+      "job_id": "repair-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend"
+      ],
+      "revision": "r003"
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "cycadeoidea",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/qa_glb.py",
+        "config": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/asset_common.py"
+      },
+      "job_id": "repair-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend"
+      ],
+      "revision": "r003"
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

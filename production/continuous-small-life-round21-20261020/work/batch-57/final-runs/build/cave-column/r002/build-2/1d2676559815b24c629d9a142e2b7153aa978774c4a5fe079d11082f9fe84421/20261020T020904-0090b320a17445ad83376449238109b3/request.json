@@ -1,0 +1,86 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/build-config.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round21-20261020/work/batch-57/final-runs/build/cave-column/r002/build-2/1d2676559815b24c629d9a142e2b7153aa978774c4a5fe079d11082f9fe84421/20261020T020904-0090b320a17445ad83376449238109b3/outputs"
+  ],
+  "created_at": "2026-10-20T02:09:04.603059+00:00",
+  "fingerprint": "1d2676559815b24c629d9a142e2b7153aa978774c4a5fe079d11082f9fe84421",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 1237,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/build-config.json",
+        "sha256": "8eac8a6d418f51a9c37624aaad023b06c7120d928837b8b560f9523cf1b737e5"
+      },
+      "generator": {
+        "bytes": 7045,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/generator.py",
+        "sha256": "27d3bbfbf84c31a5dc2dd867350cf98a37f45a0cec53386ddf0e23805407562b"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "cave-column",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/cave-column/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py"
+      },
+      "job_id": "build-2",
+      "outputs": [
+        "cave-column.glb",
+        "cave-column.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261020T020855-5f88505604464668ad9c27f9cdeb205c"
+}
