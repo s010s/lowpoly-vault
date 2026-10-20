@@ -1,0 +1,97 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch65-20261020/production/continuous-small-life-round25-20261020/work/batch-65/blender-locked.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch65-20261020/production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r004/rebuild-runs/build/breccia-outcrop/r004/semantic-rebuild-2/29f1a77a3f1419fd5b73f25a37d7229a64840b6d4402c9e101a0e62227a77a09/20261020T152610-64b5656132784ccda3217dea5ef93f6c/outputs"
+  ],
+  "created_at": "2026-10-20T15:26:10.611217+00:00",
+  "fingerprint": "29f1a77a3f1419fd5b73f25a37d7229a64840b6d4402c9e101a0e62227a77a09",
+  "identity": {
+    "executable": {
+      "bytes": 181,
+      "path": "/workspace/shared/lowpoly-batch65-20261020/production/continuous-small-life-round25-20261020/work/batch-65/blender-locked.sh",
+      "sha256": "a8b05193f8aa0768f6c67ebf48498c0a8632a4ead053f0c9701a3fa1e4eb2926"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5695,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/brief.json",
+        "sha256": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97"
+      },
+      "config": {
+        "bytes": 2471,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/build-config.json",
+        "sha256": "3cead44d1b69ac9a2bbd546dd860add52f91f30e3c03cb52bb225f2ca3ee387b"
+      },
+      "generator": {
+        "bytes": 15976,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/generator.py",
+        "sha256": "3ad7a61d8ad73ca4e5ee8beaab185cbb495e420455cc28c1f58cb6c537bcc351"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1751,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/references.json",
+        "sha256": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "breccia-outcrop",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch65-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/brief.json",
+        "config": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch65-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "geometry-repair-report.json"
+      ],
+      "revision": "r004"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T152607-af91cb16734442989e33da978c33d2d4"
+}
