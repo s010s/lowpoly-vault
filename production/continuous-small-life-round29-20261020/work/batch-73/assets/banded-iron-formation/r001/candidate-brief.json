@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "banded-iron-formation",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original source-informed low-poly static teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Fine persistent gently folded iron-rich and silica-rich laminae through full solid rock specimen; At least25 unequal thin alternating laminae physically generate continuous differential erosion ribs and recesses; Original irregular broken specimen, no recolored cliff belts, regular masonry/tiles or flat painted-only stripes. Scope: Generic banded-iron-formation solid rock specimen with original lamination and erosion relief, not named locality/specimen replica. Nominal800mm width artistic. Thin persistent alternating iron-rich/silica-rich layers supported by museum text and actually inspected official USGS-hosted Soudan outcrop photo. Formation age distinct from later exposure; no specific asset age, annual band cadence, sole formation mechanism, exact mineral proportions or museum dimensions asserted.",
+      "required_sources": [
+        "USGS-SOUDAN"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Fine persistent gently folded iron-rich and silica-rich laminae through full solid rock specimen; At least25 unequal thin alternating laminae physically generate continuous differential erosion ribs and recesses; Original irregular broken specimen, no recolored cliff belts, regular masonry/tiles or flat painted-only stripes. Scope: Generic banded-iron-formation solid rock specimen with original lamination and erosion relief, not named locality/specimen replica. Nominal800mm width artistic. Thin persistent alternating iron-rich/silica-rich layers supported by museum text and actually inspected official USGS-hosted Soudan outcrop photo. Formation age distinct from later exposure; no specific asset age, annual band cadence, sole formation mechanism, exact mineral proportions or museum dimensions asserted.",
+      "required_sources": [
+        "USGS-SOUDAN"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight canonical512px views; turntable0 by bounded dispatch. CPU proof not GPU/scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/source.blend",
+      "sha256": "ba083089a7b8996c4b4077cd4199d14ac4c4021a2f99f2995b1dbaa33e2180bf"
+    },
+    {
+      "role": "generator",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/generator.py",
+      "sha256": "0f279cbe0a5a4eaa75138d41a8441347a2bb365c0e8accb4887214dcd250e9e0"
+    },
+    {
+      "role": "config",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/build-config.json",
+      "sha256": "341db58a531fafc3c7b83b638ab36b1cb1e23285179de4910c596e6ee4940293"
+    }
+  ],
+  "claim_scope": "Generic banded-iron-formation solid rock specimen with original lamination and erosion relief, not named locality/specimen replica. Nominal800mm width artistic. Thin persistent alternating iron-rich/silica-rich layers supported by museum text and actually inspected official USGS-hosted Soudan outcrop photo. Formation age distinct from later exposure; no specific asset age, annual band cadence, sole formation mechanism, exact mineral proportions or museum dimensions asserted.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.8,
+    0.4,
+    0.65
+  ],
+  "dimension_status": "Illustrative nominal targets not measured specimen/site. Final actual bounds separately reported.",
+  "recognition_features": [
+    "Fine persistent gently folded iron-rich and silica-rich laminae through full solid rock specimen",
+    "At least25 unequal thin alternating laminae physically generate continuous differential erosion ribs and recesses",
+    "Original irregular broken specimen, no recolored cliff belts, regular masonry/tiles or flat painted-only stripes"
+  ],
+  "concept_decisions": "Actual concept inspected: retain many thin unequal laminae, coherent shallow open fold and rough crosscut broken surfaces. Simplify microtexture, avoid polished slab and photoreal harsh cracks. Original closed full-volume specimen mesh with integrated lateral ribs; lamination not separate stacked slabs, coplanar skins, or disconnected regular belts. Use around32 unequal layer units whose widths/rib offsets vary gently across perimeter. Side silhouette and clay must retain lamination relief. Australian Museum DR.19296 remains text-only because image requests403 and browser timeout; authorised transparent substitution before freeze uses actual USGS-hosted James St.John Soudan photo.",
+  "style": "Palette-only original faceted full-volume low-poly",
+  "intended_use": "Supporting educational static prop256\u2013512px, not exact specimen/site replica",
+  "created_at": "2026-10-20T15:01:31.396828+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:05:23.461239+00:00",
+    "frozen_design_brief_sha256": "bf8bd40a76d3a160fafa8228e1536364f8862204057dea3b1260aac9e39cd08a",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

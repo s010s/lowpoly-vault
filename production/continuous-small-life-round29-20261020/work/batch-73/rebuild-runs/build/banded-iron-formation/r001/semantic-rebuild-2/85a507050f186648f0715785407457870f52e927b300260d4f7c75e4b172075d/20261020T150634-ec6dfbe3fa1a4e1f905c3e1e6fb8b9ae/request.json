@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/rebuild-runs/build/banded-iron-formation/r001/semantic-rebuild-2/85a507050f186648f0715785407457870f52e927b300260d4f7c75e4b172075d/20261020T150634-ec6dfbe3fa1a4e1f905c3e1e6fb8b9ae/outputs"
+  ],
+  "created_at": "2026-10-20T15:06:34.458113+00:00",
+  "fingerprint": "85a507050f186648f0715785407457870f52e927b300260d4f7c75e4b172075d",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6662,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/brief.json",
+        "sha256": "bf8bd40a76d3a160fafa8228e1536364f8862204057dea3b1260aac9e39cd08a"
+      },
+      "config": {
+        "bytes": 1074,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/build-config.json",
+        "sha256": "341db58a531fafc3c7b83b638ab36b1cb1e23285179de4910c596e6ee4940293"
+      },
+      "generator": {
+        "bytes": 10069,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/generator.py",
+        "sha256": "0f279cbe0a5a4eaa75138d41a8441347a2bb365c0e8accb4887214dcd250e9e0"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 5044,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/references.json",
+        "sha256": "5a5e133e8a4cf041302e9e37354d036c8d891b397f813790765a8836eb829c74"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "banded-iron-formation",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/banded-iron-formation/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T150634-88527d9febf641e3b603deb50a5993a4"
+}

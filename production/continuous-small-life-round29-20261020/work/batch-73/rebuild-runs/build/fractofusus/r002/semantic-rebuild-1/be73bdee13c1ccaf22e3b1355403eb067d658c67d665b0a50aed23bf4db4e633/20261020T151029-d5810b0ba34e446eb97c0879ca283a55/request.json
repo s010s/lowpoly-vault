@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/rebuild-runs/build/fractofusus/r002/semantic-rebuild-1/be73bdee13c1ccaf22e3b1355403eb067d658c67d665b0a50aed23bf4db4e633/20261020T151029-d5810b0ba34e446eb97c0879ca283a55/outputs"
+  ],
+  "created_at": "2026-10-20T15:10:29.346687+00:00",
+  "fingerprint": "be73bdee13c1ccaf22e3b1355403eb067d658c67d665b0a50aed23bf4db4e633",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 7022,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/brief.json",
+        "sha256": "626db786e1a9c9eeeb7b19006636703893d4a7e11ba04b9ec94fd53ee0b08f1e"
+      },
+      "config": {
+        "bytes": 1084,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/build-config.json",
+        "sha256": "c9be3f6885b4492cfff1da333accdbb2c1fe42425732c5da6b68fcedf139808f"
+      },
+      "generator": {
+        "bytes": 10540,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/generator.py",
+        "sha256": "4a3fe9ca85061f65e73344e78636743ef79ec7977eeba9e7ce511d99177b4dcd"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2608,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/references.json",
+        "sha256": "a7465a7ef98f98b48fd7e9e657b8dbb963c583e12eddd07e1bffebd0c964d692"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "fractofusus",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T151029-ca852de21f9444c58429fdfd12b592cc"
+}

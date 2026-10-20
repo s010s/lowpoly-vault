@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "fumarole-vent",
+  "revision": "r003",
+  "labels": {
+    "en": "fumarole-vent"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "9703960b80b4add47b0c682e0cd64be451874463db4f6ce0c467a720ee15b807"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "ebe95244f2116f79cf0d894b18d4bfa54d84f2e65a0748a0680660745b877143"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "2a9caaa89a93a1c1751c81c11957c5663593a1754b590458301bdbdd239d0807"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "d6df86df4f720ddf9dfe0180236bafd63b28c9441fe42e47ca42f344f7eeaf2e"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "410bcfd5f63009d241958fa493cec6d3154c3a9f1c75d534aa5c995599d646be"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "245ee86775a1bc6cfde865e8cd6fe5be9810669b4f3a23eca3cee15116c36814"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "4f0d94babe2590eb5abc4671e78a5e8f82506fd505ab2fdcb3f70bbfa6b86c39"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "afcbb1c7e4458360637a464c79e17398e1dce443c052cc9a8eb6fd8a5e9cb751"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "0fe0b5049bb0f6018bca3621c8e7b065113af603fcd325f78395bb11e3c110e4"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept inspected: retain crooked jagged elongated slit, encrusted interrupted lip, terminal fissures. Reject excessive ornamental rubble/bead ring and overly symmetrical long basin; use one narrow irregular twisting fissure with unequal branching crack extension, deep angular walls and no water. One closed integral rock/cavity mesh; crust patches are assigned face regions with genuine displaced rough relief, not copied overlapping crust cards or coplanar surfaces. Broad muted mineral patches follow fractures, not a circular rim. No gas particles/steam geometries.",
+    "hidden_surface_decisions": "Actual concept inspected: retain crooked jagged elongated slit, encrusted interrupted lip, terminal fissures. Reject excessive ornamental rubble/bead ring and overly symmetrical long basin; use one narrow irregular twisting fissure with unequal branching crack extension, deep angular walls and no water. One closed integral rock/cavity mesh; crust patches are assigned face regions with genuine displaced rough relief, not copied overlapping crust cards or coplanar surfaces. Broad muted mineral patches follow fractures, not a circular rim. No gas particles/steam geometries."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:56:41Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.6509,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "6a3e3be14da8624c9f86857b2d91f6e06bb91b6be22914beb3f5c1f99a1a1750"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "6a3e3be14da8624c9f86857b2d91f6e06bb91b6be22914beb3f5c1f99a1a1750"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "035da2f1f41d2a1bb0156822af2821f0a712c2607a2bf3bf8311e89022c593dc",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "12534705999b1b7a90ec6931262af1e7c03d6a7e01eef314dd6b3a182063ce2f"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "9703960b80b4add47b0c682e0cd64be451874463db4f6ce0c467a720ee15b807",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "9fd6601798b6c225d075df622e639b0543a0c6e933402568deee918d5419414a"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

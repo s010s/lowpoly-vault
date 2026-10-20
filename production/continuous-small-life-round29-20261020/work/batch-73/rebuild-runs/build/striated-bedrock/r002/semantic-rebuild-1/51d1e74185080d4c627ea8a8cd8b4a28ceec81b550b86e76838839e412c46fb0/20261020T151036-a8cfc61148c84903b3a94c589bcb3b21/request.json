@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/rebuild-runs/build/striated-bedrock/r002/semantic-rebuild-1/51d1e74185080d4c627ea8a8cd8b4a28ceec81b550b86e76838839e412c46fb0/20261020T151036-a8cfc61148c84903b3a94c589bcb3b21/outputs"
+  ],
+  "created_at": "2026-10-20T15:10:36.497468+00:00",
+  "fingerprint": "51d1e74185080d4c627ea8a8cd8b4a28ceec81b550b86e76838839e412c46fb0",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5864,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/brief.json",
+        "sha256": "120d7ec1afe9feabec931564e3c8e17de66dec8434986870bb7042884e874180"
+      },
+      "config": {
+        "bytes": 867,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/build-config.json",
+        "sha256": "7bd572e1cdf7aa06da1fab42bcaa2b5b9a736f27401ff1188a9f220ec7271d34"
+      },
+      "generator": {
+        "bytes": 10540,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/generator.py",
+        "sha256": "4a3fe9ca85061f65e73344e78636743ef79ec7977eeba9e7ce511d99177b4dcd"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3626,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/references.json",
+        "sha256": "ccd878dbc94adb5631b0dd5ce6be4f3e3865a8b796b2204e62147e7080a95042"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "striated-bedrock",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/striated-bedrock/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T151036-9f30349fbde94a4bb8a65c88669d18e3"
+}

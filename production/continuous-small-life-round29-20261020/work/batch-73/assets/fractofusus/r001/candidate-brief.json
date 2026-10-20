@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "fractofusus",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original source-informed low-poly static teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Long low-relief fusiform F.misrai fossil-form specimen on thin original matrix, tapering at BOTH ends; Opposed tightly packed primary rangeomorph modules with hierarchical secondary divisions and restrained tertiary relief; not modern leaf veins or fern twig silhouette; Reclining shallow positive separator ridges and negative impressions around axis; no erect stem, roots, mouth, stolons or high biconvex reconstruction. Scope: Original F.misrai-inspired fossil-form SPECIMEN study, not whole living-organism reconstruction or exact specimen replica. Long spindle shape and opposed hierarchical modules informed by actual2024 Figure2 fossils, especially D and E, distinct from the article Figure3 interpretive CFD mesh. Relief, matrix outline, coloration and nominal300mm footprint artistic. Biological affinity/feeding and complete three-dimensional living anatomy uncertain. No behaviour/CFD claim, no ovoid F.andersoni features.",
+      "required_sources": [
+        "ISCI2024"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Long low-relief fusiform F.misrai fossil-form specimen on thin original matrix, tapering at BOTH ends; Opposed tightly packed primary rangeomorph modules with hierarchical secondary divisions and restrained tertiary relief; not modern leaf veins or fern twig silhouette; Reclining shallow positive separator ridges and negative impressions around axis; no erect stem, roots, mouth, stolons or high biconvex reconstruction. Scope: Original F.misrai-inspired fossil-form SPECIMEN study, not whole living-organism reconstruction or exact specimen replica. Long spindle shape and opposed hierarchical modules informed by actual2024 Figure2 fossils, especially D and E, distinct from the article Figure3 interpretive CFD mesh. Relief, matrix outline, coloration and nominal300mm footprint artistic. Biological affinity/feeding and complete three-dimensional living anatomy uncertain. No behaviour/CFD claim, no ovoid F.andersoni features.",
+      "required_sources": [
+        "ISCI2024"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight canonical512px views; turntable0 by bounded dispatch. CPU proof not GPU/scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r001/source.blend",
+      "sha256": "20303304953ecd1582d20f5134fb46f7de0771213a8a2c0e657bfaa21bc53353"
+    },
+    {
+      "role": "generator",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r001/generator.py",
+      "sha256": "0f279cbe0a5a4eaa75138d41a8441347a2bb365c0e8accb4887214dcd250e9e0"
+    },
+    {
+      "role": "config",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/fractofusus/r001/build-config.json",
+      "sha256": "c9be3f6885b4492cfff1da333accdbb2c1fe42425732c5da6b68fcedf139808f"
+    }
+  ],
+  "claim_scope": "Original F.misrai-inspired fossil-form SPECIMEN study, not whole living-organism reconstruction or exact specimen replica. Long spindle shape and opposed hierarchical modules informed by actual2024 Figure2 fossils, especially D and E, distinct from the article Figure3 interpretive CFD mesh. Relief, matrix outline, coloration and nominal300mm footprint artistic. Biological affinity/feeding and complete three-dimensional living anatomy uncertain. No behaviour/CFD claim, no ovoid F.andersoni features.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.3,
+    0.115,
+    0.012
+  ],
+  "dimension_status": "Illustrative nominal targets not measured specimen/site. Final actual bounds separately reported.",
+  "recognition_features": [
+    "Long low-relief fusiform F.misrai fossil-form specimen on thin original matrix, tapering at BOTH ends",
+    "Opposed tightly packed primary rangeomorph modules with hierarchical secondary divisions and restrained tertiary relief; not modern leaf veins or fern twig silhouette",
+    "Reclining shallow positive separator ridges and negative impressions around axis; no erect stem, roots, mouth, stolons or high biconvex reconstruction"
+  ],
+  "concept_decisions": "Actual concept pixels inspected and retained. REJECT its modern fern-like separate twigs, dominant long midrib and decorative matrix cracks. Replace with closely packed opposing flattened first-order lobate modules, each containing integrated smaller repeated divisions, separated by shallow negative grooves. Narrow subdued central axis and no leaf stalk. Original shallow relief rises at most about3mm above nominal9mm matrix and extends toward both pointed ends, not voluminous biconvex animal. Tight hierarchy remains readable in top/clay at512px. Source Article Methods explicitly cautions unsupported high relief. One closed original heightfield/matrix mesh, not stacked coplanar fossil surfaces.",
+  "style": "Palette-only original faceted full-volume low-poly",
+  "intended_use": "Supporting educational static prop256\u2013512px, not exact specimen/site replica",
+  "created_at": "2026-10-20T15:01:31.231101+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:04:05.247459+00:00",
+    "frozen_design_brief_sha256": "626db786e1a9c9eeeb7b19006636703893d4a7e11ba04b9ec94fd53ee0b08f1e",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

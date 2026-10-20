@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/rebuild-runs/build/fumarole-vent/r002/semantic-rebuild-1/dab03a1320fcf8882480064a14557369295ccc125a39b8d2bf52a0546cf7c325/20261020T151042-a50b8118d5074694adfc990d5ab71c89/outputs"
+  ],
+  "created_at": "2026-10-20T15:10:42.754436+00:00",
+  "fingerprint": "dab03a1320fcf8882480064a14557369295ccc125a39b8d2bf52a0546cf7c325",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6153,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/brief.json",
+        "sha256": "70fdbccb0cb06eea00556ed8e0fffe4dcc3acc5c95b4793706f020d015115227"
+      },
+      "config": {
+        "bytes": 977,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/build-config.json",
+        "sha256": "245ee86775a1bc6cfde865e8cd6fe5be9810669b4f3a23eca3cee15116c36814"
+      },
+      "generator": {
+        "bytes": 10540,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/generator.py",
+        "sha256": "4a3fe9ca85061f65e73344e78636743ef79ec7977eeba9e7ce511d99177b4dcd"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3300,
+        "path": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/references.json",
+        "sha256": "2a9caaa89a93a1c1751c81c11957c5663593a1754b590458301bdbdd239d0807"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "fumarole-vent",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch73-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch73-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch73-20261020/production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T151042-541ac4bdef754159aa3465d068e5f6f7"
+}

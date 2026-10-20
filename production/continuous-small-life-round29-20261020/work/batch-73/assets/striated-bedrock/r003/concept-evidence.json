@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "striated-bedrock",
+  "revision": "r003",
+  "labels": {
+    "en": "striated-bedrock"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "aa8c39c13c3bfc1a4ef62eb4472bba44e1f09e9c123effb26405b2d2b3e104e8"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "1198bd1a652801a20e35045127e44a33c01ab81484135e001b164755cfe51ae8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "ccd878dbc94adb5631b0dd5ce6be4f3e3865a8b796b2204e62147e7080a95042"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "00a66f48e16cafe46e53dd3fb816239c52301e4f4d890878abeb2b66ddcdf891"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "35ef1ed28de33d48d45edc80649fe3db506acaae90d987240afdb8250538e77c"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "7bd572e1cdf7aa06da1fab42bcaa2b5b9a736f27401ff1188a9f220ec7271d34"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "2a5fd174e98185f584c0b669ae7f665a1568e9aebf9d87bec3712fa959618753"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f0f45d4fa5211752314ba61410e111d4266f65d86a1a47d00b6e7552adee10ff"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "508f4ba04ecc02d43dadcd58fc5c071a04c2db377641ed4f362d4748ba517a71"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept pixels inspected: retain broad low smooth pavement, nine unequal long incised grooves. Reject its slight divergent channels and tiny repetitive edge-cracks: all main groove trajectories aligned in one direction with small coherent natural wandering and unequal depths. Simplify irregular cutaway sides. A continuous closed mesh has top channels cut down into rock, no added rails, texture or color-only stripes. Low gentle surface undulation remains subordinate to incisions, no tall stoss/lee knob.",
+    "hidden_surface_decisions": "Actual concept pixels inspected: retain broad low smooth pavement, nine unequal long incised grooves. Reject its slight divergent channels and tiny repetitive edge-cracks: all main groove trajectories aligned in one direction with small coherent natural wandering and unequal depths. Simplify irregular cutaway sides. A continuous closed mesh has top channels cut down into rock, no added rails, texture or color-only stripes. Low gentle surface undulation remains subordinate to incisions, no tall stoss/lee knob."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:56:41Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.9365,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "8f8095e1710feb21c5857e92b8a9e4a51e7626996cffde6c60d9cb5cb8f1dbe3"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "8f8095e1710feb21c5857e92b8a9e4a51e7626996cffde6c60d9cb5cb8f1dbe3"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "50ec8876fb2328e0990c625f907e7acd1930fbb9e7051e3e69a3b581fe60bced",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "7322bfb50b29f58cbe5320c4e32a5c6c3cc801b94624da77367c6af7bb765616"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "aa8c39c13c3bfc1a4ef62eb4472bba44e1f09e9c123effb26405b2d2b3e104e8",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "82eb23ad5dc91864453bc20e8ab66ce53f28b2c87d46876d0e7a8136e4c48bc0"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

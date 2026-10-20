@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "banded-iron-formation",
+  "revision": "r003",
+  "labels": {
+    "en": "banded-iron-formation"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "e1ce2df854e001919b7105c56c0f6a26cabc9b84a163f2a89ae1cadcbac2ba38"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "9d9ed696c7a64c35c61f02f70e8c6e914c63867a9f01afabaf41d9297c1d27f3"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5a5e133e8a4cf041302e9e37354d036c8d891b397f813790765a8836eb829c74"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "3d23ee0cc81d76beafd23249bd35f3558c8be5124e6c87590a342d5af03c89c0"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "35ef1ed28de33d48d45edc80649fe3db506acaae90d987240afdb8250538e77c"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "341db58a531fafc3c7b83b638ab36b1cb1e23285179de4910c596e6ee4940293"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "10d1554b8f51bad27236d2fbabf427a88e3a5efd01efefe990e8d8b394146fb3"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "d93492e2091fffaff6d4d4879ef535751962c7b561d4ca04b891886c0e18ebc3"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "f48fb162e32a65fdd33be90cfb398b9f634bc0501de429670e562fc598f67dc0"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept inspected: retain many thin unequal laminae, coherent shallow open fold and rough crosscut broken surfaces. Simplify microtexture, avoid polished slab and photoreal harsh cracks. Original closed full-volume specimen mesh with integrated lateral ribs; lamination not separate stacked slabs, coplanar skins, or disconnected regular belts. Use around32 unequal layer units whose widths/rib offsets vary gently across perimeter. Side silhouette and clay must retain lamination relief. Australian Museum DR.19296 remains text-only because image requests403 and browser timeout; authorised transparent substitution before freeze uses actual USGS-hosted James St.John Soudan photo.",
+    "hidden_surface_decisions": "Actual concept inspected: retain many thin unequal laminae, coherent shallow open fold and rough crosscut broken surfaces. Simplify microtexture, avoid polished slab and photoreal harsh cracks. Original closed full-volume specimen mesh with integrated lateral ribs; lamination not separate stacked slabs, coplanar skins, or disconnected regular belts. Use around32 unequal layer units whose widths/rib offsets vary gently across perimeter. Side silhouette and clay must retain lamination relief. Australian Museum DR.19296 remains text-only because image requests403 and browser timeout; authorised transparent substitution before freeze uses actual USGS-hosted James St.John Soudan photo."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:58:56Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 26.525,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "1ec4e885b445e4f7afeeb1e41dcc3dd70de37b8e1d97aaf89e93c57653f621aa"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "1ec4e885b445e4f7afeeb1e41dcc3dd70de37b8e1d97aaf89e93c57653f621aa"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "17e86f65f446fc3771e7708f6685e306de9dc0ecd44ed01bc13bb26df5d6cadc",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "f05c008c26608318ebb42cbf8f72ccb4d0dcf7445cba92864822305797d7f42c"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "e1ce2df854e001919b7105c56c0f6a26cabc9b84a163f2a89ae1cadcbac2ba38",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "05bc9df423843a24f93e44809ad15dd58b7e9f260110740f63a81c293c96cd11"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

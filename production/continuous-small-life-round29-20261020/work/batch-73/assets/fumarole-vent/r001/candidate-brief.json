@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "fumarole-vent",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original source-informed low-poly static teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Irregular elongated fractured vent opening with physically recessed uneven cavity walls; Discontinuous mineral crust relief clings to jagged broken lip and nearby cracks, not regular circular raised cone; Static dry rock/crust geometry, no mudpot basin, water, geyser cone or steam-only proxy. Scope: Generic static fumarole-vent morphology, original4x2.8m nominal ground module, not a named vent replica. Opening and mineral-encrusted rim are supported by official NPS/USGS photos; exact outline, mineral palette, crust thickness and scale artistic. No measured gas chemistry, temperature, active emission or dynamics asserted. Cream/ochre styling does not identify mineral composition.",
+      "required_sources": [
+        "NPS-FUM"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Irregular elongated fractured vent opening with physically recessed uneven cavity walls; Discontinuous mineral crust relief clings to jagged broken lip and nearby cracks, not regular circular raised cone; Static dry rock/crust geometry, no mudpot basin, water, geyser cone or steam-only proxy. Scope: Generic static fumarole-vent morphology, original4x2.8m nominal ground module, not a named vent replica. Opening and mineral-encrusted rim are supported by official NPS/USGS photos; exact outline, mineral palette, crust thickness and scale artistic. No measured gas chemistry, temperature, active emission or dynamics asserted. Cream/ochre styling does not identify mineral composition.",
+      "required_sources": [
+        "NPS-FUM"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight canonical512px views; turntable0 by bounded dispatch. CPU proof not GPU/scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r001/source.blend",
+      "sha256": "2bb017d74926f1001ec251a9ce0e18f89cabd79ddd501ad90fcde7575f63d3ae"
+    },
+    {
+      "role": "generator",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r001/generator.py",
+      "sha256": "0f279cbe0a5a4eaa75138d41a8441347a2bb365c0e8accb4887214dcd250e9e0"
+    },
+    {
+      "role": "config",
+      "path": "production/continuous-small-life-round29-20261020/work/batch-73/assets/fumarole-vent/r001/build-config.json",
+      "sha256": "245ee86775a1bc6cfde865e8cd6fe5be9810669b4f3a23eca3cee15116c36814"
+    }
+  ],
+  "claim_scope": "Generic static fumarole-vent morphology, original4x2.8m nominal ground module, not a named vent replica. Opening and mineral-encrusted rim are supported by official NPS/USGS photos; exact outline, mineral palette, crust thickness and scale artistic. No measured gas chemistry, temperature, active emission or dynamics asserted. Cream/ochre styling does not identify mineral composition.",
+  "nominal_dimensions_blender_xyz_m": [
+    4,
+    2.8,
+    0.7
+  ],
+  "dimension_status": "Illustrative nominal targets not measured specimen/site. Final actual bounds separately reported.",
+  "recognition_features": [
+    "Irregular elongated fractured vent opening with physically recessed uneven cavity walls",
+    "Discontinuous mineral crust relief clings to jagged broken lip and nearby cracks, not regular circular raised cone",
+    "Static dry rock/crust geometry, no mudpot basin, water, geyser cone or steam-only proxy"
+  ],
+  "concept_decisions": "Actual concept inspected: retain crooked jagged elongated slit, encrusted interrupted lip, terminal fissures. Reject excessive ornamental rubble/bead ring and overly symmetrical long basin; use one narrow irregular twisting fissure with unequal branching crack extension, deep angular walls and no water. One closed integral rock/cavity mesh; crust patches are assigned face regions with genuine displaced rough relief, not copied overlapping crust cards or coplanar surfaces. Broad muted mineral patches follow fractures, not a circular rim. No gas particles/steam geometries.",
+  "style": "Palette-only original faceted full-volume low-poly",
+  "intended_use": "Supporting educational static prop256\u2013512px, not exact specimen/site replica",
+  "created_at": "2026-10-20T15:01:31.325517+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:04:52.245220+00:00",
+    "frozen_design_brief_sha256": "70fdbccb0cb06eea00556ed8e0fffe4dcc3acc5c95b4793706f020d015115227",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
