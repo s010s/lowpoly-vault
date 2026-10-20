@@ -1,5 +1,9 @@
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
 import {preparePosterCapture,completePosterCapture} from './gallery-poster-orchestration.mjs';
+if (process.argv.includes('--package-output') || process.argv.includes('--model-ids')) {
+  await (await import('./model-capture-runner.mjs')).runModelCapturePackagesCLI();
+  process.exit(0);
+}
 // END GALLERY POSTER V3 ORCHESTRATION
 /** Complete the published gallery using its actual approved browser renderer. */
 import assert from 'node:assert/strict';

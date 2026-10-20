@@ -109,7 +109,16 @@ try {
   });
   await test('proposed changed registry scope remains pending rather than inheriting old acceptance', async () => {
     const changed = clone(f.registry); changed.baseline.headers.manifest.quality_status = 'approved';
-    await assert.rejects(() => admitExistingRegistryRelease({root: f.root, registry: changed, repository, sourceCommit: f.sourceCommit, token: 'fixture-token', fetchImpl: f.transport()}), /not the exact existing release scope/);
+    await assert.rejects(() => admitExistingRegistryRelease({root: f.root, registry: changed, repository, sourceCommit: f.sourceCommit, token: 'fixture-token', fetchImpl: f.transport()}), /Baseline historical records|not the exact existing release scope/);
+  });
+  for (const [label, alter] of [
+    ['forged historical commit', registry => { registry.baseline.source_commit = 'f'.repeat(40); }],
+    ['forged historical source pin', registry => { registry.baseline.source_pins.manifest.sha256 = 'f'.repeat(64); }],
+    ['forged historical semantic snapshot', registry => { registry.baseline.snapshot_sha256 = 'f'.repeat(64); }]
+  ]) await test(`admission rejects ${label} even with unchanged projected content`, async () => {
+    const registry = clone(f.registry); alter(registry); let reads = 0; const transport = f.transport();
+    await assert.rejects(() => admitExistingRegistryRelease({root: f.root, registry, repository, sourceCommit: f.sourceCommit, token: 'fixture-token', fetchImpl: async (...args) => { reads++; return transport(...args); }}));
+    assert.equal(reads, 0, 'Bad baseline provenance must fail before proof transport');
   });
   await test('admission cannot be reused after source or delivered build inputs change', async () => {
     const admission = await f.admit(), sourcePath = join(f.root, f.manifest.assets[0].glb), bytes = readFileSync(sourcePath);

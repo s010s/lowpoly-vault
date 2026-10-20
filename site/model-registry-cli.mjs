@@ -32,6 +32,18 @@ export function readLegacySnapshot(read) {
   for (const [key, path] of Object.entries(LEGACY_OUTPUTS)) { const bytes = read(path); sourcePins[key] = {path, sha256: hashBytes(bytes)}; snapshot[key] = JSON.parse(bytes); }
   return {snapshot, sourcePins};
 }
+/** Authenticate historical import labels against actual immutable Git objects.
+ * This proves source provenance, not model quality or user publication approval. */
+export function assertRegistryBaselineSource({root, registry, sourceCommit}) {
+  assert(/^[a-f0-9]{40}$/.test(sourceCommit || ''), 'Exact current source commit required');
+  const baselineCommit = registry?.baseline?.source_commit;
+  const {snapshot, sourcePins} = readLegacySnapshot(gitReader(root, baselineCommit));
+  execFileSync('git', ['merge-base', '--is-ancestor', baselineCommit, sourceCommit], {cwd: root, stdio: 'pipe'});
+  assert.deepEqual(registry.baseline.source_pins, sourcePins, 'Baseline source pins differ from exact Git snapshot');
+  const imported = importLegacySnapshot(snapshot, {sourceCommit: baselineCommit, sourcePins});
+  assert.deepEqual(registry.baseline, imported.baseline, 'Baseline historical records or metadata differ from exact Git import');
+  return {source_commit: baselineCommit, snapshot_sha256: imported.baseline.snapshot_sha256, provenance: 'verified-exact-git-import', publication_authority: false};
+}
 export function registryFiles(registry) {
   // Composition validates every reference before emitting anything.
   composeRegistry(registry);

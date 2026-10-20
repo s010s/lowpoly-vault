@@ -1,6 +1,6 @@
 # Per-model registry and staged release integration
 
-Status: opt-in phase A compatibility scaffold plus a phase B per-model capture-package writer and checked existing-release admission adapter. None is connected to the production publication/CI path. Future-batch admission, the renderer's opt-in package-output mode, an automatic integration queue and production cutover are not implemented. No historical record set is committed by this change; import the exact current release commit when its turn in the integration queue arrives.
+Status: opt-in phase A compatibility scaffold, phase B per-model capture-package writer and checked existing-release admission adapter, plus an opt-in renderer package-output path and exact-Git baseline provenance checks. None is connected to the production publication/CI path. Future-batch admission, an automatic integration queue and production cutover are not implemented. No historical record set is committed by this change; import the exact current release commit when its turn in the integration queue arrives.
 
 ## Why IDs alone did not remove the collisions
 
@@ -70,13 +70,23 @@ registry/captures/<id>/<capture-record-sha256>/wheel.png
 
 Independent IDs do not share a mutable index. Installation uses staging and atomic rename. Identical concurrent submissions are idempotent; altered existing bytes, extra files and symlinks fail. Public image URLs remain the existing `gallery/posters/<id>[-wheel].png` in metadata. The package always declares `unverified-model-capture` and `publication_authority: false`. It is storage and consistency validation, not proof of render quality or source approval.
 
-The existing capture renderer and `persistSourceGallery` are deliberately unchanged in this checkpoint. Calling the new writer from a separately reviewed opt-in renderer mode and consuming its packages at integration are still required. Tests use synthetic PNG headers and do not claim fresh browser/GPU rendering.
+The real capture entry now has an explicit opt-in path:
+
+```
+node site/capture-gallery-posters.mjs --package-output /existing/staging/root --model-ids model-a,model-b
+```
+
+`model-capture-runner.mjs` uses the existing `PreviewRenderer.poster`, pinned Node/Chromium, isolated resource server, selected-ID scope and GLB hash checks. It does not call full-gallery persistence, cache import or trusted proof emission. The original default capture program and `persistSourceGallery` remain byte-identical outside the pre-existing additive orchestration hooks, verified by the historical compatibility test. In package mode, the renderer only sees selected models and each result is written to its own package; no whole-gallery metadata or snapshot is replaced. Mixed `--source-output`/`--verify-recipe`, duplicate or unknown IDs, source/delivered GLB changes and external/custom runtimes fail.
+
+The draft recipe additionally binds the new runner/writer code, rather than pretending to be an old renderer proof. Packages remain unverified even after successful local rendering. Integration-time independent review and QA are still required. The CLI/server/storage seven-model test uses a deliberately simulated browser and synthetic PNG headers: it verifies the real opt-in dispatch and storage behavior, not WebGL/pixel quality. A real pinned-runtime capture on an isolated CI branch remains required before activating this mode.
 
 ### Independently checked existing-release admission
 
 `site/model-registry-admission.mjs:admitExistingRegistryRelease` has a deliberately narrow contract: the registry must project to the **exact already released source scope** in a clean fixed-commit checkout. New IDs or altered source metadata cannot inherit that release's authority. There are no hardcoded batch numbers or model counts.
 
-The factory:
+The factory first authenticates `baseline.source_commit` and every `source_pin` against actual Git blobs, requires the baseline commit to be an ancestor of the admitted source, and reimports that exact snapshot to compare the complete frozen baseline and historical record references. Earlier phase B only used these labels as data, and could accept forged provenance labels when output content was unchanged; this is now rejected before any proof transport. The returned `baseline_provenance` receipt reports exact-Git import provenance only, explicitly without publication authority.
+
+The factory then:
 
 1. Runs the existing `assertBuiltRenderInputs` and computes actual built-input model bindings. A source-only proof cannot substitute.
 2. Independently retrieves a successful exact-source main workflow's model proof through the existing GitHub provenance verifier. Compatible-ancestor evidence alone is insufficient to admit a changed release scope. Every model and the actual delivered payload must match.
@@ -153,3 +163,11 @@ Parallel work can include research, construction, source checks, independent rev
 - Admission tests cover exact model plus separate poster artifact provenance, missing/failed/forked/expired/partial/mismatched evidence, source-only substitution, payload/recipe/source/input mismatches, serialized or self-reported acceptance, post-admission source/build tampering, and a failing original publication gate.
 - Actual production delivery on fixed source `c8714ec3eba2925d1669663556445f8c43e40030`, 202 models: complete enriched manifests equal; all 205 generated JSON files semantically equal; all 1,462 asset/download files, 254,428,093 bytes, byte-identical. There are 203 serialization-only generated JSON differences (202 detail objects and the enriched manifest), disclosed rather than claimed byte-identical. Original source bytes/URLs and metadata remain unchanged.
 - No current workflow, publication gate, cache policy, historical source asset, main branch or active release branch is modified. The protected-policy baseline refresh requirement above still applies if this code is later integrated.
+
+## Opt-in renderer and baseline-provenance checkpoint, 2026-10-20
+
+- Combined registry, package writer, opt-in runner, admission and existing model/poster-cache tests: 90/90 pass. The exact real 202-model baseline at `c8714ec3eba2925d1669663556445f8c43e40030` also passes the new Git-import provenance check.
+- Admission regression fixtures reject forged baseline commit, file pins and semantic snapshot labels before any GitHub proof read. Baseline provenance is authenticated against Git, not treated as owner approval.
+- The actual renderer CLI opt-in dispatch is exercised with a clearly simulated browser for seven selected models: seven independent package namespaces, exact rerun idempotence, the eighth model untouched, and source/output shared galleries unchanged. Parser, explicit scope, changed source/delivery bytes, package-code recipe binding and wrong local Node-major refusal are also tested.
+- Existing historical golden-program compatibility remains unchanged. No historical approval files are rewritten or re-signed.
+- Local runtime is Node 24, not the production-pinned Node 22. The production entry correctly refuses it; simulated integration tests do not establish real pinned Chromium/GPU validation. That validation and independent code review remain required before this opt-in mode is put into use.

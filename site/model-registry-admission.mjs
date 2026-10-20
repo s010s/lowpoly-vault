@@ -13,7 +13,7 @@ import {posterInputKey, posterSharedInputs} from './gallery-poster-inputs.mjs';
 import {assertPosterProof, assertPosterPNG, posterArtifactName, posterRuntime} from './gallery-poster-proof.mjs';
 import {assertPosterArtifact, extractPosterArtifact, MAX_POSTER_ARCHIVE_BYTES} from './gallery-poster-cache.mjs';
 import {composeRegistry, digest, registryDigest} from './model-registry.mjs';
-import {localReader, readLegacySnapshot, composedFiles, writeFreshTree} from './model-registry-cli.mjs';
+import {localReader, readLegacySnapshot, composedFiles, writeFreshTree, assertRegistryBaselineSource} from './model-registry-cli.mjs';
 
 const admissions = new WeakMap(), SHA = /^[a-f0-9]{40}$/;
 const git = (root, ...args) => execFileSync('git', args, {cwd: root, encoding: 'utf8', maxBuffer: 128 * 1024 * 1024}).trim();
@@ -88,6 +88,7 @@ function assertRegistryPosters(registry, bundle) {
 export async function admitExistingRegistryRelease({root, registry, repository, sourceCommit, outputRoot = 'dist', templatePath = 'qa/ci-model-proof/vite-template.html', token = process.env.GITHUB_TOKEN, fetchImpl = fetch}) {
   root = resolve(root); assert(/^[\w.-]+\/[\w.-]+$/.test(repository || ''), 'Exact repository required');
   assert.equal(typeof fetchImpl, 'function'); exactSource(root, sourceCommit);
+  const baseline = Object.freeze(assertRegistryBaselineSource({root, registry, sourceCommit}));
   const manifest = assertSourceProjection(registry, root), recordDigest = registryDigest(registry);
   const built = await assertBuiltRenderInputs({root, outputRoot, templatePath}), inputs = computeModelInputs({root, built});
   const found = await fetchVerifiedBaseProof({root, repository, baseSha: sourceCommit, currentSha: sourceCommit, inputs, token, fetchImpl, allowAncestor: false});
@@ -108,7 +109,7 @@ export async function admitExistingRegistryRelease({root, registry, repository, 
   assert.equal(digest(finalInputs), digest(inputs), 'Admission inputs changed during validation');
   assert.equal(registryDigest(registry), recordDigest, 'Registry changed during validation');
   const handle = Object.freeze({version: 1, kind: 'verified-existing-release-admission', repository, source_commit: sourceCommit, registry_sha256: recordDigest, model_count: registry.records.length,
-    model_artifact_id: found.verifiedBaseProof.artifact_id, poster_artifact_id: posters.verification.artifact_id});
+    model_artifact_id: found.verifiedBaseProof.artifact_id, poster_artifact_id: posters.verification.artifact_id, baseline_provenance: baseline});
   admissions.set(handle, {root, sourceCommit, registry: structuredClone(registry), inputDigest: digest(inputs), outputRoot, templatePath});
   return handle;
 }
