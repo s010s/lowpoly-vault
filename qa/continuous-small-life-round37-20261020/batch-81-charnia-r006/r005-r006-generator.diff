@@ -1,0 +1,31 @@
+--- r005/generator.py
++++ r006/generator.py
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: MIT
+-"""Charnia C81-01 repair r005; original r001 scope and r005 repair freeze precede this generator."""
++"""Charnia C81-01 repair r006; original r001 scope and r006 repair freeze precede this generator."""
+ import bpy,sys,json,math,argparse,pathlib,random
+ R=next(p for p in pathlib.Path(__file__).resolve().parents if (p/'scripts/asset_common.py').exists());sys.path.insert(0,str(R/'scripts'))
+ from asset_common import setup_scene,mesh_object,make_material,audit_source,ground_asset
+@@ -35,7 +35,7 @@
+   axis=.0035*math.sin(5*tc)*math.sin(math.pi*tc)
+   w=max(.0008,.029*(1-tc)**.64*min(1,tc/.10)**.35)
+   edge=.06*(1-.16*abs(2*v-1)**5+.02*math.sin(12*v))
+-  for sn in ss:
++  for si,sn in enumerate(ss):
+    sign=1 if sn>=0 else -1;s=abs(sn)
+    if s<=1:
+     x=axis+sign*w*s
+@@ -44,6 +44,12 @@
+    else:
+     f=s-1;x=(axis+sign*w)*(1-f)+sign*edge*f
+     y=yb+P['branch_aligned_longitudinal_bow_m']*.70*math.sin(math.pi*tc)*(1-f)-yb*.07*f**5
++   # Outside the frond only, recover evenly sampled original rounded end outlines.
++   end_blend=min(1,max(0,-t,t-1)/(.025/.21))
++   if end_blend:
++    uniform=2*si/(len(ss)-1)-1
++    x=x*(1-end_blend)+edge*uniform*end_blend
++    y=y*(1-end_blend)+yb*(1-.07*abs(uniform)**5)*end_blend
+    z=.011+.00012*math.sin(111*x+57*y)
+    if 0<t<1 and s<1:
+     taper=max(0,1-s*s)**.33*min(1,t/.03,(1-t)/.035)
