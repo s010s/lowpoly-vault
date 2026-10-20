@@ -1,0 +1,9 @@
+# Immutable original premodel design
+
+Original Phycosiphon trace-morphology concept based on P.incertum Waverly specimens KUMIP288503/288564, described core and surrounding mantle and recurved lobes. The ichnogenus names a trace, not its producer. Original inventory Carboniferous period belongs to source examples, not full range. Raised relief is an explicit teaching convention whereas these specimens preserve negative epirelief. No inferred tracemaker, behavior or new dating asserted; slab scale/composition and colors are artistic.
+
+- Repeated small recurving U-shaped lobes with approximately parallel arms and rounded turns, arranged in loose groups rather than a branching tree or a continuous sinusoidal tube
+- Each dark narrow core is surrounded on both lateral sides and around the bend by a visibly broader pale sediment mantle; actual cross-profile relief distinguishes the two zones
+- No fabricated pellet wall, annulation, animal, broad fan spreiten or separate Anconichnus count; exposed sediment surface and raised relief remain illustrative
+
+Concept pixels inspected. Keep small U-like recurvatures and dark core/pale mantle contrast; correct the concept halo that looks like an outer ring on one side by surrounding the core on both sides with a continuous low shoulder, not a hollow lined pipe. About7-9 U lobes in2-3 loosely aligned groups with gaps; core width1.0-1.4mm, mantle width about0.5-1.0mm each side. Encode both core ridge and lower wider mantle shoulder geometrically so clay shows their relation. Avoid large thick horseshoes, disconnected pebbles and zebra cross stripes. No visible spreite added because not observed in selected Waverly source. Host slab surface remains quiet; core and mantle join within one relief cross-section without coincident visible skins.

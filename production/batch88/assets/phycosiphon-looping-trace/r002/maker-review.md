@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight final frames personally opened. Hero/reversehero/top show eight small separated recurved U lobes with dark inner core and pale mantle visibly on both inner and outer sides. Clay shows actual core ridge and surrounding shoulder, not just two colors. Front/side/rear confirm low real relief but cannot resolve loop geometry; silhouette is the slab envelope. No spreite, rigid wall lining, pellet wall, identifiable animal or producer behavior is invented. The Waverly negative-epirelief observation is retained in the ledger while this explicitly illustrative inventory-convention display is raised. Lobe arrangement is deliberately simplified, not a traced exact specimen or additional Anconichnus asset.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 2e8a66f5d7201bccc2cb43f37c2c5fccbdf60ed1f5f451d9b8798593cba9cc4a. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

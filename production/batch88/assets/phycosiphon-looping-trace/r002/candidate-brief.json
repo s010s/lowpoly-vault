@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "phycosiphon-looping-trace",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static educational trace morphology concept with illustrative sediment surface",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Check all recognition features: Repeated small recurving U-shaped lobes with approximately parallel arms and rounded turns, arranged in loose groups rather than a branching tree or a continuous sinusoidal tube; Each dark narrow core is surrounded on both lateral sides and around the bend by a visibly broader pale sediment mantle; actual cross-profile relief distinguishes the two zones; No fabricated pellet wall, annulation, animal, broad fan spreiten or separate Anconichnus count; exposed sediment surface and raised relief remain illustrative. Respect claim scope: Original Phycosiphon trace-morphology concept based on P.incertum Waverly specimens KUMIP288503/288564, described core and surrounding mantle and recurved lobes. The ichnogenus names a trace, not its producer. Original inventory Carboniferous period belongs to source examples, not full range. Raised relief is an explicit teaching convention whereas these specimens preserve negative epirelief. No inferred tracemaker, behavior or new dating asserted; slab scale/composition and colors are artistic.",
+      "required_sources": [
+        "KGS-PHY"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check all recognition features: Repeated small recurving U-shaped lobes with approximately parallel arms and rounded turns, arranged in loose groups rather than a branching tree or a continuous sinusoidal tube; Each dark narrow core is surrounded on both lateral sides and around the bend by a visibly broader pale sediment mantle; actual cross-profile relief distinguishes the two zones; No fabricated pellet wall, annulation, animal, broad fan spreiten or separate Anconichnus count; exposed sediment surface and raised relief remain illustrative. Respect claim scope: Original Phycosiphon trace-morphology concept based on P.incertum Waverly specimens KUMIP288503/288564, described core and surrounding mantle and recurved lobes. The ichnogenus names a trace, not its producer. Original inventory Carboniferous period belongs to source examples, not full range. Raised relief is an explicit teaching convention whereas these specimens preserve negative epirelief. No inferred tracemaker, behavior or new dating asserted; slab scale/composition and colors are artistic.",
+      "required_sources": [
+        "KGS-PHY"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight actual512px fixed views. Trace internal morphology judged from top/clay, not outer slab silhouette. CPU stills do not establish GPU/scene behavior.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch88/assets/phycosiphon-looping-trace/r002/source.blend",
+      "sha256": "949f22f6e8703d4bdcd7ed091b4ed85803be8e42afd1802f14e3338465acf8e7"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch88/assets/phycosiphon-looping-trace/r002/generator.py",
+      "sha256": "4acd7af382207a61502363db87015d73a93d5825b2ce6c0e436361f3fc18a28b"
+    },
+    {
+      "role": "config",
+      "path": "production/batch88/assets/phycosiphon-looping-trace/r002/build-config.json",
+      "sha256": "d28d39341b73afbcd9ef701671da23f5cdec02280d2db52144f2916e631e7147"
+    }
+  ],
+  "claim_scope": "Original Phycosiphon trace-morphology concept based on P.incertum Waverly specimens KUMIP288503/288564, described core and surrounding mantle and recurved lobes. The ichnogenus names a trace, not its producer. Original inventory Carboniferous period belongs to source examples, not full range. Raised relief is an explicit teaching convention whereas these specimens preserve negative epirelief. No inferred tracemaker, behavior or new dating asserted; slab scale/composition and colors are artistic.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.08,
+    0.065,
+    0.009
+  ],
+  "dimension_status": "Illustrative design targets, never claimed measured specimens. Source/export bounds measured separately.",
+  "recognition_features": [
+    "Repeated small recurving U-shaped lobes with approximately parallel arms and rounded turns, arranged in loose groups rather than a branching tree or a continuous sinusoidal tube",
+    "Each dark narrow core is surrounded on both lateral sides and around the bend by a visibly broader pale sediment mantle; actual cross-profile relief distinguishes the two zones",
+    "No fabricated pellet wall, annulation, animal, broad fan spreiten or separate Anconichnus count; exposed sediment surface and raised relief remain illustrative"
+  ],
+  "concept_decisions": "Concept pixels inspected. Keep small U-like recurvatures and dark core/pale mantle contrast; correct the concept halo that looks like an outer ring on one side by surrounding the core on both sides with a continuous low shoulder, not a hollow lined pipe. About7-9 U lobes in2-3 loosely aligned groups with gaps; core width1.0-1.4mm, mantle width about0.5-1.0mm each side. Encode both core ridge and lower wider mantle shoulder geometrically so clay shows their relation. Avoid large thick horseshoes, disconnected pebbles and zebra cross stripes. No visible spreite added because not observed in selected Waverly source. Host slab surface remains quiet; core and mantle join within one relief cross-section without coincident visible skins.",
+  "style": "Original refined faceted full-volume palette-only low-poly",
+  "intended_use": "Static educational support asset at256-512px, in meters with preserved relative world scale.",
+  "created_at": "2026-10-20T21:10:15.140663+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T21:21:03.282256+00:00",
+    "frozen_design_brief_sha256": "bf0595ce21932013afc1b2c1dcd1ecb69802ad2c5d7be29a12d32a0084aedd9c",
+    "note": "Postbuild source/generator/config hash closure only; original design and reference ledger unchanged."
+  }
+}

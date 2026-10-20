@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "asset_id": "baragwanathia",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static educational whole-plant reconstruction concept",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Check all recognition features: Thick continuously tapering branched axes with leaves along their entire length, including low branches, rather than a bare trunk with a high crown; Numerous narrow unbranched swept microphyll blades arranged successively around the axes in a spiral, producing bottlebrush silhouettes rather than broad fern fronds or whorled gears; A low sprawling whole-plant habit with separated ascending and lateral branches, a modest artistic basal rooting connection, no flowers or invented terminal reproductive cones. Respect claim scope: Conservative whole-organism reconstruction concept of Baragwanathia longifolia. Museum fossils and curator account support leafy axes, long narrow spirally attached leaves and a sprawling rather than high-tree habit. Total spread, branch connectivity, hidden surfaces, root architecture, pose and color are artistic; this is not an exact fossil individual or mature height estimate. Silurian/Devonian refers to documented occurrence, not a reconstructed ecosystem.",
+      "required_sources": [
+        "MV-SPECIMENS",
+        "MV-CURATORS"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check all recognition features: Thick continuously tapering branched axes with leaves along their entire length, including low branches, rather than a bare trunk with a high crown; Numerous narrow unbranched swept microphyll blades arranged successively around the axes in a spiral, producing bottlebrush silhouettes rather than broad fern fronds or whorled gears; A low sprawling whole-plant habit with separated ascending and lateral branches, a modest artistic basal rooting connection, no flowers or invented terminal reproductive cones. Respect claim scope: Conservative whole-organism reconstruction concept of Baragwanathia longifolia. Museum fossils and curator account support leafy axes, long narrow spirally attached leaves and a sprawling rather than high-tree habit. Total spread, branch connectivity, hidden surfaces, root architecture, pose and color are artistic; this is not an exact fossil individual or mature height estimate. Silurian/Devonian refers to documented occurrence, not a reconstructed ecosystem.",
+      "required_sources": [
+        "MV-SPECIMENS",
+        "MV-CURATORS"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight actual512px fixed views. Trace internal morphology judged from top/clay, not outer slab silhouette. CPU stills do not establish GPU/scene behavior.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch88/assets/baragwanathia/r003/source.blend",
+      "sha256": "5e544c4d936f97ce7e0b03d23eec49444f475c699e68e301eee04372aca6edb1"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch88/assets/baragwanathia/r003/generator.py",
+      "sha256": "8810a09d824e3105dfa53584bfe1d261874cad61bed0ff33ea90a67b63d4aaf6"
+    },
+    {
+      "role": "config",
+      "path": "production/batch88/assets/baragwanathia/r003/build-config.json",
+      "sha256": "169f198a5999e1fd1916f4b8417c52f3925ffe7f225d6765185b4d3949d1b1ef"
+    }
+  ],
+  "claim_scope": "Conservative whole-organism reconstruction concept of Baragwanathia longifolia. Museum fossils and curator account support leafy axes, long narrow spirally attached leaves and a sprawling rather than high-tree habit. Total spread, branch connectivity, hidden surfaces, root architecture, pose and color are artistic; this is not an exact fossil individual or mature height estimate. Silurian/Devonian refers to documented occurrence, not a reconstructed ecosystem.",
+  "nominal_dimensions_blender_xyz_m": [
+    1.4,
+    0.75,
+    0.8
+  ],
+  "dimension_status": "Illustrative design targets, never claimed measured specimens. Source/export bounds measured separately.",
+  "recognition_features": [
+    "Thick continuously tapering branched axes with leaves along their entire length, including low branches, rather than a bare trunk with a high crown",
+    "Numerous narrow unbranched swept microphyll blades arranged successively around the axes in a spiral, producing bottlebrush silhouettes rather than broad fern fronds or whorled gears",
+    "A low sprawling whole-plant habit with separated ascending and lateral branches, a modest artistic basal rooting connection, no flowers or invented terminal reproductive cones"
+  ],
+  "concept_decisions": "Personally inspected three fossil photographs and the genuine concept. Preserve full-length leaf cover and branching silhouette. Correct the concept broad thick triangular leaves into slender swept blades approximately35-60mm long and3-5mm wide with subtle thickness; these are design dimensions, not measurements of the fossils. Reduce leaf count to roughly500-650 while retaining spiral attachment on all axes. Use a low horizontal-to-ascending basal axis with paired forks and unequal terminal branches, not a radial fan of disconnected shoots. Branch layout and small basal rooting connector are explicitly artistic where unpreserved. Keep upper branch spaces open and leaves single, unbranched and non-whorled. No soil base, large modern tree roots, cones or flowers.",
+  "style": "Original refined faceted full-volume palette-only low-poly",
+  "intended_use": "Static educational support asset at256-512px, in meters with preserved relative world scale.",
+  "created_at": "2026-10-20T21:10:14.885402+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T21:22:10.615279+00:00",
+    "frozen_design_brief_sha256": "10fb5a6776e39afef5b00304374ecd226c101ecc37c8c725d651bf1208df6825",
+    "note": "Postbuild source/generator/config hash closure only; original design and reference ledger unchanged."
+  }
+}

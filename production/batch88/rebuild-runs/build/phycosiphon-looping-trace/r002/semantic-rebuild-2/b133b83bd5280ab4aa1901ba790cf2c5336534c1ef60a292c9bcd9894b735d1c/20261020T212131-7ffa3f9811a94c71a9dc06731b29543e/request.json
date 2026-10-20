@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch88-20261020/production/batch88/rebuild-runs/build/phycosiphon-looping-trace/r002/semantic-rebuild-2/b133b83bd5280ab4aa1901ba790cf2c5336534c1ef60a292c9bcd9894b735d1c/20261020T212131-7ffa3f9811a94c71a9dc06731b29543e/outputs"
+  ],
+  "created_at": "2026-10-20T21:21:31.881797+00:00",
+  "fingerprint": "b133b83bd5280ab4aa1901ba790cf2c5336534c1ef60a292c9bcd9894b735d1c",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch88-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 7245,
+        "path": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/brief.json",
+        "sha256": "bf0595ce21932013afc1b2c1dcd1ecb69802ad2c5d7be29a12d32a0084aedd9c"
+      },
+      "config": {
+        "bytes": 1557,
+        "path": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/build-config.json",
+        "sha256": "d28d39341b73afbcd9ef701671da23f5cdec02280d2db52144f2916e631e7147"
+      },
+      "generator": {
+        "bytes": 13185,
+        "path": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/generator.py",
+        "sha256": "4acd7af382207a61502363db87015d73a93d5825b2ce6c0e436361f3fc18a28b"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch88-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2655,
+        "path": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/references.json",
+        "sha256": "2c2d8d8874d8e9e3b98db035c68d4981f01dc43a2fde8c0c2aa4ce2794b2620e"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "phycosiphon-looping-trace",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch88-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch88-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch88-20261020/production/batch88/assets/phycosiphon-looping-trace/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T212131-2853c5ef4b2045bda26235d7c78ca3d6"
+}

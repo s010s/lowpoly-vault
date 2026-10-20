@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "asset_id": "chondrites-branching-trace",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static educational trace morphology concept with illustrative sediment surface",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Check all recognition features: Fine sediment-filled cylindrical tunnels repeatedly branch through at least three orders in an open dendritic system; fine terminal widths remain comparable to the parent rather than becoming broad lobes; Branches have acute forks and no cross-linked mesh, pellet lining, annulation, hollow pipes or broad leaflike lobes; Modest raised-fossil relief and visible solid fill contact with quiet host sediment; illustrative slab/cut geometry, not a body fossil or assigned producer. Respect claim scope: Original stylized Chondrites ichnogenus trace-morphology concept. The original Carboniferous Waverly source is tentatively identified; its uncertainty is retained. Clearer published Chondrites photographs and genus diagnosis supplement branching morphology only, not the date or identification of the Waverly specimen. No animal identity, feeding mechanism or environmental indicator claimed. Relief polarity, composition and20cm slab size are illustrative.",
+      "required_sources": [
+        "KGS-CH",
+        "UCHMAN2012"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check all recognition features: Fine sediment-filled cylindrical tunnels repeatedly branch through at least three orders in an open dendritic system; fine terminal widths remain comparable to the parent rather than becoming broad lobes; Branches have acute forks and no cross-linked mesh, pellet lining, annulation, hollow pipes or broad leaflike lobes; Modest raised-fossil relief and visible solid fill contact with quiet host sediment; illustrative slab/cut geometry, not a body fossil or assigned producer. Respect claim scope: Original stylized Chondrites ichnogenus trace-morphology concept. The original Carboniferous Waverly source is tentatively identified; its uncertainty is retained. Clearer published Chondrites photographs and genus diagnosis supplement branching morphology only, not the date or identification of the Waverly specimen. No animal identity, feeding mechanism or environmental indicator claimed. Relief polarity, composition and20cm slab size are illustrative.",
+      "required_sources": [
+        "KGS-CH",
+        "UCHMAN2012"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight actual512px fixed views. Trace internal morphology judged from top/clay, not outer slab silhouette. CPU stills do not establish GPU/scene behavior.",
+  "required_deliverables": [],
+  "claim_scope": "Original stylized Chondrites ichnogenus trace-morphology concept. The original Carboniferous Waverly source is tentatively identified; its uncertainty is retained. Clearer published Chondrites photographs and genus diagnosis supplement branching morphology only, not the date or identification of the Waverly specimen. No animal identity, feeding mechanism or environmental indicator claimed. Relief polarity, composition and20cm slab size are illustrative.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.2,
+    0.16,
+    0.018
+  ],
+  "dimension_status": "Illustrative design targets, never claimed measured specimens. Source/export bounds measured separately.",
+  "recognition_features": [
+    "Fine sediment-filled cylindrical tunnels repeatedly branch through at least three orders in an open dendritic system; fine terminal widths remain comparable to the parent rather than becoming broad lobes",
+    "Branches have acute forks and no cross-linked mesh, pellet lining, annulation, hollow pipes or broad leaflike lobes",
+    "Modest raised-fossil relief and visible solid fill contact with quiet host sediment; illustrative slab/cut geometry, not a body fossil or assigned producer"
+  ],
+  "concept_decisions": "Concept pixels inspected. Retain delicate branched relief and quiet substrate, but correct its overly thick trunk and large isolated cut circle: use approximately1.8-2.2mm near-constant tunnel width and at least three branch orders, not a woody tapering tree. Connect every displayed branch logically; no disconnected circle pretending to be its section. One principal and one small independent system are one composition, not counted variants. Rounded tips, no broad lobes or pellet wall. Fine branches must remain readable from top and clay at512px. Use original integrated substrate surface with branching relief, avoiding coplanar tube/slab overlaps.",
+  "style": "Original refined faceted full-volume palette-only low-poly",
+  "intended_use": "Static educational support asset at256-512px, in meters with preserved relative world scale.",
+  "created_at": "2026-10-20T21:10:15.020391+00:00",
+  "validation_profile": "static-stylized-v1"
+}

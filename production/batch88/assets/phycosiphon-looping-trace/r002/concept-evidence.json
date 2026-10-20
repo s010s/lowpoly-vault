@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "phycosiphon-looping-trace",
+  "revision": "r002",
+  "labels": {
+    "en": "phycosiphon-looping-trace"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "2e8a66f5d7201bccc2cb43f37c2c5fccbdf60ed1f5f451d9b8798593cba9cc4a"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "436f2999503aa2b8d5ff3c7cc179a5edaa4b34a78a766c0c4f6427ccf5e401f3"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "2c2d8d8874d8e9e3b98db035c68d4981f01dc43a2fde8c0c2aa4ce2794b2620e"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "949f22f6e8703d4bdcd7ed091b4ed85803be8e42afd1802f14e3338465acf8e7"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "4acd7af382207a61502363db87015d73a93d5825b2ce6c0e436361f3fc18a28b"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "d28d39341b73afbcd9ef701671da23f5cdec02280d2db52144f2916e631e7147"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "e363b380ed2dd075a9e700494cfd1df1f9adf29eded71a2f4f03e8aef824474a"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "6fd6fc58b2d0a69c7aecc7617702e61b2eadfc610f3f83cf97baa6d7b37c3ee0"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "a49387cea4d8ce4aa0e37c2b507972f43650b1b1301007e7f32f237806c88620"
+      }
+    ],
+    "cross_view_consistency_note": "Concept pixels inspected. Keep small U-like recurvatures and dark core/pale mantle contrast; correct the concept halo that looks like an outer ring on one side by surrounding the core on both sides with a continuous low shoulder, not a hollow lined pipe. About7-9 U lobes in2-3 loosely aligned groups with gaps; core width1.0-1.4mm, mantle width about0.5-1.0mm each side. Encode both core ridge and lower wider mantle shoulder geometrically so clay shows their relation. Avoid large thick horseshoes, disconnected pebbles and zebra cross stripes. No visible spreite added because not observed in selected Waverly source. Host slab surface remains quiet; core and mantle join within one relief cross-section without coincident visible skins.",
+    "hidden_surface_decisions": "Concept pixels inspected. Keep small U-like recurvatures and dark core/pale mantle contrast; correct the concept halo that looks like an outer ring on one side by surrounding the core on both sides with a continuous low shoulder, not a hollow lined pipe. About7-9 U lobes in2-3 loosely aligned groups with gaps; core width1.0-1.4mm, mantle width about0.5-1.0mm each side. Encode both core ridge and lower wider mantle shoulder geometrically so clay shows their relation. Avoid large thick horseshoes, disconnected pebbles and zebra cross stripes. No visible spreite added because not observed in selected Waverly source. Host slab surface remains quiet; core and mantle join within one relief cross-section without coincident visible skins."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T21:10:15.030112+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. Each asset complete original freeze preceded its own generator authoring; all four per-asset freezes preceded the common generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 80.722,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "6fd6fc58b2d0a69c7aecc7617702e61b2eadfc610f3f83cf97baa6d7b37c3ee0"
+      },
+      "note": "Actual orchestrator invocation-to-return observation interval; provider internal timing unavailable."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 20.0443,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "9413052a920818e13658e149b0c623a9b57b7cbc00330858ba4ff2462220cee4"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "9413052a920818e13658e149b0c623a9b57b7cbc00330858ba4ff2462220cee4"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "dfe41612b84e6ad357bfa5394e5ff2bcbd72e144030e8342df56bbeaa117daa9",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "bc17b0159df04389439bda5db2837075c54ed3ae343cc4a81c4fc88e76ed677c"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "2e8a66f5d7201bccc2cb43f37c2c5fccbdf60ed1f5f451d9b8798593cba9cc4a",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "7686956f6c5b92133e2c644b37de568d429741978eba4d80a58d1679b01bbc9a"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
