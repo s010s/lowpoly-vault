@@ -1,0 +1,20 @@
+{
+  "asset_id": "breccia-outcrop",
+  "revision": "r003",
+  "created_at": "2026-10-20T14:54:44.001908+00:00",
+  "original_target_unchanged": true,
+  "original_brief_sha256": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97",
+  "original_glb_sha256": "bfe0389608e76cd908e46e1b3cbbab91cb4ce282dcc5aa070a098da85d1169af",
+  "website_diagnostic_sha256": "91c69d9fabb6631dcaa9a60efb104d01107c03ccba4ecc665f6879ad6ad83d6e",
+  "status": "Original r002 static review remains historical; new opaque website-stage coplanar overlap defect qualifies that acceptance and removes release-readiness until corrected/reviewed.",
+  "diagnosis": "Clasts mapped to the same planar host face share equal front-depth offset. Their overlapping footprints create coplanar clast-to-clast faces (diagnostic same darkclast mesh/material), causing opaque crosshatching. Host penetration is intended embedding; no alpha/shadow explanation.",
+  "minimum_geometry_correction": [
+    "Reproduce exact original deterministic host and all120 clast placements, sizes and materials from seed65.",
+    "Before emitting clast geometry, identify positive-area footprint intersections among clasts with coincident parallel cap planes. Record exact component IDs and overlap areas.",
+    "Only for actual intersecting coplanar component pairs, clip BOTH angular footprints by their in-plane centroid bisector into disjoint regions, with a tiny0.1mm geometric margin on each side. No random global offsets. Preserve original embedding depth and angular closed full-volume prisms.",
+    "All other component placements, host, materials, render preset and original design brief unchanged. No alpha/depth-bias/camera/validator adjustment.",
+    "Run same exact-GLB positive-area coplanar overlap diagnostic on original and corrected export, preserving raw reports; require zero detected pairs at stated tolerances.",
+    "Only this breccia revision may build/reopen/rebuild/render. Hash every file of other three accepted candidate trees before/after."
+  ],
+  "limits": "Targeted coplanar defect repair, not a general guarantee against all noncoplanar intersections or museum-grade realism."
+}

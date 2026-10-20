@@ -1,0 +1,36 @@
+{
+  "asset_id": "breccia-outcrop",
+  "revision": "r003",
+  "seed": 65,
+  "nominal_dimensions_blender_xyz_m": [
+    3.4,
+    2.4,
+    1.8
+  ],
+  "palette": {
+    "matrix": "#625F57",
+    "matrixlight": "#797268",
+    "paleclast": "#C3B59B",
+    "ochreclast": "#A58E70",
+    "darkclast": "#88887C"
+  },
+  "blender_threads": 2,
+  "three_version": "0.180.0",
+  "concept_row": "C",
+  "modeling_decisions": "Concept C block silhouette, dark matrix and pale angular fragments retained. Build one irregular closed host mass with slightly protruding embedded irregular polyhedral clasts, no disconnected floating loose pile. Surface embed overlap intentional. Clasts placed across every exposed side and crown, varied three muted clast colors and sizes. Major host relief faceted ledges. No ruler/trees/background from reference, no phototextures. r002: actual-host ray projection and denser90side/30crown fragment field, varied size .12-.40m. Visible coverage repair, not a scientific claim change.",
+  "repair_decisions": [
+    "Reproduce exact original deterministic host and all120 clast placements, sizes and materials from seed65.",
+    "Before emitting clast geometry, identify positive-area footprint intersections among clasts with coincident parallel cap planes. Record exact component IDs and overlap areas.",
+    "Only for actual intersecting coplanar component pairs, clip BOTH angular footprints by their in-plane centroid bisector into disjoint regions, with a tiny0.1mm geometric margin on each side. No random global offsets. Preserve original embedding depth and angular closed full-volume prisms.",
+    "All other component placements, host, materials, render preset and original design brief unchanged. No alpha/depth-bias/camera/validator adjustment.",
+    "Run same exact-GLB positive-area coplanar overlap diagnostic on original and corrected export, preserving raw reports; require zero detected pairs at stated tolerances.",
+    "Only this breccia revision may build/reopen/rebuild/render. Hash every file of other three accepted candidate trees before/after."
+  ],
+  "repair_parameters": {
+    "plane_tolerance_m": 1e-05,
+    "normal_dot_tolerance": 1e-06,
+    "positive_overlap_area_m2": 1e-08,
+    "pair_boundary_margin_m": 0.0001,
+    "method": "deterministic two-sided bisector clipping of only coplanar overlapping clast footprints"
+  }
+}
