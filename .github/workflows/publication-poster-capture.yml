@@ -2,15 +2,6 @@ name: Capture pinned publication posters
 on:
   push:
     branches: ['capture/**']
-  pull_request:
-    paths:
-      - 'qa/landair-release-20261019/capture-inputs.json'
-      - 'site/accepted-landair-capture.mjs'
-      - 'site/prepare-landair-capture.mjs'
-      - 'qa/quartets-release-20261019/capture-inputs.json'
-      - 'site/accepted-quartets-capture.mjs'
-      - 'site/prepare-quartets-capture.mjs'
-      - '.github/workflows/publication-poster-capture.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,55 +9,130 @@ jobs:
   capture:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      SITE_BASE: /lowpoly-vault/
-      SITE_ORIGIN: https://s010s.github.io
-      GALLERY_DIR: qa/capture-inputs-site
-      PREVIEW_OUTPUT: qa/ci-publication-capture
-      PREVIEW_POSTERS_ONLY: '1'
-      CAPTURE_REFERENCE: '1'
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/publication-poster-capture.yml
+            /assets/additions/arete-ridge/batch74-20261020/arete-ridge.glb
+            /assets/additions/baiera/batch72-20261020/baiera.glb
+            /assets/additions/banded-iron-formation/batch73-20261020/banded-iron-formation.glb
+            /assets/additions/breccia-outcrop/batch65-20261020/breccia-outcrop.glb
+            /assets/additions/coal-seam-outcrop/batch74-20261020/coal-seam-outcrop.glb
+            /assets/additions/desert-pavement/batch67-20261020/desert-pavement.glb
+            /assets/additions/dike-wall/batch69-20261020/dike-wall.glb
+            /assets/additions/eldonia/batch71-20261020/eldonia.glb
+            /assets/additions/eruptive-fissure/batch75-20261020/eruptive-fissure.glb
+            /assets/additions/exfoliation-dome/batch78-20261020/exfoliation-dome.glb
+            /assets/additions/fractofusus/batch73-20261020/fractofusus.glb
+            /assets/additions/fumarole-vent/batch73-20261020/fumarole-vent.glb
+            /assets/additions/geode-cavity/batch72-20261020/geode-cavity.glb
+            /assets/additions/glacial-horn/batch75-20261020/glacial-horn.glb
+            /assets/additions/hanging-valley/batch69-20261020/hanging-valley.glb
+            /assets/additions/hoodoo/batch66-20261020/hoodoo.glb
+            /assets/additions/ice-wedge-polygon-ground/batch68-20261020/ice-wedge-polygon-ground.glb
+            /assets/additions/lava-dome/batch68-20261020/lava-dome.glb
+            /assets/additions/linear-dune/batch70-20261020/linear-dune.glb
+            /assets/additions/loess-bluff/batch77-20261020/loess-bluff.glb
+            /assets/additions/louisella/batch66-20261020/louisella.glb
+            /assets/additions/maar-crater/batch71-20261020/maar-crater.glb
+            /assets/additions/moulin-shaft/batch76-20261020/moulin-shaft.glb
+            /assets/additions/mudpot/batch69-20261020/mudpot.glb
+            /assets/additions/parvancorina/batch75-20261020/parvancorina.glb
+            /assets/additions/pingo/batch78-20261020/pingo.glb
+            /assets/additions/pteridinium/batch78-20261020/pteridinium.glb
+            /assets/additions/rangea/batch76-20261020/rangea.glb
+            /assets/additions/rimstone-dam/batch70-20261020/rimstone-dam.glb
+            /assets/additions/river-terrace/batch71-20261020/river-terrace.glb
+            /assets/additions/roche-moutonnee/batch71-20261020/roche-moutonnee.glb
+            /assets/additions/rock-glacier/batch77-20261020/rock-glacier.glb
+            /assets/additions/sandstone-fin/batch68-20261020/sandstone-fin.glb
+            /assets/additions/serac/batch76-20261020/serac.glb
+            /assets/additions/sill-ledge/batch78-20261020/sill-ledge.glb
+            /assets/additions/slump-folded-bed/batch77-20261020/slump-folded-bed.glb
+            /assets/additions/solifluction-lobe/batch76-20261020/solifluction-lobe.glb
+            /assets/additions/stalagmite-group/batch65-20261020/stalagmite-group.glb
+            /assets/additions/striated-bedrock/batch73-20261020/striated-bedrock.glb
+            /assets/additions/thaumaptilon/batch68-20261020/thaumaptilon.glb
+            /assets/additions/transverse-dune-ridge/batch72-20261020/transverse-dune-ridge.glb
+            /assets/additions/tribrachidium/batch74-20261020/tribrachidium.glb
+            /assets/additions/waputikia/batch70-20261020/waputikia.glb
+            /assets/additions/wiwaxia/batch69-20261020/wiwaxia.glb
+            /package-lock.json
+            /package.json
+            /qa/forty-four-final-subject-capture-20261020/capture-inputs.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/arete-ridge.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/baiera.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/banded-iron-formation.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/breccia-outcrop.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/coal-seam-outcrop.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/desert-pavement.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/dike-wall.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/eldonia.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/eruptive-fissure.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/exfoliation-dome.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/fractofusus.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/fumarole-vent.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/geode-cavity.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/glacial-horn.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/hanging-valley.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/hoodoo.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/ice-wedge-polygon-ground.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/lava-dome.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/linear-dune.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/loess-bluff.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/louisella.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/maar-crater.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/moulin-shaft.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/mudpot.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/parvancorina.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/pingo.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/pteridinium.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/rangea.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/rimstone-dam.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/river-terrace.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/roche-moutonnee.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/rock-glacier.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/sandstone-fin.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/serac.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/sill-ledge.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/slump-folded-bed.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/solifluction-lobe.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/stalagmite-group.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/striated-bedrock.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/thaumaptilon.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/transverse-dune-ridge.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/tribrachidium.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/waputikia.json
+            /qa/forty-four-final-subject-capture-20261020/metadata/wiwaxia.json
+            /qa/forty-four-final-subject-capture-20261020/scoped-gallery-capture.mjs
+            /site/capture-gallery-posters.mjs
+            /site/gallery-poster-compat.mjs
+            /site/gallery-poster-inputs.mjs
+            /site/gallery/hover-presentation.js
+            /site/gallery/hover-turntable.js
+            /site/gallery/liquid-core.js
+            /site/gallery/model-support.js
+            /site/gallery/reference-entry.js
+            /site/gallery/renderer.js
+            /site/gallery/scale-reference.js
+            /site/gallery/urls.js
+            /site/gallery/view-transition.js
+            /site/render-preset.js
+            /site/viewer.js
+            /vite.config.js
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
       - run: npm ci --ignore-scripts
-      - run: npx vite build --outDir "$GITHUB_WORKSPACE/qa/capture-inputs-site"
-      - name: Prepare reviewed land-air candidate capture inputs
-        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') != ''
-        run: node site/prepare-landair-capture.mjs
-      - name: Prepare reviewed candidate capture inputs
-        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') == '' && hashFiles('qa/quartets-release-20261019/capture-inputs.json') != ''
-        run: node site/prepare-quartets-capture.mjs
-      - name: Prepare checked capture inputs
-        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') == '' && hashFiles('qa/quartets-release-20261019/capture-inputs.json') == ''
-        run: |
-          node --input-type=module <<'JS'
-          import assert from 'node:assert/strict';
-          import {appendFile} from 'node:fs/promises';
-          import {resolve} from 'node:path';
-          import {prepareRenderCapture} from './site/prepare-render-capture.mjs';
-          import {CONCEPT_SEVEN_IDS} from './site/concept-seven-release.mjs';
-          const manifest=await prepareRenderCapture({outDir:resolve(process.env.GALLERY_DIR)});
-          const pack=manifest.assets.at(-1).packs[0];
-          const ids=manifest.assets.filter(a=>a.packs.includes(pack)).map(a=>a.id);
-          if(manifest.publication?.approved_concept_seven_ids){
-            assert.deepEqual(ids.slice().sort(),CONCEPT_SEVEN_IDS);
-            assert.deepEqual(manifest.publication.approved_concept_seven_ids,CONCEPT_SEVEN_IDS);
-          }else{assert.equal(ids.length,12);assert.equal(new Set(ids).size,12);}
-          await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${ids.join(',')}\n`);
-          JS
       - run: npx playwright install --with-deps chromium
-      - run: node site/render-web-previews.mjs
-      - run: node site/export-captured-posters.mjs
+      - name: Capture only forty-four final-subject gallery pairs
+        run: node qa/forty-four-final-subject-capture-20261020/scoped-gallery-capture.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: pinned-publication-capture
-          path: qa/ci-publication-capture/
-      - name: State capture scope
-        run: echo 'Capture-only public image generation. Publication tests, exact poster reproduction, full review, Pages and live browser gates remain required separately.' >> "$GITHUB_STEP_SUMMARY"
+          name: forty-four-final-subject-gallery
+          path: qa/ci-forty-four-final-subject-capture/gallery/
+      - run: echo '44 exact final-metadata gallery pairs only. Original card PNG/WebP unchanged. No model, source QA, publication or formal approval change.' >> "$GITHUB_STEP_SUMMARY"
