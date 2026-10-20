@@ -9,7 +9,7 @@ import {fileURLToPath} from 'node:url';
 import {galleryStartupContent} from './gallery/startup.mjs';
 export async function runThumbnailRevealBrowserTests({browser:sharedBrowser,output=resolve(process.env.QA_OUTPUT_DIR||'qa/thumbnail-reveal')}={}){
 await mkdir(output,{recursive:true});
-const root=new URL('./',import.meta.url),css=await readFile(new URL('gallery/style.css',root),'utf8'),placeholder=await readFile(new URL('gallery/thumbnail-placeholder.css',root),'utf8'),nativeCSS=await readFile(new URL('gallery/startup.css',root),'utf8'),startup=await readFile(new URL('gallery/startup.js',root),'utf8');
+const root=import.meta.url,css=await readFile(new URL('./gallery/style.css',import.meta.url),'utf8'),placeholder=await readFile(new URL('./gallery/thumbnail-placeholder.css',import.meta.url),'utf8'),nativeCSS=await readFile(new URL('./gallery/startup.css',import.meta.url),'utf8'),startup=await readFile(new URL('./gallery/startup.js',import.meta.url),'utf8');
 const assets=Array.from({length:12},(_,i)=>({id:i===4?'cooperoceras':`fixture-${i}`,name:{en:`Fixture ${i}`,zh:`测试 ${i}`},category:'plants',triangles:100,preview:`ok.svg?id=${i}`,glb:`fixture-${i}.glb`,blend:`fixture-${i}.blend`,glb_bytes:1024}));
 const native=galleryStartupContent(assets,{lang:'en',base:'/'},{header:'<header>Thumbnail fixture</header>',resources:{}});
 const queueHTML=`<style>${css}\n${placeholder}\n.slot{position:relative;width:400px}.slot-image{width:220px}</style><div id="rows"></div><script type="module">
