@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
-import {ARCHIVAL_REGISTRY_PATH,ARCHIVAL_REGISTRY_EXPORT,parseStaticPublicationExports,collectArchivalInputs,assertArchivalAppend} from './ci-archival-inputs.mjs';
+import {ARCHIVAL_REGISTRY_PATH,ARCHIVAL_REGISTRY_EXPORT,parseStaticPublicationExports,collectArchivalInputs,collectArchivalDeclarations,prepareArchivalInheritance,assertArchivalAppend} from './ci-archival-inputs.mjs';
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 const sourceCommit='a'.repeat(40),reviewCommit='b'.repeat(40);
 export function archiveFixture(){
@@ -151,8 +151,82 @@ export function runArchivalInputTests(){
  const largeJSON=archiveFixture(),largeJSONBatch=largeJSON.addBatch('large-json');
  largeJSONBatch.entry.descriptor=largeJSON.put(largeJSONBatch.entry.descriptor.path,JSON.stringify(largeJSONBatch.descriptor)+' '.repeat(16*1024*1024));largeJSON.writeRegistry();
  assert.throws(()=>largeJSON.collect(),/Oversized archive JSON/,'JSON retains its separate 16MiB limit');
+ runArchivalCapacityTests();
  console.log('Archive digest memo: one read per path, fresh byte/mode checks, repeated-pin equality, malformed JSON and the 16MiB JSON bound passed.');
  console.log('Companion archives: exact same-collection/batch derivation, complete pins, new ownership and imported-code protection; adjacent/foreign/parent/nested/pre-existing/unlisted paths refused.');
  console.log('Archival source inputs: literal-only registry, exact complete pins, ownership, modes, real append, per-model isolation and protected reachability passed.');
+}
+export function runArchivalCapacityTests(){
+ const options=(fixture,extra={})=>({paths:[...fixture.files.keys()],read:path=>fixture.files.get(path),mode:path=>fixture.modes.get(path),manifest:fixture.manifest,...extra});
+ const declared=archiveFixture(),declaredBatch=declared.addBatch('declarations'),declarationReads=[];
+ const declarations=collectArchivalDeclarations(options(declared,{read:path=>{declarationReads.push(path);return declared.files.get(path);}}));
+ assert(declarations.checkedInputs.length>declarations.files.length,'Checked inventory also includes all descriptor, bundle, metadata and final pins');
+ assert.deepEqual([...new Set(declarationReads)].sort(),declarations.checkedInputs.filter(row=>row.document).map(row=>row.path).sort(),'Declaration-only parsing reads exactly the small declaration documents');
+ assert(!declarationReads.includes(declaredBatch.generator.path),'Declaration-only parsing never reads old inert program bodies');
+ for(const model of declared.manifest.assets)for(const kind of ['glb','blend','preview']){
+  const input=declarations.checkedInputs.find(row=>row.path===model[kind]);assert(input?.final&&input.bytes===null,'Every direct final pin is registered without certifying its unread bytes');
+ }
+ assert.throws(()=>assertArchivalAppend(declarations,declared.collect(),{beforePaths:[...declared.files.keys()],oldIDs:declared.manifest.assets.map(row=>row.id),newIDs:[]}),/independently verified/,'Declaration-only inventories cannot authorize append');
+ for(const inheritance of [{},new Map(),structuredClone(declarations)])assert.throws(()=>collectArchivalInputs(options(declared,{inheritance})),/authenticated process-local capability/,'Public summaries and maps cannot bypass body verification');
+ assert.throws(()=>prepareArchivalInheritance({before:declarations,beforeIdentities:new Map(),afterIdentities:new Map(),options:options(declared)}),/authenticated|context|capability|provenance/i,'Public factory inputs cannot self-authorize immutable inheritance');
+
+ // Different owners may reference the same delivered bytes. A repeated direct
+ // pin is one distinct fresh input, remains final, and cannot hide disagreement.
+ const shared=archiveFixture();shared.addBatch('shared-first',['shared-model-1']);
+ const sharedModel={...structuredClone(shared.manifest.assets[0]),id:'shared-model-2'};
+ shared.addBatch('shared-second',['shared-model-2'],{models:[sharedModel],readModel:path=>shared.files.get(path)});
+ const sharedReads=new Map(),sharedUnits=[],sharedInventory=collectArchivalInputs(options(shared,{read:path=>{sharedReads.set(path,(sharedReads.get(path)||0)+1);return shared.files.get(path);},onWorkUnit:unit=>sharedUnits.push(unit)}));
+ for(const kind of ['glb','blend','preview']){assert.equal(sharedReads.get(sharedModel[kind]),1);assert(sharedInventory.checkedInputs.find(row=>row.path===sharedModel[kind]).final);}
+ assert.equal(sharedUnits.reduce((sum,unit)=>sum+unit.inputs,0),sharedReads.size,'Every distinct direct or bundle pin counts exactly once across complete batches');
+ assert.equal(sharedUnits.reduce((sum,unit)=>sum+unit.bytes,0),[...sharedReads.keys()].reduce((sum,path)=>sum+shared.files.get(path).length,0),'Shared direct pins cannot hide bytes from fresh work-unit accounting');
+
+ // More than 64 historical batches is legal. Limits apply to natural fresh
+ // work units, while owners and member uniqueness remain global to the run.
+ const many=archiveFixture();for(let n=0;n<65;n++)many.addBatch(`capacity-${n}`,[`capacity-model-${String(n).padStart(3,'0')}`]);
+ const manyUnits=[],manyInventory=collectArchivalInputs(options(many,{onWorkUnit:unit=>manyUnits.push(unit)}));
+ assert.equal(manyInventory.batches.length,65);assert.deepEqual(manyUnits.map(unit=>unit.batches),[64,1]);assert(manyUnits.every(unit=>unit.bytes<=1024**3&&unit.inputs<=20000));
+ const manyLast=many.batches.at(-1),duplicate=many.batches[0].descriptor.files.find(row=>row.path.endsWith('/build.log'));
+ manyLast.descriptor.files.push({...duplicate});manyLast.bundle.files.push({...duplicate,source_commit:sourceCommit});manyLast.sync();
+ assert.throws(()=>many.collect(),/Duplicate archive member across batches/,'Starting a new unit does not reset global member ownership');
+
+ // Count all actually read unique paths, including direct pins that are absent
+ // from bundle.files. Two legal natural batches can exceed 20,000 in total.
+ const numerous=archiveFixture();for(let n=0;n<2;n++){
+  const b=numerous.addBatch(`numerous-${n}`,[`numerous-model-${n}`]);
+  for(let j=0;j<10000;j++)b.archive(`${b.sourceRoot}/records/${j}.txt`,'');b.sync();
+ }
+ const fileUnits=[],fileInventory=collectArchivalInputs(options(numerous,{onWorkUnit:unit=>fileUnits.push(unit)}));
+ assert(fileInventory.files.length>20000);assert.equal(fileUnits.length,2);assert(fileUnits.every(unit=>unit.inputs<=20000));
+ const oversized=archiveFixture(),oversizedBatch=oversized.addBatch('oversized-inputs',['oversized-model']);
+ for(let j=oversizedBatch.descriptor.files.length;j<19999;j++)oversizedBatch.archive(`${oversizedBatch.sourceRoot}/records/${j}.txt`,'');oversizedBatch.sync();
+ assert.throws(()=>oversized.collect(),/batch exceeds fresh input bound/,'A single batch cannot hide non-bundle pins outside the 20,000 fresh-input limit');
+
+ // A shared synthetic buffer keeps the test's RAM bounded while the collector
+ // genuinely hashes over 1 GiB of input, rather than trusting a mocked counter.
+ const large=archiveFixture(),payload=Buffer.alloc(64*1024*1024,0x61);
+ for(let n=0;n<2;n++){
+  const b=large.addBatch(`large-${n}`,[`large-model-${n}`]);
+  for(let j=0;j<9;j++)b.archive(`${b.sourceRoot}/payload-${j}.bin`,payload);b.sync();
+ }
+ const byteUnits=[],largeInventory=collectArchivalInputs(options(large,{onWorkUnit:unit=>byteUnits.push(unit)}));
+ assert.equal(largeInventory.batches.length,2);assert.equal(byteUnits.length,2);assert(byteUnits.reduce((sum,unit)=>sum+unit.bytes,0)>1024**3);assert(byteUnits.every(unit=>unit.bytes<=1024**3));
+ const firstLarge=large.batches[0];for(let j=9;j<17;j++)firstLarge.archive(`${firstLarge.sourceRoot}/payload-${j}.bin`,payload);firstLarge.sync();
+ assert.throws(()=>large.collect(),/batch exceeds fresh byte bound/,'A single oversized natural batch still fails closed');
+ const hugeFile=archiveFixture(),hugeBatch=hugeFile.addBatch('huge-file',['huge-model']);hugeBatch.archive(`${hugeBatch.sourceRoot}/too-big.bin`,Buffer.alloc(128*1024*1024+1));hugeBatch.sync();
+ assert.throws(()=>hugeFile.collect(),/Oversized archive input/,'The per-file 128MiB limit remains strict after removing lifetime limits');
+
+ // Realistic metadata growth does not cap the project at its first four-model
+ // append. The full raw-byte path remains available when no proof is usable.
+ for(const historical of [190,996]){
+  const fixture=archiveFixture();let next=0,batchNumber=0;
+  while(next<historical){const count=Math.min(4,historical-next),ids=Array.from({length:count},()=>`synthetic-${String(next++).padStart(4,'0')}`);fixture.addBatch(`synthetic-${batchNumber++}`,ids);}
+  const old=collectArchivalDeclarations(options(fixture));
+  fixture.addBatch(`synthetic-${batchNumber}`,Array.from({length:4},()=>`synthetic-${String(next++).padStart(4,'0')}`));
+  const units=[],current=collectArchivalInputs(options(fixture,{onWorkUnit:unit=>units.push(unit)}));
+  assert.equal(old.modelIDs.length,historical);assert.equal(current.modelIDs.length,historical+4);assert(units.every(unit=>unit.batches<=64&&unit.inputs<=20000&&unit.bytes<=1024**3));
+ }
+ console.log('Archive capacity measurements: '+JSON.stringify({byteUnits,fileUnits,batchUnits:manyUnits}));
+ console.log('Archive work units: >64 batches, >20,000 fresh inputs and >1GiB actual hashed bytes pass in bounded complete-batch units; oversized single batches and cross-unit duplicate ownership fail.');
+ console.log('Archive declarations: complete non-bundle/direct-pin census, zero inert body reads, forged capability rejection and 190+4 / 996+4 metadata capacity passed.');
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)runArchivalInputTests();

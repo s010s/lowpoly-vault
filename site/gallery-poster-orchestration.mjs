@@ -3,13 +3,19 @@ import {cp,mkdtemp,writeFile,rename,rm} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {auditGalleryAssets} from './gallery-assets.mjs';
 import {modelPolicyDigest} from './ci-model-proof.mjs';
+import {prepareModelSource} from './ci-model-cache.mjs';
 import {fetchVerifiedPosterBaseline} from './gallery-poster-cache.mjs';
 import {selectPosterCaptures,importVerifiedPosters,writePosterProof,posterRuntime} from './gallery-poster-proof.mjs';
 
 const sessions=new WeakMap();
-export async function preparePosterCapture(initial,{root,outputRoot,manifest}){
- const shared=initial.inputState.shared,policy_sha256=modelPolicyDigest(root),runtime=posterRuntime(shared);
- const found=(process.env.CI_GALLERY_FORCE_FULL==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch')?{verified:null,reasons:['Explicit full poster capture requested']}:await fetchVerifiedPosterBaseline({root,shared,policy_sha256,runtime});
+export async function preparePosterCapture(initial,{root,outputRoot,manifest,sourceContext}){
+ const forceFull=process.env.CI_GALLERY_FORCE_FULL==='true'||process.env.FULL_REVIEW==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch';
+ // A caller may share an explicit in-process capability, never a persisted
+ // receipt or an implicit cache of mutable worktree policy.
+ if(forceFull)sourceContext=undefined;
+ if(sourceContext===undefined)({sourceContext}=await prepareModelSource({root,forceFull}));
+ const shared=initial.inputState.shared,policy_sha256=modelPolicyDigest(root,{sourceContext}),runtime=posterRuntime(shared);
+ const found=forceFull||!sourceContext?{verified:null,reasons:[forceFull?'Explicit full poster capture requested':'No authenticated archive baseline; validate and capture current inputs without scanning obsolete poster sources']}:await fetchVerifiedPosterBaseline({root,shared,policy_sha256,runtime,sourceContext});
  const selection=selectPosterCaptures({manifest,shared,approved:initial.inputState.approved,verified:found.verified,policy_sha256,runtime});
  let next=initial;
  if(selection.reused.some(id=>!initial.inputState.approved.includes(id))){
@@ -25,7 +31,7 @@ export async function preparePosterCapture(initial,{root,outputRoot,manifest}){
   }finally{await rm(staging,{recursive:true,force:true});}
  }
  Object.assign(initial,next);initial.inputState.capture=selection.capture;
- sessions.set(initial,{root,outputRoot,manifest,shared,policy_sha256,runtime,approved:initial.inputState.approved,verified:found.verified,captured:selection.capture});
+ sessions.set(initial,{root,outputRoot,manifest,shared,policy_sha256,runtime,sourceContext,approved:initial.inputState.approved,verified:found.verified,captured:selection.capture});
  console.log(`Poster selection: ${selection.capture.length} fresh captures, ${selection.reused.length} independently verified artifact pairs, ${initial.inputState.approved.length} unchanged historical golden pairs.`);
  if(!found.verified&&found.reasons.length)console.log(`Poster baseline unavailable: ${found.reasons.join('; ')}`);
  return selection;

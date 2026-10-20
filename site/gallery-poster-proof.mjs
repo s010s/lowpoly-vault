@@ -6,6 +6,8 @@ import {resolve,dirname,sep} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {CAPTURE_POLICY,posterInputKey} from './gallery-poster-inputs.mjs';
 import {modelPolicyDigest} from './ci-model-proof.mjs';
+import {prepareModelSource} from './ci-model-cache.mjs';
+import {immutableGitEnv} from './ci-git.mjs';
 import {readVerifiedPosterBundle} from './gallery-poster-cache.mjs';
 
 export const POSTER_PROOF_FILE='gallery-poster-proof.json';
@@ -80,11 +82,15 @@ export async function importVerifiedPosters({manifest,shared,resources,outputRoo
  return {resources:next,selection};
 }
 /** Emit only complete, audited current results; later GitHub success grants trust. */
-export async function writePosterProof({root=process.cwd(),outputRoot,manifest,resources,shared,captured=[],approved=[],verified=null,policy_sha256=modelPolicyDigest(root),directory=process.env.CI_GALLERY_PROOF_DIR,identity,runtime=posterRuntime(shared)}={}){
+export async function writePosterProof({root=process.cwd(),outputRoot,manifest,resources,shared,captured=[],approved=[],verified=null,policy_sha256,sourceContext,directory=process.env.CI_GALLERY_PROOF_DIR,identity,runtime=posterRuntime(shared)}={}){
  if(!directory)return null;
+ if(policy_sha256===undefined){
+  if(sourceContext===undefined)({sourceContext}=await prepareModelSource({root,forceFull:process.env.CI_GALLERY_FORCE_FULL==='true'||process.env.FULL_REVIEW==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch'}));
+  policy_sha256=modelPolicyDigest(root,{sourceContext});
+ }
  if(!identity){
   assert(!process.env.CHROMIUM_PATH,'Custom browser executable cannot establish poster proof');
-  const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8'}).trim();
+  const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',env:immutableGitEnv()}).trim();
   assert.equal(git('status','--porcelain','--untracked-files=no'),'','Poster proof requires unchanged tracked source');
   identity={repository:process.env.GITHUB_REPOSITORY,source_commit:git('rev-parse','HEAD'),run_id:Number(process.env.GITHUB_RUN_ID),run_attempt:Number(process.env.GITHUB_RUN_ATTEMPT)};
   assert.equal(identity.source_commit,process.env.GITHUB_SHA,'Poster source differs from workflow source');assert.equal(runtime.node_major,CAPTURE_POLICY.node_major,'Poster proof needs pinned Node');

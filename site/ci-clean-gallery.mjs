@@ -8,6 +8,7 @@ import {collectTurntables} from './turntable-delivery.mjs';
 import {hashBytes,modelPolicyDigest,modelPolicyDigestAtCommit} from './ci-model-proof.mjs';
 import {auditGalleryAssets} from './gallery-assets.mjs';
 import {payloadDigest,currentIdentity} from './ci-model-shards.mjs';
+import {prepareModelSource} from './ci-model-cache.mjs';
 
 // This does NOT return a verifiedBuiltInputs handle. Missing poster pairs may
 // exist before capture; only the final independent full projection grants that.
@@ -32,7 +33,8 @@ export async function assertPreCaptureInputs({root=process.cwd(),outputRoot='dis
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const identity=currentIdentity();
- assert.equal(modelPolicyDigest(),modelPolicyDigestAtCommit(identity.source_commit),'Pre-capture policy differs from committed source');
+ const {sourceContext}=await prepareModelSource({currentSha:identity.source_commit,forceFull:process.env.FULL_REVIEW==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch'});
+ assert.equal(modelPolicyDigest(process.cwd(),{sourceContext}),modelPolicyDigestAtCommit(identity.source_commit,{sourceContext}),'Pre-capture policy differs from committed source');
  const checked=await assertPreCaptureInputs({});
  await auditGalleryAssets(JSON.parse(readFileSync('assets/manifest.json')),{outputRoot:'dist',requireComplete:false});
  console.log(`Clean gallery input check passed: ${checked.catalog_ids.length} exact source-bound models; no publication collector executed.`);
