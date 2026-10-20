@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { validateTurntable } from './image-scrub.js';
 import { CARD_RENDER_PRESET } from './render-preset.js';
-import { REFINABLE_ASSET_IDS } from './refined-release.mjs';
+import { REFINABLE_ASSET_IDS } from './refinable-asset-ids.mjs';
 const variant=`v${CARD_RENDER_PRESET.version}-${CARD_RENDER_PRESET.image.width}-q${Math.round(CARD_RENDER_PRESET.image.quality*100)}`;
 const presetHash=createHash('sha256').update(JSON.stringify(CARD_RENDER_PRESET)).digest('hex');
 // Only the checked mixed manifest selects revision routes; image-index fields never grant approval.

@@ -1,12 +1,119 @@
-/** Explicit editorial membership, independent of model category and legacy storage collection. */
-export const WORLD_LABELS = { prehistoric: { en: 'Prehistoric', zh: '史前世界' } };
-export const PACK_LABELS = { 'prehistoric-concept-quartets-20261019': {en:'Concept-led small creatures',zh:'概念引导小生物'}, 'prehistoric-concept-seven-20261019': {"en": "Concept-led fish and marine forms", "zh": "概念引导小鱼与海洋造型"}, 'prehistoric-small-life-round13-20261018': {en:'Coastal forms, fossil life and geological studies',zh:'海岸造型、化石生命与地质研究'}, 'prehistoric-small-life-round12-20261018': {en:'Fossil forms, traces and geological studies',zh:'化石造型、遗迹与地质研究'}, 'prehistoric-small-life-round11-20261018': {en:'Marine fossils, traces and coastal landforms',zh:'海洋化石、遗迹与海岸地貌'}, 'prehistoric-small-life-round10-20261018': {en:'Plant organs, marine forms and landform studies',zh:'植物器官、海洋启发造型与地貌矿物'}, 'prehistoric-small-life-round09-20261018': {en:'Small life, traces and geological surfaces',zh:'小型生命、遗迹与地质表面'}, 'prehistoric-small-life-round08-20261018': {en:'Fossil plant organs, marine life and landforms',zh:'化石植物器官、海洋生命与地貌'}, 'prehistoric-small-life-round07-20261018': {en:'Early plants, small fauna and mineral studies',zh:'早期植物、小动物与矿物研究'}, 'prehistoric-small-life-round06-20261018': {en:'Small fossil forms, plant organs and minerals',zh:'小型化石造型、植物器官与矿物'}, 'prehistoric-small-life-round05-20261018': {en:'Fossil-inspired forms and rock studies',zh:'化石启发造型与岩石研究'}, 'prehistoric-small-life-round04-20261018': {en:'Shore plants, small fauna and surfaces',zh:'岸边植物、小动物与地表'}, 'prehistoric-small-life-round03-20261018': {en:'Marine fragments and small life',zh:'海洋碎片与小生命'}, 'prehistoric-small-life-round02-20261018': {en:'Small marine life',zh:'海洋小生命扩展'}, 'prehistoric-small-life-20261018': {en:'Small life expansion',zh:'史前小生命扩展'}, 'prehistoric-small-fauna': {en:'Prehistoric small fauna',zh:'史前小动物'}, 'prehistoric-small-life': { en: 'Prehistoric small life', zh: '史前小生命' }, 'prehistoric-starter': { en: 'Prehistoric starter', zh: '史前入门组合' } };
-const starterIds = ['natural-arch','stratified-cliff','conifer-tree','cycad','fern-cluster','horsetail-cluster','lepidodendron','dinosaur-nest','three-toed-track','uprooted-log'];
-const starter = new Set(starterIds);
-export const PACK_RECORDS = { 'prehistoric-concept-quartets-20261019': {id:'prehistoric-concept-quartets-20261019',name:PACK_LABELS['prehistoric-concept-quartets-20261019'],description:{en:'Independently reviewed fossil-inspired small creatures. Artistic anatomy and scale limits remain explicit.',zh:'独立审查通过的化石启发小生物；保留艺术化解剖和尺度范围说明。'},asset_ids:['emeraldella','burgessia','tuzoia','sanctacaris']}, 'prehistoric-concept-seven-20261019': {"id": "prehistoric-concept-seven-20261019", "name": {"en": "Concept-led fish and marine forms", "zh": "概念引导小鱼与海洋造型"}, "description": {"en": "Seven independently reviewed, stylized genus-inspired props. Exact source files and limited factual claims are preserved; formal production, hardware and deployed-scene acceptance remain open.", "zh": "七个经过独立审查的风格化属级启发道具，保留精确源文件与有限事实主张；正式生产、硬件和部署场景验收仍未完成。"}, "asset_ids": ["metaspriggina", "falcatus", "pteraspis", "dorypterus", "mackenzia", "prasopora", "strophomena"]}, 'prehistoric-small-life-round13-20261018': {"id": "prehistoric-small-life-round13-20261018", "name": PACK_LABELS['prehistoric-small-life-round13-20261018'], "description": {"en": "Twelve independently reviewed stylized teaching assets; source and hardware verification limits remain explicit. No strict specimen or coexistence claim.", "zh": "十二个独立审查通过的风格化教学模型，保留来源与硬件验证限制；不作严格标本或同域共存主张。"}, "asset_ids": ["pentremites", "schizoneura", "tombolo", "entobia-sponge-boring-network", "diplomoceras", "nelumbo", "marine-terrace", "angular-unconformity-outcrop", "clavagella", "aa-lava-front", "native-copper-dendrite", "nereites-lobed-meander"]}, 'prehistoric-small-life-round12-20261018': {"id": "prehistoric-small-life-round12-20261018", "name": PACK_LABELS['prehistoric-small-life-round12-20261018'], "description": {"en": "Twelve independently reviewed stylized teaching assets; source and hardware verification limits remain explicit. No strict specimen or coexistence claim.", "zh": "十二个独立审查通过的风格化教学模型，保留来源与硬件验证限制；不作严格标本或同域共存主张。"}, "asset_ids": ["takakkawia", "sabalites", "river-dominated-delta", "asteriacites-resting-impression", "helicocystis", "cooperoceras", "cave-drapery", "reticulite-clast", "gryphaea", "folded-strata-outcrop", "volcanic-bomb", "teredolites-wood-boring-cast"]}, 'prehistoric-small-life-round11-20261018': {"id": "prehistoric-small-life-round11-20261018", "name": PACK_LABELS['prehistoric-small-life-round11-20261018'], "description": {"en": "Twelve independently reviewed stylized plant organs, small animals and geological studies. Interpretive forms retain source and anatomy limits; no strict reconstruction or coexistence claim.", "zh": "十二个独立审查通过的风格化植物器官、小动物与地质研究；启发造型保留来源和解剖限制，不作严格复原或同域共存主张。"}, "asset_ids": ["asaphus", "hazelia", "sea-cave", "cruziana-crawling-furrow", "ctenocystis", "baculites", "estuary-basin", "cross-bedded-sandstone", "mucrospirifer", "wave-cut-platform", "flute-cast-slab", "paleodictyon-mesh-trace"]}, 'prehistoric-small-life-round10-20261018': {"id": "prehistoric-small-life-round10-20261018", "name": PACK_LABELS['prehistoric-small-life-round10-20261018'], "description": {"en": "Twelve independently reviewed stylized plant organs, small animals and geological studies. Interpretive forms retain source and anatomy limits; no strict reconstruction or coexistence claim.", "zh": "十二个独立审查通过的风格化植物器官、小动物与地质研究；启发造型保留来源和解剖限制，不作严格复原或同域共存主张。"}, "asset_ids": ["marsilea", "hurdia", "sea-stack", "fulgurite-tube", "azolla", "odaraia", "pachypteris", "sand-spit", "peltaspermum", "capinatator", "cothurnocystis", "pyrite-cube-cluster"]}, 'prehistoric-small-life-round09-20261018': {"id": "prehistoric-small-life-round09-20261018", "name": PACK_LABELS['prehistoric-small-life-round09-20261018'], "description": {"en": "Twelve independently reviewed stylized plant organs, small animals and geological studies. Interpretive forms retain source and anatomy limits; no strict reconstruction or coexistence claim.", "zh": "十二个独立审查通过的风格化植物器官、小动物与地质研究；启发造型保留来源和解剖限制，不作严格复原或同域共存主张。"}, "asset_ids": ["anomalocaris", "jimaodanus", "hydrothermal-chimney", "arenicolites-u-burrow", "echinochiton", "clypeina", "tidal-flat", "thalassinoides-branching-burrow", "sollasina", "ottoia", "eocladus", "limestone-pavement"]}, 'prehistoric-small-life-round08-20261018': {"id": "prehistoric-small-life-round08-20261018", "name": PACK_LABELS['prehistoric-small-life-round08-20261018'], "description": {"en": "Twelve independently reviewed stylized plant organs, small animals and geological studies. Interpretive forms retain source and anatomy limits; no strict reconstruction or coexistence claim.", "zh": "十二个独立审查通过的风格化植物器官、小动物与地质研究；启发造型保留来源和解剖限制，不作严格复原或同域共存主张。"}, "asset_ids": ["florissantia", "stanleycaris", "pahoehoe-lava-surface", "staurolite-cross-twin", "metasequoia", "ovatiovermis", "nordenskioldia", "waterfall-ledge", "williamsonia", "halkieria", "ctenorhabdotus", "conglomerate-outcrop"]}, 'prehistoric-small-life-round07-20261018': {"id": "prehistoric-small-life-round07-20261018", "name": PACK_LABELS['prehistoric-small-life-round07-20261018'], "description": {"en": "Twelve independently reviewed stylized plant organs, small animals and geological studies. Interpretive forms retain source and anatomy limits; no strict reconstruction or coexistence claim.", "zh": "十二个独立审查通过的风格化植物器官、小动物与地质研究；启发造型保留来源和解剖限制，不作严格复原或同域共存主张。"}, "asset_ids": ["cooksonia", "cambroraster", "bedrock-pothole", "quartz-prism-cluster", "leclercqia", "canadia", "salvinia", "load-cast-bedding", "montsechia", "dollocaris", "coelurosauravus", "columnar-jointed-outcrop"]}, 'prehistoric-small-life-round06-20261018': {id:'prehistoric-small-life-round06-20261018',name:PACK_LABELS['prehistoric-small-life-round06-20261018'],description:{en:'Twelve independently reviewed stylized small animals, coral colonies, plant organs and geological studies. Organ-only reconstructions stay limited; no strict specimen or coexistence claim.',zh:'十二个独立审查通过的风格化小动物、珊瑚群体、植物器官与地质研究；器官模型保留有限范围，不作严格标本复原或同域共存主张。'},asset_ids:['pleurodictyum','matonidium','yohoia','gypsum-desert-rose','isastraea','araucaria-mirabilis','onychonycteris','pillow-lava-outcrop','spinolestes','odontogriphus','trapa','flint-nodule']}, 'prehistoric-small-life-round05-20261018': {id:'prehistoric-small-life-round05-20261018',name:PACK_LABELS['prehistoric-small-life-round05-20261018'],description:{en:'Twelve reviewed stylized coral, arthropod, frog, terrestrial and freshwater plant forms, alongside rock and microbial-mound studies; no exact-site or coexistence claim.',zh:'十二个通过审查的风格化珊瑚、节肢动物、蛙、陆地及淡水植物，以及岩石和微生物丘体研究；不作精确地点或同域共存主张。'},asset_ids:['acrocyathus','sawdonia','leanchoilia','septarian-concretion','montlivaltia','cobbania','aysheaia','tafoni-outcrop','beelzebufo','pluricarpellatia','paratingia','stromatolite-mound']}, 'prehistoric-small-life-round04-20261018': {id:'prehistoric-small-life-round04-20261018',name:PACK_LABELS['prehistoric-small-life-round04-20261018'],description:{en:'Twelve reviewed stylized marine animals, terrestrial and freshwater plants, and geological surface studies; no coexistence or exact-site claim.',zh:'十二个通过审查的风格化海洋动物、陆地及淡水植物和地质表面研究；不作同域共存或精确地点主张。'},asset_ids:['flabellum','horneophyton','wave-ripple-surface','gogia','micrabacia','sengelia','coquina-outcrop','naraoia','cystiphyllum','limnobiophyllum','wielandiella','desiccation-crack-surface']}, 'prehistoric-small-life-round03-20261018': {id:'prehistoric-small-life-round03-20261018',name:PACK_LABELS['prehistoric-small-life-round03-20261018'],description:{en:'Twelve reviewed fossil-inspired corals, sponges, algae and small animals; fragmentary reconstructions remain explicitly limited.',zh:'十二个通过审查的化石启发珊瑚、海绵、藻类与小动物；碎片复原保留明确范围。'},asset_ids:['syringopora','vauxia','halimeda','isoxys','heliophyllum','pirania','bosworthia','haplophrentis','buthograptus','leptomitus','meandrina','thecosmilia']}, 'prehistoric-small-life-round02-20261018': {id:'prehistoric-small-life-round02-20261018',name:PACK_LABELS['prehistoric-small-life-round02-20261018'],description:{en:'Twelve independently reviewed stylized marine fossil-inspired props across prehistoric periods.',zh:'十二个通过独立审查、跨史前时期的海洋化石启发造型。'},asset_ids:['calceola','favosites','opabinia','choia','goniophyllum','halysites','marrella','proteroctopus','aulopora','thamnopora','hallucigenia','fenestella']}, 'prehistoric-small-life-20261018': {id:'prehistoric-small-life-20261018',name:PACK_LABELS['prehistoric-small-life-20261018'],description:{en:'Twelve independently reviewed fossil-inspired plants and small animals.',zh:'十二个通过独立审查的化石启发植物与小动物造型。'},asset_ids:['archaeopteryx','canadaspis','ceratomyrmex','hydropteris','longipteryx','urasterella','alienopterus','aglaophyton','cephalaspis','saccocoma','archaeocidaris','onoclea']}, 'prehistoric-small-fauna': {id:'prehistoric-small-fauna',name:PACK_LABELS['prehistoric-small-fauna'],description:{en:'Three owner-accepted stylized fossil-inspired animals.',zh:'三个用户认可的化石启发小动物造型。'},asset_ids:['burgessomedusa','diplomystus','kalligramma']}, 'prehistoric-small-life': {id:'prehistoric-small-life',name:PACK_LABELS['prehistoric-small-life'],description:{en:'Small animals and plants for an imaginative prehistoric world.',zh:'为想象史前世界准备的小型动物与植物。'},asset_ids:['asteroxylon','bothriolepis','confuciusornis','ichthyornis','juracimbrophlebia','waptia']}, 'prehistoric-starter': { id:'prehistoric-starter', name:PACK_LABELS['prehistoric-starter'], description:{en:'Ten original candidates spanning plants, geology, wood, and traces.',zh:'涵盖植物、地质、木材与痕迹的十个原创候选模型。'}, asset_ids:starterIds } };
-export function catalogMembership(asset) {
+/** Editorial data is inert JSON; membership never discovers assets or approves QA. */
+import catalogData from './catalog-data.json' with { type: 'json' };
+
+const unsafe = new Set(['__proto__', 'prototype', 'constructor']);
+const fail = message => { throw new Error(`Invalid catalog data: ${message}`); };
+const identifier = (value, where) => {
+  if (typeof value !== 'string' || !/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(value) || value.includes('..') || unsafe.has(value)) fail(`${where} has an unsafe id`);
+};
+function record(value, keys, where) {
+  if (!value || typeof value !== 'object' || Array.isArray(value) || ![Object.prototype, null].includes(Object.getPrototypeOf(value))) fail(`${where} must be a record`);
+  const own = Reflect.ownKeys(value);
+  if (own.length !== keys.length || own.some(key => typeof key !== 'string' || unsafe.has(key) || !keys.includes(key))) fail(`${where} has unexpected or missing keys`);
+}
+function localized(value, where) {
+  record(value, ['en', 'zh'], where);
+  for (const lang of ['en', 'zh']) if (typeof value[lang] !== 'string' || !value[lang].trim() || /[\u0000-\u001f\u007f]/.test(value[lang])) fail(`${where}.${lang} must be nonempty text`);
+}
+function ids(value, where, { empty = false } = {}) {
+  if (!Array.isArray(value) || (!empty && !value.length)) fail(`${where} must be an id array`);
+  const seen = new Set();
+  for (const id of value) { identifier(id, where); if (seen.has(id)) fail(`${where} contains duplicate id ${id}`); seen.add(id); }
+  return seen;
+}
+const canonical = value => JSON.stringify(value, function(key, item) {
+  return item && typeof item === 'object' && !Array.isArray(item) ? Object.fromEntries(Object.keys(item).sort().map(name => [name, item[name]])) : item;
+});
+
+/** Strict shape validation. Optional full-manifest checks verify every declared owner. */
+export function validateCatalogData(data, { manifest } = {}) {
+  record(data, ['version', 'worlds', 'packs', 'legacy_memberships'], 'root');
+  if (data.version !== 1) fail('unsupported version');
+  const seen = { worlds: new Set(), packs: new Set(), legacy_memberships: new Set() };
+  for (const kind of Object.keys(seen)) {
+    if (!Array.isArray(data[kind])) fail(`${kind} must be an array`);
+    for (const entry of data[kind]) {
+      record(entry, kind === 'worlds' ? ['id', 'name'] : kind === 'packs' ? ['id', 'name', 'description', 'asset_ids'] : ['pack_id', 'asset_ids'], kind);
+      const id = kind === 'legacy_memberships' ? entry.pack_id : entry.id;
+      identifier(id, kind);
+      if (seen[kind].has(id)) fail(`${kind} contains duplicate id ${id}`);
+      seen[kind].add(id);
+      if (kind !== 'legacy_memberships') localized(entry.name, `${kind}.${id}.name`);
+      if (kind === 'packs') localized(entry.description, `packs.${id}.description`);
+      if (kind !== 'worlds') ids(entry.asset_ids, `${kind}.${id}.asset_ids`);
+    }
+  }
+  for (const entry of data.legacy_memberships) {
+    const pack = data.packs.find(pack => pack.id === entry.pack_id);
+    if (!pack || entry.asset_ids.some(id => !pack.asset_ids.includes(id))) fail(`legacy membership ${entry.pack_id} does not reference its pack owners`);
+  }
+  if (manifest !== undefined) {
+    if (!Array.isArray(manifest?.assets)) fail('reference validation requires a manifest');
+    ids(manifest.assets.map(asset => asset.id), 'manifest.assets', { empty: true });
+    const byId = new Map(manifest.assets.map(asset => [asset.id, asset]));
+    for (const pack of data.packs) {
+      for (const id of pack.asset_ids) {
+        if (!byId.has(id)) fail(`pack ${pack.id} references unknown model ${id}`);
+        if (!membership(byId.get(id), data).packs.includes(pack.id)) fail(`pack ${pack.id} does not own model ${id}`);
+      }
+      for (const asset of manifest.assets) if (membership(asset, data).packs.includes(pack.id) && !pack.asset_ids.includes(asset.id)) fail(`pack ${pack.id} omits owner ${asset.id}`);
+    }
+  }
+  return data;
+}
+function membership(asset, data) {
   return {
     worlds: [...new Set(Array.isArray(asset.worlds) ? asset.worlds : [asset.collection].filter(Boolean))],
-    packs: [...new Set([...(Array.isArray(asset.packs) ? asset.packs : []), ...(starter.has(asset.id) ? ['prehistoric-starter'] : [])])]
+    packs: [...new Set([...(Array.isArray(asset.packs) ? asset.packs : []), ...data.legacy_memberships.filter(entry => entry.asset_ids.includes(asset.id)).map(entry => entry.pack_id)])]
   };
+}
+export const CATALOG_DATA = validateCatalogData(catalogData);
+export function createCuration(data = CATALOG_DATA) {
+  validateCatalogData(data);
+  return {
+    WORLD_LABELS: Object.fromEntries(data.worlds.map(world => [world.id, world.name])),
+    PACK_LABELS: Object.fromEntries(data.packs.map(pack => [pack.id, pack.name])),
+    PACK_RECORDS: Object.fromEntries(data.packs.map(pack => [pack.id, pack])),
+    catalogMembership: asset => membership(asset, data)
+  };
+}
+export const { WORLD_LABELS, PACK_LABELS, PACK_RECORDS, catalogMembership } = createCuration();
+
+/** Per-model proof inputs exclude unrelated records and other models' pack membership. */
+export function catalogDataForAsset(asset, data = CATALOG_DATA) {
+  const { WORLD_LABELS, PACK_RECORDS, catalogMembership } = createCuration(data);
+  const own = catalogMembership(asset);
+  return {
+    version: data.version,
+    membership: own,
+    worlds: own.worlds.map(id => ({ id, ...(WORLD_LABELS[id] ? { name: WORLD_LABELS[id] } : {}) })),
+    packs: own.packs.map(id => ({ id, ...(PACK_RECORDS[id] ? { name: PACK_RECORDS[id].name, description: PACK_RECORDS[id].description } : {}) }))
+  };
+}
+
+/** Structural eligibility only, never publication approval. Callers must independently
+ * bind each returned record to the authorized descriptors and their exact model IDs. */
+export function inspectCatalogDataAppend(previous, current, { addedAssetIds = [], previousManifest, currentManifest } = {}) {
+  validateCatalogData(previous);
+  validateCatalogData(current);
+  const added = ids(addedAssetIds, 'addedAssetIds', { empty: true });
+  if (canonical(previous.legacy_memberships) !== canonical(current.legacy_memberships)) fail('existing legacy membership changed');
+  for (const kind of ['worlds', 'packs']) {
+    if (current[kind].length < previous[kind].length || previous[kind].some((entry, i) => canonical(entry) !== canonical(current[kind][i]))) fail(`existing ${kind} records changed or were reordered`);
+  }
+  const addedWorlds = current.worlds.slice(previous.worlds.length);
+  const addedPacks = current.packs.slice(previous.packs.length);
+  const previousOwners = new Set(previous.packs.flatMap(pack => pack.asset_ids));
+  for (const pack of addedPacks) for (const id of pack.asset_ids) {
+    if (!added.has(id) || previousOwners.has(id)) fail(`new pack ${pack.id} has unauthorized or existing owner ${id}`);
+  }
+  if (previousManifest !== undefined) {
+    if (!Array.isArray(previousManifest?.assets)) fail('previous manifest is malformed');
+    for (const asset of previousManifest.assets) {
+      if (added.has(asset.id)) fail(`addedAssetIds contains existing model ${asset.id}`);
+      if (canonical(catalogDataForAsset(asset, previous)) !== canonical(catalogDataForAsset(asset, current))) fail(`new catalog records change existing model ${asset.id}`);
+    }
+  }
+  if (currentManifest !== undefined) validateCatalogData(current, { manifest: currentManifest });
+  return { addedWorlds, addedPacks, affectedIds: [...new Set(addedPacks.flatMap(pack => pack.asset_ids))].sort() };
 }

@@ -16,10 +16,39 @@ export function prepareModels(manifest,resources={}, {allowReview=false}={}) {
       ...(matching?{galleryPosters:{detail:poster.detail,wheel:poster.wheel},wheelSpec:poster.wheelSpec}:{})};
   });
 }
-export async function loadGalleryCatalog({fetchImpl=fetch}={}) {
-  const read=async path=>{const response=await fetchImpl(assetURL(path));if(!response.ok)throw new Error(`Catalog request failed (${response.status}).`);return response.json();};
-  const [manifest,resources]=await Promise.all([read('assets/manifest.json'),read('gallery/resources.json')]);
-  models=prepareModels(manifest,resources,{allowReview:document.body.dataset.reviewOnly==='true'});catalog={manifest,resources,route:parseRoute(location.pathname,siteRoot.pathname)};
+/** Only generated, membership-matching facets can supply browser labels. */
+export function validateGalleryCatalog(index, prepared, { reviewOnly = false } = {}) {
+  if (!index || index.version !== 1 || index.total !== prepared.length || index.review_only !== reviewOnly) throw new Error('Catalog index does not match the published manifest.');
+  const validId = id => typeof id === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(id) && !['constructor','prototype','__proto__'].includes(id);
+  const validLabel = label => label && typeof label === 'object' && !Array.isArray(label) && Object.keys(label).length === 2 && ['en','zh'].every(lang => typeof label[lang] === 'string' && label[lang].trim() && !/[\u0000-\u001f\u007f]/.test(label[lang]));
+  for (const kind of ['worlds','packs']) {
+    const expected = new Map();
+    for (const model of prepared) for (const id of new Set(model[kind])) {
+      if (!validId(id)) throw new Error('Invalid manifest facet.');
+      if (!expected.has(id)) expected.set(id, new Set());
+      expected.get(id).add(model.id);
+    }
+    if (!Array.isArray(index[kind]) || index[kind].length !== expected.size) throw new Error('Catalog facets do not match the published manifest.');
+    const seen = new Set();
+    for (const facet of index[kind]) {
+      if (!facet || !validId(facet.id) || seen.has(facet.id) || !expected.has(facet.id) || facet.count !== expected.get(facet.id).size || (facet.name !== undefined && !validLabel(facet.name)) || (facet.description !== undefined && !validLabel(facet.description))) throw new Error('Invalid or mismatched catalog facet.');
+      seen.add(facet.id);
+      if (facet.asset_ids !== undefined && (!Array.isArray(facet.asset_ids) || facet.asset_ids.length !== new Set(facet.asset_ids).size || facet.asset_ids.length !== expected.get(facet.id).size || facet.asset_ids.some(id => !expected.get(facet.id).has(id)))) throw new Error('Catalog pack owners do not match the published manifest.');
+    }
+  }
+  return index;
+}
+let loadGeneration = 0;
+export async function loadGalleryCatalog({fetchImpl=fetch,signal}={}) {
+  const generation = ++loadGeneration;
+  const read=async path=>{const response=await fetchImpl(assetURL(path),{signal});if(!response.ok)throw new Error(`Catalog request failed (${response.status}).`);return response.json();};
+  const [manifest,resources,index]=await Promise.all([read('assets/manifest.json'),read('gallery/resources.json'),read('assets/catalog.json')]);
+  if (signal?.aborted) throw signal.reason || new DOMException('Catalog load aborted.','AbortError');
+  if (generation !== loadGeneration) throw new DOMException('Catalog load superseded.','AbortError');
+  const prepared=prepareModels(manifest,resources,{allowReview:document.body.dataset.reviewOnly==='true'});
+  validateGalleryCatalog(index,prepared,{reviewOnly:manifest.review_only===true});
+  // Publish all state together. An index failure never leaves a half-loaded gallery.
+  models=prepared;catalog={manifest,resources,worlds:index.worlds,packs:index.packs,route:parseRoute(location.pathname,siteRoot.pathname)};
   return {models,catalog};
 }
 export const emptyFacets=()=>({worlds:[],packs:[],category:[],collection:[],triangleBand:[],triangleMax:[]});

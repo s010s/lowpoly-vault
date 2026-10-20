@@ -1,3 +1,6 @@
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+import {preparePosterCapture,completePosterCapture} from './gallery-poster-orchestration.mjs';
+// END GALLERY POSTER V3 ORCHESTRATION
 /** Complete the published gallery using its actual approved browser renderer. */
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
@@ -12,10 +15,16 @@ const root = process.cwd(), outputRoot = resolve(process.env.GALLERY_OUTPUT_DIR 
 const manifest = JSON.parse(await readFile(resolve(outputRoot, 'assets/manifest.json'), 'utf8'));
 const initial = await auditGalleryAssets(manifest, { root, outputRoot });
 const verifyRecipe = process.argv.includes('--verify-recipe');
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+if (!verifyRecipe) await preparePosterCapture(initial,{root,outputRoot,manifest});
+// END GALLERY POSTER V3 ORCHESTRATION
 if (!initial.inputState.capture.length && !verifyRecipe) {
   await auditGalleryAssets(manifest, { root, outputRoot, requireComplete: true });
   if (process.argv.includes('--source-output')) await persistSourceGallery();
   console.log(`Gallery capture complete: ${initial.coverage.matched}/${manifest.assets.length} published assets have sealed detail/wheel posters; nothing to recapture.`);
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+  await completePosterCapture(initial,initial.resources);
+// END GALLERY POSTER V3 ORCHESTRATION
   process.exit(0);
 }
 
@@ -167,6 +176,9 @@ try {
   catch (error) { await rename(previous, resolve(outputRoot, 'gallery')); throw error; }
   const final = await auditGalleryAssets(manifest, { root, outputRoot, requireComplete:true });
   if (process.argv.includes('--source-output')) await persistSourceGallery();
+// BEGIN GALLERY POSTER V3 ORCHESTRATION
+  await completePosterCapture(initial,final.resources);
+// END GALLERY POSTER V3 ORCHESTRATION
   console.log(`Gallery capture complete: ${final.coverage.matched}/${manifest.assets.length} published assets, ${final.files} sealed resource files, ${final.bytes} bytes. Reviewed poster bytes and framing preserved.`);
   }
 } finally {
