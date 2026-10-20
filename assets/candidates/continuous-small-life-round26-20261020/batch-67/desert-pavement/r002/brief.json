@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "asset_id": "desert-pavement",
+  "brief_version": "r002",
+  "profile": "production",
+  "purpose": "Original stylized educational candidate, independent acceptance pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical: Nearly complete dense fitted angular coarse clast mantle, narrow irregular cracks; Single low surface layer over thin closed sandy substrate, no loose boulder pile; Irregular organic boundary and varied polygonal clast sizes, no tire tracks or vegetation. Generic original geological teaching form, not a named site replica or reconstruction of any period, ecosystem or measured locality. Scale, palette and all hidden surfaces illustrative. Dense coarse clast surface mantle, not a claim of solely wind-deflation formation; multiple processes possible. No age, varnish chemistry or exact clast size measured from photo.",
+      "required_sources": [
+        "NPS-PAVEMENT"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical: Nearly complete dense fitted angular coarse clast mantle, narrow irregular cracks; Single low surface layer over thin closed sandy substrate, no loose boulder pile; Irregular organic boundary and varied polygonal clast sizes, no tire tracks or vegetation. Generic original geological teaching form, not a named site replica or reconstruction of any period, ecosystem or measured locality. Scale, palette and all hidden surfaces illustrative. Dense coarse clast surface mantle, not a claim of solely wind-deflation formation; multiple processes possible. No age, varnish chemistry or exact clast size measured from photo.",
+      "required_sources": [
+        "NPS-PAVEMENT"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact fixed8 views, no turntable required. Seven separate stages, no hardware claim.",
+  "required_deliverables": [],
+  "claim_scope": "Generic original geological teaching form, not a named site replica or reconstruction of any period, ecosystem or measured locality. Scale, palette and all hidden surfaces illustrative. Dense coarse clast surface mantle, not a claim of solely wind-deflation formation; multiple processes possible. No age, varnish chemistry or exact clast size measured from photo.",
+  "nominal_dimensions_blender_xyz_m": [
+    4.8,
+    4.1,
+    0.32
+  ],
+  "dimension_status": "Illustrative nominal, measured exported bounds separate",
+  "recognition_features": [
+    "Nearly complete dense fitted angular coarse clast mantle, narrow irregular cracks",
+    "Single low surface layer over thin closed sandy substrate, no loose boulder pile",
+    "Irregular organic boundary and varied polygonal clast sizes, no tire tracks or vegetation"
+  ],
+  "concept_decisions": "Targeted original-scope correction of uniform mechanical paving. Preserve dense single-layer armor, narrow cracks, thin closed sandy substrate, original palette, illustrative dimensions and uncertainty. Replace grid sites with deterministic irregular non-grid multiscale sites (broad random sites plus clustered smaller chips), each clipped cell given angular edge chips, uneven low beveled rim and an asymmetric off-center faceted crown. Large and small clasts must interfit rather than be isolated pebbles. No camera, lighting or palette changes to conceal geometry. Close fitted lower footprints preserve surface armor; uneven crowns and size hierarchy break tile appearance. Nominal count around150 is illustrative. No exclusive wind-deflation origin claim.",
+  "style": "Palette-only original faceted full-volume low-poly",
+  "intended_use": "Educational support prop at256-512px, not museum/scientific-grade reconstruction",
+  "created_at": "2026-10-20T15:54:35.473744+00:00",
+  "validation_profile": "static-stylized-v1",
+  "repair_of": {
+    "revision": "r001",
+    "glb_sha256": "9e2af794d7b257410101072e118915838b99d6d24fe83ad38e6d73ae13a37758",
+    "original_brief_sha256": "6083ed123d7206f8d7eeb866ecbed6cb84827245b5f87c1306c12717f8f5f0be",
+    "independent_qa_sha256": "a86e90a24839331a0e0c42473857d369631f2f63f9d81f5f0248ec6833d41ac6",
+    "finding": "Uniform fitted cells read as decorative paving. Vary genuine clast size/shape/crown without opening large bare patches."
+  }
+}

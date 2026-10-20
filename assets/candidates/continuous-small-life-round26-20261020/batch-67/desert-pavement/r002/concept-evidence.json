@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "desert-pavement",
+  "revision": "r002",
+  "labels": {
+    "en": "desert-pavement"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "8ac4620cfec4bfaa6d14a0098144217383ea1623199fb52aa73348b1659a249e"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "b47d9a732174b88ec4e23d81f7e95474a6deac997c993713252cef2fcfe848fb"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "621a0a83000b52c06ae2c7c181097913fbfc17d21d623aa6102c294337d69257"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "05b7f0dea65fe2922e2c5a621454d5f37a15929dcee80630ad81c8e887b70c6a"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "ec4f03fceb778ebf1131b8fbd97dfc9aaa706706e9565e457e01770bddd44d08"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "17677f32f110d21da1393fc55397cedccbd7c053eef0553c11c35a26f1ccc58a"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "740f94e8d7ab699dd1c5ebbc6d15fa591f9d6dab4e645ccf49867ed732ed73f8"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e9466a361a8a99945a8aeff388613b9eb3c99a6229e470f97302339c19826422"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "46abe354341f37c26d4e8805b7fe1726395d88ce9c000666655327ac52bc99a9"
+      }
+    ],
+    "cross_view_consistency_note": "Original concept D and primary reference revisited for r002. Genuine unequal clast scale, chipped angular boundary and uneven asymmetric crown replace uniform mechanical tiles while retaining close surface armor. No new scientific scope; original palette and cameras unchanged. Complete targeted decisions in immutable r002 repair freeze",
+    "hidden_surface_decisions": "Targeted original-scope correction of uniform mechanical paving. Preserve dense single-layer armor, narrow cracks, thin closed sandy substrate, original palette, illustrative dimensions and uncertainty. Replace grid sites with deterministic irregular non-grid multiscale sites (broad random sites plus clustered smaller chips), each clipped cell given angular edge chips, uneven low beveled rim and an asymmetric off-center faceted crown. Large and small clasts must interfit rather than be isolated pebbles. No camera, lighting or palette changes to conceal geometry. Close fitted lower footprints preserve surface armor; uneven crowns and size hierarchy break tile appearance. Nominal count around150 is illustrative. No exclusive wind-deflation origin claim."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:41:35Z",
+    "modeling_started_at": "2026-10-20T15:55:12.632508+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.9278,
+      "measurement_record": {
+        "path": "proof-delivery/render-manifest.json",
+        "sha256": "13b0ea09399d10826d95cc4c56816a187c8905d0e891463270f1c3512454226a"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-delivery/render-manifest.json",
+    "sha256": "13b0ea09399d10826d95cc4c56816a187c8905d0e891463270f1c3512454226a"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "1597a07625650eaeb1d881ea4075cfd24f349fbe4cdb4b7ec3e5254724c076f4",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "8bf88b14a58cee0436cbeeb7fc56b8cf3bdcb8f0814f82b166b241acd5f6b5b3"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "8ac4620cfec4bfaa6d14a0098144217383ea1623199fb52aa73348b1659a249e",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "79e0afe7bbea704516ab0703866f93fbaf7b81ce75f945b3cf98c58a4063038f"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

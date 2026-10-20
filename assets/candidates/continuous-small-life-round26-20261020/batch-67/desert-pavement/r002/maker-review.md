@@ -1,0 +1,5 @@
+# Maker pixel inspection, not independent acceptance
+
+Targeted r002 geometry repair under original scientific scope.146 non-grid multiscale sites with clustered small chips define unequal fitted lower footprints. Clast edges have asymmetric angular chips; uneven bevels and off-center faceted crests are genuine geometry. Large irregular clasts interfit with smaller chips in dense single-layer armor; narrow interclast cracks, thin closed ochre substrate, original palette/cameras unchanged. No sparse isolated gravel, broad bare sand, tire tracks, exact locality or exclusively wind-deflation claim. Original r001 and three accepted assets unchanged. Low-poly angular simplification and generic illustrative scale remain.
+
+Actual eight final frames individually inspected at full512px; additionally assembled as lossless2048x1060px contact sheet: hero, reversehero, front, side, rear, top, clay, silhouette. These are the exact final GLB clean-import renders. No browser, graphics device or populated-scene pass claimed. Independent review pending.
