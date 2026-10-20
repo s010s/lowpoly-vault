@@ -15,6 +15,7 @@ const git=(...args)=>execFileSync('git',args,{cwd:f.root,encoding:'utf8',stdio:[
 const control=ref=>{const cwd=process.cwd();try{process.chdir(f.root);return controlDigest(ref);}finally{process.chdir(cwd);}};
 try{
  copyArchive();f.put('site/initial-release.mjs','export const checkPublishedManifest = () => true;\n');
+ f.put('qa/conifer-doc1-integration/prepare-review.mjs',"import '../../site/initial-release.mjs';\n");
  f.put('.gitignore','dist/\nqa/ci-model-proof/\n');
  const beforeManifest=structuredClone(f.manifest),beforeCatalog=structuredClone(f.catalog),beforeArchive=modelArchivalInputs(f.root);
  git('init','-q');git('config','user.name','Fixture');git('config','user.email','fixture@example.invalid');git('add','.');git('commit','-qm','Published baseline fixture');

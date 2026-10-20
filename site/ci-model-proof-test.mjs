@@ -96,6 +96,7 @@ export async function runBuiltRenderProofTests(){
   const f=fixture(190),executions=[],cardExecutions=[];
   try{
     f.put('site/initial-release.mjs','export const checkPublishedManifest = () => true;\n');
+    f.put('qa/conifer-doc1-integration/prepare-review.mjs',"import '../../site/initial-release.mjs';\n");
     f.resources.generated_capture={renderer:'approved PreviewRenderer.poster',browser:PINNED_BROWSER.chromium,source_renderer_sha256:'a'.repeat(64),runtime_renderer_sha256:'b'.repeat(64),assets:f.manifest.assets.slice(0,8).map(asset=>asset.id),published_total:190};
     f.put('site/public/gallery/resources.json',f.resources);
     await buildFixture(f);
@@ -106,6 +107,15 @@ export async function runBuiltRenderProofTests(){
     const originalPolicy=modelPolicyDigest(f.root);
     f.put('site/initial-release.mjs','export const checkPublishedManifest = () => { /* stronger authorization */ return true; };\n');
     assert.equal(modelPolicyDigest(f.root),originalPolicy,'Authorization-only code is not the render policy');
+    const historical=readFileSync(join(f.root,'qa/conifer-doc1-integration/prepare-review.mjs'));
+    f.put('qa/conifer-doc1-integration/prepare-review.mjs',historical+'// changed historical preparation\n');
+    assert.notEqual(modelPolicyDigest(f.root),originalPolicy,'Unused historical preparation remains hash-protected');
+    f.put('qa/conifer-doc1-integration/prepare-review.mjs',historical);
+    const harness='qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs',harnessBytes=readFileSync(join(f.root,harness));
+    f.put(harness,"import './prepare-review.mjs';\n");const executedPolicy=modelPolicyDigest(f.root);
+    f.put('site/initial-release.mjs','export const checkPublishedManifest = () => false;\n');
+    assert.notEqual(modelPolicyDigest(f.root),executedPolicy,'Executed QA import promotes the historical preparation and its collector dependencies');
+    f.put(harness,harnessBytes);f.put('site/initial-release.mjs','export const checkPublishedManifest = () => { /* stronger authorization */ return true; };\n');
     const checked=computeModelInputs({root:f.root,built:await assertBuiltRenderInputs({root:f.root})});
     assert.equal(planModelReuse({inputs:checked,baseProof:base,verifiedBaseProof:verification(base)}).reused_ids.length,190);
     assert.notEqual(computeModelInputs({root:f.root}).models[0].input_key,sourceOnly.models[0].input_key,'No build verification means authorization source remains conservative');
