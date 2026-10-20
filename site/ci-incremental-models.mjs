@@ -4,7 +4,7 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync,appendFileSync,readdirSy
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {inspectCatalogDataAppend} from './curation.js';
-import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES} from './ci-model-proof.mjs';
+import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit} from './ci-model-proof.mjs';
 import {fetchVerifiedBaseProof} from './ci-model-cache.mjs';
 import {modelPlan,readModelReceipts,assertModelCoverage,currentIdentity,BUILD_RECEIPT} from './ci-model-shards.mjs';
 const read=path=>JSON.parse(readFileSync(path));
@@ -64,6 +64,7 @@ export function tasksForModelPlan(tasks,plan,manifest){
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const directory='qa/ci-model-proof';mkdirSync(directory,{recursive:true});
  const built=await assertBuiltRenderInputs({}),inputs=computeModelInputs({built}),manifest=read('assets/manifest.json');
+ assert.equal(inputs.policy_sha256,modelPolicyDigestAtCommit(git('rev-parse','HEAD').trim()),'Live render policy differs from the exact committed source; untracked/generated code cannot establish a reusable baseline');
  if(process.argv[2]==='plan'){
   const eligibility=eligibilityFromGit(process.env.BASE_SHA),force=process.env.FULL_REVIEW==='true'||!eligibility.eligible;
   const found=force?{reasons:['Full validation required',...eligibility.reasons]}:await fetchVerifiedBaseProof({inputs});

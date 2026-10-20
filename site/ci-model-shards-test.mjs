@@ -122,5 +122,6 @@ assert.match(workflow,/PREVIEW_ASSET_IDS: \$\{\{ needs\.prepare\.outputs\.fresh_
 assert.match(workflow,/name: card-preview-proof/);
 assert.match(incremental,/freshCardRecords:cardRecords/);
 assert.match(incremental,/Card proof build differs/);
+assert.match(incremental,/Live render policy differs from the exact committed source/);
 assert.match(workflow, /merge-multiple: false/);
 console.log('Model shards: deterministic 190/5 exact coverage, selective paths, wrong hashes/policy/run, incomplete GPU results and tampered build all fail closed.');

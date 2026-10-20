@@ -25,6 +25,9 @@ try{
   const suite={id:202,status:'completed',conclusion:'success',head_sha:baseSha,app:{id:15368,slug:'github-actions',owner:{login:'github'}}};
   const originalZip=zip(baseProof),metadata={id:303,name:proofArtifactName(1),expired:false,digest:`sha256:${hashBytes(originalZip)}`,workflow_run:{id:101,head_sha:baseSha,repository_id:12,head_repository_id:12}};
   const baseManifest=JSON.parse(git('show',`${baseSha}:assets/manifest.json`));
+  const shadow=mkdtempSync(join(tmpdir(),'proof-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
+  try{for(const module of ['zipfile','json'])writeFileSync(join(shadow,`${module}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractModelProof(originalZip),baseProof,'Isolated proof decoding ignores checkout/PYTHONPATH modules');}
+  finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
   async function lookup({alterRun,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false}={}){
     const r=structuredClone(run),s=structuredClone(suite),a=structuredClone(metadata);alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[];
     const fetchImpl=async(url,options={})=>{

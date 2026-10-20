@@ -36,7 +36,7 @@ export function extractModelProof(bytes){
     const archive=join(temp,'proof.zip');writeFileSync(archive,bytes);
     // The only permitted member is small UTF-8 JSON. Never extract paths, links,
     // executable files, encrypted members, duplicate entries or artifact code.
-    const output=execFileSync('python3',['-c',`import zipfile,sys,stat\nwith zipfile.ZipFile(sys.argv[1]) as z:\n members=z.infolist(); assert len(members)==1, 'Expected exactly one proof member'\n m=members[0]; assert m.filename=='model-proof.json', 'Unexpected proof member'\n assert not m.is_dir() and not m.flag_bits&1, 'Unsafe proof member'\n mode=m.external_attr>>16; assert stat.S_IFMT(mode) in (0,stat.S_IFREG), 'Nonregular proof member'\n assert 0<m.file_size<=16000000 and m.compress_type in (0,8), 'Oversized or unsupported proof member'\n b=z.read(m); assert len(b)==m.file_size; sys.stdout.buffer.write(b)`,archive],{maxBuffer:MAX_ARTIFACT_BYTES,stdio:['ignore','pipe','pipe']});
+    const output=execFileSync('python3',['-I','-c',`import zipfile,sys,stat\nwith zipfile.ZipFile(sys.argv[1]) as z:\n members=z.infolist(); assert len(members)==1, 'Expected exactly one proof member'\n m=members[0]; assert m.filename=='model-proof.json', 'Unexpected proof member'\n assert not m.is_dir() and not m.flag_bits&1, 'Unsafe proof member'\n mode=m.external_attr>>16; assert stat.S_IFMT(mode) in (0,stat.S_IFREG), 'Nonregular proof member'\n assert 0<m.file_size<=16000000 and m.compress_type in (0,8), 'Oversized or unsupported proof member'\n b=z.read(m); assert len(b)==m.file_size; sys.stdout.buffer.write(b)`,archive],{maxBuffer:MAX_ARTIFACT_BYTES,stdio:['ignore','pipe','pipe']});
     return JSON.parse(output.toString('utf8'));
   }finally{rmSync(temp,{recursive:true,force:true});}
 }

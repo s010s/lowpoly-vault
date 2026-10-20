@@ -40,6 +40,9 @@ try{
  const run={id:101,run_attempt:1,event:'push',head_branch:'main',head_sha:baseSha,status:'completed',conclusion:'success',path:'.github/workflows/full-release-review.yml',workflow_id:99,check_suite_id:202,repository:{id:12,full_name:repository},head_repository:{id:12,full_name:repository}};
  const suite={id:202,status:'completed',conclusion:'success',head_sha:baseSha,app:{id:15368,slug:'github-actions',owner:{login:'github'}}};
  const original=archive(proof);
+ const shadow=mkdtempSync(join(tmpdir(),'poster-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
+ try{for(const module of ['zipfile','json'])writeFileSync(join(shadow,`${module}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractPosterArtifact(original).proof,proof,'Isolated poster decoding ignores checkout/PYTHONPATH modules');}
+ finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
  async function lookup({document=proof,download,alterRun,alterSuite,alterArtifact,missing=false,source=baseManifest,ancestry=true,currentPolicy=policy_sha256,actualRuntime=runtime,independentDigest,attempt=1}={}){
   const bytes=download||archive(document),r=structuredClone(run),s=structuredClone(suite),a={id:303,name:posterArtifactName(1),expired:false,digest:independentDigest||`sha256:${posterHash(bytes)}`,workflow_run:{id:101,head_sha:baseSha,repository_id:12,head_repository_id:12}};
   alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);

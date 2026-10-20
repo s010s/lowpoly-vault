@@ -4,7 +4,8 @@ import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,rmSync,copyFileSync} fr
 import {tmpdir} from 'node:os';
 import {join,dirname} from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {computeModelInputs,hashBytes,hashObject,planModelReuse,freshModelRecords,aggregateModelProof,assertBaseModelProof,PINNED_BROWSER,assertBuiltRenderInputs,modelPolicyDigest,PUBLICATION_ONLY_MODULES} from './ci-model-proof.mjs';
+import {execFileSync} from 'node:child_process';
+import {computeModelInputs,hashBytes,hashObject,planModelReuse,freshModelRecords,aggregateModelProof,assertBaseModelProof,PINNED_BROWSER,assertBuiltRenderInputs,modelPolicyDigest,modelPolicyDigestAtCommit,PUBLICATION_ONLY_MODULES} from './ci-model-proof.mjs';
 import {enrichManifest,creditText} from './asset-delivery.mjs';
 import {writeCatalog} from './catalog-build.mjs';
 import {writeStaticRoutes} from './static-routes.mjs';
@@ -240,4 +241,53 @@ export function runModelProofTests(){
   }finally{f.close();}
 }
 function baselineArguments(proof){return {repository:proof.repository,baseSha:proof.source_commit,sourceTree:proof.source_tree,runId:proof.run_id,runAttempt:proof.run_attempt,policy_sha256:proof.policy_sha256,runtime_config:proof.runtime_config,catalog_ids:proof.catalog_ids};}
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){runModelProofTests();await runBuiltRenderProofTests();}
+export function runModelPolicyInventoryTests(){
+  const root=mkdtempSync(join(tmpdir(),'model-policy-inventory-'));
+  const put=(path,data)=>{mkdirSync(dirname(join(root,path)),{recursive:true});writeFileSync(join(root,path),data);};
+  const git=(...args)=>execFileSync('git',args,{cwd:root,stdio:['ignore','pipe','pipe']}).toString().trim();
+  const python=(code,...args)=>execFileSync('python3',['-I','-S','-c',code,...args],{cwd:root}).toString().trim();
+  const compile=(path='scripts/helper.py',optimize=0,mode='TIMESTAMP')=>python("import py_compile, sys; print(py_compile.compile(sys.argv[1], optimize=int(sys.argv[2]), invalidation_mode=getattr(py_compile.PycInvalidationMode, sys.argv[3]), doraise=True))",join(root,path),String(optimize),mode).slice(root.length+1);
+  try{
+    const source="from pathlib import Path\nPath('must-not-execute').write_text('unsafe')\nraise RuntimeError('source must only be compiled')\n";
+    put('site/ci-model-proof.mjs','export const fixture = true;\n');put('scripts/helper.py',source);
+    put('.gitignore','__pycache__/\nscripts/ignored/\n');
+    git('init','-q');git('add','.');git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid','-c','core.hooksPath=/dev/null','commit','-qm','fixture');
+    const head=git('rev-parse','HEAD'),baseline=modelPolicyDigest(root);
+    assert.equal(baseline,modelPolicyDigestAtCommit(head,{root}),'Clean filesystem and exact HEAD policy agree');
+    for(const optimize of [0,1,2])for(const mode of ['TIMESTAMP','CHECKED_HASH','UNCHECKED_HASH']){
+      compile('scripts/helper.py',optimize,mode);
+      assert.equal(modelPolicyDigest(root),baseline,`${mode} opt-${optimize} exact generated cache is not a render input`);
+      assert.equal(git('status','--porcelain'),'','Ignored generated cache leaves a clean checkout');
+    }
+    assert.equal(modelPolicyDigest(root),modelPolicyDigestAtCommit(head,{root}),'Clean HEAD remains equal after publication-style Python compilation');
+    assert.throws(()=>readFileSync(join(root,'must-not-execute')),/ENOENT/,'Source was compiled, never run');
+    const cache=compile(),original=readFileSync(join(root,cache));
+    for(const [label,data] of [
+      ['truncated',Buffer.from('bad')],
+      ['foreign magic',Buffer.from(original)],
+      ['unknown flags',Buffer.from(original)]
+    ]){
+      if(label==='foreign magic')data[0]^=1;if(label==='unknown flags')data.writeUInt32LE(7,4);
+      put(cache,data);assert.notEqual(modelPolicyDigest(root),baseline,`${label} cache stays protected`);put(cache,original);
+    }
+    // An unchecked-hash header can claim the real source while carrying arbitrary
+    // executable code. The body, not that header or gitignore, decides exemption.
+    python("import importlib.util, marshal, pathlib, struct, sys; p=pathlib.Path(sys.argv[1]); source=p.read_bytes(); code=compile(\"raise RuntimeError('tampered cached code')\", str(p), 'exec', dont_inherit=True, optimize=0); pathlib.Path(sys.argv[2]).write_bytes(importlib.util.MAGIC_NUMBER + struct.pack('<I', 1) + importlib.util.source_hash(source) + marshal.dumps(code))",join(root,'scripts/helper.py'),join(root,cache));
+    assert.notEqual(modelPolicyDigest(root),baseline,'Unchecked-hash alternate bytecode stays protected');put(cache,original);
+    python("import marshal, pathlib, sys; p=pathlib.Path(sys.argv[1]); target=pathlib.Path(sys.argv[2]); target.write_bytes(target.read_bytes()[:16] + marshal.dumps(compile(p.read_bytes(), 'scripts/helper.py', 'exec', dont_inherit=True, optimize=0)))",join(root,'scripts/helper.py'),join(root,cache));
+    assert.notEqual(modelPolicyDigest(root),baseline,'Different co_filename is not silently normalized');put(cache,original);
+    git('add','-f','--',cache);
+    const tracked=modelPolicyDigest(root);assert.notEqual(tracked,baseline,'Force-added bytecode remains a protected input');
+    assert.equal(tracked,modelPolicyDigestAtCommit(git('write-tree'),{root}),'Tracked bytecode is bound identically in current and Git-tree policies');
+    const changed=Buffer.from(original);changed[changed.length-1]^=1;put(cache,changed);assert.notEqual(modelPolicyDigest(root),tracked,'Tracked bytecode changes invalidate');put(cache,original);git('restore','--staged','--',cache);
+    for(const path of ['scripts/__pycache__/unknown.py','scripts/__pycache__/unknown.js','scripts/nested/__pycache__/unknown.js','scripts/ignored/unknown.js','scripts/helper.pyc','scripts/__pycache__/helper.cpython-999.pyc','scripts/__pycache__/orphan.cpython-312.pyc']){
+      put(path,path.endsWith('.pyc')?original:'unknown executable');assert.notEqual(modelPolicyDigest(root),baseline,`${path} is not exempt`);rmSync(join(root,path));
+    }
+    put('scripts/untracked.py','value = 1\n');const beforeCache=modelPolicyDigest(root),untrackedCache=compile('scripts/untracked.py');
+    assert.notEqual(modelPolicyDigest(root),beforeCache,'A cache paired with an untracked source stays protected');rmSync(join(root,untrackedCache));rmSync(join(root,'scripts/untracked.py'));
+    put('scripts/helper.py',`${source}changed = 1\n`);const stale=modelPolicyDigest(root);rmSync(join(root,cache));assert.notEqual(modelPolicyDigest(root),stale,'Stale generated code stays protected');put(cache,original);put('scripts/helper.py',source);
+    assert.equal(modelPolicyDigest(root),modelPolicyDigestAtCommit(head,{root}));
+    console.log('Model policy inventory: clean HEAD/current equality, exact generated CPython cache reuse, tracked/unknown/stale/unchecked-hash bytecode and nested ignored executable invalidation pass.');
+  }finally{rmSync(root,{recursive:true,force:true});}
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){runModelProofTests();await runBuiltRenderProofTests();runModelPolicyInventoryTests();}

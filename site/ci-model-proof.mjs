@@ -165,13 +165,55 @@ function policyInputs(paths,read){
   selected.sort();assert(selected.includes('site/ci-model-proof.mjs'),'Model proof verifier missing from policy');
   return {paths:selected,closure};
 }
+// Python publication checks create ignored bytecode during an otherwise clean
+// build. Never use gitignore (or the cache directory name alone) to exempt code:
+// only an untracked canonical CPython cache for a tracked source can qualify.
+// Recompile the exact source without running it and compare the serialized code
+// bytes. No candidate bytecode is imported, executed, or unmarshalled. Unknown,
+// malformed, stale, foreign-compiler and tracked bytecode stays policy-bound.
+function generatedPythonCaches(root,paths){
+  const pattern=/^(scripts(?:\/[A-Za-z0-9_.-]+)*)\/__pycache__\/([A-Za-z_][A-Za-z0-9_]*)\.(cpython-[0-9]+)(?:\.opt-([12]))?\.pyc$/;
+  const candidates=paths.map(path=>({path,match:pattern.exec(path)})).filter(row=>row.match);
+  if(!candidates.length)return new Set();
+  const tracked=new Set(execFileSync('git',['ls-files','--cached','-z','--','scripts'],{cwd:root,timeout:10000,maxBuffer:16*1024*1024}).toString().split('\0').filter(Boolean));
+  const available=new Set(paths),checks=[];let sourceBytes=0;
+  for(const {path,match} of candidates){
+    const source=`${match[1]}/${match[2]}.py`;
+    if(tracked.has(path)||!tracked.has(source)||!available.has(source))continue;
+    assert(checks.length<64,'Too many generated Python caches');
+    assert(lstatSync(resolve(root,path)).size<=16*1024*1024,'Generated Python cache exceeds size limit');
+    assert(lstatSync(resolve(root,source)).size<=4*1024*1024,'Python cache source exceeds size limit');
+    const data=bytes(root,path),input=bytes(root,source);sourceBytes+=input.length;
+    assert(sourceBytes<=16*1024*1024,'Generated Python cache sources exceed size limit');
+    if(data.length<16||![0,1,3].includes(data.readUInt32LE(4)))continue;
+    checks.push({path,tag:match[3],optimize:Number(match[4]||0),filename:resolve(root,source),source:input.toString('base64'),magic:data.subarray(0,4).toString('hex'),body_sha256:hashBytes(data.subarray(16))});
+  }
+  if(!checks.length)return new Set();
+  const verifier=`import base64, hashlib, importlib.util, json, marshal, resource, sys
+resource.setrlimit(resource.RLIMIT_AS, (256 * 1024 * 1024, 256 * 1024 * 1024))
+resource.setrlimit(resource.RLIMIT_CPU, (5, 5))
+valid = []
+for row in json.load(sys.stdin):
+    if sys.implementation.name != 'cpython' or row['tag'] != sys.implementation.cache_tag or row['magic'] != importlib.util.MAGIC_NUMBER.hex():
+        continue
+    source = base64.b64decode(row['source'], validate=True)
+    code = compile(source, row['filename'], 'exec', dont_inherit=True, optimize=row['optimize'])
+    if hashlib.sha256(marshal.dumps(code)).hexdigest() == row['body_sha256']:
+        valid.append(row['path'])
+print(json.dumps(valid))
+`;
+  const valid=JSON.parse(execFileSync('python3',['-I','-S','-c',verifier],{cwd:root,input:JSON.stringify(checks),timeout:10000,maxBuffer:1024*1024}).toString());
+  assert(Array.isArray(valid)&&valid.every(path=>checks.some(row=>row.path===path))&&new Set(valid).size===valid.length,'Invalid generated Python cache verification');
+  return new Set(valid);
+}
 function currentPolicy(root){
   const paths=POLICY_ROOTS.flatMap(path=>files(root,path));
   // Imported local data can live outside the usual source roots.
   const read=path=>bytes(root,path);
   // A single source scan inventories repository directories, not node_modules or builds.
   const extra=['assets','production'].flatMap(path=>files(root,path));
-  const inputs=policyInputs([...paths,...extra],read);
+  const inventory=[...paths,...extra],generated=generatedPythonCaches(root,inventory);
+  const inputs=policyInputs(inventory.filter(path=>!generated.has(path)),read);
   return {...inputs,digest:hashObject(inputs.paths.map(path=>[path,hashBytes(read(path))]))};
 }
 export function modelPolicyDigest(root=process.cwd()){return currentPolicy(resolve(root)).digest;}
