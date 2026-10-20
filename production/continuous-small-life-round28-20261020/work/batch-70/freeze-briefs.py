@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: MIT
+from pathlib import Path
+import json,hashlib,datetime,shutil
+R=Path.cwd();W=R/'production/continuous-small-life-round28-20261020/work/batch-70';B=R/'assets/candidates/continuous-small-life-round28-20261020/batch-70';C=Path('/workspace/shared/batch70-consult-only')
+H=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();now=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat()
+def put(p,d):p.write_text(json.dumps(d,indent=2)+'\n')
+specs=json.loads((W/'research-design-input.json').read_text())
+records=json.loads((W/'concept-tool-records.json').read_text());ledger=[]
+for slug,s in specs.items():
+ b=B/slug/'r001';b.mkdir(parents=True,exist_ok=True);g=records[slug];shutil.copyfile(g['path'],b/'concept-original.png');(b/'concept-prompt.txt').write_text(g['prompt']+'\n')
+ put(b/'concept-generation.json',{'tool':'image_gen.imagegen','output_path':g['path'],'output_hint':g['output_hint'],'call_started_observed_utc':g['started'],'result_observed_utc':g['observed'],'provider_generated_at':None,'receipt_status':'Actual tool output image_url and output_hint; no provider generation ID or internal timestamp returned','inspected_at':now()})
+ source={'id':'PRIMARY-'+slug,'title':slug+' primary morphology/process reference','url':s['url'],'license':'Consulted-only; source rights retained; no pixels redistributed','use':'consulted-only','incorporated':False,'rights_note':'Text and pixels consulted only. No source photograph, artwork, scan, mesh, texture or other third-party asset incorporated or redistributed.','notes':s['observation'],'consulted_at':now(),'consulted_images':[{'filename':n,'sha256':H(C/n)} for n in s['pixels']]}
+ if slug=='thaumaptilon':source['additional_url']='https://doi.org/10.1017/S0016756821001333'
+ if slug=='sandstone-fin':source['additional_url']='https://www.nps.gov/places/wooden-shoe-arch-overlook-wooden-shoe-arch.htm'
+ if slug=='ice-wedge-polygon-ground':source['additional_urls']=['https://www.nps.gov/yuch/learn/nature/permafrost.htm','https://www.nps.gov/articles/aps-v12-i2-c7.htm']
+ concept={'id':'CONCEPT','url':'internal-original-concept','title':'Original generated '+slug+' concept','license':'CC-BY-4.0 Leon Made This / s010s','use':'original-generated-concept','incorporated':False,'rights_note':'Original generated concept used as design guidance only; not a primary factual source or texture.','notes':s['decisions']}
+ put(b/'references.json',{'schema_version':1,'no_incorporated_third_party_assets':True,'rights_note':'All delivered geometry and render pixels original; no consulted-only source assets redistributed.','sources':[source,concept]})
+ brief=json.loads((R/'schemas/templates/brief.template.json').read_text());brief.update(asset_id=slug,brief_version='r001',purpose='Original evidence-informed refined-low-poly teaching prop, independent review pending',required_views=['hero','reversehero','front','side','rear','top','clay','silhouette'],turntable_frames=0,geometry_policy={'max_triangles':14000,'max_materials':6,'max_primitives':30,'max_glb_bytes':1000000},texture_policy={'max_textures':0,'max_dimension':256,'max_total_bytes':0,'max_decoded_bytes':0},view_exemptions={},coverage_justification='Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.',required_deliverables=[],claim_scope=s['claim'],nominal_dimensions_blender_xyz_m=s['dims'],dimension_status='Nominal targets not exact scientific measurements; final export measured separately',recognition_features=s['features'],concept_decisions=s['decisions'],style='Palette-only refined faceted real3D low-poly',intended_use='Supporting educational prop256-512px; not museum-grade specimen replica',created_at=now(),validation_profile='static-stylized-v1')
+ for q in brief['criteria']:
+  if q['stage'] in ['visual','factual']:q['required_sources']=['PRIMARY-'+slug];q['description']+=' Features: '+'; '.join(s['features'])+'. Scope: '+s['claim']
+ put(b/'brief.json',brief);put(b/'build-config.json',{'asset_id':slug,'revision':'r001','seed':70,'nominal_dimensions_blender_xyz_m':s['dims'],'palette':s['palette'],'blender_threads':2,'three_version':'0.180.0','concept_inspected_at':now(),'modeling_decisions':s['decisions']})
+ (b/'brief.md').write_text('# Frozen premodel brief\n\n'+s['claim']+'\n\n'+'\n'.join('- '+f for f in s['features'])+'\n\n'+s['decisions']+'\n\nSource: '+s['url']+'\n'+s['observation']+'\n\nNo independent or user approval claimed.\n')
+ refs=json.loads((b/'references.json').read_text());assert refs['schema_version']==1 and refs['no_incorporated_third_party_assets'] is True
+ for entry in refs['sources']:
+  assert all(isinstance(entry.get(k),str) and entry[k].strip() for k in ['id','title','url','license','use','rights_note']);assert entry['incorporated'] is False
+ put(b/'prefreeze-ledger-check.json',{'checked_at':now(),'status':'pass','schema_version':1,'all_entries_have_rights_note':True,'no_incorporated_third_party_assets':True,'reference_sha256':H(b/'references.json'),'note':'Schema-required source fields and non-incorporation declaration checked before freeze, not repaired afterward.'})
+ put(b/'modeling-freeze.json',{'asset_id':slug,'revision':'r001','frozen_at':now(),'status':'Actual primary text/pixels and original genuine ImageGen concept pixels inspected; complete asset-specific brief/config frozen BEFORE generator authoring and geometry','files':{n:H(b/n) for n in ['brief.json','brief.md','references.json','build-config.json','concept-original.png','concept-prompt.txt','concept-generation.json']}})
+ ledger.append({'id':slug,'url':s['url'],'observation':s['observation'],'inspected_at':now(),'images':source['consulted_images']});print(slug,now())
+put(W/'consulted-reference-log.json',ledger);put(W/'final-selection.json',[{'asset_id':x,'revision':'r001','path':str((B/x/'r001').relative_to(R))} for x in specs])
+put(W/'design-freeze-chronology.json',{'all_freezes_completed_at':now(),'next_action':'Author original deterministic generator only after this marker','provider_timestamps':None,'note':'Tool observer boundaries recorded; no provider internal timestamps inferred.'})

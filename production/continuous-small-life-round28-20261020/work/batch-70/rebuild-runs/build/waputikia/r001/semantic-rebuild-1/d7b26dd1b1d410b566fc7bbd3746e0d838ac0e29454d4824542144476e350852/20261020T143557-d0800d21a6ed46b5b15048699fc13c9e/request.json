@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/rebuild-runs/build/waputikia/r001/semantic-rebuild-1/d7b26dd1b1d410b566fc7bbd3746e0d838ac0e29454d4824542144476e350852/20261020T143557-d0800d21a6ed46b5b15048699fc13c9e/outputs"
+  ],
+  "created_at": "2026-10-20T14:35:57.113246+00:00",
+  "fingerprint": "d7b26dd1b1d410b566fc7bbd3746e0d838ac0e29454d4824542144476e350852",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5045,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/brief.json",
+        "sha256": "5dcd830af3c3b9334bdd870c76badfdbec7abf8128a6255c86c0f912db0228c9"
+      },
+      "config": {
+        "bytes": 694,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/build-config.json",
+        "sha256": "2fb79d15f153c72f9354bc50e821d11fbafcaf7628093ffa5a5448e44ac8793c"
+      },
+      "generator": {
+        "bytes": 10968,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/generator.py",
+        "sha256": "8980184ec93415cb89c14055f8ed03cc812afbccb2fb1a6a9277a33f6fd7fec0"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2364,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/references.json",
+        "sha256": "6e1628830bcb4cb54fe9a5235ae7da0fe2c637bf75d9c692595fd841be1dd4a4"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "waputikia",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch70-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch70-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T143557-76564b1eb92640ee97fe19b191ebec80"
+}

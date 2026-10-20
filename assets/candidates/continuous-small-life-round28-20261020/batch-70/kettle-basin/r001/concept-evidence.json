@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "kettle-basin",
+  "revision": "r001",
+  "labels": {
+    "en": "kettle-basin"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "3c2025df2a4a198b28ae9d194f3861c6e118be7e9721c476b4892f075614d5d9"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "454367be84dcde38bb6e0999695d38270ee5596e57fcc509b22177fde59e9987"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "2f4182956984bbe0f422931ce33cf177bf8712702535ceb70864d600f511223b"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "04025c9e9c5f43179bc58d5a23260a28c5841607cb80fcf5f35e1773316b79eb"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ceac858756f88b764b3b2bd5faf3c867931e4099fe2352ef1f69d7bf86f66508"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "4f877d7f05f1b717739c8795e55eeb5b529c8382f7459cc743049a50551cbbcf"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "12be5d9256442d6d551c7f29b821ab326e1e6cccc8bc45918fa1390348f8345c"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "d7d3c28e7643ca95d5cee8b9590cc4f26bb00584c4773482475706665b6d94cd"
+      }
+    ],
+    "cross_view_consistency_note": "Concept read as depression not crater; retain asymmetry and broad gentle glacial sediment hummocks. Avoid evenly spaced ring/tile patterns. Water opaque simplified teaching surface below surrounding ground, sediment floor exists below it. Closed irregular cutaway block bottom.",
+    "hidden_surface_decisions": "Concept read as depression not crater; retain asymmetry and broad gentle glacial sediment hummocks. Avoid evenly spaced ring/tile patterns. Water opaque simplified teaching surface below surrounding ground, sediment floor exists below it. Closed irregular cutaway block bottom."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:18:58.867168+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 10.2028,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "cb3eaa2f2af99e4c171cf45db640c2134110bf48b6f36cda7929b19bf52396a5"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "cb3eaa2f2af99e4c171cf45db640c2134110bf48b6f36cda7929b19bf52396a5"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "0ec08ff0c52246f37df43bff8b282e62630cb6ec0e7a9db1c578e8963b20174e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "7099a91888ea7148e433e716681be2726595aa6986f09e3bd5b6d896c6673559"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "3c2025df2a4a198b28ae9d194f3861c6e118be7e9721c476b4892f075614d5d9",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "07d8fb6afeede0f344954bdfdded002ee402d1e25218f639eb00251a8f834fa0"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

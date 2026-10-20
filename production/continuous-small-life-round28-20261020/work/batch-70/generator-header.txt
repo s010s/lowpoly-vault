@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: MIT
+"""Original batch68 geometry; deterministic Blender4.3.2, palette-only. No reference meshes."""
+import bpy,sys,json,math,argparse,pathlib,datetime,hashlib
+from mathutils import Vector
+R=next(p for p in pathlib.Path(__file__).resolve().parents if (p/'scripts/asset_common.py').exists());sys.path.insert(0,str(R/'scripts'))
+from asset_common import setup_scene,mesh_object,make_material,audit_source,ground_asset
+from qa_glb import audit_glb
+P=argparse.ArgumentParser();P.add_argument('--config',required=True);P.add_argument('--output',required=True);a=P.parse_args(sys.argv[sys.argv.index('--')+1:]);cfg=json.loads(pathlib.Path(a.config).read_text());out=pathlib.Path(a.output);out.mkdir(parents=True,exist_ok=True)
+slug=cfg['asset_id'];col=setup_scene(slug,cfg['seed']);m={k:make_material(k,v) for k,v in cfg['palette'].items()};groups={}
+def part(name,vs,fs,mat):
+ v,f=groups.setdefault((name,mat),([],[]));n=len(v);v.extend(vs);f.extend([tuple(n+i for i in face) for face in fs])
+def loft(name,rings,mat):
+ n=len(rings[0]);vs=[p for ring in rings for p in ring];fs=[tuple(range(n-1,-1,-1))]
+ for j in range(len(rings)-1):
+  for i in range(n):fs.append((j*n+i,j*n+(i+1)%n,(j+1)*n+(i+1)%n,(j+1)*n+i))
+ fs.append(tuple((len(rings)-1)*n+i for i in range(n)));part(name,vs,fs,mat)
+def tube(name,points,radii,mat,n=6):
+ rings=[]
+ for i,p in enumerate(points):
+  tangent=Vector(points[min(i+1,len(points)-1)])-Vector(points[max(0,i-1)]);tangent.normalize();ref=Vector((0,0,1)) if abs(tangent.z)<.95 else Vector((1,0,0));u=tangent.cross(ref).normalized();w=tangent.cross(u).normalized()
+  rings.append([tuple(Vector(p)+radii[i]*(u*math.cos(j*math.tau/n)+w*math.sin(j*math.tau/n))) for j in range(n)])
+ loft(name,rings,mat)
+def ellipsoid(name,c,r,mat,n=12,k=6):
+ rings=[]
+ for j in range(k+1):
+  t=-math.pi/2+.15+(math.pi-.30)*j/k
+  rings.append([(c[0]+r[0]*math.cos(t)*math.cos(i*math.tau/n),c[1]+r[1]*math.cos(t)*math.sin(i*math.tau/n),c[2]+r[2]*math.sin(t)) for i in range(n)])
+ loft(name,rings,mat)
+
+

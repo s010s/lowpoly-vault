@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "rimstone-dam",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: ONE continuous thin sinuous mineral wall enclosing ONE pool; Thin uneven crest above pool level and steep outer wall; Wall attached to original cave floor; No scaled nested bowls or repeated terrace stacks. Scope: Generic original ONE thin sinuous calcite dam enclosing ONE small cave pool on attached cave floor, no named cave, age or exact real-world dimensions.",
+      "required_sources": [
+        "PRIMARY-rimstone-dam"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: ONE continuous thin sinuous mineral wall enclosing ONE pool; Thin uneven crest above pool level and steep outer wall; Wall attached to original cave floor; No scaled nested bowls or repeated terrace stacks. Scope: Generic original ONE thin sinuous calcite dam enclosing ONE small cave pool on attached cave floor, no named cave, age or exact real-world dimensions.",
+      "required_sources": [
+        "PRIMARY-rimstone-dam"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/source.blend",
+      "sha256": "9111cdd1cb52b3dc6d90c968e9fa036a5664672cb748d7965532e60ab04f7623"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/generator.py",
+      "sha256": "04025c9e9c5f43179bc58d5a23260a28c5841607cb80fcf5f35e1773316b79eb"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/build-config.json",
+      "sha256": "1fac4b551db85ab18aede2da1e54dc40b2b5de822bb41a0ea48d1d3db9e2d569"
+    }
+  ],
+  "claim_scope": "Generic original ONE thin sinuous calcite dam enclosing ONE small cave pool on attached cave floor, no named cave, age or exact real-world dimensions.",
+  "nominal_dimensions_blender_xyz_m": [
+    2.4,
+    1.7,
+    0.38
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "ONE continuous thin sinuous mineral wall enclosing ONE pool",
+    "Thin uneven crest above pool level and steep outer wall",
+    "Wall attached to original cave floor",
+    "No scaled nested bowls or repeated terrace stacks"
+  ],
+  "concept_decisions": "Concept wall slightly thick; reduce relative crest thickness while preserving readability, vary curvature nonperiodically. Single closed sinuous enclosure, not a terrace set. Back and underside original floor. Water stylized opaque blue-green volume, no transparency complexity or physical depth claim.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T14:18:58.879952+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:23:37.477797+00:00",
+    "frozen_design_brief_sha256": "0df31cca502a5d27c88000442faaefc8091b8de8113fd3d5e78a2e12a234ed32",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

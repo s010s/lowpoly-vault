@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "asset_id": "kettle-basin",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Closed basin floor below all surrounding sediment; Uneven low hummocks in glacial till, no elevated volcanic circular rim; Partial shallow water with exposed irregular inward slopes; Sparse irregularly embedded stones subordinate to terrain. Scope: Generic closed kettle depression in hummocky glacial sediment with shallow partial pond, no exact locality, ice age or physical measurement asserted.",
+      "required_sources": [
+        "PRIMARY-kettle-basin"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Closed basin floor below all surrounding sediment; Uneven low hummocks in glacial till, no elevated volcanic circular rim; Partial shallow water with exposed irregular inward slopes; Sparse irregularly embedded stones subordinate to terrain. Scope: Generic closed kettle depression in hummocky glacial sediment with shallow partial pond, no exact locality, ice age or physical measurement asserted.",
+      "required_sources": [
+        "PRIMARY-kettle-basin"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [],
+  "claim_scope": "Generic closed kettle depression in hummocky glacial sediment with shallow partial pond, no exact locality, ice age or physical measurement asserted.",
+  "nominal_dimensions_blender_xyz_m": [
+    80,
+    68,
+    8
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "Closed basin floor below all surrounding sediment",
+    "Uneven low hummocks in glacial till, no elevated volcanic circular rim",
+    "Partial shallow water with exposed irregular inward slopes",
+    "Sparse irregularly embedded stones subordinate to terrain"
+  ],
+  "concept_decisions": "Concept read as depression not crater; retain asymmetry and broad gentle glacial sediment hummocks. Avoid evenly spaced ring/tile patterns. Water opaque simplified teaching surface below surrounding ground, sediment floor exists below it. Closed irregular cutaway block bottom.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T14:18:58.869648+00:00",
+  "validation_profile": "static-stylized-v1"
+}

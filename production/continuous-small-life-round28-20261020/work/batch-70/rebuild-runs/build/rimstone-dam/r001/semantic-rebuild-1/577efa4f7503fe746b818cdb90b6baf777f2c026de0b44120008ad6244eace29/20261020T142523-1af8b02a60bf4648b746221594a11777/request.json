@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/rebuild-runs/build/rimstone-dam/r001/semantic-rebuild-1/577efa4f7503fe746b818cdb90b6baf777f2c026de0b44120008ad6244eace29/20261020T142523-1af8b02a60bf4648b746221594a11777/outputs"
+  ],
+  "created_at": "2026-10-20T14:25:23.893202+00:00",
+  "fingerprint": "577efa4f7503fe746b818cdb90b6baf777f2c026de0b44120008ad6244eace29",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4891,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/brief.json",
+        "sha256": "0df31cca502a5d27c88000442faaefc8091b8de8113fd3d5e78a2e12a234ed32"
+      },
+      "config": {
+        "bytes": 704,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/build-config.json",
+        "sha256": "1fac4b551db85ab18aede2da1e54dc40b2b5de822bb41a0ea48d1d3db9e2d569"
+      },
+      "generator": {
+        "bytes": 10802,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/generator.py",
+        "sha256": "04025c9e9c5f43179bc58d5a23260a28c5841607cb80fcf5f35e1773316b79eb"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2001,
+        "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/references.json",
+        "sha256": "6fda20f0cedc3af3c692dc278705fb93657c7afc5dde42dcba8f277b2dbf35a6"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "rimstone-dam",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch70-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch70-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T142358-5d6e28a073754d5fae99740c981458e0"
+}
