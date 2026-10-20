@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,hashlib,datetime,subprocess
+R=Path.cwd();B=R/'assets/candidates/continuous-small-life-round26-20261020/batch-66';W=R/'production/continuous-small-life-round26-20261020/work/batch-66-repair-r002';H=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();canon=lambda x:hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+def tree(p):return {str(f.relative_to(p)):H(f) for f in sorted(p.rglob('*')) if f.is_file()}
+before=json.loads((W/'original-trees-before.json').read_text());after={s:tree(B/s/'r001') for s in before};assert before==after,'Originalr001 tree changed'
+records=[]
+for x in json.loads((W/'final-selection.json').read_text()):
+ b=R/x['path'];old=b.parent/'r001';p=json.loads((b/'proof-final/render-manifest.json').read_text());c=json.loads((b/'candidate.json').read_text());pre=json.loads((b/'binding-preflight.candidate.json').read_text());assert pre['artifacts']==c['artifacts'];subject={'revision':'r002',**{k+'_sha256':H(b/n) for k,n in [('glb','model.glb'),('brief','candidate-brief.json'),('references','references.json')]}};assert p['subject']==subject;assert p['width']==p['height']==512 and p['frame_count']==8
+ assert H(b/'brief.json')==H(old/'brief.json') and H(b/'references.json')==H(old/'references.json') and H(b/'original-build-config.json')==H(old/'build-config.json') and H(b/'original-modeling-freeze.json')==H(old/'modeling-freeze.json')
+ assert not json.loads((b/'source-metrics.json').read_text())['errors']
+ dep=json.loads((b/'build-dependencies.json').read_text());assert dep['generator_sha256']==H(b/'generator.py') and dep['config_sha256']==H(b/'build-config.json');assert all(H(R/n)==v for n,v in dep['files'].items())
+ runs=[]
+ for result in (W/'rebuild-runs/build'/x['asset_id']/'r002').rglob('result.json'):
+  d=json.loads(result.read_text());q=json.loads((result.parent/'request.json').read_text());assert d['status']=='succeeded';assert q['argv'][0]=='/usr/bin/flock' and q['argv'][1]=='/tmp/lowpoly-production-blender.lock';assert '--threads' in q['argv'] and q['argv'][q['argv'].index('--threads')+1]=='2';assert d['outputs']['model.glb']['sha256']==H(b/'model.glb');runs.append({'job_id':d['job_id'],'pid':d['pid'],'started_at':d['started_at'],'finished_at':d['finished_at'],'request_path':str((result.parent/'request.json').relative_to(R)),'request_sha256':H(result.parent/'request.json'),'result_path':str(result.relative_to(R)),'result_sha256':H(result)})
+ assert len(runs)==2 and len({d['pid'] for d in runs})==2 and len({d['job_id'] for d in runs})==2
+ records.append({'asset_id':x['asset_id'],'revision':'r002','glb_sha256':H(b/'model.glb'),'source_original_continuity':True,'final_binding_matches_pre_render_schema_preflight':True,'frame_count':8,'queued_rebuilds':runs})
+inv=Path('/tmp/lowpoly-batch62-20261020/research/prehistoric-1000-v1/inventory.json');assert H(inv)=='b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c'
+out={'verified_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_base':'b8989e6bbc2c2fc0af15f821b80df4ff53baf1c6','all_four_original_r001_trees_unchanged':True,'original_tree_sha256':{s:canon(v) for s,v in before.items()},'accepted_two_full_trees_byte_identical':['graben-basin/r001','meandering-river-reach/r001'],'accepted_no_rebuild_or_rerender':True,'inventory_sha256':H(inv),'repaired':records,'independent_differential_review':'pending','gpu':'not_run','scene':'not_run','publication':'not_pushed'};(W/'continuity-and-process-verification.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out,indent=2))

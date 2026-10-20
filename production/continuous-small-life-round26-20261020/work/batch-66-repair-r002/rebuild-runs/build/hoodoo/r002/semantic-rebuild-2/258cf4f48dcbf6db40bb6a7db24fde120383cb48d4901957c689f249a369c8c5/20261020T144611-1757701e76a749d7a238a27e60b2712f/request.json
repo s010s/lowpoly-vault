@@ -1,0 +1,107 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch66-20261020/production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-2/258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5/20261020T144611-1757701e76a749d7a238a27e60b2712f/outputs"
+  ],
+  "created_at": "2026-10-20T14:46:11.532620+00:00",
+  "fingerprint": "258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch66-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5756,
+        "path": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/brief.json",
+        "sha256": "cf6d2fe0230975d98df91841b006117a27c30ca4add4b2c318d67ae448b4738b"
+      },
+      "config": {
+        "bytes": 1198,
+        "path": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/build-config.json",
+        "sha256": "cb6713c5152c67c8a237668cd1d77dd80437a8725edaf0dd1fdcc99c06d2c885"
+      },
+      "generator": {
+        "bytes": 9219,
+        "path": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/generator.py",
+        "sha256": "e7a2fa658869edd3183fb748561971c24b3b35a7f7e198bd255b91e887ad5405"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch66-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2044,
+        "path": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/references.json",
+        "sha256": "5051775a0fd9611a8904b5117236ab38c9958d50a0cdd8315bd8fd5ba62a84e3"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "{blender}",
+        "--background",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "hoodoo",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch66-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch66-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch66-20261020/assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T144603-3f84c388345e41c18a0599186a783786"
+}
