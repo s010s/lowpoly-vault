@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir,appendFile,realpath} from 'node:fs/promises';
+import {resolve,dirname} from 'node:path';
+import {createHash} from 'node:crypto';
+const inputs={path:'qa/batches58-59-release-20261020/capture-inputs.json',sha256:'97c8368f0486f183603dc45de098c43845871c9f29155579392833941af5c254'};
+const exactIds=["barchan-dune", "calamophyton", "current-ripple-surface", "glacial-erratic", "gypsum-cave-flower", "perspicaris", "stalactite-group"];
+async function checked(pin){assert(/^(assets|qa)\/[a-zA-Z0-9_./-]+$/.test(pin.path)&&!pin.path.split('/').includes('..'));const p=resolve(pin.path);assert.equal(await realpath(p),p);const b=await readFile(p);assert.equal(createHash('sha256').update(b).digest('hex'),pin.sha256);return b;}
+const descriptor=JSON.parse(await checked(inputs));assert.equal(descriptor.publication_authority,false);assert.equal(descriptor.capture_status,'not_run');assert.equal(descriptor.images_present,false);assert.deepEqual(descriptor.selected_ids.slice().sort(),exactIds);assert.deepEqual(descriptor.assets.map(a=>a.id).sort(),exactIds);
+for(const review of [{"path": "qa/batch58-independent-20261020/independent-qa.md", "sha256": "ded5ef8f1fc70e1c71c0f730f194135e93e3c22f0505f016465a78f58343a6dc", "source_commit": "9bb7eb242a2c7ee35868ca57789c93c06c4bcbb8", "qa_commit": "48f08fa3e2d6bb9a06526efd7142c4fc35184d86", "reviewer_task": "/root/coordinate_new_model_batches/review_batch58_models"}, {"path": "qa/batch59-independent-20261020/QA-report.md", "sha256": "de1608a0e8fa90d519b6bd7aed1002c7bdb853631d57dbd1f7c5fb6d4680ae1e", "source_commit": "330bc4aa669a1647c632a32622ce4318fd8d1b59", "qa_commit": "289cca9359cdd3595f7015f894a00675a004c422", "reviewer_task": "/root/coordinate_new_model_batches/review_batch59_models"}])await checked(review);
+const assets=[];
+for(const entry of descriptor.assets){const a=JSON.parse(await checked(entry.metadata)),b=await checked(entry.glb);assert.equal(a.id,entry.id);assert.equal(a.glb,entry.glb.path);assert.equal(a.sha256.glb,entry.glb.sha256);assert.equal(a.sha256.preview,null);const target=resolve(process.env.GALLERY_DIR,a.glb);await mkdir(dirname(target),{recursive:true});await writeFile(target,b);assets.push(a);}
+await mkdir(resolve(process.env.GALLERY_DIR,'assets'),{recursive:true});await writeFile(resolve(process.env.GALLERY_DIR,'assets/manifest.json'),JSON.stringify({capture_only:true,publication_authority:false,assets}));await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${assets.map(a=>a.id).join(',')}\n`);
+console.log('Seven exact source hashes staged; no publication or formal approval.');
