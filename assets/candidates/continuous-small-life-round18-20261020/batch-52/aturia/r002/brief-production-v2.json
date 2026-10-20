@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "asset_id": "aturia",
+  "brief_version": "r002",
+  "profile": "production",
+  "purpose": "Evidence-informed stylized Aturia-inspired fossil shell; supporting hand-scale educational prop, not specimen facsimile.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inflated tightly involute shell with rounded outer rim and shallow umbilical seam; true thickness readable in edge/top views, no ribs or open ammonite whorls.",
+      "required_sources": [
+        "PRI-ATURIA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Aturia-inspired general shell form only; original genus inventory unchanged, no specimen size/locality/age/soft-body reconstruction claim.",
+      "required_sources": [
+        "PRI-ATURIA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed eight views; no turntable. Full canonical broad front/rear, edge side and top plus oblique and clay/silhouette.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/aturia.blend",
+      "sha256": "7fc1baa737bf10264ea615504e6178e4854e4a3b82ee10d344985d98da2cedf5"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/generator.py",
+      "sha256": "3ef3a3fc69a1f509510ba857a13e6a595efa91fe667a99b9531d24a61cd39058"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/config.json",
+      "sha256": "22793d3f6a81e219c285cf5db14ae003af55a16aed12515f6e74ab6f5ee84943"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.24,
+    0.105,
+    0.22
+  ],
+  "nominal_dimensions_glb_xyz_m": [
+    0.24,
+    0.22,
+    0.105
+  ],
+  "dimension_note": "Artistic nominal design scale; measured bounds reported separately, not specimen measurement.",
+  "axes": {
+    "blender_up": "+Z",
+    "blender_forward": "-Y",
+    "glb_up": "+Y",
+    "glb_forward": "+Z"
+  },
+  "origin": "Ground center; lowest Z=0.",
+  "label": "Aturia-inspired smooth involute fossil shell",
+  "concept_interpretation": "Viewed actual original three-view pixels. Broad inflated shell, small umbilical dimple, restrained shallow spiral and rounded rim, lower-right terminal lip. Sheet shows narrower edge than requested; preserve authored thickness 0.105 nominal rather than infer dimensions from pixels. Fossil mottling is artistic; use restrained palette patches rather than texture.",
+  "hidden_surfaces": "Rear carries compatible shallow dimple and winding seam; fully closed rounded edge and fossilized terminal region. No soft tissues, exposed chambers, or asserted original pigmentation.",
+  "representation": "fossil-specimen; evidence-informed generalization",
+  "viewing_distance_m": [
+    0.4,
+    2.0
+  ],
+  "revision_change": "Narrower shallower umbilical depression and continuous wider shallow winding groove. More radial samples resolve specific dotted groove artifact in r001, within fixed budgets."
+}

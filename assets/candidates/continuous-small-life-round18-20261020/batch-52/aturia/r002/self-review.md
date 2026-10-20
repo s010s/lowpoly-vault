@@ -1,0 +1,3 @@
+# Maker inspection; pending independent acceptance
+
+All eight original 512px proof frames actually opened and inspected. r002 reduces dimple width/depth and smooths groove sampling. Edge/top show substantial closed volume. Rounded outer rim remains quiet. This is maker observation, not independent visual/factual/specification approval. Source page text consulted, source photo pixels unavailable (403). Fine specimen sutures, true pigmentation, exact specimen anatomy/dimensions are not claimed. CPU images do not establish runtime, GPU or composed scene performance. Provider exact generation time unavailable; concept was generated and actually inspected before brief and geometry. Final thumbnail is the exact proof hero frame.

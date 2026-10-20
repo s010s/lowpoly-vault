@@ -1,0 +1,3 @@
+# Maker inspection; pending independent acceptance
+
+All eight original 512px proof frames actually opened and inspected. r001 broad depression and dotted spiral groove are visible weaknesses; retained superseded authoring attempt. Source page text consulted, source photo pixels unavailable (403). Fine specimen sutures, true pigmentation, exact specimen anatomy/dimensions are not claimed. CPU images do not establish runtime, GPU or composed scene performance. Provider exact generation time unavailable; concept was generated and actually inspected before brief and geometry. Final thumbnail is the exact proof hero frame.
