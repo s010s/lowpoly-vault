@@ -1,0 +1,362 @@
+{
+  "created_at": "2026-10-20T17:09:03.559131+00:00",
+  "incident": "Unchanged valley-glacier r001 accidentally included in diagnostics repair runner",
+  "original_source_preservation": "not_verifiable",
+  "first_build_files_overwritten_before_snapshot": [
+    "source.blend",
+    "source-metrics.json",
+    "metrics.json",
+    "build.log",
+    "diagnostic.log"
+  ],
+  "overwritten_but_exact_identity_reestablished": [
+    {
+      "path": "model.glb",
+      "sha256": "be08d8511f6b2f10f0782614c9ff1733802b78104e916b96863b60570a30271d",
+      "proof": "First original diagnostic render-manifest glb hash equals active rebuilt GLB; original geometry bytes exact identity verified."
+    }
+  ],
+  "first_pixels_preserved": [
+    {
+      "path": "production/small-life-batch81/assets/valley-glacier/r001/retained-first-diagnostic-run/diagnostic/clay.png",
+      "sha256": "71dac876ae4984af49f4ccfd7f8cfcec6cda42885824347e60972f6801732d7c"
+    },
+    {
+      "path": "production/small-life-batch81/assets/valley-glacier/r001/retained-first-diagnostic-run/diagnostic/hero.png",
+      "sha256": "b42d269b25f993e27c3aafdb71a11a3db30ea5960a966f6bcc679d1f72d53a2c"
+    },
+    {
+      "path": "production/small-life-batch81/assets/valley-glacier/r001/retained-first-diagnostic-run/diagnostic/render-config.json",
+      "sha256": "8d8acd62d78b4aa71bfa250adee080bd5cc9775a9f8a989d81081bd334e04fb4"
+    },
+    {
+      "path": "production/small-life-batch81/assets/valley-glacier/r001/retained-first-diagnostic-run/diagnostic/render-manifest.json",
+      "sha256": "795a375ee2682faf845573bdceb17eb9c2d2bddfa1dc7db75c7e963701dd5eff"
+    },
+    {
+      "path": "production/small-life-batch81/assets/valley-glacier/r001/retained-first-diagnostic-run/diagnostic/top.png",
+      "sha256": "358855c2e8172d2eb4af73e97eca980a2a67a271e7cf51604f44030dc970550a"
+    },
+    {
+      "path": "production/small-life-batch81/assets/valley-glacier/r001/retained-first-diagnostic-run/diagnostic/turntable.json",
+      "sha256": "abfe36146cb4b0eadaca693406e1c75cb22c0736fa1142c5518ee41e6cf16685"
+    }
+  ],
+  "original_and_repeated_process_events": [
+    {
+      "stage": "build",
+      "command": [
+        "flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/generator.py",
+        "--",
+        "--config",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/build-config.json",
+        "--output",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001"
+      ],
+      "runner_pid": 155,
+      "started_at": "2026-10-20T17:01:03.313228+00:00",
+      "ended_at": "2026-10-20T17:01:11.243988+00:00",
+      "wall_seconds": 7.930776421999326,
+      "exit_code": 0
+    },
+    {
+      "stage": "diagnostic",
+      "command": [
+        "flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/render-fixed8.py",
+        "--",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/model.glb",
+        "--revision",
+        "r001",
+        "--output-dir",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/diagnostic",
+        "--views",
+        "hero,clay,top",
+        "--resolution",
+        "256",
+        "--samples",
+        "8",
+        "--turntable-frames",
+        "0"
+      ],
+      "runner_pid": 178,
+      "started_at": "2026-10-20T17:01:11.244128+00:00",
+      "ended_at": "2026-10-20T17:01:21.977089+00:00",
+      "wall_seconds": 10.732997512008296,
+      "exit_code": 0
+    },
+    {
+      "stage": "build",
+      "command": [
+        "flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/generator.py",
+        "--",
+        "--config",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/build-config.json",
+        "--output",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001"
+      ],
+      "runner_pid": 154,
+      "started_at": "2026-10-20T17:02:23.400432+00:00",
+      "ended_at": "2026-10-20T17:02:28.968504+00:00",
+      "wall_seconds": 5.568085551989498,
+      "exit_code": 0
+    },
+    {
+      "stage": "diagnostic",
+      "command": [
+        "flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/render-fixed8.py",
+        "--",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/model.glb",
+        "--revision",
+        "r001",
+        "--output-dir",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/diagnostic",
+        "--views",
+        "hero,clay,top",
+        "--resolution",
+        "256",
+        "--samples",
+        "8",
+        "--turntable-frames",
+        "0"
+      ],
+      "runner_pid": 177,
+      "started_at": "2026-10-20T17:02:28.969242+00:00",
+      "ended_at": "2026-10-20T17:02:32.673383+00:00",
+      "wall_seconds": 3.7041485749941785,
+      "exit_code": 2
+    },
+    {
+      "stage": "format",
+      "runner_pid": 256,
+      "started_at": "2026-10-20T17:04:36.200048+00:00",
+      "ended_at": "2026-10-20T17:04:36.415222+00:00",
+      "wall_seconds": 0.21519445499870926,
+      "exit_code": 0,
+      "command": [
+        "node",
+        "scripts/validate_gltf.cjs",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/model.glb"
+      ]
+    },
+    {
+      "stage": "source-reopen",
+      "runner_pid": 264,
+      "started_at": "2026-10-20T17:04:36.416196+00:00",
+      "ended_at": "2026-10-20T17:04:40.503509+00:00",
+      "wall_seconds": 4.0873386560124345,
+      "exit_code": 0,
+      "command": [
+        "flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "scripts/check_source_export.py",
+        "--",
+        "--source",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/source.blend",
+        "--glb",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/model.glb",
+        "--output",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/source-final.report.json",
+        "--collection",
+        "EXPORT"
+      ]
+    },
+    {
+      "stage": "source-vertex-counts",
+      "runner_pid": 286,
+      "started_at": "2026-10-20T17:04:40.503925+00:00",
+      "ended_at": "2026-10-20T17:04:44.314593+00:00",
+      "wall_seconds": 3.8109040260023903,
+      "exit_code": 0,
+      "command": [
+        "flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/count-source-vertices.py",
+        "--",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001"
+      ]
+    },
+    {
+      "stage": "proof-final",
+      "runner_pid": 308,
+      "started_at": "2026-10-20T17:04:44.338714+00:00",
+      "ended_at": "2026-10-20T17:05:18.546298+00:00",
+      "wall_seconds": 34.20764095601044,
+      "exit_code": 0,
+      "command": [
+        "flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/render-fixed8.py",
+        "--",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/model.glb",
+        "--revision",
+        "r001",
+        "--brief",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/candidate-brief.json",
+        "--references",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/references.json",
+        "--output-dir",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/proof-final",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "16"
+      ]
+    },
+    {
+      "stage": "repro-final-2",
+      "runner_pid": 545,
+      "started_at": "2026-10-20T17:06:59.235698+00:00",
+      "ended_at": "2026-10-20T17:07:00.205003+00:00",
+      "wall_seconds": 0.9693170950049534,
+      "exit_code": 0,
+      "command": [
+        "python3",
+        "scripts/check_reproducibility.py",
+        "--glb",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/model.glb",
+        "--rebuilt-glb",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-2/eefc555a23020525ead6ac24c935d55df3038bba0cea2c47698d6c2a85b23855/20261020T170648-7f7e8b4f775643229918e9bb80f29599/outputs/model.glb",
+        "--generator",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/generator.py",
+        "--config",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/build-config.json",
+        "--build-request",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-2/eefc555a23020525ead6ac24c935d55df3038bba0cea2c47698d6c2a85b23855/20261020T170648-7f7e8b4f775643229918e9bb80f29599/request.json",
+        "--build-result",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-2/eefc555a23020525ead6ac24c935d55df3038bba0cea2c47698d6c2a85b23855/20261020T170648-7f7e8b4f775643229918e9bb80f29599/result.json",
+        "--rebuilt-output",
+        "model.glb",
+        "--root",
+        "/workspace/shared/lowpoly-batch81-20261020",
+        "--output",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/repro-final-2.report.json"
+      ]
+    },
+    {
+      "stage": "repro-final-1",
+      "runner_pid": 546,
+      "started_at": "2026-10-20T17:07:00.207216+00:00",
+      "ended_at": "2026-10-20T17:07:01.176392+00:00",
+      "wall_seconds": 0.9692954029887915,
+      "exit_code": 0,
+      "command": [
+        "python3",
+        "scripts/check_reproducibility.py",
+        "--glb",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/model.glb",
+        "--rebuilt-glb",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-1/92672c999709f534bfca2b54d7e7748b5bdbd418733fbe594f9e00e8831a4dc3/20261020T170640-b7eb72df82024613a011b98fd7009019/outputs/model.glb",
+        "--generator",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/generator.py",
+        "--config",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/build-config.json",
+        "--build-request",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-1/92672c999709f534bfca2b54d7e7748b5bdbd418733fbe594f9e00e8831a4dc3/20261020T170640-b7eb72df82024613a011b98fd7009019/request.json",
+        "--build-result",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-1/92672c999709f534bfca2b54d7e7748b5bdbd418733fbe594f9e00e8831a4dc3/20261020T170640-b7eb72df82024613a011b98fd7009019/result.json",
+        "--rebuilt-output",
+        "model.glb",
+        "--root",
+        "/workspace/shared/lowpoly-batch81-20261020",
+        "--output",
+        "/workspace/shared/lowpoly-batch81-20261020/production/small-life-batch81/assets/valley-glacier/r001/repro-final-1.report.json"
+      ]
+    }
+  ],
+  "known_outcome": "First build and three diagnostic renders succeeded. Repeat build succeeded; second diagnostic exited2 refusing nonempty output. Original diagnostic.log first process text lost, but exact first command/runnerPID/start/end/exit and render frame intervals retained.",
+  "available_git_recovery": {
+    "prior_commits_for_source_path": [],
+    "tracked_paths": [],
+    "conclusion": "No prior committed or staged original source at this new candidate path. No original first source-byte checksum for finding exact blob elsewhere; do not infer restoration from semantic equivalence."
+  },
+  "later_queue_outputs": [
+    {
+      "path": "production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-2/eefc555a23020525ead6ac24c935d55df3038bba0cea2c47698d6c2a85b23855/20261020T170648-7f7e8b4f775643229918e9bb80f29599/outputs/source.blend",
+      "sha256": "9c830e308e79a6535052bb10484ae735e6285ada2110dd1ebedb180e234a89a1",
+      "role": "Later independently queued rebuild source, not original first diagnostic build bytes; no earlier source checksum exists to prove restoration."
+    },
+    {
+      "path": "production/small-life-batch81/rebuild-runs/build/valley-glacier/r001/semantic-rebuild-1/92672c999709f534bfca2b54d7e7748b5bdbd418733fbe594f9e00e8831a4dc3/20261020T170640-b7eb72df82024613a011b98fd7009019/outputs/source.blend",
+      "sha256": "1d99a13fd86c94c7d5b91ce5463dd03da2c6c22a50daf5b611b96a2f389498ab",
+      "role": "Later independently queued rebuild source, not original first diagnostic build bytes; no earlier source checksum exists to prove restoration."
+    }
+  ],
+  "restored_original_files": [],
+  "final_selected_revision": "r002 isolated final evidence chain unaffected",
+  "limitations": "Snapshot directory name refers to retained first diagnostic pixels only; its source/metrics/build.log are post-repeat snapshots, not proof of original first source bytes. No earlier trial rerun or invented original timestamps used."
+}

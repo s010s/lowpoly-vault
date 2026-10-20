@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "patterned-stone-circles",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form educational landscape module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Natural frost sorted fine sediment centers surrounded by diffuse coarse clast margins; Five unequal partly adjoining deformed circles with broad multi-clast borders; Flat low-relief terrain, not mechanical hoops, stone monuments, raised crater rings or ice-wedge polygons. Scope: Generic original frost sorted ground process/form concept informed by University Washington primary field photo and study explanation. No exact Svalbard survey, age, permafrost thermal condition or coexistence claim. Nominal12x10x0.45m illustrative patch; circles roughly2-3m across, consistent with approximate3m field caption but not measured reconstruction. Coarse-fine sorting is physical relief/material distribution, not just color rings. Not human construction.",
+      "required_sources": [
+        "UW2021"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Natural frost sorted fine sediment centers surrounded by diffuse coarse clast margins; Five unequal partly adjoining deformed circles with broad multi-clast borders; Flat low-relief terrain, not mechanical hoops, stone monuments, raised crater rings or ice-wedge polygons. Scope: Generic original frost sorted ground process/form concept informed by University Washington primary field photo and study explanation. No exact Svalbard survey, age, permafrost thermal condition or coexistence claim. Nominal12x10x0.45m illustrative patch; circles roughly2-3m across, consistent with approximate3m field caption but not measured reconstruction. Coarse-fine sorting is physical relief/material distribution, not just color rings. Not human construction.",
+      "required_sources": [
+        "UW2021"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [],
+  "claim_scope": "Generic original frost sorted ground process/form concept informed by University Washington primary field photo and study explanation. No exact Svalbard survey, age, permafrost thermal condition or coexistence claim. Nominal12x10x0.45m illustrative patch; circles roughly2-3m across, consistent with approximate3m field caption but not measured reconstruction. Coarse-fine sorting is physical relief/material distribution, not just color rings. Not human construction.",
+  "nominal_dimensions_blender_xyz_m": [
+    12,
+    10,
+    0.45
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "Natural frost sorted fine sediment centers surrounded by diffuse coarse clast margins",
+    "Five unequal partly adjoining deformed circles with broad multi-clast borders",
+    "Flat low-relief terrain, not mechanical hoops, stone monuments, raised crater rings or ice-wedge polygons"
+  ],
+  "concept_decisions": "Concept supports unequal partly shared coarse margins and fine centers. Reduce oversized boulders to small varied gravel/clasts and avoid mathematically perfect isolated rings. Margins broad and diffuse; dense integral faceted clast-like relief eliminates overlapping coplanar rock skins. Five centers with unequal ellipticity and scalloped boundaries, sparse small particles within fine centers. No vegetation or mechanical walls.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting landscape geological module at256-512px; preserve world scale",
+  "created_at": "2026-10-20T16:58:19.561165+00:00",
+  "validation_profile": "static-stylized-v1"
+}
