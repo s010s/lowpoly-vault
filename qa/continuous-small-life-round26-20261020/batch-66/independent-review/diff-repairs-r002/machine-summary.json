@@ -1,0 +1,723 @@
+{
+  "schema": "independent-targeted-differential-review-r002-v1",
+  "reviewed_at_utc": "2026-10-20T15:17:00Z",
+  "scope": "Differential QA only of repaired Louisella and Hoodoo r002; no repeat of accepted r001 geometry, no source/push/approval/release action.",
+  "source": {
+    "repo": "/workspace/shared/lowpoly-batch66-20261020",
+    "branch": "candidate/small-life-batch66-concept-20261020",
+    "commit": "ed8c2e7994ce1463c487e3ace18105888ef3211e",
+    "clean_status": true
+  },
+  "original_qa_immutable": {
+    "report_path": "/workspace/shared/lowpoly-round26-qa66/independent-review.md",
+    "sha256": "5a05852395f37ee76a66f73ffe49b430b469fd9ea63c32313c7b2903f0451c14"
+  },
+  "continuity": {
+    "original_r001_trees_all_unchanged": true,
+    "r001_tree_sha256": {
+      "louisella": "32ada09593bd8115f2747a0db30a7f332cc3fe7f12143edcc16d6d3b6731ddd6",
+      "hoodoo": "6367bbb4b788c3f0c8814e9c27790f2a294229f7fcd782877b37ad0e3e415538",
+      "graben-basin": "707f3cd43570b200c537bf1d6f3aa98b4328913b7fff93fbdc89d36dc8e04929",
+      "meandering-river-reach": "c545609ea01e365d71ab92ed1d6b30d1ceaa1cce010065da6fec50111cc2db90"
+    },
+    "accepted_pair_same_bytes": true,
+    "accepted_pair_no_rebuild_or_rerender": true,
+    "inventory_sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "brief_reference_concept_original_freeze_continuity": true
+  },
+  "provenance_limits": {
+    "new_semantic_rebuilds": "Two distinct successful executed queue jobs per changed asset; request/result hashes, PIDs, timestamps, outputs and semantic matches independently verified below. Queue logs remain process attestations, not cryptographic proof of execution beyond their bound outputs.",
+    "original_concept_provider_generation_timestamp": "unknown, as declared by original evidence; no mtime inference",
+    "original_generator_authoring_start_timestamp": "unknown, as declared by original evidence; no mtime inference",
+    "repair_generator_completion": "handoff observed 2026-10-20T14:43:49.989Z (maker record); not treated as provider/authoring start."
+  },
+  "visual_evidence": "All 16 new 512×512 individual final views and both contact sheets inspected directly. Original concept pixels were retained/verified by source hash. ROM whole USNM57616 and reconstruction pixels were reopened to compare Louisella. NPS hoodoo weathering sequence was reopened to compare ledges. Copyrighted consulted references were not copied into this QA evidence directory.",
+  "assets": {
+    "louisella": {
+      "revision": "r002",
+      "bounded_disposition": "ACCEPT BOUNDED",
+      "stage_dispositions": {
+        "technical": "ACCEPT",
+        "visual": "ACCEPT",
+        "factual": "ACCEPT",
+        "specification": "ACCEPT",
+        "runtime_parse": "ACCEPT",
+        "gpu": "BLOCKED / UNKNOWN (not run)",
+        "scene": "BLOCKED / UNKNOWN (not run)"
+      },
+      "independent_visual_review": "The specific prior defects are materially corrected at original output resolution: side/rear/silhouette show a blunt, smoothly rounded posterior rather than a sharp cone; top/hero/clay views show two genuinely separated parallel blunt papilla ridges, not one row of dots or walking legs; the annulated middle, short-spined anterior, papilla-bearing zone and smooth unspined rear have distinct structural cues. The single 25-spine proboscis ring and fine scalids remain at proboscis scale. Full smooth rear/anterior are visible without hiding cameras or material-only deception; no unsupported gill-function claim. Remaining limitations are ordinary schematic stylization, not the previous failure.",
+      "pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/model.glb",
+          "sha256": "63a540aaf41598f0921b10083020af9763789a41395ef6e46641b9ed7a4fc50c",
+          "bytes": 576116
+        },
+        "source_blend": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/source.blend",
+          "sha256": "2df14fc1dc2cac9bdf45898e40d6fe1f7a3e30cf9a84585bcf4bdbbe711d63f0"
+        },
+        "candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/candidate-brief.json",
+          "sha256": "adbb9dcd80084ce502608ad3a665b7e03de8f0188d39a4e6f78f610f82248e95"
+        },
+        "frozen_original_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/brief.json",
+          "sha256": "b1055998c889ef9c29919fee8945aa81f9af75256d7db28cdc2d8a3dffbbcd74"
+        },
+        "original_references": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/references.json",
+          "sha256": "03b197a0d42d680e4d77058834c73d0105bac05663a07fa2d988fa3ede145534"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/generator.py",
+          "sha256": "e7a2fa658869edd3183fb748561971c24b3b35a7f7e198bd255b91e887ad5405"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/build-config.json",
+          "sha256": "a839f4e5832b003ae8df26c079e08f7dfa7f2f466dea0ef653528f6468c31169"
+        },
+        "original_concept": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/concept-original.png",
+          "sha256": "89e8e87d6716e011066211674838393520648ca5e46de1b34bb69be85701a104"
+        },
+        "original_build_config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/original-build-config.json",
+          "sha256": "877e05c779b798dc0b4d228c6b2358270a1547caaa62be185f2303955d0fde02"
+        },
+        "original_modeling_freeze": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/original-modeling-freeze.json",
+          "sha256": "3b3c6434ec8967cf04f6c3bfea79c6c85d3afe11d7dd8482bbf9a203ed8b1b4a"
+        },
+        "render_manifest": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/render-manifest.json",
+          "sha256": "c53144fc21c9cf8a74da00ef11b6f162910bba13b5f953ce442d9fa0bd54e437"
+        },
+        "contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/contact-sheet.png",
+          "sha256": "5c1a434dbec3d1b0d18fe7ab0177c03158fc64635feb4e089fa243d7f8f8724c",
+          "bytes": 475014,
+          "pixels": [
+            2048,
+            1060
+          ],
+          "opened_individually": true
+        },
+        "candidate_validation": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/candidate-validation.json",
+          "sha256": "02f31c4b982c18dc443ed1d959ba0e74e90406dcef17c9c7cd4f11e561f28bc5",
+          "valid": true,
+          "approved_for_brief": false
+        }
+      },
+      "geometry_export": {
+        "triangles": 10860,
+        "bytes": 576116,
+        "materials": 6,
+        "primitives": 9,
+        "textures": 0,
+        "exported_position_vertices": 20934,
+        "source_authored_vertices": 5984,
+        "source_parts": 6,
+        "bounds_gltf_y_up_m": [
+          0.052932336926460266,
+          0.03460379131138325,
+          0.3005635589361191
+        ]
+      },
+      "independent_checks": {
+        "project_static": {
+          "path": "diff-repairs-r002/independent/louisella-static.json",
+          "status": "pass",
+          "errors": [],
+          "warnings": []
+        },
+        "khronos": {
+          "report": "independent/louisella-khronos.json",
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0,
+          "textures": false
+        },
+        "three_parse": {
+          "report": "independent/louisella-three-parse.json",
+          "revision": "180",
+          "triangles": 10860,
+          "meshes": 9,
+          "bounds_glb_xyz_m": [
+            0.052932336926460266,
+            0.03460379131138325,
+            0.3005635589361191
+          ],
+          "gpu": "not_run",
+          "scene": "not_run"
+        },
+        "read_only_source_reopen": {
+          "report": "independent/louisella-source-reopen.json",
+          "status": "pass",
+          "source_triangles": 10860,
+          "glb_triangles": 10860,
+          "bounds_match": true,
+          "source_saved": false,
+          "parts": [
+            {
+              "name": "whole_body_spiny_anterior_coarse_annular_middle_papillate_zone_",
+              "vertices": 2700,
+              "triangles": 5396,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "short_trunk_spine_rings_rear_excluded",
+              "vertices": 1500,
+              "triangles": 2400,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "fine_proboscis_scalids",
+              "vertices": 560,
+              "triangles": 896,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "proboscis_exactly_25_long_midlength_scalids",
+              "vertices": 250,
+              "triangles": 400,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "two_widely_separated_dorsal_longitudinal_blunt_papilla_rows",
+              "vertices": 924,
+              "triangles": 1672,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            },
+            {
+              "name": "small_posterior_aperture",
+              "vertices": 50,
+              "triangles": 96,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ]
+        }
+      },
+      "two_executed_semantic_rebuilds": [
+        {
+          "job_id": "semantic-rebuild-1",
+          "fingerprint": "2b1b1805b2c21fec54de5260f3176cf10677597edd379cfd498d5d078e64dedd",
+          "pid": 187,
+          "request": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-1/2b1b1805b2c21fec54de5260f3176cf10677597edd379cfd498d5d078e64dedd/20261020T144603-1eb99aaa22654fcc8dd28c73a20c68dc/request.json",
+            "sha256": "62be3d4f9e64129eaf56907dbce93549db09e80160bc5564e54edfe8f467cd5d",
+            "created_at": "2026-10-20T14:46:03.535104+00:00"
+          },
+          "result": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-1/2b1b1805b2c21fec54de5260f3176cf10677597edd379cfd498d5d078e64dedd/20261020T144603-1eb99aaa22654fcc8dd28c73a20c68dc/result.json",
+            "sha256": "9cee9f235df63baa30b4aeab46586a3d332b10bb77af2502c326e97074bea82b",
+            "started_at": "2026-10-20T14:46:03.538782+00:00",
+            "finished_at": "2026-10-20T14:46:06.197728+00:00",
+            "status": "succeeded",
+            "returncode": 0
+          },
+          "outputs": {
+            "metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-1/2b1b1805b2c21fec54de5260f3176cf10677597edd379cfd498d5d078e64dedd/20261020T144603-1eb99aaa22654fcc8dd28c73a20c68dc/outputs/metrics.json",
+              "bytes": 4163,
+              "sha256": "819ab29463954d56f5f6016f3385a9aa62f8e5360548b4b45d1136f6416695dd"
+            },
+            "model.glb": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-1/2b1b1805b2c21fec54de5260f3176cf10677597edd379cfd498d5d078e64dedd/20261020T144603-1eb99aaa22654fcc8dd28c73a20c68dc/outputs/model.glb",
+              "bytes": 576116,
+              "sha256": "63a540aaf41598f0921b10083020af9763789a41395ef6e46641b9ed7a4fc50c"
+            },
+            "source-metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-1/2b1b1805b2c21fec54de5260f3176cf10677597edd379cfd498d5d078e64dedd/20261020T144603-1eb99aaa22654fcc8dd28c73a20c68dc/outputs/source-metrics.json",
+              "bytes": 1565,
+              "sha256": "373b9ca0cbb788dacf7fba0439817d76a68800d5742948400503bf5af6db5068"
+            },
+            "source.blend": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-1/2b1b1805b2c21fec54de5260f3176cf10677597edd379cfd498d5d078e64dedd/20261020T144603-1eb99aaa22654fcc8dd28c73a20c68dc/outputs/source.blend",
+              "bytes": 950848,
+              "sha256": "d3fe8985dd826e0b52b16cddbf71804a0fc16a89a4ab68d79263ea4f1e5bac3a"
+            }
+          },
+          "repro_report": {
+            "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/repro-final-1.report.json",
+            "sha256": "45b44da0138d5a111e8c5e4c78d2c461a523e74089d3c0c1ba60a81ceff03286",
+            "semantic_sha256": "dd49912817bbbb1d0f323dd9fe23f10d6f4b2873b4d1b87d52fb070d7542dfb9",
+            "rebuilt_semantic_sha256": "dd49912817bbbb1d0f323dd9fe23f10d6f4b2873b4d1b87d52fb070d7542dfb9",
+            "semantic_match": true,
+            "byte_identical": true
+          }
+        },
+        {
+          "job_id": "semantic-rebuild-2",
+          "fingerprint": "840ef4b995240109de9244dde8e9fae0728b9338a81edb112b5382153ac6b521",
+          "pid": 210,
+          "request": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-2/840ef4b995240109de9244dde8e9fae0728b9338a81edb112b5382153ac6b521/20261020T144606-514ac288cc844c4ea8db2d0452c4f723/request.json",
+            "sha256": "2384b3032bfdba20bec71b6a09b73c705214bd8ccde59a40f6e673227afc4131",
+            "created_at": "2026-10-20T14:46:06.201612+00:00"
+          },
+          "result": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-2/840ef4b995240109de9244dde8e9fae0728b9338a81edb112b5382153ac6b521/20261020T144606-514ac288cc844c4ea8db2d0452c4f723/result.json",
+            "sha256": "178df27a70f769a865d0b82a6c71445a0e746423efdd6f431c4b7f738fefa1b6",
+            "started_at": "2026-10-20T14:46:06.203532+00:00",
+            "finished_at": "2026-10-20T14:46:09.016135+00:00",
+            "status": "succeeded",
+            "returncode": 0
+          },
+          "outputs": {
+            "metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-2/840ef4b995240109de9244dde8e9fae0728b9338a81edb112b5382153ac6b521/20261020T144606-514ac288cc844c4ea8db2d0452c4f723/outputs/metrics.json",
+              "bytes": 4163,
+              "sha256": "bab00aa6ec3e4f5bc2eac1d7b8d0c26cf0f1b42cade8339e98598086af7f3d5a"
+            },
+            "model.glb": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-2/840ef4b995240109de9244dde8e9fae0728b9338a81edb112b5382153ac6b521/20261020T144606-514ac288cc844c4ea8db2d0452c4f723/outputs/model.glb",
+              "bytes": 576116,
+              "sha256": "63a540aaf41598f0921b10083020af9763789a41395ef6e46641b9ed7a4fc50c"
+            },
+            "source-metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-2/840ef4b995240109de9244dde8e9fae0728b9338a81edb112b5382153ac6b521/20261020T144606-514ac288cc844c4ea8db2d0452c4f723/outputs/source-metrics.json",
+              "bytes": 1565,
+              "sha256": "373b9ca0cbb788dacf7fba0439817d76a68800d5742948400503bf5af6db5068"
+            },
+            "source.blend": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/louisella/r002/semantic-rebuild-2/840ef4b995240109de9244dde8e9fae0728b9338a81edb112b5382153ac6b521/20261020T144606-514ac288cc844c4ea8db2d0452c4f723/outputs/source.blend",
+              "bytes": 950848,
+              "sha256": "19c761556ba65213267cd8854204c8cd4cc6770abf36b692d2b20be95874e9da"
+            }
+          },
+          "repro_report": {
+            "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/repro-final-2.report.json",
+            "sha256": "8941a3491838f5771f380c5f4aedc7573dd3d4f0045726fffdddd83c0162edd8",
+            "semantic_sha256": "dd49912817bbbb1d0f323dd9fe23f10d6f4b2873b4d1b87d52fb070d7542dfb9",
+            "rebuilt_semantic_sha256": "dd49912817bbbb1d0f323dd9fe23f10d6f4b2873b4d1b87d52fb070d7542dfb9",
+            "semantic_match": true,
+            "byte_identical": true
+          }
+        }
+      ],
+      "final_views": [
+        {
+          "view": "hero",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/hero.png",
+          "sha256": "702f1817d6644f83ff1af6248824225aba9ad01ad6b71693fc95b09c7d094718",
+          "bytes": 160296,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "reversehero",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/reversehero.png",
+          "sha256": "928fbc7c36388cb133f4d94b214244b1c407561c71bfae60c65fbffb44773099",
+          "bytes": 162665,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "front",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/front.png",
+          "sha256": "9bf1bfb0270013a6b3308d05789d80c90071fbed208a831770be31119709cad1",
+          "bytes": 144923,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "side",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/side.png",
+          "sha256": "e03dd68eea5faf4262a9a0da94de33afaa249246232cfe428cb3214d647b18ca",
+          "bytes": 164147,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "rear",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/rear.png",
+          "sha256": "86bf993d03dd5f5220f7615bb5ba0295e143f24ddd761beb08df5a52f7a20de4",
+          "bytes": 144505,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "top",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/top.png",
+          "sha256": "db68648d5af8babec351c9cb324af73ebc851e8561d888b69cc086c49697479b",
+          "bytes": 180902,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "clay",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/clay.png",
+          "sha256": "fd4085f330ebd7ab116116aedb369b340236039283227fa445ce35bbee0dc725",
+          "bytes": 148703,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "silhouette",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r002/proof-final/silhouette.png",
+          "sha256": "2441e9e000d585f1f41029c08c664b0c0f794019a19ef98e82e89877adfb4235",
+          "bytes": 18521,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        }
+      ]
+    },
+    "hoodoo": {
+      "revision": "r002",
+      "bounded_disposition": "ACCEPT BOUNDED",
+      "stage_dispositions": {
+        "technical": "ACCEPT",
+        "visual": "ACCEPT",
+        "factual": "ACCEPT",
+        "specification": "ACCEPT",
+        "runtime_parse": "ACCEPT",
+        "gpu": "BLOCKED / UNKNOWN (not run)",
+        "scene": "BLOCKED / UNKNOWN (not run)"
+      },
+      "independent_visual_review": "The exact former four-level full-rim mechanical tier pattern is gone. All 8 color and clay/silhouette angles show a solid slender irregular radial pillar with a modest coherent cap, broader eroded foot, three localized interrupted unequal ledges/asymmetric shoulders, and broken mineral bands that correspond to real relief. Top confirms irregular radial section; reverse/rear/clay/silhouette confirm ledges are not merely color patches or hidden by camera. Shape remains a generic cap-protected hoodoo teaching prop, not a named locality or measured stratigraphic section.",
+      "pins": {
+        "glb": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/model.glb",
+          "sha256": "dbe8dfda24834a86b2a7609aee52d7bcf9d90c416a5c9ee321c63d5359a5fc9c",
+          "bytes": 138580
+        },
+        "source_blend": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/source.blend",
+          "sha256": "ccce5ea868bc609ce30218c265d875e85f9117b56e20ba76656dacfd9822557e"
+        },
+        "candidate_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/candidate-brief.json",
+          "sha256": "89dc10008ea17c1861d0e145f8c44980232f570f2bffb4dd1ba6f2c4da9c64b8"
+        },
+        "frozen_original_brief": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/brief.json",
+          "sha256": "cf6d2fe0230975d98df91841b006117a27c30ca4add4b2c318d67ae448b4738b"
+        },
+        "original_references": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/references.json",
+          "sha256": "5051775a0fd9611a8904b5117236ab38c9958d50a0cdd8315bd8fd5ba62a84e3"
+        },
+        "generator": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/generator.py",
+          "sha256": "e7a2fa658869edd3183fb748561971c24b3b35a7f7e198bd255b91e887ad5405"
+        },
+        "config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/build-config.json",
+          "sha256": "cb6713c5152c67c8a237668cd1d77dd80437a8725edaf0dd1fdcc99c06d2c885"
+        },
+        "original_concept": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/concept-original.png",
+          "sha256": "b91135125d3369bff277060cc1ddced375e8d1eb70bdb82d3e43e9c30463e2db"
+        },
+        "original_build_config": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/original-build-config.json",
+          "sha256": "bb5a9593fd8e8b2e32647097de1e691de96b7131759153105d3df04ac5a470f7"
+        },
+        "original_modeling_freeze": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/original-modeling-freeze.json",
+          "sha256": "0e1d01d807a3de4ba19d8c3fe8eee85436847b96e482fd6ef90a725d79bc1fd2"
+        },
+        "render_manifest": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/render-manifest.json",
+          "sha256": "67f6dd56446e32aabfda5fcbeb1bf8d7df1823202eb87971bc59bd761976d24d"
+        },
+        "contact_sheet": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/contact-sheet.png",
+          "sha256": "74c73b9d11588eaf800068ad42d9c1d2b36f8071eda4c4ec186470379f564abf",
+          "bytes": 711866,
+          "pixels": [
+            2048,
+            1060
+          ],
+          "opened_individually": true
+        },
+        "candidate_validation": {
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/candidate-validation.json",
+          "sha256": "64463b0552f4d5362cd580fc81d837a9ddbda868941e40f83f23ec991180e0e6",
+          "valid": true,
+          "approved_for_brief": false
+        }
+      },
+      "geometry_export": {
+        "triangles": 2516,
+        "bytes": 138580,
+        "materials": 4,
+        "primitives": 4,
+        "textures": 0,
+        "exported_position_vertices": 4984,
+        "source_authored_vertices": 1260,
+        "source_parts": 1,
+        "bounds_gltf_y_up_m": [
+          3.1808574199676514,
+          8.05991268157959,
+          2.7403130531311035
+        ]
+      },
+      "independent_checks": {
+        "project_static": {
+          "path": "diff-repairs-r002/independent/hoodoo-static.json",
+          "status": "pass",
+          "errors": [],
+          "warnings": []
+        },
+        "khronos": {
+          "report": "independent/hoodoo-khronos.json",
+          "version": "2.0.0-dev.3.10",
+          "errors": 0,
+          "warnings": 0,
+          "textures": false
+        },
+        "three_parse": {
+          "report": "independent/hoodoo-three-parse.json",
+          "revision": "180",
+          "triangles": 2516,
+          "meshes": 4,
+          "bounds_glb_xyz_m": [
+            3.1808574199676514,
+            8.05991268157959,
+            2.7403130531311035
+          ],
+          "gpu": "not_run",
+          "scene": "not_run"
+        },
+        "read_only_source_reopen": {
+          "report": "independent/hoodoo-source-reopen.json",
+          "status": "pass",
+          "source_triangles": 2516,
+          "glb_triangles": 2516,
+          "bounds_match": true,
+          "source_saved": false,
+          "parts": [
+            {
+              "name": "irregular_tapered_erosional_pillar_with_three_interrupted_unequ",
+              "vertices": 1260,
+              "triangles": 2516,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0
+            }
+          ]
+        }
+      },
+      "two_executed_semantic_rebuilds": [
+        {
+          "job_id": "semantic-rebuild-1",
+          "fingerprint": "d183ec0d6c8d49ecaaf970a17fdc654b629bd3f49ebe0f9d4f5bcf2eef38311c",
+          "pid": 233,
+          "request": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-1/d183ec0d6c8d49ecaaf970a17fdc654b629bd3f49ebe0f9d4f5bcf2eef38311c/20261020T144609-405a8db9865f4f8998a9cfaa017a555f/request.json",
+            "sha256": "5a94976fa367df95de6b60bcd67f8237edbbd7d5e3346c868ba2ae9a3c0b91fe",
+            "created_at": "2026-10-20T14:46:09.021665+00:00"
+          },
+          "result": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-1/d183ec0d6c8d49ecaaf970a17fdc654b629bd3f49ebe0f9d4f5bcf2eef38311c/20261020T144609-405a8db9865f4f8998a9cfaa017a555f/result.json",
+            "sha256": "0c3f0fe190113084a739797a3d046151f452bc554d8d162e5d2e8fc87b1c0040",
+            "started_at": "2026-10-20T14:46:09.024391+00:00",
+            "finished_at": "2026-10-20T14:46:11.529544+00:00",
+            "status": "succeeded",
+            "returncode": 0
+          },
+          "outputs": {
+            "metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-1/d183ec0d6c8d49ecaaf970a17fdc654b629bd3f49ebe0f9d4f5bcf2eef38311c/20261020T144609-405a8db9865f4f8998a9cfaa017a555f/outputs/metrics.json",
+              "bytes": 3154,
+              "sha256": "f82e3984c2151fb98af3fe84f9a88cc746ace0fb967754e83a76a1b43f5e3940"
+            },
+            "model.glb": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-1/d183ec0d6c8d49ecaaf970a17fdc654b629bd3f49ebe0f9d4f5bcf2eef38311c/20261020T144609-405a8db9865f4f8998a9cfaa017a555f/outputs/model.glb",
+              "bytes": 138580,
+              "sha256": "dbe8dfda24834a86b2a7609aee52d7bcf9d90c416a5c9ee321c63d5359a5fc9c"
+            },
+            "source-metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-1/d183ec0d6c8d49ecaaf970a17fdc654b629bd3f49ebe0f9d4f5bcf2eef38311c/20261020T144609-405a8db9865f4f8998a9cfaa017a555f/outputs/source-metrics.json",
+              "bytes": 665,
+              "sha256": "473b73c7c5323285720af5e292bdbbe766552d7f40ea9aa92551634e334b0fee"
+            },
+            "source.blend": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-1/d183ec0d6c8d49ecaaf970a17fdc654b629bd3f49ebe0f9d4f5bcf2eef38311c/20261020T144609-405a8db9865f4f8998a9cfaa017a555f/outputs/source.blend",
+              "bytes": 592052,
+              "sha256": "a13ffda016c8938598506fec14860ef1b00caef713c3093e3557d85ae98ff373"
+            }
+          },
+          "repro_report": {
+            "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/repro-final-1.report.json",
+            "sha256": "8567281a5ab87ed10b38b5c1935d3cc3c952892132d44381209a0679ee671eb1",
+            "semantic_sha256": "88c31b351ba49c106259d39b1717e1483ccf6cb8c46250e0a00c1bc230be82bd",
+            "rebuilt_semantic_sha256": "88c31b351ba49c106259d39b1717e1483ccf6cb8c46250e0a00c1bc230be82bd",
+            "semantic_match": true,
+            "byte_identical": true
+          }
+        },
+        {
+          "job_id": "semantic-rebuild-2",
+          "fingerprint": "258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5",
+          "pid": 256,
+          "request": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-2/258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5/20261020T144611-1757701e76a749d7a238a27e60b2712f/request.json",
+            "sha256": "44166435fb3ab51660575c4ccdb5c09e8d5cdb3ef28718b08e5dc3ee4434aea4",
+            "created_at": "2026-10-20T14:46:11.532620+00:00"
+          },
+          "result": {
+            "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-2/258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5/20261020T144611-1757701e76a749d7a238a27e60b2712f/result.json",
+            "sha256": "d3279f19efbd9c82d70ec36d6ccb3e69cc799ea962bd57218741b13fda5e1c8b",
+            "started_at": "2026-10-20T14:46:11.534934+00:00",
+            "finished_at": "2026-10-20T14:46:13.946796+00:00",
+            "status": "succeeded",
+            "returncode": 0
+          },
+          "outputs": {
+            "metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-2/258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5/20261020T144611-1757701e76a749d7a238a27e60b2712f/outputs/metrics.json",
+              "bytes": 3154,
+              "sha256": "f5d27dbc1b170276b3406cbdc8a1d4a0eb5a5e7846c328c8cbeba11a3c50a39a"
+            },
+            "model.glb": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-2/258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5/20261020T144611-1757701e76a749d7a238a27e60b2712f/outputs/model.glb",
+              "bytes": 138580,
+              "sha256": "dbe8dfda24834a86b2a7609aee52d7bcf9d90c416a5c9ee321c63d5359a5fc9c"
+            },
+            "source-metrics.json": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-2/258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5/20261020T144611-1757701e76a749d7a238a27e60b2712f/outputs/source-metrics.json",
+              "bytes": 665,
+              "sha256": "473b73c7c5323285720af5e292bdbbe766552d7f40ea9aa92551634e334b0fee"
+            },
+            "source.blend": {
+              "path": "production/continuous-small-life-round26-20261020/work/batch-66-repair-r002/rebuild-runs/build/hoodoo/r002/semantic-rebuild-2/258cf4f48dcbf6db40bb6a7db24fde120383cb48d4901957c689f249a369c8c5/20261020T144611-1757701e76a749d7a238a27e60b2712f/outputs/source.blend",
+              "bytes": 592052,
+              "sha256": "229b073fe9c63fa0b560fcb64b97868d2b29c129adffcfaa839f549ea6334a9a"
+            }
+          },
+          "repro_report": {
+            "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/repro-final-2.report.json",
+            "sha256": "e3471a5f17963d6d2aed6baa4a738cb6470dad7ba46a611bb48aa25a365722dc",
+            "semantic_sha256": "88c31b351ba49c106259d39b1717e1483ccf6cb8c46250e0a00c1bc230be82bd",
+            "rebuilt_semantic_sha256": "88c31b351ba49c106259d39b1717e1483ccf6cb8c46250e0a00c1bc230be82bd",
+            "semantic_match": true,
+            "byte_identical": true
+          }
+        }
+      ],
+      "final_views": [
+        {
+          "view": "hero",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/hero.png",
+          "sha256": "6bf6b394bf254ae0bd3c69dcb150f03a7f43b720f8f8d3b997ea31ddb3fd6b4b",
+          "bytes": 203248,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "reversehero",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/reversehero.png",
+          "sha256": "aa525884e4b8f53b3deb4c5a1b21c9d7b27a39046436459d42fcfe4ebdd5430c",
+          "bytes": 199455,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "front",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/front.png",
+          "sha256": "5c9de7b78545a889928c574546d8d07dcd9d10d577162b24725270bad9124f44",
+          "bytes": 201913,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "side",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/side.png",
+          "sha256": "d3980df3afe8d7e794188c94a9bdf048c9ce886adf7628d819bb2ee6aba53195",
+          "bytes": 197037,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "rear",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/rear.png",
+          "sha256": "4b327d3b5aaeea2d95d02fff18ad197ef9576a5fddca124644aa8b67c4b0adb4",
+          "bytes": 196647,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "top",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/top.png",
+          "sha256": "fdfb3340269ee800b6f4756db56ab9a54153f8d444015ef58c831d2090bf9e7f",
+          "bytes": 170188,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "clay",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/clay.png",
+          "sha256": "8a1f91efe00dc0eae85640feef494160ef58d552a16219127118ad4b9294e6d6",
+          "bytes": 167099,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        },
+        {
+          "view": "silhouette",
+          "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/proof-final/silhouette.png",
+          "sha256": "d407a30baef0c31c8399780227d90e1f48722fe80e4485ac59dfd08a78ff20ab",
+          "bytes": 35051,
+          "pixels": [
+            512,
+            512
+          ],
+          "opened_individually": true
+        }
+      ]
+    }
+  },
+  "approval_boundary": "These are bounded independent static acceptances only. Candidate records retain approved_for_brief=false. GPU, actual website/browser runtime, composed scene, formal reviewer authorization, user approval and publication were not performed or asserted."
+}
