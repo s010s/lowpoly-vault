@@ -43,12 +43,17 @@ try{
  const shadow=mkdtempSync(join(tmpdir(),'poster-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
  try{for(const module of ['zipfile','json'])writeFileSync(join(shadow,`${module}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractPosterArtifact(original).proof,proof,'Isolated poster decoding ignores checkout/PYTHONPATH modules');}
  finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
- async function lookup({document=proof,download,alterRun,alterSuite,alterArtifact,missing=false,source=baseManifest,ancestry=true,currentPolicy=policy_sha256,actualRuntime=runtime,independentDigest,attempt=1}={}){
+ async function lookup({document=proof,download,alterRun,alterSuite,alterArtifact,missing=false,source=baseManifest,ancestry=true,currentPolicy=policy_sha256,actualRuntime=runtime,independentDigest,attempt=1,apiFailure=false}={}){
   const bytes=download||archive(document),r=structuredClone(run),s=structuredClone(suite),a={id:303,name:posterArtifactName(1),expired:false,digest:independentDigest||`sha256:${posterHash(bytes)}`,workflow_run:{id:101,head_sha:baseSha,repository_id:12,head_repository_id:12}};
   alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);
   const fetchImpl=async(url,options={})=>{
    url=String(url);if(url==='https://storage.example.invalid/posters.zip'){assert.equal(options.headers,undefined,'Token forwarded to storage');return new Response(bytes);}
-   assert.equal(options.headers.Authorization,'Bearer fixture-token');const path=url.split(`/repos/${repository}/`)[1];let value;
+   assert.equal(options.headers.Authorization,'Bearer fixture-token');
+   const rootURL=`https://api.github.com/repos/${repository}`;
+   assert(url===rootURL||url.startsWith(`${rootURL}/`),'Wrong GitHub API origin or repository');
+   assert.notEqual(url,`${rootURL}/`,'GitHub repository metadata endpoint rejects a trailing slash');
+   const path=url===rootURL?'':url.slice(rootURL.length+1);let value;
+   if(apiFailure)return new Response('unavailable',{status:503});
    if(path==='')value={id:12,full_name:repository,default_branch:'main'};
    else if(path==='git/ref/heads/main')value={ref:'refs/heads/main',object:{sha:currentSha}};
    else if(path.startsWith('compare/'))value={status:ancestry?'ahead':'diverged',merge_base_commit:{sha:baseSha}};
@@ -68,6 +73,7 @@ try{
   return fetchVerifiedPosterBaseline({root,repository,baseSha,currentSha,shared,policy_sha256:currentPolicy,runtime:actualRuntime,token:'fixture-token',fetchImpl});
  }
  const found=await lookup();assert(found.verified,found.reasons.join('; '));
+ assert((await lookup({apiFailure:true})).reasons.some(reason=>reason==='GitHub poster read failed (503) at repository metadata'),'A failed read reports the safe endpoint, not credentials');
  const select=(options={})=>selectPosterCaptures({manifest,shared,policy_sha256,runtime,verified:found.verified,...options});
  assert.deepEqual(select().capture,assets.slice(190).map(asset=>asset.id),'Only the four new actual capture IDs are selected');assert.equal(select().reused.length,190);
  assert.equal(select({shared:{...shared,sha256:'b'.repeat(64)}}).capture.length,194,'Changed renderer selects every non-golden ID');
@@ -79,7 +85,7 @@ try{
  const partial=structuredClone(proof);partial.posters.pop();const missingEntry=await lookup({document:partial});assert(missingEntry.verified);assert.deepEqual(select({manifest:baseManifest,verified:missingEntry.verified}).capture,['model-189'],'A missing entry selects exactly one old capture');
  const changed=structuredClone(proof);changed.posters[0].input_sha256=changed.posters[0].poster.input_sha256='f'.repeat(64);const differentInput=await lookup({document:changed});assert(differentInput.verified);assert.equal(select({manifest:baseManifest,verified:differentInput.verified}).capture.length,1);
  const failures=[
-  {missing:true},{ancestry:false},{attempt:2},{alterRun:r=>r.event='pull_request'},{alterRun:r=>r.conclusion='failure'},{alterRun:r=>r.path='other.yml'},{alterRun:r=>r.head_branch='feature'},{alterRun:r=>r.head_repository.id=13},
+  {missing:true},{apiFailure:true},{ancestry:false},{attempt:2},{alterRun:r=>r.event='pull_request'},{alterRun:r=>r.conclusion='failure'},{alterRun:r=>r.path='other.yml'},{alterRun:r=>r.head_branch='feature'},{alterRun:r=>r.head_repository.id=13},
   {alterSuite:s=>s.app.id=7},{alterSuite:s=>s.app.owner.login='forged'},{alterSuite:s=>s.conclusion='failure'},
   {alterArtifact:a=>delete a.digest},{alterArtifact:a=>a.expired=true},{alterArtifact:a=>a.name='model-proof-v2-1'},{alterArtifact:a=>a.workflow_run.head_sha='f'.repeat(40)},
   {download:Buffer.from('tampered'),independentDigest:`sha256:${posterHash(original)}`},
@@ -107,7 +113,10 @@ try{
    const meta={id:303,name:posterArtifactName(1),expired:false,digest:`sha256:${posterHash(bytes)}`,workflow_run:{id:101,head_sha:prHead,repository_id:12,head_repository_id:12}};
    const fetchImpl=async(url,options={})=>{
     url=String(url);if(url==='https://storage.example.invalid/promote.zip'){assert.equal(options.headers,undefined);return new Response(bytes);}
-    const path=url.split(`/repos/${repository}/`)[1];let body;
+    const rootURL=`https://api.github.com/repos/${repository}`;
+    assert(url===rootURL||url.startsWith(`${rootURL}/`),'Wrong GitHub API origin or repository');
+    assert.notEqual(url,`${rootURL}/`,'GitHub repository metadata endpoint rejects a trailing slash');
+    const path=url===rootURL?'':url.slice(rootURL.length+1);let body;
     if(path==='')body={id:12,full_name:repository,default_branch:'main'};
     else if(path===`commits/${mainMerge}/pulls`)body=[{merged_at:'2026-10-20',merge_commit_sha:mainMerge,base:{ref:'main',repo:{full_name:repository}},head:{sha:prHead,repo:{full_name:repository}}}];
     else if(path==='actions/workflows/full-release-review.yml')body={id:99,path:run.path};
