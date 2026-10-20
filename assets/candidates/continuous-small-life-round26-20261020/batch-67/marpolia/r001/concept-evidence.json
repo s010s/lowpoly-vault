@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "marpolia",
+  "revision": "r001",
+  "labels": {
+    "en": "marpolia"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "5b65c0ee2a58b4a7c075c86fecb916c8e8892c611f7e67e39c5682c45e5a318e"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "4036565d44b062f6328c675a12bbffb9c8540a6fb38fa9162b73ac86676137f5"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "d0c01ad4f9907e59f504927edea92a133f0399e895f6d3a30f9109a759bbd43c"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "e830edf6bca1b29bca2cb44517e4bca91af7fffe03ed6d4e7647ef77b9a610d3"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "df444c52a33de496d75a47f6aa745640087834cac705a49d7523db8cf114c8a5"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "23b1ab42b8b4f7d3ddf8a64bba156e27a55a874de44a0593b7cccd2f9db3a856"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "740f94e8d7ab699dd1c5ebbc6d15fa591f9d6dab4e645ccf49867ed732ed73f8"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e9466a361a8a99945a8aeff388613b9eb3c99a6229e470f97302339c19826422"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "46abe354341f37c26d4e8805b7fe1726395d88ce9c000666655327ac52bc99a9"
+      }
+    ],
+    "cross_view_consistency_note": "Original four-row concept personally inspected before freeze. A thick upper branching rejected for fine basally branching tuft; no root. B attached broad boulder and short narrow pedestal. C broad U-shaped floor and steep walls. D close fitted low coarse mantle. Complete asset-specific decisions in immutable frozen brief",
+    "hidden_surface_decisions": "Retain concept A shale flake and shallow dark fan, reject its conspicuous thick tree-like upper branches. Model 52 very fine representative grouped strands starting in a diffuse basal zone, with paired splitting confined to basal quarter; upper strands continue slender and unbranched, slightly tangled asymmetrical fans. No single trunk, rooted holdfast or biologically invented attachment. Closed volumetric fine strands lie against shale, not painted texture. Entire tuft is a specimen concept; substrate underside is artistic. Actual ROM57841 photograph shows spreading tangled fine fans and no rigid central trunk; do not imitate M.aequalis historic retouched drawing."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:41:35Z",
+    "modeling_started_at": "2026-10-20T13:43:43.719741+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.3837,
+      "measurement_record": {
+        "path": "proof-delivery/render-manifest.json",
+        "sha256": "a747ec0e082ca82bb779bd75a237165702110362bb828362f1eec198f03ac41a"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-delivery/render-manifest.json",
+    "sha256": "a747ec0e082ca82bb779bd75a237165702110362bb828362f1eec198f03ac41a"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "1362cefdc98ec41940f9fa3000febf9dd21514b794506b5bc814e63943450d22",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "137eb5c2222bbc1503f683e8c95ffa171935a1a5aaefd411df3cc055d3dbe2c5"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "5b65c0ee2a58b4a7c075c86fecb916c8e8892c611f7e67e39c5682c45e5a318e",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "c470b75d24a94956b1122b97c1fe4d6f21ccfbbcc9c1506518fc6cec0cb20fd2"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

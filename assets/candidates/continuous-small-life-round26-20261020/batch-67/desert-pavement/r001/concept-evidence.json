@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "desert-pavement",
+  "revision": "r001",
+  "labels": {
+    "en": "desert-pavement"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "9e2af794d7b257410101072e118915838b99d6d24fe83ad38e6d73ae13a37758"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "3e3b52e1cb2274d59c390a52bf00c00c6ed2553fe52b1a9770e90f804d236e29"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "621a0a83000b52c06ae2c7c181097913fbfc17d21d623aa6102c294337d69257"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "2573cd27d972c1ce1827b9175272dc44c43e4ab4ecb362e8fe2b6f10d3fab3e9"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "df444c52a33de496d75a47f6aa745640087834cac705a49d7523db8cf114c8a5"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "2b4c1ba2c548df4094362e4f1a5aec271952d7666c0062b70c3180aceba70bc8"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "740f94e8d7ab699dd1c5ebbc6d15fa591f9d6dab4e645ccf49867ed732ed73f8"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e9466a361a8a99945a8aeff388613b9eb3c99a6229e470f97302339c19826422"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "46abe354341f37c26d4e8805b7fe1726395d88ce9c000666655327ac52bc99a9"
+      }
+    ],
+    "cross_view_consistency_note": "Original four-row concept personally inspected before freeze. A thick upper branching rejected for fine basally branching tuft; no root. B attached broad boulder and short narrow pedestal. C broad U-shaped floor and steep walls. D close fitted low coarse mantle. Complete asset-specific decisions in immutable frozen brief",
+    "hidden_surface_decisions": "Retain concept D close-set surface but tighten gaps relative to its hero. Original deterministic jittered planar Voronoi tiling clipped to irregular oval, each cell shrunk only3percent leaving narrow cracks. Cells extruded as low angular faceted clasts with varying thickness0.08to0.18m and shallow irregular crowns. About120clasts, three muted grays merged by material into few meshes. Thin closed ochre substrate visible chiefly sides and cracks, not broad bare sand. No photo textures or pavement origin exclusivity claim."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:41:35Z",
+    "modeling_started_at": "2026-10-20T13:43:43.720274+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 19.1891,
+      "measurement_record": {
+        "path": "proof-delivery/render-manifest.json",
+        "sha256": "6cf16141f051ad5740de4481e97ec0a630d70f954975e7c7e2dd9e84786f73c2"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-delivery/render-manifest.json",
+    "sha256": "6cf16141f051ad5740de4481e97ec0a630d70f954975e7c7e2dd9e84786f73c2"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "dadd9f61175bf3f446143dcbacf51c29a15caa566327d891c39a79852beb991f",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "1dc52b83dceee3f51468ed40943f716482f9156fc13da3d79c5b285799681781"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "9e2af794d7b257410101072e118915838b99d6d24fe83ad38e6d73ae13a37758",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "662954c07f07b8be882c74a6f815a5b64126eab03186d1f7c2f6d936306c1fb1"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}
