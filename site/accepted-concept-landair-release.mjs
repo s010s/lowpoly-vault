@@ -2649,3 +2649,4411 @@ export const BATCH54_RELEASE = {
     }
   ]
 };
+
+/** Exact bounded Batch58 release; unchanged formal gates. */
+export const BATCH58_RELEASE = {
+  "version": 1,
+  "scope": "batch58-20261020",
+  "authorization": "owner_authorized_publish_independent_qa_passed_batches",
+  "acceptance_scope": "independent_qa_accepted_stylized_prop",
+  "formal_profile_acceptance": "BLOCKED",
+  "hardware_gpu_verified": false,
+  "target_scene_verified": false,
+  "provider_generation_timestamp": "unknown",
+  "source_commit": "9bb7eb242a2c7ee35868ca57789c93c06c4bcbb8",
+  "review_commit": "48f08fa3e2d6bb9a06526efd7142c4fc35184d86",
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "base_descriptor": {
+    "path": "assets/releases/batch54-20261020.json",
+    "sha256": "18848be2e9bffb004c8301ff7f05816ab0d691afbee6b569459f28e3099f3f4b"
+  },
+  "source_bundle": {
+    "path": "qa/batch58-release-20261020/source-bundle.json",
+    "sha256": "0d76609ebde90f4979bdc85c681d59a184c4fc0e6ba6c00dda9e05a523379eee"
+  },
+  "protected_source_inputs": [
+    {
+      "path": "ATTRIBUTION.md",
+      "sha256": "31cfae805768d2857f9cd3b86d328ba1ec83f3c28ccc728b0cac8edddfd29412"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "9dc06b87ac2f86cc6c7b3afdd8b02c5887c9a29bf5a4924a611937d4195f996c"
+    },
+    {
+      "path": "LICENSES/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "LICENSES/MIT.txt",
+      "sha256": "f4cd278b3853ba4c6b36d85975839c2b51d09bb841d6eecced516c482e826ce0"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1bddf73367b09c1c72034cca826c1dfcebc1ae35e1480d9da99b8fd202a34b1b"
+    },
+    {
+      "path": "production/policies/qa-passed-batch-publication-20261018.json",
+      "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+    },
+    {
+      "path": "schemas/README.md",
+      "sha256": "cdecb3681106b07e1414d18a4861162525da67d7061e7f7539f40c0fc817d615"
+    },
+    {
+      "path": "schemas/templates/brief.template.json",
+      "sha256": "cb1f2ff179d3363f0adec9717be204e2a355056686fadf792eea232c82b9278d"
+    },
+    {
+      "path": "schemas/templates/candidate.template.json",
+      "sha256": "3148c62284480a8118bc89135a3fa1371cb0c86f2726369338c499fc32dc2a91"
+    },
+    {
+      "path": "schemas/templates/references.template.json",
+      "sha256": "9c43e161399f377d2e943f36ddcecf84330618495689f461fb1b8beba80d288b"
+    },
+    {
+      "path": "schemas/templates/static-profile-contract.template.json",
+      "sha256": "538e12417c3d77e84746e8a4814c3c18701c18d327707b8ac4043fdea32c8ce4"
+    },
+    {
+      "path": "schemas/templates/textured-brief.example.json",
+      "sha256": "51a3b254d288bdc5f2716f6272a57539529cb17ac8939cc1c2787d7416ab5ab9"
+    },
+    {
+      "path": "scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "scripts/candidate_profile.py",
+      "sha256": "0489ec5378ec5d073ac4e84994b796ac529b122fd1c9c51be7b55623a413ac7d"
+    },
+    {
+      "path": "scripts/check_reproducibility.py",
+      "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2"
+    },
+    {
+      "path": "scripts/check_source_export.py",
+      "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+    },
+    {
+      "path": "scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "scripts/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041"
+    },
+    {
+      "path": "scripts/run_asset_queue.py",
+      "sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e"
+    },
+    {
+      "path": "scripts/validate_candidate.py",
+      "sha256": "fe679a8be19d16b9d9b86ee3419a73d2dd16b77dfa371bf1186ce0120d120ff9"
+    },
+    {
+      "path": "scripts/validate_concept_evidence.py",
+      "sha256": "745938a9b1624e8b744e9c03f597fd8d967ef1b4c145209805c6b6357578c723"
+    },
+    {
+      "path": "scripts/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7"
+    }
+  ],
+  "review": {
+    "path": "qa/batch58-independent-20261020/independent-qa.md",
+    "sha256": "ded5ef8f1fc70e1c71c0f730f194135e93e3c22f0505f016465a78f58343a6dc"
+  },
+  "review_custody": {
+    "path": "qa/batch58-independent-20261020/evidence-custody.json",
+    "sha256": "41df5be052aa4cbcf83ea73dedfd211379fa54814b47b4022d07e512db30877e"
+  },
+  "capture": {
+    "report": {
+      "path": "qa/batch58-release-20261020/capture/render-report.json",
+      "sha256": "17fe72174a4c459ec7ba5bb602ec48bab23cf46113d6cc33213eb1930c37967b"
+    },
+    "index": {
+      "path": "qa/batch58-release-20261020/capture/assets/turntables/index.json",
+      "sha256": "e5bd58e972a3bfb450d21e8dc43dd5d19b68211d4a5fc2e0572dae03e0a35e70"
+    },
+    "zip_verification": {
+      "path": "qa/batch58-release-20261020/capture-verification.json",
+      "sha256": "420b42aa48a8e24456780cd1418f73154b6bf80baff54d34c4434dad48d04581"
+    },
+    "independent_review": {
+      "path": "qa/batch58-release-20261020/independent-card-review.json",
+      "sha256": "515434e55d62dae9d65996894bb4d438fc4650ecc1a4d33f999018e9fa25c5e2"
+    }
+  },
+  "excluded_ids": [],
+  "additions": [
+    {
+      "id": "calamophyton",
+      "revision": "r001",
+      "source_commit": "9bb7eb242a2c7ee35868ca57789c93c06c4bcbb8",
+      "review_commit": "48f08fa3e2d6bb9a06526efd7142c4fc35184d86",
+      "metadata": {
+        "path": "assets/additions/calamophyton/batch58-20261020/release-metadata.json",
+        "sha256": "b7be0c1dec716382a7eb811672c27852b69c9439cb9a941605625017e99c91c2"
+      },
+      "candidate": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/candidate.json",
+        "sha256": "765c947ae1c33bbee590f3574c34c4a61a7a6aaf2e21123838964b4ff625b3a8"
+      },
+      "review": {
+        "path": "qa/batch58-independent-20261020/independent-qa.md",
+        "sha256": "ded5ef8f1fc70e1c71c0f730f194135e93e3c22f0505f016465a78f58343a6dc"
+      },
+      "original_metrics": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/metrics.json",
+        "sha256": "b42413a8ed7ffdc854a48c3de458beb66d5f182894232a027e5b1b8a1013997e"
+      },
+      "original_metadata": null,
+      "frozen_brief": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/brief.json",
+        "sha256": "abf73275f4e7d4fdc8f3176e93e7795acddbb0ef4a5301cb27b522ef1b8fad3c"
+      },
+      "proof": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/render-manifest.json",
+        "sha256": "42150cba486a47f5806785d0f345fef3ebfb9a197bf55246677c61f4abff70b0"
+      },
+      "rebuilds": [
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/repro-final-1.report.json",
+          "sha256": "729d8be56e7ca25741d0274479d064fda51001f689ac546db953e918fa335a00"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/repro-final-2.report.json",
+          "sha256": "412e34ca83f431a4fc2d533f08a006936c4cfdbeddddf29b329194c1603e36fe"
+        }
+      ],
+      "capture_reference": {
+        "path": "qa/batch58-release-20261020/capture/references/calamophyton.png",
+        "sha256": "c71aa4e6ec4730101634f982b569f729eb30bff5bc2ebed95efbe0d7f3e5e365"
+      }
+    },
+    {
+      "id": "perspicaris",
+      "revision": "r002",
+      "source_commit": "9bb7eb242a2c7ee35868ca57789c93c06c4bcbb8",
+      "review_commit": "48f08fa3e2d6bb9a06526efd7142c4fc35184d86",
+      "metadata": {
+        "path": "assets/additions/perspicaris/batch58-20261020/release-metadata.json",
+        "sha256": "7a2fdcb075ceec62a4ccf6439965ff84e75c24519621585e4f6767f51c01098b"
+      },
+      "candidate": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/candidate.json",
+        "sha256": "3e14024b74f08d4f5a459de54e7b25eb43dc482310abeadf780fd0c821d39d1e"
+      },
+      "review": {
+        "path": "qa/batch58-independent-20261020/independent-qa.md",
+        "sha256": "ded5ef8f1fc70e1c71c0f730f194135e93e3c22f0505f016465a78f58343a6dc"
+      },
+      "original_metrics": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/metrics.json",
+        "sha256": "eadd5ed3c6636308be2ecb54ece5a0480442c59b8eda41b6948403f3bf20076a"
+      },
+      "original_metadata": null,
+      "frozen_brief": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/brief.json",
+        "sha256": "7ad2fe63a0a6e3c0a97149c338b27b2aea81f0a024a40ba088a52ba71782984e"
+      },
+      "proof": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/render-manifest.json",
+        "sha256": "8de34dfdb60f99dfe273072476ca00b6d41991fa5ef53a4e314db3dfbb845f7a"
+      },
+      "rebuilds": [
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/repro-final-1.report.json",
+          "sha256": "2eb0b047cc6fcfcfa371e0012d7caff6fa75090e2a764e56bbbc4671f8b6937d"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/repro-final-2.report.json",
+          "sha256": "1fdb28613118e295ac92164effbec9ae756cae9c94fb261564bad1595b46b0cc"
+        }
+      ],
+      "capture_reference": {
+        "path": "qa/batch58-release-20261020/capture/references/perspicaris.png",
+        "sha256": "ea53e321ac1ddca04afc15ecc8d1de64f7adf9001e067b38404e5b22046a8c89"
+      }
+    },
+    {
+      "id": "barchan-dune",
+      "revision": "r001",
+      "source_commit": "9bb7eb242a2c7ee35868ca57789c93c06c4bcbb8",
+      "review_commit": "48f08fa3e2d6bb9a06526efd7142c4fc35184d86",
+      "metadata": {
+        "path": "assets/additions/barchan-dune/batch58-20261020/release-metadata.json",
+        "sha256": "7f1f4a65e9841d17de8547d98fec6c01837782926c629c1f5d5f0b61b92242b2"
+      },
+      "candidate": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/candidate.json",
+        "sha256": "cd3a51719b4b5ab7dc5256f037e8e0858b84b2b7eed558395f5cdf40701531ae"
+      },
+      "review": {
+        "path": "qa/batch58-independent-20261020/independent-qa.md",
+        "sha256": "ded5ef8f1fc70e1c71c0f730f194135e93e3c22f0505f016465a78f58343a6dc"
+      },
+      "original_metrics": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/metrics.json",
+        "sha256": "d19d9bb2b9c19073aa2b60d30e43a2f988c054c31ef5cf588cb6da0adca2f963"
+      },
+      "original_metadata": null,
+      "frozen_brief": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/brief.json",
+        "sha256": "55f728ba03957d5914f9487bb81c33aac3362441672fe85a9b1ce61f4b212ee4"
+      },
+      "proof": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/render-manifest.json",
+        "sha256": "0dd987aa3ca33777f719037321757dc18308af8f30ce8e77da060f0c6b083db9"
+      },
+      "rebuilds": [
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/repro-final-1.report.json",
+          "sha256": "5e383dfdf6b6f34ee4fbba64a487ddcf5206e5b3a70d1b8abf80392940ca37c9"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/repro-final-2.report.json",
+          "sha256": "091126cce5eb0f6307b38c423f50b658f6bc0de4406d665ff933d928d0966f8a"
+        }
+      ],
+      "capture_reference": {
+        "path": "qa/batch58-release-20261020/capture/references/barchan-dune.png",
+        "sha256": "28d1a601a2e10784d7124e20aff1233ed9ce42802d560f1d0e64ec08f8824f35"
+      }
+    },
+    {
+      "id": "current-ripple-surface",
+      "revision": "r001",
+      "source_commit": "9bb7eb242a2c7ee35868ca57789c93c06c4bcbb8",
+      "review_commit": "48f08fa3e2d6bb9a06526efd7142c4fc35184d86",
+      "metadata": {
+        "path": "assets/additions/current-ripple-surface/batch58-20261020/release-metadata.json",
+        "sha256": "35df12cf8fd35c43750c2d50560f9545191afa267f000aca145b94e805bda925"
+      },
+      "candidate": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/candidate.json",
+        "sha256": "d54f5c4dc2bd9cd26f91af500df540e8eab51df663c1fe176237ac9e8da45101"
+      },
+      "review": {
+        "path": "qa/batch58-independent-20261020/independent-qa.md",
+        "sha256": "ded5ef8f1fc70e1c71c0f730f194135e93e3c22f0505f016465a78f58343a6dc"
+      },
+      "original_metrics": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/metrics.json",
+        "sha256": "05bce4fd0cb5ad499be332612c66a9807c6635b6332285451256230a317c96f7"
+      },
+      "original_metadata": null,
+      "frozen_brief": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/brief.json",
+        "sha256": "86c9eff8908d6cf275f9b656c1bc79165e3962932bf55dcc22844db18028d00e"
+      },
+      "proof": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/render-manifest.json",
+        "sha256": "f855477019d11b7f0bf2586d5dd45fab583ac2fe3a6f4cb0b2f2f25352d80b09"
+      },
+      "rebuilds": [
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/repro-final-1.report.json",
+          "sha256": "3eecf3518bbcbdbc3146659fbe222efe00077c2439059255f8c22ac5d592dc5d"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/repro-final-2.report.json",
+          "sha256": "901fb26395b8a7b99ad4b54e7a5830e2d428c5b78d95d03701936e4c50b84e22"
+        }
+      ],
+      "capture_reference": {
+        "path": "qa/batch58-release-20261020/capture/references/current-ripple-surface.png",
+        "sha256": "a58d48299f645b87be65051185a832d06cef35cf1cb28569ccdc74e69c5d6ce0"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/LICENSES.md",
+      "sha256": "1eecd39e2bd19f7a6d5eca8128529dab222080c81d0f6aa0cb48e19a1ea9d2b5",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/brief.json",
+      "sha256": "55f728ba03957d5914f9487bb81c33aac3362441672fe85a9b1ce61f4b212ee4",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/brief.md",
+      "sha256": "00faea6200c1148f02bf714321bd81dd35b22e586698f61ebe297556d7cd12d0",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/build-config.json",
+      "sha256": "2425810ec855d4ce6d60dc346a81eb77331a70dc5f07eb3bd4d9f716e722647b",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/candidate-brief.json",
+      "sha256": "4895dc7d110691fd356ee31f8bf23f7b178743043731ac119728290f3755232f",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/candidate-validation-prerights-failed.json",
+      "sha256": "639b9e7cc433b686b7422f19a79f3f0abc7b77e7e4a5450bb869bed317096b36",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/candidate-validation.json",
+      "sha256": "50434f8a8c1a2ce58feff2780f94ebdd34b942a10e1f26755d783bec29c56985",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/candidate.json",
+      "sha256": "cd3a51719b4b5ab7dc5256f037e8e0858b84b2b7eed558395f5cdf40701531ae",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/concept-evidence.json",
+      "sha256": "0462e7c5f4c609d520d7995fb5329cc97b9808eda6d21a3d886e84c9151a7f7f",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/concept-generation.json",
+      "sha256": "cd8ee9a2c64c6f8c40effef8d4d37042c29e9be157d3fdbac791d9a04b8382dc",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/concept-original.png",
+      "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/concept-prompt.txt",
+      "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/concept-validation.json",
+      "sha256": "600a90b5c10385b01259fbc930afeaf23de35bb504b1086ce82089c44c9a6cbb",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/contact-sheet.png",
+      "sha256": "653c88b48e39e544fa698ec58621ab32576d635247bb8e30c16c81c2bda2e6e6",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/dependency-hashes.json",
+      "sha256": "323bc3aafd1e8766d81793a433522a0d92beb78bdd26aa7ddf81beb0f1e52840",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/freeze-path-map.json",
+      "sha256": "c74bc7ba076166d889e25b1b3df8089d4feaa54eafaaeb2382d6d6f8580e293a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/generator.py",
+      "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/gltf-validator.report.json",
+      "sha256": "0e966d33cde9384cd728d01dab82e50c52da907a5313061200aeec31d1aa457d",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/lifecycle.jsonl",
+      "sha256": "28f145049ec09404b6cb6dce6d1233f7bdfa706c1580ee1e91cf54c0c0503c0a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/maker-review.md",
+      "sha256": "033ec7b87a739fa5b3efdcf326c5f624172acee3235648abd797fd5ace026802",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/metrics.json",
+      "sha256": "d19d9bb2b9c19073aa2b60d30e43a2f988c054c31ef5cf588cb6da0adca2f963",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/model-start.json",
+      "sha256": "2b2839715913521593d11d05c1fc75f29e58760f304f649e1a84cf64d458325b",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/model.glb",
+      "sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/modeling-freeze.json",
+      "sha256": "a75746bee1a694968a327148103d0fb3a5b21440422ad99cfc20b0940f0c4abd",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/pixel-identity-rights-adapter.json",
+      "sha256": "baa56cab878d05bb9212baeb16f601fa023c4c7741d9e6d5e13a89415bc2727f",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/preview.png",
+      "sha256": "494fe522c97f1b6ccd30e2fbd1243090b67cccea3b31e769919b24b4d452b78d",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/profile-contract.json",
+      "sha256": "c6c7148f5f12bc066e3ab09e2a792ed8531e7e537f2aec8e7bb43d7c5d0daa1a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/clay.png",
+      "sha256": "22bc21d1f79a2a163996f450c4d3337ed86fd35f201ae7d0b4a45b575528a6ae",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/front.png",
+      "sha256": "7dae5849ec3ebcee94ce78ef13080a9ca3f4c2e651056fc626fd24fdb17505d8",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/hero.png",
+      "sha256": "494fe522c97f1b6ccd30e2fbd1243090b67cccea3b31e769919b24b4d452b78d",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/rear.png",
+      "sha256": "5953c32cc403286f2e6494b5be1ca981a57adbe74b93b3841d8e75a5a3532c8f",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/render-config.json",
+      "sha256": "9307387d3fa9adb865763d94f28e03ff76c4aa84c183700b4210948a17b72d7d",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/render-manifest.json",
+      "sha256": "0dd987aa3ca33777f719037321757dc18308af8f30ce8e77da060f0c6b083db9",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/reversehero.png",
+      "sha256": "1b2e4d5cf9dec16fa4abe2f3c70806196c14881f132fb8d1b3fb69468e53f0a0",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/side.png",
+      "sha256": "31eb5197579fa325727516141d508c2498142c9675a191cc64eebfd75d259656",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/silhouette.png",
+      "sha256": "4f39a4280a354d31962c8b3086932ff850fbd3ec98745db406cfae84b7752910",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/top.png",
+      "sha256": "13af7082fb0b6bf515ef8a6a120a42750e496643bc1f2726487be5bc50a1fee5",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-final/turntable.json",
+      "sha256": "806de143a0d8f3d073d11e2d11cbe45d9d56d23dadacd8fdda7f488527c5fada",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/clay.png",
+      "sha256": "95449a5e5b34101bf4bafb47c4f560d306eb2cc5cc21595e2e6054406f8f9e01",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/front.png",
+      "sha256": "dcc2ee2121481834e04becaff332e39e22fda215ab202f5864c7b56521b903b6",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/hero.png",
+      "sha256": "8fe63a9a6f2cc4fcee5e965e8b90ea9a391cc479928fabf3b7d76dad4ebe0648",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/rear.png",
+      "sha256": "2cd51c2da8ee8ce102e692d48a02b5a51d0932fc7741a742e3bc6007518465bc",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/render-config.json",
+      "sha256": "9307387d3fa9adb865763d94f28e03ff76c4aa84c183700b4210948a17b72d7d",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/render-manifest.json",
+      "sha256": "5f29d89010af7d2c4638ea240fd0f8e2065702cbf97004b0e870226e975a6b86",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/reversehero.png",
+      "sha256": "790f6a02ed85cd25c22de067143bede5450bf86865281c6decaec810870130db",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/side.png",
+      "sha256": "1f7e8ce8d5cd31d5e26b6224a5800a6e478bdefa46b1043c0d65f81a8fa097dd",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/silhouette.png",
+      "sha256": "69ddce9f8cdd28d80119bbe8a630b82315e22ee7af68b58653385c9a2a86152b",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/top.png",
+      "sha256": "3f32b5a6322e1bab69b53c5a5e2e784be11326a1f36798f873cb6eab1b313da0",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof-prerights/turntable.json",
+      "sha256": "806de143a0d8f3d073d11e2d11cbe45d9d56d23dadacd8fdda7f488527c5fada",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/clay.png",
+      "sha256": "896aac363a8874de956954db050655d7a63e602291a8943e50654b4e39f39b39",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/front.png",
+      "sha256": "0eb7fee8e2117fb80c66a9323820af213533cdc0816579ed277447a2c2a61598",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/hero.png",
+      "sha256": "7b8de0d5f4b06a5fc193783fdb278d86e0ab6f69953b453849391a459cd8342e",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/rear.png",
+      "sha256": "e199eb8064cd103fa0fb80e520c19a0d19c797a94f1a51502b36f3c4c0af88a0",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/render-config.json",
+      "sha256": "9307387d3fa9adb865763d94f28e03ff76c4aa84c183700b4210948a17b72d7d",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/render-manifest.json",
+      "sha256": "0c36de17715eea124fae257c740d51d23059179234a3dce96aaeea29aa813afc",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/reversehero.png",
+      "sha256": "f0f538a16640250f7b2785acbba58acb4408b9e337896e7c72f764208b97e030",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/side.png",
+      "sha256": "30b860c485229081bb1c3cf8b8e4b59066f78dfa22ea01402f11eddc39e754e7",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/silhouette.png",
+      "sha256": "0a527879d8f62502f6c27fbe985c46ab003e3803dea0c823cb9fb26928ee2a9c",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/top.png",
+      "sha256": "9043763a23e2f2b6899f37bf30e18f407a75b7bca26f115b68bf28afa8bf642e",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/proof/turntable.json",
+      "sha256": "806de143a0d8f3d073d11e2d11cbe45d9d56d23dadacd8fdda7f488527c5fada",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/qa.json",
+      "sha256": "461b90b6c89ba7289449835d7f8fdec4d9cb0bff9b75648b0fa3f7ec827b45e7",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/references-premodel.json",
+      "sha256": "9882a20e0de98e490a77aca0ab39bf702e56ce8554b8973bab1a78b9a26f65ca",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/references.json",
+      "sha256": "2711d6863316a86f41658a1a5b6160e572c80d173b2ba873e234e310d5d0b7a4",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/repro-bound-1.report.json",
+      "sha256": "807fbd1ad8769929692a5b65b5bbd832fad720e2a142b9b81466327c9a41ee0e",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/repro-bound-2.report.json",
+      "sha256": "4187eb7a412d788c30427e7ea00bb0ee4b791bd186a8a91186b8fffe5cccf44e",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/repro-final-1.report.json",
+      "sha256": "5e383dfdf6b6f34ee4fbba64a487ddcf5206e5b3a70d1b8abf80392940ca37c9",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/repro-final-2.report.json",
+      "sha256": "091126cce5eb0f6307b38c423f50b658f6bc0de4406d665ff933d928d0966f8a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/runtime-parse.report.json",
+      "sha256": "0ccda02595480467af69fa1d56f04469c85de63d93d7a517abd1d3f5aa23e01e",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/source-final.report.json",
+      "sha256": "b8b7f53a33547911ee1e4ce0129f3071b1f248d712bf365b63cecca0397c895b",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/source-metrics.json",
+      "sha256": "4688752d9750b88bcdbeac7ab83a9f959f4856ce397bf2c174bb9395e64ff05a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/source-vertex-counts.json",
+      "sha256": "ec0ae22b47c427026a3fd2b41ca702d216de5cf26bd832504a374416c12ed3c8",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/source.blend",
+      "sha256": "c36cffccdb973aeb20cdab8da46e8991e2734fb4264988a60098820475cf9e9c",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/LICENSES.md",
+      "sha256": "1eecd39e2bd19f7a6d5eca8128529dab222080c81d0f6aa0cb48e19a1ea9d2b5",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/brief.json",
+      "sha256": "abf73275f4e7d4fdc8f3176e93e7795acddbb0ef4a5301cb27b522ef1b8fad3c",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/brief.md",
+      "sha256": "cc1d9a09a90df53e51a24ebb5276606a7ca9e005d138a505a47599fe4bd6520b",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/build-config.json",
+      "sha256": "122cdad002098cf19cbce77843a23e03691fdab7b51d3f9ee29de64d862ab8fc",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/candidate-brief.json",
+      "sha256": "0d2ee0cd978526b243f687a02f25aa717e38839a407a4e0396ba38497aeb0c8c",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/candidate-validation-prerights-failed.json",
+      "sha256": "6322854905facfde2e1568e24ed0644dead9a394e6be18a4481613f56bc42835",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/candidate-validation.json",
+      "sha256": "a79d7b560dec1bedb6aa82cc5476f0805c52cd159a3ad2d6f31eb7afc8a0403f",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/candidate.json",
+      "sha256": "765c947ae1c33bbee590f3574c34c4a61a7a6aaf2e21123838964b4ff625b3a8",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/concept-evidence.json",
+      "sha256": "22f8a04383dc79b6c9b1a033c5433799f49a68390bd6479596a973719077b015",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/concept-generation.json",
+      "sha256": "cd8ee9a2c64c6f8c40effef8d4d37042c29e9be157d3fdbac791d9a04b8382dc",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/concept-original.png",
+      "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/concept-prompt.txt",
+      "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/concept-validation.json",
+      "sha256": "7efbd8309f583e40c6d0e51c35eda74a4ec30f72548aa7932de47b2e1bfc8a42",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/contact-sheet.png",
+      "sha256": "1bab3f459791ead76463b9127a38c0988880058233403ffcfc01f90d6dc433ca",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/dependency-hashes.json",
+      "sha256": "323bc3aafd1e8766d81793a433522a0d92beb78bdd26aa7ddf81beb0f1e52840",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/freeze-path-map.json",
+      "sha256": "d29350a8c3ead91e430ef4b623edc8a2080eb7fc97f4404426692e65f80b9a27",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/generator.py",
+      "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/gltf-validator.report.json",
+      "sha256": "4a0f63254a618c533f415c54522ec6786a9f6625ddbe5a26005aa6655ca6ce9d",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/lifecycle.jsonl",
+      "sha256": "b2b46ad93b744bf2a904c73aafa2b426e7c23cc75203030e61f58b98c08aa9cb",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/maker-review.md",
+      "sha256": "8a79c061abba1b77706fea9a2246a109dd16badaa24442abf025c65f58872bbe",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/metrics.json",
+      "sha256": "b42413a8ed7ffdc854a48c3de458beb66d5f182894232a027e5b1b8a1013997e",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/model-start.json",
+      "sha256": "eea22b7d5b7609388c7f15e4b506269b2fa181881b1d57c3f833167cadab3cc9",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/model.glb",
+      "sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/modeling-freeze.json",
+      "sha256": "2735ffbe28af1b16bbef7d294aabf3da31ffe4a7b9412e327b9e970e5b172cb9",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/pixel-identity-rights-adapter.json",
+      "sha256": "bcbfc828dfb0d2b07a4edca4e74d2d9eea8133736bdaf0225c35e6ce308fc1f4",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/preview.png",
+      "sha256": "7e75660b7127abb53cfaf2f124fe58dfa2736e31942c6df508660052992874d0",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/profile-contract.json",
+      "sha256": "8187aee0da9fa84a69ad64e562e8ae4f645dc4e3425d6b1467ab81f98f819f27",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/clay.png",
+      "sha256": "f14bc1d569ead6aa9c71fffa50a50055f675e8870af2b7164cd9d1f419fcf651",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/front.png",
+      "sha256": "7f68cc06ca68448644a97808d62a3d0a2b8c7040132182942a3919df51a1e6da",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/hero.png",
+      "sha256": "7e75660b7127abb53cfaf2f124fe58dfa2736e31942c6df508660052992874d0",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/rear.png",
+      "sha256": "7b318ee6bb16ab8b6364ef2366a581b71088b67928196a982078ed8e702ae35f",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/render-config.json",
+      "sha256": "99a60462d13f0c8ca52a8dc6d3c66dc0005f89e12ccce4a1321b78bc060a415a",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/render-manifest.json",
+      "sha256": "42150cba486a47f5806785d0f345fef3ebfb9a197bf55246677c61f4abff70b0",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/reversehero.png",
+      "sha256": "e6ab17b32053ee1da7fc650bd0e346d20cd6a6bf923778422a750ed52cf9f7c5",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/side.png",
+      "sha256": "3cc5243ad6f87a69148c1d45cbd0ab2f4fa27f76ae39805c99a215890a0e4e6a",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/silhouette.png",
+      "sha256": "a8f7170cee506ef3019a80b377f8513c4f6d31beef83a45985fc223827af19f4",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/top.png",
+      "sha256": "2a79dd761897dd26daf9515c3ff813c939c9ddf903fe61c270749f4007dba9d0",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-final/turntable.json",
+      "sha256": "6a27670551bad3b3c6d1ca6d19c4f3b7cee4546000dfde888b44b472af525de9",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/clay.png",
+      "sha256": "c719382e68761396d7ec77907315afdff26017224644a9ffd150c3a9f8b65447",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/front.png",
+      "sha256": "21efc8f409f43be291434bcbb248c2d0cb6fe788fec37052f86a7700a7556d2b",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/hero.png",
+      "sha256": "3786387049a31781615066eeff79716bc74eefea7469e8a54570ffd034cac615",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/rear.png",
+      "sha256": "b1e62c648ec9ba18eadf8dfc0a37ecf8d8b00f58fc3c3beebc2453a5ddefea98",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/render-config.json",
+      "sha256": "99a60462d13f0c8ca52a8dc6d3c66dc0005f89e12ccce4a1321b78bc060a415a",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/render-manifest.json",
+      "sha256": "1821ab00a27d749ba7774468512a97f6b4f14e0f9c7aee64d840e9aa2bd1389c",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/reversehero.png",
+      "sha256": "bbba7822415fa886c7f4ef048a6439cede9d8835f249e376a0f68b1060ed1d4e",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/side.png",
+      "sha256": "4cbfe761694f7ed81ad0091e0e562a2c27ee2b5aebaf69d0be4d4879b2c35226",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/silhouette.png",
+      "sha256": "65879cfa3da31e48bac1666552e4c62ab2ecaa2eac07bd26a61a0d23d7057591",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/top.png",
+      "sha256": "fab7e26be24ddf353fbd029ad5398ddccc3fa35aa15a6eec4e9384d5fd0d25ee",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof-prerights/turntable.json",
+      "sha256": "6a27670551bad3b3c6d1ca6d19c4f3b7cee4546000dfde888b44b472af525de9",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/clay.png",
+      "sha256": "eb3f4c0801b1ac31c5be234dd13e1c1f71ded99c9479050ae4a9bb39c997f4bd",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/front.png",
+      "sha256": "003a0d820051882fe041ab8cd4d9e974061887d76058e4bf0f5bbb5b17309ef5",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/hero.png",
+      "sha256": "252b890617bf6d49538fa5b6fe0b67effe9b8fee5ce5285a1ce112e691c0d49f",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/rear.png",
+      "sha256": "6ed1183855f73b197ff9c5f475c7f315dfe430040628afd06f6a6d2a1d6070dc",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/render-config.json",
+      "sha256": "99a60462d13f0c8ca52a8dc6d3c66dc0005f89e12ccce4a1321b78bc060a415a",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/render-manifest.json",
+      "sha256": "6728fab542b52c487980d219922b582e0f652ea468ecdec1815d15b041cb985e",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/reversehero.png",
+      "sha256": "ead78bb806e0b8615e58abfbc136fa6271873e150b8d5c9f313c5fb4e40e3ea0",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/side.png",
+      "sha256": "c3f1df5159d8304a38bf7cddb18efbec22cb183a7cf9418313fdec1d24505dc1",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/silhouette.png",
+      "sha256": "78c5afbd7eee9daaf536b60a078bb32575f5d433f73486094e2d63655225eb3b",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/top.png",
+      "sha256": "b40c5a7da83d2ea3f3c4c8003110e86d0e220f762e583cf925d6844c6d6913e3",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/proof/turntable.json",
+      "sha256": "6a27670551bad3b3c6d1ca6d19c4f3b7cee4546000dfde888b44b472af525de9",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/qa.json",
+      "sha256": "865820c99fb981ac5233d94129473feed2d94b6f5d7aa6d94160357472b12268",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/references-premodel.json",
+      "sha256": "b54438a87dd5d370aa72baa13a0287c99cee0799eb2f6283c0cde5485f7e26bb",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/references.json",
+      "sha256": "366bd4f247b7aac8c94073813ab467b8f4924b86fdaf71b0ad4f6421fda073ad",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/repro-bound-1.report.json",
+      "sha256": "bbd631ec141656aacc225cb27ed000e22acd276833300c909f9e072c6ec826e4",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/repro-bound-2.report.json",
+      "sha256": "d9b332ce78558469753c279513bf970b06d1a6fec8062d2e840794617f6c6c71",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/repro-final-1.report.json",
+      "sha256": "729d8be56e7ca25741d0274479d064fda51001f689ac546db953e918fa335a00",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/repro-final-2.report.json",
+      "sha256": "412e34ca83f431a4fc2d533f08a006936c4cfdbeddddf29b329194c1603e36fe",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/runtime-parse.report.json",
+      "sha256": "985d55425eb89d5c7915c99057581d695e8a5bf61dbd588f6fb7a2497efba0b2",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/source-final.report.json",
+      "sha256": "a91cfd528df7f61bd3b837f41a4646cbfbc549fb40bbd873fc42f483f8e5cb50",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/source-metrics.json",
+      "sha256": "54d070d8b12b1cee05d4ca688a1f868a55bb9b9b0ce7bb1c8fd0a53fbeeafdf2",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/source-vertex-counts.json",
+      "sha256": "3433fbca386cb46aad0c5043b6f04e9e6d050b3610265319847f8b655e306f49",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/source.blend",
+      "sha256": "01730a05cce3e638e1fe0305a99f93c25efbbbffb6fc16cb523cc05e08fbc4f9",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/LICENSES.md",
+      "sha256": "1eecd39e2bd19f7a6d5eca8128529dab222080c81d0f6aa0cb48e19a1ea9d2b5",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/brief.json",
+      "sha256": "86c9eff8908d6cf275f9b656c1bc79165e3962932bf55dcc22844db18028d00e",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/brief.md",
+      "sha256": "9bdbe1b6d501dfb9042c95daa8806a2d17f5e4028c6154e738f2b4a09865ea0b",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/build-config.json",
+      "sha256": "402866fb029f5fb5c05ad67a8b3098de8c86e6f5fe7e4b80f9c9409649b75d02",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/candidate-brief.json",
+      "sha256": "eff771e6df13518527323cbdea9a721f36c575729d85d9ee84b30d66543bc7ba",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/candidate-validation-prerights-failed.json",
+      "sha256": "c053eac2d972e47829c7acec866c7e199cfa129c12ad66bc537c79b16c545d8e",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/candidate-validation.json",
+      "sha256": "b2c91bae40d461d3e80db671d14060a099b6a5b89715f872528569d68421c98a",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/candidate.json",
+      "sha256": "d54f5c4dc2bd9cd26f91af500df540e8eab51df663c1fe176237ac9e8da45101",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/concept-evidence.json",
+      "sha256": "8ad30b3d9886148555eca57a1b9c18cf90a2422d5406b854f0d472a426801e61",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/concept-generation.json",
+      "sha256": "cd8ee9a2c64c6f8c40effef8d4d37042c29e9be157d3fdbac791d9a04b8382dc",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/concept-original.png",
+      "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/concept-prompt.txt",
+      "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/concept-validation.json",
+      "sha256": "d209fd1cea6a39c204c48a059134f34774e4ae7d938107bfc2b6794325e1b33b",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/contact-sheet.png",
+      "sha256": "fc40e19df173d9d16aefa0af05d392949a0e3be32730573465c3b7688990cd2b",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/dependency-hashes.json",
+      "sha256": "323bc3aafd1e8766d81793a433522a0d92beb78bdd26aa7ddf81beb0f1e52840",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/freeze-path-map.json",
+      "sha256": "70ab35faab3b34ea6777bfa75de00c9aab37dfbe658ecb47e6ff04734ad8c833",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/generator.py",
+      "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/gltf-validator.report.json",
+      "sha256": "eee6c0461d375cb9e514f9a24adbd0ccb217626f2a228c742a6352cc1fa73af3",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/lifecycle.jsonl",
+      "sha256": "e1e180b49932b0aaaa70acd038f2533fa21a5e46a13977c2a0b5940e93f2b5b3",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/maker-review.md",
+      "sha256": "2b3e08f747734121bda91a310f2f6cc1236b18b4b4bf3a0a0de67a4a83481766",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/metrics.json",
+      "sha256": "05bce4fd0cb5ad499be332612c66a9807c6635b6332285451256230a317c96f7",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/model-start.json",
+      "sha256": "d98238a87d16c00298aee59b8136978f1c7bc11e959657af38f5ec504f481f72",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/model.glb",
+      "sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/modeling-freeze.json",
+      "sha256": "565ab2f106c30a524c37ec884fbbd20d00e0a15170bf08f0beef5b8493d5aa4d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/pixel-identity-rights-adapter.json",
+      "sha256": "79e775be7d02810c35880f2d34687f9d37a2de145bf8b6f3f23d41ddba71f15d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/preview.png",
+      "sha256": "7baf1703168b07f8928e7c44f29587863f246c343c5b16f20a9ce24c87a715b6",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/profile-contract.json",
+      "sha256": "d9b1ffe8181a7cc5f7bcd51cbe817e199767dd03c76e289e25b764cea223d909",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/clay.png",
+      "sha256": "1708d2905727e29c87b38a7ac07d428fcfcd954071fe0e92b608800e851f6d25",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/front.png",
+      "sha256": "c83125a1c7f1a00aa5905045459966591cd62a59c45e2477b5576fedaaa6519b",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/hero.png",
+      "sha256": "7baf1703168b07f8928e7c44f29587863f246c343c5b16f20a9ce24c87a715b6",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/rear.png",
+      "sha256": "4cc38174271563b28bc4e0e6ff75d655c8fe7171d0bd6f3ef8a9e70e48e8537e",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/render-config.json",
+      "sha256": "d1a2868ba86b7fb431721461c7cb547889eff64a49d08faf42186a20638e57c6",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/render-manifest.json",
+      "sha256": "f855477019d11b7f0bf2586d5dd45fab583ac2fe3a6f4cb0b2f2f25352d80b09",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/reversehero.png",
+      "sha256": "7654e58f4687a6dd1c01103db3a15971cc2dc0899cd4ea144c9d539ffbb619ab",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/side.png",
+      "sha256": "8743cda5458613afc22e24613f4240b91fd74a7f54510807b591d6b273b75f08",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/silhouette.png",
+      "sha256": "dabd227510cff787ef5cebd26119e2a564288193efa7be2da959c971e306246c",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/top.png",
+      "sha256": "f5b1a75e8ba5c54646224179b0739cd31b21b308e68c8120c24469766ae55fba",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-final/turntable.json",
+      "sha256": "77235cfd215e265b2630c4b8d3a186ebe072111705717131f7c5db95167ffa6f",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/clay.png",
+      "sha256": "b179906e09c3c6fb5f030c660abc255ba40aa213fc8c1d8efa32be02e0de629d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/front.png",
+      "sha256": "f89c5c4adcd26963b733b21eb55fe7884c3fa2872dbd5f6bb0fd599008a47fbd",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/hero.png",
+      "sha256": "00ce4e34cd57f8dfcbf2254433f6c40dadb1b6f1dade2f763d1a56d6a9211770",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/rear.png",
+      "sha256": "0ccafe4113c29bfa246d386fa74b5b4823470eeed68e54181b755cd307556e81",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/render-config.json",
+      "sha256": "d1a2868ba86b7fb431721461c7cb547889eff64a49d08faf42186a20638e57c6",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/render-manifest.json",
+      "sha256": "231087f276bf93b4e7f6eb6c121bb82e27f3d2740497faf946328e0a3846287e",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/reversehero.png",
+      "sha256": "aeac376a59a547cc94b3a7b827a2af9c18e1af3c2dc7db734a9f643274a20bd1",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/side.png",
+      "sha256": "091d09376a1b9ce9e370b7b0837aa12a9949adebb7199efaee8ff439aabd89aa",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/silhouette.png",
+      "sha256": "dded08d43b3d21e11314e188e377cd666a8b9933d463cfa56772150602e6c984",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/top.png",
+      "sha256": "14528a49ac59f159ab34f4a662d3f4d513bad6b468c5d4d0a7312256c929ba4d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof-prerights/turntable.json",
+      "sha256": "77235cfd215e265b2630c4b8d3a186ebe072111705717131f7c5db95167ffa6f",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/clay.png",
+      "sha256": "e1e29a9e3049c3b36e919df0b01d7af6a2ac51d6c48273079877edf2a586a7d5",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/front.png",
+      "sha256": "6595a86b71058e963974edc716e11898af2d2e58a18f682f51c2e12a908315af",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/hero.png",
+      "sha256": "6dc5468303786ba1f1fd8cc2bd8d801c63ed090e7f69f90e8ff3647cb5057ea1",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/rear.png",
+      "sha256": "b91b4abfa0b2d741a757b1f653a281a89259d54540452fae8591b48c340ed9a8",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/render-config.json",
+      "sha256": "d1a2868ba86b7fb431721461c7cb547889eff64a49d08faf42186a20638e57c6",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/render-manifest.json",
+      "sha256": "b36f92dfa65bc05243efee0d729539694ed6623b180ac2c6dc215daf1c61db69",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/reversehero.png",
+      "sha256": "cc1faf7d234ddfd470f620545f3c6aa0418bf98e4899d2629bf04d9fa52dadee",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/side.png",
+      "sha256": "45c3e236caba852a241d2c59fa38068181d877a6ee4f695b0a9533d3d9fe8410",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/silhouette.png",
+      "sha256": "1338235833ab9743e2df4973f8599096bfebe871036e1b64be3b601b3631df04",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/top.png",
+      "sha256": "d375807f6f4234bf6409d0e06de5110629e03a1b7a720fedc493fa3d73a8929c",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/proof/turntable.json",
+      "sha256": "77235cfd215e265b2630c4b8d3a186ebe072111705717131f7c5db95167ffa6f",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/qa.json",
+      "sha256": "1b532e56011b8be60cc089623db5ae40023f349474e57cbf620e267941cf1893",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/references-premodel.json",
+      "sha256": "8667c21cf1127cbd93719cf9ea1fcd49bd5e59dde412abb682d705904389774d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/references.json",
+      "sha256": "b5008bb387b011678c61fa23fd51ee1f51e1a1c55e1827dac038872c16bf91e2",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/repro-bound-1.report.json",
+      "sha256": "aeeb53b5d86e0efdad0d0855583d8c7dcb733d6486630ad33a3c2d6d87d519cf",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/repro-bound-2.report.json",
+      "sha256": "73b930a68bedddb7c071ca88a3e9ed76f029b4998fe82913b0acbda7cf9aa432",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/repro-final-1.report.json",
+      "sha256": "3eecf3518bbcbdbc3146659fbe222efe00077c2439059255f8c22ac5d592dc5d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/repro-final-2.report.json",
+      "sha256": "901fb26395b8a7b99ad4b54e7a5830e2d428c5b78d95d03701936e4c50b84e22",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/runtime-parse.report.json",
+      "sha256": "a3dd5e485e341a650467ffa35a0c370b38f8077e5c351f084dede7360d266abf",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/source-final.report.json",
+      "sha256": "4dbb205b73ee31f44489bbdfcd338a8f04c7fad2d50107048d0f903dc570e9e2",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/source-metrics.json",
+      "sha256": "c7dbba53835156cab725069646f266549712c550276dc6c001d241fde8075ebc",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/source-vertex-counts.json",
+      "sha256": "56a444b132e49d33387df3e4eec5b0afbe35363a10bc07120aef59a46f632316",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/current-ripple-surface/r001/source.blend",
+      "sha256": "873e86fcba5a02e53395bf963cd863e67d49dc221c93d3beb93a718878b8758f",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/LICENSES.md",
+      "sha256": "1eecd39e2bd19f7a6d5eca8128529dab222080c81d0f6aa0cb48e19a1ea9d2b5",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/brief.json",
+      "sha256": "7ad2fe63a0a6e3c0a97149c338b27b2aea81f0a024a40ba088a52ba71782984e",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/brief.md",
+      "sha256": "eae6821d5d702c05df6a89f09e7e32236603609a8211358fafce21387dbf9d39",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/build-config.json",
+      "sha256": "e31ea080a957d10f099c3dcb8f9f05d59c1d9e34fcdc7ed753cbbfd62ccda107",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/candidate-brief.json",
+      "sha256": "562f7435555aa51844db611e61923008bdf5572f8fb0420385be2992fa64655c",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/candidate-validation-prerights-failed.json",
+      "sha256": "dedc564aebd189c42ea0b51ae52f1db026f81083ae47a8710289450fe4336962",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/candidate-validation.json",
+      "sha256": "e3c78ee23466ac362ee9f46aa6bd8a50c3dbea5ab7e99666e0257533c2339f59",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/candidate.json",
+      "sha256": "3e14024b74f08d4f5a459de54e7b25eb43dc482310abeadf780fd0c821d39d1e",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/concept-evidence.json",
+      "sha256": "23f509547ab2327f652450a7a0f803597d094b2965aa50fb48ebd0f012d9d883",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/concept-generation.json",
+      "sha256": "e1f59d2b28030f76d793d5af3ec0af5224fe33d7adc60791abc806e52111b02a",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/concept-original.png",
+      "sha256": "2404e7259c082d931d34cbc1e61b0ba18291e6b69006b92dd52c99742cafbda9",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/concept-prompt.txt",
+      "sha256": "ae5d759951985ecff66b1b6d038067441de2302076b871fb0cbcc0e8ed7ea508",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/concept-validation.json",
+      "sha256": "b42c759c41b1da09dc9430364c7150e93a71c230bd84a41d36d640d137cd2e8d",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/contact-sheet.png",
+      "sha256": "9342efd6265d89d660fd0c677e0b2bab552e471a4fb4d4e693478c3903c12e72",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/dependency-hashes.json",
+      "sha256": "323bc3aafd1e8766d81793a433522a0d92beb78bdd26aa7ddf81beb0f1e52840",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/freeze-path-map.json",
+      "sha256": "a2ab2c8015c5673fea46318679512b2d129eb953adcf2475c726565fee344f51",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/generator.py",
+      "sha256": "1036fb570efd95df8f779014f629951d1bc7aae124571d279fbd370a51ed69d8",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/gltf-validator.report.json",
+      "sha256": "19d15b0ec50c7e5e3d7f813295155502e8cf957fe2e2ba96b58757eec4e94e83",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/lifecycle.jsonl",
+      "sha256": "5d26535759e9ac307ae4c42a957b941f2bd85d53fc1694dbfce0e0e099243d8a",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/maker-review.md",
+      "sha256": "e0c10c2d9ad9edec13ecc950a903e81db38d1624fb633d072fa62dbe00673b10",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/metrics.json",
+      "sha256": "eadd5ed3c6636308be2ecb54ece5a0480442c59b8eda41b6948403f3bf20076a",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/model.glb",
+      "sha256": "ec95315cac17288508b02d7f3901e9a6a8e8ef464e46b44f460bba049488d35c",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/modeling-freeze.json",
+      "sha256": "b4b65833327550dc9615f2e8a81144bf06277db52537aec49cabc38042db7ec4",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/pixel-identity-rights-adapter.json",
+      "sha256": "db29fd8d5f7291ff79e22cb4167963819bf05f9a8721d3c3038cc4d962f255a0",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/preview.png",
+      "sha256": "bf45865550853c3e9173e03ee608b40293f9ad34eb1e85fd2be170d6869b1389",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/profile-contract.json",
+      "sha256": "310c57088b49c598738c44718e5cb956f358eecd462162a4ea051eb240bf557f",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/clay.png",
+      "sha256": "bf6a5338f0f7fb8e08bc46b7b85a9b65e6caebc5d7c68b7ea85ae54814fb482f",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/front.png",
+      "sha256": "bfdb2513824b7befe3277c6dd44f28c1d5a5f8a34943e00c39a46933c6ab9ed7",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/hero.png",
+      "sha256": "bf45865550853c3e9173e03ee608b40293f9ad34eb1e85fd2be170d6869b1389",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/rear.png",
+      "sha256": "51f2f1ebbad0553be5992eac59247e577a9871e2c40f06c57093f955be9b0626",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/render-config.json",
+      "sha256": "54488017e65fbe3a1c1faeb2eabf62880ca66f7ed862f5f8fef928c290ddf664",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/render-manifest.json",
+      "sha256": "8de34dfdb60f99dfe273072476ca00b6d41991fa5ef53a4e314db3dfbb845f7a",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/reversehero.png",
+      "sha256": "d51c72ab62f54e9bd50ce41605b980bef7677bcd16d7a8fb47f22478cf720393",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/side.png",
+      "sha256": "78e3aa7a1c2167fb8a277d91c332af45c39ec0cbfeeba9ea2e4af9c1a20182ea",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/silhouette.png",
+      "sha256": "f368f71c2bda0d692ed141cf0e1dc64f504efacd949c3f64af3b89dcd052c0fd",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/top.png",
+      "sha256": "5e6ad969543f75135322c300c528bfdcde79d06cf6f1acc4bf6502b06d272cf1",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-final/turntable.json",
+      "sha256": "feb46ef3e94b264c33f16fcde3517611302e9ea1508d42f357a43d2b7b0d56e4",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/clay.png",
+      "sha256": "2fea659d764e3aec71529b0302d325561b13dc2861554f77b75c8e653358b496",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/front.png",
+      "sha256": "e32be118437401777f4772f9d7f32e8750e5804a3c3f864345616e9200c0c27e",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/hero.png",
+      "sha256": "009d2856c78e6b67800ef9092e53f05d07fbf0c62c3de286042599e47c98a752",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/rear.png",
+      "sha256": "8c341c5780bcad24fcb7898e0dace147ed3964e9aea81ffd1cb983cc38110e77",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/render-config.json",
+      "sha256": "54488017e65fbe3a1c1faeb2eabf62880ca66f7ed862f5f8fef928c290ddf664",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/render-manifest.json",
+      "sha256": "95e38301fb8fafaa55e37233e248a47457d30c391b7321402d4bd5696a9c80b7",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/reversehero.png",
+      "sha256": "4b1d4a37a2b8c815d691e3291ce4a6fe9863b06441cd013ad1b5a2221ddfa3a9",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/side.png",
+      "sha256": "56f38a7eeeeaddb1f9cde0569c46fed665c69b845e69a550004162648ef18926",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/silhouette.png",
+      "sha256": "3a5e964d5b5cc2ebc8d07fcd5d5c7b100a9f4242f939414ba3797e1494546236",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/top.png",
+      "sha256": "d905d56c26d967057272142f2cd8d0d94deca19ba6100b423398feab3242ccad",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof-prerights/turntable.json",
+      "sha256": "feb46ef3e94b264c33f16fcde3517611302e9ea1508d42f357a43d2b7b0d56e4",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/clay.png",
+      "sha256": "cddff110fa4b78de756bf9010241d2d4db6d9874890812df6695c066ba910873",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/front.png",
+      "sha256": "92b649d6f68cd67b8e08dcb896ec01c127b7bdae94d140e6e8eeb9fe2adac63a",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/hero.png",
+      "sha256": "6d693919bdc18c9a666feffe66406dca27630103ec6757876ca3f9eba6a1f7d5",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/rear.png",
+      "sha256": "8428cba8bd11b13fee6e7c1efef19217b0af39164e937228820e51ee591c3a74",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/render-config.json",
+      "sha256": "54488017e65fbe3a1c1faeb2eabf62880ca66f7ed862f5f8fef928c290ddf664",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/render-manifest.json",
+      "sha256": "ca69682685c7b4178cfbf7253a0f9a4208905ab938a8c515bd5c634de22b5050",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/reversehero.png",
+      "sha256": "689e3c1148b2c39473bf97da49e5af787d80a2ac38cc439d5b80d70f877a11c2",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/side.png",
+      "sha256": "81eb5c53701c01780160380bba5121f62fa79bb1ed950a4f08ca9bf7d86168a5",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/silhouette.png",
+      "sha256": "76c418bc7a7c2799796a9d2057f05c463a11d308f8f5c66ddd6b095f9ff96112",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/top.png",
+      "sha256": "174c7620c0196d2b25ba1df850e518a3004713a0b625879541e013dc987721b8",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/proof/turntable.json",
+      "sha256": "feb46ef3e94b264c33f16fcde3517611302e9ea1508d42f357a43d2b7b0d56e4",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/qa.json",
+      "sha256": "35ae7390483a4802deb5216d0cd6343dcacd6e2e44792d69424c3ac15c3bcffd",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/references-premodel.json",
+      "sha256": "d7cef507ef0fa46654a3f871f3b2e37ee6f639f08be7832857990a76d277624f",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/references.json",
+      "sha256": "0371d0379eeec1cbd63987a002f134d509d9722253045c8e341d3e5bc756ab45",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/repro-final-1.report.json",
+      "sha256": "2eb0b047cc6fcfcfa371e0012d7caff6fa75090e2a764e56bbbc4671f8b6937d",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/repro-final-2.report.json",
+      "sha256": "1fdb28613118e295ac92164effbec9ae756cae9c94fb261564bad1595b46b0cc",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/runtime-parse.report.json",
+      "sha256": "10011e7a025b712ceb95d1d74d566130c8ae74a00fedd9b122f25287ef884352",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/source-final.report.json",
+      "sha256": "fea6bc7a2f01079e798761392319538fc22d44c03ccbe09bb89a689b57585f7b",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/source-metrics.json",
+      "sha256": "cf559d5badf0709a52eb9cab0a540724a1af755da87b28d4639026dfebb10a45",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/source-vertex-counts.json",
+      "sha256": "22334a3d32ebcefc39aad222a69663c98df4da17b972de3fe21ae1973320d4dd",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/perspicaris/r002/source.blend",
+      "sha256": "d9fdfe3fcef95cd75649c3908cb685ce547dd0b2d36f2093805d12d2afeb0804",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/HANDOFF.md",
+      "sha256": "6f23a3cbee94bb2f3d2dd23ce84936c98379b0bbb918354f5320138667a841e5",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/KNOWN-LIMITS.md",
+      "sha256": "3d40157d7da584b166dc4544d53d620c4f8435fd36738a2943f26f728b50194c",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/claim.json",
+      "sha256": "fb89089e99147609009c2697d8f34534d7597f448d189a60a946b16e2156a2e2",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072427-a7e3ed1dcc1c4cdb816674e548f7e95a/outputs/metrics.json",
+      "sha256": "6a599f8dad1ff721482853e3f43680d9d1c0f63d72a6924f8a2cdb5427a60916",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072427-a7e3ed1dcc1c4cdb816674e548f7e95a/outputs/model.glb",
+      "sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072427-a7e3ed1dcc1c4cdb816674e548f7e95a/outputs/source-metrics.json",
+      "sha256": "4688752d9750b88bcdbeac7ab83a9f959f4856ce397bf2c174bb9395e64ff05a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072427-a7e3ed1dcc1c4cdb816674e548f7e95a/outputs/source.blend",
+      "sha256": "49dc2e3a436fc30bf54bf30f1f7f84f5809f9b99168a3c3e95bebdee5ef6ff35",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072427-a7e3ed1dcc1c4cdb816674e548f7e95a/request.json",
+      "sha256": "b4815c9b2b439c0f78d06f04b262904e9e13ec74164c1118e012e59e0ade5997",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072427-a7e3ed1dcc1c4cdb816674e548f7e95a/result.json",
+      "sha256": "4231a66224b0fda0759cde70bfd1ba5fcc142f9a8c6639a3ed34899710065548",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072430-09528ededbf6411a81878b307400f904/outputs/metrics.json",
+      "sha256": "d9a1ca6d66e3068d4c8bc3c7f949fd09baa3ad3fd852e414bd9937444b5d01aa",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072430-09528ededbf6411a81878b307400f904/outputs/model.glb",
+      "sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072430-09528ededbf6411a81878b307400f904/outputs/source-metrics.json",
+      "sha256": "4688752d9750b88bcdbeac7ab83a9f959f4856ce397bf2c174bb9395e64ff05a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072430-09528ededbf6411a81878b307400f904/outputs/source.blend",
+      "sha256": "3577bf8964967756d3ad73fc90c0d352a865703e3cf477802c99fd6ac205962b",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072430-09528ededbf6411a81878b307400f904/request.json",
+      "sha256": "83dedd204bc79b790985cfa45e73ba7197660d3b14abdc5e3510ce88468d8979",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072430-09528ededbf6411a81878b307400f904/result.json",
+      "sha256": "ee82c56daa47bc8e6714e2c8ae4a107375680aff883bdd738fc66424d76182fc",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072408-80e39771311d4a089d655b8689421330/outputs/metrics.json",
+      "sha256": "012916de780a680a8c553097ec063203d8855063b64f46a458b60742ae73da0f",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072408-80e39771311d4a089d655b8689421330/outputs/model.glb",
+      "sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072408-80e39771311d4a089d655b8689421330/outputs/source-metrics.json",
+      "sha256": "54d070d8b12b1cee05d4ca688a1f868a55bb9b9b0ce7bb1c8fd0a53fbeeafdf2",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072408-80e39771311d4a089d655b8689421330/outputs/source.blend",
+      "sha256": "7320890a02dfd52d0f5076074f4dbe776f360bd7cda7bb0d2fe0616fdea8461a",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072408-80e39771311d4a089d655b8689421330/request.json",
+      "sha256": "b9c1094685bf360cdeed731eb1c5d73e17555485946224ad1b753efd5eb05b71",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072408-80e39771311d4a089d655b8689421330/result.json",
+      "sha256": "afb8517f1710105cd457f70e3fa6f8907fa53206269d364d2b617c64780af491",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072415-4dbe6ae12da342ff97967889e2c549c7/outputs/metrics.json",
+      "sha256": "82de974009d5a38b9c2fcc2601edad8978ac76ad9c73468227afe2932c45afa0",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072415-4dbe6ae12da342ff97967889e2c549c7/outputs/model.glb",
+      "sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072415-4dbe6ae12da342ff97967889e2c549c7/outputs/source-metrics.json",
+      "sha256": "54d070d8b12b1cee05d4ca688a1f868a55bb9b9b0ce7bb1c8fd0a53fbeeafdf2",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072415-4dbe6ae12da342ff97967889e2c549c7/outputs/source.blend",
+      "sha256": "2a4de4315c2e928d6723a9f1afbabf9398c2f82ad2dcca220ec2bd9867578b1a",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072415-4dbe6ae12da342ff97967889e2c549c7/request.json",
+      "sha256": "2656be1504a99f85477109a2e4f72830cf8a3f56df86cda195995a3b822a3a44",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072415-4dbe6ae12da342ff97967889e2c549c7/result.json",
+      "sha256": "4e96b78b7e71b2c1bf3f31963a81a9268942e8315528bec3f771276667c1a497",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072432-53ebe546fc7d49f69d94571843aaebd4/outputs/metrics.json",
+      "sha256": "4ae3b8a18e74ffe59bb60f52f498ac04a2416fcd8123d98450374e4e3638dcfa",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072432-53ebe546fc7d49f69d94571843aaebd4/outputs/model.glb",
+      "sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072432-53ebe546fc7d49f69d94571843aaebd4/outputs/source-metrics.json",
+      "sha256": "c7dbba53835156cab725069646f266549712c550276dc6c001d241fde8075ebc",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072432-53ebe546fc7d49f69d94571843aaebd4/outputs/source.blend",
+      "sha256": "6017f37e393c0357e8b23f776fa2cc3b72edcbf269241fbd07a49201c1f4637c",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072432-53ebe546fc7d49f69d94571843aaebd4/request.json",
+      "sha256": "7ad9d554bb1a68a07007a38cdc4e9105fc6f6778adbf8f6ada1a73c7cc1e3185",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072432-53ebe546fc7d49f69d94571843aaebd4/result.json",
+      "sha256": "e1d1c873d891286be676b69776ae946368d874a230187e927a2223c0c8b69930",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072436-bce0c2ae0ae340dda3cbf123f35b9b89/outputs/metrics.json",
+      "sha256": "656dfc5a3752f9c02365db4ec97d45aee7bbab4a933886ce05bbed73fa6d3552",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072436-bce0c2ae0ae340dda3cbf123f35b9b89/outputs/model.glb",
+      "sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072436-bce0c2ae0ae340dda3cbf123f35b9b89/outputs/source-metrics.json",
+      "sha256": "c7dbba53835156cab725069646f266549712c550276dc6c001d241fde8075ebc",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072436-bce0c2ae0ae340dda3cbf123f35b9b89/outputs/source.blend",
+      "sha256": "930c64977baf6f81342989913087d57c08dd2891e087b0f3a609180dedfc69bd",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072436-bce0c2ae0ae340dda3cbf123f35b9b89/request.json",
+      "sha256": "41bd4df6979446e47d4923c78a95050595e1392fe0fcaaa68032a97393f5b639",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072436-bce0c2ae0ae340dda3cbf123f35b9b89/result.json",
+      "sha256": "2594945e270d78491b4452e6c264cca7882aab6214aefff26e233db9a48a14cc",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-1/e44e0399be29f0c972ff787ff3bce238d9bcaf9fec0fd01cbc12fd1022f4c501/20261020T072418-1e16c5e09a484d74b38dacd4d9ae60a9/outputs/metrics.json",
+      "sha256": "39d544dde7e4ab54eea0c6067a514e227a0c49caae9d97a40c6bb14bf7320eb9",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-1/e44e0399be29f0c972ff787ff3bce238d9bcaf9fec0fd01cbc12fd1022f4c501/20261020T072418-1e16c5e09a484d74b38dacd4d9ae60a9/outputs/model.glb",
+      "sha256": "ec95315cac17288508b02d7f3901e9a6a8e8ef464e46b44f460bba049488d35c",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-1/e44e0399be29f0c972ff787ff3bce238d9bcaf9fec0fd01cbc12fd1022f4c501/20261020T072418-1e16c5e09a484d74b38dacd4d9ae60a9/outputs/source-metrics.json",
+      "sha256": "cf559d5badf0709a52eb9cab0a540724a1af755da87b28d4639026dfebb10a45",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-1/e44e0399be29f0c972ff787ff3bce238d9bcaf9fec0fd01cbc12fd1022f4c501/20261020T072418-1e16c5e09a484d74b38dacd4d9ae60a9/outputs/source.blend",
+      "sha256": "6f7ea514ebf7857e5de80e9691fb080402c004846dbb4ba12eef1ea34b8a0c85",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-1/e44e0399be29f0c972ff787ff3bce238d9bcaf9fec0fd01cbc12fd1022f4c501/20261020T072418-1e16c5e09a484d74b38dacd4d9ae60a9/request.json",
+      "sha256": "5031c8b33a83241f1688c46264e213adaf27a330d8113c9015527fa73910c327",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-1/e44e0399be29f0c972ff787ff3bce238d9bcaf9fec0fd01cbc12fd1022f4c501/20261020T072418-1e16c5e09a484d74b38dacd4d9ae60a9/result.json",
+      "sha256": "b9fbf768c68a28e17bae7205b5b705b0ae00fd2268b8f4772972123a5309ae97",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-2/3d6be71be4656132f22cfec16856ebfd34e9ec8f68f71a0c5a5e08c864d262f9/20261020T072423-331fa819fbaa441581f6839d50f2478d/outputs/metrics.json",
+      "sha256": "9360fbdd47e0eaaf1b5e65671548923a979f4ea93e603315c9fc75c3399ff7d1",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-2/3d6be71be4656132f22cfec16856ebfd34e9ec8f68f71a0c5a5e08c864d262f9/20261020T072423-331fa819fbaa441581f6839d50f2478d/outputs/model.glb",
+      "sha256": "ec95315cac17288508b02d7f3901e9a6a8e8ef464e46b44f460bba049488d35c",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-2/3d6be71be4656132f22cfec16856ebfd34e9ec8f68f71a0c5a5e08c864d262f9/20261020T072423-331fa819fbaa441581f6839d50f2478d/outputs/source-metrics.json",
+      "sha256": "cf559d5badf0709a52eb9cab0a540724a1af755da87b28d4639026dfebb10a45",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-2/3d6be71be4656132f22cfec16856ebfd34e9ec8f68f71a0c5a5e08c864d262f9/20261020T072423-331fa819fbaa441581f6839d50f2478d/outputs/source.blend",
+      "sha256": "8612db2f208253639b60ede05a92972954b362a1305f1d614b0163cc0ebb3ab7",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-2/3d6be71be4656132f22cfec16856ebfd34e9ec8f68f71a0c5a5e08c864d262f9/20261020T072423-331fa819fbaa441581f6839d50f2478d/request.json",
+      "sha256": "15a9415a40bf7d7216dd255804845eb0e14d7cbb59417fdd154905ac7ca7a04f",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/perspicaris/r002/semantic-rebuild-2/3d6be71be4656132f22cfec16856ebfd34e9ec8f68f71a0c5a5e08c864d262f9/20261020T072423-331fa819fbaa441581f6839d50f2478d/result.json",
+      "sha256": "e03cd48f6b84e14b884319dbea620d26abeb1e053347bb55cc66de99a642dde6",
+      "origin": "source",
+      "owner": "perspicaris"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/runs/20261020T072406-3951f394886547eeb506fdd99ee61799/manifest.json",
+      "sha256": "6ffc74e6edb33156e3b7cc7e7ee07e5dc2411720e2e300e32c61f96cf743c084",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/runs/20261020T072406-3951f394886547eeb506fdd99ee61799/summary.json",
+      "sha256": "0088163543cfdc2d19092da9d50281ae006bb47da32dfbd4df8127ac8959d19a",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/final-selection.json",
+      "sha256": "2dfb0c9958af3d5c4ab9e207bd259785601eedcfcf4e9b4a942ed86504deb77c",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/handoff.json",
+      "sha256": "001fe0258696cc0bf3faef640173d62bd261b9609e56ca2fc492e24c687df393",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-jobs.json",
+      "sha256": "a85c96036d1567251590aed5d4fbd2a97ff89773fabe98ca6ab2c37875a19036",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072250-1a4b51cdad6941b8bc616b5b7d014763/outputs/model.glb",
+      "sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072250-1a4b51cdad6941b8bc616b5b7d014763/request.json",
+      "sha256": "62b65b09b713a8d8bdb038f23b5c43beb31fbb919261b964856b7f3070fbc319",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/barchan-dune/r001/semantic-rebuild-1/4848b9fece4b46164f9e8f9e79c8de4f90a0e204bad69b72a4d8a34561707204/20261020T072250-1a4b51cdad6941b8bc616b5b7d014763/result.json",
+      "sha256": "f3ca0a5437317d7d88330bd75edb4900c6b721cdd1f244e8bef61a1939ebc63a",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072254-4dbfc846cd73461da527e84cad96b72a/outputs/model.glb",
+      "sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072254-4dbfc846cd73461da527e84cad96b72a/request.json",
+      "sha256": "9fcaea6062fd3e4d6afcfac66f94a41f534acb4d84097e7615de42aa7aebf637",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/barchan-dune/r001/semantic-rebuild-2/adb0297019c426932ebeee4077c60b08dd723a798ecc53c81d209e973b0411bc/20261020T072254-4dbfc846cd73461da527e84cad96b72a/result.json",
+      "sha256": "90d142e424701e9f9358958d0ca34e580db51b881be4a7bfdc27682d52779b05",
+      "origin": "source",
+      "owner": "barchan-dune"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072236-94ce262d0292490ba02c26e110385249/outputs/model.glb",
+      "sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072236-94ce262d0292490ba02c26e110385249/request.json",
+      "sha256": "dbf5baf944cadd03bfb3a60ecf74efc7c3b8d6bc320b97038dec06e98e0cd052",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072236-94ce262d0292490ba02c26e110385249/result.json",
+      "sha256": "3bf033c4fbb4e028fcb97bafffebfc00955d94d3d6af1031c3ff3b6ddfc32c6f",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072239-21f0272365d94d1e91bab7763b02ce7e/outputs/model.glb",
+      "sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072239-21f0272365d94d1e91bab7763b02ce7e/request.json",
+      "sha256": "e3c32cdefa2bc70c6b22feba075a5a45fe17b5ddccf0c065936bd888b4c8e34c",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/calamophyton/r001/semantic-rebuild-2/8483c29e462ba443106a768490caeb7906f20ae267aa81ae895d11e72f8f7582/20261020T072239-21f0272365d94d1e91bab7763b02ce7e/result.json",
+      "sha256": "32193a7252d404ce5cf40ed91129b7aec99da3dec3db5caacb95bc7e89080ddd",
+      "origin": "source",
+      "owner": "calamophyton"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072258-f67a481024ca442da6e045ce15f26e71/outputs/model.glb",
+      "sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072258-f67a481024ca442da6e045ce15f26e71/request.json",
+      "sha256": "1224797538a7dfbe870125441d6aa4271020506382af71b2c7f0600b2bbe90f4",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-1/0b2684055a9e009164d49d8c4f9dda669b90d76e6fba2f7fa9098520dea50856/20261020T072258-f67a481024ca442da6e045ce15f26e71/result.json",
+      "sha256": "caf14624a55fb87aacc484d9cfeddf50123ce06cc3c6ce8a2e6e3d8f041dbc51",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072305-bd35e062891046fbaaa92f291987db27/outputs/model.glb",
+      "sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072305-bd35e062891046fbaaa92f291987db27/request.json",
+      "sha256": "5f7752eb30972389d97528af80330bcd60f1926d114886fff8fe7dbf39d1303c",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-58/rebuild-runs/build/current-ripple-surface/r001/semantic-rebuild-2/1747c1a6e68d0ff38e7a36c99f03ef09f6e82d6aaea8d7a60052dae363effef5/20261020T072305-bd35e062891046fbaaa92f291987db27/result.json",
+      "sha256": "79ac29fb9939c770193e32594a3eb572361430b83ce9ffec04ee99db1e169fe5",
+      "origin": "source",
+      "owner": "current-ripple-surface"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/barchan-dune-views.png",
+      "sha256": "fcd9c68d79a6646e677faa1cd314a1ed0f7143e125b391b56af1439320c9c618",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/calamophyton-views.png",
+      "sha256": "bc497d8b6b8bf01bf38c8f08c88d94dbfd657cdecb288eb30ad9549ab7feb732",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/candidate-validation.log",
+      "sha256": "059cb16ef0e5298d7e8cc1a7aa7e2b098f418480d01368ecc3bc98d9420c722a",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/current-ripple-surface-views.png",
+      "sha256": "146042bf1985c28d26df6d2aaf174aeb8802f21a41609e792b206d954f9d86e1",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/evidence-custody.json",
+      "sha256": "41df5be052aa4cbcf83ea73dedfd211379fa54814b47b4022d07e512db30877e",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/freeze-provenance-audit.json",
+      "sha256": "2b8cb58b8a63a869c476f3094086bee80ea963a38fc6fd23fe7c5dcc98578a64",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/glb-topology-audit.json",
+      "sha256": "8e0cab3d6c149ef4652167b2164c1b13456bc694c23c66d8de6879f73bf1ecd9",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/glb-topology-audit.log",
+      "sha256": "8e0cab3d6c149ef4652167b2164c1b13456bc694c23c66d8de6879f73bf1ecd9",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/gltf-copies/barchan-dune-r001.glb",
+      "sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/gltf-copies/calamophyton-r001.glb",
+      "sha256": "005c21c5dfa735762fcfc65387075701ba3e24a915316e6e7c1a59a096362815",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/gltf-copies/current-ripple-surface-r001.glb",
+      "sha256": "2bdae5b8730c661fe9817df41baa7e12ea5b0f91c78a245f4f13eedffcae640d",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/gltf-copies/gltf-validator.report.json",
+      "sha256": "2f8fba2ec8637ceb3247c5c095568c4867bff76b801b50bcc89899e1d416b1e1",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/gltf-copies/perspicaris-r002.glb",
+      "sha256": "ec95315cac17288508b02d7f3901e9a6a8e8ef464e46b44f460bba049488d35c",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/gltf-copies/qa.json",
+      "sha256": "35ae7390483a4802deb5216d0cd6343dcacd6e2e44792d69424c3ac15c3bcffd",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/independent-qa.md",
+      "sha256": "ded5ef8f1fc70e1c71c0f730f194135e93e3c22f0505f016465a78f58343a6dc",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/official-validator.log",
+      "sha256": "505c791c8c1cbde1bb53a6f2af25f369207f81a187e318774b7a3912cd918390",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/perspicaris-views.png",
+      "sha256": "5120bb927d843e90fafb8b3208199fce545e3a4ac008c7d3ac635ea01f50e9c5",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/pin-and-views.json",
+      "sha256": "fa6becd6e350196a64a73803be93fd0eb40825ee9a893f24d7699ac404df8691",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/queue-rebuild-audit.json",
+      "sha256": "183de526079ad69326904abe0b99f547155a667df4d8befc804e6be96ada379c",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/reopen-audit.py",
+      "sha256": "9cb3fb8711373fef108fec4159666d851321f87c94f6048422e896d0f022e24d",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/runtime-audit.mjs",
+      "sha256": "5819ae2f41acec1f234c9fa696ceb95e5e2ba02ef7046a3b109d036f6c5a2490",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/source-reopen-audit.json",
+      "sha256": "835b33c2e740d32744699064b829d6fba35b21b0a19e77e51d4e813d6e6a8676",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/source-reopen-audit.log",
+      "sha256": "f842be942cff1b99c04cf0928f12ed27f3138a4850bb767045956b480bbe82d5",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/three-parse-audit.json",
+      "sha256": "d94ac08b9811cf55a564d79167befb0422b8b1dbf494ee2488d1f99ed9e4f5af",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/three-parse-audit.log",
+      "sha256": "d94ac08b9811cf55a564d79167befb0422b8b1dbf494ee2488d1f99ed9e4f5af",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-independent-20261020/topology-audit.mjs",
+      "sha256": "8da28be671cd09ecc7d5262e7e1bff96a280b3f7a93e3e5adb6f4500bb8a2a43",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/assets/card-previews/barchan-dune-v2-768-q90.webp",
+      "sha256": "da1a41300e2992226be1a648378c485a0d1ed75b74e2ba792c632d804024584c",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/assets/card-previews/calamophyton-v2-768-q90.webp",
+      "sha256": "7c24d47bf4589eedf695085ecb232ca02ba61c2176e2fea97c322719321a9d54",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/assets/card-previews/current-ripple-surface-v2-768-q90.webp",
+      "sha256": "17b0e52797111465dea342474fcb75be060fb910d340fdf1b6212bb2b0e8e9d7",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/assets/card-previews/perspicaris-v2-768-q90.webp",
+      "sha256": "e3ef7456c613b3a65a4017ca9fe45051eca918b35190b04fd8b17bb2d1d95397",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/assets/turntables/index.json",
+      "sha256": "e5bd58e972a3bfb450d21e8dc43dd5d19b68211d4a5fc2e0572dae03e0a35e70",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/references/barchan-dune.png",
+      "sha256": "28d1a601a2e10784d7124e20aff1233ed9ce42802d560f1d0e64ec08f8824f35",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/references/calamophyton.png",
+      "sha256": "c71aa4e6ec4730101634f982b569f729eb30bff5bc2ebed95efbe0d7f3e5e365",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/references/current-ripple-surface.png",
+      "sha256": "a58d48299f645b87be65051185a832d06cef35cf1cb28569ccdc74e69c5d6ce0",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/references/perspicaris.png",
+      "sha256": "ea53e321ac1ddca04afc15ecc8d1de64f7adf9001e067b38404e5b22046a8c89",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture/render-report.json",
+      "sha256": "17fe72174a4c459ec7ba5bb602ec48bab23cf46113d6cc33213eb1930c37967b",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/capture-verification.json",
+      "sha256": "420b42aa48a8e24456780cd1418f73154b6bf80baff54d34c4434dad48d04581",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/independent-card-review.json",
+      "sha256": "515434e55d62dae9d65996894bb4d438fc4650ecc1a4d33f999018e9fa25c5e2",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch58-release-20261020/source-capture-review.md",
+      "sha256": "14cbe9f91b6aa7c72a3ff87b72d51c398d3640f66142f3f84c11c63c94e10e83",
+      "origin": "release",
+      "owner": "$batch"
+    }
+  ]
+};
+
+/** Exact bounded Batch59 release; unchanged formal gates. */
+export const BATCH59_RELEASE = {
+  "version": 1,
+  "scope": "batch59-20261020",
+  "authorization": "owner_authorized_publish_independent_qa_passed_batches",
+  "acceptance_scope": "independent_qa_accepted_stylized_prop",
+  "formal_profile_acceptance": "BLOCKED",
+  "hardware_gpu_verified": false,
+  "target_scene_verified": false,
+  "provider_generation_timestamp": "unknown",
+  "source_commit": "330bc4aa669a1647c632a32622ce4318fd8d1b59",
+  "review_commit": "289cca9359cdd3595f7015f894a00675a004c422",
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "base_descriptor": {
+    "path": "assets/releases/batch54-20261020.json",
+    "sha256": "18848be2e9bffb004c8301ff7f05816ab0d691afbee6b569459f28e3099f3f4b"
+  },
+  "source_bundle": {
+    "path": "qa/batch59-release-20261020/source-bundle.json",
+    "sha256": "90ccc901e1058520274c65fef37b66c67267e2c1a08a177307c72dbd8cbcfe64"
+  },
+  "protected_source_inputs": [
+    {
+      "path": "ATTRIBUTION.md",
+      "sha256": "31cfae805768d2857f9cd3b86d328ba1ec83f3c28ccc728b0cac8edddfd29412"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "9dc06b87ac2f86cc6c7b3afdd8b02c5887c9a29bf5a4924a611937d4195f996c"
+    },
+    {
+      "path": "LICENSES/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "LICENSES/MIT.txt",
+      "sha256": "f4cd278b3853ba4c6b36d85975839c2b51d09bb841d6eecced516c482e826ce0"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1bddf73367b09c1c72034cca826c1dfcebc1ae35e1480d9da99b8fd202a34b1b"
+    },
+    {
+      "path": "production/policies/qa-passed-batch-publication-20261018.json",
+      "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+    },
+    {
+      "path": "schemas/README.md",
+      "sha256": "cdecb3681106b07e1414d18a4861162525da67d7061e7f7539f40c0fc817d615"
+    },
+    {
+      "path": "schemas/templates/brief.template.json",
+      "sha256": "cb1f2ff179d3363f0adec9717be204e2a355056686fadf792eea232c82b9278d"
+    },
+    {
+      "path": "schemas/templates/candidate.template.json",
+      "sha256": "3148c62284480a8118bc89135a3fa1371cb0c86f2726369338c499fc32dc2a91"
+    },
+    {
+      "path": "schemas/templates/references.template.json",
+      "sha256": "9c43e161399f377d2e943f36ddcecf84330618495689f461fb1b8beba80d288b"
+    },
+    {
+      "path": "schemas/templates/static-profile-contract.template.json",
+      "sha256": "538e12417c3d77e84746e8a4814c3c18701c18d327707b8ac4043fdea32c8ce4"
+    },
+    {
+      "path": "schemas/templates/textured-brief.example.json",
+      "sha256": "51a3b254d288bdc5f2716f6272a57539529cb17ac8939cc1c2787d7416ab5ab9"
+    },
+    {
+      "path": "scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "scripts/candidate_profile.py",
+      "sha256": "0489ec5378ec5d073ac4e84994b796ac529b122fd1c9c51be7b55623a413ac7d"
+    },
+    {
+      "path": "scripts/check_reproducibility.py",
+      "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2"
+    },
+    {
+      "path": "scripts/check_source_export.py",
+      "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+    },
+    {
+      "path": "scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "scripts/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041"
+    },
+    {
+      "path": "scripts/run_asset_queue.py",
+      "sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e"
+    },
+    {
+      "path": "scripts/validate_candidate.py",
+      "sha256": "fe679a8be19d16b9d9b86ee3419a73d2dd16b77dfa371bf1186ce0120d120ff9"
+    },
+    {
+      "path": "scripts/validate_concept_evidence.py",
+      "sha256": "745938a9b1624e8b744e9c03f597fd8d967ef1b4c145209805c6b6357578c723"
+    },
+    {
+      "path": "scripts/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7"
+    }
+  ],
+  "review": {
+    "path": "qa/batch59-independent-20261020/QA-report.md",
+    "sha256": "de1608a0e8fa90d519b6bd7aed1002c7bdb853631d57dbd1f7c5fb6d4680ae1e"
+  },
+  "review_custody": {
+    "path": "qa/batch59-independent-20261020/evidence-custody.json",
+    "sha256": "3fe9ea28e306273b9c3ed4e727576f702d6deaeec7fd15c35a12c3e7067d7c54"
+  },
+  "capture": {
+    "report": {
+      "path": "qa/batch59-release-20261020/capture/render-report.json",
+      "sha256": "17fe72174a4c459ec7ba5bb602ec48bab23cf46113d6cc33213eb1930c37967b"
+    },
+    "index": {
+      "path": "qa/batch59-release-20261020/capture/assets/turntables/index.json",
+      "sha256": "e5bd58e972a3bfb450d21e8dc43dd5d19b68211d4a5fc2e0572dae03e0a35e70"
+    },
+    "zip_verification": {
+      "path": "qa/batch59-release-20261020/capture-verification.json",
+      "sha256": "420b42aa48a8e24456780cd1418f73154b6bf80baff54d34c4434dad48d04581"
+    },
+    "independent_review": {
+      "path": "qa/batch59-release-20261020/independent-card-review.json",
+      "sha256": "515434e55d62dae9d65996894bb4d438fc4650ecc1a4d33f999018e9fa25c5e2"
+    }
+  },
+  "excluded_ids": [
+    "erbenochile"
+  ],
+  "additions": [
+    {
+      "id": "glacial-erratic",
+      "revision": "r002",
+      "source_commit": "330bc4aa669a1647c632a32622ce4318fd8d1b59",
+      "review_commit": "289cca9359cdd3595f7015f894a00675a004c422",
+      "metadata": {
+        "path": "assets/additions/glacial-erratic/batch59-20261020/release-metadata.json",
+        "sha256": "0aa94971593bfc31fe1da221bbba7f83fde2c70d622f303a4cceeafd45395744"
+      },
+      "candidate": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/candidate.json",
+        "sha256": "2d8e3d573930296ca990e3c754afb1135c5b94334938d252fe5a12364ea62c81"
+      },
+      "review": {
+        "path": "qa/batch59-independent-20261020/QA-report.md",
+        "sha256": "de1608a0e8fa90d519b6bd7aed1002c7bdb853631d57dbd1f7c5fb6d4680ae1e"
+      },
+      "original_metrics": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/metrics.json",
+        "sha256": "d2f147c47f158a0c1c1f98d586206880f8f011f757910363bf277876ae5a0999"
+      },
+      "original_metadata": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/metadata.json",
+        "sha256": "efc317adb1c3e8fdaa649749b438a1c0567995414012f5417806fd4e5c2a65cc"
+      },
+      "frozen_brief": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/brief.json",
+        "sha256": "f205a3faa10a068c52d202cdd0a22ce1020d2cbea58e62ff7a856a68c788a98b"
+      },
+      "proof": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/render-manifest.json",
+        "sha256": "5dc58f10cfa299dc367861c1c0400dd88247a9e71f3d0a08a53f5f216e74aefd"
+      },
+      "rebuilds": [
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/rebuild-1.report.json",
+          "sha256": "30f77345522cc9bc566ad26a7ac86c970aae964caf1ea0189f3417f3e2a7402c"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/rebuild-2.report.json",
+          "sha256": "8c3b854374ca783c0227b69c31e70096dbbdda153002c3f41f443fdaf2386ea9"
+        }
+      ],
+      "capture_reference": {
+        "path": "qa/batch59-release-20261020/capture/references/glacial-erratic.png",
+        "sha256": "06cf6c4bffaae4506fa3e62b5c33fe399a7351811d98b612dfd178511613a695"
+      }
+    },
+    {
+      "id": "gypsum-cave-flower",
+      "revision": "r002",
+      "source_commit": "330bc4aa669a1647c632a32622ce4318fd8d1b59",
+      "review_commit": "289cca9359cdd3595f7015f894a00675a004c422",
+      "metadata": {
+        "path": "assets/additions/gypsum-cave-flower/batch59-20261020/release-metadata.json",
+        "sha256": "c20d29152f569888c8be31b3b0b6cd9353fd8a950eacaa4cb1cc9e60c80c4a20"
+      },
+      "candidate": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/candidate.json",
+        "sha256": "c6e95e08c99e53e69295e5684839be7c91fea0bb849120d53484a3f4d99aa1a6"
+      },
+      "review": {
+        "path": "qa/batch59-independent-20261020/QA-report.md",
+        "sha256": "de1608a0e8fa90d519b6bd7aed1002c7bdb853631d57dbd1f7c5fb6d4680ae1e"
+      },
+      "original_metrics": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/metrics.json",
+        "sha256": "57d042f10fe05e02947aca98fb9cf4fee01eb90ef6541543050c1c10c98caf62"
+      },
+      "original_metadata": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/metadata.json",
+        "sha256": "26926652a133f47fa3dbc18f56a29533cf0daaff5a1d2ec2016a800cf777bcc8"
+      },
+      "frozen_brief": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/brief.json",
+        "sha256": "b22c9eb1acff38a7d67d06fedd78a8475f0597addf59965a663496b75badcdfe"
+      },
+      "proof": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/render-manifest.json",
+        "sha256": "0cb96385202363d9a1a1e92977f1c57642bc1065b6cb3192d56ac81725337e1b"
+      },
+      "rebuilds": [
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/rebuild-1.report.json",
+          "sha256": "08e7349a2b23d803f586c466d9daa8df03d94c93d08bb2e9ecbccba0457b00a9"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/rebuild-2.report.json",
+          "sha256": "32d93777da741a0ea247daee61e0c16b93c31eea4ebae2c7777696994b6266c4"
+        }
+      ],
+      "capture_reference": {
+        "path": "qa/batch59-release-20261020/capture/references/gypsum-cave-flower.png",
+        "sha256": "5a16d53abeea289548fe6e7232520bb7223ce77b71e3f97b55ad093521d41c4d"
+      }
+    },
+    {
+      "id": "stalactite-group",
+      "revision": "r002",
+      "source_commit": "330bc4aa669a1647c632a32622ce4318fd8d1b59",
+      "review_commit": "289cca9359cdd3595f7015f894a00675a004c422",
+      "metadata": {
+        "path": "assets/additions/stalactite-group/batch59-20261020/release-metadata.json",
+        "sha256": "522be7878e29dbc1d2ee87409974fa65937639aeaa86665171c5649e3b04af66"
+      },
+      "candidate": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/candidate.json",
+        "sha256": "dbab752080622f3adb04432f576179114150cad3a0cd14eb47954261f6350806"
+      },
+      "review": {
+        "path": "qa/batch59-independent-20261020/QA-report.md",
+        "sha256": "de1608a0e8fa90d519b6bd7aed1002c7bdb853631d57dbd1f7c5fb6d4680ae1e"
+      },
+      "original_metrics": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/metrics.json",
+        "sha256": "99c55fe895b084befa1f519c3d98ee8e8dd0e2b579ca731076de8b911edfb9a0"
+      },
+      "original_metadata": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/metadata.json",
+        "sha256": "c1d421c64196efa46ea0e619e985387be0fae424238cc4ccfdcd2f27a8e0765d"
+      },
+      "frozen_brief": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/brief.json",
+        "sha256": "e9f99ec92d3a562b18f4cff44394531d08cd99e22d9a91411aa8e7842534ef4c"
+      },
+      "proof": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/render-manifest.json",
+        "sha256": "80fcccbf3d3c199815f76a8f1edf3caca7b0fbfaa45e6e27a604ea7b419b1028"
+      },
+      "rebuilds": [
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/rebuild-1.report.json",
+          "sha256": "71ff99c01c67c4bd70ead6b2028759745bf6f810f0b7298fde969da99833264d"
+        },
+        {
+          "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/rebuild-2.report.json",
+          "sha256": "e3b0355cb25ba6e93f2d63bd4035dd45236fbc119540272ce2bd502492e15e8d"
+        }
+      ],
+      "capture_reference": {
+        "path": "qa/batch59-release-20261020/capture/references/stalactite-group.png",
+        "sha256": "18e04e45636d923193b3a9558649d64f8031fa59257eaa5b490c65bd0cebc586"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/authoring-start.json",
+      "sha256": "4e22b7f0651149374956f8b00e8a193aae136f5287a9c94bb7d8854d77e17dd7",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/brief.delivery-v001.json",
+      "sha256": "84d96a4439937d436007a3c8e390466381e1c74533b086979c1eabdef20b4e18",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/brief.json",
+      "sha256": "f205a3faa10a068c52d202cdd0a22ce1020d2cbea58e62ff7a856a68c788a98b",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/brief.md",
+      "sha256": "d9b8a1741da8c9795334676bd987d83b6675cd4b19a2a6e6e0fffb32f3d3317f",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/build-config.json",
+      "sha256": "28fed7227c3620a169a0782abe0e85e5563cdef66dd1a6d134ad8e0213964866",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/candidate-validation.json",
+      "sha256": "fad037718b23379060cb2ce658da01ab413df8209e167fc980daee05ee664fa3",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/candidate.json",
+      "sha256": "2d8e3d573930296ca990e3c754afb1135c5b94334938d252fe5a12364ea62c81",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concept-evidence.json",
+      "sha256": "1a894781144d0a37fee49ebe706bf39fd20a26eed684e33dae1dc589b93c79df",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concept-validation.json",
+      "sha256": "c4d9e4d18fbb8b0436ef2ef590a9f09262cf44b9f2e3c6e9d38377dd538826ca",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concepts/generation-record.json",
+      "sha256": "f3f7b4703f18d122442dec16fddde9582ae1be1f9ba6f4baa964d940c5221088",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concepts/inspection.json",
+      "sha256": "f74e7558aca29f22c4f9095ae6b8f677cc43e4540330ef3bccd0a7e350b94502",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concepts/original.png",
+      "sha256": "ab336656469263436be00788818db00a2d119872623e0d7e9c43e5d01086780a",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/concepts/prompt.txt",
+      "sha256": "6c7fa0f06398703ed9ae6a52dae1f058d0e9be14f14cefcb4c20b218dfb2b853",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/delivery.json",
+      "sha256": "32ed4f31e85010ed0d1d06b5295dfd7ec22b45811653a7a1e4fa8d3820c87711",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/eight-views.png",
+      "sha256": "2b8cd71cd76cd992ab1e0316185dacfd932cb4ea871dffcbadd29d490d9ae2ee",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/generator.py",
+      "sha256": "cc5ed645c7c04b6080bfd8e024a77599b64716774bc9a3dcdbe86111cd0eada5",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/glacial-erratic.blend",
+      "sha256": "e4381e4138c48006a922e387d7437ea8425b7e2d23d4137bf99e786ce1f57f02",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/glacial-erratic.glb",
+      "sha256": "94bdc5b0dddd8a3925d53ded4be6191d4769cc9414d8860d9664a8170010bfcd",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/gltf-validator.report.json",
+      "sha256": "52e62ee2f0164ded069c580f43fce8675a762c9bb8ef8aa4fab34cda1c8cefbf",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/hashes.sha256",
+      "sha256": "386d3ff5b32288b39eef06e412ee36071514c5344809d368d4349f5a4c7bcad1",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/maker-review.md",
+      "sha256": "77b25a0eef07b38c892f16e009e6bc1e2dd51501053cf9a0cfa8e63c6613dcc0",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/metadata.json",
+      "sha256": "efc317adb1c3e8fdaa649749b438a1c0567995414012f5417806fd4e5c2a65cc",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/metrics.json",
+      "sha256": "d2f147c47f158a0c1c1f98d586206880f8f011f757910363bf277876ae5a0999",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/modeling-freeze.json",
+      "sha256": "8b2c7e4fc811cab10f8352f25109ff424dcfc1054a4aed59ce4dbcd4380925f9",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/profile-contract.json",
+      "sha256": "b34cffa1a60eb08267d00b04cbc351fc3b57478d6ddde9258c8dea566766a089",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/clay.png",
+      "sha256": "36e19ba9b96a3afd40aa7da87fa1adefc406230e606bf5fc4c0514c7ef22c06c",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/front.png",
+      "sha256": "3af45d787cdce987ce568a13b0bae7b57062184e4d4b3dbaa57d36f022a6da54",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/hero.png",
+      "sha256": "4efe0149abdbf8d189bd63df731c36c010ed533e511acfe68d02a3722203681e",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/rear.png",
+      "sha256": "db56ae88a8434a331442b2a5dc74c75a9f3281aeb11740fb2e901a770b43707e",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/render-config-static.json",
+      "sha256": "0d0675c10f3d046871ba794df8ee489cbb590ba49819744564fbb1edeb690e49",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/render-config.json",
+      "sha256": "f9f46260a01842277fd9de15a5cb65b07484bd145284880d7d7c2fc80f615d27",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/render-manifest-static.json",
+      "sha256": "a374f0c103b281576faae0d420ce6fe134bd61e071c4eac94e00c9aa7f4236c7",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/render-manifest.json",
+      "sha256": "5dc58f10cfa299dc367861c1c0400dd88247a9e71f3d0a08a53f5f216e74aefd",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/reversehero.png",
+      "sha256": "71d0431fce920b3f0da7b50619466dbd8be0b91bacee04cd4222b062a504bd8c",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/side.png",
+      "sha256": "553c2e400606a03d5cf301e1040b12acb0279858667979191a35651e5435e07f",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/silhouette.png",
+      "sha256": "3a9b3d9b63c123a9063509196f0547a6b9405ef01abb72682b8ededc3dd1f3fd",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/top.png",
+      "sha256": "4130a459a08f8d1b42308a557f94760428b59b0b39f2e9b96dca63e8105d1d6c",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/proof-final/turntable.json",
+      "sha256": "84dc77abca99915bc2f516c620a3ad5086b905a5903b922c60f456865426ec3d",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/qa.json",
+      "sha256": "9a2e49459f8d0ee98e41c45a8be08648814c942c334bfbb5ff667600001f65bc",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/rebuild-1.report.json",
+      "sha256": "30f77345522cc9bc566ad26a7ac86c970aae964caf1ea0189f3417f3e2a7402c",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/rebuild-2.report.json",
+      "sha256": "8c3b854374ca783c0227b69c31e70096dbbdda153002c3f41f443fdaf2386ea9",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/references.json",
+      "sha256": "55fce1ff9558cc7d07a0912fa402e2682f83cc8030b8a1ccbedcb8c430da420c",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/repair-freeze.json",
+      "sha256": "f007367a5f1cc464d7d0b784bbd3e92d10907718585a182117a11f8464854c4d",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/runtime-parse.report.json",
+      "sha256": "a321682501630043162677969ad794385e0ec7c262758a1e507e797c5c677c2b",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/runtime.report.json",
+      "sha256": "8b05e601dc86bee930b37b335af2a8eff3eea38e5c8c606ff42cc55342a5e359",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/source-export.report.json",
+      "sha256": "28ddbde0232bef3bd4c771b9919280462af4e9726d177c8c696a8a3672dfad69",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/static-glb.report.json",
+      "sha256": "3544574c8e267a16a7418c9a5d25223fad54dd078f216f2f46d271396bd75164",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/glacial-erratic/r002/technical.report.json",
+      "sha256": "80130a8abdc20af3a3f2014048a1fd2252ff442a00e985b2955e90c486c9a648",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/authoring-start.json",
+      "sha256": "a9316903fb691e8d809e9f281126b4cd7c1f431b57c20d4d6f0200a2808609b1",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/brief.delivery-v001.json",
+      "sha256": "4bee0a60bb107ec5f999ab58464f8b8175df379bd8574b2868f5c3a42fc4599a",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/brief.json",
+      "sha256": "b22c9eb1acff38a7d67d06fedd78a8475f0597addf59965a663496b75badcdfe",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/brief.md",
+      "sha256": "0f05eb84a7461d808277e3bb1eb99aa02faadd461d5424500d2db447a9950208",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/build-config.json",
+      "sha256": "d4ae566acb2a57d6c3faefcd0de4c8bf769aa458b1b5497dbbf710ddbe06c941",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/candidate-validation.json",
+      "sha256": "d6a995a64ac2a9b66800680be4f2fb120f7ab3048ab184d9075c2cc564eb87a9",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/candidate.json",
+      "sha256": "c6e95e08c99e53e69295e5684839be7c91fea0bb849120d53484a3f4d99aa1a6",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concept-evidence.json",
+      "sha256": "85e768508f574984359b35cd94b22aeb61dd144d39ea4e57987bc24a4573edee",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concept-validation.json",
+      "sha256": "e3a64c9c5f8efcf66404d5f093a1f53c58c0ff549df0b4424c3f0e15c43f06bc",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concepts/generation-record.json",
+      "sha256": "b4da1da75c30780bbe18614c425f6c323fbcb765200deeef7618769059be70c7",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concepts/inspection.json",
+      "sha256": "5157f00f1b5ab112ad9bd558578bb79f5127507e99f9dd9244f38701cb384707",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concepts/original.png",
+      "sha256": "4f0e5e478813fe50e09be25967bd46d3f4cf2348d6000e8d24e287ec0a2fb7d0",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/concepts/prompt.txt",
+      "sha256": "2a960403e40e63fe277b0ff39533b1500b14c016a489e2faf8d3de4b5bc2198a",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/delivery.json",
+      "sha256": "b0ff706923209a7806c53ec5f84f0d6d37fbd48c78ae44c7707cbead3148651e",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/eight-views.png",
+      "sha256": "883c0fbc3e9bcfa4ab4ddbe80eb34173a98a3ef3a9a5185cd5b903498e5a5011",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/generator.py",
+      "sha256": "cc5ed645c7c04b6080bfd8e024a77599b64716774bc9a3dcdbe86111cd0eada5",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/gltf-validator.report.json",
+      "sha256": "57a08a2c34030fcdd4d4c2730227cdd7d25abb474f2e7dcda01a920516c93211",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/gypsum-cave-flower.blend",
+      "sha256": "90a8c4f5a71a5cf9a90519559f312ef4da744daeed48295911460cbe3d593b9b",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/gypsum-cave-flower.glb",
+      "sha256": "8ddaf4c36f2fd0dbe7c3971c27c750e8c41760954a8fb25e9e40b679c24eac2b",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/hashes.sha256",
+      "sha256": "0dd516b8e2478814560d69746cbed18b18b1f4a711a550eae53a0f4670b79072",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/maker-review.md",
+      "sha256": "425f598296830799cd30ab25f853561306cc840d9d976118542e77e8b08111ec",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/metadata.json",
+      "sha256": "26926652a133f47fa3dbc18f56a29533cf0daaff5a1d2ec2016a800cf777bcc8",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/metrics.json",
+      "sha256": "57d042f10fe05e02947aca98fb9cf4fee01eb90ef6541543050c1c10c98caf62",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/modeling-freeze.json",
+      "sha256": "5455a627702922cf612779f0b0b75212958942f8e0418ec023e4b53e1530f9dd",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/profile-contract.json",
+      "sha256": "b4f2213c41d23c6ca552b1eb59f01d50ab5769495e429391f0c75a04795bd756",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/clay.png",
+      "sha256": "b93c9b58790a0b416f7c2e0bd26d342bc1b15e783d1250e217438e24636efe19",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/front.png",
+      "sha256": "971badf78be5e0a7d3ce4a237b53bd1727c554fd9c5a66d7aee7789488a1faa9",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/hero.png",
+      "sha256": "9296a21bdc5e294917f0eb0aa097dd5a7227e670b4d8801b4de3763feb7e79b4",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/rear.png",
+      "sha256": "f35071ff210d98f613bd17febf83d46fd70589516db0563c2f8a9051ff86d488",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/render-config-static.json",
+      "sha256": "479edcd89191633d11d4550d9b37993dfccb13189877ee1f9eaf12fab9221847",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/render-config.json",
+      "sha256": "1459df1569036ba3c1e46c648feee121989eea987e4350329a4cec7dd77b7e03",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/render-manifest-static.json",
+      "sha256": "06f2c3047ea93772556dc1097cc5321cf552b11a2716610685ab384d3d47574d",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/render-manifest.json",
+      "sha256": "0cb96385202363d9a1a1e92977f1c57642bc1065b6cb3192d56ac81725337e1b",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/reversehero.png",
+      "sha256": "ac1645dd5559d1a6a36906322d84c1b13f44c73789d36dde6e7f6b43a22e8689",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/side.png",
+      "sha256": "cfc38745acfc34944b2ce89f74bc527ac4add22daddc36636117fb05c10917b1",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/silhouette.png",
+      "sha256": "f28db54d53e02b547a750294dcf07dc9f18af836f00533e29bbf751f54928679",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/top.png",
+      "sha256": "e39dbed527c3833e133cfecb0d3bd7ff02994bbbe0937b8128ea33a91a86c7f0",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/proof-final/turntable.json",
+      "sha256": "8ca64ae980ba20d6b692c108576d40933987f5e699e7229294bafb8dc22b999e",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/qa.json",
+      "sha256": "94c4f1bfbc7fab4edcf4d059d6e6e555f7705c4fc1ad18351ec270ceede66d12",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/rebuild-1.report.json",
+      "sha256": "08e7349a2b23d803f586c466d9daa8df03d94c93d08bb2e9ecbccba0457b00a9",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/rebuild-2.report.json",
+      "sha256": "32d93777da741a0ea247daee61e0c16b93c31eea4ebae2c7777696994b6266c4",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/references.json",
+      "sha256": "ac94eddc9f19b063322e88b0f9c8a88335ebcf64acb6aec98f3a2322113ae29f",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/repair-freeze.json",
+      "sha256": "2490d149ac8cc8c87513b29062809e26288e5b9a7c45f0a32af021fb4beb1395",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/runtime-parse.report.json",
+      "sha256": "a7939010e20b4cb324ff99d147187a89ae18bb573a3f871faab21d7f9653de11",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/runtime.report.json",
+      "sha256": "84052c0f64e82b3986abe6b4081b55b55f67e7639781163ee060e6601b8c3b5a",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/source-export.report.json",
+      "sha256": "d6812de80cb952d61abe6288c895ffc42d4f69cfad4b5f0551d42dca90cf01b6",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/static-glb.report.json",
+      "sha256": "09e9dc94f405119622336d2392d6975c936c45baa5f0fec8820d49480cb36901",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/gypsum-cave-flower/r002/technical.report.json",
+      "sha256": "56dc2bc6fdca7199e0dfeedcc0427662b2f6dd193cceb53eaa6912da2e949561",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/authoring-start.json",
+      "sha256": "ccbb0f19d8dc8a4ae5484a06c759936abae2765844fabd77064c0667f358dfe7",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/brief.delivery-v001.json",
+      "sha256": "13f329fce348f36e674b1630d788d8cf5cbe764ad4ee9426fec983f257114234",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/brief.json",
+      "sha256": "e9f99ec92d3a562b18f4cff44394531d08cd99e22d9a91411aa8e7842534ef4c",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/brief.md",
+      "sha256": "084e3d46d6189e3c2b853e6e7e8f4125d5542810028847d48ef88b37b1de5296",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/build-config.json",
+      "sha256": "afc5c6600f0e24daf64151c6cd6b905c3bb6b5255318ca2458420acc53248c8e",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/candidate-validation.json",
+      "sha256": "5d15cba6b05166a8261412351c2ea1e847f071da415a1ddbf41cb022ee9de455",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/candidate.json",
+      "sha256": "dbab752080622f3adb04432f576179114150cad3a0cd14eb47954261f6350806",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concept-evidence.json",
+      "sha256": "d59508dd6d1400a15916d623e62c9d79a1b3c3e84ea57a307973be9bb547d8f8",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concept-validation.json",
+      "sha256": "12df1d387dd8c011f731928dbfe61f847909e195261e882a83e6b2700d54711c",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concepts/generation-record.json",
+      "sha256": "898e69b0e525b9e2735438ec66f845b948040f77d1f249063ebd54cfe8e963e6",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concepts/inspection.json",
+      "sha256": "157199b73769c27de9b2f4e55bd8f4e115f2ae80e688180ef8235efc69704b92",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concepts/original.png",
+      "sha256": "ab336656469263436be00788818db00a2d119872623e0d7e9c43e5d01086780a",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/concepts/prompt.txt",
+      "sha256": "6c7fa0f06398703ed9ae6a52dae1f058d0e9be14f14cefcb4c20b218dfb2b853",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/delivery.json",
+      "sha256": "25c16c246b18906bf9c6ea78b409d14225184c86e9167542ab83da521172aebf",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/eight-views.png",
+      "sha256": "c982f125116d6296e5b48d8886d17e3680d6b0effac13615a49534c123928908",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/generator.py",
+      "sha256": "cc5ed645c7c04b6080bfd8e024a77599b64716774bc9a3dcdbe86111cd0eada5",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/gltf-validator.report.json",
+      "sha256": "1732ab5fd4a025d171f510ee054cb712052c7339e4b7a73fffe6778ebeb17c3b",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/hashes.sha256",
+      "sha256": "6d05fc792dfb3f450a5ab1da8fa0aba6a5230b3d6e63e8234545e495882e0b75",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/maker-review.md",
+      "sha256": "e56279d4e853e0546555f55f814c1871d86979b5818bfac40ad2a0fd67a91501",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/metadata.json",
+      "sha256": "c1d421c64196efa46ea0e619e985387be0fae424238cc4ccfdcd2f27a8e0765d",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/metrics.json",
+      "sha256": "99c55fe895b084befa1f519c3d98ee8e8dd0e2b579ca731076de8b911edfb9a0",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/modeling-freeze.json",
+      "sha256": "88dc595044e9addd01af06753720033a55e271f07836e980bb281282b418f02f",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/profile-contract.json",
+      "sha256": "c63b35f9ea943bd5efa0f7c9e83e36f0b4a14a14ff1776a8afa7bc5086c448d9",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/clay.png",
+      "sha256": "194961f0e914df6c8a14c9584383eac7138c51a4c82c1a8d8ba2091b17ba826c",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/front.png",
+      "sha256": "9e6edaa88957fbbbec6710dde003281e2030387ad94772340439d130c4aa7304",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/hero.png",
+      "sha256": "98cbe7066c1c32d9e31c4ad159d82fe166866d09e93beaeda17a370fce3e0659",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/rear.png",
+      "sha256": "e41c94fc3b4b6a502f29565a241bcaeec117be29e1144e606fd7db6a5e35f937",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/render-config-static.json",
+      "sha256": "c4e73f14f1ec4eac446d2d9d95f4c19f832c2a877e8d5cdb1aa748db628f1fdd",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/render-config.json",
+      "sha256": "c4b0d69b3db2f80ed0aa79e495ba4875592bac377ca9f60636245ac041a28df8",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/render-manifest-static.json",
+      "sha256": "93b6507972189b9b95d3798262ebdad9c0f6d49e026ad525ed60c895d25ce526",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/render-manifest.json",
+      "sha256": "80fcccbf3d3c199815f76a8f1edf3caca7b0fbfaa45e6e27a604ea7b419b1028",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/reversehero.png",
+      "sha256": "999083fee53609984d411b59a7c1c02303a704541a770d90aeb4141da2b3222c",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/side.png",
+      "sha256": "e07814ce5f4a688dff89361685e1b6242db55a25a639936470a71a70082f13c2",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/silhouette.png",
+      "sha256": "87b95a15a26bb5768e9867de678097a2db3322b4106cbfce522b3ac7e13e0dbc",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/top.png",
+      "sha256": "396200f216dbe7b3e8c2e445be265f44961deb022e28f58c508f03d0877dd245",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/proof-final/turntable.json",
+      "sha256": "bb87f7bfca6a06eb7018878ed30a06b4c4b0a47eb4a11139d4550295d398516b",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/qa.json",
+      "sha256": "28c1a7832ab3f8b2a4da281c42922a640b678cc817b229ce9dba917dae2c5368",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/rebuild-1.report.json",
+      "sha256": "71ff99c01c67c4bd70ead6b2028759745bf6f810f0b7298fde969da99833264d",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/rebuild-2.report.json",
+      "sha256": "e3b0355cb25ba6e93f2d63bd4035dd45236fbc119540272ce2bd502492e15e8d",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/references.json",
+      "sha256": "0aa4604481bea2e8e093d581f13aa7d7176610b28696ed5618d565932ed4e58a",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/repair-freeze.json",
+      "sha256": "595703592a019981c55deae1caaa5612804c2f1ec54f273660365a4e7648ac74",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/runtime-parse.report.json",
+      "sha256": "89188d1f6cae1d11e77550c61e2b0995209f54ed81bddf49afe9cb99c3c36b79",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/runtime.report.json",
+      "sha256": "4cae1b2c198de23fd5ac8c5e86097e7dd5dffde25409994e00b068ea2d57bf78",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/source-export.report.json",
+      "sha256": "6f1a2b757b2a5dac399d2ae371a91f72f094d5ac0821fc714326c805d62f14b1",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/stalactite-group.blend",
+      "sha256": "1a56a769490486027c70f5afc4d953cfec9309efdd4232c4ef5ab17d31cc29b4",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/stalactite-group.glb",
+      "sha256": "6e2bf795d94dae162a65dd8cf0924d70e402e28dbb1c17917d622919d608fca7",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/static-glb.report.json",
+      "sha256": "2a8b21e5ed451f67abbb723858eadfee75a83a0d088c6c0d60dff10277e7fe7d",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/stalactite-group/r002/technical.report.json",
+      "sha256": "4150510e40d08e5b96484758c9b9ff6610570c1de8ebea68e2ac9eb50cc308f2",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/HANDOFF.md",
+      "sha256": "6b8d302ee2659a238f397f5453341ac3475765b7b0ca92c2138e2736156c361c",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/build-dependencies.json",
+      "sha256": "2bde36af86085b0909c4e735c78de2e65a4eb12b8fb49ade95ae7e476de3d6b8",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/claim.json",
+      "sha256": "0fb138563e44353d67dd79bb1e16509b72ca45d0d270b1f976d0f68296ab4666",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/final-selection.json",
+      "sha256": "66963b8cfcab0670ac70788248fc9f7862544b80cd5d1a75cf4f219084fbb9e6",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/handoff.json",
+      "sha256": "47aea5ff37efd0a6d39d71b8d3dfb9f61b42105e3e005b9c431da968b76e33a6",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-queue.json",
+      "sha256": "eaf65a5ffb6e9c85b25b38e37fcf717cf2244738d7ccef4ab460987108629abe",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-1/871024eecb4c07c0828eab82f26d4e24ad770813261ff6002ebfd552ad42c945/20261020T072306-95c515fb7ed34063a0442b1e5824392c/outputs/glacial-erratic.blend",
+      "sha256": "a3fa662aead9e4df366bbec34b2e6612cbc96c854142e7e4f22d55f0756b6304",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-1/871024eecb4c07c0828eab82f26d4e24ad770813261ff6002ebfd552ad42c945/20261020T072306-95c515fb7ed34063a0442b1e5824392c/outputs/glacial-erratic.glb",
+      "sha256": "94bdc5b0dddd8a3925d53ded4be6191d4769cc9414d8860d9664a8170010bfcd",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-1/871024eecb4c07c0828eab82f26d4e24ad770813261ff6002ebfd552ad42c945/20261020T072306-95c515fb7ed34063a0442b1e5824392c/outputs/metadata.json",
+      "sha256": "48c8cf411e4d9158958b0d1134a43bc3af0068db80f301ea4e06d8eb03201db2",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-1/871024eecb4c07c0828eab82f26d4e24ad770813261ff6002ebfd552ad42c945/20261020T072306-95c515fb7ed34063a0442b1e5824392c/outputs/qa.json",
+      "sha256": "56387045ec61f5b3bfcec62634fc4de518362583b84b541eee7bf84f4ee9051a",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-1/871024eecb4c07c0828eab82f26d4e24ad770813261ff6002ebfd552ad42c945/20261020T072306-95c515fb7ed34063a0442b1e5824392c/request.json",
+      "sha256": "f563155d6882c8c845da0cde143e97b4ab4933f9095af609d4c2328a8d77630a",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-1/871024eecb4c07c0828eab82f26d4e24ad770813261ff6002ebfd552ad42c945/20261020T072306-95c515fb7ed34063a0442b1e5824392c/result.json",
+      "sha256": "497286a00e6724a9a99a4f23d863229ea284a8b4375d2db566a9763013968463",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-2/10e39bac18a4fb1addb55798a8d8751401668fabeb3e4e11dec8516d92a04e7b/20261020T072308-0e52d0677f4f412ebdda2f5caca4ea5e/outputs/glacial-erratic.blend",
+      "sha256": "cab9111a18fc2e9d3dca3d7294ca337d01f55ff9cba6c7c83b55e697d88051e5",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-2/10e39bac18a4fb1addb55798a8d8751401668fabeb3e4e11dec8516d92a04e7b/20261020T072308-0e52d0677f4f412ebdda2f5caca4ea5e/outputs/glacial-erratic.glb",
+      "sha256": "94bdc5b0dddd8a3925d53ded4be6191d4769cc9414d8860d9664a8170010bfcd",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-2/10e39bac18a4fb1addb55798a8d8751401668fabeb3e4e11dec8516d92a04e7b/20261020T072308-0e52d0677f4f412ebdda2f5caca4ea5e/outputs/metadata.json",
+      "sha256": "bbc478d9d1bff0c495e7d63210536bbcda33b97f348319d66517a90d8fc705ed",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-2/10e39bac18a4fb1addb55798a8d8751401668fabeb3e4e11dec8516d92a04e7b/20261020T072308-0e52d0677f4f412ebdda2f5caca4ea5e/outputs/qa.json",
+      "sha256": "2f51405600c0f127aa1344048d805d18c2af5d128ee59371cc165b3454400cdd",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-2/10e39bac18a4fb1addb55798a8d8751401668fabeb3e4e11dec8516d92a04e7b/20261020T072308-0e52d0677f4f412ebdda2f5caca4ea5e/request.json",
+      "sha256": "9bb7de7d6342dcd963126de38ff52bac952f3e17209544d3384192efdaede836",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/glacial-erratic/r002/rebuild-2/10e39bac18a4fb1addb55798a8d8751401668fabeb3e4e11dec8516d92a04e7b/20261020T072308-0e52d0677f4f412ebdda2f5caca4ea5e/result.json",
+      "sha256": "f0fbaef380776541b83000a2e46c92d7d9b41519b9f024d9616b56b7380b0699",
+      "origin": "source",
+      "owner": "glacial-erratic"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-1/c189f987268df41f36e3dc9d5ad8468c44d7891eb52b3c8bff26ce8ac2ce3ac8/20261020T072317-616a68d97fff4afdb7eba7e3bd943656/outputs/gypsum-cave-flower.blend",
+      "sha256": "ec9497059a5139bbaf5e165e0fc138aa8ea1cdbe65f68e47276b5328702570a1",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-1/c189f987268df41f36e3dc9d5ad8468c44d7891eb52b3c8bff26ce8ac2ce3ac8/20261020T072317-616a68d97fff4afdb7eba7e3bd943656/outputs/gypsum-cave-flower.glb",
+      "sha256": "8ddaf4c36f2fd0dbe7c3971c27c750e8c41760954a8fb25e9e40b679c24eac2b",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-1/c189f987268df41f36e3dc9d5ad8468c44d7891eb52b3c8bff26ce8ac2ce3ac8/20261020T072317-616a68d97fff4afdb7eba7e3bd943656/outputs/metadata.json",
+      "sha256": "47ca05e5b3c2a44196da3bbea259cc13a4f0aaa106db0118d32ea068c15a82cd",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-1/c189f987268df41f36e3dc9d5ad8468c44d7891eb52b3c8bff26ce8ac2ce3ac8/20261020T072317-616a68d97fff4afdb7eba7e3bd943656/outputs/qa.json",
+      "sha256": "6ade3d28cee772116f151eaf88f96ab6f070c35acfa3e701aa9b5f5656f72274",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-1/c189f987268df41f36e3dc9d5ad8468c44d7891eb52b3c8bff26ce8ac2ce3ac8/20261020T072317-616a68d97fff4afdb7eba7e3bd943656/request.json",
+      "sha256": "473a90cb79b569ebd11df313f7697265079927fea44cba49f608c51aff4d145f",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-1/c189f987268df41f36e3dc9d5ad8468c44d7891eb52b3c8bff26ce8ac2ce3ac8/20261020T072317-616a68d97fff4afdb7eba7e3bd943656/result.json",
+      "sha256": "3846312f935a054e5e7eaab0232e3a7e780c906440de1ae9ac0d1bc5ba67ba45",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-2/2f1c7203979177b16d6bcf2b13b3c581e5af7af5cdb95b592f7e199a98f6c529/20261020T072321-d2e7ebe992ce425ab8766faf2fbeae02/outputs/gypsum-cave-flower.blend",
+      "sha256": "ec9c4181dc132b57811651f7eba13abb7cda7362a37696b24a600667cc3a3679",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-2/2f1c7203979177b16d6bcf2b13b3c581e5af7af5cdb95b592f7e199a98f6c529/20261020T072321-d2e7ebe992ce425ab8766faf2fbeae02/outputs/gypsum-cave-flower.glb",
+      "sha256": "8ddaf4c36f2fd0dbe7c3971c27c750e8c41760954a8fb25e9e40b679c24eac2b",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-2/2f1c7203979177b16d6bcf2b13b3c581e5af7af5cdb95b592f7e199a98f6c529/20261020T072321-d2e7ebe992ce425ab8766faf2fbeae02/outputs/metadata.json",
+      "sha256": "4d0899c5ff3b0411eebeaa4ac08b744600293ccd6839428ca04f88b1892f1eeb",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-2/2f1c7203979177b16d6bcf2b13b3c581e5af7af5cdb95b592f7e199a98f6c529/20261020T072321-d2e7ebe992ce425ab8766faf2fbeae02/outputs/qa.json",
+      "sha256": "00e16e5a67561f4fd6b4852de953ddf7abe44aaf933ca82ccbe5e8f478d820c1",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-2/2f1c7203979177b16d6bcf2b13b3c581e5af7af5cdb95b592f7e199a98f6c529/20261020T072321-d2e7ebe992ce425ab8766faf2fbeae02/request.json",
+      "sha256": "6f076362c73d68d1811f319d4b5452bf8df498a0cff6126ea855d52d90684928",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/gypsum-cave-flower/r002/rebuild-2/2f1c7203979177b16d6bcf2b13b3c581e5af7af5cdb95b592f7e199a98f6c529/20261020T072321-d2e7ebe992ce425ab8766faf2fbeae02/result.json",
+      "sha256": "c0c8a280f424118978883447266b8d352792d5045a018936c52813094beb8296",
+      "origin": "source",
+      "owner": "gypsum-cave-flower"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-1/210b2250f4f86099f7125619324b6450932e530e8b5a1e27e8a53ac585234521/20261020T072312-9967b1d9fb214947bec97271a26efa4b/outputs/metadata.json",
+      "sha256": "53f93ede323e49083eed98711f4a211522094abcca76c555ae252f8a33acfc36",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-1/210b2250f4f86099f7125619324b6450932e530e8b5a1e27e8a53ac585234521/20261020T072312-9967b1d9fb214947bec97271a26efa4b/outputs/qa.json",
+      "sha256": "b74bb5bc8e81111e36f343bbe0542fa60b32bb8a81f82160079b9d61eb5f905e",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-1/210b2250f4f86099f7125619324b6450932e530e8b5a1e27e8a53ac585234521/20261020T072312-9967b1d9fb214947bec97271a26efa4b/outputs/stalactite-group.blend",
+      "sha256": "50810d5394f97e1475163b7a40652637c0802c944cad7d72fd5835b5b0d1c7ae",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-1/210b2250f4f86099f7125619324b6450932e530e8b5a1e27e8a53ac585234521/20261020T072312-9967b1d9fb214947bec97271a26efa4b/outputs/stalactite-group.glb",
+      "sha256": "6e2bf795d94dae162a65dd8cf0924d70e402e28dbb1c17917d622919d608fca7",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-1/210b2250f4f86099f7125619324b6450932e530e8b5a1e27e8a53ac585234521/20261020T072312-9967b1d9fb214947bec97271a26efa4b/request.json",
+      "sha256": "a56b1f386543b2257b034d18eedfcba72089801a6887d9100220362b1a21fa24",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-1/210b2250f4f86099f7125619324b6450932e530e8b5a1e27e8a53ac585234521/20261020T072312-9967b1d9fb214947bec97271a26efa4b/result.json",
+      "sha256": "c07bce5c9985438db8c8d480dc57280d64c910c4316d9c6e4fb6acbd58800767",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-2/47c3cdf8fe9a9c86d23a6de02c4145cf4e004fdf4f4f482730424aefd2450fef/20261020T072315-438dfff693df47c08bb691ebbe055fe6/outputs/metadata.json",
+      "sha256": "8f475d60aaba483d10f0cf9d55c87043c8e9d3e77a592feb8b4fc9ca99778e05",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-2/47c3cdf8fe9a9c86d23a6de02c4145cf4e004fdf4f4f482730424aefd2450fef/20261020T072315-438dfff693df47c08bb691ebbe055fe6/outputs/qa.json",
+      "sha256": "e469676d5c0ecf1616a245c77762af8dbe5003a1b7024a804fb511bb7d96ab37",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-2/47c3cdf8fe9a9c86d23a6de02c4145cf4e004fdf4f4f482730424aefd2450fef/20261020T072315-438dfff693df47c08bb691ebbe055fe6/outputs/stalactite-group.blend",
+      "sha256": "f8a4c3e5f5ddbd808886bfbee0a0cc3ca0df42b23c385fc0b0fe4e3d59662781",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-2/47c3cdf8fe9a9c86d23a6de02c4145cf4e004fdf4f4f482730424aefd2450fef/20261020T072315-438dfff693df47c08bb691ebbe055fe6/outputs/stalactite-group.glb",
+      "sha256": "6e2bf795d94dae162a65dd8cf0924d70e402e28dbb1c17917d622919d608fca7",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-2/47c3cdf8fe9a9c86d23a6de02c4145cf4e004fdf4f4f482730424aefd2450fef/20261020T072315-438dfff693df47c08bb691ebbe055fe6/request.json",
+      "sha256": "f48cc1ac254852088df6aa233ce2254423cbc807da21a8e185558ca888b0e5f8",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/build/stalactite-group/r002/rebuild-2/47c3cdf8fe9a9c86d23a6de02c4145cf4e004fdf4f4f482730424aefd2450fef/20261020T072315-438dfff693df47c08bb691ebbe055fe6/result.json",
+      "sha256": "b23015158e170d5a70ce040a1335ca31a1c7b71fc90c32e1cae140459358f501",
+      "origin": "source",
+      "owner": "stalactite-group"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/runs/20261020T072304-d918434e6e1047b083b0c748cfb1b07d/manifest.json",
+      "sha256": "bff9a5cfd80d12e7965d9252cc06f3a7e4cb62650a93ce8fd4321c7c4179bc6f",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r002-runs/runs/20261020T072304-d918434e6e1047b083b0c748cfb1b07d/summary.json",
+      "sha256": "c0a440c4c95fec5ab07ab9e58bb956bdee678d6dd1aca43f836cb2656bc2bcc4",
+      "origin": "source",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/QA-report.md",
+      "sha256": "de1608a0e8fa90d519b6bd7aed1002c7bdb853631d57dbd1f7c5fb6d4680ae1e",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/erbenochile-candidate.json",
+      "sha256": "fd0407a4a932a4d6909458c090564891bffcf3835da2430c2648774a4b0e8503",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/erbenochile-rebuild-1-independent.json",
+      "sha256": "b938b15821c8dcf01536416bc3bec9d6ef865348f3abf093f8fd492590e245ca",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/erbenochile-rebuild-2-independent.json",
+      "sha256": "24eb502df7137837ef85b8adea377c13c3ebdd97dc0c24eaa172296ef0d9b771",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/erbenochile-static.json",
+      "sha256": "a1ab94d07c6345894f6533b997b12fd63de38b7952babc7b7e8c41118a227486",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/glacial-erratic-candidate.json",
+      "sha256": "fad037718b23379060cb2ce658da01ab413df8209e167fc980daee05ee664fa3",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/glacial-erratic-rebuild-1-independent.json",
+      "sha256": "7c8dfbc24965c9ad25706815a25e6612134debbc765cc76a9cf0c8382b43d8f5",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/glacial-erratic-rebuild-2-independent.json",
+      "sha256": "59b0b0b190a68bb748889cb6a8547fd33698ea3e262bf45abdda963e1344e162",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/glacial-erratic-static.json",
+      "sha256": "c93da88fc2668a0f147b3df2914c1aaa8e8c3e28a73ce3efeafb823f35b69364",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/gypsum-cave-flower-candidate.json",
+      "sha256": "d6a995a64ac2a9b66800680be4f2fb120f7ab3048ab184d9075c2cc564eb87a9",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/gypsum-cave-flower-rebuild-1-independent.json",
+      "sha256": "ffc30b8990f505e20ff8e17bf9aafeabc1088bae917c3ac0c0ebc36410045cdf",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/gypsum-cave-flower-rebuild-2-independent.json",
+      "sha256": "94fe4daa5da85de8b592e9b74a821929f51d5f456ea767e090eca7d9b122ef35",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/gypsum-cave-flower-static.json",
+      "sha256": "47b62eb3c97f8ce74813778047b5ef45a830743a04bb6ff6306701a396464869",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/khronos-validator.json",
+      "sha256": "b0c76cd92f7d7e2350f38fc364ea51bdd0ab74e07063f00c710877a33087e8a9",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/parse.mjs",
+      "sha256": "e6ff513682da71ea7c1385702e7548bdad49ecb27470f350f335422c08b2236c",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/rebuild-audit.json",
+      "sha256": "e7fbfc6d2b50cbfafc7dbbb91ce8b131dc39c0c80b1f10356088015a69ea8f11",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/reopen_sources.py",
+      "sha256": "6dd87bd3e0623e37d13373f5c4c6a3abe8e0439203c40d43fc8e923933688159",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/runtime-parse.jsonl",
+      "sha256": "53e085f686a0769d944076eab0292ee86367b3dc5de15642d02cc8e31359ed9b",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/source-reopening.json",
+      "sha256": "b3cf2032b6a6c8632096b14a1e69d5fecd1779be9efa2defa8b141cafc4a077d",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/source-reopening.log",
+      "sha256": "30baf0690f418ed9c146d896735ee80207df3f392a7ba6a40a68982b50f9ab59",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/stalactite-group-candidate.json",
+      "sha256": "5d15cba6b05166a8261412351c2ea1e847f071da415a1ddbf41cb022ee9de455",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/stalactite-group-rebuild-1-independent.json",
+      "sha256": "ff4d1006448f4c7500c2c716edc91245ae396ebd08ba1a71cbd64d240f66ba03",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/stalactite-group-rebuild-2-independent.json",
+      "sha256": "5b184a39cd2dd7102b8c4d1f1c8312f6574da6c1b2b0ebebaddaa03bfd035e6b",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/audits/stalactite-group-static.json",
+      "sha256": "14dccb848787630b98eab60fbb65b30a0f0e74c035bc4b18ee0e065483d0054f",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/erbenochile-eight-views-contact.png",
+      "sha256": "5ddb728003c7437f2cb0ab365f6a9ef4ed831d4c20588f64ed1925241d04552e",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/evidence-custody.json",
+      "sha256": "3fe9ea28e306273b9c3ed4e727576f702d6deaeec7fd15c35a12c3e7067d7c54",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/glacial-erratic-eight-views-contact.png",
+      "sha256": "b196c265ad53753bf41f58f9534fe529ef5296486573a7c49fa8111abcf299d7",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/gypsum-cave-flower-eight-views-contact.png",
+      "sha256": "e764f64687de280e38f342a89cb10e0175c3348150489b10d703cfa59ded5241",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/independent-results.json",
+      "sha256": "e962262db85cb26557a3c5723cd92012bce10e9d3899f90feee3c7d92f89c29e",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/pins-and-frames.json",
+      "sha256": "df9f970e83ea4ae985986cb290568144ee67d0350be8523b23bc015fe8485bc6",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/pins-and-frames.stdout.json",
+      "sha256": "df9f970e83ea4ae985986cb290568144ee67d0350be8523b23bc015fe8485bc6",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/stalactite-group-eight-views-contact.png",
+      "sha256": "289ec8eff63f5722a9fd6cb2e8c72ef33abb8b0525cb862e2abb03b44cea754c",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-independent-20261020/verify_pins.py",
+      "sha256": "dcee1423e6da55d9d8ec145a073b07da40d2fc9fe990315f83acff4d789f3ff0",
+      "origin": "review",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/assets/card-previews/glacial-erratic-v2-768-q90.webp",
+      "sha256": "e15860a7fbedadba147d9cbc9b3d5450149452571a2602a4954e873056d12218",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/assets/card-previews/gypsum-cave-flower-v2-768-q90.webp",
+      "sha256": "fbd93ded6a769d150575c20c406ab8afe6c6643290c97be9abf21a51b9c511a3",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/assets/card-previews/stalactite-group-v2-768-q90.webp",
+      "sha256": "f0b7af4113f9bf6162701be859ab8a47a9e8584211b2bf9cff012b74599346bb",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/assets/turntables/index.json",
+      "sha256": "e5bd58e972a3bfb450d21e8dc43dd5d19b68211d4a5fc2e0572dae03e0a35e70",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/references/glacial-erratic.png",
+      "sha256": "06cf6c4bffaae4506fa3e62b5c33fe399a7351811d98b612dfd178511613a695",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/references/gypsum-cave-flower.png",
+      "sha256": "5a16d53abeea289548fe6e7232520bb7223ce77b71e3f97b55ad093521d41c4d",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/references/stalactite-group.png",
+      "sha256": "18e04e45636d923193b3a9558649d64f8031fa59257eaa5b490c65bd0cebc586",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture/render-report.json",
+      "sha256": "17fe72174a4c459ec7ba5bb602ec48bab23cf46113d6cc33213eb1930c37967b",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/capture-verification.json",
+      "sha256": "420b42aa48a8e24456780cd1418f73154b6bf80baff54d34c4434dad48d04581",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/independent-card-review.json",
+      "sha256": "515434e55d62dae9d65996894bb4d438fc4650ecc1a4d33f999018e9fa25c5e2",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch59-release-20261020/source-capture-review.md",
+      "sha256": "14cbe9f91b6aa7c72a3ff87b72d51c398d3640f66142f3f84c11c63c94e10e83",
+      "origin": "release",
+      "owner": "$batch"
+    }
+  ]
+};
