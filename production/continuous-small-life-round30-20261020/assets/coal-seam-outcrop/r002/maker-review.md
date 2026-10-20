@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Personally inspected all eight r002 exact-final512px frames after all eight r001 frames. Actual recessed dark coal between projecting host volumes; irregular long face-cleat columns and shorter staggered depth cleats, no through-sky contact gaps. R001 floating sandwich/pillar-like contact artifacts preserved and repaired by buried core/contact geometry; r002 host surfaces are actually faceted. Butt cleats are partially concealed by host beds in top view and best present in side depth; no regular horizontal decorative grid. No visible coplanar surface artifact; dedicated diagnostic also reports zero positive-area coplanar overlaps. CPU proof only, not independent/GPU/scene acceptance.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

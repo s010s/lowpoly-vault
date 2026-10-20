@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "crevasse-splay",
+  "revision": "r002",
+  "labels": {
+    "en": "crevasse-splay"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "0687ebd5c9e1852b7bc1ad603817507c2514cf0cce69ab8eb4cd041e48744343"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5efac577e164e8ba069bc2ba68dcb13a148b2b95e6e009b27c03dffc205d9d38"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "34c7973c04449eddf94de682029f9267bafc094fc3d326d468613761bba362d3"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "6aba50fbaa0337665b3e78708ed30a7859d36de91dc7ec27f298fe2b74d88063"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "18a658a25dc406ed2d8d201cc4e898780b734f06fce171b8d6a7f3229e39b62e"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "137afa131905f7fe5d94f3c04fb0e31f0cc31ffd089ace48542a477364a05fe7"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "9285cf935968b96d9e0681b0c974cf31830e3604fb45b690dc24a52dc09b5abe"
+      }
+    ],
+    "cross_view_consistency_note": "Original small natural-levee generic composition, based on published process linkage rather than replication of Kinu artificial embankment. Omit roads/buildings/canals/disaster debris. Concept reads branch fan but overstates levee height and simultaneous blue flow; reduce relief, use stylized shallow water as educational state without flow claims. Single clipped terrain/water geometry avoids coplanar layered strips.",
+    "hidden_surface_decisions": "Original small natural-levee generic composition, based on published process linkage rather than replication of Kinu artificial embankment. Omit roads/buildings/canals/disaster debris. Concept reads branch fan but overstates levee height and simultaneous blue flow; reduce relief, use stylized shallow water as educational state without flow claims. Single clipped terrain/water geometry avoids coplanar layered strips."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:20:41.359022+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 10.9372,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "4e2406c8325d9d55f7cc1f512e6e1f91343a8a598192a1bb4dc5d03d66a900aa"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "4e2406c8325d9d55f7cc1f512e6e1f91343a8a598192a1bb4dc5d03d66a900aa"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "b5b76d306e427046abdb7c59ba8f1448cb640c01be6a05ab8285b027162b9c8e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "08924df089fa0c3566ade092d10bc57da60beb125d6d28998d0da22cd0d7c693"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "4d9a5accde9929c33bc4be61748b95ffcd32667c4f27308ea6b18c560beaf76a"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

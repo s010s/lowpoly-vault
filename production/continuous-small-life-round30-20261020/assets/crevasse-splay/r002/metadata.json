@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "asset_id": "crevasse-splay",
+  "revision": "r002",
+  "claim_scope": "Generic original crevasse-splay process/form educational terrain. Natural levee interpretation is generic, not a precise Kinu artificial-levee site, disaster reconstruction, ancient cross-section or hydrodynamic simulation.",
+  "nominal_dimensions_blender_xyz_m": [
+    120,
+    120,
+    6
+  ],
+  "measured_dimensions_blender_xyz_m": [
+    120.0,
+    120.0,
+    4.114439010620117
+  ],
+  "measured_dimensions_glb_xyz_m": [
+    120.0,
+    4.114439010620117,
+    120.0
+  ],
+  "scale_note": "Nominal teaching-prop scale not exact measured natural specimen or locality. Actual bounds include all geometry.",
+  "profile": "static-stylized-v1",
+  "origin": "floor contact footprint center",
+  "axes": "Blender X lateral -Y front Z up; glTF X lateral Y up +Z front",
+  "blender_version": "4.3.2",
+  "three_version": "0.180.0",
+  "seed": 74,
+  "palette": {
+    "floodplain": "#81866A",
+    "sand": "#C0AB7D",
+    "levee": "#9D906E",
+    "water": "#587E88"
+  },
+  "source_references": [
+    {
+      "id": "PRIMARY-crevasse-splay",
+      "title": "crevasse-splay selected primary reference",
+      "url": "https://nhess.copernicus.org/articles/17/1505/2017/",
+      "license": "Primary2017 paper CC BY3.0, actual field imagery consult-only; USGS indexed text, pixels unavailable403",
+      "use": "consulted-only",
+      "incorporated": false,
+      "rights_note": "Text/pixels consulted only; no photograph, scan, mesh, texture or other third-party asset incorporated or redistributed.",
+      "notes": "USGS2024/1051 and other USGS pixel fetches failed403, not inspected. Personally read primary Izumida etal2017 and personally inspected Fig3 actual before/after orthophotos top row separately from DSM bottom. September2015 shows gap through artificial levee on river bank, scour reaching rightward, spreading pale sand lobes with unequal dark channels. Paper emphasizes artificial controls/buildings and erosion, so those exact site proportions and any natural-analogue equivalence are not assumed. USGS indexed primary text separately supports main channel, breach conduit and fan/bar linkage, not pixel evidence.",
+      "consulted_at": "2026-10-20T15:20:41.359098+00:00",
+      "consulted_images": [
+        {
+          "filename": "splay-fig3.png",
+          "sha256": "dda7c4f10d22e37efdae270471e1668f58d35d409b4680ca584c7bafd9d79327"
+        }
+      ],
+      "additional_urls": [
+        "https://pubs.usgs.gov/publication/ofr20241051/full"
+      ]
+    },
+    {
+      "id": "CONCEPT",
+      "url": "internal-original-concept",
+      "title": "Original generated crevasse-splay concept",
+      "license": "CC-BY-4.0 Leon Made This / s010s",
+      "use": "original-generated-concept",
+      "incorporated": false,
+      "rights_note": "Original concept design guidance only, not primary factual evidence or texture.",
+      "notes": "Original small natural-levee generic composition, based on published process linkage rather than replication of Kinu artificial embankment. Omit roads/buildings/canals/disaster debris. Concept reads branch fan but overstates levee height and simultaneous blue flow; reduce relief, use stylized shallow water as educational state without flow claims. Single clipped terrain/water geometry avoids coplanar layered strips."
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "author": "Leon Made This / s010s",
+  "generator_license": "MIT",
+  "export_options": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_normals": true,
+    "export_texcoords": false,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_vertex_color": "NONE",
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false,
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": true,
+    "export_gpu_instances": false,
+    "export_gn_mesh": false,
+    "export_draco_mesh_compression_enable": false,
+    "export_use_gltfpack": false
+  },
+  "source_counts": {
+    "status": "pass_with_warnings",
+    "errors": [],
+    "warnings": [
+      "continuous_shallow_water_clipped_to_actual_channels: 812 boundary edges; review intentional openings"
+    ],
+    "triangles": 8902,
+    "materials": [
+      "floodplain",
+      "levee",
+      "sand",
+      "water"
+    ],
+    "bounds_blender_m": {
+      "min": [
+        -60.0,
+        -60.0,
+        0.0
+      ],
+      "max": [
+        60.0,
+        60.0,
+        4.114439010620117
+      ],
+      "size": [
+        120.0,
+        120.0,
+        4.114439010620117
+      ]
+    },
+    "parts": [
+      {
+        "name": "integrated_breached_levee_fan_and_incised_floodplain",
+        "vertices": 3592,
+        "triangles": 7180,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      },
+      {
+        "name": "continuous_shallow_water_clipped_to_actual_channels",
+        "vertices": 1268,
+        "triangles": 1722,
+        "boundary_edges": 812,
+        "nonmanifold_edges": 0
+      }
+    ]
+  },
+  "vertex_counts": {
+    "kind": "actual-source-vertex-counts",
+    "source_sha256": "34c7973c04449eddf94de682029f9267bafc094fc3d326d468613761bba362d3",
+    "glb_sha256": "8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee",
+    "parts": [
+      {
+        "name": "integrated_breached_levee_fan_and_incised_floodplain",
+        "authored_vertices": 3592,
+        "evaluated_vertices": 3592,
+        "authored_polygons": 6727,
+        "evaluated_polygons": 6727
+      },
+      {
+        "name": "continuous_shallow_water_clipped_to_actual_channels",
+        "authored_vertices": 1268,
+        "evaluated_vertices": 1268,
+        "authored_polygons": 1722,
+        "evaluated_polygons": 1722
+      }
+    ],
+    "authored_vertices": 4860,
+    "evaluated_vertices": 4860,
+    "created_at": "2026-10-20T15:27:34.317450+00:00",
+    "note": "Saved-source read-only reopen measurement; exported POSITION-stream counts separately retained."
+  },
+  "glb_counts": {
+    "profile": "static-uncompressed-v1",
+    "file": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/crevasse-splay/r002/model.glb",
+    "errors": [],
+    "warnings": [],
+    "khronos_validator": "not_run_by_this_script",
+    "bytes": 579728,
+    "sha256": "8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "extensions_used": [],
+    "materials": 4,
+    "unique_mesh_triangles": 8902,
+    "unique_mesh_primitives": 4,
+    "unique_position_accessor_vertices": 21768,
+    "bounds_m": {
+      "min": [
+        -60.0,
+        0.0,
+        -60.0
+      ],
+      "max": [
+        60.0,
+        4.114439010620117,
+        60.0
+      ],
+      "size": [
+        120.0,
+        4.114439010620117,
+        120.0
+      ]
+    },
+    "semantic_sha256": "a94a6b32447664118d9dbc37a503c357aeb9d5c208d2225d95936e34f16ad4f9",
+    "semantic_digest_profile": "decoded-static-content-v1",
+    "scene_triangles": 8902,
+    "scene_primitives_estimated_base_draw_calls": 4,
+    "status": "pass"
+  },
+  "checksums": {
+    "source.blend": "34c7973c04449eddf94de682029f9267bafc094fc3d326d468613761bba362d3",
+    "model.glb": "8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee",
+    "generator.py": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7",
+    "build-config.json": "6aba50fbaa0337665b3e78708ed30a7859d36de91dc7ec27f298fe2b74d88063",
+    "brief.json": "b4175997b943f5529d9a1528c4293f5360defa842b9e27938d72588109952381",
+    "candidate-brief.json": "0687ebd5c9e1852b7bc1ad603817507c2514cf0cce69ab8eb4cd041e48744343",
+    "references.json": "5efac577e164e8ba069bc2ba68dcb13a148b2b95e6e009b27c03dffc205d9d38",
+    "build-dependencies.json": "093fc951f8b624d2ecd5f7acb71f9c80926cd37896fad77c84dda0436b72cdc1"
+  },
+  "acceptance": {
+    "technical": "independent_pending",
+    "visual": "independent_pending",
+    "factual": "independent_pending",
+    "specification": "independent_pending",
+    "runtime_parse": "measured_node_report_retained",
+    "gpu": "not_run",
+    "scene": "not_run",
+    "formal_approval": "pending",
+    "user_approval": "not_asserted"
+  },
+  "created_at": "2026-10-20T15:29:50.174307+00:00"
+}

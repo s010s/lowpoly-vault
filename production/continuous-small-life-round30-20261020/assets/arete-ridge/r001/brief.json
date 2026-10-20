@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "asset_id": "arete-ridge",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed low-poly supporting educational prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required features: Long narrow continuous knife crest; Unequal serrated teeth and low cols; Two steep concave glacial hollows on opposite flanks; Noncompact elongated silhouette distinct from horn. Scope: Generic original deglaciated ar\u00eate landform, not Garden Wall replica or exact locality, period or quantitative erosion model.",
+      "required_sources": [
+        "PRIMARY-arete-ridge"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required features: Long narrow continuous knife crest; Unequal serrated teeth and low cols; Two steep concave glacial hollows on opposite flanks; Noncompact elongated silhouette distinct from horn. Scope: Generic original deglaciated ar\u00eate landform, not Garden Wall replica or exact locality, period or quantitative erosion model.",
+      "required_sources": [
+        "PRIMARY-arete-ridge"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views;7 distinct stages.",
+  "required_deliverables": [],
+  "claim_scope": "Generic original deglaciated ar\u00eate landform, not Garden Wall replica or exact locality, period or quantitative erosion model.",
+  "nominal_dimensions_blender_xyz_m": [
+    240,
+    100,
+    60
+  ],
+  "dimension_status": "Nominal illustrative scale, not measured reference locality/specimen; export measured separately",
+  "recognition_features": [
+    "Long narrow continuous knife crest",
+    "Unequal serrated teeth and low cols",
+    "Two steep concave glacial hollows on opposite flanks",
+    "Noncompact elongated silhouette distinct from horn"
+  ],
+  "concept_decisions": "Use original elongated terrain volume with continuous jagged crest and concave hollows on both sides. Concept near-side repeated bowls are design guidance only; avoid periodic scallops and ensure no compact horn silhouette. Palette only, no copied snow/photo textures. Nominal landscape scale.",
+  "style": "Palette-only faceted real3D low-poly",
+  "intended_use": "Landscape supporting terrain prop at256-512px; no engineering/museum-grade replica claim",
+  "created_at": "2026-10-20T15:20:41.351559+00:00",
+  "validation_profile": "static-stylized-v1"
+}

@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/work/batch-74/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/work/batch-74/rebuild-runs/build/arete-ridge/r001/semantic-rebuild-2/8f5b2a8d8632df43ad96a7dbe0621501556a681165c86fd89879db5b17c17c80/20261020T152433-bdc8c1a700b74b65b5fd017a31913d71/outputs"
+  ],
+  "created_at": "2026-10-20T15:24:33.744891+00:00",
+  "fingerprint": "8f5b2a8d8632df43ad96a7dbe0621501556a681165c86fd89879db5b17c17c80",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/work/batch-74/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch74-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4763,
+        "path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/brief.json",
+        "sha256": "bdf8f1ead0f1fdc0a9801b9059e22cbf9a832ad4013f4a819ab55d342cc45044"
+      },
+      "config": {
+        "bytes": 673,
+        "path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/build-config.json",
+        "sha256": "f653707daf15355fb9f95eede22f1fc910b2bdf1b215441fbe257e01498e9d79"
+      },
+      "generator": {
+        "bytes": 10906,
+        "path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/generator.py",
+        "sha256": "98e0cdf4c12048076f50f324c0818d2fcf708cfe4b8c52a38354509b9bb2df69"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch74-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1883,
+        "path": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/references.json",
+        "sha256": "574a5414bc569c6f5db2aee91dbfb4a19b5bc97fda6315217025980247bcf498"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "arete-ridge",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch74-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch74-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/arete-ridge/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T152425-3c373b5dc9ea4710b5d7f3b69893d597"
+}

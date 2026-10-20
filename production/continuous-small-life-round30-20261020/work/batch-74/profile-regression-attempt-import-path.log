@@ -1,0 +1,44 @@
+EEE
+======================================================================
+ERROR: test_candidate_profile (unittest.loader._FailedTest.test_candidate_profile)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_candidate_profile
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch74-20261020/scripts/test_candidate_profile.py", line 10, in <module>
+    from candidate_profile import create_contract
+ModuleNotFoundError: No module named 'candidate_profile'
+
+
+======================================================================
+ERROR: test_validate_candidate (unittest.loader._FailedTest.test_validate_candidate)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_validate_candidate
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch74-20261020/scripts/test_validate_candidate.py", line 16, in <module>
+    from test_qa_glb import fixture, encode
+ModuleNotFoundError: No module named 'test_qa_glb'
+
+
+======================================================================
+ERROR: test_technical_reports (unittest.loader._FailedTest.test_technical_reports)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_technical_reports
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch74-20261020/scripts/test_technical_reports.py", line 11, in <module>
+    from check_source_export import compare_source_audit
+ModuleNotFoundError: No module named 'check_source_export'
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (errors=3)

@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Personally inspected all eight r002 exact-final512px frames after all eight r001 frames. Main channel, levee gap, connector and unequal spreading fan branches visible in top and obliques. R001 distal puddles repaired by actual width resolution; r002 channels appear continuously connected. Clay shows shallow relief, side views correctly low flat landscape. Sandy margin retains faceted coarse sampling; no actual-site or hydrologic accuracy claimed. Water is intentional open clipped level surface, welded internal edges, no positive-area coplanar overlap detected; static images do not establish GPU/scene behavior.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 8bd02bde0d63bf6635cdeeddc0f73f9b1ace8226851fab3367d5ed1d6fbfabee. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

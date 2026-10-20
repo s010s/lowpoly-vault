@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "crevasse-splay",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed low-poly supporting educational prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required features: Main river alongside raised levee; Visible breached levee and connecting channel; Unequal connected branches spreading onto floodplain; Low broad sandy depositional fan and tapering margins. Scope: Generic original crevasse-splay process/form educational terrain. Natural levee interpretation is generic, not a precise Kinu artificial-levee site, disaster reconstruction, ancient cross-section or hydrodynamic simulation.",
+      "required_sources": [
+        "PRIMARY-crevasse-splay"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required features: Main river alongside raised levee; Visible breached levee and connecting channel; Unequal connected branches spreading onto floodplain; Low broad sandy depositional fan and tapering margins. Scope: Generic original crevasse-splay process/form educational terrain. Natural levee interpretation is generic, not a precise Kinu artificial-levee site, disaster reconstruction, ancient cross-section or hydrodynamic simulation.",
+      "required_sources": [
+        "PRIMARY-crevasse-splay"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views;7 distinct stages.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/continuous-small-life-round30-20261020/assets/crevasse-splay/r001/source.blend",
+      "sha256": "ce25964ebc4aec62b9481813738a8f2955b72f3185e878184fca83d110b3b3d4"
+    },
+    {
+      "role": "generator",
+      "path": "production/continuous-small-life-round30-20261020/assets/crevasse-splay/r001/generator.py",
+      "sha256": "98e0cdf4c12048076f50f324c0818d2fcf708cfe4b8c52a38354509b9bb2df69"
+    },
+    {
+      "role": "config",
+      "path": "production/continuous-small-life-round30-20261020/assets/crevasse-splay/r001/build-config.json",
+      "sha256": "704c00395914c8afb32ff79d4db0f89b4b33ed5f2e9c8427dd4c78c2131b9965"
+    }
+  ],
+  "claim_scope": "Generic original crevasse-splay process/form educational terrain. Natural levee interpretation is generic, not a precise Kinu artificial-levee site, disaster reconstruction, ancient cross-section or hydrodynamic simulation.",
+  "nominal_dimensions_blender_xyz_m": [
+    120,
+    120,
+    6
+  ],
+  "dimension_status": "Nominal illustrative scale, not measured reference locality/specimen; export measured separately",
+  "recognition_features": [
+    "Main river alongside raised levee",
+    "Visible breached levee and connecting channel",
+    "Unequal connected branches spreading onto floodplain",
+    "Low broad sandy depositional fan and tapering margins"
+  ],
+  "concept_decisions": "Original small natural-levee generic composition, based on published process linkage rather than replication of Kinu artificial embankment. Omit roads/buildings/canals/disaster debris. Concept reads branch fan but overstates levee height and simultaneous blue flow; reduce relief, use stylized shallow water as educational state without flow claims. Single clipped terrain/water geometry avoids coplanar layered strips.",
+  "style": "Palette-only faceted real3D low-poly",
+  "intended_use": "Landscape supporting terrain prop at256-512px; no engineering/museum-grade replica claim",
+  "created_at": "2026-10-20T15:20:41.362426+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:23:39.237229+00:00",
+    "frozen_design_brief_sha256": "b4175997b943f5529d9a1528c4293f5360defa842b9e27938d72588109952381",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
