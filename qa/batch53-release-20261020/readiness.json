@@ -12,11 +12,9 @@
   "target_scene_verified": false,
   "provider_generation_timestamp": null,
   "remaining_gates": [
-    "Independent exact website capture review",
     "Gallery detail and wheel captures",
-    "Bounded publication descriptor and integrity/tamper tests",
-    "Trusted main incremental baseline and exact final head release CI",
-    "Merge, Pages deployment, live verification"
+    "Successful trusted main incremental baseline and exact final release CI",
+    "Reconcile onto accepted194 baseline then serialize merge to202, Pages deployment and live verification"
   ],
   "website_card_capture": {
     "status": "success",
@@ -24,6 +22,29 @@
     "head_sha": "65fb60746b259fddb320e2930275b291d7ec2a9a",
     "artifact_id": 12239712485,
     "exact_glb_and_artifact_verified": true,
-    "independent_pixel_review": "pending"
+    "independent_pixel_review": "limited_acceptance",
+    "independent_review_sha256": "c406877c97a32df7da4768916b267704dcb0ef14f6b12ca0f7cbe9e0d3bc2c1d"
+  },
+  "bounded_collector_tests": {
+    "status": "pass",
+    "cases": 45,
+    "combined_scopes": "Batch52 original three + Aturia differential one + Batch53 four"
+  },
+  "incremental_preflight": {
+    "status": "pass",
+    "base": "905d3f53ce8f1a76c9d858b0117670f0af17a523",
+    "staged_manifest_count": 198,
+    "old_manifest_count": 190,
+    "added_ids_count": 8,
+    "model_policy_equal": true,
+    "old_model_records_and_poster_keys_unchanged": true,
+    "trusted_main_cache_hit_claimed": false
+  },
+  "full_publication_integrity": {
+    "status": "pass",
+    "staging_manifest_count": 198,
+    "old190_preserved": true,
+    "models_regenerated": false,
+    "old_models_gpu_rerendered": false
   }
 }
