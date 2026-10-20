@@ -43,3 +43,41 @@ export async function collectConceptLandairRelease(root,descriptor){
  }
  const base=await collectConceptQuartetsRelease(root,release.base_descriptor);assert.equal(base.assets.length,186);assert(!additions.some(a=>base.assets.some(b=>b.id===a.id)));assert(!additions.some(a=>release.excluded_ids.includes(a.id)));return {...base,assets:[...base.assets,...additions],publication:{...base.publication,concept_landair_descriptor:descriptor,approved_concept_landair_ids:CONCEPT_LANDAIR_IDS}};
 }
+
+/** Batch54 is a distinct immutable scope; it does not alter the land/air release. */
+export async function collectBatch54Additions(root,descriptor){
+ const {BATCH54_RELEASE:accepted}=await import('./accepted-concept-landair-release.mjs');
+ const sha=b=>createHash('sha256').update(b).digest('hex');
+ async function checked(pin){assert(pin&&/^(assets|production|qa)\/[a-zA-Z0-9_./-]+$/.test(pin.path)&&!pin.path.split('/').some(p=>!p||p==='.'||p==='..'));assert(/^[a-f0-9]{64}$/.test(pin.sha256));const p=resolve(root,pin.path);assert.equal(await realpath(p),p,'Release symlinks forbidden');const b=await readFile(p);assert.equal(sha(b),pin.sha256,`${pin.path}: Batch54 hash mismatch`);return b;}
+ const json=async p=>JSON.parse(await checked(p));
+ assert.equal(descriptor.path,'assets/releases/batch54-20261020.json');const release=await json(descriptor);assert.deepEqual(release,accepted,'Only exact independently reviewed Batch54 bytes and bounded claims are authorized');
+ assert.equal(release.acceptance_scope,'independent_qa_accepted_stylized_prop');assert.equal(release.formal_profile_acceptance,'BLOCKED');assert.equal(release.hardware_gpu_verified,false);assert.equal(release.target_scene_verified,false);assert.equal(release.provider_generation_timestamp,'unknown');
+ const policy=await json(release.publication_policy);assert.equal(policy.authority,'owner_authorized_qa_passed_batch_release');assert.equal(policy.candidate_gate_grants_publication,false);
+ const bundle=await json(release.source_bundle);assert.equal(bundle.version,1);assert.equal(new Set(bundle.files.map(p=>p.path)).size,bundle.files.length);for(const pin of bundle.files)await checked(pin);
+ const review=await json(release.review);assert.equal(review.source.candidate_commit,release.source_commit);assert.equal(review.no_model_repairs_required,true);await checked(review.source.in_tree_scope);
+ for(const stage of ['technical_validity','visual','factual','specification','runtime_parse','software_webgl'])assert(review.stage_findings[stage].status.startsWith('PASS'));
+ assert(review.stage_findings.physical_gpu.status.startsWith('UNKNOWN'));assert(review.stage_findings.intended_scene.status.startsWith('UNKNOWN'));assert(review.stage_findings.formal_approved.status.startsWith('NO'));
+ const binding=await json(release.dispatch_binding);assert.equal(binding.historical_scope_modified,false);assert.equal(binding.expected_source_commit,release.source_commit);assert.equal(binding.independent_review_commit,release.review_commit);assert.equal(binding.publication_authority,false);assert.equal(binding.ready_for_qa,true);assert.deepEqual(binding.supersedes_placeholder,review.source.in_tree_scope);
+ const capture=await json(release.capture.report),index=await json(release.capture.index),publicIndex=JSON.parse(await readFile(resolve(root,'assets/turntables/index.json')));
+ assert.equal(capture.status,'pass');assert.equal(capture.target_renderer,'threejs-modelstage');assert.equal(capture.viewer_source_sha256,sha(await readFile(resolve(root,'site/viewer.js'))));assert.equal(capture.render_preset_sha256,sha(JSON.stringify(CARD_RENDER_PRESET)));assert.equal(capture.chromium_version,capture.pinned_chromium_version);
+ const ids=['cave-shield','didymoceras','psammichnites-ribbon-trace','spirematospermum'];assert.deepEqual(release.additions.map(a=>a.id).sort(),ids);assert.deepEqual(capture.assets.map(a=>a.id).sort(),ids);
+ const additions=[];
+ for(const entry of release.additions){
+  const a=await json(entry.metadata),source=await json(entry.source_metadata),candidate=await json(entry.candidate),r=review.source.assets.find(a=>a.asset_id===entry.id),folder=`assets/additions/${entry.id}/batch54-20261020`;
+  assert.equal(a.id,entry.id);assert.equal(entry.metadata.path,`${folder}/release-metadata.json`);assert.equal(candidate.asset_id,a.id);assert.equal(candidate.revision,entry.revision);assert.equal(candidate.approval.status,'pending');assert.equal(r.revision,entry.revision);assert.equal(r.source_record_checks.candidate_profile_check.valid,true);assert.equal(r.source_record_checks.candidate_profile_check.approved_for_brief,false);
+  assert.equal(a.license,'CC-BY-4.0');assert.equal(a.author,'Leon Made This / s010s');assert.equal(a.units,'meters');assert.deepEqual(a.worlds,['prehistoric']);assert.deepEqual(a.packs,['prehistoric-batch54-20261020']);assetFileAllowlist({assets:[a]});
+  for(const key of ['name','description','scientific_scope'])for(const lang of ['en','zh'])assert(a[key]?.[lang]?.trim());
+  for(const key of ['quality_status','approval_provenance','candidate_record','qa','publication_status','downloads','turntable','card_preview','profile','validation_profile','approval'])assert(!Object.hasOwn(a,key),`Reserved metadata ${key}`);
+  for(const key of ['triangles','dimensions','axes','bounds_glb_m','blender_dimensions_m','export_options','materials','generator'])assert.deepEqual(a[key],source[key],`Preserve measured ${key}`);
+  assert.deepEqual(a.dimensions,r.measured.measured_glb_xyz_bounds_m.size);assert.equal(a.triangles,r.measured.triangles);assert.equal(a.glb_bytes,r.measured.glb_bytes);assert.equal(a.material_count,r.measured.materials);assert.equal(a.primitives,r.measured.primitives);
+  for(const key of ['glb','blend','preview']){assert.equal(dirname(a[key]),folder);await checked({path:a[key],sha256:a.sha256[key]});}
+  for(const key of ['glb','blend'])assert.equal(a.sha256[key],r.hash_pins[key].sha256);
+  assert.equal(candidate.artifacts.glb.sha256,a.sha256.glb);assert.equal(candidate.artifacts.source.sha256,a.sha256.blend);assert.equal(binding.expected_glb_sha256_by_asset[a.id],a.sha256.glb);
+  for(const pin of [...Object.values(r.hash_pins),...Object.values(r.concept_shared),...r.proof_frames])await checked(pin);
+  assert.equal(r.independent_checks.source_export.status,'pass');assert.equal(r.independent_checks.source_export.source_sha256,a.sha256.blend);assert.equal(r.independent_checks.source_export.glb_sha256,a.sha256.glb);assert.equal(r.independent_checks.khronos.num_errors,0);assert.equal(r.independent_checks.khronos.num_warnings,0);assert.deepEqual(r.source_record_checks.semantic_rebuilds,['pass','pass']);
+  const record=capture.assets.find(x=>x.id===a.id),card=index.posters.find(x=>x.id===a.id);assert.equal(record.source_glb_sha256,a.sha256.glb);assert.equal(card.source_glb_sha256,a.sha256.glb);assert.deepEqual(publicIndex.posters.filter(x=>x.id===a.id),[card]);const b=await checked({path:card.path,sha256:card.sha256});assert.equal(b.length,card.bytes);assert.equal(entry.capture_reference.sha256,a.sha256.preview);await checked(entry.capture_reference);
+  additions.push({...a,quality_status:'independent_qa_accepted_stylized_prop',approval_provenance:{source_commit:release.source_commit,review_commit:release.review_commit,review_sha256:release.review.sha256,source_contract:'bounded-stylized-study:8-fixed-views; preserved pending static-stylized-v1 candidate',candidate_record_approved_for_brief:false,formal_profile_acceptance:'BLOCKED',hardware_gpu_verified:false,target_scene_verified:false,concept_chronology:'Exact provider generation timestamp unknown; original evidence preserved'}});
+ }
+ return {release,additions};
+}
+export async function collectBatch54Release(root,descriptor){const {release,additions}=await collectBatch54Additions(root,descriptor);const base=await collectConceptLandairRelease(root,release.base_descriptor);assert.equal(base.assets.length,190);assert(!additions.some(a=>base.assets.some(b=>b.id===a.id)));return {...base,assets:[...base.assets,...additions],publication:{...base.publication,batch54_descriptor:descriptor,approved_batch54_ids:additions.map(a=>a.id).sort()}};}

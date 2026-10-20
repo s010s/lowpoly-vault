@@ -9,6 +9,7 @@ import { collectConceptLandairRelease, CONCEPT_LANDAIR_IDS, CONCEPT_LANDAIR_PACK
 import { CONCEPT_LANDAIR_RELEASE as fixed } from './accepted-concept-landair-release.mjs';
 import { collectConceptQuartetsRelease } from './concept-quartets-release.mjs';
 
+if(!process.argv.includes('--batch54-only')) {
 const BASE_COUNT = 186;
 const revisions = { sapeornis: 'r001', longirostravis: 'r001', dunbaria: 'r001', chimerarachne: 'r001' };
 const expectedIds = Object.keys(revisions).sort();
@@ -279,4 +280,35 @@ try {
   console.log(`Concept-landair release: ${checks} checks passed; exact reviewed quartet, unchanged ${BASE_COUNT}, frozen source/QA bindings, and blocked formal/hardware/scene gates preserved.`);
 } finally {
   await rm(root, { recursive: true, force: true });
+}
+
+}
+
+// Selected-scope checks are independently runnable without repeating old model QA.
+{
+ const {collectBatch54Additions}=await import('./concept-landair-release.mjs');
+ const {BATCH54_RELEASE:accepted}=await import('./accepted-concept-landair-release.mjs');
+ const {copyFile}=await import('node:fs/promises');
+ const sandbox=await mkdtemp(join(tmpdir(),'vault-batch54-'));
+ const digest=b=>createHash('sha256').update(b).digest('hex');
+ const descriptorPath='assets/releases/batch54-20261020.json';
+ const descriptor={path:descriptorPath,sha256:digest(await readFile(descriptorPath))};
+ const bundle=JSON.parse(await readFile(accepted.source_bundle.path));
+ const index=JSON.parse(await readFile(accepted.capture.index.path));
+ const paths=new Set([descriptorPath,accepted.source_bundle.path,accepted.publication_policy.path,'site/viewer.js','assets/turntables/index.json','production/continuous-small-life-round19-20261020/batch-54-QA-SCOPE.json',...bundle.files.map(p=>p.path)]);
+ for(const entry of accepted.additions){paths.add(entry.metadata.path);const a=JSON.parse(await readFile(entry.metadata.path));for(const kind of ['glb','blend','preview'])paths.add(a[kind]);paths.add(index.posters.find(p=>p.id===a.id).path);}
+ let cases=0;
+ try{
+  for(const path of paths){await mkdir(dirname(resolve(sandbox,path)),{recursive:true});await copyFile(path,resolve(sandbox,path));}
+  const collect=()=>collectBatch54Additions(sandbox,descriptor);const initial=await collect();assert.equal(initial.additions.length,4);cases++;
+  for(const a of initial.additions){assert.equal(a.approval_provenance.formal_profile_acceptance,'BLOCKED');assert.equal(a.approval_provenance.hardware_gpu_verified,false);assert.equal(a.approval_provenance.target_scene_verified,false);assert.equal(a.approval_provenance.candidate_record_approved_for_brief,false);}
+  const tamper=async(path,modify)=>{const file=resolve(sandbox,path),old=await readFile(file);try{await writeFile(file,modify(old));await assert.rejects(collect,/hash mismatch|Only exact|symlinks forbidden/);cases++;}finally{await writeFile(file,old);}};
+  const append=b=>Buffer.concat([b,Buffer.from('tamper')]);
+  for(const entry of accepted.additions){const a=JSON.parse(await readFile(entry.metadata.path));for(const path of [entry.candidate.path,entry.metadata.path,a.glb,a.blend,a.preview])await tamper(path,append);}
+  for(const path of [accepted.review.path,accepted.dispatch_binding.path,accepted.capture.report.path,accepted.capture.index.path,accepted.source_bundle.path])await tamper(path,append);
+  for(const field of ['formal_profile_acceptance','hardware_gpu_verified','target_scene_verified'])await tamper(descriptorPath,b=>{const d=JSON.parse(b);d[field]=field==='formal_profile_acceptance'?'PASS':true;return JSON.stringify(d);});
+  const a=initial.additions[0],file=resolve(sandbox,a.glb),saved=file+'.saved';await rename(file,saved);try{await symlink(saved,file);await assert.rejects(collect,/symlinks forbidden/);cases++;}finally{await rm(file);await rename(saved,file);}
+  assert.deepEqual(await collect(),initial);cases++;
+  console.log(`Batch54 bounded release: ${cases} checks passed; exact four candidates, immutable source/QA/capture pins, tamper/symlink rejection, no formal approval promotion.`);
+ }finally{await rm(sandbox,{recursive:true,force:true});}
 }
