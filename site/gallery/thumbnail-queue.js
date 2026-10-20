@@ -23,9 +23,12 @@ export class ThumbnailQueue {
    const finish=state=>{if(settled)return;settled=true;image.onload=image.onerror=null;this.active.delete(image);this.stats.active=this.active.size;image.dataset.thumbnailState=state;if(!this.timer)this.pump();};
    const cancel=()=>{if(settled)return;this.stats.cancelled++;image.removeAttribute('src');finish('idle');};
    this.active.set(image,cancel);this.stats.active=this.active.size;this.stats.maxActive=Math.max(this.stats.maxActive,this.active.size);this.stats.started++;
-   image.decoding='async';image.dataset.thumbnailState='loading';image.onload=()=>{if(settled)return;image.dataset.thumbnailState='decoding';Promise.resolve(image.decode?.()).then(()=>finish('ready'),()=>finish('error'));};
+   image.decoding='async';image.dataset.thumbnailState='loading';image.onload=()=>{if(settled||image.dataset.thumbnailState==='decoding')return;image.dataset.thumbnailState='decoding';try{Promise.resolve(image.decode?.()).then(()=>finish('ready'),()=>finish('error'));}catch{finish('error');}};
    image.onerror=()=>{if(!fallback&&item.fallback&&item.fallback!==item.url){fallback=true;image.src=item.fallback;}else finish('error');};
    image.src=item.url;
+   // A memory-cached image may already be complete before its load event runs.
+   // Decode still owns readiness; the eventual event cannot restart the reveal.
+   if(image.complete&&image.naturalWidth>0)image.onload?.();
   }
  }
  clear(){this.clearTimer(this.timer);this.timer=0;for(const image of this.desired.keys())image.dataset.thumbnailVisible='false';this.desired.clear();this.concurrency=0;this.stats.budget=0;for(const cancel of [...this.active.values()])cancel();}

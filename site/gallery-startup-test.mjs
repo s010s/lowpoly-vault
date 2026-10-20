@@ -44,9 +44,9 @@ console.log('Gallery startup passed: imports are DOM-inert; code/CSS and catalog
 // The tiny parser-time initializer is independent of app imports and catalog
 // fetches. Verify query selection and real fallback navigation without a browser.
 const initializer=await readFile(new URL('./gallery/startup.js',import.meta.url),'utf8');
-function nativeFixture({query='',mobile=false,reduced=false,ids=['first','cooperoceras','last'],selected='cooperoceras'}={}){
+function nativeFixture({query='',mobile=false,reduced=false,ids=['first','cooperoceras','last'],selected='cooperoceras',thumbnail={}}={}){
  const nodes=Object.fromEntries(['title','subtitle','triangles','dimensions','file-size','download','blend','info','detail-poster','mobile-back'].map(id=>[id,{hidden:id==='mobile-back',style:{}}]));
- const rows=ids.map(id=>({dataset:{id,selected:String(id===selected),title:id,subtitle:'Plants / Stylized specimen',poster:`/gallery/posters/${id}.png`,triangles:'100',dimensions:'1 m',fileSize:'10 KB',download:`/assets/${id}.glb`,blend:`/assets/${id}.blend`,info:`/models/${id}/`},image:{style:{}},getAttribute:()=>id,setAttribute(key,value){this[key]=value;},querySelector(){return this.image;}}));
+ const rows=ids.map(id=>({dataset:{id,selected:String(id===selected),title:id,subtitle:'Plants / Stylized specimen',poster:`/gallery/posters/${id}.png`,triangles:'100',dimensions:'1 m',fileSize:'10 KB',download:`/assets/${id}.glb`,blend:`/assets/${id}.blend`,info:`/models/${id}/`},image:{style:{}},thumbnail:{dataset:{},addEventListener(type,handler){this[type]=handler;},...thumbnail},getAttribute:()=>id,setAttribute(key,value){this[key]=value;},querySelector(selector){return selector==='.slot-image img'?this.thumbnail:this.image;}}));
  const wheel={scrollTop:0,addEventListener(type,handler){this[type]=handler;}},root={dataset:{},classList:{contains:()=>true},querySelectorAll:()=>rows,querySelector:selector=>selector==='#wheel'?wheel:nodes[selector.slice(1)]};
  const classes=new Set(),document={getElementById:()=>root,body:{classList:{toggle(key,on){if(on)classes.add(key);else classes.delete(key);}}}};
  vm.runInContext(initializer,vm.createContext({document,location:{href:'https://example.test/lowpoly-vault/models/'+query},URL,matchMedia:media=>({matches:media.includes('max-width')?mobile:reduced}),requestAnimationFrame:fn=>{fn();return 1;}}));
@@ -88,3 +88,9 @@ for(const width of [320,390,440,760,761,1024,1180,1280,1440])for(const reduced o
  assert(transforms.every(value=>value.x===0),'All scaled rows share the existing image-column X axis');
 }
 console.log('Thumbnail axis passed: native/enhanced agreement, 320/390/440/760/761/1024/1180/1280/1440 widths, shared 12px mobile host offset, centered/fractional scroll, scale/opacity preservation and reduced motion.');
+
+const nativePending=nativeFixture();const pendingImage=nativePending.rows[0].thumbnail;let nativeDecoded;pendingImage.decode=()=>new Promise(done=>nativeDecoded=done);pendingImage.load();assert.equal(pendingImage.dataset.thumbnailState,'decoding');nativeDecoded();await tick();assert.equal(pendingImage.dataset.thumbnailState,'ready');
+let nativeCachedDecodes=0;const nativeCached=nativeFixture({thumbnail:{complete:true,naturalWidth:32,decode:()=>{nativeCachedDecodes++;return Promise.resolve();}}});await tick();assert(nativeCached.rows.every(row=>row.thumbnail.dataset.thumbnailState==='ready'));nativeCached.rows[0].thumbnail.load();assert.equal(nativeCachedDecodes,3,'Cached readiness and a later load event do not restart native decode');
+for(const decode of [()=>Promise.reject(Error('bad decode')),()=>{throw Error('bad decode');}]){const broken=nativeFixture({thumbnail:{complete:true,naturalWidth:32,decode}});await tick();assert(broken.rows.every(row=>row.thumbnail.dataset.thumbnailState==='error'));}
+const nativeFailed=nativeFixture({thumbnail:{complete:true,naturalWidth:0}});assert(nativeFailed.rows.every(row=>row.thumbnail.dataset.thumbnailState==='error'));
+console.log('Native thumbnail readiness: pending decode, cached completion, duplicate load, decode rejection/throw and failed image passed.');

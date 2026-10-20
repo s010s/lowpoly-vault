@@ -5,6 +5,20 @@
   if(!root?.classList.contains('gallery-static'))return;
   const wheel=root.querySelector('#wheel'),rows=[...root.querySelectorAll('.slot')];
   if(!wheel||!rows.length)return;
+  // Opt in only when this independent script runs: no-JS native links and
+  // posters remain visible. Match the enhanced queue's decode-before-reveal gate.
+  for(const row of rows){
+    const thumbnail=row.querySelector('.slot-image img');
+    thumbnail.dataset.thumbnailState='pending';thumbnail.decoding='async';
+    const fail=()=>{thumbnail.dataset.thumbnailState='error';};
+    const loaded=()=>{
+      if(thumbnail.dataset.thumbnailState!=='pending')return;
+      thumbnail.dataset.thumbnailState='decoding';
+      try{Promise.resolve(thumbnail.decode?.()).then(()=>{if(thumbnail.dataset.thumbnailState==='decoding')thumbnail.dataset.thumbnailState='ready';},fail);}catch{fail();}
+    };
+    thumbnail.addEventListener('load',loaded,{once:true});thumbnail.addEventListener('error',fail,{once:true});
+    if(thumbnail.complete){if(thumbnail.naturalWidth>0)loaded();else fail();}
+  }
   const url=new URL(location.href),requested=url.searchParams.get('model');
   const explicit=rows.find(row=>row.dataset.id===requested);
   const selected=explicit||rows.find(row=>row.dataset.selected==='true')||rows[0];
