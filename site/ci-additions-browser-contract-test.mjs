@@ -1,0 +1,47 @@
+/** Deterministic adversarial receipt tests. These never launch a browser. */
+import assert from 'node:assert/strict';
+import {ADDITIONS_BROWSER_VERSION,ADDITIONS_BROWSER_KIND,ADDITIONS_DESKTOP_KIND,ADDITIONS_BROWSER_PIN,ADDITIONS_VIEWPORTS,parseAddedModelIDs,selectAddedModels,assertAdditionsReport,assertAdditionsDesktopReport,assertAdditionsDesktopSource} from './ci-additions-browser-contract.mjs';
+const manifest={version:1,assets:['fresh-one','fresh-two','not-selected'].map((id,index)=>({id,name:{en:`Model ${index}`,zh:`模型${index}`},glb:`assets/${id}.glb`,blend:`assets/${id}.blend`,sha256:{glb:String(index+1).repeat(64),blend:String(index+4).repeat(64)}}))};
+const selectedIDs=['fresh-two','fresh-one'],identity={source_commit:'a'.repeat(40),source_tree:'b'.repeat(40),run_id:'1234',run_attempt:'2'};
+const options={manifest,selectedIDs,identity};
+const file=(asset,format)=>({path:asset[format],sha256:asset.sha256[format],bytes:format==='glb'?1024:2048});
+function fixture(){
+  return{version:ADDITIONS_BROWSER_VERSION,kind:ADDITIONS_BROWSER_KIND,status:'pass',...identity,run_id:1234,run_attempt:2,chromium_version:ADDITIONS_BROWSER_PIN.chromium,browser_pin:{...ADDITIONS_BROWSER_PIN},served_output_only:true,visual_approval:false,formal_approval:false,selected_ids:['fresh-one','fresh-two'],actual_glb_ids:['fresh-one','fresh-two'],page_errors:[],resource_errors:[],fallback_events:[],sequence_requests:0,cases:selectAddedModels(manifest,selectedIDs).flatMap(asset=>ADDITIONS_VIEWPORTS.map(viewport=>({
+    id:asset.id,viewport:viewport.name,viewport_config:{width:viewport.width,height:viewport.height,hasTouch:viewport.touch,isMobile:viewport.touch},lang:viewport.lang,status:'pass',discovery:{id:asset.id,poster_decoded:true,poster_width:768,poster_height:432},horizontal_overflow:false,fallback:false,
+    detail:{id:asset.id,selected_id:asset.id,title:asset.name[viewport.lang],first_frame_id:asset.id,renderer_id:asset.id,state:'ready',renderer_status:'ready',model_present:true,live_bytes:1024,renderer_count:1,context_lost:false,gl_error:0,poster_source:'canonical'},
+    observed_glbs:[file(asset,'glb')],downloads:{glb:file(asset,'glb'),blend:file(asset,'blend')},navigation:{detail_model:asset.id,...(viewport.touch?{back_to_collection:true,collection_model:null,collection_url_restored:true,wheel_visible:true,scroll_restored:true,results_restored:true}:{})},
+  })))};
+}
+const desktopFixture=()=>{const report=fixture();report.kind=ADDITIONS_DESKTOP_KIND;report.cases=report.cases.filter(row=>row.viewport==='1440x1000');return report;};
+function sourceFixture(){return{status:'pass',browser_status:'pass',profile:'strict-gpu',review_scope:'models',commit:identity.source_commit,chromium_version:ADDITIONS_BROWSER_PIN.chromium,page_errors:[],resource_errors:[],selected_model_ids:['fresh-one','fresh-two'],gpu:{status:'pass',fallback_models:[],rendered_models:['fresh-one','fresh-two']},models:selectAddedModels(manifest,selectedIDs).map(asset=>({id:asset.id,status:'gpu-pass',glb_sha256:asset.sha256.glb})),additions_desktop:desktopFixture()};}
+let tests=0;
+const reject=(label,mutate)=>{const report=fixture();mutate(report);assert.throws(()=>assertAdditionsReport(report,options),undefined,label);tests++;};
+assert.deepEqual(parseAddedModelIDs('fresh-two, fresh-one'),['fresh-one','fresh-two']);tests++;
+for(const raw of [undefined,null,'',' ','fresh-one,','fresh-one,,fresh-two',',fresh-one','fresh-one,fresh-one','../escape','foo/bar','foo?x','x;touch','-x','x--y','x_foo','x\\y']){assert.throws(()=>parseAddedModelIDs(raw));tests++;}
+for(const ids of [[],['fresh-one','fresh-one'],['unknown'],['fresh-one','unknown'],['../escape']]){assert.throws(()=>selectAddedModels(manifest,ids));tests++;}
+for(const mutate of [m=>m.review_only=true,m=>m.assets.push(m.assets[0]),m=>m.assets[0].glb='../secret.glb',m=>m.assets[0].glb='assets/../secret.glb',m=>m.assets[0].sha256.glb='x',m=>delete m.assets[0].name.zh]){const bad=structuredClone(manifest);mutate(bad);assert.throws(()=>selectAddedModels(bad,selectedIDs));tests++;}
+const good=fixture();assert.equal(assertAdditionsReport(good,options),good);tests++;
+assert.doesNotThrow(()=>assertAdditionsReport(fixture(),{...options,identity:{...identity,unrelated_field:'ignored'}}));tests++;
+for(const [label,mutate] of [
+  ['failed report',r=>r.status='fail'],['wrong version',r=>r.version=0],['wrong kind',r=>r.kind='gpu-proof'],
+  ['missing selection',r=>delete r.selected_ids],['empty selection',r=>r.selected_ids=[]],['duplicate selection',r=>r.selected_ids.push(r.selected_ids[0])],['extra selected ID',r=>r.selected_ids.push('not-selected')],['missing selected ID',r=>r.selected_ids.pop()],
+  ['wrong actual GLB coverage',r=>r.actual_glb_ids=['fresh-one','not-selected']],['duplicate actual coverage',r=>r.actual_glb_ids.push('fresh-one')],
+  ['wrong source',r=>r.source_commit='c'.repeat(40)],['wrong source tree',r=>r.source_tree='c'.repeat(40)],['wrong run',r=>r.run_id++],['wrong attempt',r=>r.run_attempt++],['missing run',r=>delete r.run_id],
+  ['wrong actual browser',r=>r.chromium_version='142.0.0.0'],['wrong package',r=>r.browser_pin.playwright='1.55.0'],['wrong revision',r=>r.browser_pin.revision='0'],['wrong pin',r=>r.browser_pin.chromium='142.0.0.0'],
+  ['not built output',r=>r.served_output_only=false],['visual claim',r=>r.visual_approval=true],['formal claim',r=>r.formal_approval=true],
+  ['page errors',r=>r.page_errors.push('error')],['resource errors',r=>r.resource_errors.push('404')],['transient fallback',r=>r.fallback_events.push({id:'fresh-one'})],['historical sequences',r=>r.sequence_requests=1],
+  ['missing case',r=>r.cases.pop()],['duplicate case',r=>r.cases[1]=structuredClone(r.cases[0])],['extra case',r=>r.cases.push(structuredClone(r.cases[0]))],['unknown case',r=>r.cases[0].id='not-selected'],['wrong viewport',r=>r.cases[0].viewport='1280x720'],['desktop twice',r=>r.cases[1].viewport='1440x1000'],
+  ['wrong width',r=>r.cases[0].viewport_config.width=390],['missing touch',r=>r.cases[1].viewport_config.hasTouch=false],['wrong locale',r=>r.cases[1].lang='en'],['case not run',r=>r.cases[0].status='running'],
+  ['wrong discovery ID',r=>r.cases[0].discovery.id='not-selected'],['poster not decoded',r=>r.cases[0].discovery.poster_decoded=false],['empty poster',r=>r.cases[0].discovery.poster_width=0],['horizontal overflow',r=>r.cases[0].horizontal_overflow=true],['fallback',r=>r.cases[0].fallback=true],
+  ...['id','selected_id','first_frame_id','renderer_id'].map(key=>[`wrong ${key}`,r=>r.cases[0].detail[key]='not-selected']),
+  ['wrong localized title',r=>r.cases[1].detail.title='Wrong'],['static detail',r=>r.cases[0].detail.state='static'],['fallback renderer',r=>r.cases[0].detail.renderer_status='error'],['no live model',r=>r.cases[0].detail.model_present=false],['lost context',r=>r.cases[0].detail.context_lost=true],['extra renderer',r=>r.cases[0].detail.renderer_count=2],['GL error',r=>r.cases[0].detail.gl_error=1280],['fallback poster',r=>r.cases[0].detail.poster_source='fallback'],['zero live bytes',r=>r.cases[0].detail.live_bytes=0],
+  ['no observed GLB',r=>r.cases[0].observed_glbs=[]],['wrong browser GLB path',r=>r.cases[0].observed_glbs[0].path='assets/not-selected.glb'],['wrong browser GLB hash',r=>r.cases[0].observed_glbs[0].sha256='0'.repeat(64)],['wrong live byte count',r=>r.cases[0].observed_glbs[0].bytes=1023],
+  ['wrong GLB download hash',r=>r.cases[0].downloads.glb.sha256='0'.repeat(64)],['wrong Blend download hash',r=>r.cases[0].downloads.blend.sha256='0'.repeat(64)],['wrong download path',r=>r.cases[0].downloads.blend.path='assets/other.blend'],['empty download',r=>r.cases[0].downloads.blend.bytes=0],['missing Blend',r=>delete r.cases[0].downloads.blend],
+  ['wrong model URL',r=>r.cases[0].navigation.detail_model='not-selected'],['Back failed',r=>r.cases[1].navigation.back_to_collection=false],['collection retains model',r=>r.cases[1].navigation.collection_model='fresh-one'],['collection URL changed',r=>r.cases[1].navigation.collection_url_restored=false],['wheel hidden',r=>r.cases[1].navigation.wheel_visible=false],['scroll changed',r=>r.cases[1].navigation.scroll_restored=false],['results changed',r=>r.cases[1].navigation.results_restored=false],
+])reject(label,mutate);
+assert.doesNotThrow(()=>assertAdditionsDesktopReport(desktopFixture(),options));tests++;
+assert.throws(()=>assertAdditionsReport(desktopFixture(),options));tests++;
+assert.throws(()=>assertAdditionsDesktopReport(fixture(),options));tests++;
+const source=sourceFixture();assert.equal(assertAdditionsDesktopSource(source,options),source.additions_desktop);tests++;
+for(const mutate of [r=>r.status='fail',r=>r.browser_status='blocked',r=>r.profile='allow-webgl-fallback',r=>r.review_scope='matrix',r=>r.commit='c'.repeat(40),r=>r.chromium_version='142.0.0.0',r=>r.gpu.status='fail',r=>r.page_errors.push('error'),r=>r.resource_errors.push('404'),r=>r.gpu.fallback_models.push('fresh-one'),r=>r.selected_model_ids=['fresh-one'],r=>r.gpu.rendered_models.push('not-selected'),r=>r.models[0].status='fallback-only',r=>r.models[0].glb_sha256='0'.repeat(64),r=>r.models.push(r.models[0]),r=>delete r.additions_desktop,r=>r.additions_desktop.run_attempt++,r=>r.additions_desktop.cases[0].observed_glbs=[]]){const bad=sourceFixture();mutate(bad);assert.throws(()=>assertAdditionsDesktopSource(bad,options));tests++;}
+console.log(`Additions browser contract: ${tests} deterministic checks passed; no browser execution claimed.`);

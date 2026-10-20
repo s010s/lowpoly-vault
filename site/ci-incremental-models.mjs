@@ -7,6 +7,8 @@ import {inspectCatalogDataAppend} from './curation.js';
 import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit,modelArchivalInputs,modelArchivalInputsAtCommit,gallerySharedData} from './ci-model-proof.mjs';
 import {assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
 import {fetchVerifiedBaseProof} from './ci-model-cache.mjs';
+import {planBrowserTasks,aggregateBrowserCoverage,assertBrowserCoverage,browserProofHash} from './ci-browser-task-proof.mjs';
+import {assertAdditionsReport} from './ci-additions-browser-contract.mjs';
 import {modelPlan,readModelReceipts,assertModelCoverage,currentIdentity,BUILD_RECEIPT} from './ci-model-shards.mjs';
 const read=path=>JSON.parse(readFileSync(path));
 const git=(...args)=>execFileSync('git',args,{encoding:'utf8',maxBuffer:128*1024*1024});
@@ -71,6 +73,15 @@ export function tasksForModelPlan(tasks,plan,manifest){
  const shards=plan.fresh_ids.length?modelPlan(manifest,{ids:plan.fresh_ids.join(',')}):[];
  return [...shards.map(row=>row.task),...(plan.fresh_ids.length?['previews']:[]),...remaining];
 }
+export function acceptanceExecutionPlan({inputs,manifest,eligibility,requestedTasks,baseProof=null,verifiedBaseProof=null,reasons=[]}){
+ let plan=planModelReuse({inputs,baseProof,verifiedBaseProof,reasons});
+ let browser_plan=planBrowserTasks({inputs,manifest,modelPlan:plan,baseProof,eligibility,requestedTasks});
+ if(browser_plan.requires_full_models){
+  plan=planModelReuse({inputs,reasons:[...reasons,`Browser coverage requires full validation: ${browser_plan.reason}`]});
+  browser_plan=planBrowserTasks({inputs,manifest,modelPlan:plan,eligibility,requestedTasks});
+ }
+ return {...plan,eligibility,browser_plan,tasks:tasksForModelPlan(browser_plan.tasks,plan,manifest)};
+}
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const directory='qa/ci-model-proof';mkdirSync(directory,{recursive:true});
  const built=await assertBuiltRenderInputs({}),inputs=computeModelInputs({built}),manifest=read('assets/manifest.json');
@@ -78,19 +89,28 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  if(process.argv[2]==='plan'){
   const eligibility=eligibilityFromGit(process.env.BASE_SHA),force=process.env.FULL_REVIEW==='true'||!eligibility.eligible;
   const found=force?{reasons:['Full validation required',...eligibility.reasons]}:await fetchVerifiedBaseProof({inputs});
-  const plan=planModelReuse({inputs,...found}),tasks=tasksForModelPlan(JSON.parse(process.env.CI_REVIEW_TASKS),plan,manifest);
+  const plan=acceptanceExecutionPlan({inputs,manifest,eligibility,requestedTasks:JSON.parse(process.env.CI_REVIEW_TASKS),...found}),tasks=plan.tasks;
   writeFileSync(`${directory}/plan.json`,JSON.stringify({...plan,eligibility,tasks},null,2)+'\n');writeFileSync(`${directory}/inputs.json`,JSON.stringify(inputs,null,2)+'\n');
   if(found.baseProof)writeFileSync(`${directory}/base-proof.json`,JSON.stringify(found.baseProof,null,2)+'\n');
   for(const[key,value]of Object.entries({tasks:JSON.stringify(tasks),fresh_ids:plan.fresh_ids.join(','),fresh_count:plan.fresh_ids.length,reused_count:plan.reused_ids.length}))if(process.env.GITHUB_OUTPUT)appendFileSync(process.env.GITHUB_OUTPUT,`${key}=${value}\n`);
-  console.log(JSON.stringify({fresh:plan.fresh_ids.length,reused:plan.reused_ids.length,eligibility,reasons:plan.reasons}));
+  console.log(JSON.stringify({fresh:plan.fresh_ids.length,reused:plan.reused_ids.length,eligibility,browser_mode:plan.browser_plan.mode,fresh_pack_tasks:plan.browser_plan.fresh_pack_tasks,reused_pack_tasks:plan.browser_plan.reused_pack_tasks,shared_tasks:plan.browser_plan.shared_tasks,folded_shared_tasks:plan.browser_plan.folded_shared_tasks,tasks,reasons:plan.reasons}));
  }else if(process.argv[2]==='aggregate'){
   const plan=read(`${directory}/plan.json`);equal(inputs,read(`${directory}/inputs.json`),'Model inputs changed since planning');
   // Saved JSON is not authority: independently re-fetch provenance before combining evidence.
   const found=plan.reused_ids.length?await fetchVerifiedBaseProof({inputs}):{};
   if(plan.reused_ids.length){assert(found.verifiedBaseProof,'Baseline proof no longer independently verifiable');equal(found.verifiedBaseProof,plan.verified_base_proof,'Baseline provenance changed');}
+  const independent=acceptanceExecutionPlan({inputs,manifest,eligibility:eligibilityFromGit(process.env.BASE_SHA),requestedTasks:JSON.parse(process.env.CI_REVIEW_TASKS),...found});
+  for(const key of ['fresh_ids','reused_ids','verified_base_proof','browser_plan','tasks'])equal(plan[key],independent[key],`Independent acceptance plan differs: ${key}`);
+  equal(JSON.parse(process.env.CI_REVIEW_EXECUTED_TASKS),plan.tasks,'Actual matrix differs from independently recomputed task plan');
   const build=read('qa/ci-model-build/'+BUILD_RECEIPT),identity=currentIdentity();
-  let records=[],cardRecords=[];
-  if(plan.fresh_ids.length){const shards=modelPlan(manifest,{ids:plan.fresh_ids.join(',')}),receipts=readModelReceipts('qa/ci-model-shards',shards);assertModelCoverage(manifest,shards,receipts,identity,build);records=receipts.flatMap(row=>row.proof_records||[]);}
+  let records=[],cardRecords=[],browserRecords=[];
+  if(plan.fresh_ids.length){
+   const shards=modelPlan(manifest,{ids:plan.fresh_ids.join(',')}),receipts=readModelReceipts('qa/ci-model-shards',shards);assertModelCoverage(manifest,shards,receipts,identity,build);records=receipts.flatMap(row=>row.proof_records||[]);
+   for(const receipt of receipts){
+    const ids=shards.find(row=>row.task===receipt.task).ids,report=assertAdditionsReport(receipt.browser_acceptance,{manifest,selectedIDs:ids,identity});
+    browserRecords.push(...ids.map(id=>({id,input_key:inputs.models.find(row=>row.id===id).input_key,status:'pass',viewports:['desktop','touch'],report_sha256:browserProofHash(report),origin:{source_commit:identity.source_commit,source_tree:identity.source_tree,run_id:Number(identity.run_id),run_attempt:Number(identity.run_attempt),payload_sha256:receipt.payload_sha256}})));
+   }
+  }
   else {equal(build.identity,identity);assert(!existsSync('qa/ci-model-shards')||!execFileSync('find',['qa/ci-model-shards','-type','f'],{encoding:'utf8'}).trim(),'Unexpected fresh shard evidence');}
   const cardDirectory='qa/ci-card-preview-proof';
   if(plan.fresh_ids.length){
@@ -98,6 +118,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
     const card=read(`${cardDirectory}/receipt.json`);assert.equal(card.version,1);assert.equal(card.kind,'card-preview-shard');equal(card.identity,identity,'Card proof source/run differs');assert.equal(card.payload_sha256,build.payload_sha256,'Card proof build differs');cardRecords=card.records;
   }else assert(!existsSync(cardDirectory)||!readdirSync(cardDirectory).length,'Unexpected fresh card evidence');
   const proof=aggregateModelProof({inputs,scopePlan:plan,freshRecords:records,freshCardRecords:cardRecords,identity,build,baseProof:found.baseProof});
+  proof.browser_task_coverage=aggregateBrowserCoverage({inputs,baseProof:found.baseProof,modelPlan:plan,browserPlan:plan.browser_plan,freshModelRecords:browserRecords,identity,payload_sha256:build.payload_sha256,executedTasks:JSON.parse(process.env.CI_REVIEW_EXECUTED_TASKS),expectedTasks:plan.tasks});
+  assertBrowserCoverage(proof);
   writeFileSync(`${directory}/model-proof.json`,JSON.stringify(proof,null,2)+'\n');console.log(`Complete exact model proof: ${proof.fresh_ids.length} freshly tested + ${proof.reused_ids.length} trusted unchanged = ${proof.catalog_ids.length}.`);
  }else throw Error('Expected plan or aggregate');
 }
