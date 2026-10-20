@@ -1,0 +1,519 @@
+{
+  "version": 1,
+  "reviewed_at": "2026-10-20T05:50:16.552222+00:00",
+  "reviewer": "independent_batch54_gallery_audit",
+  "disposition": "accept_selected_new4_gallery_pixels_only",
+  "scope": "Read-only review of four actual artifact detail/wheel PNG pairs, their seals and source provenance. No re-render, code change, acceptance-state rewrite or publication performed.",
+  "allowed_next_step": "Import only the listed four new pairs while preserving all 190 old manifest asset entries, all old poster metadata/seals and all 380 old PNG bytes. Rerun preservation assertions after import.",
+  "not_authorized_or_established_by_this_report": [
+    "Overall canceled workflow success",
+    "Successful incremental acceptance",
+    "Promotion of this artifact to a successful trusted baseline",
+    "Replacing any of the eight recaptured old pairs",
+    "Formal profile approval",
+    "User artistic acceptance",
+    "Hardware GPU or target-scene verification"
+  ],
+  "provenance": {
+    "repository": "s010s/lowpoly-vault",
+    "github_artifact": {
+      "id": 12242933772,
+      "name": "gallery-poster-proof-v1-1",
+      "size_in_bytes": 54471039,
+      "url": "https://api.github.com/repos/s010s/lowpoly-vault/actions/artifacts/12242933772",
+      "archive_download_url": "https://api.github.com/repos/s010s/lowpoly-vault/actions/artifacts/12242933772/zip",
+      "expired": false,
+      "created_at": "2026-10-20T05:36:33Z",
+      "expires_at": "2027-01-18T05:30:46Z",
+      "updated_at": "2026-10-20T05:36:33Z",
+      "digest": "sha256:5683f35c0688e6be046c930df347cc9ca544b573a9c42fda2b105f21c4ac6ecb",
+      "workflow_run": {
+        "id": 39375287639,
+        "repository_id": 1422307926,
+        "head_repository_id": 1422307926,
+        "head_branch": "release/batch54-reviewed-20261020",
+        "head_sha": "b5df5c3f61712253892eec3da83ef1be15d476a0"
+      }
+    },
+    "workflow_run": {
+      "id": 39375287639,
+      "name": "Full release review",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_number": 105,
+      "jobs_url": "https://api.github.com/repos/s010s/lowpoly-vault/actions/runs/39375287639/jobs",
+      "logs_url": "https://api.github.com/repos/s010s/lowpoly-vault/actions/runs/39375287639/logs",
+      "workflow_id": 388659194
+    },
+    "workflow_run_url": "https://github.com/s010s/lowpoly-vault/actions/runs/39375287639",
+    "pr_head_commit": "b5df5c3f61712253892eec3da83ef1be15d476a0",
+    "workflow_merge_source_commit": "b4209fcf423a566310eda7633fed06652f873aab",
+    "run_attempt": 1,
+    "proof_document_status": "pass (poster-capture document only; not workflow conclusion)",
+    "zip_digest_matches_independent_github_api_metadata": true,
+    "zip_crc_pass": true,
+    "proof_and_selected_png_bytes_exactly_match_zip_members": true,
+    "source_glb_and_blend_bytes_verified_against_source_commit": "54d5380ec3c63ae3e9ab4f36cb377db65ab16c75",
+    "descriptor_seals_verified": 322,
+    "exact_source_manifest_input_keys_and_renderer_recipe_verified": true,
+    "policy_digest": "0487946c1af6590d8035bb9c56960aa8129f1c4427e07d7e3d0e6fc833bb5eb3",
+    "shared_renderer_digest": "20565eab93aa3e8d17f47665c1a2221f0cff805d7a49ab8e373d74adae07549b"
+  },
+  "actual_capture_scope": {
+    "catalog_count": 194,
+    "captured_count": 12,
+    "captured_ids": [
+      "burgessia",
+      "cave-shield",
+      "chimerarachne",
+      "didymoceras",
+      "dunbaria",
+      "emeraldella",
+      "longirostravis",
+      "psammichnites-ribbon-trace",
+      "sanctacaris",
+      "sapeornis",
+      "spirematospermum",
+      "tuzoia"
+    ],
+    "old_recaptured_not_selected": [
+      "burgessia",
+      "chimerarachne",
+      "dunbaria",
+      "emeraldella",
+      "longirostravis",
+      "sanctacaris",
+      "sapeornis",
+      "tuzoia"
+    ],
+    "selected_import_count": 4,
+    "selected_import_ids": [
+      "cave-shield",
+      "didymoceras",
+      "psammichnites-ribbon-trace",
+      "spirematospermum"
+    ],
+    "selected_png_count": 8,
+    "reused_count": 0,
+    "reviewed_count": 182,
+    "verified_baseline": null,
+    "incremental_acceptance": false,
+    "plan_mode": "full",
+    "plan_reasons": [
+      "GitHub proof read failed (404)",
+      "Browser coverage requires full validation: Missing authenticated main proof",
+      "No independently verified compatible main v2 baseline; run every model"
+    ]
+  },
+  "visual_summary": {
+    "all_eight_actual_pngs_inspected": true,
+    "all_four_source_references_inspected": true,
+    "selected_model_identity_consistent": true,
+    "nonblank": true,
+    "geometry_fully_framed": true,
+    "png_dimensions": {
+      "detail": [
+        512,
+        512
+      ],
+      "wheel": [
+        768,
+        432
+      ]
+    },
+    "alpha_transparency_present": true,
+    "nonblocking_notes": [
+      "Visible stippled ground-shadow/alpha fringe in all four pairs. It is outside the model silhouette, not missing geometry; this report does not certify appearance on every target-page background.",
+      "Single detail/wheel angles are not a substitute for the preserved independent eight-view model review or user acceptance."
+    ]
+  },
+  "preservation_before_import": {
+    "prior_main_commit": "5680ed71b8df2e3f6d5ac7888b503e27b1c04105",
+    "old_manifest_entries_unchanged": 190,
+    "poster_baseline_commit": "b5df5c3f61712253892eec3da83ef1be15d476a0",
+    "old_poster_metadata_unchanged": 190,
+    "old_png_seals_and_actual_bytes_verified": 380,
+    "post_import_preservation_not_yet_claimed": true
+  },
+  "retained_unknowns": {
+    "formal_profile_acceptance": "BLOCKED",
+    "candidate_record_approved_for_brief": false,
+    "candidate_approval_status": "pending",
+    "user_artistic_acceptance": "unknown/not granted by this audit",
+    "hardware_gpu_verified": false,
+    "target_scene_verified": false,
+    "provider_generation_timestamp": "unknown"
+  },
+  "models": [
+    {
+      "id": "didymoceras",
+      "disposition": "accepted_for_selective_gallery_pixel_import",
+      "visual_review_performed_on_actual_pngs": true,
+      "reference_comparison_performed": true,
+      "visual_observation": "Both images show the same continuous ivory descending helix, separated open whorls, broad terminal U-hook and visible recessed aperture region as the retained r003 source reference. Geometry remains fully inside the image.",
+      "files": [
+        {
+          "path": "gallery/posters/didymoceras.png",
+          "bytes": 123548,
+          "sha256": "363d1a8a0f963da131a0f82c7d290615ec03fefc5f825c3f45e00a5d0aa7af4f",
+          "id": "didymoceras",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            512,
+            512
+          ],
+          "alpha_bounds": [
+            114,
+            96,
+            488,
+            487
+          ],
+          "fully_opaque_bounds": [
+            193,
+            97,
+            385,
+            379
+          ],
+          "transparent_pixels": 200925,
+          "fully_opaque_pixels": 20700,
+          "partial_alpha_pixels": 40519
+        },
+        {
+          "path": "gallery/posters/didymoceras-wheel.png",
+          "bytes": 118228,
+          "sha256": "4d5170b1358044953f99b36bcc1301830505d1a486302e002520e7db37e1483e",
+          "id": "didymoceras",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            768,
+            432
+          ],
+          "alpha_bounds": [
+            247,
+            58,
+            616,
+            426
+          ],
+          "fully_opaque_bounds": [
+            325,
+            59,
+            515,
+            336
+          ],
+          "transparent_pixels": 274554,
+          "fully_opaque_pixels": 20120,
+          "partial_alpha_pixels": 37102
+        }
+      ],
+      "input_binding": {
+        "id": "didymoceras",
+        "source_manifest_entry_matches_worktree": true,
+        "input_key_recomputed": true,
+        "selected_row_matches_artifact_proof": true,
+        "png_seals_pass": true,
+        "input_sha256": "28112655cbae37bd8f1299e47b0226cde82db7e1c1f6524d7a6ce41263b4d073",
+        "source_glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d"
+      },
+      "source_binding": {
+        "id": "didymoceras",
+        "revision": "r003",
+        "source_commit": "54d5380ec3c63ae3e9ab4f36cb377db65ab16c75",
+        "review_commit": "d5b0956916ab21d1ef0fef44a42358b3d9c2db95",
+        "glb_source_bytes_match": true,
+        "blend_source_bytes_match": true,
+        "reference_path": "qa/batch54-release-20261020/capture/references/didymoceras.png",
+        "formal_profile_acceptance": "BLOCKED",
+        "candidate_record_approved_for_brief": false,
+        "hardware_gpu_verified": false,
+        "target_scene_verified": false,
+        "concept_chronology": "Exact provider generation timestamp unknown; original evidence preserved"
+      }
+    },
+    {
+      "id": "spirematospermum",
+      "disposition": "accepted_for_selective_gallery_pixel_import",
+      "visual_review_performed_on_actual_pngs": true,
+      "reference_comparison_performed": true,
+      "visual_observation": "Both images show the same ochre split, longitudinally ribbed capsule with three exposed grooved seed masses and a rear stalk as the retained r003 reference. Geometry is fully framed; elongated ground shadow approaches the lower-left margin without touching the border.",
+      "files": [
+        {
+          "path": "gallery/posters/spirematospermum.png",
+          "bytes": 100612,
+          "sha256": "928c5810cf1815d65409f8b028005ed22c587c5255f9b8e3cacf7dfd9be447ef",
+          "id": "spirematospermum",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            512,
+            512
+          ],
+          "alpha_bounds": [
+            7,
+            195,
+            431,
+            453
+          ],
+          "fully_opaque_bounds": [
+            77,
+            196,
+            384,
+            345
+          ],
+          "transparent_pixels": 207967,
+          "fully_opaque_pixels": 25578,
+          "partial_alpha_pixels": 28599
+        },
+        {
+          "path": "gallery/posters/spirematospermum-wheel.png",
+          "bytes": 165022,
+          "sha256": "618cbc3503f6efe53a15c5719594dbe0f8dbb2366da56635ed17453a58b405e2",
+          "id": "spirematospermum",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            768,
+            432
+          ],
+          "alpha_bounds": [
+            12,
+            86,
+            642,
+            426
+          ],
+          "fully_opaque_bounds": [
+            129,
+            86,
+            574,
+            303
+          ],
+          "transparent_pixels": 220028,
+          "fully_opaque_pixels": 53991,
+          "partial_alpha_pixels": 57757
+        }
+      ],
+      "input_binding": {
+        "id": "spirematospermum",
+        "source_manifest_entry_matches_worktree": true,
+        "input_key_recomputed": true,
+        "selected_row_matches_artifact_proof": true,
+        "png_seals_pass": true,
+        "input_sha256": "4b528d09db48d907181e0dde81a70d0fd29938e69191ab426972652d89880285",
+        "source_glb_sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1"
+      },
+      "source_binding": {
+        "id": "spirematospermum",
+        "revision": "r003",
+        "source_commit": "54d5380ec3c63ae3e9ab4f36cb377db65ab16c75",
+        "review_commit": "d5b0956916ab21d1ef0fef44a42358b3d9c2db95",
+        "glb_source_bytes_match": true,
+        "blend_source_bytes_match": true,
+        "reference_path": "qa/batch54-release-20261020/capture/references/spirematospermum.png",
+        "formal_profile_acceptance": "BLOCKED",
+        "candidate_record_approved_for_brief": false,
+        "hardware_gpu_verified": false,
+        "target_scene_verified": false,
+        "concept_chronology": "Exact provider generation timestamp unknown; original evidence preserved"
+      }
+    },
+    {
+      "id": "cave-shield",
+      "disposition": "accepted_for_selective_gallery_pixel_import",
+      "visual_review_performed_on_actual_pngs": true,
+      "reference_comparison_performed": true,
+      "visual_observation": "Both images match the retained r002 reference: two pale scalloped plate rims with a medial division and ochre support-wall fragment. The chosen angle does not independently establish the full depth of the air gap, so this is identity/framing review rather than all-angle topology acceptance.",
+      "files": [
+        {
+          "path": "gallery/posters/cave-shield.png",
+          "bytes": 106687,
+          "sha256": "e1f8fe11d17b5d867a96a2fcd6fdad393851970c44cfc009c1a1b0b8b3d9739a",
+          "id": "cave-shield",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            512,
+            512
+          ],
+          "alpha_bounds": [
+            60,
+            128,
+            475,
+            470
+          ],
+          "fully_opaque_bounds": [
+            105,
+            129,
+            380,
+            344
+          ],
+          "transparent_pixels": 166730,
+          "fully_opaque_pixels": 44309,
+          "partial_alpha_pixels": 51105
+        },
+        {
+          "path": "gallery/posters/cave-shield-wheel.png",
+          "bytes": 128983,
+          "sha256": "c4f007dbd734166f4f7960bc5a72139881eefacdeba46d1c521962cad405ece5",
+          "id": "cave-shield",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            768,
+            432
+          ],
+          "alpha_bounds": [
+            144,
+            43,
+            644,
+            426
+          ],
+          "fully_opaque_bounds": [
+            198,
+            43,
+            530,
+            303
+          ],
+          "transparent_pixels": 199279,
+          "fully_opaque_pixels": 64495,
+          "partial_alpha_pixels": 68002
+        }
+      ],
+      "input_binding": {
+        "id": "cave-shield",
+        "source_manifest_entry_matches_worktree": true,
+        "input_key_recomputed": true,
+        "selected_row_matches_artifact_proof": true,
+        "png_seals_pass": true,
+        "input_sha256": "4fca4e0494d523a1fff8dca27197f09f1a7bde84d532a9c6c012f8e4d6fbb6f6",
+        "source_glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028"
+      },
+      "source_binding": {
+        "id": "cave-shield",
+        "revision": "r002",
+        "source_commit": "54d5380ec3c63ae3e9ab4f36cb377db65ab16c75",
+        "review_commit": "d5b0956916ab21d1ef0fef44a42358b3d9c2db95",
+        "glb_source_bytes_match": true,
+        "blend_source_bytes_match": true,
+        "reference_path": "qa/batch54-release-20261020/capture/references/cave-shield.png",
+        "formal_profile_acceptance": "BLOCKED",
+        "candidate_record_approved_for_brief": false,
+        "hardware_gpu_verified": false,
+        "target_scene_verified": false,
+        "concept_chronology": "Exact provider generation timestamp unknown; original evidence preserved"
+      }
+    },
+    {
+      "id": "psammichnites-ribbon-trace",
+      "disposition": "accepted_for_selective_gallery_pixel_import",
+      "visual_review_performed_on_actual_pngs": true,
+      "reference_comparison_performed": true,
+      "visual_observation": "Both images show the same raised S-shaped ribbon with median ridge/transverse divisions on a faceted slab as the retained r002 reference. The wheel view uses a steeper elevation that keeps the trace readable. No geometry is clipped.",
+      "files": [
+        {
+          "path": "gallery/posters/psammichnites-ribbon-trace.png",
+          "bytes": 74539,
+          "sha256": "43f28a95dac77ed126f2e77884ae41d5d9e83893fcd9e2ebca8417181deb7ea6",
+          "id": "psammichnites-ribbon-trace",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            512,
+            512
+          ],
+          "alpha_bounds": [
+            9,
+            191,
+            468,
+            416
+          ],
+          "fully_opaque_bounds": [
+            35,
+            191,
+            446,
+            381
+          ],
+          "transparent_pixels": 190626,
+          "fully_opaque_pixels": 45165,
+          "partial_alpha_pixels": 26353
+        },
+        {
+          "path": "gallery/posters/psammichnites-ribbon-trace-wheel.png",
+          "bytes": 132163,
+          "sha256": "c0577b11509e62a5b447877bb1e685529320e6e80ac1672e13b4a75070cbd0a1",
+          "id": "psammichnites-ribbon-trace",
+          "exact_zip_member_match": true,
+          "png_decode_pass": true,
+          "mode": "RGBA",
+          "dimensions": [
+            768,
+            432
+          ],
+          "alpha_bounds": [
+            70,
+            40,
+            648,
+            424
+          ],
+          "fully_opaque_bounds": [
+            119,
+            42,
+            623,
+            388
+          ],
+          "transparent_pixels": 174054,
+          "fully_opaque_pixels": 96610,
+          "partial_alpha_pixels": 61112
+        }
+      ],
+      "input_binding": {
+        "id": "psammichnites-ribbon-trace",
+        "source_manifest_entry_matches_worktree": true,
+        "input_key_recomputed": true,
+        "selected_row_matches_artifact_proof": true,
+        "png_seals_pass": true,
+        "input_sha256": "3d0e81107ad04a87fd6f63a6d175b9cd3b22741f64c8536097e8b1f41c66a633",
+        "source_glb_sha256": "d6e23b814e3aa68fa1f47cf23755e3fd15d895748fe4720ba5a49b7a6744ec87"
+      },
+      "source_binding": {
+        "id": "psammichnites-ribbon-trace",
+        "revision": "r002",
+        "source_commit": "54d5380ec3c63ae3e9ab4f36cb377db65ab16c75",
+        "review_commit": "d5b0956916ab21d1ef0fef44a42358b3d9c2db95",
+        "glb_source_bytes_match": true,
+        "blend_source_bytes_match": true,
+        "reference_path": "qa/batch54-release-20261020/capture/references/psammichnites-ribbon-trace.png",
+        "formal_profile_acceptance": "BLOCKED",
+        "candidate_record_approved_for_brief": false,
+        "hardware_gpu_verified": false,
+        "target_scene_verified": false,
+        "concept_chronology": "Exact provider generation timestamp unknown; original evidence preserved"
+      }
+    }
+  ],
+  "supporting_reports": [
+    {
+      "file": "independent-github-receipt.json",
+      "sha256": "0d2fbd8842572b3f166180ecd23240d810088278ccac921b5cf4ef6392b8abcf"
+    },
+    {
+      "file": "independent-byte-source-audit.json",
+      "sha256": "9816e4e4ca0e9ec02d42e9216804e5de259d2eabeecb836448c105fb312f8e7d"
+    },
+    {
+      "file": "independent-input-binding.json",
+      "sha256": "e87f010fa79bb6eb7e81a966f58a229adc44a1e3a70626a12a92ece43cceeec2"
+    },
+    {
+      "file": "independent-old190-preservation-snapshot.json",
+      "sha256": "9c632584a54e71469fe2350a5d39173aea7decb59fe95a941487d88a35e17b11"
+    }
+  ]
+}
