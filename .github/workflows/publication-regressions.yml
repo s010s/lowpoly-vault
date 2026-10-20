@@ -1,0 +1,105 @@
+name: Complete publication rejection regressions
+on:
+  workflow_call:
+    inputs:
+      site_base:
+        type: string
+        default: /
+      site_origin:
+        type: string
+        default: ''
+permissions:
+  contents: read
+env:
+  SITE_BASE: ${{ inputs.site_base }}
+  SITE_ORIGIN: ${{ inputs.site_origin }}
+jobs:
+  plan:
+    name: Plan exact publication coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test coverage and fail-closed workflow contracts
+        run: node site/ci-publication-shards-test.mjs && node site/ci-timed-test.mjs
+      - name: Bind every mandatory suite to this exact source and runtime
+        run: node site/ci-publication-shards.mjs plan "$RUNNER_TEMP/publication-plan/plan.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-plan-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/publication-plan/plan.json
+          if-no-files-found: error
+  shards:
+    name: Publication shard ${{ matrix.shard }}
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: publication-plan-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/publication-plan
+      - name: Run unchanged rejection suites sequentially in this isolated checkout
+        run: node site/ci-timed.mjs publication --plan "$RUNNER_TEMP/publication-plan/plan.json" --shard '${{ matrix.shard }}' --output 'qa/ci-publication/shard-${{ matrix.shard }}.json'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-shard-${{ matrix.shard }}-${{ github.run_attempt }}
+          path: qa/ci-publication/shard-${{ matrix.shard }}.json
+          if-no-files-found: error
+  aggregate:
+    name: Require every publication suite
+    if: always()
+    needs: [plan, shards]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: publication-plan-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/publication-plan
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: publication-shard-*-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/publication-results
+          merge-multiple: false
+      - name: Reject incomplete, duplicate, failed or mismatched coverage
+        run: node site/ci-publication-shards.mjs aggregate "$RUNNER_TEMP/publication-plan/plan.json" "$RUNNER_TEMP/publication-results" qa/ci-publication/aggregate.json
+      - name: Require independently successful prerequisite jobs
+        env:
+          PLAN_RESULT: ${{ needs.plan.result }}
+          SHARDS_RESULT: ${{ needs.shards.result }}
+        run: test "$PLAN_RESULT" = success && test "$SHARDS_RESULT" = success
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-aggregate-${{ github.run_attempt }}
+          path: qa/ci-publication/aggregate.json
+          if-no-files-found: error

@@ -1,6 +1,8 @@
 /** Complete original acceptance probes, partitioned so independent browser suites run in parallel. */
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
+import {readFileSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
+import {modelPlan,modelReceipt,verifyBuild} from './ci-model-shards.mjs';
 const tasks = {
   "round13": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round13-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round13-20261018/site"}},
   "round12": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round12-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round12-20261018/site"}},
@@ -96,8 +98,20 @@ const tasks = {
   }
 };
 const task = process.env.CI_REVIEW_TASK;
-assert(Object.hasOwn(tasks,task), 'Known CI task required');
-const {command,env} = tasks[task];
+const modelShard=task?.startsWith('models-');
+const manifest=modelShard?JSON.parse(readFileSync('assets/manifest.json')):null;
+const plan=modelShard?modelPlan(manifest,{runtime:process.env.CI_RUNTIME==='true',ids:process.env.QA_MODEL_IDS||''}):null;
+const shard=plan?.find(entry=>entry.task===task);
+assert(modelShard?shard:Object.hasOwn(tasks,task), 'Known CI task required');
+const {command,env} = tasks[modelShard?'models':task];
+let build;
+if(modelShard){
+  rmSync(`qa/ci-model-shards/${task}.json`,{force:true});
+  build=verifyBuild('dist');
+  env.QA_REVIEW_SCOPE='models';
+  env.QA_MODEL_IDS=shard.ids.join(',');
+  env.QA_OUTPUT_DIR=`qa/release-strict-gpu/${task}`;
+}
 // Static/download integrity is always checked by Pages. Runtime changes cover all models.
 if (task === 'models' || task === 'fallback') env.QA_REVIEW_SCOPE = task === 'models' ? 'models' : 'matrix';
 if (task === 'fallback' && process.env.FULL_REVIEW === 'true') env.QA_REVIEW_SCOPE = 'full';
@@ -105,4 +119,10 @@ if (task === 'models' && process.env.CI_RUNTIME === 'true') env.QA_MODEL_IDS = '
 if (task === 'previews' && process.env.CI_RUNTIME === 'true') env.PREVIEW_ASSET_IDS = '';
 const result = spawnSync(command, {shell:true,stdio:'inherit',env:{...process.env,...env}});
 if (result.error) throw result.error;
+if(modelShard&&result.status===0){
+  const report=JSON.parse(readFileSync(`${env.QA_OUTPUT_DIR}/report.json`));
+  const receipt=modelReceipt(manifest,plan,shard,report,build);
+  mkdirSync('qa/ci-model-shards',{recursive:true});
+  writeFileSync(`qa/ci-model-shards/${task}.json`,JSON.stringify(receipt,null,2)+'\n');
+}
 process.exit(result.status ?? 1);

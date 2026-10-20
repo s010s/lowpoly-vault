@@ -14,6 +14,13 @@ env:
   SITE_ORIGIN: https://s010s.github.io
   QA_PARSER_OUTPUT: qa/ci-parser/threejs-parser.json
 jobs:
+  # Always rerun rejection suites, even when exact-tree build reuse succeeds.
+  # Reuse trust is unchanged; this conservative repeated cost is intentional.
+  publication:
+    uses: ./.github/workflows/publication-regressions.yml
+    with:
+      site_base: /lowpoly-vault/
+      site_origin: https://s010s.github.io
   build:
     permissions:
       contents: read
@@ -38,7 +45,7 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
+      - run: node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-publication-shards-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
       - name: Brand source contracts when present
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
@@ -73,9 +80,6 @@ jobs:
         run: node site/concept-quartets-browser-test.mjs
       - name: Reviewed land-air quartet bilingual desktop and mobile browser acceptance
         run: node site/concept-landair-browser-test.mjs
-      - name: Full publication rejection regressions
-        if: steps.reuse.outputs.reused != 'true'
-        run: npm run test:publication
       - if: steps.reuse.outputs.reused != 'true'
         run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
       - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
@@ -137,7 +141,7 @@ jobs:
           path: dist
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    needs: build
+    needs: [build, publication]
     runs-on: ubuntu-latest
     permissions:
       pages: write

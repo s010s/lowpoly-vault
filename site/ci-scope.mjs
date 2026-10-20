@@ -3,6 +3,7 @@ import {execFileSync} from 'node:child_process';
 import {readFileSync,appendFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {isDeepStrictEqual} from 'node:util';
+import {expandModelTasks} from './ci-model-shards.mjs';
 export function classify(paths,manifest,full=false,context={}) {
  const previous=context.previousManifest;
  const published=Array.isArray(manifest?.assets)?manifest.assets:[];
@@ -73,7 +74,9 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   const previous=path=>execFileSync('git',['show',`${base}:${path}`],{encoding:'utf8'});
   context={previousManifest:JSON.parse(previous('assets/manifest.json')),previousCuration:previous('site/curation.js'),currentCuration:readFileSync('site/curation.js','utf8'),previousPackage:JSON.parse(previous('package.json')),currentPackage:JSON.parse(readFileSync('package.json'))};
  }catch{full=true;console.error('Diff provenance unavailable: requiring full review.');}}
- const scope=classify(paths,JSON.parse(readFileSync('assets/manifest.json')),full,context);
+ const manifest=JSON.parse(readFileSync('assets/manifest.json'));
+ const scope=classify(paths,manifest,full,context);
+ scope.tasks=expandModelTasks(scope,manifest);
  for(const[key,value]of Object.entries(scope)){const line=`${key}=${Array.isArray(value)?JSON.stringify(value):value}\n`;if(process.env.GITHUB_OUTPUT)appendFileSync(process.env.GITHUB_OUTPUT,line);}
  console.log(JSON.stringify({paths,...scope},null,2));
 }
