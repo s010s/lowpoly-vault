@@ -1,0 +1,196 @@
+{
+  "asset_id": "chaloneria",
+  "revision": "r001",
+  "outcome": "REVISE",
+  "exact_subject": {
+    "glb": {
+      "path": "production/small-life-batch93/chaloneria/r001/artifacts/chaloneria.glb",
+      "sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127"
+    },
+    "brief": {
+      "path": "production/small-life-batch93/chaloneria/r001/delivery-brief.json",
+      "sha256": "c67a9c9e612f356a1a81ed816654622d8070c32caf0aca7cd4ff6ae604d80e1b"
+    },
+    "references": {
+      "path": "production/small-life-batch93/chaloneria/r001/references.json",
+      "sha256": "0332731e547281aeb652decba5a9696dd809235690b1bd0ecf7eb1aeb160411d"
+    }
+  },
+  "source": {
+    "path": "production/small-life-batch93/chaloneria/r001/artifacts/chaloneria.blend",
+    "sha256": "332c7c68870a2d0fd94ac8473d859956be7f6ca3fed39da98e342a7070738602"
+  },
+  "stage_status": {
+    "technical": "pass",
+    "visual": "fail",
+    "factual": "pass",
+    "specification": "fail",
+    "runtime_parse": "pass",
+    "gpu": "unknown",
+    "scene": "unknown"
+  },
+  "issues": [
+    {
+      "id": "C93-missing-oval-leaf-bases",
+      "severity": "revision_required",
+      "basis": "Immutable original-brief.json identifying_features[2] and factual-acceptance explicitly say the stem has subtle oval leaf bases; this is not a new requirement for ligules or microscopic anatomy.",
+      "finding": "Fresh source measurement shows a stem of only six circular16-vertex rings,184 six-vertex pointed leaf blades, and72 ovoid bodies confined to the upper fertile zone. The vegetative stem has no oval leaf-base relief. Exact-GLB detail confirms pointed green insertions into a featureless stem.",
+      "required_repair": "Add restrained oval foliar-base geometry appropriate to the documented leaf bases, without creating raised diamond cushions or copying exaggerated concept nodules. Preserve the unbranched habit, rounded root base and continuous alternating fertile regions.",
+      "evidence": [
+        "chaloneria/leaf-base-diagnostic/detail.png",
+        "chaloneria/leaf-feature-measurements.json"
+      ]
+    }
+  ],
+  "metrics": {
+    "source_authored_evaluated": {
+      "authored_vertices": 1912,
+      "authored_polygons": 2368,
+      "authored_triangles": 2740,
+      "evaluated_vertices": 1912,
+      "evaluated_polygons": 2368,
+      "evaluated_triangles": 2740,
+      "modifiers": 0
+    },
+    "triangles": 2740,
+    "exported_position_vertices": 7476,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 198908,
+    "world_glb_bounds_m": {
+      "min": [
+        -0.20480047166347504,
+        0,
+        -0.2074151337146759
+      ],
+      "max": [
+        0.2037200778722763,
+        2,
+        0.20329713821411133
+      ],
+      "size": [
+        0.40852054953575134,
+        2,
+        0.41071227192878723
+      ]
+    },
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "source_component_count": 271,
+    "source_euler": 542
+  },
+  "measured_features": {
+    "leaf_components": 184,
+    "root_components": 14,
+    "stem_top_z_m": 1.9412014484405518,
+    "leaf_bases_inside_stem": 183,
+    "all_leaf_bases_inside_stem": false,
+    "fertile_sporangial_components": 72,
+    "alternate_sporangial_bands": [
+      {
+        "material": 4,
+        "count": 18
+      },
+      {
+        "material": 1,
+        "count": 18
+      },
+      {
+        "material": 4,
+        "count": 18
+      },
+      {
+        "material": 1,
+        "count": 18
+      }
+    ],
+    "vegetative_leaves_derived": 112
+  },
+  "checks": {
+    "actual_source_reopen": true,
+    "actual_fresh_reexport": true,
+    "reexport_byte_identical": true,
+    "project_candidate_valid": true,
+    "project_approval_established": false,
+    "khronos_errors": 0,
+    "khronos_warnings": 0,
+    "three_revision": "180",
+    "actual_hardware_gpu_test": false,
+    "composed_scene_test": false
+  },
+  "original_concept": {
+    "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/concepts/chaloneria-concept.png",
+    "sha256": "73b816159eea04cf74f2bfbd193fcbb3309ec9e57bf6b83b056250641e7f1180",
+    "personally_inspected": true,
+    "observation": "Actual concept shows an unbranched plant, broad pointed leaves, rounded base and conspicuous oval stem marks. Narrowing leaves was documented; deleting all subtle oval stem leaf bases was not part of the frozen scope."
+  },
+  "views": [
+    {
+      "view": "hero",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/hero.png",
+      "sha256": "dd13290389b85e132ea68ec94af4993ab029fb3c666e46156d67dca0ecd6f46a",
+      "personally_inspected": true,
+      "observation": "Single narrow leafy axis and rounded/faceted basal swelling are clear. The continuous upper fertile zone is not a separate cone."
+    },
+    {
+      "view": "reversehero",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/reversehero.png",
+      "sha256": "be8c86f5c294484c3edd64706a5ef5f8a510ec94e24584cc0c65e773187c37b6",
+      "personally_inspected": true,
+      "observation": "Opposite oblique retains the unbranched architecture and rooted base, with no large detached organs."
+    },
+    {
+      "view": "front",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/front.png",
+      "sha256": "fa2a19d308d0a92926ad1a122ca07d599a638305b9ffc3135160e07814fec0dc",
+      "personally_inspected": true,
+      "observation": "Proximal foliage grades into a slender upper spire; stem leaf-base relief required by the brief is not resolved."
+    },
+    {
+      "view": "side",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/side.png",
+      "sha256": "411da817fc0a358563e1d037f36495cc3dcf31efbcde0cd028b06d02366ba3dc",
+      "personally_inspected": true,
+      "observation": "Narrow blades remain volumetric; no branching or diamond cushions are present."
+    },
+    {
+      "view": "rear",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/rear.png",
+      "sha256": "ef0adbf2bd154ad92c8eeebeded100f6385e2dd3a6b283a3be6902214b9a5757",
+      "personally_inspected": true,
+      "observation": "Rear view retains the continuous unbranched taper, but offers no evidence of the required oval leaf bases."
+    },
+    {
+      "view": "top",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/top.png",
+      "sha256": "5c29ca09fc79841ea726c693d8dc8788ab6964e5abba13a14485a428f0abede0",
+      "personally_inspected": true,
+      "observation": "The radial plant is small at the common full-height framing; this view cannot establish reproductive microanatomy."
+    },
+    {
+      "view": "clay",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/clay.png",
+      "sha256": "16462c55ed264e7cd2ce2c65e4f0d6564d9b9f47760ae4f9de12d40cf8783fa8",
+      "personally_inspected": true,
+      "observation": "Basic corm, roots and leafy axis survive removal of material color. Stem remains smooth between pointed leaf insertions."
+    },
+    {
+      "view": "silhouette",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/silhouette.png",
+      "sha256": "4c56b3155f0ea96fec82d2d117ff749b897fb89c3a09af55f143443d1e1e4a40",
+      "personally_inspected": true,
+      "observation": "Unbranched silhouette and radial roots read clearly. This does not compensate for the missing named surface feature."
+    }
+  ],
+  "sheet": {
+    "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/contact-sheet.png",
+    "sha256": "c5d64be0df1f910da57e92196943d2c529b9d29e7e0701167e4c382016837c1c",
+    "personally_inspected": true
+  },
+  "dimensional_interpretation": "Original bbox values are explicitly nominal art-planning targets, not hard bounds. Dimensional parameter variations disclosed in revision history are not silently promoted to hard equalities. Named morphology/component counts and budget ceilings remain required. Actual world component bounds are in source-geometry-reexport report.",
+  "limitations": [
+    "No formal,user,site,release or live approval. GPU and composed scene remain unrun.",
+    "Color,full habit,organ numbers and scale are illustrative,not direct complete-fossil measurements.",
+    "183 leaf origins are interior; the remaining top origin lies on the cap within6.59e-10m and is not a floating leaf. Four18-body fertile bands are independently measured; tiny full-height top view does not resolve microanatomy."
+  ]
+}

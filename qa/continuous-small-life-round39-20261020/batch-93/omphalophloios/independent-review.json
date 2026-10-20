@@ -1,0 +1,240 @@
+{
+  "asset_id": "omphalophloios",
+  "revision": "r004",
+  "outcome": "REVISE",
+  "exact_subject": {
+    "glb": {
+      "path": "production/small-life-batch93/omphalophloios/r004/artifacts/omphalophloios.glb",
+      "sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d"
+    },
+    "brief": {
+      "path": "production/small-life-batch93/omphalophloios/r004/delivery-brief.json",
+      "sha256": "e1d7026591f3d633681b5ae95a5935e1c563e7436bd530e486524c3041bad084"
+    },
+    "references": {
+      "path": "production/small-life-batch93/omphalophloios/r001/references.json",
+      "sha256": "9738e750e475dd92040badfc5b713e433e2fca41a2c7d39c04807c22d91517aa"
+    }
+  },
+  "source": {
+    "path": "production/small-life-batch93/omphalophloios/r004/artifacts/omphalophloios.blend",
+    "sha256": "47d45745b0671c73a4202e9a16d64a40a441f11be5a4857b14ed0bbdce1e1a71"
+  },
+  "stage_status": {
+    "technical": "pass",
+    "visual": "fail",
+    "factual": "pass",
+    "specification": "pass",
+    "runtime_parse": "pass",
+    "gpu": "unknown",
+    "scene": "unknown"
+  },
+  "issues": [
+    {
+      "id": "O93-main-fork-sleeve",
+      "severity": "revision_required",
+      "basis": "Original visual acceptance and required scrutiny of intersecting-component surfaces. No new full-ring-containment or zero-intersection rule is introduced.",
+      "finding": "A protruding faceted sleeve/lower lip surrounds the main fork. It is visible in original512 front/side/rear and both newly rendered exact-GLB junction details. The first two branch bases are fully inside the trunk and all94 joints have overlap, so this is a visible exterior transition defect, not floating geometry.",
+      "required_repair": "Reshape the actual main-fork exterior into a coherent tapered branch junction while preserving the five binary branch orders,32 terminal axes and fertile-axis organization. Do not hide the lip with camera/material/renderer changes.",
+      "evidence": [
+        "omphalophloios/junction-diagnostic-0/detail.png",
+        "omphalophloios/junction-diagnostic-90/detail.png",
+        "omphalophloios/source-geometry-reexport.json"
+      ]
+    }
+  ],
+  "metrics": {
+    "source_authored_evaluated": {
+      "authored_vertices": 9138,
+      "authored_polygons": 10816,
+      "authored_triangles": 13568,
+      "evaluated_vertices": 9138,
+      "evaluated_polygons": 10816,
+      "evaluated_triangles": 13568,
+      "modifiers": 0
+    },
+    "triangles": 13568,
+    "exported_position_vertices": 35200,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 930348,
+    "world_glb_bounds_m": {
+      "min": [
+        -0.8850624561309814,
+        0,
+        -0.9804906249046326
+      ],
+      "max": [
+        0.9426807165145874,
+        3,
+        0.9034217596054077
+      ],
+      "size": [
+        1.8277431726455688,
+        3,
+        1.8839123845100403
+      ]
+    },
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "source_component_count": 1177,
+    "source_euler": 2354
+  },
+  "measured_features": {
+    "woody_components": 95,
+    "branch_junctions": 94,
+    "woody_depth_histogram": {
+      "0": 1,
+      "1": 2,
+      "2": 4,
+      "3": 8,
+      "4": 16,
+      "5": 32,
+      "6": 32
+    },
+    "children_histogram": {
+      "2": 31,
+      "1": 32,
+      "0": 32
+    },
+    "terminal_axes": 32,
+    "leaf_components": 818,
+    "sporangia_components": 256,
+    "root_components": 8,
+    "all_joint_centers_match": true,
+    "all_junctions_have_volume_connection": true,
+    "all_base_rings_fully_inside_parent": false,
+    "terminal_leaf_count_validation": {
+      "method": "Postprocess already measured fresh-source leaf-root distances to terminal centerlines. The 384 near-axis roots are separated from the next proximal root by an observed 6x distance gap; midpoint is a grouping aid, not an invented size acceptance requirement.",
+      "source_measurements_sha256": "c9ad2d73d8c1388b100b1cc5b5ad6d3ce096d3d995e4f5940a1f326d812dda64",
+      "near_group_distance_range_m": [
+        0.0025499132426068114,
+        0.0025503823213089936
+      ],
+      "next_group_min_distance_m": 0.01537599893627677,
+      "classification_midpoint_m": 0.008963190628792882,
+      "terminal_leaf_counts": {
+        "806": 12,
+        "2486": 12,
+        "2194": 12,
+        "514": 12,
+        "1126": 12,
+        "2006": 12,
+        "2326": 12,
+        "2246": 12,
+        "1286": 12,
+        "1714": 12,
+        "1634": 12,
+        "994": 12,
+        "1582": 12,
+        "1874": 12,
+        "1074": 12,
+        "674": 12,
+        "2058": 12,
+        "330": 12,
+        "942": 12,
+        "1766": 12,
+        "1366": 12,
+        "754": 12,
+        "2618": 12,
+        "2538": 12,
+        "462": 12,
+        "1418": 12,
+        "382": 12,
+        "2378": 12,
+        "1926": 12,
+        "622": 12,
+        "1234": 12,
+        "2670": 12
+      },
+      "all32_have12": true,
+      "initial_probe_note": "The initial arbitrary 0.002m probe was too narrow and returned zero. It is retained, not misrepresented as a model failure. Results are stable for thresholds from0.0026 to0.0153m."
+    }
+  },
+  "checks": {
+    "actual_source_reopen": true,
+    "actual_fresh_reexport": true,
+    "reexport_byte_identical": true,
+    "project_candidate_valid": true,
+    "project_approval_established": false,
+    "khronos_errors": 0,
+    "khronos_warnings": 0,
+    "three_revision": "180",
+    "actual_hardware_gpu_test": false,
+    "composed_scene_test": false
+  },
+  "original_concept": {
+    "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/concepts/omphalophloios-concept.png",
+    "sha256": "8f27f9b63ec39b24ebd1f35f4c2d329d577b1d48f2f0293b9594e4e0169dfd32",
+    "personally_inspected": true,
+    "observation": "Actual concept shows a forked crown, oversized bright ovoid reproductive bodies and spike-like stem scars. Final deliberately reduces these and uses five schematic dichotomy orders. Concept is not fossil proof."
+  },
+  "views": [
+    {
+      "view": "hero",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/hero.png",
+      "sha256": "8ced6cd96662c59315521a6214f09db21a534c9309da536ce0a38b89107bd695",
+      "personally_inspected": true,
+      "observation": "Complete slender tree and dense dichotomizing crown; long upper fertile axes and small tan sporangia read separately from the foliage. A visible main-fork collar remains."
+    },
+    {
+      "view": "reversehero",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/reversehero.png",
+      "sha256": "f18eded6d7f8641163ce3ce0b93f84957a07ba445d8b7e315c1c25751f969590",
+      "personally_inspected": true,
+      "observation": "Opposite oblique confirms full three-dimensional crown and roots; the primary trunk-to-fork seam remains evident."
+    },
+    {
+      "view": "front",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/front.png",
+      "sha256": "20a48056c42446976fc4917d6a88b705277dcc4f7353e1a6d83d1f66937d9c5b",
+      "personally_inspected": true,
+      "observation": "Five-order architecture reads clearly, but a continuous angular sleeve edge crosses the main fork above the bare trunk."
+    },
+    {
+      "view": "side",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/side.png",
+      "sha256": "3b1c5fa1d7a1d05f9e8d5c41cf56792b01fea52743e56c2f50ef5470c6fa2924",
+      "personally_inspected": true,
+      "observation": "The old flat horizontal shelf is improved, but a protruding lower sleeve lip still interrupts the trunk-to-crown surface."
+    },
+    {
+      "view": "rear",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/rear.png",
+      "sha256": "e8dfa2e51c40fd79cacbde603dd3147d81009db09b827d343218891a75c64416",
+      "personally_inspected": true,
+      "observation": "The same main-fork step is visible from the rear; no detached whole branches are visible."
+    },
+    {
+      "view": "top",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/top.png",
+      "sha256": "7173e18b7c4565305f1ad1b9c4713041afbccc40592e643b6504cb801d84e50a",
+      "personally_inspected": true,
+      "observation": "The crown occupies a real asymmetric footprint rather than a billboard; repeated leaf modules are anatomically permitted."
+    },
+    {
+      "view": "clay",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/clay.png",
+      "sha256": "69426e4f4ef951d1f5ad9d1714581591101ba236dc600fe8ca4a32d3c065c2bf",
+      "personally_inspected": true,
+      "observation": "The collar is geometry, not a palette effect. Branches, needles and fertile axes retain their volume."
+    },
+    {
+      "view": "silhouette",
+      "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/silhouette.png",
+      "sha256": "7cea40a609ac7be78ee8dd166a06f235bb583d26975dd5339c0160db58fbea44",
+      "personally_inspected": true,
+      "observation": "Whole root-to-crown silhouette is intact; narrow leaf tips and forked branches read without a separate terminal cone."
+    }
+  ],
+  "sheet": {
+    "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/contact-sheet.png",
+    "sha256": "64608d4235a1ec0249b7703b0dda0b8cf406350ac7d56ff3a20d71f2c545bddf",
+    "personally_inspected": true
+  },
+  "dimensional_interpretation": "Original bbox values are explicitly nominal art-planning targets, not hard bounds. Dimensional parameter variations disclosed in revision history are not silently promoted to hard equalities. Named morphology/component counts and budget ceilings remain required. Actual world component bounds are in source-geometry-reexport report.",
+  "limitations": [
+    "No formal,user,site,release or live approval. GPU and composed scene remain unrun.",
+    "Color,full habit,organ numbers and scale are illustrative,not direct complete-fossil measurements."
+  ]
+}
