@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "stratovolcano",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form educational landscape module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Steep conical edifice with concave flanks: broad lower skirt and steeper summit; Integrated unequal radial ridges and eroded gullies, subordinate small closed summit vent; Not broad low convex shield, flat capped tuya, loose cinder fragments or regular stripe-layer cone. Scope: Generic original composite-volcano geological form informed by NPS primary composite-volcano explanation and actual AVO/USGS Iliamna field photograph. No exact named edifice, DEM, eruption simulation, age or coexisting ecosystem. Nominal6000x5400x2250m illustrative art-planning module, not measured Iliamna. A small main summit vent is a generic source-supported common feature, not claimed directly visible in chosen snow-covered Iliamna photo. Composite volcanoes need not comprise orderly alternating layers. No regular horizontal bands, lava, plume, snow or geological cross-section.",
+      "required_sources": [
+        "NPS-COMPOSITE"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Steep conical edifice with concave flanks: broad lower skirt and steeper summit; Integrated unequal radial ridges and eroded gullies, subordinate small closed summit vent; Not broad low convex shield, flat capped tuya, loose cinder fragments or regular stripe-layer cone. Scope: Generic original composite-volcano geological form informed by NPS primary composite-volcano explanation and actual AVO/USGS Iliamna field photograph. No exact named edifice, DEM, eruption simulation, age or coexisting ecosystem. Nominal6000x5400x2250m illustrative art-planning module, not measured Iliamna. A small main summit vent is a generic source-supported common feature, not claimed directly visible in chosen snow-covered Iliamna photo. Composite volcanoes need not comprise orderly alternating layers. No regular horizontal bands, lava, plume, snow or geological cross-section.",
+      "required_sources": [
+        "NPS-COMPOSITE"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/source.blend",
+      "sha256": "7d4e1e0785dc35dea73119d004674f5d91f62cd516e26e90095abf3aebc5eedd"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+      "sha256": "62c9d749212993251225f358c6aa99277f4b58baeace9473b18ce938be517abe"
+    },
+    {
+      "role": "config",
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+      "sha256": "afc1d3a74dd0ebbac3ffa6d806257c3f34ec26626100b8a879d1c26c3f26db88"
+    }
+  ],
+  "claim_scope": "Generic original composite-volcano geological form informed by NPS primary composite-volcano explanation and actual AVO/USGS Iliamna field photograph. No exact named edifice, DEM, eruption simulation, age or coexisting ecosystem. Nominal6000x5400x2250m illustrative art-planning module, not measured Iliamna. A small main summit vent is a generic source-supported common feature, not claimed directly visible in chosen snow-covered Iliamna photo. Composite volcanoes need not comprise orderly alternating layers. No regular horizontal bands, lava, plume, snow or geological cross-section.",
+  "nominal_dimensions_blender_xyz_m": [
+    6000,
+    5400,
+    2250
+  ],
+  "dimension_status": "Illustrative nominal target not measured natural dimensions; export measured separately.",
+  "recognition_features": [
+    "Steep conical edifice with concave flanks: broad lower skirt and steeper summit",
+    "Integrated unequal radial ridges and eroded gullies, subordinate small closed summit vent",
+    "Not broad low convex shield, flat capped tuya, loose cinder fragments or regular stripe-layer cone"
+  ],
+  "concept_decisions": "Keep steep concave profile and small summit vent. Strip concept orderly layers if any. Build coherent full-volume main mountain, broad lower skirt with radial dissection, sharper upper profile and small depressed vent. Use uneven branching/merging flank gullies and integrated divides, not repeated radial wedges like a lampshade. Snow in actual reference obscures rock, so snow-free subdued rock palette and erosional strength artistic. Material regions irregular not stratigraphic claims. Strong height to base ratio differs materially from batch79 shield.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting landscape geological module at256-512px; preserve world scale",
+  "created_at": "2026-10-20T16:56:43.831535+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T21:31:09.481776+00:00",
+    "original_frozen_brief_sha256": "e2cfd8a263dc5d8af3f242170bf640fdec897595f3b037b41b6a536734c7d43b",
+    "repair_freeze_sha256": "52edbf8caa784497ff7e29f3c07468634d6b726884ab4839a291934cd1a4670d",
+    "note": "Postbuild hash closure only. All original criteria, scope, budgets and uncertainties are unchanged. Original r001 freeze retained separately; current geometry is repair r009."
+  }
+}

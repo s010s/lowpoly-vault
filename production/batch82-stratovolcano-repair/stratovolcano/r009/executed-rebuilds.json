@@ -1,0 +1,304 @@
+{
+  "runs": [
+    {
+      "raw_run": "production/batch82-stratovolcano-repair/raw/rebuild-runs/build/stratovolcano/r009/semantic-rebuild-1/84e20c5eace5d6d926cb62016a0c67447f9464dbcebffc8dc6c89b19f0ad8e45/20261020T213214-40f03e8b165d4947b90acd140ee8b553",
+      "result": {
+        "asset_id": "stratovolcano",
+        "error": null,
+        "fingerprint": "84e20c5eace5d6d926cb62016a0c67447f9464dbcebffc8dc6c89b19f0ad8e45",
+        "finished_at": "2026-10-20T21:32:18.507782+00:00",
+        "job_id": "semantic-rebuild-1",
+        "outputs": {
+          "flank-network.json": {
+            "bytes": 10697,
+            "sha256": "98517565fdd8dae48da6979d8c47b86fc6b9beb1fd803d835b2c38aaedec8ecc"
+          },
+          "metrics.json": {
+            "bytes": 3113,
+            "sha256": "d0c839e51d1d4611422bddad6d0eb3f6da003319942c28ceaa2df2752e247b88"
+          },
+          "model.glb": {
+            "bytes": 885600,
+            "sha256": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998"
+          },
+          "source-metrics.json": {
+            "bytes": 648,
+            "sha256": "ce3582232ef9b90e05de8821d13abe28b7d0ab763a286962f8a68672fb45ab7e"
+          },
+          "source.blend": {
+            "bytes": 1095068,
+            "sha256": "0065682800fdda6bea8132d39c2e59a9215c4dbffa0154c5d67331a77d6e42cb"
+          }
+        },
+        "pid": 120,
+        "returncode": 0,
+        "revision": "r009",
+        "sampled_peak_group_processes": 1,
+        "sampled_peak_group_rss_bytes": 271011840,
+        "schema_version": 1,
+        "started_at": "2026-10-20T21:32:14.705199+00:00",
+        "status": "succeeded",
+        "wall_seconds": 3.8026
+      },
+      "request": {
+        "argv": [
+          "/usr/bin/blender",
+          "--background",
+          "-t",
+          "2",
+          "--python-exit-code",
+          "1",
+          "--factory-startup",
+          "--python",
+          "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+          "--",
+          "--config",
+          "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+          "--output",
+          "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/raw/rebuild-runs/build/stratovolcano/r009/semantic-rebuild-1/84e20c5eace5d6d926cb62016a0c67447f9464dbcebffc8dc6c89b19f0ad8e45/20261020T213214-40f03e8b165d4947b90acd140ee8b553/outputs"
+        ],
+        "created_at": "2026-10-20T21:32:14.701862+00:00",
+        "fingerprint": "84e20c5eace5d6d926cb62016a0c67447f9464dbcebffc8dc6c89b19f0ad8e45",
+        "identity": {
+          "executable": {
+            "bytes": 94967000,
+            "path": "/usr/bin/blender",
+            "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+          },
+          "inputs": {
+            "audit": {
+              "bytes": 13344,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/qa_glb.py",
+              "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+            },
+            "brief": {
+              "bytes": 6635,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/brief.json",
+              "sha256": "e2cfd8a263dc5d8af3f242170bf640fdec897595f3b037b41b6a536734c7d43b"
+            },
+            "config": {
+              "bytes": 2751,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+              "sha256": "afc1d3a74dd0ebbac3ffa6d806257c3f34ec26626100b8a879d1c26c3f26db88"
+            },
+            "generator": {
+              "bytes": 8068,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+              "sha256": "62c9d749212993251225f358c6aa99277f4b58baeace9473b18ce938be517abe"
+            },
+            "helper": {
+              "bytes": 26367,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/asset_common.py",
+              "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+            },
+            "references": {
+              "bytes": 2231,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/references.json",
+              "sha256": "ebce3fb83c8205a547fff0fd2e3fa6938f1a9c41552c7d39d66655955fd40d90"
+            }
+          },
+          "job": {
+            "argv": [
+              "{blender}",
+              "--factory-startup",
+              "--python",
+              "{input:generator}",
+              "--",
+              "--config",
+              "{input:config}",
+              "--output",
+              "{output_dir}"
+            ],
+            "asset_id": "stratovolcano",
+            "inputs": {
+              "audit": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/qa_glb.py",
+              "brief": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/brief.json",
+              "config": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+              "generator": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+              "helper": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/asset_common.py",
+              "references": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/references.json"
+            },
+            "job_id": "semantic-rebuild-1",
+            "outputs": [
+              "model.glb",
+              "source.blend",
+              "metrics.json",
+              "source-metrics.json",
+              "flank-network.json"
+            ],
+            "revision": "r009"
+          },
+          "lane": "build",
+          "memory_mb": 0,
+          "runner_schema": 1,
+          "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+          "threads": 2,
+          "timeout_seconds": 120.0
+        },
+        "run_id": "20261020T213214-66f36235c3d54dbdbd200986166bc6e6"
+      },
+      "files": {
+        "stdout.log": "8bdca017217155efae8d4033d16f04f164ebbd9296f25478a7c81bc0da9a8ca8",
+        "request.json": "63710b0f21ca045ccdd8dcd742f7ea68bba1219ccf72d328375abce2ea5e0c65",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "result.json": "e77c8f652595e7f8beaacdf33714d815a88607cc4f9efab12685a0091ad44a9e",
+        "outputs/source.blend": "0065682800fdda6bea8132d39c2e59a9215c4dbffa0154c5d67331a77d6e42cb",
+        "outputs/model.glb": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998",
+        "outputs/flank-network.json": "98517565fdd8dae48da6979d8c47b86fc6b9beb1fd803d835b2c38aaedec8ecc",
+        "outputs/metrics.json": "d0c839e51d1d4611422bddad6d0eb3f6da003319942c28ceaa2df2752e247b88",
+        "outputs/source-metrics.json": "ce3582232ef9b90e05de8821d13abe28b7d0ab763a286962f8a68672fb45ab7e"
+      }
+    },
+    {
+      "raw_run": "production/batch82-stratovolcano-repair/raw/rebuild-runs/build/stratovolcano/r009/semantic-rebuild-2/3b1245d520d6a0bf1f929b539c9d35addfd790074a06cc58c5cc18adf229825f/20261020T213219-6cb3d0a353054895bbbdcfb5ba179489",
+      "result": {
+        "asset_id": "stratovolcano",
+        "error": null,
+        "fingerprint": "3b1245d520d6a0bf1f929b539c9d35addfd790074a06cc58c5cc18adf229825f",
+        "finished_at": "2026-10-20T21:32:24.609621+00:00",
+        "job_id": "semantic-rebuild-2",
+        "outputs": {
+          "flank-network.json": {
+            "bytes": 10697,
+            "sha256": "98517565fdd8dae48da6979d8c47b86fc6b9beb1fd803d835b2c38aaedec8ecc"
+          },
+          "metrics.json": {
+            "bytes": 3113,
+            "sha256": "88c38e86077a93aac2384e58d39e838179b11f46fba42ad4c6a1ea6316aca16b"
+          },
+          "model.glb": {
+            "bytes": 885600,
+            "sha256": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998"
+          },
+          "source-metrics.json": {
+            "bytes": 648,
+            "sha256": "ce3582232ef9b90e05de8821d13abe28b7d0ab763a286962f8a68672fb45ab7e"
+          },
+          "source.blend": {
+            "bytes": 1095068,
+            "sha256": "983ce06c3bfee870b67b93e8ee469cd3c0464dfc0bd92a1887ba327baa32e118"
+          }
+        },
+        "pid": 147,
+        "returncode": 0,
+        "revision": "r009",
+        "sampled_peak_group_processes": 2,
+        "sampled_peak_group_rss_bytes": 275353600,
+        "schema_version": 1,
+        "started_at": "2026-10-20T21:32:19.921506+00:00",
+        "status": "succeeded",
+        "wall_seconds": 4.6881
+      },
+      "request": {
+        "argv": [
+          "/usr/bin/blender",
+          "--background",
+          "-t",
+          "2",
+          "--python-exit-code",
+          "1",
+          "--factory-startup",
+          "--python",
+          "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+          "--",
+          "--config",
+          "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+          "--output",
+          "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/raw/rebuild-runs/build/stratovolcano/r009/semantic-rebuild-2/3b1245d520d6a0bf1f929b539c9d35addfd790074a06cc58c5cc18adf229825f/20261020T213219-6cb3d0a353054895bbbdcfb5ba179489/outputs"
+        ],
+        "created_at": "2026-10-20T21:32:19.919049+00:00",
+        "fingerprint": "3b1245d520d6a0bf1f929b539c9d35addfd790074a06cc58c5cc18adf229825f",
+        "identity": {
+          "executable": {
+            "bytes": 94967000,
+            "path": "/usr/bin/blender",
+            "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+          },
+          "inputs": {
+            "audit": {
+              "bytes": 13344,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/qa_glb.py",
+              "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+            },
+            "brief": {
+              "bytes": 6635,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/brief.json",
+              "sha256": "e2cfd8a263dc5d8af3f242170bf640fdec897595f3b037b41b6a536734c7d43b"
+            },
+            "config": {
+              "bytes": 2751,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+              "sha256": "afc1d3a74dd0ebbac3ffa6d806257c3f34ec26626100b8a879d1c26c3f26db88"
+            },
+            "generator": {
+              "bytes": 8068,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+              "sha256": "62c9d749212993251225f358c6aa99277f4b58baeace9473b18ce938be517abe"
+            },
+            "helper": {
+              "bytes": 26367,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/asset_common.py",
+              "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+            },
+            "references": {
+              "bytes": 2231,
+              "path": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/references.json",
+              "sha256": "ebce3fb83c8205a547fff0fd2e3fa6938f1a9c41552c7d39d66655955fd40d90"
+            }
+          },
+          "job": {
+            "argv": [
+              "{blender}",
+              "--factory-startup",
+              "--python",
+              "{input:generator}",
+              "--",
+              "--config",
+              "{input:config}",
+              "--output",
+              "{output_dir}"
+            ],
+            "asset_id": "stratovolcano",
+            "inputs": {
+              "audit": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/qa_glb.py",
+              "brief": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/brief.json",
+              "config": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+              "generator": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+              "helper": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/scripts/asset_common.py",
+              "references": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/references.json"
+            },
+            "job_id": "semantic-rebuild-2",
+            "outputs": [
+              "model.glb",
+              "source.blend",
+              "metrics.json",
+              "source-metrics.json",
+              "flank-network.json"
+            ],
+            "revision": "r009"
+          },
+          "lane": "build",
+          "memory_mb": 0,
+          "runner_schema": 1,
+          "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+          "threads": 2,
+          "timeout_seconds": 120.0
+        },
+        "run_id": "20261020T213219-58125258de83469bb80b45608015e61d"
+      },
+      "files": {
+        "stdout.log": "a4a97c073df170e554b1ef2925ef3c4efcf0de2fb5b5ac0d02b9331465eae28e",
+        "request.json": "45d5f06f2175b1745670500765ae21622b1f6306f69154d36224b3d39f13dc9a",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "result.json": "58be574f9a5fbf2261ba12b11e87ecb78ce0e362e88b01db136b539ea7bd5898",
+        "outputs/source.blend": "983ce06c3bfee870b67b93e8ee469cd3c0464dfc0bd92a1887ba327baa32e118",
+        "outputs/model.glb": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998",
+        "outputs/flank-network.json": "98517565fdd8dae48da6979d8c47b86fc6b9beb1fd803d835b2c38aaedec8ecc",
+        "outputs/metrics.json": "88c38e86077a93aac2384e58d39e838179b11f46fba42ad4c6a1ea6316aca16b",
+        "outputs/source-metrics.json": "ce3582232ef9b90e05de8821d13abe28b7d0ab763a286962f8a68672fb45ab7e"
+      }
+    }
+  ],
+  "both_byte_identical": true,
+  "full_raw_outputs_retained_local": true
+}

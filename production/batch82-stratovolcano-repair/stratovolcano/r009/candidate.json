@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "asset_id": "stratovolcano",
+  "revision": "r009",
+  "maker": {
+    "id": "native stratovolcano repair maker",
+    "task_id": "/root/resume_parallel_model_production/repair_stratovolcano_flanks"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/model.glb",
+      "sha256": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998"
+    },
+    "brief": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/candidate-brief.json",
+      "sha256": "bd690d4909d9ae333bc3d16e04ac1bb9ab02a8a696dcf474e422f955c43eff45"
+    },
+    "references": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/references.json",
+      "sha256": "ebce3fb83c8205a547fff0fd2e3fa6938f1a9c41552c7d39d66655955fd40d90"
+    },
+    "source": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/source.blend",
+      "sha256": "7d4e1e0785dc35dea73119d004674f5d91f62cd516e26e90095abf3aebc5eedd"
+    },
+    "generator": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/generator.py",
+      "sha256": "62c9d749212993251225f358c6aa99277f4b58baeace9473b18ce938be517abe"
+    },
+    "config": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/build-config.json",
+      "sha256": "afc1d3a74dd0ebbac3ffa6d806257c3f34ec26626100b8a879d1c26c3f26db88"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r009",
+        "glb_sha256": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998",
+        "brief_sha256": "bd690d4909d9ae333bc3d16e04ac1bb9ab02a8a696dcf474e422f955c43eff45",
+        "references_sha256": "ebce3fb83c8205a547fff0fd2e3fa6938f1a9c41552c7d39d66655955fd40d90"
+      },
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/proof-final/render-manifest.json",
+      "sha256": "2cb1dbf07496b31221d0d6d85d9a75c020d215f48491d0112c3302aee84f50c6"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent difference review pending."
+        }
+      ],
+      "note": "Maker preparation complete. Independent acceptance remains pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent difference review pending."
+        }
+      ],
+      "note": "Maker preparation complete. Independent acceptance remains pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent difference review pending."
+        }
+      ],
+      "note": "Maker preparation complete. Independent acceptance remains pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent difference review pending."
+        }
+      ],
+      "note": "Maker preparation complete. Independent acceptance remains pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent difference review pending."
+        }
+      ],
+      "note": "Maker preparation complete. Independent acceptance remains pending."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent difference review pending."
+        }
+      ],
+      "note": "Not run; CPU/Node checks do not establish this stage."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent difference review pending."
+        }
+      ],
+      "note": "Not run; CPU/Node checks do not establish this stage."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-difference-review",
+      "description": "B82-STRATO-01 and all vent/silhouette/surface regressions require independent reviewer.",
+      "status": "open"
+    },
+    {
+      "id": "gpu-scene-not-run",
+      "description": "No target GPU or populated-scene evidence.",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "pixel-inspection.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/pixel-inspection.json",
+      "sha256": "54b7f1abf355ee180b066cf41b945fa76f6a6e707deda8952c131e919c8c8115"
+    },
+    "scope-and-regression.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/scope-and-regression.json",
+      "sha256": "971619c306538b996bd8dfbd884b3bde8c31bac6461067597fbc58ef2d9b2db1"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/preproof-binding.json",
+      "sha256": "d9516c2d8181026aa101a2e004fd33bcbc491508a4d6cadf5b6c100ea8d1aadc"
+    },
+    "premodel-schema-check.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/premodel-schema-check.json",
+      "sha256": "477306324306510f9ddbcf0b13e5637fe40b084c667ec66bcd74deeaabb0564a"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/gltf-validator.report.json",
+      "sha256": "ad3fb54332bc710c6d35ce1c845ae613485893ed7d70f38a8b41fe208098d04d"
+    },
+    "flank-network.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/flank-network.json",
+      "sha256": "98517565fdd8dae48da6979d8c47b86fc6b9beb1fd803d835b2c38aaedec8ecc"
+    },
+    "original-modeling-freeze.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/original-modeling-freeze.json",
+      "sha256": "b9801da9631035ec87f6ffd1a891297b179e4e6a4ba46e382365fc44926d4379"
+    },
+    "metrics.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/metrics.json",
+      "sha256": "c91b87c53c0eed9f5fa93c5f7c9564f4bfd958d4a1bb11ee5aec5123b9513543"
+    },
+    "concept-generation.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/concept-generation.json",
+      "sha256": "ebe1fd448aee852e1c476375eed0dac65eae9b0563dfb0692ab2a5dfa9ff6ebf"
+    },
+    "diagnostic-disposition.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/diagnostic-disposition.json",
+      "sha256": "fb5a8326313e45f10b984ee2aebd3889466f4c6b301a311697470fa2a104ffb2"
+    },
+    "physical-surfaces.report.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/physical-surfaces.report.json",
+      "sha256": "fc3cfbbf823b499f85a94b7489aa88912d1e8c57ccb17abb8f8686653e51176d"
+    },
+    "lossless-sheet-check.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/lossless-sheet-check.json",
+      "sha256": "f387b85477703a03c6b927a965bccd01e22047fd30a6ff1a2200b0e3e5860225"
+    },
+    "repair-freeze.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/repair-freeze.json",
+      "sha256": "52edbf8caa784497ff7e29f3c07468634d6b726884ab4839a291934cd1a4670d"
+    },
+    "qa.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/qa.json",
+      "sha256": "429ff8192af87e1ac859053b0ab865cc6afe72d9ea0df5e129c94b2e7a3b986e"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/repro-final-2.report.json",
+      "sha256": "6265e8cda10ee36a5249e2ad7f70e9ba26f36fcbccd17f80e888116be9c07329"
+    },
+    "source-final.report.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/source-final.report.json",
+      "sha256": "07be8bd1992b776830534ea1b7e77fe595aa69d9e4bc083933c134fc603026f9"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/build-dependencies.json",
+      "sha256": "df67f9ef5e1a3a87169db20644a9549e14231c2998c8ace3fa7cc8204b3eacdb"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/runtime-parse.report.json",
+      "sha256": "c9fbe2efd9ba6a774d944977bdbc416a4a4c0d330591dcfdfbfcbd412f9930a5"
+    },
+    "source-metrics.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/source-metrics.json",
+      "sha256": "ce3582232ef9b90e05de8821d13abe28b7d0ab763a286962f8a68672fb45ab7e"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/repro-final-1.report.json",
+      "sha256": "1da5e1677edbf7fa3a2105019d651aaa605ab6241c446f90bb85a78ff3cfd0ed"
+    },
+    "source-vertex-counts.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/source-vertex-counts.json",
+      "sha256": "9ebeb756e232462b298ec48506f1efab409da62b9862262227c4508a84ac54c4"
+    },
+    "executed-rebuilds.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/executed-rebuilds.json",
+      "sha256": "24c6a00255db0926c4876171b7e124e094a4014e90fad514b2e35cd88ddd64cf"
+    },
+    "source-reexport.report.json": {
+      "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/source-reexport.report.json",
+      "sha256": "ec780f66e28e8e9557547fcbd62bd7b113c7f01b81f833c898859fbe57f6885a"
+    }
+  }
+}
