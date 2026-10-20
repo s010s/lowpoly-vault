@@ -29,7 +29,7 @@ try{
 
 }
 
-if(!process.argv.includes('--batch54-only')) {
+if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58-61-only')) {
 const BASE_COUNT = 186;
 const revisions = { sapeornis: 'r001', longirostravis: 'r001', dunbaria: 'r001', chimerarachne: 'r001' };
 const expectedIds = Object.keys(revisions).sort();
@@ -305,7 +305,7 @@ try {
 }
 
 // Selected-scope checks are independently runnable without repeating old model QA.
-{
+if(!process.argv.includes('--batches58-61-only')){
  const {collectBatch54Additions}=await import('./concept-landair-release.mjs');
  const {BATCH54_RELEASE:accepted}=await import('./accepted-concept-landair-release.mjs');
  const {copyFile}=await import('node:fs/promises');
@@ -344,7 +344,7 @@ try{for(const [pin,d] of descriptors){await collectBatches5253Additions(sandbox,
 finally{await rm(sandbox,{recursive:true,force:true});}
 
 }
-if(!process.argv.includes('--batch54-only')) await testBatches5253();
+if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58-61-only')) await testBatches5253();
 
 /** Negative tests mutate only private copies, never the accepted source inputs. */
 async function testBatches5657(){
@@ -366,4 +366,87 @@ async function testBatches5657(){
  }finally{await rm(sandbox,{recursive:true,force:true});}
 }
 
-if(!process.argv.includes('--batch54-only')){await testBatches5657();await testBatches5155();}
+if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58-61-only')){await testBatches5657();await testBatches5155();}
+
+// Exact selected-scope regression cases; all destructive probes use copied bytes.
+{
+ const {collectBatches5859Additions}=await import('./concept-landair-release.mjs');
+ const {BATCH58_RELEASE,BATCH59_RELEASE}=await import('./accepted-concept-landair-release.mjs');
+ const {copyFile}=await import('node:fs/promises');
+ const sandbox=await mkdtemp(join(tmpdir(),'vault-batches5859-'));
+ const digest=b=>createHash('sha256').update(b).digest('hex');
+ const releases=[BATCH58_RELEASE,BATCH59_RELEASE],descriptorPaths=['assets/releases/batch58-20261020.json','assets/releases/batch59-20261020.json'];
+ const descriptors=await Promise.all(descriptorPaths.map(async path=>({path,sha256:digest(await readFile(path))})));
+ const paths=new Set(['site/viewer.js','assets/turntables/index.json',...descriptorPaths]);
+ for(const d of releases){paths.add(d.source_bundle.path);paths.add(d.publication_policy.path);for(const p of d.protected_source_inputs)paths.add(p.path);const bundle=JSON.parse(await readFile(d.source_bundle.path));for(const p of bundle.files)paths.add(p.path);const index=JSON.parse(await readFile(d.capture.index.path));for(const e of d.additions){paths.add(e.metadata.path);const a=JSON.parse(await readFile(e.metadata.path));for(const k of ['glb','blend','preview'])paths.add(a[k]);paths.add(index.posters.find(c=>c.id===a.id).path);}}
+ let cases=0;
+ try{
+  for(const path of paths){await mkdir(dirname(resolve(sandbox,path)),{recursive:true});await copyFile(path,resolve(sandbox,path));}
+  const collect=()=>collectBatches5859Additions(sandbox,descriptors),initial=await collect();assert.deepEqual(initial.additions.map(a=>a.id).sort(),['barchan-dune','calamophyton','current-ripple-surface','glacial-erratic','gypsum-cave-flower','perspicaris','stalactite-group']);cases++;
+  for(const a of initial.additions){assert.equal(a.approval_provenance.formal_profile_acceptance,'BLOCKED');assert.equal(a.approval_provenance.hardware_gpu_verified,false);assert.equal(a.approval_provenance.target_scene_verified,false);assert.equal(a.approval_provenance.candidate_record_approved_for_brief,false);}
+  const tamper=async(path,modify,action=collect)=>{const f=resolve(sandbox,path),old=await readFile(f);try{await writeFile(f,modify(old));await assert.rejects(action);cases++;}finally{await writeFile(f,old);}};
+  const append=b=>Buffer.concat([b,Buffer.from('tamper')]);
+  for(const d of releases){
+   for(const e of d.additions){const a=JSON.parse(await readFile(e.metadata.path));for(const path of [e.candidate.path,e.metadata.path,a.glb,a.blend,a.preview,e.frozen_brief.path,e.proof.path,e.rebuilds[0].path])await tamper(path,append);}
+   for(const path of [d.source_bundle.path,d.review.path,d.review_custody.path,d.capture.report.path,d.capture.index.path,d.capture.zip_verification.path,d.capture.independent_review.path])await tamper(path,append);
+  }
+  for(const field of ['formal_profile_acceptance','hardware_gpu_verified','target_scene_verified','provider_generation_timestamp'])await tamper(descriptorPaths[0],b=>{const d=JSON.parse(b);d[field]=field==='formal_profile_acceptance'?'PASS':field==='provider_generation_timestamp'?'2026-10-20T00:00:00Z':true;return JSON.stringify(d);});
+  // Coordinated descriptor+hash edits must still differ from the fixed accepted literal.
+  await tamper(descriptorPaths[1],b=>{const d=JSON.parse(b);d.additions[0].id='erbenochile';return JSON.stringify(d);},async()=>{const changed=descriptors.map(x=>({...x}));changed[1].sha256=digest(await readFile(resolve(sandbox,descriptorPaths[1])));return collectBatches5859Additions(sandbox,changed);});
+  await tamper('assets/turntables/index.json',b=>{const d=JSON.parse(b);d.posters.push(d.posters.find(x=>x.id==='calamophyton'));return JSON.stringify(d);});
+  await tamper('assets/turntables/index.json',b=>{const d=JSON.parse(b);d.posters=d.posters.filter(x=>x.id!=='calamophyton');return JSON.stringify(d);});
+  for(const path of [initial.additions[0].glb,'assets/turntables/index.json']){const file=resolve(sandbox,path),saved=file+'.saved';await rename(file,saved);try{await symlink(saved,file);await assert.rejects(collect,/symlinks forbidden/);cases++;}finally{await rm(file);await rename(saved,file);}}
+  await tamper('site/viewer.js',append);
+  assert.deepEqual(await collect(),initial);cases++;
+  console.log(`Batch58/59 bounded release: ${cases} checks passed; seven exact revisions, original candidate/source/review/capture pins, no formal approval promotion, old metadata unaffected.`);
+ }finally{await rm(sandbox,{recursive:true,force:true});}
+}
+
+// Batch60/61 delivery selections must not fall back to historical archive anchors.
+{
+ const {readFile:readActual,writeFile:writeActual,link,rename:renameActual}=await import('node:fs/promises');const {createHash}=await import('node:crypto');
+ const {collectBatches6061Additions}=await import('./concept-landair-release.mjs');
+ const {ACCEPTED_BOUNDED_BATCHES}=await import('./accepted-bounded-batches.mjs');
+ const descriptors=ACCEPTED_BOUNDED_BATCHES.filter(e=>['assets/releases/batch60-20261020.json','assets/releases/batch61-20261020.json'].includes(e.descriptor.path)).map(e=>e.descriptor);
+ if(descriptors.length){
+  const sandbox=await mkdtemp(join(tmpdir(),'vault-batches6061-'));
+  const paths=new Set(['site/viewer.js','assets/turntables/index.json','site/public/gallery/resources.json']);
+  function pins(v){if(!v||typeof v!=='object')return;if(typeof v.path==='string'&&typeof v.sha256==='string')paths.add(v.path);for(const x of Object.values(v))pins(x);}
+  for(const d of descriptors){pins(d);const release=JSON.parse(await readActual(d.path));pins(release);pins(JSON.parse(await readActual(release.source_bundle.path)));const index=JSON.parse(await readActual(release.capture.index.path)),receipt=JSON.parse(await readActual(release.capture.gallery_receipt.path));for(const e of release.additions){const a=JSON.parse(await readActual(e.metadata.path));for(const k of ['glb','blend','preview'])paths.add(a[k]);paths.add(index.posters.find(p=>p.id===e.id).path);for(const f of receipt.rows.find(p=>p.id===e.id).files)paths.add('site/public/'+f.path);}}
+  for(const path of paths){await mkdir(dirname(resolve(sandbox,path)),{recursive:true});await link(resolve(path),resolve(sandbox,path));}
+  const readFile=p=>readActual(resolve(sandbox,p));
+  // Atomic replacement detaches shared evidence inodes before every probe.
+  const writeFile=async(p,b)=>{const out=resolve(sandbox,p),temp=out+'.private-test';await writeActual(temp,b);await renameActual(temp,out);};
+  try{
+  const result=await collectBatches6061Additions(sandbox,descriptors);assert.equal(result.additions.length,8);assert.deepEqual(result.additions.map(a=>a.id).sort(),['aragonite-frostwork','collinsium','daemonelix-helical-burrow','drumlin','glacial-cirque','mesa','pseudopulex','yardang']);
+  const target=descriptors[1].path,bytes=await readFile(target),original=JSON.parse(bytes),hash=b=>createHash('sha256').update(b).digest('hex');
+  for(const [name,edit]of [
+   ['missing active v003',e=>delete e.active_candidate],
+   ['historical candidate fallback',e=>e.active_candidate=e.candidate],
+   ['rejected v002 candidate',e=>e.active_candidate.path=e.candidate_root+'/candidate-scale-v002.json'],
+   ['old render subject',e=>e.proof.path=e.candidate_root+'/proof-final/render-manifest.json'],
+   ['wrong differential QA scope',e=>e.active_review=e.review]
+  ]){
+   const changed=structuredClone(original);edit(changed.additions.find(a=>a.id==='mesa'));const b=Buffer.from(JSON.stringify(changed));
+   try{await writeFile(target,b);await assert.rejects(()=>collectBatches6061Additions(sandbox,[descriptors[0],{path:target,sha256:hash(b)}]),/Only fixed independently reviewed Batch60\/61 bytes authorized/,name);}finally{await writeFile(target,bytes);}
+  }
+  const mesa=original.additions.find(a=>a.id==='mesa'),proof=await readFile(mesa.proof.path),bad=JSON.parse(proof);bad.subject.brief_sha256='0'.repeat(64);
+  try{await writeFile(mesa.proof.path,JSON.stringify(bad));await assert.rejects(()=>collectBatches6061Additions(sandbox,descriptors),/hash mismatch/,'changed v003 render subject');}finally{await writeFile(mesa.proof.path,proof);}
+  console.log('Batch60/61: exact8 positive + six isolated historical/active-delivery fail-closed negatives passed; no source re-QA.');
+  }finally{await rm(sandbox,{recursive:true,force:true});}
+ }
+}
+
+// The final union composes both collectors against one actual217 predecessor.
+{
+ const {appendBatches5861Release}=await import('./concept-landair-release.mjs');
+ const manifest=JSON.parse(await readFile('assets/manifest.json'));
+ const descriptors5859=manifest.publication.batches58_59_descriptors,descriptors6061=manifest.publication.batches60_61_descriptors;
+ const base=structuredClone(manifest);base.assets=base.assets.slice(0,217);delete base.publication.batches58_59_descriptors;delete base.publication.batches60_61_descriptors;
+ assert.deepEqual(await appendBatches5861Release(process.cwd(),base,descriptors5859,descriptors6061),manifest);
+ for(const count of [194,201,216,218,225]){const bad=structuredClone(base);bad.assets=Array.from({length:count},(_,i)=>base.assets[i%217]);await assert.rejects(()=>appendBatches5861Release(process.cwd(),bad,descriptors5859,descriptors6061),/exact217-model predecessor/);}
+ const duplicate=structuredClone(base);duplicate.assets[0]=duplicate.assets[1];await assert.rejects(()=>appendBatches5861Release(process.cwd(),duplicate,descriptors5859,descriptors6061),/Duplicate Batch58-61 publication ID/);
+ await assert.rejects(()=>appendBatches5861Release(process.cwd(),base,descriptors6061,descriptors5859));
+ await assert.rejects(()=>appendBatches5861Release(process.cwd(),base,descriptors5859,undefined));
+ console.log('Batch58-61 union: exact217+15=232 equality and eight fail-closed composition cases passed.');
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "yardang",
+  "revision": "r002",
+  "labels": {
+    "en": "yardang"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "77da5fcdc712732b73af15879101c467f31440bc90d57c7741649088b771c80a"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "961d6b66fc2318214d6330e8484a9c0e36bc1749ddf2b51fcf7787c4f74666c3"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "5ba302ae31a1edcad9524a6343d2a7e79149fedbe61898d4b52dc2953a3179c8"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "e92e71a4e947c10ec82b8182e4a2169f1cf0670d2df5ec1582a70cba566fd36a"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "b546d33d6d0013511a3ff8c7a73fbbdf4a67fde7fcbba4f1b411e676bd0ea617"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ca44d77a936ec6932089ee1a186c24f7ea2f55bbf19c98c1fe7ef1d2fbf33dce"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "3b8c6d88876bf7e68bf86878b6dcd55ff26b1c7bd7d9a1bcfb251e23f6fdc951"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "9d40028d8cd5e40cea8288bc9f1df5dc5aa4e1b8890a7db73e5dcece4c9c33ca"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-row original concept pixels inspected before freeze; only corresponding labeled row applies to each asset. Collinsium repeated limb/spine counts follow primary paper, not inconsistent AI drawing; yardang geometry must show erosion; cirque front opened and optional tarn omitted; frostwork rods sharpened to acicular needles. Complete decisions in frozen brief.",
+    "hidden_surface_decisions": "Concept B consistent overall nose/tail and stratified flank language. Simplify its many stacked flakes to one closed connected sculpted ridge with3 muted sediment materials by actual height intervals, long longitudinal flutes rather than loose ripples. Blender-Y high blunt windward nose, +Y tapering lee. Rounded asymmetric windward cap, uneven crest; steep faces survive in side/clay and streamlined taper in top. No scene tile, no detached rocks; full closed underside. Maker self-review repair: replace over-smooth cone-like transverse section with actual stepped, fluted rock cross-sections, asymmetrical longitudinal ridge and broken wind-eroded ledges. Retain blunt windward nose/tapered lee tail, no dune slipface. Muted stratification, geometry rather than colors must establish erosion."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T08:08:10Z",
+    "modeling_started_at": "2026-10-20T08:14:54.185002+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 8.0533,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "e48ea6a64f43f2ae6eb4db3fc17bd2952a2162f2341f15e23f091bd4f3c1f770"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "e48ea6a64f43f2ae6eb4db3fc17bd2952a2162f2341f15e23f091bd4f3c1f770"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "54ab33ec580a52984e00736492168ac5ea3c59fa61715d2a858a569725aa4a8f",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "856724dbc293cce849aba620bbccfb950be4fc9d490998bddd96525d2b27dfaf"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "77da5fcdc712732b73af15879101c467f31440bc90d57c7741649088b771c80a",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "98a11fe78433b3be9e2a940195f801bccc836e3267ca4eb16e542d5616e8415d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

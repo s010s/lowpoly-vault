@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "asset_id": "mesa",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Generic geological-form teaching asset: broad flat resistant cap with steep stepped upper sides, angular embayments/buttresses and lower talus slope. Not a narrow butte, measured named site or habitat/period reconstruction.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-AR"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-AR"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Broad horizontal flat summit wider than height, not a narrow butte or spire",
+      "required_sources": [
+        "EN-AR"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Resistant cap over strongly steep upper sides",
+      "required_sources": [
+        "EN-AR"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Coherent horizontal layers, angular bays/buttresses and lower talus benches",
+      "required_sources": [
+        "EN-AR"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "No named locality, period, age, measured dimensions or ecosystem claim",
+      "required_sources": [
+        "EN-AR"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed8 exact512px views, zero turntable. All seven stages retain distinct verdicts; no GPU/scene waiver or maker approval.",
+  "required_deliverables": [],
+  "nominal_dimensions_blender_xyz_m": [
+    600,
+    450,
+    180
+  ],
+  "scale_note": "Illustrative nominal envelope; actual measured bounds reported separately. Animal body nominal17mm excludes antenna; pose appendages extend bounds.",
+  "concept_interpretation": "Concept inspected: coherent broad flat summit, dark resistant cap, pale middle band, broken upper scarps and lower sloping talus adopted. Top/side concepts mostly consistent. Freeze broad roughly oval irregular footprint, width600m length450m height180m nominal art scale, summit width substantially greater than height, quiet flat top with minor microrelief only. Deliberate repeated irregular perimeter bays carry through horizontal rock layers, alternate sheer scarp and talus benches. No copied real-site silhouette, vegetation, texture or floating decoration. Closed underside at floor, hidden rear uses coherent same layer sequence.",
+  "feature_obligations": [
+    "Broad horizontal flat summit wider than height, not a narrow butte or spire",
+    "Resistant cap over strongly steep upper sides",
+    "Coherent horizontal layers, angular bays/buttresses and lower talus benches",
+    "No named locality, period, age, measured dimensions or ecosystem claim"
+  ],
+  "claim_scope": "Generic geological-form teaching asset: broad flat resistant cap with steep stepped upper sides, angular embayments/buttresses and lower talus slope. Not a narrow butte, measured named site or habitat/period reconstruction.",
+  "origin": "Floor contact footprint center at Blenderz0; X lateral, -Y front, Zup; glTFYup +Zfront"
+}

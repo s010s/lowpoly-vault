@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "barchan-dune",
+  "revision": "r001",
+  "labels": {
+    "en": "barchan-dune"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "4895dc7d110691fd356ee31f8bf23f7b178743043731ac119728290f3755232f"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "2711d6863316a86f41658a1a5b6160e572c80d173b2ba873e234e310d5d0b7a4"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "c36cffccdb973aeb20cdab8da46e8991e2734fb4264988a60098820475cf9e9c"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "2425810ec855d4ce6d60dc346a81eb77331a70dc5f07eb3bd4d9f716e722647b"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "deefebedd36cc161fe5e41787bf21a77500f46143952336752be4dc7e791858a"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "cd8ee9a2c64c6f8c40effef8d4d37042c29e9be157d3fdbac791d9a04b8382dc"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "f9a9a825f359eced65a04ef33a7500b7361e82bfc75928fc830cb1543eb9bfa3"
+      }
+    ],
+    "cross_view_consistency_note": "Actual original concept pixels inspected; contradictions resolved explicitly in frozen brief.concept_decisions; unused Conularia panel in provisional sheet rejected, not part of this asset. Perspicaris separate replacement sheet used.",
+    "hidden_surface_decisions": "Panel C hero/top agree on open crescent; side sketch exaggerates isolated peak, reject that inconsistency. Wind from +Y toward -Y, horns extend -Y. Use single continuous swept crescent volume: windward +Y outer toe, long gentle stoss rise to curved crest, short steep concave -Y slipface. Height falls continuously toward unequal horn tips. No separate base/platform, closed floor underside, no crater. Nominal8x6x1.6m broad module, measured bounds separate."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T07:13:43.304723600Z",
+    "modeling_started_at": "2026-10-20T07:18:05Z",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.8332,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "0dd987aa3ca33777f719037321757dc18308af8f30ce8e77da060f0c6b083db9"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "0dd987aa3ca33777f719037321757dc18308af8f30ce8e77da060f0c6b083db9"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "494fe522c97f1b6ccd30e2fbd1243090b67cccea3b31e769919b24b4d452b78d",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "033ec7b87a739fa5b3efdcf326c5f624172acee3235648abd797fd5ace026802"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "4b4580c6ed599b80865ebe9a4e506dc3d4a770077fa5f5be3ec099d3ab8a2543",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "0e966d33cde9384cd728d01dab82e50c52da907a5313061200aeec31d1aa457d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

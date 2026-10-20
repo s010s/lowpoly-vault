@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "kind": "explicit-delivery-metadata-correction",
+  "asset_id": "mesa",
+  "geometry_revision": "r002",
+  "metadata_revision": "scale-note-v002",
+  "created_at": "2026-10-20T08:54:15.854605+00:00",
+  "baseline_commit": "faa9090270732d1c770a807607fe5e34db8908eb",
+  "qa_report": {
+    "path": "qa/batch61-independent-20261020/independent-qa.md",
+    "sha256": "a26dca5e653385b28169f02f229de29f9246ba76dcdbd04414c72bcb7c19468e"
+  },
+  "original_frozen_brief": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/brief.json",
+    "sha256": "bfa454dc1f79702ff23ed7a58359673bd40cd9ce725bc390897042069e5d167e"
+  },
+  "original_modeling_freeze": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/modeling-freeze.json",
+    "sha256": "3df2bf85518ad6511b8d0861f41e6bf73f3b2a8704f17415e2eddbccc4e9ab9f"
+  },
+  "original_delivery_brief": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/candidate-brief.json",
+    "sha256": "4bf4e45bce74a19ba20ef2d8f658d08358c702ad0bb449055732434489f346cf"
+  },
+  "original_candidate": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/candidate.json",
+    "sha256": "95e78e305ee143611877cf993594b3f6d3553055418f98f8f60bdd8e1163027d"
+  },
+  "changed_json_pointer": "/scale_note",
+  "original_value": "Illustrative nominal envelope; actual measured bounds reported separately. Animal body nominal17mm excludes antenna; pose appendages extend bounds.",
+  "corrected_value": "Illustrative broad flat-capped geological-form teaching-asset envelope only. Declared nominal Blender XYZ envelope is 600 x 450 x 180 metres; actual mesh bounds are reported separately. Not a measured specimen or named-site dimension.",
+  "corrected_delivery_brief": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/candidate-brief-scale-v002.json",
+    "sha256": "63de5d1f262ba10b471dba0587139685a141ca2105c5efdf77c8eee5a69798cd"
+  },
+  "reason": "Independent QA identified an animal-specific copy error in the geological scale note. Original wrong statement and all original hashes remain preserved; old hash chain does not attest corrected text.",
+  "actual_geological_teaching_purpose": "Generic geological-form teaching asset: broad flat resistant cap with steep stepped upper sides, angular embayments/buttresses and lower talus slope. Not a narrow butte, measured named site or habitat/period reconstruction.",
+  "declared_nominal_blender_xyz_envelope_m": [
+    600,
+    450,
+    180
+  ],
+  "actual_measured_blender_xyz_bounds_m": {
+    "min": [
+      -340.3105773925781,
+      -227.515869140625,
+      0.0
+    ],
+    "max": [
+      340.3105773925781,
+      227.515869140625,
+      180.0
+    ],
+    "size": [
+      680.6211547851562,
+      455.03173828125,
+      180.0
+    ]
+  },
+  "actual_measured_gltf_xyz_bounds_m": {
+    "min": [
+      -340.3105773925781,
+      0.0,
+      -227.51587677001953
+    ],
+    "max": [
+      340.3105773925781,
+      180.0,
+      227.51587677001953
+    ],
+    "size": [
+      680.6211547851562,
+      180.0,
+      455.03175354003906
+    ]
+  },
+  "dimension_distinction": "Nominal envelopes are art-planning targets, not mesh bounds or measured fossil/site dimensions. Actual measured mesh bounds may differ. Blender is Z-up; glTF is Y-up.",
+  "unchanged_artifacts": {
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/model.glb",
+      "sha256": "399e9fb78b225cd808563598485888ea343b568e8bc2cac8b427939fc94f1cad"
+    },
+    "source": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/source.blend",
+      "sha256": "716288207373eb8d1b4ff123bc9bebda485d1b015d3e85f09b5c5b94f053f57d"
+    },
+    "generator": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/generator.py",
+      "sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f"
+    },
+    "config": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/build-config.json",
+      "sha256": "f3b3fde69b10ad042f18c52091675ddc28ba3f83eabfc91247149aa728d69b65"
+    },
+    "references": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/references.json",
+      "sha256": "ad88334969361d198442598087096ab275a8c2e3aa672c85233dbb8c85e37df4"
+    },
+    "original_render_manifest": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/proof-final/render-manifest.json",
+      "sha256": "b09d56aee4371cbf37321d8a2fb209fdba93c244bfeb153dba715ab31d838418"
+    }
+  },
+  "dependency_impact": "Text-only specification correction. No geometry/material/texture/scale/pose/generator/config/reference/render/pixel/rebuild changes; no new ImageGen, rebuild, rerender or runtime test. Existing render/rebuild evidence remains bound to unchanged model bytes and original brief; new carry-forward manifest transparently maps those pixels to corrected delivery text. Independent differential specification review remains pending."
+}

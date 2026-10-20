@@ -106,5 +106,60 @@ export const ACCEPTED_BOUNDED_BATCHES = [
     ],
     "source_commit": "54ca033757bce0d282358e60473e81b8ca4778e1",
     "independent_review_commit": "1cdfab1b0351c61854b5480c8eac012440232fa1"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch58-20261020.json",
+      "sha256": "c268788d6bb96de9142f2ba898bd5c9ff81bff62f14f98e2fb0d66989ed481e8"
+    },
+    "asset_ids": [
+      "barchan-dune",
+      "calamophyton",
+      "current-ripple-surface",
+      "perspicaris"
+    ],
+    "source_commit": "9bb7eb242a2c7ee35868ca57789c93c06c4bcbb8",
+    "independent_review_commit": "48f08fa3e2d6bb9a06526efd7142c4fc35184d86"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch59-20261020.json",
+      "sha256": "4ceae1f591c3502f93c83ad54763644e796aaacf01d85d67cd766e5b70c058f1"
+    },
+    "asset_ids": [
+      "glacial-erratic",
+      "gypsum-cave-flower",
+      "stalactite-group"
+    ],
+    "source_commit": "330bc4aa669a1647c632a32622ce4318fd8d1b59",
+    "independent_review_commit": "289cca9359cdd3595f7015f894a00675a004c422"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch60-20261020.json",
+      "sha256": "6a55075bd4244f5a721c05b6c919cdbaebc8461673b7bfbbdb04cc573cb31943"
+    },
+    "asset_ids": [
+      "aragonite-frostwork",
+      "collinsium",
+      "glacial-cirque",
+      "yardang"
+    ],
+    "source_commit": "9bc5b6317eb6e7073f6fe5cd1bce6b4ca11fe086",
+    "independent_review_commit": "9db725b901acc02370a53797d62fe9618e314d40"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch61-20261020.json",
+      "sha256": "e1bc3ba6b11fb2ece22cdf5f069761105c09ac3dc153465434dd94848a547dd3"
+    },
+    "asset_ids": [
+      "daemonelix-helical-burrow",
+      "drumlin",
+      "mesa",
+      "pseudopulex"
+    ],
+    "source_commit": "e2ed7b0b13a850f2663a6701fa28edc6ffef6951",
+    "independent_review_commit": "6d7ca887cd8b3212b345474d9ebe176fa0840e8e"
   }
 ];

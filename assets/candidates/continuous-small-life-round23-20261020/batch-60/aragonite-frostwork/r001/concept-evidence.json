@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "aragonite-frostwork",
+  "revision": "r001",
+  "labels": {
+    "en": "aragonite-frostwork"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "444de67aa8c9a403ff576bfbb92518210534a0f0e4165149ef3d58d801dc0381"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "f1f28d650f47f4711886974aa43221a2191e1961b019e49f25d03e5fa9207e15"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "429860b811c49791f14a9082a8274786bf37cbc789fa5dbeade473b36b61837c"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "757a8e58c47f4162726b6a1d0c45f22b275d40524fdc401d905a677d9da19410"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "d28f625343313419c553417149e0039590b3a4c53eb8d3bfdf45b239a3be4f69"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "393bfd00914b0c3dee7cac872da73c261023b7b3a2c9a90ede3d2e12e634f739"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "3b8c6d88876bf7e68bf86878b6dcd55ff26b1c7bd7d9a1bcfb251e23f6fdc951"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "9d40028d8cd5e40cea8288bc9f1df5dc5aa4e1b8890a7db73e5dcece4c9c33ca"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-row original concept pixels inspected before freeze; only corresponding labeled row applies to each asset. Collinsium repeated limb/spine counts follow primary paper, not inconsistent AI drawing; yardang geometry must show erosion; cirque front opened and optional tarn omitted; frostwork rods sharpened to acicular needles. Complete decisions in frozen brief.",
+    "hidden_surface_decisions": "Concept D aesthetic clusters retained but its thick blunt-ended square rods rejected: actual straight needles become slender closed5-sided tapering prisms with sharp endpoints, branching secondaries narrower still. Five nodular source locations irregularly positioned on a compact limestone host. Around16primary needles per bundle plus finer sprigs along some stems, not broad crystals or flowers. Opaque rough ivory/cool cream PBR for portability, no transparency/refraction fidelity claim. All needles volumetric with positive radii and capped ends; component intersections at growth origins intentional, no floating stems. Host receives2quiet warmgray materials, needles2ivory materials."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T08:08:10Z",
+    "modeling_started_at": "2026-10-20T08:11:39.824974+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 16.8889,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "096c0cde743563bf2d691b64054aa1c9eb6f1918de719d3ec902cd9e6f7ee4d0"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "096c0cde743563bf2d691b64054aa1c9eb6f1918de719d3ec902cd9e6f7ee4d0"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "73b3dad7221f3119d46eb0e567403bf16b35a25898e19fc80a116b6b0ee6183f",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "c9f0e3e09ae7aa2bd77d5d7600618f124b2b995b7a960455154e67e21f3dda21"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "444de67aa8c9a403ff576bfbb92518210534a0f0e4165149ef3d58d801dc0381",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "b43e0fe8291e8603df9673ee07a5b64757b334f937ad6cf27202753cbaaa39d9"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

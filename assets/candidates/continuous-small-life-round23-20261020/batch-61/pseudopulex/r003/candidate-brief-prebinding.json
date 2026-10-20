@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "asset_id": "pseudopulex",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Evidence-informed stylized whole-organism Pseudopulex with P. jurassicus morphological emphasis only, not a modern flea or an exact fossil replica. All six legs, antennae, serrated stylets, palps, tapering bristled abdomen and tibial combs included. No specific host, blood meal or resolved order assignment asserted.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "IV-PSEUDOPULEX"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "IV-PSEUDOPULEX"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Whole organism retained, not dorsal shell or fossil slab only",
+      "required_sources": [
+        "IV-PSEUDOPULEX"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Small trapezoid head, short wingless thorax, much larger elongate tapering abdomen without lateral compression",
+      "required_sources": [
+        "IV-PSEUDOPULEX"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Exactly six long articulated legs rooted on thorax, no enlarged jumping hindlimbs",
+      "required_sources": [
+        "IV-PSEUDOPULEX"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "Short stout beaded antennae, long serrated piercing stylet, reduced eyes, no ocelli",
+      "required_sources": [
+        "IV-PSEUDOPULEX"
+      ]
+    },
+    {
+      "id": "feature-5",
+      "stage": "factual",
+      "critical": true,
+      "description": "Tibial pseudocombs, posterior setae, five simplified tarsal subdivisions and paired scythe-like claws",
+      "required_sources": [
+        "IV-PSEUDOPULEX"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed8 exact512px views, zero turntable. All seven stages retain distinct verdicts; no GPU/scene waiver or maker approval.",
+  "required_deliverables": [
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/generator.py",
+      "sha256": "dbea2e8a1f20cb6aee504e3fafc0172163d7d3d92d17150e47faaf65cf2d60c9"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/build-config.json",
+      "sha256": "d6251ca73a13d7395f7ed2d7cafb5f012d76c8e0f60132d65d50e10af20a3555"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.016,
+    0.021,
+    0.0048
+  ],
+  "scale_note": "Illustrative nominal envelope; actual measured bounds reported separately. Animal body nominal17mm excludes antenna; pose appendages extend bounds.",
+  "concept_interpretation": "Concept inspected: broad dominant abdomen and six similar long legs adopted; concept top omits stylet and shows inconsistent leg insertion, hero exaggerates segmentation and patchy stripes. Reject those contradictions. Freeze all six leg roots on compact thorax, long paired toothed stylet projecting anterior/ventral to head, modest consistent abdomen bands, 16 compact antennal beads per side as a simplified visible flagellum interpretation. Body head-to-abdomen length nominal17mm, thorax about one fifth abdomen; abdomen broad dorsoventrally flattened volume, not modern flea lateral compression. Sparse enlarged posterior bristles and tibial combs simplify dense setae. Five tarsal subdivisions and paired hooks authored per leg. Paired lateral reduced eyes, no ocelli or wing surfaces. Palp counts echo preserved three/four segments without asserting uncertain total counts. Stance, dorsoventral depth and colors artistic, bilateral hidden surfaces inferred. No species blending.",
+  "feature_obligations": [
+    "Whole organism retained, not dorsal shell or fossil slab only",
+    "Small trapezoid head, short wingless thorax, much larger elongate tapering abdomen without lateral compression",
+    "Exactly six long articulated legs rooted on thorax, no enlarged jumping hindlimbs",
+    "Short stout beaded antennae, long serrated piercing stylet, reduced eyes, no ocelli",
+    "Tibial pseudocombs, posterior setae, five simplified tarsal subdivisions and paired scythe-like claws"
+  ],
+  "claim_scope": "Evidence-informed stylized whole-organism Pseudopulex with P. jurassicus morphological emphasis only, not a modern flea or an exact fossil replica. All six legs, antennae, serrated stylets, palps, tapering bristled abdomen and tibial combs included. No specific host, blood meal or resolved order assignment asserted.",
+  "origin": "Floor contact footprint center at Blenderz0; X lateral, -Y front, Zup; glTFYup +Zfront",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T08:24:33.831348+00:00",
+    "frozen_design_brief_sha256": "d2e9b15177c49a7d3fce158be39652ee9ce17b5ba450eec9ab918bf1bd84d055",
+    "note": "Source binding added after saved-source creation; design/claims remain original. r003 repairs palp continuity only."
+  }
+}

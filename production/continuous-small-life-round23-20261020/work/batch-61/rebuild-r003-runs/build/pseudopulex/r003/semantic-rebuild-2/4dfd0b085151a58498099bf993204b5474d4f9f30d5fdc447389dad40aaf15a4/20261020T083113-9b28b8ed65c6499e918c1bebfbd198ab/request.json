@@ -1,0 +1,86 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/generator.py",
+    "--",
+    "--config",
+    "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/build-config.json",
+    "--output",
+    "/tmp/lowpoly-batch61-20261020/production/continuous-small-life-round23-20261020/work/batch-61/rebuild-r003-runs/build/pseudopulex/r003/semantic-rebuild-2/4dfd0b085151a58498099bf993204b5474d4f9f30d5fdc447389dad40aaf15a4/20261020T083113-9b28b8ed65c6499e918c1bebfbd198ab/outputs"
+  ],
+  "created_at": "2026-10-20T08:31:13.176455+00:00",
+  "fingerprint": "4dfd0b085151a58498099bf993204b5474d4f9f30d5fdc447389dad40aaf15a4",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/tmp/lowpoly-batch61-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 2191,
+        "path": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/build-config.json",
+        "sha256": "d6251ca73a13d7395f7ed2d7cafb5f012d76c8e0f60132d65d50e10af20a3555"
+      },
+      "generator": {
+        "bytes": 14596,
+        "path": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/generator.py",
+        "sha256": "dbea2e8a1f20cb6aee504e3fafc0172163d7d3d92d17150e47faaf65cf2d60c9"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/tmp/lowpoly-batch61-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "pseudopulex",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch61-20261020/scripts/qa_glb.py",
+        "config": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/build-config.json",
+        "generator": "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/pseudopulex/r003/generator.py",
+        "helper": "/tmp/lowpoly-batch61-20261020/scripts/asset_common.py"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180.0
+  },
+  "run_id": "20261020T083109-05e0fd21d14c49399349e8cc74a2c9cf"
+}
