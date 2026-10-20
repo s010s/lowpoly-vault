@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "meandering-river-reach",
+  "revision": "r001",
+  "labels": {
+    "en": "meandering-river-reach"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "a1eb45790b033e06f7bfaf7084d361e0701de426413fb1d74d69307f041b2af4"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "e3a52596b14119c16d2d4f510ebe330addf42963813f8fbf98900cd6eb010c12"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "246593327448208e7723ff0ef1bc06db41c5151d880a67d9b4faf3886bb705a3"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "0630010191a5da2573295bef6e7893993b2ee6128efcaff17d32c97425faf289"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ff04da2c57dba8bf8995dcee670ceea495fc965dd4fba395359898237035ca88"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "9dc340c6e546eb64118d5f39bc455ac1b3cd0fe29f8866a05ff00791822401f8"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "8e6d559a8838c934bf721ae6af1b309031e642c370bf532a5e7238782d5bc349"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "c97ea60ffd273f402f760e01fa4190073fa5edfc0ef8cbf1810a0ba1e5768e6c"
+      }
+    ],
+    "cross_view_consistency_note": "Concept visible inset single channel and alternating inside bars/outside cliffs retained. Generated output is one oblique view rather than requested compatible multiview; hidden surfaces resolved explicitly here: complete solid underside, side soil walls, continuous water surface with finite bed volume, channel runs -Y to+Y through three broad alternating bends. At positive-X bend apex inside bar on-X bank and outside cutbank on+X bank; reverse at negative-X bend. No sand on outside bend, no islands/lakes/trees. Opaque water, no transparency artifacts.",
+    "hidden_surface_decisions": "Concept visible inset single channel and alternating inside bars/outside cliffs retained. Generated output is one oblique view rather than requested compatible multiview; hidden surfaces resolved explicitly here: complete solid underside, side soil walls, continuous water surface with finite bed volume, channel runs -Y to+Y through three broad alternating bends. At positive-X bend apex inside bar on-X bank and outside cutbank on+X bank; reverse at negative-X bend. No sand on outside bend, no islands/lakes/trees. Opaque water, no transparency artifacts."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:35:44.102829+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.0901,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "f339143ffbdf1d0eb7560dd568b67000f0e1bfee3544b010525ad9a25f9f04c6"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "f339143ffbdf1d0eb7560dd568b67000f0e1bfee3544b010525ad9a25f9f04c6"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "971ed9dab03e6c4ceced207424a6d43e0abb201bab42bc9f777f76fde00f90e6",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "df2127bc908563f48337596f9352e847db6491ae23db0add58f0640afd7f391d"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a1eb45790b033e06f7bfaf7084d361e0701de426413fb1d74d69307f041b2af4",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "7a61046f7f55ebf712387b8dca37afb5b39af337768a89eb341182886c806b90"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
