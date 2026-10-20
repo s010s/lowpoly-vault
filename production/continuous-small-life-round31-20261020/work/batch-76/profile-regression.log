@@ -1,0 +1,42 @@
+E......................................................F.......................................................................................................................
+======================================================================
+ERROR: test_asset_common (unittest.loader._FailedTest.test_asset_common)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_asset_common
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/shared/lowpoly-batch76-20261020/scripts/test_asset_common.py", line 13, in <module>
+    import bpy
+ModuleNotFoundError: No module named 'bpy'
+
+
+======================================================================
+FAIL: test_real_asset_is_valid_but_unknown_is_not_approved (test_pipeline_pilot.RealAssetPilot.test_real_asset_is_valid_but_unknown_is_not_approved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch76-20261020/scripts/test_pipeline_pilot.py", line 16, in test_real_asset_is_valid_but_unknown_is_not_approved
+    self.assertEqual(p.returncode, 0, p.stdout+p.stderr)
+AssertionError: 1 != 0 : {
+  "valid": false,
+  "approved_for_brief": false,
+  "errors": [
+    "candidate: missing file qa/pipeline-pilot/legacy-natural-arch/candidate.json"
+  ],
+  "approval_blockers": [],
+  "required_stages": [],
+  "measurements": {},
+  "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+  "validation_profile": "legacy-v1",
+  "rule_version": "2026-10-18.1",
+  "profile_contract_status": "not_checked"
+}
+
+
+----------------------------------------------------------------------
+Ran 175 tests in 20.680s
+
+FAILED (failures=1, errors=1)

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "solifluction-lobe",
+  "revision": "r002",
+  "labels": {
+    "en": "solifluction-lobe"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "fbf2042fa30e37f041fc61cc11279e3213279718a25eed58606c3fdc7d5e8517"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "728e54f6801cb7f2fdb626e2f45e20b3386d527ec518bd540e0e3dcb98f997f4"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "8ddff04683fa82122a948e4fa0f8df2cd8bf84c54b8f400c83af6de0e2425a62"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "70cf0f1f45420cbefb7497fef47fcc4bb271868fca5723bcf8f459709443fd85"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "177ad40acaf59459d9473b5b296184473a88abc278ad941b7df064bd7ea0065a"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "60a396b271a2147b0f742bd5071eaa7e2952b7515e04a0cecf9f09f3ab4df19c"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "74b29081fcd8f5023e54961920e683f74bcef52f1aa248f49e7e6c37ca37b59b"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e1ec29004d559679c2e8993fe31220648093883428dce43631a7d2b14db99937"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "202d3f5744b20175af49a99d24881d737b98c8f5689a7e7ccdc33c7a4043fc9b"
+      }
+    ],
+    "cross_view_consistency_note": "Concept central tongue useful but toe too tall/cliffy and repeated sharp terraces overstate shallow process. Build one dominant broad rounded tongue continuously merged into gently sloping soil mantle, maximum toe relief0.65m above neighbouring slope, secondary partial lobe subtle and offset. No separate turf slab, texture, scattered overlapping rocks or regular staircase; palette boundary subordinate to actual geometry.",
+    "hidden_surface_decisions": "Concept central tongue useful but toe too tall/cliffy and repeated sharp terraces overstate shallow process. Build one dominant broad rounded tongue continuously merged into gently sloping soil mantle, maximum toe relief0.65m above neighbouring slope, secondary partial lobe subtle and offset. No separate turf slab, texture, scattered overlapping rocks or regular staircase; palette boundary subordinate to actual geometry."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:44:14.785245+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.1027,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "3da621d88e563fc4c073fad662b017d4ea720699e045dba0966246a163411936"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "3da621d88e563fc4c073fad662b017d4ea720699e045dba0966246a163411936"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "6f5484203b63f5eea52700ad413ce2e350bf24705503c0fdc01bceb2206ee24e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "69efc3d3f97098315c58be14895178b4e3047d23a521af683729e637978090d3"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "fbf2042fa30e37f041fc61cc11279e3213279718a25eed58606c3fdc7d5e8517",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "065613055c2fd55330dd3f34c8b999f9e1dbc78e86d2de84565e04bb13fc9bbb"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

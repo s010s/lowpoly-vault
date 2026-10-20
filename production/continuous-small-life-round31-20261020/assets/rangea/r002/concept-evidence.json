@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "rangea",
+  "revision": "r002",
+  "labels": {
+    "en": "rangea"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "8696683f7d0de6444c287bff2f7ee6beffc0769ba60662fe8afeeae246573cd7"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "2c73e7955fc3a4a6a9a57ce19b55844830e75421a917244faf9a50e4b10a2f5e"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "248dfb9d99e632efda581fd02daaa56e7439aa3974b91068747837172fe31b3d"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "8dcaf46cdfe6505eaf3fc63a6bbd19f34c4626fcb86f6b2aaf7d9d9ec992ea4a"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "61e272ee618fd39d374691647998dbf9ebf399df3ad3b2633df2431d35c934b8"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "361f19126e7a7f96b51dce7e31b746e7e788eeff09ef72e0cf020993198da5bd"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "d874c1053bda97c22ce77006ca293ba30ad8993ebc37a411d2707c4218400f59"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "c9add54d9497e139a645a3f93d333c4b610542ee19a1dd3bc7d6b8f30a91ea75"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "857ed9535a908ed7e7593fc0b7310d51fe9276c59c24011540ab3e5d3a4cb8d4"
+      }
+    ],
+    "cross_view_consistency_note": "Concept six-rayed end view is useful but whole spindle looks like a seed pod and too smoothly closed. Build six thin radial bilaminar vanes with open longitudinal recesses between, broad oblique primary ribs nested secondary relief physically integrated in vane faces, not a solid capsule or modern feather/tentacles. Modest uneven edge and fossil brown artistic palette. Lie long axis horizontally as display orientation only, no rooted living posture.",
+    "hidden_surface_decisions": "Concept six-rayed end view is useful but whole spindle looks like a seed pod and too smoothly closed. Build six thin radial bilaminar vanes with open longitudinal recesses between, broad oblique primary ribs nested secondary relief physically integrated in vane faces, not a solid capsule or modern feather/tentacles. Modest uneven edge and fossil brown artistic palette. Lie long axis horizontally as display orientation only, no rooted living posture."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:44:14.756897+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.3793,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "0cf04bd1584327d02596dd0d356a0835b5528f72ee9e0ab2da7d6cdc5433049f"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "0cf04bd1584327d02596dd0d356a0835b5528f72ee9e0ab2da7d6cdc5433049f"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "d2404adfdc163662454c3f46d7cd2729e22640021c647ff4cca571bfed38df84",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "12a25c523214dc3a22253a5af3cad8bcede2cec0cba91563e4e78c28aa387cb1"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "8696683f7d0de6444c287bff2f7ee6beffc0769ba60662fe8afeeae246573cd7",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "992ec075fcfe8024f3aaa4eedb156c804f44bc1d307c6baf2a962b7010d27229"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

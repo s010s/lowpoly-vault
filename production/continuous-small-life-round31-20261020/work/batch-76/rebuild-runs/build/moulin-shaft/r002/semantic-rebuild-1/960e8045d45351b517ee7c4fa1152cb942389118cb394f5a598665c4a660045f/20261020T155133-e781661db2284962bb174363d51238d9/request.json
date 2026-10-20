@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/work/batch-76/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/work/batch-76/rebuild-runs/build/moulin-shaft/r002/semantic-rebuild-1/960e8045d45351b517ee7c4fa1152cb942389118cb394f5a598665c4a660045f/20261020T155133-e781661db2284962bb174363d51238d9/outputs"
+  ],
+  "created_at": "2026-10-20T15:51:33.120717+00:00",
+  "fingerprint": "960e8045d45351b517ee7c4fa1152cb942389118cb394f5a598665c4a660045f",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/work/batch-76/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5328,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/brief.json",
+        "sha256": "48509f2373b570c16be1144c95ef17bcad73cc571e574d34662536fd793824c8"
+      },
+      "config": {
+        "bytes": 1075,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/build-config.json",
+        "sha256": "b40196b059f53de898bd05a527b08532477831c0e0af7b57edfe1d8bdaa207d3"
+      },
+      "generator": {
+        "bytes": 9662,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/generator.py",
+        "sha256": "2310f02fbeda3210f6388f66f2d6baff59ea28fb977be2cf88de168f26865f1f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2164,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/references.json",
+        "sha256": "8b1c93d72f62a1d1c2aaf6a60448cebc5117f4887f74850413c892a499509fcb"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "moulin-shaft",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch76-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch76-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T155118-875b71ca18a04654b77c1b07cc80a175"
+}

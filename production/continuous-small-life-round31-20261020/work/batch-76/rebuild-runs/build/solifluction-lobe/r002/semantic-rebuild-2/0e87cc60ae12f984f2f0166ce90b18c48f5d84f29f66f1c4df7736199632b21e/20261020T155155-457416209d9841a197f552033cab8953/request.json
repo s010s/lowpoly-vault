@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/work/batch-76/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/work/batch-76/rebuild-runs/build/solifluction-lobe/r002/semantic-rebuild-2/0e87cc60ae12f984f2f0166ce90b18c48f5d84f29f66f1c4df7736199632b21e/20261020T155155-457416209d9841a197f552033cab8953/outputs"
+  ],
+  "created_at": "2026-10-20T15:51:55.132922+00:00",
+  "fingerprint": "0e87cc60ae12f984f2f0166ce90b18c48f5d84f29f66f1c4df7736199632b21e",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/work/batch-76/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5223,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/brief.json",
+        "sha256": "2135c638adefdd826c9abcb27f0acd9306917f04ab0ddbc5b2320a837136b4bd"
+      },
+      "config": {
+        "bytes": 966,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/build-config.json",
+        "sha256": "60a396b271a2147b0f742bd5071eaa7e2952b7515e04a0cecf9f09f3ab4df19c"
+      },
+      "generator": {
+        "bytes": 9633,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/generator.py",
+        "sha256": "177ad40acaf59459d9473b5b296184473a88abc278ad941b7df064bd7ea0065a"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2188,
+        "path": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/references.json",
+        "sha256": "8ddff04683fa82122a948e4fa0f8df2cd8bf84c54b8f400c83af6de0e2425a62"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "solifluction-lobe",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch76-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch76-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T155118-875b71ca18a04654b77c1b07cc80a175"
+}

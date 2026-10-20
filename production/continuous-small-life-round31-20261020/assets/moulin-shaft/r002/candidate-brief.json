@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "moulin-shaft",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed low-poly supporting educational prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required features: Real near-vertical deep opening with visible inner ice wall; Asymmetric rim with surface meltwater inlet channel; Visible nominal upper shaft section only; No black painted disk, closed bowl, invented bedrock/tunnel network. Scope: Generic original moulin upper-shaft-section form, not Ryder Glacier replica or a complete underground hydrological reconstruction. Nominal scale and shallow water state artistic, no measured depth or bedrock claim.",
+      "required_sources": [
+        "PRIMARY-moulin-shaft"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required features: Real near-vertical deep opening with visible inner ice wall; Asymmetric rim with surface meltwater inlet channel; Visible nominal upper shaft section only; No black painted disk, closed bowl, invented bedrock/tunnel network. Scope: Generic original moulin upper-shaft-section form, not Ryder Glacier replica or a complete underground hydrological reconstruction. Nominal scale and shallow water state artistic, no measured depth or bedrock claim.",
+      "required_sources": [
+        "PRIMARY-moulin-shaft"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views;7 distinct stages.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/source.blend",
+      "sha256": "5dd397401fa6e778fa7d16edc31319167df5573c1a6d85f425e0ece09a26723e"
+    },
+    {
+      "role": "generator",
+      "path": "production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/generator.py",
+      "sha256": "2310f02fbeda3210f6388f66f2d6baff59ea28fb977be2cf88de168f26865f1f"
+    },
+    {
+      "role": "config",
+      "path": "production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/build-config.json",
+      "sha256": "b40196b059f53de898bd05a527b08532477831c0e0af7b57edfe1d8bdaa207d3"
+    }
+  ],
+  "claim_scope": "Generic original moulin upper-shaft-section form, not Ryder Glacier replica or a complete underground hydrological reconstruction. Nominal scale and shallow water state artistic, no measured depth or bedrock claim.",
+  "nominal_dimensions_blender_xyz_m": [
+    20,
+    20,
+    12
+  ],
+  "dimension_status": "Nominal illustrative scale, not measured reference locality/specimen; export measured separately",
+  "recognition_features": [
+    "Real near-vertical deep opening with visible inner ice wall",
+    "Asymmetric rim with surface meltwater inlet channel",
+    "Visible nominal upper shaft section only",
+    "No black painted disk, closed bowl, invented bedrock/tunnel network"
+  ],
+  "concept_decisions": "Concept upper shaft and inlet useful, but hero becomes a wide open front canyon and round top hole inconsistent between views. Build single coherent polygonal annulus with real steep inner wall and genuinely open lower section, no arbitrary complete bedrock tunnel. Surface channel reaches rim; water only narrow geometric ribbon following channel then inner wall, separated without coplanar overlap. Outside supporting ice block physical, no transparency.",
+  "style": "Palette-only faceted real3D low-poly",
+  "intended_use": "Landscape supporting geological terrain prop at256-512px; no engineering/museum-grade replica claim",
+  "created_at": "2026-10-20T15:44:14.780901+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:50:33.105389+00:00",
+    "frozen_design_brief_sha256": "48509f2373b570c16be1144c95ef17bcad73cc571e574d34662536fd793824c8",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

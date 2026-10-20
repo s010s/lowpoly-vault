@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "solifluction-lobe",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed low-poly supporting educational prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required features: Shallow rounded soil tongue projecting downslope from mantle; Broad convex downhill toe and connected upslope neck; Modest step relief legible in side/clay geometry; Uneven natural lobe outline, not regular stairs/rotational slide. Scope: Generic original solifluction-lobe geological process/form concept informed by modern analogues. No period, named site, exact dimensions, temperature or active movement asserted.",
+      "required_sources": [
+        "PRIMARY-solifluction-lobe"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required features: Shallow rounded soil tongue projecting downslope from mantle; Broad convex downhill toe and connected upslope neck; Modest step relief legible in side/clay geometry; Uneven natural lobe outline, not regular stairs/rotational slide. Scope: Generic original solifluction-lobe geological process/form concept informed by modern analogues. No period, named site, exact dimensions, temperature or active movement asserted.",
+      "required_sources": [
+        "PRIMARY-solifluction-lobe"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views;7 distinct stages.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/source.blend",
+      "sha256": "70cf0f1f45420cbefb7497fef47fcc4bb271868fca5723bcf8f459709443fd85"
+    },
+    {
+      "role": "generator",
+      "path": "production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/generator.py",
+      "sha256": "177ad40acaf59459d9473b5b296184473a88abc278ad941b7df064bd7ea0065a"
+    },
+    {
+      "role": "config",
+      "path": "production/continuous-small-life-round31-20261020/assets/solifluction-lobe/r002/build-config.json",
+      "sha256": "60a396b271a2147b0f742bd5071eaa7e2952b7515e04a0cecf9f09f3ab4df19c"
+    }
+  ],
+  "claim_scope": "Generic original solifluction-lobe geological process/form concept informed by modern analogues. No period, named site, exact dimensions, temperature or active movement asserted.",
+  "nominal_dimensions_blender_xyz_m": [
+    18,
+    24,
+    5
+  ],
+  "dimension_status": "Nominal illustrative scale, not measured reference locality/specimen; export measured separately",
+  "recognition_features": [
+    "Shallow rounded soil tongue projecting downslope from mantle",
+    "Broad convex downhill toe and connected upslope neck",
+    "Modest step relief legible in side/clay geometry",
+    "Uneven natural lobe outline, not regular stairs/rotational slide"
+  ],
+  "concept_decisions": "Concept central tongue useful but toe too tall/cliffy and repeated sharp terraces overstate shallow process. Build one dominant broad rounded tongue continuously merged into gently sloping soil mantle, maximum toe relief0.65m above neighbouring slope, secondary partial lobe subtle and offset. No separate turf slab, texture, scattered overlapping rocks or regular staircase; palette boundary subordinate to actual geometry.",
+  "style": "Palette-only faceted real3D low-poly",
+  "intended_use": "Landscape supporting geological terrain prop at256-512px; no engineering/museum-grade replica claim",
+  "created_at": "2026-10-20T15:44:14.787632+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:51:02.251459+00:00",
+    "frozen_design_brief_sha256": "2135c638adefdd826c9abcb27f0acd9306917f04ab0ddbc5b2320a837136b4bd",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
