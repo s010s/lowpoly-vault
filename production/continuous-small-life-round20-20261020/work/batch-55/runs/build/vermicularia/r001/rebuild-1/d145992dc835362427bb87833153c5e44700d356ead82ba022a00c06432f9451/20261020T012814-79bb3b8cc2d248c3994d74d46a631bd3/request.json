@@ -1,0 +1,108 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/build-config.json",
+    "--out",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/runs/build/vermicularia/r001/rebuild-1/d145992dc835362427bb87833153c5e44700d356ead82ba022a00c06432f9451/20261020T012814-79bb3b8cc2d248c3994d74d46a631bd3/outputs"
+  ],
+  "created_at": "2026-10-20T01:28:14.154010+00:00",
+  "fingerprint": "d145992dc835362427bb87833153c5e44700d356ead82ba022a00c06432f9451",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4299,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/brief.json",
+        "sha256": "772239b047fa49aec3129b38853c244e39c6ebd05c43c2e02749a9677e2d9455"
+      },
+      "config": {
+        "bytes": 763,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/build-config.json",
+        "sha256": "32b0cc39c4f82b7b489f013963b0b02f61b45039e3fdcaa0bf7b3823b13eb8fc"
+      },
+      "freeze": {
+        "bytes": 1070,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/modeling-freeze.json",
+        "sha256": "ba2439c97d0a3690197a0afbaa6afbfd4d08d181eba47ba02d5d3071c7872a9c"
+      },
+      "generator": {
+        "bytes": 8360,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/generator.py",
+        "sha256": "7cee4c6e6aced0bd8db3cd271797a4b8b50b94ec0ff3d4f499d6cf0bc4333daa"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1265,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/references.json",
+        "sha256": "85c3ffaf8b67e46ba15a0e8b845d913b473be6f14a3af617af246788ed6514b5"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "asset_id": "vermicularia",
+      "config": {
+        "iteration": "rebuild-1"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/build-config.json",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/modeling-freeze.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/references.json"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "vermicularia/vermicularia.glb",
+        "vermicularia/vermicularia.blend",
+        "vermicularia/metadata.json",
+        "vermicularia/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261020T012755-fc9993e22e9a406d891ee5a71ec26622"
+}

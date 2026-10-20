@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-53/measure-source.py", line 4, in <module>
+    s,o=map(Path,sys.argv[sys.argv.index('--')+1:]);bpy.ops.wm.open_mainfile(filepath=str(s.resolve()),load_ui=False,use_scripts=False);deps=bpy.context.evaluated_depsgraph_get();parts=[]
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/share/blender/scripts/modules/bpy/ops.py", line 109, in __call__
+    ret = _op_call(self.idname_py(), kw)
+RuntimeError: Error: Cannot read file "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/halopoa-furrowed-burrow.blend": No such file or directory
+
+
+Error: script failed, file: 'production/continuous-small-life-round18-20261020/work/batch-53/measure-source.py', exiting.
+Error: Cannot read file "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/halopoa-furrowed-burrow.blend": No such file or directory
+Blender 4.3.2
+
+Blender quit

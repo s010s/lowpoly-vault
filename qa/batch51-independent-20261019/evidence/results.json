@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "kind": "batch51-independent-qa-results",
+  "reviewed_at": "2026-10-19T23:24:47Z",
+  "branch": "qa/batch51-independent-20261019",
+  "candidate_handoff_commit": "6b5bc2793572361242544f7a19afd6bbd71243ab",
+  "artifact_source_commit": "ee4e37b3c1cc49ab5e41c807c6ca8e1a155bbc6b",
+  "official_profile": "static-stylized-v1 / 2026-10-18.1",
+  "overall": "Independent limited-stage QA is recorded below. It is not formal candidate approval.",
+  "batch_requirement_findings": {
+    "actual_scene_requirement": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts.",
+    "128_8_32_count_requirement_found": false,
+    "reason": "No 128/8/32 count appears in the batch task, QA scope or selected briefs. Each item has a hash-bound neutral 3x3 nine-copy single-asset benchmark; this is not a parent/museum scene.",
+    "hardware_gpu": "unverified; the available browser used ANGLE SwiftShader software WebGL."
+  },
+  "concept_provenance_finding": {
+    "order_evidence": "Sufficient for the recorded sequence ImageGen output captured -> matching source image viewed -> first modeling start.",
+    "exact_generation_time": "unknown for all four; kept null, not derived from capture time or file mtimes.",
+    "formal_completeness": "Blocked for all four: --require-complete exits 1 with only 'concept_generated_at: unknown; do not reconstruct times from file mtimes'."
+  },
+  "nonblocking_source_access_issue": {
+    "source_id": "EN-VO3B",
+    "source": "NPS Hawaiʻi Keonehelelei eruption-geology PDF",
+    "status": "unverified; inherited search result only; current retrieval returned proxy 403/internal error.",
+    "impact": "Does not block the generalized accretionary-lapilli claim because the accessible USGS source supports spherical volcanic-ash aggregates and accretion around nuclei."
+  },
+  "conichnus_independent_ray_probe": {
+    "status": "pass",
+    "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+    "blender_version": "4.3.2",
+    "method": "Independent downward raycasts against freshly imported exact GLB in temporary Blender scene.",
+    "hits": [
+      {
+        "x_m": 0.0,
+        "hit": true,
+        "hit_position_blender_xyz_m": [
+          0.0,
+          0.0,
+          0.027500033378601074
+        ],
+        "normal": [
+          -0.31314507126808167,
+          -0.046450819820165634,
+          0.9485686421394348
+        ]
+      },
+      {
+        "x_m": 0.01,
+        "hit": true,
+        "hit_position_blender_xyz_m": [
+          0.009999999776482582,
+          0.0,
+          0.046999990940093994
+        ],
+        "normal": [
+          -0.9476547241210938,
+          -0.046554747968912125,
+          0.31588491797447205
+        ]
+      },
+      {
+        "x_m": 0.02,
+        "hit": true,
+        "hit_position_blender_xyz_m": [
+          0.019999999552965164,
+          0.0,
+          0.07700000703334808
+        ],
+        "normal": [
+          -0.9476547241210938,
+          0.046555474400520325,
+          0.31588488817214966
+        ]
+      },
+      {
+        "x_m": 0.03,
+        "hit": true,
+        "hit_position_blender_xyz_m": [
+          0.029999999329447746,
+          0.0,
+          0.10790000855922699
+        ],
+        "normal": [
+          -0.9506701231002808,
+          -0.04670361801981926,
+          0.3066677749156952
+        ]
+      },
+      {
+        "x_m": 0.04,
+        "hit": true,
+        "hit_position_blender_xyz_m": [
+          0.03999999910593033,
+          0.0,
+          0.13500000536441803
+        ],
+        "normal": [
+          -0.9275122284889221,
+          -0.04556522145867348,
+          0.3710052967071533
+        ]
+      },
+      {
+        "x_m": 0.05,
+        "hit": true,
+        "hit_position_blender_xyz_m": [
+          0.05000000074505806,
+          0.0,
+          0.14000000059604645
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ],
+    "center_depth_below_outer_top_m": 0.11249996721744537,
+    "below_base_substrate_m": 0.027500033378601074,
+    "wall_rises_monotonically_toward_opening": true,
+    "negative_cavity_confirmed": true
+  },
+  "items": [
+    {
+      "asset_id": "dicranurus",
+      "revision": "r001",
+      "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+      "source_blend_sha256": "a38846c7822b375f763f5ec71a2483261553845d03ade6355e84335929a7b3ab",
+      "concept_image_sha256": "a8c8eaf0df9efe39148dc92ac980a5f2d64fd34c529cf4e94166be83f3055932",
+      "concept_prompt_sha256": "fc60cd3f52ac7d9ce946fd4d8be0e940874aac511fe19781f154315165999705",
+      "derived_freeze_sha256": "afaa7c065723f8a45af3d3b568409e7d03339c57057b0c1e5e82dd8108e9ca50",
+      "visual": {
+        "status": "pass",
+        "views_reviewed": [
+          "clay",
+          "front",
+          "hero",
+          "rear",
+          "reversehero",
+          "side",
+          "silhouette",
+          "top"
+        ],
+        "note": "Paired open backward-curving horn loops, compact segmented body and paired lateral spines read clearly in the exact candidate views; no model change requested."
+      },
+      "factual": {
+        "status": "pass",
+        "reference_summary": "AMNH Hall of Fame, PDF p.31",
+        "claim_scope": "Named-taxon-inspired teaching art using basic recognizable form, not strict scientific reconstruction; no exact species/measurement/locomotion/coexistence claim."
+      },
+      "specification": {
+        "status": "pass",
+        "note": "The measured longest span is 0.06083 m against a 0.065 m nominal choice (about 6.4% below); the frozen construction plan also specifies 0.065 m, and no stricter tolerance is stated.",
+        "nominal_scale_m": 0.065,
+        "nominal_scale_axis": "body and backward horns span",
+        "measured_axis_extent_m": 0.06083289533853531,
+        "all_export_dimensions_gltf_xyz_m": [
+          0.05221983790397644,
+          0.036393485963344574,
+          0.06083289533853531
+        ],
+        "frozen_plan_dimensions_m": [
+          0.065,
+          0.065,
+          0.035
+        ],
+        "frozen_plan_nominal_m": 0.065
+      },
+      "format_and_budget": {
+        "status": "pass",
+        "blender_version": "4.3.2",
+        "source_glb_triangle_bounds_comparison": "pass",
+        "source_glb_triangle_counts_match": true,
+        "source_glb_bounds_match_within_m": 0.0001,
+        "khronos_status": "pass",
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "triangles": 9016,
+        "materials": 3,
+        "primitives": 8,
+        "glb_bytes": 481424,
+        "images": 0,
+        "textures": 0,
+        "limits": {
+          "triangles": 14000,
+          "glb_bytes": 1000000,
+          "materials": 6,
+          "primitives": 30
+        }
+      },
+      "runtime_parse": {
+        "status": "pass",
+        "independently_replayed": true,
+        "runtime_replay_exit_code": 0,
+        "browser": "Chromium 154.0.8037.57",
+        "three": "180",
+        "parsed_glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+        "all_7_screenshot_pixels_identical_to_candidate": true,
+        "gl_errors": 0,
+        "browser_errors": []
+      },
+      "functional_software_webgl": {
+        "status": "pass",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "hardware_gpu_verified": false
+      },
+      "representative_single_asset_scene": {
+        "status": "pass",
+        "instances": 9,
+        "render_calls": 72,
+        "neutral_grid": "3 x 3 clones of this exact GLB",
+        "parent_or_museum_scene_verified": false
+      },
+      "concept_order_and_completeness": {
+        "call_and_capture_recorded": true,
+        "captured_at": "2026-10-19 22:45:37 UTC",
+        "inspected_at": "2026-10-19T22:47:36.117688+00:00",
+        "modeling_started_at": "2026-10-19T22:49:00.206412+00:00",
+        "capture_before_inspection_before_modeling": true,
+        "concept_generated_at": null,
+        "require_complete_exit_code": 1,
+        "require_complete_valid": true,
+        "require_complete": false,
+        "exact_blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+        ],
+        "order_evidence_assessment": "Stored ImageGen prompt/result/capture, matching original image hash, view record and later model-start receipt support call-result capture -> image view -> modeling. The provider did not disclose the exact generation instant."
+      },
+      "formal_candidate_approval": {
+        "status": "not approved",
+        "candidate_integrity_exit_code": 0,
+        "candidate_record_approval": "pending",
+        "require_approved_exit_code": 1,
+        "require_approved_valid": true,
+        "require_approved": false,
+        "current_open_blockers": [
+          "independent-qa-pending",
+          "imagegen-exact-generation-time-unavailable"
+        ]
+      }
+    },
+    {
+      "asset_id": "calcite-raft-deposit",
+      "revision": "r002",
+      "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+      "source_blend_sha256": "2a3226cbe8048b49554a40e87d0ac13a8bc7804be0f009d27824a979e42f4392",
+      "concept_image_sha256": "07140bd478b0f36c4e97281d70559f392010bbb6e9f50830da31e07e41368cfa",
+      "concept_prompt_sha256": "3785718352897fe890639ee618899b68a20be934e1fd9f4354529f3a0583dc68",
+      "derived_freeze_sha256": "1f482f73c81ef19f12a51989f23ee54eaf0314c2c02d67a897c3f84b26e41371",
+      "visual": {
+        "status": "pass",
+        "views_reviewed": [
+          "clay",
+          "front",
+          "hero",
+          "rear",
+          "reversehero",
+          "side",
+          "silhouette",
+          "top"
+        ],
+        "note": "Thin, broken polygonal sheets overlap across visible former-pool substrate; low side/front views confirm thin plate form; no model change requested."
+      },
+      "factual": {
+        "status": "pass",
+        "reference_summary": "NPS Wind Cave calcite-raft section",
+        "claim_scope": "Original stylized natural-process or trace-morphology teaching concept; not exact site, dated stratum or excavated specimen duplication."
+      },
+      "specification": {
+        "status": "fail",
+        "note": "Candidate brief scale is 0.42 m, while the frozen plan/prompt nominal is 0.32 m and exported floor span is 0.33594 m. This is an input-spec conflict, not a visual defect.",
+        "nominal_scale_m": 0.42,
+        "nominal_scale_axis": "former pool-floor deposit span",
+        "measured_axis_extent_m": 0.33593830466270447,
+        "all_export_dimensions_gltf_xyz_m": [
+          0.33593830466270447,
+          0.02606956660747528,
+          0.25428861379623413
+        ],
+        "frozen_plan_dimensions_m": [
+          0.32,
+          0.25,
+          0.035
+        ],
+        "frozen_plan_nominal_m": 0.32
+      },
+      "format_and_budget": {
+        "status": "pass",
+        "blender_version": "4.3.2",
+        "source_glb_triangle_bounds_comparison": "pass",
+        "source_glb_triangle_counts_match": true,
+        "source_glb_bounds_match_within_m": 0.0001,
+        "khronos_status": "pass",
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "triangles": 1400,
+        "materials": 4,
+        "primitives": 4,
+        "glb_bytes": 79228,
+        "images": 0,
+        "textures": 0,
+        "limits": {
+          "triangles": 14000,
+          "glb_bytes": 1000000,
+          "materials": 6,
+          "primitives": 30
+        }
+      },
+      "runtime_parse": {
+        "status": "pass",
+        "independently_replayed": true,
+        "runtime_replay_exit_code": 0,
+        "browser": "Chromium 154.0.8037.57",
+        "three": "180",
+        "parsed_glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+        "all_7_screenshot_pixels_identical_to_candidate": true,
+        "gl_errors": 0,
+        "browser_errors": []
+      },
+      "functional_software_webgl": {
+        "status": "pass",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "hardware_gpu_verified": false
+      },
+      "representative_single_asset_scene": {
+        "status": "pass",
+        "instances": 9,
+        "render_calls": 36,
+        "neutral_grid": "3 x 3 clones of this exact GLB",
+        "parent_or_museum_scene_verified": false
+      },
+      "concept_order_and_completeness": {
+        "call_and_capture_recorded": true,
+        "captured_at": "2026-10-19 22:45:37 UTC",
+        "inspected_at": "2026-10-19T22:47:36.151312+00:00",
+        "modeling_started_at": "2026-10-19T22:52:23.252612+00:00",
+        "capture_before_inspection_before_modeling": true,
+        "concept_generated_at": null,
+        "require_complete_exit_code": 1,
+        "require_complete_valid": true,
+        "require_complete": false,
+        "exact_blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+        ],
+        "order_evidence_assessment": "Stored ImageGen prompt/result/capture, matching original image hash, view record and later model-start receipt support call-result capture -> image view -> modeling. The provider did not disclose the exact generation instant."
+      },
+      "formal_candidate_approval": {
+        "status": "not approved",
+        "candidate_integrity_exit_code": 0,
+        "candidate_record_approval": "pending",
+        "require_approved_exit_code": 1,
+        "require_approved_valid": true,
+        "require_approved": false,
+        "current_open_blockers": [
+          "independent-qa-pending",
+          "imagegen-exact-generation-time-unavailable"
+        ]
+      }
+    },
+    {
+      "asset_id": "accretionary-lapilli-bed",
+      "revision": "r002",
+      "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+      "source_blend_sha256": "83b58908c86c908b28330bfbf5e8ff034020e186812a41a4f9682e151d387125",
+      "concept_image_sha256": "0a71d024dd5550445c94a54204b3cdcce3e8ef8d9ce2d541ff7c4c325b2ad5e7",
+      "concept_prompt_sha256": "bf17fc74b41b04dfe0a51670f4efed0bcbf1543418039e7d5b614de4fa3cc801",
+      "derived_freeze_sha256": "b8ecd73e403b75d335057d5eb9379452b2b60d3039b65834cda2bc8c129e8c35",
+      "visual": {
+        "status": "pass",
+        "views_reviewed": [
+          "clay",
+          "front",
+          "hero",
+          "rear",
+          "reversehero",
+          "side",
+          "silhouette",
+          "top"
+        ],
+        "note": "Continuous layered ash block, sparse embedded rounded pellets and three exposed concentric sections read as the specified teaching block; no model change requested."
+      },
+      "factual": {
+        "status": "pass",
+        "reference_summary": "USGS Bohor & Triplehorn (1984); NPS Hawaiʻi PDF separately unavailable",
+        "claim_scope": "Original stylized natural-process or trace-morphology teaching concept; not exact site, dated stratum or excavated specimen duplication."
+      },
+      "specification": {
+        "status": "fail",
+        "note": "Candidate brief scale is 0.60 m, while the concept prompt and frozen plan nominal are 0.28 m and exported width is 0.28450 m. This is an input-spec conflict, not a visual defect.",
+        "nominal_scale_m": 0.6,
+        "nominal_scale_axis": "layered ash teaching section width",
+        "measured_axis_extent_m": 0.28449925780296326,
+        "all_export_dimensions_gltf_xyz_m": [
+          0.28449925780296326,
+          0.11559999734163284,
+          0.20509090274572372
+        ],
+        "frozen_plan_dimensions_m": [
+          0.28,
+          0.2,
+          0.11
+        ],
+        "frozen_plan_nominal_m": 0.28
+      },
+      "format_and_budget": {
+        "status": "pass",
+        "blender_version": "4.3.2",
+        "source_glb_triangle_bounds_comparison": "pass",
+        "source_glb_triangle_counts_match": true,
+        "source_glb_bounds_match_within_m": 0.0001,
+        "khronos_status": "pass",
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "triangles": 5496,
+        "materials": 5,
+        "primitives": 7,
+        "glb_bytes": 291392,
+        "images": 0,
+        "textures": 0,
+        "limits": {
+          "triangles": 14000,
+          "glb_bytes": 1000000,
+          "materials": 6,
+          "primitives": 30
+        }
+      },
+      "runtime_parse": {
+        "status": "pass",
+        "independently_replayed": true,
+        "runtime_replay_exit_code": 0,
+        "browser": "Chromium 154.0.8037.57",
+        "three": "180",
+        "parsed_glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+        "all_7_screenshot_pixels_identical_to_candidate": true,
+        "gl_errors": 0,
+        "browser_errors": []
+      },
+      "functional_software_webgl": {
+        "status": "pass",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "hardware_gpu_verified": false
+      },
+      "representative_single_asset_scene": {
+        "status": "pass",
+        "instances": 9,
+        "render_calls": 63,
+        "neutral_grid": "3 x 3 clones of this exact GLB",
+        "parent_or_museum_scene_verified": false
+      },
+      "concept_order_and_completeness": {
+        "call_and_capture_recorded": true,
+        "captured_at": "2026-10-19 22:45:37 UTC",
+        "inspected_at": "2026-10-19T22:47:36.179879+00:00",
+        "modeling_started_at": "2026-10-19T22:55:56.869785+00:00",
+        "capture_before_inspection_before_modeling": true,
+        "concept_generated_at": null,
+        "require_complete_exit_code": 1,
+        "require_complete_valid": true,
+        "require_complete": false,
+        "exact_blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+        ],
+        "order_evidence_assessment": "Stored ImageGen prompt/result/capture, matching original image hash, view record and later model-start receipt support call-result capture -> image view -> modeling. The provider did not disclose the exact generation instant."
+      },
+      "formal_candidate_approval": {
+        "status": "not approved",
+        "candidate_integrity_exit_code": 0,
+        "candidate_record_approval": "pending",
+        "require_approved_exit_code": 1,
+        "require_approved_valid": true,
+        "require_approved": false,
+        "current_open_blockers": [
+          "independent-qa-pending",
+          "imagegen-exact-generation-time-unavailable"
+        ]
+      }
+    },
+    {
+      "asset_id": "conichnus-conical-burrow",
+      "revision": "r001",
+      "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+      "source_blend_sha256": "4bb156af41158e9c2c899e0b55efdb0cb0e005ddf83cb7af46841e876388d121",
+      "concept_image_sha256": "7c2cb8dd3ba7578ffe702e2818b2cc33abb6ec6a297b31c08895dd9654a80585",
+      "concept_prompt_sha256": "042d1697a08baa8659c3a5b0eda1f8b45f55d2b44050d17a0bb097abbfacf2c9",
+      "derived_freeze_sha256": "b6024b20d35e58c3296f8e8f1d1cdb559aefcd531d50efad6cf7c2e51c71a9a0",
+      "visual": {
+        "status": "pass",
+        "views_reviewed": [
+          "clay",
+          "front",
+          "hero",
+          "rear",
+          "reversehero",
+          "side",
+          "silhouette",
+          "top"
+        ],
+        "note": "The top opening is a true negative cavity in a volumetric block; neutral gray top/oblique/half-section and independent rays confirm a deep wall that narrows toward a small rounded bottom. No slab outline, positive cone or footprint; no model change requested."
+      },
+      "factual": {
+        "status": "pass",
+        "reference_summary": "Kansas Geological Survey, Conichnus section",
+        "claim_scope": "Original Conichnus-inspired negative conical cavity penetrating thick sediment, converging to a small rounded basal termination. No almond resting trace, named tracemaker, behavior, location or specimen-copy claim."
+      },
+      "specification": {
+        "status": "pass",
+        "note": "Exported span 0.24000 m matches the 0.24 m nominal scale and frozen plan.",
+        "nominal_scale_m": 0.24,
+        "nominal_scale_axis": "interpretive sediment section span",
+        "measured_axis_extent_m": 0.23999999463558197,
+        "all_export_dimensions_gltf_xyz_m": [
+          0.23999999463558197,
+          0.14069995284080505,
+          0.20000000298023224
+        ],
+        "frozen_plan_dimensions_m": [
+          0.24,
+          0.2,
+          0.14
+        ],
+        "frozen_plan_nominal_m": 0.24
+      },
+      "format_and_budget": {
+        "status": "pass",
+        "blender_version": "4.3.2",
+        "source_glb_triangle_bounds_comparison": "pass",
+        "source_glb_triangle_counts_match": true,
+        "source_glb_bounds_match_within_m": 0.0001,
+        "khronos_status": "pass",
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "triangles": 1790,
+        "materials": 3,
+        "primitives": 3,
+        "glb_bytes": 86088,
+        "images": 0,
+        "textures": 0,
+        "limits": {
+          "triangles": 14000,
+          "glb_bytes": 1000000,
+          "materials": 6,
+          "primitives": 30
+        }
+      },
+      "runtime_parse": {
+        "status": "pass",
+        "independently_replayed": true,
+        "runtime_replay_exit_code": 0,
+        "browser": "Chromium 154.0.8037.57",
+        "three": "180",
+        "parsed_glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+        "all_7_screenshot_pixels_identical_to_candidate": true,
+        "gl_errors": 0,
+        "browser_errors": []
+      },
+      "functional_software_webgl": {
+        "status": "pass",
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "hardware_gpu_verified": false
+      },
+      "representative_single_asset_scene": {
+        "status": "pass",
+        "instances": 9,
+        "render_calls": 27,
+        "neutral_grid": "3 x 3 clones of this exact GLB",
+        "parent_or_museum_scene_verified": false
+      },
+      "concept_order_and_completeness": {
+        "call_and_capture_recorded": true,
+        "captured_at": "2026-10-19 22:45:37 UTC",
+        "inspected_at": "2026-10-19T22:47:36.216421+00:00",
+        "modeling_started_at": "2026-10-19T22:58:32.413691+00:00",
+        "capture_before_inspection_before_modeling": true,
+        "concept_generated_at": null,
+        "require_complete_exit_code": 1,
+        "require_complete_valid": true,
+        "require_complete": false,
+        "exact_blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+        ],
+        "order_evidence_assessment": "Stored ImageGen prompt/result/capture, matching original image hash, view record and later model-start receipt support call-result capture -> image view -> modeling. The provider did not disclose the exact generation instant."
+      },
+      "formal_candidate_approval": {
+        "status": "not approved",
+        "candidate_integrity_exit_code": 0,
+        "candidate_record_approval": "pending",
+        "require_approved_exit_code": 1,
+        "require_approved_valid": true,
+        "require_approved": false,
+        "current_open_blockers": [
+          "independent-qa-pending",
+          "imagegen-exact-generation-time-unavailable"
+        ]
+      }
+    }
+  ],
+  "formal_gate_current_state": {
+    "all_four_require_approved": "exit 1; approved_for_brief=false",
+    "all_four_require_complete": "exit 1; evidence_complete=false",
+    "candidate_review_records": "Remain pending/unknown on the pinned candidate branch. This independent report does not mutate them.",
+    "hard_missing_evidence": [
+      "Exact ImageGen provider generation time is unavailable. Current completeness checker and open candidate blocker require it.",
+      "Candidate-side independent visual/factual/specification/GPU/scene stage verdict records remain unknown and approval pending; this separate QA report does not promote the candidate record.",
+      "Calcite and lapilli candidate briefs disagree with their selected construction-plan/prompt nominal size and need a versioned specification decision before formal approval.",
+      "Hardware GPU and actual parent/museum scene remain unverified."
+    ]
+  }
+}

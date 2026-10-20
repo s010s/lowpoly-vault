@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "weichselia",
+  "revision": "r001",
+  "labels": {
+    "en": "weichselia"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "weichselia.glb",
+      "sha256": "4ece730443de73b6c2dca2fe2bc7a50517628e344b5e6edd37486901c997676a"
+    },
+    "source": {
+      "path": "weichselia.blend",
+      "sha256": "a196ad872025a7d25f998798bde442c6654d06ed55564f9bc76f95f9e1e905fd"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "7cee4c6e6aced0bd8db3cd271797a4b8b50b94ec0ff3d4f499d6cf0bc4333daa"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ba83b050bbfa90d02b5843d9ee15ab1070a58813bb55d2f15a253ba99f69dab3"
+    },
+    "brief": {
+      "path": "brief.json",
+      "sha256": "b48f62878a56e0cc5869d44f660316875b85f7e9b1fb8285b57442ed9cbfe05c"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5df07b75b5aec7d47d24a0f72cdfe60b9638e44ef44cd4476cf99f79d982bfac"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "7995634e6ad51ce26545af2a7bd7592947e24fb859ee48885e54f54a55c4f563"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "4e3edff9e108d848579125ff424d474ff0e8a435ea7536f5d53bcb4b4a9414a4"
+    },
+    "images": [
+      {
+        "id": "four-row-original",
+        "view": "multi-view sheet; some top labels are oblique",
+        "path": "concept-original.png",
+        "sha256": "3924d0a7857f59fc5e95a158e486b6a4b67a903311c1bf265038430ce1404d5d"
+      }
+    ],
+    "cross_view_consistency_note": "Actual pixels inspected after tool receipt. All rows are concept art, not specimen evidence. Vermicularia shows a loose curved tube with a thick aperture but bead-like apex; replace apex with a continuous regular initial helix. Back aperture is visually capped in the concept: author one real open adult aperture with an inner lumen ending in the narrowing juvenile shell, not two adult openings. Weichselia shows short brown cortex and raised bosses; cut face simplified, concentric color ring means cortex/core only, not growth rings or multiple stems. Ventifact has three dominant abrasion planes and restrained broken base. Pentichnus has a deep tapering hollow and front cut; retain five planar cavity walls and illustrative section. Third column is oblique overhead for most rows, not canonical top. Hidden surfaces are authored as continuous full volumes; no exact specimen dimensions inferred.\n",
+    "hidden_surface_decisions": "Real full volume: rear and underside authored continuously; simplified internal shell, cortex/core and five-sided sectional cavity are explicit design interpretations, not measured reconstructions."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T01:26:03.607097+00:00",
+    "modeling_started_at": null,
+    "first_blender_geometry_started_at": "2026-10-20T01:28:06.780772+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Timing unrecorded; real queue request/results and render wall time retained separately."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Timing unrecorded; real queue request/results and render wall time retained separately."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Timing unrecorded; real queue request/results and render wall time retained separately."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Timing unrecorded; real queue request/results and render wall time retained separately."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Timing unrecorded; real queue request/results and render wall time retained separately."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Browser not run; Node GLTFLoader parsing is a distinct check."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof/render-manifest.json",
+    "sha256": "254b6235e8bafe09aae002dcff2675054e4306dda58b77c2d93a3b5855cdb53c"
+  },
+  "thumbnail": {
+    "path": "proof/hero.png",
+    "sha256": "53e400515c7587929db892a49ef37076bf430a673b3b431c113c194cfa513e6e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "eff1a98791dc99e66630f01a8783783d8d52ba283701e31e3d25885fab27480e"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "4ece730443de73b6c2dca2fe2bc7a50517628e344b5e6edd37486901c997676a",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "4d8ca80ac6cc38d7bb3d9ab8ffadaac6933248f591e7542d6735b98572ed51ac"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Example for a small supporting prop. Replace for the actual deployment role."
+  }
+}

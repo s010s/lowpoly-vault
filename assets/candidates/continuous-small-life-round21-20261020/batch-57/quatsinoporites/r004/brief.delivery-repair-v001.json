@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "asset_id": "quatsinoporites",
+  "brief_version": "r004",
+  "profile": "production",
+  "purpose": "One irregular abraded fossil fragment with an exposed layer of round-to-elliptical pores and broken specimen boundaries. Make the pore openings and layer depth structural rather than painted dots. No invented complete bracket cap, shelf outline, whole fruiting body or exact family placement. Keep the original Quatsinoporites cranhamii specimen-only scope and uncertainty.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "FL-quatsinoporites"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "FL-quatsinoporites"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight fixed views; zero-turntable explicit dispatch.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r004/quatsinoporites.blend",
+      "sha256": "558150cd76ec6e9ac581a42268d7e88d719676e26056f614a814a59b3a320e9e"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r004/generator.py",
+      "sha256": "aa7ac52a10064f7fea93efad779cebc00aa2431658e591c4023f85e8aa066cd2"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r004/build-config.json",
+      "sha256": "92d52fb7fcccba06b90bfa4f184d99de65df37f83b2ed42bc087fe6d807a3718"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.125,
+    0.089,
+    0.027
+  ],
+  "scale_note": "Illustrative nominal display envelope, not measured fossil/site dimensions. Actual XYZ reported separately after export. Nidula is an enlarged teaching prop; no original tissue color claim.",
+  "concept_interpretation": "Row 1 has irregular margins and genuine depth cavities; side thickness and top pore count conflict. Use original broken boundary and 40-ish varied blind openings, no full cap. Pore relief deliberately enlarged; not microscopic tissue replication.",
+  "delivery_freeze_note": "Post-build declaration for targeted repair. Original frozen brief.json remains byte-identical; design/features/budgets unchanged."
+}

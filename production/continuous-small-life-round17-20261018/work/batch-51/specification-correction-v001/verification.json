@@ -1,0 +1,1451 @@
+{
+  "status": "pass",
+  "scope": "Mechanical additive specification consistency and original-byte preservation only",
+  "protected_original_file_count": 772,
+  "items": [
+    {
+      "asset_id": "calcite-raft-deposit",
+      "nominal_consistency": "pass",
+      "corrected_nominal_design_m": 0.32,
+      "exact_measured_dimensions_glb_xyz_m": [
+        0.33593830466270447,
+        0.02606956660747528,
+        0.25428861379623413
+      ],
+      "corrected_brief_sha256": "6c7f519dfc5357bf489969f2d4e1a031559d7b92ac5b313baa71c0b72a45f303",
+      "unchanged_registered_candidate_brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+      "independent_specification_acceptance": "pending"
+    },
+    {
+      "asset_id": "accretionary-lapilli-bed",
+      "nominal_consistency": "pass",
+      "corrected_nominal_design_m": 0.28,
+      "exact_measured_dimensions_glb_xyz_m": [
+        0.28449925780296326,
+        0.11559999734163284,
+        0.20509090274572372
+      ],
+      "corrected_brief_sha256": "2afd0c8533c79dd19fae2e28f189ffb800dd14f517dcc5a8eacc707ea9a794df",
+      "unchanged_registered_candidate_brief_sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+      "independent_specification_acceptance": "pending"
+    }
+  ],
+  "gate_replays": [
+    {
+      "asset_id": "dicranurus",
+      "candidate_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/profile-contract.json",
+          "--json"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 9016,
+            "materials": 3,
+            "primitives": 8,
+            "glb_bytes": 481424,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "19722cb4a71c765f5c5228baf961a019a9d7914cf6943de255049e8d82a1e67c"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "dicranurus",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+            "brief_sha256": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0",
+            "references_sha256": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69"
+          },
+          "artifact_sha256": {
+            "glb": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+            "source": "a38846c7822b375f763f5ec71a2483261553845d03ade6355e84335929a7b3ab",
+            "generator": "d844d9c6ad4870d31e49821f387b6f266e5559b00669287734c3ad8d4c3811bc",
+            "config": "fa5c836f1e391a0269c1504a77e25acc80daada4f76a2e16b4553828caccf4a8",
+            "references": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69",
+            "brief": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/profile-contract.json",
+            "sha256": "c15133fe0d9331375ab5c6d2b21c45d018aed7c4f55fd248ba7ba0baf884e41d"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "IV-AMNH-HALL.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "dicranurus",
+            "revision": "r001",
+            "subject": {
+              "revision": "r001",
+              "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+              "brief_sha256": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0",
+              "references_sha256": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69"
+            },
+            "artifact_sha256": {
+              "glb": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+              "source": "a38846c7822b375f763f5ec71a2483261553845d03ade6355e84335929a7b3ab",
+              "generator": "d844d9c6ad4870d31e49821f387b6f266e5559b00669287734c3ad8d4c3811bc",
+              "config": "fa5c836f1e391a0269c1504a77e25acc80daada4f76a2e16b4553828caccf4a8",
+              "references": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69",
+              "brief": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "candidate_require_approved": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/profile-contract.json",
+          "--json",
+          "--require-approved"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 9016,
+            "materials": 3,
+            "primitives": 8,
+            "glb_bytes": 481424,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "19722cb4a71c765f5c5228baf961a019a9d7914cf6943de255049e8d82a1e67c"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "dicranurus",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+            "brief_sha256": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0",
+            "references_sha256": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69"
+          },
+          "artifact_sha256": {
+            "glb": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+            "source": "a38846c7822b375f763f5ec71a2483261553845d03ade6355e84335929a7b3ab",
+            "generator": "d844d9c6ad4870d31e49821f387b6f266e5559b00669287734c3ad8d4c3811bc",
+            "config": "fa5c836f1e391a0269c1504a77e25acc80daada4f76a2e16b4553828caccf4a8",
+            "references": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69",
+            "brief": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001/profile-contract.json",
+            "sha256": "c15133fe0d9331375ab5c6d2b21c45d018aed7c4f55fd248ba7ba0baf884e41d"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "IV-AMNH-HALL.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "dicranurus",
+            "revision": "r001",
+            "subject": {
+              "revision": "r001",
+              "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+              "brief_sha256": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0",
+              "references_sha256": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69"
+            },
+            "artifact_sha256": {
+              "glb": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+              "source": "a38846c7822b375f763f5ec71a2483261553845d03ade6355e84335929a7b3ab",
+              "generator": "d844d9c6ad4870d31e49821f387b6f266e5559b00669287734c3ad8d4c3811bc",
+              "config": "fa5c836f1e391a0269c1504a77e25acc80daada4f76a2e16b4553828caccf4a8",
+              "references": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69",
+              "brief": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "concept_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 481424,
+            "triangles": 9016,
+            "materials": 3,
+            "primitives": 8,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.02610991895198822,
+                0.0,
+                -0.03283289447426796
+              ],
+              "max": [
+                0.02610991895198822,
+                0.036393485963344574,
+                0.02800000086426735
+              ],
+              "size": [
+                0.05221983790397644,
+                0.036393485963344574,
+                0.06083289533853531
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "dicranurus",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+            "brief_sha256": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0",
+            "references_sha256": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      },
+      "concept_require_complete": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/dicranurus/r001",
+          "--require-complete"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 481424,
+            "triangles": 9016,
+            "materials": 3,
+            "primitives": 8,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.02610991895198822,
+                0.0,
+                -0.03283289447426796
+              ],
+              "max": [
+                0.02610991895198822,
+                0.036393485963344574,
+                0.02800000086426735
+              ],
+              "size": [
+                0.05221983790397644,
+                0.036393485963344574,
+                0.06083289533853531
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "dicranurus",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+            "brief_sha256": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0",
+            "references_sha256": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "calcite-raft-deposit",
+      "candidate_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/profile-contract.json",
+          "--json"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 1400,
+            "materials": 4,
+            "primitives": 4,
+            "glb_bytes": 79228,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "00a8dd2ae2846bd7c1e712e9d047290492dc421244bc5184f9c4a7dd04e86c38"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "calcite-raft-deposit",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+            "brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+            "references_sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+          },
+          "artifact_sha256": {
+            "glb": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+            "source": "2a3226cbe8048b49554a40e87d0ac13a8bc7804be0f009d27824a979e42f4392",
+            "generator": "4e194758dfa704516a56ca9ff615c7d4d752a0ed435937375ae60d766bb455e8",
+            "config": "754964fd808f8a29326bfb5e9f8aa0f68d536396dc464ca91236602fcca2e858",
+            "references": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19",
+            "brief": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/profile-contract.json",
+            "sha256": "e178fb85318c1b82901582062a6e58e9e4b0662cbd1e9fa53ce54cd136714f3a"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "EN-SP2.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "calcite-raft-deposit",
+            "revision": "r002",
+            "subject": {
+              "revision": "r002",
+              "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+              "brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+              "references_sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+            },
+            "artifact_sha256": {
+              "glb": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+              "source": "2a3226cbe8048b49554a40e87d0ac13a8bc7804be0f009d27824a979e42f4392",
+              "generator": "4e194758dfa704516a56ca9ff615c7d4d752a0ed435937375ae60d766bb455e8",
+              "config": "754964fd808f8a29326bfb5e9f8aa0f68d536396dc464ca91236602fcca2e858",
+              "references": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19",
+              "brief": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "candidate_require_approved": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/profile-contract.json",
+          "--json",
+          "--require-approved"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 1400,
+            "materials": 4,
+            "primitives": 4,
+            "glb_bytes": 79228,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "00a8dd2ae2846bd7c1e712e9d047290492dc421244bc5184f9c4a7dd04e86c38"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "calcite-raft-deposit",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+            "brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+            "references_sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+          },
+          "artifact_sha256": {
+            "glb": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+            "source": "2a3226cbe8048b49554a40e87d0ac13a8bc7804be0f009d27824a979e42f4392",
+            "generator": "4e194758dfa704516a56ca9ff615c7d4d752a0ed435937375ae60d766bb455e8",
+            "config": "754964fd808f8a29326bfb5e9f8aa0f68d536396dc464ca91236602fcca2e858",
+            "references": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19",
+            "brief": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002/profile-contract.json",
+            "sha256": "e178fb85318c1b82901582062a6e58e9e4b0662cbd1e9fa53ce54cd136714f3a"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "EN-SP2.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "calcite-raft-deposit",
+            "revision": "r002",
+            "subject": {
+              "revision": "r002",
+              "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+              "brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+              "references_sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+            },
+            "artifact_sha256": {
+              "glb": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+              "source": "2a3226cbe8048b49554a40e87d0ac13a8bc7804be0f009d27824a979e42f4392",
+              "generator": "4e194758dfa704516a56ca9ff615c7d4d752a0ed435937375ae60d766bb455e8",
+              "config": "754964fd808f8a29326bfb5e9f8aa0f68d536396dc464ca91236602fcca2e858",
+              "references": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19",
+              "brief": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "concept_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 79228,
+            "triangles": 1400,
+            "materials": 4,
+            "primitives": 4,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.16796915233135223,
+                0.0,
+                -0.12714430689811707
+              ],
+              "max": [
+                0.16796915233135223,
+                0.02606956660747528,
+                0.12714430689811707
+              ],
+              "size": [
+                0.33593830466270447,
+                0.02606956660747528,
+                0.25428861379623413
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "calcite-raft-deposit",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+            "brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+            "references_sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      },
+      "concept_require_complete": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/calcite-raft-deposit/r002",
+          "--require-complete"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 79228,
+            "triangles": 1400,
+            "materials": 4,
+            "primitives": 4,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.16796915233135223,
+                0.0,
+                -0.12714430689811707
+              ],
+              "max": [
+                0.16796915233135223,
+                0.02606956660747528,
+                0.12714430689811707
+              ],
+              "size": [
+                0.33593830466270447,
+                0.02606956660747528,
+                0.25428861379623413
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "calcite-raft-deposit",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+            "brief_sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d",
+            "references_sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "accretionary-lapilli-bed",
+      "candidate_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/profile-contract.json",
+          "--json"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 5496,
+            "materials": 5,
+            "primitives": 7,
+            "glb_bytes": 291392,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "fa80f6f5b1f1b2a1da0ad9c0dd22ee1af65c83bc795389227f93b135863dca51"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "accretionary-lapilli-bed",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+            "brief_sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+            "references_sha256": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465"
+          },
+          "artifact_sha256": {
+            "glb": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+            "source": "83b58908c86c908b28330bfbf5e8ff034020e186812a41a4f9682e151d387125",
+            "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+            "config": "03cfc2dfbc7960342a3426d0085f93c32dbb71af5c1cf7e7fd7219b63b39a611",
+            "references": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465",
+            "brief": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/profile-contract.json",
+            "sha256": "03b8c1cce94cd65f77c7c2815ec20a549ff8d0a2b6d33eb6e8537367818997be"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "EN-VO3B.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "accretionary-lapilli-bed",
+            "revision": "r002",
+            "subject": {
+              "revision": "r002",
+              "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+              "brief_sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+              "references_sha256": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465"
+            },
+            "artifact_sha256": {
+              "glb": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+              "source": "83b58908c86c908b28330bfbf5e8ff034020e186812a41a4f9682e151d387125",
+              "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+              "config": "03cfc2dfbc7960342a3426d0085f93c32dbb71af5c1cf7e7fd7219b63b39a611",
+              "references": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465",
+              "brief": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "candidate_require_approved": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/profile-contract.json",
+          "--json",
+          "--require-approved"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 5496,
+            "materials": 5,
+            "primitives": 7,
+            "glb_bytes": 291392,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "fa80f6f5b1f1b2a1da0ad9c0dd22ee1af65c83bc795389227f93b135863dca51"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "accretionary-lapilli-bed",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+            "brief_sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+            "references_sha256": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465"
+          },
+          "artifact_sha256": {
+            "glb": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+            "source": "83b58908c86c908b28330bfbf5e8ff034020e186812a41a4f9682e151d387125",
+            "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+            "config": "03cfc2dfbc7960342a3426d0085f93c32dbb71af5c1cf7e7fd7219b63b39a611",
+            "references": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465",
+            "brief": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002/profile-contract.json",
+            "sha256": "03b8c1cce94cd65f77c7c2815ec20a549ff8d0a2b6d33eb6e8537367818997be"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "EN-VO3B.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "accretionary-lapilli-bed",
+            "revision": "r002",
+            "subject": {
+              "revision": "r002",
+              "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+              "brief_sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+              "references_sha256": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465"
+            },
+            "artifact_sha256": {
+              "glb": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+              "source": "83b58908c86c908b28330bfbf5e8ff034020e186812a41a4f9682e151d387125",
+              "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+              "config": "03cfc2dfbc7960342a3426d0085f93c32dbb71af5c1cf7e7fd7219b63b39a611",
+              "references": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465",
+              "brief": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "concept_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 291392,
+            "triangles": 5496,
+            "materials": 5,
+            "primitives": 7,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.13995926082134247,
+                0.0,
+                -0.09997089952230453
+              ],
+              "max": [
+                0.1445399969816208,
+                0.11559999734163284,
+                0.10512000322341919
+              ],
+              "size": [
+                0.28449925780296326,
+                0.11559999734163284,
+                0.20509090274572372
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "accretionary-lapilli-bed",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+            "brief_sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+            "references_sha256": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      },
+      "concept_require_complete": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/accretionary-lapilli-bed/r002",
+          "--require-complete"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 291392,
+            "triangles": 5496,
+            "materials": 5,
+            "primitives": 7,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.13995926082134247,
+                0.0,
+                -0.09997089952230453
+              ],
+              "max": [
+                0.1445399969816208,
+                0.11559999734163284,
+                0.10512000322341919
+              ],
+              "size": [
+                0.28449925780296326,
+                0.11559999734163284,
+                0.20509090274572372
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "accretionary-lapilli-bed",
+          "revision": "r002",
+          "subject": {
+            "revision": "r002",
+            "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+            "brief_sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5",
+            "references_sha256": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      }
+    },
+    {
+      "asset_id": "conichnus-conical-burrow",
+      "candidate_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/profile-contract.json",
+          "--json"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 1790,
+            "materials": 3,
+            "primitives": 3,
+            "glb_bytes": 86088,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "e2a9bac4f8214cd2bdc824a3172c479739bda11ab8b7689e0ccddbee2f2def87"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "conichnus-conical-burrow",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+            "brief_sha256": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2",
+            "references_sha256": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160"
+          },
+          "artifact_sha256": {
+            "glb": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+            "source": "4bb156af41158e9c2c899e0b55efdb0cb0e005ddf83cb7af46841e876388d121",
+            "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+            "config": "ac67eb8c2ad7b7b406bd155250d071115084b5a693a2efb95c24bb1580a34ce1",
+            "references": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160",
+            "brief": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/profile-contract.json",
+            "sha256": "4b6a63856b7751e78b8f8ca3ae28758c2d3611164388887798a214b8d23368f1"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "EN-TR1.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "conichnus-conical-burrow",
+            "revision": "r001",
+            "subject": {
+              "revision": "r001",
+              "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+              "brief_sha256": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2",
+              "references_sha256": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160"
+            },
+            "artifact_sha256": {
+              "glb": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+              "source": "4bb156af41158e9c2c899e0b55efdb0cb0e005ddf83cb7af46841e876388d121",
+              "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+              "config": "ac67eb8c2ad7b7b406bd155250d071115084b5a693a2efb95c24bb1580a34ce1",
+              "references": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160",
+              "brief": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "candidate_require_approved": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_candidate.py",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/candidate.json",
+          "--root",
+          ".",
+          "--profile",
+          "static-stylized-v1",
+          "--profile-contract",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/profile-contract.json",
+          "--json",
+          "--require-approved"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "approved_for_brief": false,
+          "errors": [],
+          "approval_blockers": [
+            "visual: unknown",
+            "normal-view-craft: unknown",
+            "factual: unknown",
+            "basic-form-and-scope: unknown",
+            "specification: unknown",
+            "deliverables-and-label: unknown",
+            "gpu: unknown",
+            "functional-render: unknown",
+            "scene: unknown",
+            "representative-scene: unknown",
+            "open blocker: independent-qa-pending",
+            "open blocker: imagegen-exact-generation-time-unavailable",
+            "approval: pending"
+          ],
+          "required_stages": [
+            "factual",
+            "gpu",
+            "runtime_parse",
+            "scene",
+            "specification",
+            "technical",
+            "visual"
+          ],
+          "measurements": {
+            "triangles": 1790,
+            "materials": 3,
+            "primitives": 3,
+            "glb_bytes": 86088,
+            "texture_count": 0,
+            "texture_max_dimension": 0,
+            "texture_bytes": 0,
+            "decoded_texture_bytes_estimate": 0,
+            "semantic_sha256": "e2a9bac4f8214cd2bdc824a3172c479739bda11ab8b7689e0ccddbee2f2def87"
+          },
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "static-stylized-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "pass",
+          "asset_id": "conichnus-conical-burrow",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+            "brief_sha256": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2",
+            "references_sha256": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160"
+          },
+          "artifact_sha256": {
+            "glb": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+            "source": "4bb156af41158e9c2c899e0b55efdb0cb0e005ddf83cb7af46841e876388d121",
+            "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+            "config": "ac67eb8c2ad7b7b406bd155250d071115084b5a693a2efb95c24bb1580a34ce1",
+            "references": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160",
+            "brief": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2"
+          },
+          "approved_visual_image_sha256": [],
+          "profile_contract": {
+            "path": "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001/profile-contract.json",
+            "sha256": "4b6a63856b7751e78b8f8ca3ae28758c2d3611164388887798a214b8d23368f1"
+          },
+          "profile": "production",
+          "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+          "approval_status": "pending",
+          "legacy_result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "EN-TR1.license: nonempty text required"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "legacy-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "conichnus-conical-burrow",
+            "revision": "r001",
+            "subject": {
+              "revision": "r001",
+              "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+              "brief_sha256": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2",
+              "references_sha256": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160"
+            },
+            "artifact_sha256": {
+              "glb": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+              "source": "4bb156af41158e9c2c899e0b55efdb0cb0e005ddf83cb7af46841e876388d121",
+              "generator": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418",
+              "config": "ac67eb8c2ad7b7b406bd155250d071115084b5a693a2efb95c24bb1580a34ce1",
+              "references": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160",
+              "brief": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2"
+            },
+            "approved_visual_image_sha256": []
+          }
+        }
+      },
+      "concept_integrity": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001"
+        ],
+        "exit_code": 0,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 86088,
+            "triangles": 1790,
+            "materials": 3,
+            "primitives": 3,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.11999999731779099,
+                0.0,
+                -0.10000000149011612
+              ],
+              "max": [
+                0.11999999731779099,
+                0.14069995284080505,
+                0.10000000149011612
+              ],
+              "size": [
+                0.23999999463558197,
+                0.14069995284080505,
+                0.20000000298023224
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "conichnus-conical-burrow",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+            "brief_sha256": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2",
+            "references_sha256": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      },
+      "concept_require_complete": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "scripts/validate_concept_evidence.py",
+          "concept-evidence.json",
+          "--root",
+          "assets/candidates/continuous-small-life-round17-20261018/batch-51/conichnus-conical-burrow/r001",
+          "--require-complete"
+        ],
+        "exit_code": 1,
+        "result": {
+          "valid": true,
+          "evidence_complete": false,
+          "errors": [],
+          "blockers": [
+            "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+          ],
+          "advisories": [],
+          "measurements": {
+            "glb_bytes": 86088,
+            "triangles": 1790,
+            "materials": 3,
+            "primitives": 3,
+            "images": 0,
+            "textures": 0,
+            "bounds_gltf_y_up_m": {
+              "min": [
+                -0.11999999731779099,
+                0.0,
+                -0.10000000149011612
+              ],
+              "max": [
+                0.11999999731779099,
+                0.14069995284080505,
+                0.10000000149011612
+              ],
+              "size": [
+                0.23999999463558197,
+                0.14069995284080505,
+                0.20000000298023224
+              ]
+            }
+          },
+          "publication_authority": "separate",
+          "runtime_qa": "not_checked_by_this_tool",
+          "limitations": "Evidence integrity only: no visual, factual, browser/GPU, rebuild, candidate approval or publication decision. ImageGen provenance and timestamps remain auditable attestations; inspect source records and pixels.",
+          "asset_id": "conichnus-conical-burrow",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+            "brief_sha256": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2",
+            "references_sha256": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160"
+          },
+          "khronos_report": {
+            "validator_version": "2.0.0-dev.3.10",
+            "errors": 0,
+            "warnings": 0
+          }
+        }
+      }
+    }
+  ],
+  "independent_differential_review": "pending",
+  "formal_candidate_approval": false,
+  "concept_evidence_complete": false,
+  "historical_gate_outcomes_not_relabelled": true
+}

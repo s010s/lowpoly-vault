@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "coordinator-verified-maker-identity-correction",
+  "batch_id": "batch-55",
+  "recorded_at": "2026-10-20T02:08:09.517630+00:00",
+  "prior_candidate_head": "b2341debdb31f73e0719d4aadbe832321db6008a",
+  "model_source_commit": "1e43f9e2c79b6d2465d8eadf2169355cba3690c7",
+  "source": "Coordinator verified the original cloud task creation tool response; these are its returned threadId and turnId, not newly generated identities.",
+  "original_create_response_identity": {
+    "threadId": "01a156e7-da1f-74f2-8e73-50637c8ea004",
+    "turnId": "01a156e7-e4c5-70b8-9dd7-9cf381271201"
+  },
+  "task_id_semantics": "maker.task_id identifies the original cloud task by its stable threadId. The original creation turn is recorded separately as turn_id; no distinct task ID was returned.",
+  "maker_task_id": "01a156e7-da1f-74f2-8e73-50637c8ea004",
+  "maker_thread_id": "01a156e7-da1f-74f2-8e73-50637c8ea004",
+  "maker_turn_id": "01a156e7-e4c5-70b8-9dd7-9cf381271201",
+  "scope": "Identity-only correction. No production replay, new maker turn, artifact change, new QA decision or approval.",
+  "chronology_limits": "Unknown provider generation time/model/seed and exact generator-authoring start remain unchanged and unknown.",
+  "contract_basis": "schemas/README.md Freeze the inputs and scripts/validate_candidate.py --previous protect artifact and texture inputs within the same revision. All those inputs remain byte-identical."
+}

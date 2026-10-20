@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "asset_id": "phoenicopsis",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Original educational stylized detached foliage specimen inspired by Phoenicopsis. No whole tree, exact fossil scale or reproductive organs claimed.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "FL-ginkgo-museum"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "FL-ginkgo-museum"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 fixed eight canonical views; zero turntable per rule 2026-10-18.1.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/phoenicopsis.blend",
+      "sha256": "667f919e75ef8d1b0839bb9d494197646833d5160992d88b6364d6e72f02bcdd"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/generator.py",
+      "sha256": "852bc3d259272c82cb02d0f42b9a1864cece682222baa84fb1c43f7d27032940"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/build-config.json",
+      "sha256": "71a010d10d06a4738bbe180def9ebda96623fad18e707609c062369679f339b2"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.32,
+    0.12,
+    0.26
+  ],
+  "nominal_dimensions_glb_xyz_m": [
+    0.32,
+    0.26,
+    0.12
+  ],
+  "dimensions_note": "Artistic nominal bounding box, not specimen measurement. Actual measured XYZ reported separately.",
+  "axes": {
+    "blender_up": "+Z",
+    "blender_forward": "-Y",
+    "glb_up": "+Y",
+    "glb_forward": "+Z"
+  },
+  "origin": "ground center of twig bounding box",
+  "design": {
+    "short_shoots": 3,
+    "leaves_per_shoot": 5,
+    "leaf_style": "long narrow undivided straps with separate bases and true closed thickness",
+    "excluded": [
+      "forked leaves",
+      "complete tree",
+      "flowers",
+      "fruits",
+      "cones"
+    ]
+  },
+  "packaging_amendment": {
+    "at": "2026-10-20T00:13:15.730436+00:00",
+    "reason": "Replace empty template required_deliverables list with actual artifact hash pins after build. No design/geometry/dimensions/claim changes. Original pre-model brief and its modeling-freeze remain preserved.",
+    "original_brief": "production/continuous-small-life-round18-20261020/work/batch-52/phoenicopsis/brief-pre-model.json",
+    "original_sha256": "363d7254093144925e5af9dcf67859025e92a8536aaa7e5c7758eb59d1324cff"
+  }
+}

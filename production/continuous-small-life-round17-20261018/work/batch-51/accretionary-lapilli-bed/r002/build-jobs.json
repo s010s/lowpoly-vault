@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "accretionary-lapilli-bed",
+      "revision": "r002",
+      "job_id": "build-original",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/accretionary-lapilli-bed/r002/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/accretionary-lapilli-bed/r002/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/accretionary-lapilli-bed/r002/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round17-20261018/work/batch-51/accretionary-lapilli-bed/r002/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "accretionary-lapilli-bed.blend",
+        "accretionary-lapilli-bed.glb",
+        "metadata.json",
+        "qa.json"
+      ],
+      "config": {
+        "blender": "4.3.2",
+        "seed": 2026101817,
+        "purpose": "first actual concept-led build"
+      },
+      "timeout_seconds": 240
+    }
+  ]
+}

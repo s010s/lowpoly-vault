@@ -1,0 +1,135 @@
+{
+  "artifacts": {
+    "artifacts": [
+      {
+        "id": 12239989007,
+        "name": "pinned-publication-capture",
+        "size_in_bytes": 415874,
+        "url": "https://api.github.com/repos/s010s/lowpoly-vault/actions/artifacts/12239989007",
+        "archive_download_url": "https://api.github.com/repos/s010s/lowpoly-vault/actions/artifacts/12239989007/zip",
+        "expired": false,
+        "created_at": "2026-10-20T04:11:42Z",
+        "expires_at": "2027-01-18T04:10:39Z",
+        "updated_at": "2026-10-20T04:11:42Z",
+        "digest": "sha256:d8fdb18666b14898505242e90c723267314f84447c661703a4f1fa4d58babe6a",
+        "workflow_run": {
+          "id": 39368175380,
+          "repository_id": 1422307926,
+          "head_repository_id": 1422307926,
+          "head_branch": "capture/batches51-55-reviewed-20261020",
+          "head_sha": "acdfbc66541b007dddb5f5438a307d76c822b239"
+        }
+      }
+    ]
+  },
+  "jobs": {
+    "jobs": [
+      {
+        "id": 118449690500,
+        "name": "capture",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 39368175380,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run npm ci --ignore-scripts",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run npx vite build --outDir \"$GITHUB_WORKSPACE/qa/capture-inputs-site\"",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Stage only eight hash-pinned Batch51 and Batch55 candidates",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Run npx playwright install --with-deps chromium",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Run node site/render-web-previews.mjs",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Verify eight capture outputs",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "State capture scope",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 24
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 25
+          }
+        ]
+      }
+    ]
+  }
+}

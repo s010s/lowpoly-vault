@@ -1,0 +1,95 @@
+01:50:05 | INFO: Data are loaded, start creating Blender stuff
+01:50:05 | INFO: Blender create Mesh node Single stem cortex and integrated attachment bosses-mesh
+01:50:05 | INFO: glTF import finished in 0.01s
+{
+  "check": "blender_glb_reopen_import",
+  "status": "pass",
+  "errors": [],
+  "glb_sha256": "4ece730443de73b6c2dca2fe2bc7a50517628e344b5e6edd37486901c997676a",
+  "glb_path": "/tmp/lowpoly-batch55-qa-publish/assets/candidates/continuous-small-life-round20-20261020/batch-55/weichselia/r001/weichselia.glb",
+  "blender_version": "4.3.2",
+  "scene_mesh_objects": 1,
+  "triangles": 2492,
+  "materials": [
+    "Attachment centers",
+    "Attachment shoulders",
+    "Cut cortex",
+    "Fossil cortex",
+    "Plain cut core"
+  ],
+  "bounds_blender_z_up_m": {
+    "min": [
+      -0.08177201449871063,
+      -0.07765822112560272,
+      0.0
+    ],
+    "max": [
+      0.08177201449871063,
+      0.07765822112560272,
+      0.30000001192092896
+    ],
+    "size": [
+      0.16354402899742126,
+      0.15531644225120544,
+      0.30000001192092896
+    ]
+  },
+  "bounds_gltf_y_up_m": {
+    "min": [
+      -0.08177201449871063,
+      0.0,
+      -0.07765822112560272
+    ],
+    "max": [
+      0.08177201449871063,
+      0.30000001192092896,
+      0.07765822112560272
+    ],
+    "size": [
+      0.16354402899742126,
+      0.30000001192092896,
+      0.15531644225120544
+    ]
+  },
+  "comparison": {
+    "static_glb_triangles": 2492,
+    "static_glb_materials": 5,
+    "static_glb_bounds_m": {
+      "min": [
+        -0.08177201077342033,
+        0.0,
+        -0.07765822485089302
+      ],
+      "max": [
+        0.08177201077342033,
+        0.30000001192092896,
+        0.07765822485089302
+      ],
+      "size": [
+        0.16354402154684067,
+        0.30000001192092896,
+        0.15531644970178604
+      ]
+    },
+    "bounds_max_error_m": 3.725290298461914e-09,
+    "bounds_tolerance_m": 1e-06
+  },
+  "parts": [
+    {
+      "object": "Single stem cortex and integrated attachment bosses",
+      "vertices": 4800,
+      "triangles": 2492,
+      "materials": [
+        "Fossil cortex",
+        "Attachment shoulders",
+        "Attachment centers",
+        "Cut cortex",
+        "Plain cut core"
+      ]
+    }
+  ],
+  "limitations": "Verifies Blender GLTF importer can reopen the exact standalone GLB and matches the GLB static geometry/material/bounds audit. Does not export a replacement or establish visual/factual/GPU/target-scene acceptance."
+}
+Blender 4.3.2
+
+Blender quit

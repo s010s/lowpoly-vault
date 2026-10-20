@@ -1,0 +1,65 @@
+{
+  "status": "PASS_NARROW_LOG_OWNERSHIP_DELTA",
+  "head": "3dcb672dfcdb5f00975e3725e6964abc56df791b",
+  "prior_review_head": "604d9581fb782b9dda271d99ba7a62f110dc8d1e",
+  "pre_delta_integrated_head": "4e9af8a6709825375b52775764ccc040adf1bd05",
+  "executable_collector_hook_and_focused_test_unchanged": true,
+  "historical_source_candidate_scope_unchanged": true,
+  "exact_current_log_copies": 12,
+  "distinct_current_logs": 6,
+  "per_batch_alias_manifests": 2,
+  "archive_members": 1364,
+  "all_198_manifest_rows_unchanged": true,
+  "new_model_payloads_and_card_index_unchanged": true,
+  "historical_batch55_missing_logs": 20,
+  "scopes": [
+    {
+      "batch": 51,
+      "historical_members_unchanged": 790,
+      "new_current_release_members": 7,
+      "new_descriptor_sha256": "09df289bad2579bd8560f1d63c90f3a1a89e3cee481741f12dc58de3ffab6ca2"
+    },
+    {
+      "batch": 55,
+      "historical_members_unchanged": 560,
+      "new_current_release_members": 7,
+      "new_descriptor_sha256": "aa61f85ca7954edd52ccae5a35a803dd7e1441cf46a5b20784859e3673d71d52"
+    }
+  ],
+  "inspected_worker_policy_result": {
+    "status": "PASS",
+    "base": "060cadf9b19f5f329e0f3fefaccc2ce5399f3172",
+    "model_policy_digest": "0487946c1af6590d8035bb9c56960aa8129f1c4427e07d7e3d0e6fc833bb5eb3",
+    "archive_append_count": 1364,
+    "eligibility": {
+      "eligible": true,
+      "added_ids": [
+        "accretionary-lapilli-bed",
+        "calcite-raft-deposit",
+        "conichnus-conical-burrow",
+        "dicranurus",
+        "pentichnus-deep-dwelling-trace",
+        "ventifact",
+        "vermicularia",
+        "weichselia"
+      ],
+      "reasons": [
+        "Owned additions or known publication-only change; full publication gates remain mandatory"
+      ]
+    }
+  },
+  "full_publication_evidence": {
+    "kind": "preparation_worker_execution_inspected_not_rerun",
+    "command": "node site/initial-release.mjs --check",
+    "status": "PASS",
+    "checked_assets": 198,
+    "stdout_sha256": "17f494554184cf02d0abcb5d3dce33b0878457de9b147a1d296deef8ae60de9c",
+    "stderr_bytes": 0
+  },
+  "remaining_gates": [
+    "trusted CI baseline and exact release run",
+    "gallery detail/wheel",
+    "merge and deployment",
+    "live readback"
+  ]
+}

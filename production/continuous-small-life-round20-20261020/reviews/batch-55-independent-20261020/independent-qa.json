@@ -1,0 +1,762 @@
+{
+  "schema_version": 1,
+  "kind": "independent_qa_report",
+  "batch_id": "batch-55",
+  "candidate_branch": "candidate/small-life-batch55-concept-20261020",
+  "candidate_commit": "b2341debdb31f73e0719d4aadbe832321db6008a",
+  "model_source_commit": "1e43f9e2c79b6d2465d8eadf2169355cba3690c7",
+  "report_branch": "qa/batch55-independent-20261020",
+  "review_conclusion": "Independent technical, visual, factual, specification, and runtime_parse checks pass for the four pinned versions. gpu and target-production-scene remain unknown/unrun. This report does not approve the candidate record or publication.",
+  "stage_status_semantics": "These are independent QA observations. The source candidate.json stage fields remain unknown and candidate approval remains pending.",
+  "overall_independent_stages": {
+    "technical": "pass",
+    "visual": "pass",
+    "factual": "pass",
+    "specification": "pass",
+    "runtime_parse": "pass",
+    "gpu": "unknown",
+    "scene": "unknown"
+  },
+  "candidate_record": {
+    "maker_task_id": null,
+    "formal_validator_valid": false,
+    "formal_validator_error": "maker.task_id: nonempty text required",
+    "approval": "pending",
+    "recorded_stages_remain_unknown": true,
+    "do_not_infer_task_id": true,
+    "profile_contract_check_completed": false,
+    "profile_contract_check_note": "The formal candidate checker stopped at missing maker.task_id; independent static-profile audit was run separately and passed all four pinned GLBs."
+  },
+  "provenance": {
+    "provider_generation_timestamp": null,
+    "provider_model": null,
+    "seed": null,
+    "receipt_observed_at": "2026-10-20T01:25:32+00:00",
+    "generator_authoring_started_at": null,
+    "modeling_started_at": null,
+    "policy": "Unknown provider/generator times preserved as null; no mtime inference."
+  },
+  "limits": {
+    "physical_gpu_tested": false,
+    "software_webgl_tested": true,
+    "software_renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "synthetic_four_asset_scene_rendered": true,
+    "target_production_scene_tested": false,
+    "target_scene_binding_found": false
+  },
+  "pentichnus_r001_to_r002": {
+    "old_revision": "r001",
+    "new_revision": "r002",
+    "old_topology": [
+      {
+        "name": "Pentameral deep cavity sectional sediment",
+        "authored_vertices": 51,
+        "evaluated_vertices": 51,
+        "triangles": 100,
+        "boundary_edges": 2,
+        "nonmanifold_edges": 6,
+        "signed_volume_m3": 0.0011176663347408997
+      }
+    ],
+    "new_topology": [
+      {
+        "name": "Pentameral deep cavity sectional sediment",
+        "authored_vertices": 47,
+        "evaluated_vertices": 47,
+        "triangles": 90,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "signed_volume_m3": 0.0011180315403640523
+      }
+    ],
+    "repair_note": "r002 repairs the non-manifold cavity-floor/cap geometry documented in its repair-note. Old r001 has 2 boundary edges and 6 edges classified non-manifold (including those 2 boundaries); r002 has 0 boundary and 0 non-manifold edges. Both revisions separately reopen against their own GLBs."
+  },
+  "assets": [
+    {
+      "asset_id": "vermicularia",
+      "revision": "r001",
+      "glb_sha256": "5bb8a455b222496fbe8568184eb2aff11b717aab29bbf42d3138707781b27f7f",
+      "blend_sha256": "328513c8cb5600645ba0f4e2d2a378acea89235039f313021b981698561cb7af",
+      "concept_original_sha256": "3924d0a7857f59fc5e95a158e486b6a4b67a903311c1bf265038430ce1404d5d",
+      "eight_view_sha256_by_id": {
+        "hero": "33b73fff663b469a63629ad33fc86f91cace7cd44e3ab9d3a8d54d83a568f3c8",
+        "reversehero": "f517aabb1c4699d64540ee6577247fa458454f561bda2aea6147b12374b680b5",
+        "front": "7492ac431cfbd4643b38ff56f6bc60a051c7f1835319f20d08505fcf9defa737",
+        "side": "55d73f79d64749bf30d47e5624fc918780000916a89066e3702307f8cd2e23cd",
+        "rear": "f18c4aaa992782e8b9d41ace52d98625aafe3ac714f7059c0315805c98fa02af",
+        "top": "5ff8eb57adb046fd706d25016e7c21737f183fe8cf35c90af8bfb8d659390923",
+        "clay": "af1c6bb31345e37aee9b086ac68b6d6108d36a3c32a5d063c62e5d2951e2867d",
+        "silhouette": "024b683c0308e5afb3b326a60d883c0d0bf2c20983eb61ff11d148fb482b813c"
+      },
+      "independent_stage_outcomes": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "official_candidate_record_state": {
+        "approval_status": "pending",
+        "recorded_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "task_id": null,
+        "validator_valid": false,
+        "validator_errors": [
+          "maker.task_id: nonempty text required"
+        ]
+      },
+      "concept_evidence_check": {
+        "valid": true,
+        "evidence_complete": false,
+        "blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes",
+          "modeling_started_at: unknown; do not reconstruct times from file mtimes"
+        ]
+      },
+      "static_profile": {
+        "status": "pass",
+        "bytes": 503156,
+        "triangles": 9264,
+        "materials": 4,
+        "primitives": 4,
+        "textures": 0,
+        "images": 0,
+        "cameras": 0,
+        "extensions": [],
+        "limits": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000,
+          "textures": 0
+        }
+      },
+      "source_reopen_export": {
+        "status": "pass",
+        "source_triangles": 9264,
+        "glb_triangles": 9264,
+        "bounds_max_error_m": 9.313225746154785e-10,
+        "tolerance_m": 0.0001
+      },
+      "blender_glb_reopen": {
+        "status": "pass",
+        "triangles": 9264,
+        "materials": 4,
+        "bounds_gltf_y_up_m": {
+          "min": [
+            -0.0889255627989769,
+            0.0,
+            -0.04457748308777809
+          ],
+          "max": [
+            0.0889255627989769,
+            0.07701291143894196,
+            0.04457748308777809
+          ],
+          "size": [
+            0.1778511255979538,
+            0.07701291143894196,
+            0.08915496617555618
+          ]
+        }
+      },
+      "topology": [
+        {
+          "name": "Continuous coiled-to-free hollow shell",
+          "authored_vertices": 4632,
+          "evaluated_vertices": 4632,
+          "triangles": 9264,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_volume_m3": 3.359137748824318e-05
+        }
+      ],
+      "dimensions": {
+        "asset_id": "vermicularia",
+        "revision": "r001",
+        "glb_sha256": "5bb8a455b222496fbe8568184eb2aff11b717aab29bbf42d3138707781b27f7f",
+        "source_sha256": "328513c8cb5600645ba0f4e2d2a378acea89235039f313021b981698561cb7af",
+        "glb_bytes": 503156,
+        "scene_triangles": 9264,
+        "authored_vertices": 4632,
+        "evaluated_source_vertices": 4632,
+        "exported_position_stream_vertices": 18480,
+        "materials": 4,
+        "nominal_design_blender_xyz_m": [
+          0.18,
+          0.075,
+          0.09
+        ],
+        "measured_blender_xyz_m": [
+          0.1778511255979538,
+          0.08915496617555618,
+          0.07701291143894196
+        ],
+        "measured_glb_xyz_m": [
+          0.1778511255979538,
+          0.07701291237026453,
+          0.08915496803820133
+        ],
+        "dimension_note": "Blender Z-up; GLB Y-up. Nominal envelope is artistic intent, measured bounds are actual geometry. Not exact specimen dimensions.",
+        "khronos": {
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "sha256": "5bb8a455b222496fbe8568184eb2aff11b717aab29bbf42d3138707781b27f7f",
+          "errors": [],
+          "warnings": [],
+          "num_errors": 0,
+          "num_warnings": 0,
+          "report": "gltf-validator.report.json",
+          "truncated": false
+        },
+        "maker_inspection_at": "2026-10-20T01:32:44.751661+00:00",
+        "unique_mesh_primitives": 4,
+        "scene_primitives_estimated_base_draw_calls": 4,
+        "nominal_deviation_percent_blender_xyz": [
+          -1.19,
+          18.87,
+          -14.43
+        ]
+      },
+      "visual_assessment": "连续的幼体螺旋过渡为弯曲的不规则成体管；粗圆口和内腔在多视图及浏览器渲染中清晰可读。外形符合“壳体研究”，概念珠状尖端已按 brief 变为连续小螺旋。",
+      "factual_assessment": {
+        "status": "pass",
+        "scope_note": "仅支持 genus-level coiled-to-uncoiled structural analogy and fossil V. recta context; not an exact specimen reconstruction. Museum full page returned 403, so the morphological claim used indexed museum excerpt plus the taxonomic record.",
+        "sources": [
+          {
+            "title": "The Fargo Worm Snail (Shell Museum; indexed excerpts)",
+            "url": "https://shellmuseum.org/blog/the-fargo-worm-snail/"
+          },
+          {
+            "title": "MolluscaBase taxon record: Vermicularia recta",
+            "url": "https://molluscabase.org/aphia.php?id=1355272&p=taxdetails"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "weichselia",
+      "revision": "r001",
+      "glb_sha256": "4ece730443de73b6c2dca2fe2bc7a50517628e344b5e6edd37486901c997676a",
+      "blend_sha256": "a196ad872025a7d25f998798bde442c6654d06ed55564f9bc76f95f9e1e905fd",
+      "concept_original_sha256": "3924d0a7857f59fc5e95a158e486b6a4b67a903311c1bf265038430ce1404d5d",
+      "eight_view_sha256_by_id": {
+        "hero": "53e400515c7587929db892a49ef37076bf430a673b3b431c113c194cfa513e6e",
+        "reversehero": "23c32f2616fca33311eec43ff524f975838400b26b09c191a0d6d0b0f0acaa4d",
+        "front": "9d956d96eab573541dd7ac27eedd3cb55016959a97d7654b322791a8788699b1",
+        "side": "0c83c3e48a3c4388271888c653c7764bd76507696837a97a0308f8dbeeb23e18",
+        "rear": "ad881835d1129d77a1cb8368b5a63c0879e0d0754758b08b60afc49e9941d2b0",
+        "top": "dabf0bf40d716e10a92826fda948316b865635c738e73ecfca82b50ea6364fb4",
+        "clay": "952b2ff19fb09bb34ee5f4ee81c95cc30dc488fe142d89fa487fcb2c8b0fdb7f",
+        "silhouette": "7c3bde8bb694d313cc4be921fcb5077f98a0e9edca9c3f3b73aa6b9ae4ad58de"
+      },
+      "independent_stage_outcomes": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "official_candidate_record_state": {
+        "approval_status": "pending",
+        "recorded_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "task_id": null,
+        "validator_valid": false,
+        "validator_errors": [
+          "maker.task_id: nonempty text required"
+        ]
+      },
+      "concept_evidence_check": {
+        "valid": true,
+        "evidence_complete": false,
+        "blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes",
+          "modeling_started_at: unknown; do not reconstruct times from file mtimes"
+        ]
+      },
+      "static_profile": {
+        "status": "pass",
+        "bytes": 135004,
+        "triangles": 2492,
+        "materials": 5,
+        "primitives": 5,
+        "textures": 0,
+        "images": 0,
+        "cameras": 0,
+        "extensions": [],
+        "limits": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000,
+          "textures": 0
+        }
+      },
+      "source_reopen_export": {
+        "status": "pass",
+        "source_triangles": 2492,
+        "glb_triangles": 2492,
+        "bounds_max_error_m": 3.725290298461914e-09,
+        "tolerance_m": 0.0001
+      },
+      "blender_glb_reopen": {
+        "status": "pass",
+        "triangles": 2492,
+        "materials": 5,
+        "bounds_gltf_y_up_m": {
+          "min": [
+            -0.08177201449871063,
+            0.0,
+            -0.07765822112560272
+          ],
+          "max": [
+            0.08177201449871063,
+            0.30000001192092896,
+            0.07765822112560272
+          ],
+          "size": [
+            0.16354402899742126,
+            0.30000001192092896,
+            0.15531644225120544
+          ]
+        }
+      },
+      "topology": [
+        {
+          "name": "Single stem cortex and integrated attachment bosses",
+          "authored_vertices": 1248,
+          "evaluated_vertices": 1248,
+          "triangles": 2492,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_volume_m3": 0.003437158236324812
+        }
+      ],
+      "dimensions": {
+        "asset_id": "weichselia",
+        "revision": "r001",
+        "glb_sha256": "4ece730443de73b6c2dca2fe2bc7a50517628e344b5e6edd37486901c997676a",
+        "source_sha256": "a196ad872025a7d25f998798bde442c6654d06ed55564f9bc76f95f9e1e905fd",
+        "glb_bytes": 135004,
+        "scene_triangles": 2492,
+        "authored_vertices": 1248,
+        "evaluated_source_vertices": 1248,
+        "exported_position_stream_vertices": 4800,
+        "materials": 5,
+        "nominal_design_blender_xyz_m": [
+          0.16,
+          0.16,
+          0.3
+        ],
+        "measured_blender_xyz_m": [
+          0.16354402899742126,
+          0.15531644225120544,
+          0.30000001192092896
+        ],
+        "measured_glb_xyz_m": [
+          0.16354402154684067,
+          0.30000001192092896,
+          0.15531644970178604
+        ],
+        "dimension_note": "Blender Z-up; GLB Y-up. Nominal envelope is artistic intent, measured bounds are actual geometry. Not exact specimen dimensions.",
+        "khronos": {
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "sha256": "4ece730443de73b6c2dca2fe2bc7a50517628e344b5e6edd37486901c997676a",
+          "errors": [],
+          "warnings": [],
+          "num_errors": 0,
+          "num_warnings": 0,
+          "report": "gltf-validator.report.json",
+          "truncated": false
+        },
+        "maker_inspection_at": "2026-10-20T01:32:44.751661+00:00",
+        "unique_mesh_primitives": 5,
+        "scene_primitives_estimated_base_draw_calls": 5,
+        "nominal_deviation_percent_blender_xyz": [
+          2.22,
+          -2.93,
+          0.0
+        ]
+      },
+      "visual_assessment": "短直单茎、厚皮层与隆起附着疤可辨；断面显示厚皮层和小芯。风格化突起较有规律但尺寸/高度有变化，未见身份混淆或必须返工项。",
+      "factual_assessment": {
+        "status": "pass",
+        "scope_note": "The repository abstract supports thick cortex and external scale insertions; model bosses are explicitly described as simplified relief with no exact anatomical mapping. Citation URL resolves, but references.json title string is inaccurate/shortened and should be normalized on a metadata touch-up.",
+        "sources": [
+          {
+            "title": "New insights into the affinities, autoecology, and habit of the Mesozoic fern Weichselia reticulata based on the revision of stems from Bernissart (Mons Basin, Belgium)",
+            "url": "https://orbi.uliege.be/handle/2268/295478"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "ventifact",
+      "revision": "r001",
+      "glb_sha256": "291ad1bbff024594c61ad218ea4fc33add08425d2998fbec20051de8abad64fa",
+      "blend_sha256": "4e58fea6b2c19ac70d39c87d93bf6ebd2683a7eb60c8250128b0fc465e3d6b92",
+      "concept_original_sha256": "3924d0a7857f59fc5e95a158e486b6a4b67a903311c1bf265038430ce1404d5d",
+      "eight_view_sha256_by_id": {
+        "hero": "f84679423ac48c77c432a501a080f9b3ad3a0698886a83b06618348aa75fee4e",
+        "reversehero": "90610c2b7e6f4d395ed73d1645f94c37faa78aaeaf1ff3d111803bbc8cafa397",
+        "front": "c6235cfaeb4eea8b0ab91021552c8062e5f6ba0098aed32dadde07cc68129209",
+        "side": "30931acb4cf57c3cd9394f675e50481850eceadf01cd0fc81bd2b9f3e62865a6",
+        "rear": "563df1c0e1188060bf288ed84ab7040d43c6dbabf87b06a467eb0ece5d7bd4a8",
+        "top": "71c26abe1ec60ca672c9987857f0d96c5eb5796e8655027aa354de335437fbad",
+        "clay": "1912e301af5b2163cb64aa7b80c3612ee31beb2249d05e64eaa956d49ac3eeed",
+        "silhouette": "40c613b9d5018036e25f757a201afdcbe72eee0b0068c08d51e589a90000d633"
+      },
+      "independent_stage_outcomes": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "official_candidate_record_state": {
+        "approval_status": "pending",
+        "recorded_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "task_id": null,
+        "validator_valid": false,
+        "validator_errors": [
+          "maker.task_id: nonempty text required"
+        ]
+      },
+      "concept_evidence_check": {
+        "valid": true,
+        "evidence_complete": false,
+        "blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes",
+          "modeling_started_at: unknown; do not reconstruct times from file mtimes"
+        ]
+      },
+      "static_profile": {
+        "status": "pass",
+        "bytes": 3644,
+        "triangles": 28,
+        "materials": 2,
+        "primitives": 2,
+        "textures": 0,
+        "images": 0,
+        "cameras": 0,
+        "extensions": [],
+        "limits": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000,
+          "textures": 0
+        }
+      },
+      "source_reopen_export": {
+        "status": "pass",
+        "source_triangles": 28,
+        "glb_triangles": 28,
+        "bounds_max_error_m": 1.4901161193847656e-08,
+        "tolerance_m": 0.0001
+      },
+      "blender_glb_reopen": {
+        "status": "pass",
+        "triangles": 28,
+        "materials": 2,
+        "bounds_gltf_y_up_m": {
+          "min": [
+            -0.40666985511779785,
+            0.0,
+            -0.45907968282699585
+          ],
+          "max": [
+            0.40666985511779785,
+            0.5999999642372131,
+            0.45907968282699585
+          ],
+          "size": [
+            0.8133397102355957,
+            0.5999999642372131,
+            0.9181593656539917
+          ]
+        }
+      },
+      "topology": [
+        {
+          "name": "Three dominant wind abrasion planes",
+          "authored_vertices": 16,
+          "evaluated_vertices": 16,
+          "triangles": 28,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_volume_m3": 0.2028006290064565
+        }
+      ],
+      "dimensions": {
+        "asset_id": "ventifact",
+        "revision": "r001",
+        "glb_sha256": "291ad1bbff024594c61ad218ea4fc33add08425d2998fbec20051de8abad64fa",
+        "source_sha256": "4e58fea6b2c19ac70d39c87d93bf6ebd2683a7eb60c8250128b0fc465e3d6b92",
+        "glb_bytes": 3644,
+        "scene_triangles": 28,
+        "authored_vertices": 16,
+        "evaluated_source_vertices": 16,
+        "exported_position_stream_vertices": 48,
+        "materials": 2,
+        "nominal_design_blender_xyz_m": [
+          0.9,
+          0.75,
+          0.62
+        ],
+        "measured_blender_xyz_m": [
+          0.8133397102355957,
+          0.9181593656539917,
+          0.5999999642372131
+        ],
+        "measured_glb_xyz_m": [
+          0.8133396804332733,
+          0.5999999642372131,
+          0.9181593358516693
+        ],
+        "dimension_note": "Blender Z-up; GLB Y-up. Nominal envelope is artistic intent, measured bounds are actual geometry. Not exact specimen dimensions.",
+        "khronos": {
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "sha256": "291ad1bbff024594c61ad218ea4fc33add08425d2998fbec20051de8abad64fa",
+          "errors": [],
+          "warnings": [],
+          "num_errors": 0,
+          "num_warnings": 0,
+          "report": "gltf-validator.report.json",
+          "truncated": false
+        },
+        "maker_inspection_at": "2026-10-20T01:32:44.751661+00:00",
+        "unique_mesh_primitives": 2,
+        "scene_primitives_estimated_base_draw_calls": 2,
+        "nominal_deviation_percent_blender_xyz": [
+          -9.63,
+          22.42,
+          -3.23
+        ]
+      },
+      "visual_assessment": "宽大平面、锐利交棱在 clay 与轮廓图中仍可读，28 三角面没有退化为低多边形噪点；符合风蚀面要求。",
+      "factual_assessment": {
+        "status": "pass",
+        "scope_note": "NPS geology page supports wind-driven sand/ice abrasion and polished/grooved/pitted rock surfaces. Exact three-face layout is an original design, not a locality/specimen claim.",
+        "sources": [
+          {
+            "title": "Aeolian Landforms (NPS)",
+            "url": "https://www.nps.gov/subjects/geology/aeolian-landforms.htm"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "revision": "r002",
+      "glb_sha256": "aefb89b47511df9534a02af61e0d96c77bafc34c2646eb295891bc2104cc59f9",
+      "blend_sha256": "2c043946f5054c1722e72b62bb74826a619d94e63ee94c9ee83729e184d2cb3a",
+      "concept_original_sha256": "3924d0a7857f59fc5e95a158e486b6a4b67a903311c1bf265038430ce1404d5d",
+      "eight_view_sha256_by_id": {
+        "hero": "91d5c371ece5a7a5848d4dd9dbefa06113addabbda79560080827fa4da287e3e",
+        "reversehero": "a08c377942f4899658b755e51c6576c6953bc0ce296d72a050c989c3c24c6291",
+        "front": "2616556afefbf052a461f646fe709707e73e6ea9374d8835b5b53c3a53a590c4",
+        "side": "ac239382b3961df8ee075f2f59d52a5daec1e3782e2cf3c975a45abbfc902a10",
+        "rear": "ac7367d761ad1c5bcf536d87045fc4d8a27f0c97ebc2904262eefff3b070cd67",
+        "top": "677fc17428e96c835923d27639615f75d11bcb1ae244d0b74561410eeb3a45ba",
+        "clay": "5fa07a0973b056bf1a2cae2d97bb2dfb3ccaf855f053cbd6b93d576f81fae29d",
+        "silhouette": "2dda20579ee26a9787a4229ec9df5c03b2aea1c577e7a6ee5253e8540820cca5"
+      },
+      "independent_stage_outcomes": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "official_candidate_record_state": {
+        "approval_status": "pending",
+        "recorded_stages": {
+          "technical": "unknown",
+          "visual": "unknown",
+          "factual": "unknown",
+          "specification": "unknown",
+          "runtime_parse": "unknown",
+          "gpu": "unknown",
+          "scene": "unknown"
+        },
+        "task_id": null,
+        "validator_valid": false,
+        "validator_errors": [
+          "maker.task_id: nonempty text required"
+        ]
+      },
+      "concept_evidence_check": {
+        "valid": true,
+        "evidence_complete": false,
+        "blockers": [
+          "concept_generated_at: unknown; do not reconstruct times from file mtimes",
+          "modeling_started_at: unknown; do not reconstruct times from file mtimes"
+        ]
+      },
+      "static_profile": {
+        "status": "pass",
+        "bytes": 7840,
+        "triangles": 90,
+        "materials": 4,
+        "primitives": 4,
+        "textures": 0,
+        "images": 0,
+        "cameras": 0,
+        "extensions": [],
+        "limits": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000,
+          "textures": 0
+        }
+      },
+      "source_reopen_export": {
+        "status": "pass",
+        "source_triangles": 90,
+        "glb_triangles": 90,
+        "bounds_max_error_m": 1.862645149230957e-09,
+        "tolerance_m": 0.0001
+      },
+      "blender_glb_reopen": {
+        "status": "pass",
+        "triangles": 90,
+        "materials": 4,
+        "bounds_gltf_y_up_m": {
+          "min": [
+            -0.06657395511865616,
+            0.0,
+            -0.06331559270620346
+          ],
+          "max": [
+            0.06657395511865616,
+            0.12999999523162842,
+            0.06331559270620346
+          ],
+          "size": [
+            0.13314791023731232,
+            0.12999999523162842,
+            0.12663118541240692
+          ]
+        }
+      },
+      "topology": [
+        {
+          "name": "Pentameral deep cavity sectional sediment",
+          "authored_vertices": 47,
+          "evaluated_vertices": 47,
+          "triangles": 90,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "signed_volume_m3": 0.0011180315403640523
+        }
+      ],
+      "dimensions": {
+        "asset_id": "pentichnus-deep-dwelling-trace",
+        "revision": "r002",
+        "glb_sha256": "aefb89b47511df9534a02af61e0d96c77bafc34c2646eb295891bc2104cc59f9",
+        "source_sha256": "2c043946f5054c1722e72b62bb74826a619d94e63ee94c9ee83729e184d2cb3a",
+        "glb_bytes": 7840,
+        "scene_triangles": 90,
+        "authored_vertices": 47,
+        "evaluated_source_vertices": 47,
+        "exported_position_stream_vertices": 140,
+        "materials": 4,
+        "nominal_design_blender_xyz_m": [
+          0.14,
+          0.14,
+          0.13
+        ],
+        "measured_blender_xyz_m": [
+          0.13314791023731232,
+          0.12663118541240692,
+          0.12999999523162842
+        ],
+        "measured_glb_xyz_m": [
+          0.13314791023731232,
+          0.12999999523162842,
+          0.12663118913769722
+        ],
+        "dimension_note": "Blender Z-up; GLB Y-up. Nominal envelope is artistic intent, measured bounds are actual geometry. Not exact specimen dimensions.",
+        "khronos": {
+          "status": "pass",
+          "validator_version": "2.0.0-dev.3.10",
+          "sha256": "aefb89b47511df9534a02af61e0d96c77bafc34c2646eb295891bc2104cc59f9",
+          "errors": [],
+          "warnings": [],
+          "num_errors": 0,
+          "num_warnings": 0,
+          "report": "gltf-validator.report.json",
+          "truncated": false
+        },
+        "maker_inspection_at": "2026-10-20T01:32:44.751661+00:00",
+        "unique_mesh_primitives": 4,
+        "scene_primitives_estimated_base_draw_calls": 4,
+        "nominal_deviation_percent_blender_xyz": [
+          -4.89,
+          -9.55,
+          -0.0
+        ]
+      },
+      "visual_assessment": "r002 显示窄深、五侧、向底部收窄的负腔和明确剖切面；底部可见，未退化为浅星形印痕。",
+      "factual_assessment": {
+        "status": "pass",
+        "scope_note": "KGS systematic ichnology source supports vertical subconical structures with pentameral symmetry and depth distinction. Published positive hyporelief differs from this explicitly illustrative negative cavity/section; no producer or certain behavior is claimed.",
+        "sources": [
+          {
+            "title": "Ichnology of a Pennsylvanian Equatorial Tidal Flat — Systematic Ichnology",
+            "url": "https://www.kgs.ku.edu/Publications/Bulletins/245/04_ichno2.html"
+          }
+        ]
+      }
+    }
+  ],
+  "required_follow_up": {
+    "must_fix_for_meshes": [],
+    "must_resolve_before_candidate_record_can_validate": [
+      "Populate maker.task_id from the actual confirmed task identity; do not guess."
+    ],
+    "unrun_acceptance_gates": [
+      "Run on intended physical GPU/browser environment.",
+      "Bind and render the actual target production scene once its path/settings are specified."
+    ],
+    "metadata_advisory": [
+      "Correct the Weichselia reference title string to match the linked publication when metadata is next touched."
+    ],
+    "nonblocking_dimension_advisory": "Nominal Blender XYZ is stated as artistic intent. Vermicularia and ventifact have one measured extent that differs from nominal by about +19% and +22% respectively; no strict dimensional tolerance or specimen-scale claim is specified."
+  }
+}

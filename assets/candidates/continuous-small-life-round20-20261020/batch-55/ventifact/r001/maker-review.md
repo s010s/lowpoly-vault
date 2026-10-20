@@ -1,0 +1,2 @@
+All eight separate 512px proof images opened. Three broad uninterrupted faces converge at a ridge apex; clay/top make face hierarchy visible. Very simple basal fracture silhouette; no surface texture, pitting or specimen-specific realism. Broad facet design deliberately dominates topology rather than increasing count.
+Maker inspection only; independent model QA pending. Source reopen and direct source metrics pass; no boundary or non-manifold edges in final source. GPU, browser and populated scene unrun.

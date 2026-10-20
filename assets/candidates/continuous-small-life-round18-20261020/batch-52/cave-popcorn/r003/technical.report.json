@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+    "brief_sha256": "8693c8dd420de277e874f0e57b47e109c0468e1a678b23766bf0be8642fbf66f",
+    "references_sha256": "9bb4d2c3387a3ff6667eabf38d7ddd8c7e65700a7f9cf8c95bc80e4a10c9c515"
+  },
+  "status": "pass",
+  "method": "Fresh static audit, official Khronos validator, actual source reopen and two separately executed queue rebuilds with semantic equality.",
+  "observations": [
+    "Static audit and official format validator have zero errors and warnings.",
+    "Read-only source reopen matches exact export triangle count and axis-converted bounds.",
+    "Both separate build queue executions reproduce exact geometry/material semantics."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 7398,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 578792,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/cave-popcorn/r003/static-glb.report.json",
+        "sha256": "344888eab9ecf6e9a3cfc6cb75d3b0be4806a3b6eefc2ca1d5d33b878e0c66eb"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/cave-popcorn/r003/gltf-validator.report.json",
+        "sha256": "779abe1e66c8d750e574f3addbdb5b6c661ba709c67d7a744a45f4c9603e4884"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/cave-popcorn/r003/source-export.report.json",
+        "sha256": "07f649489372ac766a396504adfcda7917b436b647d52c851caf6adccf2c650e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/cave-popcorn/r003/rebuild-1.report.json",
+        "sha256": "15c62748fab96294f35001b007752d4a9207217f91d46e5b1cda7c37cd383208"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/cave-popcorn/r003/rebuild-2.report.json",
+        "sha256": "59c9de1c72dc6924fa7e3af86a7ea5c5d72ee83f8749aae4ee6b3d3bdeca2b27"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}

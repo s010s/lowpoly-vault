@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "asset_id": "iodes-brownii",
+  "brief_version": "r001-derived-v001",
+  "profile": "production",
+  "purpose": "Use a flattened ovoid core with two clear horns and a coarse ridge network; omit microscopic papillae. Two consistent ovoid faces with coarse irregular polygonal reticulum, warm brown cell floors and pale raised ridges, one projecting horn per visible broad face. Concept horns are more prominent and diagonal than requested; freeze short horns rooted on opposed broad faces near apex, not edge horns. The tapered apex is an ovoid outline, not a third horn. Ignore concept painted speckling; geometry carries reticulation with quiet cell centers. True lenticular thickness authored intentionally; sheet is not a measured orthographic pair.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "FL-iodes"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "FL-iodes"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 rule 2026-10-18.1 fixed eight views, zero turntable; no other gate waived.",
+  "required_deliverables": [
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/iodes-brownii.blend",
+      "sha256": "85b7c6596cdd0c3c21ccd6ac25863569961c5686929243393a7753af46fdb55c",
+      "role": "source"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/generator.py",
+      "sha256": "fb3018d9ed4b7d4a6017d189c2e2318552378fd364bf2b445fde9d8fb6a494e8",
+      "role": "generator"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/config.json",
+      "sha256": "26a870b9aa75713d11adacca1379076cd88c3c5dd9087c05a2c4ae883189c133",
+      "role": "config"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.007,
+    0.0045,
+    0.009
+  ],
+  "axes": {
+    "blender": "X width, Y depth, Z up, -Y forward",
+    "glb": "X width, Y up, Z depth, +Z forward"
+  },
+  "origin": "Identity root at floor contact bbox center; metric meters.",
+  "concept_interpretation": {
+    "inspected_at": "2026-10-20T00:15:36Z",
+    "nominal_dimensions_blender_xyz_m": [
+      0.007,
+      0.0045,
+      0.009
+    ],
+    "observations": "Two consistent ovoid faces with coarse irregular polygonal reticulum, warm brown cell floors and pale raised ridges, one projecting horn per visible broad face. Concept horns are more prominent and diagonal than requested; freeze short horns rooted on opposed broad faces near apex, not edge horns. The tapered apex is an ovoid outline, not a third horn. Ignore concept painted speckling; geometry carries reticulation with quiet cell centers. True lenticular thickness authored intentionally; sheet is not a measured orthographic pair.",
+    "hidden_surfaces": "Rear face receives matching coarse network and exactly one opposite near-apical horn. Closed lenticular perimeter and basal seam; no microscopic papillae or whole plant. Horns meet core with embedded bases."
+  },
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "catalog_facets": {
+    "worlds": [
+      "prehistoric"
+    ],
+    "packs": [
+      "prehistoric-reproductive-specimens"
+    ],
+    "category": "plants",
+    "subcategory": "fruit-specimen",
+    "tags": [
+      "reproductive-structure",
+      "close-up"
+    ],
+    "eras": [
+      "paleogene"
+    ],
+    "biomes": []
+  },
+  "delivery_binding_note": "Post-build packaging copy of pre-model brief.json. Only exact source/generator/config delivery hashes added; design/axes/nominal dimensions/criteria unchanged. Original pre-model freeze and its brief/reference bytes remain unchanged.",
+  "pre_model_brief": {
+    "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/brief.json",
+    "sha256": "15c04046f1e56575f6b3eba010e502149651de5fd37e06769ba7376042ae7299"
+  }
+}

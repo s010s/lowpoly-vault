@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "asset_id": "hypoturrilites",
+  "brief_version": "r001-derived-v001",
+  "profile": "production",
+  "purpose": "Original low-poly direction: establish tall tight helicoid shell with rows of rounded nodes on descending whorls in the blockout, then preserve the largest silhouette breaks and openings. Simplify fine ornament and repeated elements without copying reference meshes; palette and presentation are artistic choices, not fossil evidence. Two views show tapered cream torticone, roughly six descending whorls, spiral rows of blunt nodes. Lower mouth in hero, closed rear. Secondary rear is smaller and omits aperture; not measurable orthographic agreement. Author one continuous expanding tube with terminal bounded cavity, multiple rows of rounded nodes and coherent rear coils. No soft tissue. Reduce fine speckle and triangular noise to quiet faceted limestone regions.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "IV-PRI-AMMONOIDEA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "IV-PRI-AMMONOIDEA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 rule 2026-10-18.1 fixed eight views, zero turntable; no other gate waived.",
+  "required_deliverables": [
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/hypoturrilites.blend",
+      "sha256": "3aaba1ae3140edd3730a3800fb271a131b3891aa8919d95a0efaff11dfb139cc",
+      "role": "source"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py",
+      "sha256": "34d48adcee75422948f5b1fe18d480f50ae4d050ea9e853c92b32586496d3239",
+      "role": "generator"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/config.json",
+      "sha256": "7d91dd7ecb73c10ceb69cb931c4423ee4ad56e84d88af11e8fb18c71428727d1",
+      "role": "config"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.1,
+    0.1,
+    0.18
+  ],
+  "axes": {
+    "blender": "X width, Y depth, Z up, -Y forward",
+    "glb": "X width, Y up, Z depth, +Z forward"
+  },
+  "origin": "Identity root at floor contact bbox center; metric meters.",
+  "concept_interpretation": {
+    "inspected_at": "2026-10-20T00:10:01.659700083Z",
+    "original": {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/concepts/original.png",
+      "sha256": "26c9d2112254ac08110582054a850bd2761f1d72f9f63f8134b6cfe0f5116042"
+    },
+    "observations": "Two views show tapered cream torticone, roughly six descending whorls, spiral rows of blunt nodes. Lower mouth in hero, closed rear. Secondary rear is smaller and omits aperture; not measurable orthographic agreement. Author one continuous expanding tube with terminal bounded cavity, multiple rows of rounded nodes and coherent rear coils. No soft tissue. Reduce fine speckle and triangular noise to quiet faceted limestone regions.",
+    "nominal_dimensions_blender_xyz_m": [
+      0.1,
+      0.1,
+      0.18
+    ],
+    "hidden_surfaces": "Continuous rear coil and nodes; lower inner aperture closes at finite depth; original shape, not a copy of PRI specimen."
+  },
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "catalog_facets": {
+    "worlds": [
+      "prehistoric"
+    ],
+    "packs": [
+      "fossil-mollusc-forms"
+    ],
+    "category": "animals",
+    "subcategory": "mollusk",
+    "tags": [
+      "fossil-form",
+      "marine-form"
+    ],
+    "eras": [
+      "cretaceous"
+    ],
+    "biomes": [
+      "marine"
+    ]
+  },
+  "delivery_binding_note": "Post-build packaging copy of pre-model brief.json. Only exact source/generator/config delivery hashes added; design/axes/nominal dimensions/criteria unchanged. Original pre-model freeze and its brief/reference bytes remain unchanged.",
+  "pre_model_brief": {
+    "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/brief.json",
+    "sha256": "3b9a0458f082072e754e2921e401209a6bf12372484ccfbc01aa62d7008cf8e8"
+  }
+}

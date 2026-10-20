@@ -1,0 +1,114 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "config": {
+        "iteration": "initial"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/build-config.json",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/modeling-freeze.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/references.json"
+      },
+      "job_id": "initial",
+      "outputs": [
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.glb",
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.blend",
+        "pentichnus-deep-dwelling-trace/metadata.json",
+        "pentichnus-deep-dwelling-trace/qa.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "config": {
+        "iteration": "rebuild-1"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/build-config.json",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/modeling-freeze.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/references.json"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.glb",
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.blend",
+        "pentichnus-deep-dwelling-trace/metadata.json",
+        "pentichnus-deep-dwelling-trace/qa.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "config": {
+        "iteration": "rebuild-2"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/build-config.json",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/modeling-freeze.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r002/references.json"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.glb",
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.blend",
+        "pentichnus-deep-dwelling-trace/metadata.json",
+        "pentichnus-deep-dwelling-trace/qa.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}
