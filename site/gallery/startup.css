@@ -1,0 +1,23 @@
+body[data-static-route="models"]{margin:0;background:var(--vault-surface,#f6f3ec);color:var(--vault-ink,#262a25);font-family:var(--vault-font-display,Georgia,serif)}
+/* Only fallback-specific adaptation lives here. Geometry, fonts and colors above
+   are the actual gallery styles, inlined by SSG before any external dependency. */
+body[data-static-route="models"]:not([data-gallery])>:not(#static-route-content){display:none!important}
+#static-route-content.gallery-static{display:contents}
+.gallery-static .startup-wheel{container-type:size}
+.gallery-static #slots{height:calc(var(--startup-count)*128px + 100cqh - 128px);min-height:100%}
+.gallery-static .slot{top:calc((100cqh - 128px)/2 + var(--startup-index)*128px)}
+.gallery-static .slot-image img{transform:scale(1)}
+.gallery-static .slot-copy strong{max-height:42px;margin-bottom:8px;opacity:1;transform:none;transition:none}
+.gallery-static[data-startup-initialized] .slot:not([data-name-visible=true]) .slot-copy strong{max-height:0;margin-bottom:0;opacity:0}
+.gallery-static .slot:focus-visible .slot-copy strong,.gallery-static .slot:hover .slot-copy strong{max-height:42px;margin-bottom:8px;opacity:1}
+.gallery-static .startup-guides{top:0;height:100%}
+.gallery-static .startup-pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 6px 20px;font:11px var(--vault-font-ui);letter-spacing:.4px;color:#70746b}
+.gallery-static .startup-pagination a{text-decoration:underline;text-underline-offset:3px}
+.gallery-static #info{display:grid;place-items:center;pointer-events:auto}
+.gallery-static #language{display:flex;align-items:center}
+.gallery-static .startup-credit{display:block;text-align:center;font:9px var(--vault-font-ui);color:#777c6d;margin-top:15px}
+.gallery-static .gallery-load-error{position:fixed;left:18px;right:18px;bottom:12px;z-index:80;max-width:620px;margin:0 auto;padding:10px 12px;background:#faf8f0;border:1px solid #d9d6cd;border-radius:9px;font:12px/1.5 var(--vault-font-ui);color:#305742}
+.gallery-static .startup-empty{padding:32px;font:14px/1.6 var(--vault-font-ui)}
+@media(prefers-reduced-motion:reduce){.gallery-static .slot-image{transform:none!important}}
+
+.gallery-static .slot[data-selected=true] .slot-marker{background:var(--green);box-shadow:0 0 0 2px #f6f3ec,0 0 0 3px var(--green);border-color:var(--green)}

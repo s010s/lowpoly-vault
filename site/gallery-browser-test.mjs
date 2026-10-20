@@ -10,6 +10,7 @@ import { resolve, extname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { modelHeight } from './gallery/model-dimensions.js';
 import {checkGalleryStartup} from './gallery-startup-browser.mjs';
+import {checkMobileGallery} from './gallery-mobile-browser.mjs';
 
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.webp':'image/webp','.txt':'text/plain','.zip':'application/zip'};
 const defaultGroups=process.env.QA_FORCE_WEBGL_FALLBACK==='1'?['fallback']:['startup','routes','interaction','handoff','detail','scroll','resources','scale','modal','fallback'];
@@ -42,6 +43,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
     report.browser=browser.version();
     const has=group=>groups.includes(group);
     if(has('startup'))await checkGalleryStartup({browser,root,baseURL,output,report});
+    if(has('interaction'))await checkMobileGallery({browser,baseURL,output,report,assets});
     async function ready(page,id){await page.waitForFunction(id=>window.__gallery&&document.querySelector('#detail')?.dataset.state==='ready'&&(!id||document.querySelector('#detail').dataset.modelId===id),id,{timeout:45000});}
     async function boot(page,path=`models/?model=${initial.id}`,mobile=false){await page.goto(new URL(path,baseURL).href);await page.waitForFunction(()=>window.__gallery?.models.length>0,{},{timeout:45000});if(!mobile)await ready(page);if(manifest.review_only)assert(await page.locator('.gallery-review-notice').isVisible(),'The isolated review must remain visibly labeled');}
     async function search(page,value){await page.locator('#search').fill(value);await page.locator('#search').press('Enter');await page.waitForFunction(q=>window.__gallery.state.query===q,value);}
@@ -81,7 +83,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
       });
       // No JavaScript must expose an actual linked catalog and functional file URLs.
       const context=await browser.newContext({javaScriptEnabled:false});const page=await context.newPage();
-      try{await page.goto(new URL('zh-CN/models/page/2/',baseURL).href);assert(await page.locator('#static-route-content').isVisible());assert(await page.locator('.static-card[href]').count()>0);assert.equal(await page.locator('#home-page').isVisible(),false);await page.locator('.static-card').first().click();assert(await page.locator('.static-downloads a[download]').count()>=2);report.cases.push({name:'no-javascript-linked-documents',status:'pass'});}finally{await context.close();}
+      try{await page.goto(new URL('zh-CN/models/page/2/',baseURL).href);assert(await page.locator('#static-route-content').isVisible());assert(await page.locator('.gallery-static .slot[href]').count()>0);assert.equal(await page.locator('#home-page').isVisible(),false);await page.locator('.gallery-static .slot').first().click();assert(await page.locator('.static-downloads a[download]').count()>=2);report.cases.push({name:'no-javascript-linked-documents',status:'pass'});}finally{await context.close();}
     }
     if(has('interaction')){
       await test('filter-draft-cancel-apply-no-glb',async({page,row,glbs})=>{
@@ -128,10 +130,10 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
       await test('mobile-lazy-open-back-and-interact',async({page,glbs})=>{
         assert.equal(glbs.length,0,'Mobile listing starts with posters only');assert.equal(await page.locator('.workspace').isVisible(),false);
         await choose(page,last.id,{mobile:true});assert.equal(glbs.length,0,'Opening a mobile detail remains poster-first');assert(await page.locator('#mobile-interact').isVisible());
-        await page.locator('#mobile-back').tap();assert.equal(await page.locator('.catalog').isVisible(),true);
+        await page.locator('#mobile-back').tap();await page.waitForFunction(()=>!document.body.classList.contains('mobile-detail'));assert.equal(await page.locator('.catalog').isVisible(),true);
         await page.locator(`#slots [data-id="${last.id}"]`).tap();await page.locator('#mobile-interact').tap();await ready(page,last.id);assert(glbs.some(url=>url===new URL(last.glb,baseURL).href));
         await page.locator('#mobile-interact').tap();assert.equal(await page.locator('#detail').getAttribute('data-state'),'static');
-        await page.locator('#mobile-back').tap();assert(await page.locator('.catalog').isVisible());assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.equal(await page.locator('canvas.preview-renderer').count(),1);
+        await page.locator('#mobile-back').tap();await page.waitForFunction(()=>!document.body.classList.contains('mobile-detail'));assert(await page.locator('.catalog').isVisible());assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.equal(await page.locator('canvas.preview-renderer').count(),1);
       },{mobile:true,path:'models/'});
       await test('reduced-motion-chinese-panels',async({page})=>{
         assert.equal(await page.locator('html').getAttribute('lang'),'zh-CN');await page.locator('#filters').focus();await page.keyboard.press('Enter');assert.equal(await page.locator('#filter-panel').getAttribute('data-motion'),'false');
