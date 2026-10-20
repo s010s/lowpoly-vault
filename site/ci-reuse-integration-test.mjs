@@ -8,7 +8,7 @@ import {reuse} from './ci-reuse.mjs';
 import {git,sha256,controlDigest,runtimeConfig} from './ci-provenance.mjs';
 const originalCwd=process.cwd(),originalFetch=global.fetch,environment={...process.env};
 const repository='owner/repository';
-async function scenario({policy=false,tampered=false,wrongTree=false,failed=false,missing=false,unsafe=false}={}){
+async function scenario({policy=false,tampered=false,wrongTree=false,failed=false,missing=false,unsafe=false,socketAt,socketFailures=0}={}){
  const root=mkdtempSync(join(tmpdir(),'reuse-integration-'));
  try{
   process.chdir(root);git('init','-q');git('config','user.name','CI fixture');git('config','user.email','ci@example.invalid');
@@ -33,8 +33,13 @@ async function scenario({policy=false,tampered=false,wrongTree=false,failed=fals
    artifacts[id]={id:100+index,name:`validated-${kind}-1`,expired:false,digest:`sha256:${sha256(bytes)}`,workflow_run:{id,head_sha:head,repository_id:7,head_repository_id:7}};
   }
   const json=data=>new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json'}});
+  let socketCalls=0,firstSocketOptions;
   global.fetch=async(url,options={})=>{
    url=String(url);
+   if(socketAt&&url.endsWith(socketAt)){
+    socketCalls++;if(firstSocketOptions)assert.equal(options,firstSocketOptions,'Retries keep the original signal/options');else firstSocketOptions=options;
+    if(socketCalls<=socketFailures)throw Object.assign(new TypeError('sensitive transport text'),{cause:{code:'UND_ERR_SOCKET'}});
+   }
    if(url.startsWith('https://artifacts.test/')){assert(!options.headers?.Authorization,'Repository token must not reach artifact storage');return new Response(archives[url.split('/').at(-1)]);}
    assert.equal(options.headers.Authorization,'Bearer fixture-token');const path=url.split(`/repos/${repository}/`)[1];
    if(path===`commits/${main}/pulls`)return json([{number:5,merged_at:'2026-01-01',merge_commit_sha:main,base:{ref:'main',repo:{full_name:repository}},head:{sha:head,repo:{full_name:repository}}}]);
@@ -46,11 +51,13 @@ async function scenario({policy=false,tampered=false,wrongTree=false,failed=fals
    if(path===`git/commits/${source}`)return json({tree:{sha:tree},parents:[{sha:base},{sha:head}]});
    throw Error(`Unexpected API request ${path}`);
   };
-  const rejects=policy||tampered||wrongTree||failed||missing||unsafe;
+  const rejects=policy||tampered||wrongTree||failed||missing||unsafe||socketFailures===3;
   if(rejects)await assert.rejects(reuse);
   else{const result=await reuse();assert.equal(result.reused,true);assert.equal(readFileSync('dist/index.html','utf8'),'tested output');assert.equal(result.proofs.length,2);}
+  if(socketAt)assert.equal(socketCalls,socketFailures===3?3:2);
  }finally{process.chdir(originalCwd);global.fetch=originalFetch;for(const key of Object.keys(process.env))if(!Object.hasOwn(environment,key))delete process.env[key];Object.assign(process.env,environment);rmSync(root,{recursive:true,force:true});}
 }
 await scenario();
+for(const socketAt of ['/actions/runs/12','/actions/artifacts/100/zip','artifacts.test/pages'])for(const socketFailures of [1,3])await scenario({socketAt,socketFailures});
 for(const options of [{policy:true},{tampered:true},{wrongTree:true},{failed:true},{missing:true},{unsafe:true}])await scenario(options);
 console.log('Reuse integration: exact-tree hit after merged PR relations disappear; forged base policy, tampered ZIP, changed tree, failed suite, missing receipt and traversal payload rejected; storage never receives repository token.');

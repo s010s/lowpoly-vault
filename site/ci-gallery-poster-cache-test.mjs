@@ -43,11 +43,16 @@ try{
  const shadow=mkdtempSync(join(tmpdir(),'poster-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
  try{for(const module of ['zipfile','json'])writeFileSync(join(shadow,`${module}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractPosterArtifact(original).proof,proof,'Isolated poster decoding ignores checkout/PYTHONPATH modules');}
  finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
- async function lookup({document=proof,download,alterRun,alterSuite,alterArtifact,missing=false,source=baseManifest,ancestry=true,currentPolicy=policy_sha256,actualRuntime=runtime,independentDigest,attempt=1,apiFailure=false}={}){
+ async function lookup({document=proof,download,alterRun,alterSuite,alterArtifact,missing=false,source=baseManifest,ancestry=true,currentPolicy=policy_sha256,actualRuntime=runtime,independentDigest,attempt=1,apiFailure=false,socketAt,socketFailures=0}={}){
   const bytes=download||archive(document),r=structuredClone(run),s=structuredClone(suite),a={id:303,name:posterArtifactName(1),expired:false,digest:independentDigest||`sha256:${posterHash(bytes)}`,workflow_run:{id:101,head_sha:baseSha,repository_id:12,head_repository_id:12}};
-  alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);
+  alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);let socketCalls=0,firstSocketOptions;
   const fetchImpl=async(url,options={})=>{
-   url=String(url);if(url==='https://storage.example.invalid/posters.zip'){assert.equal(options.headers,undefined,'Token forwarded to storage');return new Response(bytes);}
+   url=String(url);
+   if(socketAt&&url.endsWith(socketAt)){
+    socketCalls++;if(firstSocketOptions)assert.equal(options,firstSocketOptions,'Retries keep the original signal/options');else firstSocketOptions=options;
+    if(socketCalls<=socketFailures)throw Object.assign(new TypeError('sensitive transport text'),{cause:{code:'UND_ERR_SOCKET'}});
+   }
+   if(url==='https://storage.example.invalid/posters.zip'){assert.equal(options.headers,undefined,'Token forwarded to storage');return new Response(bytes);}
    assert.equal(options.headers.Authorization,'Bearer fixture-token');
    const rootURL=`https://api.github.com/repos/${repository}`;
    assert(url===rootURL||url.startsWith(`${rootURL}/`),'Wrong GitHub API origin or repository');
@@ -70,10 +75,14 @@ try{
    else throw Error(`Unexpected fixture URL ${url}`);
    return new Response(JSON.stringify(value),{headers:{'content-type':'application/json'}});
   };
-  return fetchVerifiedPosterBaseline({root,repository,baseSha,currentSha,shared,policy_sha256:currentPolicy,runtime:actualRuntime,token:'fixture-token',fetchImpl});
+  const result=await fetchVerifiedPosterBaseline({root,repository,baseSha,currentSha,shared,policy_sha256:currentPolicy,runtime:actualRuntime,token:'fixture-token',fetchImpl});return {...result,socketCalls};
  }
  const found=await lookup();assert(found.verified,found.reasons.join('; '));
  assert((await lookup({apiFailure:true})).reasons.some(reason=>reason==='GitHub poster read failed (503) at repository metadata'),'A failed read reports the safe endpoint, not credentials');
+ for(const socketAt of ['/actions/runs/101','/actions/artifacts/303/zip','/posters.zip']){
+  const retried=await lookup({socketAt,socketFailures:1});assert(retried.verified,retried.reasons.join('; '));assert.equal(retried.socketCalls,2);
+  const exhausted=await lookup({socketAt,socketFailures:3});assert.equal(exhausted.verified,null);assert.equal(exhausted.socketCalls,3);assert(exhausted.reasons.some(reason=>reason.includes('UND_ERR_SOCKET')));assert(!exhausted.reasons.join().includes('sensitive'));
+ }
  const select=(options={})=>selectPosterCaptures({manifest,shared,policy_sha256,runtime,verified:found.verified,...options});
  assert.deepEqual(select().capture,assets.slice(190).map(asset=>asset.id),'Only the four new actual capture IDs are selected');assert.equal(select().reused.length,190);
  assert.equal(select({shared:{...shared,sha256:'b'.repeat(64)}}).capture.length,194,'Changed renderer selects every non-golden ID');

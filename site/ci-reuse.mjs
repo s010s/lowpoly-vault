@@ -6,6 +6,7 @@ import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {sha256,git,controlDigest,runtimeConfig,assertReceipt} from './ci-provenance.mjs';
+import {proofGet} from './ci-proof-fetch.mjs';
 
 export function assertTrustedRun(run,{repository,head,workflow}){
   assert.equal(run.event,'pull_request','Fork/push runs cannot supply a PR receipt');
@@ -28,7 +29,7 @@ export async function reuse(){
   assert(token&&/^[\w.-]+\/[\w.-]+$/.test(repository || ''),'GitHub proof access unavailable');
   const proofTimeout=AbortSignal.timeout(120000); // An unavailable proof cannot stall a release indefinitely.
   const api=async path=>{
-    const response=await fetch(`https://api.github.com/repos/${repository}/${path}`,{signal:proofTimeout,headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}});
+    const response=await proofGet(`https://api.github.com/repos/${repository}/${path}`,{signal:proofTimeout,headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}},{stage:`receipt API ${path.split('?')[0]}`});
     assert(response.ok,`GitHub proof request failed (${response.status})`);return response.json();
   };
   const main=git('rev-parse','HEAD'),tree=git('rev-parse','HEAD^{tree}'),control=controlDigest(main);
@@ -51,10 +52,10 @@ export async function reuse(){
           const artifacts=await api(`actions/runs/${run.id}/artifacts?per_page=100`);
           const matches=artifacts.artifacts.filter(item=>item.name===`validated-${kind}-${run.run_attempt}`);
           assert.equal(matches.length,1,'Missing or ambiguous validation receipt');const artifact=matches[0];
-          const redirect=await fetch(`https://api.github.com/repos/${repository}/actions/artifacts/${artifact.id}/zip`,{signal:proofTimeout,redirect:'manual',headers:{Authorization:`Bearer ${token}`}});
+          const redirect=await proofGet(`https://api.github.com/repos/${repository}/actions/artifacts/${artifact.id}/zip`,{signal:proofTimeout,redirect:'manual',headers:{Authorization:`Bearer ${token}`}},{stage:'receipt artifact redirect'});
           assert.equal(redirect.status,302);const location=new URL(redirect.headers.get('location'));assert.equal(location.protocol,'https:');
           // Never forward the repository token to artifact storage.
-          const download=await fetch(location,{signal:proofTimeout});assert(download.ok,'Artifact download failed');
+          const download=await proofGet(location,{signal:proofTimeout},{stage:'receipt artifact storage'});assert(download.ok,'Artifact download failed');
           const bytes=Buffer.from(await download.arrayBuffer());assertArtifact(artifact,run,bytes);
           const archive=join(temp,`${kind}.zip`),target=join(temp,kind);writeFileSync(archive,bytes);mkdirSync(target);
           execFileSync('python3',['-c',`import zipfile,sys,pathlib\nwith zipfile.ZipFile(sys.argv[1]) as z:\n names=z.namelist(); expected=['receipt.json','dist.tar'] if sys.argv[3]=='pages' else ['receipt.json']\n assert sorted(names)==sorted(expected), 'Unexpected artifact members'\n for name in names:\n  info=z.getinfo(name); assert info.file_size < 2000000000 and not ((info.external_attr >> 16) & 0o170000)==0o120000\n  pathlib.Path(sys.argv[2],name).write_bytes(z.read(name))`,archive,target,kind]);
