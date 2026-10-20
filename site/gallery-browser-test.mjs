@@ -83,7 +83,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
       });
       // No JavaScript must expose an actual linked catalog and functional file URLs.
       const context=await browser.newContext({javaScriptEnabled:false});const page=await context.newPage();
-      try{await page.goto(new URL('zh-CN/models/page/2/',baseURL).href);assert(await page.locator('#static-route-content').isVisible());assert(await page.locator('.gallery-static .slot[href]').count()>0);assert.equal(await page.locator('#home-page').isVisible(),false);await page.locator('.gallery-static .slot').first().click();assert(await page.locator('.static-downloads a[download]').count()>=2);report.cases.push({name:'no-javascript-linked-documents',status:'pass'});}finally{await context.close();}
+      try{await page.goto(new URL('zh-CN/models/page/2/',baseURL).href);assert(await page.locator('#static-route-content .vault-header').isVisible());assert(await page.locator('.gallery-static .slot[href]').count()>0);assert.equal(await page.locator('#home-page').isVisible(),false);await page.locator('.gallery-static .slot').first().click();assert(await page.locator('.static-downloads a[download]').count()>=2);report.cases.push({name:'no-javascript-linked-documents',status:'pass'});}finally{await context.close();}
     }
     if(has('interaction')){
       await test('filter-draft-cancel-apply-no-glb',async({page,row,glbs})=>{
@@ -211,7 +211,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
         await page.locator('#info').click();assert((await page.locator('#info-content').textContent()).includes(last.name.en));row.gpu='not-accepted-forced-fallback';
       },{skipBoot:true,prepare:async({page})=>page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){if(/webgl/i.test(type))return null;return original.call(this,type,...args);};})});
       await test('failed-catalog-retains-real-html',async({page})=>{
-        await page.goto(new URL('zh-CN/models/',baseURL).href);await page.locator('.gallery-load-error').waitFor();assert(await page.locator('#static-route-content').isVisible());assert(await page.locator('#static-route-content .slot[href]').count()>0);
+        await page.goto(new URL('zh-CN/models/',baseURL).href);await page.locator('.gallery-load-error').waitFor();assert(await page.locator('#static-route-content .vault-header').isVisible());assert(await page.locator('#static-route-content .slot[href]').count()>0);
         const detail=await page.locator('#static-route-content .slot[href]').first().getAttribute('href');const response=await page.request.get(new URL(detail,baseURL).href);assert(response.ok());assert((await response.text()).includes('class="static-downloads"'));
       },{skipBoot:true,prepare:async({page})=>page.route('**/assets/manifest.json',route=>route.fulfill({status:503,body:'Intentional unavailable catalog'}))});
     }

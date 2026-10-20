@@ -201,7 +201,7 @@ async function noJavaScriptChecks() {
       const pages = Math.max(1, Math.ceil(manifest.assets.length / CATALOG_PAGE_SIZE));
       for (let index = 0; index < pages; index++) {
         await page.goto(urlFor({ type: 'models', lang, page: index }));
-        assert(await content.isVisible(), 'No-JS catalog must remain readable');
+        assert(await (wheelBuild?content.locator('.vault-header'):content).isVisible(), 'No-JS catalog must remain readable');
         const links = await content.locator(wheelBuild?'a.slot[href]':'a.static-card').evaluateAll(nodes => nodes.map(node => node.href));
         assert.equal(links.length, wheelBuild?manifest.assets.length:manifest.assets.slice(index * CATALOG_PAGE_SIZE, (index + 1) * CATALOG_PAGE_SIZE).length);
         assert.equal(new Set(links).size,links.length,'Each native document links every model exactly once');
