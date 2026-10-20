@@ -580,7 +580,7 @@ export const BATCH54_RELEASE = {
   },
   "source_bundle": {
     "path": "qa/batch54-release-20261020/source-bundle.json",
-    "sha256": "f8035d879bec1a728acb59b3c9963cc7a6d452c3f92dc6eb15fab386b0a9136a"
+    "sha256": "34ea7c701cd23ff36c6007d6cc813397ebb56a26e34d6a8e119c6e68f4a379e9"
   },
   "review": {
     "path": "qa/batch54-independent-20261020/report-data.json",
@@ -591,6 +591,10 @@ export const BATCH54_RELEASE = {
     "sha256": "664b6faf71825718f6b70a913d01ac7278fd4aadc0068f30d4b6090339d6e930"
   },
   "capture": {
+    "independent_review": {
+      "path": "qa/batch54-release-20261020/capture-independent-verification.json",
+      "sha256": "7359fd4f8e73eb3f30ff529897073c7e5e8f73095fa890c0cf56e2d252cea537"
+    },
     "report": {
       "path": "qa/batch54-release-20261020/capture/render-report.json",
       "sha256": "25a892394b4bde3d14a3b5d2d597ce5bbd55fc253783fba15c15174890b0f2bf"
@@ -2610,6 +2614,12 @@ export const BATCH54_RELEASE = {
     {
       "path": "qa/batch54-release-20261020/capture/render-report.json",
       "sha256": "25a892394b4bde3d14a3b5d2d597ce5bbd55fc253783fba15c15174890b0f2bf",
+      "origin": "release",
+      "owner": "$batch"
+    },
+    {
+      "path": "qa/batch54-release-20261020/capture-independent-verification.json",
+      "sha256": "7359fd4f8e73eb3f30ff529897073c7e5e8f73095fa890c0cf56e2d252cea537",
       "origin": "release",
       "owner": "$batch"
     },
