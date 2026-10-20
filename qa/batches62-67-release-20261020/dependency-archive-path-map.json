@@ -1,5 +1,5 @@
 {
-  "purpose": "Preserve exact already-archived QA dependency bytes as inert history while retaining the existing strict safe-path contract. Original scoped npm directory names and Git modes are recorded; no original source or QA file was modified, and no dependency is executed from this archive.",
+  "purpose": "Historical path/mode map for installed QA dependencies excluded from the current release source bundle. Original dependency bytes remain recoverable from the exact Git commits in excluded-installed-dependencies.json; these entries are not required current-tree evidence and are never executed.",
   "files": [
     {
       "original_path": "qa/continuous-small-life-round24-20261020/batch-63/independent-review/work/node_modules/@esbuild/linux-x64/README.md",
@@ -120,5 +120,13 @@
       "source_commit": "eb646735dfd121553735980d8c11f94adecda8c4",
       "original_git_mode": "100644"
     }
-  ]
+  ],
+  "current_disposition": {
+    "status": "excluded_installed_dependencies",
+    "audit_path": "qa/batches62-67-release-20261020/excluded-installed-dependencies.json",
+    "original_review_commit": "eb646735dfd121553735980d8c11f94adecda8c4",
+    "prior_release_commit": "b9fe20332fc4ca7765d6e052e7190ce7266f853e",
+    "current_source_bundle": "qa/batch63-release-20261020/source-bundle.json",
+    "current_bundle_contains_dependency_bytes": false
+  }
 }

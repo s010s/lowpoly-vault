@@ -179,7 +179,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch63-20261020.json",
-      "sha256": "645e77cfc425880501a7ba595ca7069604f489d2e350ae1bb75b7971a193608e"
+      "sha256": "0c0fe1fdfb5cb5331f4fbe5e544e3b804c5b2d66395267c7bd8522c2bfaff2e9"
     },
     "asset_ids": [
       "caldera",
