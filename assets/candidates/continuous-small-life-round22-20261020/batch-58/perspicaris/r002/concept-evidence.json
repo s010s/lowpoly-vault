@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "perspicaris",
+  "revision": "r002",
+  "labels": {
+    "en": "perspicaris"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "ec95315cac17288508b02d7f3901e9a6a8e8ef464e46b44f460bba049488d35c"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "562f7435555aa51844db611e61923008bdf5572f8fb0420385be2992fa64655c"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "0371d0379eeec1cbd63987a002f134d509d9722253045c8e341d3e5bc756ab45"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "d9fdfe3fcef95cd75649c3908cb685ce547dd0b2d36f2093805d12d2afeb0804"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "1036fb570efd95df8f779014f629951d1bc7aae124571d279fbd370a51ed69d8"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "e31ea080a957d10f099c3dcb8f9f05d59c1d9e34fcdc7ed753cbbfd62ccda107"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "ae5d759951985ecff66b1b6d038067441de2302076b871fb0cbcc0e8ed7ea508"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e1f59d2b28030f76d793d5af3ec0af5224fe33d7adc60791abc806e52111b02a"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "2404e7259c082d931d34cbc1e61b0ba18291e6b69006b92dd52c99742cafbda9"
+      }
+    ],
+    "cross_view_consistency_note": "Actual original concept pixels inspected; contradictions resolved explicitly in frozen brief.concept_decisions; unused Conularia panel in provisional sheet rejected, not part of this asset. Perspicaris separate replacement sheet used.",
+    "hidden_surface_decisions": "Original replacement sheet genuinely inspected; retain paired valves, forward eyes, swimming flaps, abdomen and fork. Discard AI texture and apparent ring count inconsistencies. Build exactly seven exposed abdomen segments, ten paired flap-bearing thorax stations, two eyes/two antennae/two rami. Tail rami are unsegmented tapering forks rather than AI jointed third antenna-like structures. Straight dorsal hinge and suboval valve outlines; two closed thickened domed shells with open ventral separation reveal flattened flaps. No claws or walking legs, no shrimp tail fan. Source says swimming; root is floor-centered minimum display support extent, not assertion animal walks."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T07:16:21.819471148Z",
+    "modeling_started_at": "2026-10-20T07:23:29.483212+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 21.3023,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "8de34dfdb60f99dfe273072476ca00b6d41991fa5ef53a4e314db3dfbb845f7a"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "8de34dfdb60f99dfe273072476ca00b6d41991fa5ef53a4e314db3dfbb845f7a"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "bf45865550853c3e9173e03ee608b40293f9ad34eb1e85fd2be170d6869b1389",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "e0c10c2d9ad9edec13ecc950a903e81db38d1624fb633d072fa62dbe00673b10"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "ec95315cac17288508b02d7f3901e9a6a8e8ef464e46b44f460bba049488d35c",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "19d15b0ec50c7e5e3d7f813295155502e8cf957fe2e2ba96b58757eec4e94e83"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

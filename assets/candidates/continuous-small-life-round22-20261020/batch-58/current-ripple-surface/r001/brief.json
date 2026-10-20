@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "current-ripple-surface",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original concept-guided evidence-informed stylized teaching prop; candidate only",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical subject features: Seven to nine nearly parallel gently sinuous real sediment ridges; Each ridge has consistent long gentle upstream and short steep downstream slope; Closed thin cutaway slab; diagnostic internal relief visible in top and clay. Scope: Original generic geological-process/form prop; no named specimen, site, age, exact sediment size or dimensions claim. Seven ridges, slab boundary, color and depth are artistic. A teaching exaggeration of low relief, not a simulation.",
+      "required_sources": [
+        "NPS-RIPPLE"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical subject features: Seven to nine nearly parallel gently sinuous real sediment ridges; Each ridge has consistent long gentle upstream and short steep downstream slope; Closed thin cutaway slab; diagnostic internal relief visible in top and clay. Scope: Original generic geological-process/form prop; no named specimen, site, age, exact sediment size or dimensions claim. Seven ridges, slab boundary, color and depth are artistic. A teaching exaggeration of low relief, not a simulation.",
+      "required_sources": [
+        "NPS-RIPPLE"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed eight views zero turntable, all seven independent stages retained.",
+  "required_deliverables": [],
+  "claim_scope": "Original generic geological-process/form prop; no named specimen, site, age, exact sediment size or dimensions claim. Seven ridges, slab boundary, color and depth are artistic. A teaching exaggeration of low relief, not a simulation.",
+  "nominal_dimensions_blender_xyz_m": [
+    1.2,
+    0.9,
+    0.095
+  ],
+  "dimension_status": "Illustrative nominal targets, not measured specimen; actual bounds retained separately",
+  "recognition_features": [
+    "Seven to nine nearly parallel gently sinuous real sediment ridges",
+    "Each ridge has consistent long gentle upstream and short steep downstream slope",
+    "Closed thin cutaway slab; diagnostic internal relief visible in top and clay"
+  ],
+  "concept_decisions": "Panel D surface rhythm and closed cutaway retained. Its small side sketch looks symmetric, reject it: explicit analytic asymmetric cross-sections are long gentle +Y-to-Ydecreasing stoss and short steep downcurrent -Y lee. Use 8 ridges with gently sinuous crest drift across X, no random faceting, no water/fossils/burrows. Slab surface is a single continuous top mesh with actual relief and a closed cutaway underside; quiet edge border only, not additional scenic platform.",
+  "style": "Original restrained palette-only refined low-poly, broad quiet planes, diagnostic silhouette/relief",
+  "intended_use": "Supporting teaching asset, 256-512px views; not museum-grade scientific replica",
+  "created_at": "2026-10-20T07:17:44.034068+00:00",
+  "validation_profile": "static-stylized-v1"
+}
