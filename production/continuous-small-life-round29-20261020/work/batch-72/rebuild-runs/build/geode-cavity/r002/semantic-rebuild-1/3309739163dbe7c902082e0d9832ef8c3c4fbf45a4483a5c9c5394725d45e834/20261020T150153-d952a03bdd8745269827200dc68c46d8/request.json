@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/rebuild-runs/build/geode-cavity/r002/semantic-rebuild-1/3309739163dbe7c902082e0d9832ef8c3c4fbf45a4483a5c9c5394725d45e834/20261020T150153-d952a03bdd8745269827200dc68c46d8/outputs"
+  ],
+  "created_at": "2026-10-20T15:01:53.113768+00:00",
+  "fingerprint": "3309739163dbe7c902082e0d9832ef8c3c4fbf45a4483a5c9c5394725d45e834",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6122,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/brief.json",
+        "sha256": "9847db467bf340abd2640bc14ce6b5716e8df5f473751c2ab827df1225b560a4"
+      },
+      "config": {
+        "bytes": 1524,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/build-config.json",
+        "sha256": "19a110b0497abbdf2341b523a99562a71e5e9da7834814b6a04c848e9b7b161d"
+      },
+      "generator": {
+        "bytes": 12859,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/generator.py",
+        "sha256": "b70ef9afc3f293fc61e98edc31feae9ccca554192f6f12c0751218fd476c921c"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 4653,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/references.json",
+        "sha256": "68c6faa26264da1adc1234109abeff95e2fd10ca7cd210da4bc4a4449a088d24"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "geode-cavity",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch72-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch72-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T150153-ead6f259bdec482ea416850db0978dd3"
+}

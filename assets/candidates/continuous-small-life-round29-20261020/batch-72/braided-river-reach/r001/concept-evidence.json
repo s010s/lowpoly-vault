@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "braided-river-reach",
+  "revision": "r001",
+  "labels": {
+    "en": "braided-river-reach"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "77cc28b08783a9ace0524a5cfdbc3a315cc1e4d68314d0d27d32706a9e9bcc7a"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "b218ce81c28bcd6c207005d0eb0f9a2895b4e63cbcaf88368db0862776b4f819"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "cfb0c5d569a48fcd2b7d4162ea6b79e1e54f834d29cf50cf2ad535060f16afc9"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "4099c9251d917fd5b586e82de9261702d48d5724983afac96d9de2f471dda45b"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "86ba67a9a177f2052a807fffc06dae0d5f70b6f8d5a86bca1954b9cf114b7a93"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "5220ff25148d4064d641e68ff3e819c62e7dcb072b3600e67223af5a42465c7b"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "d4ce1ed68baa32294e533c3c0da8139ba3b68879a3220d52fe33a7556a02d48d"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "10d4523e87dd52f917f07ab6051aae2b0df9f3c25f3a6590e6a610fff149b46f"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "fa07cd8cb03fb4ed45d02e5accaf4f74b7b95981c1d35a586ea514417da9b4c0"
+      }
+    ],
+    "cross_view_consistency_note": "Long-axis Y flow; branch network repeatedly splits and rejoins around three offset bar groups and a cross-connecting arm. Water surface kept below continuous bank terrain and unequal exposed bar crests; terrain is carved by distance to the same branch-network centerlines. Bar forms arise in network voids rather than separate discs placed on a water sheet. Closed terrain cutaway with natural low relief and a few embedded faceted gravel stones. No vegetation required for bare sediment reference scope. Concept inspected: connectivity useful, but concept has overly repeated symmetric almond bars. Correct final branch network to unequal asymmetric widths, staggered junctions and differently shaped bars, not copy those ovals.",
+    "hidden_surface_decisions": "Long-axis Y flow; branch network repeatedly splits and rejoins around three offset bar groups and a cross-connecting arm. Water surface kept below continuous bank terrain and unequal exposed bar crests; terrain is carved by distance to the same branch-network centerlines. Bar forms arise in network voids rather than separate discs placed on a water sheet. Closed terrain cutaway with natural low relief and a few embedded faceted gravel stones. No vegetation required for bare sediment reference scope. Concept inspected: connectivity useful, but concept has overly repeated symmetric almond bars. Correct final branch network to unequal asymmetric widths, staggered junctions and differently shaped bars, not copy those ovals."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:52:28.454470+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 9.2746,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "48f89d13309f6dd64bef1e3cd8ec316d3787e50633ce99a21a1eac063f3b77a0"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "48f89d13309f6dd64bef1e3cd8ec316d3787e50633ce99a21a1eac063f3b77a0"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "1aaa5d3dd255876589b741261dd9071ec825bd791bb668c4b742bf052fcf96ee",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "6c98d99bee506451a0e940c2ae5b123c5ad12a18e2122975fa961904545674df"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "77cc28b08783a9ace0524a5cfdbc3a315cc1e4d68314d0d27d32706a9e9bcc7a",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "4323deb5ef618547bb662f8edf022ef9c4e1b74b12a528d2650d989ecc7fef9f"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

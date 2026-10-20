@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/rebuild-runs/build/braided-river-reach/r001/semantic-rebuild-2/8c85ede60dd527c70d26cbbcec9d7ecb4b8600e9c42d6b87003105e32a71d95a/20261020T145753-b0159be07ea5479e973e95ef26c84400/outputs"
+  ],
+  "created_at": "2026-10-20T14:57:53.744847+00:00",
+  "fingerprint": "8c85ede60dd527c70d26cbbcec9d7ecb4b8600e9c42d6b87003105e32a71d95a",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5625,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/brief.json",
+        "sha256": "6c29f893c1b24363e0b1149922725b07204d22c3acd288007fb60d511566dbbb"
+      },
+      "config": {
+        "bytes": 1158,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/build-config.json",
+        "sha256": "5220ff25148d4064d641e68ff3e819c62e7dcb072b3600e67223af5a42465c7b"
+      },
+      "generator": {
+        "bytes": 12431,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/generator.py",
+        "sha256": "86ba67a9a177f2052a807fffc06dae0d5f70b6f8d5a86bca1954b9cf114b7a93"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2499,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/references.json",
+        "sha256": "cfb0c5d569a48fcd2b7d4162ea6b79e1e54f834d29cf50cf2ad535060f16afc9"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "braided-river-reach",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch72-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch72-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/braided-river-reach/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T145739-b87fd4305be44ca9b239efdb00dbabfd"
+}

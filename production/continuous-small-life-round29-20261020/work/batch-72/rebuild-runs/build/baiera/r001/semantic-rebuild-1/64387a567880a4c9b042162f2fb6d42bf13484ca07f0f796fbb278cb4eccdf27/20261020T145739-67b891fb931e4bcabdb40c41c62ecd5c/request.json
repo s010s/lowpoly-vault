@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/rebuild-runs/build/baiera/r001/semantic-rebuild-1/64387a567880a4c9b042162f2fb6d42bf13484ca07f0f796fbb278cb4eccdf27/20261020T145739-67b891fb931e4bcabdb40c41c62ecd5c/outputs"
+  ],
+  "created_at": "2026-10-20T14:57:39.768387+00:00",
+  "fingerprint": "64387a567880a4c9b042162f2fb6d42bf13484ca07f0f796fbb278cb4eccdf27",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6194,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/brief.json",
+        "sha256": "159d724012c65aa9054df0c38faea08535aa819712cd71b77642067799c464b2"
+      },
+      "config": {
+        "bytes": 1102,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/build-config.json",
+        "sha256": "1b68cdbe4851025d6033ef691f9e3951388ed3515aa661ff961bd75c2cec77ef"
+      },
+      "generator": {
+        "bytes": 12431,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py",
+        "sha256": "86ba67a9a177f2052a807fffc06dae0d5f70b6f8d5a86bca1954b9cf114b7a93"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 4429,
+        "path": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/references.json",
+        "sha256": "13c5133c321979671e254dc9db531c6848ef8fe3bf226683c15cbdf239d2b8ae"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "baiera",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch72-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch72-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T145739-b87fd4305be44ca9b239efdb00dbabfd"
+}

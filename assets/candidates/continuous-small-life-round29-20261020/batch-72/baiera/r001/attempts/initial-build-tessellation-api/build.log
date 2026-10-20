@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py", line 52, in <module>
+    prism_polygon('thin_irregular_original_shale_support',outline,0,.004,'shale')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py", line 40, in prism_polygon
+    fs=[tuple(ix(v)+n for v in t) for t in tris]+[tuple(reversed([ix(v) for v in t])) for t in tris]
+        ~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py", line 40, in <genexpr>
+    fs=[tuple(ix(v)+n for v in t) for t in tris]+[tuple(reversed([ix(v) for v in t])) for t in tris]
+              ~~^^^
+  File "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py", line 39, in <lambda>
+    ix=lambda v:min(range(n),key=lambda i:(xy[i][0]-v.x)**2+(xy[i][1]-v.y)**2)
+                ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py", line 39, in <lambda>
+    ix=lambda v:min(range(n),key=lambda i:(xy[i][0]-v.x)**2+(xy[i][1]-v.y)**2)
+                                                    ^^^
+AttributeError: 'int' object has no attribute 'x'
+
+Error: script failed, file: '/workspace/shared/lowpoly-batch72-20261020/assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r001/generator.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender').
+Blender 4.3.2
+
+Blender quit

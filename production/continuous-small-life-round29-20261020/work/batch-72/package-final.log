@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch72-20261020/scripts/candidate_profile.py", line 32, in <module>
+    main()
+  File "/workspace/shared/lowpoly-batch72-20261020/scripts/candidate_profile.py", line 28, in main
+    print(json.dumps(create_contract(args.root, args.candidate, args.policy), ensure_ascii=False, indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch72-20261020/scripts/candidate_profile.py", line 18, in create_contract
+    'publication_policy': pin(policy, 'publication policy'),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch72-20261020/scripts/candidate_profile.py", line 14, in pin
+    path = relative_file(root, name, label)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch72-20261020/scripts/validate_candidate.py", line 152, in relative_file
+    need(full.is_file(), f'{label}: missing file {name}')
+  File "/workspace/shared/lowpoly-batch72-20261020/scripts/validate_candidate.py", line 52, in need
+    raise Invalid(message)
+validate_candidate.Invalid: publication policy: missing file production/policies/qa-passed-batch-publication-20261018.json
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch72-20261020/production/continuous-small-life-round29-20261020/work/batch-72/package-candidates.py", line 25, in <module>
+    (b/'profile-contract.json').write_text(subprocess.check_output(['python3','scripts/candidate_profile.py',str((b/'candidate.json').relative_to(R)),'--root',str(R)],text=True))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', 'scripts/candidate_profile.py', 'assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r002/candidate.json', '--root', '/workspace/shared/lowpoly-batch72-20261020']' returned non-zero exit status 1.
+baiera candidate 0 True
+baiera concept 0 True False
+transverse-dune-ridge candidate 0 True
+transverse-dune-ridge concept 0 True False
+braided-river-reach candidate 0 True
+braided-river-reach concept 0 True False
+geode-cavity candidate 0 True
+geode-cavity concept 0 True False
+baiera candidate 0 True
+baiera concept 0 True False
+transverse-dune-ridge candidate 0 True
+transverse-dune-ridge concept 0 True False
+braided-river-reach candidate 0 True
+braided-river-reach concept 0 True False
+geode-cavity candidate 0 True
+geode-cavity concept 0 True False

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "geode-cavity",
+  "revision": "r003",
+  "labels": {
+    "en": "geode-cavity"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "5205b3362093fe5b1340b95688259da370b10325a3ea69af497ee72017253b42"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "3f50ccba8bc0e0c79c253e89cafdb6914774e9382342bc42b4aebf51245261d3"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "68c6faa26264da1adc1234109abeff95e2fd10ca7cd210da4bc4a4449a088d24"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "ec90eacc32aad6148fdec37ceb98ae0b319ba38e9fcfead689383f400a3afa48"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "0ce04df9f5fcef62b59a7e46e013e7787e4eb607a9e50dabe0dbb746eee2ec0d"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "6f784d6cca89a322b0bc57aa358109c3d63dbbbd07e65aaf2c6a4338de1a6376"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "d79349bd20382a023ab7532243cfd8af8b25d28657bf6c8bb17f3c2abd914358"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "fa82ca090b1851cb63fbd588ca06a83a340500c10ae708244a7626cb2a5f1b01"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "916646273affa958d270db3d5c520166d38feffe06aa8cff9b0f834cf6a8fecc"
+      }
+    ],
+    "cross_view_consistency_note": "Retain roughly two-thirds of rounded lumpy shell including complete back and underside, remove bounded front/top wedge for visibility. Wall has exterior rind, finite thickness and pale inner chalcedony liner. Crystals attach to inner concave surface and point toward cavity center, irregular spacing/size, short enough to preserve empty hollow; mostly creamy quartz, no unsupported amethyst claim. Cut opening is a deliberate educational display convention frozen before modeling; not claimed natural break or bedrock cave. No pedestal or slab. Concept inspected: rounded free enclosing nodule and hollow read correctly. Concept crystals too large/coarse; final lining uses substantially smaller unequal quartz crystals, preserving empty inward hollow. Opening reinterpreted as honest removed front/top display cap, no natural break claim.",
+    "hidden_surface_decisions": "Retain roughly two-thirds of rounded lumpy shell including complete back and underside, remove bounded front/top wedge for visibility. Wall has exterior rind, finite thickness and pale inner chalcedony liner. Crystals attach to inner concave surface and point toward cavity center, irregular spacing/size, short enough to preserve empty hollow; mostly creamy quartz, no unsupported amethyst claim. Cut opening is a deliberate educational display convention frozen before modeling; not claimed natural break or bedrock cave. No pedestal or slab. Concept inspected: rounded free enclosing nodule and hollow read correctly. Concept crystals too large/coarse; final lining uses substantially smaller unequal quartz crystals, preserving empty inward hollow. Opening reinterpreted as honest removed front/top display cap, no natural break claim."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:52:28.478913+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 41.189,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "7237b605c3b30b15e8144767d57ad09c378867bdc42f1e44bd3704b4b52ef4ca"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "7237b605c3b30b15e8144767d57ad09c378867bdc42f1e44bd3704b4b52ef4ca"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "51a872cfd25a0d349bc3f8db0da15b79c0b67eb40dd881fe6e80b1b786375c2f",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "988da1691df7d2d0af3eeff8b6d55c1137ef1898962edf1665278a3bbf615ff2"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "5205b3362093fe5b1340b95688259da370b10325a3ea69af497ee72017253b42",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "8a938c033b51062a1fe0f14b6d00e2ea5a7a2334ebdb57df4b7cf2d2727835e2"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
