@@ -6,7 +6,7 @@ const codeFor=error=>{
  return typeof code==='string'&&/^[A-Z][A-Z0-9_]{0,63}$/.test(code)?code:'TRANSPORT_ERROR';
 };
 export async function proofGet(url,options={},{
- fetchImpl=fetch,stage='proof read'
+ fetchImpl=fetch,stage='proof read',checkBudget
 }={}){
  assert.equal((options.method||'GET').toUpperCase(),'GET','Proof transport permits GET only');
  assert.equal(options.body,undefined,'Proof GET cannot have a body');
@@ -15,7 +15,7 @@ export async function proofGet(url,options={},{
   // Long synchronous policy/archive checks can leave a closed keep-alive socket
   // queued on the event loop. Process its close event before the next read.
   await new Promise(setImmediate);
-  options.signal?.throwIfAborted();
+  options.signal?.throwIfAborted();checkBudget?.();
   try{return await fetchImpl(url,options);}
   catch(error){
    // Keep the original total deadline and abort reason. Never retry a response,

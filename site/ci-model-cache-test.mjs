@@ -8,6 +8,7 @@ import {fixture,identity,finish,verification} from './ci-model-proof-test.mjs';
 import {computeModelInputs,modelPolicyDigest,modelPolicyDigestAtCommit,hashBytes,planModelReuse} from './ci-model-proof.mjs';
 import {fetchVerifiedBaseProof,extractModelProof,proofArtifactName} from './ci-model-cache.mjs';
 import './ci-proof-fetch-test.mjs';
+import './ci-model-policy-snapshot-test.mjs';
 
 const zip=(proof,{name='model-proof.json',duplicate=false,symlink=false}={})=>{
   const dir=mkdtempSync(join(tmpdir(),'proof-zip-test-'));
@@ -29,8 +30,8 @@ try{
   const shadow=mkdtempSync(join(tmpdir(),'proof-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
   try{for(const moduleName of ['zipfile','json'])writeFileSync(join(shadow,`${moduleName}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractModelProof(originalZip),baseProof,'Isolated proof decoding ignores checkout/PYTHONPATH modules');}
   finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
-  async function lookup({alterRun,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false,socketAt,socketFailures=0}={}){
-    const r=structuredClone(run),s=structuredClone(suite),a=structuredClone(metadata);alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[];let socketCalls=0,firstSocketOptions;
+  async function lookup({alterRun,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false,socketAt,socketFailures=0,retryCandidate=false,timeoutMs,onTiming}={}){
+    const r=structuredClone(run),s=structuredClone(suite),a=structuredClone(metadata);alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[],timings=[];let socketCalls=0,firstSocketOptions;
     const fetchImpl=async(url,options={})=>{
       url=String(url);requests.push({url,options});
       if(socketAt&&url.endsWith(socketAt)){
@@ -50,7 +51,8 @@ try{
       else if(path==='git/ref/heads/main')body={ref:'refs/heads/main',object:{sha:currentSha}};
       else if(path.startsWith('compare/'))body={status:ancestor?'ahead':'diverged',merge_base_commit:{sha:baseSha}};
       else if(path==='actions/workflows/full-release-review.yml')body={id:99,path:'.github/workflows/full-release-review.yml'};
-      else if(path.startsWith('actions/workflows/99/runs?'))body={workflow_runs:missing?[]:[{id:101,head_sha:newer?currentSha:baseSha}]};
+      else if(path.startsWith('actions/workflows/99/runs?'))body={workflow_runs:missing?[]:[...(retryCandidate?[{id:102,head_sha:baseSha}]:[]),{id:101,head_sha:newer?currentSha:baseSha}]};
+      else if(path==='actions/runs/102')body={...r,id:102,conclusion:'failure'};
       else if(path==='actions/runs/101')body=r;
       else if(path===`actions/runs/101/attempts/${r.run_attempt}`)body={...r,run_attempt:attempt};
       else if(path==='check-suites/202')body=s;
@@ -62,8 +64,15 @@ try{
       else throw Error(`Unexpected fixture API path: ${path}`);
       return new Response(JSON.stringify(body),{headers:{'content-type':'application/json'}});
     };
-    const result=await fetchVerifiedBaseProof({root:f.root,repository,baseSha,currentSha,inputs,token:'test-read-token',fetchImpl});return {...result,requests,socketCalls};
+    const result=await fetchVerifiedBaseProof({root:f.root,repository,baseSha,currentSha,inputs,token:'test-read-token',fetchImpl,timeoutMs,onTiming:entry=>{timings.push(entry);onTiming?.(entry);}});return {...result,requests,socketCalls,timings};
   }
+  const rerun=await lookup({retryCandidate:true});assert(rerun.verifiedBaseProof,rerun.reasons.join('; '));
+  assert.equal(rerun.timings.filter(row=>row.stage==='model committed policy').length,1,'Same-commit reruns share one authenticated policy snapshot');
+  assert.equal(rerun.timings.filter(row=>row.stage==='model current archive append').length,2,'Current tree is revalidated, never cached');
+  const noBudget=await lookup({timeoutMs:0});assert.equal(noBudget.verifiedBaseProof,null);assert.equal(noBudget.requests.length,0);
+  const exhaustedLocal=await lookup({retryCandidate:true,timeoutMs:1000,onTiming:entry=>{if(entry.stage==='model committed policy')Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,1010);}});
+  assert.equal(exhaustedLocal.verifiedBaseProof,null);assert.equal(exhaustedLocal.reasons.filter(reason=>reason.startsWith('Candidate ')).length,1,'Budget exhaustion stops the candidate loop');
+  assert(!exhaustedLocal.requests.some(row=>/\/actions\/runs\//.test(row.url)),'No run metadata GET starts after local validation exhausts the total budget');
   const valid=await lookup();assert(valid.verifiedBaseProof,valid.reasons.join('\n'));const planned=planModelReuse({inputs,...valid});assert.equal(planned.fresh_ids.length,4);assert.equal(planned.reused_ids.length,190);
   assert.equal(valid.requests[0].url,`https://api.github.com/repos/${repository}`,'Repository metadata uses the canonical no-slash endpoint');
   assert((await lookup({apiFailure:true})).reasons.some(reason=>reason==='GitHub proof read failed (503) at repository metadata'),'A failed read reports the safe endpoint, not credentials');

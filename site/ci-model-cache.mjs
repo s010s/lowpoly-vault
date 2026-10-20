@@ -5,9 +5,10 @@ import {tmpdir} from 'node:os';
 import {resolve,join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
-import {computeModelInputs,modelPolicyDigestAtCommit,assertModelArchivalAppendAtCommit,catalogIDs,hashBytes,hashObject,assertBaseModelProof,planModelReuse,MODEL_PROOF_FILE,MODEL_PROOF_WORKFLOW,GPU_POLICY} from './ci-model-proof.mjs';
+import {computeModelInputs,modelPolicyDigestAtCommit,modelPolicySnapshotAtCommit,assertModelArchivalAppendAtCommit,catalogIDs,hashBytes,hashObject,assertBaseModelProof,planModelReuse,MODEL_PROOF_FILE,MODEL_PROOF_WORKFLOW,GPU_POLICY} from './ci-model-proof.mjs';
 import {controlDigest} from './ci-provenance.mjs';
 import {proofGet} from './ci-proof-fetch.mjs';
+import {proofReadBudget} from './ci-proof-budget.mjs';
 
 const SHA=/^[a-f0-9]{40}$/,MAX_ARTIFACT_BYTES=16*1024*1024;
 export const proofArtifactName=attempt=>`model-proof-v2-${attempt}`;
@@ -41,21 +42,23 @@ export function extractModelProof(bytes){
     return JSON.parse(output.toString('utf8'));
   }finally{rmSync(temp,{recursive:true,force:true});}
 }
-function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch,signal=AbortSignal.timeout(120000)}){
+function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch,budget=proofReadBudget(120000,{maximumMs:120000})}){
   assert(/^[\w.-]+\/[\w.-]+$/.test(repository||''),'Missing repository');assert(token,'Read-only GitHub proof token unavailable');
+  const {signal}=budget;
+  const get=(url,options,stage)=>{budget.check();return proofGet(url,options,{fetchImpl,stage,checkBudget:budget.check}).then(response=>{budget.check();return response;});};
   const url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`;
   const headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
-  const api=async path=>{const response=await proofGet(url(path),{headers,signal},{fetchImpl,stage:`model API ${path.split('?')[0]||'repository metadata'}`});assert(response.ok,`GitHub proof read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
+  const api=path=>budget.measureAsync(`model API ${path.split('?')[0]||'repository metadata'}`,async()=>{const response=await get(url(path),{headers,signal},`model API ${path.split('?')[0]||'repository metadata'}`);assert(response.ok,`GitHub proof read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();});
   const artifact=async(run)=>{
     const listed=await api(`actions/runs/${run.id}/artifacts?per_page=100`);
     const matches=listed.artifacts.filter(item=>item.name===proofArtifactName(run.run_attempt));assert.equal(matches.length,1,'Missing or ambiguous v2 model artifact');
     // Re-read the immutable artifact metadata independently, not just list fields.
     const metadata=await api(`actions/artifacts/${matches[0].id}`);assert.equal(metadata.id,matches[0].id);
-    const redirect=await proofGet(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'},{fetchImpl,stage:'model artifact redirect'});assert.equal(redirect.status,302,'Artifact redirect unavailable');
+    const redirect=await get(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'},'model artifact redirect');assert.equal(redirect.status,302,'Artifact redirect unavailable');
     const destination=new URL(redirect.headers.get('location'));assert.equal(destination.protocol,'https:');assert.equal(destination.username,'');assert.equal(destination.password,'');
-    const download=await proofGet(destination.href,{signal},{fetchImpl,stage:'model artifact storage'}); // Never forward repository credentials to storage.
+    const download=await get(destination.href,{signal},'model artifact storage'); // Never forward repository credentials to storage.
     assert(download.ok,'Artifact download failed');const size=Number(download.headers.get('content-length')||0);assert(size<=MAX_ARTIFACT_BYTES,'Oversized artifact');
-    const data=Buffer.from(await download.arrayBuffer());assertImmutableModelArtifact(metadata,run,data);
+    const data=Buffer.from(await budget.measureAsync('model artifact body',()=>download.arrayBuffer()));assertImmutableModelArtifact(metadata,run,data);
     return {proof:extractModelProof(data),metadata};
   };
   return {api,artifact};
@@ -73,11 +76,12 @@ async function sourceManifest(api,sha){
   assert.equal(blob.encoding,'base64');if(blob!==file)assert.equal(blob.sha,file.sha);
   return JSON.parse(Buffer.from(blob.content.replace(/\s/g,''),'base64').toString('utf8'));
 }
-export async function fetchVerifiedBaseProof({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,inputs=computeModelInputs({root}),token,fetchImpl,allowAncestor=true}={}){
+export async function fetchVerifiedBaseProof({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,inputs=computeModelInputs({root}),token,fetchImpl,allowAncestor=true,timeoutMs=120000,onTiming}={}){
   const reasons=[];
   try{
     assert(SHA.test(baseSha||'')&&!/^0+$/.test(baseSha),'No exact trusted comparison base');assert(SHA.test(currentSha||''),'No current source commit');
-    const {api,artifact}=client({repository,token,fetchImpl});
+    const budget=proofReadBudget(timeoutMs,{maximumMs:120000,onTiming}),snapshots=new Map();
+    const {api,artifact}=client({repository,token,fetchImpl,budget});
     const repo=await api('');assert.equal(repo.full_name,repository);assert.equal(repo.default_branch,'main');
     const main=await api('git/ref/heads/main');assert.equal(main.ref,'refs/heads/main');
     await assertAncestor(api,baseSha,currentSha);await assertAncestor(api,baseSha,main.object.sha);
@@ -87,22 +91,26 @@ export async function fetchVerifiedBaseProof({root=process.cwd(),repository=proc
     // A later rerun of an older commit must not hide the newer 194-model proof.
     // This local graph distance only orders candidates; the API still proves
     // ancestry independently before any candidate can authorize reuse.
-    const distance=sha=>{try{assert(SHA.test(sha||''));git(root,'merge-base','--is-ancestor',sha,baseSha);return Number(git(root,'rev-list','--count',`${sha}..${baseSha}`));}catch{return Number.MAX_SAFE_INTEGER;}};
-    const distances=new Map(candidates.map(run=>[run.head_sha,distance(run.head_sha)]));
+    const distance=sha=>{try{assert(SHA.test(sha||''));execFileSync('git',['merge-base','--is-ancestor',sha,baseSha],{cwd:root,stdio:'ignore',timeout:budget.remaining()});return Number(execFileSync('git',['rev-list','--count',`${sha}..${baseSha}`],{cwd:root,encoding:'utf8',timeout:budget.remaining()}));}catch{budget.check();return Number.MAX_SAFE_INTEGER;}};
+    const distances=budget.measure('model candidate ranking',()=>new Map([...new Set(candidates.map(run=>run.head_sha))].map(sha=>{budget.check();return [sha,distance(sha)];})));
     candidates.sort((a,b)=>distances.get(a.head_sha)-distances.get(b.head_sha)||b.id-a.id);
     for(const summary of candidates){
+      budget.check();
       try{
         assert(SHA.test(summary.head_sha||''));await assertAncestor(api,summary.head_sha,baseSha);
         // A PR cannot authorize its own changed verifier or acceptance boundary.
-        assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root}),inputs.policy_sha256,'Protected source changed; new full main baseline required');
-        assertModelArchivalAppendAtCommit(summary.head_sha,{root});
+        if(!snapshots.has(summary.head_sha))snapshots.set(summary.head_sha,budget.measure('model committed policy',()=>modelPolicySnapshotAtCommit(summary.head_sha,{root,budget})));
+        const snapshot=snapshots.get(summary.head_sha);
+        assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root,snapshot,budget}),inputs.policy_sha256,'Protected source changed; new full main baseline required');
+        budget.measure('model current archive append',()=>assertModelArchivalAppendAtCommit(summary.head_sha,{root,snapshot,budget}));
         const run=await api(`actions/runs/${summary.id}`);assertTrustedMainRun(run,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});
         const attempt=await api(`actions/runs/${run.id}/attempts/${run.run_attempt}`);assertTrustedMainRun(attempt,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});assert.equal(attempt.id,run.id);assert.equal(attempt.run_attempt,run.run_attempt);
         const suite=await api(`check-suites/${run.check_suite_id}`);assertTrustedSuite(suite,run);
         const {proof,metadata}=await artifact(run),manifest=await sourceManifest(api,run.head_sha);
         assertBaseModelProof(proof,{repository,baseSha:run.head_sha,sourceTree:git(root,'rev-parse',`${run.head_sha}^{tree}`),runId:run.id,runAttempt:run.run_attempt,policy_sha256:inputs.policy_sha256,runtime_config:inputs.runtime_config,catalog_ids:catalogIDs(manifest)});
-        return {baseProof:proof,verifiedBaseProof:{schema:2,repository,source_commit:run.head_sha,comparison_base:baseSha,run_id:run.id,run_attempt:run.run_attempt,check_suite_id:run.check_suite_id,workflow_id:workflow.id,artifact_id:metadata.id,artifact_sha256:metadata.digest,proof_sha256:hashObject(proof)},reasons};
-      }catch(error){reasons.push(`Candidate ${summary.id} rejected: ${error.message}`);}
+        const verifiedBaseProof={schema:2,repository,source_commit:run.head_sha,comparison_base:baseSha,run_id:run.id,run_attempt:run.run_attempt,check_suite_id:run.check_suite_id,workflow_id:workflow.id,artifact_id:metadata.id,artifact_sha256:metadata.digest,proof_sha256:hashObject(proof)};
+        budget.check();return {baseProof:proof,verifiedBaseProof,reasons};
+      }catch(error){reasons.push(`Candidate ${summary.id} rejected: ${error.message}`);budget.check();}
     }
     throw Error('No successful compatible main-ancestor v2 model proof');
   }catch(error){return {baseProof:null,verifiedBaseProof:null,reasons:[...reasons,error.message]};}
