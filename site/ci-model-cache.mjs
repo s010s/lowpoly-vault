@@ -42,9 +42,9 @@ export function extractModelProof(bytes){
 }
 function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch,signal=AbortSignal.timeout(120000)}){
   assert(/^[\w.-]+\/[\w.-]+$/.test(repository||''),'Missing repository');assert(token,'Read-only GitHub proof token unavailable');
-  const url=path=>`https://api.github.com/repos/${repository}/${path}`;
+  const url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`;
   const headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
-  const api=async path=>{const response=await fetchImpl(url(path),{headers,signal});assert(response.ok,`GitHub proof read failed (${response.status})`);return response.json();};
+  const api=async path=>{const response=await fetchImpl(url(path),{headers,signal});assert(response.ok,`GitHub proof read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
   const artifact=async(run)=>{
     const listed=await api(`actions/runs/${run.id}/artifacts?per_page=100`);
     const matches=listed.artifacts.filter(item=>item.name===proofArtifactName(run.run_attempt));assert.equal(matches.length,1,'Missing or ambiguous v2 model artifact');
