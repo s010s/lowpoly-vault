@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {LEGACY_OUTPUTS,encode,hashBytes,importLegacySnapshot,recordReference} from './model-registry.mjs';
 import {readFileSync} from 'node:fs';
 import {assessIncrementalDiff,tasksForModelPlan,acceptanceExecutionPlan} from './ci-incremental-models.mjs';
 import {fixture,identity as fixtureIdentity,finish as finishModelFixture,verification} from './ci-model-proof-test.mjs';
@@ -24,7 +25,7 @@ const auth={...base,paths:[...paths,'site/known-publication-only.mjs'],authoriza
 const galleryPath='site/public/gallery/resources.json',oldGallery=read(galleryPath),newGallery=clone(oldGallery);
 newGallery.generated_capture.assets=good.added_ids;newGallery.generated_capture.published_total=after.assets.length;
 for(const id of good.added_ids){
- const source=Object.values(oldGallery.posters)[0],poster={...source,detail:`gallery/posters/${id}.png`,wheel:`gallery/posters/${id}-wheel.png`};
+ const source=Object.values(oldGallery.posters)[0],poster={...source,source_glb_sha256:after.assets.find(asset=>asset.id===id).sha256.glb,detail:`gallery/posters/${id}.png`,wheel:`gallery/posters/${id}-wheel.png`};
  newGallery.posters[id]=poster;
  for(const path of [poster.detail,poster.wheel])newGallery.files.push({...oldGallery.files[0],path});
 }
@@ -42,6 +43,32 @@ for(const edit of [
  value=>value.posters[before.assets[0].id].detail='gallery/posters/changed.png',
  value=>value.files[0].sha256='f'.repeat(64),
 ]){const changed=clone(newGallery);edit(changed);assert.equal(assessIncrementalDiff(withGallery(changed)).eligible,false,'Invalid diagnostics, changed recipe or old pixels must require full checks');}
+// Native registry additions are inert metadata, not a new proof or publication role.
+// Use real historical JSON and the same four synthetic additions as above.
+const legacyBefore=Object.fromEntries(Object.entries(LEGACY_OUTPUTS).map(([key,path])=>[key,read(path)]));
+const legacyAfter={...clone(legacyBefore),manifest:after,catalog:newCatalog,gallery:newGallery};
+const imported=importLegacySnapshot(legacyAfter,{sourceCommit:'a'.repeat(40),sourcePins:Object.fromEntries(Object.entries(LEGACY_OUTPUTS).map(([key,path])=>[key,{path,sha256:hashBytes(encode(legacyAfter[key]))}]))});
+const addedRecords=imported.records.filter(record=>good.added_ids.includes(record.id));
+const {asset_ids:ignoredMembers,...definition}=pack;
+const newBatches=[0,1].map(index=>({version:1,id:`independent-${index}`,records:addedRecords.slice(index*2,index*2+2).map(recordReference),definitions:{worlds:[],packs:index===0?[definition]:[]},evidence:[{path:paths[2],sha256:'a'.repeat(64)}]}));
+const recordFiles=new Map([...addedRecords.map(record=>[recordReference(record).path,record]),...newBatches.map(batch=>[`registry/batches/${batch.id}.json`,batch])]);
+const legacyKey=path=>Object.entries(LEGACY_OUTPUTS).find(([,value])=>value===path)?.[0];
+const registryInput={...withGallery(newGallery),paths:[...paths,galleryPath,...recordFiles.keys()],
+ readBefore:path=>{assert(legacyKey(path),'Unexpected prior metadata read');return legacyBefore[legacyKey(path)];},
+ readAfter:path=>recordFiles.has(path)?recordFiles.get(path):legacyAfter[legacyKey(path)],
+ registryState:{beforePaths:['registry/baseline.json'],readAfterBytes:path=>Buffer.from(encode(recordFiles.get(path)))}};
+const registryGood=assessIncrementalDiff(registryInput);assert.equal(registryGood.eligible,true,registryGood.reasons.join('; '));assert.deepEqual(registryGood.added_ids,good.added_ids);
+const rejectRegistry=(edit,label)=>{const input={...registryInput,paths:[...registryInput.paths],registryState:{...registryInput.registryState,beforePaths:[...registryInput.registryState.beforePaths]}};edit(input);assert.equal(assessIncrementalDiff(input).eligible,false,label);};
+rejectRegistry(input=>input.registryState=null,'Registry data cannot self-authorize without exact prior inventory');
+rejectRegistry(input=>input.paths.push('registry/baseline.json'),'Historical registry baseline remains shared');
+rejectRegistry(input=>input.registryState.beforePaths.push([...recordFiles.keys()][0]),'Existing immutable record modification is not an addition');
+rejectRegistry(input=>input.registryState.beforePaths.push('registry/batches/independent-0.json'),'Existing batch modification is not an addition');
+rejectRegistry(input=>input.paths.push('registry/models/incremental-model-1/run.js'),'Executable cannot hide in a model namespace');
+rejectRegistry(input=>input.paths=input.paths.filter(path=>path!==[...recordFiles.keys()][0]),'Missing per-model record cannot grant incremental reuse');
+rejectRegistry(input=>input.registryState.readAfterBytes=path=>Buffer.from(encode({...recordFiles.get(path),forged:true})),'Changed record bytes invalidate their content-addressed path');
+rejectRegistry(input=>input.readAfter=path=>path==='registry/batches/independent-0.json'?{...recordFiles.get(path),accept:true}:registryInput.readAfter(path),'Batch cannot grant itself approval');
+rejectRegistry(input=>input.readAfter=path=>path==='registry/batches/independent-1.json'?{...recordFiles.get(path),records:newBatches[0].records}:registryInput.readAfter(path),'Duplicate cross-batch model ownership is refused');
+console.log('Registry append scope: two independent batches select exactly four new IDs; historical, unbound, malformed and executable registry changes stay full.');
 assert.deepEqual(tasksForModelPlan(['models-1-of-5','models-2-of-5','handoff'],{fresh_ids:good.added_ids},after),['models-1-of-4','models-2-of-4','models-3-of-4','models-4-of-4','previews','handoff']);assert.deepEqual(tasksForModelPlan(['models-1-of-5','previews','handoff'],{fresh_ids:[]},after),['handoff']);
 console.log('Incremental eligibility: exact owned additions, old-record preservation, explicit known publication role; unknown code/renderer/golden changes require full.');
 
@@ -60,8 +87,9 @@ try{
  const fullTasks=tasksForModelPlan(fullBrowser.tasks,first,before),origin={source_commit:id.source_commit,source_tree:id.source_tree,run_id:Number(id.run_id),run_attempt:Number(id.run_attempt),payload_sha256:proof.payload_sha256};
  proof.browser_task_coverage=aggregateBrowserCoverage({inputs:oldInputs,modelPlan:first,browserPlan:fullBrowser,freshModelRecords:oldInputs.models.map(row=>({id:row.id,input_key:row.input_key,status:'pass',viewports:['desktop','touch'],report_sha256:'e'.repeat(64),origin})),identity:id,payload_sha256:proof.payload_sha256,executedTasks:fullTasks,expectedTasks:fullTasks});assertBrowserCoverage(proof);
  const valid=acceptanceExecutionPlan({...options,baseProof:proof,verifiedBaseProof:verification(proof)});assert.equal(valid.reused_ids.length,before.assets.length);assert.deepEqual(valid.fresh_ids,good.added_ids);assert.equal(valid.browser_plan.mode,'append');
+ const registryPlan=acceptanceExecutionPlan({...options,eligibility:registryGood,baseProof:proof,verifiedBaseProof:verification(proof)});assert.equal(registryPlan.reused_ids.length,before.assets.length);assert.deepEqual(registryPlan.fresh_ids,registryGood.added_ids);assert.equal(registryPlan.browser_plan.mode,'append','Registry files alone do not force full model work with an independently compatible baseline');
  const changedBuiltInputs=clone(inputs);for(const row of changedBuiltInputs.models)row.input_key='9'.repeat(64);const allChanged=acceptanceExecutionPlan({...options,inputs:changedBuiltInputs,baseProof:proof,verifiedBaseProof:verification(proof)});assert.equal(allChanged.verified_base_proof,null,'Full fallback must discard baseline authority even when every model key is already fresh');assert.equal(allChanged.fresh_ids.length,after.assets.length);
  const incomplete=clone(proof);incomplete.browser_task_coverage.models.pop();testFull(incomplete,'Incomplete browser coverage forces every catalog model fresh');
  const incompatible=clone(proof);incompatible.browser_task_coverage.policy_sha256='f'.repeat(64);testFull(incompatible,'Incompatible browser policy forces every catalog model fresh');
- console.log('Acceptance orchestrator: compatible GPU/card190 proof plus missing/incompatible browser coverage forces194 fresh; complete browser coverage selects exactly4 fresh.');
+ console.log(`Acceptance orchestrator: compatible baseline for ${before.assets.length} models plus missing/incompatible browser coverage forces ${after.assets.length} fresh; complete coverage including registry metadata selects exactly ${good.added_ids.length} fresh.`);
 }finally{f.close();}

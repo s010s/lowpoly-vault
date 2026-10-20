@@ -24,7 +24,7 @@
     for(let i=0;i<rows.length;i++){
       const row=rows[i],distance=i-index,host=row.querySelector('.slot-image');
       row.dataset.nameVisible=String(i===nearest);
-      host.style.transform=reduced?'none':`translateX(${matchMedia('(max-width:760px)').matches?0:18*Math.exp(-.7*distance*distance)}px) scale(${.58+.42*Math.exp(-.65*distance*distance)})`;
+      host.style.transform=reduced?'none':`translateX(0px) scale(${.58+.42*Math.exp(-.65*distance*distance)})`;
       host.style.opacity=String(reduced?1:Math.max(.55,1-.1*Math.abs(distance)));
     }
   };
