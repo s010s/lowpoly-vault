@@ -44,12 +44,12 @@ console.log('Gallery startup passed: imports are DOM-inert; code/CSS and catalog
 // The tiny parser-time initializer is independent of app imports and catalog
 // fetches. Verify query selection and real fallback navigation without a browser.
 const initializer=await readFile(new URL('./gallery/startup.js',import.meta.url),'utf8');
-function nativeFixture({query='',mobile=false,ids=['first','cooperoceras','last'],selected='cooperoceras'}={}){
+function nativeFixture({query='',mobile=false,reduced=false,ids=['first','cooperoceras','last'],selected='cooperoceras'}={}){
  const nodes=Object.fromEntries(['title','subtitle','triangles','dimensions','file-size','download','blend','info','detail-poster','mobile-back'].map(id=>[id,{hidden:id==='mobile-back',style:{}}]));
  const rows=ids.map(id=>({dataset:{id,selected:String(id===selected),title:id,subtitle:'Plants / Stylized specimen',poster:`/gallery/posters/${id}.png`,triangles:'100',dimensions:'1 m',fileSize:'10 KB',download:`/assets/${id}.glb`,blend:`/assets/${id}.blend`,info:`/models/${id}/`},image:{style:{}},getAttribute:()=>id,setAttribute(key,value){this[key]=value;},querySelector(){return this.image;}}));
  const wheel={scrollTop:0,addEventListener(type,handler){this[type]=handler;}},root={dataset:{},classList:{contains:()=>true},querySelectorAll:()=>rows,querySelector:selector=>selector==='#wheel'?wheel:nodes[selector.slice(1)]};
  const classes=new Set(),document={getElementById:()=>root,body:{classList:{toggle(key,on){if(on)classes.add(key);else classes.delete(key);}}}};
- vm.runInContext(initializer,vm.createContext({document,location:{href:'https://example.test/lowpoly-vault/models/'+query},URL,matchMedia:media=>({matches:media.includes('max-width')?mobile:false}),requestAnimationFrame:fn=>{fn();return 1;}}));
+ vm.runInContext(initializer,vm.createContext({document,location:{href:'https://example.test/lowpoly-vault/models/'+query},URL,matchMedia:media=>({matches:media.includes('max-width')?mobile:reduced}),requestAnimationFrame:fn=>{fn();return 1;}}));
  return {nodes,rows,wheel,root,classes};
 }
 for(const mobile of [false,true]){
@@ -64,3 +64,28 @@ for(const mobile of [false,true]){
 }
 assert.doesNotThrow(()=>nativeFixture({ids:[]}));
 console.log('Native startup passed: parser-time centering, canonical selected poster, direct mobile detail, preserved filter return link, invalid-query fallback and empty catalog.');
+
+// Execute the production paint expressions, not a duplicate geometry helper.
+const enhancedPaint=main.split('\n').find(line=>line.includes('const d=(i*SLOT-position)/SLOT'));
+assert(enhancedPaint,'Enhanced wheel paint remains covered');
+const galleryCSS=await readFile(new URL('./gallery/style.css',import.meta.url),'utf8');
+assert.match(galleryCSS,/@media\(max-width:760px\)\{\.slot-image\{left:-12px\}\}/,'A shared mobile-only host offset moves thumbnails and loading cubes together, including reduced motion');
+const numericTransform=value=>value==='none'?{x:0,scale:1}:(()=>{const match=value.match(/^translateX\(([-+\d.e]+)px\) scale\(([-+\d.e]+)\)$/);assert(match,value);return{x:Number(match[1]),scale:Number(match[2])};})();
+for(const width of [320,390,440,760,761,1180])for(const reduced of [false,true])for(const offset of [0,37]){
+ const mobile=width<=760,ids=['top','above','center','below','bottom'],native=nativeFixture({mobile,reduced,ids,selected:'center'}),position=256+offset;
+ if(offset){native.wheel.scrollTop=position;native.wheel.scroll();}
+ const transforms=[];
+ for(let i=0;i<ids.length;i++){
+  const host={style:{}},context=vm.createContext({i,SLOT:128,position,reduced:()=>reduced,mobile:()=>mobile,row:{querySelector:()=>host}});
+  vm.runInContext(enhancedPaint,context);
+  const actual=numericTransform(host.style.transform),initial=numericTransform(native.rows[i].image.style.transform),distance=(i*128-position)/128;
+  assert.deepEqual(actual,initial,`Startup and enhanced paint agree at ${width}px, row ${i}, reduced=${reduced}`);
+  assert.equal(host.style.opacity,native.rows[i].image.style.opacity);
+  assert.equal(actual.scale,reduced?1:.58+.42*Math.exp(-.65*distance*distance),'The established scale curve is unchanged');
+  assert.equal(actual.x,mobile||reduced?0:18*Math.exp(-.7*distance*distance),'Only mobile horizontal displacement is removed');
+  transforms.push(actual);
+ }
+ if(mobile)assert(transforms.every(value=>value.x===0),'All scaled mobile rows share the existing image-column X axis');
+ else if(!reduced)assert(transforms[2].x>transforms[1].x,'Desktop retains its existing horizontal emphasis');
+}
+console.log('Thumbnail axis passed: native/enhanced agreement, 320/390/440/760/761/1180 widths, shared 12px mobile host offset, centered/fractional scroll, scale/opacity preservation and reduced motion.');
