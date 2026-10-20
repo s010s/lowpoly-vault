@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "arthrophycus-annulated-burrow",
+  "revision": "r002",
+  "labels": {
+    "en": "arthrophycus-annulated-burrow"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "a32b30732582580884b7f6de257a22c701df20f2359e9183585a10a8f959834c"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "c7f94914c51dc43bf748c852abbbbb48da8e35f52b96a746cdb08b48b2ff155e"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "7ef651ed04c394a5f3cddd60763dfbf6f6cdc224c091fb6e69f854f79c419aa1"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "3c9acb026a5bfbf485a802b887cef664b462d9208410e03cec086cd84838cc3f"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "7ec20ae9f2106a627a5f2ff7bdc01e393966a2a98bcd23a395e02e16ecbf5161"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "fe161902d34604cc622a39ad25c12c04069d5a2873f2e264c8a117007beb6a39"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "6c9914d0db89a006731268e03ce94b65cd2873657604b2aed5a220e98d24a31c"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "03662507be4e1c578f28294891d85cf582533fdb8de8579ac392c0a202099950"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "7285ce56f8ede05348925a4480669500f32dc7ee9f2c7f53f1cd0f8fa19fb246"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-panel original inspected. B broad cap/standing appearance rejected in favor of primary-source long stalk and flattened fossil silhouette. A pocket counts not treated as observed anatomy. C downwind asymmetry retained. D curved transverse ribs retained.",
+    "hidden_surface_decisions": "Closed continuous ribbed tube volumes, partially embedded in slab, not detached beads. Underside of slab flat; end sections illustrative. No producer attribution or exact specimen copy."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T02:03:55.247Z",
+    "modeling_started_at": null,
+    "note": "Actual generation and inspection preceded premodel freeze. Exact provider generation and generator-authoring start are unrecorded; queue build times retained separately. No mtime inference."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.1917,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "dd8b9722e97e023169a855f986684a958fa40bbebb858b7c56da3763eb65e53d"
+      },
+      "note": "Measured renderer frame-loop wall time; excludes process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "dd8b9722e97e023169a855f986684a958fa40bbebb858b7c56da3763eb65e53d"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "cb89f593ad76a276b62659cca5ea1a3b739582e37fa0dd8d04a89691f9136734",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "6175ae9c27e480a31efc9c3098626d22194db11e3c676eb9691559358ef634f9"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a32b30732582580884b7f6de257a22c701df20f2359e9183585a10a8f959834c",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "3c9b83d4bea2bf9d5f2a04deba170222087a043b0e294123ac8feea23c0ea276"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Batch56 supporting stylized prop with 1MB hard dispatch cap; study checker advisory only."
+  }
+}
