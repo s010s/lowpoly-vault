@@ -1,0 +1,602 @@
+{
+  "schema": "independent-kettle-r002-closure-v1",
+  "checked_at_utc": "2026-10-20T17:23:03.370441+00:00",
+  "source_repo": "/workspace/shared/lowpoly-batch70-20261020",
+  "branch": "candidate/small-life-batch70-concept-20261020",
+  "head": "2f674a5e98a7a9c6c61f8a7e89ef81a503864fa9",
+  "expected_commit": "2f674a5e98a7a9c6c61f8a7e89ef81a503864fa9",
+  "head_matches": true,
+  "baseline_parent": "e191d4c2abf35bf952eb72da959311c577101b07",
+  "baseline_tree": "aa5b37a8cab0567e1314923e472ed48783749ff1",
+  "worktree_clean_before_after": true,
+  "worktree_status_before": "",
+  "worktree_status_after": "",
+  "diff_from_prior_QA_commit": {
+    "counts": {
+      "added": 124,
+      "modified": 0,
+      "deleted": 0
+    },
+    "append_only": true,
+    "paths": [
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/LICENSES.md",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/build-config.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/diagnostic-proof/clay.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/diagnostic-proof/front.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/diagnostic-proof/hero.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/diagnostic-proof/render-config.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/diagnostic-proof/render-manifest.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/diagnostic-proof/turntable.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/generator.py",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/metrics.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/model.glb",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/source-metrics.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/attempts/diagnostic-1/source.blend",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/brief.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/brief.md",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/build-config.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/build-dependencies-final.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/build-dependencies.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/candidate-brief.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/candidate-validation.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/candidate.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/chronology-clarification.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/concept-evidence.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/concept-generation.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/concept-original.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/concept-prompt.txt",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/concept-validation.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/contact-sheet.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/diagnostic-proof/clay.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/diagnostic-proof/front.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/diagnostic-proof/hero.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/diagnostic-proof/render-config.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/diagnostic-proof/render-manifest.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/diagnostic-proof/turntable.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/format.log",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/generator.py",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/gltf-validator.report.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/lifecycle.jsonl",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/maker-review.md",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/metadata.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/metrics.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/model.glb",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/modeling-freeze.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/pixel-inspection.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/prefreeze-ledger-check.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/preproof-binding-check.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/preview.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/profile-contract.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final.log",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/clay.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/front.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/hero.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/rear.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/render-config.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/render-manifest.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/reversehero.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/side.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/silhouette.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/top.png",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/proof-final/turntable.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/qa.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/references.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repair-addendum-freeze.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repair-config.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repro-final-1.log",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repro-final-1.report.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repro-final-2.log",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repro-final-2.report.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/runtime-parse.report.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/source-final.report.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/source-metrics.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/source-reopen.log",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/source-vertex-counts.json",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/source-vertex-counts.log",
+      "A\tassets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/source.blend",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/HANDOFF.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/HANDOFF.md",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/active-binding.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/compose-sheets.py",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/count-source-vertices.py",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/diagnostic-build-2.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/diagnostic-build.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/diagnostic-render-2.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/diagnostic-render.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/final-selection.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/handoff-assets.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/lifecycle-run.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/lifecycle.jsonl",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/locked-blender.sh",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/maker-observations.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/package-candidates.py",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/package-final.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/prechange-protection.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/prepare-repair.py",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-jobs.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-queue.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/.queue.lock",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/outputs/metrics.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/outputs/model.glb",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/outputs/source-metrics.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/outputs/source.blend",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/request.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/result.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/stderr.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/stdout.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/outputs/metrics.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/outputs/model.glb",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/outputs/source-metrics.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/outputs/source.blend",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/request.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/result.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/stderr.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/stdout.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/runs/20261020T165026-fad28f9cdb6744c89b6aae23cd028030/manifest.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/runs/20261020T165026-fad28f9cdb6744c89b6aae23cd028030/summary.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/render-config-comparison.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/render-fixed8.py",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/repair-source-evidence-manifest.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/run-repair.py",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/runtime-parse.mjs",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/runtime.log",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/verification-final.json",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/verify-package.py",
+      "A\tproduction/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/write-metadata.py"
+    ]
+  },
+  "original_paths_unchanged": {
+    "assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r001": true,
+    "assets/candidates/continuous-small-life-round28-20261020/batch-70/waputikia": true,
+    "assets/candidates/continuous-small-life-round28-20261020/batch-70/linear-dune": true,
+    "assets/candidates/continuous-small-life-round28-20261020/batch-70/rimstone-dam": true
+  },
+  "committed_manifest": {
+    "path": "production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/repair-source-evidence-manifest.json",
+    "sha256_worktree": "4523e6c1ad0abd12f0e98fba4386f428ac63d25915a6b9118d444c01dcccba50",
+    "sha256_git": "4523e6c1ad0abd12f0e98fba4386f428ac63d25915a6b9118d444c01dcccba50",
+    "self_excluded": true,
+    "files": 123,
+    "total_bytes": 9246180,
+    "verified_entries": 123,
+    "failed_entries": [],
+    "all_entries_match_worktree_and_git": true,
+    "external_verification_sidecar": {
+      "verified_at": "2026-10-20T17:08:29.180794+00:00",
+      "commit": "2f674a5e98a7a9c6c61f8a7e89ef81a503864fa9",
+      "committed_manifest_entries_verified": 123,
+      "manifest_itself_verified": true,
+      "all_original_tracked_tree_unchanged": true,
+      "append_only_files": 124,
+      "clean_worktree": true,
+      "glb_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+      "no_push": true
+    },
+    "external_verification_matches": true
+  },
+  "artifact_hashes": {
+    "candidate": "beb146fe673734f3e9c47f65af14e4d69d2d123e26fbf4f36c2cb0aedd208438",
+    "glb": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+    "brief": "56d1b28b4644688960da80f9402daa03700b9c55805e5d9cf499b974dace664e",
+    "references": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+    "source": "4d28c1ff9c9a7e4718572930fb5b6362e5f685570f14ae9d749eb09d91d94efd",
+    "generator": "b56157b7957da89a04d4e0b9bf75ee4ad36f062874901c23d1138c56ebfa18cb",
+    "config": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+    "render_manifest": "2e4bfb41b841b0dd4e34adf686fa59347821636cbb7b14e0e2f37d1ea12d0e10"
+  },
+  "handoff_expected_hashes": {
+    "candidate": "beb146fe673734f3e9c47f65af14e4d69d2d123e26fbf4f36c2cb0aedd208438",
+    "glb": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+    "brief": "56d1b28b4644688960da80f9402daa03700b9c55805e5d9cf499b974dace664e",
+    "references": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+    "source": "4d28c1ff9c9a7e4718572930fb5b6362e5f685570f14ae9d749eb09d91d94efd",
+    "generator": "b56157b7957da89a04d4e0b9bf75ee4ad36f062874901c23d1138c56ebfa18cb",
+    "config": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+    "render_manifest": "2e4bfb41b841b0dd4e34adf686fa59347821636cbb7b14e0e2f37d1ea12d0e10"
+  },
+  "all_handoff_hashes_match": true,
+  "preproof_binding": {
+    "checked_at": "2026-10-20T16:50:13.595922+00:00",
+    "status": "pass",
+    "render_started_at": "2026-10-20T16:50:13.596723+00:00",
+    "preproof_precedes_render_start": true,
+    "hashes": {
+      "glb": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+      "brief": "56d1b28b4644688960da80f9402daa03700b9c55805e5d9cf499b974dace664e",
+      "references": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1"
+    },
+    "hashes_match_final": true,
+    "render_subject": {
+      "brief_sha256": "56d1b28b4644688960da80f9402daa03700b9c55805e5d9cf499b974dace664e",
+      "glb_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+      "references_sha256": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+      "revision": "r002"
+    }
+  },
+  "final_render": {
+    "manifest_hash": "2e4bfb41b841b0dd4e34adf686fa59347821636cbb7b14e0e2f37d1ea12d0e10",
+    "created_at": "2026-10-20T16:50:25.904359+00:00",
+    "frame_count": 8,
+    "frames": [
+      {
+        "id": "hero",
+        "path": "hero.png",
+        "expected_bytes": 210914,
+        "actual_bytes": 210914,
+        "expected_sha256": "d67cd070ba467ca51dff5c85824d7134481d1926a4338ab58420a479bf88d0e5",
+        "actual_sha256": "d67cd070ba467ca51dff5c85824d7134481d1926a4338ab58420a479bf88d0e5",
+        "ok": true
+      },
+      {
+        "id": "reversehero",
+        "path": "reversehero.png",
+        "expected_bytes": 212728,
+        "actual_bytes": 212728,
+        "expected_sha256": "51362f835190b3b764d9e7c3fb61b373794feaa5d9f90053337826728cdbf6c7",
+        "actual_sha256": "51362f835190b3b764d9e7c3fb61b373794feaa5d9f90053337826728cdbf6c7",
+        "ok": true
+      },
+      {
+        "id": "front",
+        "path": "front.png",
+        "expected_bytes": 159150,
+        "actual_bytes": 159150,
+        "expected_sha256": "517eff976b6741a37f840a14533e49f65fd3dc64977105b68c016dbca38e8fbe",
+        "actual_sha256": "517eff976b6741a37f840a14533e49f65fd3dc64977105b68c016dbca38e8fbe",
+        "ok": true
+      },
+      {
+        "id": "side",
+        "path": "side.png",
+        "expected_bytes": 152473,
+        "actual_bytes": 152473,
+        "expected_sha256": "400adccba162cf5fb20001086a537cfab81f725827d01beb22e9009de35c9ada",
+        "actual_sha256": "400adccba162cf5fb20001086a537cfab81f725827d01beb22e9009de35c9ada",
+        "ok": true
+      },
+      {
+        "id": "rear",
+        "path": "rear.png",
+        "expected_bytes": 157640,
+        "actual_bytes": 157640,
+        "expected_sha256": "a1c569af8449b02dbbff9348da820544427c11221c67bd4ffee97be1eb18f318",
+        "actual_sha256": "a1c569af8449b02dbbff9348da820544427c11221c67bd4ffee97be1eb18f318",
+        "ok": true
+      },
+      {
+        "id": "top",
+        "path": "top.png",
+        "expected_bytes": 268813,
+        "actual_bytes": 268813,
+        "expected_sha256": "7fab225c4561749b2cb04adb34328a562786daf3acd5520ead1ca69584a332c8",
+        "actual_sha256": "7fab225c4561749b2cb04adb34328a562786daf3acd5520ead1ca69584a332c8",
+        "ok": true
+      },
+      {
+        "id": "clay",
+        "path": "clay.png",
+        "expected_bytes": 166101,
+        "actual_bytes": 166101,
+        "expected_sha256": "76ec1a87b639456d0a5e334a51d6a893fc84d74fe0c42a710035b3da2f5d4e4f",
+        "actual_sha256": "76ec1a87b639456d0a5e334a51d6a893fc84d74fe0c42a710035b3da2f5d4e4f",
+        "ok": true
+      },
+      {
+        "id": "silhouette",
+        "path": "silhouette.png",
+        "expected_bytes": 43453,
+        "actual_bytes": 43453,
+        "expected_sha256": "ea1c693ce83d2511622cb0d0dde7f49fd60a891eb338c6a14606a9d8117d601e",
+        "actual_sha256": "ea1c693ce83d2511622cb0d0dde7f49fd60a891eb338c6a14606a9d8117d601e",
+        "ok": true
+      }
+    ],
+    "all_frames_match": true,
+    "contact_sheet": {
+      "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/contact-sheet.png",
+      "sha256": "88aaa9b6d4df3b064852547daec39a39cf622293524b5324b3e5dcd1ba00be08",
+      "maker_expected": "88aaa9b6d4df3b064852547daec39a39cf622293524b5324b3e5dcd1ba00be08",
+      "frame_hashes_match": true
+    },
+    "manifest_source_hash_matches_glb": true,
+    "candidate_binding_after_render": {
+      "candidate_json_includes_render_manifest": true,
+      "note": "Candidate wrapper records the completed proof manifest; preproof binding fixed revision r002 plus exact GLB/derived brief/references before rendering."
+    }
+  },
+  "freeze_closure": {
+    "r002_initial_freeze": {
+      "frozen_at": "2026-10-20T16:47:52.108964+00:00",
+      "original_r001_freeze_path": "assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r001/modeling-freeze.json",
+      "expected_sha256": "82641058d6e47936023af2acfc8ee6c38c026b9fdb88756d5c246939b0846186",
+      "actual_sha256": "82641058d6e47936023af2acfc8ee6c38c026b9fdb88756d5c246939b0846186",
+      "matches": true,
+      "file_hashes": {
+        "brief.json": {
+          "expected": "9ac4a2bc44d0b99f557226e6f84c0ee9f0f7d27b473a558d4d79575748091d98",
+          "actual": "9ac4a2bc44d0b99f557226e6f84c0ee9f0f7d27b473a558d4d79575748091d98",
+          "ok": true
+        },
+        "brief.md": {
+          "expected": "b9abfdaf3cd7ab2797f12a4528ebe6e41c5a27849d5634574c45c45957f72b61",
+          "actual": "b9abfdaf3cd7ab2797f12a4528ebe6e41c5a27849d5634574c45c45957f72b61",
+          "ok": true
+        },
+        "build-config.json": {
+          "expected": "9a051ca66b4d591cd40d14f82d6e968dfbd22800ed25678ea6ebb896b199d2fb",
+          "actual": "9a051ca66b4d591cd40d14f82d6e968dfbd22800ed25678ea6ebb896b199d2fb",
+          "ok": true
+        },
+        "references.json": {
+          "expected": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+          "actual": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+          "ok": true
+        },
+        "concept-original.png": {
+          "expected": "d7d3c28e7643ca95d5cee8b9590cc4f26bb00584c4773482475706665b6d94cd",
+          "actual": "d7d3c28e7643ca95d5cee8b9590cc4f26bb00584c4773482475706665b6d94cd",
+          "ok": true
+        },
+        "concept-generation.json": {
+          "expected": "12be5d9256442d6d551c7f29b821ab326e1e6cccc8bc45918fa1390348f8345c",
+          "actual": "12be5d9256442d6d551c7f29b821ab326e1e6cccc8bc45918fa1390348f8345c",
+          "ok": true
+        },
+        "concept-prompt.txt": {
+          "expected": "4f877d7f05f1b717739c8795e55eeb5b529c8382f7459cc743049a50551cbbcf",
+          "actual": "4f877d7f05f1b717739c8795e55eeb5b529c8382f7459cc743049a50551cbbcf",
+          "ok": true
+        }
+      }
+    },
+    "repair_addendum": {
+      "frozen_at": "2026-10-20T16:49:09.657928+00:00",
+      "change": "Increase genuine below-grade basinslope amplitude10m and water2.2m, retain surrounding irregular hummocks, no elevatedring. No renderer/lighting/camera/style change.",
+      "sha256": "0826ae3332796a9ddd3b7381b277eb47c5be8fae703d7be02e4dae2c6a44a9b6",
+      "repair_config_hash_in_addendum": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+      "actual_repair_config_hash": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+      "repair_config_matches": true
+    },
+    "preserved_diagnostic_attempt": {
+      "path": "attempts/diagnostic-1",
+      "manifest_sha256": "a8906e652bc7adec219c47eb9ee1fad7dd9fb18a88230f45056d4e257b48c828",
+      "glb_sha256": "d3795cb227d024af306faa0a8070c2e2d91611648870fdaf9634ccc70b84130d",
+      "is_final_glb": false
+    }
+  },
+  "primary_reference_pixels": {
+    "4.jpg": {
+      "expected": "8701aaa85402bff7461e5c52a1b6959651b7ada94523a422b4dfcc5a7ef626d6",
+      "actual": "8701aaa85402bff7461e5c52a1b6959651b7ada94523a422b4dfcc5a7ef626d6",
+      "ok": true,
+      "pixels_path": "/workspace/shared/batch70-consult-only/4.jpg"
+    },
+    "5.jpg": {
+      "expected": "a1aad0851cf20643af4a68c32e04a12abe4c07496549eacda365b621d4a4b2b2",
+      "actual": "a1aad0851cf20643af4a68c32e04a12abe4c07496549eacda365b621d4a4b2b2",
+      "ok": true,
+      "pixels_path": "/workspace/shared/batch70-consult-only/5.jpg"
+    }
+  },
+  "source_reexport": {
+    "source_hash": "4d28c1ff9c9a7e4718572930fb5b6362e5f685570f14ae9d749eb09d91d94efd",
+    "glb_hash": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+    "created_independent_glb_hash": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+    "byte_identity": true
+  },
+  "two_execution_jobs": [
+    {
+      "job_id": "semantic-rebuild-1",
+      "request_path": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/request.json",
+      "request_sha256": "a802a315dc454f07c900195bb218d960f61af6da9d87dcaa2fcbb80afabf2740",
+      "expected_request_sha256": "a802a315dc454f07c900195bb218d960f61af6da9d87dcaa2fcbb80afabf2740",
+      "request_hash_ok": true,
+      "result_path": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91/result.json",
+      "result_sha256": "8463f9dd1d91020d02381a16a3bb567aa3703389229a46ec50921bf74bec0825",
+      "expected_result_sha256": "8463f9dd1d91020d02381a16a3bb567aa3703389229a46ec50921bf74bec0825",
+      "result_hash_ok": true,
+      "pid": 99,
+      "status": "succeeded",
+      "returncode": 0,
+      "started_at": "2026-10-20T16:50:26.293072+00:00",
+      "finished_at": "2026-10-20T16:50:29.032822+00:00",
+      "attempt_directory": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-1/f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda/20261020T165026-e55784331ebf4b148eea7c6284e43a91",
+      "run_id": "20261020T165026-fad28f9cdb6744c89b6aae23cd028030",
+      "fingerprint": "f4f766f9ebd4ea49b6e8138dc41a6b6f7235701be0f09710db92cf90acbafdda",
+      "input_hashes": {
+        "audit": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/qa_glb.py",
+          "expected_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "actual_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "ok": true
+        },
+        "brief": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/brief.json",
+          "expected_sha256": "9ac4a2bc44d0b99f557226e6f84c0ee9f0f7d27b473a558d4d79575748091d98",
+          "actual_sha256": "9ac4a2bc44d0b99f557226e6f84c0ee9f0f7d27b473a558d4d79575748091d98",
+          "ok": true
+        },
+        "config": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repair-config.json",
+          "expected_sha256": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+          "actual_sha256": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+          "ok": true
+        },
+        "generator": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/generator.py",
+          "expected_sha256": "b56157b7957da89a04d4e0b9bf75ee4ad36f062874901c23d1138c56ebfa18cb",
+          "actual_sha256": "b56157b7957da89a04d4e0b9bf75ee4ad36f062874901c23d1138c56ebfa18cb",
+          "ok": true
+        },
+        "helper": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/asset_common.py",
+          "expected_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "actual_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "ok": true
+        },
+        "references": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/references.json",
+          "expected_sha256": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+          "actual_sha256": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+          "ok": true
+        }
+      },
+      "all_input_hashes_match": true,
+      "outputs": {
+        "metrics.json": {
+          "expected_bytes": 3304,
+          "actual_bytes": 3304,
+          "expected_sha256": "3add82b80f2b3cdc0fe0a5f7220f1daea4a8fac48ba8931e236f02d3159e2bd3",
+          "actual_sha256": "3add82b80f2b3cdc0fe0a5f7220f1daea4a8fac48ba8931e236f02d3159e2bd3",
+          "ok": true
+        },
+        "model.glb": {
+          "expected_bytes": 226472,
+          "actual_bytes": 226472,
+          "expected_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+          "actual_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+          "ok": true
+        },
+        "source-metrics.json": {
+          "expected_bytes": 906,
+          "actual_bytes": 906,
+          "expected_sha256": "50c2cef35556dce59bd75863c6082801eee2988997ff32d9e58f6e025364d5e5",
+          "actual_sha256": "50c2cef35556dce59bd75863c6082801eee2988997ff32d9e58f6e025364d5e5",
+          "ok": true
+        },
+        "source.blend": {
+          "expected_bytes": 688196,
+          "actual_bytes": 688196,
+          "expected_sha256": "bd7ad7f1c3eed69de2647f867c2ac30b9f59f2e3e45990e2eb1e43c610100f8a",
+          "actual_sha256": "bd7ad7f1c3eed69de2647f867c2ac30b9f59f2e3e45990e2eb1e43c610100f8a",
+          "ok": true
+        }
+      },
+      "repro_report_status": "pass",
+      "final_glb_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+      "rebuilt_glb_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+      "semantic_sha256": "d9a6d638fc5229fd22e1dadfb0121a4a235b0b29407e0a58f7d1aec783ff7982",
+      "byte_identical": true
+    },
+    {
+      "job_id": "semantic-rebuild-2",
+      "request_path": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/request.json",
+      "request_sha256": "a41c8f8b73c1edc92f678f90c88c03dc52f56f515117c678d840b0192ac31504",
+      "expected_request_sha256": "a41c8f8b73c1edc92f678f90c88c03dc52f56f515117c678d840b0192ac31504",
+      "request_hash_ok": true,
+      "result_path": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5/result.json",
+      "result_sha256": "5afd38bad1c151d17c511d3c5d3db9c2173a05eee181accbfe7425fc8d30dd38",
+      "expected_result_sha256": "5afd38bad1c151d17c511d3c5d3db9c2173a05eee181accbfe7425fc8d30dd38",
+      "result_hash_ok": true,
+      "pid": 122,
+      "status": "succeeded",
+      "returncode": 0,
+      "started_at": "2026-10-20T16:50:29.037960+00:00",
+      "finished_at": "2026-10-20T16:50:31.272380+00:00",
+      "attempt_directory": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/rebuild-runs/build/kettle-basin/r002/semantic-rebuild-2/84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4/20261020T165029-66f9500b5f024e70945fdb9fd343c5f5",
+      "run_id": "20261020T165026-fad28f9cdb6744c89b6aae23cd028030",
+      "fingerprint": "84444b8efb8f68bd42b7b4328ce2a8dc648a78f5100a542e85e246269ed118f4",
+      "input_hashes": {
+        "audit": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/qa_glb.py",
+          "expected_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "actual_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "ok": true
+        },
+        "brief": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/brief.json",
+          "expected_sha256": "9ac4a2bc44d0b99f557226e6f84c0ee9f0f7d27b473a558d4d79575748091d98",
+          "actual_sha256": "9ac4a2bc44d0b99f557226e6f84c0ee9f0f7d27b473a558d4d79575748091d98",
+          "ok": true
+        },
+        "config": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/repair-config.json",
+          "expected_sha256": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+          "actual_sha256": "29308eec2d46c9aba0d4232a1fd0e18aa4be4363a345528e616dbec0ac885727",
+          "ok": true
+        },
+        "generator": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/generator.py",
+          "expected_sha256": "b56157b7957da89a04d4e0b9bf75ee4ad36f062874901c23d1138c56ebfa18cb",
+          "actual_sha256": "b56157b7957da89a04d4e0b9bf75ee4ad36f062874901c23d1138c56ebfa18cb",
+          "ok": true
+        },
+        "helper": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/scripts/asset_common.py",
+          "expected_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "actual_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "ok": true
+        },
+        "references": {
+          "path": "/workspace/shared/lowpoly-batch70-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-70/kettle-basin/r002/references.json",
+          "expected_sha256": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+          "actual_sha256": "e29c3a36ba7678df03e1b503cb6260a621c93827ddbf9f1032e928756c33b0f1",
+          "ok": true
+        }
+      },
+      "all_input_hashes_match": true,
+      "outputs": {
+        "metrics.json": {
+          "expected_bytes": 3304,
+          "actual_bytes": 3304,
+          "expected_sha256": "72e52790a4942c4993675b01268b9090c76c08c144d33494dd22e584851e7beb",
+          "actual_sha256": "72e52790a4942c4993675b01268b9090c76c08c144d33494dd22e584851e7beb",
+          "ok": true
+        },
+        "model.glb": {
+          "expected_bytes": 226472,
+          "actual_bytes": 226472,
+          "expected_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+          "actual_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+          "ok": true
+        },
+        "source-metrics.json": {
+          "expected_bytes": 906,
+          "actual_bytes": 906,
+          "expected_sha256": "50c2cef35556dce59bd75863c6082801eee2988997ff32d9e58f6e025364d5e5",
+          "actual_sha256": "50c2cef35556dce59bd75863c6082801eee2988997ff32d9e58f6e025364d5e5",
+          "ok": true
+        },
+        "source.blend": {
+          "expected_bytes": 688196,
+          "actual_bytes": 688196,
+          "expected_sha256": "7756f1a945b1446c4a124d2563e2037a8551ac0fe970c2cd8c468c832a97e93b",
+          "actual_sha256": "7756f1a945b1446c4a124d2563e2037a8551ac0fe970c2cd8c468c832a97e93b",
+          "ok": true
+        }
+      },
+      "repro_report_status": "pass",
+      "final_glb_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+      "rebuilt_glb_sha256": "b7d0a41adcebc2d3592e646f67fa2c2aa9d36ce216102ce4594fc0a5a3f86b3d",
+      "semantic_sha256": "d9a6d638fc5229fd22e1dadfb0121a4a235b0b29407e0a58f7d1aec783ff7982",
+      "byte_identical": true
+    }
+  ],
+  "nominal_vs_measured": {
+    "nominal_blender_xyz_m": [
+      80,
+      68,
+      8
+    ],
+    "measured_blender_xyz_m": [
+      80.0,
+      68.0,
+      13.386110305786133
+    ],
+    "measured_glb_xyz_m": [
+      80.0,
+      13.386110305786133,
+      68.0
+    ],
+    "disclosed": true
+  },
+  "render_config_delta": {
+    "comparison_path": "/workspace/shared/lowpoly-batch70-20261020/production/continuous-small-life-round28-20261020/work/batch-70/repair-kettle-r002/render-config-comparison.json",
+    "same_helper_hash": true,
+    "literal_numeric_cameras_unchanged": false,
+    "literal_numeric_light_rig_unchanged": false,
+    "interpretation": "Policy/helper unchanged; numeric bounds-derived camera and light fit values did change."
+  },
+  "all_original_assets_unchanged": true,
+  "two_jobs_are_distinct": true
+}
