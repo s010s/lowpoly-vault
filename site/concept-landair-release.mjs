@@ -43,3 +43,40 @@ export async function collectConceptLandairRelease(root,descriptor){
  }
  const base=await collectConceptQuartetsRelease(root,release.base_descriptor);assert.equal(base.assets.length,186);assert(!additions.some(a=>base.assets.some(b=>b.id===a.id)));assert(!additions.some(a=>release.excluded_ids.includes(a.id)));return {...base,assets:[...base.assets,...additions],publication:{...base.publication,concept_landair_descriptor:descriptor,approved_concept_landair_ids:CONCEPT_LANDAIR_IDS}};
 }
+
+/** Two distinct fixed reviewed scopes; never a generic candidate promotion. */
+export async function collectBatches5657Additions(root,descriptors){
+ const {BATCH56_RELEASE,BATCH57_RELEASE}=await import('./accepted-concept-landair-release.mjs');
+ assert.deepEqual(descriptors.map(p=>p.path),['assets/releases/batch56-20261020.json','assets/releases/batch57-20261020.json']);
+ const sha=b=>createHash('sha256').update(b).digest('hex');
+ async function checked(pin){assert(pin&&/^(assets|production|qa)\/[a-zA-Z0-9_./-]+$/.test(pin.path)&&!pin.path.split('/').some(p=>!p||p==='.'||p==='..'));assert(/^[a-f0-9]{64}$/.test(pin.sha256));const p=resolve(root,pin.path);assert.equal(await realpath(p),p,'Release symlinks forbidden');const b=await readFile(p);assert.equal(sha(b),pin.sha256,`${pin.path}: exact Batch56/57 hash mismatch`);return b;}
+ const json=async p=>JSON.parse(await checked(p)),additions=[],releases=[];
+ const publicIndex=JSON.parse(await readFile(resolve(root,'assets/turntables/index.json')));
+ for(let k=0;k<2;k++){
+  const n=56+k,release=await json(descriptors[k]);assert.deepEqual(release,[BATCH56_RELEASE,BATCH57_RELEASE][k],'Only fixed independently reviewed bytes authorized');releases.push(release);
+  assert.equal(release.acceptance_scope,'independent_qa_accepted_stylized_prop');assert.equal(release.formal_profile_acceptance,'BLOCKED');assert.equal(release.hardware_gpu_verified,false);assert.equal(release.target_scene_verified,false);assert.equal(release.provider_generation_timestamp,'unknown');
+  const policy=await json(release.publication_policy);assert.equal(policy.authority,'owner_authorized_qa_passed_batch_release');assert.equal(policy.candidate_gate_grants_publication,false);
+  const bundle=await json(release.source_bundle);assert.equal(bundle.version,1);assert.equal(bundle.files.length,release.files.length);assert.equal(new Set(bundle.files.map(f=>f.path)).size,bundle.files.length);for(const pin of bundle.files)await checked(pin);
+  const review=await checked(release.review);assert(review.toString().includes('**Accept the seven selected, hash-pinned models'));
+  const zip=await json(release.capture.zip_verification);assert.equal(zip.artifact_id,12240255243);assert.equal(zip.zip_sha256,'de6de4921be36780cb5cef164168cdef1982689422cf8c7961a587e1049e98a6');assert.equal(zip.zip_bytes,464466);assert.equal(zip.github_digest_and_size_match,true);assert.equal(zip.entries_exactly_match_local_capture_dir,true);
+  const capture=await json(release.capture.report),index=await json(release.capture.index);assert.equal(capture.status,'pass');assert.equal(capture.target_renderer,'threejs-modelstage');assert.equal(capture.viewer_source_sha256,sha(await readFile(resolve(root,'site/viewer.js'))));assert.equal(capture.render_preset_sha256,sha(JSON.stringify(CARD_RENDER_PRESET)));assert.equal(capture.chromium_version,capture.pinned_chromium_version);assert.equal(capture.assets.length,7);
+  const ids=n===56?['arthrophycus-annulated-burrow','cycadeoidea','deflation-hollow','gondwanagaricites']:['cave-column','quatsinoporites','rusophycus-resting-excavation'];assert.deepEqual(release.additions.map(a=>a.id).sort(),ids);assert(!release.additions.some(a=>release.excluded_ids.includes(a.id)));
+  for(const entry of release.additions){
+   const a=await json(entry.metadata),candidate=await json(entry.candidate),folder=`assets/additions/${entry.id}/batch${n}-20261020`;
+   assert.equal(a.id,entry.id);assert.equal(entry.metadata.path,`${folder}/release-metadata.json`);assert.equal(candidate.asset_id,a.id);assert.equal(candidate.revision,entry.revision);assert.equal(candidate.approval.status,'pending');for(const key of ['gpu','scene'])assert.equal(candidate.stages[key].status,'unknown');assert.equal(entry.source_commit,release.source_commit);assert.equal(entry.review_commit,release.review_commit);assert.deepEqual(entry.review,release.review);
+   assert.equal(a.license,'CC-BY-4.0');assert.equal(a.author,'Leon Made This / s010s');assert.equal(a.units,'meters');assert.deepEqual(a.worlds,['prehistoric']);assert.deepEqual(a.packs,[`prehistoric-batch${n}-20261020`]);assetFileAllowlist({assets:[a]});
+   for(const key of ['name','description','scientific_scope'])for(const lang of ['en','zh'])assert(a[key]?.[lang]?.trim());
+   for(const key of ['quality_status','approval_provenance','candidate_record','qa','publication_status','downloads','turntable','card_preview','profile','validation_profile','approval'])assert(!Object.hasOwn(a,key),`Reserved metadata ${key}`);
+   const original=await json(entry.original_metrics);
+   if(n===56){assert.equal(a.triangles,original.glb.scene_triangles);assert.deepEqual(a.dimensions,original.measured_glb_xyz_m);assert.deepEqual(a.bounds_glb_m,original.glb.bounds_m);assert.deepEqual(a.blender_dimensions_m,original.measured_blender_xyz_m);assert.equal(a.material_count,original.glb.materials);assert.equal(a.primitives,original.glb.scene_primitives_estimated_base_draw_calls);assert.equal(a.glb_bytes,original.glb.bytes);assert.deepEqual(a.export_options,original.export_options);}
+   else{const source=await json(entry.original_metadata);for(const key of ['triangles','dimensions','axes','bounds_glb_m','blender_dimensions_m','export_options','materials','generator'])assert.deepEqual(a[key],source[key],`Preserve measured ${key}`);}
+   for(const key of ['glb','blend','preview']){assert.equal(dirname(a[key]),folder);await checked({path:a[key],sha256:a.sha256[key]});}
+   for(const [key,artifact] of [['glb','glb'],['blend','source']]){assert.equal(candidate.artifacts[artifact].sha256,a.sha256[key]);await checked(candidate.artifacts[artifact]);}
+   await checked(entry.frozen_brief);const proof=await json(entry.proof);assert.equal(proof.source_glb_sha256,a.sha256.glb);assert.equal(proof.frames.length,8);for(const frame of proof.frames){const b=await checked({path:`${dirname(entry.proof.path)}/${frame.path}`,sha256:frame.sha256});assert.equal(b.length,frame.bytes);assert.equal(b.readUInt32BE(16),frame.width);assert.equal(b.readUInt32BE(20),frame.height);}
+   const record=capture.assets.find(x=>x.id===a.id),card=index.posters.find(x=>x.id===a.id);assert.equal(record.source_glb_sha256,a.sha256.glb);assert.equal(card.source_glb_sha256,a.sha256.glb);assert.deepEqual(publicIndex.posters.filter(x=>x.id===a.id),[card]);assert.equal((await checked({path:card.path,sha256:card.sha256})).length,card.bytes);assert.equal(entry.capture_reference.sha256,a.sha256.preview);await checked(entry.capture_reference);
+   additions.push({...a,quality_status:'independent_qa_accepted_stylized_prop',approval_provenance:{source_commit:release.source_commit,review_commit:release.review_commit,review_sha256:release.review.sha256,source_contract:'bounded-stylized-study:8-fixed-views; unchanged pending static-stylized-v1 candidate',candidate_record_approved_for_brief:false,formal_profile_acceptance:'BLOCKED',hardware_gpu_verified:false,target_scene_verified:false,concept_chronology:'Exact provider generation timestamp unknown; original evidence preserved'}});
+  }
+ }
+ return {releases,additions};
+}
+export async function collectBatches5657Release(root,descriptors){const {releases,additions}=await collectBatches5657Additions(root,descriptors);const base=await collectConceptLandairRelease(root,releases[0].base_descriptor);assert.equal(base.assets.length,190);assert(!additions.some(a=>base.assets.some(b=>b.id===a.id)));return {...base,assets:[...base.assets,...additions],publication:{...base.publication,batches56_57_descriptors:descriptors}};}

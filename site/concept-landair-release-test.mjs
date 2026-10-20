@@ -9,6 +9,7 @@ import { collectConceptLandairRelease, CONCEPT_LANDAIR_IDS, CONCEPT_LANDAIR_PACK
 import { CONCEPT_LANDAIR_RELEASE as fixed } from './accepted-concept-landair-release.mjs';
 import { collectConceptQuartetsRelease } from './concept-quartets-release.mjs';
 
+if (!process.argv.includes('--batches5657-only')) {
 const BASE_COUNT = 186;
 const revisions = { sapeornis: 'r001', longirostravis: 'r001', dunbaria: 'r001', chimerarachne: 'r001' };
 const expectedIds = Object.keys(revisions).sort();
@@ -279,4 +280,18 @@ try {
   console.log(`Concept-landair release: ${checks} checks passed; exact reviewed quartet, unchanged ${BASE_COUNT}, frozen source/QA bindings, and blocked formal/hardware/scene gates preserved.`);
 } finally {
   await rm(root, { recursive: true, force: true });
+}
+
+}
+if(process.argv.includes('--batches5657-only')){
+ const {collectBatches5657Additions}=await import('./concept-landair-release.mjs');
+ const cwd=process.cwd(),manifest=JSON.parse(await readFile(resolve(cwd,'assets/manifest.json'))),descriptors=manifest.publication.batches56_57_descriptors;
+ const collect=()=>collectBatches5657Additions(cwd,descriptors);const first=await collect();assert.equal(first.additions.length,7);assert(!first.additions.some(a=>a.id==='nidula-baltica'));assert.deepEqual(manifest.assets.slice(-7),first.additions);
+ let passed=3;
+ async function altered(path,change){const p=resolve(cwd,path),old=await readFile(p);try{await writeFile(p,change(old));await assert.rejects(collect);passed++;}finally{await writeFile(p,old);}}
+ const r=first.releases[0],e=r.additions[0],a=first.additions[0];
+ for(const path of [descriptors[0].path,e.metadata.path,e.candidate.path,e.frozen_brief.path,e.proof.path,e.review.path,r.source_bundle.path,r.capture.report.path,r.capture.zip_verification.path,a.glb,a.blend,a.preview])await altered(path,b=>Buffer.concat([b,Buffer.from(' ')]));
+ await altered('assets/turntables/index.json',b=>{const x=JSON.parse(b);x.posters.find(p=>p.id===a.id).sha256='0'.repeat(64);return JSON.stringify(x);});
+ const final=await collect();assert.deepEqual(final,first);passed++;
+ console.log(`Batch56/57 bounded collector checks passed: ${passed}; exact sources restored, no model generation or repeated visual QA.`);
 }
