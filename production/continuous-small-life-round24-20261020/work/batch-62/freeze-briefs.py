@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: MIT
+from pathlib import Path
+import json,hashlib,shutil,datetime
+R=Path.cwd();W=R/'production/continuous-small-life-round24-20261020/work/batch-62';A=R/'assets/candidates/continuous-small-life-round24-20261020/batch-62';now=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat();H=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+D=json.loads(Path('/tmp/lowpoly-round24-coordination/preclaim-dedup.json').read_text());assert D['matches']==[] and D['errors']==[],D
+for n in ['preclaim-dedup.json','batch-62-claim.json']:shutil.copyfile(Path('/tmp/lowpoly-round24-coordination')/n,W.parents[1]/n)
+records=json.loads((W/'concept-records.json').read_text());views=['hero','reversehero','front','side','rear','top','clay','silhouette'];subjects=json.loads((W/'subjects.json').read_text())
+params={'dinomischus':{'bracts':20,'bract_length_m':.0042,'stem_length_m':.016,'cup_radius_m':.0033,'radial_steps':40},'star-dune':{'arms':5,'angular_steps':120,'radial_steps':18,'height_m':100},'slot-canyon':{'longitudinal_steps':48,'height_steps':20,'width_m':14,'length_m':28,'height_m':12},'flowstone-cascade':{'cross_steps':48,'flow_steps':50,'ledges_m':[.9,1.85,2.85],'lip_tongues':18}}
+for slug,s in subjects.items():
+ s['geometry_parameters']=params[slug];s['source']['consulted_image_sha256']=H(Path('/tmp/lowpoly-batch62-references')/s['source'].pop('image'))
+final=[]
+for slug,s in subjects.items():
+ b=A/slug/'r001';b.mkdir(parents=True,exist_ok=False);rec=records[slug];shutil.copyfile(rec['local_original'],b/'concept-original.png');(b/'concept-prompt.txt').write_text(rec['prompt']+'\n');rec['original_sha256']=H(b/'concept-original.png');rec['inspection_note']=s['decisions'];rec['provider_receipt_limit']='Exact tool-return metadata retained; no opaque invocation identifier or provider timestamp was returned. Request/completion-observation boundaries are observer times, not internal provider execution time.';(b/'concept-generation.json').write_text(json.dumps(rec,indent=2)+'\n')
+ cfg={'asset_id':slug,'revision':'r001','seed':6200+len(final),'nominal_dimensions_blender_xyz_m':s['dims'],'palette':s['palette'],'modeling_decisions':s['decisions'],'profile':'static-stylized-v1','blender_version':'4.3.2','three_version':'0.180.0','textures':0,'geometry_parameters':s['geometry_parameters']}
+ (b/'build-config.json').write_text(json.dumps(cfg,indent=2)+'\n')
+ brief=json.loads((R/'schemas/templates/brief.template.json').read_text());brief.update(asset_id=slug,purpose=s['purpose'],required_views=views,turntable_frames=0,geometry_policy={'max_triangles':14000,'max_materials':6,'max_primitives':30,'max_glb_bytes':1000000},texture_policy={'max_textures':0,'max_dimension':256,'max_total_bytes':0,'max_decoded_bytes':0},coverage_justification='Explicit static-stylized-v1 fixed8 exact512px views, zero turntable. All seven stages retain distinct verdicts; no GPU/scene waiver or maker approval.',required_deliverables=[],nominal_dimensions_blender_xyz_m=s['dims'],scale_note=s['scale'],concept_interpretation=s['decisions'],feature_obligations=s['features'],claim_scope=s['purpose'],origin='Floor contact footprint center at Blenderz0; X lateral, -Y front, Zup; glTFYup +Zfront')
+ for c in brief['criteria']:
+  c['required_sources']=[s['source']['id']] if c['stage'] in ['visual','factual'] else []
+ brief['criteria'] += [{'id':'feature-'+str(i+1),'stage':'factual','critical':True,'description':f,'required_sources':[s['source']['id']]} for i,f in enumerate(s['features'])]
+ (b/'brief.json').write_text(json.dumps(brief,indent=2)+'\n');(b/'brief.md').write_text('# Frozen pre-model brief\n\n'+s['name']+'\n\n'+s['purpose']+'\n\n'+s['decisions']+'\n\n'+'\n'.join('- '+f for f in s['features'])+'\n');(b/'references.json').write_text(json.dumps({'schema_version':1,'sources':[s['source']]},indent=2)+'\n')
+ (b/'modeling-freeze.json').write_text(json.dumps({'schema_version':1,'frozen_at':now(),'status':'frozen before generator authoring and geometry','brief_sha256':H(b/'brief.json'),'config_sha256':H(b/'build-config.json'),'references_sha256':H(b/'references.json'),'concept_sha256':H(b/'concept-original.png'),'concept_inspection':'Actual pixels independently inspected by maker; contradictions resolved in complete brief.','scope_changes_from_inventory':'Primary-source clarification and explicit uncertainty before modeling, never retrospective narrowing; original inventory unchanged.'},indent=2)+'\n')
+ final.append({'asset_id':slug,'revision':'r001','path':str(b.relative_to(R))})
+(W/'final-selection.json').write_text(json.dumps(final,indent=2)+'\n');print('FROZEN',now(),[x['asset_id'] for x in final])

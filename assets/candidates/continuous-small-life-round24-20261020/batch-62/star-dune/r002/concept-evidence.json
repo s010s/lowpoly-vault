@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "star-dune",
+  "revision": "r002",
+  "labels": {
+    "en": "star-dune"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "e57addaff5478589250dbce1349104c6272abde5c70c3476df1ff7e17c17cc6e"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "158a0005e77bbe9ca9f1a12d68d9040e0af1115594701a9be5a0521791f83f72"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "ab58a57752e28ea24decd21ab27b98ffe47614de02a0df54386066625fdb6e43"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "b9541ddffe8b061edec3e76f9e94e1c2d09c7c59f0b558feb2798ffccc81adbb"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "f635fc74c35e423f4ff10f284f38f01b71abaf86bb03a8ef23782b39e5cb6dfd"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "bc3498e068c86ecac480999ce78bbc8036366eaa1807c35c5895648f444cf81a"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "7fc7d2cb00dc8c51378ee571dfd1e3f4ea7a47fe527a9f41041d87a3a9be8f09"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "0970db10c743707312b4c92e6732a53d24d5ebe8934b0691f45f6e68a2f857e5"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "74f7f37c68b327006945352451cf03a9fa5fbe6bef44cfbaf9600d3dbe57e35b"
+      }
+    ],
+    "cross_view_consistency_note": "Concept five radiating sharp connected ridges and concave saddles adopted; reject decorative perfect star footprint and exaggerated razor thin disconnected ends. Freeze one closed mound, five unequal bending arms, common100m summit,400m X by320m Y nominal apron;24angular subdivisions per arm and18radial rings, sharp crest-aligned samples and quiet slopes. Sand extends into gentle irregular interarm bays not a geometric pentagram. Wind directions not shown; both sides coherent. No terrain stand or vegetation. Hidden underside flat atz0. Palette broad directional surface regions, no noise or texture.",
+    "hidden_surface_decisions": "Concept five radiating sharp connected ridges and concave saddles adopted; reject decorative perfect star footprint and exaggerated razor thin disconnected ends. Freeze one closed mound, five unequal bending arms, common100m summit,400m X by320m Y nominal apron;24angular subdivisions per arm and18radial rings, sharp crest-aligned samples and quiet slopes. Sand extends into gentle irregular interarm bays not a geometric pentagram. Wind directions not shown; both sides coherent. No terrain stand or vegetation. Hidden underside flat atz0. Palette broad directional surface regions, no noise or texture."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T12:58:40.884Z",
+    "modeling_started_at": null,
+    "note": "Real tool metadata and observer invocation/completion boundaries retained. No internal provider timestamp returned. Original generator authoring bounded after12:59:56Z freeze and before13:01:52Z first geometry invocation; repair freezes retain their own dates. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.133,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "f560a1bb6df793a367e8f8953ff5fbffd24ab04c9c03f0a940166446a02e17b2"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "f560a1bb6df793a367e8f8953ff5fbffd24ab04c9c03f0a940166446a02e17b2"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "4548782c2654eb1973f0c68f6fd48cae137aee9893bf38f4e4da27edd1e6bb43",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "d3618ebc41e8df933e2fc84406f8fb9328e5fd3cb2285255e2e24612eca68dbf"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "e57addaff5478589250dbce1349104c6272abde5c70c3476df1ff7e17c17cc6e",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "00745a321a80485395d7954fc11a935be71b2ce123905b23430584e4325d5ef2"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

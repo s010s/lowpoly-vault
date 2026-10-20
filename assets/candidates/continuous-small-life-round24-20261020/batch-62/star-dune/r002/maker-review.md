@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual final eight512px view pixels inspected at original-resolution lossless contact sheet. Five ridges meet at a common dominant summit, with concave saddles visible in top and reversehero. r002 removes discontinuous radial valleys and abrupt outer arm-length seams; all ridges now merge continuously into a broad quiet lower apron. Front/side/rear show sloping sand mound, no flat cap, rock spire or barchan crescent. Arms and contour differ modestly, while fivefold teaching structure remains deliberately legible. Single portable sand material uses geometry/lighting for slope hierarchy; exact footprint, five-arm count, scale and colors original illustrative choices, not measured Great Sand Dunes topography.
+
+Inspected lossless2048x1060 contact-sheet at original resolution, each retained frame512x512. Exact final clean-import GLB hash e57addaff5478589250dbce1349104c6272abde5c70c3476df1ff7e17c17cc6e. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

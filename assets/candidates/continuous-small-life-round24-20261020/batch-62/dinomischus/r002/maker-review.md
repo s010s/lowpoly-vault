@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual final eight512px view pixels inspected at original-resolution lossless contact sheet. Whole organism: bulbous basal termination, slender long rigid stem, flaring calyx and20 upright flattened bracts. Side/front/rear retain complete connected stalk and basal bulb; top shows20 surrounding bract tips and two subtle interpreted upper openings. r002 removes the black overlapping-cap artifact seen in r001, retaining one continuous shallow inner-cup surface. Bracts simplify source-reconstruction rounded tips into small faceted tips; living depth, colors, upper anatomy and basal shape remain artistic interpretations, affinity explicitly unknown. No face, leaves, arms, gut or specific phylogenetic placement asserted.
+
+Inspected lossless2048x1060 contact-sheet at original resolution, each retained frame512x512. Exact final clean-import GLB hash d05a0e33b6d5b2600934c03725f547f78ff7ac4d9d5e04e4452c5d7ccfae7a58. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.
