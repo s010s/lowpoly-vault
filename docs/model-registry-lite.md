@@ -3,7 +3,7 @@
 This isolated change adds storage and generation tools, not a new approval system.
 It is based on the exact 217-model release snapshot
 `da3fb30ccc4dd4e511e029c0a51a7a67265870c5`. This branch now includes that
-refreshed metadata import, explicit npm commands, a read-only
+refreshed metadata import, explicit Node CLI commands, a read-only
 build/audit consistency check and narrowly scoped registry-data append recognition.
 It does not change existing model/poster proof requirements, workflows, historical
 asset/gallery bytes, URLs or approval data. The only collector execution change
@@ -72,13 +72,13 @@ node site/model-registry-sync.mjs check \
   --target-root /path/to/repo
 ```
 
-The repository now provides these direct entries, defaulting to its own committed
-records and existing collector-generated manifest:
+Run the direct CLI against the repository's committed records and existing
+collector-generated manifest:
 
 ```sh
-npm run registry:sync
-npm run registry:check
-npm run registry:posters -- --source-root /path/to/checked-source --model-ids model-a,model-b
+node site/model-registry-sync.mjs sync --registry-root . --release-manifest assets/manifest.json --target-root .
+node site/model-registry-sync.mjs check --registry-root . --release-manifest assets/manifest.json --target-root .
+node site/model-registry-sync.mjs install-posters --registry-root . --source-root /path/to/checked-source --target-root . --model-ids model-a,model-b
 ```
 
 `npm run build` first executes the unchanged publication gate, then requires a
@@ -218,7 +218,7 @@ The original storage comparison and the refreshed migration comparison are recor
 The isolated candidate now contains the migration and hooks rather than only CLI
 files. The refreshed exact `da3fb30ccc4dd4e511e029c0a51a7a67265870c5` comparison
 imports 217 records and confirms all five existing JSON byte sequences remain
-unchanged after `registry:sync`/`registry:check`; sync writes zero files. No source
+unchanged after the `sync`/`check` CLI commands; sync writes zero files. No source
 payload, poster PNG, production evidence or workflow is changed. The collector
 execution-only correction described above does not change accepted model values. This conclusion uses exact Git metadata/object equality, not a second
 copy or full rescan of the binary corpus. The older seven-model poster install
@@ -267,3 +267,10 @@ A real-entry disposable fixture verifies missing descriptor and tampered descrip
 bytes fail normally instead of exiting with an unsettled await. This is an execution
 regression check, not a new model acceptance result. Both fixes must pass the normal
 CI rerun before this PR can be merged.
+
+The existing historical poster recipe binds the complete `package.json` bytes,
+including npm scripts. Proposed npm shortcuts were therefore removed rather than
+weakening that pin or re-signing historical approval. `package.json` is identical
+to the 217-model base. Use the direct CLI above; the existing build/audit integration
+still automatically checks generated indexes. The unchanged historical-approval
+negative tests remain mandatory.

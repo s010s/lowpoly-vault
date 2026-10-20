@@ -32,11 +32,7 @@
     "test:scroll:browser": "node site/catalog-scroll-browser-test.mjs",
     "test:gallery": "node site/entry-route-test.mjs && node site/gallery-catalog-test.mjs && node site/gallery-assets.mjs && node site/gallery/tests/state-test.mjs && node site/gallery/tests/wheel-title-test.mjs && node site/gallery/tests/focus-center-test.mjs && node site/gallery/tests/wheel-guides-test.mjs && node site/gallery/tests/stage-handoff-test.mjs && node site/gallery/tests/reference-entry-continuity-test.mjs && node site/gallery/tests/reference-presentation-test.mjs && node site/gallery/tests/reference-shadow-footprint-test.mjs && node site/gallery/tests/reset-transition-test.mjs && node site/gallery/tests/model-dimensions-test.mjs && node site/gallery/tests/single-framing-test.mjs && node site/gallery/tests/poster-projection-test.mjs && node site/gallery/tests/selection-orbit-controls-test.mjs && node site/gallery/tests/compare-ground-regression-test.mjs && node site/gallery/tests/model-support-test.mjs",
     "gallery:posters": "node site/capture-gallery-posters.mjs",
-    "test:gallery:browser": "node site/gallery-browser-test.mjs",
-    "registry:sync": "node site/model-registry-sync.mjs sync --registry-root . --release-manifest assets/manifest.json --target-root .",
-    "registry:check": "node site/model-registry-sync.mjs check --registry-root . --release-manifest assets/manifest.json --target-root .",
-    "registry:posters": "node site/model-registry-sync.mjs install-posters --registry-root . --target-root .",
-    "test:registry": "node --test site/model-registry-test.mjs site/model-capture-package-test.mjs site/model-registry-sync-test.mjs"
+    "test:gallery:browser": "node site/gallery-browser-test.mjs"
   },
   "dependencies": {
     "three": "0.180.0"

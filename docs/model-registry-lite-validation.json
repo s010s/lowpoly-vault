@@ -118,8 +118,6 @@
   "integration_candidate": {
     "baseline_source_commit": "da3fb30ccc4dd4e511e029c0a51a7a67265870c5",
     "committed_model_records": 217,
-    "npm_registry_sync_written_files": 0,
-    "npm_registry_check": "pass",
     "legacy_json_bytes_unchanged": 5,
     "build_hook": "read-only check after unchanged publication gate and before Vite",
     "reused_build_hook": "same read-only check in mandatory audit-release",
@@ -222,7 +220,11 @@
       "static_fixture": "Exact new output hash plus inverse of only known paint expression must match original golden",
       "publication_entry": "Real CLI rejects missing and tampered descriptor bytes without unresolved top-level await",
       "targeted_fix_tests": "catalog-data and ci-publication pass; original gallery-startup also passes",
-      "normal_ci_rerun_required": true
-    }
+      "normal_ci_rerun_required": true,
+      "historical_poster_recipe": "Remove new npm shortcuts and restore exact base package.json bytes, keeping the complete historical recipe pin and original approval catalog unchanged."
+    },
+    "registry_sync_written_files": 0,
+    "registry_check": "pass",
+    "registry_command_entry": "node site/model-registry-sync.mjs sync|check|install-posters"
   }
 }
