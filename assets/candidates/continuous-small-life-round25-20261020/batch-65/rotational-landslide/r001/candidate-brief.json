@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "rotational-landslide",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original stylized educational candidate; independent acceptance pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical: High rear plateau and prominent curved main scarp behind displaced coherent block; Displaced grass-topped bench tilts backward toward rear scarp, not down slope; Concave-up curved slip surface legible at cutaway sides; lower forward bulging toe, not planar translational slide. Generic original rotational-slide educational cutaway module, not a Holbeck Hall replica, geotechnical simulation or hazard prediction. Nominal12x16x7m patch, green cover and earth colors artistic. Exposed rupture interface is a teaching cutaway, not surface vegetation.",
+      "required_sources": [
+        "BGS-SLUMP"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical: High rear plateau and prominent curved main scarp behind displaced coherent block; Displaced grass-topped bench tilts backward toward rear scarp, not down slope; Concave-up curved slip surface legible at cutaway sides; lower forward bulging toe, not planar translational slide. Generic original rotational-slide educational cutaway module, not a Holbeck Hall replica, geotechnical simulation or hazard prediction. Nominal12x16x7m patch, green cover and earth colors artistic. Exposed rupture interface is a teaching cutaway, not surface vegetation.",
+      "required_sources": [
+        "BGS-SLUMP"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Frozen static-stylized-v1 eight actual512px views; no turntable required by profile; all seven stages distinct.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/source.blend",
+      "sha256": "6b0a2eb8f44a5ced5fd75a61665b5adb680667ae979313ce4927e6167c4cc2f4"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/generator.py",
+      "sha256": "4ba0ed0608ea37a46cce2ca1b7e3a021b851ccc1eaecca5bc8d8e515c5fbfda0"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/build-config.json",
+      "sha256": "89d24f3bf03717ea26be10fa29f902c0543c029276949ed9e2d0abc815b2dc34"
+    }
+  ],
+  "claim_scope": "Generic original rotational-slide educational cutaway module, not a Holbeck Hall replica, geotechnical simulation or hazard prediction. Nominal12x16x7m patch, green cover and earth colors artistic. Exposed rupture interface is a teaching cutaway, not surface vegetation.",
+  "nominal_dimensions_blender_xyz_m": [
+    12,
+    16,
+    7
+  ],
+  "dimension_status": "Illustrative nominal scale; exported measured pose bounds reported separately",
+  "recognition_features": [
+    "High rear plateau and prominent curved main scarp behind displaced coherent block",
+    "Displaced grass-topped bench tilts backward toward rear scarp, not down slope",
+    "Concave-up curved slip surface legible at cutaway sides; lower forward bulging toe, not planar translational slide"
+  ],
+  "concept_decisions": "Concept D scarp and coherent grass bench retained but bench slope ambiguous: explicitly front edge of upper block HIGHER than its rear edge by0.8m, so back-tilt toward +Y rear scarp is geometrically measurable. Downslope -Y. Side cross-section has curved listric interface from high rear to low front. Continuous closed substrate below curve and separate coherent displaced earth block above it, thin exposed slip-surface band only along cutaway sides. Rear scar wall crescent in top, widest central failure. Vegetated rear plateau outside rupture, grass top block and lower toe; bare scar face earth. No arrows, text, buildings or unstable loose tree props. Full volume with closed underside.",
+  "style": "Palette-only restrained faceted low-poly, full volume",
+  "intended_use": "Supporting educational asset at256-512px, not museum-grade reconstruction",
+  "created_at": "2026-10-20T13:25:25.567262+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:29:12.814388+00:00",
+    "frozen_design_brief_sha256": "3cf76e6aa6431499c8f7f21de651ce2773a97d6a740a1418785b16eb4fb3da9f",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
