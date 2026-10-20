@@ -42,7 +42,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
     browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-gpu-rasterization']});
     report.browser=browser.version();
     const has=group=>groups.includes(group);
-    if(has('startup'))await checkGalleryStartup({browser,root,baseURL,output,report});
+    if(has('startup')||has('routes'))await checkGalleryStartup({browser,root,baseURL,output,report});
     if(has('interaction'))await checkMobileGallery({browser,baseURL,output,report,assets});
     async function ready(page,id){await page.waitForFunction(id=>window.__gallery&&document.querySelector('#detail')?.dataset.state==='ready'&&(!id||document.querySelector('#detail').dataset.modelId===id),id,{timeout:45000});}
     async function boot(page,path=`models/?model=${initial.id}`,mobile=false){await page.goto(new URL(path,baseURL).href);await page.waitForFunction(()=>window.__gallery?.models.length>0,{},{timeout:45000});if(!mobile)await ready(page);if(manifest.review_only)assert(await page.locator('.gallery-review-notice').isVisible(),'The isolated review must remain visibly labeled');}
