@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "asset_id": "daemonelix-helical-burrow",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Illustrative full-volume solid fossil-burrow infill/cast, with descending helix and terminal sideward tunnel/chamber. Exposed sectional-structure display convention; not a literal excavated specimen, hollow pipe or whole producer. No producer species inferred from this model.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-TD"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-TD"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "One continuous descending helical solid cast with visible negative space between successive turns",
+      "required_sources": [
+        "EN-TD"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Terminal sideward tube and modest expanded bottom chamber",
+      "required_sources": [
+        "EN-TD"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Illustrative exposed/sectional convention, not a producer reconstruction or measured specimen",
+      "required_sources": [
+        "EN-TD"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "Solid closed tube including capped entry, no contradictory hollow-pipe topology",
+      "required_sources": [
+        "EN-TD"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed8 exact512px views, zero turntable. All seven stages retain distinct verdicts; no GPU/scene waiver or maker approval.",
+  "required_deliverables": [
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/daemonelix-helical-burrow/r002/generator.py",
+      "sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/daemonelix-helical-burrow/r002/build-config.json",
+      "sha256": "15b9358a2862c867b2d9cc4fa83c4a4ce9fd8437a319d8b0ff7c3c94d15f6cf3"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    1.7,
+    1.0,
+    2.0
+  ],
+  "scale_note": "Illustrative nominal envelope; actual measured bounds reported separately. Animal body nominal17mm excludes antenna; pose appendages extend bounds.",
+  "concept_interpretation": "Concept inspected: descending continuous corkscrew, open coil gaps and lower lateral chamber adopted. Top concept incorrectly shows a hollow entry despite solid-cast prompt. Resolve before modeling: cap entry with solid sediment end, no hollow-bore claim. Freeze4.5 helical turns with natural small radius and pitch variation, continuous terminal tube blending into modest elongated closed chamber and short top entry neck. Small irregular sediment footing supports lower tunnel, not obscuring upper coil negative spaces. Exact coil count, chamber outline, exposure, scale and color illustrative; source supports spiral burrow cast and bottom chamber, not measured here.",
+  "feature_obligations": [
+    "One continuous descending helical solid cast with visible negative space between successive turns",
+    "Terminal sideward tube and modest expanded bottom chamber",
+    "Illustrative exposed/sectional convention, not a producer reconstruction or measured specimen",
+    "Solid closed tube including capped entry, no contradictory hollow-pipe topology"
+  ],
+  "claim_scope": "Illustrative full-volume solid fossil-burrow infill/cast, with descending helix and terminal sideward tunnel/chamber. Exposed sectional-structure display convention; not a literal excavated specimen, hollow pipe or whole producer. No producer species inferred from this model.",
+  "origin": "Floor contact footprint center at Blenderz0; X lateral, -Y front, Zup; glTFYup +Zfront",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T08:24:33.832862+00:00",
+    "frozen_design_brief_sha256": "7ea2a8eb5d48a96ac7ed975c4cbd2ff796d422608fd5a18262732027c4303262",
+    "note": "Original design and claims unchanged. r002 targeted geometry repairs documented in modeling-freeze. Artifact-role adapter only."
+  }
+}

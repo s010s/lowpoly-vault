@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "kind": "explicit-delivery-metadata-correction",
+  "asset_id": "drumlin",
+  "geometry_revision": "r002",
+  "metadata_revision": "scale-note-v002",
+  "created_at": "2026-10-20T08:54:16.054556+00:00",
+  "baseline_commit": "faa9090270732d1c770a807607fe5e34db8908eb",
+  "qa_report": {
+    "path": "qa/batch61-independent-20261020/independent-qa.md",
+    "sha256": "a26dca5e653385b28169f02f229de29f9246ba76dcdbd04414c72bcb7c19468e"
+  },
+  "original_frozen_brief": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/brief.json",
+    "sha256": "221c2e543ae506e718d7ea4602254ffe4ddfb05ddebcf9850048b6ad667ada40"
+  },
+  "original_modeling_freeze": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/modeling-freeze.json",
+    "sha256": "c3939aaf0205fe009e66f6bd2a3ada1367373d7d296c088312e9f4c504bd295f"
+  },
+  "original_delivery_brief": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/candidate-brief.json",
+    "sha256": "12ddf48322e3b644df06d7df62a15a4272ed1a7bd5df680fe6e8ed2ed169ad6a"
+  },
+  "original_candidate": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/candidate.json",
+    "sha256": "d0399bf4f325b36bb044fb3ea915817cf324e3b3f046113d6f2fcc24d5c0dff0"
+  },
+  "changed_json_pointer": "/scale_note",
+  "original_value": "Illustrative nominal envelope; actual measured bounds reported separately. Animal body nominal17mm excludes antenna; pose appendages extend bounds.",
+  "corrected_value": "Illustrative low rounded elongated glacial-landform teaching-asset envelope only. Declared nominal Blender XYZ envelope is 150 x 450 x 35 metres; actual mesh bounds are reported separately. Not a measured specimen or named-site dimension.",
+  "corrected_delivery_brief": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/candidate-brief-scale-v002.json",
+    "sha256": "106e2bbd77cd9e7c69be89311af1aebb4dad808b1e25a40da0a98e3fded3da43"
+  },
+  "reason": "Independent QA identified an animal-specific copy error in the geological scale note. Original wrong statement and all original hashes remain preserved; old hash chain does not attest corrected text.",
+  "actual_geological_teaching_purpose": "Generic glacial geological-form teaching asset: low rounded elongate till hill with broad blunt rounded end and long tapered low tail. No flow-direction arrow, specific site/period or measured ice-flow reconstruction.",
+  "declared_nominal_blender_xyz_envelope_m": [
+    150,
+    450,
+    35
+  ],
+  "actual_measured_blender_xyz_bounds_m": {
+    "min": [
+      -75.41590118408203,
+      -225.0,
+      0.0
+    ],
+    "max": [
+      75.41590118408203,
+      225.0,
+      35.5855712890625
+    ],
+    "size": [
+      150.83180236816406,
+      450.0,
+      35.5855712890625
+    ]
+  },
+  "actual_measured_gltf_xyz_bounds_m": {
+    "min": [
+      -75.41590118408203,
+      0.0,
+      -225.0
+    ],
+    "max": [
+      75.41590118408203,
+      35.5855712890625,
+      225.0
+    ],
+    "size": [
+      150.83180236816406,
+      35.5855712890625,
+      450.0
+    ]
+  },
+  "dimension_distinction": "Nominal envelopes are art-planning targets, not mesh bounds or measured fossil/site dimensions. Actual measured mesh bounds may differ. Blender is Z-up; glTF is Y-up.",
+  "unchanged_artifacts": {
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/model.glb",
+      "sha256": "317dee38ec731d1939985a61fd431238a188b5be34dfcc717dafe23dc4bd7534"
+    },
+    "source": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/source.blend",
+      "sha256": "ee0abc1e2a6860fb6624c0bf150f4c29f0287ab306539c5a2ad75e6d241a8fea"
+    },
+    "generator": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/generator.py",
+      "sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f"
+    },
+    "config": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/build-config.json",
+      "sha256": "e48252f277d3ab3499026d1b970a8657b71639531ac44779824dea7b65adaba2"
+    },
+    "references": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/references.json",
+      "sha256": "1c33853bc5d0e7f7c0dc858458b2df334d3acfe89996c2a98dd84ca62591659e"
+    },
+    "original_render_manifest": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/proof-final/render-manifest.json",
+      "sha256": "19d8b7f0ff9e13e9beed9e37d0d0796afd59656df98e7e1e3f7b0115457ba86e"
+    }
+  },
+  "dependency_impact": "Text-only specification correction. No geometry/material/texture/scale/pose/generator/config/reference/render/pixel/rebuild changes; no new ImageGen, rebuild, rerender or runtime test. Existing render/rebuild evidence remains bound to unchanged model bytes and original brief; new carry-forward manifest transparently maps those pixels to corrected delivery text. Independent differential specification review remains pending."
+}

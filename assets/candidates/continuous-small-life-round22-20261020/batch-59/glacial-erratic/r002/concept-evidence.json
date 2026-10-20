@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "glacial-erratic",
+  "revision": "r002",
+  "labels": {
+    "en": "Glacial erratic"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "glacial-erratic.glb",
+      "sha256": "94bdc5b0dddd8a3925d53ded4be6191d4769cc9414d8860d9664a8170010bfcd"
+    },
+    "source": {
+      "path": "glacial-erratic.blend",
+      "sha256": "e4381e4138c48006a922e387d7437ea8425b7e2d23d4137bf99e786ce1f57f02"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "cc5ed645c7c04b6080bfd8e024a77599b64716774bc9a3dcdbe86111cd0eada5"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "28fed7227c3620a169a0782abe0e85e5563cdef66dd1a6d134ad8e0213964866"
+    },
+    "brief": {
+      "path": "brief.delivery-v001.json",
+      "sha256": "84d96a4439937d436007a3c8e390466381e1c74533b086979c1eabdef20b4e18"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "55fce1ff9558cc7d07a0912fa402e2682f83cc8030b8a1ccbedcb8c430da420c"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "6c7fa0f06398703ed9ae6a52dae1f058d0e9be14f14cefcb4c20b218dfb2b853"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "f3f7b4703f18d122442dec16fddde9582ae1be1f9ba6f4baa964d940c5221088"
+    },
+    "images": [
+      {
+        "id": "shared-multiview-concept",
+        "view": "hero-front-top",
+        "path": "concepts/original.png",
+        "sha256": "ab336656469263436be00788818db00a2d119872623e0d7e9c43e5d01086780a"
+      }
+    ],
+    "cross_view_consistency_note": "Concept front repeats hero; top is useful. Freeze asymmetric sloping boulder with dominant upper peak left-rear, broad quiet faces, uneven low stratified bedrock exposure and contact flattening. Vein is material region on contiguous boulder, not floating decorative strip.",
+    "hidden_surface_decisions": "Concept front repeats hero; top is useful. Freeze asymmetric sloping boulder with dominant upper peak left-rear, broad quiet faces, uneven low stratified bedrock exposure and contact flattening. Vein is material region on contiguous boulder, not floating decorative strip."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T07:17:04.371912+00:00",
+    "modeling_started_at": null
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest-static.json",
+    "sha256": "a374f0c103b281576faae0d420ce6fe134bd61e071c4eac94e00c9aa7f4236c7"
+  },
+  "thumbnail": {
+    "path": "proof-final/hero.png",
+    "sha256": "4efe0149abdbf8d189bd63df731c36c010ed533e511acfe68d02a3722203681e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "77b25a0eef07b38c892f16e009e6bc1e2dd51501053cf9a0cfa8e63c6613dcc0"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "94bdc5b0dddd8a3925d53ded4be6191d4769cc9414d8860d9664a8170010bfcd",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "52e62ee2f0164ded069c580f43fce8675a762c9bb8ef8aa4fab34cda1c8cefbf"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Example for a small supporting prop. Replace for the actual deployment role."
+  }
+}

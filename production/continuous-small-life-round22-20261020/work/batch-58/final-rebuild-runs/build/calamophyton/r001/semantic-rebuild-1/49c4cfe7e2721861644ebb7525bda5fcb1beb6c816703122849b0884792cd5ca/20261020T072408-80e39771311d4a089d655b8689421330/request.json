@@ -1,0 +1,84 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/tmp/lowpoly-batch58-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/generator.py",
+    "--",
+    "--config",
+    "/tmp/lowpoly-batch58-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/build-config.json",
+    "--output",
+    "/tmp/lowpoly-batch58-20261020/production/continuous-small-life-round22-20261020/work/batch-58/final-rebuild-runs/build/calamophyton/r001/semantic-rebuild-1/49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca/20261020T072408-80e39771311d4a089d655b8689421330/outputs"
+  ],
+  "created_at": "2026-10-20T07:24:08.249504+00:00",
+  "fingerprint": "49c4cfe7e2721861644ebb7525bda5fcb1beb6c816703122849b0884792cd5ca",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/tmp/lowpoly-batch58-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 1090,
+        "path": "/tmp/lowpoly-batch58-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/build-config.json",
+        "sha256": "122cdad002098cf19cbce77843a23e03691fdab7b51d3f9ee29de64d862ab8fc"
+      },
+      "generator": {
+        "bytes": 11303,
+        "path": "/tmp/lowpoly-batch58-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/generator.py",
+        "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/tmp/lowpoly-batch58-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "calamophyton",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch58-20261020/scripts/qa_glb.py",
+        "config": "/tmp/lowpoly-batch58-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/build-config.json",
+        "generator": "/tmp/lowpoly-batch58-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-58/calamophyton/r001/generator.py",
+        "helper": "/tmp/lowpoly-batch58-20261020/scripts/asset_common.py"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T072406-3951f394886547eeb506fdd99ee61799"
+}

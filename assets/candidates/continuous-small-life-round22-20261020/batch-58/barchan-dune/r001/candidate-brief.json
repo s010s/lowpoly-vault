@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "barchan-dune",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original concept-guided evidence-informed stylized teaching prop; candidate only",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical subject features: Open crescent footprint with two downwind tapering horns; One curved crest separates broad gentle windward back from steep inner slipface; Quiet continuous solid sand volume, no crater ring or extra peaks. Scope: Original stylized generic geological-form teaching prop. No period, locality, grain history, exact real-site dimensions or ecosystem claim. Dimensions and colors artistic landscape-module choices.",
+      "required_sources": [
+        "NPS-DUNE"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical subject features: Open crescent footprint with two downwind tapering horns; One curved crest separates broad gentle windward back from steep inner slipface; Quiet continuous solid sand volume, no crater ring or extra peaks. Scope: Original stylized generic geological-form teaching prop. No period, locality, grain history, exact real-site dimensions or ecosystem claim. Dimensions and colors artistic landscape-module choices.",
+      "required_sources": [
+        "NPS-DUNE"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed eight views zero turntable, all seven independent stages retained.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/source.blend",
+      "sha256": "c36cffccdb973aeb20cdab8da46e8991e2734fb4264988a60098820475cf9e9c"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/generator.py",
+      "sha256": "bcf6fe8f693b83f6e5614d2b0362556f7bde569957c104d1592df03de401b667"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round22-20261020/batch-58/barchan-dune/r001/build-config.json",
+      "sha256": "2425810ec855d4ce6d60dc346a81eb77331a70dc5f07eb3bd4d9f716e722647b"
+    }
+  ],
+  "claim_scope": "Original stylized generic geological-form teaching prop. No period, locality, grain history, exact real-site dimensions or ecosystem claim. Dimensions and colors artistic landscape-module choices.",
+  "nominal_dimensions_blender_xyz_m": [
+    8,
+    6,
+    1.6
+  ],
+  "dimension_status": "Illustrative nominal targets, not measured specimen; actual bounds retained separately",
+  "recognition_features": [
+    "Open crescent footprint with two downwind tapering horns",
+    "One curved crest separates broad gentle windward back from steep inner slipface",
+    "Quiet continuous solid sand volume, no crater ring or extra peaks"
+  ],
+  "concept_decisions": "Panel C hero/top agree on open crescent; side sketch exaggerates isolated peak, reject that inconsistency. Wind from +Y toward -Y, horns extend -Y. Use single continuous swept crescent volume: windward +Y outer toe, long gentle stoss rise to curved crest, short steep concave -Y slipface. Height falls continuously toward unequal horn tips. No separate base/platform, closed floor underside, no crater. Nominal8x6x1.6m broad module, measured bounds separate.",
+  "style": "Original restrained palette-only refined low-poly, broad quiet planes, diagnostic silhouette/relief",
+  "intended_use": "Supporting teaching asset, 256-512px views; not museum-grade scientific replica",
+  "created_at": "2026-10-20T07:17:44.027197+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T07:25:24.230647+00:00",
+    "frozen_design_brief_sha256": "55f728ba03957d5914f9487bb81c33aac3362441672fe85a9b1ce61f4b212ee4",
+    "note": "Post-build artifact-path/hash declaration only. Original premodel frozen brief retained unchanged; no concept, design, source, geometry, budget, view or stage-scope change. Not claimed to precede geometry."
+  }
+}

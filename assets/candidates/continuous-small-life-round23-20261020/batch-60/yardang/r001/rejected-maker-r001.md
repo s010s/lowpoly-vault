@@ -1,0 +1,2 @@
+Not selected for independentQA. Maker self-review repair: replace over-smooth cone-like transverse section with actual stepped, fluted rock cross-sections, asymmetrical longitudinal ridge and broken wind-eroded ledges. Retain blunt windward nose/tapered lee tail, no dune slipface. Muted stratification, geometry rather than colors must establish erosion.
+Original files retained unchanged as maker evidence; final revisionr002.

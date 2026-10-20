@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "collinsium",
+  "revision": "r002",
+  "labels": {
+    "en": "collinsium"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "b2634bfc3f952bf5cfec2574142c925c8b2ce3e0ac48dcb0b35d22bf9e07cfaf"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "7bd54149cbac1207c9e1121fef260071cef11372fc66870fb63ae01aea852244"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "2310546013f2003efbf3f9a0b58e915982995267ecdd501324f59008e92c33aa"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "4bdec9762f9fddb6d010da29d1ae3b8148c8027f4c24eed3e5bb96f0dace1b56"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "070d4d643a379ed39bee10d15eba4a0cfa8408b58f356c33991222b831f89209"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "0c2689be072e22b91764028e44c014207674bdbdf60fb4d5aa82e8dda06b0ce3"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "3b8c6d88876bf7e68bf86878b6dcd55ff26b1c7bd7d9a1bcfb251e23f6fdc951"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "9d40028d8cd5e40cea8288bc9f1df5dc5aa4e1b8890a7db73e5dcece4c9c33ca"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-row original concept pixels inspected before freeze; only corresponding labeled row applies to each asset. Collinsium repeated limb/spine counts follow primary paper, not inconsistent AI drawing; yardang geometry must show erosion; cirque front opened and optional tarn omitted; frostwork rods sharpened to acicular needles. Complete decisions in frozen brief.",
+    "hidden_surface_decisions": "Concept A supplies warm faceted tubular volume, comb silhouettes and tapered tail but its repeated station count and spine sizes conflict across views. Override counts using primary Description/figures: exactly6 filtering pairs and9 clawed posterior pairs;15 sclerite stations with2+14x5 spines. No centipede tergite plates, no eyes. Front is Blender-Y. Filtering limb length roughlyone-third85mm body; author20 paired fine setiform bristles per limb rather than source about30 pairs, explicitly a low-poly simplification, retain bilateral repeated chevron direction. No annulations on these anterior limbs. Rear claws hook backward +Y; rear limb annulations suggested by real radius modulation rather than surface colors. Body tiny papillae and0.1mm hairs omitted at512px; macrodiagnostics retained. Two small head plates and recessed dark terminal mouth. Head/tail and all limbs full volume, pose artistic; no substrate or stand. Maker self-review repair: shorten posterior lobopods toabout10mm versusabout27mm filtering limbs by lowering tubular body; filtering limbs extend forward more strongly rather than all limbs standing as equal stilts. Diagnostic count and whole-organism scope unchanged."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T08:08:10Z",
+    "modeling_started_at": "2026-10-20T08:14:54.177529+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 7.1196,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "2756d6836b1560b36a6129d5f6703904eda849b2a413eeda0545a1032c87fd29"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "2756d6836b1560b36a6129d5f6703904eda849b2a413eeda0545a1032c87fd29"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "cb6bbb852c88b7b2cffd129346175cfef0fa8b766b45fc9ff618f71cc4ffc0a7",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "d29da2309b6866a1b13ca8ae9892143439fbc50a86ab5d465e51ad397014e5a8"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "b2634bfc3f952bf5cfec2574142c925c8b2ce3e0ac48dcb0b35d22bf9e07cfaf",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "b3ac88b9853015a19abf3617b1cb13d27cfea3b30aa51131fce719aafa37f086"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

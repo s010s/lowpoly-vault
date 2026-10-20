@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual final eight512px views inspected. Clear continuous four-and-half-turn helix, visible gaps and short capped entry neck, lower sideward tunnel expanded into chamber, low irregular sediment footing. r002 shared ring sequence removes r001 lower seam, clay shows no dark joining crack. Top confirms solid entry cap; central negative space is between coils, not a hollow bore. Rear/side compress the chamber in projection but hero/reversehero/top show its lateral extension. Tube radius/turn spacing modestly varied; cast is illustrative solid infill, not an animal or literal excavated specimen. Specific scale/chamber outline/color/exposure artistic.
+
+Inspected lossless2048x1060 contact-sheet at original resolution, each retained frame512x512. Exact final clean-import GLB hash c415fbe405e75ac182bb39512ea33b43f81d574723263f04378422fb0221aa82. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

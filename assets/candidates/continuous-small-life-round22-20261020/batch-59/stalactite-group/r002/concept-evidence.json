@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "stalactite-group",
+  "revision": "r002",
+  "labels": {
+    "en": "Stalactite group"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "stalactite-group.glb",
+      "sha256": "6e2bf795d94dae162a65dd8cf0924d70e402e28dbb1c17917d622919d608fca7"
+    },
+    "source": {
+      "path": "stalactite-group.blend",
+      "sha256": "1a56a769490486027c70f5afc4d953cfec9309efdd4232c4ef5ab17d31cc29b4"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "cc5ed645c7c04b6080bfd8e024a77599b64716774bc9a3dcdbe86111cd0eada5"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "afc5c6600f0e24daf64151c6cd6b905c3bb6b5255318ca2458420acc53248c8e"
+    },
+    "brief": {
+      "path": "brief.delivery-v001.json",
+      "sha256": "13f329fce348f36e674b1630d788d8cf5cbe764ad4ee9426fec983f257114234"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "0aa4604481bea2e8e093d581f13aa7d7176610b28696ed5618d565932ed4e58a"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "6c7fa0f06398703ed9ae6a52dae1f058d0e9be14f14cefcb4c20b218dfb2b853"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "898e69b0e525b9e2735438ec66f845b948040f77d1f249063ebd54cfe8e963e6"
+    },
+    "images": [
+      {
+        "id": "shared-multiview-concept",
+        "view": "hero-front-top",
+        "path": "concepts/original.png",
+        "sha256": "ab336656469263436be00788818db00a2d119872623e0d7e9c43e5d01086780a"
+      }
+    ],
+    "cross_view_consistency_note": "Concept top actually shows underside attachments not a literal top. Build opaque rough mounting slab with five rooted pendants, true top shows slab; underside designed explicitly. Growth collars subtle and irregular, not repeated equal beads. Origin at attachment top center, not floor.",
+    "hidden_surface_decisions": "Concept top actually shows underside attachments not a literal top. Build opaque rough mounting slab with five rooted pendants, true top shows slab; underside designed explicitly. Growth collars subtle and irregular, not repeated equal beads. Origin at attachment top center, not floor."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T07:17:04.367828+00:00",
+    "modeling_started_at": null
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Provider/authoring durations unavailable. Actual queue/render wall times retained separately; never inferred from mtime."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest-static.json",
+    "sha256": "93b6507972189b9b95d3798262ebdad9c0f6d49e026ad525ed60c895d25ce526"
+  },
+  "thumbnail": {
+    "path": "proof-final/hero.png",
+    "sha256": "98cbe7066c1c32d9e31c4ad159d82fe166866d09e93beaeda17a370fce3e0659",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "e56279d4e853e0546555f55f814c1871d86979b5818bfac40ad2a0fd67a91501"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "6e2bf795d94dae162a65dd8cf0924d70e402e28dbb1c17917d622919d608fca7",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "1732ab5fd4a025d171f510ee054cb712052c7339e4b7a73fffe6778ebeb17c3b"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Example for a small supporting prop. Replace for the actual deployment role."
+  }
+}
