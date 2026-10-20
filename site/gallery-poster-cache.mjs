@@ -9,6 +9,7 @@ import {appendFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {modelPolicyDigest,modelPolicyDigestAtCommit,assertModelArchivalAppendAtCommit} from './ci-model-proof.mjs';
 import {controlDigest} from './ci-provenance.mjs';
+import {proofGet} from './ci-proof-fetch.mjs';
 import {posterSharedInputs,posterInputKey} from './gallery-poster-inputs.mjs';
 import {assertTrustedMainRun,assertTrustedSuite} from './ci-model-cache.mjs';
 import {POSTER_PROOF_FILE,posterArtifactName,posterHash,posterObjectHash,posterRuntime,assertPosterPNG,assertPosterProof} from './gallery-poster-proof.mjs';
@@ -44,13 +45,13 @@ export function assertPosterArtifact(metadata,run,bytes){
 function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch}){
  assert(/^[\w.-]+\/[\w.-]+$/.test(repository||''));assert(token,'Read-only GitHub poster token unavailable');
  const signal=AbortSignal.timeout(180000),url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`,headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
- const api=async path=>{const response=await fetchImpl(url(path),{headers,signal});assert(response.ok,`GitHub poster read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
+ const api=async path=>{const response=await proofGet(url(path),{headers,signal},{fetchImpl,stage:`gallery API ${path.split('?')[0]||'repository metadata'}`});assert(response.ok,`GitHub poster read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
  const artifact=async run=>{
   const listed=await api(`actions/runs/${run.id}/artifacts?per_page=100`),matches=listed.artifacts.filter(item=>item.name===posterArtifactName(run.run_attempt));assert.equal(matches.length,1,'Missing or ambiguous dedicated gallery artifact');
   const metadata=await api(`actions/artifacts/${matches[0].id}`);assert.equal(metadata.id,matches[0].id);
-  const redirect=await fetchImpl(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'});assert.equal(redirect.status,302,'Missing gallery download redirect');
+  const redirect=await proofGet(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'},{fetchImpl,stage:'gallery artifact redirect'});assert.equal(redirect.status,302,'Missing gallery download redirect');
   const destination=new URL(redirect.headers.get('location'));assert.equal(destination.protocol,'https:');assert.equal(destination.username,'');assert.equal(destination.password,'');
-  const download=await fetchImpl(destination.href,{signal});assert(download.ok,'Gallery artifact download failed');assert(Number(download.headers.get('content-length')||0)<=MAX_POSTER_ARCHIVE_BYTES);
+  const download=await proofGet(destination.href,{signal},{fetchImpl,stage:'gallery artifact storage'});assert(download.ok,'Gallery artifact download failed');assert(Number(download.headers.get('content-length')||0)<=MAX_POSTER_ARCHIVE_BYTES);
   const chunks=[];let length=0;
   if(download.body?.getReader){const reader=download.body.getReader();try{while(true){const {done,value}=await reader.read();if(done)break;length+=value.length;assert(length<=MAX_POSTER_ARCHIVE_BYTES,'Oversized streamed gallery artifact');chunks.push(Buffer.from(value));}}finally{await reader.cancel();}}
   else {const value=Buffer.from(await download.arrayBuffer());assert(value.length<=MAX_POSTER_ARCHIVE_BYTES);chunks.push(value);}
