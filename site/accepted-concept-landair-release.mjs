@@ -3616,7 +3616,7 @@ export const BATCH52_ATURIA_REPAIR_RELEASE = {
   "review_commit": "cd53a96b93f7cd513163ade75afe9855237fcd8b",
   "source_bundle": {
     "path": "qa/batch52-aturia-repair-20261020/source-bundle.json",
-    "sha256": "16dac3a4723bd789e4a2abaf82c12df18b417635c6bbf73aa34843cab9d01905"
+    "sha256": "ee41a0e2287f7b4d4f74be6b3ce97f7b394878c9395140a879514e98c31cae04"
   },
   "review": {
     "path": "qa/batch52-aturia-r003-diff-20261020/review-evidence.json",
@@ -3673,6 +3673,12 @@ export const BATCH52_ATURIA_REPAIR_RELEASE = {
     }
   ],
   "files": [
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/candidate.json",
+      "sha256": "18714e1c9e945ed307402c399481fdc98a65a88aaf4a0b7bbf8aa695923dbb0d",
+      "origin": "source",
+      "owner": "aturia"
+    },
     {
       "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.blend",
       "sha256": "f2e7b514dc4adfcb9acfc268335a372d99714f2a81f4011f2b2cef2991f5f675",
@@ -4772,14 +4778,8 @@ export const BATCH52_ATURIA_REPAIR_RELEASE = {
       "owner": "$batch"
     },
     {
-      "path": "qa/batch52-aturia-repair-20261020/capture/render-report.json",
-      "sha256": "0143db47a04a3b357d9a03e6814b51a7b897321ee8acc4813c8e3441311e6e02",
-      "origin": "release",
-      "owner": "$batch"
-    },
-    {
-      "path": "qa/batch52-aturia-repair-20261020/capture/index.json",
-      "sha256": "9903a35e0e68a5e0846aa36d14ff43a567ba74375260eae3d75c4d382e57e516",
+      "path": "qa/batch52-aturia-repair-20261020/capture-independent-review.json",
+      "sha256": "c406877c97a32df7da4768916b267704dcb0ef14f6b12ca0f7cbe9e0d3bc2c1d",
       "origin": "release",
       "owner": "$batch"
     },
@@ -4796,8 +4796,8 @@ export const BATCH52_ATURIA_REPAIR_RELEASE = {
       "owner": "$batch"
     },
     {
-      "path": "qa/batch52-aturia-repair-20261020/capture-independent-review.json",
-      "sha256": "c406877c97a32df7da4768916b267704dcb0ef14f6b12ca0f7cbe9e0d3bc2c1d",
+      "path": "qa/batch52-aturia-repair-20261020/capture/index.json",
+      "sha256": "9903a35e0e68a5e0846aa36d14ff43a567ba74375260eae3d75c4d382e57e516",
       "origin": "release",
       "owner": "$batch"
     },
@@ -4806,6 +4806,12 @@ export const BATCH52_ATURIA_REPAIR_RELEASE = {
       "sha256": "a2039d069363d05214fbb5564ca331c6cf78c2e197e7fb9080cb90eff31bef33",
       "origin": "release",
       "owner": "aturia"
+    },
+    {
+      "path": "qa/batch52-aturia-repair-20261020/capture/render-report.json",
+      "sha256": "0143db47a04a3b357d9a03e6814b51a7b897321ee8acc4813c8e3441311e6e02",
+      "origin": "release",
+      "owner": "$batch"
     }
   ],
   "publication_policy": {
@@ -4813,6 +4819,7 @@ export const BATCH52_ATURIA_REPAIR_RELEASE = {
     "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
   }
 };
+
 export const BATCH53_RELEASE = {
   "version": 1,
   "scope": "batch53-20261020",
