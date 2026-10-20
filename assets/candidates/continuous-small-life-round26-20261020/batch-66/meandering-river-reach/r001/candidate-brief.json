@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "meandering-river-reach",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: One continuous sinuous channel with alternating bends, water genuinely below raised banks; Pale sandy low point bars on inside of each bend; steeper exposed darker cutbanks on outside; Solid full-volume low floodplain module with channel connected end-to-end; not braided river or oxbow-only form. Scope: Generic source-supported meandering river reach teaching module, not exact NPS photograph location or named river/ecosystem/event. Nominal60x90m footprint5m relief, water level, bend spacing and colors artistic. Static form, no hydrodynamic simulation or flow-speed measurement.",
+      "required_sources": [
+        "PRIMARY-meandering-river-reach"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: One continuous sinuous channel with alternating bends, water genuinely below raised banks; Pale sandy low point bars on inside of each bend; steeper exposed darker cutbanks on outside; Solid full-volume low floodplain module with channel connected end-to-end; not braided river or oxbow-only form. Scope: Generic source-supported meandering river reach teaching module, not exact NPS photograph location or named river/ecosystem/event. Nominal60x90m footprint5m relief, water level, bend spacing and colors artistic. Static form, no hydrodynamic simulation or flow-speed measurement.",
+      "required_sources": [
+        "PRIMARY-meandering-river-reach"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/source.blend",
+      "sha256": "0630010191a5da2573295bef6e7893993b2ee6128efcaff17d32c97425faf289"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/generator.py",
+      "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/meandering-river-reach/r001/build-config.json",
+      "sha256": "ff04da2c57dba8bf8995dcee670ceea495fc965dd4fba395359898237035ca88"
+    }
+  ],
+  "claim_scope": "Generic source-supported meandering river reach teaching module, not exact NPS photograph location or named river/ecosystem/event. Nominal60x90m footprint5m relief, water level, bend spacing and colors artistic. Static form, no hydrodynamic simulation or flow-speed measurement.",
+  "nominal_dimensions_blender_xyz_m": [
+    60,
+    90,
+    5
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "One continuous sinuous channel with alternating bends, water genuinely below raised banks",
+    "Pale sandy low point bars on inside of each bend; steeper exposed darker cutbanks on outside",
+    "Solid full-volume low floodplain module with channel connected end-to-end; not braided river or oxbow-only form"
+  ],
+  "concept_decisions": "Concept visible inset single channel and alternating inside bars/outside cliffs retained. Generated output is one oblique view rather than requested compatible multiview; hidden surfaces resolved explicitly here: complete solid underside, side soil walls, continuous water surface with finite bed volume, channel runs -Y to+Y through three broad alternating bends. At positive-X bend apex inside bar on-X bank and outside cutbank on+X bank; reverse at negative-X bend. No sand on outside bend, no islands/lakes/trees. Opaque water, no transparency artifacts.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T13:35:44.103339+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:40:45.479413+00:00",
+    "frozen_design_brief_sha256": "988824de82cc29ca82e69dade098425e3ae3ec6d93044dc83de5ca54ee0f24f0",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

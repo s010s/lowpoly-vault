@@ -31,13 +31,35 @@ async function staticFiles(source,data=CATALOG_DATA){
 try{
  const staticFixture={version:1,assets:fixture.static_asset_ids.map(id=>legacyAssets.find(asset=>asset.id===id))};
  const staticOutput=await staticFiles(staticFixture);
- assert.equal(hash(staticOutput),fixture.static_axis_aligned_sha256,'Exact bilingual static output includes the approved common-axis startup expression');
+ assert.equal(hash(staticOutput),fixture.static_decoded_thumbnail_animation_api_sha256,'Exact bilingual static output includes the bounded missing-animation-API fallback');
+ // Reverse only this exact capability guard and retain the prior full-document
+ // fade golden. Missing animation inspection does not justify ignoring scripts.
+ const guardedInspection="if(typeof image.getAnimations==='function'&&!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();", priorInspection="if(!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();";
+ let guardedDocuments=0;
+ const priorRevealOutput=Object.fromEntries(Object.entries(staticOutput).map(([path,html])=>{
+  if(!html.includes('<script id="gallery-startup-init">'))return [path,html];
+  assert.equal(html.split(guardedInspection).length,2,'Exactly one native animation inspection capability guard');
+  guardedDocuments++;return [path,html.replace(guardedInspection,priorInspection)];
+ }));
+ assert(guardedDocuments>0);assert.equal(hash(priorRevealOutput),fixture.static_decoded_thumbnail_sha256,'All static bytes outside the exact animation API guard retain the reviewed fade golden');
+ // Reverse only the two literal additions from the reviewed fade change. Keep
+ // both pre-fade and original pre-axis full-document goldens, with no broad
+ // script/style stripping or ignored HTML regions.
+ const revealScript="  // The arrival transition belongs to image UI state, never the WebGL renderer.\n  // Completion/cancellation and a bounded fallback all leave the decoded image\n  // opaque; no-JS, cached/no-transition and reduced-motion paths cannot stick.\n  function revealDecodedThumbnail(image){\n   image.dataset.thumbnailReveal='entering';\n   if(!image.addEventListener){image.dataset.thumbnailReveal='settled';return;}\n   let timer,frame,finished=false;\n   const settle=()=>{if(finished)return;finished=true;clearTimeout(timer);if(frame)cancelAnimationFrame(frame);image.removeEventListener('transitionend',ended);image.removeEventListener('transitioncancel',ended);image.dataset.thumbnailReveal='settled';};\n   const ended=event=>{if(event.target===image&&event.propertyName==='opacity')settle();};\n   image.addEventListener('transitionend',ended);image.addEventListener('transitioncancel',ended);\n   timer=setTimeout(settle,250);\n   frame=requestAnimationFrame(()=>{frame=0;if(typeof image.getAnimations==='function'&&!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();});\n  }\n  // Opt in only when this independent script runs: no-JS native links and\n  // posters remain visible. Match the enhanced queue's decode-before-reveal gate.\n  for(const row of rows){\n    const thumbnail=row.querySelector('.slot-image img');\n    thumbnail.dataset.thumbnailState='pending';thumbnail.decoding='async';\n    const fail=()=>{thumbnail.dataset.thumbnailState='error';};\n    const loaded=()=>{\n      if(thumbnail.dataset.thumbnailState!=='pending')return;\n      thumbnail.dataset.thumbnailState='decoding';\n      try{Promise.resolve(thumbnail.decode?.()).then(()=>{if(thumbnail.dataset.thumbnailState==='decoding'){thumbnail.dataset.thumbnailState='ready';revealDecodedThumbnail(thumbnail);}},fail);}catch{fail();}\n    };\n    thumbnail.addEventListener('load',loaded,{once:true});thumbnail.addEventListener('error',fail,{once:true});\n    if(thumbnail.complete){if(thumbnail.naturalWidth>0)loaded();else fail();}\n  }\n", revealStyle="/* Reveal decoded thumbnails without moving the shared image column. Only the\n   ready edge fades; cancellation/error reset immediately, including row reuse.\n   Unmanaged native images stay visible when JavaScript is unavailable. */\n.slot-image img[data-thumbnail-state]{opacity:0;transition:none}\n.slot-image img[data-thumbnail-state]:not([data-thumbnail-state=ready]){visibility:hidden}\n.slot-image img[data-thumbnail-state=ready]{opacity:1}\n.slot-image img[data-thumbnail-state=ready][data-thumbnail-reveal=entering]{transition:opacity 160ms var(--ui-ease-out)}\n";
+ let revealMigrated=0;
+ const preRevealOutput=Object.fromEntries(Object.entries(staticOutput).map(([path,html])=>{
+  if(!html.includes('<script id="gallery-startup-init">'))return [path,html];
+  assert.equal(html.split(revealScript).length,2,'Exactly one reviewed native thumbnail decode block');
+  assert.equal(html.split(revealStyle).length,2,'Exactly one reviewed thumbnail opacity rule block');
+  revealMigrated++;return [path,html.replace(revealScript,'').replace(revealStyle,'')];
+ }));
+ assert(revealMigrated>0);assert.equal(hash(preRevealOutput),fixture.static_axis_aligned_sha256,'All static bytes outside the exact reviewed reveal additions remain pre-fade');
  // Keep the original golden too: reversing only this exact inline expression
  // must reproduce every historical byte, not merely ignore the startup script.
  const aligned='host.style.transform=reduced?\'none\':`translateX(0px) scale(${.58+.42*Math.exp(-.65*distance*distance)})`;',
  legacy='host.style.transform=reduced?\'none\':`translateX(${matchMedia(\'(max-width:760px)\').matches?0:18*Math.exp(-.7*distance*distance)}px) scale(${.58+.42*Math.exp(-.65*distance*distance)})`;';
  let migrated=0;
- const legacyOutput=Object.fromEntries(Object.entries(staticOutput).map(([path,html])=>{
+ const legacyOutput=Object.fromEntries(Object.entries(preRevealOutput).map(([path,html])=>{
   if(!html.includes('<script id="gallery-startup-init">'))return [path,html];
   assert.equal(html.split(aligned).length,2,'Exactly one known startup paint expression per native gallery document');
   migrated++;return [path,html.replace(aligned,legacy)];
@@ -134,5 +156,5 @@ try{
  const older=gallery.loadGalleryCatalog({fetchImpl:async url=>new URL(url).pathname.endsWith('/assets/catalog.json')?olderReady:fetchNow(url)});
  await gallery.loadGalleryCatalog({fetchImpl:fetchNow});const newest=gallery.catalog;
  finishOlder({ok:true,json:async()=>withBatch.index});await assert.rejects(()=>older,{name:'AbortError'});assert.equal(gallery.catalog,newest);
- console.log('Catalog data passed: all 190 legacy exports/memberships/catalog bytes unchanged; bilingual static bytes preserve the original golden except the exact reviewed desktop-axis expression; JSON-only additions provide labels/routes without approval or existing model key changes; strict schema/append ownership guards; atomic, delayed, interrupted, superseded and mismatched gallery index loads.');
+ console.log('Catalog data passed: all 190 legacy exports/memberships/catalog bytes unchanged; bilingual static bytes preserve all three prior full-document goldens by reversing only the exact animation API guard, reviewed thumbnail additions and desktop-axis expression; JSON-only additions provide labels/routes without approval or existing model key changes; strict schema/append ownership guards; atomic, delayed, interrupted, superseded and mismatched gallery index loads.');
 }finally{await rm(out,{recursive:true,force:true});}

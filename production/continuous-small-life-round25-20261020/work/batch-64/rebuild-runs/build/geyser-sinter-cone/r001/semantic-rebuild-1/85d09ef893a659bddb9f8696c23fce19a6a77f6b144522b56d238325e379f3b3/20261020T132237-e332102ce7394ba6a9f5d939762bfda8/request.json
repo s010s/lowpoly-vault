@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch64-20261020/production/continuous-small-life-round25-20261020/work/batch-64/rebuild-runs/build/geyser-sinter-cone/r001/semantic-rebuild-1/85d09ef893a659bddb9f8696c23fce19a6a77f6b144522b56d238325e379f3b3/20261020T132237-e332102ce7394ba6a9f5d939762bfda8/outputs"
+  ],
+  "created_at": "2026-10-20T13:22:37.310710+00:00",
+  "fingerprint": "85d09ef893a659bddb9f8696c23fce19a6a77f6b144522b56d238325e379f3b3",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5604,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/brief.json",
+        "sha256": "803877f7ee8a46984362cc2661549f2051028d986deb11a54fbdf9f2a856e823"
+      },
+      "config": {
+        "bytes": 815,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/build-config.json",
+        "sha256": "5430ad0e086e59117101cdbb3472b84764a9afdbdd3d602d27ded692fdec9796"
+      },
+      "generator": {
+        "bytes": 9378,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/generator.py",
+        "sha256": "90bd0921436db396da658240fd19af00c5c791312478b753a847b21d3b707632"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1428,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/references.json",
+        "sha256": "e2cbee04a9f4439a436595d6c609f84642e78c41c9efaa20610ba116f3922c1c"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "geyser-sinter-cone",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch64-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch64-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/geyser-sinter-cone/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T132213-5b060a371abb49bca0f7c98ae012a3b1"
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "dinomischus",
+  "revision": "r002",
+  "labels": {
+    "en": "dinomischus"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "d05a0e33b6d5b2600934c03725f547f78ff7ac4d9d5e04e4452c5d7ccfae7a58"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "ee6f427803ea50bebbf97124c5ae64d08e63eed5d77b4b6d2d8bb585cf1daffc"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "424af43955b28115de21c63582ebfed124ab9373b90509c1b36001522fdc8123"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "833b18b2653eb9ec8c0fe3b56b1e412916d6d4c82af75a2f3710367bf0d33990"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "aa563790bdab6623b2cf82b4dae1929b508ea9991720cd6f9961fc39d96ac755"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "76dbc5c5a18b12760be7853f6ee5f39735b7348843cff6ef1f8a4395eff61821"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "0a5c06561cef0a8274afedef3457eeca2dcd1fdf9a98f14a618e856ae503bbd8"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "faf0158d7151b06c781487ec8359b09f242ee8f49dd9f7284372820449e52ac9"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "8a1ea28dd0961714c5b5f4143b06efea5533c1cf423355978c1033824b993882"
+      }
+    ],
+    "cross_view_consistency_note": "Concept upright stalk, bulb and crown adopted. Concept tips spread like a flower and vary counts between views: reject that inconsistency, freeze exactly20 flattened stiff bracts leaning only8degrees outward, each4.2mm long. Cup upper disc shallow, two small openings are deliberately subtle interpretations of proposed mouth/anus, not eyes. Long16mm slender rigid stem joins bulb below and tapered calyx above. Whole organism, no missing hidden half. Affinity unknown; no tentacles, leaves, crinoid arms or guts. Bulb underbody atz0, muted buff coloration purely artistic. Twenty bracts spaced evenly with narrow gaps and rounded ends, flattened radial thickness, not cylinders.",
+    "hidden_surface_decisions": "Concept upright stalk, bulb and crown adopted. Concept tips spread like a flower and vary counts between views: reject that inconsistency, freeze exactly20 flattened stiff bracts leaning only8degrees outward, each4.2mm long. Cup upper disc shallow, two small openings are deliberately subtle interpretations of proposed mouth/anus, not eyes. Long16mm slender rigid stem joins bulb below and tapered calyx above. Whole organism, no missing hidden half. Affinity unknown; no tentacles, leaves, crinoid arms or guts. Bulb underbody atz0, muted buff coloration purely artistic. Twenty bracts spaced evenly with narrow gaps and rounded ends, flattened radial thickness, not cylinders."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T12:58:40.884Z",
+    "modeling_started_at": null,
+    "note": "Real tool metadata and observer invocation/completion boundaries retained. No internal provider timestamp returned. Original generator authoring bounded after12:59:56Z freeze and before13:01:52Z first geometry invocation; repair freezes retain their own dates. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 7.2555,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "954980f580b248bfa34ac484bfc3cc997148b2cbce9eb7d57da7766daf01149b"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "954980f580b248bfa34ac484bfc3cc997148b2cbce9eb7d57da7766daf01149b"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "96515f92678e77d0f7ca662c403854dbd6c71e88b611cc3d5a7830968b8f727e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "713133a877cbd50a4f65f377eb37b5b7849d1b5444823a394de289b797b4ef32"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "d05a0e33b6d5b2600934c03725f547f78ff7ac4d9d5e04e4452c5d7ccfae7a58",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "168ac47cf42956fc12323745589628360664689d7857859aa48f7c71fb8054d7"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

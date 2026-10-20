@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "geyser-sinter-cone",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed stylized teaching prop, pending independent QA",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Solid squat irregular mineral cone around a small open central vent with visible recessed throat; Muted ivory tan crusty lobes and uneven tiered depositional shoulders, continuous substantial volume; No erupting water steam animation, volcano lava crater or broad fountain pool. Scope: Generic quiescent geyser-sinter-cone teaching prop based on NPS silica-deposition description and primary cone/fountain diagram. Not specific named geyser, assayed chemical specimen, measured natural feature, functioning plumbing simulation or animation. Nominal3.4x3.2x1.3m artistic scale.",
+      "required_sources": [
+        "PRIMARY-geyser-sinter-cone"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Solid squat irregular mineral cone around a small open central vent with visible recessed throat; Muted ivory tan crusty lobes and uneven tiered depositional shoulders, continuous substantial volume; No erupting water steam animation, volcano lava crater or broad fountain pool. Scope: Generic quiescent geyser-sinter-cone teaching prop based on NPS silica-deposition description and primary cone/fountain diagram. Not specific named geyser, assayed chemical specimen, measured natural feature, functioning plumbing simulation or animation. Nominal3.4x3.2x1.3m artistic scale.",
+      "required_sources": [
+        "PRIMARY-geyser-sinter-cone"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px views;7stages separate",
+  "required_deliverables": [],
+  "claim_scope": "Generic quiescent geyser-sinter-cone teaching prop based on NPS silica-deposition description and primary cone/fountain diagram. Not specific named geyser, assayed chemical specimen, measured natural feature, functioning plumbing simulation or animation. Nominal3.4x3.2x1.3m artistic scale.",
+  "nominal_dimensions_blender_xyz_m": [
+    3.4,
+    3.2,
+    1.3
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; export measured separately",
+  "recognition_features": [
+    "Solid squat irregular mineral cone around a small open central vent with visible recessed throat",
+    "Muted ivory tan crusty lobes and uneven tiered depositional shoulders, continuous substantial volume",
+    "No erupting water steam animation, volcano lava crater or broad fountain pool"
+  ],
+  "concept_decisions": "D concept squat layered crust and dark open throat retained. Avoid a perfectly circular wedding cake: vary radial outline and tier heights with smooth deterministic rhythm, several integrated rounded lobes on shoulder. Top aperture narrow versus broad base, deep closed-bottom throat, real inner wall thickness. No tiny separate scene base or vegetation. Palette three cream/tan crust colors plus dark throat.",
+  "style": "Restrained palette-only refined faceted low-poly real3D",
+  "intended_use": "Educational supporting prop at256-512px, not museum-grade reconstruction",
+  "created_at": "2026-10-20T13:18:57.669708+00:00",
+  "validation_profile": "static-stylized-v1"
+}

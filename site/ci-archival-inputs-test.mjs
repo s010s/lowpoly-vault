@@ -135,6 +135,23 @@ export function runArchivalInputTests(){
  }
  const nested=archiveFixture(),nestedBatch=nested.addBatch('nested',undefined,{candidateRoot:companionSource+'/extra'});nestedBatch.archive(`${companionRoot}/archive.py`,'# no partial match\n');nestedBatch.sync();assert.throws(()=>nested.collect(),/outside its owner's source scope/);
  const prior=archiveFixture();prior.put(`${companionRoot}/render_exact_glb.py`,'# pre-existing\n');const priorPaths=[...prior.files.keys()],priorBefore=prior.collect(),priorBatch=prior.addBatch('prior',undefined,{candidateRoot:companionSource});priorBatch.archive(`${companionRoot}/render_exact_glb.py`,'# pre-existing\n');priorBatch.sync();assert.throws(()=>assertArchivalAppend(priorBefore,prior.collect(),{beforePaths:priorPaths,oldIDs:[],newIDs:priorBatch.ids}),/Existing code\/data cannot become/);
+ // Memoization belongs to one actual byte snapshot, never a persistent verdict
+ // keyed by a mutable worktree path. The existing ownership/pin cases above
+ // exercise repeated references to each batch's shared generator and review.
+ const memo=archiveFixture(),memoBatch=memo.addBatch('memo-four'),readCounts=new Map();
+ const collectMemo=()=>collectArchivalInputs({paths:[...memo.files.keys()],read:path=>{readCounts.set(path,(readCounts.get(path)||0)+1);return Buffer.from(memo.files.get(path));},mode:path=>memo.modes.get(path),manifest:memo.manifest});
+ const memoFirst=collectMemo();assert([...readCounts.values()].every(count=>count===1),'Every distinct input is read once in one collection');
+ assert.deepEqual(collectMemo(),memoFirst);assert([...readCounts.values()].every(count=>count===2),'A new collection rechecks actual bytes');
+ const generatorBytes=memo.files.get(memoBatch.generator.path);memo.files.set(memoBatch.generator.path,Buffer.from(generatorBytes.toString().replace('Preserved','Tampered!')));
+ assert.throws(collectMemo,/SHA-256 mismatch/,'Same-length mutation cannot reuse a prior digest');memo.files.set(memoBatch.generator.path,generatorBytes);
+ memo.modes.set(memoBatch.generator.path,'100755');assert.throws(collectMemo,/regular mode 100644/,'Mode changes cannot reuse prior verification');memo.modes.set(memoBatch.generator.path,'100644');
+ const badJSON=archiveFixture(),badJSONBatch=badJSON.addBatch('bad-json');
+ badJSONBatch.entry.descriptor=badJSON.put(badJSONBatch.entry.descriptor.path,'{not valid JSON');badJSON.writeRegistry();
+ assert.throws(()=>badJSON.collect(),SyntaxError,'Matching hash does not replace JSON parsing');
+ const largeJSON=archiveFixture(),largeJSONBatch=largeJSON.addBatch('large-json');
+ largeJSONBatch.entry.descriptor=largeJSON.put(largeJSONBatch.entry.descriptor.path,JSON.stringify(largeJSONBatch.descriptor)+' '.repeat(16*1024*1024));largeJSON.writeRegistry();
+ assert.throws(()=>largeJSON.collect(),/Oversized archive JSON/,'JSON retains its separate 16MiB limit');
+ console.log('Archive digest memo: one read per path, fresh byte/mode checks, repeated-pin equality, malformed JSON and the 16MiB JSON bound passed.');
  console.log('Companion archives: exact same-collection/batch derivation, complete pins, new ownership and imported-code protection; adjacent/foreign/parent/nested/pre-existing/unlisted paths refused.');
  console.log('Archival source inputs: literal-only registry, exact complete pins, ownership, modes, real append, per-model isolation and protected reachability passed.');
 }

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "u-shaped-glacial-valley",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original stylized educational candidate, independent acceptance pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical: Broad nearly flat trough floor visibly wider than narrow stream incision; Two steep roughly parallel wall systems with rounded shoulders; Open front/rear cut ends reveal U-shaped not V-shaped section; closed underside. Generic original geological teaching form, not a named site replica or reconstruction of any period, ecosystem or measured locality. Scale, palette and all hidden surfaces illustrative. Open-ended broad trough with steep walls; no surviving glacier, named valley history or hydrological simulation asserted.",
+      "required_sources": [
+        "NPS-GLACIAL"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical: Broad nearly flat trough floor visibly wider than narrow stream incision; Two steep roughly parallel wall systems with rounded shoulders; Open front/rear cut ends reveal U-shaped not V-shaped section; closed underside. Generic original geological teaching form, not a named site replica or reconstruction of any period, ecosystem or measured locality. Scale, palette and all hidden surfaces illustrative. Open-ended broad trough with steep walls; no surviving glacier, named valley history or hydrological simulation asserted.",
+      "required_sources": [
+        "NPS-GLACIAL"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact fixed8 views, no turntable required. Seven separate stages, no hardware claim.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/u-shaped-glacial-valley/r001/source.blend",
+      "sha256": "b18aaa05d9a3203c1e815e2f31a57bf423bcb9854c8816ada43943dc706f2a82"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/u-shaped-glacial-valley/r001/generator.py",
+      "sha256": "df444c52a33de496d75a47f6aa745640087834cac705a49d7523db8cf114c8a5"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/u-shaped-glacial-valley/r001/build-config.json",
+      "sha256": "7b2285c707140a1a5d36978f8c657a854077f8c53b08c683ac6f6117bfc5af8c"
+    }
+  ],
+  "claim_scope": "Generic original geological teaching form, not a named site replica or reconstruction of any period, ecosystem or measured locality. Scale, palette and all hidden surfaces illustrative. Open-ended broad trough with steep walls; no surviving glacier, named valley history or hydrological simulation asserted.",
+  "nominal_dimensions_blender_xyz_m": [
+    18,
+    23,
+    8.2
+  ],
+  "dimension_status": "Illustrative nominal, measured exported bounds separate",
+  "recognition_features": [
+    "Broad nearly flat trough floor visibly wider than narrow stream incision",
+    "Two steep roughly parallel wall systems with rounded shoulders",
+    "Open front/rear cut ends reveal U-shaped not V-shaped section; closed underside"
+  ],
+  "concept_decisions": "Retain concept C U-trough and cutaway teaching module. Across X use broad floor -3.7to3.7 at1.0m, rounded toe near4.4at1.5m, steep walls5.6at5.6m and shoulder7.4at7.8m, outer edge9m. Length23m, slight sinuous floor offsets along Y less0.35m. Floor stays broad through entire length. Exposed ends are geological cutaway, not an enclosing box wall. Rock gray, olive valley floor, no glacier, vegetation props, water or extraneous moraine.",
+  "style": "Palette-only original faceted full-volume low-poly",
+  "intended_use": "Educational support prop at256-512px, not museum/scientific-grade reconstruction",
+  "created_at": "2026-10-20T13:42:44.090129+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:44:07.266031+00:00",
+    "frozen_design_brief_sha256": "af50023914e5c0968f1e4b9f4b0086e8e70a080e10e9dc9be52790dce7442501",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

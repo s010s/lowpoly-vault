@@ -5,6 +5,33 @@
   if(!root?.classList.contains('gallery-static'))return;
   const wheel=root.querySelector('#wheel'),rows=[...root.querySelectorAll('.slot')];
   if(!wheel||!rows.length)return;
+  // The arrival transition belongs to image UI state, never the WebGL renderer.
+  // Completion/cancellation and a bounded fallback all leave the decoded image
+  // opaque; no-JS, cached/no-transition and reduced-motion paths cannot stick.
+  function revealDecodedThumbnail(image){
+   image.dataset.thumbnailReveal='entering';
+   if(!image.addEventListener){image.dataset.thumbnailReveal='settled';return;}
+   let timer,frame,finished=false;
+   const settle=()=>{if(finished)return;finished=true;clearTimeout(timer);if(frame)cancelAnimationFrame(frame);image.removeEventListener('transitionend',ended);image.removeEventListener('transitioncancel',ended);image.dataset.thumbnailReveal='settled';};
+   const ended=event=>{if(event.target===image&&event.propertyName==='opacity')settle();};
+   image.addEventListener('transitionend',ended);image.addEventListener('transitioncancel',ended);
+   timer=setTimeout(settle,250);
+   frame=requestAnimationFrame(()=>{frame=0;if(typeof image.getAnimations==='function'&&!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();});
+  }
+  // Opt in only when this independent script runs: no-JS native links and
+  // posters remain visible. Match the enhanced queue's decode-before-reveal gate.
+  for(const row of rows){
+    const thumbnail=row.querySelector('.slot-image img');
+    thumbnail.dataset.thumbnailState='pending';thumbnail.decoding='async';
+    const fail=()=>{thumbnail.dataset.thumbnailState='error';};
+    const loaded=()=>{
+      if(thumbnail.dataset.thumbnailState!=='pending')return;
+      thumbnail.dataset.thumbnailState='decoding';
+      try{Promise.resolve(thumbnail.decode?.()).then(()=>{if(thumbnail.dataset.thumbnailState==='decoding'){thumbnail.dataset.thumbnailState='ready';revealDecodedThumbnail(thumbnail);}},fail);}catch{fail();}
+    };
+    thumbnail.addEventListener('load',loaded,{once:true});thumbnail.addEventListener('error',fail,{once:true});
+    if(thumbnail.complete){if(thumbnail.naturalWidth>0)loaded();else fail();}
+  }
   const url=new URL(location.href),requested=url.searchParams.get('model');
   const explicit=rows.find(row=>row.dataset.id===requested);
   const selected=explicit||rows.find(row=>row.dataset.selected==='true')||rows[0];

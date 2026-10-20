@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch64-20261020/production/continuous-small-life-round25-20261020/work/batch-64/rebuild-runs/build/chancelloria/r001/semantic-rebuild-1/d75b86e2e2fa47ed524061d0bd45f0ea28c1242d9a3fd56208f7d7b21eb6ec7c/20261020T132214-6f8e5c18572d4c37a38cd0fad2313091/outputs"
+  ],
+  "created_at": "2026-10-20T13:22:14.099589+00:00",
+  "fingerprint": "d75b86e2e2fa47ed524061d0bd45f0ea28c1242d9a3fd56208f7d7b21eb6ec7c",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6060,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/brief.json",
+        "sha256": "7f0d5b4e61935ce348c602dcf2e480db7cc7cbf83f890a9cde20f08c218b1eea"
+      },
+      "config": {
+        "bytes": 928,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/build-config.json",
+        "sha256": "9096e21ae95f79bb6b4bd8c8eefd3f0dc46a3cfecfa01636d555a388300fcf47"
+      },
+      "generator": {
+        "bytes": 9378,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/generator.py",
+        "sha256": "90bd0921436db396da658240fd19af00c5c791312478b753a847b21d3b707632"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1570,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/references.json",
+        "sha256": "3e94dc0f70c1bb486bbb7d8603c113510686321cdfb9ea09bc4af88e334d2885"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "chancelloria",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch64-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch64-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/chancelloria/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T132213-5b060a371abb49bca0f7c98ae012a3b1"
+}

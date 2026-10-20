@@ -1,6 +1,29 @@
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
+import {heldNativeThumbnail} from './gallery-thumbnail-reveal-browser-test.mjs';
+
+// Run the exact serialized browser predicate. The DOM-first lazy row may never
+// enter decode, while offscreen eager rows may decode before the visible one.
+const rect=(left,top,right,bottom)=>({left,top,right,bottom});
+const clip=rect(0,150,370,760);
+const heldImage=(box,{slot=true,state='decoding'}={})=>({dataset:{thumbnailState:state},matches:selector=>slot&&selector==='.slot-image img',getBoundingClientRect:()=>box,closest:selector=>{assert.equal(selector,'#wheel');return{getBoundingClientRect:()=>clip};}});
+const lazyFirst=heldImage(rect(50,-120,250,-20),{state:'pending'}),offscreen=heldImage(rect(50,40,250,140)),center=heldImage(rect(50,400,250,500)),lower=heldImage(rect(50,580,250,680)),detail=heldImage(rect(400,200,800,600),{slot:false});
+const nativeDecodes=[],predicateContext=vm.createContext({window:{nativeDecodes},innerWidth:1280,innerHeight:844,document:{querySelector(){throw Error('Never select the DOM-first lazy image');}}});
+const selectHeld=vm.runInContext('('+heldNativeThumbnail.toString()+')',predicateContext);
+nativeDecodes.push({image:detail},{image:offscreen},{image:center});
+assert.equal(selectHeld(),null,'Require three held wheel images, not unrelated detail images');
+nativeDecodes.push({image:lower});
+const captured=selectHeld();assert.equal(captured,center);assert.notEqual(captured,lazyFirst);
+nativeDecodes.reverse();assert.equal(selectHeld(),lower,'The decode list can arrive in any order');
+center.dataset.thumbnailState='ready';assert.equal(captured,center,'The retained handle still refers to the same completed image');
+assert.equal(captured.dataset.thumbnailState,'ready');
+nativeDecodes.splice(0,nativeDecodes.length,...[rect(50,40,250,140),rect(50,770,250,820),rect(380,400,500,500)].map(box=>({image:heldImage(box)})));
+assert.equal(selectHeld(),null,'Do not choose images clipped outside the wheel even when inside the viewport');
+predicateContext.innerHeight=100;nativeDecodes.push({image:center});
+assert.equal(selectHeld(),null,'A held image must also intersect the viewport');
+predicateContext.innerHeight=844;assert.equal(selectHeld(),center,'Do not filter on readiness and hide a premature-ready regression');
+console.log('Native browser fixture identity passed: real held-decode predicate, three wheel images, arbitrary arrival order, wheel/viewport clipping and retained image identity.');
 
 const main=await readFile(new URL('./gallery/main.js',import.meta.url),'utf8');
 const inertMain=main.replace(/^import .*;$/gm,'').replace(/^if\(import\.meta\.hot\).*$/gm,'').replace('export async function mountGallery(){','async function mountGallery(){');
@@ -44,13 +67,14 @@ console.log('Gallery startup passed: imports are DOM-inert; code/CSS and catalog
 // The tiny parser-time initializer is independent of app imports and catalog
 // fetches. Verify query selection and real fallback navigation without a browser.
 const initializer=await readFile(new URL('./gallery/startup.js',import.meta.url),'utf8');
-function nativeFixture({query='',mobile=false,reduced=false,ids=['first','cooperoceras','last'],selected='cooperoceras'}={}){
+function nativeFixture({query='',mobile=false,reduced=false,ids=['first','cooperoceras','last'],selected='cooperoceras',thumbnail={}}={}){
  const nodes=Object.fromEntries(['title','subtitle','triangles','dimensions','file-size','download','blend','info','detail-poster','mobile-back'].map(id=>[id,{hidden:id==='mobile-back',style:{}}]));
- const rows=ids.map(id=>({dataset:{id,selected:String(id===selected),title:id,subtitle:'Plants / Stylized specimen',poster:`/gallery/posters/${id}.png`,triangles:'100',dimensions:'1 m',fileSize:'10 KB',download:`/assets/${id}.glb`,blend:`/assets/${id}.blend`,info:`/models/${id}/`},image:{style:{}},getAttribute:()=>id,setAttribute(key,value){this[key]=value;},querySelector(){return this.image;}}));
+ const rows=ids.map(id=>({dataset:{id,selected:String(id===selected),title:id,subtitle:'Plants / Stylized specimen',poster:`/gallery/posters/${id}.png`,triangles:'100',dimensions:'1 m',fileSize:'10 KB',download:`/assets/${id}.glb`,blend:`/assets/${id}.blend`,info:`/models/${id}/`},image:{style:{}},thumbnail:{dataset:{},addEventListener(type,handler){this[type]=handler;},removeEventListener(type,handler){if(this[type]===handler)delete this[type];},getAnimations:()=>[],...thumbnail},getAttribute:()=>id,setAttribute(key,value){this[key]=value;},querySelector(selector){return selector==='.slot-image img'?this.thumbnail:this.image;}}));
  const wheel={scrollTop:0,addEventListener(type,handler){this[type]=handler;}},root={dataset:{},classList:{contains:()=>true},querySelectorAll:()=>rows,querySelector:selector=>selector==='#wheel'?wheel:nodes[selector.slice(1)]};
+ const timers=new Map();let timerID=0;
  const classes=new Set(),document={getElementById:()=>root,body:{classList:{toggle(key,on){if(on)classes.add(key);else classes.delete(key);}}}};
- vm.runInContext(initializer,vm.createContext({document,location:{href:'https://example.test/lowpoly-vault/models/'+query},URL,matchMedia:media=>({matches:media.includes('max-width')?mobile:reduced}),requestAnimationFrame:fn=>{fn();return 1;}}));
- return {nodes,rows,wheel,root,classes};
+ vm.runInContext(initializer,vm.createContext({document,location:{href:'https://example.test/lowpoly-vault/models/'+query},URL,matchMedia:media=>({matches:media.includes('max-width')?mobile:reduced}),setTimeout:(fn,delay)=>{timers.set(++timerID,{fn,delay});return timerID;},clearTimeout:id=>timers.delete(id),cancelAnimationFrame:()=>{},requestAnimationFrame:fn=>{fn();return 1;}}));
+ return {nodes,rows,wheel,root,classes,timers};
 }
 for(const mobile of [false,true]){
  const selected=nativeFixture({mobile,query:'?model=last&q=fern&category=plants'});
@@ -88,3 +112,20 @@ for(const width of [320,390,440,760,761,1024,1180,1280,1440])for(const reduced o
  assert(transforms.every(value=>value.x===0),'All scaled rows share the existing image-column X axis');
 }
 console.log('Thumbnail axis passed: native/enhanced agreement, 320/390/440/760/761/1024/1180/1280/1440 widths, shared 12px mobile host offset, centered/fractional scroll, scale/opacity preservation and reduced motion.');
+
+const nativePending=nativeFixture();const pendingImage=nativePending.rows[0].thumbnail;let nativeDecoded;pendingImage.decode=()=>new Promise(done=>nativeDecoded=done);pendingImage.load();assert.equal(pendingImage.dataset.thumbnailState,'decoding');nativeDecoded();await tick();assert.equal(pendingImage.dataset.thumbnailState,'ready');
+let nativeCachedDecodes=0;const nativeCached=nativeFixture({thumbnail:{complete:true,naturalWidth:32,decode:()=>{nativeCachedDecodes++;return Promise.resolve();}}});await tick();assert(nativeCached.rows.every(row=>row.thumbnail.dataset.thumbnailState==='ready'));nativeCached.rows[0].thumbnail.load();assert.equal(nativeCachedDecodes,3,'Cached readiness and a later load event do not restart native decode');
+for(const decode of [()=>Promise.reject(Error('bad decode')),()=>{throw Error('bad decode');}]){const broken=nativeFixture({thumbnail:{complete:true,naturalWidth:32,decode}});await tick();assert(broken.rows.every(row=>row.thumbnail.dataset.thumbnailState==='error'));}
+const nativeFailed=nativeFixture({thumbnail:{complete:true,naturalWidth:0}});assert(nativeFailed.rows.every(row=>row.thumbnail.dataset.thumbnailState==='error'));
+console.log('Native thumbnail readiness: pending decode, cached completion, duplicate load, decode rejection/throw and failed image passed.');
+
+for(const completion of ['timeout','event']){
+ const noAPI=nativeFixture({thumbnail:{getAnimations:undefined,complete:true,naturalWidth:32,decode:()=>Promise.resolve()}});await tick();
+ assert(noAPI.rows.every(({thumbnail})=>thumbnail.dataset.thumbnailState==='ready'&&thumbnail.dataset.thumbnailReveal==='entering'),'Native images without animation inspection stay decoded while the reveal runs');
+ assert.equal(noAPI.timers.size,3);assert([...noAPI.timers.values()].every(timer=>timer.delay===250),'Native fallback keeps the existing 250 ms bound');
+ if(completion==='event')for(const {thumbnail}of noAPI.rows)thumbnail.transitionend({target:thumbnail,propertyName:'opacity'});
+ else for(const {fn}of [...noAPI.timers.values()])fn();
+ assert(noAPI.rows.every(({thumbnail})=>thumbnail.dataset.thumbnailState==='ready'&&thumbnail.dataset.thumbnailReveal==='settled'));assert.equal(noAPI.timers.size,0);
+ assert(noAPI.rows.every(({thumbnail})=>!thumbnail.transitionend&&!thumbnail.transitioncancel),'Native fallback and events clean both listeners');
+}
+console.log('Native missing animation API: real transition is not cut short, opacity end or 250 ms fallback settles ready and cleans listeners.');

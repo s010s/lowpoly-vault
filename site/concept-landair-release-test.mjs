@@ -437,16 +437,20 @@ if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58
  }
 }
 
-// The final union composes both collectors against one actual217 predecessor.
+// Preserve exact217+15=232 before composing the independently pinned next19.
 {
- const {appendBatches5861Release}=await import('./concept-landair-release.mjs');
+ const {appendBatches5861Release,appendBatches6267Release}=await import('./concept-landair-release.mjs');
  const manifest=JSON.parse(await readFile('assets/manifest.json'));
- const descriptors5859=manifest.publication.batches58_59_descriptors,descriptors6061=manifest.publication.batches60_61_descriptors;
- const base=structuredClone(manifest);base.assets=base.assets.slice(0,217);delete base.publication.batches58_59_descriptors;delete base.publication.batches60_61_descriptors;
- assert.deepEqual(await appendBatches5861Release(process.cwd(),base,descriptors5859,descriptors6061),manifest);
+ const descriptors5859=manifest.publication.batches58_59_descriptors,descriptors6061=manifest.publication.batches60_61_descriptors,descriptors6267=manifest.publication.batches62_67_descriptors;
+ const expected232=structuredClone(manifest);expected232.assets=expected232.assets.slice(0,232);delete expected232.publication.batches62_67_descriptors;
+ const base=structuredClone(expected232);base.assets=base.assets.slice(0,217);delete base.publication.batches58_59_descriptors;delete base.publication.batches60_61_descriptors;
+ const actual232=await appendBatches5861Release(process.cwd(),base,descriptors5859,descriptors6061);
+ assert.deepEqual(actual232,expected232);
+ const actual251=await appendBatches6267Release(process.cwd(),actual232,descriptors6267);
+ assert.equal(actual251.assets.length,251);assert.deepEqual(actual251.assets.slice(0,232),actual232.assets);assert.deepEqual(actual251,manifest);
  for(const count of [194,201,216,218,225]){const bad=structuredClone(base);bad.assets=Array.from({length:count},(_,i)=>base.assets[i%217]);await assert.rejects(()=>appendBatches5861Release(process.cwd(),bad,descriptors5859,descriptors6061),/exact217-model predecessor/);}
  const duplicate=structuredClone(base);duplicate.assets[0]=duplicate.assets[1];await assert.rejects(()=>appendBatches5861Release(process.cwd(),duplicate,descriptors5859,descriptors6061),/Duplicate Batch58-61 publication ID/);
  await assert.rejects(()=>appendBatches5861Release(process.cwd(),base,descriptors6061,descriptors5859));
  await assert.rejects(()=>appendBatches5861Release(process.cwd(),base,descriptors5859,undefined));
- console.log('Batch58-61 union: exact217+15=232 equality and eight fail-closed composition cases passed.');
+ console.log('Batch58-61 union: exact217+15=232 and full232+19=251 equality, unchanged old232, and eight fail-closed composition cases passed.');
 }

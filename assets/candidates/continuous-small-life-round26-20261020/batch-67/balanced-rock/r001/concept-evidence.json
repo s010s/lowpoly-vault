@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "balanced-rock",
+  "revision": "r001",
+  "labels": {
+    "en": "balanced-rock"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "a312c02e56e77ac69a3a6332ab70b0f660c6b68c90c98dd40e5329a7a478132a"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "c523a2a569e238cbbbe05926a21173891dda9828786987b228bd6b3bdd77646a"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "e6c9428a244723a4da2de0ed3defa0c7a3f593d3768e04cb1f161d68d8ec47ad"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "36b281edd9cc1d1796f97bbd7cde4e1247a91063823b31618ed6f8dc68d72332"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "df444c52a33de496d75a47f6aa745640087834cac705a49d7523db8cf114c8a5"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "5e802e6d18f03c5c80311c7e3823139760e774a7c2f67684b64193f0acb4fa72"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "740f94e8d7ab699dd1c5ebbc6d15fa591f9d6dab4e645ccf49867ed732ed73f8"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e9466a361a8a99945a8aeff388613b9eb3c99a6229e470f97302339c19826422"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "46abe354341f37c26d4e8805b7fe1726395d88ce9c000666655327ac52bc99a9"
+      }
+    ],
+    "cross_view_consistency_note": "Original four-row concept personally inspected before freeze. A thick upper branching rejected for fine basally branching tuft; no root. B attached broad boulder and short narrow pedestal. C broad U-shaped floor and steep walls. D close fitted low coarse mantle. Complete asset-specific decisions in immutable frozen brief",
+    "hidden_surface_decisions": "Retain concept B broad low asymmetrical boulder and flared low footing. Build lower irregular footing to0.45m, pedestal rising to2.1m with narrow neck diameter about1.1m, broad boulder spans4.0m wide from1.95 to4.35m. Continuous overlap at attachment. Cross sections irregular and offset, no rounded sphere and no unsupported floating. Palette variation through facets only; no Arches measured dimensions, strata names or date copied."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:41:35Z",
+    "modeling_started_at": "2026-10-20T13:43:43.719954+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 16.0692,
+      "measurement_record": {
+        "path": "proof-delivery/render-manifest.json",
+        "sha256": "57b297e5931991747a071198509ed762e3b3d09721849d8511ceed420cb29e53"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-delivery/render-manifest.json",
+    "sha256": "57b297e5931991747a071198509ed762e3b3d09721849d8511ceed420cb29e53"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "a04818fcecc02dbdd56ecf8f29cf6a05a7334fb646c9a4851667ffaab8b2d3b9",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "d58c1fe677d1fe94ae829f23a2b65f5dcee91f2ee19e9ca4e378711e97aa5787"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a312c02e56e77ac69a3a6332ab70b0f660c6b68c90c98dd40e5329a7a478132a",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "f5d3f9e31da5c00ee47f0f06dc5557e2dc72d3d8d57b26ffa941d56b6a898c07"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "marpolia",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original stylized educational candidate, independent acceptance pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical: Dense fine filament tuft, many strands branch mainly close to basal convergence; No main stem, ribbon leaves, tiered whorls or roots; no M.aequalis central branching; Shallow fossil-like relief on original small closed shale flake; grouped strand count artistic, no cellular resolution claimed. Fossil tuft specimen concept for Marpolia spissa, interpreted as filamentous cyanobacterium, not a true plant. A compact preserved filament tuft on an original illustrative rock flake, not a complete rooted living macrophyte or exact ROM specimen replica. Nominal35mm tuft is illustrative, not specimen measurement. Attachment/free-floating habit unresolved; no attachment structure invented.",
+      "required_sources": [
+        "ROM-MSPISSA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical: Dense fine filament tuft, many strands branch mainly close to basal convergence; No main stem, ribbon leaves, tiered whorls or roots; no M.aequalis central branching; Shallow fossil-like relief on original small closed shale flake; grouped strand count artistic, no cellular resolution claimed. Fossil tuft specimen concept for Marpolia spissa, interpreted as filamentous cyanobacterium, not a true plant. A compact preserved filament tuft on an original illustrative rock flake, not a complete rooted living macrophyte or exact ROM specimen replica. Nominal35mm tuft is illustrative, not specimen measurement. Attachment/free-floating habit unresolved; no attachment structure invented.",
+      "required_sources": [
+        "ROM-MSPISSA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact fixed8 views, no turntable required. Seven separate stages, no hardware claim.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/marpolia/r001/source.blend",
+      "sha256": "e830edf6bca1b29bca2cb44517e4bca91af7fffe03ed6d4e7647ef77b9a610d3"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/marpolia/r001/generator.py",
+      "sha256": "df444c52a33de496d75a47f6aa745640087834cac705a49d7523db8cf114c8a5"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-67/marpolia/r001/build-config.json",
+      "sha256": "23b1ab42b8b4f7d3ddf8a64bba156e27a55a874de44a0593b7cccd2f9db3a856"
+    }
+  ],
+  "claim_scope": "Fossil tuft specimen concept for Marpolia spissa, interpreted as filamentous cyanobacterium, not a true plant. A compact preserved filament tuft on an original illustrative rock flake, not a complete rooted living macrophyte or exact ROM specimen replica. Nominal35mm tuft is illustrative, not specimen measurement. Attachment/free-floating habit unresolved; no attachment structure invented.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.044,
+    0.032,
+    0.003
+  ],
+  "dimension_status": "Illustrative nominal, measured exported bounds separate",
+  "recognition_features": [
+    "Dense fine filament tuft, many strands branch mainly close to basal convergence",
+    "No main stem, ribbon leaves, tiered whorls or roots; no M.aequalis central branching",
+    "Shallow fossil-like relief on original small closed shale flake; grouped strand count artistic, no cellular resolution claimed"
+  ],
+  "concept_decisions": "Retain concept A shale flake and shallow dark fan, reject its conspicuous thick tree-like upper branches. Model 52 very fine representative grouped strands starting in a diffuse basal zone, with paired splitting confined to basal quarter; upper strands continue slender and unbranched, slightly tangled asymmetrical fans. No single trunk, rooted holdfast or biologically invented attachment. Closed volumetric fine strands lie against shale, not painted texture. Entire tuft is a specimen concept; substrate underside is artistic. Actual ROM57841 photograph shows spreading tangled fine fans and no rigid central trunk; do not imitate M.aequalis historic retouched drawing.",
+  "style": "Palette-only original faceted full-volume low-poly",
+  "intended_use": "Educational support prop at256-512px, not museum/scientific-grade reconstruction",
+  "created_at": "2026-10-20T13:42:43.971970+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:43:52.946643+00:00",
+    "frozen_design_brief_sha256": "a08c983c0165cbbd845d6c82b03f1176444fe6c049c6f6b795152d4c9094761e",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

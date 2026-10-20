@@ -74,19 +74,36 @@ export function parseStaticPublicationExports(source,{label='Accepted data modul
  */
 export function collectArchivalInputs({paths,read,mode,manifest,protectedPaths=[]}){
  assert(Array.isArray(paths)&&new Set(paths).size===paths.length,'Archive inventory must contain unique repository paths');
- const available=new Set(paths),protectedSet=new Set(protectedPaths),cache=new Map();let totalBytes=0;
- const checkedBytes=path=>{
+ // The inventory keeps authenticated summaries, never the full archive in RAM.
+ // This cache belongs to this one collection only. A later collection must read
+ // the actual input bytes again, including when the worktree path is unchanged.
+ const available=new Set(paths),protectedSet=new Set(protectedPaths),cache=new Map(),documents=new Map();let totalBytes=0;
+ const checkPath=path=>{
   assert(safePath(path)&&available.has(path),`Missing or unsafe archive input: ${path}`);
   assert(typeof mode==='function'&&regular(mode(path)),`Archive input is not regular mode 100644: ${path}`);
-  if(!cache.has(path)){
-   const value=read(path);assert(Buffer.isBuffer(value)||typeof value==='string',`Archive input bytes required: ${path}`);
-   const bytes=Buffer.isBuffer(value)?value:Buffer.from(value);assert(bytes.length<=MAX_FILE_BYTES,`Oversized archive input: ${path}`);
-   totalBytes+=bytes.length;assert(totalBytes<=MAX_TOTAL_BYTES,'Archive inputs exceed total byte bound');cache.set(path,bytes);
-  }
-  return cache.get(path);
  };
- const checked=entry=>{pin(entry,'Archive pin');const bytes=checkedBytes(entry.path);assert.equal(hash(bytes),entry.sha256,`Archive SHA-256 mismatch: ${entry.path}`);return bytes;};
- const json=entry=>{const bytes=checked(entry);assert(bytes.length<=MAX_JSON_BYTES,`Oversized archive JSON: ${entry.path}`);return JSON.parse(bytes);};
+ const checkedBytes=path=>{
+  checkPath(path);
+  const value=read(path);assert(Buffer.isBuffer(value)||typeof value==='string',`Archive input bytes required: ${path}`);
+  const bytes=Buffer.isBuffer(value)?value:Buffer.from(value);assert(bytes.length<=MAX_FILE_BYTES,`Oversized archive input: ${path}`);
+  const summary={sha256:hash(bytes),bytes:bytes.length};
+  if(!cache.has(path)){
+   totalBytes+=bytes.length;assert(totalBytes<=MAX_TOTAL_BYTES,'Archive inputs exceed total byte bound');cache.set(path,summary);
+  }else assert.deepEqual(summary,cache.get(path),`Archive input changed during collection: ${path}`);
+  return bytes;
+ };
+ const checked=entry=>{
+  pin(entry,'Archive pin');checkPath(entry.path);
+  if(!cache.has(entry.path))checkedBytes(entry.path);
+  const summary=cache.get(entry.path);assert.equal(summary.sha256,entry.sha256,`Archive SHA-256 mismatch: ${entry.path}`);return summary;
+ };
+ const json=entry=>{
+  pin(entry,'Archive pin');
+  if(documents.has(entry.path)){checked(entry);return documents.get(entry.path);}
+  const bytes=checkedBytes(entry.path);checked(entry);
+  assert(bytes.length<=MAX_JSON_BYTES,`Oversized archive JSON: ${entry.path}`);
+  const value=JSON.parse(bytes);documents.set(entry.path,value);return value;
+ };
  let registry=[];
  if(available.has(ARCHIVAL_REGISTRY_PATH)){
   const exports=parseStaticPublicationExports(checkedBytes(ARCHIVAL_REGISTRY_PATH).toString(),{label:ARCHIVAL_REGISTRY_PATH});
@@ -186,6 +203,8 @@ export function collectArchivalInputs({paths,read,mode,manifest,protectedPaths=[
    assert(row&&row.sha256===evidence.sha256&&row.owners.includes(addition.id)&&row.origin==='source',`Candidate ${kind} is not an owned exact source-bundle member: ${addition.id}`);
   }
   batches.push({descriptor:entry.descriptor,asset_ids:entry.asset_ids,source_commit:entry.source_commit,independent_review_commit:entry.independent_review_commit,source_bundle:descriptor.source_bundle,files:batchRows.map(({excluded,...rest})=>rest)});
+  // Parsed descriptors/candidates are only needed while validating this batch.
+  documents.clear();
  }
  rows.sort((a,b)=>a.path.localeCompare(b.path));batches.sort((a,b)=>a.descriptor.path.localeCompare(b.descriptor.path));
  const byModel={};for(const batch of batches)for(const id of batch.asset_ids)byModel[id]={descriptor:batch.descriptor,source_bundle:batch.source_bundle,files:batch.files.filter(row=>row.owners.includes(id))};

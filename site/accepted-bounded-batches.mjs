@@ -3,7 +3,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch54-20261020.json",
-      "sha256": "18848be2e9bffb004c8301ff7f05816ab0d691afbee6b569459f28e3099f3f4b"
+      "sha256": "f0b50e4dd19dfc208ecacc480f4cd449026e20becdd8816273e930381080b015"
     },
     "asset_ids": [
       "cave-shield",
@@ -17,7 +17,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch52-original-three-20261020.json",
-      "sha256": "c6c5060e0bd0024d63999db96b6ea732cf05dbc07db95b300a1081430fbc024b"
+      "sha256": "bf4ec7a3d6f27745c2f05ca43dae479be82ec1deffa5741a0208ecafb65e9b03"
     },
     "asset_ids": [
       "cave-popcorn",
@@ -30,7 +30,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch52-aturia-repair-20261020.json",
-      "sha256": "24eafe9463aa00962f507eba085d46cb5ce41ac11e10c616c1ea5d812f08dbcb"
+      "sha256": "ffd6e1082f1dabc293ca950c16a8fd437a56ce9d6c7bf44e2fb2115db9cdf28b"
     },
     "asset_ids": [
       "aturia"
@@ -41,7 +41,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch53-20261020.json",
-      "sha256": "78f644178baf928201bf297b8bf6bcf06a80367654b5bb95d7935dbbc3ab2f8f"
+      "sha256": "1dad3568ca5ba927dc65387ee23bfa60d15262a2eddcd0c65816e8091dd37e4c"
     },
     "asset_ids": [
       "halopoa-furrowed-burrow",
@@ -55,7 +55,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch56-20261020.json",
-      "sha256": "2bb75ad80be5d88e930a09fd44783dc63695a46e6734f6a18adcd9f11678a251"
+      "sha256": "45e13a2975490cfbf942f447e5a29012064fcfdd03140c9db02df796d02670ce"
     },
     "asset_ids": [
       "arthrophycus-annulated-burrow",
@@ -69,7 +69,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch57-20261020.json",
-      "sha256": "0bc3dd7e39724660dbfd4be5df16c59b708acf858e19ad8da98a1bf1f53a6568"
+      "sha256": "909c71b5af8b3496e81d95c07253cb6017ee9d5b42283af3fabc144238c580ef"
     },
     "asset_ids": [
       "cave-column",
@@ -82,7 +82,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch51-20261020.json",
-      "sha256": "09df289bad2579bd8560f1d63c90f3a1a89e3cee481741f12dc58de3ffab6ca2"
+      "sha256": "32875450a5bf36a479e3bb40dc72f383f7908cd60a2f9e2025974844b48a105e"
     },
     "asset_ids": [
       "accretionary-lapilli-bed",
@@ -96,7 +96,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch55-20261020.json",
-      "sha256": "aa61f85ca7954edd52ccae5a35a803dd7e1441cf46a5b20784859e3673d71d52"
+      "sha256": "ac560f6673378b1da805f71e24909d3d152843f065ee63aae810715e496dbf0b"
     },
     "asset_ids": [
       "pentichnus-deep-dwelling-trace",
@@ -110,7 +110,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch58-20261020.json",
-      "sha256": "c268788d6bb96de9142f2ba898bd5c9ff81bff62f14f98e2fb0d66989ed481e8"
+      "sha256": "134d7edda8ee8659c5125eddb62287d2392808009d01aaa7851fbb4705486bb6"
     },
     "asset_ids": [
       "barchan-dune",
@@ -124,7 +124,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch59-20261020.json",
-      "sha256": "4ceae1f591c3502f93c83ad54763644e796aaacf01d85d67cd766e5b70c058f1"
+      "sha256": "4cf645bc94cda705b1b33f0c4d6d80256120afeaeede966f5ce4a91c463e8866"
     },
     "asset_ids": [
       "glacial-erratic",
@@ -137,7 +137,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch60-20261020.json",
-      "sha256": "6a55075bd4244f5a721c05b6c919cdbaebc8461673b7bfbbdb04cc573cb31943"
+      "sha256": "63f0e3e12e4ba496f8f6bd5c9021e62c1ff8f59a8012439d5ffc4ae53a7b9d69"
     },
     "asset_ids": [
       "aragonite-frostwork",
@@ -151,7 +151,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch61-20261020.json",
-      "sha256": "e1bc3ba6b11fb2ece22cdf5f069761105c09ac3dc153465434dd94848a547dd3"
+      "sha256": "608f3cb4d72f27510b44636c36d279e85722e396233735356ba27abe340b41ca"
     },
     "asset_ids": [
       "daemonelix-helical-burrow",
@@ -161,5 +161,84 @@ export const ACCEPTED_BOUNDED_BATCHES = [
     ],
     "source_commit": "e2ed7b0b13a850f2663a6701fa28edc6ffef6951",
     "independent_review_commit": "6d7ca887cd8b3212b345474d9ebe176fa0840e8e"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch62-20261020.json",
+      "sha256": "7b9c38d4e43d7d254b5e02b228c0f3989c8f1f3c426bd8ace5a58b1dc4f8d2fd"
+    },
+    "asset_ids": [
+      "dinomischus",
+      "flowstone-cascade",
+      "slot-canyon",
+      "star-dune"
+    ],
+    "source_commit": "5d6adfef39a90ce12f30ad58fd24f9549d3c64ea",
+    "independent_review_commit": "5d6adfef39a90ce12f30ad58fd24f9549d3c64ea"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch63-20261020.json",
+      "sha256": "bd08599b6c974132f79e22118eda4fd7c0473539fa33bdd4118df5d3b02e961e"
+    },
+    "asset_ids": [
+      "caldera",
+      "dogtooth-spar-cavity",
+      "esker",
+      "siphusauctum"
+    ],
+    "source_commit": "eb646735dfd121553735980d8c11f94adecda8c4",
+    "independent_review_commit": "eb646735dfd121553735980d8c11f94adecda8c4"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch64-20261020.json",
+      "sha256": "54d140a333c5b152fb1b9c22756018b12c7dc009e575e5d3fdc9a800bb25675e"
+    },
+    "asset_ids": [
+      "chancelloria",
+      "geyser-sinter-cone",
+      "parabolic-dune",
+      "terminal-moraine"
+    ],
+    "source_commit": "6298c654f849294e11420f3b7c8e5abb167df2a6",
+    "independent_review_commit": "6298c654f849294e11420f3b7c8e5abb167df2a6"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch65-20261020.json",
+      "sha256": "958f8cd10fd1b57de0a51fdeb7fb4530d759b02b077f79da46f74cf6dc0081f2"
+    },
+    "asset_ids": [
+      "burgessochaeta",
+      "rotational-landslide"
+    ],
+    "source_commit": "567f7a5271cca6271caba26c025bfaf39405a507",
+    "independent_review_commit": "567f7a5271cca6271caba26c025bfaf39405a507"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch66-20261020.json",
+      "sha256": "b1aa864ab1e6a50d9884b3c1e8a2bc3fdc090b7a8921a40edf43a6aae2b51613"
+    },
+    "asset_ids": [
+      "graben-basin",
+      "meandering-river-reach"
+    ],
+    "source_commit": "b8989e6bbc2c2fc0af15f821b80df4ff53baf1c6",
+    "independent_review_commit": "b8989e6bbc2c2fc0af15f821b80df4ff53baf1c6"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch67-20261020.json",
+      "sha256": "9c176ee4dd62a3cb7034327721ef4943172b6ac95b8ddbdcf5ad912d3d2629ca"
+    },
+    "asset_ids": [
+      "balanced-rock",
+      "marpolia",
+      "u-shaped-glacial-valley"
+    ],
+    "source_commit": "0e61511ad96c905e16139a9489cfaac5b80b51f6",
+    "independent_review_commit": "0e61511ad96c905e16139a9489cfaac5b80b51f6"
   }
 ];

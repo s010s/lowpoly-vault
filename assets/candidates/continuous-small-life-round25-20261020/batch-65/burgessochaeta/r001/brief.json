@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "burgessochaeta",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original stylized educational candidate; independent acceptance pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical: Whole slender soft segmented worm, no shell plates or dorsal protective thatch; Two smooth anterior palps on differentiated head; no unsupported jaws, eyes or long tail filament; 20 paired parapodial stations with BOTH roughly equal dorsal and ventral rami on each side including first trunk segment; two distinct lateral bristle fans per side/station. Evidence-informed whole-organism genus-level living exterior reconstruction of Burgessochaeta, not a specimen replica or museum-grade reconstruction. All body, head, paired smooth palps and trunk appendages included. Illustrative 50mm trunk, palette, pose, unseen cross-sections and bristle simplification are artistic.",
+      "required_sources": [
+        "PARRY2015"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical: Whole slender soft segmented worm, no shell plates or dorsal protective thatch; Two smooth anterior palps on differentiated head; no unsupported jaws, eyes or long tail filament; 20 paired parapodial stations with BOTH roughly equal dorsal and ventral rami on each side including first trunk segment; two distinct lateral bristle fans per side/station. Evidence-informed whole-organism genus-level living exterior reconstruction of Burgessochaeta, not a specimen replica or museum-grade reconstruction. All body, head, paired smooth palps and trunk appendages included. Illustrative 50mm trunk, palette, pose, unseen cross-sections and bristle simplification are artistic.",
+      "required_sources": [
+        "PARRY2015"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Frozen static-stylized-v1 eight actual512px views; no turntable required by profile; all seven stages distinct.",
+  "required_deliverables": [],
+  "claim_scope": "Evidence-informed whole-organism genus-level living exterior reconstruction of Burgessochaeta, not a specimen replica or museum-grade reconstruction. All body, head, paired smooth palps and trunk appendages included. Illustrative 50mm trunk, palette, pose, unseen cross-sections and bristle simplification are artistic.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.018,
+    0.055,
+    0.006
+  ],
+  "dimension_status": "Illustrative nominal scale; exported measured pose bounds reported separately",
+  "recognition_features": [
+    "Whole slender soft segmented worm, no shell plates or dorsal protective thatch",
+    "Two smooth anterior palps on differentiated head; no unsupported jaws, eyes or long tail filament",
+    "20 paired parapodial stations with BOTH roughly equal dorsal and ventral rami on each side including first trunk segment; two distinct lateral bristle fans per side/station"
+  ],
+  "concept_decisions": "Concept A sets warm narrow tubular silhouette and pale fans. Reject its oversized collar-like body rings and small scattered dorsal-looking fans: use shallow real segment constrictions on continuous soft body, 20 paired stations with equant upper/lower lateral lobes and fan bristles on all stations. Head at -Y with exactly two smooth forward palps; posterior +Y short taper, no tail filament. Fan 5 tapered volumetric bristles per ramus with tiny bifid tips represented by paired terminal twigs; counts are visual simplification, not exact fossil chaetal count. Gently S-curved body, modest flattening, no substrate. Fine individual bristles readable mainly top/hero, canonical axial views necessarily foreshorten slender animal. Entire organism persists in full volume.",
+  "style": "Palette-only restrained faceted low-poly, full volume",
+  "intended_use": "Supporting educational asset at256-512px, not museum-grade reconstruction",
+  "created_at": "2026-10-20T13:25:25.533951+00:00",
+  "validation_profile": "static-stylized-v1"
+}

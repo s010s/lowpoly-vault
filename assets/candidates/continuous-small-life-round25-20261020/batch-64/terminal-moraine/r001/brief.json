@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "terminal-moraine",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed stylized teaching prop, pending independent QA",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Single irregular broad arcuate unsorted debris ridge transverse across valley, higher middle and lower lateral ends; Low interior valley floor behind arc, outer face slopes into foreland, not sinuous narrow esker; Debris matrix with visibly mixed angular boulders of varied sizes, full closed supporting terrain. Scope: Generic terminal-moraine teaching form, not exact Schoolroom/Clemets Glacier replica or measured historical ice limit. Nominal54x40m module9m relief, exposed ground palette and rock placement artistic. No active glacier, meltwater simulation, exact age or mineral assay.",
+      "required_sources": [
+        "PRIMARY-terminal-moraine"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Single irregular broad arcuate unsorted debris ridge transverse across valley, higher middle and lower lateral ends; Low interior valley floor behind arc, outer face slopes into foreland, not sinuous narrow esker; Debris matrix with visibly mixed angular boulders of varied sizes, full closed supporting terrain. Scope: Generic terminal-moraine teaching form, not exact Schoolroom/Clemets Glacier replica or measured historical ice limit. Nominal54x40m module9m relief, exposed ground palette and rock placement artistic. No active glacier, meltwater simulation, exact age or mineral assay.",
+      "required_sources": [
+        "PRIMARY-terminal-moraine"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px views;7stages separate",
+  "required_deliverables": [],
+  "claim_scope": "Generic terminal-moraine teaching form, not exact Schoolroom/Clemets Glacier replica or measured historical ice limit. Nominal54x40m module9m relief, exposed ground palette and rock placement artistic. No active glacier, meltwater simulation, exact age or mineral assay.",
+  "nominal_dimensions_blender_xyz_m": [
+    54,
+    40,
+    9
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; export measured separately",
+  "recognition_features": [
+    "Single irregular broad arcuate unsorted debris ridge transverse across valley, higher middle and lower lateral ends",
+    "Low interior valley floor behind arc, outer face slopes into foreland, not sinuous narrow esker",
+    "Debris matrix with visibly mixed angular boulders of varied sizes, full closed supporting terrain"
+  ],
+  "concept_decisions": "C concept mixed debris retained; strengthen its weak arc into a single obvious broad crescent ridge convex toward-Y/down-valley. High broad central ridge at y=-6, arms curve toward+Y at sides. Interior+Y floor low and enclosed only across front/sides; rear+Y open valley direction. Scatter embedded varied angular stones along actual crest and flanks, not scenic mountain backdrop. No lake/ice, no esker serpentine.",
+  "style": "Restrained palette-only refined faceted low-poly real3D",
+  "intended_use": "Educational supporting prop at256-512px, not museum-grade reconstruction",
+  "created_at": "2026-10-20T13:18:57.664563+00:00",
+  "validation_profile": "static-stylized-v1"
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "asset_id": "esker",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Generic full-volume glaciofluvial esker landform: winding narrow ridge with rounded uneven crest and sloping flanks. Not a riverbed, drumlin, named site, period or measured flow reconstruction.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "USGS-ESKER"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "USGS-ESKER"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "One continuous long narrow winding S-shaped ridge",
+      "required_sources": [
+        "USGS-ESKER"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Uneven rounded narrow crest with sloping sand-and-gravel flanks",
+      "required_sources": [
+        "USGS-ESKER"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Tapered ends merging to closed flat ground-contact boundary",
+      "required_sources": [
+        "USGS-ESKER"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "Generic esker illustration, no named site/age or asserted flow direction",
+      "required_sources": [
+        "USGS-ESKER"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Fixed8 actual512px exactGLB views; zero turntable. Seven stages separate; GPU/scene/formal/user approvals remain unrun until independently established.",
+  "required_deliverables": [],
+  "nominal_dimensions_blender_xyz_m": [
+    230,
+    700,
+    35
+  ],
+  "scale_note": "Nominal700m long ridge with70m local full width and35m relief. Sideways sinuous displacement widens overall footprint to approximately230m; no measured locality claim.",
+  "concept_interpretation": "Actual concept hero/top/side inspected: continuous S-curve and uneven narrow crest adopted, side quiet slope adopted. Concept granular microtexture omitted deliberately in texture-free lowpoly geometry, not replaced by noise. Freeze long axisY700m, two broad gentle bends lateral amplitude80m, local width70m and height35m. Rounded narrow crest not knife-edge; cross section smooth convex top, flanks slope to closed flat footprint. Taper both ends into ground. Material zones reflect crest versus flanks rather than random colors. No scattered decoration, no river channel, no underlying plinth, no direction arrow.",
+  "feature_obligations": [
+    "One continuous long narrow winding S-shaped ridge",
+    "Uneven rounded narrow crest with sloping sand-and-gravel flanks",
+    "Tapered ends merging to closed flat ground-contact boundary",
+    "Generic esker illustration, no named site/age or asserted flow direction"
+  ],
+  "claim_scope": "Generic full-volume glaciofluvial esker landform: winding narrow ridge with rounded uneven crest and sloping flanks. Not a riverbed, drumlin, named site, period or measured flow reconstruction.",
+  "origin": "BlenderZup,-Yfront floor-contact footprint center; glTFYup,+Zfront"
+}

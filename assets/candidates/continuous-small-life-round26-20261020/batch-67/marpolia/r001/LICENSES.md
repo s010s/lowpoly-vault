@@ -1,0 +1,1 @@
+Original geometry, original generated concept art, rendered previews and prose: CC BY 4.0, Leon Made This / s010s. Executable generator and support code: MIT. Consulted factual sources retain their own rights; no external images, textures, meshes or scans redistributed in the asset.

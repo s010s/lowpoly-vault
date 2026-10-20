@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "louisella",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Complete annulated cylindrical worm with four visibly differentiated trunk texture zones; no limbs eyes or shell; Paired longitudinal blunt papilla rows on one surface, not walking legs; short spine rings on trunk but rear-most section unspined; Long everted spine-bearing proboscis, single ring of exactly25 longer spikes near midlength and small terminal mouth. Scope: Evidence-informed whole-organism exterior reconstruction of Louisella pedunculata, not measured specimen replica. ROM morphology and actual complete USNM57616 plus folded holotypeUSNM57558 consulted. Miskoia preciosa is synonym not separate asset. Nominal30cm body length follows reported maximum, not exact specimen measurement. Circular section, pose, colors and spacing are artistic; possible gill role of papillae not asserted as settled.",
+      "required_sources": [
+        "PRIMARY-louisella"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Complete annulated cylindrical worm with four visibly differentiated trunk texture zones; no limbs eyes or shell; Paired longitudinal blunt papilla rows on one surface, not walking legs; short spine rings on trunk but rear-most section unspined; Long everted spine-bearing proboscis, single ring of exactly25 longer spikes near midlength and small terminal mouth. Scope: Evidence-informed whole-organism exterior reconstruction of Louisella pedunculata, not measured specimen replica. ROM morphology and actual complete USNM57616 plus folded holotypeUSNM57558 consulted. Miskoia preciosa is synonym not separate asset. Nominal30cm body length follows reported maximum, not exact specimen measurement. Circular section, pose, colors and spacing are artistic; possible gill role of papillae not asserted as settled.",
+      "required_sources": [
+        "PRIMARY-louisella"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/source.blend",
+      "sha256": "dc200005bdf3030b68ccd7aee829fee0660fad751e998e3473ad5c9cfffbe507"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/generator.py",
+      "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/louisella/r001/build-config.json",
+      "sha256": "877e05c779b798dc0b4d228c6b2358270a1547caaa62be185f2303955d0fde02"
+    }
+  ],
+  "claim_scope": "Evidence-informed whole-organism exterior reconstruction of Louisella pedunculata, not measured specimen replica. ROM morphology and actual complete USNM57616 plus folded holotypeUSNM57558 consulted. Miskoia preciosa is synonym not separate asset. Nominal30cm body length follows reported maximum, not exact specimen measurement. Circular section, pose, colors and spacing are artistic; possible gill role of papillae not asserted as settled.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.065,
+    0.3,
+    0.036
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "Complete annulated cylindrical worm with four visibly differentiated trunk texture zones; no limbs eyes or shell",
+    "Paired longitudinal blunt papilla rows on one surface, not walking legs; short spine rings on trunk but rear-most section unspined",
+    "Long everted spine-bearing proboscis, single ring of exactly25 longer spikes near midlength and small terminal mouth"
+  ],
+  "concept_decisions": "Original concept inspected at full resolution. Retain long zoned worm and paired rows. Override concept pointed rear with blunt rounded unspined posterior and small terminal aperture; no tail appendages. Concept long-spike count not reliable: build exactly25 radial long scalids at middle of proboscis. Reduce inflated spiny anterior bulb toward continuous tapered trunk, preserve distinct anterior short-spine, annulated middle, papillate posterior and smooth rear zones. Paired papilla rows continue across dorsal middle/posterior, short trunk spines remain elsewhere until unspined rear. Complete real volumes, mouth recessed, no painted-disc mouth. No substrate.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T13:35:44.084875+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:39:49.145734+00:00",
+    "frozen_design_brief_sha256": "b1055998c889ef9c29919fee8945aa81f9af75256d7db28cdc2d8a3dffbbcd74",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

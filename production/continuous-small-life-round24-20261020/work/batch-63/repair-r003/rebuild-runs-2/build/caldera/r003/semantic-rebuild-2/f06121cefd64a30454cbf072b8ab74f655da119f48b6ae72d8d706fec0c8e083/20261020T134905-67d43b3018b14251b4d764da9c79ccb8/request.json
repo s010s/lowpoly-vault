@@ -1,0 +1,86 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/generator.py",
+    "--",
+    "--config",
+    "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/build-config.json",
+    "--output",
+    "/tmp/lowpoly-batch63-20261020/production/continuous-small-life-round24-20261020/work/batch-63/repair-r003/rebuild-runs-2/build/caldera/r003/semantic-rebuild-2/f06121cefd64a30454cbf072b8ab74f655da119f48b6ae72d8d706fec0c8e083/20261020T134905-67d43b3018b14251b4d764da9c79ccb8/outputs"
+  ],
+  "created_at": "2026-10-20T13:49:05.145711+00:00",
+  "fingerprint": "f06121cefd64a30454cbf072b8ab74f655da119f48b6ae72d8d706fec0c8e083",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/tmp/lowpoly-batch63-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 2267,
+        "path": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/build-config.json",
+        "sha256": "787637d7802043b008111a51fd28b9a02388acc5b963a8ea88a713ace86fdc2a"
+      },
+      "generator": {
+        "bytes": 12189,
+        "path": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/generator.py",
+        "sha256": "d8c138e0064c2e1b04049b0a976273b9b1a18c7886f4322b6100c7cc93625ff5"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/tmp/lowpoly-batch63-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "caldera",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch63-20261020/scripts/qa_glb.py",
+        "config": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/build-config.json",
+        "generator": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/generator.py",
+        "helper": "/tmp/lowpoly-batch63-20261020/scripts/asset_common.py"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180.0
+  },
+  "run_id": "20261020T134904-d3acc9dc0bea469f8a155890cde8e64b"
+}
