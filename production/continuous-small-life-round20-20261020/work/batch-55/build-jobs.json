@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "ventifact",
+      "revision": "r001",
+      "job_id": "initial",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "ventifact/ventifact.glb",
+        "ventifact/ventifact.blend",
+        "ventifact/metadata.json",
+        "ventifact/qa.json"
+      ],
+      "config": {
+        "iteration": "initial"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "ventifact",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "ventifact/ventifact.glb",
+        "ventifact/ventifact.blend",
+        "ventifact/metadata.json",
+        "ventifact/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-1"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "ventifact",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/ventifact/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "ventifact/ventifact.glb",
+        "ventifact/ventifact.blend",
+        "ventifact/metadata.json",
+        "ventifact/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "revision": "r001",
+      "job_id": "initial",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.glb",
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.blend",
+        "pentichnus-deep-dwelling-trace/metadata.json",
+        "pentichnus-deep-dwelling-trace/qa.json"
+      ],
+      "config": {
+        "iteration": "initial"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.glb",
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.blend",
+        "pentichnus-deep-dwelling-trace/metadata.json",
+        "pentichnus-deep-dwelling-trace/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-1"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/pentichnus-deep-dwelling-trace/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.glb",
+        "pentichnus-deep-dwelling-trace/pentichnus-deep-dwelling-trace.blend",
+        "pentichnus-deep-dwelling-trace/metadata.json",
+        "pentichnus-deep-dwelling-trace/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "weichselia",
+      "revision": "r001",
+      "job_id": "initial",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "weichselia/weichselia.glb",
+        "weichselia/weichselia.blend",
+        "weichselia/metadata.json",
+        "weichselia/qa.json"
+      ],
+      "config": {
+        "iteration": "initial"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "weichselia",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "weichselia/weichselia.glb",
+        "weichselia/weichselia.blend",
+        "weichselia/metadata.json",
+        "weichselia/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-1"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "weichselia",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "weichselia/weichselia.glb",
+        "weichselia/weichselia.blend",
+        "weichselia/metadata.json",
+        "weichselia/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "vermicularia",
+      "revision": "r001",
+      "job_id": "initial",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "vermicularia/vermicularia.glb",
+        "vermicularia/vermicularia.blend",
+        "vermicularia/metadata.json",
+        "vermicularia/qa.json"
+      ],
+      "config": {
+        "iteration": "initial"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "vermicularia",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "vermicularia/vermicularia.glb",
+        "vermicularia/vermicularia.blend",
+        "vermicularia/metadata.json",
+        "vermicularia/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-1"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "vermicularia",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/build-config.json",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/references.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/vermicularia/r001/modeling-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "vermicularia/vermicularia.glb",
+        "vermicularia/vermicularia.blend",
+        "vermicularia/metadata.json",
+        "vermicularia/qa.json"
+      ],
+      "config": {
+        "iteration": "rebuild-2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

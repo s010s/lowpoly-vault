@@ -1,0 +1,102 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-53/welded-ignimbrite-outcrop/r001/runs/build/welded-ignimbrite-outcrop/r001/rebuild-2/46ecdf0453d966f0957b78c121a7d3de138497875a83b0f2fc3b95aa91a85b4b/20261020T002019-a5ce8cf3c6f44deeb149d3eebd561afa/outputs"
+  ],
+  "created_at": "2026-10-20T00:20:19.199049+00:00",
+  "fingerprint": "46ecdf0453d966f0957b78c121a7d3de138497875a83b0f2fc3b95aa91a85b4b",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5506,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/brief.json",
+        "sha256": "1fac7cb2aecc9d4253607f20dc5eed6f9866c073828424f40c6d4954b8a81592"
+      },
+      "config": {
+        "bytes": 506,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/config.json",
+        "sha256": "6493b585ed5bc221bea77e667a504f0103af44bf13673f7be2e73aaba95bfcd3"
+      },
+      "generator": {
+        "bytes": 4376,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/generator.py",
+        "sha256": "89615507e5a48bdd8f199b30c36dfb1edfd2039900a6e1b6c9bd25825cdca09f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 910,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/references.json",
+        "sha256": "4980ddffe5755f5b1d51eeebdffd505909b2b7e1e4d221f26628abea70dfe203"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "welded-ignimbrite-outcrop",
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/references.json"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "welded-ignimbrite-outcrop/welded-ignimbrite-outcrop.glb",
+        "welded-ignimbrite-outcrop/welded-ignimbrite-outcrop.blend",
+        "welded-ignimbrite-outcrop/metadata.json",
+        "welded-ignimbrite-outcrop/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261020T002014-db63f157a213430780e536b46df75916"
+}

@@ -1,0 +1,2 @@
+Illustrative sectional sediment block surrounding a deep five-sided subconical negative cavity. Wide pentagonal mouth narrows to a small pentagonal floor; one front sector of sediment removed to expose penetration. Remaining geometry carries the full five-sided architecture with the omitted sector explicitly illustrative. No tracemaker, certain behavior or excavated specimen claim.
+Concept inspected before freeze; concept-inspection.md records contradictions. Nominal Blender XYZ meters: [0.14, 0.14, 0.13]; artistic envelope, not exact measured bounds.

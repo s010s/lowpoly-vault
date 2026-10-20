@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "status": "pass",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "2de9c6a6ef69e3aab055add63797055bcd9174da0c7d92554b76ed697c3d2997",
+    "brief_sha256": "2117182270022f8528295e17a82d9ac170329c123fc44c74d90c0b26f5f39e70",
+    "references_sha256": "6a1d9853fc216210fef863389bc343864eaf420007ec88ac1c73fc21bd6c46da"
+  },
+  "method": "Fresh static audit, official Khronos validator, Blender source reopen and separately executed queue-bound deterministic rebuild comparison. Two rebuild reports retained.",
+  "observations": [
+    "Exact exported GLB satisfies frozen numeric limits.",
+    "Source collection reopened with script execution disabled; bounds and triangles match.",
+    "Both independent rebuild semantic digests match final GLB."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 1720,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 98192,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "2de9c6a6ef69e3aab055add63797055bcd9174da0c7d92554b76ed697c3d2997",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/nidula-baltica/r002/static-glb.report.json",
+        "sha256": "fd856361a1d9f9d570600df6f26fbf5649f65ac1b5363bf26bdf7de8aadcf1af"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "2de9c6a6ef69e3aab055add63797055bcd9174da0c7d92554b76ed697c3d2997",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/nidula-baltica/r002/gltf-validator.report.json",
+        "sha256": "f2914a67ed2f47452435822f537d9a232249c22d3469172733d0e2c6c12bf52b"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "2de9c6a6ef69e3aab055add63797055bcd9174da0c7d92554b76ed697c3d2997",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/nidula-baltica/r002/source-export.report.json",
+        "sha256": "b54740cbe091cb3ce195685fdccc71ab18c2f722d34eaf832064fa3173aa403e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "2de9c6a6ef69e3aab055add63797055bcd9174da0c7d92554b76ed697c3d2997",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/nidula-baltica/r002/rebuild-1.report.json",
+        "sha256": "aea1d1bcd2afcffe016b4a864b235515788758a1c79524a97ade428bfb182b74"
+      },
+      "warning_review": []
+    }
+  ]
+}

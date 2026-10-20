@@ -1,3 +1,6 @@
+if(process.argv.includes('--batches5155-only')){await testBatches5155();process.exit(0);}
+if(process.argv.includes('--batches5657-only')){await testBatches5657();process.exit(0);}
+if(process.argv.includes('--batches52-53-only')){await testBatches5253();process.exit(0);}
 /** Bounded land/air quartet: exact revisions, immutable baseline and no formal promotion. */
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, readFile, writeFile, rm, rename, symlink } from 'node:fs/promises';
@@ -8,6 +11,23 @@ import { createHash } from 'node:crypto';
 import { collectConceptLandairRelease, CONCEPT_LANDAIR_IDS, CONCEPT_LANDAIR_PACK } from './concept-landair-release.mjs';
 import { CONCEPT_LANDAIR_RELEASE as fixed } from './accepted-concept-landair-release.mjs';
 import { collectConceptQuartetsRelease } from './concept-quartets-release.mjs';
+
+// Run exact new-scope tamper checks without repeating model rendering.
+async function testBatches5155(){
+ const {readdir,link,unlink}=await import('node:fs/promises');
+ const {collectBatches5155Additions}=await import('./concept-landair-release.mjs');
+ const {BATCHES5155_RELEASES:fixed}=await import('./accepted-concept-landair-release.mjs');
+const source=process.cwd(),root=await mkdtemp(join(dirname(source),'batch5155-negative-'));let passed=0;
+async function snapshot(dir,rel=''){for(const e of await readdir(dir,{withFileTypes:true})){if(['.git','node_modules','out'].includes(e.name))continue;const p=join(rel,e.name),s=join(source,p),d=join(root,p);if(e.isDirectory()){await mkdir(d,{recursive:true});await snapshot(s,p);}else if(e.isFile()){await mkdir(dirname(d),{recursive:true});await link(s,d);}}}await snapshot(source);
+async function rejected(label,batch,path,change){const p=join(root,path);let old;try{old=await readFile(p);}catch(e){assert.equal(e.code,'ENOENT');}if(old)await unlink(p);await mkdir(dirname(p),{recursive:true});await writeFile(p,change(old));try{await assert.rejects(()=>collectBatches5155Additions(root,fixed.find(x=>x.release.scope.startsWith('batch'+batch+'-')).descriptor));passed++;console.log('PASS',label);}finally{await unlink(p);if(old)await writeFile(p,old);}}
+try{
+ for(const f of fixed){const result=await collectBatches5155Additions(root,f.descriptor);assert.equal(result.additions.length,4);passed++;const b=f.release.scope.startsWith('batch51')?51:55,a=f.release.additions[0];for(const [label,path]of [['descriptor',f.descriptor.path],['source bundle',f.release.source_bundle.path],['metadata',a.metadata.path],['candidate',a.candidate.path],['GLB',JSON.parse(await readFile(join(root,a.metadata.path))).glb],['poster',a.poster.path],['reference',a.capture_reference.path],['independent image review',f.release.capture.independent_review.path]])await rejected(`${b} rejects ${label} byte mutation`,b,path,old=>Buffer.concat([old,Buffer.from(' ')]));}
+ const a=fixed[0].release.original_review_archive;await rejected('51 retains original QA alias',51,a.archive_path,old=>Buffer.concat([old,Buffer.from('changed')]));
+ const d=JSON.parse(await readFile(join(root,fixed[1].release.historical_evidence_disclosure.path)));await rejected('55 rejects fabricated historical log',55,d.declarations[0].historical_checksum_audit.missing_entries[0].path,()=>Buffer.from('fabricated'));
+ console.log(JSON.stringify({status:'PASS',checks:passed,formal_acceptance:'BLOCKED',gallery_output:'NOT_RUN',publication_ci:'NOT_RUN'}));
+}finally{await rm(root,{recursive:true,force:true});}
+
+}
 
 if(!process.argv.includes('--batch54-only')) {
 const BASE_COUNT = 186;
@@ -312,3 +332,38 @@ try {
   console.log(`Batch54 bounded release: ${cases} checks passed; exact four candidates, immutable source/QA/capture pins, tamper/symlink rejection, no formal approval promotion.`);
  }finally{await rm(sandbox,{recursive:true,force:true});}
 }
+
+async function testBatches5253(){
+const {readFile,writeFile,mkdir,copyFile,mkdtemp,rm}=await import('node:fs/promises');const {tmpdir}=await import('node:os');const {resolve,dirname,join}=await import('node:path');const {default:assert}=await import('node:assert/strict');const {collectBatches5253Additions}=await import('./concept-landair-release.mjs');const {ACCEPTED_BOUNDED_BATCHES}=await import('./accepted-bounded-batches.mjs');
+const root=process.cwd(),sandbox=await mkdtemp(join(tmpdir(),'batch5253-bounded-')),paths=new Set(['site/viewer.js','assets/turntables/index.json']),descriptors=[];
+for(const entry of ACCEPTED_BOUNDED_BATCHES.filter(e=>['assets/releases/batch52-original-three-20261020.json','assets/releases/batch52-aturia-repair-20261020.json','assets/releases/batch53-20261020.json'].includes(e.descriptor.path))){const d=JSON.parse(await readFile(entry.descriptor.path));descriptors.push([entry.descriptor,d]);for(const p of [entry.descriptor,d.source_bundle,d.publication_policy,...d.files,...d.additions.flatMap(x=>[x.metadata,x.source_metadata,x.candidate,x.review,x.capture_reference])])paths.add(p.path);for(const a of d.additions){const m=JSON.parse(await readFile(a.metadata.path));for(const k of ['glb','blend','preview'])paths.add(m[k]);}const index=JSON.parse(await readFile(d.capture.index.path));for(const a of d.additions)paths.add(index.posters.find(p=>p.id===a.id).path);}
+for(const p of paths){await mkdir(dirname(resolve(sandbox,p)),{recursive:true});await copyFile(resolve(root,p),resolve(sandbox,p));}
+let cases=0;const records=[];
+try{for(const [pin,d] of descriptors){await collectBatches5253Additions(sandbox,pin);cases++;const targets=[pin.path,d.source_bundle.path,d.review.path,d.capture.independent_review.path,d.capture.report.path,...d.additions.flatMap(a=>[a.metadata.path,a.candidate.path,a.capture_reference.path])];for(const p of [...new Set(targets)]){const path=resolve(sandbox,p),before=await readFile(path);try{await writeFile(path,Buffer.concat([before,Buffer.from(' ')]));await assert.rejects(()=>collectBatches5253Additions(sandbox,pin));cases++;records.push({scope:d.scope,path:p,result:'rejected_tamper'});}finally{await writeFile(path,before);}}await collectBatches5253Additions(sandbox,pin);cases++;}
+ await mkdir(resolve(root,'out'),{recursive:true});await writeFile(resolve(root,'out/bounded-collector-tests.json'),JSON.stringify({status:'pass',cases,scopes:descriptors.map(x=>x[1].scope),tests:records,claim:'Local bounded addition collectors only; not full publication CI or actual incremental reuse'},null,2)+'\n');console.log('PASS',cases,'bounded collector cases; original source untouched');}
+finally{await rm(sandbox,{recursive:true,force:true});}
+
+}
+if(!process.argv.includes('--batch54-only')) await testBatches5253();
+
+/** Negative tests mutate only private copies, never the accepted source inputs. */
+async function testBatches5657(){
+ const {copyFile}=await import('node:fs/promises');
+ const {collectBatches5657Additions}=await import('./concept-landair-release.mjs');
+ const cwd=process.cwd(),manifest=JSON.parse(await readFile(resolve(cwd,'assets/manifest.json'))),descriptors=manifest.publication.batches56_57_descriptors;
+ const sandbox=await mkdtemp(join(tmpdir(),'batch5657-bounded-')),paths=new Set(['site/viewer.js','assets/turntables/index.json']);
+ function pins(value){if(!value||typeof value!=='object')return;if(typeof value.path==='string'&&typeof value.sha256==='string')paths.add(value.path);for(const v of Object.values(value))pins(v);}
+ for(const descriptor of descriptors){pins(descriptor);const release=JSON.parse(await readFile(resolve(cwd,descriptor.path)));pins(release);pins(JSON.parse(await readFile(resolve(cwd,release.source_bundle.path))));for(const entry of release.additions){const asset=JSON.parse(await readFile(resolve(cwd,entry.metadata.path)));for(const key of ['glb','blend','preview'])paths.add(asset[key]);const index=JSON.parse(await readFile(resolve(cwd,release.capture.index.path)));paths.add(index.posters.find(p=>p.id===entry.id).path);}}
+ for(const path of paths){await mkdir(dirname(resolve(sandbox,path)),{recursive:true});await copyFile(resolve(cwd,path),resolve(sandbox,path));}
+ try{
+  const collect=()=>collectBatches5657Additions(sandbox,descriptors),first=await collect();assert.equal(first.additions.length,7);assert(!first.additions.some(a=>a.id==='nidula-baltica'));const ids=new Set(first.additions.map(a=>a.id));assert.deepEqual(manifest.assets.filter(a=>ids.has(a.id)),first.additions);
+  let passed=3;
+  async function altered(path,change){const p=resolve(sandbox,path),old=await readFile(p);try{await writeFile(p,change(old));await assert.rejects(collect);passed++;}finally{await writeFile(p,old);}}
+  const r=first.releases[0],e=r.additions[0],a=first.additions[0];
+  for(const path of [descriptors[0].path,e.metadata.path,e.candidate.path,e.frozen_brief.path,e.proof.path,e.review.path,r.source_bundle.path,r.capture.report.path,r.capture.zip_verification.path,a.glb,a.blend,a.preview])await altered(path,b=>Buffer.concat([b,Buffer.from(' ')]));
+  await altered('assets/turntables/index.json',b=>{const x=JSON.parse(b);x.posters.find(p=>p.id===a.id).sha256='0'.repeat(64);return JSON.stringify(x);});
+  assert.deepEqual(await collect(),first);passed++;console.log(`Batch56/57 bounded collector checks passed: ${passed}; isolated copies only, no model generation or repeated visual QA.`);
+ }finally{await rm(sandbox,{recursive:true,force:true});}
+}
+
+if(!process.argv.includes('--batch54-only')){await testBatches5657();await testBatches5155();}

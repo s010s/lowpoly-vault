@@ -1,0 +1,111 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "iodes-brownii",
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/references.json"
+      },
+      "job_id": "initial",
+      "outputs": [
+        "iodes-brownii/iodes-brownii.glb",
+        "iodes-brownii/iodes-brownii.blend",
+        "iodes-brownii/metadata.json",
+        "iodes-brownii/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "iodes-brownii",
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/references.json"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "iodes-brownii/iodes-brownii.glb",
+        "iodes-brownii/iodes-brownii.blend",
+        "iodes-brownii/metadata.json",
+        "iodes-brownii/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "iodes-brownii",
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/iodes-brownii/r001/references.json"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "iodes-brownii/iodes-brownii.glb",
+        "iodes-brownii/iodes-brownii.blend",
+        "iodes-brownii/metadata.json",
+        "iodes-brownii/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

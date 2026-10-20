@@ -1,0 +1,84 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/rebuilds/build/cycadeoidea/r003/repair-rebuild-1/c54b90d930153d4f73d61d94a198bdf5b8cfc7a104aa99f9615f576f48d09f90/20261020T023212-e88fade345714660a586ee7987f59b71/outputs"
+  ],
+  "created_at": "2026-10-20T02:32:12.969799+00:00",
+  "fingerprint": "c54b90d930153d4f73d61d94a198bdf5b8cfc7a104aa99f9615f576f48d09f90",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 669,
+        "path": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/build-config.json",
+        "sha256": "22820022eaa3157e8aa4cb8f2eb1d71d0311f9bafbbe42018f9ceece6834e517"
+      },
+      "generator": {
+        "bytes": 8020,
+        "path": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/generator.py",
+        "sha256": "0e3f118740e74de404c5c0b854402ede5e0e10d66937da07761bf8ef24da472b"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "cycadeoidea",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/qa_glb.py",
+        "config": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/asset_common.py"
+      },
+      "job_id": "repair-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180.0
+  },
+  "run_id": "20261020T023212-c9675dd4705c4bc9b8352d5487823f34"
+}

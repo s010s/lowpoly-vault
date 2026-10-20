@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "status": "pass",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "8d1dbd00dab4303b667d48048d5a8df737f07cb54d53a8173bb72fc025d622c2",
+    "brief_sha256": "44b42de0bc06c55a1211d310da0815597ecb338eab7c21de5c9aca041e5c90b8",
+    "references_sha256": "6eff915cec5a096b20fdd01166b710d69d674ab3aeb3cb083b4cff4b540ba63e"
+  },
+  "method": "Fresh static audit, official Khronos validator, Blender source reopen and separately executed queue-bound deterministic rebuild comparison. Two rebuild reports retained.",
+  "observations": [
+    "Exact exported GLB satisfies frozen numeric limits.",
+    "Source collection reopened with script execution disabled; bounds and triangles match.",
+    "Both independent rebuild semantic digests match final GLB."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 2572,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 109672,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "8d1dbd00dab4303b667d48048d5a8df737f07cb54d53a8173bb72fc025d622c2",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r001/static-glb.report.json",
+        "sha256": "352dc687c24827a0edc21d5d0713c02179f25b41816befbf618c16460a1fe1cd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "8d1dbd00dab4303b667d48048d5a8df737f07cb54d53a8173bb72fc025d622c2",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r001/gltf-validator.report.json",
+        "sha256": "1bdde68a81983e00a5f2a3c04ba46560c2285433f90b7d9369d9a2e919fd18b7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "8d1dbd00dab4303b667d48048d5a8df737f07cb54d53a8173bb72fc025d622c2",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r001/source-export.report.json",
+        "sha256": "57191628e9c421cfcd3edabe7b4e10acfbad6df732f64da63a2c31325f6655a7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "8d1dbd00dab4303b667d48048d5a8df737f07cb54d53a8173bb72fc025d622c2",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r001/rebuild-bound-1.report.json",
+        "sha256": "8925218fc7b16effdf3c61defed2ab909b7f2dfa2476066352a73a3c6a36cb1d"
+      },
+      "warning_review": []
+    }
+  ]
+}

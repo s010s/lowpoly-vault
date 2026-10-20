@@ -1,0 +1,22 @@
+node:internal/fs/promises:1241
+  return await PromisePrototypeThen(
+         ^
+
+Error: ENOENT: no such file or directory, realpath '/workspace/shared/lowpoly-batches51-55-release-20261020/experiments/structural-refinement-2026-10-17/accepted/natural-arch'
+    at async realpath (node:internal/fs/promises:1241:10)
+    at async collectRefinedRelease (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/refined-release.mjs:120:18)
+    at async collectSmallLifeRelease (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-life-release.mjs:59:16)
+    at async collectSmallFaunaRelease (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-fauna-release.mjs:76:14)
+    at async collectSmallLifeBatchRelease (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-life-batch-release.mjs:65:13)
+    at async collectRound02Release (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-life-round02-release.mjs:48:13)
+    at async collectRound03Release (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-life-round03-release.mjs:50:13)
+    at async collectRound04Release (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-life-round04-release.mjs:50:13)
+    at async collectRound05Release (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-life-round05-release.mjs:53:13)
+    at async collectRound06Release (file:///workspace/shared/lowpoly-batches51-55-release-20261020/site/small-life-round06-release.mjs:57:13) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'realpath',
+  path: '/workspace/shared/lowpoly-batches51-55-release-20261020/experiments/structural-refinement-2026-10-17/accepted/natural-arch'
+}
+
+Node.js v24.19.0

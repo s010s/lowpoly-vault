@@ -1,0 +1,83 @@
+{
+  "check": "blender_glb_reopen_import",
+  "status": "pass",
+  "errors": [],
+  "glb_sha256": "291ad1bbff024594c61ad218ea4fc33add08425d2998fbec20051de8abad64fa",
+  "glb_path": "/tmp/lowpoly-batch55-qa-publish/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.glb",
+  "blender_version": "4.3.2",
+  "scene_mesh_objects": 1,
+  "triangles": 28,
+  "materials": [
+    "Basal fracture",
+    "Wind polished stone"
+  ],
+  "bounds_blender_z_up_m": {
+    "min": [
+      -0.40666985511779785,
+      -0.45907968282699585,
+      0.0
+    ],
+    "max": [
+      0.40666985511779785,
+      0.45907968282699585,
+      0.5999999642372131
+    ],
+    "size": [
+      0.8133397102355957,
+      0.9181593656539917,
+      0.5999999642372131
+    ]
+  },
+  "bounds_gltf_y_up_m": {
+    "min": [
+      -0.40666985511779785,
+      0.0,
+      -0.45907968282699585
+    ],
+    "max": [
+      0.40666985511779785,
+      0.5999999642372131,
+      0.45907968282699585
+    ],
+    "size": [
+      0.8133397102355957,
+      0.5999999642372131,
+      0.9181593656539917
+    ]
+  },
+  "comparison": {
+    "static_glb_triangles": 28,
+    "static_glb_materials": 2,
+    "static_glb_bounds_m": {
+      "min": [
+        -0.40666984021663666,
+        0.0,
+        -0.45907966792583466
+      ],
+      "max": [
+        0.40666984021663666,
+        0.5999999642372131,
+        0.45907966792583466
+      ],
+      "size": [
+        0.8133396804332733,
+        0.5999999642372131,
+        0.9181593358516693
+      ]
+    },
+    "bounds_max_error_m": 1.4901161193847656e-08,
+    "bounds_tolerance_m": 1e-06
+  },
+  "parts": [
+    {
+      "object": "Three dominant wind abrasion planes",
+      "vertices": 48,
+      "triangles": 28,
+      "materials": [
+        "Wind polished stone",
+        "Basal fracture"
+      ]
+    }
+  ],
+  "limitations": "Verifies Blender GLTF importer can reopen the exact standalone GLB and matches the GLB static geometry/material/bounds audit. Does not export a replacement or establish visual/factual/GPU/target-scene acceptance."
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "asset_id": "vermicularia",
+  "brief_version": "concept-v001-packaging-v1",
+  "profile": "production",
+  "purpose": "One continuous small regular juvenile helix transitions into a loose irregular adult tube, with a thick-walled round aperture and real internal lumen. Cream/ochre palette. Retain shell only. Correct concept bead-like apex to real continuous coil. Artistic pose, size and color; inspired by fossil V. recta, not a measured specimen replica.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "IV-VERMICULARIA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "One continuous small regular juvenile helix transitions into a loose irregular adult tube, with a thick-walled round aperture and real internal lumen. Cream/ochre palette. Retain shell only. Correct concept bead-like apex to real continuous coil. Artistic pose, size and color; inspired by fossil V. recta, not a measured specimen replica. Check basic named form against cited accessible evidence; unresolved species detail stays unknown.",
+      "required_sources": [
+        "IV-VERMICULARIA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 rule 2026-10-18.1 eight views zero turntable; independent review and runtime gates retained.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/vermicularia.blend",
+      "sha256": "328513c8cb5600645ba0f4e2d2a378acea89235039f313021b981698561cb7af"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/generator.py",
+      "sha256": "7cee4c6e6aced0bd8db3cd271797a4b8b50b94ec0ff3d4f499d6cf0bc4333daa"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/build-config.json",
+      "sha256": "32b0cc39c4f82b7b489f013963b0b02f61b45039e3fdcaa0bf7b3823b13eb8fc"
+    }
+  ],
+  "frozen_at": "2026-10-20T02:26:04+00:00",
+  "representation": "evidence-informed stylized specimen/form study",
+  "structural_design": "One continuous small regular juvenile helix transitions into a loose irregular adult tube, with a thick-walled round aperture and real internal lumen. Cream/ochre palette. Retain shell only. Correct concept bead-like apex to real continuous coil. Artistic pose, size and color; inspired by fossil V. recta, not a measured specimen replica.",
+  "nominal_design_dimensions_blender_xyz_m": [
+    0.18,
+    0.075,
+    0.09
+  ],
+  "dimension_status": "Artistic design envelope, not measured fossil dimensions; actual exported bounds recorded separately.",
+  "validation_profile": "static-stylized-v1"
+}

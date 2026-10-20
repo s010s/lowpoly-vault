@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "7e7fa939eeca8d1d0571ae1724faa7fa2387f03441bf0794fe4b269d666182d0",
+    "brief_sha256": "2e89b53f477701d08fd77334cd0e6a3ad4a164ee5fb9ac79cd06974745a01724",
+    "references_sha256": "e8058e4dc7ddbab90d7d348ba067bc35f75c6ab31a107021a0f40d7441668d3a"
+  },
+  "status": "pass",
+  "method": "Actual fresh static audit, Khronos validator, read-only Blender source reopen and two independent queue rebuild comparisons.",
+  "observations": [
+    "0 project audit errors/warnings; 0 Khronos errors/warnings.",
+    "Source triangles and axis-converted bounds agree with export.",
+    "Two separately executed rebuilds match decoded semantic geometry/material digest."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1394,
+    "materials": 5,
+    "primitives": 19,
+    "glb_bytes": 87960,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "7e7fa939eeca8d1d0571ae1724faa7fa2387f03441bf0794fe4b269d666182d0",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/evidence/static-glb.json",
+        "sha256": "28a3d87bab310ba43fb674e6618bfec1efd9e667043823256a5afae2325e01a4"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "7e7fa939eeca8d1d0571ae1724faa7fa2387f03441bf0794fe4b269d666182d0",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/gltf-validator.report.json",
+        "sha256": "ba9b9b15d7d927b9f9389fc3033c7551b7e0b148b2da41b5ba91fb8a3657538e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "7e7fa939eeca8d1d0571ae1724faa7fa2387f03441bf0794fe4b269d666182d0",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/evidence/source-export.json",
+        "sha256": "8834e2949d7d8b98937988dd0f6d9d2250aac127b7ab3c1eb915fdd325fb5378"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "7e7fa939eeca8d1d0571ae1724faa7fa2387f03441bf0794fe4b269d666182d0",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/evidence/rebuild1.json",
+        "sha256": "2760220ed3fa8b4433650692bd7f4a0c535b2a892ee343adc41157cab6423bdf"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "7e7fa939eeca8d1d0571ae1724faa7fa2387f03441bf0794fe4b269d666182d0",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/evidence/rebuild2.json",
+        "sha256": "0b155035fb5ad01a8b06baf9a16e73601047f91cdb18d7fbdf44805afa728edb"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}

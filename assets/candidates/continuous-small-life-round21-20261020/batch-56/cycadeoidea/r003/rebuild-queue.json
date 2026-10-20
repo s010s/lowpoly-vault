@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "cycadeoidea",
+      "revision": "r003",
+      "job_id": "repair-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/generator.py",
+        "config": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/build-config.json",
+        "helper": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/asset_common.py",
+        "audit": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "model.glb",
+        "source.blend"
+      ],
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ]
+    },
+    {
+      "asset_id": "cycadeoidea",
+      "revision": "r003",
+      "job_id": "repair-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/generator.py",
+        "config": "/workspace/shared/lowpoly-round21-repair56-20261020/assets/candidates/continuous-small-life-round21-20261020/batch-56/cycadeoidea/r003/build-config.json",
+        "helper": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/asset_common.py",
+        "audit": "/workspace/shared/lowpoly-round21-repair56-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "model.glb",
+        "source.blend"
+      ],
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ]
+    }
+  ]
+}

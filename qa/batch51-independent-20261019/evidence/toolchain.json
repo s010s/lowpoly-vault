@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "kind": "batch51-independent-qa-toolchain",
+  "tools": {
+    "blender_source_export": {
+      "version": "4.3.2",
+      "script": "scripts/check_source_export.py",
+      "source_execution": "headless, factory startup, scripts disabled, source not saved"
+    },
+    "blender_conichnus_ray_probe": {
+      "version": "4.3.2",
+      "script": "qa/batch51-independent-20261019/evidence/replay/probe_negative_cavity.py",
+      "result": "pass"
+    },
+    "gltf_validator": {
+      "version": "2.0.0-dev.3.10",
+      "script": "scripts/validate_gltf.cjs",
+      "results": "4 assets; each 0 errors and 0 warnings"
+    },
+    "runtime": {
+      "node": "v24.19.0",
+      "playwright": "1.56.1",
+      "chromium": "154.0.8037.57",
+      "three": "0.180.0",
+      "renderer": "ANGLE SwiftShader software WebGL",
+      "results": "4 assets; seven runtime screenshots per asset pixel-identical to pinned handoff images"
+    }
+  },
+  "physical_hardware_gpu_verified": false,
+  "parent_scene_verified": false,
+  "notes": [
+    "Runtime evidence establishes local software WebGL functionality only.",
+    "The Blender ray probe logged a read-only extension-cache warning in this environment; GLB import, all six rays, and process exit succeeded."
+  ]
+}

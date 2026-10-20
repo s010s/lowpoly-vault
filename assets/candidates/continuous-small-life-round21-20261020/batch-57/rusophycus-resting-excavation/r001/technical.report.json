@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "status": "pass",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "7493f6df58164496ae64161395138520787fa2be9a9eb0f2363c56ef4f276751",
+    "brief_sha256": "c6b5ff7cb9e8c8628433ba47cb71fcff233b9b6fa48626018f80f620a5a491ce",
+    "references_sha256": "6126d2fb2889fc2944111dcf698d3cf2de6634fe5ad2e0ff3d81dbe9de7b95b3"
+  },
+  "method": "Fresh static audit, official Khronos validator, Blender source reopen and separately executed queue-bound deterministic rebuild comparison. Two rebuild reports retained.",
+  "observations": [
+    "Exact exported GLB satisfies frozen numeric limits.",
+    "Source collection reopened with script execution disabled; bounds and triangles match.",
+    "Both independent rebuild semantic digests match final GLB."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 7422,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 544188,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "7493f6df58164496ae64161395138520787fa2be9a9eb0f2363c56ef4f276751",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/rusophycus-resting-excavation/r001/static-glb.report.json",
+        "sha256": "a1fe90477a16409f62127c776657ea2ee2726d012172c580f5307ba6c7733599"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "7493f6df58164496ae64161395138520787fa2be9a9eb0f2363c56ef4f276751",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/rusophycus-resting-excavation/r001/gltf-validator.report.json",
+        "sha256": "c475121e5c3184cfa8df79276d14e262efbc9af289d8240e521a79440751f3c9"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "7493f6df58164496ae64161395138520787fa2be9a9eb0f2363c56ef4f276751",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/rusophycus-resting-excavation/r001/source-export.report.json",
+        "sha256": "691e1182958f6072b54a541b68617c1035660a050e0c8fa73f7d568334ce8e92"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "7493f6df58164496ae64161395138520787fa2be9a9eb0f2363c56ef4f276751",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round21-20261020/batch-57/rusophycus-resting-excavation/r001/rebuild-bound-1.report.json",
+        "sha256": "098405e5ff59c31c7e98247aacbbf543b320261e4231c1512c966cc4310d9bf2"
+      },
+      "warning_review": []
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+r002 repairs nondeterministic UV sphere primitive index ordering in the single lenticular peridiole. Use an authored deterministic profile loft; cup and scales unchanged. Original r001 and failed semantic reports retained. No factual or independent acceptance is claimed.

@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py", line 60, in <module>
+    export_asset(s,{'en':'Hypoturrilites-inspired turret fossil','zh':'塔形菊石化石形态'},'animals',col,metadata={'claim_scope':'Original stylized fossil-form only; no living soft tissue, specimen copy or measured fossil scale.','nominal_dimensions_blender_xyz_m':dims,'textures':0,'preview_status':'Exact GLB proofs generated separately.'},output_root=Path(args.output),render=False,max_triangles=14000,max_materials=6,max_primitives=30)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/scripts/asset_common.py", line 420, in export_asset
+    raise RuntimeError('Source QA failed: '+'; '.join(source['errors']))
+RuntimeError: Source QA failed: Triangle budget exceeded: 16316 > 14000
+
+Error: script failed, file: 'assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py', exiting.
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender/4.3/extensions').
+Blender 4.3.2
+
+Blender quit

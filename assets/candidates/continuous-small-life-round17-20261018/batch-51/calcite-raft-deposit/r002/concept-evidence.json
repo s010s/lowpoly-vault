@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "calcite-raft-deposit",
+  "revision": "r002",
+  "labels": {
+    "en": "Calcite raft deposit",
+    "zh-CN": "方解石浮筏沉积"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "calcite-raft-deposit.glb",
+      "sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22"
+    },
+    "source": {
+      "path": "calcite-raft-deposit.blend",
+      "sha256": "2a3226cbe8048b49554a40e87d0ac13a8bc7804be0f009d27824a979e42f4392"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "4e194758dfa704516a56ca9ff615c7d4d752a0ed435937375ae60d766bb455e8"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "754964fd808f8a29326bfb5e9f8aa0f68d536396dc464ca91236602fcca2e858"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5213a445fa920c25af8cea7a065e0f9f80195adaf6ee93bda455d490582bca19"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "8c44fdec8e9109219fbe9dde0e75aeeb082e77aec9e2f326b2e0493d5bb8c69d"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "3785718352897fe890639ee618899b68a20be934e1fd9f4354529f3a0583dc68"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "701885e9a932cc4c113d85c810f3ce5b96532447bdbd4012cd2b93b828226e5f"
+    },
+    "images": [
+      {
+        "id": "concept-multiview",
+        "view": "hero/top/side compatible suggestions",
+        "path": "concepts/original.png",
+        "sha256": "07140bd478b0f36c4e97281d70559f392010bbb6e9f50830da31e07e41368cfa"
+      }
+    ],
+    "cross_view_consistency_note": "Shallow warm limestone tray-like former floor with ivory angular broken sheets and air-visible thin edges. Quiet exposed patches, varied plate sizes, mostly low-angle overlaps. Exact sheet shapes/layout disagree in top versus hero. Freeze one original asymmetric layout of 18 sheets; retain characteristic larger left and center fragments, broken small fragments near front, and visible quiet substrate on right. All sheet undersides and edges have authored thickness; low-angle overlaps are intentional. No water or pearl spheres.",
+    "hidden_surface_decisions": "Low irregular basin floor with low discontinuous rim and closed underside. Thin solid irregular polygon plates have beveled upper margins, occasional small edge teeth and locally tilted faces. Macro break planes dominate; no uniform facet noise."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-19T22:47:36.151312+00:00",
+    "modeling_started_at": "2026-10-19T22:52:23.252612+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.0044,
+      "measurement_record": {
+        "path": "candidate-proof/render-manifest.json",
+        "sha256": "b02efe2d2a52d018aaa01571fc81e78e35132f501da8e597297ceada1534cf16"
+      },
+      "note": "Actual renderer measured eight-frame render loop; excludes process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "target_browser",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "candidate-proof/render-manifest.json",
+    "sha256": "b02efe2d2a52d018aaa01571fc81e78e35132f501da8e597297ceada1534cf16"
+  },
+  "thumbnail": {
+    "path": "candidate-proof/hero.png",
+    "sha256": "792b196b0423b8ff5b27fd33509ad73b58281048270b7e903212270ac1d3d5ae",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "e69641c6d5cfab0f7274ac68388db85f3f2ce817c059339a39617e74ff768393"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "fdbad4c14684a3af5940199f422ee3c605d00bf997649738a85fe0082eb4fd22",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "303a25636a97c32fa94f9955cacce04edfa9f042a2d5e00024ba1d2046dc032f"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supplemental checker is advisory only; formal candidate brief independently enforces the unchanged hard 1,000,000 byte / 14,000 triangle caps."
+  }
+}

@@ -1,0 +1,2 @@
+Short upright single fossil fern stem fragment, cortex-dominated exterior and irregular raised attachment bosses. Volumetric integrated relief, restrained cut face with thick cortex and small plain core. No guessed crown, multi-stem interior, root mantle or growth-ring claim. Simplified specimen-inspired form.
+Concept inspected before freeze; concept-inspection.md records contradictions. Nominal Blender XYZ meters: [0.16, 0.16, 0.3]; artistic envelope, not exact measured bounds.

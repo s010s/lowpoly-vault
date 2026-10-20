@@ -1,0 +1,108 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/build-config.json",
+    "--out",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/runs/build/weichselia/r001/initial/e5b2824e783f41ff2763c079180136da29ad5689349acaaf7ea775f8f92f36cd/20261020T012806-20a5230bf8164369a8ff0caedc1abdf0/outputs"
+  ],
+  "created_at": "2026-10-20T01:28:06.778335+00:00",
+  "fingerprint": "e5b2824e783f41ff2763c079180136da29ad5689349acaaf7ea775f8f92f36cd",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4207,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/brief.json",
+        "sha256": "b48f62878a56e0cc5869d44f660316875b85f7e9b1fb8285b57442ed9cbfe05c"
+      },
+      "config": {
+        "bytes": 731,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/build-config.json",
+        "sha256": "ba83b050bbfa90d02b5843d9ee15ab1070a58813bb55d2f15a253ba99f69dab3"
+      },
+      "freeze": {
+        "bytes": 1068,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/modeling-freeze.json",
+        "sha256": "366634e21cfe5be2d4ab3825b5bcdecb24e8377e1d7f7f4c375bd861d1adc80b"
+      },
+      "generator": {
+        "bytes": 8360,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/generator.py",
+        "sha256": "7cee4c6e6aced0bd8db3cd271797a4b8b50b94ec0ff3d4f499d6cf0bc4333daa"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1230,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/references.json",
+        "sha256": "5df07b75b5aec7d47d24a0f72cdfe60b9638e44ef44cd4476cf99f79d982bfac"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--out",
+        "{output_dir}"
+      ],
+      "asset_id": "weichselia",
+      "config": {
+        "iteration": "initial"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/build-config.json",
+        "freeze": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/modeling-freeze.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/weichselia/r001/references.json"
+      },
+      "job_id": "initial",
+      "outputs": [
+        "weichselia/weichselia.glb",
+        "weichselia/weichselia.blend",
+        "weichselia/metadata.json",
+        "weichselia/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261020T012755-fc9993e22e9a406d891ee5a71ec26622"
+}

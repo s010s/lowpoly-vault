@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "deflation-hollow",
+  "revision": "r001",
+  "labels": {
+    "en": "deflation-hollow"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "c679676d46d8e51789a690db2f1590baa89c766cd50eb29700347150b43fd7be"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "d42d8b4ba9ea1cc8d060250da80bf65f66663f909912cbadc76d4919e72ff0b8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "cee7ee3f841c1c1add35fabaa2f542dd4d187645999539b422d9ce0476515fde"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "4cc24271c53a23cc3d65c92a04c0bf0be70726022208d78ef8d51673d4cf1534"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "d496960e7ba16268b8b7e0575d96032726dc3630c53bb0b469af54d20f6ba3e8"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "2db6a232e08dea1b1b94ad4972b85cb5a2b9c6b4616e18b361b1d9ad01dda414"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "6c9914d0db89a006731268e03ce94b65cd2873657604b2aed5a220e98d24a31c"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "03662507be4e1c578f28294891d85cf582533fdb8de8579ac392c0a202099950"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "7285ce56f8ede05348925a4480669500f32dc7ee9f2c7f53f1cd0f8fa19fb246"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-panel original inspected. B broad cap/standing appearance rejected in favor of primary-source long stalk and flattened fossil silhouette. A pocket counts not treated as observed anatomy. C downwind asymmetry retained. D curved transverse ribs retained.",
+    "hidden_surface_decisions": "Wind from -Y to +Y; downwind rim only broad +Y end, no circular crater crest. Closed solid cutaway base; dimensions artistic landscape module, no real-site scale claim."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T02:03:55.247Z",
+    "modeling_started_at": null,
+    "note": "Actual generation and inspection preceded premodel freeze. Exact provider generation and generator-authoring start are unrecorded; queue build times retained separately. No mtime inference."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.4617,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "ca6ad46122b610219f4a8b91572e013120c61296f39ec88411b417263bea3ddb"
+      },
+      "note": "Measured renderer frame-loop wall time; excludes process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No exact stage wall measurement retained; do not infer from file times."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "ca6ad46122b610219f4a8b91572e013120c61296f39ec88411b417263bea3ddb"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "c2d784de2650acb966a12365d073d45c322c90792f8f2d7362dbe22902334506",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "6acecf4418ca7e6660b64c4b4b3456e518d68026e6ee4c50e8de5e6250e26834"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "c679676d46d8e51789a690db2f1590baa89c766cd50eb29700347150b43fd7be",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "9752471839950eed685489c665c5d038938c215c89ee5c0287be5d9d486b0355"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Batch56 supporting stylized prop with 1MB hard dispatch cap; study checker advisory only."
+  }
+}
