@@ -3,7 +3,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch54-20261020.json",
-      "sha256": "18848be2e9bffb004c8301ff7f05816ab0d691afbee6b569459f28e3099f3f4b"
+      "sha256": "f0b50e4dd19dfc208ecacc480f4cd449026e20becdd8816273e930381080b015"
     },
     "asset_ids": [
       "cave-shield",
@@ -17,7 +17,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch52-original-three-20261020.json",
-      "sha256": "c6c5060e0bd0024d63999db96b6ea732cf05dbc07db95b300a1081430fbc024b"
+      "sha256": "bf4ec7a3d6f27745c2f05ca43dae479be82ec1deffa5741a0208ecafb65e9b03"
     },
     "asset_ids": [
       "cave-popcorn",
@@ -30,7 +30,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch52-aturia-repair-20261020.json",
-      "sha256": "24eafe9463aa00962f507eba085d46cb5ce41ac11e10c616c1ea5d812f08dbcb"
+      "sha256": "ffd6e1082f1dabc293ca950c16a8fd437a56ce9d6c7bf44e2fb2115db9cdf28b"
     },
     "asset_ids": [
       "aturia"
@@ -41,7 +41,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch53-20261020.json",
-      "sha256": "78f644178baf928201bf297b8bf6bcf06a80367654b5bb95d7935dbbc3ab2f8f"
+      "sha256": "68f590730e84bdd27c6027e18ecb736be85b6f9f11b9c2979a4e9560ed539ff9"
     },
     "asset_ids": [
       "halopoa-furrowed-burrow",
@@ -55,7 +55,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch56-20261020.json",
-      "sha256": "2bb75ad80be5d88e930a09fd44783dc63695a46e6734f6a18adcd9f11678a251"
+      "sha256": "180e1a824e6237528a7e3ca1511ce0adb7c8fb395a2cd5b576df994d4c7e9fb2"
     },
     "asset_ids": [
       "arthrophycus-annulated-burrow",
@@ -69,7 +69,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch57-20261020.json",
-      "sha256": "0bc3dd7e39724660dbfd4be5df16c59b708acf858e19ad8da98a1bf1f53a6568"
+      "sha256": "2a399abb8ff02adfa09aa4f289df9b48d17e3645dcd04a7a100608225d1dbca0"
     },
     "asset_ids": [
       "cave-column",
@@ -82,7 +82,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch51-20261020.json",
-      "sha256": "09df289bad2579bd8560f1d63c90f3a1a89e3cee481741f12dc58de3ffab6ca2"
+      "sha256": "4f0ea20d4d77f0eceb932c65ef9d4f56fba22cf5825cb0b3e3cbdf08ca6c5266"
     },
     "asset_ids": [
       "accretionary-lapilli-bed",
@@ -96,7 +96,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch55-20261020.json",
-      "sha256": "aa61f85ca7954edd52ccae5a35a803dd7e1441cf46a5b20784859e3673d71d52"
+      "sha256": "ac560f6673378b1da805f71e24909d3d152843f065ee63aae810715e496dbf0b"
     },
     "asset_ids": [
       "pentichnus-deep-dwelling-trace",
@@ -110,7 +110,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch58-20261020.json",
-      "sha256": "c268788d6bb96de9142f2ba898bd5c9ff81bff62f14f98e2fb0d66989ed481e8"
+      "sha256": "15bbf5881a5491586984098454de942738e72fadd9195a7e255936d4f41142ab"
     },
     "asset_ids": [
       "barchan-dune",
@@ -124,7 +124,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch59-20261020.json",
-      "sha256": "4ceae1f591c3502f93c83ad54763644e796aaacf01d85d67cd766e5b70c058f1"
+      "sha256": "402ef5146016e00531f707db96eb514857e232e1f66cd6d74b67c5d4c89e682e"
     },
     "asset_ids": [
       "glacial-erratic",
@@ -137,7 +137,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch60-20261020.json",
-      "sha256": "6a55075bd4244f5a721c05b6c919cdbaebc8461673b7bfbbdb04cc573cb31943"
+      "sha256": "e4451ce06536ff65a716b81ed4be2ea5e17102dda91c6d829efdf59965f37088"
     },
     "asset_ids": [
       "aragonite-frostwork",
@@ -151,7 +151,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch61-20261020.json",
-      "sha256": "e1bc3ba6b11fb2ece22cdf5f069761105c09ac3dc153465434dd94848a547dd3"
+      "sha256": "ebebb4997cbd98d6f5548b6b52dd89d697a1fa466c25ad2356476b072d2adfbd"
     },
     "asset_ids": [
       "daemonelix-helical-burrow",
@@ -165,7 +165,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch62-20261020.json",
-      "sha256": "e222607d2d8d9273d229ff3bd0eba11e07c3c9064f4790483473bf33b839d52f"
+      "sha256": "4e4a9c547e2bbc42a3b127ae836c1c1bd182f52a865ab4b7bd5b256b849fa391"
     },
     "asset_ids": [
       "dinomischus",
@@ -179,7 +179,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch63-20261020.json",
-      "sha256": "0c0fe1fdfb5cb5331f4fbe5e544e3b804c5b2d66395267c7bd8522c2bfaff2e9"
+      "sha256": "8d1b7b934382044071e2c4fbc664b4fcf1f91dcf13aacaae77194065cbd20292"
     },
     "asset_ids": [
       "caldera",
@@ -193,7 +193,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch64-20261020.json",
-      "sha256": "9a63d0c0e6f5952729bd57fa9d6216652cc42f1bfaa2ac19ef4e9b8f34e48cdf"
+      "sha256": "6ce7a4de8ba2c0ab6b0f6d5cc9cbdf2f47b52c6bd87f74e950f7d0d669ec18cd"
     },
     "asset_ids": [
       "chancelloria",
@@ -207,7 +207,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch65-20261020.json",
-      "sha256": "6c7c6e58b0971aab360b9d6fb2bf280622d12e3a19f54989d24c83f2c5b2ba88"
+      "sha256": "ed946b124904cd150bea48ef8335483ba0a484fb969d5a867046e598f26992a1"
     },
     "asset_ids": [
       "burgessochaeta",
@@ -219,7 +219,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch66-20261020.json",
-      "sha256": "cf92146f3d2093bdebc4d7b50371773f1a3737477824ecc77eca1b01b7994c6b"
+      "sha256": "3b6bcf1b0b9b8d2fe45a95af477dd44f7d59e99547b026d9b66996de835e4fa7"
     },
     "asset_ids": [
       "graben-basin",
@@ -231,7 +231,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch67-20261020.json",
-      "sha256": "bfdfc8ca9c1d078814398f81c63fe733fbb91b12fc6ab52a5cba17b0ba6db5e4"
+      "sha256": "591b63cdc9d13d0405f8d43a5e3b44545e8fbd3f98972ebc09491774d92f11e8"
     },
     "asset_ids": [
       "balanced-rock",
