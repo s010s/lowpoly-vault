@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "didymoceras",
+  "revision": "r003",
+  "labels": {
+    "en": "Didymoceras",
+    "zh-CN": "didymoceras"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/didymoceras.glb",
+      "sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d"
+    },
+    "source": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/didymoceras.blend",
+      "sha256": "4a45666f0d20cab05873179c5c2e7de9fc92ded2e528b1458d0f1165b8cfec28"
+    },
+    "generator": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/generator.py",
+      "sha256": "4a4e93cd8749e7875a3b27ae67ebd66b459a69dad794a5149c77c9b63e75e059"
+    },
+    "config": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/build-config.json",
+      "sha256": "1d4b3ebd91785d72254324af29c5c3be8fff69a8a7797d76ecf8e4b9df3a6fea"
+    },
+    "brief": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/brief-delivery.json",
+      "sha256": "237c8e61466e46b265c148e5de3aac81e4807200db39ccf6f041b18db8533afb"
+    },
+    "references": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/references-delivery.json",
+      "sha256": "ada14af402a1e2858191d7e9c1186471dd1c89309149ab355b7fbe8e3c94f0a1"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "production/continuous-small-life-round19-20261020/work/batch-54/concepts/prompt.txt",
+      "sha256": "0bc4d5c78c714ae18aeb2d9c8506ff836fec41ac419e944d5683f2b7a42a54cc"
+    },
+    "generation_record": {
+      "path": "production/continuous-small-life-round19-20261020/work/batch-54/concepts/generation-record.json",
+      "sha256": "e1d91fae6c27b70c3bfd147dd26bbf813b1401b22b026e18db0f10bb396023e6"
+    },
+    "images": [
+      {
+        "id": "genuine-four-row-concept",
+        "view": "hero and compatible secondary views per row",
+        "path": "production/continuous-small-life-round19-20261020/work/batch-54/concepts/original.png",
+        "sha256": "bb7fb4d66a28075770d03ffbc55d145542d35d683ab5efde2d985a2d8fc8db46"
+      }
+    ],
+    "cross_view_consistency_note": "Left concept reads near-planar coil, right concept has discontinuity between upper and lower masses: reject disconnected interpretation; freeze genuinely continuous 3D loose descending helix with two separated whorls and broad hook. Retain rib rhythm, ivory and ochre, broad U aperture.",
+    "hidden_surface_decisions": "Two visibly separated descending whorls; continuous gradually thickening tube with subdued transverse ribs; broad terminal U hook and actual recessed aperture. Correct ImageGen planar/disconnected ambiguity into continuous 3D centerline. No soft body, species, locality or specimen-copy claim. Hidden rear is continuous helical tube, aperture has real inner wall and blind deep fossil cavity."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T00:29:26.916218+00:00",
+    "modeling_started_at": "2026-10-20T00:30:53.141603+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No invented stage duration; retained observed receipts and execution logs are separate."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No invented stage duration; retained observed receipts and execution logs are separate."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 7.0325,
+      "measurement_record": {
+        "path": "production/continuous-small-life-round19-20261020/work/batch-54/runs/build/didymoceras/r003/build-r003/57afc3ae39de4a7a11e9e8f3e69fdeb65f4a07ed56462339eaa64c1e00c6907f/20261020T003413-e482da98c456426a875a16377128e412/result.json",
+        "sha256": "e6e3976a47c0ba503871ee84ebc951c0ad8241727eb2579f456ccea2c071235a"
+      },
+      "note": "Final queued Blender build process wall time only, excludes generator authoring, research and prior attempts."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 36.406,
+      "measurement_record": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/proof/render-manifest.json",
+        "sha256": "cbac8a2102d2ec7c544b7d2ae90eb0844265e4150ef96a609a5b0284794cfc5b"
+      },
+      "note": "Actual final renderer frame-loop wall time, excludes queue and process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No invented stage duration; retained observed receipts and execution logs are separate."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Node loader parsing was run; target browser/WebGL, GPU and scene stages were not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/proof/render-manifest.json",
+    "sha256": "cbac8a2102d2ec7c544b7d2ae90eb0844265e4150ef96a609a5b0284794cfc5b"
+  },
+  "thumbnail": {
+    "source_frame_id": "hero",
+    "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/proof/hero.png",
+    "sha256": "729345e987a326a8126f0cc12681e380ac1437b4b407bf767ee48f77cb3b4a99"
+  },
+  "review_note": {
+    "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/maker-review.md",
+    "sha256": "a6105c5817acbf546d7e68455d34cb347d20429d01d299cb14eacd9e40fa8e1e"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d",
+    "report": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/gltf-validator.report.json",
+      "sha256": "ded848870539abf84ccbe706943a127986e76c882030ea7c8418f4393e3af37d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Concept-sidecar advisory; formal frozen brief hard ceiling is 1,000,000 bytes, 14,000 triangles, 6 materials and 30 primitives."
+  },
+  "chronology_note": "Provider exact generation time is unknown. Receipt observed 2026-10-20T00:29:14Z; inspection separately recorded. Modeling_started_at denotes observed first Blender geometry execution, not unrecorded generator coding onset. Do not infer provider time from image metadata or file mtimes."
+}

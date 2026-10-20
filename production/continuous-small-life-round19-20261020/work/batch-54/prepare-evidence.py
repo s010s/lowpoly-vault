@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: MIT
+import pathlib,json,shutil
+R=pathlib.Path.cwd(); B=R/'production/continuous-small-life-round19-20261020/work/batch-54';A=R/'assets/candidates/continuous-small-life-round19-20261020/batch-54';jobs=[];rebuild=[];source=[]
+for d in sorted(A.glob('*/r001')):
+ s=d.parent.name;at=list((B/'runs/build'/s/'r001/build-r001').glob('*/*'))[0]
+ for f in (at/'outputs'/s).iterdir():shutil.copy2(f,d/f.name)
+ shutil.copy2(d/'qa.json',d/'build-qa.json');m=json.loads((d/'metadata.json').read_text());m.update(glb=str((d/(s+'.glb')).relative_to(R)),blend=str((d/(s+'.blend')).relative_to(R)),preview=str((d/'proof/hero.png').relative_to(R)),nominal_design_envelope_blender_xyz_m=json.loads((d/'build-config.json').read_text())['nominal_design_envelope_blender_xyz_m'],measurement_note='Actual Blender XYZ dimensions and GLB XYZ bounds measured separately, not a nominal fossil measurement.');(d/'metadata.json').write_text(json.dumps(m,indent=2)+'\n')
+ jobs.append({'asset_id':s,'revision':'r001','job_id':'proof-fixed8','inputs':{'glb':str(d/(s+'.glb')),'brief':str(d/'brief.json'),'references':str(d/'references.json'),'renderer':str(R/'scripts/render_candidate_views.py'),'helper':str(R/'scripts/asset_common.py'),'audit':str(R/'scripts/qa_glb.py')},'argv':['{blender}','--factory-startup','--python','{input:renderer}','--','{input:glb}','--revision','r001','--brief','{input:brief}','--references','{input:references}','--output-dir','{output_dir}','--views','hero,reversehero,front,side,rear,top,clay,silhouette','--turntable-frames','0','--resolution','512','--samples','8'],'outputs':['render-manifest.json','render-config.json']+[v+'.png' for v in ['hero','reversehero','front','side','rear','top','clay','silhouette']],'timeout_seconds':600})
+ for n in [1,2]:
+  j=json.loads(json.dumps(next(j for j in json.loads((B/'build-jobs.json').read_text())['jobs'] if j['asset_id']==s)));j['job_id']='rebuild-'+str(n);rebuild.append(j)
+ source.append({'asset_id':s,'revision':'r001','job_id':'source-reopen','inputs':{'source':str(d/(s+'.blend')),'glb':str(d/(s+'.glb')),'checker':str(R/'scripts/check_source_export.py'),'helper':str(R/'scripts/asset_common.py'),'audit':str(R/'scripts/qa_glb.py')},'argv':['{blender}','--factory-startup','--python','{input:checker}','--','--source','{input:source}','--glb','{input:glb}','--output','{output_dir}/source-export.json'],'outputs':['source-export.json'],'timeout_seconds':180})
+ print(s,m['triangles'],m['glb_bytes'],m['blender_dimensions_m'])
+for name,lane,js in [('proof-jobs','preview',jobs),('rebuild-jobs','build',rebuild),('source-jobs','build',source)]: (B/(name+'.json')).write_text(json.dumps({'schema_version':1,'lane':lane,'jobs':js},indent=2)+'\n')

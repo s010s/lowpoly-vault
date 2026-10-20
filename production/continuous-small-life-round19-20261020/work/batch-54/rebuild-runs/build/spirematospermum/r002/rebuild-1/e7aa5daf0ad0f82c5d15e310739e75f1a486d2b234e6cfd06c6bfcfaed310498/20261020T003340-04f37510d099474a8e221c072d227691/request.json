@@ -1,0 +1,85 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r002/build-config.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/rebuild-runs/build/spirematospermum/r002/rebuild-1/e7aa5daf0ad0f82c5d15e310739e75f1a486d2b234e6cfd06c6bfcfaed310498/20261020T003340-04f37510d099474a8e221c072d227691/outputs"
+  ],
+  "created_at": "2026-10-20T00:33:40.254767+00:00",
+  "fingerprint": "e7aa5daf0ad0f82c5d15e310739e75f1a486d2b234e6cfd06c6bfcfaed310498",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 1107,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r002/build-config.json",
+        "sha256": "c8f3a86a56a0e132e158c062118fe4e923a3db8c805ffe8e4afcbbaf9ff164f6"
+      },
+      "generator": {
+        "bytes": 8927,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r002/generator.py",
+        "sha256": "a5ec704a7d7b7711d1fa575edaf4e2a8d2e4c7381583cc7e1f46b59a1e01ab21"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "spirematospermum",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r002/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "spirematospermum/spirematospermum.glb",
+        "spirematospermum/spirematospermum.blend",
+        "spirematospermum/metadata.json",
+        "spirematospermum/qa.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261020T003320-21b5674f5d95420493de06ef032b6522"
+}

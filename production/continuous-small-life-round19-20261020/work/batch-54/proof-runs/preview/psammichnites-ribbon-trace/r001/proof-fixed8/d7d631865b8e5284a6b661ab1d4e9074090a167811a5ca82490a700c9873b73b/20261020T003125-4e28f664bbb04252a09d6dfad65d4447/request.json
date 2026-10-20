@@ -1,0 +1,129 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+    "--",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/psammichnites-ribbon-trace.glb",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/proof-runs/preview/psammichnites-ribbon-trace/r001/proof-fixed8/d7d631865b8e5284a6b661ab1d4e9074090a167811a5ca82490a700c9873b73b/20261020T003125-4e28f664bbb04252a09d6dfad65d4447/outputs",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "8"
+  ],
+  "created_at": "2026-10-20T00:31:25.302364+00:00",
+  "fingerprint": "d7d631865b8e5284a6b661ab1d4e9074090a167811a5ca82490a700c9873b73b",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 3218,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/brief.json",
+        "sha256": "613aa46edcee38a172eb02c3ad854a3d838c26ef49400a778ffc03d2bb506a3e"
+      },
+      "glb": {
+        "bytes": 273184,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/psammichnites-ribbon-trace.glb",
+        "sha256": "77e851313f4a53c47def40e3bc01a9217cab4fce44eb9427e24a3f0e27c87ec4"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 614,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/references.json",
+        "sha256": "8b614811ce9fe0a54b298ae546f163a0be58659de203e829e9d92935b79b240b"
+      },
+      "renderer": {
+        "bytes": 15996,
+        "path": "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+        "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "8"
+      ],
+      "asset_id": "psammichnites-ribbon-trace",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/brief.json",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/psammichnites-ribbon-trace.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r001/references.json",
+        "renderer": "/workspace/lowpoly-vault/scripts/render_candidate_views.py"
+      },
+      "job_id": "proof-fixed8",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261020T003120-de4dc937a7f548a3a41c3af98d77f9e4"
+}

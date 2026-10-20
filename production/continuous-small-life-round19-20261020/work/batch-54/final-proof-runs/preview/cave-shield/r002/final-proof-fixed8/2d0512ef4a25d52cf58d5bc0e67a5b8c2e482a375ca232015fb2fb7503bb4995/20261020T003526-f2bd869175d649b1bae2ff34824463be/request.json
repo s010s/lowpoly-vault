@@ -1,0 +1,129 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py",
+    "--",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/cave-shield.glb",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/final-proof-runs/preview/cave-shield/r002/final-proof-fixed8/2d0512ef4a25d52cf58d5bc0e67a5b8c2e482a375ca232015fb2fb7503bb4995/20261020T003526-f2bd869175d649b1bae2ff34824463be/outputs",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "32"
+  ],
+  "created_at": "2026-10-20T00:35:26.040221+00:00",
+  "fingerprint": "2d0512ef4a25d52cf58d5bc0e67a5b8c2e482a375ca232015fb2fb7503bb4995",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 3196,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/brief.json",
+        "sha256": "2fe565b96d10d5fe23071dab8cc896e6f9caddc0179e6ce5a8199f9e4eed45c9"
+      },
+      "glb": {
+        "bytes": 119696,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/cave-shield.glb",
+        "sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 505,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/references.json",
+        "sha256": "cf698befe17b201df5597d39156c065ab4ff4c372367c83aefdafd88a345ce96"
+      },
+      "renderer": {
+        "bytes": 16146,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py",
+        "sha256": "1354910a72831a66c8bc2ffb9ddc41f59a20f0094a7a8262cdf8e667c4d975f2"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "32"
+      ],
+      "asset_id": "cave-shield",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/brief.json",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/cave-shield.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py"
+      },
+      "job_id": "final-proof-fixed8",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 600
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261020T003525-0a11c26427ea4b5da7844952cc7f6365"
+}

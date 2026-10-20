@@ -1,0 +1,129 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py",
+    "--",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/didymoceras.glb",
+    "--revision",
+    "r003",
+    "--brief",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/brief-delivery.json",
+    "--references",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/references-delivery.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/delivery-proof-runs/preview/didymoceras/r003/delivery-proof-fixed8/189d271c2b77c49cb7fd1a2a0eecfde82315ce691c94645bb0522edb3d74b7ab/20261020T003910-99ad604bf3d449bdbbc9089f915588de/outputs",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "32"
+  ],
+  "created_at": "2026-10-20T00:39:10.711414+00:00",
+  "fingerprint": "189d271c2b77c49cb7fd1a2a0eecfde82315ce691c94645bb0522edb3d74b7ab",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4156,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/brief-delivery.json",
+        "sha256": "237c8e61466e46b265c148e5de3aac81e4807200db39ccf6f041b18db8533afb"
+      },
+      "glb": {
+        "bytes": 442360,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/didymoceras.glb",
+        "sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 818,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/references-delivery.json",
+        "sha256": "ada14af402a1e2858191d7e9c1186471dd1c89309149ab355b7fbe8e3c94f0a1"
+      },
+      "renderer": {
+        "bytes": 16146,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py",
+        "sha256": "1354910a72831a66c8bc2ffb9ddc41f59a20f0094a7a8262cdf8e667c4d975f2"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r003",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "32"
+      ],
+      "asset_id": "didymoceras",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/brief-delivery.json",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/didymoceras.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/references-delivery.json",
+        "renderer": "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py"
+      },
+      "job_id": "delivery-proof-fixed8",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 600
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261020T003757-76f0b0b2ac964fbba59397e903d39ab8"
+}

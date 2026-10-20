@@ -1,0 +1,129 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py",
+    "--",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/spirematospermum.glb",
+    "--revision",
+    "r003",
+    "--brief",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/proof-runs/preview/spirematospermum/r003/proof-fixed8/dfc9902e77c3d4af87626123a7cb10da2938651ff70f521db56b5af21f2a686e/20261020T003435-806cf917642a420485b489d8b370c803/outputs",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "8"
+  ],
+  "created_at": "2026-10-20T00:34:35.580261+00:00",
+  "fingerprint": "dfc9902e77c3d4af87626123a7cb10da2938651ff70f521db56b5af21f2a686e",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 3320,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/brief.json",
+        "sha256": "7bebba0a627c6546660732987ae54dba5e0b37ccdb343da2479529693661b700"
+      },
+      "glb": {
+        "bytes": 577504,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/spirematospermum.glb",
+        "sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 643,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/references.json",
+        "sha256": "f60fbfad08303f559f0570482d8f0fd31e035ac7b77b4a5487449574a84fdbcc"
+      },
+      "renderer": {
+        "bytes": 16161,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py",
+        "sha256": "8d7d87892d392a1dddd9183025a73fd6690a9a9c2a2f44513671c748dfaa3304"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r003",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "8"
+      ],
+      "asset_id": "spirematospermum",
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/brief.json",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/spirematospermum.glb",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/continuous-small-life-round19-20261020/work/batch-54/render_exact_glb.py"
+      },
+      "job_id": "proof-fixed8",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 600
+    },
+    "lane": "preview",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261020T003424-a096af85e6644088bb75d79e4eaeba08"
+}

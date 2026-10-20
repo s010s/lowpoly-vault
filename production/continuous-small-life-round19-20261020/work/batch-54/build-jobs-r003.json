@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "didymoceras",
+      "revision": "r003",
+      "job_id": "build-r003",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "didymoceras/didymoceras.glb",
+        "didymoceras/didymoceras.blend",
+        "didymoceras/metadata.json",
+        "didymoceras/qa.json"
+      ],
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "spirematospermum",
+      "revision": "r003",
+      "job_id": "build-r003",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "spirematospermum/spirematospermum.glb",
+        "spirematospermum/spirematospermum.blend",
+        "spirematospermum/metadata.json",
+        "spirematospermum/qa.json"
+      ],
+      "timeout_seconds": 180
+    }
+  ]
+}
