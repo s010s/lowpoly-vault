@@ -48,9 +48,10 @@ function nativeFixture({query='',mobile=false,reduced=false,ids=['first','cooper
  const nodes=Object.fromEntries(['title','subtitle','triangles','dimensions','file-size','download','blend','info','detail-poster','mobile-back'].map(id=>[id,{hidden:id==='mobile-back',style:{}}]));
  const rows=ids.map(id=>({dataset:{id,selected:String(id===selected),title:id,subtitle:'Plants / Stylized specimen',poster:`/gallery/posters/${id}.png`,triangles:'100',dimensions:'1 m',fileSize:'10 KB',download:`/assets/${id}.glb`,blend:`/assets/${id}.blend`,info:`/models/${id}/`},image:{style:{}},thumbnail:{dataset:{},addEventListener(type,handler){this[type]=handler;},removeEventListener(type,handler){if(this[type]===handler)delete this[type];},getAnimations:()=>[],...thumbnail},getAttribute:()=>id,setAttribute(key,value){this[key]=value;},querySelector(selector){return selector==='.slot-image img'?this.thumbnail:this.image;}}));
  const wheel={scrollTop:0,addEventListener(type,handler){this[type]=handler;}},root={dataset:{},classList:{contains:()=>true},querySelectorAll:()=>rows,querySelector:selector=>selector==='#wheel'?wheel:nodes[selector.slice(1)]};
+ const timers=new Map();let timerID=0;
  const classes=new Set(),document={getElementById:()=>root,body:{classList:{toggle(key,on){if(on)classes.add(key);else classes.delete(key);}}}};
- vm.runInContext(initializer,vm.createContext({document,location:{href:'https://example.test/lowpoly-vault/models/'+query},URL,matchMedia:media=>({matches:media.includes('max-width')?mobile:reduced}),setTimeout:()=>1,clearTimeout:()=>{},cancelAnimationFrame:()=>{},requestAnimationFrame:fn=>{fn();return 1;}}));
- return {nodes,rows,wheel,root,classes};
+ vm.runInContext(initializer,vm.createContext({document,location:{href:'https://example.test/lowpoly-vault/models/'+query},URL,matchMedia:media=>({matches:media.includes('max-width')?mobile:reduced}),setTimeout:(fn,delay)=>{timers.set(++timerID,{fn,delay});return timerID;},clearTimeout:id=>timers.delete(id),cancelAnimationFrame:()=>{},requestAnimationFrame:fn=>{fn();return 1;}}));
+ return {nodes,rows,wheel,root,classes,timers};
 }
 for(const mobile of [false,true]){
  const selected=nativeFixture({mobile,query:'?model=last&q=fern&category=plants'});
@@ -94,3 +95,14 @@ let nativeCachedDecodes=0;const nativeCached=nativeFixture({thumbnail:{complete:
 for(const decode of [()=>Promise.reject(Error('bad decode')),()=>{throw Error('bad decode');}]){const broken=nativeFixture({thumbnail:{complete:true,naturalWidth:32,decode}});await tick();assert(broken.rows.every(row=>row.thumbnail.dataset.thumbnailState==='error'));}
 const nativeFailed=nativeFixture({thumbnail:{complete:true,naturalWidth:0}});assert(nativeFailed.rows.every(row=>row.thumbnail.dataset.thumbnailState==='error'));
 console.log('Native thumbnail readiness: pending decode, cached completion, duplicate load, decode rejection/throw and failed image passed.');
+
+for(const completion of ['timeout','event']){
+ const noAPI=nativeFixture({thumbnail:{getAnimations:undefined,complete:true,naturalWidth:32,decode:()=>Promise.resolve()}});await tick();
+ assert(noAPI.rows.every(({thumbnail})=>thumbnail.dataset.thumbnailState==='ready'&&thumbnail.dataset.thumbnailReveal==='entering'),'Native images without animation inspection stay decoded while the reveal runs');
+ assert.equal(noAPI.timers.size,3);assert([...noAPI.timers.values()].every(timer=>timer.delay===250),'Native fallback keeps the existing 250 ms bound');
+ if(completion==='event')for(const {thumbnail}of noAPI.rows)thumbnail.transitionend({target:thumbnail,propertyName:'opacity'});
+ else for(const {fn}of [...noAPI.timers.values()])fn();
+ assert(noAPI.rows.every(({thumbnail})=>thumbnail.dataset.thumbnailState==='ready'&&thumbnail.dataset.thumbnailReveal==='settled'));assert.equal(noAPI.timers.size,0);
+ assert(noAPI.rows.every(({thumbnail})=>!thumbnail.transitionend&&!thumbnail.transitioncancel),'Native fallback and events clean both listeners');
+}
+console.log('Native missing animation API: real transition is not cut short, opacity end or 250 ms fallback settles ready and cleans listeners.');

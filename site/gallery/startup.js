@@ -16,7 +16,7 @@
    const ended=event=>{if(event.target===image&&event.propertyName==='opacity')settle();};
    image.addEventListener('transitionend',ended);image.addEventListener('transitioncancel',ended);
    timer=setTimeout(settle,250);
-   frame=requestAnimationFrame(()=>{frame=0;if(!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();});
+   frame=requestAnimationFrame(()=>{frame=0;if(typeof image.getAnimations==='function'&&!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();});
   }
   // Opt in only when this independent script runs: no-JS native links and
   // posters remain visible. Match the enhanced queue's decode-before-reveal gate.

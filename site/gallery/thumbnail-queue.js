@@ -9,7 +9,7 @@ function revealDecodedThumbnail(image){
  const ended=event=>{if(event.target===image&&event.propertyName==='opacity')settle();};
  image.addEventListener('transitionend',ended);image.addEventListener('transitioncancel',ended);
  timer=setTimeout(settle,250);
- frame=requestAnimationFrame(()=>{frame=0;if(!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();});
+ frame=requestAnimationFrame(()=>{frame=0;if(typeof image.getAnimations==='function'&&!image.getAnimations().some(animation=>animation.transitionProperty==='opacity'))settle();});
 }
 /** Small, cancelable image-only queue. Passing a model is never a GLB request. */
 export class ThumbnailQueue {
