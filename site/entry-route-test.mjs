@@ -85,7 +85,12 @@ try {
       assert(critical,'List first-paint guard is rendered into HTML');
       assert(listing.indexOf('id="gallery-startup-style"')<listing.indexOf('</head>'),'Guard is in the head, outside noscript');
       assert(critical.includes('>:not(#static-route-content){display:none!important}'),'Only the useful SSG catalog is visible before mount');
-      assert(critical.includes('prefers-color-scheme:dark')&&critical.includes('data-theme="dark"'),'Saved and system dark preference keep a matching background');
+      assert(listing.includes('data-application="gallery"'),'Native gallery uses the same approved palette as the enhanced gallery, without a theme flash');
+      assert(listing.includes('class="gallery-static"')&&listing.includes('class="slot"'),'First paint is a real linked wheel, not a different card-grid design');
+      assert(!listing.includes('class="static-grid"'),'Legacy card grid is never emitted for models routes');
+      assert.equal((listing.match(/class="slot"/g)||[]).length,assets.length,'Every approved model remains a native link without JavaScript');
+      assert(critical.includes('grid-template-columns:clamp(330px,28.3vw,490px) 1fr'),'The production layout is inline before any network dependency');
+      assert(listing.includes('id="gallery-startup-init"'),'The lightweight parser initializer centers the initial model independently of entry code');
       assert(listing.includes(`href="${base}${locale}models/model-0/"`));
       assert(listing.includes(`rel="next" href="${base}${locale}models/page/2/"`));
       const detail = await readFile(join(out, locale, 'models/model-0/index.html'), 'utf8');

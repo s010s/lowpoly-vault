@@ -1,0 +1,6 @@
+/** One display-name vocabulary for the native preview and enhanced gallery. */
+const names={thamnopora:['Thamnopora','枝状珊瑚'], 'fern-cluster':['Fern cluster','地表蕨丛'],gryphaea:['Gryphaea','弯壳牡蛎'],cooperoceras:['Cooperoceras','长角盘卷壳'],waptia:['Waptia','瓦普塔虾'],syringopora:['Syringopora','笛管珊瑚'],'natural-arch':['Natural arch','天然石拱'],'conifer-tree':['Airy conifer','疏枝针叶树'],'quartz-prism-cluster':['Quartz cluster','石英晶簇']};
+Object.assign(names,{'opabinia':['Opabinia','五眼古生动物'],'halysites':['Halysites','链珊瑚'],'fenestella':['Fenestella','窗格扇苔藓动物'],'cooksonia':['Cooksonia','顶囊裸轴'],'canadaspis':['Canadaspis','甲壳底栖动物'],'metasequoia':['Metasequoia','水杉类化石枝'],'azolla':['Azolla','淡水叶瓦浮垫'],'micrabacia':['Micrabacia','放射盘珊瑚']});
+const categories={animals:['Animal forms','动物形态'],plants:['Plants','植物'],geology:['Geology','地质'],wood:['Wood','木材'],traces:['Traces','痕迹']};
+export function modelShortName(asset,lang='en') {return names[asset.id]?.[lang==='zh'||lang==='zh-CN'?1:0]||((lang==='zh'||lang==='zh-CN')?asset.name.zh:asset.id.replaceAll('-',' ').replace(/^./,c=>c.toUpperCase()))||asset.id;}
+export function galleryCategoryLabel(category,lang='en') {return categories[category]?.[lang==='zh'||lang==='zh-CN'?1:0]||category;}

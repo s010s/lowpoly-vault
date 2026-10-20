@@ -55,7 +55,7 @@ renderer.compare=function(){this.comparison=!this.comparison;return this.compari
 renderer.reset=function(){this.comparison=false;};
 renderer.select=async function(){this.comparison=false;return true;};
 renderer.detail={metric:{available:true}};
-Object.assign(context,{selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:()=>({ready:Promise.resolve(true)}),mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
+Object.assign(context,{syncMobileView(){},selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:()=>({ready:Promise.resolve(true)}),mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
 document.body=new Node();ui.filter={open:false};
 vm.runInContext(source.slice(source.indexOf('async function choose('),source.indexOf('function showError(')),context);
 const resetStart=source.indexOf("$('#reset').onclick="),resetEnd=source.indexOf(";$('#retry').onclick=",resetStart);vm.runInContext(source.slice(resetStart,resetEnd)+';',context);
