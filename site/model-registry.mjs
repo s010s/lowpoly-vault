@@ -136,6 +136,20 @@ export function validateModelRecord(record) {
     assert.equal(row.id, record.id, 'Turntable belongs to another model');
     assert.equal(row.source_glb_sha256, record.asset.sha256.glb, 'Turntable belongs to different GLB bytes');
   }
+  const variants = [''];
+  if (typeof record.asset.revision === 'string' && /^[a-z0-9][a-z0-9._-]*$/.test(record.asset.revision) && !record.asset.revision.includes('..')) variants.push(record.asset.revision);
+  const escape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (record.turntable.asset) {
+    const row = record.turntable.asset;
+    pin({path: row.manifest, sha256: row.manifest_sha256}, 'Turntable descriptor');
+    assert(variants.some(revision => new RegExp(`^assets/turntables/${escape(record.id)}/${revision ? escape(revision) + '/' : ''}v[0-9]+-[0-9]+-q[0-9]+/turntable\\.json$`).test(row.manifest)), `Turntable descriptor path has another model/revision owner: ${record.id}`);
+  }
+  if (record.turntable.poster) {
+    const row = record.turntable.poster;
+    pin({path: row.path, sha256: row.sha256}, 'Card poster');
+    assert(variants.some(revision => new RegExp(`^assets/card-previews/${escape(record.id)}${revision ? '-' + escape(revision) : ''}-v[0-9]+-[0-9]+-q[0-9]+\\.webp$`).test(row.path)), `Card poster path has another model/revision owner: ${record.id}`);
+    assert(Number.isSafeInteger(row.bytes) && row.bytes > 0, 'Card poster positive byte count required');
+  }
   canonical(record); return record;
 }
 
@@ -170,10 +184,15 @@ function collectRegistry(registry) {
   }
   assert.equal(claimed.size, models.size, 'Unselected model records cannot enter composition');
   const assetOwners = new Map();
-  for (const record of records) for (const kind of ['glb', 'blend', 'preview']) {
-    const path = record.asset[kind];
-    assert(!assetOwners.has(path) || assetOwners.get(path) === record.id, `Asset path shared by different model owners: ${path}`);
-    assetOwners.set(path, record.id);
+  for (const record of records) {
+    const paths = ['glb', 'blend', 'preview'].map(kind => record.asset[kind]);
+    paths.push(...record.gallery.files.map(file => `site/public/${file.path}`));
+    if (record.turntable.asset) paths.push(record.turntable.asset.manifest);
+    if (record.turntable.poster) paths.push(record.turntable.poster.path);
+    for (const path of paths) {
+      assert(!assetOwners.has(path) || assetOwners.get(path) === record.id, `Asset path shared by different model owners: ${path}`);
+      assetOwners.set(path, record.id);
+    }
   }
   return models;
 }
@@ -234,14 +253,29 @@ export function modelInputBinding(record, {sharedContextSha256, evidence = [], r
     const entry = {path: record.turntable.asset.manifest, sha256: record.turntable.asset.manifest_sha256};
     pin(entry, 'Turntable manifest');
     const bytes = read(entry.path); assert.equal(hashBytes(bytes), entry.sha256, `Input bytes changed: ${entry.path}`);
-    const turntable = JSON.parse(bytes); assert(Array.isArray(turntable.frames), 'Turntable frame inventory required');
-    pins.push(entry);
+    const turntable = JSON.parse(bytes);
+    assert(object(turntable), 'Turntable descriptor object required');
+    // Legacy descriptors have no explicit ID: their exact owned path identifies them.
+    // Any explicit identity claim must agree; missing fields are not synthesized.
+    for (const key of ['id', 'asset_id', 'model_id']) if (Object.hasOwn(turntable, key)) assert.equal(turntable[key], record.id, `Turntable descriptor ${key} differs from its model owner`);
+    assert.equal(turntable.source_glb_sha256, record.asset.sha256.glb, 'Turntable descriptor source GLB differs from its model');
+    assert.equal(turntable.version, 1, 'Unsupported turntable descriptor version');
+    assert(Array.isArray(turntable.frames) && turntable.frames.length > 0, 'Nonempty turntable frame inventory required');
+    assert(Number.isSafeInteger(turntable.frame_count) && turntable.frame_count === turntable.frames.length, 'Declared turntable frame_count differs from inventory');
+    assert(Number.isSafeInteger(turntable.poster_index) && turntable.poster_index >= 0 && turntable.poster_index < turntable.frame_count, 'Turntable poster index is outside frame inventory');
+    assert(Number.isSafeInteger(turntable.total_bytes) && turntable.total_bytes > 0, 'Declared turntable total_bytes required');
+    pins.push(entry); let total = 0;
     for (const [i, frame] of turntable.frames.entries()) {
       assert.equal(frame.path, `${posix.dirname(entry.path)}/frame-${String(i).padStart(3, '0')}.webp`, 'Turntable frame ownership/order differs');
-      pins.push({path: frame.path, sha256: frame.sha256}); lengths.set(frame.path, frame.bytes);
+      assert(Number.isSafeInteger(frame.bytes) && frame.bytes > 0, 'Turntable frame positive byte count required');
+      pins.push({path: frame.path, sha256: frame.sha256}); lengths.set(frame.path, frame.bytes); total += frame.bytes;
     }
+    assert(Number.isSafeInteger(total) && total === turntable.total_bytes, 'Declared turntable total_bytes differs from frame inventory');
   }
-  if (record.turntable.poster) pins.push({path: record.turntable.poster.path, sha256: record.turntable.poster.sha256});
+  if (record.turntable.poster) {
+    pins.push({path: record.turntable.poster.path, sha256: record.turntable.poster.sha256});
+    lengths.set(record.turntable.poster.path, record.turntable.poster.bytes);
+  }
   for (const file of evidence) { pin(file, 'Evidence'); pins.push(file); }
   const inventory = new Map();
   for (const file of pins) {

@@ -142,7 +142,7 @@ await test('final integration is narrow, exact-head-bound and cannot self-approv
   assert.throws(() => assertIntegrationPlan(plan, registry, next, {currentHead: 'b'.repeat(40)}), /head moved/);
   assert.throws(() => assertIntegrationPlan(plan, registry, append(next, addition('new-b')), {currentHead: SHA}), /Integration inputs changed/);
 });
-await test('legacy projection emits complete deterministic catalog/details without changing URL paths', () => {
+await test('legacy projection emits deterministic raw-source catalog/details without changing URL paths', () => {
   const {registry, snapshot} = fixture(), files = composedFiles(registry);
   assert.equal(files.get('assets/catalog.json').total, 2);
   assert.equal(files.get('assets/catalog/details/old-one.json').glb, snapshot.manifest.assets[1].glb);
@@ -170,4 +170,90 @@ await test('readers reject path traversal and symlink substitutions', () => {
 await test('CLI refuses moving refs, missing flags and unknown flags', () => {
   assert.throws(() => main(['import', '--repo', '.', '--commit', 'main', '--out', '/tmp/not-created']), /exact 40-character/);
   assert.throws(() => main(['compose', '--registry-root', 'missing', '--out', '/tmp/not-created', '--force', 'true']), /Expected values/);
+});
+
+function withTurntable(value, change = () => {}) {
+  const id = value.record.id, root = `assets/turntables/${id}/v2-768-q90`;
+  const frames = [0, 1].map(i => {
+    const path = `${root}/frame-${String(i).padStart(3, '0')}.webp`, bytes = Buffer.from(`${id} frame ${i}`);
+    value.files.set(path, bytes); return {path, bytes: bytes.length, sha256: hashBytes(bytes)};
+  });
+  const descriptor = {version: 1, id, source_glb_sha256: value.record.asset.sha256.glb, frame_count: frames.length, poster_index: 0, frames, total_bytes: frames.reduce((total, frame) => total + frame.bytes, 0)};
+  change(descriptor);
+  const manifest = `${root}/turntable.json`, bytes = Buffer.from(encode(descriptor)); value.files.set(manifest, bytes);
+  value.record.turntable.asset = {id, source_glb_sha256: value.record.asset.sha256.glb, manifest, manifest_sha256: hashBytes(bytes)};
+  const path = `assets/card-previews/${id}-v2-768-q90.webp`, card = Buffer.from(`${id} card`); value.files.set(path, card);
+  value.record.turntable.poster = {id, source_glb_sha256: value.record.asset.sha256.glb, path, sha256: hashBytes(card), bytes: card.length};
+  value.batch.records = [recordReference(value.record)]; return value;
+}
+await test('valid optional resources bind exact descriptor, nonempty frames and card bytes', () => {
+  const {registry} = fixture(), a = withTurntable(addition('new-a'));
+  composeRegistry(append(registry, a));
+  const binding = modelInputBinding(a.record, context(a.files));
+  assert.equal(binding.files.length, 9); assertInputBinding(binding, a.record, context(a.files));
+});
+await test('legacy descriptors without an ID remain bound by owned path and exact GLB hash', () => {
+  const a = withTurntable(addition('new-a'), descriptor => { delete descriptor.id; });
+  modelInputBinding(a.record, context(a.files));
+});
+for (const [label, key, badPath] of [
+  ['turntable traversal', 'asset', '../outside.json'],
+  ['turntable foreign owner', 'asset', 'assets/turntables/other-model/turntable.json'],
+  ['turntable noncanonical directory', 'asset', 'assets/turntables/new-a//v2-768-q90/turntable.json'],
+  ['turntable foreign revision', 'asset', 'assets/turntables/new-a/unselected-r009/v2-768-q90/turntable.json'],
+  ['card traversal', 'poster', '../outside.webp'],
+  ['card foreign owner', 'poster', 'assets/card-previews/other-model.webp'],
+  ['card prefix collision', 'poster', 'assets/card-previews/new-a-extra-v2-768-q90.webp'],
+  ['card foreign revision', 'poster', 'assets/card-previews/new-a-unselected-r009-v2-768-q90.webp']
+]) await test(`composition rejects ${label} before emitting any optional index`, () => {
+  const {registry} = fixture(), a = withTurntable(addition('new-a'));
+  a.record.turntable[key][key === 'asset' ? 'manifest' : 'path'] = badPath; a.batch.records = [recordReference(a.record)];
+  assert.throws(() => composeRegistry(append(registry, a)), /safe path|another model\/revision owner/);
+});
+await test('two models cannot share a card path even when both revision/name patterns match', () => {
+  const {registry} = fixture(), a = withTurntable(addition('new-a')), b = withTurntable(addition('new-a-r001'));
+  a.record.turntable.poster.path = b.record.turntable.poster.path; a.batch.records = [recordReference(a.record)];
+  assert.throws(() => composeRegistry(append(registry, a, b)), /shared by different model owners/);
+});
+for (const [label, change, expected] of [
+  ['descriptor model ID', value => { value.id = 'unrelated-model'; }, /descriptor id differs/],
+  ['descriptor asset ID', value => { value.asset_id = 'unrelated-model'; }, /descriptor asset_id differs/],
+  ['descriptor GLB source', value => { value.source_glb_sha256 = 'c'.repeat(64); }, /descriptor source GLB differs/],
+  ['empty frame inventory', value => { value.frames = []; value.frame_count = 0; value.total_bytes = 0; }, /Nonempty/],
+  ['missing frame count', value => { delete value.frame_count; }, /frame_count/],
+  ['frame count mismatch', value => { value.frame_count++; }, /frame_count/],
+  ['frame total mismatch', value => { value.total_bytes++; }, /total_bytes differs/],
+  ['missing declared total', value => { delete value.total_bytes; }, /total_bytes required/],
+  ['out-of-range poster frame', value => { value.poster_index = value.frame_count; }, /poster index/],
+  ['foreign frame path', value => { value.frames[0].path = 'assets/turntables/other-model/v2-768-q90/frame-000.webp'; }, /ownership\/order/],
+  ['frame byte count mismatch', value => { value.frames[0].bytes++; value.total_bytes++; }, /Input byte count changed/]
+]) await test(`input binding rejects ${label} even after descriptor hash is recomputed`, () => {
+  const a = withTurntable(addition('new-a'), change);
+  assert.throws(() => modelInputBinding(a.record, context(a.files)), expected);
+});
+await test('input binding rejects modified frame bytes and dishonest card byte count', () => {
+  const a = withTurntable(addition('new-a'));
+  a.files.set('assets/turntables/new-a/v2-768-q90/frame-000.webp', Buffer.from('substituted pixels'));
+  assert.throws(() => modelInputBinding(a.record, context(a.files)), /Input bytes changed/);
+  const b = withTurntable(addition('new-b')); b.record.turntable.poster.bytes++;
+  assert.throws(() => modelInputBinding(b.record, context(b.files)), /Input byte count changed/);
+});
+await test('on-disk orphan canonical records fail closed, not silently ignored', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'registry-test-'));
+  try {
+    const {registry} = fixture(), target = join(dir, 'tree'); writeFreshTree(target, registryFiles(registry));
+    const orphan = addition('orphan'), ref = recordReference(orphan.record);
+    mkdirSync(join(target, ref.path, '..'), {recursive: true}); writeFileSync(join(target, ref.path), encode(orphan.record));
+    assert.throws(() => readRegistry(target), /Unselected on-disk model record/);
+  } finally { rmSync(dir, {recursive: true, force: true}); }
+});
+await test('orphan inventory symlinks and unexpected files are rejected before loading records', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'registry-test-'));
+  try {
+    const {registry} = fixture(), target = join(dir, 'tree'); writeFreshTree(target, registryFiles(registry));
+    symlinkSync(join(dir, 'missing'), join(target, 'registry/models/orphan-link'));
+    assert.throws(() => readRegistry(target), /inventory symlink/);
+    rmSync(join(target, 'registry/models/orphan-link')); writeFileSync(join(target, 'registry/models/hidden.json'), '{}');
+    assert.throws(() => readRegistry(target), /Unexpected model inventory file/);
+  } finally { rmSync(dir, {recursive: true, force: true}); }
 });

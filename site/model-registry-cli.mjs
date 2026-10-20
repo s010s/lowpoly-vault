@@ -53,7 +53,23 @@ export function readRegistry(root) {
       assert.equal(`${batch.id}.json`, name, 'Batch file owner mismatch'); return batch;
     });
   }
-  const records = [...baseline.records, ...batches.flatMap(batch => batch.records)].map(ref => {
+  const refs = [...baseline.records, ...batches.flatMap(batch => batch.records)];
+  const selectedPaths = new Set(refs.map(ref => ref.path)), storedPaths = [];
+  const base = realpathSync(root);
+  function inventory(path) {
+    const full = resolve(base, path), stat = lstatSync(full);
+    assert(!stat.isSymbolicLink() && realpathSync(full) === full, `Registry inventory symlink rejected: ${path}`);
+    if (stat.isDirectory()) {
+      for (const name of readdirSync(full).sort()) inventory(`${path}/${name}`);
+    } else {
+      assert(stat.isFile() && /^registry\/models\/[a-z0-9]+(?:-[a-z0-9]+)*\/revisions\/[a-f0-9]{64}\/record\.json$/.test(path), `Unexpected model inventory file: ${path}`);
+      assert(selectedPaths.has(path), `Unselected on-disk model record: ${path}`);
+      storedPaths.push(path);
+    }
+  }
+  inventory('registry/models');
+  assert.deepEqual(storedPaths.sort(), [...selectedPaths].sort(), 'Selected model inventory differs from stored records');
+  const records = refs.map(ref => {
     const bytes = read(ref.path), record = JSON.parse(bytes);
     assert.equal(digest(record), ref.sha256, `Record content digest mismatch: ${ref.path}`);
     assert.equal(hashBytes(bytes), ref.sha256, `Record must use canonical immutable bytes: ${ref.path}`); return record;
