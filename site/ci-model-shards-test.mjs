@@ -135,6 +135,72 @@ try {
   assert.deepEqual(JSON.parse(readFileSync(join(fixture, 'qa/ci-model-shards/models-1-of-1.json'))).models.map(row => row.id), ['model-004']);
 } finally { rmSync(fixture, { recursive: true, force: true }); }
 const workflow = readFileSync('.github/workflows/full-release-review.yml', 'utf8');
+// Source-only contracts run once, before any shared build or browser consumer.
+// Keep the existing DAG, checkout/runtime and per-run evidence boundaries.
+const workflowJob = name => {
+  const body = workflow.split(`\n  ${name}:\n`)[1];
+  assert(body, `Missing workflow job ${name}`);
+  const end = body.search(/\n  [a-zA-Z][\w-]*:/);
+  return end < 0 ? body : body.slice(0, end);
+};
+const sourceJob = workflowJob('prepare-source'), prepareJob = workflowJob('prepare');
+const browserJob = workflowJob('build'), auditJob = workflowJob('audit-prepared-build');
+const sharedContracts = [
+  'ci-browser-task-proof', 'ci-additions-browser-contract', 'ci-install-chromium',
+  'catalog-data', 'ci-card-preview-proof', 'ci-model-proof', 'ci-model-cache',
+  'ci-incremental-models', 'ci-scope', 'ci-model-shards', 'ci-timed', 'ci-scene-input',
+].map(name => `site/${name}-test.mjs`);
+const sourceContractStep = sourceJob.match(/      - name: Validate source contracts once before all proof consumers\n        run: ([^\n]+)\n/);
+assert(sourceContractStep, 'Source contracts must be an unconditional, blocking step');
+const contractCommand = sourceContractStep[1], contractPaths = contractCommand.split(' && ').map(command => {
+  assert.match(command, /^node site\/[\w-]+-test\.mjs$/);
+  return command.slice('node '.length);
+});
+assert.equal(new Set(contractPaths).size, contractPaths.length, 'No duplicate source contract commands');
+for (const path of sharedContracts) {
+  assert(contractPaths.includes(path), `Missing once-only source contract ${path}`);
+  assert.equal(workflow.split(`node ${path}`).length - 1, 1, `Repeated source contract ${path}`);
+}
+assert(sourceJob.indexOf(sourceContractStep[0]) < sourceJob.indexOf('run: npm run build'));
+assert.match(sourceJob, /\n    needs: scope\n/);
+assert.match(prepareJob, /\n    needs: \[scope, prepare-source\]\n/);
+assert.match(browserJob, /\n    needs: \[scope, prepare\]\n/);
+assert.match(auditJob, /\n    needs: prepare\n/);
+for (const job of [sourceJob, prepareJob, browserJob, auditJob]) {
+  assert.match(job, /runs-on: ubuntu-latest/);
+  assert.match(job, /uses: actions\/checkout@v4/);
+  assert.match(job, /node-version: '22'/);
+  assert.doesNotMatch(job, /\n\s+(?:ref|repository):/, 'No different checkout may inherit the source contracts');
+  assert.doesNotMatch(job, /continue-on-error:/, 'Failures must remain blocking');
+  assert.doesNotMatch(job.split('\n    steps:')[0], /always\(\)|failure\(\)|cancelled\(\)/, 'Failed dependencies cannot be bypassed');
+}
+assert.doesNotMatch(sourceJob, /always\(\)|failure\(\)|cancelled\(\)/);
+assert.match(browserJob, /run: node site\/ci-model-shards\.mjs verify-build/);
+assert.match(browserJob, /run: node site\/ci-install-chromium\.mjs/);
+assert.match(browserJob, /run: node site\/ci-review\.mjs/);
+assert.match(browserJob, /name: exact-model-plan/);
+assert.match(browserJob, /name: card-preview-proof/);
+assert.match(browserJob, /name: model-shard-\$\{\{ matrix\.task \}\}/);
+// Execute the actual && command chain with a tiny Node-command stand-in.
+// Every failure position must stop subsequent contracts and artifact production.
+// This tests shell failure propagation; the DAG assertions above test wiring.
+const contractFixture = mkdtempSync(join(tmpdir(), 'lpv-contract-once-'));
+try {
+  const bin = join(contractFixture, 'bin'); mkdirSync(bin);
+  writeFileSync(join(bin, 'node'), '#!/bin/sh\nprintf "%s\\n" "$1" >> "$CONTRACT_TRACE"\nif [ "$1" = "$FAIL_CONTRACT" ]; then exit 23; fi\n', { mode: 0o755 });
+  const trace = join(contractFixture, 'trace'), artifact = join(contractFixture, 'built');
+  for (const failed of ['', ...contractPaths]) {
+    writeFileSync(trace, ''); rmSync(artifact, { force: true });
+    const result = spawnSync('bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', `${contractCommand} && printf built > "$CONTRACT_ARTIFACT"`], {
+      cwd: contractFixture, encoding: 'utf8',
+      env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, FAIL_CONTRACT: failed, CONTRACT_TRACE: trace, CONTRACT_ARTIFACT: artifact },
+    });
+    assert.equal(result.status, failed ? 23 : 0, result.stderr);
+    assert.deepEqual(readFileSync(trace, 'utf8').trim().split('\n'), failed ? contractPaths.slice(0, contractPaths.indexOf(failed) + 1) : contractPaths);
+    assert.equal(existsSync(artifact), !failed, 'Failed source contracts cannot produce the downstream build');
+  }
+} finally { rmSync(contractFixture, { recursive: true, force: true }); }
+console.log(`Full review contracts: 12 shared suites run once; all ${contractPaths.length} failure positions stop the command chain, with mandatory same-checkout/runtime DAG and browser/artifact checks retained.`);
 assert.match(workflow, /max-parallel: 6/);
 assert.match(workflow, /ci-model-shards\.mjs seal-build/);
 assert.match(workflow, /ci-model-shards\.mjs verify-build/);

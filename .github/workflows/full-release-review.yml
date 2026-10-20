@@ -72,7 +72,8 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - name: Validate source contracts once before all proof consumers
+        run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - name: Brand source contracts when present
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
@@ -202,7 +203,8 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/catalog-data-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      # prepare-source already ran every source contract on this checkout/runtime.
+      # Its mandatory prepare dependency blocks every shard on a contract failure.
       - uses: actions/download-artifact@v4
         with:
           name: full-review-built-site
