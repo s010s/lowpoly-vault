@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "glacial-cirque",
+  "revision": "r001",
+  "labels": {
+    "en": "glacial-cirque"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "6514d415da79c77bcbbd35e26ebc8734aebe6da745d3e73584d8e03c446436d5"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "027cfc888637c47562ab773b89304ac44256091fc53900edf557f47642401c4d"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "e7cbdffd4257564e09e57cf1c7d1e7ab375aac6bc95ab66bf2d8e067507553b7"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "1bbcc63e93236a486f7f8f1ca6b9a568ef8ce4d9876816ad34b7593e378b3f4c"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "d28f625343313419c553417149e0039590b3a4c53eb8d3bfdf45b239a3be4f69"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "b8b2973b5ca70f848448e20eb4be7de36627d16904025d008c700ec32a024c72"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "3b8c6d88876bf7e68bf86878b6dcd55ff26b1c7bd7d9a1bcfb251e23f6fdc951"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "9d40028d8cd5e40cea8288bc9f1df5dc5aa4e1b8890a7db73e5dcece4c9c33ca"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "84f1f7771b59dec7d0d89ffde5ec8fdd34c460689c107e03d175d19cd593c4c5"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-row original concept pixels inspected before freeze; only corresponding labeled row applies to each asset. Collinsium repeated limb/spine counts follow primary paper, not inconsistent AI drawing; yardang geometry must show erosion; cirque front opened and optional tarn omitted; frostwork rods sharpened to acicular needles. Complete decisions in frozen brief.",
+    "hidden_surface_decisions": "Concept C retains headwall, basin, jagged rim and muted gray exposed rock. Reject its excessive circular enclosure: deliberately lower and open front-Y throat leading over a low threshold into short valley outlet. High rear+Y wall wraps side shoulders into U-shaped amphitheatre, outer/back slopes exist in3D. Continuous faceted terrain with closed cutaway underside. Small snow patches on upper interior wall only, not an active-glacier depiction. Omit optional tarn to keep actual basin relief readable in top/clay and avoid waterplane ambiguity. Facet color subordinate to geometry, 3gray rocks+snow."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T08:08:10Z",
+    "modeling_started_at": "2026-10-20T08:11:39.824784+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.2671,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "c2e81b88ba543befbe39cac250995af953fc04e6a4b7c0167723b44a9eaa40c7"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "c2e81b88ba543befbe39cac250995af953fc04e6a4b7c0167723b44a9eaa40c7"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "991aa43ad3207ab3eaa5eef84eb00b08b6aacf45273ac42ce17835687ddc6a79",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "30db88e545e61da48435a697a43ea8b7c1e1b064788cf7d7fdbcefba5c911d22"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "6514d415da79c77bcbbd35e26ebc8734aebe6da745d3e73584d8e03c446436d5",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "810fb00d72b009cd2bdfb75939d8107e980ca1175b34dba2665398fc54a6517c"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

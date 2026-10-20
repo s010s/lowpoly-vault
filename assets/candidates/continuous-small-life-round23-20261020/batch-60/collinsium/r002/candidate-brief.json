@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "collinsium",
+  "brief_version": "r002",
+  "profile": "production",
+  "purpose": "Original evidence-informed stylized teaching prop, candidate only",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical features: Whole animal with exactly6 paired long bristled filtering limbs and9 paired short clawed lobopods; 15 dorsal spine stations: first2 tiny spines then14 sets of5, medial longest, lateral shortest; gentle anterior tip curvature; Eyeless downcurved bulbous head, two head plates, two forward antenniform appendages, terminal mouth; tapering posterior extension. Scope: Evidence-informed genus-level whole-organism exterior living reconstruction, not a measured fossil replica. Diagnostic external limbs and armor informed by named C.ciliosum fossils. No internal organ, exact color, behavior, habitat substrate or museum-grade accuracy claim. Illustrative85mm body length within reported maximum, not a measured individual.",
+      "required_sources": [
+        "IV-COLLINSIUM"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical features: Whole animal with exactly6 paired long bristled filtering limbs and9 paired short clawed lobopods; 15 dorsal spine stations: first2 tiny spines then14 sets of5, medial longest, lateral shortest; gentle anterior tip curvature; Eyeless downcurved bulbous head, two head plates, two forward antenniform appendages, terminal mouth; tapering posterior extension. Scope: Evidence-informed genus-level whole-organism exterior living reconstruction, not a measured fossil replica. Diagnostic external limbs and armor informed by named C.ciliosum fossils. No internal organ, exact color, behavior, habitat substrate or museum-grade accuracy claim. Illustrative85mm body length within reported maximum, not a measured individual.",
+      "required_sources": [
+        "IV-COLLINSIUM"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight512px views; zero turntable; all7stages distinct.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/collinsium/r002/source.blend",
+      "sha256": "4bdec9762f9fddb6d010da29d1ae3b8148c8027f4c24eed3e5bb96f0dace1b56"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/collinsium/r002/generator.py",
+      "sha256": "070d4d643a379ed39bee10d15eba4a0cfa8408b58f356c33991222b831f89209"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-60/collinsium/r002/build-config.json",
+      "sha256": "0c2689be072e22b91764028e44c014207674bdbdf60fb4d5aa82e8dda06b0ce3"
+    }
+  ],
+  "claim_scope": "Evidence-informed genus-level whole-organism exterior living reconstruction, not a measured fossil replica. Diagnostic external limbs and armor informed by named C.ciliosum fossils. No internal organ, exact color, behavior, habitat substrate or museum-grade accuracy claim. Illustrative85mm body length within reported maximum, not a measured individual.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.035,
+    0.085,
+    0.038
+  ],
+  "dimension_status": "Illustrative nominal targets; true exported dimensions separately measured",
+  "recognition_features": [
+    "Whole animal with exactly6 paired long bristled filtering limbs and9 paired short clawed lobopods",
+    "15 dorsal spine stations: first2 tiny spines then14 sets of5, medial longest, lateral shortest; gentle anterior tip curvature",
+    "Eyeless downcurved bulbous head, two head plates, two forward antenniform appendages, terminal mouth; tapering posterior extension"
+  ],
+  "concept_decisions": "Concept A supplies warm faceted tubular volume, comb silhouettes and tapered tail but its repeated station count and spine sizes conflict across views. Override counts using primary Description/figures: exactly6 filtering pairs and9 clawed posterior pairs;15 sclerite stations with2+14x5 spines. No centipede tergite plates, no eyes. Front is Blender-Y. Filtering limb length roughlyone-third85mm body; author20 paired fine setiform bristles per limb rather than source about30 pairs, explicitly a low-poly simplification, retain bilateral repeated chevron direction. No annulations on these anterior limbs. Rear claws hook backward +Y; rear limb annulations suggested by real radius modulation rather than surface colors. Body tiny papillae and0.1mm hairs omitted at512px; macrodiagnostics retained. Two small head plates and recessed dark terminal mouth. Head/tail and all limbs full volume, pose artistic; no substrate or stand.",
+  "style": "Restrained palette-only refined low-poly; diagnostic silhouette and internal relief, genuine3D",
+  "intended_use": "Supporting educational asset,256-512px display; not museum-grade reconstruction",
+  "created_at": "2026-10-20T08:14:54.172889+00:00",
+  "validation_profile": "static-stylized-v1",
+  "repair_note": "Maker self-review repair: shorten posterior lobopods toabout10mm versusabout27mm filtering limbs by lowering tubular body; filtering limbs extend forward more strongly rather than all limbs standing as equal stilts. Diagnostic count and whole-organism scope unchanged.",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T08:15:28.617678+00:00",
+    "frozen_design_brief_sha256": "d6ec3fb3df8075323ab10efd8185377f399a89fbb3d1d872adffadc100b1619e",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

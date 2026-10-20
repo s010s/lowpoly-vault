@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/generator.py",
+    "--",
+    "--config",
+    "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/build-config.json",
+    "--output",
+    "/tmp/lowpoly-batch60-20261020/production/continuous-small-life-round23-20261020/work/batch-60/rebuild-runs/build/yardang/r002/semantic-rebuild-2/487df80354ca2c0a501f6cc091a5d4177b402933c811716fc6a3eb8cbb554443/20261020T081615-c15f8ad7be4a4a428874281bb7237168/outputs"
+  ],
+  "created_at": "2026-10-20T08:16:15.564550+00:00",
+  "fingerprint": "487df80354ca2c0a501f6cc091a5d4177b402933c811716fc6a3eb8cbb554443",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/tmp/lowpoly-batch60-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5789,
+        "path": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/brief.json",
+        "sha256": "d9bdf05f61068647f09ca4e3d84961805e5f2b6e713877de8904883af6590b9a"
+      },
+      "config": {
+        "bytes": 1165,
+        "path": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/build-config.json",
+        "sha256": "ca44d77a936ec6932089ee1a186c24f7ea2f55bbf19c98c1fe7ef1d2fbf33dce"
+      },
+      "generator": {
+        "bytes": 12203,
+        "path": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/generator.py",
+        "sha256": "b546d33d6d0013511a3ff8c7a73fbbdf4a67fde7fcbba4f1b411e676bd0ea617"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/tmp/lowpoly-batch60-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2011,
+        "path": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/references.json",
+        "sha256": "9d988ea88d1ffc99a369b2144ef90364370be0a6aa8844964a17320648a6cf89"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "yardang",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch60-20261020/scripts/qa_glb.py",
+        "brief": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/brief.json",
+        "config": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/build-config.json",
+        "generator": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/generator.py",
+        "helper": "/tmp/lowpoly-batch60-20261020/scripts/asset_common.py",
+        "references": "/tmp/lowpoly-batch60-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-60/yardang/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T081600-c7f3acfb67954b1d89178b228c8a01ee"
+}
