@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-20T22:47:56.192226+00:00",
+  "asset_id": "skolithos-pipe-field",
+  "revision": "r002",
+  "original_brief": {
+    "path": "production/small-life-batch89/skolithos-pipe-field/r001/original-brief.json",
+    "sha256": "6c0d7f4802599073bd88fb36361a276224911c14a4c32c57030749368c87e536"
+  },
+  "original_config": {
+    "path": "production/small-life-batch89/skolithos-pipe-field/r001/config.json",
+    "sha256": "9afbb934834820642e48c97772eacce1d7d8aae90da2e153740614ded91567cb"
+  },
+  "repair_config": {
+    "path": "production/small-life-batch89/skolithos-pipe-field/r002/config.json",
+    "sha256": "db3eb20deed11a7a6030e6fba5acb93706df40c12f1d3598a2632b17830cc5c2"
+  },
+  "original_scope_changed": false,
+  "before_geometry": true,
+  "cause": "Original generator used nominal .0026 * .999 = .0025974 for physical shaft.",
+  "minimum_actual_radius_m": 0.002597398883191733,
+  "lower_bound_deficit_m": 2.601116808266697e-06,
+  "relative_deficit": 0.0010004295416410375,
+  "max_relevant_coordinate_float32_ulp_m": 1.862645149230957e-09,
+  "deficit_in_coordinate_ulps": 1396.4639530726708,
+  "deficit_is_not_float32_roundoff": true,
+  "decision": "Change index5 nominal hole radius to .00260001/.999 so physical filled-shaft radius becomes .00260001; other 6 radii, seven positions, heights, radial segments, cutaway, material and render settings unchanged. No uniform scaling. Preserve no-overlap clearance.",
+  "source_inspection": {
+    "text_and_actual_pixels_inspected_at": "2026-10-20T22:47:56.192226+00:00",
+    "source": {
+      "path": "/workspace/shared/lowpoly-batch89-evidence/references/kgs-figure-079.png",
+      "sha256": "b8fb520c02f0706ed924a5fba5ae462f99a8cc32511eee4fce86a94191fb6b6c"
+    },
+    "observations": "Personally inspected page72 text and actual Fig56A-B: vertical unbranched cylindrical endichnial burrows, protruding at top of beds; cross sections absent, ichnospecies uncertain. This is genus-level illustrative cutaway, not observed specimen section.",
+    "concept": {
+      "path": "production/small-life-batch89/concepts/skolithos-pipe-field-concept.png",
+      "sha256": "2f654b69b2166cc7b35400bf33b32a23f541cee2b7e76e4f90219b5488b22903"
+    },
+    "concept_observations": "All four concept panels examined; concept inconsistent shaft continuity is not copied. Existing seven continuous shafts, three front exposed full lengths, four rear openings remain.",
+    "failed_candidate_view": {
+      "path": "production/small-life-batch89/skolithos-pipe-field/r001/views/hero.png",
+      "sha256": "8ac02b955ab8d200b1673c5dc2952b1e2b9c33a1d822457f738ccd70a0731871"
+    },
+    "view_observations": "Existing distinct volumetric front shafts and rear openings retain original form. Radius failure is metrological, not a justification to redesign."
+  },
+  "independent_original_review": {
+    "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/independent-review.json",
+    "sha256": "2d412491a835c8eff4999da07692ec7bb532d7159103ba1e645e390aa46a3485",
+    "status": "preserved; specification revise; other static passes do not transfer to new bytes"
+  }
+}
