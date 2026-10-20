@@ -1,7 +1,7 @@
 {
   "version": 1,
   "purpose": "Single-source repair diagnostic capture; no website acceptance inferred. Sealed19 release package and renderer are unchanged.",
-  "input_manifest_sha256": "074d3f361c4d2a43df8b5c1d120a6d82dd371ceb07e9c21e97b448fc86f833a9",
+  "input_manifest_sha256": "d011942c60d6910d3ac6f304bfa3dbdae2d28c01741ea83ffe8b737852e6a400",
   "source_commit": "6e9296745104a779ec48576b5525e175b6a11e96",
   "source_snapshot_with_qa": "c159bf50ead4a3a32bdfc73cd8b7404ce163be2b",
   "candidate": {
@@ -38,7 +38,7 @@
     "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/references.json",
     "sha256": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d"
   },
-  "reference_role_note": "Input lists original references.json; immutable candidate binds references.delivery-v001.json as active delivery reference. Both exact byte/hash and snapshot Git blobs verified; neither rewritten.",
+  "reference_role_note": "Coordinator corrected input v002 to the immutable candidate active references.delivery-v001.json binding. Original frozen references.json and the superseded v001 input hash remain historical, not active. All six v002 artifact bindings exactly equal the candidate and source snapshot Git blobs.",
   "active_independent_review": {
     "path": "qa/continuous-small-life-round25-20261020/batch-65/diff-breccia-r004/report.md",
     "sha256": "702e4871b560d774e02bc3be611b68abaeed379171c01d70005ad2b573aa4d39"
@@ -48,5 +48,6 @@
   "qualification": "nearparallel502→0 is narrow detector, SAT68 remaining solid clast intersections; shape volume reduced43.23%,111clasts changed; preserve honest scope",
   "replaces_for_future_review_only": "breccia-outcrop r003",
   "hardware_gpu_verified": false,
-  "formal_profile_acceptance": "BLOCKED"
+  "formal_profile_acceptance": "BLOCKED",
+  "superseded_input_manifest_sha256": "074d3f361c4d2a43df8b5c1d120a6d82dd371ceb07e9c21e97b448fc86f833a9"
 }
