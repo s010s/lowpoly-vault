@@ -46,3 +46,6 @@ ImageGen tool returned original PNG and output_hint, no provider internal timest
 Runtime executable actually /usr/bin/blender, version4.3.2. Initial /usr/bin/blender4.3.2 probe was absent and is retained as failed log. One2thread Blender per batch, queue1worker/2threads. No software installs, site/CI/oldasset edits, main merge or hardware claims.
 
 Parent must dispatch exactly one fresh-context independent GPT-6Luna xhigh review against immutable final commit and these4GLBhashes. Publication authority separate.
+
+Exact source/evidence payload commit: 09f353f099ec6d461edd6667408c6663c57783f5
+This metadata-only commit pins payload; parent independentlyQA-pins final HEAD.
