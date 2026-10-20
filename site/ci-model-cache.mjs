@@ -7,6 +7,7 @@ import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {computeModelInputs,modelPolicyDigestAtCommit,assertModelArchivalAppendAtCommit,catalogIDs,hashBytes,hashObject,assertBaseModelProof,planModelReuse,MODEL_PROOF_FILE,MODEL_PROOF_WORKFLOW,GPU_POLICY} from './ci-model-proof.mjs';
 import {controlDigest} from './ci-provenance.mjs';
+import {proofGet} from './ci-proof-fetch.mjs';
 
 const SHA=/^[a-f0-9]{40}$/,MAX_ARTIFACT_BYTES=16*1024*1024;
 export const proofArtifactName=attempt=>`model-proof-v2-${attempt}`;
@@ -44,15 +45,15 @@ function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch,signa
   assert(/^[\w.-]+\/[\w.-]+$/.test(repository||''),'Missing repository');assert(token,'Read-only GitHub proof token unavailable');
   const url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`;
   const headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
-  const api=async path=>{const response=await fetchImpl(url(path),{headers,signal});assert(response.ok,`GitHub proof read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
+  const api=async path=>{const response=await proofGet(url(path),{headers,signal},{fetchImpl,stage:`model API ${path.split('?')[0]||'repository metadata'}`});assert(response.ok,`GitHub proof read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
   const artifact=async(run)=>{
     const listed=await api(`actions/runs/${run.id}/artifacts?per_page=100`);
     const matches=listed.artifacts.filter(item=>item.name===proofArtifactName(run.run_attempt));assert.equal(matches.length,1,'Missing or ambiguous v2 model artifact');
     // Re-read the immutable artifact metadata independently, not just list fields.
     const metadata=await api(`actions/artifacts/${matches[0].id}`);assert.equal(metadata.id,matches[0].id);
-    const redirect=await fetchImpl(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'});assert.equal(redirect.status,302,'Artifact redirect unavailable');
+    const redirect=await proofGet(url(`actions/artifacts/${metadata.id}/zip`),{headers,signal,redirect:'manual'},{fetchImpl,stage:'model artifact redirect'});assert.equal(redirect.status,302,'Artifact redirect unavailable');
     const destination=new URL(redirect.headers.get('location'));assert.equal(destination.protocol,'https:');assert.equal(destination.username,'');assert.equal(destination.password,'');
-    const download=await fetchImpl(destination.href,{signal}); // Never forward repository credentials to storage.
+    const download=await proofGet(destination.href,{signal},{fetchImpl,stage:'model artifact storage'}); // Never forward repository credentials to storage.
     assert(download.ok,'Artifact download failed');const size=Number(download.headers.get('content-length')||0);assert(size<=MAX_ARTIFACT_BYTES,'Oversized artifact');
     const data=Buffer.from(await download.arrayBuffer());assertImmutableModelArtifact(metadata,run,data);
     return {proof:extractModelProof(data),metadata};

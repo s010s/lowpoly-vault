@@ -7,6 +7,7 @@ import {execFileSync} from 'node:child_process';
 import {fixture,identity,finish,verification} from './ci-model-proof-test.mjs';
 import {computeModelInputs,modelPolicyDigest,modelPolicyDigestAtCommit,hashBytes,planModelReuse} from './ci-model-proof.mjs';
 import {fetchVerifiedBaseProof,extractModelProof,proofArtifactName} from './ci-model-cache.mjs';
+import './ci-proof-fetch-test.mjs';
 
 const zip=(proof,{name='model-proof.json',duplicate=false,symlink=false}={})=>{
   const dir=mkdtempSync(join(tmpdir(),'proof-zip-test-'));
@@ -28,10 +29,14 @@ try{
   const shadow=mkdtempSync(join(tmpdir(),'proof-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
   try{for(const moduleName of ['zipfile','json'])writeFileSync(join(shadow,`${moduleName}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractModelProof(originalZip),baseProof,'Isolated proof decoding ignores checkout/PYTHONPATH modules');}
   finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
-  async function lookup({alterRun,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false}={}){
-    const r=structuredClone(run),s=structuredClone(suite),a=structuredClone(metadata);alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[];
+  async function lookup({alterRun,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false,socketAt,socketFailures=0}={}){
+    const r=structuredClone(run),s=structuredClone(suite),a=structuredClone(metadata);alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[];let socketCalls=0,firstSocketOptions;
     const fetchImpl=async(url,options={})=>{
       url=String(url);requests.push({url,options});
+      if(socketAt&&url.endsWith(socketAt)){
+        socketCalls++;if(firstSocketOptions)assert.equal(options,firstSocketOptions,'Retries keep the original signal/options');else firstSocketOptions=options;
+        if(socketCalls<=socketFailures)throw Object.assign(new TypeError('sensitive transport text'),{cause:{code:'UND_ERR_SOCKET'}});
+      }
       if(url==='https://storage.example.invalid/immutable.zip'){
         assert.equal(options.headers,undefined,'Repository token must never be forwarded to storage');return new Response(download);
       }
@@ -57,12 +62,16 @@ try{
       else throw Error(`Unexpected fixture API path: ${path}`);
       return new Response(JSON.stringify(body),{headers:{'content-type':'application/json'}});
     };
-    const result=await fetchVerifiedBaseProof({root:f.root,repository,baseSha,currentSha,inputs,token:'test-read-token',fetchImpl});return {...result,requests};
+    const result=await fetchVerifiedBaseProof({root:f.root,repository,baseSha,currentSha,inputs,token:'test-read-token',fetchImpl});return {...result,requests,socketCalls};
   }
   const valid=await lookup();assert(valid.verifiedBaseProof,valid.reasons.join('\n'));const planned=planModelReuse({inputs,...valid});assert.equal(planned.fresh_ids.length,4);assert.equal(planned.reused_ids.length,190);
   assert.equal(valid.requests[0].url,`https://api.github.com/repos/${repository}`,'Repository metadata uses the canonical no-slash endpoint');
   assert((await lookup({apiFailure:true})).reasons.some(reason=>reason==='GitHub proof read failed (503) at repository metadata'),'A failed read reports the safe endpoint, not credentials');
   assert((await lookup({largeManifest:true})).verifiedBaseProof,'Large GitHub manifest must use exact blob fallback');
+  for(const socketAt of ['/actions/runs/101','/actions/artifacts/303/zip','/immutable.zip']){
+    const retried=await lookup({socketAt,socketFailures:1});assert(retried.verifiedBaseProof,retried.reasons.join('; '));assert.equal(retried.socketCalls,2);
+    const exhausted=await lookup({socketAt,socketFailures:3});assert.equal(exhausted.verifiedBaseProof,null);assert.equal(exhausted.socketCalls,3);assert(exhausted.reasons.some(reason=>reason.includes('UND_ERR_SOCKET')));assert(!exhausted.reasons.join().includes('sensitive'));
+  }
   const rejects=[
     {missing:true},{apiFailure:true},{ancestor:false},{newer:true},
     {alterRun:r=>r.conclusion='failure'},{alterRun:r=>r.status='in_progress'},
