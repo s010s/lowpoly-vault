@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir,appendFile,realpath} from 'node:fs/promises';
+import {resolve,dirname} from 'node:path';import {createHash} from 'node:crypto';
+const input={path:'qa/breccia-r003-release-20261020/capture-inputs.json',sha256:'20b8a105ed61e91d1bb79baaaaf7bd06c031a9e6a38f5a6550224d6227e83368'},exactIds=['breccia-outcrop'];
+async function checked(pin){assert(/^(assets|qa)\/[a-zA-Z0-9_./-]+$/.test(pin.path)&&!pin.path.split('/').includes('..'));const p=resolve(pin.path);assert.equal(await realpath(p),p);const b=await readFile(p);assert.equal(createHash('sha256').update(b).digest('hex'),pin.sha256);return b;}
+const d=JSON.parse(await checked(input));assert.equal(d.publication_authority,false);assert.equal(d.capture_status,'not_run');assert.equal(d.images_present,false);assert.deepEqual(d.selected_ids.slice().sort(),exactIds);assert.deepEqual(d.assets.map(a=>a.id).sort(),exactIds);
+const assets=[];for(const e of d.assets){const a=JSON.parse(await checked(e.metadata)),b=await checked(e.glb);assert.equal(a.id,e.id);assert.equal(a.glb,e.glb.path);assert.equal(a.sha256.glb,e.glb.sha256);assert.equal(a.sha256.preview,null);const target=resolve(process.env.GALLERY_DIR,a.glb);await mkdir(dirname(target),{recursive:true});await writeFile(target,b);assets.push(a);}
+await mkdir(resolve(process.env.GALLERY_DIR,'assets'),{recursive:true});await writeFile(resolve(process.env.GALLERY_DIR,'assets/manifest.json'),JSON.stringify({capture_only:true,publication_authority:false,assets}));await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${assets.map(a=>a.id).join(',')}\n`);console.log('One exact source hashes staged; no publication or formal approval.');

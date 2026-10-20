@@ -9,6 +9,13 @@ jobs:
   capture:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      SITE_BASE: /lowpoly-vault/
+      SITE_ORIGIN: https://s010s.github.io
+      GALLERY_DIR: qa/capture-inputs-site
+      PREVIEW_OUTPUT: qa/ci-breccia-r003-capture/cards
+      PREVIEW_POSTERS_ONLY: '1'
+      CAPTURE_REFERENCE: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,12 +23,16 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
+      - run: npx vite build --outDir "$GITHUB_WORKSPACE/qa/capture-inputs-site"
+      - name: Stage only one exact Breccia r003 inputs
+        run: node qa/breccia-r003-release-20261020/capture-only-stage.mjs
       - run: npx playwright install --with-deps chromium
-      - name: Capture only twenty exact gallery pairs
-        run: node qa/batches6267-gallery-capture/scoped-capture.mjs
+      - run: node site/render-web-previews.mjs
+      - name: Capture only one exact gallery pairs
+        run: node qa/breccia-r003-release-20261020/scoped-gallery-capture.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: batches6267-gallery-pairs
-          path: qa/ci-batches6267-gallery/
-      - run: echo 'Twenty capture-only gallery pairs; no production, cache-policy or formal approval change.' >> "$GITHUB_STEP_SUMMARY"
+          name: breccia-r003-website-capture
+          path: qa/ci-breccia-r003-capture/
+      - run: echo 'One exact card and gallery pairs only; no production, cache-policy or formal approval change.' >> "$GITHUB_STEP_SUMMARY"
