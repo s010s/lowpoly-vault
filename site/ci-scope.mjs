@@ -31,6 +31,15 @@ export function classify(paths,manifest,full=false,context={}) {
    if(!isDeepStrictEqual(previousShared,currentShared)){runtime=true;reasons.push('Shared publication metadata changed');}
    continue;
   }
+  // Registry data owns a published model, never a new approval or runtime exemption.
+  // The stricter append validator below the scope step rejects changed old records,
+  // forged refs/batches and unknown registry paths before any proof reuse.
+  const record=/^registry\/models\/([a-z0-9]+(?:-[a-z0-9]+)*)\/revisions\/[a-f0-9]{64}\/record\.json$/.exec(path);
+  if(record&&byId.has(record[1])){roles.add('assets');changed.add(record[1]);continue;}
+  if(/^registry\/batches\/[a-z0-9]+(?:-[a-z0-9]+)*\.json$/.test(path)&&previous){
+   const added=published.filter(asset=>!before.some(old=>old.id===asset.id));
+   if(added.length){roles.add('assets');for(const asset of added)changed.add(asset.id);continue;}
+  }
   const owners=ownAsset(path);
   if(owners.length){roles.add('assets');for(const asset of owners)changed.add(asset.id);continue;}
   if(/^(?:\.github\/|scripts\/|schemas\/|skills\/|\.agents\/)|^(?:package(?:-lock)?\.json|vite\.config\.js)$/.test(path)){
@@ -70,8 +79,10 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  let paths=[],full=process.env.FULL_REVIEW==='true',context={};
  if(!full){try{
   const base=process.env.BASE_SHA;if(!/^[a-f0-9]{40}$/.test(base||'')||/^0+$/.test(base))throw Error('Missing base');
-  paths=execFileSync('git',['diff','--name-only','-z',base,'HEAD'],{encoding:'utf8'}).split('\0').filter(Boolean);
-  const previous=path=>execFileSync('git',['show',`${base}:${path}`],{encoding:'utf8'});
+  paths=execFileSync('git',['diff','--name-only','-z',base,'HEAD'],{encoding:'utf8',maxBuffer:16*1024*1024}).split('\0').filter(Boolean);
+  // The 217-model source manifest exceeds Node's default 1 MiB pipe buffer.
+  // Keep a finite bound; unreadable/oversized provenance still falls back to full.
+  const previous=path=>execFileSync('git',['show',`${base}:${path}`],{encoding:'utf8',maxBuffer:16*1024*1024});
   context={previousManifest:JSON.parse(previous('assets/manifest.json')),previousCuration:previous('site/curation.js'),currentCuration:readFileSync('site/curation.js','utf8'),previousPackage:JSON.parse(previous('package.json')),currentPackage:JSON.parse(readFileSync('package.json'))};
  }catch{full=true;console.error('Diff provenance unavailable: requiring full review.');}}
  const manifest=JSON.parse(readFileSync('assets/manifest.json'));

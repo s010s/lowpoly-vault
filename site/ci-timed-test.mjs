@@ -34,8 +34,10 @@ try{
  const build=()=>spawnSync(process.execPath,[runner,'build'],{cwd:root,encoding:'utf8'}),buildReport=async()=>JSON.parse(await readFile(join(root,'qa/ci-timings/build.json')));
  assert.equal(build().status,19);assert.equal((await buildReport()).phases.length,1);assert.equal((await buildReport()).status,'fail');
  await mkdir(join(root,'node_modules/vite/bin'),{recursive:true});await writeFile(join(root,'node_modules/vite/package.json'),'{'+'"type":"module"'+'}');
- for(const [file,label]of [['site/ci-publication.mjs','publication'],['node_modules/vite/bin/vite.js','vite'],['site/ci-render-template.mjs','template'],['site/copy-assets.mjs','copy'],['site/audit-release.mjs','audit']])await writeFile(join(root,file),`import {appendFileSync} from 'node:fs';appendFileSync('events',${JSON.stringify(label+'\n')});`);
- await writeFile(join(root,'events'),'');assert.equal(build().status,0);assert.equal((await buildReport()).status,'pass');assert.equal(await readFile(join(root,'events'),'utf8'),'publication\n'+'vite\n'+'template\n'+'copy\n'+'audit\n');
- await writeFile(join(root,'site/audit-release.mjs'),'process.exit(27);');assert.equal(build().status,27);assert.equal((await buildReport()).status,'fail');assert.equal((await buildReport()).phases.length,5);
+ for(const [file,label]of [['site/ci-publication.mjs','publication'],['site/model-registry-sync.mjs','registry'],['node_modules/vite/bin/vite.js','vite'],['site/ci-render-template.mjs','template'],['site/copy-assets.mjs','copy'],['site/audit-release.mjs','audit']])await writeFile(join(root,file),`import {appendFileSync} from 'node:fs';appendFileSync('events',${JSON.stringify(label+'\n')});`);
+ await writeFile(join(root,'events'),'');assert.equal(build().status,0);assert.equal((await buildReport()).status,'pass');assert.equal(await readFile(join(root,'events'),'utf8'),'publication\n'+'registry\n'+'vite\n'+'template\n'+'copy\n'+'audit\n');
+ await writeFile(join(root,'site/model-registry-sync.mjs'),'process.exit(29);');assert.equal(build().status,29);assert.equal((await buildReport()).phases.length,2);
+ await writeFile(join(root,'site/model-registry-sync.mjs'),'');
+ await writeFile(join(root,'site/audit-release.mjs'),'process.exit(27);');assert.equal(build().status,27);assert.equal((await buildReport()).status,'fail');assert.equal((await buildReport()).phases.length,6);
  console.log('CI timing runner: all mandatory suites, first failure status, stop-on-failure and missing-suite refusal (including both capture contracts and land/air release), mandatory pre-build gate and final-audit failure passed.');
 }finally{await rm(root,{recursive:true,force:true});}

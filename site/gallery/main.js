@@ -91,7 +91,7 @@ function renderWheel(){
    row.addEventListener('pointerleave',()=>{if(hoverRow===row)stopHover();});slots.append(row);
   }
   existing.delete(asset.id);row.dataset.browseCenter=String(asset.id===browseId);row.dataset.nameVisible=String(asset.id===browseId);row.setAttribute('aria-label',asset.name[state.lang]||asset.name.en);row.style.top=`${pad+i*SLOT}px`;row.setAttribute('aria-selected',String(state.selected===asset.id));row.setAttribute('aria-posinset',String(i+1));row.setAttribute('aria-setsize',String(state.results.length));row.querySelector('strong').textContent=short(asset);row.querySelector('small').textContent=String(i+1).padStart(3,'0');row.querySelector('.current').textContent=state.selected===asset.id?t('CURRENT','当前'):'';
-  const d=(i*SLOT-position)/SLOT,s=reduced()?1:.58+.42*Math.exp(-.65*d*d);row.querySelector('.slot-image').style.transform=`translateX(${reduced()||mobile()?0:18*Math.exp(-.7*d*d)}px) scale(${s})`;row.querySelector('.slot-image').style.opacity=String(reduced()?1:Math.max(.55,1-.1*Math.abs(d)));
+  const d=(i*SLOT-position)/SLOT,s=reduced()?1:.58+.42*Math.exp(-.65*d*d);row.querySelector('.slot-image').style.transform=`translateX(0px) scale(${s})`;row.querySelector('.slot-image').style.opacity=String(reduced()?1:Math.max(.55,1-.1*Math.abs(d)));
  }
  for(const row of existing.values()){if(row===hoverRow)stopHover();row.remove();}
  if(keyIndex>=0&&$('#option-'+state.keyboard))wheel.setAttribute('aria-activedescendant','option-'+state.keyboard);else wheel.removeAttribute('aria-activedescendant');

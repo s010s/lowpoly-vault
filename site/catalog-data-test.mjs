@@ -30,7 +30,19 @@ async function staticFiles(source,data=CATALOG_DATA){
 }
 try{
  const staticFixture={version:1,assets:fixture.static_asset_ids.map(id=>legacyAssets.find(asset=>asset.id===id))};
- assert.equal(hash(await staticFiles(staticFixture)),fixture.static_sha256,'Known, unknown and starter facets preserve every bilingual static byte');
+ const staticOutput=await staticFiles(staticFixture);
+ assert.equal(hash(staticOutput),fixture.static_axis_aligned_sha256,'Exact bilingual static output includes the approved common-axis startup expression');
+ // Keep the original golden too: reversing only this exact inline expression
+ // must reproduce every historical byte, not merely ignore the startup script.
+ const aligned='host.style.transform=reduced?\'none\':`translateX(0px) scale(${.58+.42*Math.exp(-.65*distance*distance)})`;',
+ legacy='host.style.transform=reduced?\'none\':`translateX(${matchMedia(\'(max-width:760px)\').matches?0:18*Math.exp(-.7*distance*distance)}px) scale(${.58+.42*Math.exp(-.65*distance*distance)})`;';
+ let migrated=0;
+ const legacyOutput=Object.fromEntries(Object.entries(staticOutput).map(([path,html])=>{
+  if(!html.includes('<script id="gallery-startup-init">'))return [path,html];
+  assert.equal(html.split(aligned).length,2,'Exactly one known startup paint expression per native gallery document');
+  migrated++;return [path,html.replace(aligned,legacy)];
+ }));
+ assert(migrated>0);assert.equal(hash(legacyOutput),fixture.static_sha256,'All static bytes outside the exact desktop-axis expression remain historical');
  const codeFiles=[new URL('./curation.js',import.meta.url),new URL('./catalog-build.mjs',import.meta.url),new URL('./static-routes.mjs',import.meta.url),new URL('./gallery/main.js',import.meta.url),new URL('./gallery/catalog-source.js',import.meta.url)];
  const codeBefore=await Promise.all(codeFiles.map(file=>readFile(file,'utf8')));
  const fake={...legacyAssets[0],id:'fixture-new-model',name:{en:'Fixture new model',zh:'夹具新模型'},collection:'fixture-new-world',worlds:['fixture-new-world'],packs:['fixture-new-pack']};
@@ -122,5 +134,5 @@ try{
  const older=gallery.loadGalleryCatalog({fetchImpl:async url=>new URL(url).pathname.endsWith('/assets/catalog.json')?olderReady:fetchNow(url)});
  await gallery.loadGalleryCatalog({fetchImpl:fetchNow});const newest=gallery.catalog;
  finishOlder({ok:true,json:async()=>withBatch.index});await assert.rejects(()=>older,{name:'AbortError'});assert.equal(gallery.catalog,newest);
- console.log('Catalog data passed: all 190 legacy exports/memberships/catalog bytes and bilingual static fixtures unchanged; JSON-only additions provide labels/routes without approval or existing model key changes; strict schema/append ownership guards; atomic, delayed, interrupted, superseded and mismatched gallery index loads.');
+ console.log('Catalog data passed: all 190 legacy exports/memberships/catalog bytes unchanged; bilingual static bytes preserve the original golden except the exact reviewed desktop-axis expression; JSON-only additions provide labels/routes without approval or existing model key changes; strict schema/append ownership guards; atomic, delayed, interrupted, superseded and mismatched gallery index loads.');
 }finally{await rm(out,{recursive:true,force:true});}

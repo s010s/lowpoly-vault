@@ -17,18 +17,19 @@ export async function checkGalleryThumbnailAxis({browser,baseURL,root,output,rep
  const assertAxis=(state,reduced)=>{
   assert(state.rows.length>=3,'The actual wheel must expose several rows');
   assert(state.scrollWidth<=state.width,'No horizontal document overflow');
-  if(state.width<=760||reduced){
-   const centers=state.rows.map(row=>row.x);
-   assert(Math.max(...centers)-Math.min(...centers)<.01,'Visible thumbnail hosts share one column X axis');
-   assert(state.rows.every(row=>Math.abs(row.shift)<.001),'Mobile has no per-row horizontal displacement');
-  }else assert(Math.max(...state.rows.map(row=>row.shift))>10,'Desktop preserves the original horizontal emphasis');
+  const centers=state.rows.map(row=>row.x);
+  assert(Math.max(...centers)-Math.min(...centers)<.01,'Visible thumbnail hosts share one column X axis');
+  assert(state.rows.every(row=>Math.abs(row.shift)<.001),'Desktop and mobile have no per-row horizontal displacement');
   if(state.width<=760){
    assert(state.rows.every(row=>row.hostLeft==='-12px'),'The mobile thumbnail host, including its placeholder, has the fixed left offset');
    assert(state.rows.every(row=>row.labelGap>=11.99&&row.timelineGap>=8.99),'The full thumbnail host clears both unchanged labels and timeline markers');
-  }else assert(state.rows.every(row=>row.hostLeft==='0px'||row.hostLeft==='auto'),'Desktop has no new host offset');
+  }else{
+   assert(state.rows.every(row=>row.hostLeft==='0px'||row.hostLeft==='auto'),'Desktop has no new host offset');
+   assert(state.rows.every(row=>row.labelGap>=-.01&&row.timelineGap>=20.99),'Desktop thumbnail hosts do not overlap unchanged labels or timeline markers');
+  }
   if(reduced)assert(state.rows.every(row=>row.scale===1),'Reduced motion removes scaling');
  };
- for(const width of [320,390,440,760,761,1180])for(const reduced of [false,true]){
+ for(const width of [320,390,440,760,761,1024,1180,1280,1440])for(const reduced of [false,true]){
   const name=`thumbnail-axis-${width}${reduced?'-reduced':''}`,result={name,status:'running'};report.cases.push(result);
   const context=await browser.newContext({viewport:{width,height:844},isMobile:width<=760,hasTouch:width<=760,reducedMotion:reduced?'reduce':'no-preference'}),page=await context.newPage();
   page.on('pageerror',error=>report.errors.push({case:name,message:error.message}));
@@ -55,10 +56,13 @@ export async function checkGalleryThumbnailAxis({browser,baseURL,root,output,rep
     const pillow=await snapshot(page);assertAxis(pillow,reduced);assert(pillow.rows.some(row=>row.id==='pillow-lava-outcrop'));
     await page.locator('#wheel').evaluate(el=>{el.scrollTop+=37;});await page.waitForTimeout(250);assertAxis(await snapshot(page),reduced);
    }
+   if(width>760){
+    await page.locator('#wheel').evaluate(el=>{el.scrollTop+=37;});await page.waitForTimeout(250);assertAxis(await snapshot(page),reduced);
+   }
    // Repeated responsive transitions exercise the mounted renderer's existing
    // resize path without introducing a second observer or scroll controller.
    if(width===390&&!reduced){
-    for(const next of [761,760,320,390]){await page.setViewportSize({width:next,height:844});await page.waitForTimeout(150);assertAxis(await snapshot(page),false);}
+    for(const next of [1024,1280,1440,761,760,320,390]){await page.setViewportSize({width:next,height:844});await page.waitForTimeout(150);assertAxis(await snapshot(page),false);}
     await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(50);assertAxis(await snapshot(page),true);
     await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForTimeout(50);assertAxis(await snapshot(page),false);
    }

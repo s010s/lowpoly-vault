@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdirSync,existsSync,appendFileSync,readdirSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
+import {LEGACY_OUTPUTS,composeRegistry,encode,hashBytes,importLegacySnapshot,recordReference} from './model-registry.mjs';
 import {inspectCatalogDataAppend} from './curation.js';
 import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit,modelArchivalInputs,modelArchivalInputsAtCommit,gallerySharedData} from './ci-model-proof.mjs';
 import {assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
@@ -17,7 +18,36 @@ function appendRecords(before,after,newIDs,key='id'){
  const retained=after.filter(row=>!newIDs.has(row[key]));equal(retained,before,'Existing mapped records changed');
  const added=after.filter(row=>newIDs.has(row[key]));assert.equal(new Set(added.map(row=>row[key])).size,added.length,'Duplicate new mapped record');
 }
-export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,authorizationOnlyPaths=[],archivalState=null}){
+/** Inert append metadata only. Existing model/proof/publication gates remain mandatory. */
+function registryAppendPaths({paths,before,after,readBefore,readAfter,newIDs,registryState}){
+ const selected=paths.filter(path=>path.startsWith('registry/'));
+ const active=registryState?.beforePaths?.includes('registry/baseline.json');
+ if(!selected.length&&!active)return new Set();
+ assert(registryState&&Array.isArray(registryState.beforePaths)&&typeof registryState.readAfterBytes==='function','Exact registry diff inventory required');
+ const previousPaths=new Set(registryState.beforePaths),records=[],batches=[];
+ for(const path of selected){
+  assert(!previousPaths.has(path),`Existing registry data changed: ${path}`);
+  const match=/^registry\/models\/([a-z0-9]+(?:-[a-z0-9]+)*)\/revisions\/([a-f0-9]{64})\/record\.json$/.exec(path);
+  if(match){
+   assert(newIDs.has(match[1]),'Registry record must own a newly published model');
+   const bytes=registryState.readAfterBytes(path),record=JSON.parse(bytes);
+   equal(recordReference(record),{id:match[1],path,sha256:match[2]},'Registry record identity/hash differs');
+   assert.equal(hashBytes(bytes),match[2],'Registry record bytes must be canonical and hash-bound');records.push(record);continue;
+  }
+  const batch=/^registry\/batches\/([a-z0-9]+(?:-[a-z0-9]+)*)\.json$/.exec(path);
+  assert(batch,`Unknown or shared registry path: ${path}`);
+  const value=readAfter(path);assert.equal(value.id,batch[1],'Registry batch path owner differs');batches.push(value);
+ }
+ equal(records.map(record=>record.id).sort(),[...newIDs].sort(),'Exactly one registry record per newly published model required');
+ const snapshot=(read,manifest)=>Object.fromEntries(Object.entries(LEGACY_OUTPUTS).map(([key,path])=>[key,key==='manifest'?manifest:read(path)]));
+ const imported=value=>importLegacySnapshot(value,{sourceCommit:'0'.repeat(40),sourcePins:Object.fromEntries(Object.entries(LEGACY_OUTPUTS).map(([key,path])=>[key,{path,sha256:hashBytes(encode(value[key]))}]))});
+ // These temporary imports compare data only; the placeholder commit is NOT provenance.
+ const prior=imported(snapshot(readBefore,before)),current=imported(snapshot(readAfter,after));
+ for(const record of records)equal(record,current.records.find(row=>row.id===record.id),'Registry record differs from generated source metadata');
+ composeRegistry({baseline:prior.baseline,records:[...prior.records,...records],batches});
+ return new Set(selected);
+}
+export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,authorizationOnlyPaths=[],archivalState=null,registryState=null}){
  try{
   assert(Array.isArray(before.assets)&&Array.isArray(after.assets));
   const oldIDs=new Set(before.assets.map(a=>a.id)),added=after.assets.filter(a=>!oldIDs.has(a.id)),newIDs=new Set(added.map(a=>a.id));
@@ -33,9 +63,10 @@ export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,a
    for(const path of assertArchivalAppend(archivalState.before,archivalState.after,{beforePaths:archivalState.beforePaths,oldIDs:[...oldIDs],newIDs:[...newIDs]}))archives.add(path);
    if(archivalState.before.registryMasked===true&&archivalState.after.registryMasked===true)archives.add(ARCHIVAL_REGISTRY_PATH);
   }
+  const registryPaths=registryAppendPaths({paths,before,after,readBefore,readAfter,newIDs,registryState});
   for(const path of paths){
    if(/^(?:README(?:\.zh-CN)?\.md|docs\/[a-zA-Z0-9_./-]+\.md)$/.test(path)&&!path.split('/').includes('..'))continue;
-   if(authorization.has(path)||archives.has(path))continue;
+   if(authorization.has(path)||archives.has(path)||registryPaths.has(path))continue;
    if(path==='assets/manifest.json'||path==='site/catalog-data.json')continue;
    // These namespaces are inert evidence. Executable or unknown extensions do not qualify.
    if(/^(?:assets\/releases\/|production\/|qa\/)[A-Za-z0-9_./-]+\.(?:json|md|png|webp|jpg|jpeg|glb|blend)$/.test(path)&&!path.split('/').includes('..'))continue;
@@ -65,7 +96,7 @@ export function eligibilityFromGit(baseSha){
   assert.match(baseSha||'',/^[a-f0-9]{40}$/);const before=path=>JSON.parse(git('show',`${baseSha}:${path}`)),after=path=>JSON.parse(readFileSync(path));
   const paths=git('diff','--name-only','-z',baseSha,'HEAD').split('\0').filter(Boolean);
   const archivalState={before:modelArchivalInputsAtCommit(baseSha),after:modelArchivalInputs(),beforePaths:git('ls-tree','-r','--name-only','-z',baseSha).split('\0').filter(Boolean)};
-  return assessIncrementalDiff({paths,before:before('assets/manifest.json'),after:after('assets/manifest.json'),readBefore:before,readAfter:after,authorizationOnlyPaths:PUBLICATION_ONLY_MODULES,archivalState});
+  return assessIncrementalDiff({paths,before:before('assets/manifest.json'),after:after('assets/manifest.json'),readBefore:before,readAfter:after,authorizationOnlyPaths:PUBLICATION_ONLY_MODULES,archivalState,registryState:{beforePaths:archivalState.beforePaths,readAfterBytes:path=>readFileSync(path)}});
  }catch(error){return {eligible:false,added_ids:[],reasons:[`Diff provenance unavailable: ${error.message}`]};}
 }
 export function tasksForModelPlan(tasks,plan,manifest){

@@ -71,7 +71,7 @@ assert(enhancedPaint,'Enhanced wheel paint remains covered');
 const galleryCSS=await readFile(new URL('./gallery/style.css',import.meta.url),'utf8');
 assert.match(galleryCSS,/@media\(max-width:760px\)\{\.slot-image\{left:-12px\}\}/,'A shared mobile-only host offset moves thumbnails and loading cubes together, including reduced motion');
 const numericTransform=value=>value==='none'?{x:0,scale:1}:(()=>{const match=value.match(/^translateX\(([-+\d.e]+)px\) scale\(([-+\d.e]+)\)$/);assert(match,value);return{x:Number(match[1]),scale:Number(match[2])};})();
-for(const width of [320,390,440,760,761,1180])for(const reduced of [false,true])for(const offset of [0,37]){
+for(const width of [320,390,440,760,761,1024,1180,1280,1440])for(const reduced of [false,true])for(const offset of [0,37]){
  const mobile=width<=760,ids=['top','above','center','below','bottom'],native=nativeFixture({mobile,reduced,ids,selected:'center'}),position=256+offset;
  if(offset){native.wheel.scrollTop=position;native.wheel.scroll();}
  const transforms=[];
@@ -82,10 +82,9 @@ for(const width of [320,390,440,760,761,1180])for(const reduced of [false,true])
   assert.deepEqual(actual,initial,`Startup and enhanced paint agree at ${width}px, row ${i}, reduced=${reduced}`);
   assert.equal(host.style.opacity,native.rows[i].image.style.opacity);
   assert.equal(actual.scale,reduced?1:.58+.42*Math.exp(-.65*distance*distance),'The established scale curve is unchanged');
-  assert.equal(actual.x,mobile||reduced?0:18*Math.exp(-.7*distance*distance),'Only mobile horizontal displacement is removed');
+  assert.equal(actual.x,0,'Every desktop and mobile row stays on its shared thumbnail-column axis');
   transforms.push(actual);
  }
- if(mobile)assert(transforms.every(value=>value.x===0),'All scaled mobile rows share the existing image-column X axis');
- else if(!reduced)assert(transforms[2].x>transforms[1].x,'Desktop retains its existing horizontal emphasis');
+ assert(transforms.every(value=>value.x===0),'All scaled rows share the existing image-column X axis');
 }
-console.log('Thumbnail axis passed: native/enhanced agreement, 320/390/440/760/761/1180 widths, shared 12px mobile host offset, centered/fractional scroll, scale/opacity preservation and reduced motion.');
+console.log('Thumbnail axis passed: native/enhanced agreement, 320/390/440/760/761/1024/1180/1280/1440 widths, shared 12px mobile host offset, centered/fractional scroll, scale/opacity preservation and reduced motion.');
