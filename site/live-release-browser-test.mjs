@@ -61,7 +61,9 @@ try {
    for(const id of ids) {
     const asset=expected.assets.find(a=>a.id===id),card=page.locator(`#slots [data-id="${id}"]`);
     await page.locator('#wheel').evaluate((wheel,id)=>{wheel.scrollTop=window.__gallery.state.results.findIndex(asset=>asset.id===id)*128;},id);
-    await card.waitFor({state:'visible'});await card.locator('img').evaluate(img=>img.decode());assert(await card.locator('img').evaluate(img=>img.naturalWidth>0));
+    await card.waitFor({state:'visible'});
+    await page.waitForFunction(id=>{const image=document.querySelector(`#slots [data-id="${id}"] img`);return image?.dataset.thumbnailState==='ready'&&image.complete&&image.naturalWidth>0;},id);
+    await card.locator('img').evaluate(img=>img.decode());assert(await card.locator('img').evaluate(img=>img.naturalWidth>0));
     assert.equal(await card.getAttribute('aria-label'),asset.name[mobile?'zh':'en']);
     const before=await page.locator('html').evaluate(el=>({x:el.getBoundingClientRect().x,width:el.getBoundingClientRect().width}));
     await card.click();

@@ -40,7 +40,11 @@ try {
   await page.goto(catalog);await page.waitForFunction(wheel=>wheel?window.__gallery?.models.length>0:document.querySelector('#grid')?.ariaBusy==='false',wheelBuild);
   assert.deepEqual((wheelBuild?await page.evaluate(()=>window.__gallery.state.results.map(a=>a.id)):await page.locator('#grid .asset-card').evaluateAll(nodes=>nodes.map(n=>n.dataset.id))).sort(),[...assetIDs].sort());
   for(const id of assetIDs) {
-   const asset=manifest.assets.find(a=>a.id===id),card=page.locator(`${wheelBuild?'#slots .slot':'#grid .asset-card'}[data-id="${id}"]`);if(wheelBuild)await page.locator('#wheel').evaluate((wheel,id)=>{wheel.scrollTop=window.__gallery.state.results.findIndex(a=>a.id===id)*128;},id);await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());
+   const asset=manifest.assets.find(a=>a.id===id),card=page.locator(`${wheelBuild?'#slots .slot':'#grid .asset-card'}[data-id="${id}"]`);if(wheelBuild)await page.locator('#wheel').evaluate((wheel,id)=>{wheel.scrollTop=window.__gallery.state.results.findIndex(a=>a.id===id)*128;},id);await card.scrollIntoViewIfNeeded();
+   // A visible row is mounted before its settle/decode-gated thumbnail is ready.
+   // Wait for that public contract, then still independently validate decoding.
+   if(wheelBuild)await page.waitForFunction(id=>{const image=document.querySelector(`#slots .slot[data-id="${id}"] img`);return image?.dataset.thumbnailState==='ready'&&image.complete&&image.naturalWidth>0;},id);
+   await card.locator('img').evaluate(img=>img.decode());
    if(!mobile&&!wheelBuild){await card.hover();await page.waitForFunction(id=>document.querySelector(`[data-id="${id}"]`)?.dataset.previewState==='ready',id);}
    await card.click();if(wheelBuild&&mobile)await page.locator('#mobile-interact').tap();await page.waitForFunction(wheel=>wheel?document.querySelector('#detail')?.dataset.state==='ready':document.querySelector('#canvas-host')?.dataset.modelState==='ready',wheelBuild);
    assert.equal(await page.locator(wheelBuild?'#info-content h2':'#asset-title').textContent(),asset.name[mobile?'zh':'en']);
@@ -48,7 +52,7 @@ try {
    assert(await page.locator(wheelBuild?'html':'#viewer-dialog').evaluate(node=>node.scrollWidth<=node.clientWidth+1),'No horizontal overflow in the active presentation');
    for(const key of ['glb','blend']){const response=await page.request.get(base+asset[key]);assert(response.ok());assert.equal(createHash('sha256').update(await response.body()).digest('hex'),asset.sha256[key]);}
    await page.screenshot({path:resolve(out,`${mobile?'mobile':'desktop'}-${id}.png`)});
-   if(wheelBuild){if(mobile)await page.locator('#mobile-back').tap();assert(await page.locator('#wheel').isVisible());}else{await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'));}
+   if(wheelBuild){if(mobile){await page.locator('#mobile-back').tap();await page.waitForFunction(()=>window.__gallery.state.view==='collection'&&!document.body.classList.contains('mobile-detail'));}assert(await page.locator('#wheel').isVisible());}else{await page.locator('#close').click();await page.waitForFunction(()=>!document.querySelector('#viewer-dialog').open&&!document.querySelector('.stage-flight'));}
    assert.equal(new URL(page.url()).searchParams.get('pack'),pack);
    report.cases.push({id,viewport:mobile?'390x844-touch':'1440x1000',status:'pass',glb_sha256:asset.sha256.glb,blend_sha256:asset.sha256.blend});
   }
