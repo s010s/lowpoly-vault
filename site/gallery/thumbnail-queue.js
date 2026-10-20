@@ -6,6 +6,8 @@ export class ThumbnailQueue {
  update(items){
   const desired=new Map(items.map(item=>[item.image,item]));
   const changed=desired.size!==this.desired.size||[...desired.keys()].some(image=>!this.desired.has(image));
+  for(const [image,item] of desired){image.dataset.thumbnailVisible=String(item.visible!==false);if(!image.dataset.thumbnailState)image.dataset.thumbnailState='pending';}
+  for(const image of this.desired.keys())if(!desired.has(image))image.dataset.thumbnailVisible='false';
   this.desired=desired;
   if(changed){this.clearTimer(this.timer);this.timer=this.setTimer(()=>{this.timer=0;this.pump();},this.delay);}
   for(const [image,cancel] of this.active)if(!desired.has(image))cancel();
@@ -18,10 +20,10 @@ export class ThumbnailQueue {
    const finish=state=>{if(settled)return;settled=true;image.onload=image.onerror=null;this.active.delete(image);this.stats.active=this.active.size;image.dataset.thumbnailState=state;if(!this.timer)this.pump();};
    const cancel=()=>{if(settled)return;this.stats.cancelled++;image.removeAttribute('src');finish('idle');};
    this.active.set(image,cancel);this.stats.active=this.active.size;this.stats.maxActive=Math.max(this.stats.maxActive,this.active.size);this.stats.started++;
-   image.decoding='async';image.dataset.thumbnailState='loading';image.onload=()=>finish('ready');
+   image.decoding='async';image.dataset.thumbnailState='loading';image.onload=()=>{if(settled)return;image.dataset.thumbnailState='decoding';Promise.resolve(image.decode?.()).then(()=>finish('ready'),()=>finish('error'));};
    image.onerror=()=>{if(!fallback&&item.fallback&&item.fallback!==item.url){fallback=true;image.src=item.fallback;}else finish('error');};
    image.src=item.url;
   }
  }
- clear(){this.clearTimer(this.timer);this.timer=0;this.desired.clear();for(const cancel of [...this.active.values()])cancel();}
+ clear(){this.clearTimer(this.timer);this.timer=0;for(const image of this.desired.keys())image.dataset.thumbnailVisible='false';this.desired.clear();for(const cancel of [...this.active.values()])cancel();}
 }

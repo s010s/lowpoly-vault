@@ -1,4 +1,6 @@
 import './style.css';
+import './thumbnail-placeholder.css';
+import {thumbnailPlaceholderMarkup} from './thumbnail-placeholder.js';
 import {mountIcons} from './icons.js';
 import {createUIFeedback,shouldAnimateBoundary} from './ui-feedback.js';
 import {modelHeight,dimensionDetails,dimensionNote,comparisonText} from './model-dimensions.js';
@@ -34,7 +36,7 @@ const state={lang:catalog.route.lang==='zh-CN'?'zh':'en',page:catalog.route.page
 if(initialModel&&!models.some(a=>a.id===initialModel))setTimeout(()=>toast(t('This model does not exist.','该模型不存在。')),50);
 let renderer,selectionVersion=0,composition=false,searchTimer,hoverTimer,hoverRow,hoverActive=null,hoverCooldown=false,resizeTimer,infoOpenTimer,infoCloseTimer,infoPinned=false,infoSuppressed=false,draft=null,toastTimer;
 let currentReady=false,programmaticPosition=null,activeTable=null,selectionLoadingTimer=0,cancelSelectedPoster=null;
-let collectionScroll=0,measuredPad=0,restoringHistory=false,navigationVersion=0;
+let collectionScroll=0,measuredPad=0,restoringHistory=false,collectionReturnPending=false;
 const detailPosterCache=new Map(),DETAIL_POSTER_CACHE_LIMIT=8;
 const thumbnails=new ThumbnailQueue();let warmPosterTimer=0;
 function setWheelPosition(value){collectionScroll=Math.max(0,value);if(!wheel.clientHeight)return;wheel.scrollTop=collectionScroll;programmaticPosition=wheel.scrollTop;collectionScroll=wheel.scrollTop;}
@@ -82,7 +84,7 @@ function renderWheel(){
  const existing=new Map([...slots.children].map(el=>[el.dataset.id,el]));
  for(const i of [...range].sort((a,b)=>a-b)){
   const asset=state.results[i];let row=existing.get(asset.id);
-  if(!row){row=document.createElement('div');row.className='slot';row.dataset.id=asset.id;row.id='option-'+asset.id;row.role='option';row.innerHTML='<span class="slot-marker" aria-hidden="true"></span><div class="slot-image"><img alt="" draggable="false"></div><div class="slot-copy"><strong></strong><small></small><div class="current"></div></div>';
+  if(!row){row=document.createElement('div');row.className='slot';row.dataset.id=asset.id;row.id='option-'+asset.id;row.role='option';row.innerHTML='<span class="slot-marker" aria-hidden="true"></span><div class="slot-image"><img alt="" draggable="false">'+thumbnailPlaceholderMarkup()+'</div><div class="slot-copy"><strong></strong><small></small><div class="current"></div></div>';
    row.addEventListener('click',()=>choose(asset.id,{center:true}));
    row.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||reduced()||settler.state!=='idle'||!matchMedia('(hover:hover) and (pointer:fine)').matches||hoverRow===row)return;hoverCooldown=false;stopHover();hoverCooldown=false;hoverRow=row;hoverTimer=setTimeout(async()=>{if(hoverRow!==row||hoverCooldown||!currentReady)return;const host=row.querySelector('.slot-image'),table=new HoverTurntable(host,asset.wheelSpec,{reduced});activeTable=table;const request=renderer?.preview(asset,host);if(renderer?.hover)renderer.hover.effect=table;const ready=await request;if(ready&&hoverRow===row&&!hoverCooldown){hoverActive=row;table.ready();const revealed=await renderer.revealHover();if(revealed&&hoverActive===row&&!hoverCooldown)renderer.animateHover();}else table.stop();},300);});
    row.addEventListener('pointerleave',()=>{if(hoverRow===row)stopHover();});slots.append(row);
@@ -93,7 +95,7 @@ function renderWheel(){
  for(const row of existing.values()){if(row===hoverRow)stopHover();row.remove();}
  if(keyIndex>=0&&$('#option-'+state.keyboard))wheel.setAttribute('aria-activedescendant','option-'+state.keyboard);else wheel.removeAttribute('aria-activedescendant');
  const near=[...slots.children].map(row=>({row,index:state.results.findIndex(a=>a.id===row.dataset.id)})).filter(({index})=>Math.abs(index-centerIndex)<=half+1).sort((a,b)=>Math.abs(a.index-centerIndex)-Math.abs(b.index-centerIndex));
- thumbnails.update(near.map(({row,index})=>({image:row.querySelector('img'),url:poster(state.results[index],{wheel:true}),fallback:urlAsset(state.results[index].preview)})));
+ thumbnails.update(near.map(({row,index})=>({image:row.querySelector('img'),url:poster(state.results[index],{wheel:true}),fallback:urlAsset(state.results[index].preview),visible:Math.abs(index-centerIndex)<=half+.5})));
  clearTimeout(warmPosterTimer);warmPosterTimer=setTimeout(warmDetailPosters,180);
  $('.wheel-wrap').dataset.empty=String(!state.results.length);
  const empty=$('#empty-state');empty.hidden=!!state.results.length;wheel.tabIndex=state.results.length?0:-1;$('#empty-message').textContent=t('No models match these conditions.','没有符合这些条件的模型。');
@@ -156,10 +158,10 @@ function selectPoster(asset,version){
  return {image,ready};
 }
 async function choose(id,{push=true,openMobile=true,activateMobile=false,center=false,syncHistory=true}={}){
- const asset=sample.find(a=>a.id===id);if(!asset)return;if(push){++navigationVersion;restoringHistory=false;}ui.resetCopy();if(push&&syncHistory)saveCurrentHistory();if(push)state.view='detail';const version=++selectionVersion;clearTimeout(selectionLoadingTimer);selectionLoadingTimer=0;closeInfo();stopHover();settler.stop();state.selected=id;state.keyboard=id;currentReady=false;$('#detail').dataset.modelId=id;$('#detail').dataset.state='loading';$('#title').textContent=short(asset);$('#subtitle').textContent=t(categories[asset.category]?.[0]||asset.category,categories[asset.category]?.[1]||asset.category)+' / '+t('Stylized specimen','风格化示意');$('#triangles').textContent=asset.triangles.toLocaleString();$('#dimensions').textContent=modelHeight(asset);$('#file-size').textContent=Math.round((asset.glb_bytes||0)/1024)+' KB';
+ const asset=sample.find(a=>a.id===id);if(!asset)return;ui.resetCopy();if(push&&syncHistory)saveCurrentHistory();if(push)state.view='detail';const version=++selectionVersion;clearTimeout(selectionLoadingTimer);selectionLoadingTimer=0;closeInfo();stopHover();settler.stop();state.selected=id;state.keyboard=id;currentReady=false;$('#detail').dataset.modelId=id;$('#detail').dataset.state='loading';$('#title').textContent=short(asset);$('#subtitle').textContent=t(categories[asset.category]?.[0]||asset.category,categories[asset.category]?.[1]||asset.category)+' / '+t('Stylized specimen','风格化示意');$('#triangles').textContent=asset.triangles.toLocaleString();$('#dimensions').textContent=modelHeight(asset);$('#file-size').textContent=Math.round((asset.glb_bytes||0)/1024)+' KB';
  $('#download').href=urlAsset(asset.glb);$('#blend').href=urlAsset(asset.blend);const selectedPoster=selectPoster(asset,version);$('#retry').hidden=true;$('#loading').textContent='';infoContent(asset);$('#comparison-label').hidden=true;$('#compare').setAttribute('aria-pressed','false');$('#compare').disabled=true;$('#wireframe').setAttribute('aria-pressed',String(renderer?.wire||false));renderSummary();renderWheel();settler.stop();
- if(center)settler.centerOn(id,{immediate:mobile()});
  state.mobileOpen=state.view==='detail'&&openMobile;syncMobileView();
+ if(center)settler.centerOn(id,{immediate:mobile()});
  if(syncHistory){if(push)pushHistory();else saveCurrentHistory();}
  $('#mobile-interact').hidden=!mobile();$('#mobile-interact').textContent=t(activateMobile?'Exit interaction':'Interact in 3D',activateMobile?'退出交互':'交互查看');$('#detail').style.touchAction=mobile()&&!activateMobile?'pan-y':'none';
  if(mobile()&&!activateMobile){renderer?.suspend();$('#detail').dataset.state='static';return;}
@@ -185,32 +187,37 @@ function pushHistory(){
  history.pushState(snapshot(),'',historyURL());
 }
 function returnToCollection(){
+ if(collectionReturnPending)return;
  stopHover();settler.stop();
+ // Close owns cancellation immediately, not when asynchronous popstate arrives.
+ ++selectionVersion;cancelSelectedPoster?.();clearTimeout(selectionLoadingTimer);renderer?.suspend();currentReady=false;$('#detail').dataset.state='static';$('#detail-poster').classList.remove('ready');
  // A real collection entry precedes every in-app model activation. Returning to
  // it preserves filters/scroll and makes browser Back/Forward agree with the UI.
- if(state.detailDepth>0){history.go(-state.detailDepth);return;}
+ if(state.detailDepth>0){collectionReturnPending=true;history.go(-state.detailDepth);return;}
  // A direct/shared detail link has no owned collection entry to traverse.
  saveCurrentHistory();state.view='collection';state.detailDepth=0;state.mobileOpen=false;
- ++selectionVersion;cancelSelectedPoster?.();clearTimeout(selectionLoadingTimer);renderer?.suspend();currentReady=false;
  syncMobileView();pushHistory();wheel.focus({preventScroll:true});
 }
 window.addEventListener('popstate',async event=>{
- const version=++navigationVersion;restoringHistory=true;
- const saved=event.state?.gallery?event.state:null,url=new URL(location.href),route=parseRoute(url.pathname,siteRoot.pathname);
- if(route.type!=='models'){location.reload();return;}
- closeFilters(false);closeInfo();stopHover();settler.stop();
- const query=readGalleryQuery(url.searchParams),id=url.searchParams.get('model'),selected=sample.find(a=>a.id===id)?.id||sample.find(a=>a.id===saved?.selected)?.id||defaultSelection;
- Object.assign(state,query,{lang:route.lang==='zh-CN'?'zh':'en',page:route.page||0,view:id&&sample.some(a=>a.id===id)?'detail':'collection',selected,detailDepth:saved?.detailDepth||0});
- state.mobileOpen=state.view==='detail';translate();$('#search').value=state.query;state.results=compute();state.keyboard=sample.some(a=>a.id===saved?.keyboard)?saved.keyboard:selected;
- collectionScroll=Number.isFinite(saved?.scroll)?Math.max(0,saved.scroll):Math.max(0,state.results.findIndex(a=>a.id===selected))*SLOT;
- syncMobileView();renderSummary();wheelTitle.reset();renderWheel();
- const ownedSelection=selectionVersion+1;
- try{await choose(selected,{push:false,syncHistory:false,openMobile:state.mobileOpen});}
- finally{
-  if(version!==navigationVersion||ownedSelection!==selectionVersion)return;
+ restoringHistory=true;collectionReturnPending=false;
+ let selection;
+ try{
+  const saved=event.state?.gallery?event.state:null,url=new URL(location.href),route=parseRoute(url.pathname,siteRoot.pathname);
+  if(route.type!=='models'){location.reload();return;}
+  closeFilters(false);closeInfo();stopHover();settler.stop();
+  const query=readGalleryQuery(url.searchParams),id=url.searchParams.get('model'),selected=sample.find(a=>a.id===id)?.id||sample.find(a=>a.id===saved?.selected)?.id||defaultSelection;
+  Object.assign(state,query,{lang:route.lang==='zh-CN'?'zh':'en',page:route.page||0,view:id&&sample.some(a=>a.id===id)?'detail':'collection',selected,detailDepth:saved?.detailDepth||0});
+  state.mobileOpen=state.view==='detail';translate();$('#search').value=state.query;state.results=compute();state.keyboard=sample.some(a=>a.id===saved?.keyboard)?saved.keyboard:selected;
+  collectionScroll=Number.isFinite(saved?.scroll)?Math.max(0,saved.scroll):Math.max(0,state.results.findIndex(a=>a.id===selected))*SLOT;
+  syncMobileView();renderSummary();wheelTitle.reset();renderWheel();
+  // choose performs route/DOM writes synchronously, then awaits the model.
+  // Release history ownership before that network wait so scroll and retries
+  // remain live. Selection tokens, not a later navigation callback, own frames.
+  selection=choose(selected,{push:false,syncHistory:false,openMobile:state.mobileOpen});
   state.keyboard=sample.some(asset=>asset.id===saved?.keyboard)?saved.keyboard:selected;
-  syncMobileView();renderWheel();settler.stop();restoringHistory=false;saveCurrentHistory();
- }
+  syncMobileView();renderWheel();settler.stop();
+ }finally{restoringHistory=false;}
+ saveCurrentHistory();await selection;
 });
 function openFilters(event){clearTimeout(searchTimer);if(!composition&&state.query!==$('#search').value){state.query=$('#search').value;applyResults(false);}stopHover();settler.stop();if(!ui.filter.open)draft={query:state.query,facets:structuredClone(state.facets),sort:state.sort};renderFilters();ui.filter.show({animate:ui.pointer(event)});$('#filter-close').focus({preventScroll:true});}
 function closeFilters(focus=true,{animate=false}={}){ui.filter.hide({animate});draft=null;if(focus)$('#filters').focus({preventScroll:true});}

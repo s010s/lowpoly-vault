@@ -11,6 +11,10 @@ import {filterItems,WheelSettler} from '../state.js';
 import {publishedModels,assetURL as fixtureAssetURL,repositoryURL,installGeometryOnlyTextureFixture} from './geometry-fixtures.mjs';
 import {prepareModels,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref} from '../catalog-source.js';
 import {PACK_LABELS,WORLD_LABELS} from '../../curation.js';
+import {modelShortName} from '../presentation-labels.js';
+import {ThumbnailQueue} from '../thumbnail-queue.js';
+import {thumbnailPlaceholderMarkup} from '../thumbnail-placeholder.js';
+import {parseRoute} from '../../routes.js';
 const rawModels=await publishedModels(),resources=JSON.parse(await readFile(new URL('../../public/gallery/resources.json',import.meta.url),'utf8'));
 const models=prepareModels({assets:rawModels},resources),catalog={manifest:{assets:rawModels,review_only:false},route:{lang:'en',page:0}};
 const restoreTextureLoader=installGeometryOnlyTextureFixture();
@@ -47,6 +51,7 @@ const window=new Element();
 function matchMedia(query){if(!media.has(query)){const value=new Element();Object.defineProperty(value,'matches',{get:()=>query.includes('reduced-motion')?reduced:query.includes('max-width')?mobile:query.includes('hover:hover')});media.set(query,value);}return media.get(query);}
 const now=()=>time;
 class TestTitle extends WheelTitle{constructor(args){super({...args,now,schedule,cancel:id=>timers.delete(id)});}}
+class TestThumbnails extends ThumbnailQueue{constructor(){super({setTimer:schedule,clearTimer:id=>timers.delete(id)});}}
 class TestSettler extends WheelSettler{constructor(args){super({...args,now,frame:fn=>schedule(fn,16),cancel:id=>timers.delete(id)});}}
 const network=[],draws=[];let clears=0;
 
@@ -66,7 +71,9 @@ r.host=$('#detail');r.visible=true;
 r.draw=()=>{if(!r.lost){r.renderer.domElement.style.visibility='visible';if(r.detail.model)r.acknowledgeDetailFrame();}draws.push({id:r.detail.asset?.id,model:!!r.detail.model,visibility:r.renderer.domElement.style.visibility});};
 r.host=$('#detail');r.controls=r.createControls(r.host);
 r.viewMotion=new ViewTransition({read:()=>r.viewState(),write:(state,ownership)=>r.applyState(state,ownership),reduced:()=>reduced});
-const context=vm.createContext({...dimensionPresentation,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location:new URL(siteRoot),localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history:{replaceState(value){latestHistorySnapshot=structuredClone(value);},pushState(value){latestHistorySnapshot=structuredClone(value);pushes++;}},console:{warn(){}},navigator:{}});
+const location=new URL('models/',siteRoot);
+const history={state:null,replaceState(value,_,url){this.state=structuredClone(value);latestHistorySnapshot=this.state;if(url)location.href=url;},pushState(value,_,url){this.replaceState(value,_,url);pushes++;}};
+const context=vm.createContext({...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
 let source=await readFile(new URL('../main.js',import.meta.url),'utf8');
 assert(source.includes('export async function mountGallery(){'),'The app must mount explicitly after startup prerequisites');
 // Unwrap only the mount boundary so the existing deterministic probes can still
@@ -94,6 +101,8 @@ const model=id=>models.find(a=>a.id===id),request=id=>network.findLast(n=>n.path
 const active=id=>{assert.equal(p.state.selected,id);assert.equal($('#detail').dataset.modelId,id);assert.equal($('#detail-poster').dataset.modelId,id);assert.equal($('#detail-poster').src,assetURL(model(id).galleryPosters?.detail||model(id).preview));};
 const baseline=()=>{const actual=r.viewState(),wanted=r.singleState();for(const key of ['position','target','modelPosition','modelQuaternion'])actual[key].forEach((x,i)=>assert(Math.abs(x-wanted[key][i])<1e-7,key));assert.equal(actual.zoom,1);assert.equal(r.comparison,false);assert.equal(r.companion,null);assert.equal(r.cameraFrame,0);assert.equal(r.referenceFrame,0);assert.equal(r.controls.enabled,true);};
 const first=p.state.selected;await request(first).resolve();await flush();assert.equal($('#detail').dataset.state,'ready');baseline();
+$('#wheel').scrollTop=0;p.renderWheel();await settleChoice(first,{center:true});advance(600);assert.equal($('#wheel').scrollTop,p.state.results.findIndex(asset=>asset.id===first)*128);assert.equal(p.settler.state,'idle');
+checks.push('Non-reduced-motion desktop activation completes its centering RAF after collection visibility is synchronized');
 // Inspect each transient handoff boundary, instead of only its ready endpoint.
 const handoff=p.choose(first);const handoffPoster=$('#detail-poster');let decodeHandoff;handoffPoster.decode=()=>new Promise(resolve=>decodeHandoff=resolve);await new Promise(resolve=>setImmediate(resolve));assert.equal(r.detail.model,null);assert.equal(handoffPoster.style.visibility,'hidden');decodeHandoff();await new Promise(resolve=>setImmediate(resolve));assert.equal(handoffPoster.style.visibility,'visible');assert.equal(handoffPoster.classList.contains('ready'),false);assert.equal(r.detail.model,null);advance(16);assert.equal(r.detail.model,null);advance(16);await new Promise(resolve=>setImmediate(resolve));assert(r.detail.model);assert.equal(r.controls.enabled,false);assert.equal(handoffPoster.classList.contains('ready'),false);advance(16);assert.equal(handoffPoster.classList.contains('ready'),false);advance(16);await handoff;assert.equal(handoffPoster.classList.contains('ready'),true);baseline();
 checks.push('Cached handoff exposes selected decoded poster, waits its presentation, renders matching mesh, then waits two frame boundaries before crossfade/interaction');
@@ -125,8 +134,9 @@ checks.push('Context loss during pending load invalidates selection, so late suc
 const blockedPoster=p.choose(D);const waitingImage=$('#detail-poster');let unblockPoster;waitingImage.decode=()=>new Promise(resolve=>unblockPoster=resolve);await new Promise(resolve=>setImmediate(resolve));assert.equal(r.detail.model,null);r.lost=true;r.suspend();r.onError(new Error('WebGL context lost'),{assetId:D,token:r.token});await settle(blockedPoster);advance(1000);assert.equal($('#detail').dataset.state,'fallback');assert.equal($('#loading').textContent,'Static preview · 3D unavailable');r.lost=false;unblockPoster?.();await flush();
 checks.push('Context loss between cached GLB completion and poster decode releases select and cannot resurrect delayed loading text');
 // Older async popstate continuations must not restore their stale wheel/keyboard/mobile state.
-const F='waptia',historyA={selected:F,keyboard:F,scroll:128,mobileOpen:true},historyB={selected:first,keyboard:first,scroll:512,mobileOpen:false};
-const pops=window.events.get('popstate');assert.equal(pops.length,1);const back=pops[0]({state:historyA});const forward=pops[0]({state:historyB});await settle(forward);await request(F).resolve();await settle(back);assert.equal(p.state.selected,first);assert.equal(p.state.keyboard,first);assert.equal($('#wheel').scrollTop,512);assert.equal(p.state.mobileOpen,false);baseline();
+const F='waptia',historyA={gallery:true,view:'detail',selected:F,keyboard:F,scroll:128,mobileOpen:true},historyB={gallery:true,view:'collection',selected:first,keyboard:first,scroll:512,mobileOpen:false};
+const pops=window.events.get('popstate');assert.equal(pops.length,1);
+location.href=new URL('models/?model='+F,siteRoot).href;const back=pops[0]({state:historyA});location.href=new URL('models/',siteRoot).href;const forward=pops[0]({state:historyB});await request(first).resolve();await settle(forward);await request(F).resolve();await settle(back);assert.equal(p.state.selected,first);assert.equal(p.state.keyboard,first);assert.equal($('#wheel').scrollTop,512);assert.equal(p.state.mobileOpen,false);baseline();
 checks.push('Rapid Back/Forward rejects the old post-await navigation continuation as well as its old GLB');
 
 const host=$('#detail');const pointer=(name,id,type,x,y)=>host.dispatch(name,{pointerId:id,pointerType:type,button:0,clientX:x,clientY:y,pageX:x,pageY:y});
@@ -149,8 +159,8 @@ await settleChoice(C,{activateMobile:true});baseline();pointer('pointermove',32,
 assert.equal((host.events.get('pointerdown')||[]).length,1);assert.equal((host.events.get('pointercancel')||[]).length,1);
 checks.push('Actual controls mobile static/interact/static/interact keeps pan-y/none policy, rejects held touch, and has no duplicate listeners');
 await settleChoice(first,{openMobile:false});p.state.mobileOpen=false;$('#wheel').scrollTop=0;
-const savedList={lang:p.state.lang,page:0,selected:first,query:'',facets:emptyFacets(),sort:'curated',scroll:0,keyboard:C,mobileOpen:false};
-await pops[0]({state:savedList});
+const savedList={gallery:true,view:'collection',lang:p.state.lang,page:0,selected:first,query:'',facets:emptyFacets(),sort:'curated',scroll:0,keyboard:C,mobileOpen:false};
+location.href=new URL('models/',siteRoot).href;await pops[0]({state:savedList});
 assert.equal(p.state.mobileOpen,false);assert.equal(latestHistorySnapshot.mobileOpen,false);
 assert.equal(p.state.keyboard,C);assert.equal(latestHistorySnapshot.keyboard,C);
 assert.equal($('#wheel').scrollTop,0);assert.equal(latestHistorySnapshot.scroll,0);
@@ -207,6 +217,16 @@ try{
  await settle(delayed);active('confuciusornis');baseline();assert.equal(delayedDigests,1);assert(Date.now()-started>=35);assert(r.detail.supportRule,'Delayed source identity must still validate the reviewed foot support');
  checks.push('A real asynchronous source digest delayed beyond immediate-loop cadence still gates mesh readiness and validates reviewed support before selection completes');
 }finally{Object.defineProperty(globalThis,'crypto',originalCrypto);}
+// History owns synchronous route restoration, never the lifetime of a GLB.
+const pendingStart=network.length,restoreId='canadaspis';location.href=new URL('models/?model='+restoreId,siteRoot).href;
+const delayedRestore=pops[0]({state:{gallery:true,view:'detail',selected:restoreId,keyboard:restoreId,scroll:256,mobileOpen:false}});
+assert.equal(vm.runInContext('restoringHistory',context),false,'Pending GLB must not lock list scrolling/history');
+$('#wheel').scrollTop=1024;$('#wheel').dispatch('scroll');assert.equal(latestHistorySnapshot.scroll,1024);
+const contextRetry=r.onRestore();assert.equal(vm.runInContext('restoringHistory',context),false);
+for(const pending of network.slice(pendingStart))await pending.resolve();await settle(Promise.all([delayedRestore,contextRetry]));
+assert.equal(vm.runInContext('restoringHistory',context),false);assert.equal($('#wheel').scrollTop,1024);assert.equal(latestHistorySnapshot.scroll,1024);baseline();
+checks.push('Delayed history GLB permits scrolling and push:false context retry without a stuck guard or stale scroll rewind');
+
 let fullCatalogSelections=0;
 for(const asset of models){
  const beforeRequests=network.length,selection=p.choose(asset.id,{push:false,openMobile:false});

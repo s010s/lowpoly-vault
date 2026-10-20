@@ -6,9 +6,11 @@ const tick=()=>{const callbacks=[...timers.values()];timers.clear();callbacks.fo
 function item(id){const image={dataset:{},onload:null,onerror:null,removeAttribute(){calls.push(['cancel',id]);},set src(value){calls.push(['load',id,value]);}};return{image,url:`/${id}.png`,fallback:`/${id}-fallback.png`};}
 const first=Array.from({length:12},(_,i)=>item(i));queue.update(first);assert.equal(calls.length,0);tick();assert.equal(queue.active.size,3);assert.equal(queue.stats.maxActive,3);
 queue.update(first);assert.equal(timers.size,0,'Unchanged virtual frame does not defer work forever');
-first[0].image.onload();assert.equal(queue.stats.started,4);assert.equal(queue.active.size,3);
+first[0].image.onload();await Promise.resolve();assert.equal(queue.stats.started,4);assert.equal(queue.active.size,3);
 const later=Array.from({length:8},(_,i)=>item(i+20));queue.update(later);assert.equal(queue.active.size,0);assert.equal(queue.stats.cancelled,3);assert.equal(queue.stats.started,4,'New rows await settling, even when cancelled jobs finish');
 queue.update([item('skipped')]);queue.update(later);tick();assert.equal(queue.stats.started,7);assert(!calls.some(call=>call[1]==='skipped'),'Fast-passed rows never start a request');
-later[0].image.onerror();assert.deepEqual(calls.at(-1),['load',20,'/20-fallback.png']);later[0].image.onload();assert.equal(queue.active.size,3);
+later[0].image.onerror();assert.deepEqual(calls.at(-1),['load',20,'/20-fallback.png']);later[0].image.onload();await Promise.resolve();assert.equal(queue.active.size,3);
 queue.clear();assert.equal(queue.active.size,0);assert.equal(timers.size,0);assert.equal(queue.stats.maxActive,3);
+const decode=item('decode');let decodeReady;decode.image.decode=()=>new Promise(done=>decodeReady=done);queue.update([decode]);tick();decode.image.onload();assert.equal(decode.image.dataset.thumbnailState,'decoding');assert.equal(decode.image.dataset.thumbnailVisible,'true');decodeReady();await Promise.resolve();assert.equal(decode.image.dataset.thumbnailState,'ready');
+const cancelled=item('cancel-decode');let cancelReady;cancelled.image.decode=()=>new Promise(done=>cancelReady=done);queue.update([cancelled]);tick();cancelled.image.onload();queue.clear();cancelReady();await Promise.resolve();assert.equal(cancelled.image.dataset.thumbnailState,'idle');assert.equal(cancelled.image.dataset.thumbnailVisible,'false');
 console.log('Thumbnail queue: settle-only starts, bounded concurrency, cancellation, dropped transient rows and fallback passed.');

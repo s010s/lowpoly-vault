@@ -44,3 +44,5 @@ assert.equal(galleryURL({...state,view:'detail'}).searchParams.get('model'),last
 await import('./gallery/tests/thumbnail-queue-test.mjs');
 
 await import('./gallery/tests/navigation-test.mjs');
+
+await import('./gallery/tests/thumbnail-placeholder-test.mjs');

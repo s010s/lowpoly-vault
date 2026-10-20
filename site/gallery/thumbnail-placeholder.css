@@ -1,0 +1,16 @@
+/* Tiny transparent wireframe, only while a nearby thumbnail is pending. */
+.slot-image .thumbnail-placeholder{position:absolute;left:50%;top:50%;width:26px;height:26px;transform:translate(-50%,-50%);perspective:90px;pointer-events:none;z-index:0;opacity:0;visibility:hidden;color:rgba(65,74,64,.18);color:color-mix(in srgb,var(--vault-ink,#262a25) 18%,transparent);transition:opacity 150ms ease-out,visibility 0s linear 150ms}
+.thumbnail-placeholder-cube{position:absolute;left:4px;top:4px;width:18px;height:18px;transform-style:preserve-3d;transform:rotateX(-18deg) rotateY(30deg);animation:thumbnail-wireframe-turn 16s linear infinite;animation-play-state:paused}
+.thumbnail-placeholder-face{position:absolute;inset:0;border:1px solid currentColor;background:transparent;backface-visibility:visible}
+.thumbnail-placeholder-front{transform:translateZ(9px)}
+.thumbnail-placeholder-back{transform:rotateY(180deg) translateZ(9px)}
+.thumbnail-placeholder-left{transform:rotateY(-90deg) translateZ(9px)}
+.thumbnail-placeholder-right{transform:rotateY(90deg) translateZ(9px)}
+.thumbnail-placeholder-top{transform:rotateX(90deg) translateZ(9px)}
+.thumbnail-placeholder-bottom{transform:rotateX(-90deg) translateZ(9px)}
+.slot-image img[data-thumbnail-visible=true]:is([data-thumbnail-state=pending],[data-thumbnail-state=loading],[data-thumbnail-state=decoding])+.thumbnail-placeholder{opacity:1;visibility:visible;transition-delay:0s}
+.slot-image img[data-thumbnail-visible=true]:is([data-thumbnail-state=pending],[data-thumbnail-state=loading],[data-thumbnail-state=decoding])+.thumbnail-placeholder .thumbnail-placeholder-cube{animation-play-state:running}
+.slot-image img:is([data-thumbnail-visible=false],[data-thumbnail-state=idle],[data-thumbnail-state=error])+.thumbnail-placeholder{opacity:0;visibility:hidden;transition:none}
+.slot-image img:is([data-thumbnail-visible=false],[data-thumbnail-state=idle],[data-thumbnail-state=error])+.thumbnail-placeholder .thumbnail-placeholder-cube{animation:none}
+@keyframes thumbnail-wireframe-turn{from{transform:rotateX(-18deg) rotateY(30deg)}to{transform:rotateX(-18deg) rotateY(390deg)}}
+@media(prefers-reduced-motion:reduce){.slot-image .thumbnail-placeholder{transition:none}.thumbnail-placeholder-cube{animation:none!important}}
