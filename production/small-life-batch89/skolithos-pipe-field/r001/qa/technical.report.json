@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+    "brief_sha256": "e8dd9f6d14d661b285b98d2d8a85e795de9fdb542b9ee7f8ac1e8d0d27b3f177",
+    "references_sha256": "462acade525357722fbc24fd3391970e666b7550fc3baf026c4bf6d7159a60be"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 652,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 30172,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r001/qa/static-glb.report.json",
+        "sha256": "2240e61fbbee42f7c679aaa5a1b58b28e6faecc09d8dbf33a3a71af5a053a362"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r001/artifacts/gltf-validator.report.json",
+        "sha256": "9306dc000d273683fb64ba87389d151ad0e9966cdb4339df191d8011f8dcf621"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r001/qa/source-export.report.json",
+        "sha256": "fdbdc5e575e71a5516ec51c9449f6979147b61a9e9f6e5f9b0b2ec0eff6b0027"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r001/qa/reproducibility-a.report.json",
+        "sha256": "ab156d9ff034e17091b68bb49950186b749ea4b2138790a5f5f23dde7c4d7c25"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r001/qa/reproducibility-b.report.json",
+        "sha256": "c3da049857426736dea4671167230a03e0dfdd2a97c3ea242c6add863939b633"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.05000000074505806,
+      0.0,
+      -0.03500000014901161
+    ],
+    "max": [
+      0.05000000074505806,
+      0.06560000032186508,
+      0.03500000014901161
+    ],
+    "size": [
+      0.10000000149011612,
+      0.06560000032186508,
+      0.07000000029802322
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "sectioned-host-sandstone",
+      "vertices": 334,
+      "triangles": 652,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 998,
+  "created_at": "2026-10-20T21:44:52.674446+00:00"
+}

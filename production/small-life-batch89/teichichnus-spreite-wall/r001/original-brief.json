@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "asset_id": "teichichnus-spreite-wall",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate only; not independent, user, GPU, scene or release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every final exact view and compare to original scope. Actual concept hero/front/end/top inspected. Preserve narrow layered wall and upper causative tube. Reduce large backing wall which obscures rear laminae, preserve full basal slab. Model shallow gutter-shaped ribbons as solid connected stack with real relief but no large open gaps, and no coplanar visible tube/lamina overlay.",
+      "required_sources": [
+        "KGS2002"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One straight narrow wall-like raised trace relief composed of closely packed vertically stacked curved gutter-shaped sediment laminae. A simple horizontal causative burrow follows the upper edge; front/rear face displays lamina stack and end view reveals shallow gutter cross section. Solid irregular basal sediment slab and full-volume laminae; not separate floating pipes, a giant U-shaped burrow, shell, branching network or identified animal. Stylized Teichichnus morphology based on KGS2002 T.rectus KUMIP288500, figure57 top relief and cross-section. Raised relief and exposed wall sectional convention illustrative, not exact specimen replica. Geometry follows retrusive vertically/subvertically stacked gutter-shaped laminae, while counts, colors and block dimensions are artistic. Trace names morphology not producer; behavior and depositional setting are not rendered as established facts.",
+      "required_sources": [
+        "KGS2002"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet. Static candidate; GPU/scene remain unrun unknown.",
+  "frozen_at": "2026-10-20T21:28:51.727606+00:00",
+  "subject": "Teichichnus spreite wall",
+  "representation": "trace-concept",
+  "factual_scope": "Stylized Teichichnus morphology based on KGS2002 T.rectus KUMIP288500, figure57 top relief and cross-section. Raised relief and exposed wall sectional convention illustrative, not exact specimen replica. Geometry follows retrusive vertically/subvertically stacked gutter-shaped laminae, while counts, colors and block dimensions are artistic. Trace names morphology not producer; behavior and depositional setting are not rendered as established facts.",
+  "identifying_features": [
+    "One straight narrow wall-like raised trace relief composed of closely packed vertically stacked curved gutter-shaped sediment laminae.",
+    "A simple horizontal causative burrow follows the upper edge; front/rear face displays lamina stack and end view reveals shallow gutter cross section.",
+    "Solid irregular basal sediment slab and full-volume laminae; not separate floating pipes, a giant U-shaped burrow, shell, branching network or identified animal."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.13,
+      0.065,
+      0.055
+    ],
+    "accuracy": "artistic, not measured complete specimen"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom support contact z0 and center of basal footprint.",
+  "intended_use": {
+    "role": "static educational museum/catalog rotation candidate",
+    "viewing": "512px diagnostic stills and later web inspection",
+    "limits": "No collision/dynamics/GPU/composed-scene acceptance established."
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no textures, emission, transparent planes or double-sided concealment.",
+  "palette_srgb": [
+    "#AC926B",
+    "#C8AE82",
+    "#9A7D55",
+    "#776446"
+  ],
+  "component_and_cause": {
+    "primary": "One straight narrow wall-like raised trace relief composed of closely packed vertically stacked curved gutter-shaped sediment laminae.",
+    "secondary": "A simple horizontal causative burrow follows the upper edge; front/rear face displays lamina stack and end view reveals shallow gutter cross section.",
+    "tertiary": "Solid irregular basal sediment slab and full-volume laminae; not separate floating pipes, a giant U-shaped burrow, shell, branching network or identified animal.",
+    "quiet_region": "Untraced host sediment, subordinate to diagnostic trace geometry"
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:28:51.727606+00:00",
+    "path": "production/small-life-batch89/concepts/teichichnus-spreite-wall-concept.png",
+    "sha256": "9ae60cc18e7db200ed07834ff40d5207bb44d4d2302b6e2166e1197fc3f31f84",
+    "decisions": "Actual concept hero/front/end/top inspected. Preserve narrow layered wall and upper causative tube. Reduce large backing wall which obscures rear laminae, preserve full basal slab. Model shallow gutter-shaped ribbons as solid connected stack with real relief but no large open gaps, and no coplanar visible tube/lamina overlay."
+  },
+  "parameters": {
+    "slab_dimensions_m": [
+      0.13,
+      0.065,
+      0.01
+    ],
+    "wall_length_m": 0.1,
+    "wall_thickness_m": 0.013,
+    "wall_height_m": 0.038,
+    "lamina_count": 9,
+    "gutter_cross_sections": 8,
+    "length_segments": 16,
+    "causative_tunnel_radius_m": 0.0033
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "fresh source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos/Three.js parse",
+    "eight exact512px renders and lossless sheet"
+  ],
+  "prohibited": [
+    "Alter original inventory or frozen scope",
+    "Claim concept as primary evidence",
+    "Copy copyrighted source pixels/mesh",
+    "Hide geometry defects by rendering changes",
+    "Claim CPU or Node parse proves GPU/scene"
+  ]
+}

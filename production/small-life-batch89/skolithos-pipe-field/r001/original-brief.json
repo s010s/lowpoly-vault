@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "asset_id": "skolithos-pipe-field",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate only; not independent, user, GPU, scene or release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every final exact view and compare to original scope. All concept panels inspected. Preserve clear straight separate cylinders and quiet sandstone. Correct some concept inconsistent discontinuous ends to seven continuous shafts. Seven top positions and three displayed front shafts fixed, no decorative grid, shaft length shown by cutaway not implied fossil observation.",
+      "required_sources": [
+        "KGS2002"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Seven spatially separate straight unbranched vertical cylinders penetrate a solid sediment block continuously from bottom to top. Stepped illustrative front cutaway exposes three full shaft lengths while remaining shafts have round cross-sections visible at the upper surface. Simple constant-diameter filled shafts with no funnel openings, loops, branches, roots or reconstructed maker. Genus-level stylized Skolithos trace morphology. KGS2002 figure56 shows circular protruding bed-top openings, explicitly lacks cross-sectional views and cannot establish ichnospecies. Model depth and section are illustrative genus-level geometry from the textual diagnosis, not a cast or observed section of these specimens. Density, colors and display dimensions artistic; no maker species or universal environmental claim.",
+      "required_sources": [
+        "KGS2002"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet. Static candidate; GPU/scene remain unrun unknown.",
+  "frozen_at": "2026-10-20T21:28:51.727606+00:00",
+  "subject": "Skolithos pipe field",
+  "representation": "trace-concept",
+  "factual_scope": "Genus-level stylized Skolithos trace morphology. KGS2002 figure56 shows circular protruding bed-top openings, explicitly lacks cross-sectional views and cannot establish ichnospecies. Model depth and section are illustrative genus-level geometry from the textual diagnosis, not a cast or observed section of these specimens. Density, colors and display dimensions artistic; no maker species or universal environmental claim.",
+  "identifying_features": [
+    "Seven spatially separate straight unbranched vertical cylinders penetrate a solid sediment block continuously from bottom to top.",
+    "Stepped illustrative front cutaway exposes three full shaft lengths while remaining shafts have round cross-sections visible at the upper surface.",
+    "Simple constant-diameter filled shafts with no funnel openings, loops, branches, roots or reconstructed maker."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.1,
+      0.07,
+      0.065
+    ],
+    "accuracy": "artistic, not measured complete specimen"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom support contact z0 and center of basal footprint.",
+  "intended_use": {
+    "role": "static educational museum/catalog rotation candidate",
+    "viewing": "512px diagnostic stills and later web inspection",
+    "limits": "No collision/dynamics/GPU/composed-scene acceptance established."
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no textures, emission, transparent planes or double-sided concealment.",
+  "palette_srgb": [
+    "#BDA47A",
+    "#CDB791",
+    "#987643",
+    "#9D8966"
+  ],
+  "component_and_cause": {
+    "primary": "Seven spatially separate straight unbranched vertical cylinders penetrate a solid sediment block continuously from bottom to top.",
+    "secondary": "Stepped illustrative front cutaway exposes three full shaft lengths while remaining shafts have round cross-sections visible at the upper surface.",
+    "tertiary": "Simple constant-diameter filled shafts with no funnel openings, loops, branches, roots or reconstructed maker.",
+    "quiet_region": "Untraced host sediment, subordinate to diagnostic trace geometry"
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:28:51.727606+00:00",
+    "path": "production/small-life-batch89/concepts/skolithos-pipe-field-concept.png",
+    "sha256": "2f654b69b2166cc7b35400bf33b32a23f541cee2b7e76e4f90219b5488b22903",
+    "decisions": "All concept panels inspected. Preserve clear straight separate cylinders and quiet sandstone. Correct some concept inconsistent discontinuous ends to seven continuous shafts. Seven top positions and three displayed front shafts fixed, no decorative grid, shaft length shown by cutaway not implied fossil observation."
+  },
+  "parameters": {
+    "block_dimensions_m": [
+      0.1,
+      0.07,
+      0.065
+    ],
+    "shaft_count": 7,
+    "shaft_radius_range_m": [
+      0.0026,
+      0.0048
+    ],
+    "shaft_radial_segments": 12,
+    "visible_front_shafts": 3,
+    "section": "stepped front cutaway with intact rear"
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "fresh source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos/Three.js parse",
+    "eight exact512px renders and lossless sheet"
+  ],
+  "prohibited": [
+    "Alter original inventory or frozen scope",
+    "Claim concept as primary evidence",
+    "Copy copyrighted source pixels/mesh",
+    "Hide geometry defects by rendering changes",
+    "Claim CPU or Node parse proves GPU/scene"
+  ]
+}
