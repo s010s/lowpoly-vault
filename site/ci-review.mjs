@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
 import {modelPlan,modelReceipt,verifyBuild} from './ci-model-shards.mjs';
 import {computeModelInputs,freshModelRecords,assertBuiltRenderInputs} from './ci-model-proof.mjs';
+import {assertAdditionsReport} from './ci-additions-browser-contract.mjs';
 import {freshCardPreviewRecords} from './ci-card-preview-proof.mjs';
 const tasks = {
   "round13": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round13-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round13-20261018/site"}},
@@ -113,6 +114,7 @@ if(modelShard){
   build=verifyBuild('dist');
   env.QA_REVIEW_SCOPE='models';
   env.QA_MODEL_IDS=shard.ids.join(',');
+  if(process.env.CI_MODEL_PROOF_ACTIVE==='true')env.QA_ADDED_MODEL_IDS=shard.ids.join(',');
   env.QA_OUTPUT_DIR=`qa/release-strict-gpu/${task}`;
 }
 if(cardProof){
@@ -129,8 +131,16 @@ if (task === 'previews' && !cardProof && process.env.CI_RUNTIME === 'true') env.
 const result = spawnSync(command, {shell:true,stdio:'inherit',env:{...process.env,...env}});
 if (result.error) throw result.error;
 if(modelShard&&result.status===0){
+  let acceptance;
+  if(process.env.CI_MODEL_PROOF_ACTIVE==='true'){
+    const acceptanceDirectory=`${env.QA_OUTPUT_DIR}/desktop-touch`;
+    const browserResult=spawnSync(process.execPath,['site/ci-additions-browser-test.mjs'],{stdio:'inherit',env:{...process.env,...env,QA_DESKTOP_REPORT:`${env.QA_OUTPUT_DIR}/report.json`,QA_OUTPUT_DIR:acceptanceDirectory}});
+    if(browserResult.error)throw browserResult.error;assert.equal(browserResult.status,0,'Exact fresh desktop/touch acceptance failed');
+    acceptance=assertAdditionsReport(JSON.parse(readFileSync(`${acceptanceDirectory}/report.json`)),{manifest,selectedIDs:shard.ids,identity:build.identity});
+  }
   const report=JSON.parse(readFileSync(`${env.QA_OUTPUT_DIR}/report.json`));
   const receipt=modelReceipt(manifest,plan,shard,report,build);
+  if(acceptance)receipt.browser_acceptance=acceptance;
   if(process.env.CI_MODEL_PROOF_ACTIVE==='true')receipt.proof_records=freshModelRecords({inputs:computeModelInputs({built:await assertBuiltRenderInputs({})}),selectedIDs:shard.ids,browser:report,identity:build.identity,payload_sha256:build.payload_sha256});
   mkdirSync('qa/ci-model-shards',{recursive:true});
   writeFileSync(`qa/ci-model-shards/${task}.json`,JSON.stringify(receipt,null,2)+'\n');

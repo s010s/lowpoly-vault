@@ -121,7 +121,7 @@ fixture=Buffer.alloc(28+jsonBytes.length+binBytes.length);modelBytes.copy(fixtur
 try {
   if(existsSync(resolve(root,'gallery/resources.json'))){
     await mkdir(output,{recursive:true});
-    const result=await runGalleryBrowserTests({groups:["resources", "handoff"],root,output:resolve(output,'approved-wheel')});
+    const result=await runGalleryBrowserTests({groups:["resources", "handoff", "detail"],root,output:resolve(output,'approved-wheel')});
     report.status='passed';report.cases=result.cases.map(row=>({...row,status:row.status==='pass'?'passed':'failed'}));report.page_errors=result.errors;
     report.design_contract='Approved wheel equivalents: real model/pixel ownership, native list and interrupted selection. Retired grid geometry is not claimed as measured; historical baseline branch remains intact.';
   }else{
