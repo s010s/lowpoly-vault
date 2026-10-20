@@ -1,0 +1,175 @@
+[
+  {
+    "name": "color-only",
+    "argv": [
+      "python3",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/repair-r003/check_color_only.py",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/aturia.glb",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.glb",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/color-only.report.json"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.032343083999990085
+  },
+  {
+    "name": "rebuild-1",
+    "argv": [
+      "python3",
+      "/workspace/lowpoly-vault/scripts/check_reproducibility.py",
+      "--glb",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.glb",
+      "--rebuilt-glb",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/repair-r003/runs/build/aturia/r003/semantic-rebuild-1/5ee57993883e766d7c3c85d350145694ca7d1e0d1ae58dd1055690e16ce726bc/20261020T011849-babeaac54bb4488dbd8f31207bd79bfa/outputs/aturia.glb",
+      "--generator",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/generator.py",
+      "--config",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/config.json",
+      "--build-request",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/repair-r003/runs/build/aturia/r003/semantic-rebuild-1/5ee57993883e766d7c3c85d350145694ca7d1e0d1ae58dd1055690e16ce726bc/20261020T011849-babeaac54bb4488dbd8f31207bd79bfa/request.json",
+      "--build-result",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/repair-r003/runs/build/aturia/r003/semantic-rebuild-1/5ee57993883e766d7c3c85d350145694ca7d1e0d1ae58dd1055690e16ce726bc/20261020T011849-babeaac54bb4488dbd8f31207bd79bfa/result.json",
+      "--rebuilt-output",
+      "aturia.glb",
+      "--root",
+      "/workspace/lowpoly-vault",
+      "--output",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/reproducibility-1.report.json"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.6464873090000083
+  },
+  {
+    "name": "rebuild-2",
+    "argv": [
+      "python3",
+      "/workspace/lowpoly-vault/scripts/check_reproducibility.py",
+      "--glb",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.glb",
+      "--rebuilt-glb",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/repair-r003/runs/build/aturia/r003/semantic-rebuild-2/78ee256a91b86f7a353159f3df21088ad38ef8babcd18d8cc183ae94750afef3/20261020T011852-6adee771f72d42c98b7a73902b8f830c/outputs/aturia.glb",
+      "--generator",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/generator.py",
+      "--config",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/config.json",
+      "--build-request",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/repair-r003/runs/build/aturia/r003/semantic-rebuild-2/78ee256a91b86f7a353159f3df21088ad38ef8babcd18d8cc183ae94750afef3/20261020T011852-6adee771f72d42c98b7a73902b8f830c/request.json",
+      "--build-result",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/repair-r003/runs/build/aturia/r003/semantic-rebuild-2/78ee256a91b86f7a353159f3df21088ad38ef8babcd18d8cc183ae94750afef3/20261020T011852-6adee771f72d42c98b7a73902b8f830c/result.json",
+      "--rebuilt-output",
+      "aturia.glb",
+      "--root",
+      "/workspace/lowpoly-vault",
+      "--output",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/reproducibility-2.report.json"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.6228283220000037
+  },
+  {
+    "name": "source-export",
+    "argv": [
+      "blender",
+      "--background",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/lowpoly-vault/scripts/check_source_export.py",
+      "--",
+      "--source",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.blend",
+      "--glb",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.glb",
+      "--output",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/source-export.report.json"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.5710568049999836
+  },
+  {
+    "name": "source-measure",
+    "argv": [
+      "blender",
+      "--background",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/inspect_source.py",
+      "--",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.blend",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/source-mesh-measurements.json"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.1957147120000116
+  },
+  {
+    "name": "static-glb",
+    "argv": [
+      "python3",
+      "/workspace/lowpoly-vault/scripts/qa_glb.py",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.glb",
+      "--max-triangles",
+      "14000",
+      "--max-materials",
+      "6",
+      "--max-primitives",
+      "30",
+      "--report",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/static-glb.report.json"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.4128161689999956
+  },
+  {
+    "name": "khronos",
+    "argv": [
+      "node",
+      "/workspace/lowpoly-vault/scripts/validate_gltf.cjs",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.glb"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.09777030999998715
+  },
+  {
+    "name": "render",
+    "argv": [
+      "blender",
+      "--background",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/render.py",
+      "--",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/aturia.glb",
+      "--revision",
+      "r003",
+      "--brief",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/brief.json",
+      "--references",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/references.json",
+      "--output-dir",
+      "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/proof",
+      "--views",
+      "hero,reversehero,front,side,rear,top,clay,silhouette",
+      "--turntable-frames",
+      "0",
+      "--resolution",
+      "512",
+      "--samples",
+      "16"
+    ],
+    "returncode": 0,
+    "wall_seconds": 17.171738914000002
+  }
+]
