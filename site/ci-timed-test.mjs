@@ -1,11 +1,13 @@
 /** A failed or missing mandatory suite must stop CI and preserve its nonzero status. */
 import assert from 'node:assert/strict';
+import {PUBLICATION_SUITES} from './ci-publication-shards.mjs';
 import {mkdtemp,mkdir,writeFile,readFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 const root=await mkdtemp(join(tmpdir(),'lpv-timing-')),runner=resolve('site/ci-timed.mjs'),names=['initial-release','refined-release','small-life-release','small-fauna-release','small-life-batch-release','small-life-round02-release','small-life-round03-release','small-life-round04-release','small-life-round05-release','small-life-round06-release','small-life-round07-release','small-life-round08-release','small-life-round09-release','small-life-round10-release','small-life-round11-release','small-life-round12-release','small-life-round13-release','concept-seven-release','quartets-capture','concept-quartets-release','landair-capture','concept-landair-release'];
 try{
+ assert.deepEqual(PUBLICATION_SUITES,names,'The complete historical mandatory suite order must remain unchanged');
  await mkdir(join(root,'site'));for(const name of names)await writeFile(join(root,'site',name+'-test.mjs'),`import {appendFileSync} from 'node:fs';appendFileSync('events',${JSON.stringify(name+'\n')});${name==='refined-release'?'process.exit(23);':''}`);
  const run=()=>spawnSync(process.execPath,[runner,'publication'],{cwd:root,encoding:'utf8'}),report=async()=>JSON.parse(await readFile(join(root,'qa/ci-timings/publication.json')));
  assert.equal(run().status,23);assert.equal((await report()).status,'fail');assert.equal((await report()).phases.length,2);assert.equal(await readFile(join(root,'events'),'utf8'),names.slice(0,2).join('\n')+'\n');

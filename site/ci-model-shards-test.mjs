@@ -1,0 +1,118 @@
+/** Sharding may change scheduling, never exact required coverage or artifact identity. */
+import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { modelPlan, expandModelTasks, modelReceipt, assertModelCoverage, readModelReceipts, payloadDigest, verifyBuild, BUILD_RECEIPT } from './ci-model-shards.mjs';
+import { sha256 } from './ci-provenance.mjs';
+import { classify } from './ci-scope.mjs';
+const clone = value => structuredClone(value);
+const manifest = { assets: Array.from({ length: 190 }, (_, index) => ({ id: `model-${String(index).padStart(3, '0')}`, glb: `assets/model-${index}.glb`, sha256: { glb: sha256(String(index)) } })) };
+const plan = modelPlan(manifest, { runtime: true, ids: 'untrusted-selection-is-ignored' });
+assert.equal(plan.length, 5);
+assert.deepEqual(plan.map(shard => shard.ids.length), [38, 38, 38, 38, 38]);
+assert.deepEqual(plan.flatMap(shard => shard.ids).sort(), manifest.assets.map(asset => asset.id));
+assert.deepEqual(modelPlan({ assets: [...manifest.assets].reverse() }, { runtime: true }), plan);
+const selected = modelPlan(manifest, { ids: 'model-041,model-004' });
+assert.deepEqual(selected.flatMap(shard => shard.ids).sort(), ['model-004', 'model-041']);
+assert.equal(modelPlan(manifest, { ids: 'model-004' }).length, 1);
+for (const ids of ['', 'model-004,model-004', 'unpublished']) assert.throws(() => modelPlan(manifest, { ids }));
+assert.throws(() => modelPlan({ assets: [manifest.assets[0], manifest.assets[0]] }, { runtime: true }));
+const docs = classify(['docs/readme.md'], manifest);
+assert.deepEqual(expandModelTasks(docs, manifest), ['none']);
+const scoped = classify([manifest.assets[4].glb], manifest);
+assert.deepEqual(expandModelTasks(scoped, manifest), ['models-1-of-1', 'previews']);
+for (const path of ['site/ci-scope.mjs', '.github/workflows/pages.yml', 'unclassified/file']) {
+  const full = classify([path], manifest);
+  assert.equal(full.runtime, true);
+  assert.equal(expandModelTasks(full, manifest).filter(task => task.startsWith('models-')).length, 5);
+}
+const identity = { source_commit: 'a'.repeat(40), source_tree: 'b'.repeat(40), control_sha256: 'c'.repeat(64), manifest_sha256: 'd'.repeat(64), runtime_config: { node_major: '22', site_base: '/lowpoly-vault/' }, run_id: '123', run_attempt: '1' };
+const build = { version: 1, identity, payload_sha256: 'e'.repeat(64) };
+const browserFor = shard => ({ status: 'pass', browser_status: 'pass', profile: 'strict-gpu', review_scope: 'models', commit: identity.source_commit, gpu: { status: 'pass' }, page_errors: [], resource_errors: [], selected_model_ids: shard.ids, models: shard.ids.map(id => ({ id, status: 'gpu-pass', glb_sha256: manifest.assets.find(asset => asset.id === id).sha256.glb })) });
+const receipts = plan.map(shard => modelReceipt(manifest, plan, shard, browserFor(shard), build));
+assert.equal(assertModelCoverage(manifest, plan, receipts, identity, build).ids.length, 190);
+const refuse = change => { const next = clone(receipts); change(next); assert.throws(() => assertModelCoverage(manifest, plan, next, identity, build)); };
+refuse(rows => rows.pop());
+refuse(rows => rows.push(clone(rows[0])));
+refuse(rows => { rows[1] = clone(rows[0]); });
+refuse(rows => { rows[0].task = 'models-99-of-5'; });
+refuse(rows => rows[0].models.pop());
+refuse(rows => rows[0].models.push(clone(rows[0].models[0])));
+refuse(rows => { rows[0].models[0].id = 'unpublished'; });
+refuse(rows => { rows[0].models[0].glb_sha256 = '0'.repeat(64); });
+refuse(rows => { rows[0].models[0].status = 'fallback-only'; });
+refuse(rows => { rows[0].plan_sha256 = '0'.repeat(64); });
+refuse(rows => { rows[0].payload_sha256 = '0'.repeat(64); });
+refuse(rows => rows.forEach(row => { row.payload_sha256 = '0'.repeat(64); }));
+for (const key of ['source_commit', 'source_tree', 'control_sha256', 'manifest_sha256', 'run_id', 'run_attempt']) refuse(rows => { rows[0].identity[key] = 'different'; });
+refuse(rows => { rows[0].identity.runtime_config.node_major = '999'; });
+assert.throws(() => assertModelCoverage(manifest, plan, receipts, identity));
+assert.throws(() => assertModelCoverage(manifest, plan, receipts, identity, { ...build, identity: { ...identity, control_sha256: '0'.repeat(64) } }));
+for (const mutate of [b => { b.status = 'fail'; }, b => { b.browser_status = 'blocked'; }, b => { b.profile = 'allow-webgl-fallback'; }, b => { b.models = []; }, b => { b.models[0].glb_sha256 = '0'.repeat(64); }, b => { b.selected_model_ids = ['model-099']; }, b => { b.page_errors = ['bad']; }]) {
+  const browser = browserFor(plan[0]); mutate(browser);
+  assert.throws(() => modelReceipt(manifest, plan, plan[0], browser, build));
+}
+const root = mkdtempSync(join(tmpdir(), 'lpv-model-shard-'));
+try {
+  const artifacts = join(root, 'artifacts'); mkdirSync(artifacts);
+  for (const receipt of receipts) { const folder = join(artifacts, `model-shard-${receipt.task}`); mkdirSync(folder); writeFileSync(join(folder, `${receipt.task}.json`), JSON.stringify(receipt)); }
+  assert.deepEqual(readModelReceipts(artifacts, plan), receipts);
+  mkdirSync(join(artifacts, 'unexpected')); assert.throws(() => readModelReceipts(artifacts, plan)); rmSync(join(artifacts, 'unexpected'), { recursive: true });
+  writeFileSync(join(artifacts, `model-shard-${plan[0].task}`, 'extra.json'), '{}'); assert.throws(() => readModelReceipts(artifacts, plan));
+  rmSync(artifacts, { recursive: true });
+  mkdirSync(join(root, 'assets')); writeFileSync(join(root, 'assets/model.glb'), 'model'); writeFileSync(join(root, 'index.html'), 'page');
+  const sealed = { version: 1, identity, payload_sha256: payloadDigest(root) };
+  writeFileSync(join(root, BUILD_RECEIPT), JSON.stringify(sealed));
+  assert.deepEqual(verifyBuild(root, identity), sealed);
+  writeFileSync(join(root, 'index.html'), 'changed'); assert.throws(() => verifyBuild(root, identity));
+  writeFileSync(join(root, 'index.html'), 'page'); writeFileSync(join(root, 'extra'), 'unexpected'); assert.throws(() => verifyBuild(root, identity));
+  rmSync(join(root, 'extra')); rmSync(join(root, 'assets/model.glb')); assert.throws(() => verifyBuild(root, identity));
+  writeFileSync(join(root, 'assets/model.glb'), 'model');
+  assert.throws(() => verifyBuild(root, { ...identity, source_tree: 'changed' }));
+  symlinkSync('index.html', join(root, 'linked')); assert.throws(() => payloadDigest(root));
+} finally { rmSync(root, { recursive: true, force: true }); }
+// Exercise the real scope -> wrapper -> receipt path with a tiny fake browser,
+// not the expensive GPU itself. This catches accidentally clearing shard IDs.
+const fixture = mkdtempSync(join(tmpdir(), 'lpv-model-runner-'));
+try {
+  mkdirSync(join(fixture, 'assets')); mkdirSync(join(fixture, 'site')); mkdirSync(join(fixture, 'dist'));
+  writeFileSync(join(fixture, '.gitignore'), 'dist/\nqa/\n');
+  writeFileSync(join(fixture, 'assets/manifest.json'), JSON.stringify(manifest));
+  writeFileSync(join(fixture, 'dist/index.html'), 'fixture-build');
+  writeFileSync(join(fixture, 'site/redesign-browser-test.mjs'), `
+    import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
+    import assert from 'node:assert/strict';
+    assert.equal(process.env.QA_REVIEW_SCOPE,'models');
+    assert.equal(process.env.QA_ALLOW_WEBGL_FALLBACK,'0');
+    if(process.env.FIXTURE_FAIL==='1')process.exit(29);
+    const ids=process.env.QA_MODEL_IDS.split(',');assert(ids.length>0&&ids.length<190);
+    const manifest=JSON.parse(readFileSync('assets/manifest.json'));
+    const report={status:'pass',browser_status:'pass',profile:'strict-gpu',review_scope:'models',commit:process.env.GITHUB_SHA,gpu:{status:'pass'},page_errors:[],resource_errors:[],selected_model_ids:ids,models:ids.map(id=>({id,status:'gpu-pass',glb_sha256:manifest.assets.find(a=>a.id===id).sha256.glb}))};
+    mkdirSync(process.env.QA_OUTPUT_DIR,{recursive:true});writeFileSync(process.env.QA_OUTPUT_DIR+'/report.json',JSON.stringify(report));
+  `);
+  const git = (...args) => execFileSync('git', args, { cwd: fixture, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+  git('init', '-q'); git('add', '.'); git('-c', 'user.name=CI fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'fixture');
+  const env = { ...process.env, GITHUB_SHA: git('rev-parse', 'HEAD'), GITHUB_RUN_ID: '123', GITHUB_RUN_ATTEMPT: '1', CI_RUNTIME: 'true', CI_REVIEW_TASK: plan[2].task, QA_MODEL_IDS: '' };
+  const run = (script, args = [], extra = {}) => spawnSync(process.execPath, [resolve('site/' + script), ...args], { cwd: fixture, encoding: 'utf8', env: { ...env, ...extra } });
+  let result = run('ci-model-shards.mjs', ['seal-build']); assert.equal(result.status, 0, result.stderr);
+  result = run('ci-review.mjs'); assert.equal(result.status, 0, result.stderr);
+  const receiptPath = join(fixture, 'qa/ci-model-shards', plan[2].task + '.json');
+  assert.deepEqual(JSON.parse(readFileSync(receiptPath)).models.map(row => row.id), plan[2].ids);
+  result = run('ci-review.mjs', [], { FIXTURE_FAIL: '1' }); assert.equal(result.status, 29);
+  assert.throws(() => readFileSync(receiptPath), 'Failed rerun cannot leave successful proof');
+  result = run('ci-review.mjs', [], { CI_REVIEW_TASK: 'models-99-of-5' }); assert.notEqual(result.status, 0);
+  result = run('ci-review.mjs', [], { CI_RUNTIME: 'false', QA_MODEL_IDS: 'model-004', CI_REVIEW_TASK: 'models-1-of-1' }); assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(readFileSync(join(fixture, 'qa/ci-model-shards/models-1-of-1.json'))).models.map(row => row.id), ['model-004']);
+} finally { rmSync(fixture, { recursive: true, force: true }); }
+const workflow = readFileSync('.github/workflows/full-release-review.yml', 'utf8');
+assert.match(workflow, /max-parallel: 6/);
+assert.match(workflow, /ci-model-shards\.mjs seal-build/);
+assert.match(workflow, /ci-model-shards\.mjs verify-build/);
+assert.match(workflow, /needs: \[scope, prepare, build\]/);
+assert.match(workflow, /if: always\(\) && needs\.scope\.result == 'success' && needs\.scope\.outputs\.models == 'true'/);
+assert.match(workflow, /test "\$PREPARE_RESULT" = success && test "\$BUILD_RESULT" = success/);
+assert.match(workflow, /ci-model-shards\.mjs aggregate/);
+assert.match(workflow, /merge-multiple: false/);
+console.log('Model shards: deterministic 190/5 exact coverage, selective paths, wrong hashes/policy/run, incomplete GPU results and tampered build all fail closed.');
