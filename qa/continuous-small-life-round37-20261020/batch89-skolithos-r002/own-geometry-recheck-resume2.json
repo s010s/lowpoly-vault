@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-20T23:26:59.466497+00:00",
+  "reviewer": "resume_skolithos_qa_recovery2",
+  "status": "pass",
+  "source_inputs": [
+    {
+      "path": "/workspace/shared/lowpoly-batch89-skolithos-repair-20261020/production/small-life-batch89/skolithos-pipe-field/r001/artifacts/skolithos-pipe-field.glb",
+      "sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "bytes": 30172
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch89-skolithos-repair-20261020/production/small-life-batch89/skolithos-pipe-field/r002/artifacts/skolithos-pipe-field.glb",
+      "sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+      "bytes": 30172
+    }
+  ],
+  "predecessor_decoder": {
+    "path": "/workspace/shared/lowpoly-skolithos-r002-independent-qa-20261020/measure_world.py",
+    "sha256": "a2cd7a2959328aed8b96b99669c83a0a25ad7845fe87d850f87b7c23be5deecf",
+    "bytes": 7675
+  },
+  "predecessor_measurement": {
+    "path": "/workspace/shared/lowpoly-skolithos-r002-independent-qa-20261020/own-world-geometry-differential.json",
+    "sha256": "8b50f0bdec351b3773d21dedbf8b3c39055a683206dc5b95c629e648b54bac9d",
+    "bytes": 413001
+  },
+  "exact_redecode_matches_predecessor_old_and_new_world_geometry": true,
+  "measured_samples": 168,
+  "minimum_world_circumradius_m": 0.0026000098708658737,
+  "maximum_world_circumradius_m": 0.004795201122760795,
+  "hard_original_range_m": [
+    0.0026,
+    0.0048
+  ],
+  "acceptance_tolerance_m": 0,
+  "all_samples_pass": true,
+  "lower_interior_margin_m": 9.870865873805312e-09,
+  "all_seven_constant_section": true,
+  "radial_segments_per_ring": 12,
+  "world_unchanged_shaft_component_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+  ],
+  "affected_shaft_component_index": 6,
+  "affected_shaft_changed_world_vertices": 24,
+  "affected_host_bore_changed_world_vertices": 24,
+  "matching_bore_rings": [
+    {
+      "y_m": 0.0,
+      "vertices": 12,
+      "radius_min_m": 0.002602612589173298,
+      "radius_max_m": 0.0026026135204957096,
+      "conservative_radial_clearance_to_filled_shaft_m": 2.6019117584374918e-06
+    },
+    {
+      "y_m": 0.06499999761581421,
+      "vertices": 12,
+      "radius_min_m": 0.002602612589173298,
+      "radius_max_m": 0.0026026135204957096,
+      "conservative_radial_clearance_to_filled_shaft_m": 2.6019117584374918e-06
+    }
+  ],
+  "host_top_triangles_covering_each_shaft_center": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "meaning": "Actual sixth shaft and matching hole geometry changed. Other six shafts are world-coordinate identical. Real gap remains; actual host top has seven negative openings, not coplanar painted overlays. This lightweight binary re-decode uses independent-reviewer code, not maker config/measurement or Blender. No existing file was overwritten."
+}
