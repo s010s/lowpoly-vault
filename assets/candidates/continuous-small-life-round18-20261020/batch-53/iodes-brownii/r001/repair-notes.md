@@ -1,0 +1,1 @@
+Maker observed jagged material-selected ridge boundaries in enlarged millimeter-scale views. Original prototype and complete outputs retained under work/prototype-01-grid-reticulum. Final uses explicit original polygon-cell edge ridge volumes over quiet lenticular core, preserving two broad-face horns. No polygon inflation used as a quality verdict.
