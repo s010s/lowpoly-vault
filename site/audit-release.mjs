@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { collectTurntables } from './turntable-delivery.mjs';
 import { checkedPublication } from './ci-publication.mjs';
 import { CATALOG_PAGE_SIZE } from './routes.js';
+import { CATALOG_SHARD_SIZE } from './catalog-build.mjs';
 import { assetFileAllowlist } from './asset-delivery.mjs';
 import { auditGalleryAssets } from './gallery-assets.mjs';
 import { readRegistry } from './model-registry-cli.mjs';
@@ -18,7 +19,9 @@ const source=await checkedPublication();
 // Also runs for an exact-tree reused artifact: generated-source drift cannot skip the check.
 syncRegistry({registry:readRegistry(process.cwd()),releaseManifest:source,targetRoot:process.cwd(),check:true});
 assert.deepEqual(manifest.assets.map(a=>a.id),source.assets.map(a=>a.id),'Delivered scope must equal the exact checked release');
-const expected=new Set(['index.html','models/index.html','about/index.html','zh-CN/index.html','zh-CN/models/index.html','zh-CN/about/index.html','404.html','sitemap.xml','robots.txt','THIRD_PARTY_NOTICES.md','LICENSE','LICENSES/CC-BY-4.0.txt','LICENSES/MIT.txt','home/editorial-hero.webp','brand/favicon.svg','assets/manifest.json','assets/catalog.json','assets/catalog/shards/00000.json',...assetFileAllowlist(manifest)]);
+const expected=new Set(['index.html','models/index.html','about/index.html','zh-CN/index.html','zh-CN/models/index.html','zh-CN/about/index.html','404.html','sitemap.xml','robots.txt','THIRD_PARTY_NOTICES.md','LICENSE','LICENSES/CC-BY-4.0.txt','LICENSES/MIT.txt','home/editorial-hero.webp','brand/favicon.svg','assets/manifest.json','assets/catalog.json',...assetFileAllowlist(manifest)]);
+// Only the checked source count may authorize catalog shard paths.
+for(let shard=0;shard<Math.ceil(source.assets.length/CATALOG_SHARD_SIZE);shard++)expected.add(`assets/catalog/shards/${String(shard).padStart(5,'0')}.json`);
 for(let page=2;page<=Math.ceil(manifest.assets.length/CATALOG_PAGE_SIZE);page++) for(const locale of ['','zh-CN/'])expected.add(`${locale}models/page/${page}/index.html`);
 const turntables=await collectTurntables(manifest);
 for(const file of turntables.files) {

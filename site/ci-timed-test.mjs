@@ -41,3 +41,6 @@ try{
  await writeFile(join(root,'site/audit-release.mjs'),'process.exit(27);');assert.equal(build().status,27);assert.equal((await buildReport()).status,'fail');assert.equal((await buildReport()).phases.length,6);
  console.log('CI timing runner: all mandatory suites, first failure status, stop-on-failure and missing-suite refusal (including both capture contracts, land/air release and forty-four release), mandatory pre-build gate and final-audit failure passed.');
 }finally{await rm(root,{recursive:true,force:true});}
+
+// The real final inventory audit is mandatory in the existing source-contract gate.
+await import('./audit-release-test.mjs');
