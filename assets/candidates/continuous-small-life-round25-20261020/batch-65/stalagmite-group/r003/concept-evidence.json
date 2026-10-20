@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "stalagmite-group",
+  "revision": "r003",
+  "labels": {
+    "en": "stalagmite-group"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "3e696fcb6e2b2ffb21e7ea850522c5f2f6498a11e13bb7ce429f6376df3de5e0"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "6033a235de594fda61808f7161185d6b83eb47f7741fef18ad628bb4d11895f7"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "a948718a983f9a3d6b4bbf86392071e6ad1f3de4dcda7c3e7029de090d52c0e1"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "b4288340b0288bb017de713f6a2094bc0a6b92779ecd0d4e8e3e699cbe3f0ac3"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "7b794ce659a1550113dc48170767b898ae95cf85baf64641a143b38f92af2884"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "243aab9d1f375f80779cdec7f87eacd25487e419b0b980ab9aa629c9ea72b500"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "602b01cf529a4944e680d67732f60126f02541c672e3f1c90e11e75162c78133"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "8e9621441c746c97133f36e5322ebc1470a1b2b9d6f4e9a76b5935c30b0c0938"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "5ada5ec6a5d04083f396136f8bf722f0bc6145a0d9e9f0d04519cc15ddaacd62"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-row original concept pixels inspected before freeze; only corresponding labeled row applies to each asset. Burgessochaeta uniformly biramous all trunk segments follows2015 primary revision, no fecal tail strand;25 representative stations/four sampled bristles per ramus declared. Stalagmites rounded solid heads; breccia angular fragments; landslide explicit measured back-tilt and curved rupture. Complete decisions in frozen brief.",
+    "hidden_surface_decisions": "Concept B five-column hierarchy and rounded heads retained. Cross-view locations inconsistent; freeze five locations: tall rear center, medium left, medium right, small front-left and smallest front-right. Heights2.1,1.45,1.15,.83,.55m above crust. Avoid noisy phototexture; restrained geometric terraces in each continuous loft, 14 lateral sides, solid convex cap, no stacked detached rings. Floor crust compact low irregular volume, no display pedestal."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:25:25.501724+00:00",
+    "modeling_started_at": "2026-10-20T14:23:38.595047+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.8244,
+      "measurement_record": {
+        "path": "proof-delivery/render-manifest.json",
+        "sha256": "14b269b86a3564e1ac8f2c4be0720e44fa49e79dcccfc2b279a09c0595bf8004"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-delivery/render-manifest.json",
+    "sha256": "14b269b86a3564e1ac8f2c4be0720e44fa49e79dcccfc2b279a09c0595bf8004"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "d9a5f0edbf3efa0813ef076174c7aed8b4c5c2bcf52dc8f775a1f8ec5fa66f74",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "b78170edf78ad533709ba631d1216bb9c56f1255de22b2a71cd220b0fdbe640b"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "3e696fcb6e2b2ffb21e7ea850522c5f2f6498a11e13bb7ce429f6376df3de5e0",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "c3984688347c6ca2de95953883f5b76b449646663cdb7fb9edd60d59d7564e3e"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}
