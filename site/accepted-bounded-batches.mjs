@@ -1,2 +1,41 @@
-/** Exact archival byte dependencies only. This grants no publication or formal approval. */
-export const ACCEPTED_BOUNDED_BATCHES = [];
+/** Exact archival byte dependencies only. No formal profile acceptance. */
+export const ACCEPTED_BOUNDED_BATCHES = [
+  {
+    "descriptor": {
+      "path": "assets/releases/batch52-original-three-20261020.json",
+      "sha256": "c6c5060e0bd0024d63999db96b6ea732cf05dbc07db95b300a1081430fbc024b"
+    },
+    "asset_ids": [
+      "cave-popcorn",
+      "curvolithus-trilobed-trail",
+      "phoenicopsis"
+    ],
+    "source_commit": "110ec9772e1854ab9c4ccfa23848541b8e3aa1d7",
+    "independent_review_commit": "f3f793f6f9024d43453dbd302623c98eb34af5e7"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch52-aturia-repair-20261020.json",
+      "sha256": "6586fca8f9934e8525c80c9073ed6329ad54efd34753a5d3ad3b5e3a561412d6"
+    },
+    "asset_ids": [
+      "aturia"
+    ],
+    "source_commit": "110ec9772e1854ab9c4ccfa23848541b8e3aa1d7",
+    "independent_review_commit": "cd53a96b93f7cd513163ade75afe9855237fcd8b"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch53-20261020.json",
+      "sha256": "78f644178baf928201bf297b8bf6bcf06a80367654b5bb95d7935dbbc3ab2f8f"
+    },
+    "asset_ids": [
+      "halopoa-furrowed-burrow",
+      "hypoturrilites",
+      "iodes-brownii",
+      "welded-ignimbrite-outcrop"
+    ],
+    "source_commit": "0d4d6153955b2ca8809d343d63628f55b493b074",
+    "independent_review_commit": "19bf7332eb3cf5138a8b91820d495599f790d727"
+  }
+];

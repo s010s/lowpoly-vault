@@ -1,4 +1,4 @@
-import {collectConceptLandairRelease} from './concept-landair-release.mjs';
+import {collectConceptLandairRelease,collectBatches5253Release} from './concept-landair-release.mjs';
 import {collectConceptQuartetsRelease} from './concept-quartets-release.mjs';
 import {collectConceptSevenRelease} from './concept-seven-release.mjs';
 import {collectRound13Release} from './small-life-round13-release.mjs';
@@ -59,7 +59,9 @@ export async function collectInitialRelease(root=process.cwd()) {
 export async function checkPublishedManifest(root=process.cwd()) {
   const current=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   assert(!current.review_only,'A review-only manifest cannot be published');
-  const expected=current.publication?.concept_landair_descriptor
+  const expected=current.publication?.batches52_53_descriptors
+    ?await collectBatches5253Release(root,current.publication.batches52_53_descriptors,current.publication.batches52_53_base_descriptor)
+    :current.publication?.concept_landair_descriptor
     ?await collectConceptLandairRelease(root,current.publication.concept_landair_descriptor)
     :current.publication?.concept_quartets_descriptor
     ?await collectConceptQuartetsRelease(root,current.publication.concept_quartets_descriptor)
