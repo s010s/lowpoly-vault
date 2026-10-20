@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { normalizeSiteBase, routeHref, filterAndSortCatalog, CATALOG_PAGE_SIZE } from './routes.js';
 import { createCuration, CATALOG_DATA } from './curation.js';
 import { words } from './words.js';
+import {galleryStartupResources,galleryStartupContent} from './gallery/startup.mjs';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const localized = (value,lang) => typeof value === 'string' ? value : value?.[lang === 'zh-CN' ? 'zh' : 'en'] || value?.en || '';
 const labels = {
@@ -13,11 +14,8 @@ const labels = {
 const categories = {animals:{en:'Animals',zh:'动物'},plants:{en:'Plants',zh:'植物'},geology:{en:'Geology',zh:'地质'},wood:{en:'Wood',zh:'木材'},traces:{en:'Traces',zh:'痕迹'}};
 const style=`<style id="static-route-style">.static-route{max-width:1240px;margin:54px auto 90px;padding:0 32px;color:var(--vault-ink,#262a25);font-family:var(--vault-font-ui,Arial,sans-serif)}.static-route a{color:inherit}.static-route h1{font-family:var(--vault-font-display,Georgia,serif);font-weight:400;font-size:clamp(36px,5vw,66px);line-height:1.08;letter-spacing:-.045em;margin:20px 0}.static-route h2{font-family:var(--vault-font-display,Georgia,serif);font-weight:400;font-size:24px;margin-top:32px}.static-route p{line-height:1.7;max-width:76ch}.static-breadcrumbs{font-size:13px;display:flex;gap:12px;margin-bottom:25px}.static-detail{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:start}.static-preview{width:100%;border-radius:18px;background:#e8ece4;aspect-ratio:1;object-fit:contain}.static-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.12em}.static-specs{display:grid;grid-template-columns:minmax(130px,1fr) 2fr;gap:13px;margin:28px 0;font-size:14px}.static-specs dt{color:inherit;opacity:.8}.static-specs dd{margin:0}.static-downloads{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.static-downloads a,.static-button{display:inline-block;padding:13px 18px;border:1px solid currentColor;border-radius:7px;text-decoration:none;background:transparent;font:inherit;cursor:pointer}.static-downloads a:first-child{background:var(--vault-accent,#305742);color:var(--vault-on-accent,#fff)}.static-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin:26px 0}.static-card{text-decoration:none}.static-card img{width:100%;aspect-ratio:1;object-fit:contain;border-radius:12px;background:#e8ece4}.static-card h2{font-size:17px;margin:10px 0 3px}.static-card p{font-size:12px;margin:0}.static-pagination{display:flex;gap:24px;align-items:center;margin:35px 0}.static-review{padding:12px 16px;border:1px solid #b89045;border-radius:7px;font-size:13px}.static-axes{display:flex;gap:12px;flex-wrap:wrap}.static-axes a{padding:7px 11px;border:1px solid #a0a69e;border-radius:18px;font-size:13px}.static-license{font-size:13px;opacity:.8}.static-route [hidden]{display:none!important}@media(max-width:800px){.static-route{padding:0 20px;margin-top:30px}.static-detail{grid-template-columns:1fr;gap:24px}.static-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(prefers-color-scheme:dark){html:not([data-theme=light]) .static-route{color:var(--text,#e1e9e2)}}html[data-theme=dark] .static-route{color:var(--text,#e1e9e2)}</style>`;
 const fmtBytes=bytes=>Number.isSafeInteger(bytes)?`${new Intl.NumberFormat('en-US').format(bytes)} B`:'';
-// Application styles are route-lazy. The real HTML remains a complete readable
-// document without JavaScript, without also exposing the inactive app shells.
-// This guard is in the server-rendered head, not <noscript>: it protects the
-// first paint even when entry/bootstrap JavaScript or gallery CSS never arrives.
-const galleryStartupStyle='<style id="gallery-startup-style">body[data-static-route="models"]:not([data-gallery]){margin:0;min-height:100vh;overflow:auto;background:#f6f3ec;color:#262a25;font-family:Georgia,"Songti SC","Noto Serif CJK SC",serif}body[data-static-route="models"]:not([data-gallery])>:not(#static-route-content){display:none!important}body[data-static-route="models"]:not([data-gallery]) #static-route-content{color:inherit;font-family:inherit}html[data-theme="dark"] body[data-static-route="models"]:not([data-gallery]){background:#1d2420;color:#e1e9e2}@media(prefers-color-scheme:dark){html:not([data-theme="light"]) body[data-static-route="models"]:not([data-gallery]){background:#1d2420;color:#e1e9e2}}</style>';
+// Models are emitted in their actual gallery geometry, with inlined production
+// styles and real linked content. No application dependency gates the first paint.
 const noScriptStyle='<noscript><style>body{margin:0;background:var(--vault-surface,#f6f3ec);color:var(--vault-ink,#262a25);font-family:var(--vault-font-ui,Arial,sans-serif)}body>.skip,.top-actions,#home-page,#catalog-page,#about-page,#viewer-dialog,#announcement{display:none!important}.static-route{font-family:var(--vault-font-ui,Arial,sans-serif)}.static-route h1,.static-route h2{font-family:var(--vault-font-display,Georgia,serif);font-weight:400}</style></noscript>';
 function cards(assets,lang,base) {return `<div class="static-grid">${assets.map(asset=>`<a class="static-card" href="${routeHref({type:'detail',id:asset.id,lang},base)}"><img src="${base}${escape(asset.card_preview||asset.preview)}" alt="${escape(localized(asset.name,lang))}" loading="lazy" width="400" height="400"><h2>${escape(localized(asset.name,lang))}</h2><p>${escape(localized(categories[asset.category],lang)||asset.category)} · ${escape(asset.triangles)} ${labels[lang].triangles}</p></a>`).join('')}</div>`;}
 function downloadLinks(asset,lang,base) {const t=labels[lang];return `<div class="static-downloads">${['bundle','glb','blend'].filter(key=>asset.downloads?.[key]).map(key=>`<a download href="${base}${escape(asset.downloads[key])}">${t[key]}${asset.file_sizes?.[key]?` · ${fmtBytes(asset.file_sizes[key])}`:''}</a>`).join('')}</div>${asset.downloads?.credits?`<a download href="${base}${escape(asset.downloads.credits)}">${t.credits}</a>`:''}`;}
@@ -35,13 +33,14 @@ export async function writeStaticRoutes(manifest,outDir,{base=process.env.SITE_B
  const curation=createCuration(catalogData),{catalogMembership}=curation;
  base=normalizeSiteBase(base);origin=new URL(origin).origin;
  const template=await readFile(resolve(outDir,'index.html'),'utf8');
+ const galleryStartup=await galleryStartupResources();
  const assets=filterAndSortCatalog(manifest?.assets||[]),review=manifest?.review_only===true;
  for(const directory of ['models','zh-CN','about']) await rm(resolve(outDir,directory),{recursive:true,force:true});
  const urls=[];
  async function emit(route,content,title,description,asset){
   const href=routeHref(route,base),url=origin+href;
   let html=metadata(template,{title,description,url,alternateEN:origin+routeHref({...route,lang:'en'},base),alternateZH:origin+routeHref({...route,lang:'zh-CN'},base),image:asset?origin+base+asset.preview:assets[0]?origin+base+assets[0].preview:undefined,lang:route.lang,review,asset,base});
-  if(route.type==='models')html=html.replace('</head>',galleryStartupStyle+'</head>');
+  if(route.type==='models')html=html.replace('<html lang="'+route.lang+'">','<html lang="'+route.lang+'" data-application="gallery">').replace('</head>',galleryStartup.style+'</head>');
   html=html.replace(/<body\b([^>]*)>/,`<body$1 data-static-route="${route.type}"${review?' data-review-only="true"':''} data-site-base="${escape(base)}">`);
   html=html.replace(/(<a\b[^>]*?)href=["'][^"']*["']([^>]*data-route=["'](home|catalog|models|about)["'][^>]*>)/g,(_,start,rest,type)=>`${start}href="${routeHref({type,lang:route.lang},base)}"${rest}`);
   html=html.replace(/href="\.\/THIRD_PARTY_NOTICES.md"/g,`href="${base}THIRD_PARTY_NOTICES.md"`);
@@ -52,7 +51,14 @@ export async function writeStaticRoutes(manifest,outDir,{base=process.env.SITE_B
   if(route.type!=='home') html=html.replace(/(<(?:section|div|main)[^>]*id="(?:home-page|about-page|catalog-page)"[^>]*)(>)/g,(all,start,end)=>/\bhidden\b/.test(start)?all:start+' hidden'+end);
   const localeLink=`<nav class="static-locale" aria-label="Language"><a lang="${route.lang==='en'?'zh-CN':'en'}" hreflang="${route.lang==='en'?'zh-CN':'en'}" href="${routeHref({...route,lang:route.lang==='en'?'zh-CN':'en'},base)}">${route.lang==='en'?'简体中文':'English'}</a></nav>`;
   const article=`<article id="static-route-content" class="static-route" data-route-type="${route.type}" data-asset-id="${asset?.id||''}" data-lang="${route.lang}">${localeLink}${review?`<p class="static-review">${labels[route.lang].review}</p>`:manifest.release_status==='initial'?`<p class="static-license">${route.lang==='en'?'Initial collection · More refinement to come.':'首批模型 · 持续打磨中。'}</p>`:''}${content}</article>`;
-  html=html.replace(/<noscript>[\s\S]*?<\/noscript>/gi,'').replace('</body>',noScriptStyle+article+'</body>');
+  if(route.type==='models'){
+   // Do not ship hidden duplicate IDs from the legacy site shell. The only native
+   // application on this route is the linked gallery, including with no JS.
+   const body=html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/)?.[1]||'';
+   const modules=[...body.matchAll(/<script\b[^>]*type=["']module["'][^>]*>[\s\S]*?<\/script>/gi)].map(match=>match[0]).join('');
+   const gallery=`<article id="static-route-content" class="gallery-static" data-route-type="models" data-lang="${route.lang}">${galleryStartupContent(manifest?.assets||[],{...route,base,review},galleryStartup)}</article>`;
+   html=html.replace(/(<body\b[^>]*>)[\s\S]*?<\/body>/,(_,opening)=>opening+gallery+noScriptStyle+galleryStartup.script+modules+'</body>');
+  }else html=html.replace(/<noscript>[\s\S]*?<\/noscript>/gi,'').replace('</body>',noScriptStyle+article+'</body>');
   const pathname=href.slice(base.length); const file=resolve(outDir,pathname,'index.html');
   await mkdir(dirname(file),{recursive:true});await writeFile(file,html);urls.push(url);
  }

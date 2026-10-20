@@ -61,7 +61,7 @@ export function readGalleryQuery(params) {
 }
 export function galleryURL(state,{base=siteRoot.pathname,origin=siteRoot.origin}={}) {
   const url=new URL(routeHref({type:'models',lang:state.lang,page:state.page||0},base),origin);
-  if(state.selected)url.searchParams.set('model',state.selected);
+  if(state.selected&&state.view!=='collection')url.searchParams.set('model',state.selected);
   if(state.query.trim())url.searchParams.set('q',state.query.trim());
   for(const [key,param] of [['worlds','world'],['packs','pack'],['category','category'],['collection','collection'],['triangleBand','triangleBand']])for(const value of state.facets[key]||[])url.searchParams.append(param,value);
   if(state.facets.triangleMax?.[0])url.searchParams.set('maxTriangles',state.facets.triangleMax[0]);

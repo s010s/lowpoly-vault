@@ -161,3 +161,10 @@ html .tools button,html .download-actions a {font-size:11px}
 @media(min-width:1500px) {html .tools button,html .download-actions a {font-size:12px}}
 @media(max-width:1150px) {html .vault-header .tagline {display:none}html .tools button {font-size:10px}}
 @media(max-width:760px) {html .vault-header {gap:12px}html .vault-header .vault-nav {display:none}html .vault-header #language {margin-left:auto;font-size:11px}}
+
+/* One repository entry shared by native and enhanced headers. */
+html .vault-header .gallery-repository{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:44px;min-height:44px;flex-shrink:0;font:12px var(--vault-font-ui);color:var(--vault-accent);border-radius:var(--vault-radius)}
+html .vault-header .gallery-repository .vault-icon{width:14px;height:14px;flex-basis:14px}
+html .vault-header #language{display:inline-flex;align-items:center;justify-content:center;min-height:44px;flex-shrink:0;white-space:nowrap}
+@media(max-width:760px){html .vault-header{gap:8px}html .vault-header .gallery-repository{font-size:11px}html .vault-header .gallery-repository .vault-icon{display:none}}
+@media(max-width:360px){html .vault-header{padding:0 12px;gap:6px}html .vault-header .vault-brand{font-size:14px;letter-spacing:1.2px;gap:7px}html .vault-header .vault-mark{width:23px;height:23px;flex-basis:23px}html .vault-header #language{padding:0 3px}}

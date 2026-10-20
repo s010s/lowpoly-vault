@@ -38,3 +38,11 @@ const bird=models.find(a=>a.id==='confuciusornis'),rule=MEASURED_SUPPORTS.confuc
 assert.equal(bird.sha256.glb,rule.sha256,'Production must retain reviewed support source digest');
 assert.equal(measuredSupport({...bird,sha256:{glb:'wrong'}},{sha256:rule.sha256}),null);
 console.log(`Gallery catalog passed: ${models.length} real published models, future catalog growth, exact metadata, source-bound resources, full search/filter URLs and bilingual pagination.`);
+
+assert.equal(galleryURL({...state,view:'collection'}).searchParams.has('model'),false,'Collection URL is distinct from detail');
+assert.equal(galleryURL({...state,view:'detail'}).searchParams.get('model'),last.id);
+await import('./gallery/tests/thumbnail-queue-test.mjs');
+
+await import('./gallery/tests/navigation-test.mjs');
+
+await import('./gallery/tests/thumbnail-placeholder-test.mjs');

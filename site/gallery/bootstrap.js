@@ -5,7 +5,8 @@ const previous=[...document.body.childNodes];
 const previousTheme=document.documentElement.dataset.theme;
 const loadingStyle=document.createElement('style');loadingStyle.textContent='body.gallery-loading > :not(#static-route-content){display:none!important}';document.head.append(loadingStyle);document.body.classList.add('gallery-loading');
 try {
-  // Keep real linked HTML visible while either code, CSS or catalog is delayed.
+  // The linked preview already uses the approved gallery composition. Keep it
+  // usable while code, CSS or catalog is delayed; swap only when ready.
   // The module has no DOM side effects until mountGallery is called below.
   const [{mountGallery}]=await Promise.all([import('./main.js'),loadGalleryCatalog()]);
   const fragment=document.createElement('template');fragment.innerHTML=shell;
@@ -20,6 +21,6 @@ try {
   if(previousTheme)document.documentElement.dataset.theme=previousTheme;
   document.querySelector('#static-route-content')?.removeAttribute('hidden');
   const status=document.createElement('p');status.setAttribute('role','status');status.className='gallery-load-error';
-  status.textContent=document.documentElement.lang==='zh-CN'?'交互视图暂不可用，仍可浏览下方模型并下载文件。':'The interactive view is unavailable. You can still browse the models and download their files below.';
-  document.querySelector('#static-route-content')?.prepend(status);
+  status.textContent=document.documentElement.lang==='zh-CN'?'交互视图暂不可用，仍可打开模型详情并下载文件。':'The interactive view is unavailable. You can still open model details and download their files.';
+  document.querySelector('#static-route-content')?.append(status);
 }
