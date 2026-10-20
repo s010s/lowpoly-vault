@@ -1,0 +1,26 @@
+# Produce batch-55 concept-guided candidates
+
+Use GPT-6.1 Sol medium in an isolated saved cloud environment. This is a new four-ID dispatch selection from the existing approved 1000-asset inventory, not invented model scope.
+
+Exact IDs: vermicularia, weichselia, ventifact, pentichnus-deep-dwelling-trace.
+
+Read this round's concept-plan-requirements.json, profile-policy.json, reference-policy.json, review-policy.json and work/batch-55/claim.json. The original inventory records and source-freeze.json are immutable source evidence, NOT prior generated concepts or a derived modeling freeze. Read current-main skills/concept-guided-lowpoly/SKILL.md, its references/workflow.md, lowpoly-art-direction and blender-lowpoly-pipeline standardized pipeline. Check checkout .agents/skills only where relevant. Explicit maker/model selection here supersedes historical model defaults.
+
+Start from then-current main on candidate/small-life-batch55-concept-20261020. Copy only required round 20 planning inputs. Do not merge the planning branch, modify any old frozen brief, or carry historical CI/site/release changes. Confirm exclusive assignment before production. Parent fills actual task/thread IDs; never invent them.
+
+Generate real ImageGen concepts first; save original images, exact prompts and actual invocation/results. Inspect pixels and reconcile multiview contradictions before creating new derived per-asset briefs/configs/reference decisions and a fresh hash-bound modeling freeze with truthful chronology. Do not backdate a model/render as a concept.
+
+Model full-volume editable original geometry. Exact exported GLB produces every preview and final acceptance image. Keep generator/config/seed/dependency hashes, editable Blend, standalone GLB, eight standard views, actual metrics, source reopen and two semantic rebuilds. Fixed profile static-stylized-v1, rule 2026-10-18.1: hard maximum 14,000 triangles, 1,000,000 GLB bytes, 6 materials and 30 primitives; usually 100–500 KB but smaller valid. At most one 256 px texture, 65,536 encoded bytes / 524,288 decoded bytes. Geometry changes require visible craft benefit, not count inflation.
+
+Preserve seven acceptance stages separately: technical, visual, factual, specification, runtime_parse, gpu and scene. Unknown, failed and unrun remain so; software rendering is not physical-device performance evidence. Concept-evidence checker is supplemental, never independent acceptance. Parent alone launches exactly one fresh-context GPT-6 Luna xhigh independent full QA for the four pinned source/GLB subjects. Only targeted difference review for actual repairs. Do not self-approve, launch redundant review, merge, deploy or upload to Drive. Normal candidate-branch push only, author Leon Made This <8357465+s010s@users.noreply.github.com>.
+
+Use per-asset isolated work/revision paths under production/continuous-small-life-round20-20261020/work/batch-55/ and assets/candidates/continuous-small-life-round20-20261020/batch-55/. One Blender process, two threads per maker; this batch reserves one freed maker slot while Aturia batch 52 repair occupies the other. Parent must confirm live capacity before dispatch; never start a third maker. Keep prior attempts/logs, never kill unrelated processes. Complete and report useful per-asset results promptly. Record actual stage start/end times when observed; otherwise use unrecorded/unknown, never backdate or invent durations. Never describe dispatch, modeling or acceptance as completed before it occurs.
+
+The inherited reference-policy.json historical named scope notes do not describe these four assets. Apply its common rules and the unchanged inventory records and subject boundaries below. Reference-ready is not a new factual PASS.
+
+## Original scope boundaries
+
+- vermicularia: One original fossil shell study anchored to Pliocene V. recta: a small regular initial coil becomes an irregular free tubular shell. Preserve continuous shell volume, the coiled-to-uncoiled transition and genuine openings. No colony-density variant, living soft body or copied reference mesh. Do not reuse Didymoceras as a recolor or pose variant.
+- weichselia: A short upright Weichselia reticulata fossil stem specimen with a cortex-dominated exterior, raised attachment bosses and a restrained cut face. Keep thick cortex and attachment relief volumetric and distinct from Tempskya multiple-stem interior and Psaronius root mantle. No guessed leafy crown, whole plant or unsupported complete growth habit.
+- ventifact: One coherent original wind-abraded rock with broad wind-faceted faces meeting along sharp abrasion ridges. These diagnostic faces must be larger than incidental low-poly tessellation and remain readable in clay and silhouette views. No named locality, period, precise dimension or paint-only erosion features.
+- pentichnus-deep-dwelling-trace: A deep five-sided subconical cavity, with the original sectional-structure display convention retained. Make penetration depth and five-sided dwelling architecture readable as real volume, not a shallow star impression or an Asteriacites resize. Section cuts and sediment are illustrative; do not assign a producer, behavior certainty or an excavated-specimen claim.

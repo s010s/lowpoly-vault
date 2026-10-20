@@ -1,0 +1,2 @@
+All eight separate 512px proof images opened. Single short upright cortex volume, integrated raised attachment bosses distributed across rear and sides, thick cortex/plain core on cut top. No crown, root mantle or multiple stem cores. Cut is intentionally diagrammatic and boss form simplified; not exact CT anatomy.
+Maker inspection only; independent model QA pending. Source reopen and direct source metrics pass; no boundary or non-manifold edges in final source. GPU, browser and populated scene unrun.

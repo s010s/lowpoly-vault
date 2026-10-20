@@ -1,0 +1,1 @@
+r001 source audit showed 2 boundary and 4 non-manifold edges at cavity floor/section. r002 replaces overlapping bottom tunnel/fan with a closed sediment volume, separate small cavity floor and complete cut caps. Intended visible cavity architecture preserved. This is a technical required repair; r001 and its runs retained.
