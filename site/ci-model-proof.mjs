@@ -282,7 +282,7 @@ function splitMap(root,path,key,shared,perModel){
   }
   if(key){const {[key]:ignored,...rest}=document;shared[path]=rest;}
 }
-function gallerySharedData(value,ids){
+export function gallerySharedData(value,ids){
   const {generated_capture,...rest}=value;if(generated_capture===undefined)return rest;
   assert(generated_capture&&typeof generated_capture==='object'&&!Array.isArray(generated_capture),'Invalid gallery capture diagnostics');
   const {assets,published_total,...recipe}=generated_capture;

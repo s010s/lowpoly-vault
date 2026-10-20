@@ -4,7 +4,7 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync,appendFileSync,readdirSy
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {inspectCatalogDataAppend} from './curation.js';
-import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit,modelArchivalInputs,modelArchivalInputsAtCommit} from './ci-model-proof.mjs';
+import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit,modelArchivalInputs,modelArchivalInputsAtCommit,gallerySharedData} from './ci-model-proof.mjs';
 import {assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
 import {fetchVerifiedBaseProof} from './ci-model-cache.mjs';
 import {modelPlan,readModelReceipts,assertModelCoverage,currentIdentity,BUILD_RECEIPT} from './ci-model-shards.mjs';
@@ -45,7 +45,11 @@ export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,a
     const a=readBefore(path),b=readAfter(path);for(const [id,value]of Object.entries(a))equal(b[id],value,'Existing framing changed');assert(Object.keys(b).every(id=>Object.hasOwn(a,id)||newIDs.has(id)));continue;
    }
    if(path==='site/public/gallery/resources.json'){
-    const {posters:a,files:f,...shared}=readBefore(path),{posters:b,files:g,...ss}=readAfter(path);equal(ss,shared,'Shared gallery recipe changed');
+    const {posters:a,files:f,...shared}=readBefore(path),{posters:b,files:g,...ss}=readAfter(path);
+    // The selected capture IDs/count are validated diagnostics, not rendering
+    // inputs. Keep every actual or unknown recipe field bound exactly as the
+    // independent built-input verifier does; this grants no capture evidence.
+    equal(gallerySharedData(ss,new Set(after.assets.map(asset=>asset.id))),gallerySharedData(shared,oldIDs),'Shared gallery recipe changed');
     for(const [id,value]of Object.entries(a))equal(b[id],value,'Existing poster metadata changed');assert(Object.keys(b).every(id=>Object.hasOwn(a,id)||newIDs.has(id)));
     const newPaths=new Set([...newIDs].flatMap(id=>[`gallery/posters/${id}.png`,`gallery/posters/${id}-wheel.png`]));equal(g.filter(row=>!newPaths.has(row.path)),f,'Existing gallery seals changed');continue;
    }
