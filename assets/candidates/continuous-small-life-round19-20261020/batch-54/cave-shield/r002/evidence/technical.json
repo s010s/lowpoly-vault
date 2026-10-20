@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028",
+    "brief_sha256": "9b3bf91ace2b5c1050a09a627708d52f2723a5b756aa1331a01fd9126fe1d47e",
+    "references_sha256": "d13fcf87cec258234c5a5583aa37eacce0ce146d27fb9cd6b10d2a4f969c58e3"
+  },
+  "status": "pass",
+  "method": "Fresh static audit, official Khronos validator, read-only Blender source reopening and two separately executed hash-bound semantic rebuilds.",
+  "observations": [
+    "No static or Khronos errors/warnings.",
+    "Saved source triangle counts and axis-converted bounds match exact GLB.",
+    "Two independent queued builds match exact decoded geometry/material/scene semantic digest."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 2372,
+    "materials": 2,
+    "primitives": 3,
+    "glb_bytes": 119696,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/evidence/static-glb.json",
+        "sha256": "2397c88aa81f0b402a70033b276e77b6b5449d06732e6b41371f973ee6198f57"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/gltf-validator.report.json",
+        "sha256": "43140dc58e17815057bac1f33a518cd934497d3cc971688679bd4155306bb50e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/evidence/source-export.json",
+        "sha256": "7732af0fcfa10d6f906dd6b4d1eb0d5346a3d02d52d17a03f0cd3f8128abdb48"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/evidence/rebuild-1.json",
+        "sha256": "6c52e53acaef1378222cc6267d67654f14f65f918ed62018fb84e650194d650c"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/evidence/rebuild-2.json",
+        "sha256": "840e11d14218eb12db1ff3775bb39544880eb1f766a3c91450dffae34dd6c2b3"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}

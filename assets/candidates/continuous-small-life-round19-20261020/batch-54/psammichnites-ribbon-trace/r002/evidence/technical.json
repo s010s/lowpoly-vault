@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "d6e23b814e3aa68fa1f47cf23755e3fd15d895748fe4720ba5a49b7a6744ec87",
+    "brief_sha256": "b78ec9d742ee99a8bcc98e7dd9d34faa4731ccdf43b947193bc015fe1f981c3a",
+    "references_sha256": "065f64fe60e6bad21a306d999aaf1c52961aaa1f28e4de372aea7bfc37c4b92c"
+  },
+  "status": "pass",
+  "method": "Fresh static audit, official Khronos validator, read-only Blender source reopening and two separately executed hash-bound semantic rebuilds.",
+  "observations": [
+    "No static or Khronos errors/warnings.",
+    "Saved source triangle counts and axis-converted bounds match exact GLB.",
+    "Two independent queued builds match exact decoded geometry/material/scene semantic digest."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 6988,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 273184,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "d6e23b814e3aa68fa1f47cf23755e3fd15d895748fe4720ba5a49b7a6744ec87",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r002/evidence/static-glb.json",
+        "sha256": "04da294e9ada14da607a15fc283be9aa4d9b8dcad4c65e5fa527b1b9b944f09e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "d6e23b814e3aa68fa1f47cf23755e3fd15d895748fe4720ba5a49b7a6744ec87",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r002/gltf-validator.report.json",
+        "sha256": "6c9db0f45beecb295309aefb611a38e13507e467bc69839bd5129b2fd32e67e6"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "d6e23b814e3aa68fa1f47cf23755e3fd15d895748fe4720ba5a49b7a6744ec87",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r002/evidence/source-export.json",
+        "sha256": "4e3f8b7abd88d1a9dcdb0aa5d7788253e052cebac23d41de8f395e4915ef2825"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "d6e23b814e3aa68fa1f47cf23755e3fd15d895748fe4720ba5a49b7a6744ec87",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r002/evidence/rebuild-1.json",
+        "sha256": "87b9597a14f88b4bfeec41ee2df30e4df2fd8c0577925b9ba2341e981c6f59b4"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "d6e23b814e3aa68fa1f47cf23755e3fd15d895748fe4720ba5a49b7a6744ec87",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r002/evidence/rebuild-2.json",
+        "sha256": "d7e7bd33dbb11783f4464c8047ed3901c6609c4f1b677f96734cacc627cb5392"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}
