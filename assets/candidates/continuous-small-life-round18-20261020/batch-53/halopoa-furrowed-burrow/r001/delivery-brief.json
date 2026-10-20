@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "asset_id": "halopoa-furrowed-burrow",
+  "brief_version": "r001-derived-v001",
+  "profile": "production",
+  "purpose": "Use original low-poly facets to emphasize: overlapping cylindrical probes with pronounced lengthwise furrows. Keep secondary texture subordinate to the diagnostic geometry; choose one composition, not counted variants. Display convention: raised-fossil-relief; section cuts are illustrative, not an excavated specimen claim. Compatible oblique views show raised inflated sandstone probes with deep irregular lengthwise furrows and rounded pinching ends on an irregular slab. Concept centered crossings can suggest radial star; freeze three unequal overlapping probes with offset crossing and one short off-center probe, not spokes radiating from one junction. Preserve coherent host support and quiet sandstone regions. Ignore speckle/texture. Relief positive, furrows longitudinal with mild waviness, no transverse annulation or worm anatomy.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-TR1"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-TR1"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 rule 2026-10-18.1 fixed eight views, zero turntable; no other gate waived.",
+  "required_deliverables": [
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/halopoa-furrowed-burrow.blend",
+      "sha256": "6c538d87b579f9a32fe28d2a21c19f6937927108773f0c1774bb63ebd7699714",
+      "role": "source"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/generator.py",
+      "sha256": "eb2d60ec78322e205d41eb2691d9133f6a7c9c0ff1eb3b3afccdba4ceeaada34",
+      "role": "generator"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/config.json",
+      "sha256": "cdc44924b5f7affccddd8344a6c2148d82653b844927e76defeb593043d57cab",
+      "role": "config"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.24,
+    0.17,
+    0.035
+  ],
+  "axes": {
+    "blender": "X width, Y depth, Z up, -Y forward",
+    "glb": "X width, Y up, Z depth, +Z forward"
+  },
+  "origin": "Identity root at floor contact bbox center; metric meters.",
+  "concept_interpretation": {
+    "inspected_at": "2026-10-20T00:22:53Z",
+    "nominal_dimensions_blender_xyz_m": [
+      0.24,
+      0.17,
+      0.035
+    ],
+    "observations": "Compatible oblique views show raised inflated sandstone probes with deep irregular lengthwise furrows and rounded pinching ends on an irregular slab. Concept centered crossings can suggest radial star; freeze three unequal overlapping probes with offset crossing and one short off-center probe, not spokes radiating from one junction. Preserve coherent host support and quiet sandstone regions. Ignore speckle/texture. Relief positive, furrows longitudinal with mild waviness, no transverse annulation or worm anatomy.",
+    "hidden_surfaces": "Each probe is a full closed corrugated cylinder embedded in the slab, with one supported overlap above the lower probe. Ends taper down into host; rear and underside remain full-volume closed original geometry. No named producer, feeding certainty or specimen-copy interpretation. Extra gray top view will verify raised longitudinal relief."
+  },
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "catalog_facets": {
+    "worlds": [
+      "prehistoric"
+    ],
+    "packs": [
+      "fossil-traces"
+    ],
+    "category": "traces",
+    "subcategory": "burrow",
+    "tags": [
+      "trace-evidence"
+    ],
+    "eras": [
+      "carboniferous"
+    ],
+    "biomes": [
+      "tidal-flat"
+    ]
+  },
+  "delivery_binding_note": "Post-build packaging copy of pre-model brief.json. Only exact source/generator/config delivery hashes added; design/axes/nominal dimensions/criteria unchanged. Original pre-model freeze and its brief/reference bytes remain unchanged.",
+  "pre_model_brief": {
+    "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/halopoa-furrowed-burrow/r001/brief.json",
+    "sha256": "5689fc5e38a0aa45183fb5d1d4e193d6d29697cadb4ce855fe7a12a636ea200b"
+  }
+}

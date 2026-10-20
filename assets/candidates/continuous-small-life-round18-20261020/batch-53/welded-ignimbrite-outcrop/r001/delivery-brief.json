@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "asset_id": "welded-ignimbrite-outcrop",
+  "brief_version": "r001-derived-v001",
+  "profile": "production",
+  "purpose": "Use original low-poly facets to emphasize: consolidated ash-flow rock with flattened lens-like inclusions. Keep secondary texture subordinate to the diagnostic geometry; choose one composition, not counted variants. Both views show one consolidated squat rose-taupe mass with sloped top, broad planes and horizontally flattened dark lenticules. Front concept has a deep offset fracture; rear varies the top outline and number of small lenses. Freeze one coherent original broad angular mass with sloped stepped top, not a field specimen copy. Preserve larger tapered lenticules as actual weathered shallow relief cavities, subordinate quiet matrix and medium/small lens rhythm. Do not reproduce concept speckled texture or its inconsistent minor fractures; no round clasts or continuous bedding stripes.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-VO4"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-VO4"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 rule 2026-10-18.1 fixed eight views, zero turntable; no other gate waived.",
+  "required_deliverables": [
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/welded-ignimbrite-outcrop.blend",
+      "sha256": "1e1cdcb3bfd64ed630455fb6b6bcda8f66b83704823a17fb7a0914a0bb3f5357",
+      "role": "source"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/generator.py",
+      "sha256": "4e8b52198a421df76cd7f4b95553328f50808777b832068be68a43c605ba7368",
+      "role": "generator"
+    },
+    {
+      "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/config.json",
+      "sha256": "6493b585ed5bc221bea77e667a504f0103af44bf13673f7be2e73aaba95bfcd3",
+      "role": "config"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    1.4,
+    0.85,
+    0.9
+  ],
+  "axes": {
+    "blender": "X width, Y depth, Z up, -Y forward",
+    "glb": "X width, Y up, Z depth, +Z forward"
+  },
+  "origin": "Identity root at floor contact bbox center; metric meters.",
+  "concept_interpretation": {
+    "inspected_at": "2026-10-20T00:19:08Z",
+    "nominal_dimensions_blender_xyz_m": [
+      1.4,
+      0.85,
+      0.9
+    ],
+    "observations": "Both views show one consolidated squat rose-taupe mass with sloped top, broad planes and horizontally flattened dark lenticules. Front concept has a deep offset fracture; rear varies the top outline and number of small lenses. Freeze one coherent original broad angular mass with sloped stepped top, not a field specimen copy. Preserve larger tapered lenticules as actual weathered shallow relief cavities, subordinate quiet matrix and medium/small lens rhythm. Do not reproduce concept speckled texture or its inconsistent minor fractures; no round clasts or continuous bedding stripes.",
+    "hidden_surfaces": "Author rear and both sides with sparse original flattened lenticules, closed grounded base and a quiet sloping top. Weathered differential relief is a teaching-art interpretation. Lens pockets have real depth and bounded interiors; no unbounded rock holes or loose rock scatter."
+  },
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "catalog_facets": {
+    "worlds": [
+      "prehistoric"
+    ],
+    "packs": [
+      "rocks-and-minerals",
+      "volcanic-landscapes"
+    ],
+    "category": "geology",
+    "subcategory": "rock",
+    "tags": [
+      "process-analog"
+    ],
+    "eras": [],
+    "biomes": [
+      "volcanic"
+    ]
+  },
+  "delivery_binding_note": "Post-build packaging copy of pre-model brief.json. Only exact source/generator/config delivery hashes added; design/axes/nominal dimensions/criteria unchanged. Original pre-model freeze and its brief/reference bytes remain unchanged.",
+  "pre_model_brief": {
+    "path": "assets/candidates/continuous-small-life-round18-20261020/batch-53/welded-ignimbrite-outcrop/r001/brief.json",
+    "sha256": "1fac7cb2aecc9d4253607f20dc5eed6f9866c073828424f40c6d4954b8a81592"
+  }
+}

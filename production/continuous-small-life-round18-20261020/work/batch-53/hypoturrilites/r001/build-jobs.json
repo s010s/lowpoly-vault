@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "hypoturrilites",
+      "revision": "r001",
+      "job_id": "initial",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "hypoturrilites/hypoturrilites.glb",
+        "hypoturrilites/hypoturrilites.blend",
+        "hypoturrilites/metadata.json",
+        "hypoturrilites/qa.json"
+      ],
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "hypoturrilites",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "hypoturrilites/hypoturrilites.glb",
+        "hypoturrilites/hypoturrilites.blend",
+        "hypoturrilites/metadata.json",
+        "hypoturrilites/qa.json"
+      ],
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "hypoturrilites",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "hypoturrilites/hypoturrilites.glb",
+        "hypoturrilites/hypoturrilites.blend",
+        "hypoturrilites/metadata.json",
+        "hypoturrilites/qa.json"
+      ],
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

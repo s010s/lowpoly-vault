@@ -1,0 +1,109 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/build.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/runs/build/aturia/r001/initial-build/c8bfbcef6b6dea64ab3ee5bb6eb6a5d335f06fba5ff459cea9a1dec22988fdd1/20261020T001117-0463ecdce9fb46e5bcb99777ad70a3ca/outputs"
+  ],
+  "created_at": "2026-10-20T00:11:17.230688+00:00",
+  "fingerprint": "c8bfbcef6b6dea64ab3ee5bb6eb6a5d335f06fba5ff459cea9a1dec22988fdd1",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4265,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/brief.json",
+        "sha256": "114868d84953475381ee29c59343802feca0e1eb534758b567a6badc76deebe4"
+      },
+      "config": {
+        "bytes": 256,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/config.json",
+        "sha256": "d154730e5526849e35cf50caac7403caa10d565870344147548ea889c83f706c"
+      },
+      "freeze": {
+        "bytes": 2105,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/freeze.json",
+        "sha256": "b5743a276d4475dddbbd787d8e22c270ad9135cc6c463c9b3f8cb4d9337f9978"
+      },
+      "generator": {
+        "bytes": 3847,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/build.py",
+        "sha256": "cf877f2fc4d5ee4b9efbd6d64f3911ba799b4a1ab743450827bed02f35ba5207"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 913,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/references.json",
+        "sha256": "46c953ad0b45dea0b1a4713513f533b372eb0a80f520cc02852495cca8db24ad"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "aturia",
+      "config": {
+        "blender_version": "4.3.2",
+        "purpose": "initial build",
+        "seed": 5201
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/config.json",
+        "freeze": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/freeze.json",
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/build.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r001/references.json"
+      },
+      "job_id": "initial-build",
+      "outputs": [
+        "aturia.glb",
+        "aturia.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261020T001116-2f7f682ec967417a90f22b215cc5d94b"
+}

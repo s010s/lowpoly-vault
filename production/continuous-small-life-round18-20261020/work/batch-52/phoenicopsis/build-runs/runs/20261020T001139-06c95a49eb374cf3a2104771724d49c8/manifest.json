@@ -1,0 +1,99 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "phoenicopsis",
+      "inputs": {
+        "asset_common": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/generator.py",
+        "qa_glb": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "job_id": "initial",
+      "outputs": [
+        "phoenicopsis.glb",
+        "phoenicopsis.blend",
+        "metadata.json",
+        "qa.json",
+        "source-counts.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "phoenicopsis",
+      "inputs": {
+        "asset_common": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/generator.py",
+        "qa_glb": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "job_id": "rebuild1",
+      "outputs": [
+        "phoenicopsis.glb",
+        "phoenicopsis.blend",
+        "metadata.json",
+        "qa.json",
+        "source-counts.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "phoenicopsis",
+      "inputs": {
+        "asset_common": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/phoenicopsis/r001/generator.py",
+        "qa_glb": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "job_id": "rebuild2",
+      "outputs": [
+        "phoenicopsis.glb",
+        "phoenicopsis.blend",
+        "metadata.json",
+        "qa.json",
+        "source-counts.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

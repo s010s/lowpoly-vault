@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "asset_id": "curvolithus-trilobed-trail",
+  "brief_version": "r001",
+  "profile": "static-stylized-v1",
+  "purpose": "Curvolithus-inspired educational trace morphology on illustrative slab; supporting prop, not scientific specimen reconstruction.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Smooth positive S-curved triple longitudinal relief, center wider/taller, narrow separating grooves, quiet slab, all alternate views coherent.",
+      "required_sources": [
+        "EN-TR1"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Inspired-by Curvolithus morphology only; no producer, annulation, trackway, negative-imprint polarity or replica claim.",
+      "required_sources": [
+        "EN-TR1"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit fixed8 static-stylized-v1 contract, no turntable. Top and clay diagnose internal trilobed positive relief; low side/front/rear inspect thickness.",
+  "required_deliverables": [],
+  "dimensions": {
+    "nominal_artistic_blender_xyz_m": [
+      0.24,
+      0.32,
+      0.047
+    ],
+    "measurement_note": "Nominal target, not a measured specimen. Actual source and GLB bounds reported separately after export.",
+    "axes": {
+      "Blender": "X width, Y long trail, Z up; -Y forward",
+      "glTF": "X width, Y up/height, Z length; +Z forward"
+    },
+    "origin": "Ground center, Z=0"
+  },
+  "representation": "artistic-concept",
+  "scale_uncertainty": "Artistic hand-scale dimensions; no age, locality, specimen or producer asserted.",
+  "surface_profile": "palette-only; 3 original opaque sandstone materials; no incorporated media",
+  "concept_interpretation": "Inspected genuine ImageGen hero/top/side; retain S curve, raised triple lobe, broad center. Resolve photoreal texture into quiet original geometry and 3 palette regions. Side not exact measurement.",
+  "frozen_at": "2026-10-20T00:11:15.882647+00:00"
+}

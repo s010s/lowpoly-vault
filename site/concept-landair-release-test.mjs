@@ -1,3 +1,4 @@
+if(process.argv.includes('--batches52-53-only')){await testBatches5253();process.exit(0);}
 /** Bounded land/air quartet: exact revisions, immutable baseline and no formal promotion. */
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, readFile, writeFile, rm, rename, symlink } from 'node:fs/promises';
@@ -312,3 +313,16 @@ try {
   console.log(`Batch54 bounded release: ${cases} checks passed; exact four candidates, immutable source/QA/capture pins, tamper/symlink rejection, no formal approval promotion.`);
  }finally{await rm(sandbox,{recursive:true,force:true});}
 }
+
+async function testBatches5253(){
+const {readFile,writeFile,mkdir,copyFile,mkdtemp,rm}=await import('node:fs/promises');const {tmpdir}=await import('node:os');const {resolve,dirname,join}=await import('node:path');const {default:assert}=await import('node:assert/strict');const {collectBatches5253Additions}=await import('./concept-landair-release.mjs');const {ACCEPTED_BOUNDED_BATCHES}=await import('./accepted-bounded-batches.mjs');
+const root=process.cwd(),sandbox=await mkdtemp(join(tmpdir(),'batch5253-bounded-')),paths=new Set(['site/viewer.js','assets/turntables/index.json']),descriptors=[];
+for(const entry of ACCEPTED_BOUNDED_BATCHES.filter(e=>['assets/releases/batch52-original-three-20261020.json','assets/releases/batch52-aturia-repair-20261020.json','assets/releases/batch53-20261020.json'].includes(e.descriptor.path))){const d=JSON.parse(await readFile(entry.descriptor.path));descriptors.push([entry.descriptor,d]);for(const p of [entry.descriptor,d.source_bundle,d.publication_policy,...d.files,...d.additions.flatMap(x=>[x.metadata,x.source_metadata,x.candidate,x.review,x.capture_reference])])paths.add(p.path);for(const a of d.additions){const m=JSON.parse(await readFile(a.metadata.path));for(const k of ['glb','blend','preview'])paths.add(m[k]);}const index=JSON.parse(await readFile(d.capture.index.path));for(const a of d.additions)paths.add(index.posters.find(p=>p.id===a.id).path);}
+for(const p of paths){await mkdir(dirname(resolve(sandbox,p)),{recursive:true});await copyFile(resolve(root,p),resolve(sandbox,p));}
+let cases=0;const records=[];
+try{for(const [pin,d] of descriptors){await collectBatches5253Additions(sandbox,pin);cases++;const targets=[pin.path,d.source_bundle.path,d.review.path,d.capture.independent_review.path,d.capture.report.path,...d.additions.flatMap(a=>[a.metadata.path,a.candidate.path,a.capture_reference.path])];for(const p of [...new Set(targets)]){const path=resolve(sandbox,p),before=await readFile(path);try{await writeFile(path,Buffer.concat([before,Buffer.from(' ')]));await assert.rejects(()=>collectBatches5253Additions(sandbox,pin));cases++;records.push({scope:d.scope,path:p,result:'rejected_tamper'});}finally{await writeFile(path,before);}}await collectBatches5253Additions(sandbox,pin);cases++;}
+ await mkdir(resolve(root,'out'),{recursive:true});await writeFile(resolve(root,'out/bounded-collector-tests.json'),JSON.stringify({status:'pass',cases,scopes:descriptors.map(x=>x[1].scope),tests:records,claim:'Local bounded addition collectors only; not full publication CI or actual incremental reuse'},null,2)+'\n');console.log('PASS',cases,'bounded collector cases; original source untouched');}
+finally{await rm(sandbox,{recursive:true,force:true});}
+
+}
+if(!process.argv.includes('--batch54-only')) await testBatches5253();

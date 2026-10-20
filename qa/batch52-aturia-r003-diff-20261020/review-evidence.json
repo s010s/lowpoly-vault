@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "kind": "targeted_batch52_aturia_r003_difference_review",
+  "review_date_utc": "2026-10-20",
+  "scope": {
+    "asset_id": "aturia",
+    "baseline_revision": "r002",
+    "revision": "r003",
+    "only_original_blocker_retested": true,
+    "other_assets_re_reviewed": false,
+    "original_qa_commit": "f3f793f6f9024d43453dbd302623c98eb34af5e7",
+    "baseline_candidate_commit": "352d81995b33fc1e7a95980184ab6641dd5738a5",
+    "repair_candidate_commit": "110ec9772e1854ab9c4ccfa23848541b8e3aa1d7",
+    "repair_candidate_branch": "candidate/small-life-batch52-concept-20261020"
+  },
+  "artifact": {
+    "baseline_glb_sha256": "65f2c625334872f5e849d3bee11ff6085cc3245c93cb2cd86ba4baf13a74287b",
+    "glb_sha256": "74b4e090382777b9d8b358dd1dad2df57f9751d8266437e95d9d144448cf31d1",
+    "glb_bytes": 662872,
+    "source_sha256": "f2e7b514dc4adfcb9acfc268335a372d99714f2a81f4011f2b2cef2991f5f675",
+    "semantic_sha256": "2235055d94ccf19cccee5ddc2dddc7b5fd3165d52106d7baeedf295cb9486102",
+    "concept_image_sha256": "55722e90c04098cdc12a4d5f8df5edaefb06ab70c946bfa0e153eeae2978dce6"
+  },
+  "original_finding": {
+    "visual": "fail_must_fix",
+    "text": "A prominent hard-edged angular radial/annular patch reads as a cutaway or segmentation and conflicts with the smooth-shell brief; it is absent from the concept. Remove that sector or make the fossil variation much subtler and irregular, then rerender the same eight views. The shell profile itself is recognizable.",
+    "r003_retest": "pass_finding_closed",
+    "new_must_fix_found": false,
+    "views_inspected": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "render_manifest": "assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r003/proof-final/render-manifest.json",
+    "render_manifest_sha256": "7021ec700b139fe314e169665036a3e89877261093eebabd25a7d9024aa82cd3",
+    "render_config_sha256": "222ddc37e787008a5683088c341d460bb7b7d86264cd84067ad9a328a54a7e74",
+    "frame_sha256_by_view": {
+      "hero": "712ad5513fbbe4a1b33aa7ef5ab485fa47c1091bde5f40562eb3c40125dd4630",
+      "reversehero": "66e090eca277ab809914770f92223107884785f02d3bcb110a72122921c3fcc8",
+      "front": "b474d26c821d445f95d8e1ee00fbdf1fa49e58d07fb7bad2ac9a56069646d6dd",
+      "side": "30cce1f6fd834d629151508bc058291efdc3a4cefd13b49165a7324be04af174",
+      "rear": "641d6afa64326eaceb1acaeae3bb613c58b9769afdd4ce33c297eb3add5abb72",
+      "top": "e18c3209555c0bc74c5dca4c8835597073b14533b25e72261ffd78e06ae7c8ae",
+      "clay": "20ad1953457dfc64889c43e952ac7914921be1ed4ef5c0f6b21881c5de52715a",
+      "silhouette": "385b7d35ef4b740715ede7055911d1c92c88697cc4086f573b39dcf0a8b0ac20"
+    },
+    "clay_and_silhouette_pixels_unchanged": true,
+    "visual_observation": "The sharply bounded brown radial sector is visible in baseline color views and absent in r003. The former sector now matches the shell base color; silhouette, involute seam and rounded rim remain. No new must-fix regression was observed in the eight checked views."
+  },
+  "differential_checks": {
+    "color_only_comparison": {
+      "status": "pass",
+      "binary_chunk_identical": true,
+      "binary_sha256": "2b78a44e28a89fbf1e07b3e2fef0781586fe06414c0f783f54457cb84bfa3055",
+      "geometry_normals_unchanged": true,
+      "scene_graph_accessors_indices_transforms_unchanged": true,
+      "shell_and_former_sector_base_colors_equal": true,
+      "changed_color": {
+        "baseline": "#C2A77A",
+        "revision": "#D8C7A2"
+      }
+    },
+    "source_geometry_identity": {
+      "status": "pass",
+      "source_digest": "cb374075792afd7e56a21ba98685422131a49a5a35b409c06bd0ce43ede2d934",
+      "baseline_vertices": 6082,
+      "revision_vertices": 6082,
+      "baseline_faces": 6144,
+      "revision_faces": 6144,
+      "blender": "4.3.2"
+    },
+    "source_reopen_and_glb_import": {
+      "status": "pass",
+      "source_export_triangles": 12160,
+      "glb_triangles": 12160,
+      "bounds_max_error_m": 0.0000000056461431086063385,
+      "errors": [],
+      "warnings": []
+    },
+    "semantic_rebuilds": [
+      {
+        "status": "pass",
+        "byte_identical": true,
+        "sha256": "74b4e090382777b9d8b358dd1dad2df57f9751d8266437e95d9d144448cf31d1"
+      },
+      {
+        "status": "pass",
+        "byte_identical": true,
+        "sha256": "74b4e090382777b9d8b358dd1dad2df57f9751d8266437e95d9d144448cf31d1"
+      }
+    ],
+    "khronos_validation": {
+      "status": "pass",
+      "validator_version": "2.0.0-dev.3.10",
+      "glb_sha256": "74b4e090382777b9d8b358dd1dad2df57f9751d8266437e95d9d144448cf31d1",
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0,
+      "hints": 0
+    },
+    "static_glb_audit": {
+      "status": "pass",
+      "triangles": 12160,
+      "materials": 3,
+      "primitives": 3,
+      "textures": 0,
+      "glb_bytes": 662872
+    },
+    "protected_files": {
+      "status": "pass",
+      "checked_files": 560,
+      "all_byte_identical_to_base_commit": true,
+      "base_commit": "352d81995b33fc1e7a95980184ab6641dd5738a5",
+      "other_handoff_items_verbatim": [
+        "phoenicopsis",
+        "cave-popcorn",
+        "curvolithus-trilobed-trail"
+      ]
+    }
+  },
+  "inherited_original_scope_only": {
+    "phoenicopsis_r001": "pass_in_original_reviewed_scope",
+    "cave_popcorn_r003": "pass_in_original_reviewed_scope",
+    "curvolithus_trilobed_trail_r001": "pass_with_original_intentional_smooth_face_warning",
+    "source_report": "qa/batch52-independent-20261020/report.md",
+    "re_reviewed": false
+  },
+  "unknowns_and_limits": {
+    "concept_provider_generation_timestamp": "unknown; concept_generated_at remains null",
+    "r003_browser_runtime_parse": "not_run",
+    "physical_gpu_or_hardware": "unknown; not tested",
+    "target_device": "unknown; not tested",
+    "populated_parent_scene": "not tested; no pass claimed",
+    "aturia_official_photo_pixels": "not viewed; original linked photo request returned HTTP 403 through the proxy",
+    "formal_candidate_approval": "pending",
+    "publication_or_release": "not performed"
+  },
+  "decision": "Close the original Aturia visual blocker for r003 within the eight-view targeted difference scope; no new must-fix found. Formal approval remains pending."
+}

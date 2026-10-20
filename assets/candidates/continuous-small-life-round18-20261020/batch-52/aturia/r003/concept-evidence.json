@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "aturia",
+  "revision": "r003",
+  "labels": {
+    "en": "Aturia-inspired fossil shell"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "aturia.glb",
+      "sha256": "74b4e090382777b9d8b358dd1dad2df57f9751d8266437e95d9d144448cf31d1"
+    },
+    "source": {
+      "path": "aturia.blend",
+      "sha256": "f2e7b514dc4adfcb9acfc268335a372d99714f2a81f4011f2b2cef2991f5f675"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "3ef3a3fc69a1f509510ba857a13e6a595efa91fe667a99b9531d24a61cd39058"
+    },
+    "config": {
+      "path": "config.json",
+      "sha256": "6dedf042fb637d86b136c19c66968f64852e0ecc3dfa8b7cd4be10b2e8bb1954"
+    },
+    "brief": {
+      "path": "brief-production.json",
+      "sha256": "d19431b328f0b55640b8145bc6fd333c93d0da435fd95c7253bd8488d3237bca"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "46c953ad0b45dea0b1a4713513f533b372eb0a80f520cc02852495cca8db24ad"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "1602693bb882034335c0c4fa7eb816a5518acdc91cc0164b9c41efbf0e60d72d"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "5ef5886b705780d43ba67dfee36bba7e0ef2cfbfe8ffb12d383f9292d04ae7af"
+    },
+    "images": [
+      {
+        "id": "original-three-view-concept",
+        "view": "broad side, edge, oblique",
+        "path": "concept-original.png",
+        "sha256": "55722e90c04098cdc12a4d5f8df5edaefb06ab70c946bfa0e153eeae2978dce6"
+      }
+    ],
+    "cross_view_consistency_note": "Retained ImageGen three-view sheet inspected again during r003 repair: quiet beige inflated shell, shallow umbilical seam and pale rounded rim. The concept has no sharply bounded radial cutaway. Use a uniform main-shell base color for this repair; retain existing pale rim and geometry. No new texture or anatomy claims.",
+    "hidden_surface_decisions": "Rear carries compatible shallow dimple and winding seam; fully closed rounded edge and fossilized terminal region. No soft tissues, exposed chambers, or asserted original pigmentation."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T01:18:47.529384+00:00",
+    "modeling_started_at": "2026-10-20T01:18:47.921461+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 19.9,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "5ef5886b705780d43ba67dfee36bba7e0ef2cfbfe8ffb12d383f9292d04ae7af"
+      },
+      "note": "Historical original receipt duration, not a new ImageGen call. Exact provider timestamp remains unavailable."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual r003 inspection occurred before the first repair build; active authoring duration unrecorded."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 0.7390105009999957,
+      "measurement_record": {
+        "path": "build-timing.json",
+        "sha256": "d3d4c7504e781ebd878ff2e495cfc41485f2969801cfe4d11164ccb6b43c1048"
+      },
+      "note": "Initial r003 Blender generator/export execution only; code authoring and queue waiting excluded."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.725,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "7021ec700b139fe314e169665036a3e89877261093eebabd25a7d9024aa82cd3"
+      },
+      "note": "Final exact-GLB eight 512px views, 16 samples, two CPU threads."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual pixels inspected; duration unrecorded."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Not run for the new r003 hash; prior r002 runtime evidence is not promoted."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "7021ec700b139fe314e169665036a3e89877261093eebabd25a7d9024aa82cd3"
+  },
+  "thumbnail": {
+    "source_frame_id": "hero",
+    "path": "preview-hero.png",
+    "sha256": "712ad5513fbbe4a1b33aa7ef5ab485fa47c1091bde5f40562eb3c40125dd4630"
+  },
+  "review_note": {
+    "path": "self-review.md",
+    "sha256": "7028e8d4f29fb6b3b35a7840604ef13bf4c6d48c4087eb88ea75357bb98c3027"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "74b4e090382777b9d8b358dd1dad2df57f9751d8266437e95d9d144448cf31d1",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "dae548f1eed16be5164d6d6e24e02e0c592ac3888d3e9483d390c8200c6b38ad"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Retained supporting-prop budget; hard project geometry/byte caps checked separately."
+  }
+}

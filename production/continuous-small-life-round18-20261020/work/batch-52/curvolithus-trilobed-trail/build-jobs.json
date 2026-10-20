@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "curvolithus-trilobed-trail",
+      "revision": "r001",
+      "job_id": "initial",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/curvolithus-trilobed-trail/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/curvolithus-trilobed-trail/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "curvolithus-trilobed-trail/curvolithus-trilobed-trail.glb",
+        "curvolithus-trilobed-trail/curvolithus-trilobed-trail.blend",
+        "curvolithus-trilobed-trail/qa.json",
+        "curvolithus-trilobed-trail/metadata.json"
+      ],
+      "config": {
+        "seed": 5204,
+        "purpose": "Separate deterministic semantic build"
+      },
+      "timeout_seconds": 300
+    },
+    {
+      "asset_id": "curvolithus-trilobed-trail",
+      "revision": "r001",
+      "job_id": "rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/curvolithus-trilobed-trail/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/curvolithus-trilobed-trail/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "curvolithus-trilobed-trail/curvolithus-trilobed-trail.glb",
+        "curvolithus-trilobed-trail/curvolithus-trilobed-trail.blend",
+        "curvolithus-trilobed-trail/qa.json",
+        "curvolithus-trilobed-trail/metadata.json"
+      ],
+      "config": {
+        "seed": 5204,
+        "purpose": "Separate deterministic semantic build"
+      },
+      "timeout_seconds": 300
+    },
+    {
+      "asset_id": "curvolithus-trilobed-trail",
+      "revision": "r001",
+      "job_id": "rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/curvolithus-trilobed-trail/r001/generator.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/curvolithus-trilobed-trail/r001/build-config.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "curvolithus-trilobed-trail/curvolithus-trilobed-trail.glb",
+        "curvolithus-trilobed-trail/curvolithus-trilobed-trail.blend",
+        "curvolithus-trilobed-trail/qa.json",
+        "curvolithus-trilobed-trail/metadata.json"
+      ],
+      "config": {
+        "seed": 5204,
+        "purpose": "Separate deterministic semantic build"
+      },
+      "timeout_seconds": 300
+    }
+  ]
+}
