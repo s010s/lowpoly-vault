@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "kind": "actual-fresh-glb-render-run",
+  "asset_id": "drumlin",
+  "geometry_revision": "r002",
+  "metadata_proof_revision": "v003",
+  "started_at": "2026-10-20T09:05:55.506986+00:00",
+  "ended_at": "2026-10-20T09:06:07.863015+00:00",
+  "wall_seconds": 12.35602323000785,
+  "runner_pid": 7,
+  "blender_process_pid": 93,
+  "command": [
+    "/usr/bin/blender",
+    "-b",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/tmp/lowpoly-batch61-20261020/production/continuous-small-life-round23-20261020/work/batch-61/render-fixed8.py",
+    "--",
+    "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/model.glb",
+    "--revision",
+    "r002",
+    "--brief",
+    "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/candidate-brief-scale-v002.json",
+    "--references",
+    "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/references.json",
+    "--output-dir",
+    "/tmp/lowpoly-batch61-20261020/assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/proof-scale-v003",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "16"
+  ],
+  "working_directory": "/tmp/lowpoly-batch61-20261020",
+  "threads": 2,
+  "max_concurrent_blender_processes": 1,
+  "binary": {
+    "path": "/usr/bin/blender",
+    "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+  },
+  "inputs": {
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/model.glb",
+      "sha256": "317dee38ec731d1939985a61fd431238a188b5be34dfcc717dafe23dc4bd7534"
+    },
+    "corrected_brief": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/candidate-brief-scale-v002.json",
+      "sha256": "106e2bbd77cd9e7c69be89311af1aebb4dad808b1e25a40da0a98e3fded3da43"
+    },
+    "references": {
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/references.json",
+      "sha256": "1c33853bc5d0e7f7c0dc858458b2df334d3acfe89996c2a98dd84ca62591659e"
+    },
+    "renderer_script": {
+      "path": "production/continuous-small-life-round23-20261020/work/batch-61/render-fixed8.py",
+      "sha256": "568582dccbe712f289eaabe528c4ddd574f7c77b10fa91d277c420b7d9e5ef1b"
+    },
+    "helper": {
+      "path": "scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    "audit_helper": {
+      "path": "scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    }
+  },
+  "returncode": 0,
+  "stdout": {
+    "path": "production/continuous-small-life-round23-20261020/work/batch-61/render-proof-v003/drumlin-actual-render.log",
+    "sha256": "428b8db91c47d79d94d5fa5573e5ce8ad095af04b80de77ede508564e2fb2626"
+  },
+  "operation": "Exact GLB clean import and fresh fixed8 rendering; no generator/source rebuild invoked",
+  "new_manifest": {
+    "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/proof-scale-v003/render-manifest.json",
+    "sha256": "60e14ae97a99bf4d0d7499775016d4c2fa66061d77b84407d12b62bb09de69fe"
+  },
+  "approval": "not granted"
+}
