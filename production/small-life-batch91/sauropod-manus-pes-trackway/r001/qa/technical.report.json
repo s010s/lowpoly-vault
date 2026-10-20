@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
+    "brief_sha256": "d9d9e02fc64c829dbe17e391d53a0cef17afe8d284f9a71214b1c1581025893a",
+    "references_sha256": "9545393cf1cb168b270fe3854c941c0c885a3652999d3eeae03867b10d7ecb61"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 270,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 17136,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
+      "report": {
+        "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/static-glb.report.json",
+        "sha256": "957797a93cde7f5a0208785da4efa3d53eaf3073dd444f7687c4f9b688101c37"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
+      "report": {
+        "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/artifacts/gltf-validator.report.json",
+        "sha256": "19148e24841c4c9a4a2051fb187cdc2b1573f64a006604a6f73396913f947ef1"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
+      "report": {
+        "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/source-export.report.json",
+        "sha256": "a30dc17a1f8f1167b40749a633dd8fe66a218e7b107190241fac7520951a9611"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
+      "report": {
+        "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/reproducibility-a.report.json",
+        "sha256": "130bd0cc800039e0f90c21b567dc1425a67f768b323c05f07c22c4ad2184174d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
+      "report": {
+        "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/reproducibility-b.report.json",
+        "sha256": "d765bd64f78e31c3c4396b3d4d8d8372e76a9fb0871e5e8d6a9605775d1fb7bb"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.10289999842643738,
+      0.0,
+      -0.1899999976158142
+    ],
+    "max": [
+      0.10499999672174454,
+      0.017999999225139618,
+      0.1899999976158142
+    ],
+    "size": [
+      0.20789999514818192,
+      0.017999999225139618,
+      0.3799999952316284
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "solid-sediment-with-six-negative-impressions",
+      "vertices": 137,
+      "triangles": 270,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 410,
+  "created_at": "2026-10-20T22:21:16.095770+00:00"
+}
