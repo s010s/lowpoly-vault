@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "asset_id": "drumlin",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Generic glacial geological-form teaching asset: low rounded elongate till hill with broad blunt rounded end and long tapered low tail. No flow-direction arrow, specific site/period or measured ice-flow reconstruction.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-GL3"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-GL3"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "One low rounded elongated hill with smooth convex transverse slopes",
+      "required_sources": [
+        "EN-GL3"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Broad blunt rounded end and long low tapered end",
+      "required_sources": [
+        "EN-GL3"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "No sharp crest, flat cap, steep scarp, hollow cirque or wind-eroded undercut",
+      "required_sources": [
+        "EN-GL3"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "No asserted ice-flow direction; generic till-ridge illustration",
+      "required_sources": [
+        "EN-GL3"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed8 exact512px views, zero turntable. All seven stages retain distinct verdicts; no GPU/scene waiver or maker approval.",
+  "required_deliverables": [
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/generator.py",
+      "sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/build-config.json",
+      "sha256": "e48252f277d3ab3499026d1b970a8657b71639531ac44779824dea7b65adaba2"
+    },
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/source.blend",
+      "sha256": "ee0abc1e2a6860fb6624c0bf150f4c29f0287ab306539c5a2ad75e6d241a8fea"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    150,
+    450,
+    35
+  ],
+  "scale_note": "Illustrative low rounded elongated glacial-landform teaching-asset envelope only. Declared nominal Blender XYZ envelope is 150 x 450 x 35 metres; actual mesh bounds are reported separately. Not a measured specimen or named-site dimension.",
+  "concept_interpretation": "Concept inspected: asymmetric long low rounded form, broad blunt end, elongated taper and smooth convex transverse profile adopted. All three views compatible, but hero height visually exaggerated; freeze nominal width150m length450m height35m, no sharp crest, steep scarp, wind-eroded keel, flat cap or undercut. Long axis BlenderY, broad end at -Y and tail at+Y ONLY as asset placement convention, NOT inferred ice direction. Blunt end smooth/rounded at ground. Hidden underside closed flat atz0. Small restrained broad material facets, no surface vegetation or plinth. Strong distinction from batch60 yardang by low rounded transverse slope and uncut smooth till mound.",
+  "feature_obligations": [
+    "One low rounded elongated hill with smooth convex transverse slopes",
+    "Broad blunt rounded end and long low tapered end",
+    "No sharp crest, flat cap, steep scarp, hollow cirque or wind-eroded undercut",
+    "No asserted ice-flow direction; generic till-ridge illustration"
+  ],
+  "claim_scope": "Generic glacial geological-form teaching asset: low rounded elongate till hill with broad blunt rounded end and long tapered low tail. No flow-direction arrow, specific site/period or measured ice-flow reconstruction.",
+  "origin": "Floor contact footprint center at Blenderz0; X lateral, -Y front, Zup; glTFYup +Zfront",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T08:24:33.835004+00:00",
+    "frozen_design_brief_sha256": "221c2e543ae506e718d7ea4602254ffe4ddfb05ddebcf9850048b6ad667ada40",
+    "note": "Original design and claims unchanged. r002 targeted geometry repairs documented in modeling-freeze. Artifact-role adapter only.",
+    "saved_source_binding_at": "2026-10-20T08:29:45.253595+00:00",
+    "source_binding_note": "Post-build source-role/hash completeness adapter. Source geometry, frozen claims and views unchanged; fresh final renders use this exact delivery brief hash."
+  }
+}

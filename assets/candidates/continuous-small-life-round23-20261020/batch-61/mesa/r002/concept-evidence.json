@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "mesa",
+  "revision": "r002",
+  "labels": {
+    "en": "mesa"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "399e9fb78b225cd808563598485888ea343b568e8bc2cac8b427939fc94f1cad"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "4bf4e45bce74a19ba20ef2d8f658d08358c702ad0bb449055732434489f346cf"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "ad88334969361d198442598087096ab275a8c2e3aa672c85233dbb8c85e37df4"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "716288207373eb8d1b4ff123bc9bebda485d1b015d3e85f09b5c5b94f053f57d"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "f3b3fde69b10ad042f18c52091675ddc28ba3f83eabfc91247149aa728d69b65"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "2344102977ff247f203231dc3e74646a92506eed8a91ada9e356b21e04e9a721"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "3d08a00f1fd73647658bf5670f73dc38a7b9064354b8b2572a711fec0f3a63dc"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "76906af0145097f4e4f9161d5702d6de10f1e17834c5f0b5f340ceb587ce0ee2"
+      }
+    ],
+    "cross_view_consistency_note": "Concept inspected: coherent broad flat summit, dark resistant cap, pale middle band, broken upper scarps and lower sloping talus adopted. Top/side concepts mostly consistent. Freeze broad roughly oval irregular footprint, width600m length450m height180m nominal art scale, summit width substantially greater than height, quiet flat top with minor microrelief only. Deliberate repeated irregular perimeter bays carry through horizontal rock layers, alternate sheer scarp and talus benches. No copied real-site silhouette, vegetation, texture or floating decoration. Closed underside at floor, hidden rear uses coherent same layer sequence.",
+    "hidden_surface_decisions": "Concept inspected: coherent broad flat summit, dark resistant cap, pale middle band, broken upper scarps and lower sloping talus adopted. Top/side concepts mostly consistent. Freeze broad roughly oval irregular footprint, width600m length450m height180m nominal art scale, summit width substantially greater than height, quiet flat top with minor microrelief only. Deliberate repeated irregular perimeter bays carry through horizontal rock layers, alternate sheer scarp and talus benches. No copied real-site silhouette, vegetation, texture or floating decoration. Closed underside at floor, hidden rear uses coherent same layer sequence."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T08:14:49Z",
+    "modeling_started_at": null,
+    "note": "Observer invocation/completion boundaries and actual original tool metadata retained. No internal provider timestamp/model seed returned. Original modeling starts only bounded after08:17:16Z freeze and before08:19:37Z first build; exact authoring-start timestamp not sampled. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.0731,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b09d56aee4371cbf37321d8a2fb209fdba93c244bfeb153dba715ab31d838418"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b09d56aee4371cbf37321d8a2fb209fdba93c244bfeb153dba715ab31d838418"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "04b64d901518782a3b959d6c3dce2cdbc83084b1c9823ff6cd8b7c289f407895",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "0e964bbf9df5c9c812093023b255db05b057e0377985a4dd48bc62d446bcddc9"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "399e9fb78b225cd808563598485888ea343b568e8bc2cac8b427939fc94f1cad",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "39ed57ed5c08bfa24321953dea492d0bd9beaba442cba999cbdb40e2d579f5a0"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
