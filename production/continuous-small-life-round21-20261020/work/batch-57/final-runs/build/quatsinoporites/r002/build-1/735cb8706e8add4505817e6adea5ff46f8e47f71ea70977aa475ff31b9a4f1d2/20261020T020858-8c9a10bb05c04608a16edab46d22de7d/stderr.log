@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r002/generator.py", line 108, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r002/generator.py", line 105, in main
+    temp=out/'_export';rec=build(cfg,temp/cfg['asset_id'])
+                           ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r002/generator.py", line 100, in build
+    return export_asset(id,cfg['title'],cfg['category'],col,output_root=out.parent,render=False,diagnostics=False,max_triangles=14000,max_materials=6,max_primitives=30,metadata={'nominal_dimensions_blender_xyz_m':cfg['nominal_dimensions_blender_xyz_m'],'scale_note':cfg['scale_note'],'reconstruction_notes':cfg['scope'],'generator':'generator.py','export_texcoords':False})
+  File "/workspace/lowpoly-vault/scripts/asset_common.py", line 420, in export_asset
+    raise RuntimeError('Source QA failed: '+'; '.join(source['errors']))
+RuntimeError: Source QA failed: abraded-fractured-pore-layer: 1 degenerate triangles
+
+Error: script failed, file: '/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round21-20261020/batch-57/quatsinoporites/r002/generator.py', exiting.
