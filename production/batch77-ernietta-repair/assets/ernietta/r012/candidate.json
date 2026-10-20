@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "asset_id": "ernietta",
+  "revision": "r012",
+  "maker": {
+    "id": "basal-seam repair maker",
+    "task_id": "/root/resume_parallel_model_production/repair_ernietta_basal_seam"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/model.glb",
+      "sha256": "72b30dfed8b7786a357e63102bd36ff26007cfb45af28923c6393b7314018e6b"
+    },
+    "brief": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate-brief.json",
+      "sha256": "75f0845911f1a92479081f7911f1714090df64779545623ddaa6cb5ecf80844b"
+    },
+    "references": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/references.json",
+      "sha256": "1d9e1f03ee1c23190ff5c533f5494ec1250331a3c1162444dc23467b278f6f3b"
+    },
+    "source": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source.blend",
+      "sha256": "41851d81db91af4808dad70bd26bc21dedf88fe4378df69f038ca4c91d8225e3"
+    },
+    "generator": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/generator.py",
+      "sha256": "d9c1c204512632e44c35bd2ae1336b90307f1e96b8d374c7e43889f8469e1c18"
+    },
+    "config": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/build-config.json",
+      "sha256": "468955e0e3287c2b8bc0049c33e6b9400c70d3021bf01b21fded5cac703b6268"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r012",
+        "glb_sha256": "72b30dfed8b7786a357e63102bd36ff26007cfb45af28923c6393b7314018e6b",
+        "brief_sha256": "75f0845911f1a92479081f7911f1714090df64779545623ddaa6cb5ecf80844b",
+        "references_sha256": "1d9e1f03ee1c23190ff5c533f5494ec1250331a3c1162444dc23467b278f6f3b"
+      },
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/render-manifest.json",
+      "sha256": "4e61091e798ed8066b5462c6c9daf3d92ee37ba1f6919da6214783fbe3d1ddea"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent exact-commit review pending."
+        }
+      ],
+      "note": "Raw format/source/export/rebuild checks passed; fresh independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent exact-commit review pending."
+        }
+      ],
+      "note": "Maker inspected every final512px view; basal seam legibility found in fixed front view. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent exact-commit review pending."
+        }
+      ],
+      "note": "Original incomplete basal-sack scope retained; original primary pixels and text re-inspected. Interpretation of flexed basal join requires independent review."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent exact-commit review pending."
+        }
+      ],
+      "note": "Original frozen criteria, required views, palette and budgets retained. Independent specification acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent exact-commit review pending."
+        }
+      ],
+      "note": "Node Three.js0.180.0 parsing passed; no graphics-device inference."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent exact-commit review pending."
+        }
+      ],
+      "note": "Not run. CPU stills do not substitute for hardware GPU rendering."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent exact-commit review pending."
+        }
+      ],
+      "note": "Not run. No composed-scene or site check performed."
+    }
+  },
+  "blockers": [
+    {
+      "id": "fresh-independent-repair-review",
+      "description": "Fresh worker must review exact committed repaired GLB/source, especially long-axis basal seam and preserved sack scope.",
+      "status": "open"
+    },
+    {
+      "id": "gpu-scene-not-run",
+      "description": "GPU and composed-scene stages not run. No release or publication authority conferred.",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/metrics.json",
+      "sha256": "02bbc37b2d75c07707e0f2668e5ef241687aebef5b64bba4db39e2a80d76f7dd"
+    },
+    "source-metrics.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source-metrics.json",
+      "sha256": "0efcc0eace0cd08e138d0f3e006db90300e446fbe43b9d72f8567f53d25ca89d"
+    },
+    "source-final.report.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source-final.report.json",
+      "sha256": "92eec30072841d67f24b68fa336971146e11ccd01e554cc44a342a9de158306a"
+    },
+    "source-vertex-counts.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source-vertex-counts.json",
+      "sha256": "e36250d7528296f19cf4a839ea24d3f1d456cedbbc8c78ca515ba234e12b3930"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repro-final-1.report.json",
+      "sha256": "240767dc66b10adca6a0a06dc609fe2edf8fc5bcd9621b642916c9dbe2ffc941"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repro-final-2.report.json",
+      "sha256": "e7c72da0c6fafb13525c6e895db93206c14a2e71a47d2938304278d39c914b9d"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/gltf-validator.report.json",
+      "sha256": "bf8cb1368a618c2e7e613cca325e587944e36bb467bac76bc80101691a491ae3"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/runtime-parse.report.json",
+      "sha256": "64a0cab7135c192d50a826e4c3d2d06c85eaa66da87eb1a21449267012bb32fe"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/build-dependencies.json",
+      "sha256": "5a814378cc976e50edb82c6623651cc5bb14d772ae591b3488c049da6a997deb"
+    },
+    "physical-surfaces.report.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/physical-surfaces.report.json",
+      "sha256": "43e653b5c1a7ca2a31528acb47af8e9bb85679d0d1de8e3eb2817985c96c4b98"
+    },
+    "final-rebuild-binding.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/final-rebuild-binding.json",
+      "sha256": "c3223c6f74eafbcb1c4445f3ad45551c81d41fd78f85c7a1e1af866a215122a5"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/preproof-binding.json",
+      "sha256": "88c97eaa43bb52f38f4d04d0d31a8ea7108632520d60f34db5e68cecf8adb3b0"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/pixel-inspection.json",
+      "sha256": "8a842091330b4a58f432b6c9149281072e2c58ddc63aa8fd73ec856cfc680053"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/contact-sheet.png",
+      "sha256": "c206df212ff373a56a62b068e4528dd5cdb3b2217b33b7b1c8df95526c416187"
+    },
+    "repair-revision-intent.json": {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repair-revision-intent.json",
+      "sha256": "03bbd76e1cc477b284ff90606b8c4cd78d4bdd6f0148765d9f2a8c2fc7f29eb9"
+    }
+  },
+  "repair_provenance": {
+    "original_freeze": {
+      "path": "production/batch77-ernietta-repair/original-freeze/modeling-freeze.json",
+      "sha256": "0f78075dd9431522491d8df725cbd52d6dc018f466af587ee8924ffdb844cf48"
+    },
+    "original_brief": {
+      "path": "production/batch77-ernietta-repair/original-freeze/brief.json",
+      "sha256": "dc5b15373705aee5b6851c718b289ef79cbbf1ec55be1f9ee31661c8b9ce763e"
+    },
+    "repair_intent": {
+      "path": "production/batch77-ernietta-repair/repair-intent-freeze.json",
+      "sha256": "960877f0286993d91fd78ff5c2fb6dc4f9d57d659591047b5ac5ef7bfdf8a45e"
+    },
+    "original_qa": {
+      "path": "production/batch77-ernietta-repair/original-qa/report.md",
+      "sha256": "e52eba78d8919ab594d7f1135ba1e197aca5d1528232da58a0938ecab5c3dd0a"
+    },
+    "copy_map": {
+      "path": "production/batch77-ernietta-repair/byte-identity-map.json",
+      "sha256": "ceca81e2e5d44e37951a94bab275959d444b7d1fa8ec5b5f0293de074cff1335"
+    }
+  }
+}

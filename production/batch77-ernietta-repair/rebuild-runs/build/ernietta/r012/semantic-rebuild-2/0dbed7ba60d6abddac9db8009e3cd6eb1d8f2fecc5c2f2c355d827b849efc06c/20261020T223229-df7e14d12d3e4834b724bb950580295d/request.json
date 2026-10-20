@@ -1,0 +1,104 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/rebuild-runs/build/ernietta/r012/semantic-rebuild-2/0dbed7ba60d6abddac9db8009e3cd6eb1d8f2fecc5c2f2c355d827b849efc06c/20261020T223229-df7e14d12d3e4834b724bb950580295d/outputs"
+  ],
+  "created_at": "2026-10-20T22:32:29.903175+00:00",
+  "fingerprint": "0dbed7ba60d6abddac9db8009e3cd6eb1d8f2fecc5c2f2c355d827b849efc06c",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 7349,
+        "path": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/original-freeze/brief.json",
+        "sha256": "dc5b15373705aee5b6851c718b289ef79cbbf1ec55be1f9ee31661c8b9ce763e"
+      },
+      "config": {
+        "bytes": 1024,
+        "path": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/build-config.json",
+        "sha256": "468955e0e3287c2b8bc0049c33e6b9400c70d3021bf01b21fded5cac703b6268"
+      },
+      "generator": {
+        "bytes": 6056,
+        "path": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/generator.py",
+        "sha256": "d9c1c204512632e44c35bd2ae1336b90307f1e96b8d374c7e43889f8469e1c18"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3527,
+        "path": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/references.json",
+        "sha256": "1d9e1f03ee1c23190ff5c533f5494ec1250331a3c1162444dc23467b278f6f3b"
+      },
+      "repair_freeze": {
+        "bytes": 2639,
+        "path": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/repair-intent-freeze.json",
+        "sha256": "960877f0286993d91fd78ff5c2fb6dc4f9d57d659591047b5ac5ef7bfdf8a45e"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "ernietta",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/original-freeze/brief.json",
+        "config": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/references.json",
+        "repair_freeze": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/repair-intent-freeze.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r012"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180.0
+  },
+  "run_id": "20261020T223229-3818d6deb94141bc9e6301f5c11830d9"
+}

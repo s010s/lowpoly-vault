@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "ernietta",
+      "revision": "r012",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/generator.py",
+        "config": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/build-config.json",
+        "helper": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/scripts/asset_common.py",
+        "audit": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/original-freeze/brief.json",
+        "references": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012/references.json",
+        "repair_freeze": "/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/repair-intent-freeze.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    }
+  ]
+}
