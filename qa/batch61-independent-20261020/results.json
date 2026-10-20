@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "kind": "independent_batch61_qa",
+  "qa_date_utc": "2026-10-20",
+  "overall": "one ACCEPT_BOUNDED; three BLOCKED on specification metadata; no release approval",
+  "source_checkout": {
+    "head": "f1737e4f00dfc5c1817084ecb31763320ec2a163",
+    "branch": "candidate/small-life-batch61-concept-20261020",
+    "clean": true,
+    "payload_commit": "b2ff8314140e2539c825d573fef2152584120059",
+    "head_diff_from_payload_commit": [
+      "A\tproduction/continuous-small-life-round23-20261020/work/batch-61/HANDOFF.md",
+      "A\tproduction/continuous-small-life-round23-20261020/work/batch-61/handoff.json"
+    ]
+  },
+  "profile": {
+    "name": "static-stylized-v1",
+    "rule_version": "2026-10-18.1",
+    "fixed_views": [
+      "clay",
+      "front",
+      "hero",
+      "rear",
+      "reversehero",
+      "side",
+      "silhouette",
+      "top"
+    ],
+    "turntable_frames": 0,
+    "publication_authority": "separate"
+  },
+  "assets": [
+    {
+      "asset_id": "pseudopulex",
+      "revision": "r003",
+      "outcome": "ACCEPT_BOUNDED",
+      "exact_glb_sha256": "75f6799431a7bf6037881c78d12e7cf731670fcb2fdea82b66576dadc8cdf99c",
+      "exact_source_blend_sha256": "e572b15e3efffc4331f3b865c4fe74fb37d29632893b459904cc87fc233b8415",
+      "brief_sha256": "3ee0ecc2d4a18b634c4d94eddea7fa985ce458c91538749388d230695f8fbe67",
+      "generator_sha256": "dbea2e8a1f20cb6aee504e3fafc0172163d7d3d92d17150e47faaf65cf2d60c9",
+      "config_sha256": "d6251ca73a13d7395f7ed2d7cafb5f012d76c8e0f60132d65d50e10af20a3555",
+      "technical": {
+        "project_glb_gate": "pass",
+        "Khronos": "0 errors / 0 warnings",
+        "Three.js GLTFLoader v0.180.0": "pass",
+        "source_reopen_topology": "pass",
+        "exact_512px_views": "8/8 inspected and hash-bound",
+        "queue_bound_rebuilds": "2 successful distinct Blender processes; byte-identical and semantic match"
+      },
+      "metrics": {
+        "triangles": 5112,
+        "glb_bytes": 310212,
+        "materials": 5,
+        "primitives": 14,
+        "textures": 0,
+        "nominal_dimensions_blender_xyz_m": [
+          0.016,
+          0.021,
+          0.0048
+        ],
+        "measured_blender_xyz_m": [
+          0.01588377356529236,
+          0.020349999889731407,
+          0.004571173340082169
+        ],
+        "measured_glb_xyz_m": [
+          0.01588377356529236,
+          0.004571173478325363,
+          0.020349999889731407
+        ]
+      },
+      "issue": null,
+      "corrective_field": "scale_note",
+      "suggested_neutral_note": null,
+      "assessment": "Bounded QA acceptance only. Candidate gate remains valid-pending-not-approved; GPU and composed-scene stages are unrun.",
+      "delivery_candidate_brief_sha256": "3ee0ecc2d4a18b634c4d94eddea7fa985ce458c91538749388d230695f8fbe67",
+      "original_frozen_design_brief_sha256": "d2e9b15177c49a7d3fce158be39652ee9ce17b5ba450eec9ab918bf1bd84d055"
+    },
+    {
+      "asset_id": "daemonelix-helical-burrow",
+      "revision": "r002",
+      "outcome": "BLOCKED",
+      "exact_glb_sha256": "c415fbe405e75ac182bb39512ea33b43f81d574723263f04378422fb0221aa82",
+      "exact_source_blend_sha256": "802c13dc3117cadd7748201ca2dc5fce4b3a50cc60ab5791e0042ba463ea6248",
+      "brief_sha256": "2fcfd328842918ca9e1bc75bbb542692960c9a1f0644eb678bd8cca5a5056896",
+      "generator_sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f",
+      "config_sha256": "15b9358a2862c867b2d9cc4fa83c4a4ce9fd8437a319d8b0ff7c3c94d15f6cf3",
+      "technical": {
+        "project_glb_gate": "pass",
+        "Khronos": "0 errors / 0 warnings",
+        "Three.js GLTFLoader v0.180.0": "pass",
+        "source_reopen_topology": "pass",
+        "exact_512px_views": "8/8 inspected and hash-bound",
+        "queue_bound_rebuilds": "2 successful distinct Blender processes; byte-identical and semantic match"
+      },
+      "metrics": {
+        "triangles": 3858,
+        "glb_bytes": 210896,
+        "materials": 2,
+        "primitives": 2,
+        "textures": 0,
+        "nominal_dimensions_blender_xyz_m": [
+          1.7,
+          1.0,
+          2.0
+        ],
+        "measured_blender_xyz_m": [
+          1.857865810394287,
+          1.1062932014465332,
+          1.882042407989502
+        ],
+        "measured_glb_xyz_m": [
+          1.857865810394287,
+          1.882042407989502,
+          1.1062931716442108
+        ]
+      },
+      "issue": "Copied animal-specific scale_note clause is irrelevant/false for a fossil burrow cast. Correct via documented new delivery metadata revision, preserving the original frozen brief and record; do not rewrite retroactively or alter geometry.",
+      "corrective_field": "assets/candidates/continuous-small-life-round23-20261020/batch-61/daemonelix-helical-burrow/r002/candidate-brief.json#/scale_note",
+      "suggested_neutral_note": "Illustrative teaching-asset envelope only; actual mesh bounds are reported separately. Not a measured fossil-burrow specimen dimension.",
+      "assessment": "All geometry/visual/factual/technical/parse checks passed within bounded scope; exact candidate remains not approved.",
+      "delivery_candidate_brief_sha256": "2fcfd328842918ca9e1bc75bbb542692960c9a1f0644eb678bd8cca5a5056896",
+      "original_frozen_design_brief_sha256": "7ea2a8eb5d48a96ac7ed975c4cbd2ff796d422608fd5a18262732027c4303262"
+    },
+    {
+      "asset_id": "mesa",
+      "revision": "r002",
+      "outcome": "BLOCKED",
+      "exact_glb_sha256": "399e9fb78b225cd808563598485888ea343b568e8bc2cac8b427939fc94f1cad",
+      "exact_source_blend_sha256": "716288207373eb8d1b4ff123bc9bebda485d1b015d3e85f09b5c5b94f053f57d",
+      "brief_sha256": "4bf4e45bce74a19ba20ef2d8f658d08358c702ad0bb449055732434489f346cf",
+      "generator_sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f",
+      "config_sha256": "f3b3fde69b10ad042f18c52091675ddc28ba3f83eabfc91247149aa728d69b65",
+      "technical": {
+        "project_glb_gate": "pass",
+        "Khronos": "0 errors / 0 warnings",
+        "Three.js GLTFLoader v0.180.0": "pass",
+        "source_reopen_topology": "pass",
+        "exact_512px_views": "8/8 inspected and hash-bound",
+        "queue_bound_rebuilds": "2 successful distinct Blender processes; byte-identical and semantic match"
+      },
+      "metrics": {
+        "triangles": 1022,
+        "glb_bytes": 79124,
+        "materials": 5,
+        "primitives": 5,
+        "textures": 0,
+        "nominal_dimensions_blender_xyz_m": [
+          600,
+          450,
+          180
+        ],
+        "measured_blender_xyz_m": [
+          680.6211547851562,
+          455.03173828125,
+          180.0
+        ],
+        "measured_glb_xyz_m": [
+          680.6211547851562,
+          180.0,
+          455.03175354003906
+        ]
+      },
+      "issue": "Copied animal-specific scale_note clause is irrelevant/false for this generic geological form. Correct via documented new delivery metadata revision, preserving the original frozen brief and record; do not rewrite retroactively or alter geometry.",
+      "corrective_field": "assets/candidates/continuous-small-life-round23-20261020/batch-61/mesa/r002/candidate-brief.json#/scale_note",
+      "suggested_neutral_note": "Illustrative teaching-asset envelope only; actual mesh bounds are reported separately. Not a measured named-site dimension.",
+      "assessment": "All geometry/visual/factual/technical/parse checks passed within bounded scope; exact candidate remains not approved.",
+      "delivery_candidate_brief_sha256": "4bf4e45bce74a19ba20ef2d8f658d08358c702ad0bb449055732434489f346cf",
+      "original_frozen_design_brief_sha256": "bfa454dc1f79702ff23ed7a58359673bd40cd9ce725bc390897042069e5d167e"
+    },
+    {
+      "asset_id": "drumlin",
+      "revision": "r002",
+      "outcome": "BLOCKED",
+      "exact_glb_sha256": "317dee38ec731d1939985a61fd431238a188b5be34dfcc717dafe23dc4bd7534",
+      "exact_source_blend_sha256": "ee0abc1e2a6860fb6624c0bf150f4c29f0287ab306539c5a2ad75e6d241a8fea",
+      "brief_sha256": "12ddf48322e3b644df06d7df62a15a4272ed1a7bd5df680fe6e8ed2ed169ad6a",
+      "generator_sha256": "4776e0b89f0f1049df60983fa8c82d78018cdd08c5471e4dcbb0de2bafd1a70f",
+      "config_sha256": "e48252f277d3ab3499026d1b970a8657b71639531ac44779824dea7b65adaba2",
+      "technical": {
+        "project_glb_gate": "pass",
+        "Khronos": "0 errors / 0 warnings",
+        "Three.js GLTFLoader v0.180.0": "pass",
+        "source_reopen_topology": "pass",
+        "exact_512px_views": "8/8 inspected and hash-bound",
+        "queue_bound_rebuilds": "2 successful distinct Blender processes; byte-identical and semantic match"
+      },
+      "metrics": {
+        "triangles": 1638,
+        "glb_bytes": 126080,
+        "materials": 1,
+        "primitives": 1,
+        "textures": 0,
+        "nominal_dimensions_blender_xyz_m": [
+          150,
+          450,
+          35
+        ],
+        "measured_blender_xyz_m": [
+          150.83180236816406,
+          450.0,
+          35.5855712890625
+        ],
+        "measured_glb_xyz_m": [
+          150.83180236816406,
+          35.5855712890625,
+          450.0
+        ]
+      },
+      "issue": "Copied animal-specific scale_note clause is irrelevant/false for this generic geological form. Correct via documented new delivery metadata revision, preserving the original frozen brief and record; do not rewrite retroactively or alter geometry.",
+      "corrective_field": "assets/candidates/continuous-small-life-round23-20261020/batch-61/drumlin/r002/candidate-brief.json#/scale_note",
+      "suggested_neutral_note": "Illustrative teaching-asset envelope only; actual mesh bounds are reported separately. Not a measured named-site dimension.",
+      "assessment": "All geometry/visual/factual/technical/parse checks passed within bounded scope; exact candidate remains not approved.",
+      "delivery_candidate_brief_sha256": "12ddf48322e3b644df06d7df62a15a4272ed1a7bd5df680fe6e8ed2ed169ad6a",
+      "original_frozen_design_brief_sha256": "221c2e543ae506e718d7ea4602254ffe4ddfb05ddebcf9850048b6ad667ada40"
+    }
+  ],
+  "global_checks": {
+    "four_final_pins_and_candidate_records": "pass",
+    "32_exact_final_512px_frames_hash_bound_to_the_pinned_glbs": "pass",
+    "pseudopulex_head_macro_hash_bound_to_pinned_glb": "pass",
+    "four_concept_pixels_inspected": "pass",
+    "four_actual_consult_only_reference_pixels_match_ledger": "pass",
+    "actual_pseudopulex_primary_figure1_pixels_inspected": "pass",
+    "reference_pixels_present_in_candidate_tree": false,
+    "four_original_brief_config_reference_concept_freezes_precede_generator_authoring_and_model_build": "pass",
+    "repair_freezes_preserve_original_brief_and_references_without_scope_narrowing": "pass",
+    "four_read_only_blend_reopens_and_topology": "pass",
+    "four_independent_khronos_validations": "0 errors / 0 warnings each",
+    "four_independent_three_js_0_180_0_parses": "pass",
+    "four_project_static_glb_gates": "pass",
+    "eight_queue_bound_blender_processes": "pass",
+    "all_queue_outputs_byte_identical_and_semantically_matching": "pass",
+    "concept_chronology": "incomplete as declared; provider-internal generation timestamp and precise authoring-start were not returned; no inference from mtimes"
+  },
+  "consulted_reference_pixels": {
+    "pseudopulex": {
+      "path": "/tmp/lowpoly-round23-primary-consulted/Gao-2012-figure1.png",
+      "sha256": "89ecd4bac39a7fd634c7aa52740755f54716314e2d9b6c79bf50b7ecee42089e",
+      "matches_ledger": true
+    },
+    "daemonelix-helical-burrow": {
+      "path": "/tmp/lowpoly-round23-primary-consulted/batch61/daemonelix.jpg",
+      "sha256": "0acce3ccac8dc50191e89e6dd77f5b8f311267d4c7ce728802dd52888cee624c",
+      "matches_ledger": true
+    },
+    "mesa": {
+      "path": "/tmp/lowpoly-round23-primary-consulted/batch61/mesa.jpg",
+      "sha256": "5cfad3f1072faa12ea725851b51acdd4940698f4b36c60b4571da8ad8f820310",
+      "matches_ledger": true
+    },
+    "drumlin": {
+      "path": "/tmp/lowpoly-round23-primary-consulted/batch61/drumlin.jpg",
+      "sha256": "1f6e92a197f08d3cb350c40cd4b3b918cbaaed23a698ee93db722585855b85fc",
+      "matches_ledger": true
+    }
+  },
+  "process_evidence": {
+    "unique_blender_pids": 8,
+    "distinct_queue_run_ids": 2,
+    "queue_processes_per_asset": 2,
+    "queue_output_matching": "byte-identical and semantically matching to exact pinned GLBs"
+  },
+  "shared_scale_note_verbatim": "Illustrative nominal envelope; actual measured bounds reported separately. Animal body nominal17mm excludes antenna; pose appendages extend bounds.",
+  "limitations": [
+    "This is bounded independent technical, visual, factual and specification QA only; candidate records remain not approved.",
+    "GPU hardware/runtime and composed-scene visual checks are not run; do not claim GPU/scene/runtime-render approval.",
+    "Concept provenance is valid but its exact provider generation timestamp and exact modeling start remain unknown.",
+    "No remote/local source, model, QA/candidate-approval flag, CI, site or branch was modified by this QA; new QA outputs only under /tmp/lowpoly-round23-qa61."
+  ],
+  "report": "/tmp/lowpoly-round23-qa61/independent-qa.md",
+  "supporting_evidence": "/tmp/lowpoly-round23-qa61/verification.json; /tmp/lowpoly-round23-qa61/audit-details.json"
+}
