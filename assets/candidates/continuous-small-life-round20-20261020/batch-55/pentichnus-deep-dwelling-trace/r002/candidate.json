@@ -4,8 +4,13 @@
   "revision": "r002",
   "maker": {
     "id": "GPT-6.1 Sol medium batch-55 maker",
-    "task_id": null,
-    "thread_id": "01a156e7-da1f-74f2-8e73-50637c8ea004"
+    "task_id": "01a156e7-da1f-74f2-8e73-50637c8ea004",
+    "thread_id": "01a156e7-da1f-74f2-8e73-50637c8ea004",
+    "turn_id": "01a156e7-e4c5-70b8-9dd7-9cf381271201",
+    "identity_source": {
+      "path": "production/continuous-small-life-round20-20261020/work/batch-55/maker-identity-provenance.json",
+      "sha256": "9d4b1ca338b813c61658dfac0f4aa107132c6785c5a6c6ab8ca4681326111ab5"
+    }
   },
   "artifacts": {
     "glb": {
@@ -167,8 +172,9 @@
     {
       "id": "maker-task-id-unavailable",
       "severity": "required",
-      "status": "open",
-      "description": "Actual execution thread exposed; distinct task ID not exposed. Parent confirms without guessing."
+      "status": "resolved",
+      "description": "Actual execution thread exposed; distinct task ID not exposed. Parent confirms without guessing.",
+      "resolution": "Original cloud task identity verified by coordinator; maker.task_id uses its threadId and turn_id preserves the original creation turn. See maker.identity_source."
     }
   ],
   "approval": {
