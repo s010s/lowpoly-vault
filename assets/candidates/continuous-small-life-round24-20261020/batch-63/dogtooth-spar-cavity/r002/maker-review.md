@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual final fixed8 views inspected. r002 irregular host edge and nonuniform crystal angles/lengths/depths improve the too-regular r001 ring arrangement. Open-front recess has thick irregular limestone rim, clear central void and closed rear host. Multiple tiers of inward pointed ivory crystals have triangular scalenohedral faces, variable lengths and alternating edge profiles, no quartz prismatic shafts. Reversehero/rear show true host volume, not flat facade. Opaque palette limits translucency and crystal detail relative to concept. Generic habit teaching model, not exact specimen/site or chemical assay.
+
+Inspected lossless2048x1060 contact-sheet at original resolution, each retained frame512x512. Exact final clean-import GLB hash 3db7f65435d8117dd71285b3fc7afb9d3e73f4ba68b3f2c99e219303dbb2b80c. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

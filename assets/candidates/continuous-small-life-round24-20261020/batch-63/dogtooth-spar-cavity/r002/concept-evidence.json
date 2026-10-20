@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "dogtooth-spar-cavity",
+  "revision": "r002",
+  "labels": {
+    "en": "dogtooth-spar-cavity"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "3db7f65435d8117dd71285b3fc7afb9d3e73f4ba68b3f2c99e219303dbb2b80c"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "9446f34a9da82429c0551f43de15c3a3147b935464ec8dc19288e31c9608e1d9"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "a5cf9e0b0a89c40eb0b1199d6a67dd139541db9761de92186b14ad0558834b72"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "55d421ce9acc4dd259d4c4df88e251c7550fb90e76ebbeaa0d43232723daefc0"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "130efddf57ef3dfd820c0ecc8a79974315e8c44b366de1793cb7f84113aa8503"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "56976f3347fd79aebe39776b95fbe17b0132a2aec91b4c2453aed16b641101af"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "004315b5eab55ea14d69d94ed2a0bb61110a9dbb7e4b470346390f244b8d11f7"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "36c19abdb51473ff77872dca5e93bc2ec868c1216e420d766370279dcc989de7"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "181535baee7f5471d73a187c9c836d47fad409c4680040af7efdedd5fe2e381a"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept pixels inspected: thick jagged host, deep open-front dark cavity, inward pointed crystals and clear central void adopted. Concept appears textured and translucent, resolve texture-free opaque ivory crystals with original triangular planes, no glass dependency. Freeze limestone full shell with closed thick back and underside, front opening toward-Y. Oval irregular opening about25cm, host45cm wide and38cm high, depth30cm. Crystal habit explicit scalenohedron:12 triangular faces, alternating high/low equatorial vertices and unequal axial tips, no hexagonal prismatic shafts. Vary lengths, orientations and sizes in several tiers, taper toward inward cavity volume. Most crystals line wall, a few longer focal crystals, keep central void visible; rear mostly limestone. No copied image silhouette or specimen assay.",
+    "hidden_surface_decisions": "Actual concept pixels inspected: thick jagged host, deep open-front dark cavity, inward pointed crystals and clear central void adopted. Concept appears textured and translucent, resolve texture-free opaque ivory crystals with original triangular planes, no glass dependency. Freeze limestone full shell with closed thick back and underside, front opening toward-Y. Oval irregular opening about25cm, host45cm wide and38cm high, depth30cm. Crystal habit explicit scalenohedron:12 triangular faces, alternating high/low equatorial vertices and unequal axial tips, no hexagonal prismatic shafts. Vary lengths, orientations and sizes in several tiers, taper toward inward cavity volume. Most crystals line wall, a few longer focal crystals, keep central void visible; rear mostly limestone. No copied image silhouette or specimen assay."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T12:59:21.100Z",
+    "modeling_started_at": null,
+    "note": "Observer invocation/completion boundaries and actual original tool metadata retained. No internal provider timestamp/model seed returned. Original modeling starts only bounded after13:01:08Z freeze and before13:02:44Z first build; exact authoring-start timestamp not sampled. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 24.1759,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "72899fdcfb5ca4266b5d554c297229712935e7c08e5dac74faddcc2445ab0a73"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "72899fdcfb5ca4266b5d554c297229712935e7c08e5dac74faddcc2445ab0a73"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "e9b356cc05c93b59676850c130daa00a25532f7e3a147d18bae0441b9798bb74",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "49ddca46c699a4f536dea14a8087dc224b518295cf38b82adbbbbae95e8a01ae"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "3db7f65435d8117dd71285b3fc7afb9d3e73f4ba68b3f2c99e219303dbb2b80c",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "b0f72db5434fbdb4655235d3ca4b484fea9f6614aa7a59f0a729de097d541c8d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
