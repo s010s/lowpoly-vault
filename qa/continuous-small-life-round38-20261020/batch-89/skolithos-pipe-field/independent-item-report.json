@@ -1,0 +1,233 @@
+{
+  "asset_id": "skolithos-pipe-field",
+  "revision": "r001",
+  "disposition": "REVISE",
+  "acceptance_scope": "Independent static-stylized candidate only; no formal/user/website/release/live approval.",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+    "brief_sha256": "e8dd9f6d14d661b285b98d2d8a85e795de9fdb542b9ee7f8ac1e8d0d27b3f177",
+    "references_sha256": "462acade525357722fbc24fd3391970e666b7550fc3baf026c4bf6d7159a60be",
+    "bound_at": "2026-10-20T21:37:40.201125+00:00"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch89/skolithos-pipe-field/r001/artifacts/skolithos-pipe-field.glb",
+      "sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9"
+    },
+    "brief": {
+      "path": "production/small-life-batch89/skolithos-pipe-field/r001/delivery-brief.json",
+      "sha256": "e8dd9f6d14d661b285b98d2d8a85e795de9fdb542b9ee7f8ac1e8d0d27b3f177"
+    },
+    "references": {
+      "path": "production/small-life-batch89/skolithos-pipe-field/r001/references.json",
+      "sha256": "462acade525357722fbc24fd3391970e666b7550fc3baf026c4bf6d7159a60be"
+    },
+    "source": {
+      "path": "production/small-life-batch89/skolithos-pipe-field/r001/artifacts/skolithos-pipe-field.blend",
+      "sha256": "8b7ada81de5befa7bc39ab93890bec644bfe5568ba5cea3b2ac3c1e298839334"
+    },
+    "generator": {
+      "path": "production/small-life-batch89/tools/generate.py",
+      "sha256": "25871a90c636c8d710285073858c17b91cbfb752d6fb79cb7da83509f379417b"
+    },
+    "config": {
+      "path": "production/small-life-batch89/skolithos-pipe-field/r001/config.json",
+      "sha256": "9afbb934834820642e48c97772eacce1d7d8aae90da2e153740614ded91567cb"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch89/dependencies.json",
+      "sha256": "18fa560aa2a92b74fffed67cb7f4d2fb9a5c8646fc26634f06ec023c6edf1774"
+    }
+  },
+  "stage_status": {
+    "technical": "pass",
+    "visual": "pass",
+    "factual": "pass",
+    "specification": "fail",
+    "runtime_parse": "pass",
+    "gpu": "unknown",
+    "scene": "unknown"
+  },
+  "criteria": {
+    "technical": {
+      "status": "pass",
+      "criteria_id": "technical-acceptance",
+      "note": "Own saved-source reopen, actual geometry audit, byte-identical reexport, candidate integrity, independent Khronos0errors0warnings and full pinned provenance checks pass. Not visual approval."
+    },
+    "visual": {
+      "status": "pass",
+      "criteria_id": "visual-acceptance",
+      "note": "All8final512frames and lossless sheet personally inspected; component criteria detailed in independent-visual-review.json."
+    },
+    "factual": {
+      "status": "pass",
+      "criteria_id": "factual-acceptance",
+      "note": "PASS for genus-level generic illustrative sectional structure. The original frozen and delivery text explicitly states depth/cutaway are not observed specimen sections and avoids ichnospecies and maker claims. The dimensional specification defect is not a factual or visual defect."
+    },
+    "specification": {
+      "status": "fail",
+      "criteria_id": "specification-acceptance",
+      "note": "shaft-radius-below-frozen-minimum"
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "criteria_id": "runtime_parse-acceptance",
+      "note": "Own exact-byte Three.js GLTFLoader parse; loader revision180. Bounds/counts/materials agree."
+    },
+    "gpu": {
+      "status": "unknown",
+      "criteria_id": "gpu-acceptance",
+      "note": "Not run. CPU stills and Node parse do not establish graphics-hardware acceptance."
+    },
+    "scene": {
+      "status": "unknown",
+      "criteria_id": "scene-acceptance",
+      "note": "Not run. No intended composed website/museum scene tested."
+    }
+  },
+  "source_and_concept_review": {
+    "sources": [
+      {
+        "id": "KGS2002",
+        "url": "https://www.kgs.ku.edu/Publications/Bulletins/245/04_ichno2.html",
+        "method": "Read official primary text and personally inspected original PDF page72/figure56 pixels.",
+        "observation": "Figure56 supplies bed-top protrusions only. The text diagnoses separate vertical unbranched cylindrical fills and explicitly says absent sections prevent confident ichnospecies identification. It does not document the depicted 65.6mm shaft depth."
+      }
+    ],
+    "concept": "Four-panel genuine concept inspected. Concept has inconsistent/discontinuous exposed lengths; frozen correction fixes seven continuous shafts with three front exposures. Final geometry actually implements that correction.",
+    "rights": "Official source imagery is consult-only outside Git; no incorporated third-party image, texture or mesh.",
+    "factual_scope_decision": "PASS for genus-level generic illustrative sectional structure. The original frozen and delivery text explicitly states depth/cutaway are not observed specimen sections and avoids ichnospecies and maker claims. The dimensional specification defect is not a factual or visual defect."
+  },
+  "component_review": [
+    "Fresh source and decoded GLB give1host+7closed shafts. All shafts extend from0to0.06560000032m and preserve constant cross-sections.",
+    "The host is actually boolean-cut rather than merely covered by coincident colored caps; exposed shafts and raised top rims survive clay.",
+    "One physical radius is below the explicit frozen range after0.999clearance. This is independently measured in both saved-source vertices and exported POSITION data."
+  ],
+  "visual_report": {
+    "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/independent-visual-review.json",
+    "sha256": "df90f15039b6e7a4263a43b4be23f3e9eeee728e063424a7679122b434877961"
+  },
+  "specification": {
+    "status": "fail",
+    "criteria_id": "specification-acceptance",
+    "original_scope_preserved": true,
+    "original_brief_sha256": "6c0d7f4802599073bd88fb36361a276224911c14a4c32c57030749368c87e536",
+    "explicit_budgets": {
+      "triangles": {
+        "actual": 652,
+        "max": 14000,
+        "pass": true
+      },
+      "bytes": {
+        "actual": 30172,
+        "max": 1000000,
+        "pass": true
+      },
+      "materials": {
+        "actual": 2,
+        "max": 6,
+        "pass": true
+      },
+      "primitives": {
+        "actual": 2,
+        "max": 30,
+        "pass": true
+      },
+      "textures": {
+        "actual": 0,
+        "max": 0,
+        "pass": true
+      }
+    },
+    "dimension_semantics": "Original scale.art_target_bounds_blender_xyz_m is explicitly an art target, not a hard exported bbox interval. Scalar shape parameters specify design construction and are not silently turned into exact bbox thresholds. The one explicit shaft_radius_range_m interval is separately checked, without inventing a tolerance.",
+    "art_target_blender_xyz_m": [
+      0.1,
+      0.07,
+      0.065
+    ],
+    "measured_blender_xyz_m": [
+      0.10000000149011612,
+      0.07000000029802322,
+      0.06560000032186508
+    ],
+    "required_deliverables_complete": true,
+    "eight_views_and_sheet_verified": true,
+    "source_editable_reopened_reexported": true,
+    "two_real_semantic_rebuilds_verified": true,
+    "component_findings": [
+      "Fresh source and decoded GLB give1host+7closed shafts. All shafts extend from0to0.06560000032m and preserve constant cross-sections.",
+      "The host is actually boolean-cut rather than merely covered by coincident colored caps; exposed shafts and raised top rims survive clay.",
+      "One physical radius is below the explicit frozen range after0.999clearance. This is independently measured in both saved-source vertices and exported POSITION data."
+    ],
+    "failure": {
+      "id": "shaft-radius-below-frozen-minimum",
+      "frozen_field": "parameters.shaft_radius_range_m",
+      "frozen_range_m": [
+        0.0026,
+        0.0048
+      ],
+      "actual_smallest_shaft_circumradius_min_m": 0.002597398883191733,
+      "actual_smallest_shaft_circumradius_max_m": 0.0025974004529416977,
+      "minimum_shortfall_m": 2.601116808266697e-06,
+      "magnitude": "Approximately2.6micrometers /0.1percent; small but outside the explicitly bounded interval, not float32 rounding.",
+      "cause": "The generator scales each physical shaft radius by0.999while the smallest nominal radius is already0.0026m.",
+      "interpretation": "The immutable brief labels this field a range, without approx/nominal/art-target qualification. No tolerance is declared for this range; dimensions being artistic does not negate a chosen bounded production specification.",
+      "repair_required": "Produce a new immutable candidate revision whose actual smallest shaft radius lies within the original range; preserve through-shafts, real host holes and absence of visible coplanar artifacts. Do not alter the original freeze or relabel this range retroactively. Rebind exact triplet and genuinely rerender required views; repeat exact lifecycle for changed candidate."
+    }
+  },
+  "actual_metrics": {
+    "triangles": 652,
+    "position_vertices": 998,
+    "materials": 2,
+    "primitives": 2,
+    "bytes": 30172,
+    "bounds_glb_m": {
+      "min": [
+        -0.05000000074505806,
+        0.0,
+        -0.03500000014901161
+      ],
+      "max": [
+        0.05000000074505806,
+        0.06560000032186508,
+        0.03500000014901161
+      ],
+      "size": [
+        0.10000000149011612,
+        0.06560000032186508,
+        0.07000000029802322
+      ]
+    },
+    "authored_evaluated_parts": [
+      {
+        "name": "sectioned-host-sandstone",
+        "vertices": 334,
+        "polygons": 189,
+        "triangles": 652,
+        "evaluated_vertices": 334,
+        "evaluated_polygons": 189,
+        "evaluated_triangles": 652,
+        "modifiers": 0,
+        "editable": true
+      }
+    ]
+  },
+  "own_reopen_pid": 58,
+  "own_reexport_byte_and_semantic_match": true,
+  "maker_rebuild_pids": [
+    100,
+    123
+  ],
+  "proof_paths": [
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-source-reopen-reexport.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-decoded-glb-features.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-static-glb.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-candidate-validation.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-provenance.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-khronos-validation.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-three-parse.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-rebuild-a-comparison.json",
+    "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-rebuild-b-comparison.json"
+  ]
+}

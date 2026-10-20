@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch89-independent-qa-20261020/reopen_measure_reexport.py", line 51, in <module>
+    options=json.loads((b/'artifacts/metadata.json').read_text())['export_options'];options['filepath']=str(out/'source-reexport.glb');bpy.ops.export_scene.gltf(**options);ra=audit_glb(out/'source-reexport.glb',max_triangles=14000,max_materials=6,max_primitives=30)
+                        ~^~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+
+Error: script failed, file: '/workspace/shared/lowpoly-batch89-independent-qa-20261020/reopen_measure_reexport.py', exiting.
+Blender 4.3.2
+Read blend: "/workspace/shared/lowpoly-batch89-20261020/production/small-life-batch89/psilophyton/r001/artifacts/psilophyton.blend"
+
+Blender quit
