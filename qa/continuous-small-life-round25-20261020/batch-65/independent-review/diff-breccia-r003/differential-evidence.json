@@ -1,0 +1,886 @@
+{
+  "scope": "Targeted independent differential QA of breccia-outcrop r003 website-stage geometry defect only. No unrelated models rebuilt or rerendered; no source, approval ledger, site or CI changed.",
+  "producer": {
+    "head": "d32ad6eeb619216f3b4868a66a5020c3cd74c388",
+    "expected_head": "d32ad6eeb619216f3b4868a66a5020c3cd74c388",
+    "clean": true,
+    "status_porcelain": "",
+    "branch": "candidate/small-life-batch65-concept-20261020"
+  },
+  "artifact_pins": {
+    "original_r002": {
+      "glb_sha256": "bfe0389608e76cd908e46e1b3cbbab91cb4ce282dcc5aa070a098da85d1169af",
+      "source_blend_sha256": "5c3ee3d89c8c1cba324e0c781688568c3291d1a828fe6a9936eeb38852adb101",
+      "brief_sha256": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97"
+    },
+    "final_r003": {
+      "glb_sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+      "glb_bytes": 115472,
+      "source_blend_sha256": "4ce3a73e4f32a45d036c5555cd19266772ca08c65399bb99c17224028c4e3154",
+      "source_blend_bytes": 623332,
+      "brief_sha256": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97",
+      "candidate_brief_sha256": "027cb4dd507e0bd267b9ea3698a8700aeeb956d5b835dd5a94050b59df8cd1e1",
+      "references_sha256": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d",
+      "references_delivery_sha256": "91b2a2af7a7de33af7a3a1dc2967c2d22e1317e457102c74928ef7be97b9bf67"
+    },
+    "original_target_brief_byte_identical": true,
+    "freeze_original_target_unchanged": null,
+    "repair_scope": null
+  },
+  "history": {
+    "historical_original_review_status": "Original r002 static bounded acceptance retained historically, now qualified by website-stage coplanar defect; not release-ready until repair and targeted independent review.",
+    "original_batch_report_sha256": "f6866f3c37b3fdf8cd0024c72756c4508fce1cdc4ef6879f1b71eb51a4da447a",
+    "original_website_diagnostic_path": "/workspace/shared/twenty-breccia-diagnostic.json",
+    "original_website_diagnostic_sha256": "91c69d9fabb6631dcaa9a60efb104d01107c03ccba4ecc665f6879ad6ad83d6e",
+    "original_website_diagnostic_glb_sha256": "bfe0389608e76cd908e46e1b3cbbab91cb4ce282dcc5aa070a098da85d1169af",
+    "original_website_diagnostic_count": 7,
+    "original_website_screenshot_path": "/workspace/shared/lowpoly-batch65-20261020/production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r003/website-original-defect.png",
+    "original_website_screenshot_sha256": "3110f51248437846d7e924604cc3de0cb7d25761076f65450b2ddb061368fc4a",
+    "original_website_screenshot_dimensions": [
+      768,
+      768
+    ],
+    "original_review_preserved_not_retroactively_changed": true
+  },
+  "overlap_independent": {
+    "method": "Independent raw GLB accessor reader; full scene-transformed triangle geometry; bounding-box broadphase; normalized plane parallel/separation tests; exact 2D convex triangle clipping; projected intersection area lifted to 3D. No producer overlap detector output used.",
+    "original": {
+      "glb_sha256": "bfe0389608e76cd908e46e1b3cbbab91cb4ce282dcc5aa070a098da85d1169af",
+      "triangles": 2116,
+      "all_material_positive_area_coplanar_pairs": 33,
+      "maximum_overlap_area_m2": 0.048913152030289786,
+      "same_mesh6_primitive0_darkclast_pair_count_ours": 21
+    },
+    "final": {
+      "glb_sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+      "triangles": 2120,
+      "all_material_positive_area_coplanar_pairs": 0,
+      "maximum_overlap_area_m2": 0.0,
+      "same_mesh6_primitive0_darkclast_pair_count_ours": 0
+    },
+    "website_diagnostic_scope_crosswalk": {
+      "narrow_diagnostic_count": 7,
+      "listed_example_pair_count": 7,
+      "listed_pairs_present_in_broad_original_detector": 7,
+      "listed_pairs_absent_from_final_detector": 7,
+      "broad_same_mesh_subset_count_ours": 21,
+      "count_interchangeable": false,
+      "note": "The seven listed website-diagnostic pairs are witnesses within the broader 33-pair all-material geometric scan and all disappear in r003. Retained diagnostic does not specify enough filtering detail to equate its 7-count to the broader query or the independent same-mesh filtered 21-count."
+    },
+    "matches_producer_broad_result": true,
+    "all_website_example_pairs_fixed": true
+  },
+  "source_comparison_independent": {
+    "blender_version": "4.3.2",
+    "source_reopen_statuses": [
+      "pass",
+      "pass"
+    ],
+    "r002_triangles": 2116,
+    "r003_triangles": 2120,
+    "r002_volume_m3": 10.42606563005593,
+    "r003_volume_m3": 10.387215270698613,
+    "r003_blender_bounds_xyz_m": {
+      "min": [
+        -1.7164006233215332,
+        -1.143106460571289,
+        0.01645096018910408
+      ],
+      "max": [
+        1.7178101539611816,
+        1.2037229537963867,
+        1.8554080724716187
+      ]
+    },
+    "authored_evaluated_vertices_r003": 1302,
+    "host_geometry_exactly_equal": true,
+    "all_source_material_definitions_exactly_equal": true,
+    "mesh_object_geometry_hashes_changed": [
+      "embedded_angular_surface_fragments.001",
+      "embedded_angular_surface_fragments.002"
+    ],
+    "fragment_components_r002": 120,
+    "fragment_components_r003": 120,
+    "independent_clast_geometry_hash_changes": 6,
+    "component_change_aggregate_objects": [
+      "embedded_angular_surface_fragments.001",
+      "embedded_angular_surface_fragments.002"
+    ],
+    "all_other_clasts_same_hash_in_component_compare": true,
+    "changed_clast_geometries_are_localized_in_two_aggregate_objects": true,
+    "changed_component_centers_blender_xyz_m": [
+      {
+        "aggregate": "embedded_angular_surface_fragments.001",
+        "old": [
+          0.5303943660110235,
+          -0.8402988016605377,
+          1.3683936595916748
+        ],
+        "new": [
+          0.48678323812782764,
+          -0.8543336540460587,
+          1.4061290323734283
+        ]
+      },
+      {
+        "aggregate": "embedded_angular_surface_fragments.001",
+        "old": [
+          0.6814502298831939,
+          -0.7912727952003479,
+          1.2395832538604736
+        ],
+        "new": [
+          0.7372212171554565,
+          -0.7606711387634277,
+          1.248614525794983
+        ]
+      },
+      {
+        "aggregate": "embedded_angular_surface_fragments.002",
+        "old": [
+          0.03653711271472275,
+          0.8658868432044983,
+          1.3779387950897217
+        ],
+        "new": [
+          0.043270118487998846,
+          0.8666555047035217,
+          1.381275820732878
+        ]
+      },
+      {
+        "aggregate": "embedded_angular_surface_fragments.002",
+        "old": [
+          -0.08015945255756378,
+          0.8651790976524353,
+          1.2393892288208008
+        ],
+        "new": [
+          -0.08628567929069202,
+          0.8629540701707205,
+          1.2461156050364177
+        ]
+      },
+      {
+        "aggregate": "embedded_angular_surface_fragments.002",
+        "old": [
+          0.4625662627319495,
+          -0.845042089621226,
+          1.5042060216267903
+        ],
+        "new": [
+          0.42204154655337334,
+          -0.8639545142650604,
+          1.5126910010973613
+        ]
+      },
+      {
+        "aggregate": "embedded_angular_surface_fragments.002",
+        "old": [
+          0.5798394799232482,
+          -0.8154821634292603,
+          1.3657415866851808
+        ],
+        "new": [
+          0.6030046939849854,
+          -0.8154344677925109,
+          1.312161374092102
+        ]
+      }
+    ],
+    "r002_overall_world_bounds_xyz_m": {
+      "min": [
+        -1.8398172855377197,
+        -1.3243052959442139,
+        0.0
+      ],
+      "max": [
+        1.8398172855377197,
+        1.3243052959442139,
+        1.9057291746139526
+      ],
+      "size": [
+        3.6796345710754395,
+        2.6486105918884277,
+        1.9057291746139526
+      ]
+    },
+    "r003_overall_world_bounds_xyz_m": {
+      "min": [
+        -1.8398172855377197,
+        -1.3243052959442139,
+        0.0
+      ],
+      "max": [
+        1.8398172855377197,
+        1.3243052959442139,
+        1.9057291746139526
+      ],
+      "size": [
+        3.6796345710754395,
+        2.6486105918884277,
+        1.9057291746139526
+      ]
+    },
+    "r003_readonly_source_reopen_command": {
+      "wrapper": "production/.../blender-locked.sh",
+      "blocking_lock": "/tmp/lowpoly-production-blender.lock",
+      "threads": 2,
+      "startup": "--background --factory-startup --disable-autoexec"
+    },
+    "unchanged_clast_component_hashes": 114
+  },
+  "no_concealment_comparison": {
+    "glb_material_definitions_exactly_equal": true,
+    "original_materials": [
+      {
+        "extras": {
+          "palette_srgb": "#625F57"
+        },
+        "name": "matrix",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.12213877588510513,
+            0.11443537473678589,
+            0.09530746936798096,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#797268"
+        },
+        "name": "matrixlight",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.19120168685913086,
+            0.16826939582824707,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#C3B59B"
+        },
+        "name": "paleclast",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.5457244515419006,
+            0.46207699179649353,
+            0.3277781009674072,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#A58E70"
+        },
+        "name": "ochreclast",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.3762621283531189,
+            0.27049779891967773,
+            0.16202937066555023,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#88887C"
+        },
+        "name": "darkclast",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.2462013214826584,
+            0.2462013214826584,
+            0.2015562504529953,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      }
+    ],
+    "final_materials": [
+      {
+        "extras": {
+          "palette_srgb": "#625F57"
+        },
+        "name": "matrix",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.12213877588510513,
+            0.11443537473678589,
+            0.09530746936798096,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#797268"
+        },
+        "name": "matrixlight",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.19120168685913086,
+            0.16826939582824707,
+            0.1384316086769104,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#C3B59B"
+        },
+        "name": "paleclast",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.5457244515419006,
+            0.46207699179649353,
+            0.3277781009674072,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#A58E70"
+        },
+        "name": "ochreclast",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.3762621283531189,
+            0.27049779891967773,
+            0.16202937066555023,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      {
+        "extras": {
+          "palette_srgb": "#88887C"
+        },
+        "name": "darkclast",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.2462013214826584,
+            0.2462013214826584,
+            0.2015562504529953,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      }
+    ],
+    "all_alpha_modes_opaque_or_default": true,
+    "proof_render_config_sha256_original": "94400a61547ac850cd053257c64456c745e67e6ff2243d94ed5c00981748b2d2",
+    "proof_render_config_sha256_final": "94400a61547ac850cd053257c64456c745e67e6ff2243d94ed5c00981748b2d2",
+    "proof_render_config_byte_identical": true,
+    "camera_renderer_lighting_samples_same": true,
+    "renderer_sha256_original": "33ed7fc4b39a41e67f79e51d41fd4457f2a3087085837e59c8981d87e7bb412d",
+    "renderer_sha256_final": "33ed7fc4b39a41e67f79e51d41fd4457f2a3087085837e59c8981d87e7bb412d",
+    "depth_bias_present_in_either_material_definition": false,
+    "model_alpha_camera_renderer_or_validator_change_in_repair_scope": false,
+    "host_materials_render_camera_renderer_unmodified_independently_verified": true
+  },
+  "final_r003_render_binding": {
+    "manifest_path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r003/proof-delivery/render-manifest.json",
+    "manifest_sha256": "d113f5296e702398d21800619c48a9d91808fe12247f917b69200947ed2c06af",
+    "created_at": "2026-10-20T14:56:32.213174+00:00",
+    "source_glb_sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+    "subject": {
+      "brief_sha256": "027cb4dd507e0bd267b9ea3698a8700aeeb956d5b835dd5a94050b59df8cd1e1",
+      "glb_sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+      "references_sha256": "91b2a2af7a7de33af7a3a1dc2967c2d22e1317e457102c74928ef7be97b9bf67",
+      "revision": "r003"
+    },
+    "frame_count": 8,
+    "frames": [
+      {
+        "id": "hero",
+        "path": "hero.png",
+        "actual_sha256": "8a83d0b4d2702feaa1fb012584afc7c1a2c2e85f476d3679eee3e1e37c7a9fa4",
+        "manifest_sha256": "8a83d0b4d2702feaa1fb012584afc7c1a2c2e85f476d3679eee3e1e37c7a9fa4",
+        "actual_bytes": 261346,
+        "manifest_bytes": 261346,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "1f87e4e16b1e8ffc78f253a804318117591eb2b0a2c041e80cf596f8616c08a2",
+        "matches": true
+      },
+      {
+        "id": "reversehero",
+        "path": "reversehero.png",
+        "actual_sha256": "fc1b9903d629d392bbc4ff7ccf24a9da1e6974edaa20015d7c7528eea09db0b9",
+        "manifest_sha256": "fc1b9903d629d392bbc4ff7ccf24a9da1e6974edaa20015d7c7528eea09db0b9",
+        "actual_bytes": 255148,
+        "manifest_bytes": 255148,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "d31ed7c6601e207996e14cfe8866c9a0f7a3af5bfe7f2dded9d52f8acada1441",
+        "matches": true
+      },
+      {
+        "id": "front",
+        "path": "front.png",
+        "actual_sha256": "1f01995b55e1a536ec0c4385a800fa0a1d5a496be7d1f1ff9f723f3a4964f491",
+        "manifest_sha256": "1f01995b55e1a536ec0c4385a800fa0a1d5a496be7d1f1ff9f723f3a4964f491",
+        "actual_bytes": 245683,
+        "manifest_bytes": 245683,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "0a6070452485c927799ba6689159e4358d349b12c74fc3fd77115d2d575e9938",
+        "matches": true
+      },
+      {
+        "id": "side",
+        "path": "side.png",
+        "actual_sha256": "0becf71613bf73bfbf9208814bc5bb15f1425cecb9e402e46dd10b1a2be7b3a3",
+        "manifest_sha256": "0becf71613bf73bfbf9208814bc5bb15f1425cecb9e402e46dd10b1a2be7b3a3",
+        "actual_bytes": 221924,
+        "manifest_bytes": 221924,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "5befc812a59d2db60b10206ca38be75ec95899cff07cf898fd5f23c0421aca26",
+        "matches": true
+      },
+      {
+        "id": "rear",
+        "path": "rear.png",
+        "actual_sha256": "e5e9481de4b44a61d4c1247808c2c86edd4241415f5aeace53fadb67d134389a",
+        "manifest_sha256": "e5e9481de4b44a61d4c1247808c2c86edd4241415f5aeace53fadb67d134389a",
+        "actual_bytes": 235837,
+        "manifest_bytes": 235837,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "6bbbbbde9e611e28476e853dc4bff7b97ff316d48ca5f02f4c44ee1af8b80198",
+        "matches": true
+      },
+      {
+        "id": "top",
+        "path": "top.png",
+        "actual_sha256": "ffadf791485844310f7118dfcae4519234f956484ec2f62750755e2318b1d0a2",
+        "manifest_sha256": "ffadf791485844310f7118dfcae4519234f956484ec2f62750755e2318b1d0a2",
+        "actual_bytes": 270566,
+        "manifest_bytes": 270566,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "0c98a05a4ecc9791be5e489ead08d5fefe30b520a588f0301af44fdbbb11d9ce",
+        "matches": true
+      },
+      {
+        "id": "clay",
+        "path": "clay.png",
+        "actual_sha256": "082397afcd3751ed21c38c05eabf2f74dd1faed72000b9b045c952b0af38edec",
+        "manifest_sha256": "082397afcd3751ed21c38c05eabf2f74dd1faed72000b9b045c952b0af38edec",
+        "actual_bytes": 192865,
+        "manifest_bytes": 192865,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "21d9166f03ff665586a3923a560a07c52ea9172209db355773970c53c1f4fcb1",
+        "matches": true
+      },
+      {
+        "id": "silhouette",
+        "path": "silhouette.png",
+        "actual_sha256": "2819f354fd0100dec6e9836b78fb4f32b4b696e4ac63221900b367b5c66d1cec",
+        "manifest_sha256": "2819f354fd0100dec6e9836b78fb4f32b4b696e4ac63221900b367b5c66d1cec",
+        "actual_bytes": 62534,
+        "manifest_bytes": 62534,
+        "actual_dimensions": [
+          512,
+          512
+        ],
+        "manifest_dimensions": [
+          512,
+          512
+        ],
+        "decoded_rgba_sha256": "ffb77e34c93b571c35c07cf0a49ff0a5b9dd97475ebfb1aa5262ce41975208a5",
+        "matches": true
+      }
+    ],
+    "all_eight_images_match": true,
+    "render_log_tail": ") | Time:00:00.00 | Mem:0.45M, Peak:0.45M | Scene, ViewLayer | Sample 0/16\nFra:1 Mem:22.64M (Peak 22.64M) | Time:00:00.05 | Remaining:00:00.70 | Mem:9.45M, Peak:9.45M | Scene, ViewLayer | Sample 1/16\nFra:1 Mem:26.64M (Peak 34.64M) | Time:00:00.77 | Mem:9.45M, Peak:9.45M | Scene, ViewLayer | Sample 16/16\nFra:1 Mem:26.64M (Peak 34.64M) | Time:00:00.77 | Mem:9.45M, Peak:9.45M | Scene, ViewLayer | Finished\nSaved: '/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r003/proof-delivery/silhouette.png'\nTime: 00:00.80 (Saving: 00:00.02)\n\n{\"status\": \"rendered_pending_review\", \"render_manifest\": \"/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r003/proof-delivery/render-manifest.json\", \"frames\": 8, \"turntable_frames\": 0, \"source_glb_sha256\": \"72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147\", \"wall_seconds\": 17.4488}\n\nBlender quit\n"
+  },
+  "formats": {
+    "project_static": {
+      "profile": "static-uncompressed-v1",
+      "file": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r003/model.glb",
+      "errors": [],
+      "warnings": [],
+      "khronos_validator": "not_run_by_this_script",
+      "bytes": 115472,
+      "sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+      "generator": "Khronos glTF Blender I/O v4.3.47",
+      "extensions_used": [],
+      "materials": 5,
+      "unique_mesh_triangles": 2120,
+      "unique_mesh_primitives": 8,
+      "unique_position_accessor_vertices": 3960,
+      "bounds_m": {
+        "min": [
+          -1.839817225933075,
+          0.0,
+          -1.3243053555488586
+        ],
+        "max": [
+          1.839817225933075,
+          1.9057291336357594,
+          1.3243053555488586
+        ],
+        "size": [
+          3.67963445186615,
+          1.9057291336357594,
+          2.6486107110977173
+        ]
+      },
+      "semantic_sha256": "6347913e8ad68e6d93640c2458a75870f4c4fb072ef9f3e9b71b7314241c2f5e",
+      "semantic_digest_profile": "decoded-static-content-v1",
+      "scene_triangles": 2120,
+      "scene_primitives_estimated_base_draw_calls": 8,
+      "status": "pass"
+    },
+    "khronos": {
+      "file": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r003/model.glb",
+      "sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+      "validator_version": "2.0.0-dev.3.10",
+      "num_errors": 0,
+      "num_warnings": 0,
+      "messages": [],
+      "status": "pass"
+    },
+    "three_parse": {
+      "file": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r003/model.glb",
+      "sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+      "three_version": "0.180.0",
+      "three_revision": "180",
+      "parser": "Node GLTFLoader.parseAsync",
+      "meshes": 8,
+      "primitives": 8,
+      "triangles": 2120,
+      "materials": [
+        "matrix",
+        "matrixlight",
+        "paleclast",
+        "ochreclast",
+        "darkclast"
+      ],
+      "bounds_min_m": [
+        -1.839817225933075,
+        0,
+        -1.3243053555488586
+      ],
+      "bounds_max_m": [
+        1.839817225933075,
+        1.9057291336357594,
+        1.3243053555488586
+      ],
+      "bounds_size_m": [
+        3.67963445186615,
+        1.9057291336357594,
+        2.6486107110977173
+      ],
+      "status": "pass",
+      "gpu": "not_run",
+      "scene": "not_run"
+    },
+    "textures": 0
+  },
+  "rebuild_queue": {
+    "queue_run_id": "20261020T145632-57c5df5d7c724b179225a4182de8c0b3",
+    "jobs": [
+      {
+        "job_id": "semantic-rebuild-1",
+        "run_id": "20261020T145632-57c5df5d7c724b179225a4182de8c0b3",
+        "fingerprint": "fde7f2e1d2f4ba9535978592fcb035c178e0d5b7833dd224c0d89e3f49be16e0",
+        "request_created_at": "2026-10-20T14:56:32.655557+00:00",
+        "request_path": "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r003/rebuild-runs/build/breccia-outcrop/r003/semantic-rebuild-1/fde7f2e1d2f4ba9535978592fcb035c178e0d5b7833dd224c0d89e3f49be16e0/20261020T145632-665f36fbedaf4bfc89b0688e42543869/request.json",
+        "request_sha256": "a334925211ed9fcfc764ccf2fd15fbd49a042fa60385137b269d4b2b18595067",
+        "result_path": "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r003/rebuild-runs/build/breccia-outcrop/r003/semantic-rebuild-1/fde7f2e1d2f4ba9535978592fcb035c178e0d5b7833dd224c0d89e3f49be16e0/20261020T145632-665f36fbedaf4bfc89b0688e42543869/result.json",
+        "result_sha256": "373d3f6036b4473f93959ec1595ee7130c8a9d291b9d869a30142f3d791bec40",
+        "status": "succeeded",
+        "pid": 123,
+        "started_at": "2026-10-20T14:56:32.660673+00:00",
+        "finished_at": "2026-10-20T14:56:36.897252+00:00",
+        "returncode": 0,
+        "wall_seconds": 4.2366,
+        "threads": 2,
+        "executable_sha256": "a8b05193f8aa0768f6c67ebf48498c0a8632a4ead053f0c9701a3fa1e4eb2926",
+        "input_hashes": {
+          "audit": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "brief": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97",
+          "config": "138efe5001e5a6dc7a880d131be4635c16d5cfa848f5d874a41989ea7cf55c30",
+          "generator": "e63572adf13c1befe8e16081750ff46b38a155e42606097bb325486b0f355110",
+          "helper": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "references": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d"
+        },
+        "outputs": {
+          "geometry-repair-report.json": {
+            "sha256": "fc7ff91d20d5744cb232863e3e329835db082f38fccb57af928d145477e0e0d3",
+            "bytes": 4551,
+            "declared_sha256": "fc7ff91d20d5744cb232863e3e329835db082f38fccb57af928d145477e0e0d3",
+            "declared_bytes": 4551,
+            "matches_result": true
+          },
+          "metrics.json": {
+            "sha256": "c20d3ba3f60da35b1be2acf9f0d094ac6f89cbfb1a0356eb19f0f2502c4b4beb",
+            "bytes": 4285,
+            "declared_sha256": "c20d3ba3f60da35b1be2acf9f0d094ac6f89cbfb1a0356eb19f0f2502c4b4beb",
+            "declared_bytes": 4285,
+            "matches_result": true
+          },
+          "model.glb": {
+            "sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+            "bytes": 115472,
+            "declared_sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+            "declared_bytes": 115472,
+            "matches_result": true
+          },
+          "source-metrics.json": {
+            "sha256": "448c98fdb5637d60faac8896b496b7da1b34b22b9325e900f51617620d94d34d",
+            "bytes": 1689,
+            "declared_sha256": "448c98fdb5637d60faac8896b496b7da1b34b22b9325e900f51617620d94d34d",
+            "declared_bytes": 1689,
+            "matches_result": true
+          },
+          "source.blend": {
+            "sha256": "cfdfc965e9cd4985723b295ff25a5b77c8c6e4d75dab7a633b06f86ee94dceb9",
+            "bytes": 623332,
+            "declared_sha256": "cfdfc965e9cd4985723b295ff25a5b77c8c6e4d75dab7a633b06f86ee94dceb9",
+            "declared_bytes": 623332,
+            "matches_result": true
+          }
+        },
+        "stdout_sha256": "2111f2ea5b7d256d9c7d8253e30d25c51c7c849b93ef4fc6941bd7549d04a991",
+        "stdout_built_line": true,
+        "stderr_empty": true,
+        "generator_semantic_report": {
+          "status": "pass",
+          "generator_executed": false,
+          "byte_identical": true,
+          "semantic_match": true,
+          "semantic_sha256": "6347913e8ad68e6d93640c2458a75870f4c4fb072ef9f3e9b71b7314241c2f5e",
+          "rebuilt_semantic_sha256": "6347913e8ad68e6d93640c2458a75870f4c4fb072ef9f3e9b71b7314241c2f5e"
+        }
+      },
+      {
+        "job_id": "semantic-rebuild-2",
+        "run_id": "20261020T145632-57c5df5d7c724b179225a4182de8c0b3",
+        "fingerprint": "090344d2d279e001557c741727ed7d41c4956b5f597365c8e4e759b1a5268a04",
+        "request_created_at": "2026-10-20T14:56:36.901334+00:00",
+        "request_path": "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r003/rebuild-runs/build/breccia-outcrop/r003/semantic-rebuild-2/090344d2d279e001557c741727ed7d41c4956b5f597365c8e4e759b1a5268a04/20261020T145636-7376719b48604a3c84cb8f518df1dce1/request.json",
+        "request_sha256": "af4bf77515888d7f68aa70484d85f0c0c9bd3dc3ce26c05be7dc00bf7da6a68a",
+        "result_path": "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r003/rebuild-runs/build/breccia-outcrop/r003/semantic-rebuild-2/090344d2d279e001557c741727ed7d41c4956b5f597365c8e4e759b1a5268a04/20261020T145636-7376719b48604a3c84cb8f518df1dce1/result.json",
+        "result_sha256": "968561b65610277ddfd133a60bda582982c504238b10ce81a34b5abae5a50142",
+        "status": "succeeded",
+        "pid": 146,
+        "started_at": "2026-10-20T14:56:36.904413+00:00",
+        "finished_at": "2026-10-20T14:56:41.201151+00:00",
+        "returncode": 0,
+        "wall_seconds": 4.2968,
+        "threads": 2,
+        "executable_sha256": "a8b05193f8aa0768f6c67ebf48498c0a8632a4ead053f0c9701a3fa1e4eb2926",
+        "input_hashes": {
+          "audit": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+          "brief": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97",
+          "config": "138efe5001e5a6dc7a880d131be4635c16d5cfa848f5d874a41989ea7cf55c30",
+          "generator": "e63572adf13c1befe8e16081750ff46b38a155e42606097bb325486b0f355110",
+          "helper": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+          "references": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d"
+        },
+        "outputs": {
+          "geometry-repair-report.json": {
+            "sha256": "fc7ff91d20d5744cb232863e3e329835db082f38fccb57af928d145477e0e0d3",
+            "bytes": 4551,
+            "declared_sha256": "fc7ff91d20d5744cb232863e3e329835db082f38fccb57af928d145477e0e0d3",
+            "declared_bytes": 4551,
+            "matches_result": true
+          },
+          "metrics.json": {
+            "sha256": "e87b9570326ff9b4e7d79b2b7ec1f7fbdd5bfd0679ea206d9d43adaf76923b62",
+            "bytes": 4285,
+            "declared_sha256": "e87b9570326ff9b4e7d79b2b7ec1f7fbdd5bfd0679ea206d9d43adaf76923b62",
+            "declared_bytes": 4285,
+            "matches_result": true
+          },
+          "model.glb": {
+            "sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+            "bytes": 115472,
+            "declared_sha256": "72584669cf0926313c81fc88f34f8c76ed8706c4d26272856dcdf0cf3eac2147",
+            "declared_bytes": 115472,
+            "matches_result": true
+          },
+          "source-metrics.json": {
+            "sha256": "448c98fdb5637d60faac8896b496b7da1b34b22b9325e900f51617620d94d34d",
+            "bytes": 1689,
+            "declared_sha256": "448c98fdb5637d60faac8896b496b7da1b34b22b9325e900f51617620d94d34d",
+            "declared_bytes": 1689,
+            "matches_result": true
+          },
+          "source.blend": {
+            "sha256": "88ae09c280f5acacd6c99e115b25e5a33da1bb04ee096c509a3e6610c55cdfaa",
+            "bytes": 623332,
+            "declared_sha256": "88ae09c280f5acacd6c99e115b25e5a33da1bb04ee096c509a3e6610c55cdfaa",
+            "declared_bytes": 623332,
+            "matches_result": true
+          }
+        },
+        "stdout_sha256": "b164474d0e251153ec5b96d132565f91ac539430d5dc3f1550dbc89f5f8f2749",
+        "stdout_built_line": true,
+        "stderr_empty": true,
+        "generator_semantic_report": {
+          "status": "pass",
+          "generator_executed": false,
+          "byte_identical": true,
+          "semantic_match": true,
+          "semantic_sha256": "6347913e8ad68e6d93640c2458a75870f4c4fb072ef9f3e9b71b7314241c2f5e",
+          "rebuilt_semantic_sha256": "6347913e8ad68e6d93640c2458a75870f4c4fb072ef9f3e9b71b7314241c2f5e"
+        }
+      }
+    ],
+    "two_distinct_actual_successes": true,
+    "separate_source_blend_outputs": true
+  },
+  "other_accepted_trees": {
+    "ledger_path": "/workspace/shared/lowpoly-batch65-20261020/production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r003/other-trees-unchanged.json",
+    "ledger_sha256": "3c2fb127e435a8861b67c92500f2d7592f2ef8d8c8f0c932bb73842c288e1c85",
+    "checked_at": "2026-10-20T14:58:20.699483+00:00",
+    "scope": "Every file in all three accepted candidate revision trees; no build/rerender/write for them",
+    "assets": [
+      {
+        "asset_id": "burgessochaeta",
+        "revision": "r002",
+        "expected_file_count": 64,
+        "actual_file_count": 64,
+        "recorded_unchanged": true,
+        "after_hashes_match": true,
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "glb_sha256": "6a505f5960c6c973e42ec644dfc078e977c576dff9ed470bc7fc07a27fa9bec4"
+      },
+      {
+        "asset_id": "stalagmite-group",
+        "revision": "r003",
+        "expected_file_count": 53,
+        "actual_file_count": 53,
+        "recorded_unchanged": true,
+        "after_hashes_match": true,
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "glb_sha256": "3e696fcb6e2b2ffb21e7ea850522c5f2f6498a11e13bb7ce429f6376df3de5e0"
+      },
+      {
+        "asset_id": "rotational-landslide",
+        "revision": "r001",
+        "expected_file_count": 64,
+        "actual_file_count": 64,
+        "recorded_unchanged": true,
+        "after_hashes_match": true,
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "glb_sha256": "4b8c7caad83fc07bbddacdd15fcb7647148c8f382105639fdf0426d6f454d543"
+      }
+    ],
+    "all_three_trees_unchanged": true
+  },
+  "approval_limits": {
+    "candidate_record_valid": true,
+    "approved_for_brief": false,
+    "approval_status": "pending",
+    "producer_stage_statuses": {
+      "technical": "unknown",
+      "visual": "unknown",
+      "factual": "unknown",
+      "specification": "unknown",
+      "runtime_parse": "unknown",
+      "gpu": "unknown",
+      "scene": "unknown"
+    },
+    "concept_valid": true,
+    "concept_evidence_complete": false,
+    "concept_timestamp_limitation": [
+      "concept_generated_at: unknown; do not reconstruct times from file mtimes"
+    ],
+    "gpu": "NOT RUN",
+    "scene": "NOT RUN",
+    "website_new_glb_retest": "PENDING; must be established by parent website worker, not inferred from this CPU/source review"
+  },
+  "evidence_files": {
+    "overlap": "independent-overlap.json",
+    "source_compare": "source-compare.json",
+    "component_compare": "component-compare.json",
+    "render_and_queue_checks": "this file",
+    "static": "project-static.json",
+    "khronos": "khronos.json",
+    "three": "three-parse.json"
+  }
+}
