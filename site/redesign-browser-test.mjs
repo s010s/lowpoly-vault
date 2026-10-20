@@ -6,6 +6,9 @@ import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {ADDITIONS_BROWSER_VERSION,ADDITIONS_DESKTOP_KIND,ADDITIONS_BROWSER_PIN,parseAddedModelIDs,selectAddedModels,assertAdditionsDesktopReport} from './ci-additions-browser-contract.mjs';
 import { createCatalog } from './catalog-build.mjs';
 import { catalogMembership } from './curation.js';
 import { normalizeSiteBase, routeHref, CATALOG_PAGE_SIZE } from './routes.js';
@@ -369,22 +372,82 @@ async function navigationChecks() {
 async function actualModelChecks() {
   const context = await newContext();
   const page = await context.newPage(); observe(page, 'Actual models');
+  let desktop,desktopIdentity,activeDesktop;
+  const desktopTasks=[],byteHash=bytes=>createHash('sha256').update(bytes).digest('hex');
   try {
     if(!wheelBuild){await page.goto(urlFor({ type: 'models' })); await waitCatalog(page);}
     const selected = manifest.assets.filter(asset => !selectedIDs || selectedIDs.has(asset.id));
     assert(selected.length > 0 && (!selectedIDs || selected.length === selectedIDs.size), 'All selected models must exist');
+    if(process.env.QA_ADDED_MODEL_IDS!==undefined){
+      const ids=parseAddedModelIDs(process.env.QA_ADDED_MODEL_IDS);
+      assert(wheelBuild&&reviewScope==='models'&&!allowFallback&&!forceFallback&&!staticOnly,'Desktop additions require the built wheel and strict model-scoped GPU checks');
+      assert.deepEqual(selected.map(asset=>asset.id).sort(),ids,'Desktop additions selection differs from the strict GPU shard');
+      selectAddedModels(manifest,ids);
+      const git=(...args)=>execFileSync('git',args,{encoding:'utf8'}).trim();
+      desktopIdentity={source_commit:git('rev-parse','HEAD'),source_tree:git('rev-parse','HEAD^{tree}'),run_id:Number(process.env.GITHUB_RUN_ID),run_attempt:Number(process.env.GITHUB_RUN_ATTEMPT)};
+      assert.equal(desktopIdentity.source_commit,process.env.GITHUB_SHA,'Desktop acceptance source differs from checkout');
+      const installed=JSON.parse(await readFile(resolve('node_modules/playwright-core/package.json'),'utf8'));
+      const browsers=JSON.parse(await readFile(resolve('node_modules/playwright-core/browsers.json'),'utf8'));
+      const pin=browsers.browsers.find(item=>item.name==='chromium');
+      desktop={version:ADDITIONS_BROWSER_VERSION,kind:ADDITIONS_DESKTOP_KIND,status:'running',...desktopIdentity,chromium_version:browser.version(),browser_pin:{playwright:installed.version,chromium:pin?.browserVersion,revision:pin?.revision},selected_ids:ids,actual_glb_ids:[],cases:[],page_errors:[],resource_errors:[],fallback_events:[],sequence_requests:0,served_output_only:true,visual_approval:false,formal_approval:false,
+        limitations:['Measured during the existing strict GPU wheel selection; no second desktop GLB parse.','Canonical viewer Close still performs its existing bounded return-to-gallery smoke, outside these selected-model acceptance observations.','Functional SwiftShader coverage is not visual/formal approval or physical-device performance evidence.']};
+      report.additions_desktop=desktop;
+      assert.deepEqual(desktop.browser_pin,ADDITIONS_BROWSER_PIN,'Desktop browser package/revision differs');
+      assert.equal(desktop.chromium_version,ADDITIONS_BROWSER_PIN.chromium,'Desktop actual Chromium differs');
+      page.on('pageerror',error=>{if(activeDesktop)desktop.page_errors.push(error.message);});
+      page.on('console',message=>{if(!activeDesktop)return;if(message.type()==='error')desktop.page_errors.push(message.text());if(/Static fallback|Hover fallback/.test(message.text()))desktop.fallback_events.push(message.text());});
+      page.on('requestfailed',request=>{if(activeDesktop)desktop.resource_errors.push({url:request.url(),error:request.failure()?.errorText});});
+      page.on('request',request=>{if(activeDesktop&&new URL(request.url()).pathname.includes('/turntables/'))desktop.sequence_requests++;});
+      page.on('response',response=>{
+        const capture=activeDesktop;if(!capture)return;
+        if(response.status()>=400)desktop.resource_errors.push({url:response.url(),status:response.status()});
+        if(new URL(response.url()).pathname.endsWith('.glb'))desktopTasks.push((async()=>{
+          assert.equal(response.url(),assetURL(capture.asset.glb),'Wheel acceptance loaded an unselected GLB');
+          assert(response.ok(),'Wheel GLB response failed');const bytes=await response.body();
+          capture.row.observed_glbs.push({path:capture.asset.glb,sha256:byteHash(bytes),bytes:bytes.length});
+          if(!desktop.actual_glb_ids.includes(capture.asset.id))desktop.actual_glb_ids.push(capture.asset.id);
+        })().catch(error=>desktop.resource_errors.push(error.message)));
+      });
+      await page.addInitScript(()=>{
+        window.__additionsFallbackEvents=[];
+        new MutationObserver(records=>{for(const record of records)if(record.target.id==='detail'&&(record.target.dataset.state==='fallback'||record.oldValue==='fallback'))window.__additionsFallbackEvents.push({id:record.target.dataset.modelId,state:'fallback'});}).observe(document,{subtree:true,attributes:true,attributeFilter:['data-state'],attributeOldValue:true});
+      });
+    }
     for (const asset of selected) {
+      const desktopCase=desktop?{id:asset.id,viewport:'1440x1000',lang:'en',status:'running',observed_glbs:[]}:null;
+      if(desktopCase){desktop.cases.push(desktopCase);activeDesktop={asset,row:desktopCase};}
+      // The explicit model avoids parsing a historical default before the selected model.
       // Each real model must remain discoverable when the catalog spans pages.
-      await page.goto(urlFor({ type: 'models' }) + '?q=' + encodeURIComponent(asset.id));
+      await page.goto(urlFor({ type: 'models' }) + '?q=' + encodeURIComponent(asset.id)+(wheelBuild?'&model='+encodeURIComponent(asset.id):''));
       if(wheelBuild){
         await page.waitForFunction(()=>window.__gallery?.models.length>0,null,{timeout:45000});
         assert((await page.evaluate(()=>window.__gallery.state.results.map(a=>a.id))).includes(asset.id),'Every model remains discoverable in the full wheel catalog');
+        if(desktopCase){
+          const card=page.locator(`#slots [data-id="${asset.id}"]`);await card.scrollIntoViewIfNeeded();
+          await page.waitForFunction(id=>{const image=document.querySelector(`#slots [data-id="${id}"] img`);return image?.dataset.thumbnailState==='ready'&&image.complete&&image.naturalWidth>0;},asset.id);
+          desktopCase.discovery=await card.locator('img').evaluate(async image=>{await image.decode();return{id:image.closest('.slot').dataset.id,poster_decoded:true,poster_width:image.naturalWidth,poster_height:image.naturalHeight};});
+          await page.waitForLoadState('networkidle');
+        }
         await page.locator(`#slots [data-id="${asset.id}"]`).click();
         await page.waitForFunction(id=>document.querySelector('#detail')?.dataset.modelId===id&&['ready','fallback'].includes(document.querySelector('#detail').dataset.state),asset.id,{timeout:45000});
         const inline=await page.locator('#detail').getAttribute('data-state');
         if(forceFallback)assert.equal(inline,'fallback');else if(!allowFallback)assert.equal(inline,'ready',asset.id+': inline gallery must render actual GLB');
         if(inline==='ready')assert.equal(await page.evaluate(()=>window.__gallery.renderer.stats.detailFirstFrameId),asset.id);
         assert.equal(await page.locator('#download').getAttribute('href'),assetURL(asset.glb));
+        if(desktopCase){
+          desktopCase.viewport_config=await page.evaluate(()=>({width:innerWidth,height:innerHeight,hasTouch:navigator.maxTouchPoints>0,isMobile:matchMedia('(max-width:760px)').matches}));
+          desktopCase.detail=await page.evaluate(()=>{const gallery=window.__gallery,renderer=gallery.renderer,detail=document.querySelector('#detail');return{id:detail.dataset.modelId,selected_id:gallery.state.selected,title:document.querySelector('#info-content h2').textContent,first_frame_id:renderer.stats.detailFirstFrameId,renderer_id:renderer.detail.asset?.id,state:detail.dataset.state,renderer_status:renderer.stats.detailStatus,model_present:!!renderer.detail.model,live_bytes:renderer.detail.entry?.bytes,renderer_count:document.querySelectorAll('canvas.preview-renderer').length,context_lost:!!renderer.lost,gl_error:renderer.renderer.getContext().getError(),poster_source:document.querySelector('#detail-poster').dataset.source};});
+          desktopCase.horizontal_overflow=await page.locator('html').evaluate(node=>node.scrollWidth>node.clientWidth+1);
+          desktopCase.fallback=await page.locator('#retry').isVisible();desktopCase.navigation={detail_model:new URL(page.url()).searchParams.get('model')};desktopCase.downloads={};
+          for(const format of ['glb','blend']){
+            const href=await page.locator(format==='glb'?'#download':'#blend').getAttribute('href');assert.equal(href,assetURL(asset[format]),`${asset.id}: incorrect ${format} download link`);
+            const response=await page.request.get(href);assert(response.ok(),`${asset.id}: ${format} download failed`);const bytes=await response.body();
+            desktopCase.downloads[format]={path:asset[format],sha256:byteHash(bytes),bytes:bytes.length};assert.equal(desktopCase.downloads[format].sha256,asset.sha256[format],`${asset.id}: ${format} bytes differ`);
+          }
+          await page.waitForLoadState('networkidle');await Promise.all(desktopTasks);
+          desktop.fallback_events.push(...await page.evaluate(()=>window.__additionsFallbackEvents));
+          desktopCase.status='pass';activeDesktop=null;
+        }
         // The independent canonical route retains its original detailed viewer,
         // wireframe, metric grid, theme continuity and download acceptance below.
         await page.goto(urlFor({type:'detail',id:asset.id}));
@@ -453,6 +516,10 @@ async function actualModelChecks() {
         assert.equal(stats.referenceObjects, 0); assert.equal(stats.referenceGeometries, 0); assert.equal(stats.referenceMaterials, 0);
       }
       report.models.push({ id: asset.id, glb_sha256: asset.sha256?.glb || null, status: state === 'ready' ? 'gpu-pass' : 'fallback-only', checks: modelChecks });
+    }
+    if(desktop){
+      desktop.status='pass';assertAdditionsDesktopReport(desktop,{manifest,selectedIDs:desktop.selected_ids,identity:desktopIdentity});report.additions_desktop=desktop;
+      check('Exact selected desktop wheel/poster/live-GLB/download acceptance reused from the existing strict GPU model loop');
     }
     check('All actual review assets: downloads, accessible fallback or strict GPU, bounded one-renderer cache and scene cleanup');
   } catch(error) { report.failure_diagnostics={gpu:await gpu(page).catch(()=>null),canvas:await page.locator('canvas').count(),url:page.url()}; await screenshot(page, 'failure').catch(()=>{}); throw error; } finally { await context.close(); }
