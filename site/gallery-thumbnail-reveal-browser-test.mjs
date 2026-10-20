@@ -5,8 +5,10 @@ import {chromium} from 'playwright';
 import {createServer} from 'node:http';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {galleryStartupContent} from './gallery/startup.mjs';
-const output=resolve(process.env.QA_OUTPUT_DIR||'qa/thumbnail-reveal');await mkdir(output,{recursive:true});
+export async function runThumbnailRevealBrowserTests({browser:sharedBrowser,output=resolve(process.env.QA_OUTPUT_DIR||'qa/thumbnail-reveal')}={}){
+await mkdir(output,{recursive:true});
 const root=new URL('./',import.meta.url),css=await readFile(new URL('gallery/style.css',root),'utf8'),placeholder=await readFile(new URL('gallery/thumbnail-placeholder.css',root),'utf8'),nativeCSS=await readFile(new URL('gallery/startup.css',root),'utf8'),startup=await readFile(new URL('gallery/startup.js',root),'utf8');
 const assets=Array.from({length:12},(_,i)=>({id:i===4?'cooperoceras':`fixture-${i}`,name:{en:`Fixture ${i}`,zh:`测试 ${i}`},category:'plants',triangles:100,preview:`ok.svg?id=${i}`,glb:`fixture-${i}.glb`,blend:`fixture-${i}.blend`,glb_bytes:1024}));
 const native=galleryStartupContent(assets,{lang:'en',base:'/'},{header:'<header>Thumbnail fixture</header>',resources:{}});
@@ -23,12 +25,13 @@ window.sync=()=>synchronizeThumbnailPlaceholders(document.querySelectorAll('.thu
 const svg='<svg xmlns="http://www.w3.org/2000/svg" width="96" height="64"><path fill="#718c59" d="M16 52 30 14 56 6 81 35 58 57Z"/></svg>';
 const server=createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost');if(url.pathname==='/queue'){res.setHeader('Content-Type','text/html');res.end(queueHTML);}else if(url.pathname==='/native'){res.setHeader('Content-Type','text/html');res.end(`<style>${css}\n${nativeCSS}</style><body data-static-route="models"><div id="static-route-content" class="gallery-static">${native}</div>${url.searchParams.has('nojs')?'':`<script>${startup}</script>`}</body>`);}else if(url.pathname==='/away'){res.setHeader('Content-Type','text/html');res.end('<p>Other page</p>');}else if(url.pathname==='/ok.svg'){res.writeHead(200,{'Content-Type':'image/svg+xml','Cache-Control':'public,max-age=3600'});res.end(svg);}else if(/^\/gallery\/[a-z-]+\.js$/.test(url.pathname)){res.setHeader('Content-Type','text/javascript');res.end(await readFile(new URL('.'+url.pathname,root)));}else{res.writeHead(404);res.end();}}catch(error){res.writeHead(500);res.end(error.message);}});
 await new Promise(done=>server.listen(0,'127.0.0.1',done));const base=`http://127.0.0.1:${server.address().port}`;
-let browser;
+let browser=sharedBrowser;const contexts=[];
+const newContext=async options=>{const context=await browser.newContext(options);contexts.push(context);return context;};
 const report={scope:'Production queue, CSS, native startup and 2D hover handoff with tiny SVG fixtures; no full catalog or WebGL/GPU acceptance.',cases:[],errors:[]};
 const read=(page,i=0)=>page.evaluate(i=>{const image=images[i],css=getComputedStyle(image),box=image.getBoundingClientRect();return{state:image.dataset.thumbnailState,opacity:Number(css.opacity),visibility:css.visibility,transition:css.transitionProperty,duration:css.transitionDuration,transform:css.transform,box:{x:box.x,y:box.y,width:box.width,height:box.height},placeholder:getComputedStyle(image.nextElementSibling).visibility};},i);
 try{
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage']});report.browser=browser.version();
- const context=await browser.newContext({viewport:{width:1280,height:900}}),page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));await page.goto(base+'/queue');await page.waitForFunction(()=>window.queue);
+ if(!browser)browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage']});report.browser=browser.version();
+ const context=await newContext({viewport:{width:1280,height:900}}),page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));await page.goto(base+'/queue');await page.waitForFunction(()=>window.queue);
  await page.evaluate(()=>{[0,1,2].forEach(hold);queue.update([0,1,2].map(i=>item(i)));});await page.waitForFunction(()=>[0,1,2].every(i=>resolvers[i]));await page.evaluate(()=>sync());
  const pending=await read(page);assert.equal(pending.state,'decoding');assert.equal(pending.opacity,0);assert.equal(pending.visibility,'hidden');assert.equal(pending.placeholder,'visible');assert.equal(await page.evaluate(()=>queue.stats.active),3);
  assert(await page.evaluate(()=>[...document.querySelectorAll('.thumbnail-placeholder-cube')].flatMap(el=>el.getAnimations()).filter(a=>a.playState==='running').every(a=>a.startTime===0)));
@@ -42,12 +45,16 @@ try{
  const handoff=await page.evaluate(async()=>{const host=images[0].parentElement,p=new HoverPresentation(host);p.update(images[0],0,0,96,64,96,64);await p.reveal();const hidden=getComputedStyle(images[0]).opacity;p.dispose();return {hidden,opacity:getComputedStyle(images[0]).opacity,duration:getComputedStyle(images[0]).transitionDuration,remaining:images[0].getAnimations().length};});assert.equal(handoff.hidden,'0');assert.equal(handoff.opacity,'1');assert.equal(handoff.duration,'0s');assert.equal(handoff.remaining,0);report.cases.push({name:'existing-hover-alpha-handoff-no-second-fade',status:'pass'});
  await page.screenshot({path:resolve(output,'enhanced-thumbnail-fixture.png')});await context.close();
  for(const width of [390,1280])for(const reduced of [false,true]){
-  const context=await browser.newContext({viewport:{width,height:844},isMobile:width<761,hasTouch:width<761,reducedMotion:reduced?'reduce':'no-preference'}),page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));
+  const context=await newContext({viewport:{width,height:844},isMobile:width<761,hasTouch:width<761,reducedMotion:reduced?'reduce':'no-preference'}),page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));
   await page.addInitScript(()=>{window.nativeDecodes=[];const original=HTMLImageElement.prototype.decode;HTMLImageElement.prototype.decode=function(){return original.call(this).then(()=>new Promise(done=>nativeDecodes.push({image:this,done})));};});
   await page.goto(base+'/native');await page.waitForFunction(()=>nativeDecodes.length>=3);const nativePending=await page.locator('.slot-image img').first().evaluate(img=>({state:img.dataset.thumbnailState,opacity:getComputedStyle(img).opacity,visibility:getComputedStyle(img).visibility}));assert.equal(nativePending.state,'decoding');assert.equal(nativePending.opacity,'0');assert.equal(nativePending.visibility,'hidden');
   await page.evaluate(()=>nativeDecodes.forEach(({done})=>done()));await page.waitForTimeout(200);const visible=await page.locator('.slot-image img[data-thumbnail-state=ready]').evaluateAll(images=>images.map(img=>({opacity:getComputedStyle(img).opacity,duration:getComputedStyle(img).transitionDuration,x:img.parentElement.getBoundingClientRect().x+img.parentElement.getBoundingClientRect().width/2})));assert(visible.length>=3);assert(visible.every(image=>image.opacity==='1'));assert(Math.max(...visible.map(i=>i.x))-Math.min(...visible.map(i=>i.x))<.01);if(reduced)assert(visible.every(image=>image.duration==='0s'));
   await page.screenshot({path:resolve(output,`native-${width}${reduced?'-reduced':''}.png`)});report.cases.push({name:`native-decode-fade-axis-${width}${reduced?'-reduced':''}`,status:'pass',ready:visible.length});await context.close();
  }
- const noJS=await browser.newContext({javaScriptEnabled:false,viewport:{width:1280,height:844}}),noJSPage=await noJS.newPage();await noJSPage.goto(base+'/native?nojs');assert.equal(await noJSPage.locator('.slot-image img').first().evaluate(img=>getComputedStyle(img).opacity),'1');assert.equal(await noJSPage.locator('.slot-image img[data-thumbnail-state]').count(),0);report.cases.push({name:'no-javascript-native-posters-not-hidden',status:'pass'});await noJS.close();
+ const noJS=await newContext({javaScriptEnabled:false,viewport:{width:1280,height:844}}),noJSPage=await noJS.newPage();await noJSPage.goto(base+'/native?nojs');assert.equal(await noJSPage.locator('.slot-image img').first().evaluate(img=>getComputedStyle(img).opacity),'1');assert.equal(await noJSPage.locator('.slot-image img[data-thumbnail-state]').count(),0);report.cases.push({name:'no-javascript-native-posters-not-hidden',status:'pass'});await noJS.close();
  assert.deepEqual(report.errors,[]);report.status='pass';
-}catch(error){report.status='fail';report.failure=error.stack;process.exitCode=1;}finally{await browser?.close();await new Promise(done=>server.close(done));await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));}
+}catch(error){report.status='fail';report.failure=error.stack;}finally{await Promise.all(contexts.map(context=>context.close().catch(()=>{})));if(!sharedBrowser)await browser?.close();await new Promise(done=>server.close(done));await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));}
+
+return report;
+}
+if(process.argv[1]&&fileURLToPath(import.meta.url)===resolve(process.argv[1])){const report=await runThumbnailRevealBrowserTests();if(report.status!=='pass')process.exitCode=1;}

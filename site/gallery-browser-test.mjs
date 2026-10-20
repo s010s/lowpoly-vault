@@ -12,6 +12,7 @@ import { modelHeight } from './gallery/model-dimensions.js';
 import {checkGalleryStartup} from './gallery-startup-browser.mjs';
 import {checkMobileGallery} from './gallery-mobile-browser.mjs';
 import {checkGalleryThumbnailAxis} from './gallery-thumbnail-axis-browser.mjs';
+import {runThumbnailRevealBrowserTests} from './gallery-thumbnail-reveal-browser-test.mjs';
 
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.webp':'image/webp','.txt':'text/plain','.zip':'application/zip'};
 const defaultGroups=process.env.QA_FORCE_WEBGL_FALLBACK==='1'?['fallback']:['startup','routes','interaction','handoff','detail','scroll','resources','scale','modal','fallback'];
@@ -45,6 +46,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
     const has=group=>groups.includes(group);
     if(has('startup')||has('routes'))await checkGalleryStartup({browser,root,baseURL,output,report});
     if(has('interaction')||has('axis'))await checkGalleryThumbnailAxis({browser,baseURL,root,output,report});
+    if(has('interaction')){const reveal=await runThumbnailRevealBrowserTests({browser,output:resolve(output,'thumbnail-reveal')});report.cases.push({name:'thumbnail-reveal-fixtures',status:reveal.status,error:reveal.failure,cases:reveal.cases});}
     if(has('interaction'))await checkMobileGallery({browser,baseURL,output,report,assets});
     async function ready(page,id){await page.waitForFunction(id=>window.__gallery&&document.querySelector('#detail')?.dataset.state==='ready'&&(!id||document.querySelector('#detail').dataset.modelId===id),id,{timeout:45000});}
     async function boot(page,path=`models/?model=${initial.id}`,mobile=false){await page.goto(new URL(path,baseURL).href);await page.waitForFunction(()=>window.__gallery?.models.length>0,{},{timeout:45000});if(!mobile)await ready(page);if(manifest.review_only)assert(await page.locator('.gallery-review-notice').isVisible(),'The isolated review must remain visibly labeled');}
