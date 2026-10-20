@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "hoodoo",
+  "revision": "r002",
+  "labels": {
+    "en": "hoodoo"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "dbe8dfda24834a86b2a7609aee52d7bcf9d90c416a5c9ee321c63d5359a5fc9c"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "89dc10008ea17c1861d0e145f8c44980232f570f2bffb4dd1ba6f2c4da9c64b8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5051775a0fd9611a8904b5117236ab38c9958d50a0cdd8315bd8fd5ba62a84e3"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "ccce5ea868bc609ce30218c265d875e85f9117b56e20ba76656dacfd9822557e"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "e7a2fa658869edd3183fb748561971c24b3b35a7f7e198bd255b91e887ad5405"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "cb6713c5152c67c8a237668cd1d77dd80437a8725edaf0dd1fdcc99c06d2c885"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "97ecf94e96d7c38141d8d94c680ace063545359f7f7b2f652df2edcda4860bbc"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "8227d05a58c557ad3ca428e7114e3d4befa508061c0d7134cf60040691c353e0"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "b91135125d3369bff277060cc1ddced375e8d1eb70bdb82d3e43e9c30463e2db"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept tall taper, irregular ledges and darker modest cap. Cap width roughly1.4m versus upper shaft1.1m; broadest foot3.3m, never a much broader boulder on thin pedestal. Full closed irregular noncircular radial loft with offset upper center and variable angular profile; band colors support actual ledge geometry, not texture-only bands. No surrounding landscape or separate presentation base.",
+    "hidden_surface_decisions": "Retain concept tall taper, irregular ledges and darker modest cap. Cap width roughly1.4m versus upper shaft1.1m; broadest foot3.3m, never a much broader boulder on thin pedestal. Full closed irregular noncircular radial loft with offset upper center and variable angular profile; band colors support actual ledge geometry, not texture-only bands. No surrounding landscape or separate presentation base."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:35:44.090223+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 9.0789,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "67f6dd56446e32aabfda5fcbeb1bf8d7df1823202eb87971bc59bd761976d24d"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "67f6dd56446e32aabfda5fcbeb1bf8d7df1823202eb87971bc59bd761976d24d"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "6bf6b394bf254ae0bd3c69dcb150f03a7f43b720f8f8d3b997ea31ddb3fd6b4b",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "76492a4e2f2c173ce20d341ed1ef7872ab514a4df00a997220dff953ae0313ac"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "dbe8dfda24834a86b2a7609aee52d7bcf9d90c416a5c9ee321c63d5359a5fc9c",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "c7d200710b160ae1c0d91cc640be076e09cae5f800dca20caf92830004da4763"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual eight512px final frames and2048x1060 lossless sheet inspected. One uninterrupted laterally continuous slightly sinuous crest; hero shows long gentle stoss ramp, reversehero exposes continuous steep slipface, side shows long-run61m versus25m leeward run and asymmetric cross-section. Clay retains asymmetric form without colored stripes. Low sculptural facets only; no stacked ripple belts, tile pattern, barchan copies or rotated narrow linear dune. Generic process analogue, nominal landscape scale, not measured local sand physics. One physical closed terrain mesh, no overlapping surface sheets. No opaque overlap-line artifact observed. Independent review pending.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 30d1bee0b61895aad2863b69f70658c18be456d104aece90a3ef756c946aeda2. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

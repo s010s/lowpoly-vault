@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "asset_id": "eldonia",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed palette-only low-poly teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Complete soft lenticular discoidal E.ludwigi animal with radial subdivisions, continuous upper and lower surfaces and soft unarmoured margin; Paired relatively stout short DENDRITIC ORAL tentacles arising from one off-centre VENTRAL mouth; separate nearby off-centre ventral anus; Clockwise dorsal-view internal gut has short pharynx, broad stomach arc and narrow terminal intestine; visible as FLUSH COLOR-CODED TEACHING PROJECTION on dorsal body, not natural external exposed hose; No stalk, marginal jellyfish tentacle curtain, bell, shell, eyes or Rotadiscus-specific structures. Scope: Evidence-informed WHOLE Eldonia ludwigi living-reconstruction teaching visualization. Complete soft animal retained, not isolated disc shell. Nominal150mm disc diameter is illustrative within museum reported maximum, not specimen replica. Internal gut shown as a flush color-coded dorsal anatomical projection, explicitly NOT natural skin coloration, transparency assertion, exposed organ or raised external hose. Mouth and anus physically ventral and off-centre. Body thickness, exact posture, colors and fine branch geometry inferred. Cambroernid/stem-ambulacrarian affinity is a supported phylogenetic hypothesis, not settled extant phylum; benthic versus pelagic ecology and mobility remain uncertain. No claim of settled jellyfish-like free-swimming ecology.",
+      "required_sources": [
+        "ROM-ELDONIA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Complete soft lenticular discoidal E.ludwigi animal with radial subdivisions, continuous upper and lower surfaces and soft unarmoured margin; Paired relatively stout short DENDRITIC ORAL tentacles arising from one off-centre VENTRAL mouth; separate nearby off-centre ventral anus; Clockwise dorsal-view internal gut has short pharynx, broad stomach arc and narrow terminal intestine; visible as FLUSH COLOR-CODED TEACHING PROJECTION on dorsal body, not natural external exposed hose; No stalk, marginal jellyfish tentacle curtain, bell, shell, eyes or Rotadiscus-specific structures. Scope: Evidence-informed WHOLE Eldonia ludwigi living-reconstruction teaching visualization. Complete soft animal retained, not isolated disc shell. Nominal150mm disc diameter is illustrative within museum reported maximum, not specimen replica. Internal gut shown as a flush color-coded dorsal anatomical projection, explicitly NOT natural skin coloration, transparency assertion, exposed organ or raised external hose. Mouth and anus physically ventral and off-centre. Body thickness, exact posture, colors and fine branch geometry inferred. Cambroernid/stem-ambulacrarian affinity is a supported phylogenetic hypothesis, not settled extant phylum; benthic versus pelagic ecology and mobility remain uncertain. No claim of settled jellyfish-like free-swimming ecology.",
+      "required_sources": [
+        "ROM-ELDONIA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact8 canonical512px views. Eldonia separately adds ventral diagnostic, no canonical replacement. Seven stages separate.",
+  "required_deliverables": [],
+  "claim_scope": "Evidence-informed WHOLE Eldonia ludwigi living-reconstruction teaching visualization. Complete soft animal retained, not isolated disc shell. Nominal150mm disc diameter is illustrative within museum reported maximum, not specimen replica. Internal gut shown as a flush color-coded dorsal anatomical projection, explicitly NOT natural skin coloration, transparency assertion, exposed organ or raised external hose. Mouth and anus physically ventral and off-centre. Body thickness, exact posture, colors and fine branch geometry inferred. Cambroernid/stem-ambulacrarian affinity is a supported phylogenetic hypothesis, not settled extant phylum; benthic versus pelagic ecology and mobility remain uncertain. No claim of settled jellyfish-like free-swimming ecology.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.15,
+    0.15,
+    0.032
+  ],
+  "dimension_status": "Illustrative nominal targets not measured specimen/site; final exact bounds reported separately.",
+  "recognition_features": [
+    "Complete soft lenticular discoidal E.ludwigi animal with radial subdivisions, continuous upper and lower surfaces and soft unarmoured margin",
+    "Paired relatively stout short DENDRITIC ORAL tentacles arising from one off-centre VENTRAL mouth; separate nearby off-centre ventral anus",
+    "Clockwise dorsal-view internal gut has short pharynx, broad stomach arc and narrow terminal intestine; visible as FLUSH COLOR-CODED TEACHING PROJECTION on dorsal body, not natural external exposed hose",
+    "No stalk, marginal jellyfish tentacle curtain, bell, shell, eyes or Rotadiscus-specific structures"
+  ],
+  "concept_decisions": "Actual ImageGen pixels inspected: retain shallow full soft disc, radial sectors and two branched ventral oral tentacles. REJECT the concept dorsal visible anus and its misdrawn gut arrow; only flush projection on dorsal surface, actual anus and mouth underside. Projection geometry follows clockwise path viewed from +Z: mouth/pharynx at angle0 near +X, sweeps decreasing angle through lower hemisphere (broad stomach) then upper hemisphere and terminal narrower intestine toward separate ventral anus. Projection is face-material annotation with zero raised tube geometry. Two oral tentacles below disc project anteriorly enough for oblique hints; supplemental bottom diagnostic separately exposes both dendritic branches and off-centre openings. Radial pleats shallow irregular and continuous, no rigid pie-wedges or shell ribs. No labels in exported geometry; metadata explicitly declares teaching projection.",
+  "style": "Palette-only refined faceted full-volume low-poly",
+  "intended_use": "Supporting educational prop256\u2013512px, not specimen/site replica",
+  "created_at": "2026-10-20T14:30:49.965566+00:00",
+  "validation_profile": "static-stylized-v1"
+}

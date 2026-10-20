@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "roche-moutonnee",
+  "revision": "r002",
+  "labels": {
+    "en": "roche-moutonnee"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "67223a97944e353087a67ea1a9ebb6b8ff245adaa5494ba5701ba1e5a240965f"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "1307f4da59b9c2a1a275fdaf9ae86607a95827fae911f5e4479547ed52660fb6"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "bd029c8855a27974beb8dc21a5d677fb471213dba579bcc0cb229e7506f84445"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "08106d2b44e28a07b02400ba081cf2ba20a5a02e92006bd37250f2b8a0cdac60"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "bc9fb66150c74109634d6282e9d76638f0dd994f73b57d1068c4df722161d777"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "8f87e58b4ef1fafcff0ed70bb53a33ef24a0dfb36cfbed50031ed7127d0b3230"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "207994760a07a65636392f9a5bf18f02eaf1a8c3f5cc6dc584b829860a74092e"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept inspected: retain long ramp and steep lee asymmetry but reject fine tiled rock texture and detached debris skirt. Build single closed integrated terrain mesh with unequal fractured faces at+X lee, long low ramp from-X; broad rounded cross-section. Subtle sparse nonuniform longitudinal grooves in ramp surface rather than drawn texture. Bedrock footing included in same mesh; no ice or signs. Quiet palette-only facets, not regular masonry layers.",
+    "hidden_surface_decisions": "Actual concept inspected: retain long ramp and steep lee asymmetry but reject fine tiled rock texture and detached debris skirt. Build single closed integrated terrain mesh with unequal fractured faces at+X lee, long low ramp from-X; broad rounded cross-section. Subtle sparse nonuniform longitudinal grooves in ramp surface rather than drawn texture. Bedrock footing included in same mesh; no ice or signs. Quiet palette-only facets, not regular masonry layers."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:29:08.183Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 9.6654,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "8ba156f2566bc084d25d5d72deb7fbbd8dc505b1b253ca4c2bb984d1a7bd7aaa"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "8ba156f2566bc084d25d5d72deb7fbbd8dc505b1b253ca4c2bb984d1a7bd7aaa"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "3c9369a32da96d8756fe9c99b0ef337764597147de0af9395c54114a24625ef7",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "5b18a2895fc7a7317d364ea27f59e7f95c4eb9338719e11dced5245027f65af9"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "e7939066879f4668526b6b6a504a3dafeb31b9c92a23bcb8ed0527b04d89cc97"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

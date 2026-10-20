@@ -1,0 +1,16 @@
+{
+  "revision": "r003",
+  "frozen_at": "2026-10-20T15:05:58.345586+00:00",
+  "reason": "Source audit r002 reports6 non-manifold edges in separate cut-rim groups; diagnosed floating-point duplicate clipped edge intersections. Final source must fix topology rather than merely call it intentional.",
+  "prior_revision_path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r002",
+  "prior_glb_sha256": "bd0bc85912c5c1f3eb05358f90b856d8d796b4255c4d2813a5bb37a955c0d3e8",
+  "original_revision_path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r001",
+  "original_freeze_sha256": "4743bf9c981870e370507629a62d056ebf18d89b0363aa31b77986ee9042d6d1",
+  "full_original_scope_retained": true,
+  "actions": [
+    "Canonicalize numerical clipping intersections to1e-6 in unit-space",
+    "Integrate exterior, finite layered rim and concave liner as a single shared-vertex multi-material closed shell",
+    "Assert every shell edge has exactly2 incident faces before Blender mesh creation",
+    "Preserve small unequal inward crystals and empty central hollow, no material/depth-bias hiding"
+  ]
+}

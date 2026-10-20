@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "asset_id": "waputikia",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Robust finite central axis; Uneven stout lateral branches with rapid dichotomous taper into fine terminal sprays; Asymmetrical preserved specimen relief, no root holdfast leaves or tree foliage; Thin irregular shale support with no assertion of exact specimen outline. Scope: Waputikia ramosa fossil-specimen morphological concept only, not whole living organism, exact museum replica or resolved algal affinity.",
+      "required_sources": [
+        "PRIMARY-waputikia"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Robust finite central axis; Uneven stout lateral branches with rapid dichotomous taper into fine terminal sprays; Asymmetrical preserved specimen relief, no root holdfast leaves or tree foliage; Thin irregular shale support with no assertion of exact specimen outline. Scope: Waputikia ramosa fossil-specimen morphological concept only, not whole living organism, exact museum replica or resolved algal affinity.",
+      "required_sources": [
+        "PRIMARY-waputikia"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [],
+  "claim_scope": "Waputikia ramosa fossil-specimen morphological concept only, not whole living organism, exact museum replica or resolved algal affinity.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.07,
+    0.006,
+    0.075
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "Robust finite central axis",
+    "Uneven stout lateral branches with rapid dichotomous taper into fine terminal sprays",
+    "Asymmetrical preserved specimen relief, no root holdfast leaves or tree foliage",
+    "Thin irregular shale support with no assertion of exact specimen outline"
+  ],
+  "concept_decisions": "Concept branching too tree-like in secondary sprays; implement rapid thick-to-fine subdivision and asymmetrical broad fine fans. Broken finite axis ends, no attachment. Back is original plain shale; slab is interpretive support. Relief thickness exaggerated for reading at512px, not literal fossil relief measurement.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T14:18:58.849226+00:00",
+  "validation_profile": "static-stylized-v1"
+}

@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight final r002 individual512px frames personally opened. Hero/reverse show coherent rounded granite core and two broad locally curved outer sheets with irregular margins; top confirms separated irregular sheet patches, not stacked circular rings. Side/front/rear show physical undercut edges and thin coherent slabs following core curvature. Clay/silhouette preserve actual sheet geometry without material tricks. Core remains deliberately smooth rounded faceted mass; shell patches still simplified compared with naturally fractured granite, but r001 constant-angle rectangular panel margins corrected physically. No regular horizontal tiers or repeated scales. Generic original teaching prop, not Sentinel/HalfDome replica or regional-joint fracture claim.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 07693cb4615d724e5e7cfac641a50dccc092d94f8d0784280e8c2ae597cd93d7. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

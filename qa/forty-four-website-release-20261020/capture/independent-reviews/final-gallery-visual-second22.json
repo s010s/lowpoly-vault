@@ -1,0 +1,691 @@
+{
+  "scope": "Independent original-pixel website gallery poster presentation review of exactly the last 22 IDs in sorted receipt.selected_ids: 44 original PNGs, detail and wheel. This is not new source-model QA, GPU/runtime scene validation, proof-cache publication acceptance, live-site acceptance, or complete publication approval.",
+  "head_sha": "642d39b93f19f8204e58cb66c54ba12cd8d9d75a",
+  "run_id": "39490325299",
+  "artifact_id": "12295600761",
+  "original_zip_sha256": "edd54c2105b78b551747d70b7351d8d119c7895aa09e86a1510572b181cfa482",
+  "reviewer_role": "Independent visual presentation reviewer; did not author the geometry. Personally viewed each of the 44 original PNGs with view_image at original resolution, not solely a contact sheet, hash comparison, or statistics.",
+  "source_glb_sha256_basis": "Copied from the capture receipt per model; parent separately binds source/head/cache keys. This reviewer directly recomputed all reviewed original-PNG SHA-256 hashes and byte counts and read image dimensions.",
+  "reviewed_model_count": 22,
+  "reviewed_original_png_count": 44,
+  "excluded_ids_not_in_selected_ids": [
+    "braided-river-reach",
+    "crevasse-splay",
+    "kettle"
+  ],
+  "review_method_notes": [
+    "Checked actual original pixels for clipping, abnormal orientation, recognizable silhouette, apparent missing presentation geometry, mesh/moire, opaque white triangle fragments, and alpha/background artifacts.",
+    "The raw transparent viewer exposed colored RGB patterns in near-transparent floor-shadow pixels. Read-only samples found alpha 3/255 at mudpot-wheel (100,200) and (100,225), alpha 3/255 at pingo-wheel (30,300), and alpha 6/255 at parvancorina-wheel (200,350) and moulin-shaft detail (70,380). These are not opaque fragments.",
+    "Independently viewed four parent-produced exact-size alpha-composited diagnostic images for mudpot and parvancorina on catalog background #f7f4ed, with wheel multiply accounted for by parent. They show only faint normal shadows. These supporting views do not replace the original capture evidence and are not new website captures.",
+    "Both new sill-ledge and waputikia original pairs were rechecked directly; only nonblocking floor-shadow stippling was observed, with no opaque fragment defect.",
+    "All source and original-image files were read-only; only this assigned evidence JSON was written."
+  ],
+  "supporting_diagnostic_paths": [
+    "/workspace/shared/lowpoly-forty-four-release-evidence-20261020/alpha-support/mudpot-site-bg-f7f4ed.png",
+    "/workspace/shared/lowpoly-forty-four-release-evidence-20261020/alpha-support/mudpot-wheel-site-bg-f7f4ed.png",
+    "/workspace/shared/lowpoly-forty-four-release-evidence-20261020/alpha-support/parvancorina-site-bg-f7f4ed.png",
+    "/workspace/shared/lowpoly-forty-four-release-evidence-20261020/alpha-support/parvancorina-wheel-site-bg-f7f4ed.png"
+  ],
+  "models": [
+    {
+      "id": "moulin-shaft",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "de96fb9978179b02eb25e518c35256da1c78aca8228d83117b8dcbeaea214ae3",
+      "notes": "Ice-block silhouette and top shaft are clear in both views; faces are complete and comfortably framed. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/moulin-shaft.png",
+          "sha256": "1387383518a9905943230292d7a7564bdbe135356898f82a64f90fb4c0c8ffa8",
+          "bytes": 64206,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/moulin-shaft-wheel.png",
+          "sha256": "58c541e2408ce3bdf5bb12e2dc7dc4cb21e977636f4431668d64067591c14295",
+          "bytes": 70462,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "mudpot",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "7818b6e324a8da1f93db36fcb09c989bf0b98c3d4fa02873ae8750daf41f4bf1",
+      "notes": "Rim and several interior mud-pot depressions are legible; no clipped or broken silhouette. Supporting alpha-composited views resolve the raw floor RGB halo to a faint normal shadow. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/mudpot.png",
+          "sha256": "3a5a84867b00059a7565b2e7fe452fcb85a63d6711dad1f7abf56db3435bf6ff",
+          "bytes": 92645,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/mudpot-wheel.png",
+          "sha256": "504a527414f30c0015cd340fccb39e56d834b3b2941d1467c3f4068409c31f86",
+          "bytes": 180775,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "parvancorina",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "6d121aa830daae492b81ff6a4fd99dd491f74105c0273ecb034a907de2b4fd35",
+      "notes": "Slab outline and shield-like relief are complete and recognizable; pale relief remains legible. Supporting alpha-composited views resolve the raw floor RGB halo to a faint normal shadow. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/parvancorina.png",
+          "sha256": "025a5e5a1066d372e736422ff8cb70eaa42c3cf3d661ef971c01e155eb854b8d",
+          "bytes": 78014,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/parvancorina-wheel.png",
+          "sha256": "4c8c3b99594e7117ce1bc547b57f23654e189c33d488fbd12402f8f457cb72a7",
+          "bytes": 129165,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "pingo",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "bc6d6628ab7886e9d2e66a4d631b104ed32f953ed6990a03d2f23a52f41859d0",
+      "notes": "Mound and deliberate cutaway exposing the pale ice core read coherently; wedge opening is intentional-looking and not a missing-surface presentation defect. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/pingo.png",
+          "sha256": "a155ac18dd7fc4d68e1edce57cc3357eb11ef2fd171a59a609036039bd15a0cf",
+          "bytes": 100322,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/pingo-wheel.png",
+          "sha256": "acb8ad3c035365879c12ce2cd712b5756f93c67043e0e71c15743ed9c1d9d399",
+          "bytes": 183534,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "pteridinium",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "3a3962a9679ec89482535800614fd65d0cf45489743f35966286a082c479a7e0",
+      "notes": "Long ribbed three-vane form is recognizable, fully framed, and consistently oriented across both views; no floating opaque fragments. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/pteridinium.png",
+          "sha256": "79b5d5bccabcd7ccf489b9cb6d688971b5b44baa3945986c06de1c9a5f8a69ae",
+          "bytes": 106398,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/pteridinium-wheel.png",
+          "sha256": "fc8442cb60d68181d93eda1798204fa8b228638759d6bc382629a2c5df9f5537",
+          "bytes": 180451,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "rangea",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "8696683f7d0de6444c287bff2f7ee6beffc0769ba60662fe8afeeae246573cd7",
+      "notes": "Paired broad frond surfaces and dark inner ridge are coherent; pointed ends and outer boundaries remain within the frame. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/rangea.png",
+          "sha256": "bb889b84f1cfe725101e24f8393d16f6c1931fc560185f7407fd6986ccffa60f",
+          "bytes": 127153,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/rangea-wheel.png",
+          "sha256": "c8114ddab45e49e53d8e457f905da862d22b16ace221c764a95998792a5e534d",
+          "bytes": 235651,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "rimstone-dam",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "a86e6faae43a949076ae97d5d6bcd95fc607649bddfc7d0e521e8b26258e1a98",
+      "notes": "Continuous pale rim, turquoise pool, and supporting terrace are readable without clipping or discontinuity. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/rimstone-dam.png",
+          "sha256": "e2683e0ccf62c67495e5673405f7968ab84b43994eb78b4966dfc7586f39a8e2",
+          "bytes": 82206,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/rimstone-dam-wheel.png",
+          "sha256": "358f122acd324a978ba83e96563de3b418ffd454930c9017dc2a39e296694983",
+          "bytes": 154161,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "river-terrace",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+      "notes": "Terraced banks and central pale-blue channel are clearly visible; complete block edges and channel ends are retained. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/river-terrace.png",
+          "sha256": "aa22cf3c48e06b249fe955d5ce49195c5d05b6ad4c62c2a74ff74a2f8712bdc1",
+          "bytes": 77987,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/river-terrace-wheel.png",
+          "sha256": "cbb92c3bff11e58c9ddbb5b49f6633843cbe2db100f13841c51a2ad39097085f",
+          "bytes": 112932,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "roche-moutonnee",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+      "notes": "Smooth stoss slope and rough plucked lee face remain distinct; low-poly rock facets are coherent rather than stray triangles. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/roche-moutonnee.png",
+          "sha256": "5beaada86b2641abc7a27f5d5e70ef612dd74256b885b466bccfbec1f5f445b3",
+          "bytes": 84251,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/roche-moutonnee-wheel.png",
+          "sha256": "78834eed9bbfb916648f5caede9c69d17f2fe2860ed2a2969cd59c6325d6a64f",
+          "bytes": 148479,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "rock-glacier",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "a66f2c03cc1f26885209973ea1123c6fda9d3138a9accb38117c60a8e618acc7",
+      "notes": "Elongated rough rocky lobe is complete; dense faceting belongs to the intended rock surface and no disconnected opaque fragments are visible. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/rock-glacier.png",
+          "sha256": "0c833dd186c7189e280aa87c573549fbad433effe7eacdff61d72a290fc01726",
+          "bytes": 105781,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/rock-glacier-wheel.png",
+          "sha256": "8b6f63b85e7587cc393f2070fad0ba75aacee3790fca734602be744e6f8cc7ee",
+          "bytes": 198890,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "sandstone-fin",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "20d94267de302a60886dcfa05aaa4bb41450f42e5e60caa29203a451cf039905",
+      "notes": "Upright thin wall and continuous pale stratum are clear; crest, ends, and base are fully framed with no abnormal rotation. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/sandstone-fin.png",
+          "sha256": "748beba10931507c7ce9ff3f4914905ddf3f7f107f95e66b7b6599d850b8f7aa",
+          "bytes": 43817,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/sandstone-fin-wheel.png",
+          "sha256": "a1315a74b6ef3649f743ecd5d14acb88181399bdd25910d6a3cda02657268f22",
+          "bytes": 45009,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "serac",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "ef5e2e8bfce46ba5bac00557573dacfcbe13384f1ddde27bf743c8af93be2ee5",
+      "notes": "Central ice tower, surrounding blocks, and crevasse separations are clear; white ice tops are integral surfaces, not floating fragments. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/serac.png",
+          "sha256": "7d5f95009ef786897ea4ac3b8cd7e7e62882b70a83b6b758457486dacaab259c",
+          "bytes": 97613,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/serac-wheel.png",
+          "sha256": "84861997af138ae01d26f22b12dd718b01364955d5b09702f5b3c529272a65bc",
+          "bytes": 119439,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "sill-ledge",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "ccdeb65691eb84aa934b5883a5b6ac4e5c8bcfc2ef2335df0c1fd15112963cae",
+      "notes": "Dark horizontal intrusion ledge and layered host rock are coherent and unclipped. Fine floor-shadow stippling is nonblocking; no opaque white triangle defect found. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/sill-ledge.png",
+          "sha256": "40da9ed9f4e975adab284c7d9270685b0db596d20c535c2d73b96557af27ebea",
+          "bytes": 120868,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/sill-ledge-wheel.png",
+          "sha256": "34e566144f3f8cb33c2e84b4eb45bf93033ff85c62dc998766d91db323b47f48",
+          "bytes": 138851,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "slump-folded-bed",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "6b28721c6563de8a3510b5b188aa6cb68c1e517ee18887b9d28f9e1c06aea172",
+      "notes": "Folded pale and tan layers remain continuous and legible across the face and side; full outline is retained. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/slump-folded-bed.png",
+          "sha256": "92f860f6289c24aa6431ddd6da3975a875a645551cdd31b1e0b39c1122c4de7c",
+          "bytes": 147163,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/slump-folded-bed-wheel.png",
+          "sha256": "fb4f7b735317488aa3cef059456cb091d2903f66bfb8935a8580cfd0e6557476",
+          "bytes": 159400,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "solifluction-lobe",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "fbf2042fa30e37f041fc61cc11279e3213279718a25eed58606c3fdc7d5e8517",
+      "notes": "Low tongue-like lobe and raised arcuate front are recognizable in both views; slab and lobe edges are complete. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/solifluction-lobe.png",
+          "sha256": "acd52f7664e27f427fa660bda331247cea3f32b177f562096e95ae816b4486aa",
+          "bytes": 58964,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/solifluction-lobe-wheel.png",
+          "sha256": "bac2abf55d03cba6bfdc3b924a068bba646b6171532395ed7e85b50fc3d285b4",
+          "bytes": 81877,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "stalagmite-group",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "3e696fcb6e2b2ffb21e7ea850522c5f2f6498a11e13bb7ce429f6376df3de5e0",
+      "notes": "Five rounded columns and common base are coherent; tallest tip, smaller columns, and base are unclipped. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/stalagmite-group.png",
+          "sha256": "4501b53fc023aac2c0220b817e89c32027fde2e6a1ef65154747a79852534442",
+          "bytes": 103622,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/stalagmite-group-wheel.png",
+          "sha256": "b6c0315cda12ee4c181bf2c8f4d53cb54a558a1f2a24ae56278b5ba7374c1d3c",
+          "bytes": 110561,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "striated-bedrock",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "aa8c39c13c3bfc1a4ef62eb4472bba44e1f09e9c123effb26405b2d2b3e104e8",
+      "notes": "Parallel surface grooves and rock-slab outline remain visible; no missing faces, detached white pieces, or abnormal orientation. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/striated-bedrock.png",
+          "sha256": "6014ed60bce97b10d6ed4db630085f20e76bbff9e9297c3031fae904438c8a80",
+          "bytes": 78464,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/striated-bedrock-wheel.png",
+          "sha256": "e62e04a4b637f7081a7a9c4501f39e4b515f766d003655109c0291e0cfc4391f",
+          "bytes": 140748,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "thaumaptilon",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "5f4108c4b97377bd2df41273672c16e6e9d7295a5e7d6710b4bdf0ad2b22bf42",
+      "notes": "Tall narrow frond, central axis, paired oblique ribs, and stem are complete; fine details remain recognizable and tip is not clipped. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/thaumaptilon.png",
+          "sha256": "45345ab20cef7776a8d2d89e634dd2a2a20d3fbb5d64f0c26475e7d01333e1f4",
+          "bytes": 66843,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/thaumaptilon-wheel.png",
+          "sha256": "c4849b06831d66823a3a91c4c89de8fb1e972ef2255e02dd6457361b33dbb397",
+          "bytes": 56195,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "transverse-dune-ridge",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "30d1bee0b61895aad2863b69f70658c18be456d104aece90a3ef756c946aeda2",
+      "notes": "Continuous asymmetric dune ridge and sand slab are readable; clean crest and outer slab edges stay in frame. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/transverse-dune-ridge.png",
+          "sha256": "1a040fc40e51fb92ca0130d4f0b8e44b084fe4d0827ee0812533dd08eddd84ff",
+          "bytes": 69657,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/transverse-dune-ridge-wheel.png",
+          "sha256": "62a4ed4c2a4526a95fa523967392923e3783c0d1afbf2675471741bc65d077db",
+          "bytes": 107443,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "tribrachidium",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "23c365a5f25b7a10899447dcf6a3fb54c3111638f066dd62654f30d710cbaa54",
+      "notes": "Three curved radial arms remain visible on a complete rounded disc; no clipping or detached opaque fragments. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/tribrachidium.png",
+          "sha256": "c60c19abedf3fbbab0e5b9aa51a3d177a9795a32cca6fe923d1cf26272b26dde",
+          "bytes": 93580,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/tribrachidium-wheel.png",
+          "sha256": "de430eaaaa6f731e62ace0e0ca424b5128a801a41b4e255fe8b7e8688dcce1dc",
+          "bytes": 193043,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "waputikia",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "603ef3fed6e625c410e24ad7612c06dcbd52f16ef36a9d1c76e6e28793f705d5",
+      "notes": "Dark branching fossil on upright slab is recognizable; fine branches, slab edge, and trunk are retained. Fine floor-shadow stippling is nonblocking, not an opaque fragment defect. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/waputikia.png",
+          "sha256": "49cf563cfc884f4012d879af156de93d7f4d76757dfbeb7e9d1b2ab6bf3f7c5a",
+          "bytes": 76252,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/waputikia-wheel.png",
+          "sha256": "fee8e6b0427742e874923e438ec2110eb893003e5a1aad87cbba2fce2de89471",
+          "bytes": 84223,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    },
+    {
+      "id": "wiwaxia",
+      "result": "PASS_BOUNDED_PRESENTATION_WITH_NONBLOCKING_SHADOW_STIPPLING",
+      "source_glb_sha256": "d1c7e67515487fc583fd0eb903a961aec5ba855a2e95183696c031531f53c266",
+      "notes": "Low armored body, repeated scales, and tall spines are fully framed; thin tips and rounded body contour show no obvious missing geometry. Original RGBA floor-shadow RGB stippling is nonblocking and is not counted as opaque model geometry.",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/wiwaxia.png",
+          "sha256": "7beae7343ac14d47b3ad31ff3d54c410788e798f1f2b987102572e206196ce2d",
+          "bytes": 141068,
+          "dimensions": {
+            "width": 512,
+            "height": 512
+          },
+          "original_pixels_independently_reviewed": true
+        },
+        {
+          "kind": "wheel",
+          "path": "/workspace/shared/forty-four-final-capture-39490325299/gallery/posters/wiwaxia-wheel.png",
+          "sha256": "27fcd7ed44d336cd3ef237588b7bf917f6580f8a3351529439fab4f84b3f2c7f",
+          "bytes": 159770,
+          "dimensions": {
+            "width": 768,
+            "height": 432
+          },
+          "original_pixels_independently_reviewed": true
+        }
+      ]
+    }
+  ]
+}

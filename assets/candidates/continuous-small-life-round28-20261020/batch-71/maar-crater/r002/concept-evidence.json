@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "maar-crater",
+  "revision": "r002",
+  "labels": {
+    "en": "maar-crater"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "23318bbdf5ece0c0eb8273ecadd26054eba59e524470dda36871de51b29b1dc0"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "91a99c2f414c693f8108160bf9e0a9f1f491f47d4e864e9ea76b6594e63a1513"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "66c9dcf77497ec3686afb16066b8e2265a5722bd6b8155e5a378f6f2ea4d0f46"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "d12fecdbad8ff74f25f31b9f98e5d64b437d08209f7f63460f95253a6caf8fca"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "847d2f5ce2a730c0dda3e07eba1cacf3a310ab8ead5407648f67fcdb9a5aa9e7"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "1f24ff6c4b503e9b1e0b488f72ef56a37ffacc553aeb74d9b1052fc5823d351e"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "dab7cb94862d78f89f31650f148a65070957274a7529087b1d599254773e9941"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept inspected: retain broad below-grade bowl, low rim and shallow apron. Reject excessive tiny rocks and rings of decorative texture. Radial heightfield has continuous irregular slopes, no raised cone/stacked concentric staircases. Country20m, deepest floor6m, rim maxabout22m; footprint120x110m. Low-relief naturally irregular perimeter and closed cutaway side/underside. Palette distinguishes dark ejecta from exposed tan country wall without claiming mineral composition. No eruptions, smoke, lava, lake, vegetation or site replica.",
+    "hidden_surface_decisions": "Actual concept inspected: retain broad below-grade bowl, low rim and shallow apron. Reject excessive tiny rocks and rings of decorative texture. Radial heightfield has continuous irregular slopes, no raised cone/stacked concentric staircases. Country20m, deepest floor6m, rim maxabout22m; footprint120x110m. Low-relief naturally irregular perimeter and closed cutaway side/underside. Palette distinguishes dark ejecta from exposed tan country wall without claiming mineral composition. No eruptions, smoke, lava, lake, vegetation or site replica."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:29:10.388Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.4296,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "701b824768a8f12c76ad311a1f0f8a8cd4e5cc0f116b66cf4c6f311de105af46"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "701b824768a8f12c76ad311a1f0f8a8cd4e5cc0f116b66cf4c6f311de105af46"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "f4742e3e0930d3098dba4dec1a72bbabf7c6a11ce6456a60cd842a05db27794e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "530fea650d5e12e6bb9ee19511b3f809bb9579e134c48e195e2ab49dac14b50f"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "f57feac235107d6d70731b39592cf267aca3b001558e6bf2ef5cd5ff7511b081"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

@@ -1,4 +1,3 @@
-/** Exact archival byte dependencies only. This grants no publication or formal approval. */
 export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
@@ -240,5 +239,209 @@ export const ACCEPTED_BOUNDED_BATCHES = [
     ],
     "source_commit": "0e61511ad96c905e16139a9489cfaac5b80b51f6",
     "independent_review_commit": "0e61511ad96c905e16139a9489cfaac5b80b51f6"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g01-20261020.json",
+      "sha256": "1d8e76f03b03dc8d9348e84a9417cd2b4fe4ffbdc65965f2a6fc9673c1c7eea5"
+    },
+    "asset_ids": [
+      "desert-pavement"
+    ],
+    "source_commit": "037a8212ae354c70b4710d8fdce1fce1d4fe4946",
+    "independent_review_commit": "037a8212ae354c70b4710d8fdce1fce1d4fe4946"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g02-20261020.json",
+      "sha256": "44914a52c7e7dcc0436d1ef94f041b95f2c47acf32bed2831821552f1a6c66a4"
+    },
+    "asset_ids": [
+      "lava-dome"
+    ],
+    "source_commit": "170a6f04cef81a124dc4976755e7664a0ec5d603",
+    "independent_review_commit": "170a6f04cef81a124dc4976755e7664a0ec5d603"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g03-20261020.json",
+      "sha256": "23a9481edfc2c6893d012e93e75f8a6b8717fd07cbb8698c4f2593030e4d65b2"
+    },
+    "asset_ids": [
+      "dike-wall",
+      "hanging-valley",
+      "mudpot",
+      "wiwaxia"
+    ],
+    "source_commit": "26e92a518b87ceccb16728b15c22be15c6734c58",
+    "independent_review_commit": "26e92a518b87ceccb16728b15c22be15c6734c58"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g04-20261020.json",
+      "sha256": "378a781a22ca6edb2f4f52e4e001ecec561fce3af1e45118204b80a65be5894c"
+    },
+    "asset_ids": [
+      "exfoliation-dome",
+      "pingo",
+      "pteridinium",
+      "sill-ledge"
+    ],
+    "source_commit": "46850fcccefc4bd3731065735f236171869864db",
+    "independent_review_commit": "46850fcccefc4bd3731065735f236171869864db"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g05-20261020.json",
+      "sha256": "f198be9fd98ea6db1e76295e673f64e6c7fccc60fa06a66636c31cc19e487ead"
+    },
+    "asset_ids": [
+      "ice-wedge-polygon-ground",
+      "sandstone-fin",
+      "thaumaptilon"
+    ],
+    "source_commit": "4d34f638f00294d7e882d91bb07c33c23f757db2",
+    "independent_review_commit": "4d34f638f00294d7e882d91bb07c33c23f757db2"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g06-20261020.json",
+      "sha256": "f55cace7d31669891df429b0f12cad948d40d9bc67fd4637a6960377f0287864"
+    },
+    "asset_ids": [
+      "hoodoo",
+      "louisella"
+    ],
+    "source_commit": "5245deaffa8532e7f09459e8085edfce6bafdb4a",
+    "independent_review_commit": "5245deaffa8532e7f09459e8085edfce6bafdb4a"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g07-20261020.json",
+      "sha256": "2d1c2f93e2ccc4fefbb80599e03f65847c36c432ccb0c8c0d3a0d8f9a0b31e08"
+    },
+    "asset_ids": [
+      "eldonia",
+      "maar-crater",
+      "river-terrace",
+      "roche-moutonnee"
+    ],
+    "source_commit": "a1f933cb7857bbf5136b8606a31387a28f8fc289",
+    "independent_review_commit": "a1f933cb7857bbf5136b8606a31387a28f8fc289"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g08-20261020.json",
+      "sha256": "847c0b904ebfe69323b382b70016425eee18d9584d9b9628104c53127c331c00"
+    },
+    "asset_ids": [
+      "baiera",
+      "geode-cavity",
+      "transverse-dune-ridge"
+    ],
+    "source_commit": "adcdc09668f0db8a6bfd326d1ecd613c641b3289",
+    "independent_review_commit": "adcdc09668f0db8a6bfd326d1ecd613c641b3289"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g09-20261020.json",
+      "sha256": "8e7ff3cc2da9394ab0f1ff118bfefd87a6c562a758c400464dc7cbf4bfd772b9"
+    },
+    "asset_ids": [
+      "stalagmite-group"
+    ],
+    "source_commit": "b15cdab97b07f86dbc71e56fce9a44861631a20b",
+    "independent_review_commit": "b15cdab97b07f86dbc71e56fce9a44861631a20b"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g10-20261020.json",
+      "sha256": "1e890a8cd3feac33bb7c4cc86b93578904f5ebaf935f52e7c79208f4fa922982"
+    },
+    "asset_ids": [
+      "arete-ridge",
+      "coal-seam-outcrop",
+      "tribrachidium"
+    ],
+    "source_commit": "b4d66d67fe5189f63ebbc6c7281f4b08dccd1296",
+    "independent_review_commit": "b4d66d67fe5189f63ebbc6c7281f4b08dccd1296"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g11-20261020.json",
+      "sha256": "a4b6122198f9e5183b6dec8a5b4cac3d81e9c65ef9b3ef04cfac6f5a4e464559"
+    },
+    "asset_ids": [
+      "breccia-outcrop"
+    ],
+    "source_commit": "c159bf50ead4a3a32bdfc73cd8b7404ce163be2b",
+    "independent_review_commit": "c159bf50ead4a3a32bdfc73cd8b7404ce163be2b"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g12-20261020.json",
+      "sha256": "3e10f87cba6fd3e58ce9b432b964497f1b8a85ae3a83b0f6a52a13d02e9fa7cb"
+    },
+    "asset_ids": [
+      "eruptive-fissure",
+      "glacial-horn",
+      "parvancorina"
+    ],
+    "source_commit": "c9c4fd5ed16d51b5dbe2ea44c1fbf827f476b2e5",
+    "independent_review_commit": "c9c4fd5ed16d51b5dbe2ea44c1fbf827f476b2e5"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g13-20261020.json",
+      "sha256": "2cecec31dcd57cdfac480901dfe035d44a94d85c1ff81e4ab94bdf944b8e55e8"
+    },
+    "asset_ids": [
+      "banded-iron-formation",
+      "fractofusus",
+      "fumarole-vent",
+      "striated-bedrock"
+    ],
+    "source_commit": "df2bd221f6ba1832ec5401d2c72c86b2cac5c287",
+    "independent_review_commit": "df2bd221f6ba1832ec5401d2c72c86b2cac5c287"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g14-20261020.json",
+      "sha256": "73a3a3ee5a22447d47aba1b6119e85d34ca94b30f6eb296ee87b845d4500e12a"
+    },
+    "asset_ids": [
+      "linear-dune",
+      "rimstone-dam",
+      "waputikia"
+    ],
+    "source_commit": "e191d4c2abf35bf952eb72da959311c577101b07",
+    "independent_review_commit": "e191d4c2abf35bf952eb72da959311c577101b07"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g15-20261020.json",
+      "sha256": "6d1618ca33dd31b29e99e49b38056b836e968708a192e772306bc81335af6545"
+    },
+    "asset_ids": [
+      "loess-bluff",
+      "rock-glacier",
+      "slump-folded-bed"
+    ],
+    "source_commit": "fc6dfda77293e56ee7c910d16ea22bb820a9bdae",
+    "independent_review_commit": "fc6dfda77293e56ee7c910d16ea22bb820a9bdae"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next44-g16-20261020.json",
+      "sha256": "7d96bc6bb860e569d667f4f33d0ca1bb34386a93f57d8683f2f14a4aa56f5ef4"
+    },
+    "asset_ids": [
+      "moulin-shaft",
+      "rangea",
+      "serac",
+      "solifluction-lobe"
+    ],
+    "source_commit": "feee5ddb6406bef351b358737295666e839bd443",
+    "independent_review_commit": "feee5ddb6406bef351b358737295666e839bd443"
   }
 ];

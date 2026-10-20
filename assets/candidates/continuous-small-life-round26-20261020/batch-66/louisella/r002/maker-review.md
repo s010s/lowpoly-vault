@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight actualr002 final512px individual frames personally opened at original resolution. Side/top/reversehero show a substantial smooth unspined posterior cylinder ending in a short rounded cap, not the prior long pointed cone. Two parallel widely spaced blunt papilla rows are clear in top and reversehero; profile row tips read in side and hero. Deep coarse annuli distinguish the middle from smoother short-spined anterior and quieter papillate posterior; smooth rear is a fourth obvious geometry zone. Exactly25 long proboscis scalids retained by source count. Front/rear foreshorten naturally; no claim that tiny posterior aperture is visually obvious. Whole-organism scope/palette/nominal30cm unchanged. These are maker observations, not independent acceptance.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 63a540aaf41598f0921b10083020af9763789a41395ef6e46641b9ed7a4fc50c. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

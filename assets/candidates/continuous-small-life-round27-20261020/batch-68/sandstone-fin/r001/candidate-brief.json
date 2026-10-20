@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "sandstone-fin",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: One thin tall elongated unperforated joint-bounded rock wall, broad vertical faces and narrow thickness; Irregular erosion-notched crest, asymmetric ends and modest wider foot; no caprock pedestal or rounded hoodoo; Broad sandstone strata support structure; no arch hole or exact named-site/age assertion. Scope: Generic sandstone fin teaching prop, not a replica of Wooden Shoe Arch or an Arches locality. NPS describes joint fracturing and weathering producing fins before arch perforation. Nominal16x2x10m dimensions, crest and bedding are artistic; no exact formation age or composition claimed.",
+      "required_sources": [
+        "PRIMARY-sandstone-fin"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: One thin tall elongated unperforated joint-bounded rock wall, broad vertical faces and narrow thickness; Irregular erosion-notched crest, asymmetric ends and modest wider foot; no caprock pedestal or rounded hoodoo; Broad sandstone strata support structure; no arch hole or exact named-site/age assertion. Scope: Generic sandstone fin teaching prop, not a replica of Wooden Shoe Arch or an Arches locality. NPS describes joint fracturing and weathering producing fins before arch perforation. Nominal16x2x10m dimensions, crest and bedding are artistic; no exact formation age or composition claimed.",
+      "required_sources": [
+        "PRIMARY-sandstone-fin"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-68/sandstone-fin/r001/source.blend",
+      "sha256": "3951327fdb390cf568e28e1dc8862a1d0540ad1581451543eb2f06413bc56b97"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-68/sandstone-fin/r001/generator.py",
+      "sha256": "e11a9479ef1b06980407ea052e229973d9681484f1a9592a18de1e43a60e9df0"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-68/sandstone-fin/r001/build-config.json",
+      "sha256": "9362f0251077e72c22790d012c9a78b075b0f397cc47d4b16e177071a6554023"
+    }
+  ],
+  "claim_scope": "Generic sandstone fin teaching prop, not a replica of Wooden Shoe Arch or an Arches locality. NPS describes joint fracturing and weathering producing fins before arch perforation. Nominal16x2x10m dimensions, crest and bedding are artistic; no exact formation age or composition claimed.",
+  "nominal_dimensions_blender_xyz_m": [
+    16,
+    2,
+    10
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "One thin tall elongated unperforated joint-bounded rock wall, broad vertical faces and narrow thickness",
+    "Irregular erosion-notched crest, asymmetric ends and modest wider foot; no caprock pedestal or rounded hoodoo",
+    "Broad sandstone strata support structure; no arch hole or exact named-site/age assertion"
+  ],
+  "concept_decisions": "Concept fin wall proportions, planar faces, narrow top and unperforated silhouette retained; exclude generated phototexture and excessive tiny cracks. Continuous closed wall prism with variable thickness, irregular vertical joint grooves confined to surface and uneven long crest. Warm broad band colors, restrained broad relief, no repeated bricks, no disconnected blocks, no broad base pedestal.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T13:59:27.863804+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:03:31.488287+00:00",
+    "frozen_design_brief_sha256": "95c90660e4ee124ef148c7416aaff36c5f27bcec8f29c7f05c9c40fe17bf7a0c",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

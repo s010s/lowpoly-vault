@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight final r002 individual512px frames personally opened. Hero/side/front show domed frost mound, small removed sector and solid blue schematic core under thin soil. Reverse/rear show rounded continuous mound and narrow physical summit fissures; top shows several radial fissures and deliberate teaching wedge, no ring crater. Clay confirms real dome/core-section geometry rather than painted crater. Silhouette has rounded crown and flat surrounding margin. Summit crack pattern is simplified and rather radial; core cutaway explicitly schematic, not actual exposed Ibyuk ice. r001 bottom fan crossings corrected with matched top/bottom radial-domain triangulation; unchanged visible dome scope.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash bc6d6628ab7886e9d2e66a4d631b104ed32f953ed6990a03d2f23a52f41859d0. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

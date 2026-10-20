@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "eruptive-fissure",
+  "revision": "r003",
+  "labels": {
+    "en": "eruptive-fissure"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "5c01f576cfdb26179b4002bebc0c27997f41e805cf2fb9d9075b022291f83caf"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "419ac52c7f38342ea304dd3bc0b065aa3241fa7997284b9fc652a0dd0768dfe6"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "8119536a94b196802b921c1616a1da54d17207eeddba8967a886105c525440b4"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "c59c2c5ba749fd26acf54cd53d392152e7e6c5a25926c6c531d4374c7fef984d"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "688e88c87e9b057e38789bdc5ff424d3aee2eb65d05ed960ac98f4fffc1f7e1b"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "eb7d3f35d512d12442bc32d6a475b79b043ccd15d3097279bdabf9a22898c396"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "0fe7f218c65978be4dbfef9058a7325b44c9a52f581ea723c6a4d5ee51e93566"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "4dc531dc1f5f04671ab9d5544d4ab9c711430959f105c39bbb4e4ba75e3e65b7"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "ed5be34814f8e66bd26db3f61176d2f39009807432b964e953793c1087680694"
+      }
+    ],
+    "cross_view_consistency_note": "Retain long continuous recessed fracture and chain of low lips. Reject concept oversized separate circular bowls, repetitive paving/columnar side walls and intense orange light; use four unequal low localized widened vent sections linked by continuously open narrow crack. Crack dark walls and deepest floor geometrically recessed. One integrated closed mesh, no floating lava cards/particles or overlapping boulders. No emissive texture.",
+    "hidden_surface_decisions": "Retain long continuous recessed fracture and chain of low lips. Reject concept oversized separate circular bowls, repetitive paving/columnar side walls and intense orange light; use four unequal low localized widened vent sections linked by continuously open narrow crack. Crack dark walls and deepest floor geometrically recessed. One integrated closed mesh, no floating lava cards/particles or overlapping boulders. No emissive texture."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:27:00.506Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 8.41,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "4cea7ac46bfac3444de4a5d9aa9a62d691245bff47155bbb6fddf5376114f0f8"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "4cea7ac46bfac3444de4a5d9aa9a62d691245bff47155bbb6fddf5376114f0f8"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "df31015c7c40ae89d3f5a6f6ca6beef17d2211d7d0ecd7185616c932273a82b2",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "ec0c85598d74bfd6992e954c05849d0d3be29620ad9e7f0754dd90348a3a3ff5"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "5c01f576cfdb26179b4002bebc0c27997f41e805cf2fb9d9075b022291f83caf",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "2fa4922d2eb1789b6f508bc76d7d2c1d998d767619480c9068d4e499a5280626"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

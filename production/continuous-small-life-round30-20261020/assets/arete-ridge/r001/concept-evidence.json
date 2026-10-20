@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "arete-ridge",
+  "revision": "r001",
+  "labels": {
+    "en": "arete-ridge"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "876d71e9b999159ccf76f0f3f0474e25c4539a65a3a1c8ae24f10b9c21921e8d"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "ab1f9aa6a427e67b75b0811be6e676cfa042e2085ddcaaffb756065c7b2ca456"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "574a5414bc569c6f5db2aee91dbfb4a19b5bc97fda6315217025980247bcf498"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "b61e04adeec6184cfa3a7f56297ea65b9dcf5ca4ada579c8682aa5ae4f2a0839"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "98e0cdf4c12048076f50f324c0818d2fcf708cfe4b8c52a38354509b9bb2df69"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "f653707daf15355fb9f95eede22f1fc910b2bdf1b215441fbe257e01498e9d79"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "44e7e50a484f4a49fb1410e30413d0f7d5b706895978e871604ab71beaf3eb4a"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "6874a7a86e998cf4d8ce4f5b820f4a8cdcec9f8a2616304b8414b2b69935e82f"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "cdae4cedecb7110c605bb7de28eec6753ca6f01b8e5bb58c31313cb9a9d21981"
+      }
+    ],
+    "cross_view_consistency_note": "Use original elongated terrain volume with continuous jagged crest and concave hollows on both sides. Concept near-side repeated bowls are design guidance only; avoid periodic scallops and ensure no compact horn silhouette. Palette only, no copied snow/photo textures. Nominal landscape scale.",
+    "hidden_surface_decisions": "Use original elongated terrain volume with continuous jagged crest and concave hollows on both sides. Concept near-side repeated bowls are design guidance only; avoid periodic scallops and ensure no compact horn silhouette. Palette only, no copied snow/photo textures. Nominal landscape scale."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:20:41.350705+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.4089,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "998bac1c47fdb1fc7b0a355f6e87d836d94912411cf51b4918b1345106e4727b"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "998bac1c47fdb1fc7b0a355f6e87d836d94912411cf51b4918b1345106e4727b"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "1ea41fc47ab82e069f95cd6d9ff1bba00d0b008f13ffec7888b5de777c3efadb",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "c04e6eb6b0873f5b6fdae7e81c5f9087f466e3ed4aae4fba3bc3c7167ebbf95b"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "876d71e9b999159ccf76f0f3f0474e25c4539a65a3a1c8ae24f10b9c21921e8d",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "758c66325a773b4fbf89a4909541202549f02f9496b4a4297553e2f8b99d3f50"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

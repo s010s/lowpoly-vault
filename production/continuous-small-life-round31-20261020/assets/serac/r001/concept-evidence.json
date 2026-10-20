@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "serac",
+  "revision": "r001",
+  "labels": {
+    "en": "serac"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "ef5e2e8bfce46ba5bac00557573dacfcbe13384f1ddde27bf743c8af93be2ee5"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "bd74259b08c66e11576fe2e33a991e6e30462d1f046cc37301f914f55aca64a2"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "180372df98e297e1f4b9677dd3e9b6aa862c5e39bb289440b97c4d8229f80380"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "1dbb8d38cc6f410f292c2798e4e0aed65f59aeb3540fc0f9d2f8ebe56848f2a7"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "d5d84f47bb91e82224c05d1603e6837a7112413a6036f2d64da5663b919b27c2"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "4e190a32102a632a372261d2b5943d12aebb2cec3cd0eb98ce087fddf9bea846"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "448232d5d2ddf4fd443b3158ee38fd93c51fb0936cabca891d60f7dc53a797d8"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e3315d9c5baef5d19b56ec6a2bc3461f38568487cd8bded4e46ad05a09573798"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "7d4262901be3c9f610826bdbc036e555b674cdb7c76c86cb0bfe13e53d9326e0"
+      }
+    ],
+    "cross_view_consistency_note": "Concept shows correct intersecting crevasses and raised block, but too regular cross-shaped channels and sugary fractured texture. Build irregular angular polygonal tower with tilted blunt crown, four lower surrounding ice fields and two unequal crossing channels reaching down through the tile relief. All opaque palette-only geometry, no floating blocks or hidden overlaps.",
+    "hidden_surface_decisions": "Concept shows correct intersecting crevasses and raised block, but too regular cross-shaped channels and sugary fractured texture. Build irregular angular polygonal tower with tilted blunt crown, four lower surrounding ice fields and two unequal crossing channels reaching down through the tile relief. All opaque palette-only geometry, no floating blocks or hidden overlaps."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:44:14.771287+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.2218,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b5774f8a395cc4e5b7566c811629468cbda09c911b679d0b716f4aea14f7834f"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b5774f8a395cc4e5b7566c811629468cbda09c911b679d0b716f4aea14f7834f"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "03f0ecac8fb95e7134ed0f399e01ab025ff23d17377479257b6b15e3065319b4",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "4e70dda40a821e4acf4468dd72fcc23656a94573e981243d7fef76bb26390328"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "ef5e2e8bfce46ba5bac00557573dacfcbe13384f1ddde27bf743c8af93be2ee5",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "0b99b9f36845a15837f7054261caca6f80b4edf3e2d69d9ce2f2c2b63b2ce473"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

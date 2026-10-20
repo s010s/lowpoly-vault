@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "dike-wall",
+  "revision": "r001",
+  "labels": {
+    "en": "dike-wall"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "f0c69989e84ca70dd90a039c78199e65b5448f5d85d52fa3b4b1beb856f617d7"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "f84ee1ee1eb1061876dc6a939a7e43d118447be708b4a71be32bdf7062d89101"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "057e795f3c75fddc2065514739db7e7a8fd4c96ad802144d16d045b689839335"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "83688ffdb9fd20427c53f04418fa9e96d0e641705f7fb2eab1803674f15d25f3"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "e7510194d9ac16d1ed5924332b82b4e11791774b94256dcae242c1dcf3af926b"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "6e4146e3f92141b1e8370692358dc4d95f5ddb77d3367797e7d5dc0a2a55a8fc"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "d5e48d73497120ea7f418fb1cac230fbc22707ff8938f70bd0ae9ffa6915eccd"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "eb68fa0dbf84cf70c2ff51575f437428b4878c50d280519bb4164b018f50f716"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "7e9c2b4d17c26cde6de57b3c9f1da858269fae99cb71b046cefdc22649f17aab"
+      }
+    ],
+    "cross_view_consistency_note": "Concept personally inspected. Retain continuous vertical dark dike interrupting warm horizontal host layers at front/rear exposed sections and irregular crest above terrain. Reject masonry-like regularly stacked little blocks: one coherent continuous tabular solid with bounded rough side relief and irregular top profile. Terrain host height3m, dike crest6.5\u20139m total; intrusionXcenter0.1*sin(y*.3), width0.9m, traversesY-12to12. Host beds at0\u20131,1\u20132,2\u20133m split left/right at actual intrusion faces. No decorative freestanding wall or parallel-to-bedding sill, floating rubble or tiny textures.",
+    "hidden_surface_decisions": "Concept personally inspected. Retain continuous vertical dark dike interrupting warm horizontal host layers at front/rear exposed sections and irregular crest above terrain. Reject masonry-like regularly stacked little blocks: one coherent continuous tabular solid with bounded rough side relief and irregular top profile. Terrain host height3m, dike crest6.5\u20139m total; intrusionXcenter0.1*sin(y*.3), width0.9m, traversesY-12to12. Host beds at0\u20131,1\u20132,2\u20133m split left/right at actual intrusion faces. No decorative freestanding wall or parallel-to-bedding sill, floating rubble or tiny textures."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:03:28.006032+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 30.2292,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "6319e47fb1619ee5403fbf805f8ba8f62b0edd71e1ffa682b7dc57f1645d8dc4"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "6319e47fb1619ee5403fbf805f8ba8f62b0edd71e1ffa682b7dc57f1645d8dc4"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "31cecee2c21533253978085587a4eb05dba78d5706a2478a9f660724e7eb3d23",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "53b97683fee6d64efcc7dd609ce0afdaf368ef6b44f01cc8e258c9c1a7b6cc26"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "f0c69989e84ca70dd90a039c78199e65b5448f5d85d52fa3b4b1beb856f617d7",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "7bd1969a5cdb74d479c0971bb4c72679a30eab92e4eb46920fd861b4163d85ef"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

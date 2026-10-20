@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "ice-wedge-polygon-ground",
+  "revision": "r001",
+  "labels": {
+    "en": "ice-wedge-polygon-ground"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "a5eaa19f0f0d4f1de495974fbed3d360ce5ebb0c97b973f95a224b01a30a1f7d"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "5ecdb531cc167676936a4c682c3cad726edafd04af5bc245f06c012ce872a801"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "a5af95a4f2755b11ad3a3d161c3351c06a8ef05e62be7fde85fd460d80f7f569"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "69e8c80b2694f418ce102fa81d651ede226a5c959be77f3e27a9f1a743d1ecdb"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "6c80a2afea834a1b750aa219672a5664e6b21fc1f4a4dd2e58de3c27b23b94d2"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "a69361f5c899ecfc21e166dc582ee34359925c05b3ea5f80bf8ff5da14f81c56"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "56fb216908dd1e8c269674f7b3463436f9d07057b2a6c75dcf7debba2ff1531e"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "9cc33788452546183a7ea705bcf0dce56a79458b0955c112ff329d0a4b918a3d"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "de76243028d4ae42fd3d9a959a54447e6fd5dba1fa5b90bab469b00c3e71b399"
+      }
+    ],
+    "cross_view_consistency_note": "Concept low centers/raised rims and connected irregular cells retained. Override approximately regular equal-size cells with clipped irregular Voronoi cells of unequal size, four-to-seven sides and broken orientations. One continuous manifold heightfield using shared cell boundary vertices, paired near-boundary elevated shoulders and thin lower contraction groove; centers remain below shoulders but above soil base. No floating tiled plates, deep mudcrack gaps, mixed high-centered cells, blue lakes, snow or plants. Side cut surfaces close full terrain volume.",
+    "hidden_surface_decisions": "Concept low centers/raised rims and connected irregular cells retained. Override approximately regular equal-size cells with clipped irregular Voronoi cells of unequal size, four-to-seven sides and broken orientations. One continuous manifold heightfield using shared cell boundary vertices, paired near-boundary elevated shoulders and thin lower contraction groove; centers remain below shoulders but above soil base. No floating tiled plates, deep mudcrack gaps, mixed high-centered cells, blue lakes, snow or plants. Side cut surfaces close full terrain volume."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:59:28.069598+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.2239,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "580cd38bcd57284861bb2b8f302fecf2c5dd28c076f48d60f2bb720fb1e5eb17"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "580cd38bcd57284861bb2b8f302fecf2c5dd28c076f48d60f2bb720fb1e5eb17"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "b4dcf170f2b09ebde044c5d6edb34e5392db69c3b1632f01c6eeee4708bbb98b",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "044cce1d12861013c333ae58f939642cd9b236c7518661b6236dc0d282774b6f"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a5eaa19f0f0d4f1de495974fbed3d360ce5ebb0c97b973f95a224b01a30a1f7d",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "ca212c445ddc31c5fe011fa294970f267749500d43854fa4ae5016c4fd661bc6"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

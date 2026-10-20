@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Personally opened all eight final512px individual images. Robust finite axis and irregular stout lateral branches rapidly taper to dichotomous fine sprays; relief stays within original shale support after two retained maker repairs. Front and hero show branch hierarchy, side/top prove relief and shale thickness, rear is plain interpretive shale. No root, holdfast, leaves or complete parent organism asserted. Fine tips remain deliberately delicate at512px. Shale and relief are intersecting closed original parts, not asserted printable union. ROM references are actual low-resolution specimen photos, not a museum mesh; higher affinity remains uncertain.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 603ef3fed6e625c410e24ad7612c06dcbd52f16ef36a9d1c76e6e28793f705d5. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

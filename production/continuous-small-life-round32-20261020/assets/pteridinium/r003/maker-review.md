@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight final r003 individual512px frames personally opened. Side end-on view shows three physically joined vanes with common lower keel and two open recesses; top shows glide-offset broad quilt modules, tapered ends and central longitudinal seam. Hero/reversehero/front/rear are very low oblique/side views and obscure most cavity depth; do not claim every feature visible in every view. Physical relief stronger than r001, palette subordinate. Small matrix now physically contacts lower keel rather than floating; intentional embedded fossil/matrix contacts require explicit diagnostic review, not a universal zero-intersection claim. Three-vane height/posture and display orientation interpretive; original fossil-specimen scope retained, not a complete living organism.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 3a3962a9679ec89482535800614fd65d0cf45489743f35966286a082c479a7e0. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

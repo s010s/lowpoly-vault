@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "kind": "targeted_differential_qa",
+  "created_at_utc": "2026-10-20T15:51:00Z",
+  "asset_id": "breccia-outcrop",
+  "revision": "r004",
+  "scope": "source/model differential only; no formal approval or website clearance",
+  "recommendation": "ACCEPT BOUNDED",
+  "candidate_approval": "pending / false",
+  "website_status": "pending fresh actual r004 exact-GLB capture; prior r003 website HOLD remains",
+  "producer": {
+    "repo": "/workspace/shared/lowpoly-batch65-20261020",
+    "branch": "candidate/small-life-batch65-concept-20261020",
+    "head": "6e9296745104a779ec48576b5525e175b6a11e96",
+    "clean": true,
+    "status_porcelain": ""
+  },
+  "subject": {
+    "glb_sha256": "ccda1af69de9f32de87408c8984945dd26efe0f2e2534295ee61e735995b4f53",
+    "source_sha256": "e5e0d506e74af658d79a323aff2515a90ffab9d192f2f43c78b5ec5282e54885",
+    "brief_sha256": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97",
+    "reference_ledger_sha256": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d"
+  },
+  "differential": {
+    "near_parallel_witness": {
+      "independent_r003": 502,
+      "independent_r004": 0,
+      "producer_r003": 499,
+      "producer_r004": 0,
+      "independent_extra_border_cases": 3,
+      "strict_10um_r003": 0,
+      "strict_10um_r004": 0,
+      "thresholds": {
+        "plane_sep_m": 0.001,
+        "positive_projected_area_m2": 1e-06,
+        "normal_dot_min": 0.999999
+      },
+      "limitation": "narrow triangle witness, not website pixels or full collision rule"
+    },
+    "solid_sat": {
+      "r003_positive_volume_pairs": 273,
+      "r004_positive_volume_pairs": 68,
+      "r004_clasts": 120,
+      "r004_overlap_axis_min_m": 0.000692,
+      "r004_overlap_axis_median_m": 0.0842,
+      "r004_overlap_axis_max_m": 0.18,
+      "mesh_to_hull_volume_ratio_r004_min": 0.9999993854474344,
+      "mesh_to_hull_volume_ratio_r004_max": 1.0000000000000004,
+      "interpretation": "real residual clast-clast volume intersections; disclosed, not adopted as new universal acceptance gate; no zero-intersection claim"
+    },
+    "source_geometry": {
+      "disconnected_components": 121,
+      "host_count": 1,
+      "clast_count": 120,
+      "all_closed_nonzero": true,
+      "host_local_geometry_unchanged": true,
+      "clast_shapes_changed": 111,
+      "unchanged_clast_shapes": 9,
+      "summed_clast_volume_r003_m3": 2.187685138173737,
+      "summed_clast_volume_r004_m3": 1.2419462841742914,
+      "retained_fraction": 0.5676988258059197,
+      "small_clasts_under25pct_retained": 8,
+      "minimum_retained_fraction": 0.14329941668348176,
+      "whole_module_translation_gltf_m": [
+        0.0,
+        0.0,
+        0.01996004581451416
+      ]
+    },
+    "visual": {
+      "all_eight_manifest_bound_views_inspected": true,
+      "all_eight_hash_and_dimension_bindings_match": true,
+      "r003_like_thin_crosshatch_seen_in_cpu_views": false,
+      "appearance": "angular embedded fragments and coherent matrix retained; some slabs protrude and form localized trains",
+      "website_or_gpu_inference": false
+    }
+  },
+  "source_format_runtime": {
+    "source_reopen_blender": "4.3.2 independent read-only reopen; 2196 triangles, 1340 authored/evaluated vertices, all 121 components closed/nonzero",
+    "glb": {
+      "triangles": 2196,
+      "bytes": 118672,
+      "materials": 5,
+      "primitives": 8,
+      "textures": 0,
+      "bounds_glb_xyz_m": [
+        3.67963445186615,
+        1.9057291336357594,
+        2.594720959663391
+      ]
+    },
+    "khronos": {
+      "version": "2.0.0-dev.3.10",
+      "errors": 0,
+      "warnings": 0,
+      "status": "pass"
+    },
+    "three": {
+      "version": "0.180.0",
+      "status": "pass",
+      "meshes": 8,
+      "primitives": 8,
+      "triangles": 2196
+    },
+    "gpu": "not run",
+    "scene": "not run"
+  },
+  "rebuild_provenance": {
+    "queue_invocation_utc": [
+      "2026-10-20T15:26:07.780424+00:00",
+      "2026-10-20T15:26:12.664171+00:00"
+    ],
+    "jobs": [
+      {
+        "id": "semantic-rebuild-1",
+        "fingerprint": "1230ec16b6d8e6d38d598d676770de16dba967167fa563e60cc5fe9878c9c957",
+        "request_sha256": "3c5a8d86d149a6ea13f981628db923bb40e05a204d83f3cd0101c87207cd688a",
+        "result_sha256": "ee8bdd6b2b3b27f58b9036f6c2676ea2a139a3a94388fefd2d0a057ba086c66e",
+        "output_glb_byte_identical": true
+      },
+      {
+        "id": "semantic-rebuild-2",
+        "fingerprint": "29f1a77a3f1419fd5b73f25a37d7229a64840b6d4402c9e101a0e62227a77a09",
+        "request_sha256": "0733f276444da456a15054851d6cfd6038ef1f614662cb449dbbf8a4b314318b",
+        "result_sha256": "9b527215d982d1493c107aeaa30f4e76744f8e830c9a50e4de5021ab124e0607",
+        "output_glb_byte_identical": true
+      }
+    ],
+    "semantic_sha256": "c1f484e81103943bf5f996144f5e29f7fae7baa82711a614d978135e54b237d5",
+    "note": "queue logs evidence two executions; semantic rechecker has generator_executed=false"
+  },
+  "other_accepted_trees": [
+    {
+      "asset_id": "burgessochaeta",
+      "revision": "r002",
+      "file_count": 64,
+      "all_files_match_snapshot": true,
+      "glb_sha256": "6a505f5960c6c973e42ec644dfc078e977c576dff9ed470bc7fc07a27fa9bec4"
+    },
+    {
+      "asset_id": "stalagmite-group",
+      "revision": "r003",
+      "file_count": 53,
+      "all_files_match_snapshot": true,
+      "glb_sha256": "3e696fcb6e2b2ffb21e7ea850522c5f2f6498a11e13bb7ce429f6376df3de5e0"
+    },
+    {
+      "asset_id": "rotational-landslide",
+      "revision": "r001",
+      "file_count": 64,
+      "all_files_match_snapshot": true,
+      "glb_sha256": "4b8c7caad83fc07bbddacdd15fcb7647148c8f382105639fdf0426d6f454d543"
+    }
+  ],
+  "proof_images": [
+    {
+      "id": "hero",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/hero.png",
+      "sha256": "3461bb47eb7362da9c0e30967474f391606dda15bc2796cf7c5e15d4a201272b",
+      "bytes": 262082,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    },
+    {
+      "id": "reversehero",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/reversehero.png",
+      "sha256": "1318cdb74d2e0a166158f9514636440361c7d87421a533990c7c2725d4c20ca4",
+      "bytes": 256458,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    },
+    {
+      "id": "front",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/front.png",
+      "sha256": "83d17bbb0654857c2197e5e4451ab89f59815e897937afa6a51a79a8125d1ab4",
+      "bytes": 246135,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    },
+    {
+      "id": "side",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/side.png",
+      "sha256": "851298d7471d5b4b9a8ef3db74968a1cd4f0e75523b5d3556b9ab4c3b1cd252c",
+      "bytes": 221148,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    },
+    {
+      "id": "rear",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/rear.png",
+      "sha256": "6dea1629ba030524d3d7d776d2bfb16c4457b1ce8afd5841c8580504b4bdd713",
+      "bytes": 237703,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    },
+    {
+      "id": "top",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/top.png",
+      "sha256": "9fd1e2e1b9993ac7522f4f8bc23c7c8e21f748ab7ed4e0b1e643b65e956ec435",
+      "bytes": 270008,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    },
+    {
+      "id": "clay",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/clay.png",
+      "sha256": "a04702c7f7e45e636a39885d6ce03a4416efed20e411441991f4360d9d19fc8d",
+      "bytes": 193734,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    },
+    {
+      "id": "silhouette",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/silhouette.png",
+      "sha256": "cd32cde98852b4c74a6de0e37df43d1520e74b23b02e494e8c2ababff4882f39",
+      "bytes": 62378,
+      "width": 512,
+      "height": 512,
+      "matches_manifest": true
+    }
+  ],
+  "producer_evidence_sha256": {
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/model.glb": "ccda1af69de9f32de87408c8984945dd26efe0f2e2534295ee61e735995b4f53",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/source.blend": "e5e0d506e74af658d79a323aff2515a90ffab9d192f2f43c78b5ec5282e54885",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/generator.py": "3ad7a61d8ad73ca4e5ee8beaab185cbb495e420455cc28c1f58cb6c537bcc351",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/build-config.json": "3cead44d1b69ac9a2bbd546dd860add52f91f30e3c03cb52bb225f2ca3ee387b",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/candidate.json": "d6d059a2b864c7f3ac2545bc66dcf9acfafa5f073d105483614a2361c9e9e356",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/candidate-brief.json": "5a6940818fcedce2009a28456f18a5d34a340d8cbf0470dcbfa45500ae473c68",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/brief.json": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/references.json": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/references.delivery-v001.json": "1769779d85f5de5a60d70c999a100b09d341ff54b33f3c4d9aa2be9b36fef762",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/render-manifest.json": "01b077925063cb96f4c80c8643ba7b5d25a77c5e05f876417d4c45245a9ab3c1",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/proof-delivery/render-config.json": "c2fdc1b10bf065b75e08c7ac6870366c840a6a70fdca246fc21b0bc8f8260f17",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/metrics.json": "be57c5cfebf5efa109658a817f76fb20bc520e10fa35374c1e62ee4be866cb66",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/source-metrics.json": "57f6cf3eff3225cdee1e86e949cc64be2474d544908d4ac0a8cf97a93fdae21c",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/gltf-validator.report.json": "bd097a022fa44c8381645722071d06c7f80b05bcaa303346d1c43aac93e30a15",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/runtime-parse.report.json": "3fea27d78e47d2e46aac5c6b899c50530836f12d46c08b01a856765118dc5a86",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/repro-final-1.report.json": "2c3bea60daeb438318b80f6cb648e342c1e53ec7b2506dfd8788221b545f23a6",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/repro-final-2.report.json": "5ea9eaa58c9232dcb54ffaf639d3bcbac925e3bb602de7546c1f765bbfe2d900",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/concept-evidence.json": "1a5b86209f436e7abd342d2853b9de8d5c4fc37e5b532c36535f77d993d07b22",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/concept-generation.json": "8e9621441c746c97133f36e5322ebc1470a1b2b9d6f4e9a76b5935c30b0c0938",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/modeling-freeze.json": "3144d9d66906efaf8841d53a3abb6b03f1def10790fd54cb17ac36d31ccb452d",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/geometry-repair-report.json": "ab980f808d3648282ebe50a6ff7e12d52ad6aef50c9e0df2aa94fc16e1f242c5",
+    "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r004/embedding-source-audit.json": "7187400ac658a71b4f5a434b9503da1934a2b91bc1264e2ecd49cea789dabb99",
+    "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r004/handoff.json": "5654bb7c32d78e9dafc1f8fc09aaedc759377092fd4cdaa8445126808d90e980",
+    "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r004/overlap-comparison.json": "afdacacddde0913b0b640f99c95da02f5cd73e5cae45599fcb1ff80be1329e95",
+    "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r004/geometry-change-quantification.json": "33057340887bb48302ed7ae44b2d9088286c482d8f1cefd3abd44ff1f5adffca",
+    "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r004/lifecycle.jsonl": "b7c453fa5c12b9ca1c5f05d1155078abafdbe1d48dc6fb647fc01ff9e89093db",
+    "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r004/rebuild-queue.log": "2b9d7d9d309e8d2f1cde19b03bca589450bb7bd9e400ac0cb1db5bf6ca96e3ae",
+    "production/continuous-small-life-round25-20261020/work/batch-65/breccia-repair-r004/other-trees-unchanged.json": "4b9bbebd0e9428935a4b8079791b148e3c0affb393d7710913c28ad163c10d19"
+  },
+  "independent_evidence_sha256": {
+    "independent-overlap.json": "0a1178721cd7f7971b903b9f9a8e130ae17d6100ef683abbc7d73b0a3b124e0d",
+    "independent-solid-pairs.json": "e8647463be01200cfda13c0943725e78c370cd19c61a58adb27d4cba0c8cba21",
+    "independent-source-components.json": "19ecbdbc84fdc246be9f0157631220a9c3c7117b051324e6949a7be1a0444b43",
+    "independent-runtime/khronos.json": "f879b70c07d786cd7eb02a13a1cd7a660bc95c308e628446add1b2bc8a1957c5",
+    "independent-runtime/three-parse.json": "660f1a95fed2a749f8fa5431e0f6e7a5c867ad9a533dc01b451f0796f0fa620d"
+  },
+  "limits": [
+    "No fresh r004 website capture in this review",
+    "No GPU or populated scene testing",
+    "Source/model recommendation only; formal approval, publish and release remain separate",
+    "Residual 68 SAT clast-solid overlaps remain disclosed; visual invisibility is not proven"
+  ]
+}

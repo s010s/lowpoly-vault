@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "asset_id": "moulin-shaft",
+  "revision": "r002",
+  "claim_scope": "Generic original moulin upper-shaft-section form, not Ryder Glacier replica or a complete underground hydrological reconstruction. Nominal scale and shallow water state artistic, no measured depth or bedrock claim.",
+  "nominal_dimensions_blender_xyz_m": [
+    20,
+    20,
+    12
+  ],
+  "measured_dimensions_blender_xyz_m": [
+    20.0,
+    20.0,
+    11.930000305175781
+  ],
+  "measured_dimensions_glb_xyz_m": [
+    20.0,
+    11.930000305175781,
+    20.0
+  ],
+  "scale_note": "Nominal teaching-prop scale not exact measured natural specimen or locality. Actual bounds include all geometry.",
+  "profile": "static-stylized-v1",
+  "origin": "floor contact footprint center",
+  "axes": "Blender X lateral -Y front Z up; glTF X lateral Y up +Z front",
+  "blender_version": "4.3.2",
+  "three_version": "0.180.0",
+  "seed": 76,
+  "palette": {
+    "ice": "#C4DBE2",
+    "pale": "#E4EDED",
+    "wall": "#80A7BC",
+    "water": "#4B9EAD"
+  },
+  "source_references": [
+    {
+      "id": "PRIMARY-moulin-shaft",
+      "title": "moulin-shaft selected primary reference",
+      "url": "https://airbornescience.nasa.gov/ajax/image/Moulin_on_Ryder_Glacier",
+      "license": "Consulted-only; source rights retained; no pixels redistributed",
+      "use": "consulted-only",
+      "incorporated": false,
+      "rights_note": "Text/pixels consulted only; no photograph, scan, mesh, texture or other third-party asset incorporated or redistributed.",
+      "notes": "Personally inspected original NASA/John Sonntag Ryder Glacier moulin image: asymmetric elongated actual ice opening, steep scalloped pale blue inner walls, dark deep interior, surface channel entering curved rim from upper right. Personally read retained NASA field record and NASA2021 fieldwork text linking surface river to vertical shaft; Laurence Smith image not used as pixel evidence.",
+      "consulted_at": "2026-10-20T15:44:14.778626+00:00",
+      "consulted_images": [
+        {
+          "filename": "moulin-photo.jpg",
+          "sha256": "c0362b32d33cd2fb4767b9fc0fac71edc32f288c89adb77b60cdb16ccaf74164"
+        }
+      ]
+    },
+    {
+      "id": "CONCEPT",
+      "url": "internal-original-concept",
+      "title": "Original generated moulin-shaft concept",
+      "license": "CC-BY-4.0 Leon Made This / s010s",
+      "use": "original-generated-concept",
+      "incorporated": false,
+      "rights_note": "Original concept design guidance only, not primary factual evidence or texture.",
+      "notes": "Concept upper shaft and inlet useful, but hero becomes a wide open front canyon and round top hole inconsistent between views. Build single coherent polygonal annulus with real steep inner wall and genuinely open lower section, no arbitrary complete bedrock tunnel. Surface channel reaches rim; water only narrow geometric ribbon following channel then inner wall, separated without coplanar overlap. Outside supporting ice block physical, no transparency."
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "author": "Leon Made This / s010s",
+  "generator_license": "MIT",
+  "export_options": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_normals": true,
+    "export_texcoords": false,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_vertex_color": "NONE",
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false,
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": true,
+    "export_gpu_instances": false,
+    "export_gn_mesh": false,
+    "export_draco_mesh_compression_enable": false,
+    "export_use_gltfpack": false
+  },
+  "source_counts": {
+    "status": "pass_with_warnings",
+    "errors": [],
+    "warnings": [
+      "continuous_terrain_conforming_surface_meltwater_inlet: 22 boundary edges; review intentional openings",
+      "near_vertical_upper_wall_meltwater_descent: 6 boundary edges; review intentional openings"
+    ],
+    "triangles": 1944,
+    "materials": [
+      "ice",
+      "pale",
+      "wall",
+      "water"
+    ],
+    "bounds_blender_m": {
+      "min": [
+        -10.0,
+        -10.0,
+        0.0
+      ],
+      "max": [
+        10.0,
+        10.0,
+        11.930000305175781
+      ],
+      "size": [
+        20.0,
+        20.0,
+        11.930000305175781
+      ]
+    },
+    "parts": [
+      {
+        "name": "true_open_upper_moulin_annular_ice_volume",
+        "vertices": 960,
+        "triangles": 1920,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      },
+      {
+        "name": "continuous_terrain_conforming_surface_meltwater_inlet",
+        "vertices": 22,
+        "triangles": 20,
+        "boundary_edges": 22,
+        "nonmanifold_edges": 0
+      },
+      {
+        "name": "near_vertical_upper_wall_meltwater_descent",
+        "vertices": 6,
+        "triangles": 4,
+        "boundary_edges": 6,
+        "nonmanifold_edges": 0
+      }
+    ]
+  },
+  "vertex_counts": {
+    "kind": "actual-source-vertex-counts",
+    "source_sha256": "5dd397401fa6e778fa7d16edc31319167df5573c1a6d85f425e0ece09a26723e",
+    "glb_sha256": "de96fb9978179b02eb25e518c35256da1c78aca8228d83117b8dcbeaea214ae3",
+    "parts": [
+      {
+        "name": "true_open_upper_moulin_annular_ice_volume",
+        "authored_vertices": 960,
+        "evaluated_vertices": 960,
+        "authored_polygons": 1600,
+        "evaluated_polygons": 1600
+      },
+      {
+        "name": "continuous_terrain_conforming_surface_meltwater_inlet",
+        "authored_vertices": 22,
+        "evaluated_vertices": 22,
+        "authored_polygons": 10,
+        "evaluated_polygons": 10
+      },
+      {
+        "name": "near_vertical_upper_wall_meltwater_descent",
+        "authored_vertices": 6,
+        "evaluated_vertices": 6,
+        "authored_polygons": 2,
+        "evaluated_polygons": 2
+      }
+    ],
+    "authored_vertices": 988,
+    "evaluated_vertices": 988,
+    "created_at": "2026-10-20T15:50:32.967328+00:00",
+    "note": "Saved-source read-only reopen measurement; exported POSITION-stream counts separately retained."
+  },
+  "glb_counts": {
+    "profile": "static-uncompressed-v1",
+    "file": "/workspace/shared/lowpoly-batch76-20261020/production/continuous-small-life-round31-20261020/assets/moulin-shaft/r002/model.glb",
+    "errors": [],
+    "warnings": [],
+    "khronos_validator": "not_run_by_this_script",
+    "bytes": 134276,
+    "sha256": "de96fb9978179b02eb25e518c35256da1c78aca8228d83117b8dcbeaea214ae3",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "extensions_used": [],
+    "materials": 4,
+    "unique_mesh_triangles": 1944,
+    "unique_mesh_primitives": 5,
+    "unique_position_accessor_vertices": 4920,
+    "bounds_m": {
+      "min": [
+        -10.0,
+        0.0,
+        -10.0
+      ],
+      "max": [
+        10.0,
+        11.930000305175781,
+        10.0
+      ],
+      "size": [
+        20.0,
+        11.930000305175781,
+        20.0
+      ]
+    },
+    "semantic_sha256": "adb55654b8d8c02d29392bf546dd9ff1854daa0c23db21ee2329594326ce2453",
+    "semantic_digest_profile": "decoded-static-content-v1",
+    "scene_triangles": 1944,
+    "scene_primitives_estimated_base_draw_calls": 5,
+    "status": "pass"
+  },
+  "checksums": {
+    "source.blend": "5dd397401fa6e778fa7d16edc31319167df5573c1a6d85f425e0ece09a26723e",
+    "model.glb": "de96fb9978179b02eb25e518c35256da1c78aca8228d83117b8dcbeaea214ae3",
+    "generator.py": "2310f02fbeda3210f6388f66f2d6baff59ea28fb977be2cf88de168f26865f1f",
+    "build-config.json": "b40196b059f53de898bd05a527b08532477831c0e0af7b57edfe1d8bdaa207d3",
+    "brief.json": "48509f2373b570c16be1144c95ef17bcad73cc571e574d34662536fd793824c8",
+    "candidate-brief.json": "e0754f607c3085b97fe5e2fef4c59a771e6cfec341a0376692f922ef5124efdf",
+    "references.json": "8b1c93d72f62a1d1c2aaf6a60448cebc5117f4887f74850413c892a499509fcb",
+    "build-dependencies.json": "1322e532925240f2a1bcfc2d2aee4e97c3e656918a08c409705b3f5e4e1d6530"
+  },
+  "acceptance": {
+    "technical": "independent_pending",
+    "visual": "independent_pending",
+    "factual": "independent_pending",
+    "specification": "independent_pending",
+    "runtime_parse": "measured_node_report_retained",
+    "gpu": "not_run",
+    "scene": "not_run",
+    "formal_approval": "pending",
+    "user_approval": "not_asserted"
+  },
+  "created_at": "2026-10-20T15:57:53.454521+00:00"
+}

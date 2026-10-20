@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "asset_id": "tribrachidium",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed low-poly supporting educational prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required features: Low round fossil-form relief; Three curved raised primary arms meeting centrally; Counterclockwise outward sweep in chosen positive-relief top view; Three shallow inter-arm apical pits and subtle bullae; Fine ornament subordinate; no living tentacles. Scope: Original genus-level Tribrachidium fossil-form study, not a scan, exact specimen replica or settled living reconstruction. Affinity and feeding remain interpretations.",
+      "required_sources": [
+        "PRIMARY-tribrachidium"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required features: Low round fossil-form relief; Three curved raised primary arms meeting centrally; Counterclockwise outward sweep in chosen positive-relief top view; Three shallow inter-arm apical pits and subtle bullae; Fine ornament subordinate; no living tentacles. Scope: Original genus-level Tribrachidium fossil-form study, not a scan, exact specimen replica or settled living reconstruction. Affinity and feeding remain interpretations.",
+      "required_sources": [
+        "PRIMARY-tribrachidium"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views;7 distinct stages.",
+  "required_deliverables": [],
+  "claim_scope": "Original genus-level Tribrachidium fossil-form study, not a scan, exact specimen replica or settled living reconstruction. Affinity and feeding remain interpretations.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.04,
+    0.04,
+    0.0038
+  ],
+  "dimension_status": "Nominal illustrative scale, not measured reference locality/specimen; export measured separately",
+  "recognition_features": [
+    "Low round fossil-form relief",
+    "Three curved raised primary arms meeting centrally",
+    "Counterclockwise outward sweep in chosen positive-relief top view",
+    "Three shallow inter-arm apical pits and subtle bullae",
+    "Fine ornament subordinate; no living tentacles"
+  ],
+  "concept_decisions": "Reject first generated concept pit-centered knobs, tree-like veins and overly thick relief. Second concept is useful for three low curved ridges, but still exaggerates pits and repeated ridge grooves; reduce both to shallow subordinate surface relief, no central knobs in pits. Single integrated surface avoids floating anatomical tubes. Palette artistic, 40mm nominal diameter.",
+  "style": "Palette-only faceted real3D low-poly",
+  "intended_use": "Hand-scale fossil-form supporting educational prop at256-512px; no engineering/museum-grade replica claim",
+  "created_at": "2026-10-20T15:20:41.343103+00:00",
+  "validation_profile": "static-stylized-v1"
+}

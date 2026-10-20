@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight actualr002 final512px individual frames personally opened at original resolution. Three local ledges at unequal heights and different azimuths interrupt the taper on alternating faces; none encircles the shaft like the prior four flanges. Front/side/rear and clay show local projections and broad asymmetrical shoulders with continuous intervening taper. Pale patches are interrupted and do not form four aligned full-rim bands. Modest coherent dark cap and broad eroded foot retained. Schematic genericrock colors do not assert mineralogy. These are maker observations, not independent acceptance.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash dbe8dfda24834a86b2a7609aee52d7bcf9d90c416a5c9ee321c63d5359a5fc9c. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

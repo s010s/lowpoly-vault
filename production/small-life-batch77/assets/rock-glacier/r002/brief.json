@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "rock-glacier",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original source-informed static fossil/geological teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Lobate elongated mass of angular rubble with rounded irregular steep toe; Several unequal curved transverse surface ridges following tongue and merging into lateral margins; Continuous natural granular/blocky surface with irregular local breaks, not mechanical belts tiles or equal terraces. Scope: Generic original rock-glacier terrain form informed by actual official Sourdough Peak NPS photo. Not exact Sourdough geometry, named locality, survey, age, speed or ice-core reconstruction. NPS describes competing formation and internal ice interpretations, so no internal cutaway, exposed blue ice or dynamic simulation claimed. Nominal24x46x7m module illustrative.",
+      "required_sources": [
+        "NPS-ROCK"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Lobate elongated mass of angular rubble with rounded irregular steep toe; Several unequal curved transverse surface ridges following tongue and merging into lateral margins; Continuous natural granular/blocky surface with irregular local breaks, not mechanical belts tiles or equal terraces. Scope: Generic original rock-glacier terrain form informed by actual official Sourdough Peak NPS photo. Not exact Sourdough geometry, named locality, survey, age, speed or ice-core reconstruction. NPS describes competing formation and internal ice interpretations, so no internal cutaway, exposed blue ice or dynamic simulation claimed. Nominal24x46x7m module illustrative.",
+      "required_sources": [
+        "NPS-ROCK"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [],
+  "claim_scope": "Generic original rock-glacier terrain form informed by actual official Sourdough Peak NPS photo. Not exact Sourdough geometry, named locality, survey, age, speed or ice-core reconstruction. NPS describes competing formation and internal ice interpretations, so no internal cutaway, exposed blue ice or dynamic simulation claimed. Nominal24x46x7m module illustrative.",
+  "nominal_dimensions_blender_xyz_m": [
+    24,
+    46,
+    7
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "Lobate elongated mass of angular rubble with rounded irregular steep toe",
+    "Several unequal curved transverse surface ridges following tongue and merging into lateral margins",
+    "Continuous natural granular/blocky surface with irregular local breaks, not mechanical belts tiles or equal terraces"
+  ],
+  "concept_decisions": "Retain concept elongated lobate toe and arcuate rubble relief; reject overly equal repetitive conveyor-belt ridges and excessive photoreal grain. Use three to four unequal low curved ridge zones, locally interrupted and varying in height, merging into irregular lateral rubble. Integral angular triangulated clast-like relief in one continuous closed volume with variable-sized facets, not separate intersecting boulder pile or tiles. No isolated mountain backdrop, snow or exposed ice; gray palette artistic.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop at256-512px",
+  "created_at": "2026-10-20T15:55:52.441223+00:00",
+  "validation_profile": "static-stylized-v1"
+}

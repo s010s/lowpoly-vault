@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "mudpot",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Low broad irregular oval clay basin with finite-thickness ragged muddy rim and shallow opaque mud surface below rim; Few static low bubble domes and one collapsed bubble cup with irregular lip, no towering cone or eruption jet; Slumped bank sector, full closed volume and underside, not transparent blue hot spring. Scope: Generic static mudpot teaching prop,5x4m nominal footprint and roughly0.7m low relief, not exact Yellowstone feature replica. NPS photographs support low muddy basin, thick clay, domes and collapsed bubble morphology. No live eruption/chemical assay/temperature/mineral composition/named feature claim. Colors and bubble placement artistic; gas motion not simulated.",
+      "required_sources": [
+        "PRIMARY-mudpot"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Low broad irregular oval clay basin with finite-thickness ragged muddy rim and shallow opaque mud surface below rim; Few static low bubble domes and one collapsed bubble cup with irregular lip, no towering cone or eruption jet; Slumped bank sector, full closed volume and underside, not transparent blue hot spring. Scope: Generic static mudpot teaching prop,5x4m nominal footprint and roughly0.7m low relief, not exact Yellowstone feature replica. NPS photographs support low muddy basin, thick clay, domes and collapsed bubble morphology. No live eruption/chemical assay/temperature/mineral composition/named feature claim. Colors and bubble placement artistic; gas motion not simulated.",
+      "required_sources": [
+        "PRIMARY-mudpot"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact8 canonical512px views. Wiwaxia additionally separate ventral diagnostic, no canonical replacement. Seven stages separate.",
+  "required_deliverables": [],
+  "claim_scope": "Generic static mudpot teaching prop,5x4m nominal footprint and roughly0.7m low relief, not exact Yellowstone feature replica. NPS photographs support low muddy basin, thick clay, domes and collapsed bubble morphology. No live eruption/chemical assay/temperature/mineral composition/named feature claim. Colors and bubble placement artistic; gas motion not simulated.",
+  "nominal_dimensions_blender_xyz_m": [
+    5,
+    4,
+    0.7
+  ],
+  "dimension_status": "Nominal teaching-prop targets, not measured specimen or site dimensions; exported bounds measured separately.",
+  "recognition_features": [
+    "Low broad irregular oval clay basin with finite-thickness ragged muddy rim and shallow opaque mud surface below rim",
+    "Few static low bubble domes and one collapsed bubble cup with irregular lip, no towering cone or eruption jet",
+    "Slumped bank sector, full closed volume and underside, not transparent blue hot spring"
+  ],
+  "concept_decisions": "Concept personally inspected: retain broad low bowl, ragged clay rim, three domes and collapsed bubble cup. Dome height max0.22m over mud, not rock boulders; smooth coherent mud material. Rim height varies0.45\u20130.68m with slumped front-right sector0.32m, mud surface0.26m. Real integrated radial basin and opaque shallow mud; cup depression and low lip sculpted rather than black painted disc. Concept excessive tiny noise omitted; no detached splashes, steam billboard or tall geyser. Full underside closed.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256\u2013512px; not specimen/site replica",
+  "created_at": "2026-10-20T14:03:27.993091+00:00",
+  "validation_profile": "static-stylized-v1"
+}

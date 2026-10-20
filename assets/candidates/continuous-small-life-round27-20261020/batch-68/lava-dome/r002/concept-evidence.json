@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "lava-dome",
+  "revision": "r002",
+  "labels": {
+    "en": "lava-dome"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "5e791acedfe0a8bfa24c4eac3817c70557b3b027e46e095833b976f5baae94c0"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "aa648adb6ea7426538b1a45639bc6b1f98496994ba657be63a5323558ae5474f"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "1cd99cf0e05282e5b85c404ddb40e098a9050eb84b4d0ee0330d95f5e5a18a5b"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "3ec5a122fbac32e2e30d2f6475699b695887c97b5a03521fbaa68e21a84122a2"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "aa665f1c1b52c9db31b9b6317174fd8eb56d924a045c98c2b2075a6e0f71845a"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "2a8bba8089c7ae8ac1fd39e793768737e68791ce08eb3713b2bfc9bbef6b1877"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "8009ff8c1b91a304bdc424d712a77e8e8db51ef0e3a989d465e7586afe1f7b81"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "c26ea63f90e05184e214ce944d576cdf2d320d95ee2b5c4ab614ca7fae55c1ca"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "79e1c6f1bcebda03c445649f0df026e68ce8a78bd921a9949e25c715cfb52005"
+      }
+    ],
+    "cross_view_consistency_note": "Concept dome mass, high shoulders and angular rind retained. Exclude excessive photo-like pebble microdetail and arbitrary blocks at every face. Author one closed uneven radial mass with purposeful large blocky lobes and limited embedded angular surface outcrops, quieter upper planes and stronger side fractures; varied smaller rubble at contact skirt. No concave crater, snow, smoke, glow, exact photographed outline or surrounding terrain. Explicit r002 geometry repair: Replace circumferential block placement with one welded coarse fractured surface across entire dome footprint, including summit and flanks. Unequal irregular planar rock plate regions join at shallow discontinuous fracture grooves; variable local inclination and relief tied to overall dome curvature, no separate repeated cylinders, no ring, no bare summit disc. Preserve bulbous steep-sided broad craterless dome proportions, original palette/materials/renderer/budgets, static generic nominal scale and subordinate contact skirt. Not a cinder cone or loose rock pile.",
+    "hidden_surface_decisions": "Concept dome mass, high shoulders and angular rind retained. Exclude excessive photo-like pebble microdetail and arbitrary blocks at every face. Author one closed uneven radial mass with purposeful large blocky lobes and limited embedded angular surface outcrops, quieter upper planes and stronger side fractures; varied smaller rubble at contact skirt. No concave crater, snow, smoke, glow, exact photographed outline or surrounding terrain. Explicit r002 repair: Replace circumferential block placement with one welded coarse fractured surface across entire dome footprint, including summit and flanks. Unequal irregular planar rock plate regions join at shallow discontinuous fracture grooves; variable local inclination and relief tied to overall dome curvature, no separate repeated cylinders, no ring, no bare summit disc. Preserve bulbous steep-sided broad craterless dome proportions, original palette/materials/renderer/budgets, static generic nominal scale and subordinate contact skirt. Not a cinder cone or loose rock pile."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:59:28.024350+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. Original concept and explicit r002 repair freeze preceded revised generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 59.2998,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "bec364fb95c0ee8b66273c400310198e2df4de62d182ead43fc4da2953e2a879"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "bec364fb95c0ee8b66273c400310198e2df4de62d182ead43fc4da2953e2a879"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "36d3ff0eb28f33a107f0fba31701564f8d8be14a89e6cdd9be3a12ff5d4df3e3",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "faf59d9ee331ffe9301b364022235489c0031f5a3ea3ba5cafc6ef629d4325c0"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "5e791acedfe0a8bfa24c4eac3817c70557b3b027e46e095833b976f5baae94c0",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "67663dba34c2f0caff4c118e065be8d2c7c31dadc0c197b00b546458dcab1089"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight final r001 individual512px frames personally opened. Hero/reverse/front/rear show thick dark resistant projecting sill parallel to dipping host bedding, pale narrow contacts above/below and subordinate host bed ledges. Side confirms actual ledge projection and body thickness; clay confirms physical structure independent of coal-like coloration. Top has irregular outline and contacts; silhouette stepped but one dominant intrusive ledge, not vertical dike. Simplified fairly regular host beds and sparse vertical sill joints are stylized, not a named PurcellSill replica. No coplanar visual flicker or penetrating separate blocks found.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash ccdeb65691eb84aa934b5883a5b6ac4e5c8bcfc2ef2335df0c1fd15112963cae. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

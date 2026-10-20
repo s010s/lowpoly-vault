@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight exact final512px individual frames and lossless sheet personally inspected. r002 has compact pyramidal summit with four steep physically concave faces separated by four short convergent ridges, not elongated arete. Top and opposite obliques show four-face construction; front/side/rear show pointed triangular silhouette and low irregular base. Form deliberately simple and somewhat geometric, not realistic jagged mountain survey. r001 softer conical attempt retained. Neutral clay retains sculpted faces without face color. No snow, vegetation, site/date or rock-composition assertion. Physical saved-source collision/edge check passed.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash dc476400091e3a9375de913d3684cceb8a8400ea9a4af18228516899bb5ed92b. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

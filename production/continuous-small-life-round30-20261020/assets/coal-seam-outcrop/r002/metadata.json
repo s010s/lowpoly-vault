@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "asset_id": "coal-seam-outcrop",
+  "revision": "r002",
+  "claim_scope": "Generic original human-scale coal seam outcrop form, not a named mine, age, coal rank, gas/permeability measurement or copied existing stratified cliff.",
+  "nominal_dimensions_blender_xyz_m": [
+    3.6,
+    1.5,
+    2.6
+  ],
+  "measured_dimensions_blender_xyz_m": [
+    3.640000104904175,
+    1.4747756719589233,
+    2.568279504776001
+  ],
+  "measured_dimensions_glb_xyz_m": [
+    3.640000104904175,
+    2.568279566243291,
+    1.4747756719589233
+  ],
+  "scale_note": "Nominal teaching-prop scale not exact measured natural specimen or locality. Actual bounds include all geometry.",
+  "profile": "static-stylized-v1",
+  "origin": "floor contact footprint center",
+  "axes": "Blender X lateral -Y front Z up; glTF X lateral Y up +Z front",
+  "blender_version": "4.3.2",
+  "three_version": "0.180.0",
+  "seed": 74,
+  "palette": {
+    "host": "#9C907B",
+    "hostshade": "#817B6C",
+    "coal": "#292E31",
+    "coalbright": "#3C4245"
+  },
+  "source_references": [
+    {
+      "id": "PRIMARY-coal-seam-outcrop",
+      "title": "coal-seam-outcrop selected primary reference",
+      "url": "https://www.netl.doe.gov/sites/default/files/2018-02/fe0000888-final-report.pdf",
+      "license": "Consulted-only; source rights retained; no pixels redistributed",
+      "use": "consulted-only",
+      "incorporated": false,
+      "rights_note": "Text/pixels consulted only; no photograph, scan, mesh, texture or other third-party asset incorporated or redistributed.",
+      "notes": "USGS fig25/AAPG and USGS PDFs return403 so not pixel-inspected. Personally inspected actual DOE/GSA report Fig18 p39, vertical outcrop photograph with dark coal face cleat below host rock and bedding-plane photograph with long FC and shorter staggered BC. Read text p37 describing systematic face versus shorter irregular terminating cross/butt cleats. Figure modified from Pashin etal2008; consult-only credit retained.",
+      "consulted_at": "2026-10-20T15:20:41.369785+00:00",
+      "consulted_images": [
+        {
+          "filename": "coal-fig18.png",
+          "sha256": "d614aafc38804340968f1b2ffe413b110b11a1fc07b1ebccc4914a1e7665d7b2"
+        }
+      ],
+      "credit": "DOE/GSA2014 final report, Fig18 modified from Pashin etal2008. Consult-only; figure rights retained."
+    },
+    {
+      "id": "CONCEPT",
+      "url": "internal-original-concept",
+      "title": "Original generated coal-seam-outcrop concept",
+      "license": "CC-BY-4.0 Leon Made This / s010s",
+      "use": "original-generated-concept",
+      "incorporated": false,
+      "rights_note": "Original concept design guidance only, not primary factual evidence or texture.",
+      "notes": "Coal recess is real depth behind two host volumes. Unequal x/depth cleat block outlines, staggered terminating cross cuts, irregular chipped fronts; do not turn bedding-plane butt cleats into uniform horizontal brick courses. Concept has too many masonry-like horizontal coal splits; remove regular horizontal grid in geometry. No copied source pixels or regular decorative blocks."
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "author": "Leon Made This / s010s",
+  "generator_license": "MIT",
+  "export_options": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_yup": true,
+    "export_apply": true,
+    "export_normals": true,
+    "export_texcoords": false,
+    "export_tangents": false,
+    "export_materials": "EXPORT",
+    "export_vertex_color": "NONE",
+    "export_animations": false,
+    "export_skins": false,
+    "export_morph": false,
+    "export_cameras": false,
+    "export_lights": false,
+    "export_extras": true,
+    "export_gpu_instances": false,
+    "export_gn_mesh": false,
+    "export_draco_mesh_compression_enable": false,
+    "export_use_gltfpack": false
+  },
+  "source_counts": {
+    "status": "pass",
+    "errors": [],
+    "warnings": [],
+    "triangles": 4320,
+    "materials": [
+      "coal",
+      "coalbright",
+      "host",
+      "hostshade"
+    ],
+    "bounds_blender_m": {
+      "min": [
+        -1.8200000524520874,
+        -0.7373878359794617,
+        0.0
+      ],
+      "max": [
+        1.8200000524520874,
+        0.7373878359794617,
+        2.568279504776001
+      ],
+      "size": [
+        3.640000104904175,
+        1.4747756719589233,
+        2.568279504776001
+      ]
+    },
+    "parts": [
+      {
+        "name": "uneven_resistant_lower_host_bed",
+        "vertices": 320,
+        "triangles": 636,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      },
+      {
+        "name": "uneven_resistant_upper_host_bed",
+        "vertices": 320,
+        "triangles": 636,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      },
+      {
+        "name": "recessed_coal_interior_continuous_core",
+        "vertices": 8,
+        "triangles": 12,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      },
+      {
+        "name": "unequal_chipped_face_cleat_front_short_staggered_butt_cleats",
+        "vertices": 336,
+        "triangles": 644,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      },
+      {
+        "name": "unequal_chipped_face_cleat_front_short_staggered_butt_cleat",
+        "vertices": 1248,
+        "triangles": 2392,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      }
+    ]
+  },
+  "vertex_counts": {
+    "kind": "actual-source-vertex-counts",
+    "source_sha256": "c424631e5c576ae41a62e5d74bdf909f4b997e4ffa6786a27b788613596fba85",
+    "glb_sha256": "f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3",
+    "parts": [
+      {
+        "name": "uneven_resistant_lower_host_bed",
+        "authored_vertices": 320,
+        "evaluated_vertices": 320,
+        "authored_polygons": 636,
+        "evaluated_polygons": 636
+      },
+      {
+        "name": "uneven_resistant_upper_host_bed",
+        "authored_vertices": 320,
+        "evaluated_vertices": 320,
+        "authored_polygons": 636,
+        "evaluated_polygons": 636
+      },
+      {
+        "name": "recessed_coal_interior_continuous_core",
+        "authored_vertices": 8,
+        "evaluated_vertices": 8,
+        "authored_polygons": 6,
+        "evaluated_polygons": 6
+      },
+      {
+        "name": "unequal_chipped_face_cleat_front_short_staggered_butt_cleats",
+        "authored_vertices": 336,
+        "evaluated_vertices": 336,
+        "authored_polygons": 294,
+        "evaluated_polygons": 294
+      },
+      {
+        "name": "unequal_chipped_face_cleat_front_short_staggered_butt_cleat",
+        "authored_vertices": 1248,
+        "evaluated_vertices": 1248,
+        "authored_polygons": 1092,
+        "evaluated_polygons": 1092
+      }
+    ],
+    "authored_vertices": 2232,
+    "evaluated_vertices": 2232,
+    "created_at": "2026-10-20T15:27:54.944473+00:00",
+    "note": "Saved-source read-only reopen measurement; exported POSITION-stream counts separately retained."
+  },
+  "glb_counts": {
+    "profile": "static-uncompressed-v1",
+    "file": "/workspace/shared/lowpoly-batch74-20261020/production/continuous-small-life-round30-20261020/assets/coal-seam-outcrop/r002/model.glb",
+    "errors": [],
+    "warnings": [],
+    "khronos_validator": "not_run_by_this_script",
+    "bytes": 262816,
+    "sha256": "f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "extensions_used": [],
+    "materials": 4,
+    "unique_mesh_triangles": 4320,
+    "unique_mesh_primitives": 5,
+    "unique_position_accessor_vertices": 9648,
+    "bounds_m": {
+      "min": [
+        -1.8200000524520874,
+        0.0,
+        -0.7373878359794617
+      ],
+      "max": [
+        1.8200000524520874,
+        2.568279566243291,
+        0.7373878359794617
+      ],
+      "size": [
+        3.640000104904175,
+        2.568279566243291,
+        1.4747756719589233
+      ]
+    },
+    "semantic_sha256": "3b5bd6514f4f5510989c4e8266aba38da145e3b3efa9c74f884c2c747f67d874",
+    "semantic_digest_profile": "decoded-static-content-v1",
+    "scene_triangles": 4320,
+    "scene_primitives_estimated_base_draw_calls": 5,
+    "status": "pass"
+  },
+  "checksums": {
+    "source.blend": "c424631e5c576ae41a62e5d74bdf909f4b997e4ffa6786a27b788613596fba85",
+    "model.glb": "f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3",
+    "generator.py": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7",
+    "build-config.json": "511eb9aacf8cd7c6f758e2f1116e8ba13d427e768bdd8c084f210177e02bd495",
+    "brief.json": "fc864bad9c056026a8540c8b3dcc42ed80bf1c4b5faea1f5bc161d9b515c6592",
+    "candidate-brief.json": "e676b68a77f519610cb15983434da58ba9e163840cea7d10dc77907383b1c4af",
+    "references.json": "7fad77e6bea8d80dbe6eb9628b41b13b32e90d78b012e7d5c56c678ad452dd72",
+    "build-dependencies.json": "55a6a588130a6dfbc1843f8e8fcc8b890dbcc21b147154e6367eef3509b46f0f"
+  },
+  "acceptance": {
+    "technical": "independent_pending",
+    "visual": "independent_pending",
+    "factual": "independent_pending",
+    "specification": "independent_pending",
+    "runtime_parse": "measured_node_report_retained",
+    "gpu": "not_run",
+    "scene": "not_run",
+    "formal_approval": "pending",
+    "user_approval": "not_asserted"
+  },
+  "created_at": "2026-10-20T15:29:50.178431+00:00"
+}

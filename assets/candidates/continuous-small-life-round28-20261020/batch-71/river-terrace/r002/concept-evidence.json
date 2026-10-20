@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "river-terrace",
+  "revision": "r002",
+  "labels": {
+    "en": "river-terrace"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "adee4033c7a6eeef341bad9ea9badc204f68144582093c302c6c49bf65405bba"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "e6f9514f35eea01029b139ce4466e2d6540310d7e07d0a01ee7dab36b2e927b6"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "2d74863270be4a84483c6dac021352967dae54738ba028e29ad0758c982429a9"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "27826a2522a046151d47dd6a5978ace6ed0354c13f7c3b5da3593d6c8831ccd2"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "1ae44f469037b0e7c831cec7a169875a8970ac2ea45530a9815ce6b16a1dec27"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "92fd6b2e7f9c8bef6388639dbe3a726703466eb2b6b4ce6c6d1c5d64e3dfaaae"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "de2ce3b1710dd14364e048d97f4b6ea85af43f8db884713e84f2d502ac2077e1"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept pixels inspected: retain broad paired benches and clear risers, reject highly repeated horizontal texture bands and vegetation. One original closed terrain volume with top levels11m and3m; risers8m high. Slight unequal natural bank edges and modest river curvature. Opaque finite water strip top2.6m within lower active floodplain. No oxbow, trees, multilevel staircase, large canyon shoulders or incidental rocks. Actual NPS Chaco authoritative diagram supplies explicit terrace versus floodplain versus innerchannel cross-section; USGS terrace photo is contextual only and not a scale source.",
+    "hidden_surface_decisions": "Actual concept pixels inspected: retain broad paired benches and clear risers, reject highly repeated horizontal texture bands and vegetation. One original closed terrain volume with top levels11m and3m; risers8m high. Slight unequal natural bank edges and modest river curvature. Opaque finite water strip top2.6m within lower active floodplain. No oxbow, trees, multilevel staircase, large canyon shoulders or incidental rocks. Actual NPS Chaco authoritative diagram supplies explicit terrace versus floodplain versus innerchannel cross-section; USGS terrace photo is contextual only and not a scale source."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:29:14.295Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.6776,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "0a9b620e3c69dba28b303dea2bf249847c09cb1ca736f10b04fae6c221734007"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "0a9b620e3c69dba28b303dea2bf249847c09cb1ca736f10b04fae6c221734007"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "94b1dda601b01394eff1f4ea0ea387f3f3d717211778285c1446e22dcf200219",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "a11ce755bd3fd84780aab257b1a5abb8ee09e7b8b9bcf7fc7a17dd0de0a15c72"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "e6b0c390386d8618856007069c14e4cd7e62bd54a1c0fa0436ebc0b78ac0321a"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

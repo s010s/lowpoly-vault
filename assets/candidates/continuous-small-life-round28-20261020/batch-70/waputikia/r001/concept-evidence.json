@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "waputikia",
+  "revision": "r001",
+  "labels": {
+    "en": "waputikia"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "603ef3fed6e625c410e24ad7612c06dcbd52f16ef36a9d1c76e6e28793f705d5"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "f72b6e06faa37055eeed8ddcf9c71e381e8e6e521e8c6c3993d4a87345c64e19"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "6e1628830bcb4cb54fe9a5235ae7da0fe2c637bf75d9c692595fd841be1dd4a4"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "41024218c0bfe6712dcb41aa77273bfb20a0f34e3c57a65be040ff9720eedfb4"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "8980184ec93415cb89c14055f8ed03cc812afbccb2fb1a6a9277a33f6fd7fec0"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "2fb79d15f153c72f9354bc50e821d11fbafcaf7628093ffa5a5448e44ac8793c"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "7e61bbb52e9a203345a13924dab4fb32bcb55201d71b57597ff827a9ce4e41c6"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f630ae87e98641b946f6165131eec872a1c78cb810543f96a904a3ea6ab96d9b"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "702793221967128675b5cd9784eec50ec9301e1c0f99e30a907bfcab234c403b"
+      }
+    ],
+    "cross_view_consistency_note": "Concept branching too tree-like in secondary sprays; implement rapid thick-to-fine subdivision and asymmetrical broad fine fans. Broken finite axis ends, no attachment. Back is original plain shale; slab is interpretive support. Relief thickness exaggerated for reading at512px, not literal fossil relief measurement.",
+    "hidden_surface_decisions": "Concept branching too tree-like in secondary sprays; implement rapid thick-to-fine subdivision and asymmetrical broad fine fans. Broken finite axis ends, no attachment. Back is original plain shale; slab is interpretive support. Relief thickness exaggerated for reading at512px, not literal fossil relief measurement."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:18:58.846428+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 21.9636,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "92e5ebae8e3e25102ddf56e0b4c21d20d6e1548f6fa385c656051d3b73c25c9d"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "92e5ebae8e3e25102ddf56e0b4c21d20d6e1548f6fa385c656051d3b73c25c9d"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "54a6b8934c7df3ef85d0832cd9b9887982024154c89bd67f5a8edb7d657e7372",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "c78241811614c0ff4858b1b52d5d75171d277f3f9352b79321fe26b5bbe1624d"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "603ef3fed6e625c410e24ad7612c06dcbd52f16ef36a9d1c76e6e28793f705d5",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "278bd5f0a3cfe680dd01eaef1ec6a16cb1fa2e707576677fe74635f4d194d9ad"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

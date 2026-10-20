@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "asset_id": "eruptive-fissure",
+  "brief_version": "r003",
+  "profile": "production",
+  "purpose": "Original source-informed static teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Long irregular physically open recessed crack remains visible between vents; Four linked low angular spatter vent lips along crack, not central mature cone; Static full-volume basalt terrain with angular walls and deep floor, not color-only lava stripe or lone fumarole. Scope: Generic static eruptive fissure educational form, informed by actual HVO2018 Fissure17 aerial. Not exact site/day geometry or named fissure replica, active simulation, temperature or compositional measurement. Nominal20x5.5m illustrative footprint and muted inner coloration artistic.",
+      "required_sources": [
+        "HVO-F17"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Long irregular physically open recessed crack remains visible between vents; Four linked low angular spatter vent lips along crack, not central mature cone; Static full-volume basalt terrain with angular walls and deep floor, not color-only lava stripe or lone fumarole. Scope: Generic static eruptive fissure educational form, informed by actual HVO2018 Fissure17 aerial. Not exact site/day geometry or named fissure replica, active simulation, temperature or compositional measurement. Nominal20x5.5m illustrative footprint and muted inner coloration artistic.",
+      "required_sources": [
+        "HVO-F17"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight canonical512px views; no turntable by dispatch. CPU proof is not GPU or composed-scene evidence.",
+  "required_deliverables": [],
+  "claim_scope": "Generic static eruptive fissure educational form, informed by actual HVO2018 Fissure17 aerial. Not exact site/day geometry or named fissure replica, active simulation, temperature or compositional measurement. Nominal20x5.5m illustrative footprint and muted inner coloration artistic.",
+  "nominal_dimensions_blender_xyz_m": [
+    20,
+    5.5,
+    1.8
+  ],
+  "dimension_status": "Illustrative nominal targets not measured natural specimen/site; actual bounds reported separately.",
+  "recognition_features": [
+    "Long irregular physically open recessed crack remains visible between vents",
+    "Four linked low angular spatter vent lips along crack, not central mature cone",
+    "Static full-volume basalt terrain with angular walls and deep floor, not color-only lava stripe or lone fumarole"
+  ],
+  "concept_decisions": "Retain long continuous recessed fracture and chain of low lips. Reject concept oversized separate circular bowls, repetitive paving/columnar side walls and intense orange light; use four unequal low localized widened vent sections linked by continuously open narrow crack. Crack dark walls and deepest floor geometrically recessed. One integrated closed mesh, no floating lava cards/particles or overlapping boulders. No emissive texture.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop at256-512px",
+  "created_at": "2026-10-20T15:28:24.323791+00:00",
+  "validation_profile": "static-stylized-v1",
+  "repair_design": "Actual source BVH found3 nonadjacent intersections near narrow end caused by transverse-column-dependent X offsets. Remove this X offset so all transverse end-wall coordinates share one X plane; preserve long physically open fissure and4 low vents. Retain failed r002 report.",
+  "derived_from_original_premodel_file_sha256": "231398b0d439d071cd82b059612ae0dbddf19003d216409b9e1e970b2c39ab56",
+  "derived_from_prior_revision_file_sha256": "5a17befc93bd98995050e9fede8867800788799044c77a4466a9211c63a812a7"
+}

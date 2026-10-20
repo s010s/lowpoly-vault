@@ -1,0 +1,1 @@
+Original geometry, generated concept art, rendered previews and prose: CC BY4.0, Leon Made This / s010s. Executable generator/support code: MIT. Third-party factual source references are consulted-only, retain their original rights, and are not redistributed. No external photograph, fossil scan, texture or reference mesh incorporated. No institutional endorsement.

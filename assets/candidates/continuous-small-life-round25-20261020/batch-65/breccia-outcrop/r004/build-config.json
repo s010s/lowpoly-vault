@@ -1,0 +1,36 @@
+{
+  "asset_id": "breccia-outcrop",
+  "revision": "r004",
+  "seed": 65,
+  "nominal_dimensions_blender_xyz_m": [
+    3.4,
+    2.4,
+    1.8
+  ],
+  "palette": {
+    "matrix": "#625F57",
+    "matrixlight": "#797268",
+    "paleclast": "#C3B59B",
+    "ochreclast": "#A58E70",
+    "darkclast": "#88887C"
+  },
+  "blender_threads": 2,
+  "three_version": "0.180.0",
+  "concept_row": "C",
+  "modeling_decisions": "Concept C block silhouette, dark matrix and pale angular fragments retained. Build one irregular closed host mass with slightly protruding embedded irregular polyhedral clasts, no disconnected floating loose pile. Surface embed overlap intentional. Clasts placed across every exposed side and crown, varied three muted clast colors and sizes. Major host relief faceted ledges. No ruler/trees/background from reference, no phototextures. r002: actual-host ray projection and denser90side/30crown fragment field, varied size .12-.40m. Visible coverage repair, not a scientific claim change.",
+  "repair_decisions": [
+    "Regenerate identical host, all120 original clast placements, sizes, materials and original geometric planes from seed65.",
+    "Test actual parallel prism volumes: positive-area intersecting in-plane footprints AND depth-interval overlap using each real180mm thickness. Do not restrict to nearly coincident cap planes.",
+    "Clip only actual conflicting parallel-prism footprints on both sides of their in-plane center bisector, retaining1mm matrix gap each side; no random offsets or renderer/material/camera/shadow changes.",
+    "All new corrected primitives remain closed angular full-volume embedded fragments. Keep original source, r002/r003, all proof and independent/website reports immutable.",
+    "Record exact component pair IDs, normals, centers, depth interval witness and original footprint area for each correction.",
+    "Re-run the same strict10micron and broader1mm exact-GLB triangle tests, plus real source/rebuild closure. Other3accepted candidates stay byte-identical and are not processed."
+  ],
+  "repair_parameters": {
+    "normal_dot_tolerance": 1e-06,
+    "positive_overlap_area_m2": 1e-08,
+    "pair_boundary_margin_m": 0.001,
+    "method": "deterministic two-sided bisector clipping ONLY for actual parallel-prism depth interval + footprint volume conflicts",
+    "volume_depth_rule": "signed center separation must be inside asymmetric lower/upper bounds derived from A.depth/B.depth (.65interior/.35exterior)"
+  }
+}
