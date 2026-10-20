@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "eldonia",
+      "revision": "r002",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/eldonia/r002/generator.py",
+        "config": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/eldonia/r002/build-config.json",
+        "helper": "/workspace/shared/lowpoly-batch71-20261020/scripts/asset_common.py",
+        "audit": "/workspace/shared/lowpoly-batch71-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/eldonia/r002/brief.json",
+        "references": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/eldonia/r002/references.json"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+from pathlib import Path
+import json,datetime,subprocess,time
+R=Path.cwd();W=R/'production/continuous-small-life-round28-20261020/work/batch-71';x=next(x for x in json.loads((W/'final-selection.json').read_text()) if x['asset_id']=='eldonia');b=R/x['path'];argv=['flock','/tmp/lowpoly-production-blender.lock','blender','-b','--factory-startup','--disable-autoexec','--threads','2','--python-exit-code','1','--python',str(W/'render-ventral-lit.py'),'--',str(b/'model.glb'),'--revision',x['revision'],'--brief',str(b/'candidate-brief.json'),'--references',str(b/'references.json'),'--output-dir',str(b/'supplemental-ventral-lit'),'--views','bottom','--turntable-frames','0','--resolution','512','--samples','24'];start=datetime.datetime.now(datetime.timezone.utc).isoformat();t=time.monotonic()
+with (b/'supplemental-ventral-lit.log').open('w') as f:p=subprocess.Popen(argv,stdout=f,stderr=subprocess.STDOUT);code=p.wait()
+with (b/'lifecycle.jsonl').open('a') as f:f.write(json.dumps({'stage':'supplemental-ventral-lit','runner_pid':p.pid,'started_at':start,'ended_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'wall_seconds':time.monotonic()-t,'exit_code':code,'command':argv})+'\n')
+assert code==0;print('ventral rendered')

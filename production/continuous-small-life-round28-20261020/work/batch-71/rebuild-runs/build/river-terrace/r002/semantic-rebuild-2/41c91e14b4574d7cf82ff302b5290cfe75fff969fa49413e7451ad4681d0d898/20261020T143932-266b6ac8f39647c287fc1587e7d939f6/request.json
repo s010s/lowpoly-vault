@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch71-20261020/production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/river-terrace/r002/semantic-rebuild-2/41c91e14b4574d7cf82ff302b5290cfe75fff969fa49413e7451ad4681d0d898/20261020T143932-266b6ac8f39647c287fc1587e7d939f6/outputs"
+  ],
+  "created_at": "2026-10-20T14:39:32.559076+00:00",
+  "fingerprint": "41c91e14b4574d7cf82ff302b5290cfe75fff969fa49413e7451ad4681d0d898",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch71-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6421,
+        "path": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/brief.json",
+        "sha256": "d22dd661d22729a22082172ff129d7eeac71553b6e797e531cd487ec0003d8c7"
+      },
+      "config": {
+        "bytes": 1040,
+        "path": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/build-config.json",
+        "sha256": "27826a2522a046151d47dd6a5978ace6ed0354c13f7c3b5da3593d6c8831ccd2"
+      },
+      "generator": {
+        "bytes": 12546,
+        "path": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/generator.py",
+        "sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch71-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 4175,
+        "path": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/references.json",
+        "sha256": "e6f9514f35eea01029b139ce4466e2d6540310d7e07d0a01ee7dab36b2e927b6"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "river-terrace",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch71-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch71-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/river-terrace/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T143932-233436382cb1421298cb641d41c83f03"
+}

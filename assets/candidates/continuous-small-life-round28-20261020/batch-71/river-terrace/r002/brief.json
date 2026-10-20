@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "river-terrace",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed palette-only low-poly teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Broad elevated abandoned former floodplain benches beside lower current floodplain; Clear steep risers separate terrace benches from lower active floodplain and narrow river; Real topographic cross-section retains bench height independently of water color; not simple meandering-river recolor. Scope: Generic fluvial river-terrace teaching terrain, not surveyed named locality.80x70m nominal footprint, terrace tops11m above module underside, lower active floodplain3m and water2.6m are artistic targets. Broad benches are abandoned former floodplains at higher level than active channel. No precise terrace age, climate cause, uplift rate, lithology or locality asserted. One modestly curving active river included as context, not primary unique feature.",
+      "required_sources": [
+        "USGS-TERRACE"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Broad elevated abandoned former floodplain benches beside lower current floodplain; Clear steep risers separate terrace benches from lower active floodplain and narrow river; Real topographic cross-section retains bench height independently of water color; not simple meandering-river recolor. Scope: Generic fluvial river-terrace teaching terrain, not surveyed named locality.80x70m nominal footprint, terrace tops11m above module underside, lower active floodplain3m and water2.6m are artistic targets. Broad benches are abandoned former floodplains at higher level than active channel. No precise terrace age, climate cause, uplift rate, lithology or locality asserted. One modestly curving active river included as context, not primary unique feature.",
+      "required_sources": [
+        "USGS-TERRACE"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact8 canonical512px views. Eldonia separately adds ventral diagnostic, no canonical replacement. Seven stages separate.",
+  "required_deliverables": [],
+  "claim_scope": "Generic fluvial river-terrace teaching terrain, not surveyed named locality.80x70m nominal footprint, terrace tops11m above module underside, lower active floodplain3m and water2.6m are artistic targets. Broad benches are abandoned former floodplains at higher level than active channel. No precise terrace age, climate cause, uplift rate, lithology or locality asserted. One modestly curving active river included as context, not primary unique feature.",
+  "nominal_dimensions_blender_xyz_m": [
+    80,
+    70,
+    11.2
+  ],
+  "dimension_status": "Illustrative nominal targets not measured specimen/site; final exact bounds reported separately.",
+  "recognition_features": [
+    "Broad elevated abandoned former floodplain benches beside lower current floodplain",
+    "Clear steep risers separate terrace benches from lower active floodplain and narrow river",
+    "Real topographic cross-section retains bench height independently of water color; not simple meandering-river recolor"
+  ],
+  "concept_decisions": "Actual concept pixels inspected: retain broad paired benches and clear risers, reject highly repeated horizontal texture bands and vegetation. One original closed terrain volume with top levels11m and3m; risers8m high. Slight unequal natural bank edges and modest river curvature. Opaque finite water strip top2.6m within lower active floodplain. No oxbow, trees, multilevel staircase, large canyon shoulders or incidental rocks. Actual NPS Chaco authoritative diagram supplies explicit terrace versus floodplain versus innerchannel cross-section; USGS terrace photo is contextual only and not a scale source.",
+  "style": "Palette-only refined faceted full-volume low-poly",
+  "intended_use": "Supporting educational prop256\u2013512px, not specimen/site replica",
+  "created_at": "2026-10-20T14:30:50.045028+00:00",
+  "validation_profile": "static-stylized-v1"
+}

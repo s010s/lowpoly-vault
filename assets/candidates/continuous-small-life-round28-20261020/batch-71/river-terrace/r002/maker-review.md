@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Personally inspected all8 final individual512px frames and lossless sheet. Broad level higher abandoned floodplain benches have unequal scalloped edges and strong risers to lower active floodplain. Narrow opaque active river modestly curves at lower level. Front/rear cross-section exposes substantial height difference independently of color; clay retains bench/riser geometry, proving not a meanderingriver recolor. Side view is naturally occluded by intact bench volume. r002 removes regular side stripes; quiet closed terrain module, no repeated terrace staircase or incidental trees. Nominal artistic scale and no climate/uplift/locality claim retained.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.
