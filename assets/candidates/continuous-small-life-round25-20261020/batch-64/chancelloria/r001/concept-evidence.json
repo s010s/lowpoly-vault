@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "chancelloria",
+  "revision": "r001",
+  "labels": {
+    "en": "chancelloria"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "3e1e643beb551fe16db51f72be43f3ec9ff5c9c5d66ea1dad8dd19581822591c"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "3bfaef8708d6757abf77eeddbea9714e56f7276495d4679bd9435499d9893735"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "de4f100c6a764160cb61015a8a4115df16a79ec9c728594d4f3f42adb0c6b63a"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "6fc23973d6911ffeb433e127c3337d29d3ef23280f80d13b61dc9bb1a02cc038"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "90bd0921436db396da658240fd19af00c5c791312478b753a847b21d3b707632"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "9096e21ae95f79bb6b4bd8c8eefd3f0dc46a3cfecfa01636d555a388300fcf47"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "baacbf6100b8babb057d1595f0c3efeee8c15ad6c8eb9ea218f5bfad52705bc4"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "872fcd4ce71a2b4ee2c06cf8f2cacbf46e45b20706cfc586332c344c59b7a786"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39"
+      }
+    ],
+    "cross_view_consistency_note": "A concept cylindrical volume and open crown retained. Concept stars can look flat and cruciform; override every sclerite with five real rays including one prominent radial outward ray and four tangential arms. These satisfy reported4\u20137 total rays; do not substitute Allonnia three-ray morphology. Body tapers narrower toward attachment base, not a flowerpot. Crown dense spaced stars, open recessed interior with wall thickness. No substrate or scenic pedestal. Dark interior is cavity not painted disc at top.",
+    "hidden_surface_decisions": "A concept cylindrical volume and open crown retained. Concept stars can look flat and cruciform; override every sclerite with five real rays including one prominent radial outward ray and four tangential arms. These satisfy reported4\u20137 total rays; do not substitute Allonnia three-ray morphology. Body tapers narrower toward attachment base, not a flowerpot. Crown dense spaced stars, open recessed interior with wall thickness. No substrate or scenic pedestal. Dark interior is cavity not painted disc at top."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:18:03.568087+00:00",
+    "modeling_started_at": null,
+    "note": "Real tool metadata and observer invocation/completion boundaries retained. No internal provider timestamp returned. Original generator authoring occurred after13:18:57Z complete freezes and before13:20:13Z first geometry invocation. See chronology-clarification.json: invocation-start field is only approximate, not an exact timestamp. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 20.3197,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b00c4b0b129d889669911b16ed23c623add2f45d7f2373e96d7d14306bedfd06"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b00c4b0b129d889669911b16ed23c623add2f45d7f2373e96d7d14306bedfd06"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "0dd8a508f81f88d9321d3a56a1eb38d7cde342a124ab9b625d134fc540f39a61",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "9c8f141d93873ac49badc086d69053b3acb32bd86a6c9a8e95f053d066caa7c8"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "3e1e643beb551fe16db51f72be43f3ec9ff5c9c5d66ea1dad8dd19581822591c",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "853a907af053c9a973a6be54e1682ab6c4dee8bf92e1ebb3b7c959a35fcf58ac"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

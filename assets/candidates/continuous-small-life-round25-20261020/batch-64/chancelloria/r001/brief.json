@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "chancelloria",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed stylized teaching prop, pending independent QA",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Whole attached upright cylindrical tapered hollow sac, closed narrowed attachment base and open apical crown; Surface star sclerites each five total rays: one outward projecting central and four tangential spreading rays; crown ring denser; All surfaces volumetric, no eyes, limbs, branching, cactus needles or claim of settled sponge affinity. Scope: Evidence-informed genus-level whole-organism living exterior reconstruction, not measured lectotype replica. Unknown animal affinity, not a true-sponge assertion. Body/crown topology follows ROM morphology; pose,0.16m nominal height, color and sclerite layout artistic. Fossil flattened preservation does not establish restored circular section.",
+      "required_sources": [
+        "PRIMARY-chancelloria"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Whole attached upright cylindrical tapered hollow sac, closed narrowed attachment base and open apical crown; Surface star sclerites each five total rays: one outward projecting central and four tangential spreading rays; crown ring denser; All surfaces volumetric, no eyes, limbs, branching, cactus needles or claim of settled sponge affinity. Scope: Evidence-informed genus-level whole-organism living exterior reconstruction, not measured lectotype replica. Unknown animal affinity, not a true-sponge assertion. Body/crown topology follows ROM morphology; pose,0.16m nominal height, color and sclerite layout artistic. Fossil flattened preservation does not establish restored circular section.",
+      "required_sources": [
+        "PRIMARY-chancelloria"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px views;7stages separate",
+  "required_deliverables": [],
+  "claim_scope": "Evidence-informed genus-level whole-organism living exterior reconstruction, not measured lectotype replica. Unknown animal affinity, not a true-sponge assertion. Body/crown topology follows ROM morphology; pose,0.16m nominal height, color and sclerite layout artistic. Fossil flattened preservation does not establish restored circular section.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.065,
+    0.065,
+    0.16
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; export measured separately",
+  "recognition_features": [
+    "Whole attached upright cylindrical tapered hollow sac, closed narrowed attachment base and open apical crown",
+    "Surface star sclerites each five total rays: one outward projecting central and four tangential spreading rays; crown ring denser",
+    "All surfaces volumetric, no eyes, limbs, branching, cactus needles or claim of settled sponge affinity"
+  ],
+  "concept_decisions": "A concept cylindrical volume and open crown retained. Concept stars can look flat and cruciform; override every sclerite with five real rays including one prominent radial outward ray and four tangential arms. These satisfy reported4\u20137 total rays; do not substitute Allonnia three-ray morphology. Body tapers narrower toward attachment base, not a flowerpot. Crown dense spaced stars, open recessed interior with wall thickness. No substrate or scenic pedestal. Dark interior is cavity not painted disc at top.",
+  "style": "Restrained palette-only refined faceted low-poly real3D",
+  "intended_use": "Educational supporting prop at256-512px, not museum-grade reconstruction",
+  "created_at": "2026-10-20T13:18:57.652716+00:00",
+  "validation_profile": "static-stylized-v1"
+}

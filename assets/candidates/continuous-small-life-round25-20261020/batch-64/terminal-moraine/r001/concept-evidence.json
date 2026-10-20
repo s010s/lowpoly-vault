@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "terminal-moraine",
+  "revision": "r001",
+  "labels": {
+    "en": "terminal-moraine"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "31c3eda6721127b5bb04e5d9fa797a6c51164eb991fd43a28cc58741c20b2470"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "b5cd3398072788f5a6e245788bb6fc8cf1a03150962183d43cb52d89e6ec9311"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "361a7b88656d0166182160f5828b06850a014f3b5467dd732ce7fc334bf2967b"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "e448956010b95ca1a8f6752b6a00276df06f0ba6da08bceb917ca839c5e1d39b"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "90bd0921436db396da658240fd19af00c5c791312478b753a847b21d3b707632"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "0f53f78599b2bf41995a24aa82f6f1dbdacaffe67cc316ada94074cbf782e059"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "baacbf6100b8babb057d1595f0c3efeee8c15ad6c8eb9ea218f5bfad52705bc4"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "872fcd4ce71a2b4ee2c06cf8f2cacbf46e45b20706cfc586332c344c59b7a786"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39"
+      }
+    ],
+    "cross_view_consistency_note": "C concept mixed debris retained; strengthen its weak arc into a single obvious broad crescent ridge convex toward-Y/down-valley. High broad central ridge at y=-6, arms curve toward+Y at sides. Interior+Y floor low and enclosed only across front/sides; rear+Y open valley direction. Scatter embedded varied angular stones along actual crest and flanks, not scenic mountain backdrop. No lake/ice, no esker serpentine.",
+    "hidden_surface_decisions": "C concept mixed debris retained; strengthen its weak arc into a single obvious broad crescent ridge convex toward-Y/down-valley. High broad central ridge at y=-6, arms curve toward+Y at sides. Interior+Y floor low and enclosed only across front/sides; rear+Y open valley direction. Scatter embedded varied angular stones along actual crest and flanks, not scenic mountain backdrop. No lake/ice, no esker serpentine."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:18:03.568087+00:00",
+    "modeling_started_at": null,
+    "note": "Real tool metadata and observer invocation/completion boundaries retained. No internal provider timestamp returned. Original generator authoring occurred after13:18:57Z complete freezes and before13:20:13Z first geometry invocation. See chronology-clarification.json: invocation-start field is only approximate, not an exact timestamp. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 21.5648,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "5ec0f664ef4204510e7d5284504e7921a8ab02cb388b29d35676d1c21350aca8"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "5ec0f664ef4204510e7d5284504e7921a8ab02cb388b29d35676d1c21350aca8"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "706c374e1ad46706eda7d4a3dfc881e7b0385bcd7414d3cd4a8a3b628b201ea4",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "9e690e8c5f14e82c922d75e861ea95e72e0a12aa48b808d3b2f5218bc5a74ce2"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "31c3eda6721127b5bb04e5d9fa797a6c51164eb991fd43a28cc58741c20b2470",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "4de63558ce699080720acdc0b733023f1331fee2344d54230d03580e76004aa0"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
