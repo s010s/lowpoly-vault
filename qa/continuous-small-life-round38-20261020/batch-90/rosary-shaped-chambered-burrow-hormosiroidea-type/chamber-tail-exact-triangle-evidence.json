@@ -1,0 +1,122 @@
+{
+  "asset_id": "rosary-shaped-chambered-burrow-hormosiroidea-type",
+  "revision": "r001",
+  "glb_sha256": "6775f982eb3b04c5e8c6fb7c198a485cb8774fbe4728f7101bc922d48fc8f954",
+  "lobe_index": 11,
+  "center": [
+    0.03333333333333333,
+    -0.0071799900672632295
+  ],
+  "normal": [
+    -0.3920773328594068,
+    0.9199322611246189
+  ],
+  "host_top_m": 0.009,
+  "host_float32_m": 0.008999999612569809,
+  "host_float32_ulp_m": 9.313225746154785e-10,
+  "method": "Exact indexed exported GLB triangles in float64 arithmetic. No renderer, material mask, smoothing or config radius substituted. All nodes have identity transforms. Query points lie outside every chamber radius and far outside1mm neck envelope.",
+  "samples": [
+    {
+      "requested_normal_radius_m": 0.0032,
+      "point_blender_xy": [
+        0.034587980798483436,
+        -0.01012377330286201
+      ],
+      "nearest_chamber_center_distance_m": 0.0032000000000000015,
+      "nearest_neck_centerline_distance_m": 0.0032000000000000015,
+      "hit_height_m": 0.009002153856399171,
+      "height_above_host_m": 2.1538563991715942e-06,
+      "actual_triangle_vertices_blender_xyz": [
+        [
+          0.03500000014901161,
+          -0.010571428574621677,
+          0.008999999612569809
+        ],
+        [
+          0.03558456525206566,
+          -0.009431222453713417,
+          0.009002920240163803
+        ],
+        [
+          0.03455169126391411,
+          -0.010121366940438747,
+          0.009002218954265118
+        ]
+      ],
+      "barycentric_weights": [
+        0.03555740205135405,
+        0.019701178974541295,
+        0.9447414189741047
+      ]
+    },
+    {
+      "requested_normal_radius_m": 0.0035,
+      "point_blender_xy": [
+        0.03470560399834126,
+        -0.010399752981199396
+      ],
+      "nearest_chamber_center_distance_m": 0.003500000000000001,
+      "nearest_neck_centerline_distance_m": 0.003500000000000001,
+      "hit_height_m": 0.00900125184831039,
+      "height_above_host_m": 1.2518483103914069e-06,
+      "actual_triangle_vertices_blender_xyz": [
+        [
+          0.03455169126391411,
+          -0.010121366940438747,
+          0.009002218954265118
+        ],
+        [
+          0.03485628217458725,
+          -0.01085671130567789,
+          0.008999999612569809
+        ],
+        [
+          0.03500000014901161,
+          -0.010571428574621677,
+          0.008999999612569809
+        ]
+      ],
+      "barycentric_weights": [
+        0.5642374688083692,
+        0.2883667144950432,
+        0.1473958166965875
+      ]
+    },
+    {
+      "requested_normal_radius_m": 0.0038,
+      "point_blender_xy": [
+        0.03482322719819908,
+        -0.010675732659536781
+      ],
+      "nearest_chamber_center_distance_m": 0.003800000000000001,
+      "nearest_neck_centerline_distance_m": 0.003800000000000001,
+      "hit_height_m": 0.009000408038054743,
+      "height_above_host_m": 4.080380547437368e-07,
+      "actual_triangle_vertices_blender_xyz": [
+        [
+          0.03455169126391411,
+          -0.010121366940438747,
+          0.009002218954265118
+        ],
+        [
+          0.03485628217458725,
+          -0.01085671130567789,
+          0.008999999612569809
+        ],
+        [
+          0.03500000014901161,
+          -0.010571428574621677,
+          0.008999999612569809
+        ]
+      ],
+      "barycentric_weights": [
+        0.1840300147545946,
+        0.6559420312664938,
+        0.16002795397891165
+      ]
+    }
+  ],
+  "max_tail_height_to_float32_ulp_ratio": 2312.6856986805797,
+  "interpretation": "These are actual meshed host-to-chamber interpolation tails, not float32 output quantization. Their up-to2.15um height is visually negligible at512px but preserved in the geometry. The original chamber_radius_range has no added contour-height threshold; an arbitrary threshold cannot turn this into a radius pass.",
+  "minimum_repair": "Keep original frozen radius range and13 chambers/path/neck geometry. Ensure radial samples at or outside each true chamber base are exactly host/neck baseline, constrain the transition support so CDT triangles do not carry a positive chamber contribution beyond the base, remeasure exact exported geometry. No material/render workaround, no freeze edits."
+}
