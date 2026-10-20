@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "slot-canyon",
+  "revision": "r001",
+  "labels": {
+    "en": "slot-canyon"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "925d33d9d9a2703c076608e2af7558101715ce5e7c0a2a3e11b8e316777dcc05"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "55efe8e52d7937f1322c512dba40e2a449296d48c6cd2bea9a28c81598812c82"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "79412e940a9bf5d3524219de0ece1cee5eb01369db6492518bd52242c6351ac6"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "734cf3e34924f94707442432d1034840b5e8975af997ebf76da7619a4571e067"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "403e584448268a110e01e3ae24e790b46dfd7332d704ba51d371aa84a73e0760"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "bac98bd818a1e1f0ef5429bf7c9a60b03a027079368208b4e3c5d7501f17fd42"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "1d21e8d6c394dde229aa3013e684a128eaea7c50bfdfdf153426aea53f766af9"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "8d4ddf3c9c948327d48ab7d9000db7ae1693b11e80fa51e925fc4033052b6017"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "77b9fac4f4e8a4a72a829cd75409e04f945bc6e9ff4825e922d95956d346818d"
+      }
+    ],
+    "cross_view_consistency_note": "Concept actual top and side labels swapped: resolve canonical top aszdown, side+X. Adopt opposed fluted walls and winding throat, reject stepped amphitheater-like widening and interior rubble. Freeze28m long Y-axis open passage,12m walls,1.7-2.3m throat with smooth S-bend and inward bulges; outer crop boundaries14m wide closed solid, flat underside and sandy floor. Wall bands coherent, large/medium flutes, no repeated equal steps or blocks. Front and rear open, no roof/arch/bridge. Generic form informed by actual Sheets Gulch photo not copying its shape, no named-site geology, period or flood forecast asserted.",
+    "hidden_surface_decisions": "Concept actual top and side labels swapped: resolve canonical top aszdown, side+X. Adopt opposed fluted walls and winding throat, reject stepped amphitheater-like widening and interior rubble. Freeze28m long Y-axis open passage,12m walls,1.7-2.3m throat with smooth S-bend and inward bulges; outer crop boundaries14m wide closed solid, flat underside and sandy floor. Wall bands coherent, large/medium flutes, no repeated equal steps or blocks. Front and rear open, no roof/arch/bridge. Generic form informed by actual Sheets Gulch photo not copying its shape, no named-site geology, period or flood forecast asserted."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T12:58:40.884Z",
+    "modeling_started_at": null,
+    "note": "Real tool metadata and observer invocation/completion boundaries retained. No internal provider timestamp returned. Original generator authoring bounded after12:59:56Z freeze and before13:01:52Z first geometry invocation; repair freezes retain their own dates. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 16.9098,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "5610fd528b938b07c32ed7dbcc3099eb9a457d14942ab34410a13574920b776b"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "5610fd528b938b07c32ed7dbcc3099eb9a457d14942ab34410a13574920b776b"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "676323617954e91ed83d382b22c23ab8fe1455c14640e8565a5cf896584c7e2f",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "e7f037a7d0586e6ee4740ee54852ef17407476c9f1bf4c18c0cca2fb3b5e09cb"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "925d33d9d9a2703c076608e2af7558101715ce5e7c0a2a3e11b8e316777dcc05",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "433b7d12a8bfb3c117e87b157276d98e79c48d43ee13bf0d4fccd9248c82d844"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/generator.py",
+    "--",
+    "--config",
+    "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/build-config.json",
+    "--output",
+    "/tmp/lowpoly-batch63-20261020/production/continuous-small-life-round24-20261020/work/batch-63/repair-r002/rebuild-runs/build/dogtooth-spar-cavity/r002/semantic-rebuild-1/57004be2fb6f35ebf0794c59f10843c620efd1110c0e3ad36b04e775084b549b/20261020T130809-373b44c391a848378db327a87b934409/outputs"
+  ],
+  "created_at": "2026-10-20T13:08:09.533970+00:00",
+  "fingerprint": "57004be2fb6f35ebf0794c59f10843c620efd1110c0e3ad36b04e775084b549b",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/tmp/lowpoly-batch63-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 1982,
+        "path": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/build-config.json",
+        "sha256": "56976f3347fd79aebe39776b95fbe17b0132a2aec91b4c2453aed16b641101af"
+      },
+      "generator": {
+        "bytes": 11609,
+        "path": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/generator.py",
+        "sha256": "130efddf57ef3dfd820c0ecc8a79974315e8c44b366de1793cb7f84113aa8503"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/tmp/lowpoly-batch63-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "dogtooth-spar-cavity",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch63-20261020/scripts/qa_glb.py",
+        "config": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/build-config.json",
+        "generator": "/tmp/lowpoly-batch63-20261020/assets/candidates/continuous-small-life-round24-20261020/batch-63/dogtooth-spar-cavity/r002/generator.py",
+        "helper": "/tmp/lowpoly-batch63-20261020/scripts/asset_common.py"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180.0
+  },
+  "run_id": "20261020T130803-fb8222278dbf4d40ad244d2c9d292ba5"
+}

@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual eight512px frames inspected. Full tall tapered sac and open apical pore remain legible across hero/reverse/top/clay; no limbs/eyes/branches. Dense crown is visibly finer than concept, body sclerites are five-ray geometric stars (four spreading tangential arms plus one outward ray), outward rays especially evident at silhouette edges; radial projection foreshortens in face-on views. Deep inner wall and closed basal cavity, full backside. Faceted body and repeated sclerite placement are stylizations, not fossil-measured pattern. Unknown animal affinity retained, correct lectotype consulted not Allonnia.
+
+Inspected lossless2048x1060 contact-sheet at original resolution, each retained frame512x512. Exact final clean-import GLB hash 3e1e643beb551fe16db51f72be43f3ec9ff5c9c5d66ea1dad8dd19581822591c. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "asset_id": "caldera",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Generic volcanic collapse-caldera landform teaching asset: broad subsided basin with uneven remnant rim, inward scarps and outward slopes. Not a named caldera, meteor impact crater, conical volcano vent or geological age claim.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "NPS-CALDERA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "NPS-CALDERA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Broad low subsided volcanic basin much wider than relief",
+      "required_sources": [
+        "NPS-CALDERA"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Uneven enclosing remnant rim with steep inward-facing scarps and gentler outer slopes",
+      "required_sources": [
+        "NPS-CALDERA"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Wide depressed basin floor above closed underside plus one subdued breach",
+      "required_sources": [
+        "NPS-CALDERA"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "No lava, meteor impact rays, eruption spectacle, named site or age claim",
+      "required_sources": [
+        "NPS-CALDERA"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Fixed8 actual512px exactGLB views; zero turntable. Seven stages separate; GPU/scene/formal/user approvals remain unrun until independently established.",
+  "required_deliverables": [
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/generator.py",
+      "sha256": "d8c138e0064c2e1b04049b0a976273b9b1a18c7886f4322b6100c7cc93625ff5"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/build-config.json",
+      "sha256": "787637d7802043b008111a51fd28b9a02388acc5b963a8ea88a713ace86fdc2a"
+    },
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/caldera/r003/source.blend",
+      "sha256": "dcc5152cad2ae5a0abbf28c28a54c655784daaf38ccee68fb4cea804ee7fee03"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    4000,
+    3400,
+    550
+  ],
+  "scale_note": "Illustrative nominal4000m by3400m footprint and550m relief; broad approximately2200m basin. No measured named-site proportions or chronological claim.",
+  "concept_interpretation": "Concept actual pixels inspected: broad depressed uneven floor, broken ring of inner scarps, outer slopes and low breach adopted. Top and side coherent but hero looks steeper; freeze550m total relief against4km width to preserve basin rather than cone. Deliberate wide inner floor radius around1100m, low asymmetry and sparse erosion gullies. Rim irregular radial bays with variable relief, one subdued southern breach. Basin floor above underside. Mesh solid closed underside, no floating ring or hollow bottom bowl; material zone changes follow form. No lava, lake, smoke, eruption, plants or measured locality tracing.",
+  "feature_obligations": [
+    "Broad low subsided volcanic basin much wider than relief",
+    "Uneven enclosing remnant rim with steep inward-facing scarps and gentler outer slopes",
+    "Wide depressed basin floor above closed underside plus one subdued breach",
+    "No lava, meteor impact rays, eruption spectacle, named site or age claim"
+  ],
+  "claim_scope": "Generic volcanic collapse-caldera landform teaching asset: broad subsided basin with uneven remnant rim, inward scarps and outward slopes. Not a named caldera, meteor impact crater, conical volcano vent or geological age claim.",
+  "origin": "BlenderZup,-Yfront floor-contact footprint center; glTFYup,+Zfront",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:48:23.805351+00:00",
+    "frozen_design_brief_sha256": "6dfe4d60921917f33caf94454a3572abfc0cc1624333d9ad26478f906090f504",
+    "note": "r003 localized QA repair; original frozen claims/scope/scale/views unchanged. Delivery source/generator/config binding and rights complete before final renders."
+  }
+}

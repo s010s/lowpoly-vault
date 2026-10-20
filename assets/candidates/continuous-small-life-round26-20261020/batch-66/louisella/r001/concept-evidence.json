@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "louisella",
+  "revision": "r001",
+  "labels": {
+    "en": "louisella"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "4632a79722f7caaa3b4df476237b438cc9277ab28f3075f3afdd5e2a488e4b62"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "cdcb3d56b951da41a287c7f7492efc7bcf5a2a2feb04682dd1ca9ca218575b1c"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "03b197a0d42d680e4d77058834c73d0105bac05663a07fa2d988fa3ede145534"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "dc200005bdf3030b68ccd7aee829fee0660fad751e998e3473ad5c9cfffbe507"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "877e05c779b798dc0b4d228c6b2358270a1547caaa62be185f2303955d0fde02"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "b29b07f94845ebad6f13e68ce5a1395347dd7e73f5eb5d633f735258fc71d75c"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "2b63e5aad2f55665c79b3d2ff5da18cda45ea59e465420588c74203214ce7a10"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "89e8e87d6716e011066211674838393520648ca5e46de1b34bb69be85701a104"
+      }
+    ],
+    "cross_view_consistency_note": "Original concept inspected at full resolution. Retain long zoned worm and paired rows. Override concept pointed rear with blunt rounded unspined posterior and small terminal aperture; no tail appendages. Concept long-spike count not reliable: build exactly25 radial long scalids at middle of proboscis. Reduce inflated spiny anterior bulb toward continuous tapered trunk, preserve distinct anterior short-spine, annulated middle, papillate posterior and smooth rear zones. Paired papilla rows continue across dorsal middle/posterior, short trunk spines remain elsewhere until unspined rear. Complete real volumes, mouth recessed, no painted-disc mouth. No substrate.",
+    "hidden_surface_decisions": "Original concept inspected at full resolution. Retain long zoned worm and paired rows. Override concept pointed rear with blunt rounded unspined posterior and small terminal aperture; no tail appendages. Concept long-spike count not reliable: build exactly25 radial long scalids at middle of proboscis. Reduce inflated spiny anterior bulb toward continuous tapered trunk, preserve distinct anterior short-spine, annulated middle, papillate posterior and smooth rear zones. Paired papilla rows continue across dorsal middle/posterior, short trunk spines remain elsewhere until unspined rear. Complete real volumes, mouth recessed, no painted-disc mouth. No substrate."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:35:44.080496+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 6.0674,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "17b3824577a208fb0fc3822022e55507afa7925d899dd7a9a6e56ba0cdf631ab"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "17b3824577a208fb0fc3822022e55507afa7925d899dd7a9a6e56ba0cdf631ab"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "c9af7afc7d9cad4726ef90c2c2e6f4b2c9d72224c5cb01d6b8d2a8e76c202eb9",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "e967a27847cbf1ab9ff4489f1a9780b7968975c953c01da47ef530514733242d"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "4632a79722f7caaa3b4df476237b438cc9277ab28f3075f3afdd5e2a488e4b62",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "ae63b56edffa8191a3189b4b18835a710581af9e89f2bf8d0b1fdedd317bac6c"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

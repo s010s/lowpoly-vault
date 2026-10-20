@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch64-20261020/production/continuous-small-life-round25-20261020/work/batch-64/rebuild-runs/build/parabolic-dune/r001/semantic-rebuild-1/21fd06b87a48c3a13e62a3d53288f2f167768d97cdcf5cae18ec88708729b70f/20261020T132221-c4c992d844994415bd38f93e25725da6/outputs"
+  ],
+  "created_at": "2026-10-20T13:22:21.637747+00:00",
+  "fingerprint": "21fd06b87a48c3a13e62a3d53288f2f167768d97cdcf5cae18ec88708729b70f",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5692,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/brief.json",
+        "sha256": "3d3cce1ebe546ef76170a0f106f28684b548887c7903bac62abedc12bac32ddd"
+      },
+      "config": {
+        "bytes": 834,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/build-config.json",
+        "sha256": "de707c910fa4cec3c75caf7367c1add8dc4604f1001e4adbf2bdb153fac2dd67"
+      },
+      "generator": {
+        "bytes": 9378,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/generator.py",
+        "sha256": "90bd0921436db396da658240fd19af00c5c791312478b753a847b21d3b707632"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1327,
+        "path": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/references.json",
+        "sha256": "84a84e16692991fa5bda92ec8aceb97a2c73dcf6d82fc548568f48b1e60c9bda"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "parabolic-dune",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch64-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch64-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch64-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-64/parabolic-dune/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T132213-5b060a371abb49bca0f7c98ae012a3b1"
+}

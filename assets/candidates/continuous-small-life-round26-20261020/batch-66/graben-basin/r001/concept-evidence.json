@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "graben-basin",
+  "revision": "r001",
+  "labels": {
+    "en": "graben-basin"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "27c5dc00cfadcefd096555918a6163cfe6df2c5577721a06c062fab10e413fc6"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "8e50cda65bd17bebc73e7c2bff1fa8a78a3d977177b8d78e60f63bd0539c3ff6"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "1e8d4e0362740999dbc35bd31b96773a89fdf58d9e54b1261c3ac5fc248be39e"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "7596f1fa32b2469af815f9368d1b45f2c0f414f98d160238dbe8298ff2e27caa"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "73db23370c00b9f470d33a8d964a244cc5c183c063341485ebf6f8ef852a7361"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "f1fa2751b4c524091ee6345b71cf7ce774ca4cd4eeb83a7916c048fa898377c5"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "bf1f52f24f9ee7fd41cbef6db3162867e9ae4b26e4b7de2405e6c69c6028bc82"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "c6f493b5adb3125e9d4df1bcfe9baa881f9175de0b6afe2e137afd6a3b209387"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "a0fece5aaccb6ace5f163f135e9739ed5519bf76f942995f141911ed68af2643"
+      }
+    ],
+    "cross_view_consistency_note": "Concept down-dropped central block and two inward-dipping planes retained. Concept fine texture excluded. Author three substantial adjacent fault-bounded prisms; side shoulder surface at15m and central surface at6m. Front/rear matching three marker layers lower in middle by9m. Planes dip towards center and continue through cutaway; no painted lines substituting real displacement. Small deterministic top relief only on shoulders. No lake vegetation arrows or floating pieces.",
+    "hidden_surface_decisions": "Concept down-dropped central block and two inward-dipping planes retained. Concept fine texture excluded. Author three substantial adjacent fault-bounded prisms; side shoulder surface at15m and central surface at6m. Front/rear matching three marker layers lower in middle by9m. Planes dip towards center and continue through cutaway; no painted lines substituting real displacement. Small deterministic top relief only on shoulders. No lake vegetation arrows or floating pieces."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:35:44.096282+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.7144,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "66d914dc119626542ef3969b18d984ec503bc296ed62542dce2728fea3d8e1ce"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "66d914dc119626542ef3969b18d984ec503bc296ed62542dce2728fea3d8e1ce"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "6dc66120b8279b83f2fe2f521f28e2ede77f6b6b5925d4fc31158eeec41fe132",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "dab68eb14435531ba4580344d729b4e86b7da45099d1a43bd0716681eb8bc9c8"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "27c5dc00cfadcefd096555918a6163cfe6df2c5577721a06c062fab10e413fc6",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "a414039b39a9ebaa8680b1a60b8a4aab52493f0bb38da6d7fa00ac41c82a7e37"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

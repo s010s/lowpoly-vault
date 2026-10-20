@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "asset_id": "dogtooth-spar-cavity",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Generic open-front limestone vug lined by pointed scalenohedral calcite crystal habit. Complete thick host and back, readable cavity volume. No assay, chemical purity, measured specimen or exact Wind/Jewel Cave locality claim.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "NPS-DOGTOOTH"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "NPS-DOGTOOTH"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Thick closed-back limestone host with genuinely recessed open-front cavity",
+      "required_sources": [
+        "NPS-DOGTOOTH"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Inward-pointing acute dogtooth crystals with scalenohedral triangular faces, not quartz prisms",
+      "required_sources": [
+        "NPS-DOGTOOTH"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Mixed crystal lengths and wall-lining tiers preserve clear central void",
+      "required_sources": [
+        "NPS-DOGTOOTH"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "Generic crystal habit not mineral assay, exact site or measured specimen",
+      "required_sources": [
+        "NPS-DOGTOOTH"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Fixed8 actual512px exactGLB views; zero turntable. Seven stages separate; GPU/scene/formal/user approvals remain unrun until independently established.",
+  "required_deliverables": [],
+  "nominal_dimensions_blender_xyz_m": [
+    0.45,
+    0.3,
+    0.38
+  ],
+  "scale_note": "Illustrative hand-specimen scale45cm width,30cm depth,38cm height, cavity approximately25cm across; individual visible crystals2-8cm. Not a measurement from source photograph.",
+  "concept_interpretation": "Actual concept pixels inspected: thick jagged host, deep open-front dark cavity, inward pointed crystals and clear central void adopted. Concept appears textured and translucent, resolve texture-free opaque ivory crystals with original triangular planes, no glass dependency. Freeze limestone full shell with closed thick back and underside, front opening toward-Y. Oval irregular opening about25cm, host45cm wide and38cm high, depth30cm. Crystal habit explicit scalenohedron:12 triangular faces, alternating high/low equatorial vertices and unequal axial tips, no hexagonal prismatic shafts. Vary lengths, orientations and sizes in several tiers, taper toward inward cavity volume. Most crystals line wall, a few longer focal crystals, keep central void visible; rear mostly limestone. No copied image silhouette or specimen assay.",
+  "feature_obligations": [
+    "Thick closed-back limestone host with genuinely recessed open-front cavity",
+    "Inward-pointing acute dogtooth crystals with scalenohedral triangular faces, not quartz prisms",
+    "Mixed crystal lengths and wall-lining tiers preserve clear central void",
+    "Generic crystal habit not mineral assay, exact site or measured specimen"
+  ],
+  "claim_scope": "Generic open-front limestone vug lined by pointed scalenohedral calcite crystal habit. Complete thick host and back, readable cavity volume. No assay, chemical purity, measured specimen or exact Wind/Jewel Cave locality claim.",
+  "origin": "BlenderZup,-Yfront floor-contact footprint center; glTFYup,+Zfront"
+}

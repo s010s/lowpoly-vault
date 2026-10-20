@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "esker",
+  "revision": "r001",
+  "labels": {
+    "en": "esker"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "4415be20721b7002b0db1319287626915af648a2086c3ba50a54a8c4ca48b3ed"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "eab68e8711f05103181cfdb85957a4d218da9273088fca3d58aca609cc3185e6"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "4ce774fb42f3c57025b71f0f3cae7a4b93bbc2fad08697c2e0d65447fe02448a"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "6d3d5d0d30dce12551d2cd61c513927490799c2447fde21c7bfc416ef90b980e"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "6d2d204662701dd173a05d3db32fb29bed3c08d5861f147fc276189a61efc6b1"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "c96c5187bcaf4634180506ef06e4d01bc59323c8280ce59fad0b01b225155f3d"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "f83ef575e4a7936f35098910bc5597489131c689e249af9a4b59d75afdcf8112"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f4a545b8eaa488c248b729f208828f403e5117a35987ec87582233a1127fa89c"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "631087c97ed72a78b637b14cfd21ab6f0d3a25e58fe690168a13366fd556f2ba"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept hero/top/side inspected: continuous S-curve and uneven narrow crest adopted, side quiet slope adopted. Concept granular microtexture omitted deliberately in texture-free lowpoly geometry, not replaced by noise. Freeze long axisY700m, two broad gentle bends lateral amplitude80m, local width70m and height35m. Rounded narrow crest not knife-edge; cross section smooth convex top, flanks slope to closed flat footprint. Taper both ends into ground. Material zones reflect crest versus flanks rather than random colors. No scattered decoration, no river channel, no underlying plinth, no direction arrow.",
+    "hidden_surface_decisions": "Actual concept hero/top/side inspected: continuous S-curve and uneven narrow crest adopted, side quiet slope adopted. Concept granular microtexture omitted deliberately in texture-free lowpoly geometry, not replaced by noise. Freeze long axisY700m, two broad gentle bends lateral amplitude80m, local width70m and height35m. Rounded narrow crest not knife-edge; cross section smooth convex top, flanks slope to closed flat footprint. Taper both ends into ground. Material zones reflect crest versus flanks rather than random colors. No scattered decoration, no river channel, no underlying plinth, no direction arrow."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T12:59:21.100Z",
+    "modeling_started_at": null,
+    "note": "Observer invocation/completion boundaries and actual original tool metadata retained. No internal provider timestamp/model seed returned. Original modeling starts only bounded after13:01:08Z freeze and before13:02:44Z first build; exact authoring-start timestamp not sampled. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 7.339,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "aa825ad9705aae7b8dad77a8876cdf7224c6db6f02ba83061e4f6692f2a9803a"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "aa825ad9705aae7b8dad77a8876cdf7224c6db6f02ba83061e4f6692f2a9803a"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "808a03276d70ab371cb0701caf2b645cd92f082ebe761ec4f0d2dda48b2b0def",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "7009323dd4a70ef74322b0d1b8287625ac1b369a8d00aac6c9634a9ba4b6ffc6"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "4415be20721b7002b0db1319287626915af648a2086c3ba50a54a8c4ca48b3ed",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "6de47f1e2fdf94423eb527d1205cb22b7879f56ec2af33b603639d26a18db759"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

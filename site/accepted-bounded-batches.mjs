@@ -161,5 +161,84 @@ export const ACCEPTED_BOUNDED_BATCHES = [
     ],
     "source_commit": "e2ed7b0b13a850f2663a6701fa28edc6ffef6951",
     "independent_review_commit": "6d7ca887cd8b3212b345474d9ebe176fa0840e8e"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch62-20261020.json",
+      "sha256": "e222607d2d8d9273d229ff3bd0eba11e07c3c9064f4790483473bf33b839d52f"
+    },
+    "asset_ids": [
+      "dinomischus",
+      "flowstone-cascade",
+      "slot-canyon",
+      "star-dune"
+    ],
+    "source_commit": "5d6adfef39a90ce12f30ad58fd24f9549d3c64ea",
+    "independent_review_commit": "5d6adfef39a90ce12f30ad58fd24f9549d3c64ea"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch63-20261020.json",
+      "sha256": "645e77cfc425880501a7ba595ca7069604f489d2e350ae1bb75b7971a193608e"
+    },
+    "asset_ids": [
+      "caldera",
+      "dogtooth-spar-cavity",
+      "esker",
+      "siphusauctum"
+    ],
+    "source_commit": "eb646735dfd121553735980d8c11f94adecda8c4",
+    "independent_review_commit": "eb646735dfd121553735980d8c11f94adecda8c4"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch64-20261020.json",
+      "sha256": "9a63d0c0e6f5952729bd57fa9d6216652cc42f1bfaa2ac19ef4e9b8f34e48cdf"
+    },
+    "asset_ids": [
+      "chancelloria",
+      "geyser-sinter-cone",
+      "parabolic-dune",
+      "terminal-moraine"
+    ],
+    "source_commit": "6298c654f849294e11420f3b7c8e5abb167df2a6",
+    "independent_review_commit": "6298c654f849294e11420f3b7c8e5abb167df2a6"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch65-20261020.json",
+      "sha256": "6c7c6e58b0971aab360b9d6fb2bf280622d12e3a19f54989d24c83f2c5b2ba88"
+    },
+    "asset_ids": [
+      "burgessochaeta",
+      "rotational-landslide"
+    ],
+    "source_commit": "567f7a5271cca6271caba26c025bfaf39405a507",
+    "independent_review_commit": "567f7a5271cca6271caba26c025bfaf39405a507"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch66-20261020.json",
+      "sha256": "cf92146f3d2093bdebc4d7b50371773f1a3737477824ecc77eca1b01b7994c6b"
+    },
+    "asset_ids": [
+      "graben-basin",
+      "meandering-river-reach"
+    ],
+    "source_commit": "b8989e6bbc2c2fc0af15f821b80df4ff53baf1c6",
+    "independent_review_commit": "b8989e6bbc2c2fc0af15f821b80df4ff53baf1c6"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/batch67-20261020.json",
+      "sha256": "bfdfc8ca9c1d078814398f81c63fe733fbb91b12fc6ab52a5cba17b0ba6db5e4"
+    },
+    "asset_ids": [
+      "balanced-rock",
+      "marpolia",
+      "u-shaped-glacial-valley"
+    ],
+    "source_commit": "0e61511ad96c905e16139a9489cfaac5b80b51f6",
+    "independent_review_commit": "0e61511ad96c905e16139a9489cfaac5b80b51f6"
   }
 ];

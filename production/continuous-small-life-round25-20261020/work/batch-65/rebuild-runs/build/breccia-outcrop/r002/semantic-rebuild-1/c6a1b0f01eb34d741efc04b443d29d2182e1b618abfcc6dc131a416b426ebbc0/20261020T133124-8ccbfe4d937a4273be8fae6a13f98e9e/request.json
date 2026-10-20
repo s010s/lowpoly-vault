@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch65-20261020/production/continuous-small-life-round25-20261020/work/batch-65/rebuild-runs/build/breccia-outcrop/r002/semantic-rebuild-1/c6a1b0f01eb34d741efc04b443d29d2182e1b618abfcc6dc131a416b426ebbc0/20261020T133124-8ccbfe4d937a4273be8fae6a13f98e9e/outputs"
+  ],
+  "created_at": "2026-10-20T13:31:24.072428+00:00",
+  "fingerprint": "c6a1b0f01eb34d741efc04b443d29d2182e1b618abfcc6dc131a416b426ebbc0",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5695,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/brief.json",
+        "sha256": "67f033d70cbf57fb087cffa9d345758d50bef29e4d2a61111677545702358f97"
+      },
+      "config": {
+        "bytes": 994,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/build-config.json",
+        "sha256": "3de2ba7a0d26109278421d07a33a650a0832c84cc0ae5f49dda97b83d4de9eeb"
+      },
+      "generator": {
+        "bytes": 11195,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/generator.py",
+        "sha256": "28308bc5447f19a57cbba1fe33816e33bc7a36a185e9e4ef19e266d0710ddcb2"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1751,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/references.json",
+        "sha256": "ce72679fbfba8ff501931f8f5aa8dec586d140fb6123a5fff822e19ff327fc9d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "breccia-outcrop",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch65-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch65-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T133116-f81ef6b7f6d94335a882b81623069e1b"
+}

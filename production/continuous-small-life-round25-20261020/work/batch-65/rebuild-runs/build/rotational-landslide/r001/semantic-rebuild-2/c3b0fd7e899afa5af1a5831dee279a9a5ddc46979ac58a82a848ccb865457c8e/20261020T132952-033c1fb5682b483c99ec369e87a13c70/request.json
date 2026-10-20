@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch65-20261020/production/continuous-small-life-round25-20261020/work/batch-65/rebuild-runs/build/rotational-landslide/r001/semantic-rebuild-2/c3b0fd7e899afa5af1a5831dee279a9a5ddc46979ac58a82a848ccb865457c8e/20261020T132952-033c1fb5682b483c99ec369e87a13c70/outputs"
+  ],
+  "created_at": "2026-10-20T13:29:52.429373+00:00",
+  "fingerprint": "c3b0fd7e899afa5af1a5831dee279a9a5ddc46979ac58a82a848ccb865457c8e",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5831,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/brief.json",
+        "sha256": "3cf76e6aa6431499c8f7f21de651ce2773a97d6a740a1418785b16eb4fb3da9f"
+      },
+      "config": {
+        "bytes": 1095,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/build-config.json",
+        "sha256": "89d24f3bf03717ea26be10fa29f902c0543c029276949ed9e2d0abc815b2dc34"
+      },
+      "generator": {
+        "bytes": 10628,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/generator.py",
+        "sha256": "4ba0ed0608ea37a46cce2ca1b7e3a021b851ccc1eaecca5bc8d8e515c5fbfda0"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1161,
+        "path": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/references.json",
+        "sha256": "b04fd2559c9e2e74f938f8cb0a9292198efc4bf96bc853b0586b77ddd2c36806"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "rotational-landslide",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch65-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch65-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch65-20261020/assets/candidates/continuous-small-life-round25-20261020/batch-65/rotational-landslide/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T132928-5fe113a790124ed69b50b26b928784b0"
+}

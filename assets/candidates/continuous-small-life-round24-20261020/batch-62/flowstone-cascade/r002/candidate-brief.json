@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "asset_id": "flowstone-cascade",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Generic cave flowstone cascade teaching asset: connected calcite sheet over three uneven host-rock ledges, rounded lobes and fluted lips. Solid mineral deposit, not flowing water, ice or exact named specimen.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-NPS-FLOW"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-NPS-FLOW"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Connected solid mineral sheet cascading over three uneven host-rock ledges",
+      "required_sources": [
+        "EN-NPS-FLOW"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Rounded calcite lobes and downward fluting with two pendant-bearing ledge lips",
+      "required_sources": [
+        "EN-NPS-FLOW"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Broad spreading basal apron and real host-backed side/rear volume",
+      "required_sources": [
+        "EN-NPS-FLOW"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "Generic carbonate deposition illustration, not a liquid waterfall or named-site replica",
+      "required_sources": [
+        "EN-NPS-FLOW"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed8 exact512px views, zero turntable. All seven stages retain distinct verdicts; no GPU/scene waiver or maker approval.",
+  "required_deliverables": [
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/flowstone-cascade/r002/generator.py",
+      "sha256": "009547cbf3591c912af8ebc920bf356b4c1b0b4b07fae3cc51258744034981da"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/flowstone-cascade/r002/build-config.json",
+      "sha256": "7f83af945e3d6a65ae3edb6e44bb4863a48c528f45da8e5d7b6330f735116958"
+    },
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-62/flowstone-cascade/r002/source.blend",
+      "sha256": "1df4e4482b2320f173341f2e28768a2529bff0189e4bfc65a4746aaf53f06c59"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    4,
+    3,
+    3.5
+  ],
+  "scale_note": "Illustrative4m wide3m deep3.5m height; generic cave deposit, not measured Lechuguilla specimen dimensions.",
+  "concept_interpretation": "Concept three draped ledges, connected ivory sheet and rounded tongues adopted. Reject dense microtexture, icicle forest, plus concept larger than brief pendant count; freeze broad quiet calcite body following three uneven host-rock steps, about18low rounded lip tongues total grouped at two lips, not thin sharp stalactites. Upper bulb and lower fan apron connected along continuous fluted channels. Hidden back and sides solid host-rock volume with modest exposed margin, no floating curtain planes. Three ledge elevations nominal.9,1.85,2.85m with top3.5m. Six broad coherent deposition bands selected with surface material regions, not painted liquid streaks; no water, vegetation or cave room.",
+  "feature_obligations": [
+    "Connected solid mineral sheet cascading over three uneven host-rock ledges",
+    "Rounded calcite lobes and downward fluting with two pendant-bearing ledge lips",
+    "Broad spreading basal apron and real host-backed side/rear volume",
+    "Generic carbonate deposition illustration, not a liquid waterfall or named-site replica"
+  ],
+  "claim_scope": "Generic cave flowstone cascade teaching asset: connected calcite sheet over three uneven host-rock ledges, rounded lobes and fluted lips. Solid mineral deposit, not flowing water, ice or exact named specimen.",
+  "origin": "Floor contact footprint center at Blenderz0; X lateral, -Y front, Zup; glTFYup +Zfront"
+}

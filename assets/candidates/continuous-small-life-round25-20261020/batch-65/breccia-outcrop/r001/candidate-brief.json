@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "breccia-outcrop",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original stylized educational candidate; independent acceptance pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Critical: Coherent irregular matrix outcrop with embedded sharp angular clasts of multiple sizes; Visible contrasting angular clasts across front, side, rear and top, not loose rounded pebbles; Rough stepped asymmetrical volumetric rock mass, closed underside without pedestal. Original generic breccia outcrop teaching prop with embedded angular rock clasts. Not a named locality, specific volcanic origin, assayed composition or geological-age reconstruction. Nominal3.4m extent and palette are illustrative.",
+      "required_sources": [
+        "NPS-ANGULAR"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Critical: Coherent irregular matrix outcrop with embedded sharp angular clasts of multiple sizes; Visible contrasting angular clasts across front, side, rear and top, not loose rounded pebbles; Rough stepped asymmetrical volumetric rock mass, closed underside without pedestal. Original generic breccia outcrop teaching prop with embedded angular rock clasts. Not a named locality, specific volcanic origin, assayed composition or geological-age reconstruction. Nominal3.4m extent and palette are illustrative.",
+      "required_sources": [
+        "NPS-ANGULAR"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Frozen static-stylized-v1 eight actual512px views; no turntable required by profile; all seven stages distinct.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r001/source.blend",
+      "sha256": "d415f03b4c52453df4395f3a2873390e9968554abf68bc8690ad70d009b6cdbc"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r001/generator.py",
+      "sha256": "4ba0ed0608ea37a46cce2ca1b7e3a021b851ccc1eaecca5bc8d8e515c5fbfda0"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round25-20261020/batch-65/breccia-outcrop/r001/build-config.json",
+      "sha256": "6ae4c2e3d65618344d80ebbe3e74211b3b354b1fdbb1054148d18830e09ccb60"
+    }
+  ],
+  "claim_scope": "Original generic breccia outcrop teaching prop with embedded angular rock clasts. Not a named locality, specific volcanic origin, assayed composition or geological-age reconstruction. Nominal3.4m extent and palette are illustrative.",
+  "nominal_dimensions_blender_xyz_m": [
+    3.4,
+    2.4,
+    1.8
+  ],
+  "dimension_status": "Illustrative nominal scale; exported measured pose bounds reported separately",
+  "recognition_features": [
+    "Coherent irregular matrix outcrop with embedded sharp angular clasts of multiple sizes",
+    "Visible contrasting angular clasts across front, side, rear and top, not loose rounded pebbles",
+    "Rough stepped asymmetrical volumetric rock mass, closed underside without pedestal"
+  ],
+  "concept_decisions": "Concept C block silhouette, dark matrix and pale angular fragments retained. Build one irregular closed host mass with slightly protruding embedded irregular polyhedral clasts, no disconnected floating loose pile. Surface embed overlap intentional. Clasts placed across every exposed side and crown, varied three muted clast colors and sizes. Major host relief faceted ledges. No ruler/trees/background from reference, no phototextures.",
+  "style": "Palette-only restrained faceted low-poly, full volume",
+  "intended_use": "Supporting educational asset at256-512px, not museum-grade reconstruction",
+  "created_at": "2026-10-20T13:25:25.557995+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:28:45.506000+00:00",
+    "frozen_design_brief_sha256": "e74a659250556131a3db54024e29fdcaf9acf748cef57daa9e81d4e650edbae1",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

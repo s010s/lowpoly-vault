@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "asset_id": "siphusauctum",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Whole-organism external living reconstruction informed by Siphusauctum fossils. Complete holdfast, bilayered stem, ovoid continuous external calyx sheath with six basal openings and terminal anus. Internal anatomy is not exposed; affiliation, colors and exact soft-body proportions uncertain.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "ROM-PLOS-SIPH"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "ROM-PLOS-SIPH"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "Complete small basal holdfast, narrow long stem and large ovoid calyx",
+      "required_sources": [
+        "ROM-PLOS-SIPH"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Continuous external sheath with SIX basal openings and ONE terminal apical anus",
+      "required_sources": [
+        "ROM-PLOS-SIPH"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "No flower petals, arms or tentacles; no modern phylum asserted",
+      "required_sources": [
+        "ROM-PLOS-SIPH"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "Internal organs not exposed; colors, precise size and soft-body proportions illustrative",
+      "required_sources": [
+        "ROM-PLOS-SIPH"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Fixed8 actual512px exactGLB views; zero turntable. Seven stages separate; GPU/scene/formal/user approvals remain unrun until independently established.",
+  "required_deliverables": [
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/siphusauctum/r001/generator.py",
+      "sha256": "6d2d204662701dd173a05d3db32fb29bed3c08d5861f147fc276189a61efc6b1"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/siphusauctum/r001/build-config.json",
+      "sha256": "4aab8243eb8e9cae90c695d0e165a602f66f4941be49338d9b4f178d8800ebb3"
+    },
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round24-20261020/batch-63/siphusauctum/r001/source.blend",
+      "sha256": "c02dc9653a356a529149177ffeef754d42a66b7dc4c79d437d6d666ad64ad1fd"
+    }
+  ],
+  "nominal_dimensions_blender_xyz_m": [
+    0.07,
+    0.07,
+    0.22
+  ],
+  "scale_note": "Nominal22cm complete specimen height, not a measured holotype; approximately11cm stem and11cm calyx. Actual export envelope reported separately.",
+  "concept_interpretation": "Inspected actual concept pixels: enclosed six-lobed egg-shaped calyx, terminal opening, long stem and low expanded holdfast adopted. Concept front shows more than three visible lower holes and ambiguity in total count. Resolve exactly SIX evenly spaced basal ports in complete circumference, not extra decorative holes. Freeze external full organism, not open tulip petals. Calyx occupies z.11-.22m, maximum radius.035m, slightly six-lobed. Stem outer sleeve tapers and ends above low bulbous flattened holdfast, inner stem continues to holdfast. Shell has real thickness and six rectangular-oval inset through-openings with inner wall; terminal anus smaller than basal calyx width. No invented external arms/tentacles. Topology unseen rear repeats same coherent sixfold plan. Opaque external surface hides internal organs without claiming absence.",
+  "feature_obligations": [
+    "Complete small basal holdfast, narrow long stem and large ovoid calyx",
+    "Continuous external sheath with SIX basal openings and ONE terminal apical anus",
+    "No flower petals, arms or tentacles; no modern phylum asserted",
+    "Internal organs not exposed; colors, precise size and soft-body proportions illustrative"
+  ],
+  "claim_scope": "Whole-organism external living reconstruction informed by Siphusauctum fossils. Complete holdfast, bilayered stem, ovoid continuous external calyx sheath with six basal openings and terminal anus. Internal anatomy is not exposed; affiliation, colors and exact soft-body proportions uncertain.",
+  "origin": "BlenderZup,-Yfront floor-contact footprint center; glTFYup,+Zfront",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T13:04:53.850310+00:00",
+    "frozen_design_brief_sha256": "b0242f7798546bcc547ad1bb59c0bf0671db6a4a182bc321f268361704b65add",
+    "note": "Post-build deliverable path/hash binding only; frozen geometry design, source claims, view contract and scale unchanged. Fresh proof-bound renders use this exact delivery brief."
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent_static_candidate_qa",
+  "created_at": "2026-10-20T13:56:51Z",
+  "source": {
+    "repo": "/workspace/shared/lowpoly-batch65-20261020",
+    "commit": "8cdcfe5c512c146e8a2dbd71e582b828e696e5de",
+    "branch": "candidate/small-life-batch65-concept-20261020",
+    "clean_at_final_check": true,
+    "no_producer_files_modified": true
+  },
+  "policy": {
+    "candidate_recommendation_only": true,
+    "formal_user_approval": false,
+    "publication_approval": false,
+    "gpu_run": false,
+    "scene_run": false,
+    "concept_evidence_integrity_valid": true,
+    "concept_evidence_complete": false,
+    "concept_timestamp_blocker": "Provider-generation timestamp was unavailable; observation times are not substituted."
+  },
+  "stages": ["technical", "visual", "factual", "specification", "runtime_parse", "gpu", "scene"],
+  "batch_budget": {
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "all_four_candidates_within_budget": true
+  },
+  "assets": [
+    {
+      "asset_id": "burgessochaeta",
+      "revision": "r002",
+      "glb_sha256": "6a505f5960c6c973e42ec644dfc078e977c576dff9ed470bc7fc07a27fa9bec4",
+      "triangles": 13116,
+      "bytes": 767732,
+      "materials": 4,
+      "primitives": 8,
+      "outcome": "ACCEPT BOUNDED",
+      "stages": {"technical": "PASS", "visual": "PASS_BOUNDED", "factual": "PASS_BOUNDED", "specification": "PASS", "runtime_parse": "PASS", "gpu": "NOT_RUN", "scene": "NOT_RUN"},
+      "note": "Whole slender animal with 25 representative paired biramous stations, two smooth anterior palps and lateral sampled chaetae; 2015 primary revision supersedes ROM's older first-segment text. Axial views are foreshortened; counts are illustrative."
+    },
+    {
+      "asset_id": "stalagmite-group",
+      "revision": "r001",
+      "glb_sha256": "3b5e8892435c365a612965648f7f1150fad34899b76dfc84edc99d99e34a8668",
+      "triangles": 4320,
+      "bytes": 239460,
+      "materials": 4,
+      "primitives": 12,
+      "outcome": "REVISE",
+      "stages": {"technical": "PASS", "visual": "REVISE", "factual": "PASS_BOUNDED", "specification": "PASS_COUNTS_AND_DELIVERABLES", "runtime_parse": "PASS", "gpu": "NOT_RUN", "scene": "NOT_RUN"},
+      "note": "Five solid rounded floor-grown forms are present, but thick regular stacked-looking horizontal terraces dominate instead of subtle irregular growth and visible longitudinal drip relief."
+    },
+    {
+      "asset_id": "breccia-outcrop",
+      "revision": "r002",
+      "glb_sha256": "bfe0389608e76cd908e46e1b3cbbab91cb4ce282dcc5aa070a098da85d1169af",
+      "triangles": 2116,
+      "bytes": 115304,
+      "materials": 5,
+      "primitives": 8,
+      "outcome": "ACCEPT BOUNDED",
+      "stages": {"technical": "PASS", "visual": "PASS_BOUNDED", "factual": "PASS_BOUNDED", "specification": "PASS", "runtime_parse": "PASS", "gpu": "NOT_RUN", "scene": "NOT_RUN"},
+      "note": "Angular contrasting clasts occur on crown and host sides; no obvious floaters. Many protrusions are shallow and plate-like; keep claim generic and illustrative."
+    },
+    {
+      "asset_id": "rotational-landslide",
+      "revision": "r001",
+      "glb_sha256": "4b8c7caad83fc07bbddacdd15fcb7647148c8f382105639fdf0426d6f454d543",
+      "triangles": 1388,
+      "bytes": 60712,
+      "materials": 5,
+      "primitives": 6,
+      "outcome": "ACCEPT BOUNDED",
+      "stages": {"technical": "PASS", "visual": "PASS_BOUNDED", "factual": "PASS_BOUNDED", "specification": "PASS_ILLUSTRATIVE_SCALE", "runtime_parse": "PASS", "gpu": "NOT_RUN", "scene": "NOT_RUN"},
+      "note": "Curved slip interface, back-tilted block, scarp and toe are visible. Formula yields about 0.725 m tilt over the modeled 6.3 m bench span vs the illustrative 0.8 m design note; not a geotechnical simulation."
+    }
+  ],
+  "all_four_exact_hashes_and_sizes_verified": true,
+  "all_four_independent_project_static_audits_pass": true,
+  "all_four_official_khronos_checks_zero_errors_zero_warnings": true,
+  "all_four_independent_threejs_0180_parses_pass": true,
+  "all_four_saved_blends_reopened_read_only": true,
+  "all_source_mesh_parts_closed_manifold_and_positive_volume": true,
+  "all_four_dependency_closures_rehashed": true,
+  "all_32_final_512px_views_individually_inspected": true,
+  "all_four_lossless_contact_sheets_individually_inspected": true,
+  "new_delivery_render_runs_after_rights_ledgers": true,
+  "two_distinct_successful_generator_queue_runs_per_exact_candidate": true,
+  "concept_pixels_inspected_and_hashed": true,
+  "third_party_source_pixels_copied_into_qa_package": false,
+  "independent_evidence": {
+    "full_audit": "provenance/independent_audit.json",
+    "script": "provenance/independent_audit.py",
+    "report": "report.md",
+    "technical": "technical/",
+    "source_reopen": "source/"
+  }
+}

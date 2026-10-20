@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "asset_id": "star-dune",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Generic full-volume star dune teaching asset, five unequal ridges descending from common summit and concave inter-arm saddles. Not a measured Great Sand Dunes replica.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-NPS-DUNE"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-NPS-DUNE"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    },
+    {
+      "id": "feature-1",
+      "stage": "factual",
+      "critical": true,
+      "description": "At least three ridges, here exactly five, descend from one dominant summit",
+      "required_sources": [
+        "EN-NPS-DUNE"
+      ]
+    },
+    {
+      "id": "feature-2",
+      "stage": "factual",
+      "critical": true,
+      "description": "Unequal curved arms and concave inter-ridge saddles visible overhead",
+      "required_sources": [
+        "EN-NPS-DUNE"
+      ]
+    },
+    {
+      "id": "feature-3",
+      "stage": "factual",
+      "critical": true,
+      "description": "Full volume sand mound with sloping quiet aprons, not a barchan crescent",
+      "required_sources": [
+        "EN-NPS-DUNE"
+      ]
+    },
+    {
+      "id": "feature-4",
+      "stage": "factual",
+      "critical": true,
+      "description": "Generic dune, no named locality replica or measured elevation claim",
+      "required_sources": [
+        "EN-NPS-DUNE"
+      ]
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 fixed8 exact512px views, zero turntable. All seven stages retain distinct verdicts; no GPU/scene waiver or maker approval.",
+  "required_deliverables": [],
+  "nominal_dimensions_blender_xyz_m": [
+    400,
+    320,
+    100
+  ],
+  "scale_note": "Illustrative nominal dune envelope400m by320m by100m, not derived from photo or named dune measurements.",
+  "concept_interpretation": "Concept five radiating sharp connected ridges and concave saddles adopted; reject decorative perfect star footprint and exaggerated razor thin disconnected ends. Freeze one closed mound, five unequal bending arms, common100m summit,400m X by320m Y nominal apron;24angular subdivisions per arm and18radial rings, sharp crest-aligned samples and quiet slopes. Sand extends into gentle irregular interarm bays not a geometric pentagram. Wind directions not shown; both sides coherent. No terrain stand or vegetation. Hidden underside flat atz0. Palette broad directional surface regions, no noise or texture.",
+  "feature_obligations": [
+    "At least three ridges, here exactly five, descend from one dominant summit",
+    "Unequal curved arms and concave inter-ridge saddles visible overhead",
+    "Full volume sand mound with sloping quiet aprons, not a barchan crescent",
+    "Generic dune, no named locality replica or measured elevation claim"
+  ],
+  "claim_scope": "Generic full-volume star dune teaching asset, five unequal ridges descending from common summit and concave inter-arm saddles. Not a measured Great Sand Dunes replica.",
+  "origin": "Floor contact footprint center at Blenderz0; X lateral, -Y front, Zup; glTFYup +Zfront"
+}

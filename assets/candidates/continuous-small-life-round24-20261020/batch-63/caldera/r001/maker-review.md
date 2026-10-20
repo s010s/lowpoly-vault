@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual final fixed8 views inspected. Broad recessed floor is bounded by irregular remnant ring with inner scarps, gentler outer slopes and subdued breach; top shows complete basin, canonical sides show low broad relief rather than tall cone. Clay reveals continuous full terrain volume and no floating ring. Quiet broad floor contrasts rim details. Remaining concern: r001 rim/scarps are smooth and ring-like relative to broken eroded concept; independent QA must decide whether frozen irregular-rim/breach/readability obligations actually pass. r002 was rejected for overly regular starburst fluting, not promoted merely because newer. This concern is not waived as style. Not a surveyed Montezuma terrain or meteor impact reconstruction; color and nominal size illustrative.
+
+Inspected lossless2048x1060 contact-sheet at original resolution, each retained frame512x512. Exact final clean-import GLB hash 5d84c7b706351559d6217e558fc8ef5458a9374043a8d001a91708c788b51258. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

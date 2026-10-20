@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "geyser-sinter-cone",
+  "revision": "r001",
+  "labels": {
+    "en": "geyser-sinter-cone"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "7401c44118c072bb31c4b7b5347d263a66f0c7c3b6429281fe3e22373203cf84"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "2cc9d2c07e2aeab64bf1a21d21e5742d5125b1a1395242fa3ddba51e44adb13f"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "cc14523c82d9aae3a8486478baad059227ab430ba335f788051b2b07f7d5863d"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "a99a1c1bf351b91b603279ec7dedd6e04d74f572a0d95f83e649875bad1fbe34"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "90bd0921436db396da658240fd19af00c5c791312478b753a847b21d3b707632"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "5430ad0e086e59117101cdbb3472b84764a9afdbdd3d602d27ded692fdec9796"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "baacbf6100b8babb057d1595f0c3efeee8c15ad6c8eb9ea218f5bfad52705bc4"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "872fcd4ce71a2b4ee2c06cf8f2cacbf46e45b20706cfc586332c344c59b7a786"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39"
+      }
+    ],
+    "cross_view_consistency_note": "D concept squat layered crust and dark open throat retained. Avoid a perfectly circular wedding cake: vary radial outline and tier heights with smooth deterministic rhythm, several integrated rounded lobes on shoulder. Top aperture narrow versus broad base, deep closed-bottom throat, real inner wall thickness. No tiny separate scene base or vegetation. Palette three cream/tan crust colors plus dark throat.",
+    "hidden_surface_decisions": "D concept squat layered crust and dark open throat retained. Avoid a perfectly circular wedding cake: vary radial outline and tier heights with smooth deterministic rhythm, several integrated rounded lobes on shoulder. Top aperture narrow versus broad base, deep closed-bottom throat, real inner wall thickness. No tiny separate scene base or vegetation. Palette three cream/tan crust colors plus dark throat."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:18:03.568087+00:00",
+    "modeling_started_at": null,
+    "note": "Real tool metadata and observer invocation/completion boundaries retained. No internal provider timestamp returned. Original generator authoring occurred after13:18:57Z complete freezes and before13:20:13Z first geometry invocation. See chronology-clarification.json: invocation-start field is only approximate, not an exact timestamp. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 22.8231,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "3cfa37f59c3e86b224d2b90b0dde66b4bfc5e622469e6bf41316ddbc1cb3cdee"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "3cfa37f59c3e86b224d2b90b0dde66b4bfc5e622469e6bf41316ddbc1cb3cdee"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "2a593a4bd6adbc7cf142240c3e09e859b42c1559c0f1115080f9dc07dcb7f06f",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "faa7e148d78914dff15510bbf8e4976037827bfbf99437f008baa3e710ac2769"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "7401c44118c072bb31c4b7b5347d263a66f0c7c3b6429281fe3e22373203cf84",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "ea09a12ffa4bf371c0a913de80104877a420b3f7abf8a60798c40144cd82a46c"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

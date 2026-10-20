@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "parabolic-dune",
+  "revision": "r001",
+  "labels": {
+    "en": "parabolic-dune"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "203a4940714165708aed83799fa132eae02c633d7581806fef47f4540ff4bcf9"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "47c5c51343093aa05c963873658cc0d6454b8888ee025d05be13d5b015fc6b31"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "f2cfb0926ff84d080bfda782ecc5335376040ed09fa311c05c63e9ab429b8ce3"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "6e3b0ed1a3814f86467027d0aafa53edcb72e0a474c571e5e944871790ee0399"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "90bd0921436db396da658240fd19af00c5c791312478b753a847b21d3b707632"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "de707c910fa4cec3c75caf7367c1add8dc4604f1001e4adbf2bdb153fac2dd67"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "baacbf6100b8babb057d1595f0c3efeee8c15ad6c8eb9ea218f5bfad52705bc4"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "872fcd4ce71a2b4ee2c06cf8f2cacbf46e45b20706cfc586332c344c59b7a786"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "b085db4c1cdafe82ed519b1b0f3aaf2d635f703d13ece258188838736cc36a39"
+      }
+    ],
+    "cross_view_consistency_note": "B concept ridge language retained, but its cut-out horseshoe base rejected. Use continuous irregular sandy terrain floor inside U blowout, taller rounded nose+Y with steep outer lee face and gently sloping inner windward face, long lower vegetated trailing arms-Y. No wind arrows in export. Outer footprint irregular octagonal clipped terrain with solid underside. Sparse low faceted olive plant patches along arms, not trees.",
+    "hidden_surface_decisions": "B concept ridge language retained, but its cut-out horseshoe base rejected. Use continuous irregular sandy terrain floor inside U blowout, taller rounded nose+Y with steep outer lee face and gently sloping inner windward face, long lower vegetated trailing arms-Y. No wind arrows in export. Outer footprint irregular octagonal clipped terrain with solid underside. Sparse low faceted olive plant patches along arms, not trees."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:18:03.568087+00:00",
+    "modeling_started_at": null,
+    "note": "Real tool metadata and observer invocation/completion boundaries retained. No internal provider timestamp returned. Original generator authoring occurred after13:18:57Z complete freezes and before13:20:13Z first geometry invocation. See chronology-clarification.json: invocation-start field is only approximate, not an exact timestamp. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.7743,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "bcc6c6b5aa23d224ff572adc6889c07a9e1dbe5785fec4e8d9dabbf0322e5771"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "bcc6c6b5aa23d224ff572adc6889c07a9e1dbe5785fec4e8d9dabbf0322e5771"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "3f4091f42b3f3fd0029f960c19bccbcdec3c28d4afc44704403a15939683ff49",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "99d543a6dfc031159fdea145061eeecb4be51f341f072c54c3286eda7d13150a"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "203a4940714165708aed83799fa132eae02c633d7581806fef47f4540ff4bcf9",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "d31581fa635977d9b62e71e4ce1885b3761552a08543117c2249e697de6d43c6"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
