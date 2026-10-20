@@ -114,6 +114,12 @@ export function collectArchivalInputs({paths,read,mode,manifest,protectedPaths=[
    assert(addition.candidate.path.endsWith(suffix),`Candidate is outside its exact model/revision: ${addition.id}`);
    const sourceRoot=addition.candidate.path.slice(0,-suffix.length),sourceRoots=new Set([sourceRoot]);
    assert(/^(?:production\/[^/]+|assets\/candidates\/[^/]+)(?:\/[^/]+)*$/.test(sourceRoot),`Candidate source scope is not bounded: ${addition.id}`);
+   // Frozen candidate batches may preserve shared concepts, diagnostic source
+   // and run records in the matching production work batch. Derive this one
+   // companion scope from the complete candidate root, never a descriptor root.
+   // Membership is still exact, hash-pinned, source-owned and append-only below.
+   const companion=/^assets\/candidates\/([^/]+)\/(batch-[0-9]+)$/.exec(sourceRoot);
+   if(companion)sourceRoots.add(`production/${companion[1]}/work/${companion[2]}`);
    const reviewRoot=posix.dirname(addition.review.path);
    assert(safeArchivePath(`${reviewRoot}/member`)&&reviewRoot!=='qa/independent',`Independent-review scope is not bounded: ${addition.id}`);
    const candidate=json(addition.candidate);assert.equal(candidate.asset_id,addition.id,`Candidate model differs: ${addition.id}`);assert.equal(candidate.revision,addition.revision,`Candidate revision differs: ${addition.id}`);

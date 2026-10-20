@@ -9,8 +9,8 @@ export function archiveFixture(){
  const put=(path,value)=>{const bytes=Buffer.isBuffer(value)?value:Buffer.from(typeof value==='string'?value:JSON.stringify(value));files.set(path,bytes);modes.set(path,'100644');return {path,sha256:hash(bytes)};};
  const writeRegistry=()=>put(ARCHIVAL_REGISTRY_PATH,`export const ${ARCHIVAL_REGISTRY_EXPORT} = ${JSON.stringify(registry)};\n`);
  writeRegistry();
- function addBatch(name='new-four',ids=['model-191','model-192','model-193','model-194'],{models,readModel}={}){
-  const sourceRoot=`production/${name}`,reviewRoot=`qa/independent/${name}`,sourceBundlePath=`qa/${name}-release/source-bundle.json`,descriptorPath=`assets/releases/${name}.json`;
+ function addBatch(name='new-four',ids=['model-191','model-192','model-193','model-194'],{models,readModel,candidateRoot}={}){
+  const sourceRoot=candidateRoot||`production/${name}`,reviewRoot=`qa/independent/${name}`,sourceBundlePath=`qa/${name}-release/source-bundle.json`,descriptorPath=`assets/releases/${name}.json`;
   const descriptor={version:1,source_bundle:null,files:[],additions:[]},bundle={version:1,scope:'Exact archived source and independent review, not approval',files:[]};
   const archive=(path,bytes,origin='source',owner='$batch')=>{
    const pin=put(path,bytes);descriptor.files.push({...pin,origin,owner});bundle.files.push({...pin,...(origin==='release'?{}:{source_commit:origin==='source'?sourceCommit:reviewCommit})});return pin;
@@ -121,6 +121,21 @@ export function runArchivalInputTests(){
  assert.throws(()=>assertArchivalAppend(beforeExisting,existing.collect(),{beforePaths:existingPaths,oldIDs:[],newIDs:newBatch.ids}),/Existing code\/data cannot become/);
  const oldModel=archiveFixture(),oldBefore=oldModel.collect(),oldModelPaths=[...oldModel.files.keys()],oldBatch=oldModel.addBatch();
  assert.throws(()=>assertArchivalAppend(oldBefore,oldModel.collect(),{beforePaths:oldModelPaths,oldIDs:[oldBatch.ids[0]],newIDs:oldBatch.ids.slice(1)}),/exclusively/);
+ const companionSource='assets/candidates/example-collection/batch-54',companionRoot='production/example-collection/work/batch-54';
+ const companion=archiveFixture(),companionBefore=companion.collect(),companionBeforePaths=[...companion.files.keys()],companionBatch=companion.addBatch('companion-four',undefined,{candidateRoot:companionSource});
+ const companionProgram=companionBatch.archive(`${companionRoot}/render_exact_glb.py`,'raise RuntimeError("source evidence only")\n');
+ companionBatch.archive(`${companionRoot}/concepts/prompt.txt`,'Frozen concept prompt\n');
+ companionBatch.archive(`${companionRoot}/runs/result.json`,{status:'recorded'});companionBatch.sync();
+ const companionAfter=companion.collect();assert(companionAfter.excludedPaths.includes(companionProgram.path));
+ assertArchivalAppend(companionBefore,companionAfter,{beforePaths:companionBeforePaths,oldIDs:[],newIDs:companionBatch.ids});
+ assert(!companion.collect([companionProgram.path]).excludedPaths.includes(companionProgram.path),'Consumed companion program is protected');
+ companion.put(`${companionRoot}/unlisted.py`,'# unknown sibling\n');assert(!companion.collect().excludedPaths.includes(`${companionRoot}/unlisted.py`));
+ for(const path of ['production/example-collection/work/batch-55/archive.py','production/other-collection/work/batch-54/archive.py','production/example-collection/work/archive.py','production/example-collection/other/batch-54/archive.py']){
+  const f=archiveFixture(),b=f.addBatch('wrong-companion',undefined,{candidateRoot:companionSource});b.archive(path,'# not owned\n');b.sync();assert.throws(()=>f.collect(),/outside its owner's source scope/);
+ }
+ const nested=archiveFixture(),nestedBatch=nested.addBatch('nested',undefined,{candidateRoot:companionSource+'/extra'});nestedBatch.archive(`${companionRoot}/archive.py`,'# no partial match\n');nestedBatch.sync();assert.throws(()=>nested.collect(),/outside its owner's source scope/);
+ const prior=archiveFixture();prior.put(`${companionRoot}/render_exact_glb.py`,'# pre-existing\n');const priorPaths=[...prior.files.keys()],priorBefore=prior.collect(),priorBatch=prior.addBatch('prior',undefined,{candidateRoot:companionSource});priorBatch.archive(`${companionRoot}/render_exact_glb.py`,'# pre-existing\n');priorBatch.sync();assert.throws(()=>assertArchivalAppend(priorBefore,prior.collect(),{beforePaths:priorPaths,oldIDs:[],newIDs:priorBatch.ids}),/Existing code\/data cannot become/);
+ console.log('Companion archives: exact same-collection/batch derivation, complete pins, new ownership and imported-code protection; adjacent/foreign/parent/nested/pre-existing/unlisted paths refused.');
  console.log('Archival source inputs: literal-only registry, exact complete pins, ownership, modes, real append, per-model isolation and protected reachability passed.');
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)runArchivalInputTests();

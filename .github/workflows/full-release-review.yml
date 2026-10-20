@@ -175,7 +175,7 @@ jobs:
           path: dist/
       - run: node site/ci-model-shards.mjs verify-build
       - name: Preserve mandatory complete publication and deployment inventory audit
-        run: REQUIRE_COMPLETE_GALLERY=1 node site/audit-release.mjs
+        run: node site/ci-model-shards.mjs audit-build
       - name: Require audit to leave the sealed artifact unchanged
         run: node site/ci-model-shards.mjs verify-build
   build:
