@@ -562,7 +562,7 @@ export const BATCHES5155_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/batch51-20261020.json",
-      "sha256": "416e953c2c9dab4fe710fe0c9e3cbe39800041f1ecc16f416b401c3a19986367"
+      "sha256": "09df289bad2579bd8560f1d63c90f3a1a89e3cee481741f12dc58de3ffab6ca2"
     },
     "release": {
       "version": 1,
@@ -576,7 +576,7 @@ export const BATCHES5155_RELEASES = [
       "review_commit": "2b61ba2f70110f3bd01df45972558bc94f134566",
       "source_bundle": {
         "path": "qa/batch51-release-20261020/source-bundle.json",
-        "sha256": "57e18b16919d0063cfebffd6bd359b0b2335e30fb06cb0896c910ede9ba65bd4"
+        "sha256": "55a4c8c159936b612e97befbda0a596ef4b4091f61933e484bbf202da4afa575"
       },
       "source_scope_review": {
         "path": "qa/batches51-55-release-20261020/source-scope-review/review-summary.json",
@@ -5616,6 +5616,48 @@ export const BATCHES5155_RELEASES = [
           "sha256": "f9d3d6bf2499c68f0fae515632eae751b1be30084effad9d3e62f778abb9e18b",
           "origin": "release",
           "owner": "$batch"
+        },
+        {
+          "path": "qa/batch51-release-20261020/release-log-archive/capture-review/capture-job.log",
+          "sha256": "1e77a39a632ae184da8be28701839379392533cfe4ddcb5edcd0fdfed48ea190",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch51-release-20261020/release-log-archive/code-review/review.log",
+          "sha256": "5bde3f2d1d995dcc6c723bceb2d852a9683f1a242d6cdc07c182897fd0ee42bd",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch51-release-20261020/release-log-archive/validation/bounded-tamper-tests.log",
+          "sha256": "f11d98a9db00bff3ed294a6a783e69563229574273a1e83e31cf1ad90ad6a7a6",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch51-release-20261020/release-log-archive/validation/publication-integrity.log",
+          "sha256": "17f494554184cf02d0abcb5d3dce33b0878457de9b147a1d296deef8ae60de9c",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch51-release-20261020/release-log-archive/validation/publication-integrity.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch51-release-20261020/release-log-archive/validation/publication-second-attempt.stderr.log",
+          "sha256": "201f52c32d4e3fa4d03d505912c4a2569df0ef0078bda1018f981dbf9b203536",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch51-release-20261020/release-log-archive/aliases.json",
+          "sha256": "04a06220e2ce02cb21c95c910f8f04a92e9b3a150924c7943e70b2ddf573f65d",
+          "origin": "release",
+          "owner": "$batch"
         }
       ],
       "original_review_archive": {
@@ -5623,13 +5665,17 @@ export const BATCHES5155_RELEASES = [
         "original_path": "qa/batch51-independent-20261019/report.md",
         "original_sha256": "f9d3d6bf2499c68f0fae515632eae751b1be30084effad9d3e62f778abb9e18b",
         "archive_path": "qa/batch51-release-20261020/original-review-925ff855.md"
+      },
+      "release_log_aliases": {
+        "path": "qa/batch51-release-20261020/release-log-archive/aliases.json",
+        "sha256": "04a06220e2ce02cb21c95c910f8f04a92e9b3a150924c7943e70b2ddf573f65d"
       }
     }
   },
   {
     "descriptor": {
       "path": "assets/releases/batch55-20261020.json",
-      "sha256": "51d31c778ff54f21d00c79a280799d511be4b0de9c64ec11656bb7a382c30ae6"
+      "sha256": "aa61f85ca7954edd52ccae5a35a803dd7e1441cf46a5b20784859e3673d71d52"
     },
     "release": {
       "version": 1,
@@ -5643,7 +5689,7 @@ export const BATCHES5155_RELEASES = [
       "review_commit": "1cdfab1b0351c61854b5480c8eac012440232fa1",
       "source_bundle": {
         "path": "qa/batch55-release-20261020/source-bundle.json",
-        "sha256": "fee960e8aa6e75da56587f6a6e0e1e87c33c54f8ae4940482dd755e2a7d041f4"
+        "sha256": "9920bc438f8793795642e7c98c59ce996a0e912a54b4d2992f3f83f15d130b6c"
       },
       "source_scope_review": {
         "path": "qa/batches51-55-release-20261020/source-scope-review/review-summary.json",
@@ -9329,8 +9375,54 @@ export const BATCHES5155_RELEASES = [
           "sha256": "a34bb0ab2f412ec9a19708d3a74b8131679f04f40c1867f9dd33e8e6b38a0f97",
           "origin": "review",
           "owner": "$batch"
+        },
+        {
+          "path": "qa/batch55-release-20261020/release-log-archive/capture-review/capture-job.log",
+          "sha256": "1e77a39a632ae184da8be28701839379392533cfe4ddcb5edcd0fdfed48ea190",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch55-release-20261020/release-log-archive/code-review/review.log",
+          "sha256": "5bde3f2d1d995dcc6c723bceb2d852a9683f1a242d6cdc07c182897fd0ee42bd",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch55-release-20261020/release-log-archive/validation/bounded-tamper-tests.log",
+          "sha256": "f11d98a9db00bff3ed294a6a783e69563229574273a1e83e31cf1ad90ad6a7a6",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch55-release-20261020/release-log-archive/validation/publication-integrity.log",
+          "sha256": "17f494554184cf02d0abcb5d3dce33b0878457de9b147a1d296deef8ae60de9c",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch55-release-20261020/release-log-archive/validation/publication-integrity.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch55-release-20261020/release-log-archive/validation/publication-second-attempt.stderr.log",
+          "sha256": "201f52c32d4e3fa4d03d505912c4a2569df0ef0078bda1018f981dbf9b203536",
+          "origin": "release",
+          "owner": "$batch"
+        },
+        {
+          "path": "qa/batch55-release-20261020/release-log-archive/aliases.json",
+          "sha256": "69904e888f4977a3b1d23a2a82f84a1f2990f8b8d4a5834b691d50b821fbbe38",
+          "origin": "release",
+          "owner": "$batch"
         }
-      ]
+      ],
+      "release_log_aliases": {
+        "path": "qa/batch55-release-20261020/release-log-archive/aliases.json",
+        "sha256": "69904e888f4977a3b1d23a2a82f84a1f2990f8b8d4a5834b691d50b821fbbe38"
+      }
     }
   }
 ];
