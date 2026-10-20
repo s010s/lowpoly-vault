@@ -41,7 +41,9 @@ assert(!clean.includes('site/audit-release.mjs')&&!clean.includes('site/ci-publi
 // protected closure root, even if it is unchanged when a new archive is added.
 for(const section of [clean,job('build'),aggregate])for(const match of section.matchAll(/(?:node |npx )(site\/[A-Za-z0-9_./-]+\.mjs)/g))assert(MODEL_PROOF_ENTRYPOINTS.includes(match[1]),`Untracked clean consumer root: ${match[1]}`);
 assert(MODEL_PROOF_ENTRYPOINTS.includes('site/capture-gallery-posters.mjs')&&MODEL_PROOF_ENTRYPOINTS.includes('site/render-web-previews.mjs'));
-assert(audit.includes('REQUIRE_COMPLETE_GALLERY=1 node site/audit-release.mjs'));
+assert(audit.includes('node site/ci-model-shards.mjs audit-build'));
+const auditWrapper=readFileSync('site/ci-model-shards.mjs','utf8');
+assert(auditWrapper.includes("['site/audit-release.mjs']")&&auditWrapper.includes("REQUIRE_COMPLETE_GALLERY: '1'"));
 assert.equal((audit.match(/node site\/ci-model-shards.mjs verify-build/g)||[]).length,2);
 assert(!audit.includes('upload-artifact'));
 assert(aggregate.includes('needs: [scope, prepare, build, audit-prepared-build]')&&aggregate.includes('test "$AUDIT_RESULT" = success'));
