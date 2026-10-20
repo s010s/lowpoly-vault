@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "kind": "independent read-only specification clarification and geometry repair recommendation, not acceptance",
+  "scope": [
+    "spatter-cone r004",
+    "travertine-terrace-pools r002"
+  ],
+  "source_commit": "14f14a9e0ab6c5bacab7c746d27186a8ea4de2f0",
+  "old_verdicts_unchanged": {
+    "spatter-cone": "specification BLOCKED",
+    "travertine-terrace-pools": "specification BLOCKED"
+  },
+  "decision": "Geometry-first repair is feasible; transparently clarify undefined internal nominal metrics before new candidates. No current user-design decision required.",
+  "needs_user_design_decision": false,
+  "user_precision_evidence": "No supplied user message or inspected original file asserts a measured real-site scale. Numeric targets were maker-authored; source explicitly says illustrative.",
+  "new_clarification_status": "DRAFT RECOMMENDATION ONLY, not adopted and not original-freeze mutation",
+  "primary_sources": [
+    {
+      "url": "https://www.nps.gov/places/spatter-cones.htm",
+      "supports": "Cohesive welded near-vent spatter form, not asset dimensions."
+    },
+    {
+      "url": "https://www.nps.gov/yell/learn/nature/hydrothermal-features.htm",
+      "supports": "Carbonate-deposition terrace process and connected shelf form, not asset dimensions."
+    }
+  ],
+  "measurements": [
+    {
+      "asset_id": "spatter-cone",
+      "revision": "r004",
+      "glb_sha256": "f03be9c18ee9c9e2f2e7bba6017536efc82067b218c72d1b7aed426c48a34ff2",
+      "method": "Independent stdlib GLB binary POSITION decoding; node transforms verified absent; glTF (x,y,z) mapped to Blender (x,-z,y). No Blender, no render, no output geometry, not full QA.",
+      "position_count_with_normal_seam_duplicates": 24140,
+      "unique_position_count": 4380,
+      "bounds_blender_xyz_m": {
+        "min": [
+          -3.787118673324585,
+          -3.9921324253082275,
+          0.0
+        ],
+        "max": [
+          4.137338638305664,
+          3.4736859798431396,
+          3.1593129634857178
+        ],
+        "size": [
+          7.924457311630249,
+          7.465818405151367,
+          3.1593129634857178
+        ]
+      },
+      "target_xyz_m": [
+        7.8,
+        7.4,
+        2.8
+      ],
+      "delta_percent": [
+        1.5956065593621727,
+        0.8894379074509073,
+        12.832605838775635
+      ],
+      "planar_center_of_bbox_xy_m": [
+        0.17510998249053955,
+        -0.25922322273254395
+      ],
+      "axis_normalization_factors_only_for_analysis": [
+        0.9842945318857872,
+        0.9911840334736842,
+        0.8862686388975904
+      ],
+      "existing_floor_points_and_rim_band_are_not_semantic_landmark_proof": true,
+      "max_radius_about_existing_origin_m": 4.288108883559628,
+      "global_z_scale_would_change_nominal_rim_m": 2.215671597243976,
+      "global_z_scale_would_change_nominal_vent_floor_m": 0.15952835500156629,
+      "max_radius_interpretation_impossibility": "If every footprint point is within radius 3.7m, its X width is at most 7.4m, incompatible with target X width 7.8m."
+    },
+    {
+      "asset_id": "travertine-terrace-pools",
+      "revision": "r002",
+      "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+      "method": "Independent stdlib GLB binary POSITION decoding; node transforms verified absent; glTF (x,y,z) mapped to Blender (x,-z,y). No Blender, no render, no output geometry, not full QA.",
+      "position_count_with_normal_seam_duplicates": 4164,
+      "unique_position_count": 860,
+      "bounds_blender_xyz_m": {
+        "min": [
+          -5.015529632568359,
+          -9.166812896728516,
+          0.0
+        ],
+        "max": [
+          5.090198516845703,
+          9.432464599609375,
+          4.064496040344238
+        ],
+        "size": [
+          10.105728149414062,
+          18.59927749633789,
+          4.064496040344238
+        ]
+      },
+      "target_xyz_m": [
+        10,
+        18,
+        4.7
+      ],
+      "delta_percent": [
+        1.0572814941406161,
+        3.3293194240993973,
+        -13.521360843739616
+      ],
+      "planar_center_of_bbox_xy_m": [
+        0.037334442138671875,
+        0.1328258514404297
+      ],
+      "axis_normalization_factors_only_for_analysis": [
+        0.98953779996346,
+        0.9677795281856575,
+        1.1563549215813576
+      ],
+      "existing_floor_points_and_rim_band_are_not_semantic_landmark_proof": true,
+      "pool_material_height_histogram": {
+        "0.85": 48,
+        "0.855195": 6,
+        "1.55": 48,
+        "1.555195": 6,
+        "2.25": 48,
+        "2.255195": 6,
+        "2.95": 48,
+        "2.955195": 6,
+        "3.65": 48,
+        "3.655195": 6
+      },
+      "substrate_delta_to_meet_4p7_m": 0.6355039596557619,
+      "hypothetical_upper_surface_translation_preserves_step_and_lip": true,
+      "global_z_scale_would_change_rise_m": 0.8094484451069504,
+      "global_z_scale_would_change_lip_m": 0.20814388588464436,
+      "predicted_translated_floor_levels_m": [
+        1.4855039596557615,
+        2.1855039596557617,
+        2.885503959655762,
+        3.585503959655762,
+        4.285503959655761
+      ]
+    }
+  ],
+  "implementation_findings": [
+    "Both subject constructors hard-code geometric dimensions and counts instead of consuming config parameters.",
+    "Spatter has14 radial profile stations but13 adjacent intervals; proposed new candidate conservatively uses14intervals/15stations.",
+    "Spatter old rim band measurement is not a semantic crest statistic; vent radius was not actually proved.",
+    "Travertine0.18 is a nominal transverse-lip contribution with saddles and added side relief, not exact relief at every rim point."
+  ],
+  "preferred_repairs": {
+    "spatter-cone": "Bind config; preserve ground/floor; define and enforce uneven crest mean2.5/max2.8 plus opening nominal radius0.65; confine9 lobe groups beneath total envelope; protect local dimensions during XY envelope correction; final-geometry proof after remesh.",
+    "travertine-terrace-pools": "Translate top surface upward by dynamically computed4.7-max(top_z), base remains0 and continuous sidewalls extend; normalize onlyXY to10x18. Preserve5 floors, four0.7rises, nominal0.18lip and28 cross intervals. Fresh visual check of added substrate required."
+  },
+  "disallowed_shortcuts": [
+    "No widening art tolerance to match old candidate.",
+    "No globalXYZ/Z scaling that changes localrim/floor/rise.",
+    "No accepting config values as measurements.",
+    "No retrospectivePASS or acceptance-count increment.",
+    "No old-pass inheritance to newgeometry."
+  ],
+  "operations_performed": [
+    "Read originalbrief/config/ledger/source/oldmeasurement scripts and reports.",
+    "Independently view2 primary images,2 concept sheets,2 exact final8-panel sheets and2bottom images.",
+    "Open2 officialNPS pages.",
+    "Decode existingGLB POSITION payloads using standard Python only.",
+    "Write newresearch deliverables outside originalsource/QA."
+  ],
+  "operations_not_performed": [
+    "Blender execution",
+    "newgeometry",
+    "newrender",
+    "freshfullQA",
+    "source/brief/config/QA mutation",
+    "gitcommit",
+    "push",
+    "PR",
+    "merge",
+    "release"
+  ],
+  "deliverable": "repair-guidance.md"
+}

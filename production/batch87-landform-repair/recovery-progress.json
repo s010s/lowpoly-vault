@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "observed_at": "2026-10-20T23:24:29.765164+00:00",
+      "stage": "recovery2 receipts and immutable inputs readback",
+      "receipts": [
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/build-queue/build/spatter-cone/r005/geometry-diagnostic-build/9bd87c4549ff57172cb4e8dace1ac14cfecce621603b3dcbb83f14379027f85b/20261020T231957-3c608c716b8a4abc80e7349b0c3926e1/result.json",
+          "sha256": "c718310cb63eb43038d28fa177f9eeb0e4b0754604aba2fbe97b9922a0999dca",
+          "status": "succeeded",
+          "started_at": "2026-10-20T23:19:57.106157+00:00",
+          "finished_at": "2026-10-20T23:20:03.288037+00:00",
+          "pid": 8
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/build-queue/build/travertine-terrace-pools/r003/geometry-diagnostic-build/bc79cb17508824bd34ba431683e33c90fa6eb449b0f7ce51a3c60931d0204562/20261020T232003-64c918d55165495ca9d7ab67d92fa6ca/result.json",
+          "sha256": "ed247731274469e69eaf68693a5d4882fe5a98e6ce893b579cbc6952e3cf8bab",
+          "status": "succeeded",
+          "started_at": "2026-10-20T23:20:03.294205+00:00",
+          "finished_at": "2026-10-20T23:20:05.497937+00:00",
+          "pid": 31
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/diagnostic-queue/render/spatter-cone/r005/diagnostic-three-view/a3332e8a3df382fcbfcf588304a3d9ac4d0f3cc70ec512c33e37f14232ed38b6/20261020T232019-67699bfb355d4363a057763a01e9b863/result.json",
+          "sha256": "4d9e72176338133fe09046fc5589b161203f11b095a5635211f7238b046abf41",
+          "status": "succeeded",
+          "started_at": "2026-10-20T23:20:19.759898+00:00",
+          "finished_at": "2026-10-20T23:20:25.362361+00:00",
+          "pid": 6
+        }
+      ],
+      "clarification_and_premodel_hashes_verified": true,
+      "lock_probe": "Blocking Blender lock acquired in separate nonblocking probe; released immediately. No old render holding global lock.",
+      "partial_diagnostic": "Travertine hero/clay files preserved. Missing top and result, no completed render claim; not overwritten.",
+      "not_done": [
+        "new generation",
+        "final binding",
+        "full final rendering",
+        "source reopen",
+        "two semantic rebuilds",
+        "fresh independent QA",
+        "upload"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:26:02.709378+00:00",
+      "stage": "diagnostic inspection and explicit r006 continuation freeze",
+      "completed": [
+        "Personally inspected all five recovered individual diagnostic pixels and both primary/concept images",
+        "Original r005 diagnosed REVISE, retained",
+        "r006 same-target prospective config/freeze appended",
+        "Partial Travertine diagnostic retained with no forged result; missing-top job prepared"
+      ],
+      "not_done": [
+        "r006 geometry",
+        "final binding",
+        "full final views",
+        "independent QA",
+        "upload"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:27:24.477728+00:00",
+      "stage": "missing-top and r006 geometry build success",
+      "receipts": [
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/recovery2-diagnostic-queue/render/travertine-terrace-pools/r003/recovery2-missing-top-only/d94bca19db495100dc29867427002aeb4a97b09c6f58bfb157e71d90739c354d/20261020T232602-2a3520775fed4a579e4432fc295cc0b8/result.json",
+          "sha256": "ac57b684af0fc6698e28e6d4745369e44aa16e4bc8c628c5c3b43d3c9076ccb3",
+          "result": {
+            "asset_id": "travertine-terrace-pools",
+            "error": null,
+            "fingerprint": "d94bca19db495100dc29867427002aeb4a97b09c6f58bfb157e71d90739c354d",
+            "finished_at": "2026-10-20T23:26:08.216450+00:00",
+            "job_id": "recovery2-missing-top-only",
+            "outputs": {
+              "views/render-config.json": {
+                "bytes": 2540,
+                "sha256": "67b82048789031726a343bc620e0ff8c91c050939af71bd72707eaa2f82f50ba"
+              },
+              "views/render-manifest.json": {
+                "bytes": 1455,
+                "sha256": "4cf084c9e4792868f50bd3044c8a80609281cc8389f4cc55755b8a072d5a15f8"
+              },
+              "views/top.png": {
+                "bytes": 268927,
+                "sha256": "37d960a08529a0b06e1631bca97f4e3ca124ab30a238c0af4d31481a049a9003"
+              },
+              "views/turntable.json": {
+                "bytes": 488,
+                "sha256": "241b30fbbaf09f0c693079f7efd73bbda1fb666e661b8c5fbf4f37c7d08a66a2"
+              }
+            },
+            "pid": 7,
+            "returncode": 0,
+            "revision": "r003",
+            "sampled_peak_group_processes": 2,
+            "sampled_peak_group_rss_bytes": 260108288,
+            "schema_version": 1,
+            "started_at": "2026-10-20T23:26:02.782362+00:00",
+            "status": "succeeded",
+            "wall_seconds": 5.4341
+          }
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/r006-build-queue/build/spatter-cone/r006/geometry-diagnostic-build/e3ac03fff7f333ddf861968d440bbeace9a06f16b11217b54e48bb98dd509902/20261020T232648-45914213cc3245f9812b0e1616cc48d4/result.json",
+          "sha256": "1c7783b6aad57369bc22df7a7db90720e1b630d41c0e457a04f3471e86e9bafe",
+          "result": {
+            "asset_id": "spatter-cone",
+            "error": null,
+            "fingerprint": "e3ac03fff7f333ddf861968d440bbeace9a06f16b11217b54e48bb98dd509902",
+            "finished_at": "2026-10-20T23:26:51.144661+00:00",
+            "job_id": "geometry-diagnostic-build",
+            "outputs": {
+              "execution.json": {
+                "bytes": 1063,
+                "sha256": "88e31b5a973af25927ab7513d7a4b092d0bf8c4617f7ff720a219bf117acf991"
+              },
+              "spatter-cone/construction-semantics.json": {
+                "bytes": 2256,
+                "sha256": "097affa7da98a719da2740f05587fb6fb44f74b193d9ce4a85bf8ee613da9978"
+              },
+              "spatter-cone/metadata.json": {
+                "bytes": 3306,
+                "sha256": "af6cae7ecc941ccee69b165a62b93c5963b0634bf8b558a697e20a9e00987538"
+              },
+              "spatter-cone/qa.json": {
+                "bytes": 2329,
+                "sha256": "6a42cbf650cd4b77e6407c29eaad43892e992fc12c555941af0daf251c5eba0a"
+              },
+              "spatter-cone/spatter-cone.blend": {
+                "bytes": 662124,
+                "sha256": "764db2ea957a5acc1bb342a95916958a6976a63146ba7107ce022617f444a086"
+              },
+              "spatter-cone/spatter-cone.glb": {
+                "bytes": 227012,
+                "sha256": "51b4daefbebba036ba57c76b932f2d18b265349c84d047261dbfbd1c223936a7"
+              }
+            },
+            "pid": 7,
+            "returncode": 0,
+            "revision": "r006",
+            "sampled_peak_group_processes": 2,
+            "sampled_peak_group_rss_bytes": 250249216,
+            "schema_version": 1,
+            "started_at": "2026-10-20T23:26:48.797085+00:00",
+            "status": "succeeded",
+            "wall_seconds": 2.3476
+          }
+        }
+      ],
+      "not_done": [
+        "r006 diagnostic inspection",
+        "final binding/views",
+        "independent QA",
+        "upload"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:29:40.559531+00:00",
+      "stage": "Selected r006/r003 and fixed exact final subject identities before final images",
+      "subjects": [
+        {
+          "asset_id": "spatter-cone",
+          "revision": "r006",
+          "glb_sha256": "51b4daefbebba036ba57c76b932f2d18b265349c84d047261dbfbd1c223936a7",
+          "brief_sha256": "a6488cc54e12c5e76c68403781075464d39d74abfe325f71b432f10bbb700b5a",
+          "references_sha256": "427cee9955bcb668e22d1544c5509a22bb3e2c3194c4d940cd67457fc2180ce0",
+          "bound_at": "2026-10-20T23:29:40.552082+00:00"
+        },
+        {
+          "asset_id": "travertine-terrace-pools",
+          "revision": "r003",
+          "glb_sha256": "f0b8e2558e44250555c7205858f602e1bcab8ba33f2b2f1a8fb0934b3227c432",
+          "brief_sha256": "f69b79b772bfbeb236f908c9fa64f46b4aaac77f385f83f2c8a92c81a1974c1c",
+          "references_sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd",
+          "bound_at": "2026-10-20T23:29:40.554816+00:00"
+        }
+      ],
+      "not_done": [
+        "full final views",
+        "source local measurement",
+        "two semantic rebuilds",
+        "fresh independent QA",
+        "upload"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:30:33.747236+00:00",
+      "stage": "Actual source reopening and source/GLB local measurements succeeded",
+      "receipts": [
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-source-queue/build/spatter-cone/r006/source-reopen-and-local-measurements/23904a5606882d1ba74e4db4e991151de67b1f82d9154ed8a5a07027bb050da4/20261020T232940-2f82bbe834b84118b808be60eb7454d9/result.json",
+          "sha256": "0c972db3cbf59fed029220348ca5e075da2a4a9434d86f2039baec7d59416d7a",
+          "started_at": "2026-10-20T23:29:40.637419+00:00",
+          "finished_at": "2026-10-20T23:29:54.884692+00:00",
+          "pid": 7,
+          "status": "succeeded"
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-source-queue/build/travertine-terrace-pools/r003/source-reopen-and-local-measurements/f02935168306bfc248343accfbea66687138394ad4ad1e8f32e2fe6796113e1e/20261020T232954-56470e203f9c4fd9990010d33277d42d/result.json",
+          "sha256": "a26f01040f48de9edeb9f1e8c8226e4d2560d30c8a2d91bd85dc51d05aa27764",
+          "started_at": "2026-10-20T23:29:54.890741+00:00",
+          "finished_at": "2026-10-20T23:29:56.725588+00:00",
+          "pid": 29,
+          "status": "succeeded"
+        }
+      ],
+      "not_done": [
+        "fresh independent QA",
+        "upload",
+        "GPU",
+        "composed scene"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:30:43.285144+00:00",
+      "stage": "selected-rebuild-jobs completed",
+      "receipts": [
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-rebuild-queue/build/spatter-cone/r006/semantic-rebuild-a/51a9b5cebc1e4302fbf45df5998bcf4fb368e20aceaafda209ddce7772179100/20261020T233033-8288631926a54aedb997b9878de81e2e/result.json",
+          "sha256": "5747134f54619dfa5f120785c1b79770439357a445059e337fbcd6328efc0411",
+          "started_at": "2026-10-20T23:30:33.816130+00:00",
+          "finished_at": "2026-10-20T23:30:36.105969+00:00",
+          "pid": 7,
+          "status": "succeeded"
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-rebuild-queue/build/spatter-cone/r006/semantic-rebuild-b/045c6e8baf733b830546ecc6d0700dde3938b4d82fc0a0f85882fe23dfc00b92/20261020T233036-101502e8e85f443d81ec54aa044dda4f/result.json",
+          "sha256": "861972267fec4eac5ebc9f26321410f6c0ed82b7138446e5343363b2ae807cbd",
+          "started_at": "2026-10-20T23:30:36.113457+00:00",
+          "finished_at": "2026-10-20T23:30:38.400545+00:00",
+          "pid": 30,
+          "status": "succeeded"
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-rebuild-queue/build/travertine-terrace-pools/r003/semantic-rebuild-a/1a38fe052416f4bd9d5bf28d1b6588d643e4ad7c830767dc9dbf0716e5d6a596/20261020T233038-79d136bfcee94cb69fc662eea09a2099/result.json",
+          "sha256": "db7b04abd7ef140e91be1615535e3b7b35e718a1f51decc6b97c2f61e31cbc3b",
+          "started_at": "2026-10-20T23:30:38.406972+00:00",
+          "finished_at": "2026-10-20T23:30:41.018098+00:00",
+          "pid": 53,
+          "status": "succeeded"
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-rebuild-queue/build/travertine-terrace-pools/r003/semantic-rebuild-b/21a27f2afc65c40d7a6a0cfd7fcfdc6683b6e78aa00746f8b1a2f25c4776244b/20261020T233041-f090eadbc72146c595817de6e98974a4/result.json",
+          "sha256": "5dd834ad6f0096d372f690f89d2565f5b7b9a899c28f7618f99796578a3f6827",
+          "started_at": "2026-10-20T23:30:41.024256+00:00",
+          "finished_at": "2026-10-20T23:30:43.269458+00:00",
+          "pid": 76,
+          "status": "succeeded"
+        }
+      ],
+      "not_done": [
+        "fresh independent QA",
+        "upload",
+        "GPU",
+        "composed scene"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:31:41.461295+00:00",
+      "stage": "selected-final-render-jobs completed",
+      "receipts": [
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-final-render-queue/render/spatter-cone/r006/final-eight-exact-views/967a2c6946e1d79901088be7ff2a8fb88cea655f15a0db24d19e23fe9455fe2e/20261020T233043-8d883970a3244604a7e7c5568b66163c/result.json",
+          "sha256": "27d9393588b3f8956222f1e72eb0a09870af1762e4edf1eb312c792d564c7358",
+          "started_at": "2026-10-20T23:30:43.345463+00:00",
+          "finished_at": "2026-10-20T23:31:13.751456+00:00",
+          "pid": 100,
+          "status": "succeeded"
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-final-render-queue/render/travertine-terrace-pools/r003/final-eight-exact-views/0f78e3b1b11bf4ac93b2ea296425cea572eb40b02d0d63f166eb06929209dbf3/20261020T233113-579b01cf54a54a228d72c8c273fc6086/result.json",
+          "sha256": "1abdf8f3a07e62036a26648f3de19ed959562e43e7314fc41dced6c48a5c4751",
+          "started_at": "2026-10-20T23:31:13.758074+00:00",
+          "finished_at": "2026-10-20T23:31:41.442728+00:00",
+          "pid": 131,
+          "status": "succeeded"
+        }
+      ],
+      "not_done": [
+        "fresh independent QA",
+        "upload",
+        "GPU",
+        "composed scene"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:31:52.661465+00:00",
+      "stage": "selected-bottom-jobs completed",
+      "receipts": [
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-bottom-queue/render/spatter-cone/r006/supplemental-bottom/c7236afb4b51781759028107f338189d214ca0b75ff0e6aa8af92c05c52fc9f7/20261020T233141-ff7298decf89480886ad0d69b814e1b5/result.json",
+          "sha256": "b0036ad389ff40797ce1d45a2a57f717c857367d8fddac9eeced402f1c6769ec",
+          "started_at": "2026-10-20T23:31:41.536772+00:00",
+          "finished_at": "2026-10-20T23:31:47.898502+00:00",
+          "pid": 163,
+          "status": "succeeded"
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch87-landform-repair-raw/selected-bottom-queue/render/travertine-terrace-pools/r003/supplemental-bottom/e164fc7496d8807c1ddcea176bc657c2f26dc257d870cfd4ccca017ad69fc9ec/20261020T233147-aeb6771de4ef4db4b9d737e31a164a96/result.json",
+          "sha256": "dc3e6e9e9e6df46857bd15f56eeefaea4450cb7762f336a06faa6613d8ae413f",
+          "started_at": "2026-10-20T23:31:47.904119+00:00",
+          "finished_at": "2026-10-20T23:31:52.646678+00:00",
+          "pid": 187,
+          "status": "succeeded"
+        }
+      ],
+      "not_done": [
+        "fresh independent QA",
+        "upload",
+        "GPU",
+        "composed scene"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:33:52.689192+00:00",
+      "stage": "Candidate schema dependency materialized from exact existing HEAD blob",
+      "issue": "First sidecar creation stopped because pre-existing publication policy was excluded from sparse materialization; no geometry/render mutation. Spatter candidate and technical reports already created, kept unchanged.",
+      "resolution": "Read exact HEAD policy blob into its existing tracked path, verified SHA be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256. No full checkout or policy edit. Continued missing sidecar only.",
+      "spatter_valid": false
+    },
+    {
+      "observed_at": "2026-10-20T23:34:39.143101+00:00",
+      "stage": "Final candidate integrity checks valid with unchanged subject",
+      "initial_error": "actual-local-measurements raw report lacked generic errors array expected by technical checker. Actual measured assertions already passed.",
+      "resolution": "Retained original failed candidate records and reports; added explicit v001 schema adapter and v002 technical report, rebound only technical report pin. Exact final GLB/brief/refs and all pixels unchanged.",
+      "not_done": [
+        "fresh independent QA",
+        "upload",
+        "GPU",
+        "composed scene"
+      ]
+    },
+    {
+      "observed_at": "2026-10-20T23:36:29.916374+00:00",
+      "stage": "18 individual final views personally inspected; all selected candidate integrity valid; original byte identity verified; handoff sealed",
+      "selected": [
+        "spatter-cone/r006",
+        "travertine-terrace-pools/r003"
+      ],
+      "not_done": [
+        "fresh independent QA",
+        "upload",
+        "GPU",
+        "composed scene"
+      ]
+    }
+  ]
+}

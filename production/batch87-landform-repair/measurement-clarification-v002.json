@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "version": "measurement-clarification-v002",
+  "frozen_at": "2026-10-20T22:55:00.672778+00:00",
+  "status": "prospective measurement definitions for new geometry only",
+  "supersedes_original_freeze": false,
+  "old_candidate_status_unchanged": {
+    "spatter-cone/r004": "specification BLOCKED",
+    "travertine-terrace-pools/r002": "specification BLOCKED"
+  },
+  "basis": {
+    "independent_report_sha256": "3c1ef306fbb9164031c18afcfac51795fec0ccd886791514a29181d52659a575",
+    "guidance_sha256": "e2a99659bf87593c4e56f2e3e3a60ef01b46e00979253876cd5754fcd919a35f"
+  },
+  "coordinate_serialization_epsilon_m": 2e-06,
+  "epsilon_scope": "Only float32 vertex serialization and arithmetic roundoff in exact target comparisons; not art or geometry tolerance. No percent allowance.",
+  "measurement_rules": {
+    "bounds": "World-space complete final Blend vertices and decoded final GLB positions; z min 0; XY envelope centered on origin; glTF coordinate conversion (x,-z,y).",
+    "spatter-cone": {
+      "rim_height_m": "Arithmetic mean z of actual crest vertices at 64 equally angled original construction rays. The inner opening boundary is the unique top crest; not a post-hoc height-band selection. Mean 2.5 and max 2.8.",
+      "vent_radius_m": "Mean horizontal radius from origin of same crest boundary, 0.65. Not radius at floor.",
+      "vent_floor_m": "Protected planar central vent floor z=0.18, including actual closing face.",
+      "outer_radius_m": "3.7 m nominal un-deformed construction foot radius; the final anisotropic irregular foot envelope is 7.8 x 7.4. Not final maximum radius.",
+      "radial_profile_segments": "14 consecutive radial intervals, 15 construction stations from floor center ring through vent crest to foot.",
+      "angular_segments": "64 initial angular rays; optional subsequent triangulation is not a redefinition.",
+      "welded_lobe_groups": "9 distinct angular groups of two staggered continuous surface-relief lobes; connected surface, not nine loose spheres."
+    },
+    "travertine-terrace-pools": {
+      "terrace_levels": "5 main planar pool floors; 4 consecutive rise differences of 0.7 m.",
+      "pool_rim_relief_m": "0.18 m nominal transverse primary lip contribution before local intended overflow saddle and continuous side-edge relief. Verify actual lip geometry against the frozen deterministic formula, not every edge vertex equal 0.18.",
+      "width_length": "Actual complete XY envelope 10 x 18 m, corrected XY only.",
+      "total_height": "Top surface shifted to max z=4.7; bottom remains z=0 and sidewalls lengthen continuously. No Z scale. Lowest floor-to-bottom offset was not frozen.",
+      "cross_segments": "28 intervals / 29 vertices per construction row."
+    }
+  },
+  "visual_scope_unchanged": "Broad asymmetric welded mound with recognizable narrow opening, no smooth funnel, bead rings or platform; terrace wide shallow thin-edged connected shelves, no cylinders, bowls or floating shells. New exact diagnostic and final frames required.",
+  "stage_separation": "Maker results are not independent QA; GPU and composed scene unknown/not run.",
+  "view_contract": "Eight required 512px individual views plus one lossless contact sheet. Supplemental bottom inspection only where separately identified; sheet is not a ninth camera."
+}

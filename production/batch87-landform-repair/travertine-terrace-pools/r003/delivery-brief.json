@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "asset_id": "travertine-terrace-pools",
+  "brief_version": "delivery-r003",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate, not release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every exact final view including rear/bottom for readability and visible coplanar overlap. Concept all panels inspected. Correct exaggerated tall staircase cylinders and thick parapets into broad shallow unequal shelves with thin carbonate lips, less vertical relief and continuous fused sidewalls. Retain connected progression but no separate flowing transparent water meshes; use opaque subdued water-bearing floor regions. All five basins remain geometrically enclosed except small overflow saddles.",
+      "required_sources": [
+        "NPS-TRAVERTINE"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Five unequal connected carbonate shelf levels enclosing broad shallow scalloped pools on one continuous slope. Thin irregular continuous rims visibly higher than shallow floor, with small overflow saddles linking successive levels. Coherent solid chalky substrate and continuous margin walls, not isolated cylinders, stacked bowls or a single rimstone pool. Original generic carbonate terrace process/form, not Mammoth survey, named terrace clone, geological period or ecosystem. NPS calcite-deposition explanation and real terrace photograph consulted. Water shown as opaque stylized flat shallow basin surface; no measured depth, temperature, discharge, chemistry or dynamic flow. Module rear/side cut faces artificial.",
+      "required_sources": [
+        "NPS-TRAVERTINE"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight required512px views plus supplemental bottom inspection. GPU and composed-scene separately unrun.",
+  "frozen_at": "2026-10-20T21:02:39.307314+00:00",
+  "subject": "Linked travertine terrace pools",
+  "representation": "geological-form",
+  "factual_scope": "Original generic carbonate terrace process/form, not Mammoth survey, named terrace clone, geological period or ecosystem. NPS calcite-deposition explanation and real terrace photograph consulted. Water shown as opaque stylized flat shallow basin surface; no measured depth, temperature, discharge, chemistry or dynamic flow. Module rear/side cut faces artificial.",
+  "identifying_features": [
+    "Five unequal connected carbonate shelf levels enclosing broad shallow scalloped pools on one continuous slope.",
+    "Thin irregular continuous rims visibly higher than shallow floor, with small overflow saddles linking successive levels.",
+    "Coherent solid chalky substrate and continuous margin walls, not isolated cylinders, stacked bowls or a single rimstone pool."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      10,
+      18,
+      4.7
+    ],
+    "accuracy": "illustrative, not measured specimen/site"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact at z0, center of basal footprint.",
+  "intended_use": {
+    "role": "static museum/catalog rotation asset",
+    "viewing": "512px diagnostic views, later web rotation",
+    "no_claim": "No dynamics, collision, habitat or scene compatibility established."
+  },
+  "surface_profile": "Flat faceted opaque palette only. No texture/emission/double-sided concealment.",
+  "palette_srgb": [
+    "#E7DFC5",
+    "#C6B590",
+    "#F3EAD5",
+    "#91ADA8",
+    "#B9C8BA"
+  ],
+  "component_and_cause": {
+    "primary": "Five unequal connected carbonate shelf levels enclosing broad shallow scalloped pools on one continuous slope.",
+    "secondary": "Thin irregular continuous rims visibly higher than shallow floor, with small overflow saddles linking successive levels.",
+    "tertiary": "Coherent solid chalky substrate and continuous margin walls, not isolated cylinders, stacked bowls or a single rimstone pool.",
+    "quiet_region": "Readable stem / intact ice flats / integrated basal lava foot / flat shallow pool floors."
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:02:39.307314+00:00",
+    "path": "production/small-life-batch87/concepts/travertine-terrace-pools-concept.png",
+    "sha256": "5439d910821d5abb12a244daaee5c5a392c03104cf4c99293dc56bcce1a5d04f",
+    "decisions": "Concept all panels inspected. Correct exaggerated tall staircase cylinders and thick parapets into broad shallow unequal shelves with thin carbonate lips, less vertical relief and continuous fused sidewalls. Retain connected progression but no separate flowing transparent water meshes; use opaque subdued water-bearing floor regions. All five basins remain geometrically enclosed except small overflow saddles."
+  },
+  "parameters": {
+    "width_m": 10,
+    "length_m": 18,
+    "terrace_levels": 5,
+    "rise_per_level_m": 0.7,
+    "pool_rim_relief_m": 0.18,
+    "cross_segments": 28,
+    "pool_floor_color": "opaque stylized water-bearing floor region"
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "standalone GLB",
+    "deterministic generator/config/seed/dependencies",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos checks",
+    "Three.js parse",
+    "eight exact512px views and lossless sheet plus bottom"
+  ],
+  "prohibited": [
+    "Copy third-party pixels/mesh",
+    "Treat concept as scientific evidence",
+    "Narrow frozen scope after build",
+    "Alter source inventory",
+    "Claim CPU images or Node parse prove GPU/scene"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch87/travertine-terrace-pools/r001/original-brief.json",
+    "sha256": "d7162b92d9382923a8d5db28ac3be641029741e68aacabd0d7fcc58f3b8002b0"
+  },
+  "delivery_bound_at": "2026-10-20T23:29:40.552538+00:00",
+  "scope_changed": false,
+  "prospective_measurement_clarification": {
+    "path": "production/batch87-landform-repair/measurement-clarification-v002.json",
+    "sha256": "9a13ec198a9339897f05d441ea8a670f52420be6c20fb09a64b6930773216731"
+  },
+  "previous_candidates_not_accepted": true,
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/artifacts/travertine-terrace-pools.blend",
+      "sha256": "19c44e5f37c85599857478084e659cd60dbf73b57b2d9389be2715fe8d435a4a"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch87-landform-repair/tools/generate.py",
+      "sha256": "03195c099638be91ea0d58a0ceaacb19ee2a155922de11520bfc9601abe5c553"
+    },
+    {
+      "role": "config",
+      "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/config.json",
+      "sha256": "46ace1bb0436a3c82254fc337adea53461369e9cd2e6443f7cfd6fe291b67516"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/batch87-landform-repair/dependencies.json",
+      "sha256": "8cb97ca290e8de6b86bc8237cc66ec1c29c8f380a081117dbc0050ae9930b09a"
+    }
+  ]
+}
