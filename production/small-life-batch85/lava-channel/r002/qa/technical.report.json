@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5",
+    "brief_sha256": "abc13272f7c13867cbbbd456dd00aa0a14105c44a738dedd984088e443f95967",
+    "references_sha256": "6b049e21e098df0f7f205345e5431073bc6ce42e1f8eae6afd59554316fd166f"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1030,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 73992,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5",
+      "report": {
+        "path": "production/small-life-batch85/lava-channel/r002/qa/static-glb.report.json",
+        "sha256": "6d65b08f5a2c9bf9483291c170231914d8fae5c2b0904addcb900c65389b6550"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5",
+      "report": {
+        "path": "production/small-life-batch85/lava-channel/r002/artifacts/gltf-validator.report.json",
+        "sha256": "902f0abfa99bd9c330d467d81556695e295a9290052b52c0c4697d55e23f1c5e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5",
+      "report": {
+        "path": "production/small-life-batch85/lava-channel/r002/qa/source-export.report.json",
+        "sha256": "ac3ebbdf5bec629a15a32d2f8fbeca82d8e77411dad831a9a9bb42a033636394"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5",
+      "report": {
+        "path": "production/small-life-batch85/lava-channel/r002/qa/reproducibility-a.report.json",
+        "sha256": "3afecda1723b89c149541f80da6961852cfaf634191fa8cb5c0ac6b052168337"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5",
+      "report": {
+        "path": "production/small-life-batch85/lava-channel/r002/qa/reproducibility-b.report.json",
+        "sha256": "d5f9015545293f1f936e325ab9001509697f8daff99ed215918d6fb1bff83436"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -32.66007614135742,
+      0.0,
+      -60.0
+    ],
+    "max": [
+      33.428466796875,
+      14.580973625183105,
+      60.0
+    ],
+    "size": [
+      66.08854293823242,
+      14.580973625183105,
+      120.0
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "cooled-floor-and-welded-levee-terrain",
+      "vertices": 517,
+      "triangles": 1030,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 2700,
+  "created_at": "2026-10-20T20:50:13.107062+00:00"
+}

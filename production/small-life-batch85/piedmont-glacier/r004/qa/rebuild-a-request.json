@@ -1,0 +1,95 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/tools/generate-piedmont-r004.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r004/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch85-evidence/rebuild-queue/build/piedmont-glacier/r004/semantic-rebuild-a/b421d62bdc9d56f196bdd6303a098e3ddbad5e2993c457b0465eadc77ebcb757/20261020T205123-b1691e089481408dac4e9368a07b10e0/outputs"
+  ],
+  "created_at": "2026-10-20T20:51:23.207078+00:00",
+  "fingerprint": "b421d62bdc9d56f196bdd6303a098e3ddbad5e2993c457b0465eadc77ebcb757",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch85-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 1008,
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r004/config.json",
+        "sha256": "9d3f5e721bc96878b6aa33690aab3b2ba5a6b4af109dee9d24bb87f1b5dfb174"
+      },
+      "generator": {
+        "bytes": 9472,
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/tools/generate-piedmont-r004.py",
+        "sha256": "943b309a28cd0ce82a84ad174cf7f5561e987c87bee3420cde6340509a07d421"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch85-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "piedmont-glacier",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch85-20261020/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r004/config.json",
+        "generator": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/tools/generate-piedmont-r004.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch85-20261020/scripts/qa_glb.py"
+      },
+      "job_id": "semantic-rebuild-a",
+      "outputs": [
+        "piedmont-glacier/piedmont-glacier.glb",
+        "piedmont-glacier/piedmont-glacier.blend",
+        "piedmont-glacier/qa.json",
+        "piedmont-glacier/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r004",
+      "timeout_seconds": 600
+    },
+    "lane": "build",
+    "memory_mb": 1800,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261020T205123-fd02621e20684ac2803674f9fe6af428"
+}

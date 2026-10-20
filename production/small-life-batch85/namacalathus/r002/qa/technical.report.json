@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+    "brief_sha256": "04d5dbee592cb08c7567fd10a787394bcb9da341eea15946163642e00551c1d9",
+    "references_sha256": "eb17d51c14565902230ffa07249019382116663ec7c62982e2394ca71becffbf"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 6192,
+    "materials": 1,
+    "primitives": 1,
+    "glb_bytes": 330228,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+      "report": {
+        "path": "production/small-life-batch85/namacalathus/r002/qa/static-glb.report.json",
+        "sha256": "c0b3baa7f2a42b0d1101f63f3414d61623960888ba6105e6d8f31cc28fe41947"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+      "report": {
+        "path": "production/small-life-batch85/namacalathus/r002/artifacts/gltf-validator.report.json",
+        "sha256": "5bfa89009e001ebce7225276fccf8b9a3fe358bebf68074a28aa8d9e8b707eda"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+      "report": {
+        "path": "production/small-life-batch85/namacalathus/r002/qa/source-export.report.json",
+        "sha256": "fc85aaa5f65264b2cb0f8c3a7a367bf060826ace402fcb64f5f9bd8b1263a9eb"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+      "report": {
+        "path": "production/small-life-batch85/namacalathus/r002/qa/reproducibility-a.report.json",
+        "sha256": "f1c8d0253f95f73381fe1bea9333ec0c477625d4a9fe7f5ce68e8cbab243cd4f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+      "report": {
+        "path": "production/small-life-batch85/namacalathus/r002/qa/reproducibility-b.report.json",
+        "sha256": "b639f3f3b9c31421f73b7f4d73643d67a1314c56cf703f01084daaed3194a73f"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.009673722088336945,
+      0.0,
+      -0.00979719776660204
+    ],
+    "max": [
+      0.009628180414438248,
+      0.03500000014901161,
+      0.010229705832898617
+    ],
+    "size": [
+      0.019301902502775192,
+      0.03500000014901161,
+      0.020026903599500656
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "windowed-cup-continuous-hollow-stalk",
+      "vertices": 3084,
+      "triangles": 6192,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 12144,
+  "created_at": "2026-10-20T20:50:12.853736+00:00"
+}

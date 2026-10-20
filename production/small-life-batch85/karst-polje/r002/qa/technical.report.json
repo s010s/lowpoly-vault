@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41",
+    "brief_sha256": "4cf196b52e00bd2dcf99df10a9d949db1595820c442cf5412dc58b0e97c308cf",
+    "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 894,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 53080,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41",
+      "report": {
+        "path": "production/small-life-batch85/karst-polje/r002/qa/static-glb.report.json",
+        "sha256": "aaab97d0b7f2eed5a7d97012579c5647327ebbb835aed63af0e24b6daa587cc1"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41",
+      "report": {
+        "path": "production/small-life-batch85/karst-polje/r002/artifacts/gltf-validator.report.json",
+        "sha256": "9ce47dfaaefff830760ff0005739c9a1e2968aaa043b8cafddd6feeda6adb7d0"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41",
+      "report": {
+        "path": "production/small-life-batch85/karst-polje/r002/qa/source-export.report.json",
+        "sha256": "2994453791633c33ac91e47e211a5f5f6909f4b330246e7a0d4bc0f50c85b190"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41",
+      "report": {
+        "path": "production/small-life-batch85/karst-polje/r002/qa/reproducibility-a.report.json",
+        "sha256": "54ec1fd3f27859819e1b72fa5fe1b1aa973efba31eb35d50c5db6d0f15bd7ffc"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41",
+      "report": {
+        "path": "production/small-life-batch85/karst-polje/r002/qa/reproducibility-b.report.json",
+        "sha256": "1424b1377ecb0fc24ccb8651102b5cc6046d72f7b4bf3435b2c22585977c63bd"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -557.4098510742188,
+      0.0,
+      -1037.681640625
+    ],
+    "max": [
+      593.7897338867188,
+      238.8279266357422,
+      1114.052490234375
+    ],
+    "size": [
+      1151.1995849609375,
+      238.8279266357422,
+      2151.734130859375
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "enclosed-carbonate-slopes-flat-sediment-basin",
+      "vertices": 449,
+      "triangles": 894,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 1793,
+  "created_at": "2026-10-20T20:50:13.164314+00:00"
+}

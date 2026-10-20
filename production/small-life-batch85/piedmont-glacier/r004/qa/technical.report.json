@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r004",
+    "glb_sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba",
+    "brief_sha256": "2806649761f4a38d23f50987c830ab2f73cf8b9454e90e9fd3b5083744b41687",
+    "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1618,
+    "materials": 6,
+    "primitives": 10,
+    "glb_bytes": 115476,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba",
+      "report": {
+        "path": "production/small-life-batch85/piedmont-glacier/r004/qa/static-glb.report.json",
+        "sha256": "5a1c3e1865643dbd084611299be61a06f2b9f479fe0ede7997dc124cbf7a7232"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba",
+      "report": {
+        "path": "production/small-life-batch85/piedmont-glacier/r004/artifacts/gltf-validator.report.json",
+        "sha256": "444e94d0ff2e21445da6221b19c921dbc808d190ffbc9f3a0d4b3916b46b7adb"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba",
+      "report": {
+        "path": "production/small-life-batch85/piedmont-glacier/r004/qa/source-export.report.json",
+        "sha256": "8192ff78933ef4fd9a8053c5616a3a4bbfd3d2c787f66c12f32f3d69c8791882"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba",
+      "report": {
+        "path": "production/small-life-batch85/piedmont-glacier/r004/qa/reproducibility-a.report.json",
+        "sha256": "2a804840aee1caac9b84c363e867f02c9d71b4289ee4515c5b821b91befde7c0"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba",
+      "report": {
+        "path": "production/small-life-batch85/piedmont-glacier/r004/qa/reproducibility-b.report.json",
+        "sha256": "76e0916164263e42386dfaa88c6be749312642df157fe39ff78702620d1c0703"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -650.0,
+      0.0,
+      -810.0
+    ],
+    "max": [
+      635.0,
+      394.4836120605469,
+      830.0
+    ],
+    "size": [
+      1285.0,
+      394.4836120605469,
+      1640.0
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "foreland-substrate",
+      "vertices": 22,
+      "triangles": 40,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "continuous-throat-spreading-lobe",
+      "vertices": 559,
+      "triangles": 1114,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "west-mountain-shoulder",
+      "vertices": 118,
+      "triangles": 232,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "east-mountain-shoulder",
+      "vertices": 118,
+      "triangles": 232,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 4078,
+  "created_at": "2026-10-20T20:52:51.027776+00:00"
+}

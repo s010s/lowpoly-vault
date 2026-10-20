@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "asset_id": "namacalathus",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Original static low-poly catalog candidate; not formal approval or public release.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect eight individual512px exact-GLB views. All three identifying features must read, no visible coplanar overlap, faceted coherent surfaces, full volume. All three actual concept views inspected: consistent goblet form and negative-space windows. Concept overthick wall and texture stippling are not literal goals. Use thinner readable shell and quiet palette, retain six oval windows with gentle non-mechanical variation. Hidden stalk is evidence-informed restoration; museum pixels do not expose it.",
+      "required_sources": [
+        "OX-NAMA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify: One slender hollow stalk connected continuously to a rounded hollow goblet cup. Broad top aperture plus six oval lateral lumens, sixfold generalization with restrained shape irregularity. Continuous skeletal shell, open passages and inward-turning upper lip; no invented living soft tissues. Preserve uncertainty: Genus-level fossil-form study, not a specimen facsimile or living reconstruction. Museum cup partly infilled and eroded; hidden stalk and obscured walls restored from published stalked-cup description. Approximately20mm cup/35mm total art dimensions and0.65mm wall are stylized, not measured fossil proportions. Affinity debated; no soft tissues, spines or phylogenetic assertion.",
+      "required_sources": [
+        "OX-NAMA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight fixed512px views, no turntable. GPU and scene remain separate required later gates.",
+  "frozen_at": "2026-10-20T20:36:19.485050+00:00",
+  "subject": "Namacalathus skeletal fossil-form",
+  "representation": "fossil-specimen",
+  "factual_scope": "Genus-level fossil-form study, not a specimen facsimile or living reconstruction. Museum cup partly infilled and eroded; hidden stalk and obscured walls restored from published stalked-cup description. Approximately20mm cup/35mm total art dimensions and0.65mm wall are stylized, not measured fossil proportions. Affinity debated; no soft tissues, spines or phylogenetic assertion.",
+  "identifying_features": [
+    "One slender hollow stalk connected continuously to a rounded hollow goblet cup.",
+    "Broad top aperture plus six oval lateral lumens, sixfold generalization with restrained shape irregularity.",
+    "Continuous skeletal shell, open passages and inward-turning upper lip; no invented living soft tissues."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.02,
+      0.02,
+      0.035
+    ],
+    "accuracy": "illustrative; not measured subject"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact center; all terrain substrates bottom z0. Isolated skeletal stem bottomz0.",
+  "intended_use": {
+    "role": "static low-poly museum catalog asset",
+    "viewing": "512px diagnostics; desktop gallery and close rotation later",
+    "no_claim": "No collision, dynamics, animation, site or live ecosystem compatibility established."
+  },
+  "surface_profile": "palette-only, opaque, flat faceted, no textures/emission/double-sided concealment",
+  "palette_srgb": [
+    "#C9B995",
+    "#B4A183",
+    "#DCD0B2"
+  ],
+  "component_and_cause": {
+    "primary": "One slender hollow stalk connected continuously to a rounded hollow goblet cup.",
+    "secondary": "Broad top aperture plus six oval lateral lumens, sixfold generalization with restrained shape irregularity.",
+    "tertiary": "Continuous skeletal shell, open passages and inward-turning upper lip; no invented living soft tissues.",
+    "quiet_region": "Cup panels / glacier interior / trough floor / sediment basin, respectively; no uniform micro-noise."
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T20:36:19.485050+00:00",
+    "path": "production/small-life-batch85/concepts/namacalathus-concept.png",
+    "sha256": "574055750cd4d76c4446eeab3d3a1d0fe355c3b46b195b773a4e573264190c27",
+    "decisions": "All three actual concept views inspected: consistent goblet form and negative-space windows. Concept overthick wall and texture stippling are not literal goals. Use thinner readable shell and quiet palette, retain six oval windows with gentle non-mechanical variation. Hidden stalk is evidence-informed restoration; museum pixels do not expose it."
+  },
+  "parameters": {
+    "cup_radius_m": 0.01,
+    "cup_center_z_m": 0.025,
+    "cup_height_m": 0.02,
+    "stem_height_m": 0.017,
+    "stem_outer_radius_m": 0.00125,
+    "shell_thickness_m": 0.00065,
+    "lateral_windows": 6,
+    "longitude_segments": 60,
+    "latitude_segments": 20
+  },
+  "deliverable_plan": [
+    "editable Blender source",
+    "standalone GLB",
+    "deterministic generator, frozen config and dependency closure",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project and Khronos checks",
+    "Three.js exact-GLB parse",
+    "eight actual512px images and lossless sheet"
+  ],
+  "prohibited": [
+    "Copy source image or mesh",
+    "Treat ImageGen as scientific evidence",
+    "Narrow original scope after build",
+    "Change source inventory",
+    "Claim CPU image/Node parse as GPU or composed-scene evidence"
+  ]
+}
