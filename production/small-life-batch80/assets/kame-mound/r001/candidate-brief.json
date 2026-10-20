@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "kame-mound",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form educational landscape module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Compact irregular asymmetric sand-and-gravel mound with uneven broad crest and shorter offset shoulder; Steep unequal flanks and subdued collapse scallop; variable integral gravel-like relief; Not streamlined drumlin, sinuous esker, volcanic cone or thermal-cemented Yellowstone hill. Scope: Generic original ice-contact glaciofluvial sediment mound, informed by WisconsinDNR JohnsonHill moulin-kame photo and IowaDNR sediment definition. JohnsonHill is a specific moulin-kame formation example, not proof all kames form through identical cylinders; generic uneven geometry not named-site terrain. No thermal hydrothermal cementation, internal cutaway or fabricated uniform stratigraphy. Nominal80x70x24m module illustrative, not measured site. Bare sediment exposure is artistic vegetation omission.",
+      "required_sources": [
+        "DNR-KAME"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Compact irregular asymmetric sand-and-gravel mound with uneven broad crest and shorter offset shoulder; Steep unequal flanks and subdued collapse scallop; variable integral gravel-like relief; Not streamlined drumlin, sinuous esker, volcanic cone or thermal-cemented Yellowstone hill. Scope: Generic original ice-contact glaciofluvial sediment mound, informed by WisconsinDNR JohnsonHill moulin-kame photo and IowaDNR sediment definition. JohnsonHill is a specific moulin-kame formation example, not proof all kames form through identical cylinders; generic uneven geometry not named-site terrain. No thermal hydrothermal cementation, internal cutaway or fabricated uniform stratigraphy. Nominal80x70x24m module illustrative, not measured site. Bare sediment exposure is artistic vegetation omission.",
+      "required_sources": [
+        "DNR-KAME"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch80/assets/kame-mound/r001/source.blend",
+      "sha256": "132e2ddde83851e8d05d59217116450d00b541666ea9a6f0e1ee9f544e1efe0e"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch80/assets/kame-mound/r001/generator.py",
+      "sha256": "c87db580a4cd8735caa4332195d5d2e1b43c1faeb4a92347ae85b0aacb788aa7"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch80/assets/kame-mound/r001/build-config.json",
+      "sha256": "05b09bbd56d2a51c496eff8885a168e1bbbf47ba5406c88b3ee5b1360e620a2b"
+    }
+  ],
+  "claim_scope": "Generic original ice-contact glaciofluvial sediment mound, informed by WisconsinDNR JohnsonHill moulin-kame photo and IowaDNR sediment definition. JohnsonHill is a specific moulin-kame formation example, not proof all kames form through identical cylinders; generic uneven geometry not named-site terrain. No thermal hydrothermal cementation, internal cutaway or fabricated uniform stratigraphy. Nominal80x70x24m module illustrative, not measured site. Bare sediment exposure is artistic vegetation omission.",
+  "nominal_dimensions_blender_xyz_m": [
+    80,
+    70,
+    24
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "Compact irregular asymmetric sand-and-gravel mound with uneven broad crest and shorter offset shoulder",
+    "Steep unequal flanks and subdued collapse scallop; variable integral gravel-like relief",
+    "Not streamlined drumlin, sinuous esker, volcanic cone or thermal-cemented Yellowstone hill"
+  ],
+  "concept_decisions": "Keep concept asymmetric high mound, low shoulder and collapse scallop; reduce concept excessive separate clasts and mathematically conical hill. Unequal rounded crest and irregular footprint, granular integral surface with variable-size facets in one closed volume, not overlapping rocks. No evenly spaced terraces or deposited sediment stripes. DNR photo vegetation obscures sediment so composition follows accompanying primary text, not invented observed exposure.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting landscape geological module at256-512px; preserve world scale",
+  "created_at": "2026-10-20T16:34:52.491151+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:37:06.693460+00:00",
+    "frozen_design_brief_sha256": "f381acf1bdef081103c1a48b00ef8ad62022f84ed205cf42e493b8d561bdc26a",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

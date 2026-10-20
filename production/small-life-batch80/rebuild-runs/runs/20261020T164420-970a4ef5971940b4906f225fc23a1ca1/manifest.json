@@ -1,0 +1,36 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "pediment",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch80-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/pediment/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/pediment/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/pediment/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch80-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/pediment/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

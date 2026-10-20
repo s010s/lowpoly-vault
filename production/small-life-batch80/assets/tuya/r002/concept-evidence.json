@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "tuya",
+  "revision": "r002",
+  "labels": {
+    "en": "tuya"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "84c88e230f7fa437c8c41119ea181d0ccb3d7ddcbc2fe4f784ee95e50d44b2d3"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "a9aeb475552524d78274df0c469c79d32dabc882bd21d1df8a34935484d44c43"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "12366befcae606bff6e780d93271e5facd7b54504b527691fb9bfcfc4ab21ca0"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "cb6a8e6c8b9dd5b69e1fc318db5d9132733d888f0f58333974ef8ed64151320c"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "245904dfe3fd2186e9df0364f12f58579abf1106ebe2af7472e0a48db1b479f9"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "a66ba2f5e731d068fd2a7b82b8f1d4fe0ea31d35cf155fe7d5a7d71b4ccbb6dd"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "2928f8f60de933bc97f53025f3dfbe4ab04c0f4139b0eb917085a8494ff49b88"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "4f98e3a1b3d99ca56b28e348a5f141c814a9970df1f328ef0a6427a62b2a9e8f"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "ea57496fa0d2d66adeac632820ff3008d5c9b834c44b9175069ff332ae11500c"
+      }
+    ],
+    "cross_view_consistency_note": "Keep concept broad flat dark cap and steep flanks, but break perfect circular plateau into irregular elongated polygonal footprint. Avoid decorative cap mosaic and oversized identical columns. A continuous closed volume with integral cap joints and lower flank relief, not intersecting stone disks or loose boulder pile. One modest flank notch, low asymmetric talus. Cap and volcanic fragmental flank geometry have real geological rationale, not only material recolor of mesa. No summit crater or modern snow/forest. Actual EGU photo shows broad flat cap plus cirques; exact cirque count not copied. AlaskaFig5 shows eroded remnant and breccia, not intact flat-top edifice.",
+    "hidden_surface_decisions": "Keep concept broad flat dark cap and steep flanks, but break perfect circular plateau into irregular elongated polygonal footprint. Avoid decorative cap mosaic and oversized identical columns. A continuous closed volume with integral cap joints and lower flank relief, not intersecting stone disks or loose boulder pile. One modest flank notch, low asymmetric talus. Cap and volcanic fragmental flank geometry have real geological rationale, not only material recolor of mesa. No summit crater or modern snow/forest. Actual EGU photo shows broad flat cap plus cirques; exact cirque count not copied. AlaskaFig5 shows eroded remnant and breccia, not intact flat-top edifice."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:34:52.531967+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.4125,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "22817d9324f4eb1d2921ec5841ddfa73c05b499c5082c958e4d4ab40a2e27b2b"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "22817d9324f4eb1d2921ec5841ddfa73c05b499c5082c958e4d4ab40a2e27b2b"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "e234ffe94e102ea6b0601d8abfd79298881c49a025c5e88b988347c685767a94",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "dec9fda037f1324055ffcfda56bcdd723ba4c06bea94a974d314e7c373e17fbe"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "84c88e230f7fa437c8c41119ea181d0ccb3d7ddcbc2fe4f784ee95e50d44b2d3",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "7ba0155f780a21ea929cf3ad8431e1d4b9f208c66143c642d4eaa19a555689d5"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

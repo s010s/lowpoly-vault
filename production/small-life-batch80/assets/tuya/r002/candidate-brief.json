@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "tuya",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form educational landscape module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Broad near-flat coherent lava cap with steep irregular ice-confined volcanic flanks; Dark jointed cap over subdued fragmental tuff/breccia flank; localized rounded pillow-fragment-like integral relief and shallow asymmetric notch; Not sedimentary mesa recolor, stacked disconnected disks or cratered conical volcano. Scope: Generic original flat-top tuya geological form with features supported by primary subglacial-volcanic descriptions and actual source pixels. Not an exact Togiak,TuyaButte,Okmok reconstruction, DEM, age, internal stratigraphic section or eruption simulation. Nominal1200x950x350m module illustrative, not site measurement. Broad basaltic subaerial cap above water/ice-contact tuff/breccia; localized pillow-fragment-like relief is stylized external exposure, not assertion a universal stratum is exposed around every tuya.",
+      "required_sources": [
+        "HOARE1978"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Broad near-flat coherent lava cap with steep irregular ice-confined volcanic flanks; Dark jointed cap over subdued fragmental tuff/breccia flank; localized rounded pillow-fragment-like integral relief and shallow asymmetric notch; Not sedimentary mesa recolor, stacked disconnected disks or cratered conical volcano. Scope: Generic original flat-top tuya geological form with features supported by primary subglacial-volcanic descriptions and actual source pixels. Not an exact Togiak,TuyaButte,Okmok reconstruction, DEM, age, internal stratigraphic section or eruption simulation. Nominal1200x950x350m module illustrative, not site measurement. Broad basaltic subaerial cap above water/ice-contact tuff/breccia; localized pillow-fragment-like relief is stylized external exposure, not assertion a universal stratum is exposed around every tuya.",
+      "required_sources": [
+        "HOARE1978"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch80/assets/tuya/r002/source.blend",
+      "sha256": "cb6a8e6c8b9dd5b69e1fc318db5d9132733d888f0f58333974ef8ed64151320c"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch80/assets/tuya/r002/generator.py",
+      "sha256": "245904dfe3fd2186e9df0364f12f58579abf1106ebe2af7472e0a48db1b479f9"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch80/assets/tuya/r002/build-config.json",
+      "sha256": "a66ba2f5e731d068fd2a7b82b8f1d4fe0ea31d35cf155fe7d5a7d71b4ccbb6dd"
+    }
+  ],
+  "claim_scope": "Generic original flat-top tuya geological form with features supported by primary subglacial-volcanic descriptions and actual source pixels. Not an exact Togiak,TuyaButte,Okmok reconstruction, DEM, age, internal stratigraphic section or eruption simulation. Nominal1200x950x350m module illustrative, not site measurement. Broad basaltic subaerial cap above water/ice-contact tuff/breccia; localized pillow-fragment-like relief is stylized external exposure, not assertion a universal stratum is exposed around every tuya.",
+  "nominal_dimensions_blender_xyz_m": [
+    1200,
+    950,
+    350
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "Broad near-flat coherent lava cap with steep irregular ice-confined volcanic flanks",
+    "Dark jointed cap over subdued fragmental tuff/breccia flank; localized rounded pillow-fragment-like integral relief and shallow asymmetric notch",
+    "Not sedimentary mesa recolor, stacked disconnected disks or cratered conical volcano"
+  ],
+  "concept_decisions": "Keep concept broad flat dark cap and steep flanks, but break perfect circular plateau into irregular elongated polygonal footprint. Avoid decorative cap mosaic and oversized identical columns. A continuous closed volume with integral cap joints and lower flank relief, not intersecting stone disks or loose boulder pile. One modest flank notch, low asymmetric talus. Cap and volcanic fragmental flank geometry have real geological rationale, not only material recolor of mesa. No summit crater or modern snow/forest. Actual EGU photo shows broad flat cap plus cirques; exact cirque count not copied. AlaskaFig5 shows eroded remnant and breccia, not intact flat-top edifice.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting landscape geological module at256-512px; preserve world scale",
+  "created_at": "2026-10-20T16:34:52.989636+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:42:07.542250+00:00",
+    "frozen_design_brief_sha256": "6aff70a942d46f63eab52916a4f5596a5542e94d1516bce3155aa4f22dacce06",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

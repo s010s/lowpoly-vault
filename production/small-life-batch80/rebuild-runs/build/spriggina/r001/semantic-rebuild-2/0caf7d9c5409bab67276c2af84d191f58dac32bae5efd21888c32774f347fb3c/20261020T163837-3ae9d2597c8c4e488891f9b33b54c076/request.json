@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/rebuild-runs/build/spriggina/r001/semantic-rebuild-2/0caf7d9c5409bab67276c2af84d191f58dac32bae5efd21888c32774f347fb3c/20261020T163837-3ae9d2597c8c4e488891f9b33b54c076/outputs"
+  ],
+  "created_at": "2026-10-20T16:38:37.968091+00:00",
+  "fingerprint": "0caf7d9c5409bab67276c2af84d191f58dac32bae5efd21888c32774f347fb3c",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6923,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/brief.json",
+        "sha256": "596712e9976f668d831c3d397b30d5d5c21e3cfe904673a0097167020f1450d2"
+      },
+      "config": {
+        "bytes": 1052,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/build-config.json",
+        "sha256": "ea2e775d44c0584128f39c6107faad51ac12458d9976815a031343dce0de4751"
+      },
+      "generator": {
+        "bytes": 7996,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/generator.py",
+        "sha256": "c87db580a4cd8735caa4332195d5d2e1b43c1faeb4a92347ae85b0aacb788aa7"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2522,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/references.json",
+        "sha256": "f0c3c7aa5209f70ecc2bacf90ba158fc3abc48cd427402fcf989da0a5ee60fcf"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "spriggina",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch80-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch80-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T163837-19034b2863534954927d064d33eaa26f"
+}

@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/rebuild-runs/build/spriggina/r002/semantic-rebuild-1/71f905138dfe5e5f469228c1f462ff1a9df80fd1e1bf01971e161f242a8e5d1e/20261020T164227-d079fec74cfe440c84514f396ee1e303/outputs"
+  ],
+  "created_at": "2026-10-20T16:42:27.890950+00:00",
+  "fingerprint": "71f905138dfe5e5f469228c1f462ff1a9df80fd1e1bf01971e161f242a8e5d1e",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6923,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/brief.json",
+        "sha256": "596712e9976f668d831c3d397b30d5d5c21e3cfe904673a0097167020f1450d2"
+      },
+      "config": {
+        "bytes": 1052,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/build-config.json",
+        "sha256": "ea2e775d44c0584128f39c6107faad51ac12458d9976815a031343dce0de4751"
+      },
+      "generator": {
+        "bytes": 8025,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/generator.py",
+        "sha256": "5f74ab2ffb7922e2ebdb6cf8719891a706c3348c31454cf6e15e02afde0f2217"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2522,
+        "path": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/references.json",
+        "sha256": "f0c3c7aa5209f70ecc2bacf90ba158fc3abc48cd427402fcf989da0a5ee60fcf"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "spriggina",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch80-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch80-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch80-20261020/production/small-life-batch80/assets/spriggina/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T164227-581939e642d74f85ae7018a8ce58fac4"
+}

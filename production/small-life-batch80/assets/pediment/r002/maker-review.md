@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual all eight final512px views individually opened. Side shows physically shallow apron gradient rising toward an abrupt uphill mountain front; top shows apron occupies majority footprint and no radial sediment fan. Reversehero/rear show full closed mountain and connected bedrock module. Unequal angular peaks and sparse shallow washes are deliberately simplified, with a faceted material transition that is visibly jagged rather than a separate intersecting skin. Rectilinear outer module extent and subdued shallow channels remain limitations for independent visual assessment. No visible floating sheets or coplanar clasts seen.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 5acccae174dabafb01b6f253d09684821d467726d796f251f831ead2f8dad24a. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

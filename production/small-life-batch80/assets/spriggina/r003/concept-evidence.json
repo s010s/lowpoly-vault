@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "spriggina",
+  "revision": "r003",
+  "labels": {
+    "en": "spriggina"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "c5f189656f3558c352c9413fadc7049a398e7ccf4bab1277e91722b1347cd5e2"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "4fd11283b4222ad5d9cf254246c72ffda9b57ab2aada958eb65361c6481feff0"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "f0c3c7aa5209f70ecc2bacf90ba158fc3abc48cd427402fcf989da0a5ee60fcf"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "001eafb5806a5677bb8d7ef3c519bfa9849cb8d04ed8830eb94b0c1b9e44a88c"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "f14474031824d338a62c9f3c3ba8f22bf2212f5357c905e979d61b703e8fb343"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ea2e775d44c0584128f39c6107faad51ac12458d9976815a031343dce0de4751"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "94a42124c0b9af75f837b536fb0f7bcc0232c82c5291702bbc30470fc9b629f2"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "7d353549a55082f69007bf6d6da0755700124cd8f983deb4ee57104f11111b26"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "beee6da3cd3f8998c515d21a46b11a76482e5d9aa00d5213542c32f64979a623"
+      }
+    ],
+    "cross_view_consistency_note": "Keep concept negative impression and taper. Correct concept overly smooth leaflike outline and sparse veins: use denser small posteriorly curved modular grooves, each stopping at median line, with broad small anterior depression rather than invented shield anatomy. Reference Fig2I is straight and complete-looking, not holotypeA bent specimen or incompleteC/E/G; modest unequal margins are artistic simplification, not copied source mesh. Retain broken slab but lower concept thick miniature-plaque rim; fossil body lies below surrounding bedding surface with median ridge only relative to impression. Neutral artistic palette. No texture grain or copied photograph.",
+    "hidden_surface_decisions": "Keep concept negative impression and taper. Correct concept overly smooth leaflike outline and sparse veins: use denser small posteriorly curved modular grooves, each stopping at median line, with broad small anterior depression rather than invented shield anatomy. Reference Fig2I is straight and complete-looking, not holotypeA bent specimen or incompleteC/E/G; modest unequal margins are artistic simplification, not copied source mesh. Retain broken slab but lower concept thick miniature-plaque rim; fossil body lies below surrounding bedding surface with median ridge only relative to impression. Neutral artistic palette. No texture grain or copied photograph."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:34:52.410826+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 9.4767,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "991c32cb3bfc11c6a18c3fc1abc2af4d11619e0cb70a8af6bf9da7d12594d36a"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "991c32cb3bfc11c6a18c3fc1abc2af4d11619e0cb70a8af6bf9da7d12594d36a"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "8bacb70be2afd65bb4e4f572967d01678f5789c0b499c5d5c7f86977adca5e1c",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "3d0abe64f382f72bdaa482ef9750e7fa7716729c81c04964bb680cf2a07dfacd"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "c5f189656f3558c352c9413fadc7049a398e7ccf4bab1277e91722b1347cd5e2",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "613a59be7711137c9847d1c1e58405af3ab24c57aca56ad2e7405ff61ccf310e"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

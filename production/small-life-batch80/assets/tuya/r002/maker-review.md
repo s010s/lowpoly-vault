@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual all eight final512px views individually opened. Broad near-flat dark summit cap remains above steep asymmetric flanks, small irregular notch and irregular basal outline. Clay/side/rear disclose real angular flank relief and broken cap edge, not material-only mesa recolor. Localized rough breccia/pillow-fragment-like exposure is highly simplified, with visible alternating angular palette regions; independent factual/visual review must assess sufficiency against the primary volcanic-facies obligation. No crater, disconnected disks, floating stones or visible coplanar overlay seen. No claim exact source edifice or universal exposed stratigraphy.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 84c88e230f7fa437c8c41119ea181d0ccb3d7ddcbc2fe4f784ee95e50d44b2d3. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.
