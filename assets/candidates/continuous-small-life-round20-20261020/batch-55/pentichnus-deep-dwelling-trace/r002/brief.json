@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "asset_id": "pentichnus-deep-dwelling-trace",
+  "brief_version": "concept-v002",
+  "profile": "production",
+  "purpose": "Illustrative sectional sediment block surrounding a deep five-sided subconical negative cavity. Wide pentagonal mouth narrows to a small pentagonal floor; one front sector of sediment removed to expose penetration. Remaining geometry carries the full five-sided architecture with the omitted sector explicitly illustrative. No tracemaker, certain behavior or excavated specimen claim.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-TR2"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Illustrative sectional sediment block surrounding a deep five-sided subconical negative cavity. Wide pentagonal mouth narrows to a small pentagonal floor; one front sector of sediment removed to expose penetration. Remaining geometry carries the full five-sided architecture with the omitted sector explicitly illustrative. No tracemaker, certain behavior or excavated specimen claim. Check basic named form against cited accessible evidence; unresolved species detail stays unknown.",
+      "required_sources": [
+        "EN-TR2"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 rule 2026-10-18.1 eight views zero turntable; independent review and runtime gates retained.",
+  "required_deliverables": [],
+  "frozen_at": "2026-10-20T01:29:04.105124+00:00",
+  "representation": "evidence-informed stylized specimen/form study",
+  "structural_design": "Illustrative sectional sediment block surrounding a deep five-sided subconical negative cavity. Wide pentagonal mouth narrows to a small pentagonal floor; one front sector of sediment removed to expose penetration. Remaining geometry carries the full five-sided architecture with the omitted sector explicitly illustrative. No tracemaker, certain behavior or excavated specimen claim.",
+  "nominal_design_dimensions_blender_xyz_m": [
+    0.14,
+    0.14,
+    0.13
+  ],
+  "dimension_status": "Artistic design envelope, not measured fossil dimensions; actual exported bounds recorded separately.",
+  "validation_profile": "static-stylized-v1"
+}

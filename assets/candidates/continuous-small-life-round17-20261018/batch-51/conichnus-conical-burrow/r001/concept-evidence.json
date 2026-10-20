@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "conichnus-conical-burrow",
+  "revision": "r001",
+  "labels": {
+    "en": "Conichnus conical burrow",
+    "zh-CN": "Conichnus 锥状潜穴"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "conichnus-conical-burrow.glb",
+      "sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042"
+    },
+    "source": {
+      "path": "conichnus-conical-burrow.blend",
+      "sha256": "4bb156af41158e9c2c899e0b55efdb0cb0e005ddf83cb7af46841e876388d121"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ac67eb8c2ad7b7b406bd155250d071115084b5a693a2efb95c24bb1580a34ce1"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "730d3eb206ee0033122a50a8beae6a7289463e82b013f6fa914610608f69f160"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "df27fbe9dc29d10c09d1a763737b81353a0b98c00cd0a6ba1075dc0580f89fa2"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "042d1697a08baa8659c3a5b0eda1f8b45f55d2b44050d17a0bb097abbfacf2c9"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "cc4f61f51da06042f807fe3b35dc42bad7e3aa98bc4f26879edfaf082936cb35"
+    },
+    "images": [
+      {
+        "id": "concept-multiview",
+        "view": "hero/top/side compatible suggestions",
+        "path": "concepts/original.png",
+        "sha256": "7c2cb8dd3ba7578ffe702e2818b2cc33abb6ec6a297b31c08895dd9654a80585"
+      }
+    ],
+    "cross_view_consistency_note": "Thick sediment block containing one circular opening with unornamented continuously tapering negative walls, deep small rounded bottom. Side diagnostic depicts narrow rounded termination; top appears almost cylindrical near mouth and has dark center. Hero opening visually larger relative to block than requested. Freeze opening diameter .084 m in .24 x .20 x .14 m sediment; cavity depth .112 m and small rounded basal termination. Preserve negative cavity; no almond outline. Published KGS genus description gives rounded base; specific C. conicus may have small planar apical disc. Therefore pointed-bottom means strongly converging narrow base, not unsupported mathematically sharp point. Supplement exact-GLB gray top and oblique with a labelled diagnostic half-section; main delivered GLB remains intact.",
+    "hidden_surface_decisions": "One fully volumetric closed sediment mesh with real top annulus and inward-facing cone wall, continuous substrate below cavity, and quiet layered outer walls. Small rounded basal cap is part of mesh; no positive cone. Diagnostic bisect is explanatory and separately recorded."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-19T22:47:36.216421+00:00",
+    "modeling_started_at": "2026-10-19T22:58:32.413691+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 14.9473,
+      "measurement_record": {
+        "path": "candidate-proof/render-manifest.json",
+        "sha256": "b53f50e1800ea81fac9ed81f6f9a0c9a0ae93d2993cb82fe0c56c648e91f2a67"
+      },
+      "note": "Actual renderer measured eight-frame render loop; excludes process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "target_browser",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "candidate-proof/render-manifest.json",
+    "sha256": "b53f50e1800ea81fac9ed81f6f9a0c9a0ae93d2993cb82fe0c56c648e91f2a67"
+  },
+  "thumbnail": {
+    "path": "candidate-proof/hero.png",
+    "sha256": "60cab922f9474ac079b98fbc6a95734cd93af69ff5c780df4f81b4f49e40c667",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "160144d559becbd6ebb48ed7b674a333d2bed0ffce74dbc8d905ada2574f9e61"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "34948b0738264195544dd24ff377a1b0f3b92a93a1e34ab07d66647235388042",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "55baf79bb794961b5e0e15e214104d4a92940bae08ee63fcbc2e1a8766f27096"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supplemental checker is advisory only; formal candidate brief independently enforces the unchanged hard 1,000,000 byte / 14,000 triangle caps."
+  }
+}

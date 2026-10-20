@@ -1,0 +1,146 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-tools/render_candidate_views.py",
+    "--",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.glb",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/brief.json",
+    "--references",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/references.json",
+    "--output-dir",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-runs/render/ventifact/r001/exact-eight-views/144ff4290d3b5878ee03a9f7bb592ca638fa1299ab6334043d3c977cfcd6558f/20261020T012939-2e01fed02cd8428d8b1180bfca2ba809/outputs",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette",
+    "--turntable-frames",
+    "0",
+    "--resolution",
+    "512",
+    "--samples",
+    "12"
+  ],
+  "created_at": "2026-10-20T01:29:39.083742+00:00",
+  "fingerprint": "144ff4290d3b5878ee03a9f7bb592ca638fa1299ab6334043d3c977cfcd6558f",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-tools/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 4078,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/brief.json",
+        "sha256": "80d933ba49132009c2b8801c358fefb40b0c123666d84ce7a2b37baf943c0628"
+      },
+      "glb": {
+        "bytes": 3644,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.glb",
+        "sha256": "291ad1bbff024594c61ad218ea4fc33add08425d2998fbec20051de8abad64fa"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-tools/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 1029,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/references.json",
+        "sha256": "2d318b9cd1aba064a7c753092fda99f6147df49ea99d2a05384ddec775918b27"
+      },
+      "renderer": {
+        "bytes": 16385,
+        "path": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-tools/render_candidate_views.py",
+        "sha256": "ccf495a88f88480de609b9cf91ddeeb2a1e0d79c345e66ce1a97baa5bedee83a"
+      },
+      "source": {
+        "bytes": 455284,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.blend",
+        "sha256": "4e58fea6b2c19ac70d39c87d93bf6ebd2683a7eb60c8250128b0fc465e3d6b92"
+      },
+      "source_checker": {
+        "bytes": 6550,
+        "path": "/workspace/lowpoly-vault/scripts/check_source_export.py",
+        "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "12"
+      ],
+      "asset_id": "ventifact",
+      "config": {
+        "purpose": "fixed8 exact GLB full-angle evidence"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-tools/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/brief.json",
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.glb",
+        "helper": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-tools/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/references.json",
+        "renderer": "/workspace/lowpoly-vault/production/continuous-small-life-round20-20261020/work/batch-55/render-tools/render_candidate_views.py",
+        "source": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.blend",
+        "source_checker": "/workspace/lowpoly-vault/scripts/check_source_export.py"
+      },
+      "job_id": "exact-eight-views",
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 600
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "run_id": "20261020T012938-197e373ac65d4d3cbbf0542d35130017"
+}

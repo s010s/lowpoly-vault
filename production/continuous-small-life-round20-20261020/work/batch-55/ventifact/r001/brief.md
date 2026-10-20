@@ -1,0 +1,2 @@
+Single squat original wind-abraded rock, three dominant broad planar abrasion surfaces meeting at sharp ridges; smaller basal broken facets subordinate. No locality, geological age or measured natural dimension. Clay must show main facets as geometry, not painted patterns.
+Concept inspected before freeze; concept-inspection.md records contradictions. Nominal Blender XYZ meters: [0.9, 0.75, 0.62]; artistic envelope, not exact measured bounds.

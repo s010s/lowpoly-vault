@@ -1,0 +1,2 @@
+All eight separate 512px proof images opened. Visible continuous regular juvenile helix, free irregular adult tube, substantial aperture wall and inner volume; clay retains form and side/top show real depth. Simplified tube has angular change near lower bend, a retained stylization limit; no extra sculpt refinement claimed. Exact specimen match is unestablished.
+Maker inspection only; independent model QA pending. Source reopen and direct source metrics pass; no boundary or non-manifold edges in final source. GPU, browser and populated scene unrun.

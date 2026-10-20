@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "asset_id": "ventifact",
+  "revision": "r001",
+  "maker": {
+    "id": "GPT-6.1 Sol medium batch-55 maker",
+    "task_id": "01a156e7-da1f-74f2-8e73-50637c8ea004",
+    "thread_id": "01a156e7-da1f-74f2-8e73-50637c8ea004",
+    "turn_id": "01a156e7-e4c5-70b8-9dd7-9cf381271201",
+    "identity_source": {
+      "path": "production/continuous-small-life-round20-20261020/work/batch-55/maker-identity-provenance.json",
+      "sha256": "9d4b1ca338b813c61658dfac0f4aa107132c6785c5a6c6ab8ca4681326111ab5"
+    }
+  },
+  "artifacts": {
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.glb",
+      "sha256": "291ad1bbff024594c61ad218ea4fc33add08425d2998fbec20051de8abad64fa"
+    },
+    "brief": {
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/brief.json",
+      "sha256": "80d933ba49132009c2b8801c358fefb40b0c123666d84ce7a2b37baf943c0628"
+    },
+    "references": {
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/references.json",
+      "sha256": "2d318b9cd1aba064a7c753092fda99f6147df49ea99d2a05384ddec775918b27"
+    },
+    "source": {
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.blend",
+      "sha256": "4e58fea6b2c19ac70d39c87d93bf6ebd2683a7eb60c8250128b0fc465e3d6b92"
+    },
+    "generator": {
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/generator.py",
+      "sha256": "7cee4c6e6aced0bd8db3cd271797a4b8b50b94ec0ff3d4f499d6cf0bc4333daa"
+    },
+    "config": {
+      "path": "assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/build-config.json",
+      "sha256": "8048ab06a3b10dd45189a64795a2b92de51311655955e6dd7843dac0a8fb4abc"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not yet run or independently reviewed.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not yet run or independently reviewed."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "severity": "required",
+      "status": "open",
+      "description": "Parent must dispatch exactly one fresh-context Luna xhigh review against pinned source and four hashes."
+    },
+    {
+      "id": "runtime-gpu-scene-unrun",
+      "severity": "required",
+      "status": "open",
+      "description": "Node parse passed; browser GPU and populated scene have not run."
+    },
+    {
+      "id": "maker-task-id-unavailable",
+      "severity": "required",
+      "status": "resolved",
+      "description": "Actual execution thread exposed; distinct task ID not exposed. Parent confirms without guessing.",
+      "resolution": "Original cloud task identity verified by coordinator; maker.task_id uses its threadId and turn_id preserves the original creation turn. See maker.identity_source."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}
