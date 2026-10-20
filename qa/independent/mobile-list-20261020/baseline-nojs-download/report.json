@@ -1,0 +1,1227 @@
+{
+  "source_sha": "0cbef7c9826ddd1d83e7d0c941b7864dbaa6865c",
+  "label": "baseline-nojs-download",
+  "date": "2026-10-20T01:42:48.890Z",
+  "environment": "saved cloud workspace / Linux Chromium / SwiftShader / emulated touch",
+  "cases": [
+    {
+      "name": "no-js-fallback",
+      "checks": [
+        {
+          "name": "no-JS listing has real model links",
+          "pass": true,
+          "actual": 24
+        },
+        {
+          "name": "no-JS detail navigates to real document",
+          "pass": true,
+          "actual": "http://127.0.0.1:39001/lowpoly-vault/models/aa-lava-front/"
+        },
+        {
+          "name": "no-JS detail exposes GLB and source downloads",
+          "pass": true,
+          "actual": [
+            {
+              "href": "http://127.0.0.1:39001/lowpoly-vault/assets/downloads/aa-lava-front.zip",
+              "download": true
+            },
+            {
+              "href": "http://127.0.0.1:39001/lowpoly-vault/assets/additions/aa-lava-front/small-life-round13-20261018/aa-lava-front.glb",
+              "download": true
+            },
+            {
+              "href": "http://127.0.0.1:39001/lowpoly-vault/assets/additions/aa-lava-front/small-life-round13-20261018/aa-lava-front.blend",
+              "download": true
+            }
+          ]
+        },
+        {
+          "name": "no-JS GLB link performs a successful native download",
+          "pass": true,
+          "actual": {
+            "url": "http://127.0.0.1:39001/lowpoly-vault/assets/additions/aa-lava-front/small-life-round13-20261018/aa-lava-front.glb",
+            "failure": null
+          }
+        },
+        {
+          "name": "no-JS detail fits mobile viewport",
+          "pass": true
+        },
+        {
+          "name": "no-JS Back restores listing",
+          "pass": true
+        }
+      ],
+      "screenshots": [
+        "no-js-fallback-01-list.png",
+        "no-js-fallback-02-detail.png"
+      ],
+      "states": {},
+      "network_summary": {
+        "images": 55,
+        "glbs": 0,
+        "max_inflight": {
+          "image": 25,
+          "glb": 0
+        },
+        "failed": [
+          {
+            "url": "http://127.0.0.1:39001/lowpoly-vault/assets/preload-helper-Bq90E7px.js",
+            "failure": "csp",
+            "type": "code",
+            "stage": "no-js-list"
+          },
+          {
+            "url": "http://127.0.0.1:39001/lowpoly-vault/assets/routes-CsbprPVV.js",
+            "failure": "csp",
+            "type": "code",
+            "stage": "no-js-list"
+          },
+          {
+            "url": "http://127.0.0.1:39001/lowpoly-vault/assets/preload-helper-Bq90E7px.js",
+            "failure": "csp",
+            "type": "code",
+            "stage": "no-js-list"
+          },
+          {
+            "url": "http://127.0.0.1:39001/lowpoly-vault/assets/routes-CsbprPVV.js",
+            "failure": "csp",
+            "type": "code",
+            "stage": "no-js-list"
+          },
+          {
+            "url": "http://127.0.0.1:39001/lowpoly-vault/assets/preload-helper-Bq90E7px.js",
+            "failure": "csp",
+            "type": "code",
+            "stage": "no-js-list"
+          },
+          {
+            "url": "http://127.0.0.1:39001/lowpoly-vault/assets/routes-CsbprPVV.js",
+            "failure": "csp",
+            "type": "code",
+            "stage": "no-js-list"
+          }
+        ]
+      },
+      "status": "pass"
+    }
+  ],
+  "limitations": [
+    "Physical iOS Safari and Android hardware are unverified. Loopback timing is not production network performance.",
+    "The user screenshots were not downloaded, copied, or published."
+  ],
+  "network": [
+    {
+      "seq": 1,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "document",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/models/",
+      "time": 1792460569191,
+      "status": "finished",
+      "duration_ms": 52,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 655,
+        "responseBodySize": 24486,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 2,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/index-DE4E9EqO.css",
+      "time": 1792460569213,
+      "status": "finished",
+      "duration_ms": 61,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 489,
+        "responseBodySize": 2871,
+        "responseHeadersSize": 149
+      }
+    },
+    {
+      "seq": 3,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/home/editorial-hero.webp",
+      "time": 1792460569214,
+      "status": "finished",
+      "duration_ms": 63,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 505,
+        "responseBodySize": 67498,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 4,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/preload-helper-Bq90E7px.js",
+      "time": 1792460569221,
+      "status": "failed",
+      "failure": "csp",
+      "duration_ms": 9
+    },
+    {
+      "seq": 5,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/routes-CsbprPVV.js",
+      "time": 1792460569231,
+      "status": "failed",
+      "failure": "csp",
+      "duration_ms": 0
+    },
+    {
+      "seq": 6,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/aa-lava-front-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 46,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 531,
+        "responseBodySize": 11248,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 7,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/acrocyathus-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 46,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 529,
+        "responseBodySize": 12474,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 8,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/aglaophyton-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 47,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 529,
+        "responseBodySize": 20614,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 9,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 47,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 560,
+        "responseBodySize": 34692,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 10,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/alienopterus-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 47,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 530,
+        "responseBodySize": 12044,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 11,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/angular-unconformity-outcrop-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 48,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 546,
+        "responseBodySize": 13230,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 12,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/anomalocaris-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 48,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 530,
+        "responseBodySize": 10646,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 13,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/araucaria-mirabilis-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 48,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 537,
+        "responseBodySize": 17806,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 14,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/archaeopteryx-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 48,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 531,
+        "responseBodySize": 10042,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 15,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/arenicolites-u-burrow-v2-768-q90.webp",
+      "time": 1792460569231,
+      "status": "finished",
+      "duration_ms": 49,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 539,
+        "responseBodySize": 6918,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 16,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/asaphus-v2-768-q90.webp",
+      "time": 1792460569232,
+      "status": "finished",
+      "duration_ms": 48,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 525,
+        "responseBodySize": 8632,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 17,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/asteriacites-resting-impression-v2-768-q90.webp",
+      "time": 1792460569232,
+      "status": "finished",
+      "duration_ms": 70,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 549,
+        "responseBodySize": 6448,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 18,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/asteroxylon-v2-768-q90.webp",
+      "time": 1792460569232,
+      "status": "finished",
+      "duration_ms": 61,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 529,
+        "responseBodySize": 37540,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 19,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/aysheaia-v2-768-q90.webp",
+      "time": 1792460569232,
+      "status": "finished",
+      "duration_ms": 55,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 526,
+        "responseBodySize": 14304,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 20,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/azolla-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 49,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 524,
+        "responseBodySize": 12698,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 21,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/baculites-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 50,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 527,
+        "responseBodySize": 6374,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 22,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/bedrock-pothole-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 59,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 533,
+        "responseBodySize": 6202,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 23,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/beelzebufo-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 60,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 528,
+        "responseBodySize": 10166,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 24,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/bosworthia-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 60,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 528,
+        "responseBodySize": 9886,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 25,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/bothriolepis-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 60,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 530,
+        "responseBodySize": 7312,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 26,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/burgessia-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 61,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 527,
+        "responseBodySize": 11880,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 27,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/buthograptus-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 61,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 530,
+        "responseBodySize": 11648,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 28,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/calceola-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 61,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 526,
+        "responseBodySize": 10192,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 29,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/cambroraster-v2-768-q90.webp",
+      "time": 1792460569242,
+      "status": "finished",
+      "duration_ms": 61,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 530,
+        "responseBodySize": 9822,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 30,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/brand/favicon.svg",
+      "time": 1792460569314,
+      "status": "finished",
+      "duration_ms": 8,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 498,
+        "responseBodySize": 333,
+        "responseHeadersSize": 164
+      }
+    },
+    {
+      "seq": 31,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "document",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/models/aa-lava-front/",
+      "time": 1792460569471,
+      "status": "finished",
+      "duration_ms": 31,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 731,
+        "responseBodySize": 20472,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 32,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/index-DE4E9EqO.css",
+      "time": 1792460569501,
+      "status": "finished",
+      "duration_ms": 9,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 503,
+        "responseBodySize": 2871,
+        "responseHeadersSize": 149
+      }
+    },
+    {
+      "seq": 33,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/home/editorial-hero.webp",
+      "time": 1792460569501,
+      "status": "finished",
+      "duration_ms": 9,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 519,
+        "responseBodySize": 67498,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 34,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/aa-lava-front-v2-768-q90.webp",
+      "time": 1792460569502,
+      "status": "finished",
+      "duration_ms": 9,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 545,
+        "responseBodySize": 11248,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 35,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/preload-helper-Bq90E7px.js",
+      "time": 1792460569502,
+      "status": "failed",
+      "failure": "csp",
+      "duration_ms": 0
+    },
+    {
+      "seq": 36,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/routes-CsbprPVV.js",
+      "time": 1792460569502,
+      "status": "failed",
+      "failure": "csp",
+      "duration_ms": 0
+    },
+    {
+      "seq": 37,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/brand/favicon.svg",
+      "time": 1792460569528,
+      "status": "finished",
+      "duration_ms": 2,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 512,
+        "responseBodySize": 333,
+        "responseHeadersSize": 164
+      }
+    },
+    {
+      "seq": 38,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "document",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/models/",
+      "time": 1792460569621,
+      "status": "finished",
+      "duration_ms": 22,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 294,
+        "responseBodySize": -104,
+        "responseHeadersSize": 104
+      }
+    },
+    {
+      "seq": 39,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/index-DE4E9EqO.css",
+      "time": 1792460569642,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 142,
+        "responseBodySize": -149,
+        "responseHeadersSize": 149
+      }
+    },
+    {
+      "seq": 40,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/home/editorial-hero.webp",
+      "time": 1792460569642,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 109,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 41,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/preload-helper-Bq90E7px.js",
+      "time": 1792460569644,
+      "status": "failed",
+      "failure": "csp",
+      "duration_ms": 0
+    },
+    {
+      "seq": 42,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "code",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/routes-CsbprPVV.js",
+      "time": 1792460569644,
+      "status": "failed",
+      "failure": "csp",
+      "duration_ms": 0
+    },
+    {
+      "seq": 43,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/aa-lava-front-v2-768-q90.webp",
+      "time": 1792460569644,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 135,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 44,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/acrocyathus-v2-768-q90.webp",
+      "time": 1792460569644,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 133,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 45,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/aglaophyton-v2-768-q90.webp",
+      "time": 1792460569644,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 133,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 46,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/conifer-tree-structure-r20-a-normal16-doc1-v2-768-q90.webp",
+      "time": 1792460569645,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 164,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 47,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/alienopterus-v2-768-q90.webp",
+      "time": 1792460569645,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 134,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 48,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/angular-unconformity-outcrop-v2-768-q90.webp",
+      "time": 1792460569645,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 150,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 49,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/anomalocaris-v2-768-q90.webp",
+      "time": 1792460569645,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 134,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 50,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/araucaria-mirabilis-v2-768-q90.webp",
+      "time": 1792460569646,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 141,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 51,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/archaeopteryx-v2-768-q90.webp",
+      "time": 1792460569646,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 135,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 52,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/arenicolites-u-burrow-v2-768-q90.webp",
+      "time": 1792460569646,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 143,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 53,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/asaphus-v2-768-q90.webp",
+      "time": 1792460569647,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 129,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 54,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/asteriacites-resting-impression-v2-768-q90.webp",
+      "time": 1792460569647,
+      "status": "finished",
+      "duration_ms": 1,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 153,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 55,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/asteroxylon-v2-768-q90.webp",
+      "time": 1792460569649,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 133,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 56,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/aysheaia-v2-768-q90.webp",
+      "time": 1792460569649,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 130,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 57,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/azolla-v2-768-q90.webp",
+      "time": 1792460569649,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 128,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 58,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/baculites-v2-768-q90.webp",
+      "time": 1792460569649,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 131,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 59,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/bedrock-pothole-v2-768-q90.webp",
+      "time": 1792460569649,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 137,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 60,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/beelzebufo-v2-768-q90.webp",
+      "time": 1792460569650,
+      "status": "finished",
+      "duration_ms": 4,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 132,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 61,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/bosworthia-v2-768-q90.webp",
+      "time": 1792460569654,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 132,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 62,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/bothriolepis-v2-768-q90.webp",
+      "time": 1792460569654,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 134,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 63,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/burgessia-v2-768-q90.webp",
+      "time": 1792460569654,
+      "status": "finished",
+      "duration_ms": 1,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 131,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 64,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/buthograptus-v2-768-q90.webp",
+      "time": 1792460569655,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 134,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 65,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/calceola-v2-768-q90.webp",
+      "time": 1792460569655,
+      "status": "finished",
+      "duration_ms": 0,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 130,
+        "responseBodySize": -152,
+        "responseHeadersSize": 152
+      }
+    },
+    {
+      "seq": 66,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/assets/card-previews/cambroraster-v2-768-q90.webp",
+      "time": 1792460569655,
+      "status": "finished",
+      "duration_ms": 1,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 134,
+        "responseBodySize": -151,
+        "responseHeadersSize": 151
+      }
+    },
+    {
+      "seq": 67,
+      "case": "no-js-fallback",
+      "stage": "no-js-list",
+      "type": "image",
+      "url": "http://127.0.0.1:39001/lowpoly-vault/brand/favicon.svg",
+      "time": 1792460569660,
+      "status": "finished",
+      "duration_ms": 8,
+      "http_status": 200,
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 498,
+        "responseBodySize": 333,
+        "responseHeadersSize": 164
+      }
+    }
+  ],
+  "runtime_errors": [],
+  "base": "http://127.0.0.1:39001/lowpoly-vault/",
+  "browser": "154.0.8037.57",
+  "status": "pass",
+  "summary": {
+    "cases": 1,
+    "passed": 1,
+    "failed": 0
+  }
+}
