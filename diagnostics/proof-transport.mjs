@@ -15,17 +15,29 @@ assert.equal(createHash('sha256').update(inputsBytes).digest('hex'),'6dc8d7be65c
 const inputs=JSON.parse(inputsBytes);assert.equal(inputs.models.length,202);
 assert.equal(inputs.policy_sha256,'d73901566ebe7b3276d8b614330e4d42df600674611885d5bdf3d718fca2cb5c');
 const start=Date.now(),events=[],summaries=[];let sequence=0,lastEnd=start,trial='';
-function save(){writeFileSync(resolve(process.env.RUNNER_TEMP,'proof-transport-observations.json'),JSON.stringify({kind:'read-only-transport-diagnostic',not_release_evidence:true,source:CURRENT,base:BASE,inputs_sha256:createHash('sha256').update(inputsBytes).digest('hex'),events,summaries},null,2)+'\n');}
+function save(){writeFileSync(resolve(process.env.RUNNER_TEMP,'proof-transport-observations.json'),JSON.stringify({kind:'read-only-transport-diagnostic',transport_trial:'event-loop-yield-and-bounded-socket-get-retry',not_release_evidence:true,source:CURRENT,base:BASE,inputs_sha256:createHash('sha256').update(inputsBytes).digest('hex'),events,summaries},null,2)+'\n');}
 function emit(row){const event={trial,ms:Date.now()-start,...row};events.push(event);console.log(JSON.stringify(event));save();}
 const atom=value=>typeof value==='string'&&/^[A-Za-z0-9_. -]{1,80}$/.test(value)?value:undefined;
 function safeError(error,depth=0){if(!error||depth>3)return null;return {name:atom(error.name),code:atom(error.code),errno:typeof error.errno==='number'?error.errno:undefined,syscall:atom(error.syscall),cause:safeError(error.cause,depth+1),errors:Array.isArray(error.errors)?error.errors.slice(0,4).map(e=>safeError(e,depth+1)):undefined};}
 function endpoint(url){const u=new URL(url);assert.equal(u.protocol,'https:');assert.equal(u.username,'');assert.equal(u.password,'');if(u.hostname==='api.github.com'){assert(u.pathname.startsWith(`/repos/${REPOSITORY}`));return {kind:'github-api',path:u.pathname.slice(`/repos/${REPOSITORY}`.length)||'repository-metadata'};}assert(/\.blob\.core\.windows\.net$|\.actions\.githubusercontent\.com$/.test(u.hostname),'Unexpected artifact storage host');return {kind:'artifact-storage',host:u.hostname};}
+async function boundedReadFetch(url,options={}){
+ // Diagnostic-only trial: same GET, same signal/deadline and credentials.
+ // Yield after synchronous validation so queued socket-close events can run.
+ for(let attempt=1;attempt<=3;attempt++){
+  await new Promise(setImmediate);
+  options.signal?.throwIfAborted();
+  try{return await fetch(url,options);}catch(error){
+   if(attempt===3||options.signal?.aborted||(options.method||'GET').toUpperCase()!=='GET'||error?.cause?.code!=='UND_ERR_SOCKET')throw error;
+   emit({stage:'transport-retry',attempt,error:safeError(error)});
+  }
+ }
+}
 async function tracedFetch(url,options={}){
  const target=endpoint(url),id=++sequence,began=Date.now();
  if(target.kind==='artifact-storage')assert(!options.headers,'Storage must never receive repository credentials');
  emit({stage:'request',id,...target,idle_ms:began-lastEnd,signal_aborted:options.signal?.aborted===true});
  try{
-  const response=await fetch(url,options);lastEnd=Date.now();emit({stage:'response',id,status:response.status,elapsed_ms:lastEnd-began});
+  const response=await boundedReadFetch(url,options);lastEnd=Date.now();emit({stage:'response',id,status:response.status,elapsed_ms:lastEnd-began});
   return new Proxy(response,{get(object,key){
    if(key==='body'&&object.body?.getReader)return new Proxy(object.body,{get(body,bodyKey){
     if(bodyKey==='getReader')return (...args)=>{const reader=body.getReader(...args);let received=0;return new Proxy(reader,{get(target,readerKey){
@@ -51,5 +63,5 @@ for(const domain of ['model-1','gallery','model-2']){
   const summary={trial,verified:!!found.verifiedBaseProof,run_id:found.verifiedBaseProof?.run_id,artifact_id:found.verifiedBaseProof?.artifact_id,models:found.baseProof?.models.length,reasons:classify(found.reasons)};summaries.push(summary);emit({stage:'trial-result',...summary});
  }
 }
-writeFileSync(resolve(process.env.RUNNER_TEMP,'proof-transport-observations.json'),JSON.stringify({kind:'read-only-transport-diagnostic',not_release_evidence:true,source:CURRENT,base:BASE,inputs_sha256:createHash('sha256').update(inputsBytes).digest('hex'),events,summaries},null,2)+'\n');
+writeFileSync(resolve(process.env.RUNNER_TEMP,'proof-transport-observations.json'),JSON.stringify({kind:'read-only-transport-diagnostic',transport_trial:'event-loop-yield-and-bounded-socket-get-retry',not_release_evidence:true,source:CURRENT,base:BASE,inputs_sha256:createHash('sha256').update(inputsBytes).digest('hex'),events,summaries},null,2)+'\n');
 assert(summaries.every(row=>row.verified),'One or more diagnostic lookups failed; observations preserved, no release evidence emitted');
