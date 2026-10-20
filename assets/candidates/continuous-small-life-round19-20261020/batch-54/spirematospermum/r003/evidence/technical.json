@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1",
+    "brief_sha256": "75b50ce8311d89a345bbcfe086ca9a1f08d218bcc43c5453395d72dce248cc22",
+    "references_sha256": "f92914141ae7a15df62483d694ea180e5a3fe6879e1f951dcac272a0327f0690"
+  },
+  "status": "pass",
+  "method": "Fresh static audit, official Khronos validator, read-only Blender source reopening and two separately executed hash-bound semantic rebuilds.",
+  "observations": [
+    "No static or Khronos errors/warnings.",
+    "Saved source triangle counts and axis-converted bounds match exact GLB.",
+    "Two independent queued builds match exact decoded geometry/material/scene semantic digest."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 10936,
+    "materials": 3,
+    "primitives": 5,
+    "glb_bytes": 577504,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/evidence/static-glb.json",
+        "sha256": "ec586746c962ed4fd9b7560b8728f5226daabeac423c9df3a17111fcb94cfe83"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/gltf-validator.report.json",
+        "sha256": "7be7af16dc9f3fc63730811d15d056eb90f9ba02b48898ca0182a63ec3abd81f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/evidence/source-export.json",
+        "sha256": "1b14a4c44930b66502e0869e6ca6dee02c7ec6d7ed7f3af807c6afe180e3bdeb"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/evidence/rebuild-1.json",
+        "sha256": "12400b4049b01b77bd6cab6bf57e7607ff99e7139ec232193b124e3e03f9410f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "816fac9a751596664f39da97257acdc70a60efe39e83042b31e8d84d72f648f1",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/evidence/rebuild-2.json",
+        "sha256": "e76c5398033bd465bd10fef242c3c4f110dda6cd5cb504de2e6946dcb000ae9a"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d",
+    "brief_sha256": "237c8e61466e46b265c148e5de3aac81e4807200db39ccf6f041b18db8533afb",
+    "references_sha256": "ada14af402a1e2858191d7e9c1186471dd1c89309149ab355b7fbe8e3c94f0a1"
+  },
+  "status": "pass",
+  "method": "Fresh static audit, official Khronos validator, read-only Blender source reopening and two separately executed hash-bound semantic rebuilds.",
+  "observations": [
+    "No static or Khronos errors/warnings.",
+    "Saved source triangle counts and axis-converted bounds match exact GLB.",
+    "Two independent queued builds match exact decoded geometry/material/scene semantic digest."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 8180,
+    "materials": 1,
+    "primitives": 1,
+    "glb_bytes": 442360,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/evidence/static-glb.json",
+        "sha256": "df29ed2188498e368ff32bd3f4fdfef2c7435bf93b628457ecb1767fd83807c1"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/gltf-validator.report.json",
+        "sha256": "ded848870539abf84ccbe706943a127986e76c882030ea7c8418f4393e3af37d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/evidence/source-export.json",
+        "sha256": "4fba045c001fcfcfabb692a06ce49abd06415f1a8c39b2eb0b4da80957228f34"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/evidence/rebuild-1.json",
+        "sha256": "82e45a60e9bb942c49c95d6fcc53f6c873dd4a3c88a2ca863fbc550831386b59"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "second_rebuild",
+      "status": "pass",
+      "glb_sha256": "32526e504c03f9a7ababc367cb4291d7a3286d811d270ca7c90e8e3068272d8d",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/didymoceras/r003/evidence/rebuild-2.json",
+        "sha256": "9271b6f298cbea48eb652a4813af4895c5d05c91aadcd9b4c33f2e412c823f34"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": []
+}
