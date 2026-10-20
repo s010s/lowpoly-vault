@@ -1,0 +1,13 @@
+# Lava-dome r002 local targeted repair handoff
+
+Original independent QA correctly rejected r001 for its circumferential block belt and bare summit; the prior maker observation overstated the repair. Original r001, its failed evidence, and original QA remain unchanged. Three independently accepted assets remain byte-for-byte unchanged.
+
+The new r002 is a continuous welded bulbous extrusion with unequal coarse fractured relief across summit and flanks, plus small low rooted contact-fragment clusters. No mid-height circumferential block construction, smooth bare summit disc, crater or loose-rock pile. Original morphology-only generic nominal scale, palette, materials, renderer, cameras, validators and helpers unchanged. Original concept and actual dome/rubble source pixels personally reinspected; explicit immutable repair freeze preceded geometry authoring.
+
+Final exact GLB and editable Blend are pinned through candidate.artifacts, not guessed filenames. Fresh saved-source reopen/export, counts/bounds, zero-error/zero-warning Khronos, Three0.180 Node parse and two distinct executed final queue rebuilds pass. Both queue outputs reproduce final GLB bytes and semantics. Per-job blocking flock and two Blender threads used. Final eight genuine512px individual views and lossless sheet personally inspected; subject hashes fixed before final rendering. Complete superseded quick and full diagnostics retained, not relabelled.
+
+The active candidate and profile validators pass.67 active artifact/raw/evidence/frame/dependency/queue input-output pins were checked against staged Git bytes.351 protected files across the other three complete trees and original r001 retain exact SHA256; original tracked Git blob continuity checked.32 raw logs explicitly tracked. The verification script is read-only and can be rerun with HEAD after commit; final committed-byte result is supplied by maker separately to avoid self-referential commit hashing.
+
+Seven stages remain separate. Targeted independent QA pending; GPU/scene not run, no website/formal/user/release approval claimed. Original provider-internal generation and exact authoring start timestamps remain unknown/null; concept checker valid but chronology incomplete. New repair output about14MB, under35MB incremental limit. No push/upload or external authority probe performed.
+
+See handoff.json, candidate.artifacts, verify-committed-closure.py and final lifecycle/queue receipts. Original QA68 should perform only the targeted exact-r002 differential; accepted other assets need no redundant review. Maker lane released after clean local commit.
