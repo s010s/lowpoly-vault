@@ -34,11 +34,13 @@ export async function checkGalleryStartup({browser,root,baseURL,output,report}){
    catalog:document.querySelector('.catalog').getBoundingClientRect().toJSON(),
    workspace:document.querySelector('.workspace').getBoundingClientRect().toJSON(),
    poster:document.querySelector('#detail-poster')?.getAttribute('src'),
+   repository:[...document.querySelectorAll('header #gallery-github')].map(link=>({href:link.href,rel:link.rel,height:link.getBoundingClientRect().height})),
    disabledControls:[...document.querySelectorAll('.gallery-static button,.gallery-static input')].every(el=>el.disabled),
    background:getComputedStyle(document.body).backgroundColor,color:getComputedStyle(document.querySelector('#static-route-content')).color,
    giantSVG:[...document.querySelectorAll('svg')].some(el=>{const b=el.getBoundingClientRect();return b.width>100||b.height>100;}),
    width:document.documentElement.scrollWidth,viewport:innerWidth,
   }));
+  assert.equal(state.repository.length,1);assert.equal(state.repository[0].href,'https://github.com/s010s/lowpoly-vault');assert.equal(state.repository[0].rel,'noopener noreferrer');assert(state.repository[0].height>=44);
   assert(!state.gallery);assert(state.links>30);assert.equal(state.cards,0,'The superseded card grid is never visible at startup');
   assert.equal(state.mainDisplay,'grid');assert.equal(state.columns,state.viewport<=760?1:2,'First paint already has approved responsive gallery geometry');assert(state.mobileDetail?state.workspace.height>100:state.wheelHeight>100);assert(state.poster);assert(state.disabledControls,'Native controls do not pretend unavailable interaction is ready');assert(state.legacy.every(value=>value==='none'),'Inactive legacy shell is hidden before JavaScript');
   assert(!state.giantSVG,'No unbounded black SVG first paint');assert(state.width<=state.viewport+1,'Fallback fits the viewport');

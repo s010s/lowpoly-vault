@@ -7,6 +7,7 @@ import {writeStaticRoutes} from './static-routes.mjs';
 const read=path=>readFile(new URL(path,import.meta.url),'utf8');
 const [template,shell,shared,home,gallery,favicon]=await Promise.all(['./index.html','./gallery/shell.html','./brand.css','./style.css','./gallery/style.css','./public/brand/favicon.svg'].map(read));
 const mark=source=>source.match(/<svg class="vault-mark"[\s\S]*?<\/svg>/)?.[0];
+assert.equal((shell.match(/id="gallery-github"/g)||[]).length,1);assert.match(shell,/<a id="gallery-github"[^>]+href="https:\/\/github.com\/s010s\/lowpoly-vault"[^>]+target="_blank"[^>]+rel="noopener noreferrer"[^>]+aria-label=/);
 assert(mark(template));assert.equal(mark(template),mark(shell),'One exact existing cube across both applications');
 assert.match(mark(template),/width="32" height="32"/);assert.match(mark(template),/fill="none" stroke="currentColor"/);
 for(const source of [template,shell])assert.match(source,/class="vault-wordmark">LOWPOLY <span>VAULT<\/span>/);
@@ -32,6 +33,7 @@ try{
    assert(html.includes(`href="${base}${locale}" data-route="home"`));
    assert(html.includes(`href="${base}${locale}models/" data-route="catalog"`));
    assert.equal(mark(html),mark(template));
+   if(route==='models/'){assert.equal((html.match(/id="gallery-github"/g)||[]).length,1);assert(html.includes('href="https://github.com/s010s/lowpoly-vault"'));}
    assert.match(html,/var\(--vault-font-display,Georgia,serif\)/);
   }
   const missing=await readFile(join(root,'404.html'),'utf8');

@@ -15,6 +15,7 @@ export async function checkMobileGallery({browser,baseURL,output,report,assets})
   try{
    await page.goto(new URL('models/',baseURL).href);await ready();await collection();await page.waitForTimeout(250);
    assert.equal(new URL(page.url()).searchParams.has('model'),false,'Collection URL does not falsely identify a detail');
+   const repository=page.locator('header #gallery-github');assert.equal(await repository.count(),1);assert.equal(await repository.getAttribute('href'),'https://github.com/s010s/lowpoly-vault');assert.equal(await repository.getAttribute('rel'),'noopener noreferrer');assert(await repository.isVisible());assert((await repository.boundingBox()).height>=44);
    const initial=await snapshot();assert.equal(initial.ids.length,assets.length);assert(initial.visible.length>=3);await page.screenshot({path:resolve(output,`${name}-collection.png`)});
    await page.locator('#slots [data-id="cooperoceras"]').tap();await page.waitForFunction(()=>document.body.classList.contains('mobile-detail'));assert.equal(new URL(page.url()).searchParams.get('model'),'cooperoceras');await page.screenshot({path:resolve(output,`${name}-detail.png`)});
    await page.locator('#mobile-back').tap();await collection();const back=await snapshot();assert.deepEqual(back.ids,initial.ids);assert(back.visible.length>=3,'Returning must remeasure a real multi-row wheel');assert(Math.abs(back.scroll-initial.scroll)<1);assert.equal(back.url,initial.url);await page.screenshot({path:resolve(output,`${name}-returned.png`)});
