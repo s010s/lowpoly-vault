@@ -27,3 +27,5 @@ Reference limits: Shell Museum old/new page full fetch 403, indexed museum excer
 Dimensions: measurements.json separates nominal artistic Blender XYZ intent, measured Blender XYZ, and measured glTF XYZ. glTF Y-up is not Blender Z-up. No exact specimen-scale claim.
 
 Parent next action: pin the actual model-source commit plus four GLB hashes; launch exactly one fresh-context GPT-6 Luna xhigh batch QA, no maker verdict used as independent outcome. No main/catalog/site/PR20 changes, no merge PR or deployment.
+
+Frozen model-source commit: `1e43f9e2c79b6d2465d8eadf2169355cba3690c7`. QA scope pins this exact source commit and four GLB hashes. Later handoff-only commit does not change model bundles.
