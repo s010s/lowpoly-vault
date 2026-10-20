@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch84-20261020/production/batch84/rebuild-runs/build/tide-dominated-delta/r002/semantic-rebuild-2/c5b96b0c53b52034910b499a6d7e513111f214036a2ff444417a549ae4697ec3/20261020T180437-6cd2a151ddd743739fa676468b2dee05/outputs"
+  ],
+  "created_at": "2026-10-20T18:04:37.980143+00:00",
+  "fingerprint": "c5b96b0c53b52034910b499a6d7e513111f214036a2ff444417a549ae4697ec3",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch84-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6482,
+        "path": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/brief.json",
+        "sha256": "cff1d74134878851b5ffb982afb4d7cdefe4d26c102b6ab20fe9608e80bba60e"
+      },
+      "config": {
+        "bytes": 1453,
+        "path": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/build-config.json",
+        "sha256": "996d9d7478421f88f1ed578db26b8265c5dbd8948f66e62c76cb61ac515b3e05"
+      },
+      "generator": {
+        "bytes": 8876,
+        "path": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/generator.py",
+        "sha256": "6e3e449ad3c804b9c160f46d026ebf36c97fc34d3451b088e6feaa170bc2fb82"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch84-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3412,
+        "path": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/references.json",
+        "sha256": "d19ea497ab602ce906e192703ac61213677107cd3d3db0aef509dd4acc4cd872"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "tide-dominated-delta",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch84-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch84-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/tide-dominated-delta/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T180437-b27f29c95786457088d7f26c0ae2929c"
+}

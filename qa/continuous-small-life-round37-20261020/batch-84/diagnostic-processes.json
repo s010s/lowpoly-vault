@@ -1,0 +1,42 @@
+[
+  {
+    "name": "glossopteris",
+    "command": [
+      "flock",
+      "/tmp/lowpoly-production-blender.lock",
+      "blender",
+      "-b",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/shared/lowpoly-batch84-independent-qa-20261020/render_focused_diagnostics.py",
+      "--",
+      "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/glossopteris/r001/model.glb",
+      "--output-dir",
+      "/workspace/shared/lowpoly-batch84-independent-qa-20261020/glossopteris/diagnostic",
+      "--revision",
+      "independent-focused-diagnostic",
+      "--views",
+      "clayalt",
+      "--turntable-frames",
+      "0",
+      "--resolution",
+      "512",
+      "--samples",
+      "32",
+      "--brief",
+      "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/glossopteris/r001/candidate-brief.json",
+      "--references",
+      "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/glossopteris/r001/references.json"
+    ],
+    "pid": 6,
+    "started_at": "2026-10-20T21:08:26.337584+00:00",
+    "finished_at": "2026-10-20T21:08:29.435885+00:00",
+    "wall_seconds": 3.0983388439926784,
+    "exit_code": 1
+  }
+]

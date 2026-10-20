@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-10-20T17:48:07.812294+00:00",
+  "note": "Pre-recovery executor OS date/time was approximately2h ahead of tool orchestration UTC, observed in raw filesystem/log and freeze timestamps. After exec-server key recovery OS UTC matches tool context. Preserve original records unchanged; compare ordering within clock domains and actual execution sequence, not falsely global-sort unreconciled wall timestamps. All primary/concept/freezes precede authoring by actual tool sequence. Provider internal generation timestamps unknown.",
+  "pre_recovery_examples": {
+    "concept_tool_result": "17:27-17:29UTC",
+    "first_three_OS_design_freeze": "19:32UTC",
+    "first_OS_build_logs": "19:34UTC"
+  },
+  "post_recovery": "17:41 onwards UTC",
+  "no_mtime_derived_generation_claim": true
+}

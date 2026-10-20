@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "batch84-separate-owner-policy-schema-reference",
+  "scope": "s010s/lowpoly-vault",
+  "authority": "owner_authorized_qa_passed_batch_release",
+  "candidate_gate_grants_publication": false,
+  "authorization_source": "Owner instruction supplied verbatim in current maker dispatch: 做完就上传到 Github 上面，合到我这个 low poly vault。 Must still satisfy latest owner restrictions, independent QA, exact publication request and platform mandatory approvals. This schema reference does not authorize this maker to publish; the current maker task expressly forbids push/upload/merge.",
+  "boundary": "No push, upload, PR state change, merge, publication, old-model/site/CI/access/credential edits. Candidate integrity does not grant release approval.",
+  "restrictions": [
+    "No push/upload/merge",
+    "No force push",
+    "No branch deletion",
+    "No access or credential changes"
+  ],
+  "authority_note": "Required validator classifier for separate owner policy; not an approval of any candidate and not permission for the local maker to release. Prior local-only reference and failed schema reports remain retained."
+}

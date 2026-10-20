@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "asset_id": "glossopteris",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original fossil-leaf educational specimen",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Single simple entire elongate tongue-shaped fossil blade with obtuse tip, attenuate base and central midrib; Shallow geometric reticulate side-vein network, real bifurcations and connecting bridges across polygonal elongated meshes; Neutral-material same-size geometry distinction from source-informed parallel-veined Bjuvia simplex control; no color/labels/scale/pose/damage reliance. Scope: Original single Glossopteris browniana fossil-leaf surface-relief teaching specimen on a thin original solid sediment slab, informed by H.I.15 photo PlateIVe and original description in Kovacs-Endrody1976. No tree, whole organism, reproductive attachment, living leaf, exact specimen scan or measured fossil relief. Blade tongue-shaped with obtuse apex, narrowed base, prominent midrib and polygonal reticulate side venation. Nominal0.075x0.195x0.007m slab, approximately0.055x0.16m blade are illustrative. Shallow vein relief approximately0.15-0.25mm, no fossil-measured depth claim. Surface network is simplified original topology, not a traced scan. Bjuvia simplex comparison is an explicit conditional production gate, no pass asserted before actual neutral-control test.",
+      "required_sources": [
+        "KE1976",
+        "BARBACKA2021"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Single simple entire elongate tongue-shaped fossil blade with obtuse tip, attenuate base and central midrib; Shallow geometric reticulate side-vein network, real bifurcations and connecting bridges across polygonal elongated meshes; Neutral-material same-size geometry distinction from source-informed parallel-veined Bjuvia simplex control; no color/labels/scale/pose/damage reliance. Scope: Original single Glossopteris browniana fossil-leaf surface-relief teaching specimen on a thin original solid sediment slab, informed by H.I.15 photo PlateIVe and original description in Kovacs-Endrody1976. No tree, whole organism, reproductive attachment, living leaf, exact specimen scan or measured fossil relief. Blade tongue-shaped with obtuse apex, narrowed base, prominent midrib and polygonal reticulate side venation. Nominal0.075x0.195x0.007m slab, approximately0.055x0.16m blade are illustrative. Shallow vein relief approximately0.15-0.25mm, no fossil-measured depth claim. Surface network is simplified original topology, not a traced scan. Bjuvia simplex comparison is an explicit conditional production gate, no pass asserted before actual neutral-control test.",
+      "required_sources": [
+        "KE1976",
+        "BARBACKA2021"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px fixed views plus separate actual audit129 neutral control comparison.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch84/assets/glossopteris/r001/source.blend",
+      "sha256": "5175c4f6e1dabb2fc03626c5cbf4703646370ea30e89db4db9589077a6041764"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch84/assets/glossopteris/r001/generator.py",
+      "sha256": "cdf80eb26c462bde241f73a699182d808be80ac70e52fba1078497b1f0b98b26"
+    },
+    {
+      "role": "config",
+      "path": "production/batch84/assets/glossopteris/r001/build-config.json",
+      "sha256": "667037cbafc65bcdf627bb8734c531971dc9598c769a90469d9da2eabad0b7a8"
+    }
+  ],
+  "claim_scope": "Original single Glossopteris browniana fossil-leaf surface-relief teaching specimen on a thin original solid sediment slab, informed by H.I.15 photo PlateIVe and original description in Kovacs-Endrody1976. No tree, whole organism, reproductive attachment, living leaf, exact specimen scan or measured fossil relief. Blade tongue-shaped with obtuse apex, narrowed base, prominent midrib and polygonal reticulate side venation. Nominal0.075x0.195x0.007m slab, approximately0.055x0.16m blade are illustrative. Shallow vein relief approximately0.15-0.25mm, no fossil-measured depth claim. Surface network is simplified original topology, not a traced scan. Bjuvia simplex comparison is an explicit conditional production gate, no pass asserted before actual neutral-control test.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.075,
+    0.195,
+    0.007
+  ],
+  "dimension_status": "Illustrative targets not measured source specimen; actual export bounds measured separately.",
+  "recognition_features": [
+    "Single simple entire elongate tongue-shaped fossil blade with obtuse tip, attenuate base and central midrib",
+    "Shallow geometric reticulate side-vein network, real bifurcations and connecting bridges across polygonal elongated meshes",
+    "Neutral-material same-size geometry distinction from source-informed parallel-veined Bjuvia simplex control; no color/labels/scale/pose/damage reliance"
+  ],
+  "concept_decisions": "Keep concept entire tongue-shaped leaf and net connections; discard photoreal grain and broad modern-dicot hierarchical branches. Source browniana polygon meshes occur across blade, parallel median vein bundle visible as midrib. Use many closely spaced oblique side veins that bifurcate and reconnect with shorter bridges, not a few thick branching tree veins. Bound relief width/depth so it remains a thin fossil teaching prop, not rope venation. No living underside or attached seeds. Same outline, material, normalized size, light/camera and comparable vein prominence used for Bjuvia simplex parallel-veined diagnostic control. Control is non-delivery and not fifth asset; actual source photo, no blank-flat strawman. If net topology unreadable at512px without unsupported exaggeration, stop Glossopteris production rather than waive audit129.",
+  "style": "Original palette-only shallow geometric fossil relief",
+  "intended_use": "Static fossil educational prop at256-512px",
+  "created_at": "2026-10-20T17:38:12.066167+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T17:52:22.855033+00:00",
+    "frozen_design_brief_sha256": "c074b95539f429dabc563e11117983e5df55bcf1bd1cfb557a3b53a73285415c",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

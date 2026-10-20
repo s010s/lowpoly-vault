@@ -1,0 +1,154 @@
+{
+  "recorded_at": "2026-10-20T18:13:54.867945+00:00",
+  "old_policy": {
+    "path": "production/batch84/publication-policy-reference.json",
+    "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+  },
+  "new_policy": {
+    "path": "production/batch84/publication-policy-validated-schema.json",
+    "sha256": "13111776b3cfedd96557353c0e19e92c061489a52d130ab88d5a1f09c6604927"
+  },
+  "changes": {
+    "authority": {
+      "old": "Local maker task only; parent owns any separate release workflow",
+      "new": "owner_authorized_qa_passed_batch_release"
+    },
+    "authority_note": {
+      "old": null,
+      "new": "Required validator classifier for separate owner policy; not an approval of any candidate and not permission for the local maker to release. Prior local-only reference and failed schema reports remain retained."
+    },
+    "authorization_source": {
+      "old": "Current maker dispatch with exact four reserved IDs and no push/upload/merge instructions; independent review later.",
+      "new": "Owner instruction supplied verbatim in current maker dispatch: 做完就上传到 Github 上面，合到我这个 low poly vault。 Must still satisfy latest owner restrictions, independent QA, exact publication request and platform mandatory approvals. This schema reference does not authorize this maker to publish; the current maker task expressly forbids push/upload/merge."
+    },
+    "id": {
+      "old": "batch84-local-candidate-production-boundary",
+      "new": "batch84-separate-owner-policy-schema-reference"
+    },
+    "scope": {
+      "old": "s010s/lowpoly-vault batch84",
+      "new": "s010s/lowpoly-vault"
+    }
+  },
+  "validation_reason": "Unmodified scripts/validate_candidate.py lines482-484 requires exact repository scope and owner_authorized_qa_passed_batch_release classifier plus false candidate_gate_grants_publication. New separate policy explicitly preserves current maker no-push/upload/merge boundary. No permission was obtained or exercised by passing this schema.",
+  "files_added": [
+    "publication-policy-validated-schema.json",
+    "each selected asset profile-contract-v2.json",
+    "each selected asset candidate-validation-v2.json"
+  ],
+  "existing_failed_reports_preserved": true,
+  "original_frozen_brief_active_glb_delivery_brief_references_render_subject_changed": false,
+  "assets": [
+    {
+      "asset_id": "glossopteris",
+      "candidate_sha256": "3d0e392f8ba51ee55e2a602106ee3de1a94deae86dae435b7165c606af36d6d4",
+      "old_contract": {
+        "path": "production/batch84/assets/glossopteris/r001/profile-contract.json",
+        "sha256": "8c90ee4413561b703ff225b04620135d5025ea60806f32f5b0f5deec57cad109"
+      },
+      "new_contract": {
+        "path": "production/batch84/assets/glossopteris/r001/profile-contract-v2.json",
+        "sha256": "dbbf4363f733544c7bdbac4d9c167fe2cbf002e937f72a6672ca2a843ff38575"
+      },
+      "contract_changes": {
+        "publication_policy": {
+          "old": {
+            "path": "production/batch84/publication-policy-reference.json",
+            "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+          },
+          "new": {
+            "path": "production/batch84/publication-policy-validated-schema.json",
+            "sha256": "13111776b3cfedd96557353c0e19e92c061489a52d130ab88d5a1f09c6604927"
+          }
+        }
+      },
+      "old_validation_sha256": "1be6b3eb43d4b0d70eb13474a22b35c0da18c0462818c16437d3146a1a8b8bfb",
+      "new_validation_sha256": "09ee80a5c93b49b2b57982c5305ef8f6f0412ec3c5989a7af388f0eb6c43ab64",
+      "subject_unchanged": true,
+      "active_hashes": {
+        "glb": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+        "brief": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+        "references": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec",
+        "source": "5175c4f6e1dabb2fc03626c5cbf4703646370ea30e89db4db9589077a6041764",
+        "generator": "cdf80eb26c462bde241f73a699182d808be80ac70e52fba1078497b1f0b98b26",
+        "config": "667037cbafc65bcdf627bb8734c531971dc9598c769a90469d9da2eabad0b7a8"
+      },
+      "approved_for_brief": false,
+      "remaining_approval_blockers": 17
+    },
+    {
+      "asset_id": "tide-dominated-delta",
+      "candidate_sha256": "6cb21ebfadc1ce94ff61d972a255774a8213315ccb17ca2fd69e5e00519c124c",
+      "old_contract": {
+        "path": "production/batch84/assets/tide-dominated-delta/r002/profile-contract.json",
+        "sha256": "bb156909e76b9c07d57430e2f3ded72c451d594c92ec4933b0b0bf725bcb6101"
+      },
+      "new_contract": {
+        "path": "production/batch84/assets/tide-dominated-delta/r002/profile-contract-v2.json",
+        "sha256": "6b1335c76745dbf84eba7bc6a10ed2362bf37e5262db66c2e2efebb3e3f776ac"
+      },
+      "contract_changes": {
+        "publication_policy": {
+          "old": {
+            "path": "production/batch84/publication-policy-reference.json",
+            "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+          },
+          "new": {
+            "path": "production/batch84/publication-policy-validated-schema.json",
+            "sha256": "13111776b3cfedd96557353c0e19e92c061489a52d130ab88d5a1f09c6604927"
+          }
+        }
+      },
+      "old_validation_sha256": "35badb55f2599e4f2df93dd46f25216b6743e909cbbad728a6a139c62c7d1e89",
+      "new_validation_sha256": "6222d15dbc85f71d5e2850aa351de10a8e2784b529c60cb6ddaa9b0924478420",
+      "subject_unchanged": true,
+      "active_hashes": {
+        "glb": "1d54e1fa506e3fd392b9b3604d2199fd299a544eb1ec4879427a57c4538788a1",
+        "brief": "243ac1e8bb8028e3c8f4790bf8af6a158235f24002490af480fa4ff622747bde",
+        "references": "d19ea497ab602ce906e192703ac61213677107cd3d3db0aef509dd4acc4cd872",
+        "source": "7f0dc6e1801357bad107fa3b6f73c6fc7ed11268e6f88a4e06a53a096dc38348",
+        "generator": "6e3e449ad3c804b9c160f46d026ebf36c97fc34d3451b088e6feaa170bc2fb82",
+        "config": "996d9d7478421f88f1ed578db26b8265c5dbd8948f66e62c76cb61ac515b3e05"
+      },
+      "approved_for_brief": false,
+      "remaining_approval_blockers": 17
+    },
+    {
+      "asset_id": "volcanic-neck",
+      "candidate_sha256": "ae37e093b08eb0fe229bea3b69b9b54c058be026c09049e6b4d9a6046c6d1c46",
+      "old_contract": {
+        "path": "production/batch84/assets/volcanic-neck/r003/profile-contract.json",
+        "sha256": "934a7917423d88d481829712380e6ee05b9404461989e55ee26a5ff1080927bf"
+      },
+      "new_contract": {
+        "path": "production/batch84/assets/volcanic-neck/r003/profile-contract-v2.json",
+        "sha256": "7fae47f5ca9930a263a87102b6675545199059f8046f01352b450c22cf3463c0"
+      },
+      "contract_changes": {
+        "publication_policy": {
+          "old": {
+            "path": "production/batch84/publication-policy-reference.json",
+            "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+          },
+          "new": {
+            "path": "production/batch84/publication-policy-validated-schema.json",
+            "sha256": "13111776b3cfedd96557353c0e19e92c061489a52d130ab88d5a1f09c6604927"
+          }
+        }
+      },
+      "old_validation_sha256": "3daaf3a20bf6b729bea2d3e84c81cee0d57ba6d22b2da6e213c38cb6f3ee2dce",
+      "new_validation_sha256": "cad0ce781f10a5fc46058333c5765a37009948b1186dba5bb676e4f9bc5cf47f",
+      "subject_unchanged": true,
+      "active_hashes": {
+        "glb": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+        "brief": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+        "references": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104",
+        "source": "843820189078606d0afd6a4b6a62bc3e26dce40460aec06e6db2270a9182df43",
+        "generator": "53648bbccbc0b27f28e9585d5bdd5911019cb41d3b6b33bb42a17d378a09b68b",
+        "config": "59150bd7363e4887e05a670be5cf0877eb14f19d85fac2c50fbf3449b6c998e6"
+      },
+      "approved_for_brief": false,
+      "remaining_approval_blockers": 17
+    }
+  ]
+}

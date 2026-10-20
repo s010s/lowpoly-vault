@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "tide-dominated-delta",
+  "revision": "r002",
+  "labels": {
+    "en": "tide-dominated-delta"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "1d54e1fa506e3fd392b9b3604d2199fd299a544eb1ec4879427a57c4538788a1"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "243ac1e8bb8028e3c8f4790bf8af6a158235f24002490af480fa4ff622747bde"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "d19ea497ab602ce906e192703ac61213677107cd3d3db0aef509dd4acc4cd872"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "7f0dc6e1801357bad107fa3b6f73c6fc7ed11268e6f88a4e06a53a096dc38348"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "6e3e449ad3c804b9c160f46d026ebf36c97fc34d3451b088e6feaa170bc2fb82"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "996d9d7478421f88f1ed578db26b8265c5dbd8948f66e62c76cb61ac515b3e05"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "f05b992ed39887d55aed141d33425c7bf7bf05393d75ebfc0dd94e82b6fa91f9"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "40c44c4ad71f6a78b07733cba89d4f2b06e2b938c8199e33314540d065f00fa4"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "3f06f9e0c1746c85c22b0e711b300ab7ee3b47c57fb0837cb8a70eedcb56efea"
+      }
+    ],
+    "cross_view_consistency_note": "Retain concept branching channel network, long unequal tide-aligned bars, open seaward mouths and shallow relief. Correct overly raised banks and narrow uniform river-like branches: major downstream channel width must flare visibly. Avoid disconnected decorative bars and surface coplanarity. Water volume terminates at designed shoreline, not overlapping exposed land surfaces. At least two branching tidal side creeks connect into distributaries. Primary actual Fly photo has forested islands; vegetation omitted and no ecosystem claimed.",
+    "hidden_surface_decisions": "Retain concept branching channel network, long unequal tide-aligned bars, open seaward mouths and shallow relief. Correct overly raised banks and narrow uniform river-like branches: major downstream channel width must flare visibly. Avoid disconnected decorative bars and surface coplanarity. Water volume terminates at designed shoreline, not overlapping exposed land surfaces. At least two branching tidal side creeks connect into distributaries. Primary actual Fly photo has forested islands; vegetation omitted and no ecosystem claimed."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T17:32:28.044806+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. Each asset complete original freeze preceded its own generator authoring; shared geology generator followed geology freezes, separate leaf generator followed leaf freeze. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.0356,
+      "measurement_record": {
+        "path": "proof-final3/render-manifest.json",
+        "sha256": "78f38cfa9116f98de63106e5901543e9fd1e1f702d5d6927cf39cae1fb3cb6ff"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final3/render-manifest.json",
+    "sha256": "78f38cfa9116f98de63106e5901543e9fd1e1f702d5d6927cf39cae1fb3cb6ff"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "144ac5c94b74d7374701d3c88f610e08a638fb0ad6c010a8f7be37f8ad538430",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "00ea9bbf51d0708b2f7b8d7c1c5ca35c5a10088de5c1c37231ebab13ce286ed7"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "1d54e1fa506e3fd392b9b3604d2199fd299a544eb1ec4879427a57c4538788a1",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "90f2eb5020d08eab9505a108a47e58c2d378df6bbcdfc7e6a8b350e52ba0649c"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

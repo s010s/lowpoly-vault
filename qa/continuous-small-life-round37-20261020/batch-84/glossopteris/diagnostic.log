@@ -1,0 +1,17 @@
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender').
+23:08:29 | INFO: Data are loaded, start creating Blender stuff
+23:08:29 | INFO: Blender create Mesh node single_Glossopteris_browniana_fossil_leaf_polygonal_reticulate_
+23:08:29 | INFO: glTF import finished in 0.02s
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch84-independent-qa-20261020/render_focused_diagnostics.py", line 265, in <module>
+    main()
+    ~~~~^^
+  File "/workspace/shared/lowpoly-batch84-independent-qa-20261020/render_focused_diagnostics.py", line 203, in main
+    'helper_sha256':digest(next(p for p in Path(__file__).resolve().parents if (p/'scripts/asset_common.py').exists())/'scripts/asset_common.py'),
+                           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+Error: script failed, file: '/workspace/shared/lowpoly-batch84-independent-qa-20261020/render_focused_diagnostics.py', exiting.
+Blender 4.3.2
+
+Blender quit
