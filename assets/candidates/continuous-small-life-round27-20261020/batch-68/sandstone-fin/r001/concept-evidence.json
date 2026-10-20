@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "sandstone-fin",
+  "revision": "r001",
+  "labels": {
+    "en": "sandstone-fin"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "20d94267de302a60886dcfa05aaa4bb41450f42e5e60caa29203a451cf039905"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "07a01644d89ed8760972c80a947e86c741f147dc523d6e81612702fb5b0e4a85"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "48ab9a07a03c575cfb22d4fd0667ae6cf7200a188080c8d209544fba0efff6a6"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "3951327fdb390cf568e28e1dc8862a1d0540ad1581451543eb2f06413bc56b97"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "e11a9479ef1b06980407ea052e229973d9681484f1a9592a18de1e43a60e9df0"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "9362f0251077e72c22790d012c9a78b075b0f397cc47d4b16e177071a6554023"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "5544bc2a59ffd94f34fc1c690af41f89f9bcbe4caa854f570d5aaa4368ee0dc6"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "e4d0cccb30058d637069df1a5e5760851a8981b3fe9b1124887afa485b0df209"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "cd1c4392341b7ab6679d76baf84cd27ab547a1746f45cd740e623e14e2c6db79"
+      }
+    ],
+    "cross_view_consistency_note": "Concept fin wall proportions, planar faces, narrow top and unperforated silhouette retained; exclude generated phototexture and excessive tiny cracks. Continuous closed wall prism with variable thickness, irregular vertical joint grooves confined to surface and uneven long crest. Warm broad band colors, restrained broad relief, no repeated bricks, no disconnected blocks, no broad base pedestal.",
+    "hidden_surface_decisions": "Concept fin wall proportions, planar faces, narrow top and unperforated silhouette retained; exclude generated phototexture and excessive tiny cracks. Continuous closed wall prism with variable thickness, irregular vertical joint grooves confined to surface and uneven long crest. Warm broad band colors, restrained broad relief, no repeated bricks, no disconnected blocks, no broad base pedestal."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:59:27.857210+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 13.5808,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "a71309e2bb39302a4584b2a0cd825bdb41a5c94564e7ea539216dc94c935acc1"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "a71309e2bb39302a4584b2a0cd825bdb41a5c94564e7ea539216dc94c935acc1"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "e4f52a5fe7e2d5f474c6cfadd131ba85e5d0d79a4b78efd8c199735db5ba7d6f",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "186fe2bf892e9b1fdfea2de999e9c8d13480b67416f0bf19497e19af7e0a39f0"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "20d94267de302a60886dcfa05aaa4bb41450f42e5e60caa29203a451cf039905",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "3d0567824b431b1f2e1cd51ccd0b2025c62f74b2dca5b0efcda8ebe5fbf7f5dd"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

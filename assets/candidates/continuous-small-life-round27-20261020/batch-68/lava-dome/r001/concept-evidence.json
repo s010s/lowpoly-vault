@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "lava-dome",
+  "revision": "r001",
+  "labels": {
+    "en": "lava-dome"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "ec4eee3edc6b6cfd676bc9cb75bff04611afd7ebcd63bf6c279a46d539a159f8"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "505b922c136495e7a1c792dbca7a3aa6d82f7185e94e9925f779955fb1c31aab"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "1cd99cf0e05282e5b85c404ddb40e098a9050eb84b4d0ee0330d95f5e5a18a5b"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "04a73fc30756668f472625772af197a8a0b5c017265140945ed690eeccce7d15"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "39baae389027ca6ff4572555568506d0ef9bf5c6f99fcffa4746cc4a89c6e887"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "af229fc35803154fb23e992fea4b818aaadbc9f203ee21b48093c98856bf9793"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "8009ff8c1b91a304bdc424d712a77e8e8db51ef0e3a989d465e7586afe1f7b81"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "c26ea63f90e05184e214ce944d576cdf2d320d95ee2b5c4ab614ca7fae55c1ca"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "79e1c6f1bcebda03c445649f0df026e68ce8a78bd921a9949e25c715cfb52005"
+      }
+    ],
+    "cross_view_consistency_note": "Concept dome mass, high shoulders and angular rind retained. Exclude excessive photo-like pebble microdetail and arbitrary blocks at every face. Author one closed uneven radial mass with purposeful large blocky lobes and limited embedded angular surface outcrops, quieter upper planes and stronger side fractures; varied smaller rubble at contact skirt. No concave crater, snow, smoke, glow, exact photographed outline or surrounding terrain.",
+    "hidden_surface_decisions": "Concept dome mass, high shoulders and angular rind retained. Exclude excessive photo-like pebble microdetail and arbitrary blocks at every face. Author one closed uneven radial mass with purposeful large blocky lobes and limited embedded angular surface outcrops, quieter upper planes and stronger side fractures; varied smaller rubble at contact skirt. No concave crater, snow, smoke, glow, exact photographed outline or surrounding terrain."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:59:28.024350+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 21.5001,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "6c3202c2c5c829fdfbcfc0f5fe1719e5a5fd3b005c5dc56d899ee05a9a4b3174"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "6c3202c2c5c829fdfbcfc0f5fe1719e5a5fd3b005c5dc56d899ee05a9a4b3174"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "138f4b04650b2bce2d824649c9013b040a6452ff043620312343132f0104dba1",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "2be76b744ab33be89659d2afa348a659a25f984b41c9756ca0048a9af3fd2548"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "ec4eee3edc6b6cfd676bc9cb75bff04611afd7ebcd63bf6c279a46d539a159f8",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "9f3bb6faa175e4edb5db4512d6361277297ced31c50be0bff38b29478d0c2cb5"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
