@@ -1,0 +1,11 @@
+# Round 20: exclusive batch 55 reservation
+
+Batch 55 contains vermicularia, weichselia, ventifact and pentichnus-deep-dwelling-trace from the unchanged approved prehistoric-1000-v1 inventory. This four-ID reservation replenishes a freed maker slot; Aturia batch 52 repair occupies the other. Parent confirms live capacity at actual dispatch. All prior batches and paused work remain untouched.
+
+This is an exclusive parent reservation only. No producer, ImageGen, Blender or QA was launched here. Parent fills real task/thread IDs after confirmed dispatch. Start production from then-current main and copy only necessary round 20 inputs. Never merge this planning branch or import its historical site/CI/release changes.
+
+The source freeze is NOT a modeling freeze. Preserve original inventory objects, provenance limits and frozen policies. Genuine concepts and pixel inspection must precede new derived modeling briefs/configs and a hash-bound modeling freeze. Original reference-ready is not a new factual PASS. The inherited reference-policy historical named scope notes apply only to those named IDs; common rules and these four inventory records and dispatch boundaries govern batch 55. Claims and state remain mutable coordination records, not design inputs.
+
+Preclaim evidence scans all 323 advertised refs (288 branch heads, 34 PR refs and HEAD), including models, named generators, work paths, claims and owned state. An expanded scan checked 20 unique queue blobs, 719 code blobs and accessible local named directories/claim/state files. No matches for these IDs were found; all 228 previously planned IDs are excluded. See preclaim-dedup.json for exact refs, scope and discovery limits.
+
+Validate static inputs with sha256sum --check checksums.sha256 in this directory. Preserve seven separate acceptance stages: technical, visual, factual, specification, runtime_parse, gpu and scene. Failed, unknown and unrun remain so. Parent dispatches exactly one fresh-context GPT-6 Luna xhigh independent full QA, pinned to exact source and four GLB hashes; only targeted difference review follows required repairs. Maker GPT-6.1 Sol medium does not self-approve. Record real observed stage times or unrecorded/unknown; no production start or finish time is asserted by this package.
