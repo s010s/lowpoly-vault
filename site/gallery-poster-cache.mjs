@@ -43,8 +43,8 @@ export function assertPosterArtifact(metadata,run,bytes){
 }
 function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch}){
  assert(/^[\w.-]+\/[\w.-]+$/.test(repository||''));assert(token,'Read-only GitHub poster token unavailable');
- const signal=AbortSignal.timeout(180000),url=path=>`https://api.github.com/repos/${repository}/${path}`,headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
- const api=async path=>{const response=await fetchImpl(url(path),{headers,signal});assert(response.ok,`GitHub poster read failed (${response.status})`);return response.json();};
+ const signal=AbortSignal.timeout(180000),url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`,headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+ const api=async path=>{const response=await fetchImpl(url(path),{headers,signal});assert(response.ok,`GitHub poster read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();};
  const artifact=async run=>{
   const listed=await api(`actions/runs/${run.id}/artifacts?per_page=100`),matches=listed.artifacts.filter(item=>item.name===posterArtifactName(run.run_attempt));assert.equal(matches.length,1,'Missing or ambiguous dedicated gallery artifact');
   const metadata=await api(`actions/artifacts/${matches[0].id}`);assert.equal(metadata.id,matches[0].id);

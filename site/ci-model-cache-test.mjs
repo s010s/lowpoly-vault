@@ -36,7 +36,10 @@ try{
         assert.equal(options.headers,undefined,'Repository token must never be forwarded to storage');return new Response(download);
       }
       assert.equal(options.headers.Authorization,'Bearer test-read-token');
-      const path=url.split(`/repos/${repository}/`)[1];let body;
+      const rootURL=`https://api.github.com/repos/${repository}`;
+      assert(url===rootURL||url.startsWith(`${rootURL}/`),'Wrong GitHub API origin or repository');
+      assert.notEqual(url,`${rootURL}/`,'GitHub repository metadata endpoint rejects a trailing slash');
+      const path=url===rootURL?'':url.slice(rootURL.length+1);let body;
       if(apiFailure)return new Response('unavailable',{status:503});
       if(path==='')body={id:12,full_name:repository,default_branch:'main'};
       else if(path==='git/ref/heads/main')body={ref:'refs/heads/main',object:{sha:currentSha}};
@@ -57,6 +60,8 @@ try{
     const result=await fetchVerifiedBaseProof({root:f.root,repository,baseSha,currentSha,inputs,token:'test-read-token',fetchImpl});return {...result,requests};
   }
   const valid=await lookup();assert(valid.verifiedBaseProof,valid.reasons.join('\n'));const planned=planModelReuse({inputs,...valid});assert.equal(planned.fresh_ids.length,4);assert.equal(planned.reused_ids.length,190);
+  assert.equal(valid.requests[0].url,`https://api.github.com/repos/${repository}`,'Repository metadata uses the canonical no-slash endpoint');
+  assert((await lookup({apiFailure:true})).reasons.some(reason=>reason==='GitHub proof read failed (503) at repository metadata'),'A failed read reports the safe endpoint, not credentials');
   assert((await lookup({largeManifest:true})).verifiedBaseProof,'Large GitHub manifest must use exact blob fallback');
   const rejects=[
     {missing:true},{apiFailure:true},{ancestor:false},{newer:true},
