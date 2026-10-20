@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "asset_id": "pleuromeia",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate, not release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every exact final view including rear/bottom for readability and visible coplanar overlap. Actual concept hero/side/top inspected. Keep blade taper and terminal cone. Correct its separate round basal bulbs to one integrated lobed rhizophore; simplify huge root network. Do not copy oversized broad palm-like leaves or regular alternating rows: use narrow linear blades in a golden-angle helix. Some lower leaf loss is illustrative, not a claim of an exactly preserved plant.",
+      "required_sources": [
+        "LOOY2021"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One stout tapering unbranched herbaceous axis with long separate linear upper leaves and triangular clasping bases in spiral arrangement. Single dominant elongated terminal strobilus with helically arranged oval-obovate sporophyll relief, not woody pine cone scales. Swollen four-lobed rhizophore with downward roots and sparse lower-stem leaves/scars, no tree branches. A conservative exterior whole-plant P. sternbergii concept informed by Looy et al.2021 fossils and reconstruction, not P. jiaochengensis, P. longicaulis or exact specimen cast. Approximate1.45m including roots is artistic, below reported maximum; precise leaf retention, root count, strobilus proportions and colors not established. Interior anatomy, sex/spore ultrastructure and habitat are not modeled.",
+      "required_sources": [
+        "LOOY2021"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight required512px views plus supplemental bottom inspection. GPU and composed-scene separately unrun.",
+  "frozen_at": "2026-10-20T21:02:39.307314+00:00",
+  "subject": "Pleuromeia sternbergii terminal-cone plant",
+  "representation": "living-reconstruction",
+  "factual_scope": "A conservative exterior whole-plant P. sternbergii concept informed by Looy et al.2021 fossils and reconstruction, not P. jiaochengensis, P. longicaulis or exact specimen cast. Approximate1.45m including roots is artistic, below reported maximum; precise leaf retention, root count, strobilus proportions and colors not established. Interior anatomy, sex/spore ultrastructure and habitat are not modeled.",
+  "identifying_features": [
+    "One stout tapering unbranched herbaceous axis with long separate linear upper leaves and triangular clasping bases in spiral arrangement.",
+    "Single dominant elongated terminal strobilus with helically arranged oval-obovate sporophyll relief, not woody pine cone scales.",
+    "Swollen four-lobed rhizophore with downward roots and sparse lower-stem leaves/scars, no tree branches."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.65,
+      0.65,
+      1.45
+    ],
+    "accuracy": "illustrative, not measured specimen/site"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact at z0, center of basal footprint.",
+  "intended_use": {
+    "role": "static museum/catalog rotation asset",
+    "viewing": "512px diagnostic views, later web rotation",
+    "no_claim": "No dynamics, collision, habitat or scene compatibility established."
+  },
+  "surface_profile": "Flat faceted opaque palette only. No texture/emission/double-sided concealment.",
+  "palette_srgb": [
+    "#6D7851",
+    "#87955B",
+    "#4E6541",
+    "#A4A16B",
+    "#736A50"
+  ],
+  "component_and_cause": {
+    "primary": "One stout tapering unbranched herbaceous axis with long separate linear upper leaves and triangular clasping bases in spiral arrangement.",
+    "secondary": "Single dominant elongated terminal strobilus with helically arranged oval-obovate sporophyll relief, not woody pine cone scales.",
+    "tertiary": "Swollen four-lobed rhizophore with downward roots and sparse lower-stem leaves/scars, no tree branches.",
+    "quiet_region": "Readable stem / intact ice flats / integrated basal lava foot / flat shallow pool floors."
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:02:39.307314+00:00",
+    "path": "production/small-life-batch87/concepts/pleuromeia-concept.png",
+    "sha256": "921877928538ad6db21df9505a7b17291890d41a1d07b7a6c340651399184d48",
+    "decisions": "Actual concept hero/side/top inspected. Keep blade taper and terminal cone. Correct its separate round basal bulbs to one integrated lobed rhizophore; simplify huge root network. Do not copy oversized broad palm-like leaves or regular alternating rows: use narrow linear blades in a golden-angle helix. Some lower leaf loss is illustrative, not a claim of an exactly preserved plant."
+  },
+  "parameters": {
+    "height_m": 1.45,
+    "stem_height_m": 1.18,
+    "stem_base_diameter_m": 0.14,
+    "cone_length_m": 0.27,
+    "cone_max_diameter_m": 0.16,
+    "leaf_length_range_m": [
+      0.1,
+      0.3
+    ],
+    "leaf_count": 42,
+    "basal_lobes": 4,
+    "root_count": 24,
+    "stem_segments": 20,
+    "radial_segments": 20
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "standalone GLB",
+    "deterministic generator/config/seed/dependencies",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos checks",
+    "Three.js parse",
+    "eight exact512px views and lossless sheet plus bottom"
+  ],
+  "prohibited": [
+    "Copy third-party pixels/mesh",
+    "Treat concept as scientific evidence",
+    "Narrow frozen scope after build",
+    "Alter source inventory",
+    "Claim CPU images or Node parse prove GPU/scene"
+  ]
+}

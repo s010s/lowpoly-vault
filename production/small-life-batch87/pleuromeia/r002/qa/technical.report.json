@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "526b4778a487c61d4433531a4da211e404462f2e1fd0fada6dd2a28618dabdb4",
+    "brief_sha256": "b207933566e9988c22bdf26ee76708aeaf64ed6422645d8c237991ff152da950",
+    "references_sha256": "f24b216408c1056a66c290df0f28d0c85677134a010568c575bd9d73ede06b50"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 5536,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 283592,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "526b4778a487c61d4433531a4da211e404462f2e1fd0fada6dd2a28618dabdb4",
+      "report": {
+        "path": "production/small-life-batch87/pleuromeia/r002/qa/static-glb.report.json",
+        "sha256": "f83a325658db6679dc7883746480be0892ea94bd4b023f1a050264e49a668f44"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "526b4778a487c61d4433531a4da211e404462f2e1fd0fada6dd2a28618dabdb4",
+      "report": {
+        "path": "production/small-life-batch87/pleuromeia/r002/artifacts/gltf-validator.report.json",
+        "sha256": "b84542cd7362ed5f6666681e838b6277e90e9b9e74212f59ad3d474c550dce1f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "526b4778a487c61d4433531a4da211e404462f2e1fd0fada6dd2a28618dabdb4",
+      "report": {
+        "path": "production/small-life-batch87/pleuromeia/r002/qa/source-export.report.json",
+        "sha256": "c9f1263c2107f531defa535c1385fb9c0e199c5ac6d718d853b0b8a326465352"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "526b4778a487c61d4433531a4da211e404462f2e1fd0fada6dd2a28618dabdb4",
+      "report": {
+        "path": "production/small-life-batch87/pleuromeia/r002/qa/reproducibility-a.report.json",
+        "sha256": "03b4a3b3e3d06fa60d84658fd4667c0d8af5e2dc531b14cf174076f31a97c9b2"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "526b4778a487c61d4433531a4da211e404462f2e1fd0fada6dd2a28618dabdb4",
+      "report": {
+        "path": "production/small-life-batch87/pleuromeia/r002/qa/reproducibility-b.report.json",
+        "sha256": "463fc4be4bee0f9fd6bbf66a478db14fb199527203c7ba21b821f704d0234dc6"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.31526076793670654,
+      0.0,
+      -0.32912954688072205
+    ],
+    "max": [
+      0.32514113187789917,
+      1.4470757246017456,
+      0.33536866307258606
+    ],
+    "size": [
+      0.6404018998146057,
+      1.4470757246017456,
+      0.6644982099533081
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "unbranched-spiral-leaf-strobilus-rhizophore",
+      "vertices": 3028,
+      "triangles": 5536,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 10232,
+  "created_at": "2026-10-20T21:13:53.988997+00:00"
+}

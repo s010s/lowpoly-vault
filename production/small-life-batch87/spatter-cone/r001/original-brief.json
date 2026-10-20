@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "asset_id": "spatter-cone",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate, not release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every exact final view including rear/bottom for readability and visible coplanar overlap. All concept views inspected. Its high straight flutes look too much like a deeply eroded ordinary volcanic cone. Correct to a lower broad asymmetric fused mound with irregular lobate welts and uneven rim; avoid uniform radial column flutes, scattered loose boulders and perfectly circular summit.",
+      "required_sources": [
+        "NPS-SPATTER"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Small asymmetric welded spatter mound surrounding one narrow central open vent. Irregular lobate fused walls and uneven low crenellated rim rather than loose cinders, beads or repeated spheres. Broad integrated solid basal foot, inward-sloping cavity walls and cooled dark basalt palette; no active lava. Generic static cooled spatter process/form, not a named Craters of the Moon replica, eruption simulation, geological age or measured site. Welded hot clasts explain cohesive lobes; model is cool opaque rock, no magma chamber. Illustrative size and color only.",
+      "required_sources": [
+        "NPS-SPATTER"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight required512px views plus supplemental bottom inspection. GPU and composed-scene separately unrun.",
+  "frozen_at": "2026-10-20T21:02:39.307314+00:00",
+  "subject": "Cooled welded spatter cone",
+  "representation": "geological-form",
+  "factual_scope": "Generic static cooled spatter process/form, not a named Craters of the Moon replica, eruption simulation, geological age or measured site. Welded hot clasts explain cohesive lobes; model is cool opaque rock, no magma chamber. Illustrative size and color only.",
+  "identifying_features": [
+    "Small asymmetric welded spatter mound surrounding one narrow central open vent.",
+    "Irregular lobate fused walls and uneven low crenellated rim rather than loose cinders, beads or repeated spheres.",
+    "Broad integrated solid basal foot, inward-sloping cavity walls and cooled dark basalt palette; no active lava."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      7.8,
+      7.4,
+      2.8
+    ],
+    "accuracy": "illustrative, not measured specimen/site"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact at z0, center of basal footprint.",
+  "intended_use": {
+    "role": "static museum/catalog rotation asset",
+    "viewing": "512px diagnostic views, later web rotation",
+    "no_claim": "No dynamics, collision, habitat or scene compatibility established."
+  },
+  "surface_profile": "Flat faceted opaque palette only. No texture/emission/double-sided concealment.",
+  "palette_srgb": [
+    "#4B4640",
+    "#62564A",
+    "#786855",
+    "#393B37"
+  ],
+  "component_and_cause": {
+    "primary": "Small asymmetric welded spatter mound surrounding one narrow central open vent.",
+    "secondary": "Irregular lobate fused walls and uneven low crenellated rim rather than loose cinders, beads or repeated spheres.",
+    "tertiary": "Broad integrated solid basal foot, inward-sloping cavity walls and cooled dark basalt palette; no active lava.",
+    "quiet_region": "Readable stem / intact ice flats / integrated basal lava foot / flat shallow pool floors."
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:02:39.307314+00:00",
+    "path": "production/small-life-batch87/concepts/spatter-cone-concept.png",
+    "sha256": "256b9a99b20b51d6416ae4c0e3814300fe82aa449e36b829ad9818d929658efa",
+    "decisions": "All concept views inspected. Its high straight flutes look too much like a deeply eroded ordinary volcanic cone. Correct to a lower broad asymmetric fused mound with irregular lobate welts and uneven rim; avoid uniform radial column flutes, scattered loose boulders and perfectly circular summit."
+  },
+  "parameters": {
+    "outer_radius_m": 3.7,
+    "vent_radius_m": 0.65,
+    "rim_height_m": 2.5,
+    "vent_floor_m": 0.18,
+    "angular_segments": 64,
+    "radial_profile_segments": 14,
+    "welded_lobe_groups": 9
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "standalone GLB",
+    "deterministic generator/config/seed/dependencies",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos checks",
+    "Three.js parse",
+    "eight exact512px views and lossless sheet plus bottom"
+  ],
+  "prohibited": [
+    "Copy third-party pixels/mesh",
+    "Treat concept as scientific evidence",
+    "Narrow frozen scope after build",
+    "Alter source inventory",
+    "Claim CPU images or Node parse prove GPU/scene"
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "asset_id": "travertine-terrace-pools",
+  "revision": "r002",
+  "maker": {
+    "id": "batch87-maker",
+    "task_id": "produce_batch87_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch87/travertine-terrace-pools/r002/artifacts/travertine-terrace-pools.glb",
+      "sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d"
+    },
+    "brief": {
+      "path": "production/small-life-batch87/travertine-terrace-pools/r002/delivery-brief.json",
+      "sha256": "2856e1a77d8d772ff7801065a783e7545bdfdb158c0bde319ec955dd5021d40d"
+    },
+    "references": {
+      "path": "production/small-life-batch87/travertine-terrace-pools/r001/references.json",
+      "sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd"
+    },
+    "source": {
+      "path": "production/small-life-batch87/travertine-terrace-pools/r002/artifacts/travertine-terrace-pools.blend",
+      "sha256": "411f8f1d9336cc53e09ada3b3e13445ec50023031a2019eb409961f120421820"
+    },
+    "generator": {
+      "path": "production/small-life-batch87/tools/generate.py",
+      "sha256": "e35170aa6bfd0d7c0e10c0e24b3728fa6b0343a6e01737b20a4b607ce2b534dc"
+    },
+    "config": {
+      "path": "production/small-life-batch87/travertine-terrace-pools/r002/config.json",
+      "sha256": "92e0a47f6af4cd95fa88ef7db8fbbd145c6a4c81125f980e5481127f49488eff"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch87/dependencies.json",
+      "sha256": "372e9d85c99c16e44157c33847e8fe93150d10fdee65eddded8261e23bf4eee8"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+        "brief_sha256": "2856e1a77d8d772ff7801065a783e7545bdfdb158c0bde319ec955dd5021d40d",
+        "references_sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd"
+      },
+      "path": "production/small-life-batch87/travertine-terrace-pools/r002/qa/technical.report.json",
+      "sha256": "846e537156841ba7bf051cb2f1d8ddc9ad3444dfd0edf34d170299f402a0c691"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+        "brief_sha256": "2856e1a77d8d772ff7801065a783e7545bdfdb158c0bde319ec955dd5021d40d",
+        "references_sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd"
+      },
+      "path": "production/small-life-batch87/travertine-terrace-pools/r002/qa/runtime-parse.report.json",
+      "sha256": "6c455361023af9318a7c540bdf81d4896647b7096ad0b438fba5ddc7eaa415ea"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+        "brief_sha256": "2856e1a77d8d772ff7801065a783e7545bdfdb158c0bde319ec955dd5021d40d",
+        "references_sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd"
+      },
+      "path": "production/small-life-batch87/travertine-terrace-pools/r002/views/render-manifest.json",
+      "sha256": "32220e0263ef242609f3894068325df18d0c2caa1d34c9eb343e50707ed196e2"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch87-maker",
+        "task_id": "produce_batch87_models"
+      },
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+        "brief_sha256": "2856e1a77d8d772ff7801065a783e7545bdfdb158c0bde319ec955dd5021d40d",
+        "references_sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Actual exact-subject checks passed; raw reports pinned."
+        }
+      ],
+      "note": "Maker automated checks completed; does not grant independent visual or publication acceptance.",
+      "reviewed_at": "2026-10-20T21:15:36.076045+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "NPS-TRAVERTINE"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker preparation/inspection completed; fresh independent stage approval pending.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "NPS-TRAVERTINE"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker preparation/inspection completed; fresh independent stage approval pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker preparation/inspection completed; fresh independent stage approval pending."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch87-maker",
+        "task_id": "produce_batch87_models"
+      },
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+        "brief_sha256": "2856e1a77d8d772ff7801065a783e7545bdfdb158c0bde319ec955dd5021d40d",
+        "references_sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Actual exact-subject checks passed; raw reports pinned."
+        }
+      ],
+      "note": "Maker automated checks completed; does not grant independent visual or publication acceptance.",
+      "reviewed_at": "2026-10-20T21:15:36.076068+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run. CPU proof images are not hardware graphics evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run. No composed museum scene acceptance."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Fresh independent visual/factual/specification review pending."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "GPU and composed-scene stages not run; no formal/live approval."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

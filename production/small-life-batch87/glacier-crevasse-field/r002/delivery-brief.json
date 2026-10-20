@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "asset_id": "glacier-crevasse-field",
+  "brief_version": "delivery-r002",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate, not release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every exact final view including rear/bottom for readability and visible coplanar overlap. Actual concept all panels inspected. Concept has only three prominent cracks and overly equal gaps; use four unequal spaced fractures as prescribed. Correct near-vertical parallel slot appearance with V-tapering bases and variable wall relief. Keep coherent basal ice and quiet intact flats; no extra painted cracks.",
+      "required_sources": [
+        "NPS-CREVASSE"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Bounded continuous low ice patch with four unequal predominantly transverse irregular crevasses. True deep V-shaped fractures with steep separate opposing ice walls, tapering down to continuous solid ice below. Quiet ice flats between fractures, slightly sloping surface and openly disclosed cut module sides; no square serac grid. Original generic geological process/form module. NPS photo of Middle Teton crevasses is an analog only. No real site replica, precise real crack depth, geological period, flow simulation, current glacial extent or ecosystem asserted. All four boundary sides are intentionally truncated ice section, not natural terminal cliffs.",
+      "required_sources": [
+        "NPS-CREVASSE"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight required512px views plus supplemental bottom inspection. GPU and composed-scene separately unrun.",
+  "frozen_at": "2026-10-20T21:02:39.307314+00:00",
+  "subject": "Glacier crevasse field",
+  "representation": "geological-form",
+  "factual_scope": "Original generic geological process/form module. NPS photo of Middle Teton crevasses is an analog only. No real site replica, precise real crack depth, geological period, flow simulation, current glacial extent or ecosystem asserted. All four boundary sides are intentionally truncated ice section, not natural terminal cliffs.",
+  "identifying_features": [
+    "Bounded continuous low ice patch with four unequal predominantly transverse irregular crevasses.",
+    "True deep V-shaped fractures with steep separate opposing ice walls, tapering down to continuous solid ice below.",
+    "Quiet ice flats between fractures, slightly sloping surface and openly disclosed cut module sides; no square serac grid."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      36,
+      54,
+      13
+    ],
+    "accuracy": "illustrative, not measured specimen/site"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact at z0, center of basal footprint.",
+  "intended_use": {
+    "role": "static museum/catalog rotation asset",
+    "viewing": "512px diagnostic views, later web rotation",
+    "no_claim": "No dynamics, collision, habitat or scene compatibility established."
+  },
+  "surface_profile": "Flat faceted opaque palette only. No texture/emission/double-sided concealment.",
+  "palette_srgb": [
+    "#D7E8E9",
+    "#B9D6DE",
+    "#8EB8C8",
+    "#E8F0ED"
+  ],
+  "component_and_cause": {
+    "primary": "Bounded continuous low ice patch with four unequal predominantly transverse irregular crevasses.",
+    "secondary": "True deep V-shaped fractures with steep separate opposing ice walls, tapering down to continuous solid ice below.",
+    "tertiary": "Quiet ice flats between fractures, slightly sloping surface and openly disclosed cut module sides; no square serac grid.",
+    "quiet_region": "Readable stem / intact ice flats / integrated basal lava foot / flat shallow pool floors."
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:02:39.307314+00:00",
+    "path": "production/small-life-batch87/concepts/glacier-crevasse-field-concept.png",
+    "sha256": "32be4b126c0f16e4e6dd6fc6d4fe5463b49f48aa4e17dd76c7009570cd1b2968",
+    "decisions": "Actual concept all panels inspected. Concept has only three prominent cracks and overly equal gaps; use four unequal spaced fractures as prescribed. Correct near-vertical parallel slot appearance with V-tapering bases and variable wall relief. Keep coherent basal ice and quiet intact flats; no extra painted cracks."
+  },
+  "parameters": {
+    "width_m": 36,
+    "length_m": 54,
+    "surface_height_range_m": [
+      10,
+      13
+    ],
+    "crack_floor_min_m": 2.4,
+    "primary_cracks": 4,
+    "crack_width_range_m": [
+      1.6,
+      3.2
+    ],
+    "transverse_segments": 24
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "standalone GLB",
+    "deterministic generator/config/seed/dependencies",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos checks",
+    "Three.js parse",
+    "eight exact512px views and lossless sheet plus bottom"
+  ],
+  "prohibited": [
+    "Copy third-party pixels/mesh",
+    "Treat concept as scientific evidence",
+    "Narrow frozen scope after build",
+    "Alter source inventory",
+    "Claim CPU images or Node parse prove GPU/scene"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch87/glacier-crevasse-field/r001/original-brief.json",
+    "sha256": "56406d18d40a0ad5db3b4007e9805449e7976daf942d5bbf81aae0662608ec10"
+  },
+  "delivery_bound_at": "2026-10-20T21:10:13.821119+00:00",
+  "scope_changed": false,
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch87/glacier-crevasse-field/r002/artifacts/glacier-crevasse-field.blend",
+      "sha256": "f941a78edeec87384b69d78b22c088f2cba003050f8d9a5037ec2769fc8bf6ba"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch87/tools/generate.py",
+      "sha256": "e35170aa6bfd0d7c0e10c0e24b3728fa6b0343a6e01737b20a4b607ce2b534dc"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch87/glacier-crevasse-field/r002/config.json",
+      "sha256": "09c2c8fc5debc98039330df084144938bc81711377650e9435cdc97c8aed53e7"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch87/dependencies.json",
+      "sha256": "372e9d85c99c16e44157c33847e8fe93150d10fdee65eddded8261e23bf4eee8"
+    }
+  ]
+}

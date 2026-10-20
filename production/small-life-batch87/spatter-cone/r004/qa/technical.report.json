@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r004",
+    "glb_sha256": "f03be9c18ee9c9e2f2e7bba6017536efc82067b218c72d1b7aed426c48a34ff2",
+    "brief_sha256": "406c44357308f4f1b98b1d3b960c2fbea182aa9d67f1a45f3cf5fb941bc1c104",
+    "references_sha256": "427cee9955bcb668e22d1544c5509a22bb3e2c3194c4d940cd67457fc2180ce0"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 8756,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 635048,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "f03be9c18ee9c9e2f2e7bba6017536efc82067b218c72d1b7aed426c48a34ff2",
+      "report": {
+        "path": "production/small-life-batch87/spatter-cone/r004/qa/static-glb.report.json",
+        "sha256": "2033b12765a605826c192c5203e32c610dcd334510fbd123b2d4798307618270"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "f03be9c18ee9c9e2f2e7bba6017536efc82067b218c72d1b7aed426c48a34ff2",
+      "report": {
+        "path": "production/small-life-batch87/spatter-cone/r004/artifacts/gltf-validator.report.json",
+        "sha256": "e97c1a6f8b57159945abf7e85de993d5b90e6ae6438727aede81d9ed96ce009d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "f03be9c18ee9c9e2f2e7bba6017536efc82067b218c72d1b7aed426c48a34ff2",
+      "report": {
+        "path": "production/small-life-batch87/spatter-cone/r004/qa/source-export.report.json",
+        "sha256": "415795ad340b1599a0540c28ba44b4d6c67ca739d69709890b9adff45bdf66cd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "f03be9c18ee9c9e2f2e7bba6017536efc82067b218c72d1b7aed426c48a34ff2",
+      "report": {
+        "path": "production/small-life-batch87/spatter-cone/r004/qa/reproducibility-a.report.json",
+        "sha256": "7820f91af275020a2688cffb30c8e585112941455778da4aed166432cbe923d6"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "f03be9c18ee9c9e2f2e7bba6017536efc82067b218c72d1b7aed426c48a34ff2",
+      "report": {
+        "path": "production/small-life-batch87/spatter-cone/r004/qa/reproducibility-b.report.json",
+        "sha256": "ea8c9753463dc096cebb058ecde1098736df88c1e7450a8e012433d4e3a1189c"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -3.787118673324585,
+      0.0,
+      -3.4736859798431396
+    ],
+    "max": [
+      4.137338638305664,
+      3.1593129634857178,
+      3.9921324253082275
+    ],
+    "size": [
+      7.924457311630249,
+      3.1593129634857178,
+      7.465818405151367
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "integral-welded-spatter-mound-and-vent",
+      "vertices": 4380,
+      "triangles": 8756,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 24140,
+  "created_at": "2026-10-20T21:13:54.216540+00:00"
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+    "brief_sha256": "2856e1a77d8d772ff7801065a783e7545bdfdb158c0bde319ec955dd5021d40d",
+    "references_sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1716,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 115076,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+      "report": {
+        "path": "production/small-life-batch87/travertine-terrace-pools/r002/qa/static-glb.report.json",
+        "sha256": "05e7c353712c462bba4cb95f57f36355ea0c73c3dacf44a708bbdaa7434d8ac2"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+      "report": {
+        "path": "production/small-life-batch87/travertine-terrace-pools/r002/artifacts/gltf-validator.report.json",
+        "sha256": "fd846e531fb089c833c7f6420cd12350c0ef19cd4974c56221a660a360e2de72"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+      "report": {
+        "path": "production/small-life-batch87/travertine-terrace-pools/r002/qa/source-export.report.json",
+        "sha256": "48c9a546d38c3e3dba63faf509ef3aeeb541e6f3d64ecb10d9c5f76352a81e0a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+      "report": {
+        "path": "production/small-life-batch87/travertine-terrace-pools/r002/qa/reproducibility-a.report.json",
+        "sha256": "3f21e38375b9b9a57199365d88330ed1cc4ee6a9f0138bf85938e9f007b91871"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "b98d97ae9575d6bb5e3848338aa2dae36a9dbe75118ebd1ab83bd6f94766f46d",
+      "report": {
+        "path": "production/small-life-batch87/travertine-terrace-pools/r002/qa/reproducibility-b.report.json",
+        "sha256": "a524e8a80a0c5d15360d043860418764a799ae81be3c21ef5745efb7a8d37041"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -5.015529632568359,
+      0.0,
+      -9.432464599609375
+    ],
+    "max": [
+      5.090198516845703,
+      4.064496040344238,
+      9.166812896728516
+    ],
+    "size": [
+      10.105728149414062,
+      4.064496040344238,
+      18.59927749633789
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "linked-shallow-pools-carbonate-slope",
+      "vertices": 860,
+      "triangles": 1716,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 4164,
+  "created_at": "2026-10-20T21:15:36.069476+00:00"
+}

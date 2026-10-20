@@ -1,0 +1,95 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch87-20261020/production/small-life-batch87/tools/generate-spatter-r004.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch87-20261020/production/small-life-batch87/spatter-cone/r004/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch87-local/rebuild-queue/build/spatter-cone/r004/semantic-rebuild-b/1070900d6bc7847fb8405c8876c1fb3ae6087ee197e965446d571a655adf5c34/20261020T211028-6f455e462627463bbac2d0e61c1e6d7f/outputs"
+  ],
+  "created_at": "2026-10-20T21:10:28.651042+00:00",
+  "fingerprint": "1070900d6bc7847fb8405c8876c1fb3ae6087ee197e965446d571a655adf5c34",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch87-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 787,
+        "path": "/workspace/shared/lowpoly-batch87-20261020/production/small-life-batch87/spatter-cone/r004/config.json",
+        "sha256": "e4290a282fc9951ff3d553a3bd8b07596e3bec05d87bce088fcb5c2848b87677"
+      },
+      "generator": {
+        "bytes": 12452,
+        "path": "/workspace/shared/lowpoly-batch87-20261020/production/small-life-batch87/tools/generate-spatter-r004.py",
+        "sha256": "c5ab80f3f4aa25fa36f7c3537d7c886cf8318f3c0ad664306a69c8916ed8b1dd"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch87-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "spatter-cone",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch87-20261020/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch87-20261020/production/small-life-batch87/spatter-cone/r004/config.json",
+        "generator": "/workspace/shared/lowpoly-batch87-20261020/production/small-life-batch87/tools/generate-spatter-r004.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch87-20261020/scripts/qa_glb.py"
+      },
+      "job_id": "semantic-rebuild-b",
+      "outputs": [
+        "spatter-cone/spatter-cone.glb",
+        "spatter-cone/spatter-cone.blend",
+        "spatter-cone/qa.json",
+        "spatter-cone/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r004",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261020T211013-1043e3b2cee740b9ac8d9a11614640aa"
+}
