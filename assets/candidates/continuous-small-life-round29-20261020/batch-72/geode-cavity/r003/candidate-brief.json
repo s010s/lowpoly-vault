@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "geode-cavity",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: free rounded finite enclosing nodule, not continuous bedrock; deliberate limited front/top display opening with honest broken/cut rim; deep empty central hollow; small unequal inward-pointing quartz crystals attached to inner wall, not outward spikes or filled solid. Scope: Original generic free rounded geode nodule with enclosing rind and hollow inward-quartz-lined cavity; deliberate front/top display wedge opening removes about one third of shell to expose interior. Not an intact sealed geode, bedrock crystal pocket, dogtooth spar cavity, exact specimen, locality or age reconstruction.",
+      "required_sources": [
+        "PRIMARY-geode-cavity"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: free rounded finite enclosing nodule, not continuous bedrock; deliberate limited front/top display opening with honest broken/cut rim; deep empty central hollow; small unequal inward-pointing quartz crystals attached to inner wall, not outward spikes or filled solid. Scope: Original generic free rounded geode nodule with enclosing rind and hollow inward-quartz-lined cavity; deliberate front/top display wedge opening removes about one third of shell to expose interior. Not an intact sealed geode, bedrock crystal pocket, dogtooth spar cavity, exact specimen, locality or age reconstruction.",
+      "required_sources": [
+        "PRIMARY-geode-cavity"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r003/source.blend",
+      "sha256": "ec90eacc32aad6148fdec37ceb98ae0b319ba38e9fcfead689383f400a3afa48"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r003/generator.py",
+      "sha256": "0ce04df9f5fcef62b59a7e46e013e7787e4eb607a9e50dabe0dbb746eee2ec0d"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r003/build-config.json",
+      "sha256": "6f784d6cca89a322b0bc57aa358109c3d63dbbbd07e65aaf2c6a4338de1a6376"
+    }
+  ],
+  "claim_scope": "Original generic free rounded geode nodule with enclosing rind and hollow inward-quartz-lined cavity; deliberate front/top display wedge opening removes about one third of shell to expose interior. Not an intact sealed geode, bedrock crystal pocket, dogtooth spar cavity, exact specimen, locality or age reconstruction.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.16,
+    0.145,
+    0.155
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "free rounded finite enclosing nodule, not continuous bedrock",
+    "deliberate limited front/top display opening with honest broken/cut rim",
+    "deep empty central hollow",
+    "small unequal inward-pointing quartz crystals attached to inner wall, not outward spikes or filled solid"
+  ],
+  "concept_decisions": "Retain roughly two-thirds of rounded lumpy shell including complete back and underside, remove bounded front/top wedge for visibility. Wall has exterior rind, finite thickness and pale inner chalcedony liner. Crystals attach to inner concave surface and point toward cavity center, irregular spacing/size, short enough to preserve empty hollow; mostly creamy quartz, no unsupported amethyst claim. Cut opening is a deliberate educational display convention frozen before modeling; not claimed natural break or bedrock cave. No pedestal or slab. Concept inspected: rounded free enclosing nodule and hollow read correctly. Concept crystals too large/coarse; final lining uses substantially smaller unequal quartz crystals, preserving empty inward hollow. Opening reinterpreted as honest removed front/top display cap, no natural break claim.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T14:52:28.480949+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:06:48.321443+00:00",
+    "frozen_design_brief_sha256": "9847db467bf340abd2640bc14ce6b5716e8df5f473751c2ab827df1225b560a4",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

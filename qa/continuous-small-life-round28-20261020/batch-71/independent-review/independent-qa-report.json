@@ -1,0 +1,967 @@
+{
+  "schema_version": 1,
+  "kind": "independent_static_qa_batch71_round28",
+  "created_at_utc": "2026-10-20T16:06:51Z",
+  "scope": "Independent read-only QA recommendation for the exact four r002 GLBs at fixed source commit; no source mutation, no push/PR/publication, and no formal/user/website approval.",
+  "overall": "ACCEPT BOUNDED for each candidate as described; technical/visual/factual evidence supports only the specified static educational-prop use. These are independent recommendations, not publisher release authorization.",
+  "source_snapshot": {
+    "branch": "candidate/small-life-batch71-concept-20261020",
+    "expected_head": "ac4829aadbeb464894ad56457bb8401c10de7911",
+    "head": "ac4829aadbeb464894ad56457bb8401c10de7911",
+    "head_match": true,
+    "inventory_blob_sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "inventory_match": true,
+    "repository": "s010s/lowpoly-vault",
+    "required_inventory_blob_sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+    "working_tree_clean": true,
+    "working_tree_porcelain": "",
+    "worktree": "/workspace/shared/lowpoly-batch71-20261020"
+  },
+  "production_manifest": {
+    "all_handoff_assets_exact_expected": {
+      "eldonia": true,
+      "maar-crater": true,
+      "river-terrace": true,
+      "roche-moutonnee": true
+    },
+    "handoff_declared_source_manifest_sha256": "ef85715123480cb61191b3031c8fc1c93f68d197903d2e5d91c1b21d2ad357d3",
+    "handoff_declared_verification_sha256": "8db36bb5b272c1b44f06a9f5a9b83277d41296f9b90d94464f9605fed0634c4a",
+    "handoff_sha256": "30d400af3a49239ccee015904d40e5c91c92382a977af9255e7905e10aa6bd65",
+    "manifest_file_records": 621,
+    "manifest_local_files_checked": 621,
+    "manifest_missing_or_mismatch": [],
+    "source_manifest_hash_match": true,
+    "source_manifest_sha256": "ef85715123480cb61191b3031c8fc1c93f68d197903d2e5d91c1b21d2ad357d3",
+    "verification_declares_all_current_hashes_valid": true,
+    "verification_hash_match": true,
+    "verification_sha256": "8db36bb5b272c1b44f06a9f5a9b83277d41296f9b90d94464f9605fed0634c4a"
+  },
+  "inventory_required_blob_sha256": "b4a14c3ba2e99705eb097ee371cabd82aa76950beef014c4ecc1913742d80f4c",
+  "factual_reference_pixel_review": {
+    "local_reference_directory": "/workspace/shared/batch71-consult-only",
+    "all_8_declared_consulted_pixels_hash_matched_and_visually_reviewed": true,
+    "reference_evidence_file": "raw/reference-pixel-verification.json",
+    "reference_evidence_sha256": "ae3fd1008e1143e92dd9212f0cfb126d7b3e768412581c57122ea1dd31dc498c",
+    "source_text_and_access_limits": [
+      "Eldonia PLOS ONE 2010 primary text and Fig. 1 pixels were available; ROM59550 photo was inaccessible and not personally inspected. Li et al. (2023) archive abstract/bibliography only, full text access unavailable; He et al. (2026) PubMed abstract only, full text unavailable.",
+      "Roche NPS primary text, Box Canyon photo, glacier-process section and Beehive photo visually consulted; Te Ara historical image inaccessible, not claimed inspected.",
+      "Maar NPS primary description, CSU-authored maar-explosion section, and official Ubehebe photo visually consulted; no specific mineralogical composition inferred.",
+      "River NPS fluvial-landform text/CSU-authored Chaco diagram and USGS terrace text/photo visually consulted; inaccessible Circular 1425 source not claimed consulted."
+    ],
+    "rights_note": "The reference JSON and license notes identify consulted source material as consult-only. No source photo/diagram, scan, mesh, texture, or other third-party asset is incorporated into delivered GLBs or redistributed here."
+  },
+  "execution_environment": {
+    "blender": "/usr/bin/blender 4.3.2",
+    "resource_control": "Each heavy job used blocking flock on /tmp/lowpoly-production-blender.lock and Blender --threads 2. Fresh source reopen/export audit reads saved blend and does not save it.",
+    "dependencies": "Existing installed read-only dependencies under /workspace/shared/lowpoly-landair-web-integration/node_modules; no installation or sitebuild."
+  },
+  "gate_separation": {
+    "technical": "passed for exact target GLBs: exact hash closures, read-only saved-source reopen/reexport byte-identical, Blender source/evaluated/export measures, Khronos 0 errors/0 warnings per fresh reexport, Three.js 0.180.0 CPU parse pass.",
+    "visual": "independently reviewed all 32 individual 512x512 frames plus all four contact sheets; Eldonia supplemental bottom view images checked separately.",
+    "factual": "bounded per asset; consult-only primary source text and hash-matched pixels reviewed; caveats/uncertain access preserved.",
+    "specification": "handoff, frozen brief/config/references/source/generator and final GLB/artifacts hash-closed; source inventory manifest 621 entries checked cleanly.",
+    "runtime_parse": "Three.js GLTFLoader parse only; not browser/device/GPU/render/scene evidence.",
+    "gpu": "not_run",
+    "scene": "not_run",
+    "formal_approval": "pending; none claimed",
+    "publication_or_user_acceptance": "not performed or implied"
+  },
+  "per_asset": {
+    "eldonia": {
+      "independent_status": "ACCEPT BOUNDED",
+      "reason_and_scope": "The full soft discoidal organism reads as an intact radial animal. The dorsal internal-gut cue is flush and described as a teaching projection, not an external hose or natural coloration. Supplemental ventral bottom views show the paired dendritic oral tentacles and separate off-centre openings, correcting the raw generated concept’s dorsal-anus mistake in the frozen written representation. This is fit for the intended educational prop, not a species-level specimen reconstruction. Caveats: body thickness/posture/color/fine branching are inferred; affinity/ecology remain uncertain; underside anatomy is not conveyed by the fixed eight views alone.",
+      "source_target": {
+        "repository": "s010s/lowpoly-vault",
+        "branch": "candidate/small-life-batch71-concept-20261020",
+        "commit": "ac4829aadbeb464894ad56457bb8401c10de7911",
+        "candidate_json_sha256": "c0f70390ad558afd2f8522ae143b451c7d7612090fcc14900705874c4fe12590",
+        "candidate_status": "pending",
+        "approved_for_brief": false,
+        "valid": true,
+        "approval_record": "pending",
+        "glb_sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2",
+        "expected_glb_sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2",
+        "source_blend_sha256": "2fb0e300c347eb2983a910bf6c5d6097c3ca68a9c44286c0f5505232d9eaad03",
+        "generator_sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46",
+        "config_sha256": "66174c3726f94cb1047cca6c3813c92c30a0f69b3ee2dbf87a436f24d2a28c42",
+        "brief_sha256": "995c73a23effd426cb9a82cfb54ecc7203d2f0c0c4791b64ecfb2a84ce71acb1",
+        "references_json_sha256": "5edf621f53733a0a3cf2a9e3eb2ccc8db609e03cb7f84e7ba8e63dd81f7328cd"
+      },
+      "frozen_concept_and_timeline": {
+        "original_concept_prompt_sha256": "20344cd23f8926b3162d35974bf3347a54e6d4c8dcdda5f27d9681b9dba255b9",
+        "concept_pixel_sha256": "f8517786055dbd83321590790daf40d6068d3f44f9347ea4b8eabc57777d368c",
+        "concept_generation_record_sha256": "da3368afdda4896d3cc8f9d52085a9246942ac0a5d8fa647ee1790e6f7dae4ff",
+        "observer_invoked_at": "2026-10-20T14:25:17.697Z",
+        "observer_result_at": "2026-10-20T14:26:01.369Z",
+        "concept_inspected_at": "2026-10-20T14:28:58.063Z",
+        "timestamps_inferred_from_mtime": false,
+        "provider_generation_started_at": null,
+        "provider_generation_completed_at": null,
+        "modeling_started_at": null,
+        "model_freeze": {
+          "asset_id": "eldonia",
+          "revision": "r001",
+          "frozen_at": "2026-10-20T14:30:49.967256+00:00",
+          "status": "Actual primary text and reference pixels plus genuine ImageGen concept pixels personally inspected; factual concept defects explicitly overridden before original generator authoring/geometry. Whole scope retained.",
+          "files": {
+            "brief.json": "e370aff8c8890560f889dd1e3216017e62da5aed20c8763b0c396395a30001a3",
+            "brief.md": "fea254451994838fd1f3a431e7b7854ed79a4d0cb449fdc6e73f0ee12848269d",
+            "references.json": "5edf621f53733a0a3cf2a9e3eb2ccc8db609e03cb7f84e7ba8e63dd81f7328cd",
+            "build-config.json": "66174c3726f94cb1047cca6c3813c92c30a0f69b3ee2dbf87a436f24d2a28c42",
+            "concept-original.png": "f8517786055dbd83321590790daf40d6068d3f44f9347ea4b8eabc57777d368c",
+            "concept-prompt.txt": "20344cd23f8926b3162d35974bf3347a54e6d4c8dcdda5f27d9681b9dba255b9",
+            "concept-generation.json": "da3368afdda4896d3cc8f9d52085a9246942ac0a5d8fa647ee1790e6f7dae4ff",
+            "premodel-schema-check.json": "06dfd74bc5ebe231e199eaa7ec772bb6c11b4934e4e90ef5ef85dbd70ad5a46e"
+          }
+        },
+        "raw_concept_pixel_discrepancy": "The generated concept image still shows a dorsal anus. It was rejected in the written pre-model brief and final underside anatomy; no replacement concept raster is represented as having been generated. The original concept file remains immutable.",
+        "concept_correction_before_freeze_evidence": "Concept inspection timestamp precedes the recorded modeling-freeze timestamp; the frozen brief explicitly rejects dorsal anus placement and specifies ventral mouth/anus. This corrects the frozen written representation, not the original image pixels."
+      },
+      "visual_evidence": {
+        "individually_inspected_fixed_views": 8,
+        "each_512x512_and_manifest_hash_matched": true,
+        "contact_sheet_hash_matched_and_individually_inspected": true,
+        "view_ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "frame_hashes": {
+          "hero": "0e7f0805fda1a3922d417632582491c040e6c0c41108c0b6520f93498f4753d6",
+          "reversehero": "9932886ae6995df65ef2dac0b7d5c085e8c24ec6611e98e4ba14acd9e2a74660",
+          "front": "4ccb1f72f1b673aa12fd9e8a995655c4c077fc5f9a26794e8cc32b20851c9bef",
+          "side": "ac0265f48b94f74f9cce6651b7c72298fb922a1c24061c843c0b54bab6b91672",
+          "rear": "405e7a87eaa79cf56d7efb0a55e1f45e308ecf180b59b502fddf0e796d2f0800",
+          "top": "801536584bbc47ecf72cdf67ba92f8a755be03127c52211735e3ea5c9c158cd7",
+          "clay": "5f1bc2e93fa0fdd0c5f76da3c64cf789e3ee3b0c3f5fab84ff4173df06e19a6d",
+          "silhouette": "8abecc6fa577e1141e576c870c535e63b93153a79f4c429eb9bf1a8a7d3ce655"
+        },
+        "contact_sheet_sha256": "c00beef79a3b2173fa9cf1f3932df680d03c9923f9c5350f3884dc0f37cd8127",
+        "supplemental_eldonia_bottom_views": [
+          {
+            "path": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/eldonia/r002/supplemental-ventral/bottom.png",
+            "sha256": "9d9d82d55afb4df4fd278b673db5863fd1d3a89084e7550e6bcd1c11c3228724",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          },
+          {
+            "path": "/workspace/shared/lowpoly-batch71-20261020/assets/candidates/continuous-small-life-round28-20261020/batch-71/eldonia/r002/supplemental-ventral-lit/bottom.png",
+            "sha256": "c03596582b8c716a40f05d0a83c0cbdb83d208d9ca7b4b8c5a00d46120f62d4e",
+            "dimensions_px": [
+              512,
+              512
+            ]
+          }
+        ],
+        "proof_manifest_sha256": "403f87fd662becb0f8885e638d495ccd9ff528cb78e2ddfcf3c9e2325fd0c74c",
+        "pixel_inspection_manifest_sha256": "403f87fd662becb0f8885e638d495ccd9ff528cb78e2ddfcf3c9e2325fd0c74c"
+      },
+      "reference_pixels": [
+        {
+          "asset_id": "eldonia",
+          "source_id": "CARON2010",
+          "filename": "eldonia-fig1.png",
+          "local_path": "/workspace/shared/batch71-consult-only/eldonia-fig1.png",
+          "declared_sha256": "7deb98efde4522e6c7fad49773fac65dcf2e05a5dfcee8e15806b4507befbfae",
+          "actual_sha256": "7deb98efde4522e6c7fad49773fac65dcf2e05a5dfcee8e15806b4507befbfae",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Primary full-text relevant eldoniid section read. Actual Figure1 A USNM57540,B-C USNM188552 especially tentacles,D USNM201692 personally inspected. Pair of dendritic oral tentacles and radiating lobes; internal differentiated gut. Figure original CC BY Caron etal2010; consulted only, not redistributed."
+        }
+      ],
+      "rights_nonincorporation": {
+        "references_json_sha256": "5edf621f53733a0a3cf2a9e3eb2ccc8db609e03cb7f84e7ba8e63dd81f7328cd",
+        "license_file_sha256": "6e175466ea5cf2519c0242493819b9324f1cd4bfbb9e93771588d9f27d6bc752",
+        "all_refs_consult_only_or_original_concept": true,
+        "no_incorporated_third_party_assets": true
+      },
+      "rebuild_closure": {
+        "two_distinct_semantic_rebuilds_present": true,
+        "records": [
+          {
+            "job_id": "semantic-rebuild-2",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 466,
+            "started_at": "2026-10-20T14:39:09.284124+00:00",
+            "finished_at": "2026-10-20T14:39:12.303399+00:00",
+            "request_sha256": "d9e0aac8b47855db5ae707025c4615957905ba3cccad5936802a8c717eb40dbb",
+            "result_sha256": "a206ce4c20b521b9502dd968eeeaaea94ea08e599dc8cfa9dd1f4ed7f7198268",
+            "output_glb_sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/eldonia/r002/semantic-rebuild-2/e12657eb8886f54c7a4d931ab9b7a5110e752cae5d44c95dcd5c9ab7c668f822/20261020T143909-90f1a6df9953494aa331c3099b88b483"
+          },
+          {
+            "job_id": "semantic-rebuild-1",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 442,
+            "started_at": "2026-10-20T14:39:05.876271+00:00",
+            "finished_at": "2026-10-20T14:39:09.001767+00:00",
+            "request_sha256": "741e1d9f38513ca6217122a4796201593b7193d47858a397d1c5927fd70459b1",
+            "result_sha256": "14ee900e2b1e32c5381ef2ee0e0db6e164873ac56270a647758665f2d824d4b1",
+            "output_glb_sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/eldonia/r002/semantic-rebuild-1/774f64507fd2144647b4fd0cbcf0fb339237905999076b5b88cac3435a6bd3c1/20261020T143905-0727239828a8491bbac73b0837e4f2f7"
+          }
+        ]
+      },
+      "independent_source_reopen_export": {
+        "tool": "/usr/bin/blender",
+        "version": "4.3.2",
+        "saved_source_reopened_read_only": true,
+        "collection": "EXPORT",
+        "export_profile": "static-uncompressed-v1 exact frozen options",
+        "byte_identical_to_exact_target": true,
+        "fresh_source_sha256": "2fb0e300c347eb2983a910bf6c5d6097c3ca68a9c44286c0f5505232d9eaad03",
+        "source_hash_unchanged": true,
+        "target_hash_unchanged": true,
+        "fresh_source_authored_vertex_count": 4914,
+        "fresh_source_evaluated_vertex_count": 4914,
+        "fresh_source_triangles": 9720,
+        "source_meshes": [
+          {
+            "boundary_edges": 0,
+            "name": "whole_soft_disc_with_flush_internal_anatomy_projection",
+            "nonmanifold_edges": 0,
+            "triangles": 8960,
+            "vertices": 4482
+          },
+          {
+            "boundary_edges": 0,
+            "name": "paired_dendritic_oral_tentacles",
+            "nonmanifold_edges": 0,
+            "triangles": 760,
+            "vertices": 432
+          }
+        ],
+        "export_glb_sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2",
+        "bytes": 723948,
+        "triangles": 9720,
+        "materials": 4,
+        "glb_bounds_m": [
+          0.15040089190006256,
+          0.02417169837281108,
+          0.15000000596046448
+        ],
+        "Blender_optional_draco_warning": "Blender logged that libextern_draco.so was unavailable despite export compression being disabled; export proceeded to completion, exactly matched the target bytes, and fresh Khronos validation passed. See raw log."
+      },
+      "validator_and_runtime": {
+        "independent_khronos_fresh_reexport": {
+          "glb_path": "/workspace/shared/lowpoly-round28-qa71/reexports/eldonia.glb",
+          "errors": 0,
+          "warnings": 0,
+          "status": "pass"
+        },
+        "independent_threejs_cpu_parse": {
+          "asset_id": "eldonia",
+          "status": "pass",
+          "glb_sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2",
+          "parser": "Node GLTFLoader.parseAsync",
+          "three_version": "0.180.0",
+          "three_revision": "180",
+          "triangles": 9720,
+          "meshes": 4,
+          "bounds_glb_xyz_m": [
+            0.15040089190006256,
+            0.02417169837281108,
+            0.15000000596046448
+          ],
+          "gpu": "not_run",
+          "scene": "not_run"
+        },
+        "independent_reexport_semantic_sha256": "55e1bf528cc6d84696fe4d9a448c0fd593bff325cf87bb99fcaa760979813bd3",
+        "gpu_stage": "not_run",
+        "scene_performance_stage": "not_run",
+        "formal_user_website_approval": false
+      }
+    },
+    "roche-moutonnee": {
+      "independent_status": "ACCEPT BOUNDED",
+      "reason_and_scope": "The model has a coherent single bedrock form with the required long low-angle stoss/abraded flank and a steep rough lee/plucked face, clearly asymmetric in the 8 views. It is a simplified generic teaching form, not a mapped landform, measured abrasion surface, or site replica.",
+      "source_target": {
+        "repository": "s010s/lowpoly-vault",
+        "branch": "candidate/small-life-batch71-concept-20261020",
+        "commit": "ac4829aadbeb464894ad56457bb8401c10de7911",
+        "candidate_json_sha256": "fbfce182edee2aa5e2591ccc4b83f15eefd218f19c80e612d40fdb6570a7ef8a",
+        "candidate_status": "pending",
+        "approved_for_brief": false,
+        "valid": true,
+        "approval_record": "pending",
+        "glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+        "expected_glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+        "source_blend_sha256": "bd029c8855a27974beb8dc21a5d677fb471213dba579bcc0cb229e7506f84445",
+        "generator_sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46",
+        "config_sha256": "08106d2b44e28a07b02400ba081cf2ba20a5a02e92006bd37250f2b8a0cdac60",
+        "brief_sha256": "67223a97944e353087a67ea1a9ebb6b8ff245adaa5494ba5701ba1e5a240965f",
+        "references_json_sha256": "1307f4da59b9c2a1a275fdaf9ae86607a95827fae911f5e4479547ed52660fb6"
+      },
+      "frozen_concept_and_timeline": {
+        "original_concept_prompt_sha256": "bc9fb66150c74109634d6282e9d76638f0dd994f73b57d1068c4df722161d777",
+        "concept_pixel_sha256": "207994760a07a65636392f9a5bf18f02eaf1a8c3f5cc6dc584b829860a74092e",
+        "concept_generation_record_sha256": "8f87e58b4ef1fafcff0ed70bb53a33ef24a0dfb36cfbed50031ed7127d0b3230",
+        "observer_invoked_at": "2026-10-20T14:26:13.698Z",
+        "observer_result_at": "2026-10-20T14:26:47.243Z",
+        "concept_inspected_at": "2026-10-20T14:29:08.183Z",
+        "timestamps_inferred_from_mtime": false,
+        "provider_generation_started_at": null,
+        "provider_generation_completed_at": null,
+        "modeling_started_at": null,
+        "model_freeze": {
+          "asset_id": "roche-moutonnee",
+          "revision": "r001",
+          "frozen_at": "2026-10-20T14:30:50.007866+00:00",
+          "status": "Actual primary text and reference pixels plus genuine ImageGen concept pixels personally inspected; factual concept defects explicitly overridden before original generator authoring/geometry. Whole scope retained.",
+          "files": {
+            "brief.json": "d10c496aa9964ebe2d958cd90cbf57a2dbed10c8030cedaf2205ff58ac085180",
+            "brief.md": "63f050b308e0c61624e3308b409e6b446c9c05b466baa36e816a9b58baba8732",
+            "references.json": "1307f4da59b9c2a1a275fdaf9ae86607a95827fae911f5e4479547ed52660fb6",
+            "build-config.json": "08106d2b44e28a07b02400ba081cf2ba20a5a02e92006bd37250f2b8a0cdac60",
+            "concept-original.png": "207994760a07a65636392f9a5bf18f02eaf1a8c3f5cc6dc584b829860a74092e",
+            "concept-prompt.txt": "bc9fb66150c74109634d6282e9d76638f0dd994f73b57d1068c4df722161d777",
+            "concept-generation.json": "8f87e58b4ef1fafcff0ed70bb53a33ef24a0dfb36cfbed50031ed7127d0b3230",
+            "premodel-schema-check.json": "539d2de429cc7dbc9c7163a4da57b8f8ffdeb7a665b36f372aa03923d2ee592e"
+          }
+        }
+      },
+      "visual_evidence": {
+        "individually_inspected_fixed_views": 8,
+        "each_512x512_and_manifest_hash_matched": true,
+        "contact_sheet_hash_matched_and_individually_inspected": true,
+        "view_ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "frame_hashes": {
+          "hero": "3c9369a32da96d8756fe9c99b0ef337764597147de0af9395c54114a24625ef7",
+          "reversehero": "2ca59c30267f29f143eb6b30d840ffffc5edc7b71582c2e88af76d71cd220d69",
+          "front": "ebf9a269e91956164a1e76404a1bd56383af12d3039745fcadc7c501957a2c13",
+          "side": "954ed9857a6b6212e9e1a7016aefa80afb6cbf58e392f94c2d6a9eb0b0ea4ef3",
+          "rear": "5c38f251fbc310ee4c14d4e9bc6e16710684f6ea90d2cdf65686e5b4bddfed09",
+          "top": "1e23f0514a66f56a3d7d9df3f614587a4f22e45f4da4c506f45317d160946bc4",
+          "clay": "ad850c994b6e2a762069dade0c17a30e6aeb45e03e341aae31fb62ee48e6a6d5",
+          "silhouette": "009dc7ec5ef7789e190a4a1473340a10d7494482298726260067b8d7d9245d24"
+        },
+        "contact_sheet_sha256": "0c434015c2cb1c638734ad20fc694d6506df3b3d7ed0d290fc0fe677ba1d793a",
+        "supplemental_eldonia_bottom_views": [],
+        "proof_manifest_sha256": "8ba156f2566bc084d25d5d72deb7fbbd8dc505b1b253ca4c2bb984d1a7bd7aaa",
+        "pixel_inspection_manifest_sha256": "8ba156f2566bc084d25d5d72deb7fbbd8dc505b1b253ca4c2bb984d1a7bd7aaa"
+      },
+      "reference_pixels": [
+        {
+          "asset_id": "roche-moutonnee",
+          "source_id": "NPS-ROCHE",
+          "filename": "roche-photo.jpg",
+          "local_path": "/workspace/shared/batch71-consult-only/roche-photo.jpg",
+          "declared_sha256": "e23f780711f4d1d4981a52d45dc726ad34a48c6d5cbc13b20b661d3293a25771",
+          "actual_sha256": "e23f780711f4d1d4981a52d45dc726ad34a48c6d5cbc13b20b661d3293a25771",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Primary text and actual NPS Anne Spillane2014 Box Canyon bedrock image inspected. Elongated bedrock, low polished/striated side and steep rough plucked face described, not deposited hill."
+        },
+        {
+          "asset_id": "roche-moutonnee",
+          "source_id": "NPS-SECTION",
+          "filename": "roche-section.jpg",
+          "local_path": "/workspace/shared/batch71-consult-only/roche-section.jpg",
+          "declared_sha256": "61016b50d9da1a23f9b57d3934949babd1c1f2257235c30f2b9e4460e481b22d",
+          "actual_sha256": "61016b50d9da1a23f9b57d3934949babd1c1f2257235c30f2b9e4460e481b22d",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Primary text and Figure5 actual cross-section pixels inspected; ice plucks bedrock then dragged debris abrades remaining rock."
+        },
+        {
+          "asset_id": "roche-moutonnee",
+          "source_id": "NPS-BEEHIVE",
+          "filename": "roche-beehive.jpg",
+          "local_path": "/workspace/shared/batch71-consult-only/roche-beehive.jpg",
+          "declared_sha256": "5fe1bb1252bf1f349e2a9894b5797327f157e13db7f873be724fb1d1c089e6d0",
+          "actual_sha256": "5fe1bb1252bf1f349e2a9894b5797327f157e13db7f873be724fb1d1c089e6d0",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Actual NPS W.Greene Beehive photograph inspected; primary description explains asymmetry. Generic model not local replica. TeAra historical image inaccessible403 and not claimed inspected."
+        }
+      ],
+      "rights_nonincorporation": {
+        "references_json_sha256": "1307f4da59b9c2a1a275fdaf9ae86607a95827fae911f5e4479547ed52660fb6",
+        "license_file_sha256": "6e175466ea5cf2519c0242493819b9324f1cd4bfbb9e93771588d9f27d6bc752",
+        "all_refs_consult_only_or_original_concept": true,
+        "no_incorporated_third_party_assets": true
+      },
+      "rebuild_closure": {
+        "two_distinct_semantic_rebuilds_present": true,
+        "records": [
+          {
+            "job_id": "semantic-rebuild-2",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 514,
+            "started_at": "2026-10-20T14:39:15.178939+00:00",
+            "finished_at": "2026-10-20T14:39:17.609041+00:00",
+            "request_sha256": "338deee5699fbd97574745a5e19e65c03f01de7701a43eb44c783bbea05cec31",
+            "result_sha256": "7ded766c7d92eabc980da2e4f7c5f9b317f68de466a79bd6e389856184834051",
+            "output_glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/roche-moutonnee/r002/semantic-rebuild-2/3870eb0753cf552c749bcd3ac5589d9b1447418f15ddc309019b48ce69055084/20261020T143915-8bc41d59ff6e4ae987407f8ee9e3680a"
+          },
+          {
+            "job_id": "semantic-rebuild-1",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 490,
+            "started_at": "2026-10-20T14:39:12.589762+00:00",
+            "finished_at": "2026-10-20T14:39:14.901625+00:00",
+            "request_sha256": "96b3a186c24c593a1e5f9944530d58aa34b8a9ec99c5948e52d8c38db747c58e",
+            "result_sha256": "44230fc4575c1afe973a2e2da6feed9afe6ccf220122b1ea60dc025c4d58a62b",
+            "output_glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/roche-moutonnee/r002/semantic-rebuild-1/8fe41a83596ffc0d25365dfdeb17f62cf1c956e095c974c561bd911a33a348bb/20261020T143912-fa0a59ba60b345eab7ff25eeaacecd79"
+          }
+        ]
+      },
+      "independent_source_reopen_export": {
+        "tool": "/usr/bin/blender",
+        "version": "4.3.2",
+        "saved_source_reopened_read_only": true,
+        "collection": "EXPORT",
+        "export_profile": "static-uncompressed-v1 exact frozen options",
+        "byte_identical_to_exact_target": true,
+        "fresh_source_sha256": "bd029c8855a27974beb8dc21a5d677fb471213dba579bcc0cb229e7506f84445",
+        "source_hash_unchanged": true,
+        "target_hash_unchanged": true,
+        "fresh_source_authored_vertex_count": 478,
+        "fresh_source_evaluated_vertex_count": 478,
+        "fresh_source_triangles": 952,
+        "source_meshes": [
+          {
+            "boundary_edges": 0,
+            "name": "coherent_bedrock_stoss_and_irregularly_plucked_lee",
+            "nonmanifold_edges": 0,
+            "triangles": 952,
+            "vertices": 478
+          }
+        ],
+        "export_glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+        "bytes": 69984,
+        "triangles": 952,
+        "materials": 3,
+        "glb_bounds_m": [
+          37.10971260070801,
+          8.079663276672363,
+          23.999692916870117
+        ],
+        "Blender_optional_draco_warning": "Blender logged that libextern_draco.so was unavailable despite export compression being disabled; export proceeded to completion, exactly matched the target bytes, and fresh Khronos validation passed. See raw log."
+      },
+      "validator_and_runtime": {
+        "independent_khronos_fresh_reexport": {
+          "glb_path": "/workspace/shared/lowpoly-round28-qa71/reexports/roche-moutonnee.glb",
+          "errors": 0,
+          "warnings": 0,
+          "status": "pass"
+        },
+        "independent_threejs_cpu_parse": {
+          "asset_id": "roche-moutonnee",
+          "status": "pass",
+          "glb_sha256": "f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc",
+          "parser": "Node GLTFLoader.parseAsync",
+          "three_version": "0.180.0",
+          "three_revision": "180",
+          "triangles": 952,
+          "meshes": 3,
+          "bounds_glb_xyz_m": [
+            37.10971260070801,
+            8.079663276672363,
+            23.999692916870117
+          ],
+          "gpu": "not_run",
+          "scene": "not_run"
+        },
+        "independent_reexport_semantic_sha256": "4f609843bdbcc1fd996de3fecb15220810f203f0ee10143067d11c0ce3d1e5c3",
+        "gpu_stage": "not_run",
+        "scene_performance_stage": "not_run",
+        "formal_user_website_approval": false
+      }
+    },
+    "maar-crater": {
+      "independent_status": "ACCEPT BOUNDED",
+      "reason_and_scope": "The terrain cutaway reads as a broad below-country bowl with low rim/apron rather than an elevated generic volcanic cone. The square-edged block is the requested cutaway module, not a claim about natural crater outline. It illustrates the defining relative topography only, not a site, eruption history, mineralogy, or scale reconstruction.",
+      "source_target": {
+        "repository": "s010s/lowpoly-vault",
+        "branch": "candidate/small-life-batch71-concept-20261020",
+        "commit": "ac4829aadbeb464894ad56457bb8401c10de7911",
+        "candidate_json_sha256": "4023b0cbe99b96c4ca81d9dcc0bd61f46e990362b3f9971e81b040b8d5cb0596",
+        "candidate_status": "pending",
+        "approved_for_brief": false,
+        "valid": true,
+        "approval_record": "pending",
+        "glb_sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d",
+        "expected_glb_sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d",
+        "source_blend_sha256": "66c9dcf77497ec3686afb16066b8e2265a5722bd6b8155e5a378f6f2ea4d0f46",
+        "generator_sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46",
+        "config_sha256": "d12fecdbad8ff74f25f31b9f98e5d64b437d08209f7f63460f95253a6caf8fca",
+        "brief_sha256": "23318bbdf5ece0c0eb8273ecadd26054eba59e524470dda36871de51b29b1dc0",
+        "references_json_sha256": "91a99c2f414c693f8108160bf9e0a9f1f491f47d4e864e9ea76b6594e63a1513"
+      },
+      "frozen_concept_and_timeline": {
+        "original_concept_prompt_sha256": "847d2f5ce2a730c0dda3e07eba1cacf3a310ab8ead5407648f67fcdb9a5aa9e7",
+        "concept_pixel_sha256": "dab7cb94862d78f89f31650f148a65070957274a7529087b1d599254773e9941",
+        "concept_generation_record_sha256": "1f24ff6c4b503e9b1e0b488f72ef56a37ffacc553aeb74d9b1052fc5823d351e",
+        "observer_invoked_at": "2026-10-20T14:26:58.761Z",
+        "observer_result_at": "2026-10-20T14:27:24.459Z",
+        "concept_inspected_at": "2026-10-20T14:29:10.388Z",
+        "timestamps_inferred_from_mtime": false,
+        "provider_generation_started_at": null,
+        "provider_generation_completed_at": null,
+        "modeling_started_at": null,
+        "model_freeze": {
+          "asset_id": "maar-crater",
+          "revision": "r001",
+          "frozen_at": "2026-10-20T14:30:50.023944+00:00",
+          "status": "Actual primary text and reference pixels plus genuine ImageGen concept pixels personally inspected; factual concept defects explicitly overridden before original generator authoring/geometry. Whole scope retained.",
+          "files": {
+            "brief.json": "33f6074aae93f745fe59868e97643efe1bb096256f7c1503d3fd2f6ec887d0fa",
+            "brief.md": "ea0bd1531166072a9241557d1fd2d71f487c9c24c555583ab3fb3f873e50609a",
+            "references.json": "91a99c2f414c693f8108160bf9e0a9f1f491f47d4e864e9ea76b6594e63a1513",
+            "build-config.json": "d12fecdbad8ff74f25f31b9f98e5d64b437d08209f7f63460f95253a6caf8fca",
+            "concept-original.png": "dab7cb94862d78f89f31650f148a65070957274a7529087b1d599254773e9941",
+            "concept-prompt.txt": "847d2f5ce2a730c0dda3e07eba1cacf3a310ab8ead5407648f67fcdb9a5aa9e7",
+            "concept-generation.json": "1f24ff6c4b503e9b1e0b488f72ef56a37ffacc553aeb74d9b1052fc5823d351e",
+            "premodel-schema-check.json": "7b1d725f9db3a1c45bf76daf063ac938f90b2dd0dc8a26101860fce90cbe6343"
+          }
+        }
+      },
+      "visual_evidence": {
+        "individually_inspected_fixed_views": 8,
+        "each_512x512_and_manifest_hash_matched": true,
+        "contact_sheet_hash_matched_and_individually_inspected": true,
+        "view_ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "frame_hashes": {
+          "hero": "f4742e3e0930d3098dba4dec1a72bbabf7c6a11ce6456a60cd842a05db27794e",
+          "reversehero": "8f4632785cdc39ab40acfd28fa88af27aa31a2965a26fca8baf3e50536f07976",
+          "front": "65f988a5310c0c73849de312b2eaa8171d786a3db9b6ae6ce1d5fe3963ef56ab",
+          "side": "d9aed5b340d42e35499c82682f528e1058b15ec1615479b44dc7838b2687b615",
+          "rear": "75b1e79349932176be1ce6ecef293a496463bc93b34c9b74b83e7c81adee7a2a",
+          "top": "e613763d10687c2c5162af0b36b023ab996862da666b72961f0b18217ee3641f",
+          "clay": "3865a68df620cf6009adf2556d6caf29c1c54bab4ce47c0515afa00ca6769f2d",
+          "silhouette": "8142f32ba7e1cd7c631730cc08ba01356bebaf7321a48165cbd314fa7dce8956"
+        },
+        "contact_sheet_sha256": "fe4bfc508189a2b018a9a9377ff8a62c43d8043c1ec07a1c551830db43332742",
+        "supplemental_eldonia_bottom_views": [],
+        "proof_manifest_sha256": "701b824768a8f12c76ad311a1f0f8a8cd4e5cc0f116b66cf4c6f311de105af46",
+        "pixel_inspection_manifest_sha256": "701b824768a8f12c76ad311a1f0f8a8cd4e5cc0f116b66cf4c6f311de105af46"
+      },
+      "reference_pixels": [
+        {
+          "asset_id": "maar-crater",
+          "source_id": "NPS-MAAR",
+          "filename": "maar-section.jpg",
+          "local_path": "/workspace/shared/batch71-consult-only/maar-section.jpg",
+          "declared_sha256": "c195ec916818fcc0adc70d4e6c18ef64cd946706e283e6c013c28728c1d51efa",
+          "actual_sha256": "c195ec916818fcc0adc70d4e6c18ef64cd946706e283e6c013c28728c1d51efa",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Primary text read: maar crater below country ground unlike above-country tuffring, low shallowly dipping ejecta cone. Actual Thornberry-Ehrlich CSU maar-explosion section pixels personally inspected; consult only, separately credited, not assumed NPS-owned."
+        },
+        {
+          "asset_id": "maar-crater",
+          "source_id": "NPS-UBEHEBE",
+          "filename": "ubehebe.jpg",
+          "local_path": "/workspace/shared/batch71-consult-only/ubehebe.jpg",
+          "declared_sha256": "6d422e23259b105345612ba15f3b66950dcf6571618233a6add03221163b3a01",
+          "actual_sha256": "6d422e23259b105345612ba15f3b66950dcf6571618233a6add03221163b3a01",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Actual official NPS photograph personally inspected: broad deep pit cuts country rocks under thin dark ejecta cap; material/shape principles only, no named-place mesh replication."
+        }
+      ],
+      "rights_nonincorporation": {
+        "references_json_sha256": "91a99c2f414c693f8108160bf9e0a9f1f491f47d4e864e9ea76b6594e63a1513",
+        "license_file_sha256": "6e175466ea5cf2519c0242493819b9324f1cd4bfbb9e93771588d9f27d6bc752",
+        "all_refs_consult_only_or_original_concept": true,
+        "no_incorporated_third_party_assets": true
+      },
+      "rebuild_closure": {
+        "two_distinct_semantic_rebuilds_present": true,
+        "records": [
+          {
+            "job_id": "semantic-rebuild-2",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 562,
+            "started_at": "2026-10-20T14:39:26.585943+00:00",
+            "finished_at": "2026-10-20T14:39:29.435579+00:00",
+            "request_sha256": "7f76c69f7c5a2980a38ff8948d881f10f376b787a5468daeb07c1fefd3f5ca97",
+            "result_sha256": "22be2f00ee87b802c22cf97959b57f5e0d01ab42b51561d4d091b78069f171e9",
+            "output_glb_sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/maar-crater/r002/semantic-rebuild-2/bc3d5497bed010ab45234351d8f4fd745d4e4b07a1f420a5b5692b97ba5e8e30/20261020T143926-6de489168eac4355b2076d59aa1a4553"
+          },
+          {
+            "job_id": "semantic-rebuild-1",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 538,
+            "started_at": "2026-10-20T14:39:23.540406+00:00",
+            "finished_at": "2026-10-20T14:39:26.314099+00:00",
+            "request_sha256": "afd7163f2f8aaafcebc70b77bfc8cf9bbba1dc138292603404f4ed8a1cca1748",
+            "result_sha256": "c4345a750eaaa9fdae34456aaa7a61f2578892b1f8a96fcbb0b8e26de597f261",
+            "output_glb_sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/maar-crater/r002/semantic-rebuild-1/3589724de657c055ec7b8d7b0ed57f9aa0e3da91e60435f18fd8fa9165bd2b21/20261020T143923-a0087f7fdffc4b4cbca5a509e1f38dd5"
+          }
+        ]
+      },
+      "independent_source_reopen_export": {
+        "tool": "/usr/bin/blender",
+        "version": "4.3.2",
+        "saved_source_reopened_read_only": true,
+        "collection": "EXPORT",
+        "export_profile": "static-uncompressed-v1 exact frozen options",
+        "byte_identical_to_exact_target": true,
+        "fresh_source_sha256": "66c9dcf77497ec3686afb16066b8e2265a5722bd6b8155e5a378f6f2ea4d0f46",
+        "source_hash_unchanged": true,
+        "target_hash_unchanged": true,
+        "fresh_source_authored_vertex_count": 2389,
+        "fresh_source_evaluated_vertex_count": 2389,
+        "fresh_source_triangles": 4774,
+        "source_meshes": [
+          {
+            "boundary_edges": 0,
+            "name": "country_ground_cutaway_with_excavated_maar_and_low_apron",
+            "nonmanifold_edges": 0,
+            "triangles": 4774,
+            "vertices": 2389
+          }
+        ],
+        "export_glb_sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d",
+        "bytes": 359520,
+        "triangles": 4774,
+        "materials": 5,
+        "glb_bounds_m": [
+          122.70547485351562,
+          22.125404357910156,
+          112.2536392211914
+        ],
+        "Blender_optional_draco_warning": "Blender logged that libextern_draco.so was unavailable despite export compression being disabled; export proceeded to completion, exactly matched the target bytes, and fresh Khronos validation passed. See raw log."
+      },
+      "validator_and_runtime": {
+        "independent_khronos_fresh_reexport": {
+          "glb_path": "/workspace/shared/lowpoly-round28-qa71/reexports/maar-crater.glb",
+          "errors": 0,
+          "warnings": 0,
+          "status": "pass"
+        },
+        "independent_threejs_cpu_parse": {
+          "asset_id": "maar-crater",
+          "status": "pass",
+          "glb_sha256": "b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d",
+          "parser": "Node GLTFLoader.parseAsync",
+          "three_version": "0.180.0",
+          "three_revision": "180",
+          "triangles": 4774,
+          "meshes": 5,
+          "bounds_glb_xyz_m": [
+            122.70547485351562,
+            22.125404357910156,
+            112.2536392211914
+          ],
+          "gpu": "not_run",
+          "scene": "not_run"
+        },
+        "independent_reexport_semantic_sha256": "405c8926cfa60d0230212837cc9550dbd9b5088d734f99c4e0acc30a0dd6c314",
+        "gpu_stage": "not_run",
+        "scene_performance_stage": "not_run",
+        "formal_user_website_approval": false
+      }
+    },
+    "river-terrace": {
+      "independent_status": "ACCEPT BOUNDED",
+      "reason_and_scope": "The 8 views show abandoned bench surfaces elevated above a current channel/floodplain with distinct risers; the relation is legible without named-site copying. It is a simplified generic teaching module, not a measured river reach, flood model, or calibrated terrace history.",
+      "source_target": {
+        "repository": "s010s/lowpoly-vault",
+        "branch": "candidate/small-life-batch71-concept-20261020",
+        "commit": "ac4829aadbeb464894ad56457bb8401c10de7911",
+        "candidate_json_sha256": "4c5c0efb9e2510dc9f8a0eeab73635102477f1cb9dca2dcc87a9325f2dcc22bb",
+        "candidate_status": "pending",
+        "approved_for_brief": false,
+        "valid": true,
+        "approval_record": "pending",
+        "glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+        "expected_glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+        "source_blend_sha256": "2d74863270be4a84483c6dac021352967dae54738ba028e29ad0758c982429a9",
+        "generator_sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46",
+        "config_sha256": "27826a2522a046151d47dd6a5978ace6ed0354c13f7c3b5da3593d6c8831ccd2",
+        "brief_sha256": "adee4033c7a6eeef341bad9ea9badc204f68144582093c302c6c49bf65405bba",
+        "references_json_sha256": "e6f9514f35eea01029b139ce4466e2d6540310d7e07d0a01ee7dab36b2e927b6"
+      },
+      "frozen_concept_and_timeline": {
+        "original_concept_prompt_sha256": "1ae44f469037b0e7c831cec7a169875a8970ac2ea45530a9815ce6b16a1dec27",
+        "concept_pixel_sha256": "de2ce3b1710dd14364e048d97f4b6ea85af43f8db884713e84f2d502ac2077e1",
+        "concept_generation_record_sha256": "92fd6b2e7f9c8bef6388639dbe3a726703466eb2b6b4ce6c6d1c5d64e3dfaaae",
+        "observer_invoked_at": "2026-10-20T14:27:38.682Z",
+        "observer_result_at": "2026-10-20T14:28:04.503Z",
+        "concept_inspected_at": "2026-10-20T14:29:14.295Z",
+        "timestamps_inferred_from_mtime": false,
+        "provider_generation_started_at": null,
+        "provider_generation_completed_at": null,
+        "modeling_started_at": null,
+        "model_freeze": {
+          "asset_id": "river-terrace",
+          "revision": "r001",
+          "frozen_at": "2026-10-20T14:30:50.046420+00:00",
+          "status": "Actual primary text and reference pixels plus genuine ImageGen concept pixels personally inspected; factual concept defects explicitly overridden before original generator authoring/geometry. Whole scope retained.",
+          "files": {
+            "brief.json": "d22dd661d22729a22082172ff129d7eeac71553b6e797e531cd487ec0003d8c7",
+            "brief.md": "9efb4e5a1d2582718eecccb932502c521dae304e2ad1779f25006d0de5ed6639",
+            "references.json": "e6f9514f35eea01029b139ce4466e2d6540310d7e07d0a01ee7dab36b2e927b6",
+            "build-config.json": "27826a2522a046151d47dd6a5978ace6ed0354c13f7c3b5da3593d6c8831ccd2",
+            "concept-original.png": "de2ce3b1710dd14364e048d97f4b6ea85af43f8db884713e84f2d502ac2077e1",
+            "concept-prompt.txt": "1ae44f469037b0e7c831cec7a169875a8970ac2ea45530a9815ce6b16a1dec27",
+            "concept-generation.json": "92fd6b2e7f9c8bef6388639dbe3a726703466eb2b6b4ce6c6d1c5d64e3dfaaae",
+            "premodel-schema-check.json": "f37a54d8365a4eedefd8026e1c846eea2ddc5aac84d88b00d9fff9fdfde54302"
+          }
+        }
+      },
+      "visual_evidence": {
+        "individually_inspected_fixed_views": 8,
+        "each_512x512_and_manifest_hash_matched": true,
+        "contact_sheet_hash_matched_and_individually_inspected": true,
+        "view_ids": [
+          "hero",
+          "reversehero",
+          "front",
+          "side",
+          "rear",
+          "top",
+          "clay",
+          "silhouette"
+        ],
+        "frame_hashes": {
+          "hero": "94b1dda601b01394eff1f4ea0ea387f3f3d717211778285c1446e22dcf200219",
+          "reversehero": "23c8632fbf9a8c1c342035d0ca47a756c45b6c57424aa70619609f13ce8b5fb1",
+          "front": "e82d16a03f1d971bf8ba17ec219785a25bfed6142748cec6e818b19c83070b3c",
+          "side": "dac1f8fb794b12d14f4bc6e7ff55b96ac1ead2494c48ae8b94b5ddac3cd49fea",
+          "rear": "7d063ff65a665e07b0f9646d58fa7dae6548374c88f30e856297304edf22e84e",
+          "top": "fe0320aa642d4eec5c0f66a26b6e4e875eeb295a3a8432067e7195f3b2bc13cc",
+          "clay": "0d60ba0551520dcd4378f624909487351198b68528c430cd1699aaf5f4f54cd5",
+          "silhouette": "67d5a48e0b31d5312dd702db37d6f89324fd69abe9f582bd4ee5b21cc776e604"
+        },
+        "contact_sheet_sha256": "f9ad973fadd5d40db675c0fe93669bc85f0bcf0d3dc0af1aecbd950c3cc3807f",
+        "supplemental_eldonia_bottom_views": [],
+        "proof_manifest_sha256": "0a9b620e3c69dba28b303dea2bf249847c09cb1ca736f10b04fae6c221734007",
+        "pixel_inspection_manifest_sha256": "0a9b620e3c69dba28b303dea2bf249847c09cb1ca736f10b04fae6c221734007"
+      },
+      "reference_pixels": [
+        {
+          "asset_id": "river-terrace",
+          "source_id": "NPS-FLUVIAL",
+          "filename": "river-diagram.jpg",
+          "local_path": "/workspace/shared/batch71-consult-only/river-diagram.jpg",
+          "declared_sha256": "9df7de9ab1b39e479be393c6b7cae82d469c8a3579f9782c5005b5688b89ddad",
+          "actual_sha256": "9df7de9ab1b39e479be393c6b7cae82d469c8a3579f9782c5005b5688b89ddad",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Actual authoritative Chaco Canyon diagram by Trista Thornberry-Ehrlich CSU personally inspected: labeled terrace surface and riser above floodplain and innerchannel, explicit lower cross-profile. Generic morphology not named site copy; consult only."
+        },
+        {
+          "asset_id": "river-terrace",
+          "source_id": "USGS-PHOTO",
+          "filename": "river-photo.jpg",
+          "local_path": "/workspace/shared/batch71-consult-only/river-photo.jpg",
+          "declared_sha256": "dd95889b5a1cd37c749d6fbc2868d0bd5314d7c58b50f456b41699a3e506f568",
+          "actual_sha256": "dd95889b5a1cd37c749d6fbc2868d0bd5314d7c58b50f456b41699a3e506f568",
+          "hash_match": true,
+          "rights_use": "consulted-only factual morphology",
+          "incorporated": false,
+          "notes": "Actual USGS Tom Pierson photograph personally inspected of eroded terrace bluff and former forest surface. Caption identifies buried terrace formerly at least3m above river; contextual support, no present topographic/scale copying."
+        }
+      ],
+      "rights_nonincorporation": {
+        "references_json_sha256": "e6f9514f35eea01029b139ce4466e2d6540310d7e07d0a01ee7dab36b2e927b6",
+        "license_file_sha256": "6e175466ea5cf2519c0242493819b9324f1cd4bfbb9e93771588d9f27d6bc752",
+        "all_refs_consult_only_or_original_concept": true,
+        "no_incorporated_third_party_assets": true
+      },
+      "rebuild_closure": {
+        "two_distinct_semantic_rebuilds_present": true,
+        "records": [
+          {
+            "job_id": "semantic-rebuild-2",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 610,
+            "started_at": "2026-10-20T14:39:32.564521+00:00",
+            "finished_at": "2026-10-20T14:39:38.728979+00:00",
+            "request_sha256": "267456876334d356239d91a4a39279bfa2c0ca0812642098ea60c9d0c4450b99",
+            "result_sha256": "72f64dead899046cc9bc3aeb897558dd6eef229363c34bf6509e868fa063ca16",
+            "output_glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/river-terrace/r002/semantic-rebuild-2/41c91e14b4574d7cf82ff302b5290cfe75fff969fa49413e7451ad4681d0d898/20261020T143932-266b6ac8f39647c287fc1587e7d939f6"
+          },
+          {
+            "job_id": "semantic-rebuild-1",
+            "job_number_distinct": true,
+            "status": "succeeded",
+            "pid": 586,
+            "started_at": "2026-10-20T14:39:29.718621+00:00",
+            "finished_at": "2026-10-20T14:39:32.242608+00:00",
+            "request_sha256": "82297f35ec1df50322ac1bbfe68b548487dbbb159efec3d5e715a619fd663466",
+            "result_sha256": "253d1e4842537c30c276d3d6379a537e1f7d0036a2fa93f3506c61a875d8004e",
+            "output_glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+            "path": "production/continuous-small-life-round28-20261020/work/batch-71/rebuild-runs/build/river-terrace/r002/semantic-rebuild-1/58882907afd428c3edc03b1de28762fcae714db2afb742b1254eaf7be56c9d63/20261020T143929-f3270bac4d7549bea1f722367c9409a9"
+          }
+        ]
+      },
+      "independent_source_reopen_export": {
+        "tool": "/usr/bin/blender",
+        "version": "4.3.2",
+        "saved_source_reopened_read_only": true,
+        "collection": "EXPORT",
+        "export_profile": "static-uncompressed-v1 exact frozen options",
+        "byte_identical_to_exact_target": true,
+        "fresh_source_sha256": "2d74863270be4a84483c6dac021352967dae54738ba028e29ad0758c982429a9",
+        "source_hash_unchanged": true,
+        "target_hash_unchanged": true,
+        "fresh_source_authored_vertex_count": 790,
+        "fresh_source_evaluated_vertex_count": 790,
+        "fresh_source_triangles": 1572,
+        "source_meshes": [
+          {
+            "boundary_edges": 0,
+            "name": "abandoned_floodplain_benches_clear_risers_and_lower_active_floo",
+            "nonmanifold_edges": 0,
+            "triangles": 1344,
+            "vertices": 674
+          },
+          {
+            "boundary_edges": 0,
+            "name": "opaque_active_river_water_volume",
+            "nonmanifold_edges": 0,
+            "triangles": 228,
+            "vertices": 116
+          }
+        ],
+        "export_glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+        "bytes": 100888,
+        "triangles": 1572,
+        "materials": 4,
+        "glb_bounds_m": [
+          80.0,
+          11.1199951171875,
+          70.0
+        ],
+        "Blender_optional_draco_warning": "Blender logged that libextern_draco.so was unavailable despite export compression being disabled; export proceeded to completion, exactly matched the target bytes, and fresh Khronos validation passed. See raw log."
+      },
+      "validator_and_runtime": {
+        "independent_khronos_fresh_reexport": {
+          "glb_path": "/workspace/shared/lowpoly-round28-qa71/reexports/river-terrace.glb",
+          "errors": 0,
+          "warnings": 0,
+          "status": "pass"
+        },
+        "independent_threejs_cpu_parse": {
+          "asset_id": "river-terrace",
+          "status": "pass",
+          "glb_sha256": "b30d5ec62944ed520a85250e0fc7a526a30bf1c5611be554665255ed4b207e9f",
+          "parser": "Node GLTFLoader.parseAsync",
+          "three_version": "0.180.0",
+          "three_revision": "180",
+          "triangles": 1572,
+          "meshes": 4,
+          "bounds_glb_xyz_m": [
+            80,
+            11.1199951171875,
+            70
+          ],
+          "gpu": "not_run",
+          "scene": "not_run"
+        },
+        "independent_reexport_semantic_sha256": "89c08984685e16ad75c89a757dd28725f1419ec39c3a0e97fd35e9d72e0d31dd",
+        "gpu_stage": "not_run",
+        "scene_performance_stage": "not_run",
+        "formal_user_website_approval": false
+      }
+    }
+  },
+  "retained_r001_failures_and_repairs": {
+    "eldonia": {
+      "maker_observations": "Refine same flush internal-gut projection boundary mesh to remove radial-grid sawtooth, extend narrow intestine toward separate ventral anus, remove thick alternating pie-sector colors while retaining shallow fine radial pleats. Full soft animal and paired oral dendritic tentacles unchanged.",
+      "r001_glb_sha256": "ebd6290ea44347dd57fe57fba3dead3ce35c50b10a5dc282e5f326274485a0d1",
+      "r001_modeling_freeze_sha256": "f830ce9db1d041a42cbdb4daabd2e87f7c9af0c23258c2365b6d1a2407b82c00",
+      "r002_implementation_changes": "Refine same flush internal-gut projection boundary mesh to remove radial-grid sawtooth, extend narrow intestine toward separate ventral anus, remove thick alternating pie-sector colors while retaining shallow fine radial pleats. Full soft animal and paired oral dendritic tentacles unchanged.",
+      "r002_reason": "Maker personally inspected all8 initial fullresolution frames; initial mechanical natural-form treatment requires real geometry repair, not evidence relabeling.",
+      "r002_repair_scope_change": false
+    },
+    "roche-moutonnee": {
+      "maker_observations": "Remove mechanical wide repeated slope belts by uneven vertex staggering and naturally varying rounded surface, make fractured lee geometry irregular with sparse joint clefts. Retain long polished low-angle stoss and steep plucked lee in coherent bedrock.",
+      "r001_glb_sha256": "8141f7bd8c866e035a51483608a32119b81f0516003bac8f66539653b8c52e23",
+      "r001_modeling_freeze_sha256": "6da034f64b230bb4a6e4dcd13ca7345d64c9b0ccce2b084dbae73c19ac55349e",
+      "r002_implementation_changes": "Remove mechanical wide repeated slope belts by uneven vertex staggering and naturally varying rounded surface, make fractured lee geometry irregular with sparse joint clefts. Retain long polished low-angle stoss and steep plucked lee in coherent bedrock.",
+      "r002_reason": "Maker personally inspected all8 initial fullresolution frames; initial mechanical natural-form treatment requires real geometry repair, not evidence relabeling.",
+      "r002_repair_scope_change": false
+    },
+    "maar-crater": {
+      "maker_observations": "Replace round puck module and concentric material-band alias with irregular rectangular country-ground cutaway and nonregular Cartesian triangulation. Retain exact below-grade excavation, low rim and apron. Natural gullies and subdued irregular exposed-wall material patches, no mechanical color spokes.",
+      "r001_glb_sha256": "a88409afefdefa276d6faf92ca8458626e22fb104d67d0b4b13b65f4b0daa8ad",
+      "r001_modeling_freeze_sha256": "b67977f011a5f0ce86cae5e67d3bd1a8689c0cce3a903280358e2f4a12e1cc91",
+      "r002_implementation_changes": "Replace round puck module and concentric material-band alias with irregular rectangular country-ground cutaway and nonregular Cartesian triangulation. Retain exact below-grade excavation, low rim and apron. Natural gullies and subdued irregular exposed-wall material patches, no mechanical color spokes.",
+      "r002_reason": "Maker personally inspected all8 initial fullresolution frames; initial mechanical natural-form treatment requires real geometry repair, not evidence relabeling.",
+      "r002_repair_scope_change": false
+    },
+    "river-terrace": {
+      "maker_observations": "Add unequal natural terrace edges/riser scallops and sparse erosion gullies; remove regularly alternating side stripes. Broad flat abandoned benches and8m risers over lower active floodplain retained. Modest curved active channel, not new meander scope.",
+      "r001_glb_sha256": "c94bf3feb9298ef41ce42de512f43bc0785a5e4d92f4da16168be9f175c0153a",
+      "r001_modeling_freeze_sha256": "ec8e4681d4244d1c84ac6627ed9a8b1d2478fb977c1341625060cb621868dcc5",
+      "r002_implementation_changes": "Add unequal natural terrace edges/riser scallops and sparse erosion gullies; remove regularly alternating side stripes. Broad flat abandoned benches and8m risers over lower active floodplain retained. Modest curved active channel, not new meander scope.",
+      "r002_reason": "Maker personally inspected all8 initial fullresolution frames; initial mechanical natural-form treatment requires real geometry repair, not evidence relabeling.",
+      "r002_repair_scope_change": false
+    }
+  },
+  "source_and_output_immutability": {
+    "worktree_remained_clean": true,
+    "no_install_or_sitebuild": true,
+    "source_tree_not_copied": true,
+    "producer_queue_rebuilds_not_rerun": true,
+    "source_commit_modified": false,
+    "qa_output_directory": "/workspace/shared/lowpoly-round28-qa71",
+    "output_budget_note": "Only compact audit JSON/logs, source-reopen audit GLBs, and raw evidence were written to the QA output directory; no source tree or external reference images were copied."
+  },
+  "raw_evidence_paths": [
+    "raw/independent-integrity-audit.json",
+    "raw/independent_integrity_audit.py",
+    "raw/reopen_export_audit.py",
+    "raw/*-reopen-export.json",
+    "raw/*-reopen-export.log",
+    "raw/khronos-validation.log",
+    "raw/runtime-parse/runtime-parse.json (preserved original stdout redirection collision; not treated as canonical JSON)",
+    "raw/runtime-parse/runtime-parse-corrected.json",
+    "raw/runtime-parse/runtime-parse-capture-note.json",
+    "raw/reference-pixel-verification.json",
+    "reexports/*.glb",
+    "reexports/qa.json",
+    "reexports/gltf-validator.report.json"
+  ],
+  "evidence_manifest_sha256": "72d09e035a1cf1c35f45d6395791a7fa4eba51814ce2dfd05a7741b06b69477a"
+}

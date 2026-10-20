@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "wiwaxia",
+  "revision": "r001",
+  "labels": {
+    "en": "wiwaxia"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "d1c7e67515487fc583fd0eb903a961aec5ba855a2e95183696c031531f53c266"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "b86f92f406269e93042291024cf12462fac0a560cd87e9f35eedeec2028632dc"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "ef0b3ccdfb28eea0f85d3801cafc74a081deaa565a3102ffd8a2215beaa4ddca"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "1ef9739628a9dda8de3c9050605610d8b9010ccba351103b1c4090d819864b45"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "c59abffb071e2b2f47d0ada16fc65221d316696d365d7194c7088d8a0778a8c5"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "19c7b70871d1e20e4b4a6e093f952e4f18d40788613d4dd5551564816093caf3"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "23a9152371d1002cdaab26b91ea8001dcede1cfc1ecd7fe42ffa3565d425e8f0"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "1fcbc1e6b522f68bc0e0ae6c5ddf11be06d870224b8012280675ef3d707d719a"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "73a431615b5650477e49d2bbee38c50323aee5bc35d63280ead3150835ca8a77"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept inspected. REJECT its large external terminal denture/jaw: instead small ventral-anterior supporting patch with two rows of small teeth tucked under anterior body. REJECT overregular equal scales and conical-looking thick spines: actual build differentiated scale zones, posterior overlap and flattened narrow blade spines of unequal length. Retain oval complete body and naked continuous underside. Eight trunk rows, per adult half-row3 dorsal+4 upper-lateral+1 lower-lateral+5 sickle ventrolateral scales; paired anterior fan is additional ninth organization.9 blade spines per side is within adult7\u201311 range. Use sparse raised longitudinal ridge relief as low-poly shorthand, NOT literal9\u201315 ribs. Large foot continuous and unsegmented, no legs/eyes/tentacles. Closed real volumes. Supplemental clean-import ventral diagnostic separate from exact8 canonical proof to expose foot and feeding apparatus.",
+    "hidden_surface_decisions": "Actual concept inspected. REJECT its large external terminal denture/jaw: instead small ventral-anterior supporting patch with two rows of small teeth tucked under anterior body. REJECT overregular equal scales and conical-looking thick spines: actual build differentiated scale zones, posterior overlap and flattened narrow blade spines of unequal length. Retain oval complete body and naked continuous underside. Eight trunk rows, per adult half-row3 dorsal+4 upper-lateral+1 lower-lateral+5 sickle ventrolateral scales; paired anterior fan is additional ninth organization.9 blade spines per side is within adult7\u201311 range. Use sparse raised longitudinal ridge relief as low-poly shorthand, NOT literal9\u201315 ribs. Large foot continuous and unsegmented, no legs/eyes/tentacles. Closed real volumes. Supplemental clean-import ventral diagnostic separate from exact8 canonical proof to expose foot and feeding apparatus."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:03:27.941396+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 25.4778,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "1b51de9087fb243a9fb2f0adf1668a6c911f6209ee01a89fc9e74febcc087fdd"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "1b51de9087fb243a9fb2f0adf1668a6c911f6209ee01a89fc9e74febcc087fdd"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "caf45f4a256564917bc005bf4a5c652c09cab30877be0c2ced6ea7354f3ce144",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "a048c8fb380547f23f7e2ad70a42156d2abf9fce50353ee2fe332c6b40ad47f9"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "d1c7e67515487fc583fd0eb903a961aec5ba855a2e95183696c031531f53c266",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "e0c8eb6fb15461a630c821868b3cf423ec398093187bc08393c6423f2f234c02"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

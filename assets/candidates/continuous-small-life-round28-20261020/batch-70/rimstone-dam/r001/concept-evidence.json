@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "rimstone-dam",
+  "revision": "r001",
+  "labels": {
+    "en": "rimstone-dam"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "a86e6faae43a949076ae97d5d6bcd95fc607649bddfc7d0e521e8b26258e1a98"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "894b4e09bd087d6bd3ce906b3e234a4ab6fe431a9f1533fcf25d92bf3ff1e1a8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "6fda20f0cedc3af3c692dc278705fb93657c7afc5dde42dcba8f277b2dbf35a6"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "9111cdd1cb52b3dc6d90c968e9fa036a5664672cb748d7965532e60ab04f7623"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "04025c9e9c5f43179bc58d5a23260a28c5841607cb80fcf5f35e1773316b79eb"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "1fac4b551db85ab18aede2da1e54dc40b2b5de822bb41a0ea48d1d3db9e2d569"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "aca1989d7711d4d320eefb586fb803adf12e0b3a23409848cbb14df206f12659"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "024c11c3756b81f92a9ed22ec63a6e4303cc1b340d94ab838405d34d565fbf66"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "aa94965a15ce2ae16965db81de9d3edca4980e0c71bfd4b7d2d46e571c467c45"
+      }
+    ],
+    "cross_view_consistency_note": "Concept wall slightly thick; reduce relative crest thickness while preserving readability, vary curvature nonperiodically. Single closed sinuous enclosure, not a terrace set. Back and underside original floor. Water stylized opaque blue-green volume, no transparency complexity or physical depth claim.",
+    "hidden_surface_decisions": "Concept wall slightly thick; reduce relative crest thickness while preserving readability, vary curvature nonperiodically. Single closed sinuous enclosure, not a terrace set. Back and underside original floor. Water stylized opaque blue-green volume, no transparency complexity or physical depth claim."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:18:58.878710+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 17.8218,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "0e09fba7c2a0ae72c7e22409fa4852c9129105cc6264ef26fa3fb65a528274dd"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "0e09fba7c2a0ae72c7e22409fa4852c9129105cc6264ef26fa3fb65a528274dd"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "044421963350770d3e669b1f75c51087a556e64624e3ced1e8fc739f5075d802",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "ff5e0dd9052d58729148d635099f7991b6895aedceb92b504663a784b02ea98b"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a86e6faae43a949076ae97d5d6bcd95fc607649bddfc7d0e521e8b26258e1a98",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "b33b258d638a7b9f3cedda74aac49f996c043b9b5c60ddefc7300d6c2a4dc119"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

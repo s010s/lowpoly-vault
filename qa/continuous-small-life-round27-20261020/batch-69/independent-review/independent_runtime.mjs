@@ -1,0 +1,30 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {createRequire} from 'node:module';
+import {pathToFileURL} from 'node:url';
+const root='/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69';
+const out='/workspace/shared/lowpoly-round27-qa69';
+const ids=['wiwaxia','hanging-valley','mudpot','dike-wall'];
+const expected={wiwaxia:'d1c7e67515487fc583fd0eb903a961aec5ba855a2e95183696c031531f53c266', 'hanging-valley':'adb2ca389d1260ac1d2cd4f0ecd6153ed344484c95fd0667928339fa198be2b9', mudpot:'7818b6e324a8da1f93db36fcb09c989bf0b98c3d4fa02873ae8750daf41f4bf1','dike-wall':'f0c69989e84ca70dd90a039c78199e65b5448f5d85d52fa3b4b1beb856f617d7'};
+const require=createRequire('/workspace/shared/lowpoly-landair-web-integration/package.json');
+const validator=require('gltf-validator');
+const threeCjs=require.resolve('three');
+const threeRoot=path.resolve(path.dirname(threeCjs),'..');
+const {GLTFLoader}=await import(pathToFileURL(path.join(threeRoot,'examples/jsm/loaders/GLTFLoader.js')));
+const {Box3,Vector3,REVISION}=await import(pathToFileURL(path.join(threeRoot,'build/three.module.js')));
+const results=[];
+for(const id of ids){
+ const p=path.join(root,id,'r001','model.glb'); const bytes=fs.readFileSync(p);
+ const sha=crypto.createHash('sha256').update(bytes).digest('hex');
+ if(sha!==expected[id]) throw new Error(`${id} actual GLB hash mismatch`);
+ const vr=await validator.validateBytes(new Uint8Array(bytes),{uri:path.basename(p),format:'glb',writeTimestamp:false});
+ const buf=bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength);
+ const gltf=await new GLTFLoader().parseAsync(buf,'');
+ gltf.scene.updateMatrixWorld(true); let triangles=0,meshes=0,primitives=0;
+ gltf.scene.traverse(o=>{if(o.isMesh){meshes++;primitives++;triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;}});
+ const bounds=new Box3().setFromObject(gltf.scene).getSize(new Vector3()).toArray();
+ results.push({asset_id:id,glb_sha256:sha,bytes:bytes.length,khronos:{version:validator.version(),errors:vr.issues.numErrors,warnings:vr.issues.numWarnings,infos:vr.issues.numInfos,hints:vr.issues.numHints,issues:vr.issues.messages},three:{revision:REVISION,parser:'Node GLTFLoader.parseAsync',status:'pass',triangles,mesh_count:meshes,primitive_count:primitives,bounds_glb_xyz_m:bounds,gpu:'not_run',scene:'not_run'}});
+ console.log(id,'Khronos errors/warnings',vr.issues.numErrors,vr.issues.numWarnings,'Three triangles',triangles,'meshes',meshes,'bounds',bounds);
+}
+fs.writeFileSync(path.join(out,'independent-runtime-checks.json'),JSON.stringify({schema_version:1,executed_at:new Date().toISOString(),runtime:'Node CPU only; no GPU or composed scene',three_dependency_origin:'/workspace/shared/lowpoly-landair-web-integration/node_modules (read-only)',assets:results},null,2)+'\n');

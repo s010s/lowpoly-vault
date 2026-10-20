@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "coal-seam-outcrop",
+  "revision": "r002",
+  "labels": {
+    "en": "coal-seam-outcrop"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "e676b68a77f519610cb15983434da58ba9e163840cea7d10dc77907383b1c4af"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "7fad77e6bea8d80dbe6eb9628b41b13b32e90d78b012e7d5c56c678ad452dd72"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "c424631e5c576ae41a62e5d74bdf909f4b997e4ffa6786a27b788613596fba85"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "511eb9aacf8cd7c6f758e2f1116e8ba13d427e768bdd8c084f210177e02bd495"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "c8eaa5394ad0d0b4ff42bc480d9814120013b03d41c55300787b6947e5e219d4"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "8ff18d454ab9aecb870e51de7d1b8e147048ec3965536ac8dfed675208c41194"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "34b824ca7f18a336613bd65571a24c3d5e946f60c4e8d97e374f0622ece019fd"
+      }
+    ],
+    "cross_view_consistency_note": "Coal recess is real depth behind two host volumes. Unequal x/depth cleat block outlines, staggered terminating cross cuts, irregular chipped fronts; do not turn bedding-plane butt cleats into uniform horizontal brick courses. Concept has too many masonry-like horizontal coal splits; remove regular horizontal grid in geometry. No copied source pixels or regular decorative blocks.",
+    "hidden_surface_decisions": "Coal recess is real depth behind two host volumes. Unequal x/depth cleat block outlines, staggered terminating cross cuts, irregular chipped fronts; do not turn bedding-plane butt cleats into uniform horizontal brick courses. Concept has too many masonry-like horizontal coal splits; remove regular horizontal grid in geometry. No copied source pixels or regular decorative blocks."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:20:41.369690+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 17.1244,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "a119aeb8a80482b5b97f3f29c30d6c6327e2844847d6dc56f0872c65f8fa6bcc"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "a119aeb8a80482b5b97f3f29c30d6c6327e2844847d6dc56f0872c65f8fa6bcc"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "a140744d4462615af01d3ae2322ec2897b8b24706d10903edbdf771193eda300",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "11e7116d1d51c47c3d9bbafa612589344cd398a841bbac3fecc4a7db16ed24ee"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "f86f6b501899b116915b1d6d037926617508f37d0e3f1bbb21f109f20e9118d3",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "fd4c5724e1db6c0aa639bf803b241204f7c1dd871771cb28cf4aa56bd1754c50"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

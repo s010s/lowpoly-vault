@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "maar-crater",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed palette-only low-poly teaching prop; independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Broad dry explosion depression excavated BELOW surrounding country ground; Low irregular pyroclastic rim and broad gently dipping ejecta apron grading into surrounding country terrain; Continuous original terrain volume with bowl walls exposing country rock; floor visibly below country surface, not raised tuffring/cindercone/caldera. Scope: Generic maar-crater process/form teaching terrain.120x110m nominal module and22m total height artistic; country ground20m above underside, crater floor6m and low rim near22m, so14m sub-country excavation opposed to2m raised rim. No named site geometry, exact rock composition, eruption age, hazard or measured dimensions asserted. Dry floor is a valid illustrative state, not assertion maars never hold lakes.",
+      "required_sources": [
+        "NPS-MAAR"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Broad dry explosion depression excavated BELOW surrounding country ground; Low irregular pyroclastic rim and broad gently dipping ejecta apron grading into surrounding country terrain; Continuous original terrain volume with bowl walls exposing country rock; floor visibly below country surface, not raised tuffring/cindercone/caldera. Scope: Generic maar-crater process/form teaching terrain.120x110m nominal module and22m total height artistic; country ground20m above underside, crater floor6m and low rim near22m, so14m sub-country excavation opposed to2m raised rim. No named site geometry, exact rock composition, eruption age, hazard or measured dimensions asserted. Dry floor is a valid illustrative state, not assertion maars never hold lakes.",
+      "required_sources": [
+        "NPS-MAAR"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact8 canonical512px views. Eldonia separately adds ventral diagnostic, no canonical replacement. Seven stages separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-71/maar-crater/r002/source.blend",
+      "sha256": "66c9dcf77497ec3686afb16066b8e2265a5722bd6b8155e5a378f6f2ea4d0f46"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-71/maar-crater/r002/generator.py",
+      "sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-71/maar-crater/r002/build-config.json",
+      "sha256": "d12fecdbad8ff74f25f31b9f98e5d64b437d08209f7f63460f95253a6caf8fca"
+    }
+  ],
+  "claim_scope": "Generic maar-crater process/form teaching terrain.120x110m nominal module and22m total height artistic; country ground20m above underside, crater floor6m and low rim near22m, so14m sub-country excavation opposed to2m raised rim. No named site geometry, exact rock composition, eruption age, hazard or measured dimensions asserted. Dry floor is a valid illustrative state, not assertion maars never hold lakes.",
+  "nominal_dimensions_blender_xyz_m": [
+    120,
+    110,
+    22
+  ],
+  "dimension_status": "Illustrative nominal targets not measured specimen/site; final exact bounds reported separately.",
+  "recognition_features": [
+    "Broad dry explosion depression excavated BELOW surrounding country ground",
+    "Low irregular pyroclastic rim and broad gently dipping ejecta apron grading into surrounding country terrain",
+    "Continuous original terrain volume with bowl walls exposing country rock; floor visibly below country surface, not raised tuffring/cindercone/caldera"
+  ],
+  "concept_decisions": "Actual concept inspected: retain broad below-grade bowl, low rim and shallow apron. Reject excessive tiny rocks and rings of decorative texture. Radial heightfield has continuous irregular slopes, no raised cone/stacked concentric staircases. Country20m, deepest floor6m, rim maxabout22m; footprint120x110m. Low-relief naturally irregular perimeter and closed cutaway side/underside. Palette distinguishes dark ejecta from exposed tan country wall without claiming mineral composition. No eruptions, smoke, lava, lake, vegetation or site replica.",
+  "style": "Palette-only refined faceted full-volume low-poly",
+  "intended_use": "Supporting educational prop256\u2013512px, not specimen/site replica",
+  "created_at": "2026-10-20T14:30:50.023213+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:38:30.770909+00:00",
+    "frozen_design_brief_sha256": "33f6074aae93f745fe59868e97643efe1bb096256f7c1503d3fd2f6ec887d0fa",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

@@ -437,20 +437,29 @@ if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58
  }
 }
 
-// Preserve exact217+15=232 before composing the independently pinned next19.
+// Preserve the immutable main43 manifest before composing the pinned next44.
+// The fixed canonical digest works in shallow CI checkouts without historical Git objects.
 {
  const {appendBatches5861Release,appendBatches6267Release}=await import('./concept-landair-release.mjs');
+ const {appendFortyFourRelease}=await import('./forty-four-release.mjs');
+ const {digest}=await import('./model-registry.mjs');
  const manifest=JSON.parse(await readFile('assets/manifest.json'));
- const descriptors5859=manifest.publication.batches58_59_descriptors,descriptors6061=manifest.publication.batches60_61_descriptors,descriptors6267=manifest.publication.batches62_67_descriptors;
- const expected232=structuredClone(manifest);expected232.assets=expected232.assets.slice(0,232);delete expected232.publication.batches62_67_descriptors;
+ const expected251=structuredClone(manifest);expected251.assets=expected251.assets.slice(0,251);delete expected251.publication.forty_four_descriptors;
+ // assets/manifest.json at 43e40fc89f2b369a5f1858e72fa58a0d10318124,
+ // hashed with model-registry digest (the entire canonical manifest, not just IDs).
+ assert.equal(digest(expected251),'7f6c94c26f0a47b7a1b461f48070868be57f94161c9a1e3c11b5666cd8b273e0','The complete immutable main43 predecessor must remain unchanged');
+ const descriptors5859=expected251.publication.batches58_59_descriptors,descriptors6061=expected251.publication.batches60_61_descriptors,descriptors6267=expected251.publication.batches62_67_descriptors;
+ const expected232=structuredClone(expected251);expected232.assets=expected232.assets.slice(0,232);delete expected232.publication.batches62_67_descriptors;
  const base=structuredClone(expected232);base.assets=base.assets.slice(0,217);delete base.publication.batches58_59_descriptors;delete base.publication.batches60_61_descriptors;
  const actual232=await appendBatches5861Release(process.cwd(),base,descriptors5859,descriptors6061);
  assert.deepEqual(actual232,expected232);
  const actual251=await appendBatches6267Release(process.cwd(),actual232,descriptors6267);
- assert.equal(actual251.assets.length,251);assert.deepEqual(actual251.assets.slice(0,232),actual232.assets);assert.deepEqual(actual251,manifest);
+ assert.equal(actual251.assets.length,251);assert.deepEqual(actual251.assets.slice(0,232),actual232.assets);assert.deepEqual(actual251,expected251);
+ const actual295=await appendFortyFourRelease(process.cwd(),actual251,manifest.publication.forty_four_descriptors);
+ assert.equal(actual295.assets.length,295);assert.deepEqual(actual295.assets.slice(0,251),actual251.assets);assert.deepEqual(actual295,manifest);
  for(const count of [194,201,216,218,225]){const bad=structuredClone(base);bad.assets=Array.from({length:count},(_,i)=>base.assets[i%217]);await assert.rejects(()=>appendBatches5861Release(process.cwd(),bad,descriptors5859,descriptors6061),/exact217-model predecessor/);}
  const duplicate=structuredClone(base);duplicate.assets[0]=duplicate.assets[1];await assert.rejects(()=>appendBatches5861Release(process.cwd(),duplicate,descriptors5859,descriptors6061),/Duplicate Batch58-61 publication ID/);
  await assert.rejects(()=>appendBatches5861Release(process.cwd(),base,descriptors6061,descriptors5859));
  await assert.rejects(()=>appendBatches5861Release(process.cwd(),base,descriptors5859,undefined));
- console.log('Batch58-61 union: exact217+15=232 and full232+19=251 equality, unchanged old232, and eight fail-closed composition cases passed.');
+ console.log('Batch58-67/next44 union: immutable main43 full-manifest digest, exact217+15=232, full232+19=251 and full251+44=295 equality, unchanged old251, and eight fail-closed composition cases passed.');
 }

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "hoodoo",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: One tall irregular tapered erosional pillar with broad lower skirt and alternating recessed soft-rock bands and projecting resistant ledges; Modest coherent caprock protects narrower upper shaft; cap only slightly wider than shaft, not broad balanced boulder; Asymmetric faceted solid volume, no named locality or geological age assertion. Scope: Generic cap-protected hoodoo teaching prop, not Bryce Canyon replica or measured stratigraphic section. Nominal3.3x3.0x8m, banding color and exact erosion pattern are artistic. Source process of differential weathering applies; no named mineral composition or dated event asserted.",
+      "required_sources": [
+        "PRIMARY-hoodoo"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: One tall irregular tapered erosional pillar with broad lower skirt and alternating recessed soft-rock bands and projecting resistant ledges; Modest coherent caprock protects narrower upper shaft; cap only slightly wider than shaft, not broad balanced boulder; Asymmetric faceted solid volume, no named locality or geological age assertion. Scope: Generic cap-protected hoodoo teaching prop, not Bryce Canyon replica or measured stratigraphic section. Nominal3.3x3.0x8m, banding color and exact erosion pattern are artistic. Source process of differential weathering applies; no named mineral composition or dated event asserted.",
+      "required_sources": [
+        "PRIMARY-hoodoo"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/source.blend",
+      "sha256": "ccce5ea868bc609ce30218c265d875e85f9117b56e20ba76656dacfd9822557e"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/generator.py",
+      "sha256": "e7a2fa658869edd3183fb748561971c24b3b35a7f7e198bd255b91e887ad5405"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round26-20261020/batch-66/hoodoo/r002/build-config.json",
+      "sha256": "cb6713c5152c67c8a237668cd1d77dd80437a8725edaf0dd1fdcc99c06d2c885"
+    }
+  ],
+  "claim_scope": "Generic cap-protected hoodoo teaching prop, not Bryce Canyon replica or measured stratigraphic section. Nominal3.3x3.0x8m, banding color and exact erosion pattern are artistic. Source process of differential weathering applies; no named mineral composition or dated event asserted.",
+  "nominal_dimensions_blender_xyz_m": [
+    3.3,
+    3.0,
+    8
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "One tall irregular tapered erosional pillar with broad lower skirt and alternating recessed soft-rock bands and projecting resistant ledges",
+    "Modest coherent caprock protects narrower upper shaft; cap only slightly wider than shaft, not broad balanced boulder",
+    "Asymmetric faceted solid volume, no named locality or geological age assertion"
+  ],
+  "concept_decisions": "Retain concept tall taper, irregular ledges and darker modest cap. Cap width roughly1.4m versus upper shaft1.1m; broadest foot3.3m, never a much broader boulder on thin pedestal. Full closed irregular noncircular radial loft with offset upper center and variable angular profile; band colors support actual ledge geometry, not texture-only bands. No surrounding landscape or separate presentation base.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T13:35:44.091860+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:45:51.444524+00:00",
+    "frozen_design_brief_sha256": "cf6d2fe0230975d98df91841b006117a27c30ca4add4b2c318d67ae448b4738b",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

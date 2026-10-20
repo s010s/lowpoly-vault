@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "breccia-outcrop",
+  "revision": "r004",
+  "labels": {
+    "en": "breccia-outcrop"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "ccda1af69de9f32de87408c8984945dd26efe0f2e2534295ee61e735995b4f53"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "5a6940818fcedce2009a28456f18a5d34a340d8cbf0470dcbfa45500ae473c68"
+    },
+    "references": {
+      "path": "references.delivery-v001.json",
+      "sha256": "1769779d85f5de5a60d70c999a100b09d341ff54b33f3c4d9aa2be9b36fef762"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "e5e0d506e74af658d79a323aff2515a90ffab9d192f2f43c78b5ec5282e54885"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "3ad7a61d8ad73ca4e5ee8beaab185cbb495e420455cc28c1f58cb6c537bcc351"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "3cead44d1b69ac9a2bbd546dd860add52f91f30e3c03cb52bb225f2ca3ee387b"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "602b01cf529a4944e680d67732f60126f02541c672e3f1c90e11e75162c78133"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "8e9621441c746c97133f36e5322ebc1470a1b2b9d6f4e9a76b5935c30b0c0938"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "5ada5ec6a5d04083f396136f8bf722f0bc6145a0d9e9f0d04519cc15ddaacd62"
+      }
+    ],
+    "cross_view_consistency_note": "Actual four-row original concept pixels inspected before freeze; only corresponding labeled row applies to each asset. Burgessochaeta uniformly biramous all trunk segments follows2015 primary revision, no fecal tail strand;25 representative stations/four sampled bristles per ramus declared. Stalagmites rounded solid heads; breccia angular fragments; landslide explicit measured back-tilt and curved rupture. Complete decisions in frozen brief.",
+    "hidden_surface_decisions": "Concept C block silhouette, dark matrix and pale angular fragments retained. Build one irregular closed host mass with slightly protruding embedded irregular polyhedral clasts, no disconnected floating loose pile. Surface embed overlap intentional. Clasts placed across every exposed side and crown, varied three muted clast colors and sizes. Major host relief faceted ledges. No ruler/trees/background from reference, no phototextures. r002: actual-host ray projection and denser90side/30crown fragment field, varied size .12-.40m. Visible coverage repair, not a scientific claim change."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:25:25.501724+00:00",
+    "modeling_started_at": "2026-10-20T15:25:41.766760+00:00",
+    "note": "Actual observed invocation/completion boundaries retained in generation record; exact internal provider generation timestamp undisclosed. No mtime or invented timing."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.8895,
+      "measurement_record": {
+        "path": "proof-delivery/render-manifest.json",
+        "sha256": "01b077925063cb96f4c80c8643ba7b5d25a77c5e05f876417d4c45245a9ab3c1"
+      },
+      "note": "Actual renderer frame-loop wall measurement excluding process start."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall interval not retained; no timing inference from file timestamps."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-delivery/render-manifest.json",
+    "sha256": "01b077925063cb96f4c80c8643ba7b5d25a77c5e05f876417d4c45245a9ab3c1"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "3461bb47eb7362da9c0e30967474f391606dda15bc2796cf7c5e15d4a201272b",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "352b3b82e9ed7079929d13acdcc192f822b404c9f593822a3057267491be8fed"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "ccda1af69de9f32de87408c8984945dd26efe0f2e2534295ee61e735995b4f53",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "bd097a022fa44c8381645722071d06c7f80b05bcaa303346d1c43aac93e30a15"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supporting teaching prop hard dispatch cap1MB; concept checker remains advisory only."
+  }
+}

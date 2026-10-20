@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight exact final512px individual frames and lossless sheet personally inspected. Nine long aligned physically incised channels: three broader unequal gouges plus clustered fine scratches, broad smoothed intervening rock, slight coherent wandering. Clay and side cross-section retain unequal groove relief without color. Module low and broad, no stoss/lee knob or painted stripes. Natural outer outline deliberately simplified as cutaway teaching volume; modest diagonal crossfracture is subtle, not mapped real-site record. r001/r002 manufactured-looking spacing retained; final r003 clusters different widths/depths and roughens perimeter. Fine subsidiary scratches may be subtle at512px.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash aa8c39c13c3bfc1a4ef62eb4472bba44e1f09e9c123effb26405b2d2b3e104e8. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

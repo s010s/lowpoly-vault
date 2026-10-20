@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "linear-dune",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Single very elongated narrow sinuous longitudinal crest; Both exposed sloping flanks and finite tapering ends; Irregular crest height without transverse wave rows, U or star arms; Sand primary mass, subordinate cutaway support. Scope: Generic original longitudinal linear sand dune process/form illustration, no named site, era, exact dimensions or wind reconstruction.",
+      "required_sources": [
+        "PRIMARY-linear-dune"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Single very elongated narrow sinuous longitudinal crest; Both exposed sloping flanks and finite tapering ends; Irregular crest height without transverse wave rows, U or star arms; Sand primary mass, subordinate cutaway support. Scope: Generic original longitudinal linear sand dune process/form illustration, no named site, era, exact dimensions or wind reconstruction.",
+      "required_sources": [
+        "PRIMARY-linear-dune"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-70/linear-dune/r001/source.blend",
+      "sha256": "5ba45274b7f324d37ca8ef5bc264c2631b252148bbab5e886bb19eb526522cac"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-70/linear-dune/r001/generator.py",
+      "sha256": "04025c9e9c5f43179bc58d5a23260a28c5841607cb80fcf5f35e1773316b79eb"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round28-20261020/batch-70/linear-dune/r001/build-config.json",
+      "sha256": "ed859ae09c99d7cec4a9ebcafe4a75ca866b51f41246c67e3be4353a1fb0882d"
+    }
+  ],
+  "claim_scope": "Generic original longitudinal linear sand dune process/form illustration, no named site, era, exact dimensions or wind reconstruction.",
+  "nominal_dimensions_blender_xyz_m": [
+    200,
+    38,
+    18
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "Single very elongated narrow sinuous longitudinal crest",
+    "Both exposed sloping flanks and finite tapering ends",
+    "Irregular crest height without transverse wave rows, U or star arms",
+    "Sand primary mass, subordinate cutaway support"
+  ],
+  "concept_decisions": "Retain concept long S crest, two flanks, no ripple belts. Keep crest mostly continuous and narrow. Palette faceting subordinate to silhouette. Original bottom and end caps form closed volume. Nominal landscape scale artistic, not sampled locality.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T14:18:58.859221+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:21:37.469832+00:00",
+    "frozen_design_brief_sha256": "0b721522ee50ceff72091a66b4bc603f202f56881c74f9b8630ddcff1d7acc15",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

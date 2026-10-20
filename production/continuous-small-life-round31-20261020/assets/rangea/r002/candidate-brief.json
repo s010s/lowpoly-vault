@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "rangea",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed low-poly supporting educational prop; independent QA pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required features: Six radial bilaminar vanes form a three-dimensional spindle around one internal axis; Oblique primary rib units plus subordinate secondary branching relief; Tapered ends and radial gaps distinguish this from a single planar frond; Fossil-form specimen study; living posture and precise anatomy remain interpretive. Scope: Original genus-level Rangea fossil-form specimen study. Six-vane radial construction is an interpretation informed by2013 published fossils; neither a scanned specimen replica nor a confident complete living organism. Preserve original uncertain affinity/scope.",
+      "required_sources": [
+        "PRIMARY-rangea"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required features: Six radial bilaminar vanes form a three-dimensional spindle around one internal axis; Oblique primary rib units plus subordinate secondary branching relief; Tapered ends and radial gaps distinguish this from a single planar frond; Fossil-form specimen study; living posture and precise anatomy remain interpretive. Scope: Original genus-level Rangea fossil-form specimen study. Six-vane radial construction is an interpretation informed by2013 published fossils; neither a scanned specimen replica nor a confident complete living organism. Preserve original uncertain affinity/scope.",
+      "required_sources": [
+        "PRIMARY-rangea"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views;7 distinct stages.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/continuous-small-life-round31-20261020/assets/rangea/r002/source.blend",
+      "sha256": "8dcaf46cdfe6505eaf3fc63a6bbd19f34c4626fcb86f6b2aaf7d9d9ec992ea4a"
+    },
+    {
+      "role": "generator",
+      "path": "production/continuous-small-life-round31-20261020/assets/rangea/r002/generator.py",
+      "sha256": "61e272ee618fd39d374691647998dbf9ebf399df3ad3b2633df2431d35c934b8"
+    },
+    {
+      "role": "config",
+      "path": "production/continuous-small-life-round31-20261020/assets/rangea/r002/build-config.json",
+      "sha256": "361f19126e7a7f96b51dce7e31b746e7e788eeff09ef72e0cf020993198da5bd"
+    }
+  ],
+  "claim_scope": "Original genus-level Rangea fossil-form specimen study. Six-vane radial construction is an interpretation informed by2013 published fossils; neither a scanned specimen replica nor a confident complete living organism. Preserve original uncertain affinity/scope.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.14,
+    0.045,
+    0.045
+  ],
+  "dimension_status": "Nominal illustrative scale, not measured reference locality/specimen; export measured separately",
+  "recognition_features": [
+    "Six radial bilaminar vanes form a three-dimensional spindle around one internal axis",
+    "Oblique primary rib units plus subordinate secondary branching relief",
+    "Tapered ends and radial gaps distinguish this from a single planar frond",
+    "Fossil-form specimen study; living posture and precise anatomy remain interpretive"
+  ],
+  "concept_decisions": "Concept six-rayed end view is useful but whole spindle looks like a seed pod and too smoothly closed. Build six thin radial bilaminar vanes with open longitudinal recesses between, broad oblique primary ribs nested secondary relief physically integrated in vane faces, not a solid capsule or modern feather/tentacles. Modest uneven edge and fossil brown artistic palette. Lie long axis horizontally as display orientation only, no rooted living posture.",
+  "style": "Palette-only faceted real3D low-poly",
+  "intended_use": "Hand-scale fossil-form supporting educational prop at256-512px; no engineering/museum-grade replica claim",
+  "created_at": "2026-10-20T15:44:14.763447+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T15:50:11.438775+00:00",
+    "frozen_design_brief_sha256": "f55d4621e77e2c93bacaa47799f83141484f3604f7275e0e0a905db2faf3b3e0",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

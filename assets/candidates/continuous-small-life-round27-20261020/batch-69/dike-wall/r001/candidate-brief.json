@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "dike-wall",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Narrow near-vertical finite-thickness tabular intrusion cuts all horizontal host beds, visible as uninterrupted dark stripe on exposed ends; Resistant jagged crest projects above eroded country rock, lower host shoulders remain on both sides; Full closed generic terrain cutaway, no bedding-parallel sill or decorative masonry wall. Scope: Generic resistant igneous dike-wall teaching terrain, nominal16x24m footprint, intrusion thickness0.9m and9m overall relief artistic. NPS text supports tabular intrusion crossing beds; official FHWA photograph supports narrow resistant exposed wall. No named locality/date/event/exact lithology or surveyed scale asserted. Host bedding is a simplified explanatory cutaway, not measured stratigraphy.",
+      "required_sources": [
+        "PRIMARY-dike-wall"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Narrow near-vertical finite-thickness tabular intrusion cuts all horizontal host beds, visible as uninterrupted dark stripe on exposed ends; Resistant jagged crest projects above eroded country rock, lower host shoulders remain on both sides; Full closed generic terrain cutaway, no bedding-parallel sill or decorative masonry wall. Scope: Generic resistant igneous dike-wall teaching terrain, nominal16x24m footprint, intrusion thickness0.9m and9m overall relief artistic. NPS text supports tabular intrusion crossing beds; official FHWA photograph supports narrow resistant exposed wall. No named locality/date/event/exact lithology or surveyed scale asserted. Host bedding is a simplified explanatory cutaway, not measured stratigraphy.",
+      "required_sources": [
+        "PRIMARY-dike-wall"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact8 canonical512px views. Wiwaxia additionally separate ventral diagnostic, no canonical replacement. Seven stages separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-69/dike-wall/r001/source.blend",
+      "sha256": "83688ffdb9fd20427c53f04418fa9e96d0e641705f7fb2eab1803674f15d25f3"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-69/dike-wall/r001/generator.py",
+      "sha256": "e7510194d9ac16d1ed5924332b82b4e11791774b94256dcae242c1dcf3af926b"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-69/dike-wall/r001/build-config.json",
+      "sha256": "6e4146e3f92141b1e8370692358dc4d95f5ddb77d3367797e7d5dc0a2a55a8fc"
+    }
+  ],
+  "claim_scope": "Generic resistant igneous dike-wall teaching terrain, nominal16x24m footprint, intrusion thickness0.9m and9m overall relief artistic. NPS text supports tabular intrusion crossing beds; official FHWA photograph supports narrow resistant exposed wall. No named locality/date/event/exact lithology or surveyed scale asserted. Host bedding is a simplified explanatory cutaway, not measured stratigraphy.",
+  "nominal_dimensions_blender_xyz_m": [
+    16,
+    24,
+    9
+  ],
+  "dimension_status": "Nominal teaching-prop targets, not measured specimen or site dimensions; exported bounds measured separately.",
+  "recognition_features": [
+    "Narrow near-vertical finite-thickness tabular intrusion cuts all horizontal host beds, visible as uninterrupted dark stripe on exposed ends",
+    "Resistant jagged crest projects above eroded country rock, lower host shoulders remain on both sides",
+    "Full closed generic terrain cutaway, no bedding-parallel sill or decorative masonry wall"
+  ],
+  "concept_decisions": "Concept personally inspected. Retain continuous vertical dark dike interrupting warm horizontal host layers at front/rear exposed sections and irregular crest above terrain. Reject masonry-like regularly stacked little blocks: one coherent continuous tabular solid with bounded rough side relief and irregular top profile. Terrain host height3m, dike crest6.5\u20139m total; intrusionXcenter0.1*sin(y*.3), width0.9m, traversesY-12to12. Host beds at0\u20131,1\u20132,2\u20133m split left/right at actual intrusion faces. No decorative freestanding wall or parallel-to-bedding sill, floating rubble or tiny textures.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256\u2013512px; not specimen/site replica",
+  "created_at": "2026-10-20T14:03:28.023073+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:14:54.784236+00:00",
+    "frozen_design_brief_sha256": "095989254ab3170abc2801289ab768002839df65f4ce54994641891f1c1d9446",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

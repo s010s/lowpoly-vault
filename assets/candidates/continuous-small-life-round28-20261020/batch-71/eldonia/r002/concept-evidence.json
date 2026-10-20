@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "eldonia",
+  "revision": "r002",
+  "labels": {
+    "en": "eldonia"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "995c73a23effd426cb9a82cfb54ecc7203d2f0c0c4791b64ecfb2a84ce71acb1"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5edf621f53733a0a3cf2a9e3eb2ccc8db609e03cb7f84e7ba8e63dd81f7328cd"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "2fb0e300c347eb2983a910bf6c5d6097c3ca68a9c44286c0f5505232d9eaad03"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "61a23388b0b62c9d4d77d8126446054e9b9893c7a9ee3d19e51aee0daef6db46"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "66174c3726f94cb1047cca6c3813c92c30a0f69b3ee2dbf87a436f24d2a28c42"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "20344cd23f8926b3162d35974bf3347a54e6d4c8dcdda5f27d9681b9dba255b9"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "da3368afdda4896d3cc8f9d52085a9246942ac0a5d8fa647ee1790e6f7dae4ff"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "f8517786055dbd83321590790daf40d6068d3f44f9347ea4b8eabc57777d368c"
+      }
+    ],
+    "cross_view_consistency_note": "Actual ImageGen pixels inspected: retain shallow full soft disc, radial sectors and two branched ventral oral tentacles. REJECT the concept dorsal visible anus and its misdrawn gut arrow; only flush projection on dorsal surface, actual anus and mouth underside. Projection geometry follows clockwise path viewed from +Z: mouth/pharynx at angle0 near +X, sweeps decreasing angle through lower hemisphere (broad stomach) then upper hemisphere and terminal narrower intestine toward separate ventral anus. Projection is face-material annotation with zero raised tube geometry. Two oral tentacles below disc project anteriorly enough for oblique hints; supplemental bottom diagnostic separately exposes both dendritic branches and off-centre openings. Radial pleats shallow irregular and continuous, no rigid pie-wedges or shell ribs. No labels in exported geometry; metadata explicitly declares teaching projection.",
+    "hidden_surface_decisions": "Actual ImageGen pixels inspected: retain shallow full soft disc, radial sectors and two branched ventral oral tentacles. REJECT the concept dorsal visible anus and its misdrawn gut arrow; only flush projection on dorsal surface, actual anus and mouth underside. Projection geometry follows clockwise path viewed from +Z: mouth/pharynx at angle0 near +X, sweeps decreasing angle through lower hemisphere (broad stomach) then upper hemisphere and terminal narrower intestine toward separate ventral anus. Projection is face-material annotation with zero raised tube geometry. Two oral tentacles below disc project anteriorly enough for oblique hints; supplemental bottom diagnostic separately exposes both dendritic branches and off-centre openings. Radial pleats shallow irregular and continuous, no rigid pie-wedges or shell ribs. No labels in exported geometry; metadata explicitly declares teaching projection."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:28:58.063Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 35.969,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "403f87fd662becb0f8885e638d495ccd9ff528cb78e2ddfcf3c9e2325fd0c74c"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "403f87fd662becb0f8885e638d495ccd9ff528cb78e2ddfcf3c9e2325fd0c74c"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "0e7f0805fda1a3922d417632582491c040e6c0c41108c0b6520f93498f4753d6",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "a4b8ee1af62dd65cbe0aa703e5f4d984149237b6d54fd557d643bd4116804049"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "2aed9f8af5bba4a1992ede0bd1eeb1102ac95c469d8c29754ac08c7dd54fd6a2",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "d5c96cc7713a53032617d8c4088e84cbb54e85d21fa52997928100beca634750"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

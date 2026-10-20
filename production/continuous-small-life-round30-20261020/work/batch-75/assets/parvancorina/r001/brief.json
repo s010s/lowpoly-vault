@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "asset_id": "parvancorina",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original source-informed static teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: One low shield-shaped Parvancorina minchami fossil-form specimen on original thin matrix; Raised transverse curved anchor bar and central T stem within continuous shallow shield relief; No arthropod eyes, legs, mouth, antennae or confidently reconstructed ventral anatomy. Scope: Original P.minchami-inspired fossil-form positive-cast study, not whole living organism or exact specimen replica. Primary2017 Figure4 latex moulds consulted as fossil-form positive relief rather than mislabelled direct body tissue. Nominal matrix70x80mm and ridge relief illustrative, not measured specimen. Affinity, anterior-posterior orientation, feeding, mobility and external nature of minor ridges uncertain; the two2017 papers offer differently qualified mobility inferences. No behavior/CFD result claimed.",
+      "required_sources": [
+        "PAT2017"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: One low shield-shaped Parvancorina minchami fossil-form specimen on original thin matrix; Raised transverse curved anchor bar and central T stem within continuous shallow shield relief; No arthropod eyes, legs, mouth, antennae or confidently reconstructed ventral anatomy. Scope: Original P.minchami-inspired fossil-form positive-cast study, not whole living organism or exact specimen replica. Primary2017 Figure4 latex moulds consulted as fossil-form positive relief rather than mislabelled direct body tissue. Nominal matrix70x80mm and ridge relief illustrative, not measured specimen. Affinity, anterior-posterior orientation, feeding, mobility and external nature of minor ridges uncertain; the two2017 papers offer differently qualified mobility inferences. No behavior/CFD result claimed.",
+      "required_sources": [
+        "PAT2017"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight canonical512px views; no turntable by dispatch. CPU proof is not GPU or composed-scene evidence.",
+  "required_deliverables": [],
+  "claim_scope": "Original P.minchami-inspired fossil-form positive-cast study, not whole living organism or exact specimen replica. Primary2017 Figure4 latex moulds consulted as fossil-form positive relief rather than mislabelled direct body tissue. Nominal matrix70x80mm and ridge relief illustrative, not measured specimen. Affinity, anterior-posterior orientation, feeding, mobility and external nature of minor ridges uncertain; the two2017 papers offer differently qualified mobility inferences. No behavior/CFD result claimed.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.07,
+    0.08,
+    0.005
+  ],
+  "dimension_status": "Illustrative nominal targets not measured natural specimen/site; actual bounds reported separately.",
+  "recognition_features": [
+    "One low shield-shaped Parvancorina minchami fossil-form specimen on original thin matrix",
+    "Raised transverse curved anchor bar and central T stem within continuous shallow shield relief",
+    "No arthropod eyes, legs, mouth, antennae or confidently reconstructed ventral anatomy"
+  ],
+  "concept_decisions": "Retain concept shield, anchor and low matrix; reject photoreal grain and excessive broad high mound. A single continuous closed matrix heightfield integrates shield and raised T relief; no stacked coplanar animal shell. Broad rounded transverse end with tapering opposite end. Anchor stem subordinate to shield. Minor fine ridges omitted because their external status is disputed; no unsupported appendages.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting educational prop at256-512px",
+  "created_at": "2026-10-20T15:28:24.286507+00:00",
+  "validation_profile": "static-stylized-v1"
+}

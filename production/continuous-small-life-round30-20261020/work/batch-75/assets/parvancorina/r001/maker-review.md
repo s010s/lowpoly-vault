@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight exact final512px individual frames and lossless sheet personally inspected. Original small shallow positive-cast shield with raised anchor crossbar and central stem; broad transverse end and tapered opposite end. Top and reverse-oblique make anchor easiest to read; hero/clay relief deliberately restrained, horizontal views show nearly flat matrix. Matrix silhouette is a display slab rather than organism. Shield margin has angular low-poly discretization. No legs, eyes, antennae, whole living-animal reconstruction or unsupported behavior. Actual2017 Figure4 latex mould fossil-form pixels consulted; affinity, A-P axis, function and minor-ridge externality remain uncertain. Single closed continuous heightfield, no coplanar fossil overlay.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 6d121aa830daae492b81ff6a4fd99dd491f74105c0273ecb034a907de2b4fd35. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

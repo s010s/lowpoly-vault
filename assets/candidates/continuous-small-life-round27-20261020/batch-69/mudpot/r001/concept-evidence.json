@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "mudpot",
+  "revision": "r001",
+  "labels": {
+    "en": "mudpot"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "7818b6e324a8da1f93db36fcb09c989bf0b98c3d4fa02873ae8750daf41f4bf1"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "4e365e196b21d6d1c7ed641a2da2b142e8b79a646660c17238e5f100bc1975fd"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "af53ddb19fd0fc559c6ee2dba5bd4351c000986583abf8d2f2f9a01c95d9273a"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "0fa9f6be3f58061c9d184a18f2dc2d544823526d7ac25c1255d6f160845b323d"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "fedaf6e52541c6d96153eef25f3d3e4f3b5125b07526ab9f178a8658fbcff75f"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "70ed97fc0cbf14d8d806deeb44dc11d7a9786295123a0cf99f73e46bd4600f86"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "dc7409214323f7f86a72c0d8d17fd211892cb8fe2dbd33f9be8595e4fb9cf18f"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "0698e2570769570fe8f4afd1dbce370eb63d4f7cb1c90dddf782ee1f3076413f"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "e852d4ecb49e5361ded4aa92bc5bf95ab94df7ceb2b6b30e04c0ef55810ac873"
+      }
+    ],
+    "cross_view_consistency_note": "Concept personally inspected: retain broad low bowl, ragged clay rim, three domes and collapsed bubble cup. Dome height max0.22m over mud, not rock boulders; smooth coherent mud material. Rim height varies0.45\u20130.68m with slumped front-right sector0.32m, mud surface0.26m. Real integrated radial basin and opaque shallow mud; cup depression and low lip sculpted rather than black painted disc. Concept excessive tiny noise omitted; no detached splashes, steam billboard or tall geyser. Full underside closed.",
+    "hidden_surface_decisions": "Concept personally inspected: retain broad low bowl, ragged clay rim, three domes and collapsed bubble cup. Dome height max0.22m over mud, not rock boulders; smooth coherent mud material. Rim height varies0.45\u20130.68m with slumped front-right sector0.32m, mud surface0.26m. Real integrated radial basin and opaque shallow mud; cup depression and low lip sculpted rather than black painted disc. Concept excessive tiny noise omitted; no detached splashes, steam billboard or tall geyser. Full underside closed."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:03:27.984777+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 19.1456,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "d20eb70116fdf4f1f2b124bea38e1f6cd7e2cf57e0e70d19208b281e21ae5189"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "d20eb70116fdf4f1f2b124bea38e1f6cd7e2cf57e0e70d19208b281e21ae5189"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "41ea3fc735ec760333753713b8bf0cc18f3b3a422e57d8ee5ff4f94800cbdf0c",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "44250be114df06c307f6d7d65756b39314b0aed748739c925239a99c147e92c7"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "7818b6e324a8da1f93db36fcb09c989bf0b98c3d4fa02873ae8750daf41f4bf1",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "9e70d30a85331a94897fab9f02847cb1494c576e9828bc625bd117d860f3c921"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

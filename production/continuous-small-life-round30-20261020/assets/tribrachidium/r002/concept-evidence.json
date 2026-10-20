@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "tribrachidium",
+  "revision": "r002",
+  "labels": {
+    "en": "tribrachidium"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "23c365a5f25b7a10899447dcf6a3fb54c3111638f066dd62654f30d710cbaa54"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "bd33aabfd64450284764fb624180a6774c30390e74949da3bf79c55b525dbe0c"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "9393c926a3823e3f9d4ca1209a0ca7a4f86349f8eed72adc99d9776b4e2a98fd"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "9903bca4d0e2dd8cc2f72265f4976e5566f10ffba95ca8077bf2a41a79bd9954"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "95567f219f78148a10b16554cfb0dbe48e7e7d47885c8d097ffceffa37b14fe7"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "eaff3b4b4e4e5299ab6c850320dec0d8ce6f7fe2a9a860436a025ed31713c4cb"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "17f9531464e34fddd30135130aa87f73e29f844a3c36fb8d044e5262c2ca9ddb"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "0e0578b5ed39c869929cab8692d3fb9e9a6fb11129ece095eb23e8fd7ff2097b"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "2f5c297e104386ff90f49004520f6f31beac366411658d32b4acfa1660d7d466"
+      }
+    ],
+    "cross_view_consistency_note": "Reject first generated concept pit-centered knobs, tree-like veins and overly thick relief. Second concept is useful for three low curved ridges, but still exaggerates pits and repeated ridge grooves; reduce both to shallow subordinate surface relief, no central knobs in pits. Single integrated surface avoids floating anatomical tubes. Palette artistic, 40mm nominal diameter.",
+    "hidden_surface_decisions": "Reject first generated concept pit-centered knobs, tree-like veins and overly thick relief. Second concept is useful for three low curved ridges, but still exaggerates pits and repeated ridge grooves; reduce both to shallow subordinate surface relief, no central knobs in pits. Single integrated surface avoids floating anatomical tubes. Palette artistic, 40mm nominal diameter."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:20:41.341834+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.3979,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "d38467af1d7c2b60d50f469d1e2409a9bd1ae72a76655b82c61e936ecfc043bd"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "d38467af1d7c2b60d50f469d1e2409a9bd1ae72a76655b82c61e936ecfc043bd"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "387badf07e50d7de40df7ffb4eb30c14433cc074377190925a6528304043d2ec",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "896600e2c7a248304b7ffc8eaa4de6b2709959e15a981e13f6f6796eac67c627"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "23c365a5f25b7a10899447dcf6a3fb54c3111638f066dd62654f30d710cbaa54",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "e2a65d77922e84dfa13083cf926bbb4459356e9de4ea2d69e45640c0523223f6"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

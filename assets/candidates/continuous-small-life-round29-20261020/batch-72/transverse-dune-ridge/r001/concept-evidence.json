@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "transverse-dune-ridge",
+  "revision": "r001",
+  "labels": {
+    "en": "transverse-dune-ridge"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "30d1bee0b61895aad2863b69f70658c18be456d104aece90a3ef756c946aeda2"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "2e869f7615039d246c472291e2d080e7277cf0f00248f577cc6f314489ecfa9d"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "41ac7b36455952a0dcfc05607c2590eda0c7228c7be3c2b340e29635295bdc23"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "a4bedc89dfd99503f3823f0ef363e016ae593a3903639ce6658eea443a333f64"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "86ba67a9a177f2052a807fffc06dae0d5f70b6f8d5a86bca1954b9cf114b7a93"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "0316f374829db028affa33318ab71293e9eaa147813b23ceab4367cd1b85c1ea"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "d289a0ae7569746b6b8537f082d36eb50e268f4a76b0bd3f7c9f499cbc0aa651"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "ea88c157236e4c67ca4b09d0d40bb74b2b58a3120eeb4e9f41292f262e18715b"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "db3e1f3689cbf8d3be73e74e66c1c9cd3cbce53d7868cf88ba9c2484f4d6f068"
+      }
+    ],
+    "cross_view_consistency_note": "Across X one continuous crest with small natural height and plan sinuosity. Wind travels +Y; stoss from Y=-52 to crest nearY=9, slipface toY=34: ramp run61 versus slipface25 for nominal height14.5, about13deg versus30deg. Sand cutaway extends windward and leeward. No painted bands, repetitive surface tiles, vegetation or barchan horns. Different structure from batch70 long narrow near-symmetric linear dune; no copied geometry. Concept inspected: asymmetry and continuous slipface are usable; reduce concept steep near-vertical look to approximately angle-of-repose30degrees with no regular sawtooth crest.",
+    "hidden_surface_decisions": "Across X one continuous crest with small natural height and plan sinuosity. Wind travels +Y; stoss from Y=-52 to crest nearY=9, slipface toY=34: ramp run61 versus slipface25 for nominal height14.5, about13deg versus30deg. Sand cutaway extends windward and leeward. No painted bands, repetitive surface tiles, vegetation or barchan horns. Different structure from batch70 long narrow near-symmetric linear dune; no copied geometry. Concept inspected: asymmetry and continuous slipface are usable; reduce concept steep near-vertical look to approximately angle-of-repose30degrees with no regular sawtooth crest."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:52:28.446711+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 8.9404,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "f610a3871a6d5711e217207c8f82a65c60ed27c9111b43fc2d6f4067ade47679"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "f610a3871a6d5711e217207c8f82a65c60ed27c9111b43fc2d6f4067ade47679"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "222ce659deae0d8094df686fac6f4cac3d7a54300eced61c034cf61f0f62256b",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "27946563657771b9cc676f11a7a385b0c7ec89d34f55818a52f1c795665f8cd4"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "30d1bee0b61895aad2863b69f70658c18be456d104aece90a3ef756c946aeda2",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "25706a3de451725ded0350dbf7269c279c767954d4a6f6cb4542565772332efc"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

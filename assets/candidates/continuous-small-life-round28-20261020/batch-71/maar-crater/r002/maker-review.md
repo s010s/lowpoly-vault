@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Personally inspected all8 final individual512px frames and lossless sheet. r002 irregular country-ground cutaway surrounds a broad deep bowl, low rim and shallow ejecta apron. Clear oblique/top/clay cavity excavates below country surface; horizontal side views largely occlude floor as expected for intact module. Measured/coded country20m, floor6m and rim about22m distinguish it from raised tuffring/cone. No lava/eruption or named site geometry. r001 round puck and repeated radial color spokes retained as old attempt, replaced by actual Cartesian r002 mesh and fresh pixels. Dark ejecta annulus is the single diagnostic ejecta apron, not repeated decorative concentric stair rings. Tan wall patches are irregular, no textures.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash b1a7c33729df30791aa6cb1e158584b693141dc25db44e0054f1fd6882a4550d. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

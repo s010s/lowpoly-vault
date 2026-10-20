@@ -1,0 +1,12 @@
+import fs from 'node:fs'; import crypto from 'node:crypto';
+import validator from '/workspace/shared/lowpoly-landair-web-integration/node_modules/gltf-validator/index.js';
+import { GLTFLoader } from '/workspace/shared/lowpoly-landair-web-integration/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import { Box3, Vector3, REVISION } from '/workspace/shared/lowpoly-landair-web-integration/node_modules/three/build/three.module.js';
+const file=process.argv[2], outdir=process.argv[3], b=fs.readFileSync(file), sha=crypto.createHash('sha256').update(b).digest('hex');
+const v=await validator.validateBytes(new Uint8Array(b),{uri:'model.glb',maxIssues:10000,externalResourceFunction:async uri=>{throw new Error('Unexpected external resource: '+uri)}});
+const vr={file,sha256:sha,validator_version:validator.version(),num_errors:v.issues.numErrors,num_warnings:v.issues.numWarnings,messages:v.issues.messages??[],status:v.issues.numErrors?'fail':v.issues.numWarnings?'pass_with_warnings':'pass'};
+fs.writeFileSync(outdir+'/khronos.json',JSON.stringify(vr,null,2)+'\n');
+const parsed=await new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),''); parsed.scene.updateMatrixWorld(true);
+let triangles=0,meshes=0,primitives=0,materials=new Set(); parsed.scene.traverse(o=>{if(o.isMesh){meshes++;const p=o.geometry.index?.count??o.geometry.attributes.position.count;triangles+=p/3;primitives++;for(const m of (Array.isArray(o.material)?o.material:[o.material]))if(m)materials.add(m.name)}});
+const bounds=new Box3().setFromObject(parsed.scene), tr={file,sha256:sha,three_version:'0.180.0',three_revision:REVISION,meshes,primitives,triangles,bounds_min_m:bounds.min.toArray(),bounds_max_m:bounds.max.toArray(),bounds_size_m:bounds.getSize(new Vector3()).toArray(),materials:[...materials],status:'pass',gpu:'not_run',scene:'not_run'};
+fs.writeFileSync(outdir+'/three-parse.json',JSON.stringify(tr,null,2)+'\n'); console.log(JSON.stringify({khronos:vr.status,errors:vr.num_errors,warnings:vr.num_warnings,three:tr.status,meshes,primitives,triangles,materials:tr.materials,bounds:tr.bounds_size_m}));

@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight exact final512px individual frames and lossless sheet personally inspected. Crooked elongated physically recessed dark fissure, jagged faceted walls, irregular terminal cracks and interrupted cream/ochre lip crust with actual displaced relief. Neutral clay retains cavity and rough lip relief, though fine crust is quiet. No radial round cone, mudpot water, geyser, smoke or gas proxy. Horizontal views naturally occlude cavity behind rock edge. r001 radial basin and r002 artificial starburst-color/crust attempt retained, final r003 uses refined coherent narrow crust patches. Palette not a chemical identification; static generic shape not current temperature/dynamics evidence.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 9703960b80b4add47b0c682e0cd64be451874463db4f6ce0c467a720ee15b807. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "moulin-shaft",
+  "revision": "r002",
+  "labels": {
+    "en": "moulin-shaft"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "de96fb9978179b02eb25e518c35256da1c78aca8228d83117b8dcbeaea214ae3"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "e0754f607c3085b97fe5e2fef4c59a771e6cfec341a0376692f922ef5124efdf"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "8b1c93d72f62a1d1c2aaf6a60448cebc5117f4887f74850413c892a499509fcb"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "5dd397401fa6e778fa7d16edc31319167df5573c1a6d85f425e0ece09a26723e"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "2310f02fbeda3210f6388f66f2d6baff59ea28fb977be2cf88de168f26865f1f"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "b40196b059f53de898bd05a527b08532477831c0e0af7b57edfe1d8bdaa207d3"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "8baa5fc5ba8b9015556b21fb8655ad0edb1f4aa9c8c46a4d6a24df7e315d695c"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "4d301c32ff8dacbcb5db76257a666248f7de80ed9b033cd67d23a5a0252cd9e5"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "5e9bb0fdd0ced68a65468d98944aab19a578fcb65a02f308e5672e5ab6331b2e"
+      }
+    ],
+    "cross_view_consistency_note": "Concept upper shaft and inlet useful, but hero becomes a wide open front canyon and round top hole inconsistent between views. Build single coherent polygonal annulus with real steep inner wall and genuinely open lower section, no arbitrary complete bedrock tunnel. Surface channel reaches rim; water only narrow geometric ribbon following channel then inner wall, separated without coplanar overlap. Outside supporting ice block physical, no transparency.",
+    "hidden_surface_decisions": "Concept upper shaft and inlet useful, but hero becomes a wide open front canyon and round top hole inconsistent between views. Build single coherent polygonal annulus with real steep inner wall and genuinely open lower section, no arbitrary complete bedrock tunnel. Surface channel reaches rim; water only narrow geometric ribbon following channel then inner wall, separated without coplanar overlap. Outside supporting ice block physical, no transparency."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T15:44:14.778554+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 16.1028,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "51534e712945548a4c44b49120502c6df8f36673b6531465f2f060e1dac4699f"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "51534e712945548a4c44b49120502c6df8f36673b6531465f2f060e1dac4699f"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "8ceba413b7ec180088e7c6ea2018437e25d081f7bf38263ad4414124ada241b8",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "9bb64e4736308fe5181f155091b46a2c0f7d89ffd64cc7edc54270efe01ea760"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "de96fb9978179b02eb25e518c35256da1c78aca8228d83117b8dcbeaea214ae3",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "db125c7a857437bd2f6be99f6b0b083139c0b2ff771c9f6f483ed4034e2e2c7d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

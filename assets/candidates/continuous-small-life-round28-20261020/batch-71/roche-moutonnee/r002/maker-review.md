@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Personally inspected all8 final individual512px frames and lossless sheet. Long low-angle smooth stoss ramp and steep irregular plucked lee remain distinct in front/rear and opposite oblique views. Continuous bedrock footing is not a deposited boulder/drumlin. r002 staggered irregular facets and lee cleft remove r001 overly regular ramp belts; sparse subtle longitudinal striation relief remains subordinate. Simplified block teaching form not real locality. No separate repetitive tiled blocks or masonry; underside closed. Grey palette and overall geometry intentionally quiet. Fine fracture details not literal mapped geological measurements.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash f55d4abff08e0e03b7f99568fc95bf49cda1f32b9a03309b116cc688f6af1fbc. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

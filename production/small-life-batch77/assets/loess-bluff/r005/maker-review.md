@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Every eight final512px frame individually inspected16:10:33Z and lossless sheet inspected afterwards. Broad cohesive tan fine-silt near-vertical face with six unequal narrow vertical incisions, uneven gullied ridge crest, small apron and sloping rear. Front/hero make joints and crest readable; side shows steep face and sloping back; top shows joined crest gullies rather than isolated column parts. Overall silhouette deliberately simplified with broad rounded humps, but no stacked stone tiles or belts. r001 regular cut-wall attempt and r002-r004 topology failures retained; r005 coherent incision Y ordering yields zero nonadjacent BVH overlaps. No exact Natchez/Iowa site, age or soil strength claim. Naturalness and sediment identification require independent judgment.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash eb824a1302d10cde887467418e7ba2ba38158d37ae95a4a67807b0d1da273c5a. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

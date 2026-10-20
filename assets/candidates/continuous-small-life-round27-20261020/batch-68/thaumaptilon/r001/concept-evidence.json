@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "thaumaptilon",
+  "revision": "r001",
+  "labels": {
+    "en": "thaumaptilon"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "5f4108c4b97377bd2df41273672c16e6e9d7295a5e7d6710b4bdf0ad2b22bf42"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "08151d333a70e2be2d47fb8911988c652cc7ec96b9e615353b0964524bb9b35e"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "e62c9c29600598f08b8f482c4852283708d9f0f6811811c5fa2a52f2c4480f81"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "f335a397e3bc20502e9dfc864dc153227830706c4c3f15c2e6ec8f7be4c7a73b"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "e11a9479ef1b06980407ea052e229973d9681484f1a9592a18de1e43a60e9df0"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "42ecbb4f17ffdc0aff58725108f99354b8a33dda46e8fc76d655d8aacf66ec9f"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "5b9d23b391043bc79e1caa1abfeb749523e7916cdc8d62e502d988365f6ac41a"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "24929e9956455378af53431414adc6bea485ff54f81a173690881630138866c7"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "ad22a947913aa5ea452de3eef77b9b0e3990093487c02635eef278e05093ecef"
+      }
+    ],
+    "cross_view_consistency_note": "Actual concept has correct connected narrow lamina and short blunt base, but is overly symmetrical and overregular. Retain continuous full-volume frond, subtly unequal lateral structures and low relief on both broad surfaces, sparse haphazard pustules on front only. Eighteen oblique structures each side as approximate about-three-dozen layout, not fossil-count assertion. No open negative spaces between structures: connected common sheet. Short basal attachment remains partly frond-like and blunt, not a big modern sea-pen bulb or plant roots. Rear has angled relief but no pustules. Thin solid cross-section, gentle bent pose, no rock slab or environment base.",
+    "hidden_surface_decisions": "Actual concept has correct connected narrow lamina and short blunt base, but is overly symmetrical and overregular. Retain continuous full-volume frond, subtly unequal lateral structures and low relief on both broad surfaces, sparse haphazard pustules on front only. Eighteen oblique structures each side as approximate about-three-dozen layout, not fossil-count assertion. No open negative spaces between structures: connected common sheet. Short basal attachment remains partly frond-like and blunt, not a big modern sea-pen bulb or plant roots. Rear has angled relief but no pustules. Thin solid cross-section, gentle bent pose, no rock slab or environment base."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T13:59:27.826206+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 10.5651,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "e1415163cec34cd578808ec8c8a1987893230440c5444c4d756a517bb49e6836"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "e1415163cec34cd578808ec8c8a1987893230440c5444c4d756a517bb49e6836"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "8c19293aa5f6a53c2ff51b616aa86f3e6878da53245c69ffef12a7a8d3d8afa0",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "5e66a083aed288528f0570be0a07ffc58b99daeadfbdc6614fbe786fe87bb10b"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "5f4108c4b97377bd2df41273672c16e6e9d7295a5e7d6710b4bdf0ad2b22bf42",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "f8ec48cd56d7b3f33beaec28cb5ff689d43938f35f1422fbfb8aeaa49511f445"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

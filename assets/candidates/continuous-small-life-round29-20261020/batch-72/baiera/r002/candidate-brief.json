@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "asset_id": "baiera",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: one flattened deeply divided fan leaf with basal petiole; unequal flat branching wedge lobes and open gaps; low fossil relief on thin original irregular slab; no cylindrical needles, generic intact Ginkgo fan, tree or reproductive organs. Scope: Baiera genus-level fossil leaf specimen interpretation grounded in one museum CH106 outline, labelled Baiera asadai by the museum. Not a taxonomic redetermination, exact replica, whole plant or precise age/locality assertion. Museum Upper Jurassic/Jehol association is contradictory with modern Early Cretaceous Jehol literature and is explicitly not adopted. No Sphenobaiera or Baiera multipartita morphology substituted.",
+      "required_sources": [
+        "PRIMARY-baiera"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: one flattened deeply divided fan leaf with basal petiole; unequal flat branching wedge lobes and open gaps; low fossil relief on thin original irregular slab; no cylindrical needles, generic intact Ginkgo fan, tree or reproductive organs. Scope: Baiera genus-level fossil leaf specimen interpretation grounded in one museum CH106 outline, labelled Baiera asadai by the museum. Not a taxonomic redetermination, exact replica, whole plant or precise age/locality assertion. Museum Upper Jurassic/Jehol association is contradictory with modern Early Cretaceous Jehol literature and is explicitly not adopted. No Sphenobaiera or Baiera multipartita morphology substituted.",
+      "required_sources": [
+        "PRIMARY-baiera"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight512px canonical/diagnostic views; seven stages remain separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r002/source.blend",
+      "sha256": "3d547ab0fe1d0735cafae3906e0c45a79f0296cc7b0c5af83ab954cc198aa9c3"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r002/generator.py",
+      "sha256": "3426edeb5dc361e75351aaa3bf200868e5bcacba2a4597639bd7e1e4a65aa832"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/baiera/r002/build-config.json",
+      "sha256": "b75f5b9963732e9ca1acfe7f8c159c0b02aef36b8340e9645f69960fc085ac80"
+    }
+  ],
+  "claim_scope": "Baiera genus-level fossil leaf specimen interpretation grounded in one museum CH106 outline, labelled Baiera asadai by the museum. Not a taxonomic redetermination, exact replica, whole plant or precise age/locality assertion. Museum Upper Jurassic/Jehol association is contradictory with modern Early Cretaceous Jehol literature and is explicitly not adopted. No Sphenobaiera or Baiera multipartita morphology substituted.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.092,
+    0.135,
+    0.006
+  ],
+  "dimension_status": "Nominal targets not exact scientific measurements; final export measured separately",
+  "recognition_features": [
+    "one flattened deeply divided fan leaf with basal petiole",
+    "unequal flat branching wedge lobes and open gaps",
+    "low fossil relief on thin original irregular slab",
+    "no cylindrical needles, generic intact Ginkgo fan, tree or reproductive organs"
+  ],
+  "concept_decisions": "CH106-like original silhouette uses one central basal wedge and unequal forked flat lobes. Fossil carbonized brown relief has finite thickness, not living green foliage. Original supporting shale slab, irregular nonrepeating edge. Petiole and lobe breadths accentuated gently for readability; no invented diagnostic venation or leaf-mining damage. Geometry meters are nominal teaching-prop scale, not a claim of scanned dimensions. Concept inspected: concept basal lobe blades are broader and more decorative than CH106; correct geometry to narrower flat strips and deeper uneven divisions, avoid transferring concept broad fan into fossil claim. Preserve seven-ish terminal tips, not exact division count.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256-512px; not museum-grade specimen replica",
+  "created_at": "2026-10-20T14:52:28.436868+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:58:42.050403+00:00",
+    "frozen_design_brief_sha256": "159d724012c65aa9054df0c38faea08535aa819712cd71b77642067799c464b2",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}
