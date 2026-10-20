@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "cave-shield",
+  "revision": "r002",
+  "labels": {
+    "en": "Cave Shield",
+    "zh-CN": "cave-shield"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/cave-shield.glb",
+      "sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028"
+    },
+    "source": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/cave-shield.blend",
+      "sha256": "2a19392c990e37c1f77002e0addfa2f1805ce6ef71997cdac440d1852afcc88c"
+    },
+    "generator": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/generator.py",
+      "sha256": "a5ec704a7d7b7711d1fa575edaf4e2a8d2e4c7381583cc7e1f46b59a1e01ab21"
+    },
+    "config": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/build-config.json",
+      "sha256": "15b1d4cd99b1c10ef44d4333689447e52703309953107cba75d203289e97bb03"
+    },
+    "brief": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/brief-delivery.json",
+      "sha256": "9b3bf91ace2b5c1050a09a627708d52f2723a5b756aa1331a01fd9126fe1d47e"
+    },
+    "references": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/references-delivery.json",
+      "sha256": "d13fcf87cec258234c5a5583aa37eacce0ce146d27fb9cd6b10d2a4f969c58e3"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "production/continuous-small-life-round19-20261020/work/batch-54/concepts/prompt.txt",
+      "sha256": "0bc4d5c78c714ae18aeb2d9c8506ff836fec41ac419e944d5683f2b7a42a54cc"
+    },
+    "generation_record": {
+      "path": "production/continuous-small-life-round19-20261020/work/batch-54/concepts/generation-record.json",
+      "sha256": "e1d91fae6c27b70c3bfd147dd26bbf813b1401b22b026e18db0f10bb396023e6"
+    },
+    "images": [
+      {
+        "id": "genuine-four-row-concept",
+        "view": "hero and compatible secondary views per row",
+        "path": "production/continuous-small-life-round19-20261020/work/batch-54/concepts/original.png",
+        "sha256": "bb7fb4d66a28075770d03ffbc55d145542d35d683ab5efde2d985a2d8fc8db46"
+      }
+    ],
+    "cross_view_consistency_note": "Both views show attached rear wall fragment, plates and broad real air gap; retain flattened near-parallel plates, quiet facets and supported rear edge.",
+    "hidden_surface_decisions": "Two near-parallel rounded scalloped plates with real thickness and air gap; both rear edges embed into irregular supporting wall fragment. Broad quiet cream calcite facets; lower and upper plate maintain continuous full volume. No age, locality or measured natural dimensions; all size and incline are artistic."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T00:29:26.916218+00:00",
+    "modeling_started_at": "2026-10-20T00:30:50.276971+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No invented stage duration; retained observed receipts and execution logs are separate."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No invented stage duration; retained observed receipts and execution logs are separate."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "measured",
+      "wall_seconds": 2.6035,
+      "measurement_record": {
+        "path": "production/continuous-small-life-round19-20261020/work/batch-54/runs/build/cave-shield/r002/build-r002/c9f51d8d5027ed11e2e81831a6d22a32b74676e0d39bd27b708b7e2ddcfaa168/20261020T003203-5a4cdf41a46d4aa88fa2475e5c511391/result.json",
+        "sha256": "70dd2ce9c570bc6e8c895b4d5ebafd353479e1d1c1f11d4a5141755c486e6e48"
+      },
+      "note": "Final queued Blender build process wall time only, excludes generator authoring, research and prior attempts."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 44.0589,
+      "measurement_record": {
+        "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/proof/render-manifest.json",
+        "sha256": "eea11d3cc7077c417232e407b328b29a11d9f00fd0825e7924b470cd72828bd7"
+      },
+      "note": "Actual final renderer frame-loop wall time, excludes queue and process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "No invented stage duration; retained observed receipts and execution logs are separate."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Node loader parsing was run; target browser/WebGL, GPU and scene stages were not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/proof/render-manifest.json",
+    "sha256": "eea11d3cc7077c417232e407b328b29a11d9f00fd0825e7924b470cd72828bd7"
+  },
+  "thumbnail": {
+    "source_frame_id": "hero",
+    "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/proof/hero.png",
+    "sha256": "4ebb5b2f738cda0b8d2a5a8e0280178b2f45cbcfc190c6212b1802d8f840fce2"
+  },
+  "review_note": {
+    "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/maker-review.md",
+    "sha256": "699ccb95d4d4e4ea21c78877909c5444a0bb65f60beb65fb084a6956928a53cb"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "4c772ba8705c9921836accd4607f15dae75f34ad9bdf67d8ef9970bbea961028",
+    "report": {
+      "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/cave-shield/r002/gltf-validator.report.json",
+      "sha256": "43140dc58e17815057bac1f33a518cd934497d3cc971688679bd4155306bb50e"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Concept-sidecar advisory; formal frozen brief hard ceiling is 1,000,000 bytes, 14,000 triangles, 6 materials and 30 primitives."
+  },
+  "chronology_note": "Provider exact generation time is unknown. Receipt observed 2026-10-20T00:29:14Z; inspection separately recorded. Modeling_started_at denotes observed first Blender geometry execution, not unrecorded generator coding onset. Do not infer provider time from image metadata or file mtimes."
+}

@@ -2,6 +2,20 @@
 export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
+      "path": "assets/releases/batch54-20261020.json",
+      "sha256": "18848be2e9bffb004c8301ff7f05816ab0d691afbee6b569459f28e3099f3f4b"
+    },
+    "asset_ids": [
+      "cave-shield",
+      "didymoceras",
+      "psammichnites-ribbon-trace",
+      "spirematospermum"
+    ],
+    "source_commit": "54d5380ec3c63ae3e9ab4f36cb377db65ab16c75",
+    "independent_review_commit": "d5b0956916ab21d1ef0fef44a42358b3d9c2db95"
+  },
+  {
+    "descriptor": {
       "path": "assets/releases/batch52-original-three-20261020.json",
       "sha256": "c6c5060e0bd0024d63999db96b6ea732cf05dbc07db95b300a1081430fbc024b"
     },
