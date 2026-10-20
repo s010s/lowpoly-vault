@@ -3,7 +3,7 @@ export const ACCEPTED_BOUNDED_BATCHES = [
   {
     "descriptor": {
       "path": "assets/releases/batch54-20261020.json",
-      "sha256": "892ccd055e4caa68923153f0ef0ee4d06496a3a642c5c7c47267d4e66d1c67c1"
+      "sha256": "18848be2e9bffb004c8301ff7f05816ab0d691afbee6b569459f28e3099f3f4b"
     },
     "asset_ids": [
       "cave-shield",

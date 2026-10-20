@@ -642,7 +642,7 @@ export const BATCH54_RELEASE = {
       "review_commit": "d5b0956916ab21d1ef0fef44a42358b3d9c2db95",
       "metadata": {
         "path": "assets/additions/spirematospermum/batch54-20261020/release-metadata.json",
-        "sha256": "91b6d9b79f1d6cbe777beb820d6f83cced005e63355a30169b584b0708774856"
+        "sha256": "fb4452f138350973121c8e8fa1a8a3c135063e80e9a3a4a4fad7b8d8fb37ba42"
       },
       "source_metadata": {
         "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/spirematospermum/r003/metadata.json",
@@ -694,7 +694,7 @@ export const BATCH54_RELEASE = {
       "review_commit": "d5b0956916ab21d1ef0fef44a42358b3d9c2db95",
       "metadata": {
         "path": "assets/additions/psammichnites-ribbon-trace/batch54-20261020/release-metadata.json",
-        "sha256": "5cf61e274e44cffe6e463ee496443e3734b584ca534f55254f2e5112bac892c6"
+        "sha256": "fda301376c2b272abb21dd21f54e081c904c16fab9c550740ae3f2057b0b6a89"
       },
       "source_metadata": {
         "path": "assets/candidates/continuous-small-life-round19-20261020/batch-54/psammichnites-ribbon-trace/r002/metadata.json",
