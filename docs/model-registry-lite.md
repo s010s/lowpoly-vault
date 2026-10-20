@@ -5,8 +5,11 @@ It is based on the exact 217-model release snapshot
 `da3fb30ccc4dd4e511e029c0a51a7a67265870c5`. This branch now includes that
 refreshed metadata import, explicit npm commands, a read-only
 build/audit consistency check and narrowly scoped registry-data append recognition.
-It does not modify the existing release collectors, model/poster proof validators,
-workflows, historical asset/gallery bytes, URLs or approval data. It is not merged
+It does not change existing model/poster proof requirements, workflows, historical
+asset/gallery bytes, URLs or approval data. The only collector execution change
+replaces a same-module dynamic import with a direct call to the same checked
+Batch54 collector, avoiding a direct-entry module-cycle deadlock. All descriptor,
+hash, scope and count checks remain. It is not merged
 or deployed. The experimental admission, source-review and local-queue modules are
 **not included**. Do not merge that larger experimental branch to obtain these tools.
 
@@ -216,8 +219,8 @@ The isolated candidate now contains the migration and hooks rather than only CLI
 files. The refreshed exact `da3fb30ccc4dd4e511e029c0a51a7a67265870c5` comparison
 imports 217 records and confirms all five existing JSON byte sequences remain
 unchanged after `registry:sync`/`registry:check`; sync writes zero files. No source
-payload, poster PNG, production evidence, publication collector or workflow is
-changed. This conclusion uses exact Git metadata/object equality, not a second
+payload, poster PNG, production evidence or workflow is changed. The collector
+execution-only correction described above does not change accepted model values. This conclusion uses exact Git metadata/object equality, not a second
 copy or full rescan of the binary corpus. The older seven-model poster install
 above remains evidence for its original 194-model snapshot, not a new 217-model
 render or installer run.
@@ -247,3 +250,20 @@ Actual activation remains an ordinary reviewed integration after the current
 release, using its updated source snapshot and the normal CI checks. No main merge,
 deployment, remote queue or future-batch producer has occurred. Rollback can revert
 the migration/hooks while keeping existing aggregate files and binary URLs.
+
+### First CI correction
+
+The first PR run caught two issues before GPU preparation, so its skipped stages
+are not passes. The catalog static fixture also embeds the native startup script;
+it now seals the actual axis-aligned output while retaining the original golden
+and proving that reversing only the exact changed paint expression restores every
+original HTML byte. It does not ignore the script or relax static-content checks.
+
+The direct `initial-release.mjs --check` entry exposed an existing dynamic self-import
+cycle in the Batch52/53 collector on the Batch54 baseline. Calling that same local
+`collectBatch54Release` function directly removes the unresolved top-level await;
+the original function-existence, source/hash and 194-model baseline checks remain.
+A real-entry disposable fixture verifies missing descriptor and tampered descriptor
+bytes fail normally instead of exiting with an unsettled await. This is an execution
+regression check, not a new model acceptance result. Both fixes must pass the normal
+CI rerun before this PR can be merged.

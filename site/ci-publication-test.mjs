@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,copyFileSync,rmSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {tmpdir} from 'node:os';
-import {execFileSync} from 'node:child_process';
+import {execFileSync,spawnSync} from 'node:child_process';
 const root=mkdtempSync(join(tmpdir(),'publication-memo-')),runner=mkdtempSync(join(tmpdir(),'publication-runner-'));
 try{
  mkdirSync(join(root,'site'));mkdirSync(join(root,'assets'));
@@ -24,4 +24,15 @@ try{
  rmSync(forged);writeFileSync(env.CI_PUBLICATION_RECEIPT,'broken');check();assert.equal(calls(),6,'Malformed memo falls back');
  check({GITHUB_ACTIONS:'false'});assert.equal(calls(),7,'Non-CI execution cannot reuse runner memo');
  console.log('Publication memo: first gate always executes; clean hit; dirty source, stale attempt, repository-authored, malformed and non-CI receipts fall back.');
+ // Real direct entry, not the memo stub: a same-module dynamic import used to
+ // deadlock this 217-release path inside the initial/refined static import cycle.
+ const publication=JSON.parse(readFileSync('assets/manifest.json')).publication;
+ writeFileSync(join(root,'assets/manifest.json'),JSON.stringify({publication:{batches52_53_descriptors:publication.batches52_53_descriptors,batches52_53_base_descriptor:publication.batches52_53_base_descriptor}}));
+ const direct=()=>spawnSync(process.execPath,[resolve('site/initial-release.mjs'),'--check'],{cwd:root,encoding:'utf8',timeout:10000});
+ let result=direct();assert.equal(result.status,1,result.stderr);
+ assert.match(result.stderr,/ENOENT.*batch54-20261020\.json/s,'Direct gate must reach the actual missing source-byte check');
+ assert(!result.stderr.includes('unsettled top-level await'));
+ mkdirSync(join(root,'assets/releases'));writeFileSync(join(root,'assets/releases/batch54-20261020.json'),'{}');
+ result=direct();assert.equal(result.status,1,result.stderr);assert.match(result.stderr,/Batch54 hash mismatch/,'Direct gate still rejects modified descriptor bytes');
+ console.log('Direct publication entry: missing and tampered Batch54 source bytes fail normally, without an unresolved module cycle.');
 }finally{rmSync(root,{recursive:true,force:true});rmSync(runner,{recursive:true,force:true});}

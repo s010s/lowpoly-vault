@@ -141,7 +141,7 @@
       "compatible_synthetic_baseline_reuses_historical_models": true,
       "historical_registry_edits_and_unknown_paths": "full validation"
     },
-    "existing_publication_gate_modified": false,
+    "existing_publication_gate_modified": true,
     "workflow_modified": false,
     "normal_shared_ci_still_required": true,
     "production_build_render_or_deploy_executed": false,
@@ -215,6 +215,14 @@
       "fixture_217_predecessor_plus_one_record": "model-scoped pass",
       "missing_or_over_limit_provenance": "full fallback pass",
       "scope_test_rerun_after_buffer_fix": "pass"
+    },
+    "publication_gate_change_scope": "Execution-only: replace same-module dynamic self-import with direct call to the same checked Batch54 collector; function existence, descriptor, hash, scope and baseline-count checks retained.",
+    "first_ci_result": "Blocked before GPU preparation: embedded startup golden changed; direct publication entry hit existing dynamic self-import cycle. Skipped stages are not passes.",
+    "ci_corrections": {
+      "static_fixture": "Exact new output hash plus inverse of only known paint expression must match original golden",
+      "publication_entry": "Real CLI rejects missing and tampered descriptor bytes without unresolved top-level await",
+      "targeted_fix_tests": "catalog-data and ci-publication pass; original gallery-startup also passes",
+      "normal_ci_rerun_required": true
     }
   }
 }
