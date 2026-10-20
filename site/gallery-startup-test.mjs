@@ -1,6 +1,29 @@
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
+import {heldNativeThumbnail} from './gallery-thumbnail-reveal-browser-test.mjs';
+
+// Run the exact serialized browser predicate. The DOM-first lazy row may never
+// enter decode, while offscreen eager rows may decode before the visible one.
+const rect=(left,top,right,bottom)=>({left,top,right,bottom});
+const clip=rect(0,150,370,760);
+const heldImage=(box,{slot=true,state='decoding'}={})=>({dataset:{thumbnailState:state},matches:selector=>slot&&selector==='.slot-image img',getBoundingClientRect:()=>box,closest:selector=>{assert.equal(selector,'#wheel');return{getBoundingClientRect:()=>clip};}});
+const lazyFirst=heldImage(rect(50,-120,250,-20),{state:'pending'}),offscreen=heldImage(rect(50,40,250,140)),center=heldImage(rect(50,400,250,500)),lower=heldImage(rect(50,580,250,680)),detail=heldImage(rect(400,200,800,600),{slot:false});
+const nativeDecodes=[],predicateContext=vm.createContext({window:{nativeDecodes},innerWidth:1280,innerHeight:844,document:{querySelector(){throw Error('Never select the DOM-first lazy image');}}});
+const selectHeld=vm.runInContext('('+heldNativeThumbnail.toString()+')',predicateContext);
+nativeDecodes.push({image:detail},{image:offscreen},{image:center});
+assert.equal(selectHeld(),null,'Require three held wheel images, not unrelated detail images');
+nativeDecodes.push({image:lower});
+const captured=selectHeld();assert.equal(captured,center);assert.notEqual(captured,lazyFirst);
+nativeDecodes.reverse();assert.equal(selectHeld(),lower,'The decode list can arrive in any order');
+center.dataset.thumbnailState='ready';assert.equal(captured,center,'The retained handle still refers to the same completed image');
+assert.equal(captured.dataset.thumbnailState,'ready');
+nativeDecodes.splice(0,nativeDecodes.length,...[rect(50,40,250,140),rect(50,770,250,820),rect(380,400,500,500)].map(box=>({image:heldImage(box)})));
+assert.equal(selectHeld(),null,'Do not choose images clipped outside the wheel even when inside the viewport');
+predicateContext.innerHeight=100;nativeDecodes.push({image:center});
+assert.equal(selectHeld(),null,'A held image must also intersect the viewport');
+predicateContext.innerHeight=844;assert.equal(selectHeld(),center,'Do not filter on readiness and hide a premature-ready regression');
+console.log('Native browser fixture identity passed: real held-decode predicate, three wheel images, arbitrary arrival order, wheel/viewport clipping and retained image identity.');
 
 const main=await readFile(new URL('./gallery/main.js',import.meta.url),'utf8');
 const inertMain=main.replace(/^import .*;$/gm,'').replace(/^if\(import\.meta\.hot\).*$/gm,'').replace('export async function mountGallery(){','async function mountGallery(){');

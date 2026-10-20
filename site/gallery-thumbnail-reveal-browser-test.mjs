@@ -7,6 +7,17 @@ import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {galleryStartupContent} from './gallery/startup.mjs';
+// Native lazy loading need not request the first DOM row after centering.
+// Return a held decode inside both the wheel clip and the viewport; the caller
+// keeps this exact image handle for the pending and completed assertions.
+export function heldNativeThumbnail(){
+ const held=window.nativeDecodes.filter(({image})=>image.matches('.slot-image img'));
+ if(held.length<3)return null;
+ return held.find(({image})=>{
+  const box=image.getBoundingClientRect(),clip=image.closest('#wheel').getBoundingClientRect();
+  return Math.min(box.right,clip.right,innerWidth)>Math.max(box.left,clip.left,0)&&Math.min(box.bottom,clip.bottom,innerHeight)>Math.max(box.top,clip.top,0);
+ })?.image||null;
+}
 export async function runThumbnailRevealBrowserTests({browser:sharedBrowser,output=resolve(process.env.QA_OUTPUT_DIR||'qa/thumbnail-reveal')}={}){
 await mkdir(output,{recursive:true});
 const root=import.meta.url,css=await readFile(new URL('./gallery/style.css',import.meta.url),'utf8'),placeholder=await readFile(new URL('./gallery/thumbnail-placeholder.css',import.meta.url),'utf8'),nativeCSS=await readFile(new URL('./gallery/startup.css',import.meta.url),'utf8'),startup=await readFile(new URL('./gallery/startup.js',import.meta.url),'utf8');
@@ -49,8 +60,8 @@ try{
  for(const width of [390,1280])for(const reduced of [false,true]){
   const context=await newContext({viewport:{width,height:844},isMobile:width<761,hasTouch:width<761,reducedMotion:reduced?'reduce':'no-preference'}),page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));
   await page.addInitScript(()=>{window.nativeDecodes=[];const original=HTMLImageElement.prototype.decode;HTMLImageElement.prototype.decode=function(){return original.call(this).then(()=>new Promise(done=>nativeDecodes.push({image:this,done})));};});
-  await page.goto(base+'/native');await page.waitForFunction(()=>nativeDecodes.length>=3);const nativePending=await page.locator('.slot-image img').first().evaluate(img=>({state:img.dataset.thumbnailState,opacity:getComputedStyle(img).opacity,visibility:getComputedStyle(img).visibility}));assert.equal(nativePending.state,'decoding');assert.equal(nativePending.opacity,'0');assert.equal(nativePending.visibility,'hidden');
-  await page.evaluate(()=>nativeDecodes.forEach(({done})=>done()));await page.waitForTimeout(200);const visible=await page.locator('.slot-image img[data-thumbnail-state=ready]').evaluateAll(images=>images.map(img=>({opacity:getComputedStyle(img).opacity,duration:getComputedStyle(img).transitionDuration,x:img.parentElement.getBoundingClientRect().x+img.parentElement.getBoundingClientRect().width/2})));assert(visible.length>=3);assert(visible.every(image=>image.opacity==='1'));assert(Math.max(...visible.map(i=>i.x))-Math.min(...visible.map(i=>i.x))<.01);if(reduced)assert(visible.every(image=>image.duration==='0s'));
+  await page.goto(base+'/native');const nativeImage=await page.waitForFunction(heldNativeThumbnail);const nativePending=await nativeImage.evaluate(img=>({state:img.dataset.thumbnailState,opacity:getComputedStyle(img).opacity,visibility:getComputedStyle(img).visibility}));assert.equal(nativePending.state,'decoding');assert.equal(nativePending.opacity,'0');assert.equal(nativePending.visibility,'hidden');
+  await page.evaluate(()=>nativeDecodes.forEach(({done})=>done()));await page.waitForFunction(img=>{const ready=[...document.querySelectorAll('.slot-image img[data-thumbnail-state=ready]')];return img.dataset.thumbnailState==='ready'&&getComputedStyle(img).visibility==='visible'&&ready.length>=3&&ready.every(image=>getComputedStyle(image).opacity==='1');},nativeImage);const nativeReady=await nativeImage.evaluate(img=>({state:img.dataset.thumbnailState,opacity:getComputedStyle(img).opacity,visibility:getComputedStyle(img).visibility}));assert.deepEqual(nativeReady,{state:'ready',opacity:'1',visibility:'visible'});const visible=await page.locator('.slot-image img[data-thumbnail-state=ready]').evaluateAll(images=>images.map(img=>({opacity:getComputedStyle(img).opacity,duration:getComputedStyle(img).transitionDuration,x:img.parentElement.getBoundingClientRect().x+img.parentElement.getBoundingClientRect().width/2})));assert(visible.length>=3);assert(visible.every(image=>image.opacity==='1'));assert(Math.max(...visible.map(i=>i.x))-Math.min(...visible.map(i=>i.x))<.01);if(reduced)assert(visible.every(image=>image.duration==='0s'));
   await page.screenshot({path:resolve(output,`native-${width}${reduced?'-reduced':''}.png`)});report.cases.push({name:`native-decode-fade-axis-${width}${reduced?'-reduced':''}`,status:'pass',ready:visible.length});await context.close();
  }
  const noJS=await newContext({javaScriptEnabled:false,viewport:{width:1280,height:844}}),noJSPage=await noJS.newPage();await noJSPage.goto(base+'/native?nojs');assert.equal(await noJSPage.locator('.slot-image img').first().evaluate(img=>getComputedStyle(img).opacity),'1');assert.equal(await noJSPage.locator('.slot-image img[data-thumbnail-state]').count(),0);report.cases.push({name:'no-javascript-native-posters-not-hidden',status:'pass'});await noJS.close();
