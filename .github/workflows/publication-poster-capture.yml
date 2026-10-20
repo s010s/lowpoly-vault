@@ -13,7 +13,7 @@ jobs:
       SITE_BASE: /lowpoly-vault/
       SITE_ORIGIN: https://s010s.github.io
       GALLERY_DIR: qa/capture-inputs-site
-      PREVIEW_OUTPUT: qa/ci-breccia-r003-capture/cards
+      PREVIEW_OUTPUT: qa/ci-breccia-r004-capture/cards
       PREVIEW_POSTERS_ONLY: '1'
       CAPTURE_REFERENCE: '1'
     steps:
@@ -24,15 +24,15 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npx vite build --outDir "$GITHUB_WORKSPACE/qa/capture-inputs-site"
-      - name: Stage only one exact Breccia r003 inputs
-        run: node qa/breccia-r003-release-20261020/capture-only-stage.mjs
+      - name: Stage only one exact Breccia r004 inputs
+        run: node qa/breccia-r004-release-20261020/capture-only-stage.mjs
       - run: npx playwright install --with-deps chromium
       - run: node site/render-web-previews.mjs
       - name: Capture only one exact gallery pairs
-        run: node qa/breccia-r003-release-20261020/scoped-gallery-capture.mjs
+        run: node qa/breccia-r004-release-20261020/scoped-gallery-capture.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: breccia-r003-website-capture
-          path: qa/ci-breccia-r003-capture/
+          name: breccia-r004-website-capture
+          path: qa/ci-breccia-r004-capture/
       - run: echo 'One exact card and gallery pairs only; no production, cache-policy or formal approval change.' >> "$GITHUB_STEP_SUMMARY"
