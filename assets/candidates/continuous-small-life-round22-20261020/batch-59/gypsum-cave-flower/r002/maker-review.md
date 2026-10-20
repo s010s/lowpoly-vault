@@ -1,0 +1,2 @@
+All eight 512px exact-GLB frames inspected from lossless full-resolution sheet. r002 curls return farther and leave open loops; six thick rectangular mineral ribbons share one small rock. Quiet broad faces remain simplified, approximately regular radial placement remains visible. No botanical tissue or transparency. Independent craft judgment pending.
+Maker inspection only. Physical GPU/populated scene unrun; formal QA pending.

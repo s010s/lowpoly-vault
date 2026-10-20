@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "asset_id": "stalactite-group",
+  "brief_version": "v001",
+  "profile": "production",
+  "purpose": "Stylized generic five-pendant calcite stalactite group attached to shallow irregular ceiling patch. One long offset center pendant, four shorter staggered in depth, broad rooted upper junctions narrowing down to tips. No floor stalagmites or full cave.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief.",
+      "required_sources": [
+        "EN-SP"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty.",
+      "required_sources": [
+        "EN-SP"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight canonical/diagnostic views, zero turntable.",
+  "required_deliverables": [],
+  "nominal_dimensions_blender_xyz_m": [
+    2.7,
+    1.5,
+    2.2
+  ],
+  "scale_note": "Illustrative nominal envelope, not measured specimen or locality. Actual bounds reported separately.",
+  "concept_interpretation": "Concept top actually shows underside attachments not a literal top. Build opaque rough mounting slab with five rooted pendants, true top shows slab; underside designed explicitly. Growth collars subtle and irregular, not repeated equal beads. Origin at attachment top center, not floor.",
+  "claim_scope": "stylized geological form",
+  "feature_obligations": [
+    "Stylized generic five-pendant calcite stalactite group attached to shallow irregular ceiling patch. One long offset center pendant, four shorter staggered in depth, broad rooted upper junctions narrowing down to tips. No floor stalagmites or full cave."
+  ],
+  "origin": "ceiling attachment top center at z=0"
+}

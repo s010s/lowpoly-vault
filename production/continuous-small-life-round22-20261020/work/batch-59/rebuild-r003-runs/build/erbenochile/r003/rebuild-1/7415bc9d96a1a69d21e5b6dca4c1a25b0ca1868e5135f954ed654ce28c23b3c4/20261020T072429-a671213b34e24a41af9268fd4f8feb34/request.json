@@ -1,0 +1,86 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/generator.py",
+    "--",
+    "--config",
+    "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/build-config.json",
+    "--output-dir",
+    "/tmp/lowpoly-batch59-20261020/production/continuous-small-life-round22-20261020/work/batch-59/rebuild-r003-runs/build/erbenochile/r003/rebuild-1/7415bc9d96a1a69d21e5b6dca4c1a25b0ca1868e5135f954ed654ce28c23b3c4/20261020T072429-a671213b34e24a41af9268fd4f8feb34/outputs"
+  ],
+  "created_at": "2026-10-20T07:24:29.150885+00:00",
+  "fingerprint": "7415bc9d96a1a69d21e5b6dca4c1a25b0ca1868e5135f954ed654ce28c23b3c4",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/tmp/lowpoly-batch59-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 1355,
+        "path": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/build-config.json",
+        "sha256": "d5ff1edf529abb24b6417bc7fc12ef011ff9014dd9cbf7fa99bc87d09693fc08"
+      },
+      "generator": {
+        "bytes": 9600,
+        "path": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/generator.py",
+        "sha256": "177fffe401549bc26c35585e5ac3e418eff2e6dae36d09ec592e652c397ad4ec"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/tmp/lowpoly-batch59-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "erbenochile",
+      "inputs": {
+        "audit": "/tmp/lowpoly-batch59-20261020/scripts/qa_glb.py",
+        "config": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/build-config.json",
+        "generator": "/tmp/lowpoly-batch59-20261020/assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/generator.py",
+        "helper": "/tmp/lowpoly-batch59-20261020/scripts/asset_common.py"
+      },
+      "job_id": "rebuild-1",
+      "outputs": [
+        "erbenochile.glb",
+        "erbenochile.blend",
+        "metadata.json",
+        "qa.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180.0
+  },
+  "run_id": "20261020T072428-368dbce3226c44a4b8d49a338961b1d3"
+}

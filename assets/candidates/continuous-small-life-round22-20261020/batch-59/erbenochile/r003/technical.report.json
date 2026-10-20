@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "status": "pass",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "ec7b7fb8e84b2298a17d5ee42f0074ce97aab38eaac98a21579edc6eee59645f",
+    "brief_sha256": "11b11420612223f22be9ada7f7fae5fb90ebf0d01e926a039a85d7a738022136",
+    "references_sha256": "270ce5acd81d12c5f171c7f00e050c56356273e17bbaef45814dd83440f2dd97"
+  },
+  "method": "Actual static audit, official Khronos validator, separately reopened Blender source count/bounds, two separately executed bounded-queue deterministic rebuild comparisons.",
+  "observations": [
+    "Final exact export numeric limits passed.",
+    "Source reopened without executing saved scripts; bounds and triangle counts compared.",
+    "Both queue-bound rebuilt semantic digests match final export."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "reviewed_evidence": [],
+  "measurements": {
+    "triangles": 4664,
+    "materials": 4,
+    "primitives": 12,
+    "glb_bytes": 251620,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "ec7b7fb8e84b2298a17d5ee42f0074ce97aab38eaac98a21579edc6eee59645f",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/static-glb.report.json",
+        "sha256": "84b56e10e5427c60e98fccb4bee9645af5b558e24eb2a37a4f6afd02cd0a0b30"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "ec7b7fb8e84b2298a17d5ee42f0074ce97aab38eaac98a21579edc6eee59645f",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/gltf-validator.report.json",
+        "sha256": "5a0734aca222c6c130c2fbdc64473fde2bc9012f5df21218befb1e1adc0b9a73"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "ec7b7fb8e84b2298a17d5ee42f0074ce97aab38eaac98a21579edc6eee59645f",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/source-export.report.json",
+        "sha256": "2ed10ebd09289e07b1ddc680166f3729d45af9237b4f47a08cccb1c646be3805"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "ec7b7fb8e84b2298a17d5ee42f0074ce97aab38eaac98a21579edc6eee59645f",
+      "report": {
+        "path": "assets/candidates/continuous-small-life-round22-20261020/batch-59/erbenochile/r003/rebuild-1.report.json",
+        "sha256": "d6f9fc7e520d814b75ccecb8e4ae44f2f9f9571ba64a86037fbc1e21c1536ad9"
+      },
+      "warning_review": []
+    }
+  ]
+}
