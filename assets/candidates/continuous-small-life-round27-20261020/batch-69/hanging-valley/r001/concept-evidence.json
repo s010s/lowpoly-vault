@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "hanging-valley",
+  "revision": "r001",
+  "labels": {
+    "en": "hanging-valley"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "adb2ca389d1260ac1d2cd4f0ecd6153ed344484c95fd0667928339fa198be2b9"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "38edf2e2434a420b89a4fa94e708b8b9dd79aadcbea50e909dadc96f64958a54"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "664618bc5482ae42b6d9ac1120b3dd3b23d7bc7ed371d7ab021d2fdac50e847d"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "8a6719c8311d76a4da6ec5cd538dc7e3b999b3f7036dd590c1a2134339feeccb"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "9d380cb34f620337b229f8c1e8db843a22e88a2d1e874e0e40ab6ec30089b72a"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "77b0a9ba29654a3b516f272313fe8f32d61ad0efdf2a7c587b85d97183848a8b"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "c1d5f907167e9c9ef9edc467f969b18382de4d322659bd9047e0df4b5f0020e9"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "fe99d41b8d2fd330a3e68aaddfe319eef4cdbf60b57670e14873af8e5cc74168"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "7a64af9d1725161b13564ac9498fb67cc96ca8f2723ee8ac95b1b22cf2087fd8"
+      }
+    ],
+    "cross_view_consistency_note": "Concept personally inspected: retain high tributary trough, cliff lip and waterfall above deeper broad main trough. Right side tributary runs from outer+X flank into main trough atX12, y8; floor16m versus main4m; flat main floor width18m and steep shoulders up24m. Use original faceted heightfield with explicitly vertical lip, side/underside closure and finite opaque water volume. Omit tiny vegetation/photo-like texture and secondary stream detail. No glacier, rocks floating over lip, arrows or base plinth. Not another orientation of simple U valley: height difference and tributary are essential.",
+    "hidden_surface_decisions": "Concept personally inspected: retain high tributary trough, cliff lip and waterfall above deeper broad main trough. Right side tributary runs from outer+X flank into main trough atX12, y8; floor16m versus main4m; flat main floor width18m and steep shoulders up24m. Use original faceted heightfield with explicitly vertical lip, side/underside closure and finite opaque water volume. Omit tiny vegetation/photo-like texture and secondary stream detail. No glacier, rocks floating over lip, arrows or base plinth. Not another orientation of simple U valley: height difference and tributary are essential."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T14:03:27.970858+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.336,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b34c33db5d482b09d27f66079e1d2f035677fdd0f0dd0618642170e8892db482"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b34c33db5d482b09d27f66079e1d2f035677fdd0f0dd0618642170e8892db482"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "06248e5399fc5fd378babb48c65fcfe0aba5883c4365cc152975ca16c87d1534",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "e8e55db27b1dcf13dbc3e85efe3defa430ef04f3d33c291fc48cc0a98ee73ff8"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "adb2ca389d1260ac1d2cd4f0ecd6153ed344484c95fd0667928339fa198be2b9",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "29a27f0024ac15c09229cfa3fb8657df0a3d144b89062d420029fdad329b7c16"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "hanging-valley",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original evidence-informed refined-low-poly teaching prop, independent review pending",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Features: Deep main U trough runs front-back, with broad low floor and steep walls; Smaller right tributary U trough ends at elevated cliff lip above main trough floor, substantial real vertical discontinuity; Small static tributary stream drops from lip as waterfall to main floor; complete solid terrain cutaway. Scope: Generic glacial hanging-valley teaching terrain, not a named surveyed place or copy of Bridalveil. Nominal80x70m footprint and24m maximum relief artistic. Main floor4m above module underside, tributary floor16m gives12m hanging discontinuity. Terrain colors, exact shape and stream path artistic; no glacier-history, erosion-rate or measured locality claim.",
+      "required_sources": [
+        "PRIMARY-hanging-valley"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Features: Deep main U trough runs front-back, with broad low floor and steep walls; Smaller right tributary U trough ends at elevated cliff lip above main trough floor, substantial real vertical discontinuity; Small static tributary stream drops from lip as waterfall to main floor; complete solid terrain cutaway. Scope: Generic glacial hanging-valley teaching terrain, not a named surveyed place or copy of Bridalveil. Nominal80x70m footprint and24m maximum relief artistic. Main floor4m above module underside, tributary floor16m gives12m hanging discontinuity. Terrain colors, exact shape and stream path artistic; no glacier-history, erosion-rate or measured locality claim.",
+      "required_sources": [
+        "PRIMARY-hanging-valley"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 exact8 canonical512px views. Wiwaxia additionally separate ventral diagnostic, no canonical replacement. Seven stages separate.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-69/hanging-valley/r001/source.blend",
+      "sha256": "8a6719c8311d76a4da6ec5cd538dc7e3b999b3f7036dd590c1a2134339feeccb"
+    },
+    {
+      "role": "generator",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-69/hanging-valley/r001/generator.py",
+      "sha256": "9d380cb34f620337b229f8c1e8db843a22e88a2d1e874e0e40ab6ec30089b72a"
+    },
+    {
+      "role": "config",
+      "path": "assets/candidates/continuous-small-life-round27-20261020/batch-69/hanging-valley/r001/build-config.json",
+      "sha256": "77b0a9ba29654a3b516f272313fe8f32d61ad0efdf2a7c587b85d97183848a8b"
+    }
+  ],
+  "claim_scope": "Generic glacial hanging-valley teaching terrain, not a named surveyed place or copy of Bridalveil. Nominal80x70m footprint and24m maximum relief artistic. Main floor4m above module underside, tributary floor16m gives12m hanging discontinuity. Terrain colors, exact shape and stream path artistic; no glacier-history, erosion-rate or measured locality claim.",
+  "nominal_dimensions_blender_xyz_m": [
+    80,
+    70,
+    24
+  ],
+  "dimension_status": "Nominal teaching-prop targets, not measured specimen or site dimensions; exported bounds measured separately.",
+  "recognition_features": [
+    "Deep main U trough runs front-back, with broad low floor and steep walls",
+    "Smaller right tributary U trough ends at elevated cliff lip above main trough floor, substantial real vertical discontinuity",
+    "Small static tributary stream drops from lip as waterfall to main floor; complete solid terrain cutaway"
+  ],
+  "concept_decisions": "Concept personally inspected: retain high tributary trough, cliff lip and waterfall above deeper broad main trough. Right side tributary runs from outer+X flank into main trough atX12, y8; floor16m versus main4m; flat main floor width18m and steep shoulders up24m. Use original faceted heightfield with explicitly vertical lip, side/underside closure and finite opaque water volume. Omit tiny vegetation/photo-like texture and secondary stream detail. No glacier, rocks floating over lip, arrows or base plinth. Not another orientation of simple U valley: height difference and tributary are essential.",
+  "style": "Palette-only refined faceted real3D low-poly",
+  "intended_use": "Supporting educational prop256\u2013512px; not specimen/site replica",
+  "created_at": "2026-10-20T14:03:27.972527+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T14:12:30.398064+00:00",
+    "frozen_design_brief_sha256": "0ab3fac67173dc19e21aa91ebf2f864d89764f9de06547a9b26a3f35580f5bc5",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

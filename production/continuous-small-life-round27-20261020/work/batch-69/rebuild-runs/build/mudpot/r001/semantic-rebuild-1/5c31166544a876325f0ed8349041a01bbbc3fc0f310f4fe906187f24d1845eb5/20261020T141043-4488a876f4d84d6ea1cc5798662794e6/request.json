@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch69-20261020/production/continuous-small-life-round27-20261020/work/batch-69/rebuild-runs/build/mudpot/r001/semantic-rebuild-1/5c31166544a876325f0ed8349041a01bbbc3fc0f310f4fe906187f24d1845eb5/20261020T141043-4488a876f4d84d6ea1cc5798662794e6/outputs"
+  ],
+  "created_at": "2026-10-20T14:10:43.268178+00:00",
+  "fingerprint": "5c31166544a876325f0ed8349041a01bbbc3fc0f310f4fe906187f24d1845eb5",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch69-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 6129,
+        "path": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/brief.json",
+        "sha256": "062ab5472da4b574fabf16b961ce3a55fe374ab03f1a1902c62e76d155344fc0"
+      },
+      "config": {
+        "bytes": 895,
+        "path": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/build-config.json",
+        "sha256": "70ed97fc0cbf14d8d806deeb44dc11d7a9786295123a0cf99f73e46bd4600f86"
+      },
+      "generator": {
+        "bytes": 12164,
+        "path": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/generator.py",
+        "sha256": "fedaf6e52541c6d96153eef25f3d3e4f3b5125b07526ab9f178a8658fbcff75f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch69-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2947,
+        "path": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/references.json",
+        "sha256": "af53ddb19fd0fc559c6ee2dba5bd4351c000986583abf8d2f2f9a01c95d9273a"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "mudpot",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch69-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch69-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch69-20261020/assets/candidates/continuous-small-life-round27-20261020/batch-69/mudpot/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T141043-aa2369782b84487f9b1178fe8a82592c"
+}
