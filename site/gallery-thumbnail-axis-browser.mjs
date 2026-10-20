@@ -49,7 +49,9 @@ export async function checkGalleryThumbnailAxis({browser,baseURL,root,output,rep
     await page.locator('#mobile-back').tap();await page.waitForFunction(()=>window.__gallery.state.view==='collection'&&!document.body.classList.contains('mobile-detail'));
     const returned=await snapshot(page);assertAxis(returned,reduced);assert(Math.abs(returned.scroll-enhanced.scroll)<1);assert.deepEqual(returned.rows.map(row=>row.id),enhanced.rows.map(row=>row.id));
     // The user's broad Pillow-lava sample must keep its own scale and clearance.
-    await page.locator('#wheel').evaluate(el=>{el.scrollTop=86*128;});await page.waitForTimeout(250);
+    const pillowIndex=await page.evaluate(()=>window.__gallery.state.results.findIndex(asset=>asset.id==='pillow-lava-outcrop'));
+    assert(pillowIndex>=0,'The current published catalog includes the Pillow sample');
+    await page.locator('#wheel').evaluate((el,index)=>{el.scrollTop=index*128;},pillowIndex);await page.waitForTimeout(250);
     const pillow=await snapshot(page);assertAxis(pillow,reduced);assert(pillow.rows.some(row=>row.id==='pillow-lava-outcrop'));
     await page.locator('#wheel').evaluate(el=>{el.scrollTop+=37;});await page.waitForTimeout(250);assertAxis(await snapshot(page),reduced);
    }
