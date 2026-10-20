@@ -1,0 +1,93 @@
+01:50:03 | INFO: Data are loaded, start creating Blender stuff
+01:50:03 | INFO: Blender create Mesh node Continuous coiled-to-free hollow shell-mesh
+01:50:03 | INFO: glTF import finished in 0.02s
+{
+  "check": "blender_glb_reopen_import",
+  "status": "pass",
+  "errors": [],
+  "glb_sha256": "5bb8a455b222496fbe8568184eb2aff11b717aab29bbf42d3138707781b27f7f",
+  "glb_path": "/tmp/lowpoly-batch55-qa-publish/assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/vermicularia.glb",
+  "blender_version": "4.3.2",
+  "scene_mesh_objects": 1,
+  "triangles": 9264,
+  "materials": [
+    "Aperture rim",
+    "Growth shoulder",
+    "Inner shell",
+    "Shell cream"
+  ],
+  "bounds_blender_z_up_m": {
+    "min": [
+      -0.0889255627989769,
+      -0.04457748308777809,
+      0.0
+    ],
+    "max": [
+      0.0889255627989769,
+      0.04457748308777809,
+      0.07701291143894196
+    ],
+    "size": [
+      0.1778511255979538,
+      0.08915496617555618,
+      0.07701291143894196
+    ]
+  },
+  "bounds_gltf_y_up_m": {
+    "min": [
+      -0.0889255627989769,
+      0.0,
+      -0.04457748308777809
+    ],
+    "max": [
+      0.0889255627989769,
+      0.07701291143894196,
+      0.04457748308777809
+    ],
+    "size": [
+      0.1778511255979538,
+      0.07701291143894196,
+      0.08915496617555618
+    ]
+  },
+  "comparison": {
+    "static_glb_triangles": 9264,
+    "static_glb_materials": 4,
+    "static_glb_bounds_m": {
+      "min": [
+        -0.0889255627989769,
+        0.0,
+        -0.044577484019100666
+      ],
+      "max": [
+        0.0889255627989769,
+        0.07701291237026453,
+        0.044577484019100666
+      ],
+      "size": [
+        0.1778511255979538,
+        0.07701291237026453,
+        0.08915496803820133
+      ]
+    },
+    "bounds_max_error_m": 9.313225746154785e-10,
+    "bounds_tolerance_m": 1e-06
+  },
+  "parts": [
+    {
+      "object": "Continuous coiled-to-free hollow shell",
+      "vertices": 18480,
+      "triangles": 9264,
+      "materials": [
+        "Shell cream",
+        "Growth shoulder",
+        "Inner shell",
+        "Aperture rim"
+      ]
+    }
+  ],
+  "limitations": "Verifies Blender GLTF importer can reopen the exact standalone GLB and matches the GLB static geometry/material/bounds audit. Does not export a replacement or establish visual/factual/GPU/target-scene acceptance."
+}
+Blender 4.3.2
+
+Blender quit
