@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "aturia",
+      "revision": "r002",
+      "job_id": "initial-build",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/build-r002.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/config.json",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/references.json",
+        "freeze": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/freeze.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "aturia.glb",
+        "aturia.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "seed": 5201,
+        "purpose": "initial build",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "aturia",
+      "revision": "r002",
+      "job_id": "semantic-rebuild-1",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/build-r002.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/config.json",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/references.json",
+        "freeze": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/freeze.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "aturia.glb",
+        "aturia.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "seed": 5201,
+        "purpose": "fresh semantic rebuild",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "asset_id": "aturia",
+      "revision": "r002",
+      "job_id": "semantic-rebuild-2",
+      "inputs": {
+        "generator": "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-52/aturia/build-r002.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/config.json",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/references.json",
+        "freeze": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/aturia/r002/freeze.json",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "outputs": [
+        "aturia.glb",
+        "aturia.blend",
+        "metadata.json",
+        "qa.json",
+        "build-timing.json"
+      ],
+      "config": {
+        "seed": 5201,
+        "purpose": "fresh semantic rebuild",
+        "blender_version": "4.3.2"
+      },
+      "timeout_seconds": 180
+    }
+  ]
+}

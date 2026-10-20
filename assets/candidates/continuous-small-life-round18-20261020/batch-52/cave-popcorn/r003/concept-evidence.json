@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "cave-popcorn",
+  "revision": "r003",
+  "labels": {
+    "en": "Cave popcorn",
+    "zh-CN": "\u6d1e\u7a74\u8461\u8404\u72b6\u7ed3\u6838"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "cave-popcorn.glb",
+      "sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b"
+    },
+    "source": {
+      "path": "cave-popcorn.blend",
+      "sha256": "1fcf06b6d7ab810b7122a15f9ec1417e47405fa70f8a7834eafcfa7398bd4f3a"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "61aa3254749cd04670cdcf4cde05f7df2d76dfeeeb5e6b4c1f1ba287a4ec5332"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "33b6f26c1f2b93288142a9a077dcb1738a1e9e1ebc86e3a3462297ff44fa258f"
+    },
+    "brief": {
+      "path": "brief-final.json",
+      "sha256": "8693c8dd420de277e874f0e57b47e109c0468e1a678b23766bf0be8642fbf66f"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "9bb4d2c3387a3ff6667eabf38d7ddd8c7e65700a7f9cf8c95bc80e4a10c9c515"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "prompt.txt",
+      "sha256": "b01a697f9469468c18785dd540956cc027e8c5dce2ac296e4c619b5ed8a149f9"
+    },
+    "generation_record": {
+      "path": "generation-record.json",
+      "sha256": "576d33d3bbee224d1f3122b736d799118e5bf2c05213e03a38072b95988f0571"
+    },
+    "images": [
+      {
+        "id": "concept-sheet",
+        "view": "hero/front/top concept suggestions",
+        "path": "original.png",
+        "sha256": "1e615db7d008d4755c38707d10b49d9908b1493a2fce1e023dfd346268d833eb"
+      }
+    ],
+    "cross_view_consistency_note": "Panels agree on connected slab and rear mound; individual ball counts vary. Authored one continuous fused crust rather than independent concept spheres.",
+    "hidden_surface_decisions": "Closed planar underside, coarse natural rock sides and continuous rounded rear shoulders; no unseen biological anatomy."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T00:10:09Z",
+    "modeling_started_at": "2026-10-20T00:15:17.654089+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage wall duration not recorded; no inferred timing or speed claim."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage wall duration not recorded; no inferred timing or speed claim."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage wall duration not recorded; no inferred timing or speed claim."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage wall duration not recorded; no inferred timing or speed claim."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage wall duration not recorded; no inferred timing or speed claim."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact wall duration unrecorded; retained execution logs are real. Target-browser stage not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "a05b4c4557f5724be8fb9faf712005a0433d87db2721584134507f9df931f195"
+  },
+  "thumbnail": {
+    "path": "proof-final/hero.png",
+    "sha256": "a75f32402e9ba205e2c4e8e84d104da71a6babb7cfceef766a7d9e0839279f22",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "review.md",
+    "sha256": "1d98d65f4b1c7ab7e40acfe5c3e4fcb456f7f5b2b2878ddc231d4eaef955b808"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "779abe1e66c8d750e574f3addbdb5b6c661ba709c67d7a744a45f4c9603e4884"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supplemental checker advisory only; actual hard ceilings remain frozen in brief-final.json and static candidate profile."
+  }
+}

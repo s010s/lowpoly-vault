@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "hypoturrilites",
+  "revision": "r001",
+  "labels": {
+    "en": "hypoturrilites"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "hypoturrilites.glb",
+      "sha256": "23d62a058ebc966e287d6a70feec6c041e30a4c2314418e7504ca59258d56bc1"
+    },
+    "source": {
+      "path": "hypoturrilites.blend",
+      "sha256": "3aaba1ae3140edd3730a3800fb271a131b3891aa8919d95a0efaff11dfb139cc"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "34d48adcee75422948f5b1fe18d480f50ae4d050ea9e853c92b32586496d3239"
+    },
+    "config": {
+      "path": "config.json",
+      "sha256": "7d91dd7ecb73c10ceb69cb931c4423ee4ad56e84d88af11e8fb18c71428727d1"
+    },
+    "brief": {
+      "path": "delivery-brief.json",
+      "sha256": "2cabe7cc13d7b1dd40932634bf606d7c063475b3200da8825004d89d4e851961"
+    },
+    "references": {
+      "path": "references-profile.json",
+      "sha256": "c202c1c1a656dc05b291d5194b1c6755c42d4a6d8592f519e16b7758571e26fc"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "ca350d496f5e26e43fb59c8a9ac1df55ddce77fa3a3104eb3e3c5f0ed7385eab"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "9f41792a81694acf71a0383150c70d02322bfeab378b6d6d9e505a510f454d39"
+    },
+    "images": [
+      {
+        "path": "concepts/original.png",
+        "sha256": "26c9d2112254ac08110582054a850bd2761f1d72f9f63f8134b6cfe0f5116042",
+        "id": "original-concept",
+        "view": "compatible-concept-sheet"
+      }
+    ],
+    "cross_view_consistency_note": "Two views show tapered cream torticone, roughly six descending whorls, spiral rows of blunt nodes. Lower mouth in hero, closed rear. Secondary rear is smaller and omits aperture; not measurable orthographic agreement. Author one continuous expanding tube with terminal bounded cavity, multiple rows of rounded nodes and coherent rear coils. No soft tissue. Reduce fine speckle and triangular noise to quiet faceted limestone regions.",
+    "hidden_surface_decisions": "Continuous rear coil and nodes; lower inner aperture closes at finite depth; original shape, not a copy of PRI specimen."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T00:10:01.659700083Z",
+    "modeling_started_at": "2026-10-20T00:11:04.681394+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact stage wall time unrecorded; actual command wall timings where available retained separately in work execution.jsonl. No provider generation time inferred."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact stage wall time unrecorded; actual command wall timings where available retained separately in work execution.jsonl. No provider generation time inferred."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact stage wall time unrecorded; actual command wall timings where available retained separately in work execution.jsonl. No provider generation time inferred."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact stage wall time unrecorded; actual command wall timings where available retained separately in work execution.jsonl. No provider generation time inferred."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Exact stage wall time unrecorded; actual command wall timings where available retained separately in work execution.jsonl. No provider generation time inferred."
+    },
+    {
+      "stage": "target_browser",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Browser executed; actual report retained. Full stage wall timing not recorded."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "views-static/render-manifest.json",
+    "sha256": "f9b81595a09b19d710408f6cabe93866674b4542715c165ff1cbfe6784be0bbe"
+  },
+  "thumbnail": {
+    "path": "views-static/hero.png",
+    "sha256": "a9286f41032d398346dcce709a19693ad2bcaa042924846caf8f4bf1b78b0551",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "b52f73259e36cc5019314d1d29018ff716c387710c99649692314a9e154f53e4"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "23d62a058ebc966e287d6a70feec6c041e30a4c2314418e7504ca59258d56bc1",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "e8f17c5a7f170bf2dd392323923b60b5b59ca8d7d261c4282743cfe4da9c2eeb"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Example for a small supporting prop. Replace for the actual deployment role."
+  }
+}

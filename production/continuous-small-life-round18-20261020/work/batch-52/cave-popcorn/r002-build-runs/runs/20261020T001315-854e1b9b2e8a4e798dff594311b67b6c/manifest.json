@@ -1,0 +1,39 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "asset_id": "cave-popcorn",
+      "config": {
+        "purpose": "independent deterministic semantic rebuild"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/cave-popcorn/r002/build-config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-52/cave-popcorn/r002/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py"
+      },
+      "job_id": "initial-build",
+      "outputs": [
+        "cave-popcorn/cave-popcorn.glb",
+        "cave-popcorn/cave-popcorn.blend",
+        "cave-popcorn/metadata.json",
+        "cave-popcorn/qa.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 180
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

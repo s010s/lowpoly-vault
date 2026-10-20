@@ -1,0 +1,102 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/config.json",
+    "--output",
+    "/workspace/lowpoly-vault/production/continuous-small-life-round18-20261020/work/batch-53/hypoturrilites/r001/runs/build/hypoturrilites/r001/rebuild-2/47566f881bba8b699b9bb48860e6327f82da49ea22a58da76bdf756a1c6b9451/20261020T001313-b3df0dbe4c8847d99c10c0d0dea4c1f3/outputs"
+  ],
+  "created_at": "2026-10-20T00:13:13.074384+00:00",
+  "fingerprint": "47566f881bba8b699b9bb48860e6327f82da49ea22a58da76bdf756a1c6b9451",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5429,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/brief.json",
+        "sha256": "3b9a0458f082072e754e2921e401209a6bf12372484ccfbc01aa62d7008cf8e8"
+      },
+      "config": {
+        "bytes": 495,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/config.json",
+        "sha256": "7d91dd7ecb73c10ceb69cb931c4423ee4ad56e84d88af11e8fb18c71428727d1"
+      },
+      "generator": {
+        "bytes": 4452,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py",
+        "sha256": "34d48adcee75422948f5b1fe18d480f50ae4d050ea9e853c92b32586496d3239"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 976,
+        "path": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/references.json",
+        "sha256": "a9f2fb257e6acc84e1deae423a6505227f5c32d2b92799e3b7edc080137bc7fb"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "hypoturrilites",
+      "config": {
+        "original": "fresh deterministic build; independent original Blender process each attempt"
+      },
+      "inputs": {
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/brief.json",
+        "config": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/config.json",
+        "generator": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/generator.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round18-20261020/batch-53/hypoturrilites/r001/references.json"
+      },
+      "job_id": "rebuild-2",
+      "outputs": [
+        "hypoturrilites/hypoturrilites.glb",
+        "hypoturrilites/hypoturrilites.blend",
+        "hypoturrilites/metadata.json",
+        "hypoturrilites/qa.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 180
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 180
+  },
+  "run_id": "20261020T001308-b36efc29903c43629cdf500f405323d5"
+}
