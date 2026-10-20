@@ -10,7 +10,8 @@ import { collectInitialRelease, INITIAL_ASSET_IDS } from './initial-release.mjs'
 import { assetFileAllowlist } from './asset-delivery.mjs';
 import { catalogMembership } from './curation.js';
 
-export const REFINABLE_ASSET_IDS = ['conifer-tree', 'fern-cluster', 'natural-arch'];
+import { REFINABLE_ASSET_IDS } from './refinable-asset-ids.mjs';
+export { REFINABLE_ASSET_IDS };
 export const INITIAL_PUBLICATION_SHA256 = '4043e9a35d43773660c2dee061b0e2ca0897aa430427e430d0ca5f331f967275';
 const initialPin = {path:'assets/initial-publication.json', sha256:INITIAL_PUBLICATION_SHA256};
 const runFile = promisify(execFile);

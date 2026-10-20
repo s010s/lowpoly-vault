@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { modelHeight } from './gallery/model-dimensions.js';
 import {checkGalleryStartup} from './gallery-startup-browser.mjs';
 import {checkMobileGallery} from './gallery-mobile-browser.mjs';
+import {checkGalleryThumbnailAxis} from './gallery-thumbnail-axis-browser.mjs';
 
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.webp':'image/webp','.txt':'text/plain','.zip':'application/zip'};
 const defaultGroups=process.env.QA_FORCE_WEBGL_FALLBACK==='1'?['fallback']:['startup','routes','interaction','handoff','detail','scroll','resources','scale','modal','fallback'];
@@ -43,6 +44,7 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
     report.browser=browser.version();
     const has=group=>groups.includes(group);
     if(has('startup')||has('routes'))await checkGalleryStartup({browser,root,baseURL,output,report});
+    if(has('interaction')||has('axis'))await checkGalleryThumbnailAxis({browser,baseURL,root,output,report});
     if(has('interaction'))await checkMobileGallery({browser,baseURL,output,report,assets});
     async function ready(page,id){await page.waitForFunction(id=>window.__gallery&&document.querySelector('#detail')?.dataset.state==='ready'&&(!id||document.querySelector('#detail').dataset.modelId===id),id,{timeout:45000});}
     async function boot(page,path=`models/?model=${initial.id}`,mobile=false){await page.goto(new URL(path,baseURL).href);await page.waitForFunction(()=>window.__gallery?.models.length>0,{},{timeout:45000});if(!mobile)await ready(page);if(manifest.review_only)assert(await page.locator('.gallery-review-notice').isVisible(),'The isolated review must remain visibly labeled');}
@@ -219,6 +221,10 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
       await test('ten-thousand-models-virtualized-deep-search',async({page,row,glbs})=>{
         const fixture=Array.from({length:10000},(_,i)=>({...initial,id:`scale-${String(i).padStart(5,'0')}`,name:{en:`Scale specimen ${i}`,zh:i===9999?'深页测试模型':`测试模型 ${i}`},category:i%2?'plants':'geology',packs:[`pack-${i%19}`],worlds:[i%3?'prehistoric':'fiction'],triangles:100+i}));
         await page.route('**/assets/manifest.json',route=>route.fulfill({contentType:'application/json',body:JSON.stringify({...manifest,review_only:false,assets:fixture})}));
+        // The browser consumes one membership-matching manifest/index pair. A
+        // synthetic scale catalog must replace both, not bypass that contract.
+        const facets=kind=>[...new Set(fixture.flatMap(asset=>asset[kind]))].map(id=>({id,count:fixture.filter(asset=>asset[kind].includes(id)).length}));
+        await page.route('**/assets/catalog.json',route=>route.fulfill({contentType:'application/json',body:JSON.stringify({version:1,total:fixture.length,review_only:false,worlds:facets('worlds'),packs:facets('packs')})}));
         await page.goto(new URL('models/',baseURL).href);await page.waitForFunction(()=>window.__gallery?.models.length===10000);await ready(page);
         assert((await page.locator('#slots .slot').count())<40);await page.locator('#wheel').focus();await page.keyboard.press('End');assert.equal(await page.locator('#wheel').getAttribute('aria-activedescendant'),'option-scale-09999');
         const before=glbs.length;await search(page,'深页 测试');assert.deepEqual(await page.evaluate(()=>window.__gallery.state.results.map(a=>a.id)),['scale-09999']);assert.equal(glbs.length,before);

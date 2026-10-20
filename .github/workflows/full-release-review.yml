@@ -34,22 +34,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check exact-tree validated PR reuse
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        id: reuse
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node site/ci-reuse.mjs
       - id: scope
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
           FULL_REVIEW: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
-        run: |
-          if [ "${{ steps.reuse.outputs.reused }}" = "true" ]; then
-            echo 'tasks=["none"]' >> "$GITHUB_OUTPUT"
-          else
-            node site/ci-scope.mjs
-          fi
+        run: node site/ci-scope.mjs
       - name: Record independently verifiable PR source
         if: github.event_name == 'pull_request'
         env:
@@ -63,7 +52,12 @@ jobs:
           name: validated-review-${{ github.run_attempt }}
           path: qa/ci-provenance/review/
           if-no-files-found: error
-  prepare:
+  prepare-source:
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+      pull-requests: read
     needs: scope
     if: needs.scope.outputs.tasks != '["none"]'
     runs-on: ubuntu-latest
@@ -78,13 +72,77 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - name: Brand source contracts when present
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
-      - name: Complete and audit the shared exact-catalog build once
-        run: npm run gallery:posters && REQUIRE_COMPLETE_GALLERY=1 node site/audit-release.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raw-full-review-built-site
+          path: dist/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raw-full-review-render-template
+          path: qa/ci-model-proof/vite-template.html
+          if-no-files-found: error
+  prepare:
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+      pull-requests: read
+    outputs:
+      tasks: ${{ steps.model_plan.outputs.tasks }}
+      fresh_ids: ${{ steps.model_plan.outputs.fresh_ids }}
+      fresh_count: ${{ steps.model_plan.outputs.fresh_count }}
+      reused_count: ${{ steps.model_plan.outputs.reused_count }}
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+    needs: [scope, prepare-source]
+    if: needs.scope.outputs.tasks != '["none"]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: raw-full-review-built-site
+          path: dist/
+      - uses: actions/download-artifact@v4
+        with:
+          name: raw-full-review-render-template
+          path: qa/ci-model-proof/
+      - name: Check exact source-bound inputs before clean gallery capture
+        run: node site/ci-clean-gallery.mjs
+      - run: node site/ci-install-chromium.mjs
+      - name: Complete the exact gallery in a collector-free proof runner
+        env:
+          CI_GALLERY_PROOF_DIR: qa/ci-gallery-proof
+        run: npm run gallery:posters && node site/gallery-assets.mjs --dist --complete
+      - name: Independently plan exact fresh and reused model evidence
+        id: model_plan
+        env:
+          CI_REVIEW_TASKS: ${{ needs.scope.outputs.tasks }}
+          FULL_REVIEW: ${{ github.event_name == 'workflow_dispatch' }}
+        run: node site/ci-incremental-models.mjs plan
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exact-model-plan
+          path: qa/ci-model-proof/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gallery-poster-proof-v1-${{ github.run_attempt }}
+          path: qa/ci-gallery-proof/
+          if-no-files-found: error
       - name: Bind shared build bytes to source and validation policy
         run: node site/ci-model-shards.mjs seal-build
       - uses: actions/upload-artifact@v4
@@ -97,12 +155,41 @@ jobs:
           name: full-review-built-site
           path: dist/
           if-no-files-found: error
+  audit-prepared-build:
+    # All original publication/inventory assertions still execute. This runner's
+    # copy can never replace artifacts from the collector-free proof producer.
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: full-review-built-site
+          path: dist/
+      - run: node site/ci-model-shards.mjs verify-build
+      - name: Preserve mandatory complete publication and deployment inventory audit
+        run: node site/ci-model-shards.mjs audit-build
+      - name: Require audit to leave the sealed artifact unchanged
+        run: node site/ci-model-shards.mjs verify-build
   build:
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
     strategy:
       fail-fast: false
       max-parallel: 6
       matrix:
-        task: ${{ fromJSON(needs.scope.outputs.tasks) }}
+        task: ${{ fromJSON(needs.prepare.outputs.tasks) }}
     needs: [scope, prepare]
     if: needs.scope.outputs.tasks != '["none"]'
     runs-on: ubuntu-latest
@@ -115,14 +202,18 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/catalog-data-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - uses: actions/download-artifact@v4
         with:
           name: full-review-built-site
           path: dist/
+      - uses: actions/download-artifact@v4
+        with:
+          name: exact-model-plan
+          path: qa/ci-model-proof/
       - name: Verify exact shared build before every browser probe
         run: node site/ci-model-shards.mjs verify-build
-      - run: npx playwright install --with-deps chromium
+      - run: node site/ci-install-chromium.mjs
         id: install_chromium
       - name: Run selected acceptance scope
         env:
@@ -131,9 +222,17 @@ jobs:
           CI_RUNTIME: ${{ needs.scope.outputs.runtime }}
           CI_MODELS: ${{ needs.scope.outputs.models }}
           CI_PREVIEWS: ${{ needs.scope.outputs.previews }}
-          QA_MODEL_IDS: ${{ needs.scope.outputs.ids }}
-          PREVIEW_ASSET_IDS: ${{ needs.scope.outputs.ids }}
+          CI_MODEL_PROOF_ACTIVE: 'true'
+          QA_MODEL_IDS: ${{ needs.prepare.outputs.fresh_ids }}
+          PREVIEW_ASSET_IDS: ${{ needs.prepare.outputs.fresh_ids }}
         run: node site/ci-review.mjs
+      - name: Preserve successful separate card-WebP reproduction proof
+        if: success() && matrix.task == 'previews'
+        uses: actions/upload-artifact@v4
+        with:
+          name: card-preview-proof
+          path: qa/ci-card-preview-proof/receipt.json
+          if-no-files-found: error
       - name: Preserve successful exact model shard coverage
         if: success() && startsWith(matrix.task, 'models-')
         uses: actions/upload-artifact@v4
@@ -175,8 +274,15 @@ jobs:
             qa/continuous-release-round11-20261018/site/
             qa/continuous-release-round12-20261018/site/
   model-coverage:
-    name: Verify exact model shard coverage
-    needs: [scope, prepare, build]
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+    name: Verify exact fresh and reused model coverage
+    needs: [scope, prepare, build, audit-prepared-build]
     if: always() && needs.scope.result == 'success' && needs.scope.outputs.models == 'true'
     runs-on: ubuntu-latest
     steps:
@@ -184,12 +290,22 @@ jobs:
         env:
           PREPARE_RESULT: ${{ needs.prepare.result }}
           BUILD_RESULT: ${{ needs.build.result }}
-        run: test "$PREPARE_RESULT" = success && test "$BUILD_RESULT" = success
+          AUDIT_RESULT: ${{ needs.audit-prepared-build.result }}
+        run: test "$PREPARE_RESULT" = success && test "$BUILD_RESULT" = success && test "$AUDIT_RESULT" = success
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: npm ci --ignore-scripts
       - uses: actions/download-artifact@v4
+        with:
+          name: full-review-built-site
+          path: dist/
+      - run: node site/ci-model-shards.mjs verify-build
+      - uses: actions/download-artifact@v4
+        if: needs.prepare.outputs.fresh_count != '0'
         with:
           pattern: model-shard-*
           path: qa/ci-model-shards/
@@ -198,13 +314,22 @@ jobs:
         with:
           name: model-build-seal
           path: qa/ci-model-build/
-      - name: Require exact union, matching GLB hashes and one verified build
+      - uses: actions/download-artifact@v4
+        with:
+          name: exact-model-plan
+          path: qa/ci-model-proof/
+      - uses: actions/download-artifact@v4
+        if: needs.prepare.outputs.fresh_count != '0'
+        with:
+          name: card-preview-proof
+          path: qa/ci-card-preview-proof/
+      - name: Independently verify exact fresh plus reused union and one build
         env:
-          CI_RUNTIME: ${{ needs.scope.outputs.runtime }}
-          QA_MODEL_IDS: ${{ needs.scope.outputs.ids }}
-        run: node site/ci-model-shards.mjs aggregate
+          CI_REVIEW_TASKS: ${{ needs.scope.outputs.tasks }}
+          CI_REVIEW_EXECUTED_TASKS: ${{ needs.prepare.outputs.tasks }}
+        run: node site/ci-incremental-models.mjs aggregate
       - uses: actions/upload-artifact@v4
         with:
-          name: exact-model-coverage-${{ github.sha }}
-          path: qa/ci-model-coverage/coverage.json
+          name: model-proof-v2-${{ github.run_attempt }}
+          path: qa/ci-model-proof/model-proof.json
           if-no-files-found: error

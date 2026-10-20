@@ -1,8 +1,9 @@
 /** Bounded deterministic GPU partitions. Evidence is coverage, never publication approval. */
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, lstatSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, lstatSync, unlinkSync, realpathSync } from 'node:fs';
+import { join, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { sha256, git, controlDigest, runtimeConfig } from './ci-provenance.mjs';
 
 export const MODEL_SHARD_LIMIT = 5;
@@ -61,6 +62,31 @@ export function verifyBuild(directory, identity = currentIdentity()) {
   assert.equal(receipt.version, 1);
   assert.deepEqual(receipt.identity, identity, 'Shared build source, policy, manifest, runtime or run differs');
   assert.equal(receipt.payload_sha256, payloadDigest(directory), 'Shared build bytes differ');
+  return receipt;
+}
+/** Audit deployment bytes without treating the internal CI seal as public content. */
+export function auditBuild(directory, identity, audit) {
+  const absolute = resolve(directory);
+  assert.equal(realpathSync(directory), absolute, 'Audit build directory must not be a link');
+  const capturedIdentity = structuredClone(identity);
+  const receipt = verifyBuild(directory, capturedIdentity), filename = join(directory, BUILD_RECEIPT);
+  const sealExists = () => { try { lstatSync(filename); return true; } catch (error) { if (error.code === 'ENOENT') return false; throw error; } };
+  const original = readFileSync(filename), originalHash = sha256(original);
+  unlinkSync(filename);
+  try {
+    const result = audit();
+    assert(!result || typeof result.then !== 'function', 'Build audit must complete synchronously');
+    assert(!sealExists(), 'Audit emitted a reserved build seal');
+    assert.equal(payloadDigest(directory), receipt.payload_sha256, 'Audit changed the sealed deployment payload');
+  } finally {
+    // The child never receives the original bytes. Restore them even after an
+    // audit failure, without following a replacement directory or seal link.
+    assert.equal(realpathSync(directory), absolute, 'Audit replaced its build directory');
+    if (sealExists()) unlinkSync(filename);
+    writeFileSync(filename, original, { flag: 'wx' });
+    assert.equal(sha256(readFileSync(filename)), originalHash, 'Audit seal restoration differs');
+  }
+  assert.deepEqual(verifyBuild(directory, capturedIdentity), receipt, 'Audit changed the original build seal');
   return receipt;
 }
 export function modelReceipt(manifest, plan, shard, browser, build) {
@@ -135,6 +161,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     console.log(`Sealed shared review build ${receipt.payload_sha256}`);
   } else if (command === 'verify-build') {
     console.log(`Verified shared review build ${verifyBuild(directory).payload_sha256}`);
+  } else if (command === 'audit-build') {
+    assert.equal(resolve(directory), resolve('dist'), 'Publication audit requires the exact deployment directory');
+    const receipt = auditBuild(directory, currentIdentity(), () => execFileSync(process.execPath, ['site/audit-release.mjs'], {
+      stdio: 'inherit', env: { ...process.env, REQUIRE_COMPLETE_GALLERY: '1' },
+    }));
+    console.log(`Audited unchanged deployment payload and restored exact internal seal ${receipt.payload_sha256}`);
   } else if (command === 'aggregate') {
     const manifest = JSON.parse(readFileSync('assets/manifest.json'));
     const plan = modelPlan(manifest, { runtime: process.env.CI_RUNTIME === 'true', ids: process.env.QA_MODEL_IDS || '' });

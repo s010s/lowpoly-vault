@@ -2,7 +2,7 @@
 import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { itemWorlds, itemPacks, compareCatalogNames } from './routes.js';
-import { catalogMembership, WORLD_LABELS, PACK_LABELS, PACK_RECORDS } from './curation.js';
+import { createCuration, CATALOG_DATA } from './curation.js';
 
 export const CATALOG_SHARD_SIZE = 256;
 const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });
@@ -16,10 +16,11 @@ const relativeAssetPath = value => typeof value === 'string' && value.startsWith
   !/[\\\u0000-\u001f?#%]/.test(value) && !value.split('/').some(part => part === '..' || part === '.');
 
 /** In-memory equivalent used by Vite. Full detail objects are referenced, never duplicated. */
-export function createCatalog(manifest, { name = 'catalog', approvedOnly = false } = {}) {
+export function createCatalog(manifest, { name = 'catalog', approvedOnly = false, catalogData = CATALOG_DATA } = {}) {
   if (!manifest || !Array.isArray(manifest.assets)) throw new Error('Catalog requires an existing manifest.');
   if (approvedOnly && manifest.review_only) throw new Error('A review-only manifest cannot produce a release catalog.');
   if (!['catalog', 'catalog-review'].includes(name)) throw new Error('Invalid catalog name.');
+  const { catalogMembership, WORLD_LABELS, PACK_LABELS, PACK_RECORDS } = createCuration(catalogData);
   const prefix = `assets/${name}`;
   const normalized = manifest.assets.map(asset => ({...asset, collection:asset.collection || asset.worlds?.[0] || 'unscoped'}));
   const ids = new Set();
