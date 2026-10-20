@@ -1,0 +1,24 @@
+# Produce batch-54 concept-guided candidates
+
+Use GPT-6.1 Sol medium in an isolated saved cloud environment. This is a new four-ID dispatch selection from the existing approved 1000-asset inventory, not invented model scope.
+
+Exact IDs: didymoceras, spirematospermum, cave-shield, psammichnites-ribbon-trace.
+
+Read this round's concept-plan-requirements.json, profile-policy.json, reference-policy.json, review-policy.json and work/batch-54/claim.json. The original inventory records and source-freeze.json are immutable source evidence, NOT prior generated concepts or a derived modeling freeze. Read current-main skills/concept-guided-lowpoly/SKILL.md, its references/workflow.md, lowpoly-art-direction and blender-lowpoly-pipeline standardized pipeline. Check checkout .agents/skills only where relevant. Explicit maker/model selection here supersedes historical model defaults.
+
+Start from then-current main on candidate/small-life-batch54-concept-20261020. Copy only required round 19 planning inputs. Do not merge the planning branch, modify any old frozen brief, or carry historical CI/site/release changes. Confirm exclusive assignment before production. Parent fills actual task/thread IDs; never invent them.
+
+Generate real ImageGen concepts first; save original images, exact prompts and actual invocation/results. Inspect pixels and reconcile multiview contradictions before creating new derived per-asset briefs/configs/reference decisions and a fresh hash-bound modeling freeze with truthful chronology. Do not backdate a model/render as a concept.
+
+Model full-volume editable original geometry. Exact exported GLB produces every preview and final acceptance image. Keep generator/config/seed/dependency hashes, editable Blend, standalone GLB, eight standard views, actual metrics, source reopen and two semantic rebuilds. Fixed profile static-stylized-v1, rule 2026-10-18.1: hard maximum 14,000 triangles, 1,000,000 GLB bytes, 6 materials and 30 primitives; usually 100–500 KB but smaller valid. At most one 256 px texture, 65,536 encoded bytes / 524,288 decoded bytes. Geometry changes require visible craft benefit, not count inflation.
+
+Preserve seven acceptance stages separately: technical, visual, factual, specification, runtime_parse, gpu and scene. Unknown, failed and unrun remain so; software rendering is not physical-device performance evidence. Concept-evidence checker is supplemental, never independent acceptance. Parent alone launches exactly one fresh-context GPT-6 Luna xhigh independent full QA for the four pinned source/GLB subjects. Only targeted difference review for actual repairs. Do not self-approve, launch redundant review, merge, deploy or upload to Drive. Normal candidate-branch push only, author Leon Made This <8357465+s010s@users.noreply.github.com>.
+
+Use per-asset isolated work/revision paths under production/continuous-small-life-round19-20261020/work/batch-54/ and assets/candidates/continuous-small-life-round19-20261020/batch-54/. One Blender process, two threads per maker; this batch replaces one freed maker slot and may run alongside the already-active non-overlapping batch 53, not as a third maker. Keep prior attempts/logs, never kill unrelated processes. Complete and report useful per-asset results promptly. Record actual stage start/end times when observed; otherwise use unrecorded/unknown, never backdate or invent durations. Never describe dispatch, modeling or acceptance as completed before it occurs.
+
+## Original scope boundaries
+
+- didymoceras: Original fossil shell study with an open high spiral descending into a broad hooked final chamber. Preserve continuous shell volume, gaps between open whorls and the diagnostic terminal hook; do not reuse the tight Hypoturrilites helix or a generic stacked-ring cone. No conjectural soft body, named species, locality or specimen-copy claim.
+- spirematospermum: One elongated, slightly open rib-walled fossil capsule containing a few inseparable spirally marked seed forms. Keep capsule opening, real wall thickness and seed grooves readable in clay and alternate views. Preserve the fossil-organ scope and debated family placement; no parent plant, separate seed asset, rhizome or leaf.
+- cave-shield: Two near-parallel rounded mineral plates separated by a readable medial crack, with a plausible supported attachment rather than two floating discs. Plate thickness and the gap must be real full-volume geometry visible in side and clay views, not a painted seam. No exact age, locality or dimensions are claimed.
+- psammichnites-ribbon-trace: A broad raised ribbon trace with a distinct median dorsal ridge and transverse internal divisions. Preserve the original raised-fossil-relief convention and distinguish it from smooth trilobed Curvolithus and lengthwise-furrowed Halopoa. Do not infer a producer; Olivellites and Plagiogmus are aliases, not additional models. Slab and any section are illustrative.
