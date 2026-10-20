@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "kind": "independent_batch52_quality_review",
+  "review_date_utc": "2026-10-20",
+  "frozen_input_record": "replay-20261020T003048Z/pinned-inputs.json",
+  "reviewed_concept_images": 4,
+  "reviewed_hash_bound_glb_proof_frames": 32,
+  "proof_views_per_asset": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "verdicts": {
+    "aturia": {
+      "revision": "r002",
+      "glb_sha256": "65f2c625334872f5e849d3bee11ff6085cc3245c93cb2cd86ba4baf13a74287b",
+      "visual": "fail_must_fix",
+      "finding": "A large, sharply bounded angular radial/annular color sector cuts across the shell in the color views. It reads as a cutaway or segmentation and conflicts with the brief's smooth shell and restrained mottling; it is absent from the concept. Keep the shell profile, but remove this sector or replace it with much subtler, irregular fossil variation. Rerender and review the same eight views after that single targeted change.",
+      "factual": "pass_limited_scope",
+      "factual_scope": "Aturia-inspired fossil shell prop only; no specimen facsimile, pigment, locality, age, or specimen dimensions claimed. Institutional source text was inspected. The linked specimen-photo proxy returned HTTP 403 through the network proxy; no official photo pixels were viewed.",
+      "technical": "pass",
+      "specification": "pass",
+      "runtime_parse": "pass_limited_software_webgl",
+      "gpu": "unknown_physical_hardware_not_tested",
+      "scene": "pass_limited_software_webgl"
+    },
+    "phoenicopsis": {
+      "revision": "r001",
+      "glb_sha256": "7e7fa939eeca8d1d0571ae1724faa7fa2387f03441bf0794fe4b269d666182d0",
+      "visual": "pass",
+      "finding": "Three detached shoots carry fifteen separate strap-shaped leaves. Leaves remain unbranched; no forked blade geometry was found. Overlaps in top view are leaf crossings, not branching. Concept and eight exact-GLB views are coherent.",
+      "factual": "pass_limited_scope",
+      "factual_scope": "A stylized Phoenicopsis foliage study. The consulted museum catalogue identifies Phoenicopsis and P. angustifolia; exact tree habit, size, specimen reconstruction, and detailed taxonomic leaf claims are not asserted.",
+      "technical": "pass",
+      "specification": "pass",
+      "runtime_parse": "pass_limited_software_webgl",
+      "gpu": "unknown_physical_hardware_not_tested",
+      "scene": "pass_limited_software_webgl"
+    },
+    "cave-popcorn": {
+      "revision": "r003",
+      "glb_sha256": "36439f98c26784601b24ba4ac18c709f51c3ef9b071e0225438aaec42b7ba85b",
+      "visual": "pass",
+      "finding": "A connected fused knobby crust on a limestone slab reads as cave popcorn. The source geometry is a single fused mesh, not disconnected bead-like spheres. The silhouette and surface are clear across the eight views; no must-fix issue found.",
+      "factual": "pass_limited_scope",
+      "factual_scope": "Generic cave-popcorn speleothem form. National Park Service material supports small knobby calcite growths on cave walls, floors, or ledges. No named locality, age, or specimen dimensions claimed.",
+      "technical": "pass",
+      "specification": "pass",
+      "runtime_parse": "pass_limited_software_webgl",
+      "gpu": "unknown_physical_hardware_not_tested",
+      "scene": "pass_limited_software_webgl"
+    },
+    "curvolithus-trilobed-trail": {
+      "revision": "r001",
+      "glb_sha256": "c07529a8856b679af1a1d3e816c37046076488ee926f7e38e70241f0cbefed22",
+      "visual": "pass",
+      "finding": "The trail has three raised smooth lobes, a wider central lobe, and separating furrows. Side, front, clay, and silhouette views show positive relief above a closed slab; it does not read as a negative impression. No must-fix issue found.",
+      "factual": "pass_limited_scope",
+      "factual_scope": "A generic Curvolithus-like trilobed trace. Kansas Geological Survey text describes the trilobate upper surface, broader central lobe, narrow furrows, and positive relief. No producer, locality, age, or exact specimen is claimed.",
+      "technical": "pass_with_reviewed_source_style_warning",
+      "technical_warning": "Source-export checker flags smooth faces for intentional-style review. These faces were inspected in clay and low-poly views and are deliberate; the warning is accepted without a geometry change.",
+      "specification": "pass",
+      "runtime_parse": "pass_limited_software_webgl",
+      "gpu": "unknown_physical_hardware_not_tested",
+      "scene": "pass_limited_software_webgl"
+    }
+  },
+  "formal_candidate_approval": "pending_for_all_four; independent QA evidence does not itself edit or approve candidate records",
+  "concept_provenance_completeness": "incomplete_for_all_four_only_because_exact_provider_generation_timestamp_is_unknown; no timestamp inferred or fabricated",
+  "evidence_sources": [
+    {
+      "asset_id": "aturia",
+      "url": "https://www.digitalatlasofancientlife.org/learn/mollusca/cephalopoda/nautiloidea/",
+      "use": "Consulted source text identifies Aturia fossils; the photo proxy was unavailable and not viewed."
+    },
+    {
+      "asset_id": "phoenicopsis",
+      "url": "https://shmuseum.hku.hk/education/earth-evolution/mesozoic/dinosaur-world/plants-in-the-dinosaur-world",
+      "use": "Consulted museum text/catalogue entries; detailed reconstruction claims remain limited."
+    },
+    {
+      "asset_id": "cave-popcorn",
+      "url": "https://www.nps.gov/wica/learn/nature/cave-formations-speleothems.htm",
+      "use": "Consulted text for generic knobby calcite speleothem form."
+    },
+    {
+      "asset_id": "curvolithus-trilobed-trail",
+      "url": "https://www.kgs.ku.edu/Publications/Bulletins/245/04_ichno.html",
+      "use": "Consulted text for trilobed morphology and positive relief."
+    }
+  ]
+}
