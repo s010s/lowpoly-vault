@@ -211,8 +211,8 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
         await page.locator('#info').click();assert((await page.locator('#info-content').textContent()).includes(last.name.en));row.gpu='not-accepted-forced-fallback';
       },{skipBoot:true,prepare:async({page})=>page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){if(/webgl/i.test(type))return null;return original.call(this,type,...args);};})});
       await test('failed-catalog-retains-real-html',async({page})=>{
-        await page.goto(new URL('zh-CN/models/',baseURL).href);await page.locator('.gallery-load-error').waitFor();assert(await page.locator('#static-route-content').isVisible());assert(await page.locator('#static-route-content .static-card').count()>0);
-        const detail=await page.locator('#static-route-content .static-card').first().getAttribute('href');const response=await page.request.get(new URL(detail,baseURL).href);assert(response.ok());assert((await response.text()).includes('class="static-downloads"'));
+        await page.goto(new URL('zh-CN/models/',baseURL).href);await page.locator('.gallery-load-error').waitFor();assert(await page.locator('#static-route-content').isVisible());assert(await page.locator('#static-route-content .slot[href]').count()>0);
+        const detail=await page.locator('#static-route-content .slot[href]').first().getAttribute('href');const response=await page.request.get(new URL(detail,baseURL).href);assert(response.ok());assert((await response.text()).includes('class="static-downloads"'));
       },{skipBoot:true,prepare:async({page})=>page.route('**/assets/manifest.json',route=>route.fulfill({status:503,body:'Intentional unavailable catalog'}))});
     }
     if(has('scale')){

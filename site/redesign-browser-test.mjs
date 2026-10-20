@@ -202,11 +202,16 @@ async function noJavaScriptChecks() {
       for (let index = 0; index < pages; index++) {
         await page.goto(urlFor({ type: 'models', lang, page: index }));
         assert(await content.isVisible(), 'No-JS catalog must remain readable');
-        const links = await content.locator('a.static-card').evaluateAll(nodes => nodes.map(node => node.href));
-        assert.equal(links.length, manifest.assets.slice(index * CATALOG_PAGE_SIZE, (index + 1) * CATALOG_PAGE_SIZE).length);
-        detailLinks.push(...links);
+        const links = await content.locator(wheelBuild?'a.slot[href]':'a.static-card').evaluateAll(nodes => nodes.map(node => node.href));
+        assert.equal(links.length, wheelBuild?manifest.assets.length:manifest.assets.slice(index * CATALOG_PAGE_SIZE, (index + 1) * CATALOG_PAGE_SIZE).length);
+        assert.equal(new Set(links).size,links.length,'Each native document links every model exactly once');
+        if(wheelBuild){
+          const selected=(!index&&manifest.assets.find(asset=>asset.id==='cooperoceras'))||manifest.assets[index*CATALOG_PAGE_SIZE];
+          assert.equal(await content.locator('.slot[data-selected=true]').getAttribute('data-id'),selected.id,'Page routes retain their initial wheel selection');
+        }
+        if(!wheelBuild||index===0)detailLinks.push(...links);
         for (const [rel, target] of [['prev', index - 1], ['next', index + 1]]) {
-          const navigation = content.locator(`.static-pagination a[rel="${rel}"]`);
+          const navigation = content.locator(`${wheelBuild?'.startup-pagination':'.static-pagination'} a[rel="${rel}"]`);
           if (target >= 0 && target < pages) {
             assert.equal(await navigation.count(), 1, 'No-JS pagination must expose adjacent pages');
             assert.equal(await navigation.evaluate(node => node.href), urlFor({type:'models',lang,page:target}));
