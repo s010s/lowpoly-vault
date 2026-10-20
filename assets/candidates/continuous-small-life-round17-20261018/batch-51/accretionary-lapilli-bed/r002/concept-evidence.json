@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "accretionary-lapilli-bed",
+  "revision": "r002",
+  "labels": {
+    "en": "Accretionary lapilli bed",
+    "zh-CN": "增生火山砾层"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "accretionary-lapilli-bed.glb",
+      "sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3"
+    },
+    "source": {
+      "path": "accretionary-lapilli-bed.blend",
+      "sha256": "83b58908c86c908b28330bfbf5e8ff034020e186812a41a4f9682e151d387125"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "7128a119466d57120bf2f5635618a510dbecc4b36693d95f113e4709d22bd418"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "03cfc2dfbc7960342a3426d0085f93c32dbb71af5c1cf7e7fd7219b63b39a611"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5245b6fb370a20b8622e83f29a289fcf263b8caa60e81ec2a5d1a70aad884465"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "0f3019059ad83b67e7af323ec950437a3f08828aa5c21e2ec6cd82185c5495c5"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "bf17fc74b41b04dfe0a51670f4efed0bcbf1543418039e7d5b614de4fa3cc801"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "0d8ddb7ddf2b0487a5fa69af935d20ca15277f14c7962df495e217b3df749fc8"
+    },
+    "images": [
+      {
+        "id": "concept-multiview",
+        "view": "hero/top/side compatible suggestions",
+        "path": "concepts/original.png",
+        "sha256": "0a71d024dd5550445c94a54204b3cdcce3e8ef8d9ce2d541ff7c4c325b2ad5e7"
+      }
+    ],
+    "cross_view_consistency_note": "Thick continuous layered ash block, sparse rounded aggregates emerging from top and front, a few concentric section faces. Broad matrix areas remain quiet. Number and location of sectioned pellets differ between panels; surface speckle is illustrative. Freeze one original continuous ash block with quiet top, seven subtly uneven layers, small embedded rounded pellets, and three intentionally exposed concentric section faces. Deposition layers wrap continuously; aggregate scales/bands are illustrative enlarged teaching features, not specimen measurements. Do not copy image speckle as a texture.",
+    "hidden_surface_decisions": "Irregular clipped-corner eroded block, closed bottom and broad ash-matrix strata; small rounded faceted embedded pellets. Concentric section geometry sits flush against front/right matrix faces. Palette-only portable material regions."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-19T22:47:36.179879+00:00",
+    "modeling_started_at": "2026-10-19T22:55:56.869785+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 22.1454,
+      "measurement_record": {
+        "path": "candidate-proof/render-manifest.json",
+        "sha256": "94e474d4e0a2d93056c17284d2c7fc3ada08e1317d7f9c797165f640ced71a4e"
+      },
+      "note": "Actual renderer measured eight-frame render loop; excludes process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "target_browser",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "candidate-proof/render-manifest.json",
+    "sha256": "94e474d4e0a2d93056c17284d2c7fc3ada08e1317d7f9c797165f640ced71a4e"
+  },
+  "thumbnail": {
+    "path": "candidate-proof/hero.png",
+    "sha256": "d8d3931769a2c9da98d0c46531d7d53f1904f45f6f1ffbf8cd82d44caa288062",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "93cb0fcfe02da9f1d496ba9e2becc92c6b0506d5a33ec81a358139d5b983c10d"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "61b2ae162930e8b8221e0f3cad27dd3e044a99ba6883db299dbe041231711cf3",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "72659b35238deb698a991585f2846c82ff5936a9b861522666053bcd99bafe4b"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supplemental checker is advisory only; formal candidate brief independently enforces the unchanged hard 1,000,000 byte / 14,000 triangle caps."
+  }
+}

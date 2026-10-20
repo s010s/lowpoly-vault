@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "kind": "deterministic-concept-derived-build-config",
+  "asset_id": "dicranurus",
+  "batch_id": "batch-51",
+  "revision": "r001",
+  "maker_model": "GPT-6.1 Sol",
+  "maker_reasoning_effort": "medium",
+  "environment": "authorized selected cloud only",
+  "seed": 2026101815,
+  "representation": "living-reconstruction",
+  "reconstruction_type": "whole-organism",
+  "nominal_scale": {
+    "meters": 0.065,
+    "axis": "body and backward horns span",
+    "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "preview": {
+    "resolution": 512,
+    "samples": 8,
+    "poster_view": "hero"
+  },
+  "static_only": true,
+  "animation_ready_claim": false,
+  "start_gate": "Next round is planning only; parent explicit exclusive assignment needed. For already assigned workers, latest state and explicit parent dispatch override stale empty claims or initial queue snapshots.",
+  "concurrency": "Parent-coordinated shared host pool; default one worker x two Blender threads, no per-batch full-host allocation.",
+  "candidate_validation_profile": "static-stylized-v1",
+  "candidate_rule_version": "2026-10-18.1",
+  "publication_authority": "separate",
+  "plan_version": "batch51-concept-plan-v001",
+  "design": {
+    "observed": "Compact cephalon with swollen central glabella, small eyes, overlapping arched segments, long lateral spines and two open backward horn loops. Dark blue-slate primary material, warm gray rims. Hero and top have two horns; side merges the pair. Fine segment/side-spine counts differ across panels.",
+    "resolve": "Use ten authored thoracic plates, paired genal spines and ten paired swept pleural tips, plus two occipital horns with open air gaps. Counts are deliberate artistic simplification, not taxonomic claims. No eye stalks. Underside is a closed quiet ventral volume without invented fine appendage anatomy.",
+    "masses": "Broad curved cephalic shield, raised glabella, compact tapering axial/pleural shell, ten arched overlapping plates and small pygidial shield. Tapered lofted horns have substantial organic roots and varying section. Separate semantic meshes retain editable volume.",
+    "dimensions": [
+      0.065,
+      0.065,
+      0.035
+    ],
+    "palette": [
+      "#45525F",
+      "#5C6871",
+      "#7B807D",
+      "#292F35"
+    ],
+    "nominal": 0.065
+  },
+  "blender_version": "4.3.2",
+  "three_version": "0.180.0",
+  "source_plan_sha256": "cb61de5b0dc33b60f07ac1bbdbd5e37ec5e81afe166c76eb2ec22cf5eb5104e3"
+}

@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "lane": "render",
+  "jobs": [
+    {
+      "asset_id": "ventifact",
+      "revision": "r001",
+      "job_id": "exact-eight-views",
+      "inputs": {
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.glb",
+        "source": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/ventifact.blend",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/ventifact/r001/references.json",
+        "renderer": "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "source_checker": "/workspace/lowpoly-vault/scripts/check_source_export.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "12"
+      ],
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "config": {
+        "purpose": "fixed8 exact GLB full-angle evidence"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "pentichnus-deep-dwelling-trace",
+      "revision": "r001",
+      "job_id": "exact-eight-views",
+      "inputs": {
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/pentichnus-deep-dwelling-trace/r001/pentichnus-deep-dwelling-trace.glb",
+        "source": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/pentichnus-deep-dwelling-trace/r001/pentichnus-deep-dwelling-trace.blend",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/pentichnus-deep-dwelling-trace/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/pentichnus-deep-dwelling-trace/r001/references.json",
+        "renderer": "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "source_checker": "/workspace/lowpoly-vault/scripts/check_source_export.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "12"
+      ],
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "config": {
+        "purpose": "fixed8 exact GLB full-angle evidence"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "weichselia",
+      "revision": "r001",
+      "job_id": "exact-eight-views",
+      "inputs": {
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/weichselia/r001/weichselia.glb",
+        "source": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/weichselia/r001/weichselia.blend",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/weichselia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/weichselia/r001/references.json",
+        "renderer": "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "source_checker": "/workspace/lowpoly-vault/scripts/check_source_export.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "12"
+      ],
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "config": {
+        "purpose": "fixed8 exact GLB full-angle evidence"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "asset_id": "vermicularia",
+      "revision": "r001",
+      "job_id": "exact-eight-views",
+      "inputs": {
+        "glb": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/vermicularia.glb",
+        "source": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/vermicularia.blend",
+        "brief": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/brief.json",
+        "references": "/workspace/lowpoly-vault/assets/candidates/continuous-small-life-round20-20261020/batch-55/vermicularia/r001/references.json",
+        "renderer": "/workspace/lowpoly-vault/scripts/render_candidate_views.py",
+        "helper": "/workspace/lowpoly-vault/scripts/asset_common.py",
+        "audit": "/workspace/lowpoly-vault/scripts/qa_glb.py",
+        "source_checker": "/workspace/lowpoly-vault/scripts/check_source_export.py"
+      },
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--output-dir",
+        "{output_dir}",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette",
+        "--turntable-frames",
+        "0",
+        "--resolution",
+        "512",
+        "--samples",
+        "12"
+      ],
+      "outputs": [
+        "render-manifest.json",
+        "render-config.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "config": {
+        "purpose": "fixed8 exact GLB full-angle evidence"
+      },
+      "timeout_seconds": 600
+    }
+  ]
+}

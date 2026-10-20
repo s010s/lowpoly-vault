@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "dicranurus",
+  "revision": "r001",
+  "labels": {
+    "en": "Dicranurus horn-loop trilobite",
+    "zh-CN": "Dicranurus（弯角三叶虫）"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "dicranurus.glb",
+      "sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65"
+    },
+    "source": {
+      "path": "dicranurus.blend",
+      "sha256": "a38846c7822b375f763f5ec71a2483261553845d03ade6355e84335929a7b3ab"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "d844d9c6ad4870d31e49821f387b6f266e5559b00669287734c3ad8d4c3811bc"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "fa5c836f1e391a0269c1504a77e25acc80daada4f76a2e16b4553828caccf4a8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "c6b75ad597c5228bbaa49d34f6ca5bdf61f89667db7f50b468454c6308df4e69"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "08212f4648bcd1dee2fcfaf484d313810d5f06cc08305205d1a84c3de0f6f5a0"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concepts/prompt.txt",
+      "sha256": "fc60cd3f52ac7d9ce946fd4d8be0e940874aac511fe19781f154315165999705"
+    },
+    "generation_record": {
+      "path": "concepts/generation-record.json",
+      "sha256": "f02b82839b4e75d5e75ccb15a2abec65e10087c09892a73626905f0eb38b33f6"
+    },
+    "images": [
+      {
+        "id": "concept-multiview",
+        "view": "hero/top/side compatible suggestions",
+        "path": "concepts/original.png",
+        "sha256": "a8c8eaf0df9efe39148dc92ac980a5f2d64fd34c529cf4e94166be83f3055932"
+      }
+    ],
+    "cross_view_consistency_note": "Compact cephalon with swollen central glabella, small eyes, overlapping arched segments, long lateral spines and two open backward horn loops. Dark blue-slate primary material, warm gray rims. Hero and top have two horns; side merges the pair. Fine segment/side-spine counts differ across panels. Use ten authored thoracic plates, paired genal spines and ten paired swept pleural tips, plus two occipital horns with open air gaps. Counts are deliberate artistic simplification, not taxonomic claims. No eye stalks. Underside is a closed quiet ventral volume without invented fine appendage anatomy.",
+    "hidden_surface_decisions": "Broad curved cephalic shield, raised glabella, compact tapering axial/pleural shell, ten arched overlapping plates and small pygidial shield. Tapered lofted horns have substantial organic roots and varying section. Separate semantic meshes retain editable volume."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-19T22:47:36.117688+00:00",
+    "modeling_started_at": "2026-10-19T22:49:00.206412+00:00"
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 19.9601,
+      "measurement_record": {
+        "path": "candidate-proof/render-manifest.json",
+        "sha256": "6b22102a41f63ca47bfb071ecf58a418db6f66281ce368c100154dc91dc682de"
+      },
+      "note": "Actual renderer measured eight-frame render loop; excludes process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    },
+    {
+      "stage": "target_browser",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Stage duration not measured; no reconstruction from mtimes. Actual output/event receipts remain available."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "candidate-proof/render-manifest.json",
+    "sha256": "6b22102a41f63ca47bfb071ecf58a418db6f66281ce368c100154dc91dc682de"
+  },
+  "thumbnail": {
+    "path": "candidate-proof/hero.png",
+    "sha256": "b855e9a473445f61a8220e430072aba754a865007386b2360071137cf04dbadf",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "dc486442c5079f5a75abe58f5fd347d36fcbba3f3716fc577e30345a14612ace"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "ffe61e0340399eb1bd41cb198ba5abc20edae439db44e3c21d4cf6d9e032bd65",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "69217988a1a048f3cd615be15cabf96dff65d7cd8b8c3005de78421f3cf6af36"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Supplemental checker is advisory only; formal candidate brief independently enforces the unchanged hard 1,000,000 byte / 14,000 triangle caps."
+  }
+}

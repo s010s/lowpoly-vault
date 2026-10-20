@@ -1,0 +1,2 @@
+One continuous small regular juvenile helix transitions into a loose irregular adult tube, with a thick-walled round aperture and real internal lumen. Cream/ochre palette. Retain shell only. Correct concept bead-like apex to real continuous coil. Artistic pose, size and color; inspired by fossil V. recta, not a measured specimen replica.
+Concept inspected before freeze; concept-inspection.md records contradictions. Nominal Blender XYZ meters: [0.18, 0.075, 0.09]; artistic envelope, not exact measured bounds.

@@ -9,6 +9,25 @@ import { collectConceptLandairRelease, CONCEPT_LANDAIR_IDS, CONCEPT_LANDAIR_PACK
 import { CONCEPT_LANDAIR_RELEASE as fixed } from './accepted-concept-landair-release.mjs';
 import { collectConceptQuartetsRelease } from './concept-quartets-release.mjs';
 
+
+// Run exact new-scope tamper checks without repeating model rendering.
+if(process.argv.includes('--batches5155-only')){
+ const {readdir,link,unlink}=await import('node:fs/promises');
+ const {collectBatches5155Additions}=await import('./concept-landair-release.mjs');
+ const {BATCHES5155_RELEASES:fixed}=await import('./accepted-concept-landair-release.mjs');
+const source=process.cwd(),root=await mkdtemp(join(dirname(source),'batch5155-negative-'));let passed=0;
+async function snapshot(dir,rel=''){for(const e of await readdir(dir,{withFileTypes:true})){if(['.git','node_modules','out'].includes(e.name))continue;const p=join(rel,e.name),s=join(source,p),d=join(root,p);if(e.isDirectory()){await mkdir(d,{recursive:true});await snapshot(s,p);}else if(e.isFile()){await mkdir(dirname(d),{recursive:true});await link(s,d);}}}await snapshot(source);
+async function rejected(label,batch,path,change){const p=join(root,path);let old;try{old=await readFile(p);}catch(e){assert.equal(e.code,'ENOENT');}if(old)await unlink(p);await mkdir(dirname(p),{recursive:true});await writeFile(p,change(old));try{await assert.rejects(()=>collectBatches5155Additions(root,fixed.find(x=>x.release.scope.startsWith('batch'+batch+'-')).descriptor));passed++;console.log('PASS',label);}finally{await unlink(p);if(old)await writeFile(p,old);}}
+try{
+ for(const f of fixed){const result=await collectBatches5155Additions(root,f.descriptor);assert.equal(result.additions.length,4);passed++;const b=f.release.scope.startsWith('batch51')?51:55,a=f.release.additions[0];for(const [label,path]of [['descriptor',f.descriptor.path],['source bundle',f.release.source_bundle.path],['metadata',a.metadata.path],['candidate',a.candidate.path],['GLB',JSON.parse(await readFile(join(root,a.metadata.path))).glb],['poster',a.poster.path],['reference',a.capture_reference.path],['independent image review',f.release.capture.independent_review.path]])await rejected(`${b} rejects ${label} byte mutation`,b,path,old=>Buffer.concat([old,Buffer.from(' ')]));}
+ const a=fixed[0].release.original_review_archive;await rejected('51 retains original QA alias',51,a.archive_path,old=>Buffer.concat([old,Buffer.from('changed')]));
+ const d=JSON.parse(await readFile(join(root,fixed[1].release.historical_evidence_disclosure.path)));await rejected('55 rejects fabricated historical log',55,d.declarations[0].historical_checksum_audit.missing_entries[0].path,()=>Buffer.from('fabricated'));
+ console.log(JSON.stringify({status:'PASS',checks:passed,formal_acceptance:'BLOCKED',gallery_output:'NOT_RUN',publication_ci:'NOT_RUN'}));
+}finally{await rm(root,{recursive:true,force:true});}
+
+ process.exit(0);
+}
+
 const BASE_COUNT = 186;
 const revisions = { sapeornis: 'r001', longirostravis: 'r001', dunbaria: 'r001', chimerarachne: 'r001' };
 const expectedIds = Object.keys(revisions).sort();
