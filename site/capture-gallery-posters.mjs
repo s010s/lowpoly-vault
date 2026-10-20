@@ -1,9 +1,10 @@
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
 import {preparePosterCapture,completePosterCapture} from './gallery-poster-orchestration.mjs';
-if (process.argv.includes('--package-output') || process.argv.includes('--model-ids')) {
+if (process.argv.slice(2).some(arg => /^--(?:package-output|model-ids)(?:=|$)/.test(arg))) {
   await (await import('./model-capture-runner.mjs')).runModelCapturePackagesCLI();
   process.exit(0);
 }
+for (const arg of process.argv.slice(2)) assert(['--source-output', '--verify-recipe'].includes(arg), 'Unknown capture option; refusing whole-gallery fallback');
 // END GALLERY POSTER V3 ORCHESTRATION
 /** Complete the published gallery using its actual approved browser renderer. */
 import assert from 'node:assert/strict';

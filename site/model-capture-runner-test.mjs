@@ -101,3 +101,23 @@ await test('CLI package path rejects changed delivered GLB and never falls back 
     assert.equal(readFileSync(join(f.root, 'dist/gallery/resources.json'), 'utf8'), 'unchanged output gallery');
   } finally { f.close(); }
 });
+await test('actual CLI rejects equals, malformed and mixed scope before legacy gallery work', () => {
+  const f = fixture(); try {
+    for (const args of [
+      ['--package-output=/tmp/unused-package', '--model-ids=model-1', '--source-output'],
+      ['--package-output', join(f.root, 'packages'), '--model-ids=model-1', '--source-output'],
+      ['--package-output=', '--model-ids='],
+      ['--package-output', join(f.root, 'packages'), '--source-output'],
+      ['--model-ids=model-1', '--verify-recipe'],
+      ['--package-out', join(f.root, 'packages'), '--source-output'],
+      ['--model-id', 'model-1', '--source-output']
+    ]) {
+      const result = f.run(args); assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /Package mode requires|Package output and explicit model IDs|Unknown capture option; refusing whole-gallery fallback/);
+      assert.doesNotMatch(result.stderr, /ENOENT|approved-resources/, 'Must reject at entry, not after entering whole-gallery audit');
+      assert.deepEqual(readdirSync(join(f.root, 'packages')), ['keep.txt']);
+      assert.equal(readFileSync(join(f.root, 'site/public/gallery/resources.json'), 'utf8'), 'unchanged source gallery');
+      assert.equal(readFileSync(join(f.root, 'dist/gallery/resources.json'), 'utf8'), 'unchanged output gallery');
+    }
+  } finally { f.close(); }
+});

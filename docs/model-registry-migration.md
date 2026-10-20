@@ -166,8 +166,9 @@ Parallel work can include research, construction, source checks, independent rev
 
 ## Opt-in renderer and baseline-provenance checkpoint, 2026-10-20
 
-- Combined registry, package writer, opt-in runner, admission and existing model/poster-cache tests: 90/90 pass. The exact real 202-model baseline at `c8714ec3eba2925d1669663556445f8c43e40030` also passes the new Git-import provenance check.
+- Combined registry, package writer, opt-in runner, admission and existing model/poster-cache tests: 91/91 pass. The exact real 202-model baseline at `c8714ec3eba2925d1669663556445f8c43e40030` also passes the new Git-import provenance check.
 - Admission regression fixtures reject forged baseline commit, file pins and semantic snapshot labels before any GitHub proof read. Baseline provenance is authenticated against Git, not treated as owner approval.
 - The actual renderer CLI opt-in dispatch is exercised with a clearly simulated browser for seven selected models: seven independent package namespaces, exact rerun idempotence, the eighth model untouched, and source/output shared galleries unchanged. Parser, explicit scope, changed source/delivery bytes, package-code recipe binding and wrong local Node-major refusal are also tested.
 - Existing historical golden-program compatibility remains unchanged. No historical approval files are rewritten or re-signed.
+- Independent review found that `--package-output=... --model-ids=...` could miss the original exact-token dispatch and enter legacy whole-gallery mode. The entry now recognizes that intent and rejects unsupported syntax before legacy work; all unknown arguments also fail rather than falling back. Actual CLI negative tests include seven malformed/mixed cases, including `=` syntax with `--source-output`.
 - Local runtime is Node 24, not the production-pinned Node 22. The production entry correctly refuses it; simulated integration tests do not establish real pinned Chromium/GPU validation. That validation and independent code review remain required before this opt-in mode is put into use.
