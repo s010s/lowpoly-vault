@@ -61,7 +61,8 @@ html[lang=zh-CN] h1{font-size:clamp(30px,3vw,44px)}.title-row h1{min-width:0;ove
    Unmanaged native images stay visible when JavaScript is unavailable. */
 .slot-image img[data-thumbnail-state]{opacity:0;transition:none}
 .slot-image img[data-thumbnail-state]:not([data-thumbnail-state=ready]){visibility:hidden}
-.slot-image img[data-thumbnail-state=ready]{opacity:1;transition:opacity 160ms var(--ui-ease-out)}
+.slot-image img[data-thumbnail-state=ready]{opacity:1}
+.slot-image img[data-thumbnail-state=ready][data-thumbnail-reveal=entering]{transition:opacity 160ms var(--ui-ease-out)}
 
 /* Reference rails: the left joins real visible circles; only the right is split. */
 #wheel{overflow-anchor:none}

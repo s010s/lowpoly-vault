@@ -38,3 +38,21 @@ for(const mode of ['reject','throw']){
 const failed=item('network-failure');queue.update([failed]);tick();failed.image.onerror();failed.image.onerror();assert.equal(failed.image.dataset.thumbnailState,'error');assert.equal(queue.active.size,0);queue.clear();
 const reused=item('reused');const completions=[];reused.image.decode=()=>new Promise(done=>completions.push(done));queue.update([reused]);tick();reused.image.onload();queue.update([]);queue.update([reused]);tick();reused.image.onload();completions[0]();await Promise.resolve();assert.equal(reused.image.dataset.thumbnailState,'decoding','A cancelled decode cannot reveal a rapidly reentered image');completions[1]();await Promise.resolve();assert.equal(reused.image.dataset.thumbnailState,'ready');queue.clear();
 console.log('Thumbnail readiness: cached fast path, duplicate load, decode rejection/throw, network fallback failure, rapid reuse and decoded navigation return passed.');
+
+// UI-only reveal ownership: active hover cancels the opacity transition; missing
+// events and cached/reduced-motion no-transition cases must all settle opaque.
+const globalNames=['setTimeout','clearTimeout','requestAnimationFrame','cancelAnimationFrame'],savedGlobals=Object.fromEntries(globalNames.map(key=>[key,globalThis[key]]));
+const revealTimers=new Map(),revealFrames=new Map();let revealID=0;
+globalThis.setTimeout=fn=>{revealTimers.set(++revealID,fn);return revealID;};globalThis.clearTimeout=id=>revealTimers.delete(id);
+globalThis.requestAnimationFrame=fn=>{revealFrames.set(++revealID,fn);return revealID;};globalThis.cancelAnimationFrame=id=>revealFrames.delete(id);
+try{
+ for(const mode of ['transitionend','transitioncancel','missing-event','no-transition']){
+  const sample=item('reveal-'+mode),listeners=new Map();sample.image.addEventListener=(type,fn)=>listeners.set(type,fn);sample.image.removeEventListener=(type,fn)=>{if(listeners.get(type)===fn)listeners.delete(type);};sample.image.getAnimations=()=>mode==='no-transition'?[]:[{transitionProperty:'opacity'}];
+  queue.update([sample]);tick();sample.image.onload();await Promise.resolve();assert.equal(sample.image.dataset.thumbnailState,'ready');assert.equal(sample.image.dataset.thumbnailReveal,'entering');
+  for(const [id,fn]of [...revealFrames]){revealFrames.delete(id);fn();}
+  if(mode==='missing-event'){for(const [id,fn]of [...revealTimers]){revealTimers.delete(id);fn();}}
+  else if(mode!=='no-transition'){const ended=listeners.get(mode);ended({target:sample.image,propertyName:'transform'});assert.equal(sample.image.dataset.thumbnailReveal,'entering');ended({target:sample.image,propertyName:'opacity'});}
+  assert.equal(sample.image.dataset.thumbnailState,'ready','Reveal cleanup never makes a decoded image pending/transparent again');assert.equal(sample.image.dataset.thumbnailReveal,'settled');assert.equal(listeners.size,0);assert.equal(revealTimers.size,0);assert.equal(revealFrames.size,0);queue.clear();
+ }
+}finally{for(const key of globalNames){if(savedGlobals[key]===undefined)delete globalThis[key];else globalThis[key]=savedGlobals[key];}}
+console.log('Thumbnail reveal cleanup: opacity end/cancel, hover interruption, bounded missing-event fallback and cached/reduced no-transition paths settle without renderer changes.');

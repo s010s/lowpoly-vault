@@ -36,9 +36,7 @@ export class HoverPresentation {
  async exit(){if(!this.visible){this.dispose();return;}if(await this.animate(0))this.dispose();}
  dispose(){
   if(this.raf)cancelAnimationFrame(this.raf);this.raf=0;this.resolve?.(false);this.resolve=null;
-  // This decoded poster has already arrived. Keep its transition disabled so
-  // removing the alpha-mixed surface cannot start a second loading fade.
-  if(this.host.__hoverPresentation===this){this.poster.style.opacity='';delete this.host.__hoverPresentation;}
+  if(this.host.__hoverPresentation===this){this.poster.style.opacity='';this.poster.style.transition='';delete this.host.__hoverPresentation;}
   this.canvas.remove();
  }
 }
