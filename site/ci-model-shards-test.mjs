@@ -110,9 +110,9 @@ const workflow = readFileSync('.github/workflows/full-release-review.yml', 'utf8
 assert.match(workflow, /max-parallel: 6/);
 assert.match(workflow, /ci-model-shards\.mjs seal-build/);
 assert.match(workflow, /ci-model-shards\.mjs verify-build/);
-assert.match(workflow, /needs: \[scope, prepare, build\]/);
+assert.match(workflow, /needs: \[scope, prepare, build, audit-prepared-build\]/);
 assert.match(workflow, /if: always\(\) && needs\.scope\.result == 'success' && needs\.scope\.outputs\.models == 'true'/);
-assert.match(workflow, /test "\$PREPARE_RESULT" = success && test "\$BUILD_RESULT" = success/);
+assert.match(workflow, /test "\$PREPARE_RESULT" = success && test "\$BUILD_RESULT" = success && test "\$AUDIT_RESULT" = success/);
 assert.match(workflow, /ci-incremental-models\.mjs aggregate/);
 const incremental=readFileSync('site/ci-incremental-models.mjs','utf8');
 assert.match(incremental,/assertModelCoverage\(manifest,shards,receipts,identity,build\)/);

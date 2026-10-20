@@ -4,7 +4,8 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync,appendFileSync,readdirSy
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {inspectCatalogDataAppend} from './curation.js';
-import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit} from './ci-model-proof.mjs';
+import {computeModelInputs,planModelReuse,aggregateModelProof,assertBuiltRenderInputs,PUBLICATION_ONLY_MODULES,modelPolicyDigestAtCommit,modelArchivalInputs,modelArchivalInputsAtCommit} from './ci-model-proof.mjs';
+import {assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
 import {fetchVerifiedBaseProof} from './ci-model-cache.mjs';
 import {modelPlan,readModelReceipts,assertModelCoverage,currentIdentity,BUILD_RECEIPT} from './ci-model-shards.mjs';
 const read=path=>JSON.parse(readFileSync(path));
@@ -14,7 +15,7 @@ function appendRecords(before,after,newIDs,key='id'){
  const retained=after.filter(row=>!newIDs.has(row[key]));equal(retained,before,'Existing mapped records changed');
  const added=after.filter(row=>newIDs.has(row[key]));assert.equal(new Set(added.map(row=>row[key])).size,added.length,'Duplicate new mapped record');
 }
-export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,authorizationOnlyPaths=[]}){
+export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,authorizationOnlyPaths=[],archivalState=null}){
  try{
   assert(Array.isArray(before.assets)&&Array.isArray(after.assets));
   const oldIDs=new Set(before.assets.map(a=>a.id)),added=after.assets.filter(a=>!oldIDs.has(a.id)),newIDs=new Set(added.map(a=>a.id));
@@ -25,10 +26,14 @@ export function assessIncrementalDiff({paths,before,after,readBefore,readAfter,a
   // It cannot grant cache trust: input keys and successful-main proof do that.
   inspectCatalogDataAppend(readBefore('site/catalog-data.json'),readAfter('site/catalog-data.json'),{addedAssetIds:[...newIDs],previousManifest:before,currentManifest:after});
   const ownAsset=path=>added.some(asset=>[asset.glb,asset.blend,asset.preview].includes(path)||path.startsWith(`assets/additions/${asset.id}/`)||path.startsWith(`assets/turntables/${asset.id}/`)||path.startsWith(`assets/card-previews/${asset.id}-`)||path===`site/public/gallery/posters/${asset.id}.png`||path===`site/public/gallery/posters/${asset.id}-wheel.png`);
-  const authorization=new Set(authorizationOnlyPaths);
+  const authorization=new Set(authorizationOnlyPaths),archives=new Set();
+  if(archivalState){
+   for(const path of assertArchivalAppend(archivalState.before,archivalState.after,{beforePaths:archivalState.beforePaths,oldIDs:[...oldIDs],newIDs:[...newIDs]}))archives.add(path);
+   if(archivalState.before.registryMasked===true&&archivalState.after.registryMasked===true)archives.add(ARCHIVAL_REGISTRY_PATH);
+  }
   for(const path of paths){
    if(/^(?:README(?:\.zh-CN)?\.md|docs\/[a-zA-Z0-9_./-]+\.md)$/.test(path)&&!path.split('/').includes('..'))continue;
-   if(authorization.has(path))continue;
+   if(authorization.has(path)||archives.has(path))continue;
    if(path==='assets/manifest.json'||path==='site/catalog-data.json')continue;
    // These namespaces are inert evidence. Executable or unknown extensions do not qualify.
    if(/^(?:assets\/releases\/|production\/|qa\/)[A-Za-z0-9_./-]+\.(?:json|md|png|webp|jpg|jpeg|glb|blend)$/.test(path)&&!path.split('/').includes('..'))continue;
@@ -53,7 +58,8 @@ export function eligibilityFromGit(baseSha){
  try{
   assert.match(baseSha||'',/^[a-f0-9]{40}$/);const before=path=>JSON.parse(git('show',`${baseSha}:${path}`)),after=path=>JSON.parse(readFileSync(path));
   const paths=git('diff','--name-only','-z',baseSha,'HEAD').split('\0').filter(Boolean);
-  return assessIncrementalDiff({paths,before:before('assets/manifest.json'),after:after('assets/manifest.json'),readBefore:before,readAfter:after,authorizationOnlyPaths:PUBLICATION_ONLY_MODULES});
+  const archivalState={before:modelArchivalInputsAtCommit(baseSha),after:modelArchivalInputs(),beforePaths:git('ls-tree','-r','--name-only','-z',baseSha).split('\0').filter(Boolean)};
+  return assessIncrementalDiff({paths,before:before('assets/manifest.json'),after:after('assets/manifest.json'),readBefore:before,readAfter:after,authorizationOnlyPaths:PUBLICATION_ONLY_MODULES,archivalState});
  }catch(error){return {eligible:false,added_ids:[],reasons:[`Diff provenance unavailable: ${error.message}`]};}
 }
 export function tasksForModelPlan(tasks,plan,manifest){

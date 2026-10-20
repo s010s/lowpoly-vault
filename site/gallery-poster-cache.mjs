@@ -7,7 +7,7 @@ import {mkdir,writeFile,rm} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 import {appendFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
-import {modelPolicyDigest,modelPolicyDigestAtCommit} from './ci-model-proof.mjs';
+import {modelPolicyDigest,modelPolicyDigestAtCommit,assertModelArchivalAppendAtCommit} from './ci-model-proof.mjs';
 import {controlDigest} from './ci-provenance.mjs';
 import {posterSharedInputs,posterInputKey} from './gallery-poster-inputs.mjs';
 import {assertTrustedMainRun,assertTrustedSuite} from './ci-model-cache.mjs';
@@ -80,6 +80,7 @@ export async function fetchVerifiedPosterBaseline({root=process.cwd(),repository
   const listed=await api(`actions/workflows/${workflow.id}/runs?branch=main&status=success&per_page=100`),candidates=rankPosterCandidates(listed.workflow_runs.filter(run=>run.head_sha!==currentSha).slice(0,100),{root,baseSha});
   for(const summary of candidates){try{
    await assertAncestor(api,summary.head_sha,baseSha);assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root}),policy_sha256,'Poster protected control plane changed; full baseline required');
+   assertModelArchivalAppendAtCommit(summary.head_sha,{root});
    const run=await api(`actions/runs/${summary.id}`);assertTrustedMainRun(run,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});
    const attempt=await api(`actions/runs/${run.id}/attempts/${run.run_attempt}`);assertTrustedMainRun(attempt,{repository,repositoryId:repo.id,sourceSha:run.head_sha,workflowId:workflow.id});assert.equal(attempt.id,run.id);assert.equal(attempt.run_attempt,run.run_attempt);assert.equal(attempt.check_suite_id,run.check_suite_id);assert.equal(attempt.event,run.event);
    await assertTrustedSuite(await api(`check-suites/${run.check_suite_id}`),run);

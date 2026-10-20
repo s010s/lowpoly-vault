@@ -290,4 +290,30 @@ export function runModelPolicyInventoryTests(){
     console.log('Model policy inventory: clean HEAD/current equality, exact generated CPython cache reuse, tracked/unknown/stale/unchecked-hash bytecode and nested ignored executable invalidation pass.');
   }finally{rmSync(root,{recursive:true,force:true});}
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){runModelProofTests();await runBuiltRenderProofTests();runModelPolicyInventoryTests();}
+export function runCleanConsumerDependencyTests(){
+  const f=fixture(1),cardSource=readFileSync(new URL('./render-web-previews.mjs',import.meta.url),'utf8');
+  try{
+    f.put('site/turntable-delivery.mjs','export const publishedImagePaths = () => {};\n');
+    f.put('site/render-web-previews.mjs',cardSource);
+    const policy=modelPolicyDigest(f.root);
+    assert.match(policy,/^[a-f0-9]{64}$/,'Exact audited built-viewer import is supported');
+    for(const [label,source]of [
+      ['callback binding',cardSource.replace('async module=>','async changed=>').replace('await import(module)','await import(changed)')],
+      ['callback dispatch',cardSource.replace('page.evaluate(async module=>','page.otherMethod(async module=>')],
+      ['viewer URL argument',cardSource.replace("base+'assets/'+viewer",'base+viewer')],
+      ['second computed import',cardSource+'\nawait import(untrustedArchivePath);\n']
+    ]){f.put('site/render-web-previews.mjs',source);assert.throws(()=>modelPolicyDigest(f.root),/Computed|Unsupported|Unresolved/,`${label} cannot expand the exact built-viewer exception`);}
+    f.put('site/render-web-previews.mjs',cardSource);f.put('site/ci-review.mjs',cardSource);
+    assert.throws(()=>modelPolicyDigest(f.root),/Computed|Unsupported|Unresolved|Missing render dependency/,'The exception cannot move to another protected file');
+    rmSync(join(f.root,'site/ci-review.mjs'));
+    for(const root of ['site/render-web-previews.mjs','site/ci-review.mjs','site/ci-incremental-models.mjs','site/ci-clean-gallery.mjs','site/ci-card-preview-proof.mjs','site/ci-model-cache-test.mjs']){
+      const original=root==='site/render-web-previews.mjs'?cardSource:root==='site/ci-card-preview-proof.mjs'?'// protected separate card proof fixture\n':null;
+      f.put('production/source-archive/helper.mjs','export const value = 1;\n');f.put(root,`import '../production/source-archive/helper.mjs';\n`);
+      const first=modelPolicyDigest(f.root);f.put('production/source-archive/helper.mjs','export const value = 2;\n');assert.notEqual(modelPolicyDigest(f.root),first,`${root}: exact executable dependencies remain protected`);
+      if(original===null)rmSync(join(f.root,root));else f.put(root,original);
+      rmSync(join(f.root,'production/source-archive/helper.mjs'));
+    }
+    console.log('Clean proof consumers: card/GPU/gallery/CLI/unit roots, exact built-viewer AST exception and computed-loader mutation rejection passed.');
+  }finally{f.close();}
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){runModelProofTests();await runBuiltRenderProofTests();runModelPolicyInventoryTests();runCleanConsumerDependencyTests();}

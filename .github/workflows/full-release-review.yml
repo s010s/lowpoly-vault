@@ -52,20 +52,12 @@ jobs:
           name: validated-review-${{ github.run_attempt }}
           path: qa/ci-provenance/review/
           if-no-files-found: error
-  prepare:
+  prepare-source:
     permissions:
       contents: read
       actions: read
       checks: read
       pull-requests: read
-    outputs:
-      tasks: ${{ steps.model_plan.outputs.tasks }}
-      fresh_ids: ${{ steps.model_plan.outputs.fresh_ids }}
-      fresh_count: ${{ steps.model_plan.outputs.fresh_count }}
-      reused_count: ${{ steps.model_plan.outputs.reused_count }}
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
-      BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
     needs: scope
     if: needs.scope.outputs.tasks != '["none"]'
     runs-on: ubuntu-latest
@@ -80,15 +72,61 @@ jobs:
       - name: Set isolated publication memo path
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/catalog-data-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
+      - run: node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-scope-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/ci-timed-test.mjs && node site/ci-scene-input-test.mjs
       - name: Brand source contracts when present
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raw-full-review-built-site
+          path: dist/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raw-full-review-render-template
+          path: qa/ci-model-proof/vite-template.html
+          if-no-files-found: error
+  prepare:
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+      pull-requests: read
+    outputs:
+      tasks: ${{ steps.model_plan.outputs.tasks }}
+      fresh_ids: ${{ steps.model_plan.outputs.fresh_ids }}
+      fresh_count: ${{ steps.model_plan.outputs.fresh_count }}
+      reused_count: ${{ steps.model_plan.outputs.reused_count }}
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+    needs: [scope, prepare-source]
+    if: needs.scope.outputs.tasks != '["none"]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: raw-full-review-built-site
+          path: dist/
+      - uses: actions/download-artifact@v4
+        with:
+          name: raw-full-review-render-template
+          path: qa/ci-model-proof/
+      - name: Check exact source-bound inputs before clean gallery capture
+        run: node site/ci-clean-gallery.mjs
       - run: npx playwright install --with-deps chromium
-      - name: Complete and audit the shared exact-catalog build once
+      - name: Complete the exact gallery in a collector-free proof runner
         env:
           CI_GALLERY_PROOF_DIR: qa/ci-gallery-proof
-        run: npm run gallery:posters && REQUIRE_COMPLETE_GALLERY=1 node site/audit-release.mjs
+        run: npm run gallery:posters && node site/gallery-assets.mjs --dist --complete
       - name: Independently plan exact fresh and reused model evidence
         id: model_plan
         env:
@@ -117,6 +155,29 @@ jobs:
           name: full-review-built-site
           path: dist/
           if-no-files-found: error
+  audit-prepared-build:
+    # All original publication/inventory assertions still execute. This runner's
+    # copy can never replace artifacts from the collector-free proof producer.
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: full-review-built-site
+          path: dist/
+      - run: node site/ci-model-shards.mjs verify-build
+      - name: Preserve mandatory complete publication and deployment inventory audit
+        run: REQUIRE_COMPLETE_GALLERY=1 node site/audit-release.mjs
+      - name: Require audit to leave the sealed artifact unchanged
+        run: node site/ci-model-shards.mjs verify-build
   build:
     permissions:
       contents: read
@@ -221,7 +282,7 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
       BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
     name: Verify exact fresh and reused model coverage
-    needs: [scope, prepare, build]
+    needs: [scope, prepare, build, audit-prepared-build]
     if: always() && needs.scope.result == 'success' && needs.scope.outputs.models == 'true'
     runs-on: ubuntu-latest
     steps:
@@ -229,7 +290,8 @@ jobs:
         env:
           PREPARE_RESULT: ${{ needs.prepare.result }}
           BUILD_RESULT: ${{ needs.build.result }}
-        run: test "$PREPARE_RESULT" = success && test "$BUILD_RESULT" = success
+          AUDIT_RESULT: ${{ needs.audit-prepared-build.result }}
+        run: test "$PREPARE_RESULT" = success && test "$BUILD_RESULT" = success && test "$AUDIT_RESULT" = success
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0

@@ -14,6 +14,7 @@ import {collectTurntables,publishedImagePaths} from './turntable-delivery.mjs';
 import {payloadDigest} from './ci-model-shards.mjs';
 import {CARD_RENDER_PRESET} from './render-preset.js';
 import {assertCardPreviewRecord} from './ci-card-preview-proof.mjs';
+import {collectArchivalInputs,assertArchivalAppend,ARCHIVAL_REGISTRY_PATH} from './ci-archival-inputs.mjs';
 
 export const MODEL_PROOF_VERSION=2;
 export const MODEL_PROOF_FILE='model-proof.json';
@@ -41,7 +42,16 @@ export const PUBLICATION_ONLY_MODULES=Object.freeze([
 const publicationOnly=new Set(PUBLICATION_ONLY_MODULES);
 export const isPublicationOnlyModelPath=path=>publicationOnly.has(path);
 export const EXECUTED_QA_ROOTS=['qa/conifer-doc1-integration/'];
-const RENDER_ENTRYPOINTS=['vite.config.js','site/copy-assets.mjs','site/capture-gallery-posters.mjs','site/redesign-browser-test.mjs'];
+// Cache producers and independent consumers, including the unit-contract
+// programs run before GPU/card production. Unrelated matrix jobs have their own
+// isolated runners and do not produce this evidence. Publication processes must
+// not execute on the gallery/model/card producer or aggregate runner.
+export const MODEL_PROOF_ENTRYPOINTS=Object.freeze(['vite.config.js','site/copy-assets.mjs','site/capture-gallery-posters.mjs','site/redesign-browser-test.mjs',
+  'site/ci-clean-gallery.mjs','site/ci-review.mjs','site/render-web-previews.mjs','site/ci-incremental-models.mjs','site/gallery-assets.mjs',
+  'site/ci-model-proof.mjs','site/ci-model-cache.mjs','site/ci-model-shards.mjs','site/ci-card-preview-proof.mjs',
+  'site/gallery-poster-inputs.mjs','site/gallery-poster-proof.mjs','site/gallery-poster-cache.mjs','site/gallery-poster-orchestration.mjs',
+  'site/ci-provenance.mjs','site/ci-timed.mjs','site/ci-scene-browser-test.mjs',
+  ...['catalog-data','ci-card-preview-proof','ci-model-proof','ci-model-cache','ci-incremental-models','ci-scope','ci-model-shards','ci-timed','ci-scene-input','ci-archival-inputs','ci-clean-gallery','ci-archival-models'].map(name=>`site/${name}-test.mjs`)]);
 const POLICY_ROOTS=['site','.github','scripts','schemas','qa','package.json','package-lock.json','vite.config.js'];
 const verifiedBuiltInputs=new WeakSet();
 const HASH=/^[a-f0-9]{64}$/,SHA=/^[a-f0-9]{40}$/,ID=/^[a-z0-9-]+$/;
@@ -80,6 +90,18 @@ function renderDependencies(paths,read){
     // createRequire aliases are valid only when anchored to this exact module.
     // Unknown factories/indirection must not conceal an authorization dependency.
     function nodes(node,fn,parent=null){if(!node||typeof node!=='object')return;fn(node,parent);for(const value of Object.values(node)){if(Array.isArray(value))for(const child of value)nodes(child,fn,node);else if(value&&typeof value==='object')nodes(value,fn,node);}}
+    // The card producer loads precisely the independently sealed dist viewer in
+    // a browser callback. This is NOT a general computed-import exemption: only
+    // this complete audited page.evaluate call AST, on this exact protected
+    // source path, qualifies. Any callback/argument change requires review of
+    // this protected policy. Every other computed import is still refused.
+    const builtImports=new WeakSet(),builtImportIdentifiers=new WeakSet();
+    const semantic=node=>Array.isArray(node)?node.map(semantic):node&&typeof node==='object'?Object.fromEntries(Object.entries(node).filter(([key])=>key!=='start'&&key!=='end').map(([key,value])=>[key,semantic(value)])):node;
+    if(path==='site/render-web-previews.mjs')nodes(tree,node=>{
+      if(node.type==='CallExpression'&&node.callee?.type==='MemberExpression'&&!node.callee.computed&&node.callee.object?.name==='page'&&node.callee.property?.name==='evaluate'&&hashBytes(JSON.stringify(semantic(node)))==='ec38dd26bd2f8ba03d8d1ac4fd6984604829a4f42026f97b6548d0460180eeba'){
+        nodes(node.arguments[0],child=>{if(child.type==='ImportExpression')builtImports.add(child);if(child.type==='Identifier'&&child.name==='module')builtImportIdentifiers.add(child);});
+      }
+    });
     nodes(tree,node=>{
       if(node.type==='ImportDeclaration'&&['node:module','module'].includes(node.source.value))for(const spec of node.specifiers){
         if(spec.type==='ImportSpecifier'&&spec.imported.name==='createRequire')factoryNames.add(spec.local.name);
@@ -111,7 +133,7 @@ function renderDependencies(paths,read){
     // opaque dispatch. Recognized direct aliases are resolved above; anything
     // else needs an explicit protected parser change rather than an exemption.
     nodes(tree,(node,parent)=>{
-      if(node.type==='Identifier'&&(requireNames.has(node.name)||factoryNames.has(node.name)||moduleNames.has(node.name))){
+      if(node.type==='Identifier'&&!builtImportIdentifiers.has(node)&&(requireNames.has(node.name)||factoryNames.has(node.name)||moduleNames.has(node.name))){
         const declaration=parent?.type==='ImportSpecifier'||parent?.type==='ImportDefaultSpecifier'||parent?.type==='ImportNamespaceSpecifier'||parent?.type==='VariableDeclarator'&&parent.id===node;
         const alias=parent?.type==='VariableDeclarator'&&parent.init===node&&parent.id?.type==='Identifier'||parent?.type==='AssignmentExpression'&&parent.operator==='='&&(parent.left===node||parent.right===node)&&parent.left?.type==='Identifier';
         const property=parent?.type==='MemberExpression'&&!parent.computed&&parent.property===node||parent?.type==='Property'&&!parent.computed&&parent.key===node&&parent.value!==node;
@@ -127,17 +149,23 @@ function renderDependencies(paths,read){
     });
     function dependency(specifier){
       assert.equal(typeof specifier,'string',`Computed render import needs a protected policy update: ${path}`);
+      // The negative scene-input contract uses this one literal browser URL,
+      // served only from the pinned Three.js package, never from source bundles.
+      if(path==='site/ci-scene-browser-test.mjs'&&specifier==='/modules/examples/jsm/loaders/GLTFLoader.js')return;
       if(specifier.startsWith('.')){
         const local=specifier.replace(/\?(?:raw|url)$/,'');
         const target=relative('/',resolve('/',dirname(path),local)).split(sep).join('/');
         assert(safePath(target)&&!local.includes('?')&&!local.includes('#'),`Unsafe render dependency: ${specifier}`);
+        // This exact browser-version metadata comes from the pinned installed
+        // Playwright package, not a repository-controlled archival namespace.
+        if(path==='site/render-web-previews.mjs'&&target==='node_modules/playwright-core/browsers.json')return;
         visit(target);
       }else assert(/^node:[a-z0-9_/-]+$/i.test(specifier)||/^(?:@[a-z0-9_.-]+\/)?[a-z0-9_.-]+(?:\/[a-z0-9_.-]+)*$/i.test(specifier),`Unresolved or external render import: ${specifier}`);
     }
     function walk(node){
       if(!node||typeof node!=='object')return;
       if(['ImportDeclaration','ExportNamedDeclaration','ExportAllDeclaration'].includes(node.type)&&node.source)dependency(node.source.value);
-      if(node.type==='ImportExpression')dependency(node.source.type==='Literal'?node.source.value:undefined);
+      if(node.type==='ImportExpression'&&!builtImports.has(node))dependency(node.source.type==='Literal'?node.source.value:undefined);
       if(node.type==='CallExpression'){
         const callee=node.callee;
         if(callee?.type==='MemberExpression'&&moduleNames.has(callee.object?.name))assert(!callee.computed,`Computed module loader requires a policy update: ${path}`);
@@ -155,15 +183,19 @@ function renderDependencies(paths,read){
   }
   // All application JS is a root, even if an entrypoint currently loads it lazily.
   for(const path of paths.filter(path=>/^site\/.*\.js$/.test(path)))visit(path);
-  for(const path of RENDER_ENTRYPOINTS)if(available.has(path))visit(path);
+  for(const path of MODEL_PROOF_ENTRYPOINTS)if(available.has(path))visit(path);
+  for(const path of paths.filter(path=>EXECUTED_QA_ROOTS.some(prefix=>path.startsWith(prefix))&&/\.(?:mjs|cjs|js)$/.test(path)))visit(path);
   return found;
 }
-function policyInputs(paths,read){
+function policyInputs(paths,read,mode){
   const closure=renderDependencies(paths,read);
-  const selected=paths.filter(path=>protectedModelPath(path)||(publicationOnly.has(path)&&closure.has(path))).sort();
-  for(const path of closure)if(/\.(?:mjs|cjs|js|css|html)$/.test(path)&&!selected.includes(path))selected.push(path);
+  const archives=collectArchivalInputs({paths,read,mode,manifest:paths.includes('assets/manifest.json')?JSON.parse(read('assets/manifest.json')):undefined,protectedPaths:closure});
+  const excluded=new Set(archives.excludedPaths),archived=new Set(archives.files.map(row=>row.path));
+  const selected=paths.filter(path=>!excluded.has(path)&&(protectedModelPath(path)||(publicationOnly.has(path)&&closure.has(path)))).sort();
+  for(const path of closure)if((/\.(?:mjs|cjs|js|css|html)$/.test(path)||archived.has(path))&&!selected.includes(path))selected.push(path);
   selected.sort();assert(selected.includes('site/ci-model-proof.mjs'),'Model proof verifier missing from policy');
-  return {paths:selected,closure};
+  const digest=hashObject(selected.map(path=>[path,hashBytes(path===ARCHIVAL_REGISTRY_PATH&&archives.registryMasked?archives.registrySkeleton:read(path))]));
+  return {paths:selected,closure,archives,digest};
 }
 // Python publication checks create ignored bytecode during an otherwise clean
 // build. Never use gitignore (or the cache directory name alone) to exempt code:
@@ -213,19 +245,24 @@ function currentPolicy(root){
   // A single source scan inventories repository directories, not node_modules or builds.
   const extra=['assets','production'].flatMap(path=>files(root,path));
   const inventory=[...paths,...extra],generated=generatedPythonCaches(root,inventory);
-  const inputs=policyInputs(inventory.filter(path=>!generated.has(path)),read);
-  return {...inputs,digest:hashObject(inputs.paths.map(path=>[path,hashBytes(read(path))]))};
+  return policyInputs(inventory.filter(path=>!generated.has(path)),read,path=>lstatSync(resolve(root,path)).mode);
 }
 export function modelPolicyDigest(root=process.cwd()){return currentPolicy(resolve(root)).digest;}
-export function modelPolicyDigestAtCommit(ref,{root=process.cwd()}={}){
+export function modelArchivalInputs(root=process.cwd()){return currentPolicy(resolve(root)).archives;}
+function policyAtCommit(ref,{root=process.cwd()}={}){
   assert(SHA.test(ref),'Exact policy commit required');
   const git=(...args)=>execFileSync('git',args,{cwd:root,maxBuffer:128*1024*1024});
   const entries=git('ls-tree','-r','-z',ref).toString().split('\0').filter(Boolean).map(line=>{const [header,path]=line.split('\t');return {mode:header.split(' ')[0],path};});
   const byPath=new Map(entries.map(row=>[row.path,row])),cache=new Map();
   const read=path=>{assert.equal(byPath.get(path)?.mode,'100644',`Nonregular policy input: ${path}`);if(!cache.has(path))cache.set(path,git('show',`${ref}:${path}`));return cache.get(path);};
   assert(byPath.has('site/ci-model-proof.mjs'),'Base has no v2 model proof policy; full baseline required');
-  const inputs=policyInputs([...byPath.keys()],read);
-  return hashObject(inputs.paths.map(path=>[path,hashBytes(read(path))]));
+  return policyInputs([...byPath.keys()],read,path=>byPath.get(path)?.mode);
+}
+export function modelPolicyDigestAtCommit(ref,options){return policyAtCommit(ref,options).digest;}
+export function modelArchivalInputsAtCommit(ref,options){return policyAtCommit(ref,options).archives;}
+export function assertModelArchivalAppendAtCommit(ref,{root=process.cwd()}={}){
+  const before=modelArchivalInputsAtCommit(ref,{root}),after=modelArchivalInputs(root),oldIDs=new Set(before.modelIDs);
+  return assertArchivalAppend(before,after,{beforePaths:before.repositoryPaths,oldIDs,newIDs:after.modelIDs.filter(id=>!oldIDs.has(id))});
 }
 export function catalogIDs(manifest){
   assert(Array.isArray(manifest?.assets)&&manifest.assets.length,'A nonempty catalog is required');
@@ -407,10 +444,10 @@ export function computeModelInputs({root=process.cwd(),manifest=json(root,'asset
       cards.set(entry.id,{path:entry.path,sha256,bytes:data.length});
     }
   }
-  const mapped=new Set(['site/gallery/wheel-framing.json','site/gallery/approved-poster-inputs.json','site/public/gallery/resources.json','site/catalog-data.json']);
+  const mapped=new Set(['assets/manifest.json','site/gallery/wheel-framing.json','site/gallery/approved-poster-inputs.json','site/public/gallery/resources.json','site/catalog-data.json']);
   const ownResources=new Set([...perModel.values()].flatMap(row=>[...row.paths]));
   const policy=currentPolicy(root);
-  const sharedFiles=[...new Set([...files(root,'site'),...policy.closure])].filter(path=>!mapped.has(path)&&!ownResources.has(path)&&!path.startsWith('site/public/gallery/posters/')&&!path.startsWith('site/gallery/tests/evidence/')&&(!built||!publicationOnly.has(path)||policy.closure.has(path)));
+  const sharedFiles=[...new Set([...files(root,'site'),...policy.closure])].filter(path=>!mapped.has(path)&&!ownResources.has(path)&&!path.startsWith('site/public/gallery/posters/')&&!path.startsWith('site/gallery/tests/evidence/')&&(!built||!publicationOnly.has(path)||policy.closure.has(path))&&(!built||path!==ARCHIVAL_REGISTRY_PATH||!policy.archives.registryMasked));
   // Unknown files under the public poster namespace are not silently ignored.
   for(const path of files(root,'site/public/gallery/posters'))assert(ownResources.has(path),`Unowned public poster: ${path}`);
   const policy_sha256=policy.digest;
@@ -419,6 +456,7 @@ export function computeModelInputs({root=process.cwd(),manifest=json(root,'asset
   const {assets,publication,...manifestShared}=manifest;
   const models=manifest.assets.map(asset=>{
     const own=perModel.get(asset.id);
+    if(policy.archives.byModel[asset.id])own.data[ARCHIVAL_REGISTRY_PATH]=policy.archives.byModel[asset.id];
     for(const kind of ['glb','blend','preview']){
       assert(safePath(asset[kind])&&asset[kind].startsWith('assets/'),`Missing safe ${kind}: ${asset.id}`);own.paths.add(asset[kind]);
       const actual=hashBytes(bytes(root,asset[kind]));assert(HASH.test(asset.sha256?.[kind]||''),`Missing ${kind} hash: ${asset.id}`);

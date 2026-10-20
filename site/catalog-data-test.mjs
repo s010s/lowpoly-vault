@@ -31,8 +31,8 @@ async function staticFiles(source,data=CATALOG_DATA){
 try{
  const staticFixture={version:1,assets:fixture.static_asset_ids.map(id=>legacyAssets.find(asset=>asset.id===id))};
  assert.equal(hash(await staticFiles(staticFixture)),fixture.static_sha256,'Known, unknown and starter facets preserve every bilingual static byte');
- const codeFiles=['curation.js','catalog-build.mjs','static-routes.mjs','gallery/main.js','gallery/catalog-source.js'];
- const codeBefore=await Promise.all(codeFiles.map(file=>readFile(new URL(file,import.meta.url),'utf8')));
+ const codeFiles=[new URL('./curation.js',import.meta.url),new URL('./catalog-build.mjs',import.meta.url),new URL('./static-routes.mjs',import.meta.url),new URL('./gallery/main.js',import.meta.url),new URL('./gallery/catalog-source.js',import.meta.url)];
+ const codeBefore=await Promise.all(codeFiles.map(file=>readFile(file,'utf8')));
  const fake={...legacyAssets[0],id:'fixture-new-model',name:{en:'Fixture new model',zh:'夹具新模型'},collection:'fixture-new-world',worlds:['fixture-new-world'],packs:['fixture-new-pack']};
  const next=JSON.parse(JSON.stringify(CATALOG_DATA));
  next.worlds.push({id:'fixture-new-world',name:{en:'Fixture world',zh:'夹具世界'}});
@@ -49,7 +49,7 @@ try{
  assert(addedStatic['models/fixture-new-model/index.html'].includes('?world=fixture-new-world'));
  assert(addedStatic['zh-CN/models/fixture-new-model/index.html'].includes('夹具组合'));
  assert(addedStatic['zh-CN/models/fixture-new-model/index.html'].includes('夹具世界'));
- assert.deepEqual(await Promise.all(codeFiles.map(file=>readFile(new URL(file,import.meta.url),'utf8'))),codeBefore,'Appending inert data never edits executable files');
+ assert.deepEqual(await Promise.all(codeFiles.map(file=>readFile(file,'utf8'))),codeBefore,'Appending inert data never edits executable files');
  assert.equal(createCatalog(manifest,{catalogData:next}).index.total,manifest.assets.length,'Data records do not publish models absent from the manifest');
  assert(!createCatalog(manifest,{catalogData:next}).index.packs.some(pack=>pack.id==='fixture-new-pack'));
  assert.throws(()=>createCatalog({...nextManifest,review_only:true},{catalogData:next,approvedOnly:true}),/review-only/,'Data cannot approve review-only models');

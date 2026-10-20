@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {resolve,join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
-import {computeModelInputs,modelPolicyDigestAtCommit,catalogIDs,hashBytes,hashObject,assertBaseModelProof,planModelReuse,MODEL_PROOF_FILE,MODEL_PROOF_WORKFLOW,GPU_POLICY} from './ci-model-proof.mjs';
+import {computeModelInputs,modelPolicyDigestAtCommit,assertModelArchivalAppendAtCommit,catalogIDs,hashBytes,hashObject,assertBaseModelProof,planModelReuse,MODEL_PROOF_FILE,MODEL_PROOF_WORKFLOW,GPU_POLICY} from './ci-model-proof.mjs';
 import {controlDigest} from './ci-provenance.mjs';
 
 const SHA=/^[a-f0-9]{40}$/,MAX_ARTIFACT_BYTES=16*1024*1024;
@@ -94,6 +94,7 @@ export async function fetchVerifiedBaseProof({root=process.cwd(),repository=proc
         assert(SHA.test(summary.head_sha||''));await assertAncestor(api,summary.head_sha,baseSha);
         // A PR cannot authorize its own changed verifier or acceptance boundary.
         assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root}),inputs.policy_sha256,'Protected source changed; new full main baseline required');
+        assertModelArchivalAppendAtCommit(summary.head_sha,{root});
         const run=await api(`actions/runs/${summary.id}`);assertTrustedMainRun(run,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});
         const attempt=await api(`actions/runs/${run.id}/attempts/${run.run_attempt}`);assertTrustedMainRun(attempt,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});assert.equal(attempt.id,run.id);assert.equal(attempt.run_attempt,run.run_attempt);
         const suite=await api(`check-suites/${run.check_suite_id}`);assertTrustedSuite(suite,run);
