@@ -19,7 +19,7 @@ try{
  git('init','-q');git('add','.');git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid','-c','core.hooksPath=/dev/null','commit','-qm','Exact snapshot fixture');
  const sha=git('rev-parse','HEAD'),digest=modelPolicyDigest(f.root);
  let scans=0,shows=0;
- childProcess.execFileSync=(command,args,options)=>{if(command==='git'&&options?.cwd===f.root){if(args[0]==='ls-tree')scans++;if(args[0]==='show')shows++;}return execFileSync(command,args,options);};syncBuiltinESMExports();
+ childProcess.execFileSync=(command,args,options)=>{if(command==='git'&&options?.cwd===f.root){if(args[0]==='ls-tree')scans++;if(args[0]==='show'||args[0]==='cat-file'&&args[1]==='blob')shows++;}return execFileSync(command,args,options);};syncBuiltinESMExports();
  const legacyDigest=modelPolicyDigestAtCommit(sha,{root:f.root});assertModelArchivalAppendAtCommit(sha,{root:f.root});
  assert.equal(scans,2,'Legacy separate digest/append calls scan the same commit twice');const legacyShows=shows;scans=0;shows=0;
  const snapshot=modelPolicySnapshotAtCommit(sha,{root:f.root}),snapshotShows=shows;

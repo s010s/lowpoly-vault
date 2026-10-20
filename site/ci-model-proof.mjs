@@ -259,9 +259,24 @@ export function modelArchivalInputs(root=process.cwd(),options){return currentPo
 function policyAtCommit(ref,{root=process.cwd(),budget}={}){
   assert(SHA.test(ref),'Exact policy commit required');
   const git=(...args)=>{const output=execFileSync('git',args,{cwd:root,maxBuffer:128*1024*1024,timeout:budget?.remaining()});budget?.check();return output;};
-  const entries=git('ls-tree','-r','-z',ref).toString().split('\0').filter(Boolean).map(line=>{const [header,path]=line.split('\t');return {mode:header.split(' ')[0],path};});
+  const entries=git('ls-tree','-r','-z',ref).toString().split('\0').filter(Boolean).map(line=>{const [header,path]=line.split('\t'),[mode,type,object]=header.split(' ');return {mode,type,object,path};});
   const byPath=new Map(entries.map(row=>[row.path,row])),cache=new Map();
-  const read=path=>{assert.equal(byPath.get(path)?.mode,'100644',`Nonregular policy input: ${path}`);if(!cache.has(path))cache.set(path,git('show',`${ref}:${path}`));return cache.get(path);};
+  // Small immutable Git blobs benefit from reuse across parser and policy reads.
+  // Never retain every source/QA binary in this outer cache after the archival
+  // collector has discarded it. Cache hits use object identity from this exact
+  // tree, not a caller-supplied pin or a mutable worktree path.
+  const MAX_CACHED_BYTES=8*1024*1024,MAX_CACHED_BLOB_BYTES=1024*1024,MAX_CACHED_BLOBS=256;let cachedBytes=0;
+  const read=path=>{
+    const entry=byPath.get(path);assert.equal(entry?.mode,'100644',`Nonregular policy input: ${path}`);
+    assert.equal(entry.type,'blob',`Non-blob policy input: ${path}`);
+    if(cache.has(entry.object)){const value=cache.get(entry.object);cache.delete(entry.object);cache.set(entry.object,value);return value;}
+    const value=git('cat-file','blob',entry.object);
+    if(value.length<=MAX_CACHED_BLOB_BYTES){
+      while(cache.size&&(cachedBytes+value.length>MAX_CACHED_BYTES||cache.size>=MAX_CACHED_BLOBS)){const oldest=cache.keys().next().value;cachedBytes-=cache.get(oldest).length;cache.delete(oldest);}
+      cache.set(entry.object,value);cachedBytes+=value.length;
+    }
+    return value;
+  };
   assert(byPath.has('site/ci-model-proof.mjs'),'Base has no v2 model proof policy; full baseline required');
   return policyInputs([...byPath.keys()],read,path=>byPath.get(path)?.mode);
 }

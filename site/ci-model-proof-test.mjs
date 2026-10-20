@@ -326,4 +326,29 @@ export function runCleanConsumerDependencyTests(){
     console.log('Clean proof consumers: card/GPU/gallery/CLI/unit roots, exact built-viewer AST exception and computed-loader mutation rejection passed.');
   }finally{f.close();}
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){runModelProofTests();await runBuiltRenderProofTests();runModelPolicyInventoryTests();runCleanConsumerDependencyTests();}
+export function runBoundedGitPolicyReadTests(){
+  const root=mkdtempSync(join(tmpdir(),'model-policy-cache-'));
+  const put=(path,data)=>{mkdirSync(dirname(join(root,path)),{recursive:true});writeFileSync(join(root,path),data);};
+  const git=(...args)=>execFileSync('git',args,{cwd:root,stdio:['ignore','pipe','pipe']}).toString().trim();
+  const commit=message=>{git('add','.');git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid','-c','core.hooksPath=/dev/null','commit','-qm',message);return git('rev-parse','HEAD');};
+  try{
+    put('site/ci-model-proof.mjs','export const fixture = true;\n');
+    // More than 256 objects, more than 8MiB of individually cacheable blobs,
+    // and one >1MiB blob cover both eviction bounds and the uncached path.
+    for(let i=0;i<280;i++)put(`scripts/small-${String(i).padStart(3,'0')}.txt`,`protected fixture ${i}\n`);
+    for(let i=0;i<10;i++)put(`scripts/payload-${i}.bin`,Buffer.alloc(900*1024,31+i));
+    put('scripts/large.bin',Buffer.alloc(2*1024*1024,75));
+    put('scripts/same-object-a.txt','identical immutable Git blob\n');put('scripts/same-object-b.txt','identical immutable Git blob\n');
+    git('init','-q');const first=commit('bounded Git cache fixture'),firstPolicy=modelPolicyDigest(root);
+    assert.equal(modelPolicyDigestAtCommit(first,{root}),firstPolicy,'Eviction and uncached blobs preserve exact policy output');
+    put('scripts/same-object-a.txt','different immutable Git blob\n');const second=commit('same path new blob'),secondPolicy=modelPolicyDigest(root);
+    assert.notEqual(secondPolicy,firstPolicy);
+    assert.equal(modelPolicyDigestAtCommit(second,{root}),secondPolicy,'New commit cannot inherit the prior path digest');
+    assert.equal(modelPolicyDigestAtCommit(first,{root}),firstPolicy,'Historical snapshot stays bound to its exact object IDs');
+    put('scripts/same-object-a.txt','uncommitted worktree mutation\n');
+    assert.notEqual(modelPolicyDigest(root),secondPolicy,'Worktree reads are not satisfied by a Git snapshot cache');
+    assert.equal(modelPolicyDigestAtCommit(second,{root}),secondPolicy,'Worktree mutation cannot alter the immutable snapshot');
+    console.log('Bounded Git reads: entry/byte eviction, large uncached blob, identical objects, changed commit and mutable worktree isolation passed.');
+  }finally{rmSync(root,{recursive:true,force:true});}
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){runModelProofTests();await runBuiltRenderProofTests();runModelPolicyInventoryTests();runCleanConsumerDependencyTests();runBoundedGitPolicyReadTests();}
