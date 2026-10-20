@@ -2,9 +2,10 @@
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,rmSync,symlinkSync} from 'node:fs';
 import {join} from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {fixture,buildFixture} from './ci-model-proof-test.mjs';
 import {assertPreCaptureInputs} from './ci-clean-gallery.mjs';
-import {computeModelInputs,assertBuiltRenderInputs,MODEL_PROOF_ENTRYPOINTS} from './ci-model-proof.mjs';
+import {computeModelInputs,assertBuiltRenderInputs,MODEL_PROOF_ENTRYPOINTS,EXECUTED_QA_ENTRYPOINTS,PUBLICATION_ONLY_MODULES,modelExecutionDependencies} from './ci-model-proof.mjs';
 const f=fixture(3);
 try{
  await buildFixture(f);
@@ -41,6 +42,17 @@ assert(!clean.includes('site/audit-release.mjs')&&!clean.includes('site/ci-publi
 // protected closure root, even if it is unchanged when a new archive is added.
 for(const section of [clean,job('build'),aggregate])for(const match of section.matchAll(/(?:node |npx )(site\/[A-Za-z0-9_./-]+\.mjs)/g))assert(MODEL_PROOF_ENTRYPOINTS.includes(match[1]),`Untracked clean consumer root: ${match[1]}`);
 assert(MODEL_PROOF_ENTRYPOINTS.includes('site/capture-gallery-posters.mjs')&&MODEL_PROOF_ENTRYPOINTS.includes('site/render-web-previews.mjs'));
+// Check the real repository import graph as well as the small proof fixtures.
+// Historical preparation scripts are still protected bytes, not executable
+// roots merely because they share a directory with one active browser harness.
+const inventory=execFileSync('git',['ls-files','-z'],{maxBuffer:128*1024*1024}).toString().split('\0').filter(Boolean);
+const executionSources=['site/ci-review.mjs','package.json',...inventory.filter(path=>/^\.github\/workflows\/.*\.ya?ml$/.test(path))].map(path=>readFileSync(path,'utf8')).join('\n');
+assert.deepEqual([...new Set([...executionSources.matchAll(/\bnode (qa\/[A-Za-z0-9_./-]+\.mjs)/g)].map(match=>match[1]))].sort(),[...EXECUTED_QA_ENTRYPOINTS].sort());
+// These command definitions are themselves always hash-protected. A new or
+// computed subprocess route changes policy and cannot inherit an old baseline.
+const closure=modelExecutionDependencies(inventory,path=>readFileSync(path));
+assert(!closure.has('qa/conifer-doc1-integration/prepare-review.mjs'),'Unused historical preparation must not be a render entrypoint');
+assert.deepEqual(PUBLICATION_ONLY_MODULES.filter(path=>closure.has(path)),[],'Real proof consumers must not execute publication collectors');
 assert(audit.includes('node site/ci-model-shards.mjs audit-build'));
 const auditWrapper=readFileSync('site/ci-model-shards.mjs','utf8');
 assert(auditWrapper.includes("['site/audit-release.mjs']")&&auditWrapper.includes("REQUIRE_COMPLETE_GALLERY: '1'"));

@@ -42,6 +42,10 @@ export const PUBLICATION_ONLY_MODULES=Object.freeze([
 const publicationOnly=new Set(PUBLICATION_ONLY_MODULES);
 export const isPublicationOnlyModelPath=path=>publicationOnly.has(path);
 export const EXECUTED_QA_ROOTS=['qa/conifer-doc1-integration/'];
+// Protect the entire historical QA directory's bytes, but traverse imports only
+// from the exact command CI executes. Its old review-only assembly is not run by
+// any proof producer; importing it from an executed root still promotes it.
+export const EXECUTED_QA_ENTRYPOINTS=Object.freeze(['qa/conifer-doc1-integration/conifer-handoff-browser-test.mjs']);
 // Cache producers and independent consumers, including the unit-contract
 // programs run before GPU/card production. Unrelated matrix jobs have their own
 // isolated runners and do not produce this evidence. Publication processes must
@@ -79,7 +83,7 @@ export function protectedModelPath(path){
 // Parse executable imports instead of assuming that an authorization filename
 // cannot execute during rendering. Package contents are bound by the lockfile;
 // local data imports are returned too, so they can enter shared/per-model inputs.
-function renderDependencies(paths,read){
+export function modelExecutionDependencies(paths,read){
   const available=new Set(paths),found=new Set();
   function visit(path){
     if(found.has(path))return;
@@ -184,11 +188,11 @@ function renderDependencies(paths,read){
   // All application JS is a root, even if an entrypoint currently loads it lazily.
   for(const path of paths.filter(path=>/^site\/.*\.js$/.test(path)))visit(path);
   for(const path of MODEL_PROOF_ENTRYPOINTS)if(available.has(path))visit(path);
-  for(const path of paths.filter(path=>EXECUTED_QA_ROOTS.some(prefix=>path.startsWith(prefix))&&/\.(?:mjs|cjs|js)$/.test(path)))visit(path);
+  for(const path of EXECUTED_QA_ENTRYPOINTS)if(available.has(path))visit(path);
   return found;
 }
 function policyInputs(paths,read,mode){
-  const closure=renderDependencies(paths,read);
+  const closure=modelExecutionDependencies(paths,read);
   const archives=collectArchivalInputs({paths,read,mode,manifest:paths.includes('assets/manifest.json')?JSON.parse(read('assets/manifest.json')):undefined,protectedPaths:closure});
   const excluded=new Set(archives.excludedPaths),archived=new Set(archives.files.map(row=>row.path));
   const selected=paths.filter(path=>!excluded.has(path)&&(protectedModelPath(path)||(publicationOnly.has(path)&&closure.has(path)))).sort();
