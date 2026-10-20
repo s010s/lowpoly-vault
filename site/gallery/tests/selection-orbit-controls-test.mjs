@@ -13,7 +13,7 @@ import {prepareModels,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,
 import {PACK_LABELS,WORLD_LABELS} from '../../curation.js';
 import {modelShortName} from '../presentation-labels.js';
 import {ThumbnailQueue} from '../thumbnail-queue.js';
-import {thumbnailPlaceholderMarkup} from '../thumbnail-placeholder.js';
+import {thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders} from '../thumbnail-placeholder.js';
 import {parseRoute} from '../../routes.js';
 const rawModels=await publishedModels(),resources=JSON.parse(await readFile(new URL('../../public/gallery/resources.json',import.meta.url),'utf8'));
 const models=prepareModels({assets:rawModels},resources),catalog={manifest:{assets:rawModels,review_only:false},route:{lang:'en',page:0}};
@@ -73,7 +73,7 @@ r.host=$('#detail');r.controls=r.createControls(r.host);
 r.viewMotion=new ViewTransition({read:()=>r.viewState(),write:(state,ownership)=>r.applyState(state,ownership),reduced:()=>reduced});
 const location=new URL('models/',siteRoot);
 const history={state:null,replaceState(value,_,url){this.state=structuredClone(value);latestHistorySnapshot=this.state;if(url)location.href=url;},pushState(value,_,url){this.replaceState(value,_,url);pushes++;}};
-const context=vm.createContext({...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
+const context=vm.createContext({...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
 let source=await readFile(new URL('../main.js',import.meta.url),'utf8');
 assert(source.includes('export async function mountGallery(){'),'The app must mount explicitly after startup prerequisites');
 // Unwrap only the mount boundary so the existing deterministic probes can still

@@ -1,6 +1,6 @@
 import './style.css';
 import './thumbnail-placeholder.css';
-import {thumbnailPlaceholderMarkup} from './thumbnail-placeholder.js';
+import {thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders} from './thumbnail-placeholder.js';
 import {mountIcons} from './icons.js';
 import {createUIFeedback,shouldAnimateBoundary} from './ui-feedback.js';
 import {modelHeight,dimensionDetails,dimensionNote,comparisonText} from './model-dimensions.js';
@@ -94,8 +94,12 @@ function renderWheel(){
  }
  for(const row of existing.values()){if(row===hoverRow)stopHover();row.remove();}
  if(keyIndex>=0&&$('#option-'+state.keyboard))wheel.setAttribute('aria-activedescendant','option-'+state.keyboard);else wheel.removeAttribute('aria-activedescendant');
- const near=[...slots.children].map(row=>({row,index:state.results.findIndex(a=>a.id===row.dataset.id)})).filter(({index})=>Math.abs(index-centerIndex)<=half+1).sort((a,b)=>Math.abs(a.index-centerIndex)-Math.abs(b.index-centerIndex));
- thumbnails.update(near.map(({row,index})=>({image:row.querySelector('img'),url:poster(state.results[index],{wheel:true}),fallback:urlAsset(state.results[index].preview),visible:Math.abs(index-centerIndex)<=half+.5})));
+ const viewport=wheel.getBoundingClientRect();
+ const visible=[...slots.children].map(row=>({row,index:state.results.findIndex(a=>a.id===row.dataset.id),bounds:row.querySelector('.slot-image').getBoundingClientRect()})).filter(({bounds})=>bounds.bottom>viewport.top&&bounds.top<viewport.bottom&&bounds.right>viewport.left&&bounds.left<viewport.right).sort((a,b)=>Math.abs(a.index-centerIndex)-Math.abs(b.index-centerIndex));
+ // Budget follows the actual clipped viewport, not the virtualized overscan.
+ // Every visible thumbnail may load together after settling; offscreen rows do not.
+ thumbnails.update(visible.map(({row,index})=>({image:row.querySelector('img'),url:poster(state.results[index],{wheel:true}),fallback:urlAsset(state.results[index].preview)})));
+ synchronizeThumbnailPlaceholders(all('.thumbnail-placeholder-cube'));
  clearTimeout(warmPosterTimer);warmPosterTimer=setTimeout(warmDetailPosters,180);
  $('.wheel-wrap').dataset.empty=String(!state.results.length);
  const empty=$('#empty-state');empty.hidden=!!state.results.length;wheel.tabIndex=state.results.length?0:-1;$('#empty-message').textContent=t('No models match these conditions.','没有符合这些条件的模型。');

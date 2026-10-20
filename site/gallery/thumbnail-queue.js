@@ -2,13 +2,14 @@
 export class ThumbnailQueue {
  // Wrap Window timers: calling a native timer as this.setTimer gives it an
  // invalid receiver in real browsers, even though Node timer mocks allow it.
- constructor({concurrency=3,delay=120,setTimer=(...args)=>setTimeout(...args),clearTimer=(...args)=>clearTimeout(...args)}={}){
-  Object.assign(this,{concurrency,delay,setTimer,clearTimer});this.active=new Map();this.desired=new Map();this.timer=0;this.stats={started:0,cancelled:0,active:0,maxActive:0};
+ constructor({delay=120,setTimer=(...args)=>setTimeout(...args),clearTimer=(...args)=>clearTimeout(...args)}={}){
+  Object.assign(this,{delay,setTimer,clearTimer});this.concurrency=0;this.active=new Map();this.desired=new Map();this.timer=0;this.stats={started:0,cancelled:0,active:0,maxActive:0,budget:0};
  }
  update(items){
-  const desired=new Map(items.map(item=>[item.image,item]));
+  const desired=new Map(items.filter(item=>item.visible!==false).map(item=>[item.image,item]));
+  this.concurrency=desired.size;this.stats.budget=this.concurrency;
   const changed=desired.size!==this.desired.size||[...desired.keys()].some(image=>!this.desired.has(image));
-  for(const [image,item] of desired){image.dataset.thumbnailVisible=String(item.visible!==false);if(!image.dataset.thumbnailState)image.dataset.thumbnailState='pending';}
+  for(const image of desired.keys()){image.dataset.thumbnailVisible='true';if(!image.dataset.thumbnailState||image.dataset.thumbnailState==='idle')image.dataset.thumbnailState='pending';}
   for(const image of this.desired.keys())if(!desired.has(image))image.dataset.thumbnailVisible='false';
   this.desired=desired;
   if(changed){this.clearTimer(this.timer);this.timer=this.setTimer(()=>{this.timer=0;this.pump();},this.delay);}
@@ -27,5 +28,5 @@ export class ThumbnailQueue {
    image.src=item.url;
   }
  }
- clear(){this.clearTimer(this.timer);this.timer=0;for(const image of this.desired.keys())image.dataset.thumbnailVisible='false';this.desired.clear();for(const cancel of [...this.active.values()])cancel();}
+ clear(){this.clearTimer(this.timer);this.timer=0;for(const image of this.desired.keys())image.dataset.thumbnailVisible='false';this.desired.clear();this.concurrency=0;this.stats.budget=0;for(const cancel of [...this.active.values()])cancel();}
 }
