@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "exfoliation-dome",
+  "revision": "r002",
+  "labels": {
+    "en": "exfoliation-dome"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "07693cb4615d724e5e7cfac641a50dccc092d94f8d0784280e8c2ae597cd93d7"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "9b78836cb5833c2a938f4dbe534e6b426df3267b063e8ecef515b072af73911b"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "e71fa0bc37f72019c3fbf14724fc08faf15f5bf16fcfe4902ce533b9e5e79f39"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "47c068e899ab71862e7672f4ae5ecb3b9015ebaf3d968fb56097d6ea44131114"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "f746532412366a2543773b2ff69ae8d7d47637ea2fa93651f41f1ad65d084caa"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "8d815dcc2b783e0b6c03bf555254334e24a17bddd1ba6b9581c6c827dff485c5"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "c6dc76d159cf036dedc1f118d79be6818942bf425da52164790e7542b4aa1539"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "4751ebc53c93451d47fc56cfdbfaa034a59e08af23af15bed0bf2a052fb5fa96"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "b35d1fbb69a4c72b6654f1672d8d7f4c427e80ddf58b656dd2244791bac2f9af"
+      }
+    ],
+    "cross_view_consistency_note": "Concept rounded dome useful but detached shoulder pieces too blade-like and regular. Build coherent rounded ellipsoidal granite body with only two broad curved asymmetric sheet patches, strongly conformal to shoulder with modest undercut gap, varying irregular edge shape/thickness. Core remains continuous beneath patches. No horizontal repeated tiers or scales.",
+    "hidden_surface_decisions": "Concept rounded dome useful but detached shoulder pieces too blade-like and regular. Build coherent rounded ellipsoidal granite body with only two broad curved asymmetric sheet patches, strongly conformal to shoulder with modest undercut gap, varying irregular edge shape/thickness. Core remains continuous beneath patches. No horizontal repeated tiers or scales."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:08:20.074528+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.0458,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "00a2798c4eb9c8fd6785f438ccb4eeb4152142818fb72ac666185293f1e2304b"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "00a2798c4eb9c8fd6785f438ccb4eeb4152142818fb72ac666185293f1e2304b"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "4aad0188e331ee50de9a46398837c410bb00d5924e729df35e562c694d269441",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "859e8dbb8570b644c7bc4e8671e22651d11648234e171811f266da66bd2bdd0f"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "07693cb4615d724e5e7cfac641a50dccc092d94f8d0784280e8c2ae597cd93d7",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "a65f746f711f141229ea524f3c98e4dc44ad797e256813d90bcccb3097b620d8"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

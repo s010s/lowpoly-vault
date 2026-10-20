@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "pteridinium",
+  "revision": "r003",
+  "labels": {
+    "en": "pteridinium"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "3a3962a9679ec89482535800614fd65d0cf45489743f35966286a082c479a7e0"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "70114a07dab607d70524a31e62db6b21c9cb2a156ec125e0706911aa1d7da9f8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "5fc36436dc7a38f7d7b44be167eb7f6c37182950b6fe12cfc24f361ebae7f5d5"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "cde6a8b674d4d404accd79240826cf281bc36ac49b3391f29d63d9cd768c9c08"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "6c6313a67eaf63140d44736c61d599f12a62a1176e104f1a619615fe1b61f8b2"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "0751e29392b0d96c0ed967b88d3b5b04259381de81916dfc1862a10e8c7ef696"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "14d4192b72ae8ab62249cf4ee4795d5c950d2f11c018d03d0e11d23e0991f304"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "84a46d3aeae5ac52c0eac161b631aac7d134f49a90ecfd1b3933e48a22d64899"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "ff7551f0f5ba02f6cb7e3be5607be4b31642ba5792d2848340fdc6cf4c5121c3"
+      }
+    ],
+    "cross_view_consistency_note": "Concept canoe cavity and third-vane direction useful, but bead-like dorsal ornaments and tall sail exaggerate. Build one continuous closed thin three-vane fossil volume with two upcurved lateral quilted wings, modest central upright quilted vane along common keel seam, glide-offset unbranched module relief. No dorsal beads, roots or mouth. Small irregular matrix supports lower keel; display posture inferential, not living reconstruction.",
+    "hidden_surface_decisions": "Concept canoe cavity and third-vane direction useful, but bead-like dorsal ornaments and tall sail exaggerate. Build one continuous closed thin three-vane fossil volume with two upcurved lateral quilted wings, modest central upright quilted vane along common keel seam, glide-offset unbranched module relief. No dorsal beads, roots or mouth. Small irregular matrix supports lower keel; display posture inferential, not living reconstruction."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:08:20.035831+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 10.1098,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "cb7c195d823337c5dbdf18e57ca4fea3e6166a52274851fd5f1880e72ac4a431"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "cb7c195d823337c5dbdf18e57ca4fea3e6166a52274851fd5f1880e72ac4a431"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "3370ce08a3fcb1cefe0a15ba8f12374c1810a8bb0ca30fad8621516381ec5403",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "6a6e3c668827b07a251f211a7d7a9fe9785a36e10eedae19b202ef73f550c8ea"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "3a3962a9679ec89482535800614fd65d0cf45489743f35966286a082c479a7e0",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "72e9f1aec1c1e94320b2355b16a1f79975943530edcaf7a6a9d13740943a35a9"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

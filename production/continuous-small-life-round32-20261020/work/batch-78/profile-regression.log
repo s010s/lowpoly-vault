@@ -1,0 +1,70 @@
+EE..............EEE
+======================================================================
+ERROR: test_candidate_profile (unittest.loader._FailedTest.test_candidate_profile)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_candidate_profile
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch78-20261020/scripts/test_candidate_profile.py", line 10, in <module>
+    from candidate_profile import create_contract
+ModuleNotFoundError: No module named 'candidate_profile'
+
+
+======================================================================
+ERROR: test_validate_candidate (unittest.loader._FailedTest.test_validate_candidate)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_validate_candidate
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch78-20261020/scripts/test_validate_candidate.py", line 16, in <module>
+    from test_qa_glb import fixture, encode
+ModuleNotFoundError: No module named 'test_qa_glb'
+
+
+======================================================================
+ERROR: test_concept_evidence (unittest.loader._FailedTest.test_concept_evidence)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_concept_evidence
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch78-20261020/scripts/test_concept_evidence.py", line 16, in <module>
+    from test_qa_glb import encode, fixture
+ModuleNotFoundError: No module named 'test_qa_glb'
+
+
+======================================================================
+ERROR: test_technical_reports (unittest.loader._FailedTest.test_technical_reports)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_technical_reports
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch78-20261020/scripts/test_technical_reports.py", line 11, in <module>
+    from check_source_export import compare_source_audit
+ModuleNotFoundError: No module named 'check_source_export'
+
+
+======================================================================
+ERROR: test_release_textures (unittest.loader._FailedTest.test_release_textures)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_release_textures
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch78-20261020/scripts/test_release_textures.py", line 6, in <module>
+    from test_validate_candidate import build_fixture,digest
+ModuleNotFoundError: No module named 'test_validate_candidate'
+
+
+----------------------------------------------------------------------
+Ran 19 tests in 21.803s
+
+FAILED (errors=5)

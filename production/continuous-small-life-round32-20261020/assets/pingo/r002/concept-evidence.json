@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "pingo",
+  "revision": "r002",
+  "labels": {
+    "en": "pingo"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "bc6d6628ab7886e9d2e66a4d631b104ed32f953ed6990a03d2f23a52f41859d0"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "fa7cfa25f8ce34da45b58ac4fec3fd2b323c447975f3d2d6272f163c303ed03b"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "39b3164032fd329ec54225fe2e16d96073655388d444bb5f15aa5db18b0b05f5"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "57e8fe05e07e07b12a539d67e85f5942a15e6365ab23a97f60b53129fce7fc49"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "4d262b63d1282a66ad2aee5630d938a7bca562f109d6d93d5c23a0b00f66ad10"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "91b7bfa081424de12ce45789b804ffa5dd6ae7d30d75ca08f1d9dd441eabf97e"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "2396eeefc3ce15340e5898f1eaaf5cf6f8f4ce9237815af6888f5e05d0d838ca"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "2cda44afab0ad1a32a61f73a28a59ad0f2805cdb228a1d52315269de1d3f2a5b"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero-side-top",
+        "path": "concept-original.png",
+        "sha256": "5f651fe238d15e4658c0d4bb7ca8621ad555435cb9de3fa79bf760b163e301b4"
+      }
+    ],
+    "cross_view_consistency_note": "Concept dome and cutaway useful, but cross-view brown ring resembles arbitrary strata. Build single continuous broad faceted turf dome, three narrow branching summit grooves physically carved in height field, small front-right sector removed down through top to reveal solid pale-blue schematic ice section under thin brown soil contact. No circular crater or broad natural exposed ice claim. Base continuous with flat surrounding tundra.",
+    "hidden_surface_decisions": "Concept dome and cutaway useful, but cross-view brown ring resembles arbitrary strata. Build single continuous broad faceted turf dome, three narrow branching summit grooves physically carved in height field, small front-right sector removed down through top to reveal solid pale-blue schematic ice section under thin brown soil contact. No circular crater or broad natural exposed ice claim. Base continuous with flat surrounding tundra."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:08:20.052872+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.5923,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "cb5486aae696a9e59b71fcdee96ada04b10b34676b8d0cbf7d917239a81f8fd4"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "cb5486aae696a9e59b71fcdee96ada04b10b34676b8d0cbf7d917239a81f8fd4"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "808eb4e4b02bf6897165aa8f6350ba469709c8c2b5921620720b4f13fc037cbb",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "1892069adf62b6f7e2bb070d02c764240f91a886710d18b3ad4bcb36a9edd5e7"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "bc6d6628ab7886e9d2e66a4d631b104ed32f953ed6990a03d2f23a52f41859d0",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "daacbbb79494d79bd52783d77f911fc88c4300bb875bd97b7e9a4478c6e741b9"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

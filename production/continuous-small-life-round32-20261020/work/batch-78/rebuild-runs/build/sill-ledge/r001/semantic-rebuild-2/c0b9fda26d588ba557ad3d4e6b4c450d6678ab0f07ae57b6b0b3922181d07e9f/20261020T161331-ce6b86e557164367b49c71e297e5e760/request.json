@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/work/batch-78/locked-blender.sh",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/work/batch-78/rebuild-runs/build/sill-ledge/r001/semantic-rebuild-2/c0b9fda26d588ba557ad3d4e6b4c450d6678ab0f07ae57b6b0b3922181d07e9f/20261020T161331-ce6b86e557164367b49c71e297e5e760/outputs"
+  ],
+  "created_at": "2026-10-20T16:13:31.721834+00:00",
+  "fingerprint": "c0b9fda26d588ba557ad3d4e6b4c450d6678ab0f07ae57b6b0b3922181d07e9f",
+  "identity": {
+    "executable": {
+      "bytes": 80,
+      "path": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/work/batch-78/locked-blender.sh",
+      "sha256": "ff7c7d5c532ecc3cdf57e88552e14328fec30ae0b724b37afdda337aac983c79"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch78-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 5451,
+        "path": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/brief.json",
+        "sha256": "63692ded5d589e7593e4f91d7ae0904740891f28dd788c0cf2764087d2b67c2c"
+      },
+      "config": {
+        "bytes": 771,
+        "path": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/build-config.json",
+        "sha256": "f10a330ae60cca66754e47b6e059d7da9ad7d6a3e82458b194d59bb5d0b36955"
+      },
+      "generator": {
+        "bytes": 12082,
+        "path": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/generator.py",
+        "sha256": "7a2ad1c12e3cba80397ba03142fab30294103381751c1793133951716820fa7d"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch78-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 2062,
+        "path": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/references.json",
+        "sha256": "33556d06b86d64943311d6ed8425eccc2ec45041e11ff7b42df50af233fa2abc"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "sill-ledge",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch78-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/brief.json",
+        "config": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch78-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch78-20261020/production/continuous-small-life-round32-20261020/assets/sill-ledge/r001/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r001"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T161316-05bb6ddabd9d4aa9a5e2a7e46532449e"
+}
