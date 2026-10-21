@@ -2,6 +2,8 @@
 import assert from 'node:assert/strict';
 import {existsSync} from 'node:fs';
 import {posterSharedInputs} from './gallery-poster-inputs.mjs';
+import {historical295Fixture} from './test-historical295-fixture.mjs';
+import {digest} from './model-registry.mjs';
 import {mkdtemp,mkdir,readFile,writeFile,link,unlink,symlink,rm} from 'node:fs/promises';
 import {resolve,join,dirname} from 'node:path';
 import {createHash} from 'node:crypto';
@@ -121,8 +123,23 @@ try{
   const invalid=structuredClone(narrowed);invalid[field]=value;
   assert.throws(()=>assertFortyFourGallerySubjects(invalid,result.additions));passed(`gallery cannot promote ${field}`);
  }
- const manifest=JSON.parse(await readFile(resolve(source,'assets/manifest.json')));
- const base={...manifest,assets:manifest.assets.filter(asset=>!FORTY_FOUR_IDS.includes(asset.id))};
+ const current=JSON.parse(await readFile(resolve(source,'assets/manifest.json'))),currentBytes=JSON.stringify(current);
+ const manifest=historical295Fixture(current);
+ assert.equal(JSON.stringify(current),currentBytes);passed('fixed347 projection preserves complete canonical old295 without mutating input');
+ for(const [label,change]of [
+  ['old model field',m=>{m.assets[0].description.en+=' changed';}],
+  ['old model order',m=>{[m.assets[0],m.assets[1]]=[m.assets[1],m.assets[0]];}],
+  ['old review pin',m=>{m.assets.find(a=>a.source_identity?.active_review).source_identity.active_review.sha256='0'.repeat(64);}],
+  ['new wrong ID',m=>{m.assets.find(a=>a.id==='arroyo-wash').id='kettle-basin';}],
+  ['new duplicate ID',m=>{m.assets.find(a=>a.id==='arroyo-wash').id='badlands-ridge-network';}],
+  ['extra deletion',m=>{m.assets.shift();}],
+  ['new descriptor field',m=>{m.publication.fifty_two_descriptors[0].sha256='0'.repeat(64);}],
+  ['forged digest',m=>{m.assets[0].description.en+=' changed';m.publication.baseline295_canonical_sha256=digest(manifest);}],
+  ['extra stripped-looking field',m=>{m.publication.fifty_two_unreviewed=true;}]
+ ]){const bad=structuredClone(current);change(bad);assert.throws(()=>historical295Fixture(bad));passed('fixed historical projection refuses '+label);}
+ const base={...manifest,publication:{...manifest.publication},assets:manifest.assets.filter(asset=>!FORTY_FOUR_IDS.includes(asset.id))};
+ delete base.publication.forty_four_descriptors;
+ assert.equal(digest(base),'7f6c94c26f0a47b7a1b461f48070868be57f94161c9a1e3c11b5666cd8b273e0','Complete immutable main43 predecessor changed');
  assert.equal(base.assets.length,251);const baseBytes=JSON.stringify(base);
  await assert.rejects(()=>appendFortyFourRelease(root,{...base,assets:base.assets.slice(1)},descriptors),/exact251/);
  passed('append rejects a non251 baseline');
@@ -159,7 +176,7 @@ try{
   passed('actual final receipt cannot be reused after metadata changes');
   const collected=await collectFortyFourAdditions(source,descriptors);assert.equal(collected.additions.length,44);
   const appended=await appendFortyFourRelease(source,base,descriptors);
-  assert.equal(appended.assets.length,295);assert.deepEqual(appended.assets.slice(0,251),base.assets);
+  assert.equal(appended.assets.length,295);assert.deepEqual(appended.assets.slice(0,251),base.assets);assert.deepEqual(appended,manifest);
   assert.equal(JSON.stringify(base),baseBytes);passed('verified final receipt allows exact251→295 without baseline mutation');
  }
  console.log(JSON.stringify({status:'PASS',checks,source_card_preflight:'PASS',final_gallery_publication_gate:ready?'PASS':'BLOCKED_PENDING_REAL_FINAL_SUBJECT_CAPTURE_AND_REVIEW',formal_acceptance:'BLOCKED',hardware_gpu_verified:false,target_scene_verified:false}));
