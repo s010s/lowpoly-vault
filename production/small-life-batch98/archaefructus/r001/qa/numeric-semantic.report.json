@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+    "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+    "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+  },
+  "status": "pass",
+  "source_sha256": "c09d63eb400b2921f13498f351c359c19119c73c369b4e97222f283c5a9b236c",
+  "method": "Read named actual component contract from reopened Blend, with tagged final mesh vertex membership and actual counts.",
+  "expected_counts": {
+    "lateral_stem": 3,
+    "fertile_axis": 4,
+    "carpel": 64,
+    "paired_stamen_stalk": 32,
+    "anther": 64,
+    "swollen_leaf_base": 12,
+    "petiole": 12,
+    "leaf_division_axis": 468,
+    "ultimate_lobe": 324,
+    "primary_root": 1,
+    "secondary_root": 4
+  },
+  "observed_counts": {
+    "axis": 1,
+    "lateral_stem": 3,
+    "fertile_axis": 4,
+    "carpel_stalk": 64,
+    "carpel": 64,
+    "paired_stamen_stalk": 32,
+    "filament": 64,
+    "anther": 64,
+    "swollen_leaf_base": 12,
+    "petiole": 12,
+    "leaf_division_axis": 468,
+    "ultimate_lobe": 324,
+    "primary_root": 1,
+    "secondary_root": 4
+  },
+  "hard_organ_ranges": [
+    {
+      "rule": {
+        "kind": "carpel",
+        "measure": "oriented_length_m",
+        "range": [
+          0.01,
+          0.018
+        ],
+        "basis": "SUN2002 note8"
+      },
+      "observed_min": 0.013999975810293108,
+      "observed_max": 0.014000034076161683,
+      "count": 64,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "carpel",
+        "measure": "oriented_width_m",
+        "range": [
+          0.0015,
+          0.002
+        ],
+        "basis": "SUN2002 note8"
+      },
+      "observed_min": 0.0017999876290559769,
+      "observed_max": 0.0018000125419348478,
+      "count": 64,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "anther",
+        "measure": "oriented_length_m",
+        "range": [
+          0.004,
+          0.005
+        ],
+        "basis": "SUN2002 note8"
+      },
+      "observed_min": 0.004499973525526002,
+      "observed_max": 0.0045000408426858485,
+      "count": 64,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "anther",
+        "measure": "oriented_width_m",
+        "range": [
+          0.0005,
+          0.0008
+        ],
+        "basis": "SUN2002 note8"
+      },
+      "observed_min": 0.0006499858573079109,
+      "observed_max": 0.0006500078161479905,
+      "count": 64,
+      "failures": []
+    }
+  ],
+  "all_actual_components_exposed_relative_to_support": true,
+  "all_actual_junctions_intersect_support": true,
+  "source_reopen_report": {
+    "path": "production/small-life-batch98/archaefructus/r001/qa/source-export.report.json",
+    "sha256": "87206c25130620f320b583437d44444ea99a56aaf9a797eabcd3ed390fba4ab1"
+  },
+  "measurement_report": {
+    "path": "production/small-life-batch98/archaefructus/r001/qa/component-contact.report.json",
+    "sha256": "7575d79b11290bc9cdab3244f1776206466b2f45fab9ded3a3eabba4d39aa719"
+  },
+  "limitations": "Integer design counts are interpretive choices, not universal fossil counts. All unbounded nominal dimensions are measured and reported, not asserted exact species reconstruction."
+}

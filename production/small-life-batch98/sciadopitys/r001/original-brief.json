@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "asset_id": "sciadopitys",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational low-poly catalog candidate; independent QA/GPU/scene/release are separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate final static GLB/project/Khronos, source reopen, two real queued semantic rebuilds and all measured transformed components.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every512px final frame after exact triplet binding; open silhouettes, solid volumes and no visible coplanar interference. Retain three clear umbrella whorls and the quiet gaps between. Correct the generated concept: its blades are too broad and numerous. Exactly12 per whorl,90mm long and2mm wide; shallow groove not prominent central raised midrib.",
+      "required_sources": [
+        "PAL1991"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "A single short slender axis bears three separated whorls, each 12 sessile radiating linear cladodes. Each entire blade is long and narrow, with a narrowed rounded tip and a shallow central longitudinal groove. Cladodes are not pine needle fascicles. No cone, roots, whole crown, slab, labels or living-color attribution. Radial depth is an interpretive restoration of a compressed branch. Use the historical cf. determination, never assert definite marcodurensis or substitute Eocene amber cladodes. Number of whorl tiers, three-dimensional opening, color and axis dimensions are artistic. The primary source reports12-15 blades per whorl and8-10cm by2mm; these dimensions constrain our blades.",
+      "required_sources": [
+        "PAL1991"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Preserve original freeze and inventory. Verify complete source/generator/config/dependency closure and all numeric semantics.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse exact GLB with pinned Three GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Requires actual target graphics rendering and device evidence; CPU parse/stills do not establish this.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Requires actual intended composed scene with scale/contact/runtime evidence.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight fixed512px views plus lossless sheet. No turntable requirement under static-stylized-v1; extra diagnostic closeups allowed but do not replace views.",
+  "frozen_at": "2026-10-21T00:31:45Z",
+  "subject": "Sciadopitys cf. marcodurensis umbrella-cladode fossil branch",
+  "taxon": "Sciadopitys cf. marcodurensis",
+  "representation": "fossil-specimen",
+  "factual_scope": "Use the historical cf. determination, never assert definite marcodurensis or substitute Eocene amber cladodes. Number of whorl tiers, three-dimensional opening, color and axis dimensions are artistic. The primary source reports12-15 blades per whorl and8-10cm by2mm; these dimensions constrain our blades.",
+  "identifying_features": [
+    "A single short slender axis bears three separated whorls, each 12 sessile radiating linear cladodes.",
+    "Each entire blade is long and narrow, with a narrowed rounded tip and a shallow central longitudinal groove. Cladodes are not pine needle fascicles.",
+    "No cone, roots, whole crown, slab, labels or living-color attribution. Radial depth is an interpretive restoration of a compressed branch."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.18,
+      0.18,
+      0.23
+    ],
+    "interpretation": "Nominal artistic whole-object targets, not hard thresholds. No global scale normalization is allowed. Source-constrained organ ranges below are hard; other dimensions are nominal design inputs.",
+    "accuracy": "Interpretive educational geometry, never an exact fossil cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Geometry minimum z0; horizontal bounds centered. Translation only, no global scaling.",
+  "intended_use": {
+    "role": "static catalog model",
+    "limits": "No GPU/composed-scene/independent approval implied."
+  },
+  "surface_profile": "Opaque flat-faceted full-volume geometry. No textures, alpha planes, emission, double-sided concealment or subdivision.",
+  "palette_srgb": [
+    "#5A4937",
+    "#846940",
+    "#B08D57",
+    "#C2A16C"
+  ],
+  "parameters": {
+    "axis_length_m": 0.16,
+    "axis_radius_m": 0.0024,
+    "whorl_count": 3,
+    "cladodes_per_whorl": 12,
+    "cladode_length_m": 0.09,
+    "cladode_width_m": 0.002,
+    "cladode_thickness_m": 0.0006,
+    "groove_depth_m": 0.00018
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "cladode",
+      "measure": "oriented_length_m",
+      "range": [
+        0.08,
+        0.1
+      ],
+      "basis": "source range, PAL1991 p5"
+    },
+    {
+      "kind": "cladode",
+      "measure": "oriented_width_m",
+      "range": [
+        0.0019,
+        0.0021
+      ],
+      "basis": "source2mm;0.1mm discretization allowance, not fossil variation"
+    }
+  ],
+  "numeric_semantics": "All per-organ parameters defined here before generator authoring. Source range measurements are hard only where enumerated. Integer counts are mandatory authored design choices, not universal fossil counts. Nominal lengths/radii without hard-range entries remain artistic; actual final values must be measured and disclosed.",
+  "component_measurement_contract": "Tag every stem, branch, leaf/petiole, root, scale and reproductive unit. Reopen actual Blend and measure its transformed vertices after grounding/centering. Per component: vertex/face/triangle count, world AABB and local-axis length/width/thickness; compare hard organ ranges. Record authored/evaluated/exported counts.",
+  "contact_policy": "Every supporting junction must have actual child-base mesh vertices embedded in the named parent component. Measure nearest parent surface signed distance from actual child-base vertices in world space using parent triangle BVH, not declared config points. Preserve diagnostic directions and inspect all attachment regions. Mere AABB overlap is not proof.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T00:31:15Z",
+    "path": "production/small-life-batch98/concepts/sciadopitys-concept.png",
+    "sha256": "6f2ae0516da123c58c5a068a68832f3cff4032ca80b133141f951e95018fe242",
+    "decisions": "Retain three clear umbrella whorls and the quiet gaps between. Correct the generated concept: its blades are too broad and numerous. Exactly12 per whorl,90mm long and2mm wide; shallow groove not prominent central raised midrib."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "generator/config/seed/dependency closure",
+    "actual transformed component and contact measurements",
+    "source reopen",
+    "two separate PIDqueued semantic rebuilds",
+    "project/Khronos/Three checks",
+    "eight exact512px views plus lossless sheet",
+    "seven separate stage statuses"
+  ],
+  "prohibited": [
+    "modify freeze to pass",
+    "reuse another taxon as exact evidence",
+    "fake imagegen",
+    "generate geometry before freeze",
+    "copied consultation imagery",
+    "claim maker self-test as independent QA",
+    "claim CPU parse or CPU stills as GPU/scene"
+  ]
+}

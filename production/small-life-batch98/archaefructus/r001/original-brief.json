@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "asset_id": "archaefructus",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational low-poly catalog candidate; independent QA/GPU/scene/release are separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate final static GLB/project/Khronos, source reopen, two real queued semantic rebuilds and all measured transformed components.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every512px final frame after exact triplet binding; open silhouettes, solid volumes and no visible coplanar interference. Correct generated concept: two giant pods at a shoot tip are inaccurate. Use16 small narrow carpels along each open distal axis; eight paired stamen stalks lower. Make leaf division genuinely three-level, reduce the too-thick main stem and swollen bases, and keep roots sparse.",
+      "required_sources": [
+        "SUN2002",
+        "DE2014"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Slender herb with four ascending terminal fertile shoots, one modest primary root and four short secondary roots. No woody trunk. 12 leaves are three-level divided fans, larger basal leaves on longer petioles and swollen bases. Each has27 fine rounded ultimate segments. Each open elongated fertile axis bears16 stalked folded carpels distally and8 paired-stamen stalks below. No petals, sepals, bracts, floral cups or modern water-lily flowers. Choose Sun2002 A.sinensis organismal interpretation. Aquatic habit and phylogenetic placement remain debated as reviewed by Doyle/Endress2014. Four shoots and12 leaves are artistic simplification, not counts asserted for holotype J-0721. No claim of earliest angiosperm, exact life color, pollen microstructure or opened seeds.",
+      "required_sources": [
+        "SUN2002",
+        "DE2014"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Preserve original freeze and inventory. Verify complete source/generator/config/dependency closure and all numeric semantics.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse exact GLB with pinned Three GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Requires actual target graphics rendering and device evidence; CPU parse/stills do not establish this.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Requires actual intended composed scene with scale/contact/runtime evidence.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight fixed512px views plus lossless sheet. No turntable requirement under static-stylized-v1; extra diagnostic closeups allowed but do not replace views.",
+  "frozen_at": "2026-10-21T00:31:45Z",
+  "subject": "Archaefructus sinensis finely divided herb reconstruction",
+  "taxon": "Archaefructus sinensis",
+  "representation": "living-reconstruction",
+  "factual_scope": "Choose Sun2002 A.sinensis organismal interpretation. Aquatic habit and phylogenetic placement remain debated as reviewed by Doyle/Endress2014. Four shoots and12 leaves are artistic simplification, not counts asserted for holotype J-0721. No claim of earliest angiosperm, exact life color, pollen microstructure or opened seeds.",
+  "identifying_features": [
+    "Slender herb with four ascending terminal fertile shoots, one modest primary root and four short secondary roots. No woody trunk.",
+    "12 leaves are three-level divided fans, larger basal leaves on longer petioles and swollen bases. Each has27 fine rounded ultimate segments.",
+    "Each open elongated fertile axis bears16 stalked folded carpels distally and8 paired-stamen stalks below. No petals, sepals, bracts, floral cups or modern water-lily flowers."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.2,
+      0.1,
+      0.34
+    ],
+    "interpretation": "Nominal artistic whole-object targets, not hard thresholds. No global scale normalization is allowed. Source-constrained organ ranges below are hard; other dimensions are nominal design inputs.",
+    "accuracy": "Interpretive educational geometry, never an exact fossil cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Geometry minimum z0; horizontal bounds centered. Translation only, no global scaling.",
+  "intended_use": {
+    "role": "static catalog model",
+    "limits": "No GPU/composed-scene/independent approval implied."
+  },
+  "surface_profile": "Opaque flat-faceted full-volume geometry. No textures, alpha planes, emission, double-sided concealment or subdivision.",
+  "palette_srgb": [
+    "#596A41",
+    "#7F8C50",
+    "#9CAA68",
+    "#B8A16C",
+    "#8A7553"
+  ],
+  "parameters": {
+    "main_stem_height_m": 0.26,
+    "main_stem_base_diameter_m": 0.003,
+    "shoot_count": 4,
+    "lateral_stem_diameter_m": 0.0012,
+    "fertile_axis_length_m": 0.06,
+    "leaf_count": 12,
+    "leaf_division_levels": 3,
+    "terminal_lobes_per_leaf": 27,
+    "leaf_tip_length_m": 0.002,
+    "leaf_tip_width_m": 0.0003,
+    "petiole_length_range_m": [
+      0.008,
+      0.035
+    ],
+    "swollen_base_diameter_m": 0.0028,
+    "carpels_per_axis": 16,
+    "carpel_length_m": 0.014,
+    "carpel_width_m": 0.0018,
+    "carpel_thickness_m": 0.0007,
+    "paired_stalks_per_axis": 8,
+    "anthers_per_stalk": 2,
+    "anther_length_m": 0.0045,
+    "anther_width_m": 0.00065,
+    "filament_length_m": 0.001,
+    "root_count": 1,
+    "lateral_root_count": 4,
+    "root_length_m": 0.035
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "carpel",
+      "measure": "oriented_length_m",
+      "range": [
+        0.01,
+        0.018
+      ],
+      "basis": "SUN2002 note8"
+    },
+    {
+      "kind": "carpel",
+      "measure": "oriented_width_m",
+      "range": [
+        0.0015,
+        0.002
+      ],
+      "basis": "SUN2002 note8"
+    },
+    {
+      "kind": "anther",
+      "measure": "oriented_length_m",
+      "range": [
+        0.004,
+        0.005
+      ],
+      "basis": "SUN2002 note8"
+    },
+    {
+      "kind": "anther",
+      "measure": "oriented_width_m",
+      "range": [
+        0.0005,
+        0.0008
+      ],
+      "basis": "SUN2002 note8"
+    }
+  ],
+  "numeric_semantics": "All per-organ parameters defined here before generator authoring. Source range measurements are hard only where enumerated. Integer counts are mandatory authored design choices, not universal fossil counts. Nominal lengths/radii without hard-range entries remain artistic; actual final values must be measured and disclosed.",
+  "component_measurement_contract": "Tag every stem, branch, leaf/petiole, root, scale and reproductive unit. Reopen actual Blend and measure its transformed vertices after grounding/centering. Per component: vertex/face/triangle count, world AABB and local-axis length/width/thickness; compare hard organ ranges. Record authored/evaluated/exported counts.",
+  "contact_policy": "Every supporting junction must have actual child-base mesh vertices embedded in the named parent component. Measure nearest parent surface signed distance from actual child-base vertices in world space using parent triangle BVH, not declared config points. Preserve diagnostic directions and inspect all attachment regions. Mere AABB overlap is not proof.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T00:31:15Z",
+    "path": "production/small-life-batch98/concepts/archaefructus-concept.png",
+    "sha256": "3dc46c8d4b3c3f85f665196da10a2250f1b836f94796b32653c87812087e2b39",
+    "decisions": "Correct generated concept: two giant pods at a shoot tip are inaccurate. Use16 small narrow carpels along each open distal axis; eight paired stamen stalks lower. Make leaf division genuinely three-level, reduce the too-thick main stem and swollen bases, and keep roots sparse."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "generator/config/seed/dependency closure",
+    "actual transformed component and contact measurements",
+    "source reopen",
+    "two separate PIDqueued semantic rebuilds",
+    "project/Khronos/Three checks",
+    "eight exact512px views plus lossless sheet",
+    "seven separate stage statuses"
+  ],
+  "prohibited": [
+    "modify freeze to pass",
+    "reuse another taxon as exact evidence",
+    "fake imagegen",
+    "generate geometry before freeze",
+    "copied consultation imagery",
+    "claim maker self-test as independent QA",
+    "claim CPU parse or CPU stills as GPU/scene"
+  ]
+}

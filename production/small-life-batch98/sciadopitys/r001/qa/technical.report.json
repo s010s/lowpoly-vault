@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+    "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+    "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+  },
+  "status": "pass",
+  "method": "Exact final static GLB project audit; official Khronos Validator; actual editable-source reopen; two separate-PID executed queue rebuilds with semantic equality; transformed per-component dimensions, range, junction and exposed-vertex checks.",
+  "observations": [
+    "All named automated checks passed with zero errors; raw reports are independently pinned.",
+    "Every component is named, measured after final world transforms and checked against actual parent mesh when supported.",
+    "Source generation/evaluated/exported counts and bound agreement are retained. No GPU, scene or independent visual approval is asserted."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1640,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 79764,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+      "report": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/static-glb.report.json",
+        "sha256": "cc767d108f324d74c3da470914b603ce8f2133bf95d6975f1b75ad8f58c8b619"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+      "report": {
+        "path": "production/small-life-batch98/sciadopitys/r001/artifacts/gltf-validator.report.json",
+        "sha256": "b14141fa1d641d6d7afda821e75eedcc3d251312ed2e0d3fffb7d8abadb081bf"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+      "report": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/source-export.report.json",
+        "sha256": "7a04beb42e79527d40be93ffc920fe9e0cf4e8f6a402e5f608bdf86c8ec0e34e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+      "report": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/reproducibility-a.report.json",
+        "sha256": "e110d2bc387e2bbc8c38eb4148837020a2de7a35e3ae0a92ef66989e1b005742"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+      "report": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/reproducibility-b.report.json",
+        "sha256": "cb8ae5677617e6bacca0679811b6429e1f606fff5b5e95ad1b3d1238cf86ca3b"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.08973625302314758,
+      0.0,
+      -0.08865109086036682
+    ],
+    "max": [
+      0.08973625302314758,
+      0.1795414537191391,
+      0.08865109086036682
+    ],
+    "size": [
+      0.17947250604629517,
+      0.1795414537191391,
+      0.17730218172073364
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "sciadopitys-three-whorls-twelve-cladodes",
+      "vertices": 894,
+      "triangles": 1640,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 2776,
+  "component_contact_report": {
+    "path": "production/small-life-batch98/sciadopitys/r001/qa/component-contact.report.json",
+    "sha256": "61609cc1082acfd94168e694ae1e4cc9b32afcb79b0e518831e31b2b11616c20"
+  },
+  "created_at": "2026-10-21T00:52:08.872792+00:00"
+}

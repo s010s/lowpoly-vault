@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+    "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+    "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+  },
+  "final_build_request": {
+    "path": "production/small-life-batch98/agathis/r001/qa/final-build/request.json",
+    "sha256": "c19341d23011a737f1104d8274f47695f40136fc9a171484f2f0ad75e34ddd49"
+  },
+  "final_build_result": {
+    "path": "production/small-life-batch98/agathis/r001/qa/final-build/result.json",
+    "sha256": "74063a19405e30695c2d1d01e3acd9f308c11cdc9e0e54eb79b475fc6a9132ba"
+  },
+  "final_render_request": {
+    "path": "production/small-life-batch98/agathis/r001/qa/final-render/request.json",
+    "sha256": "15899ec385deafbe9c238554b897a94e8032f5b20eb91909422d98d9abeb6593"
+  },
+  "final_render_result": {
+    "path": "production/small-life-batch98/agathis/r001/qa/final-render/result.json",
+    "sha256": "6ab7e05f539f2a81f46a1ef917e28d1bb8df4be94bad0b63ee16d437073bbd36"
+  },
+  "rebuild_runs": [
+    {
+      "label": "a",
+      "blender_pid": 163,
+      "parent_pid": 162,
+      "request": {
+        "path": "production/small-life-batch98/agathis/r001/qa/rebuild-a/request.json",
+        "sha256": "2a72bfc68258512571a94728f12956dcf3322c24e06aae07bdbf9e49609da7e4"
+      },
+      "result": {
+        "path": "production/small-life-batch98/agathis/r001/qa/rebuild-a/result.json",
+        "sha256": "9a4642c06754cc6b592e2751f1ac41c958f1d8fa944ddb0dca3143c5e9b53b7c"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/agathis/r001/qa/rebuild-a/execution.json",
+        "sha256": "0771d774d8e2181f84dbac8d1846e7ae074e5fe86ad93f2606adb1cf0cf4cf66"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/agathis/r001/qa/reproducibility-a.report.json",
+        "sha256": "5cb3da39c8d24ae5658d535aa54ed69c1d87223957e2dfefcf2c9403f0ed61b2"
+      }
+    },
+    {
+      "label": "b",
+      "blender_pid": 186,
+      "parent_pid": 185,
+      "request": {
+        "path": "production/small-life-batch98/agathis/r001/qa/rebuild-b/request.json",
+        "sha256": "383d8f4de239459a7684c467ee92439f5b6399da105ade0be52c314d890e55c4"
+      },
+      "result": {
+        "path": "production/small-life-batch98/agathis/r001/qa/rebuild-b/result.json",
+        "sha256": "a7b603b07084e6c4dd972b6ecb9f4fbaa94b9f4373c7960af604b9e5ad102f03"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/agathis/r001/qa/rebuild-b/execution.json",
+        "sha256": "9bc3362d348bdebaebdf0b6ce23a2ede3e1a74c18e168aeec74a29f6d17b5261"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/agathis/r001/qa/reproducibility-b.report.json",
+        "sha256": "07ae333c0e153ada0e4ef0ffb302ef365ace6a3334abe9aa054d16201c250d76"
+      }
+    }
+  ],
+  "distinct_actual_blender_pids": true,
+  "queue_executable": "flock",
+  "lock": "/tmp/lowpoly-production-blender.lock",
+  "threads_per_process": 2,
+  "limitations": "Local process IDs are from the actual queue namespace, not global-host IDs. Queue records attest execution. Blender cached-extension write warning is harmless read-only home behavior; no environment security or permission setting changed."
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/tools/generate-r002.py", line 182, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/tools/generate-r002.py", line 180, in main
+    export_asset(aid,aid,'plants',col,metadata={'representation':'living-reconstruction','export_texcoords':False,'source_scope':'Original batch98 pregeometry freeze; source-constrained organs with explicitly interpretive architecture; no source pixels bundled.'},output_root=out,render=False,max_triangles=14000,max_materials=6,max_primitives=30)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/lowpoly-batch98-20261020/scripts/asset_common.py", line 420, in export_asset
+    raise RuntimeError('Source QA failed: '+'; '.join(source['errors']))
+RuntimeError: Source QA failed: Triangle budget exceeded: 15504 > 14000
+
+Error: script failed, file: '/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/tools/generate-r002.py', exiting.

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+    "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+    "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+  },
+  "status": "pass",
+  "source_sha256": "df1766f632a1db190e968be14cf678f13261df33d606d2e7454ed7e336f8ccfe",
+  "method": "Read named actual component contract from reopened Blend, with tagged final mesh vertex membership and actual counts.",
+  "expected_counts": {
+    "leaf": 432,
+    "petiole": 432,
+    "terminal_bud": 27,
+    "seed_cone": 1,
+    "cone_scale": 40,
+    "fertile_branch": 1
+  },
+  "observed_counts": {
+    "axis": 37,
+    "petiole": 432,
+    "leaf": 432,
+    "terminal_bud": 27,
+    "fertile_branch": 1,
+    "seed_cone": 1,
+    "cone_scale": 40
+  },
+  "hard_organ_ranges": [
+    {
+      "rule": {
+        "kind": "leaf",
+        "measure": "oriented_length_m",
+        "range": [
+          0.0243,
+          0.1324
+        ],
+        "basis": "WILF2014 measured range"
+      },
+      "observed_min": 0.10499995946884155,
+      "observed_max": 0.1050000786781311,
+      "count": 432,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "leaf",
+        "measure": "oriented_width_m",
+        "range": [
+          0.0057,
+          0.0185
+        ],
+        "basis": "WILF2014 measured range"
+      },
+      "observed_min": 0.014999940991401672,
+      "observed_max": 0.01500009000301361,
+      "count": 432,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "leaf",
+        "measure": "length_width_ratio",
+        "range": [
+          3.9,
+          11.5
+        ],
+        "basis": "WILF2014 measured range"
+      },
+      "observed_min": 6.999957780296611,
+      "observed_max": 7.000027815610319,
+      "count": 432,
+      "failures": []
+    }
+  ],
+  "all_actual_components_exposed_relative_to_support": true,
+  "all_actual_junctions_intersect_support": true,
+  "source_reopen_report": {
+    "path": "production/small-life-batch98/agathis/r001/qa/source-export.report.json",
+    "sha256": "93c9c5e853a4ca4af43b8d04f717e8e34c4a2d94e29df767510211fd6a30a23e"
+  },
+  "measurement_report": {
+    "path": "production/small-life-batch98/agathis/r001/qa/component-contact.report.json",
+    "sha256": "780f551981f7b4766654bfe7b2a20cfdc508496f4c320bfff949392dcbbbc134"
+  },
+  "limitations": "Integer design counts are interpretive choices, not universal fossil counts. All unbounded nominal dimensions are measured and reported, not asserted exact species reconstruction."
+}

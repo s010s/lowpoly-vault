@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+    "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+    "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+  },
+  "status": "pass",
+  "method": "Exact final static GLB project audit; official Khronos Validator; actual editable-source reopen; two separate-PID executed queue rebuilds with semantic equality; transformed per-component dimensions, range, junction and exposed-vertex checks.",
+  "observations": [
+    "All named automated checks passed with zero errors; raw reports are independently pinned.",
+    "Every component is named, measured after final world transforms and checked against actual parent mesh when supported.",
+    "Source generation/evaluated/exported counts and bound agreement are retained. No GPU, scene or independent visual approval is asserted."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 3020,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 165720,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+      "report": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/static-glb.report.json",
+        "sha256": "f51f07f06d354814dc1f221593c09674c40fcc49a2f52d6a642d688c176fee40"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+      "report": {
+        "path": "production/small-life-batch98/voltzia/r001/artifacts/gltf-validator.report.json",
+        "sha256": "b558462d812fb18c6dd7548b3859d67a7fa7ec369e56e6ba48bab09729fb6a04"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+      "report": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/source-export.report.json",
+        "sha256": "5223f194419b7e6e86b6be2b4e33cfbce8d57d3217cd9fcc77ccced6c604e864"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+      "report": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/reproducibility-a.report.json",
+        "sha256": "7c47591d2e65268c2d296ed52d4f0ffa99eb812f162474397c02521a55293945"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+      "report": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/reproducibility-b.report.json",
+        "sha256": "0a208dbda1cc8eb563b3bd19a26832e6e843ee92390cd7a2f01bb6896b53adb7"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.0658239871263504,
+      0.0,
+      -0.018680380657315254
+    ],
+    "max": [
+      0.0658239871263504,
+      0.16402000188827515,
+      0.018680380657315254
+    ],
+    "size": [
+      0.1316479742527008,
+      0.16402000188827515,
+      0.03736076131463051
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "voltzia-heterophylla-fruiting-branch",
+      "vertices": 1756,
+      "triangles": 3020,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 5979,
+  "component_contact_report": {
+    "path": "production/small-life-batch98/voltzia/r001/qa/component-contact.report.json",
+    "sha256": "3e290ce85ae2e91c39e4360b3efc7d11b47c7eabd537c5e60b645e4aabeb1dea"
+  },
+  "created_at": "2026-10-21T00:52:08.493034+00:00"
+}

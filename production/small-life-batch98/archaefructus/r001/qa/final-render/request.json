@@ -1,0 +1,151 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/tools/render.py",
+    "--",
+    "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/artifacts/archaefructus.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch98-evidence/queue/render/archaefructus/r001/final-eight-views/894a5ba23f35f9defd10841475bda9b09b3bd7d4cf6e19f10efe32913fd54e0a/20261021T004611-a55a0f3f57b7438fa75b676c1a0c5f3f/outputs",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/original-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "8",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette"
+  ],
+  "created_at": "2026-10-21T00:46:11.766854+00:00",
+  "fingerprint": "894a5ba23f35f9defd10841475bda9b09b3bd7d4cf6e19f10efe32913fd54e0a",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch98-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "binding": {
+        "bytes": 510,
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/candidate-binding.json",
+        "sha256": "4cc193fb74924f1896a1ee52bb44d7f8f775d79553245f2a98fa4496b0364298"
+      },
+      "blender": {
+        "bytes": 94967000,
+        "path": "/usr/bin/blender",
+        "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+      },
+      "brief": {
+        "bytes": 9662,
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/original-brief.json",
+        "sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f"
+      },
+      "glb": {
+        "bytes": 907464,
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/artifacts/archaefructus.glb",
+        "sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch98-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 2713,
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/references.json",
+        "sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+      },
+      "renderer": {
+        "bytes": 16138,
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/tools/render.py",
+        "sha256": "dce6084f0ec6663a5ca5acd3f5815f128314c4e2c94c04748be153ed75c6879e"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "8",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette"
+      ],
+      "asset_id": "archaefructus",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch98-20261020/scripts/asset_common.py",
+        "binding": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/candidate-binding.json",
+        "blender": "/usr/bin/blender",
+        "brief": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/original-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/artifacts/archaefructus.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch98-20261020/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/tools/render.py"
+      },
+      "job_id": "final-eight-views",
+      "outputs": [
+        "render-manifest.json",
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 1200
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1200
+  },
+  "run_id": "20261021T004603-dc615d57dce64bf4ada5b6aee5e92835"
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+    "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+    "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+  },
+  "final_build_request": {
+    "path": "production/small-life-batch98/archaefructus/r001/qa/final-build/request.json",
+    "sha256": "98780282bffe3e94e5248a8af1caf837f7d4cc8291a50f7d6e722a82a4cf112a"
+  },
+  "final_build_result": {
+    "path": "production/small-life-batch98/archaefructus/r001/qa/final-build/result.json",
+    "sha256": "95032fdd0607b9630b0de73464b39d2abbd0e95e74b4d6ba2df03b787d5c5573"
+  },
+  "final_render_request": {
+    "path": "production/small-life-batch98/archaefructus/r001/qa/final-render/request.json",
+    "sha256": "6801bb6e405b3a52d9a6dfa4c68408f9356f484a90a9ceef27e010b72207650c"
+  },
+  "final_render_result": {
+    "path": "production/small-life-batch98/archaefructus/r001/qa/final-render/result.json",
+    "sha256": "e749c7cb0bfedb9c720e05d5440c8d82a9985ea327a1fa7b68dfc64291dba64c"
+  },
+  "rebuild_runs": [
+    {
+      "label": "a",
+      "blender_pid": 209,
+      "parent_pid": 208,
+      "request": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/rebuild-a/request.json",
+        "sha256": "bc2afe02fdfa9ab9bb422d7f2d7792d1c5d85738232e3c4106766f45c279f7db"
+      },
+      "result": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/rebuild-a/result.json",
+        "sha256": "0f6e6780a53dcdb0581196c1e825919e5bd73d209716159876806fe719153c85"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/rebuild-a/execution.json",
+        "sha256": "e700cd06b7bdd99ee7b13aab0e248bddc082138d5a6a0b50ef769d5771015643"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/reproducibility-a.report.json",
+        "sha256": "8d43d1953d395389f1ed30233ba23ad13b07ce9ce54667eecbff4e1aa2ae338e"
+      }
+    },
+    {
+      "label": "b",
+      "blender_pid": 232,
+      "parent_pid": 231,
+      "request": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/rebuild-b/request.json",
+        "sha256": "82da03409737dd82b4484630d2a456cb7c9280c8fae148d7c41fca229811ac66"
+      },
+      "result": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/rebuild-b/result.json",
+        "sha256": "66cd0243c0db8528db5f6b7cd0693cdc593e0ebe311351b54b9bd289b8cae1d2"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/rebuild-b/execution.json",
+        "sha256": "a7f68821c23f780b79147729c74fb71ea48362c72a843a6fe363976d0478e1c9"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/archaefructus/r001/qa/reproducibility-b.report.json",
+        "sha256": "48f763269ac12707a116785de5a2fc2668bd53f29460064ab28e89c644a19318"
+      }
+    }
+  ],
+  "distinct_actual_blender_pids": true,
+  "queue_executable": "flock",
+  "lock": "/tmp/lowpoly-production-blender.lock",
+  "threads_per_process": 2,
+  "limitations": "Local process IDs are from the actual queue namespace, not global-host IDs. Queue records attest execution. Blender cached-extension write warning is harmless read-only home behavior; no environment security or permission setting changed."
+}

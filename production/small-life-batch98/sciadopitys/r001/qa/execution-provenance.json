@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+    "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+    "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+  },
+  "final_build_request": {
+    "path": "production/small-life-batch98/sciadopitys/r001/qa/final-build/request.json",
+    "sha256": "511dd29393d58d6ae04c5ebb855f4196f75e885dcdcd228cbb79dcbee5de20bd"
+  },
+  "final_build_result": {
+    "path": "production/small-life-batch98/sciadopitys/r001/qa/final-build/result.json",
+    "sha256": "32f7e743d8e7f603bc4c287b0397cf9644f0c394e199e3b1899d4749dffd667c"
+  },
+  "final_render_request": {
+    "path": "production/small-life-batch98/sciadopitys/r001/qa/final-render/request.json",
+    "sha256": "0fd6500f96066e2e806ba1c7709ae86a61b1db496c2f3167c3bfa2551e2d634d"
+  },
+  "final_render_result": {
+    "path": "production/small-life-batch98/sciadopitys/r001/qa/final-render/result.json",
+    "sha256": "b52bae88b8ba07eaaece3eadc91b907f27475227260d7a484c71e4344b667892"
+  },
+  "rebuild_runs": [
+    {
+      "label": "a",
+      "blender_pid": 117,
+      "parent_pid": 116,
+      "request": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/rebuild-a/request.json",
+        "sha256": "b8899a5ddb58d2e1ea911637c7456deb53d3285342fe863eb21e06721dbc5244"
+      },
+      "result": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/rebuild-a/result.json",
+        "sha256": "3ef067a759c26ad1777c8792d11f17675147c68b07a14b0ef50f5bc74a516385"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/rebuild-a/execution.json",
+        "sha256": "6325a63e5a93ee6dd72984815715ac2e7f0202ae2a820f5d6d3d13513d65a95c"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/reproducibility-a.report.json",
+        "sha256": "e110d2bc387e2bbc8c38eb4148837020a2de7a35e3ae0a92ef66989e1b005742"
+      }
+    },
+    {
+      "label": "b",
+      "blender_pid": 140,
+      "parent_pid": 139,
+      "request": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/rebuild-b/request.json",
+        "sha256": "743e324817f2d8b9ba4d7c4be2f907989986c9e30516c5da0836edcdb372d208"
+      },
+      "result": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/rebuild-b/result.json",
+        "sha256": "016b3ec2294386d11156aff765fdfe8082522fb684cb73a99f2f606d655590d4"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/rebuild-b/execution.json",
+        "sha256": "a6b32a5c380d57b5c92a9f8eed60f7d25fece2db45149038e042ee97e088135f"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/sciadopitys/r001/qa/reproducibility-b.report.json",
+        "sha256": "cb8ae5677617e6bacca0679811b6429e1f606fff5b5e95ad1b3d1238cf86ca3b"
+      }
+    }
+  ],
+  "distinct_actual_blender_pids": true,
+  "queue_executable": "flock",
+  "lock": "/tmp/lowpoly-production-blender.lock",
+  "threads_per_process": 2,
+  "limitations": "Local process IDs are from the actual queue namespace, not global-host IDs. Queue records attest execution. Blender cached-extension write warning is harmless read-only home behavior; no environment security or permission setting changed."
+}

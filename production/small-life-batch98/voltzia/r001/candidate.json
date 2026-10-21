@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "asset_id": "voltzia",
+  "revision": "r001",
+  "maker": {
+    "id": "batch98-maker",
+    "task_id": "produce_batch98_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch98/voltzia/r001/artifacts/voltzia.glb",
+      "sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73"
+    },
+    "brief": {
+      "path": "production/small-life-batch98/voltzia/r001/original-brief.json",
+      "sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f"
+    },
+    "references": {
+      "path": "production/small-life-batch98/voltzia/r001/references.json",
+      "sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+    },
+    "source": {
+      "path": "production/small-life-batch98/voltzia/r001/artifacts/voltzia.blend",
+      "sha256": "09e22b4dba44b620bcb542bfa76b6e2f3ca956bf88847af891532456af57a0d5"
+    },
+    "generator": {
+      "path": "production/small-life-batch98/tools/generate-r002.py",
+      "sha256": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede"
+    },
+    "config": {
+      "path": "production/small-life-batch98/voltzia/r001/config.json",
+      "sha256": "85c3f54a9cd8c163026b8d4c24896f5baa4208c62385b163db7e74770f7e5605"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch98/dependencies.json",
+      "sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+        "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+        "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+      },
+      "path": "production/small-life-batch98/voltzia/r001/qa/technical.report.json",
+      "sha256": "0282628030ef2d670f1728b132263b7d883b71531b43fe78fb7e89ba00abf06b"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+        "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+        "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+      },
+      "path": "production/small-life-batch98/voltzia/r001/qa/runtime-parse.report.json",
+      "sha256": "d160008e185094f4ebd32a1a11834609d2fec168c4a77fe77991ddbdf61d76df"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+        "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+        "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+      },
+      "path": "production/small-life-batch98/voltzia/r001/views/render-manifest.json",
+      "sha256": "dcd91ce1bb43f2f4313daa2c220c6dab5cb8f3ce08cb3b687b1123b02d8b2e30"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch98-maker",
+        "task_id": "produce_batch98_models"
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+        "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+        "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Exact automated evidence validated."
+        }
+      ],
+      "note": "Maker automated exact-subject checks completed; no independent/publication approval implied.",
+      "reviewed_at": "2026-10-21T00:52:08.499641+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "SM1844",
+        "FORTE2022"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "No independent stage approval yet."
+        }
+      ],
+      "note": "Fresh independent stage review pending.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "SM1844",
+        "FORTE2022"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "No independent stage approval yet."
+        }
+      ],
+      "note": "Fresh independent stage review pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "No independent stage approval yet."
+        }
+      ],
+      "note": "Fresh independent stage review pending."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch98-maker",
+        "task_id": "produce_batch98_models"
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+        "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+        "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Exact automated evidence validated."
+        }
+      ],
+      "note": "Maker automated exact-subject checks completed; no independent/publication approval implied.",
+      "reviewed_at": "2026-10-21T00:52:08.499659+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "No independent stage approval yet."
+        }
+      ],
+      "note": "Not run. CPU parse and CPU evidence renders do not establish this stage."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "No independent stage approval yet."
+        }
+      ],
+      "note": "Not run. CPU parse and CPU evidence renders do not establish this stage."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Fresh independent visual/factual/specification approval pending."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "Target GPU and composed-scene stages not run. No formal/live approval."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

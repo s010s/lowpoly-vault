@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+    "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+    "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+  },
+  "status": "pass",
+  "source_sha256": "d816ea9f34bc98daa1e2e1b95e6f07db37305be47af7974a4ada79416a735fb7",
+  "method": "Read named actual component contract from reopened Blend, with tagged final mesh vertex membership and actual counts.",
+  "expected_counts": {
+    "cladode": 36
+  },
+  "observed_counts": {
+    "axis": 1,
+    "cladode": 36
+  },
+  "hard_organ_ranges": [
+    {
+      "rule": {
+        "kind": "cladode",
+        "measure": "oriented_length_m",
+        "range": [
+          0.08,
+          0.1
+        ],
+        "basis": "source range, PAL1991 p5"
+      },
+      "observed_min": 0.08999999237130396,
+      "observed_max": 0.0900000233668834,
+      "count": 36,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "cladode",
+        "measure": "oriented_width_m",
+        "range": [
+          0.0019,
+          0.0021
+        ],
+        "basis": "source2mm;0.1mm discretization allowance, not fossil variation"
+      },
+      "observed_min": 0.001999999862164259,
+      "observed_max": 0.002000001259148121,
+      "count": 36,
+      "failures": []
+    }
+  ],
+  "all_actual_components_exposed_relative_to_support": true,
+  "all_actual_junctions_intersect_support": true,
+  "source_reopen_report": {
+    "path": "production/small-life-batch98/sciadopitys/r001/qa/source-export.report.json",
+    "sha256": "7a04beb42e79527d40be93ffc920fe9e0cf4e8f6a402e5f608bdf86c8ec0e34e"
+  },
+  "measurement_report": {
+    "path": "production/small-life-batch98/sciadopitys/r001/qa/component-contact.report.json",
+    "sha256": "61609cc1082acfd94168e694ae1e4cc9b32afcb79b0e518831e31b2b11616c20"
+  },
+  "limitations": "Integer design counts are interpretive choices, not universal fossil counts. All unbounded nominal dimensions are measured and reported, not asserted exact species reconstruction."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "host_clock_tool_observed_utc": "2026-10-21T00:52:55Z",
+  "executor_recorded_utc": "2026-10-21T00:53:28.866043+00:00",
+  "original_freeze_manifest": {
+    "path": "production/small-life-batch98/original-freeze-manifest.json",
+    "sha256": "053b2f92692ba1a8dde4ffcbd096f7fc3e1bdae69cde885abe00975808a3b7a2"
+  },
+  "original_timing_erratum": {
+    "path": "production/small-life-batch98/freeze-timing-erratum.json",
+    "sha256": "b1148e6e0a602d53b8bbba2e84c502533e260ef81add2e8b81bf4e263bc5ba9f"
+  },
+  "corrected_interpretation": [
+    "Frozen00:31:45Z fields were preselected metadata, not completed-write evidence. Actual freeze write tool returned at00:33:54Z, before generator authoring and first geometry queue request.",
+    "Original erratum00:34:05Z field was also preselected; its write tool returned at00:34:17Z. Both immutable originals are retained, not backdated or rewritten.",
+    "Original frozen reference inspection-window and concept-inspection fields are author-supplied approximate annotations, not independently trustworthy clock evidence. Actual provider/tool receipts, source-file hashes, viewed-pixel records and this disclosed chronology must be read together.",
+    "First geometry actual queue request is pinned in chronology/first-geometry-request.json and begins00:39:57Z. No source/generated geometry existed at originalfreeze completion.",
+    "Host/executor clock alignment was observed at00:40 and again00:52. Earlier reported+2h offset is not applied universally or used to reinterpret old files from mtime."
+  ],
+  "status": "chronology_disclosed_not_rewritten"
+}

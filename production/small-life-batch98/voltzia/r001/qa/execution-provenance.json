@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+    "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+    "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+  },
+  "final_build_request": {
+    "path": "production/small-life-batch98/voltzia/r001/qa/final-build/request.json",
+    "sha256": "3e7ddd6a68f8a889217a405b93281b64db25de1cc1252735ee8cbda086a39611"
+  },
+  "final_build_result": {
+    "path": "production/small-life-batch98/voltzia/r001/qa/final-build/result.json",
+    "sha256": "16c394b90fa4e4a30088a72f0afa620090a882da611414284a64f61756569474"
+  },
+  "final_render_request": {
+    "path": "production/small-life-batch98/voltzia/r001/qa/final-render/request.json",
+    "sha256": "ff1f488100f4e27a9ed055533aec012107c9ade9f0d2b6c4febd783b13e2a51f"
+  },
+  "final_render_result": {
+    "path": "production/small-life-batch98/voltzia/r001/qa/final-render/result.json",
+    "sha256": "95622711310abe5e6ebdbfeeb11f77b711c220bdd71f4d8015915881ae150ea8"
+  },
+  "rebuild_runs": [
+    {
+      "label": "a",
+      "blender_pid": 71,
+      "parent_pid": 70,
+      "request": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/rebuild-a/request.json",
+        "sha256": "275ac9d4f76a6c555eaad16db81f625ace97519c7dfaa6cc2c5f6b731cd50887"
+      },
+      "result": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/rebuild-a/result.json",
+        "sha256": "110df14550326fad53e09b2999df3e5710d52c5cd873f150256b8f0b258e9f30"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/rebuild-a/execution.json",
+        "sha256": "a85f32d12b25b70b73ca1c7275ae646414b5c2c05cb1c298744c0a2d5daff8b8"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/reproducibility-a.report.json",
+        "sha256": "7c47591d2e65268c2d296ed52d4f0ffa99eb812f162474397c02521a55293945"
+      }
+    },
+    {
+      "label": "b",
+      "blender_pid": 94,
+      "parent_pid": 93,
+      "request": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/rebuild-b/request.json",
+        "sha256": "4300065c3613f983630a5d4122e859f7425188447a32e3e596d7047275465e8b"
+      },
+      "result": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/rebuild-b/result.json",
+        "sha256": "69d3b18c2fe14eb32396496ebdde19a7588b1127c6d586e9baf92f6f9adaa42d"
+      },
+      "execution": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/rebuild-b/execution.json",
+        "sha256": "588cc64f7c199d584d05d7b764af358b00b2b88aec698cbcb208b3e7992f87e1"
+      },
+      "comparison": {
+        "path": "production/small-life-batch98/voltzia/r001/qa/reproducibility-b.report.json",
+        "sha256": "0a208dbda1cc8eb563b3bd19a26832e6e843ee92390cd7a2f01bb6896b53adb7"
+      }
+    }
+  ],
+  "distinct_actual_blender_pids": true,
+  "queue_executable": "flock",
+  "lock": "/tmp/lowpoly-production-blender.lock",
+  "threads_per_process": 2,
+  "limitations": "Local process IDs are from the actual queue namespace, not global-host IDs. Queue records attest execution. Blender cached-extension write warning is harmless read-only home behavior; no environment security or permission setting changed."
+}

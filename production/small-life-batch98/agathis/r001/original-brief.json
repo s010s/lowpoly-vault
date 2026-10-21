@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "asset_id": "agathis",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational low-poly catalog candidate; independent QA/GPU/scene/release are separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate final static GLB/project/Khronos, source reopen, two real queued semantic rebuilds and all measured transformed components.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every512px final frame after exact triplet binding; open silhouettes, solid volumes and no visible coplanar interference. Preserve the restrained spreading trunk silhouette. Correct concept foliage into narrower length:width7:1 blades, blunt apices and no central midrib. Shrink the concept cone to34x33mm and round its scales, removing pointed pine-like treatment.",
+      "required_sources": [
+        "WILF2014"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "One upright trunk has nine spreading limbs and27 opposite/subopposite paired leafy twig sprays. Each twig carries8 leaf pairs, total432 distinct entire narrow-elliptical blades. Broad relative to conifer needles, never generic polygon foliage blobs. Leaves have blunt narrowed ends, narrow petioles and no midrib; opposing attachments turn blades into roughly two ranks.27 rounded scaly terminal buds. One small ovate immature seed cone terminates a thickened bare branch, with smooth upturned overlapping scales and a growth scar. No spines, pine scales, exposed speculative roots, terrain or pedestal. Fossils establish leaves, twig attachment, buds and reproductive organs, not complete stature/crown. The2.1m display tree and branch layout are artistic compression, not evidence of an adult stature or a juvenile diagnosis. The immature cone is modelled from6391b; association across fossil organs is the published taxon interpretation, not all organs connected on one fossil.",
+      "required_sources": [
+        "WILF2014"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Preserve original freeze and inventory. Verify complete source/generator/config/dependency closure and all numeric semantics.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse exact GLB with pinned Three GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Requires actual target graphics rendering and device evidence; CPU parse/stills do not establish this.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Requires actual intended composed scene with scale/contact/runtime evidence.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight fixed512px views plus lossless sheet. No turntable requirement under static-stylized-v1; extra diagnostic closeups allowed but do not replace views.",
+  "frozen_at": "2026-10-21T00:31:45Z",
+  "subject": "Agathis zamunerae broad-leaved conifer reconstruction",
+  "taxon": "Agathis zamunerae",
+  "representation": "living-reconstruction",
+  "factual_scope": "Fossils establish leaves, twig attachment, buds and reproductive organs, not complete stature/crown. The2.1m display tree and branch layout are artistic compression, not evidence of an adult stature or a juvenile diagnosis. The immature cone is modelled from6391b; association across fossil organs is the published taxon interpretation, not all organs connected on one fossil.",
+  "identifying_features": [
+    "One upright trunk has nine spreading limbs and27 opposite/subopposite paired leafy twig sprays. Each twig carries8 leaf pairs, total432 distinct entire narrow-elliptical blades. Broad relative to conifer needles, never generic polygon foliage blobs.",
+    "Leaves have blunt narrowed ends, narrow petioles and no midrib; opposing attachments turn blades into roughly two ranks.27 rounded scaly terminal buds.",
+    "One small ovate immature seed cone terminates a thickened bare branch, with smooth upturned overlapping scales and a growth scar. No spines, pine scales, exposed speculative roots, terrain or pedestal."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      1.7,
+      1.7,
+      2.2
+    ],
+    "interpretation": "Nominal artistic whole-object targets, not hard thresholds. No global scale normalization is allowed. Source-constrained organ ranges below are hard; other dimensions are nominal design inputs.",
+    "accuracy": "Interpretive educational geometry, never an exact fossil cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Geometry minimum z0; horizontal bounds centered. Translation only, no global scaling.",
+  "intended_use": {
+    "role": "static catalog model",
+    "limits": "No GPU/composed-scene/independent approval implied."
+  },
+  "surface_profile": "Opaque flat-faceted full-volume geometry. No textures, alpha planes, emission, double-sided concealment or subdivision.",
+  "palette_srgb": [
+    "#6F5F4C",
+    "#968268",
+    "#4F6342",
+    "#738353",
+    "#9EAA72",
+    "#B49C69"
+  ],
+  "parameters": {
+    "trunk_height_m": 2.1,
+    "trunk_base_radius_m": 0.085,
+    "main_branch_count": 9,
+    "twigs_per_branch": 3,
+    "leaf_pairs_per_twig": 8,
+    "leaf_length_m": 0.105,
+    "leaf_width_m": 0.015,
+    "leaf_thickness_m": 0.0018,
+    "petiole_length_m": 0.008,
+    "petiole_radius_m": 0.0012,
+    "terminal_bud_count": 27,
+    "bud_diameter_m": 0.008,
+    "immature_seed_cone_count": 1,
+    "seed_cone_length_m": 0.034,
+    "seed_cone_width_m": 0.033,
+    "seed_cone_scale_count": 40,
+    "fertile_branch_diameter_m": 0.021
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "leaf",
+      "measure": "oriented_length_m",
+      "range": [
+        0.0243,
+        0.1324
+      ],
+      "basis": "WILF2014 measured range"
+    },
+    {
+      "kind": "leaf",
+      "measure": "oriented_width_m",
+      "range": [
+        0.0057,
+        0.0185
+      ],
+      "basis": "WILF2014 measured range"
+    },
+    {
+      "kind": "leaf",
+      "measure": "length_width_ratio",
+      "range": [
+        3.9,
+        11.5
+      ],
+      "basis": "WILF2014 measured range"
+    }
+  ],
+  "numeric_semantics": "All per-organ parameters defined here before generator authoring. Source range measurements are hard only where enumerated. Integer counts are mandatory authored design choices, not universal fossil counts. Nominal lengths/radii without hard-range entries remain artistic; actual final values must be measured and disclosed.",
+  "component_measurement_contract": "Tag every stem, branch, leaf/petiole, root, scale and reproductive unit. Reopen actual Blend and measure its transformed vertices after grounding/centering. Per component: vertex/face/triangle count, world AABB and local-axis length/width/thickness; compare hard organ ranges. Record authored/evaluated/exported counts.",
+  "contact_policy": "Every supporting junction must have actual child-base mesh vertices embedded in the named parent component. Measure nearest parent surface signed distance from actual child-base vertices in world space using parent triangle BVH, not declared config points. Preserve diagnostic directions and inspect all attachment regions. Mere AABB overlap is not proof.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T00:31:15Z",
+    "path": "production/small-life-batch98/concepts/agathis-concept.png",
+    "sha256": "aedd91a2f60d353bb2c1348b0016bb4c777533cac5f85553bb17c5a9366f8c21",
+    "decisions": "Preserve the restrained spreading trunk silhouette. Correct concept foliage into narrower length:width7:1 blades, blunt apices and no central midrib. Shrink the concept cone to34x33mm and round its scales, removing pointed pine-like treatment."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "generator/config/seed/dependency closure",
+    "actual transformed component and contact measurements",
+    "source reopen",
+    "two separate PIDqueued semantic rebuilds",
+    "project/Khronos/Three checks",
+    "eight exact512px views plus lossless sheet",
+    "seven separate stage statuses"
+  ],
+  "prohibited": [
+    "modify freeze to pass",
+    "reuse another taxon as exact evidence",
+    "fake imagegen",
+    "generate geometry before freeze",
+    "copied consultation imagery",
+    "claim maker self-test as independent QA",
+    "claim CPU parse or CPU stills as GPU/scene"
+  ]
+}
