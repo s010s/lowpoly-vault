@@ -1,0 +1,127 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/measure-source-v002.py",
+    "--",
+    "--source",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.blend",
+    "--glb",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.glb",
+    "--output",
+    "/workspace/shared/lowpoly-batch100-evidence/final-source-queue/build/flabellophyton/r001/final-source-reopen/656d78a028d2b41a5c198ed228dc7db804b85aaacd8cde16c2ef7334f9aa91a3/20261021T014403-bbead399d7f749ea91fd9e551293b738/outputs/source-export.report.json"
+  ],
+  "created_at": "2026-10-21T01:44:03.989725+00:00",
+  "fingerprint": "656d78a028d2b41a5c198ed228dc7db804b85aaacd8cde16c2ef7334f9aa91a3",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 8366,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/original-brief.json",
+        "sha256": "7a8b654994c6fe9947ef97dde7cad383a0187fda6c5689fa77f2b121d6dbd6f3"
+      },
+      "check_reproducibility": {
+        "bytes": 9391,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/check_reproducibility.py",
+        "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2"
+      },
+      "checker": {
+        "bytes": 16684,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/measure-source-v002.py",
+        "sha256": "f0e542aa56b73172b185a5cb0eea50b1ad8fe5fc75ee3980a1b2c31c46952686"
+      },
+      "glb": {
+        "bytes": 80216,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.glb",
+        "sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "source": {
+        "bytes": 628488,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.blend",
+        "sha256": "377e993ec809412b34b4e2758860d062837d940223d6cf90c298e94a26cd4c7b"
+      },
+      "source_checker": {
+        "bytes": 6550,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/check_source_export.py",
+        "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "asset_id": "flabellophyton",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/original-brief.json",
+        "check_reproducibility": "/workspace/shared/lowpoly-batch100-20261021/scripts/check_reproducibility.py",
+        "checker": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/measure-source-v002.py",
+        "glb": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py",
+        "source": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.blend",
+        "source_checker": "/workspace/shared/lowpoly-batch100-20261021/scripts/check_source_export.py"
+      },
+      "job_id": "final-source-reopen",
+      "outputs": [
+        "source-export.report.json",
+        "authored-evaluated-counts.json",
+        "frozen-feature-measurements.json",
+        "actual-mesh-topology.json",
+        "world-components-and-contacts.json",
+        "hard-dimension-check.json",
+        "actual-component-exposure.json",
+        "actual-feature-counts.json",
+        "actual-surface-fold-check.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T014401-7559c8bb9a8b45dcbb0b0b85cab1a029"
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "asset_id": "protosalvinia",
+  "brief_version": "delivery-r003",
+  "profile": "production",
+  "purpose": "Educational static lowpoly candidate, no independent acceptance or publication authority.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect each exactfinalframe against originalconcept and references. Concept viewed. Shape is too wide/deeply notched compared with broadoval historic B; final width/height~1.33 with shallowernotch. No copiedphototexture, no embeddedballs.",
+      "required_sources": [
+        "DAWSON1888",
+        "SCHOPF1970",
+        "NAPLES2013"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One continuous broadly oval/reniform body with two rounded lobes, shallow central notch/depression and connected basal half. Thin closed fossil-organ volume, not two separate spheres or a thick bean; subtly irregular outer margin. Subdued cancellate-looking polygonal surface relief without fabricated individual spores or precise cellular dimensions; relief purely illustrative. One Devonian oval/reniform bilobed organ-like fossil compression. Biological affinity and wholeorganism unknown. Shape based on original drawing plus modern description, not an exact photograph cast. No wholeplant, stalks, roots, spores, interiorcells or definite algal/fern classification.",
+      "required_sources": [
+        "DAWSON1888",
+        "SCHOPF1970",
+        "NAPLES2013"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight actual512px exact-final views and lossless sheet, no turntable for static-stylized-v1. CPU/Node not GPU or composedscene evidence.",
+  "frozen_at": "2026-10-21T01:29:03Z",
+  "subject": "Protosalvinia bilobata isolated bilobed compression interpretation",
+  "representation": "fossil-specimen",
+  "factual_scope": "One Devonian oval/reniform bilobed organ-like fossil compression. Biological affinity and wholeorganism unknown. Shape based on original drawing plus modern description, not an exact photograph cast. No wholeplant, stalks, roots, spores, interiorcells or definite algal/fern classification.",
+  "identifying_features": [
+    "One continuous broadly oval/reniform body with two rounded lobes, shallow central notch/depression and connected basal half.",
+    "Thin closed fossil-organ volume, not two separate spheres or a thick bean; subtly irregular outer margin.",
+    "Subdued cancellate-looking polygonal surface relief without fabricated individual spores or precise cellular dimensions; relief purely illustrative."
+  ],
+  "scale": {
+    "units": "meters",
+    "hard_world_bbox_size_ranges_xyz_m": [
+      [
+        0.003,
+        0.009
+      ],
+      [
+        2e-05,
+        0.001
+      ],
+      [
+        0.002,
+        0.007
+      ]
+    ],
+    "hard_ranges_are": "Broad authored display envelopes, not scientific specimen limits. Measure actual transformed vertices including relief andcaps. Nominal construction inputs not exactfinalextents.",
+    "hard_component_extent_policy": "Every tagged solidcomponent has finitepositive worldextents within globalenvelope; actualworldXYZ and PCA extents measured. No microscopicminima invented.",
+    "accuracy": "Interpretive art, not specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Lowest worldvertexZ0, XYcenter by translation only. No finalscaling to fit.",
+  "intended_use": {
+    "role": "Staticmuseumcatalog candidate",
+    "viewing": "512px CPUstills",
+    "limits": "No GPU/composedscene acceptance."
+  },
+  "surface_profile": "Opaque flatfaceted closedfullvolume geometry, not alpha or doublesided planes. No copiedsourcepixels or textures.",
+  "palette_srgb": [
+    "#514536",
+    "#705B42",
+    "#8C7350",
+    "#624D37"
+  ],
+  "component_and_cause": {
+    "primary": "One continuous broadly oval/reniform body with two rounded lobes, shallow central notch/depression and connected basal half.",
+    "secondary": "Thin closed fossil-organ volume, not two separate spheres or a thick bean; subtly irregular outer margin.",
+    "tertiary": "Subdued cancellate-looking polygonal surface relief without fabricated individual spores or precise cellular dimensions; relief purely illustrative.",
+    "quiet_region": "Broad restrained bodyfacets or open intervals between fine elements."
+  },
+  "parameters": {
+    "nominal_width_m": 0.006,
+    "nominal_height_m": 0.0045,
+    "nominal_thickness_m": 0.00018,
+    "lobes": 2,
+    "surface_relief": "subtle geometric polygonal cancellate impression, not cellular fidelity"
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-21T01:29:03Z",
+    "path": "production/small-life-batch100/concepts/protosalvinia-concept.png",
+    "sha256": "019be3d9800ceaa85ce7ea02d25df18f672e1c3c596d546054fba44bf01c55b7",
+    "decisions": "Concept viewed. Shape is too wide/deeply notched compared with broadoval historic B; final width/height~1.33 with shallowernotch. No copiedphototexture, no embeddedballs."
+  },
+  "numeric_semantics": "Explicit integer construction counts are illustrative, not fossil universals. Only declared broad worldenvelopes and budgetceilings are hardpassgates. Art nominaldimensions separate from actual measured transformed sizes.",
+  "contact_policy": "Every attached organ physically intersects its actualparent AND remains visibly exposed. Every reliefvein intersectslamina along its path without fullburial, freefloating or piercingback. Contactsurfacewitnesses and exposure checks, not centeronly. Continuous integralcorrugation has no fictional separate-organ contact claim. Duplicate coincident endpoints checked.",
+  "deliverable_plan": [
+    "Editable Blend",
+    "GLB",
+    "Generator/config/seed/dependency closure",
+    "Actualworldcomponentdimensions and contact/exposure witnesses",
+    "Source reopen and authored/evaluated/exportedcounts",
+    "Two actualdistinctqueued rebuild PIDs and semanticcomparison",
+    "Project/Khronos/Threevalidation",
+    "Eightbound512views and losslesssheet"
+  ],
+  "prohibited": [
+    "Changing originalfreeze/inventory to pass",
+    "Treating concept as scientific evidence",
+    "Claiming inaccessible sourcepixels seen",
+    "Inventing wholeplantor spores",
+    "Material/camera masking geometrydefects",
+    "SelfindependentQA",
+    "CPUasGPU"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch100/protosalvinia/r001/original-brief.json",
+    "sha256": "c8a4efbcd494f72ccd8d943aea5316a44863d33b30b71bb5a4e98fb95a8b84cd"
+  },
+  "delivery_bound_at": "2026-10-21T01:43:34.013216+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved": true,
+  "geometric_repair_note": "Actual geometry repair after correctly framed512diagnostics exposed false radialstar artifact. Replace polar spokes/rings with uniform square-to-oval triangle grid and subdued fine geometric relief. Same bilobed oval/reniform fossil-organ scope and nominaldimensions, no spores; original freeze unchanged. Additional genuine notch repair: sixth-power displacement folded the last grid row above its boundary, producing a dark overlapping notch in hero/rear. Replace with monotone quadratic displacement; same outline and scale, remove fold rather than hide it.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch100/protosalvinia/r003/artifacts/protosalvinia.blend",
+      "sha256": "25c6e10f5f9a0d3da97d842f1aec4361377d1aaa91426cf94be24b3ad498f379"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch100/tools/generate-protosalvinia-r003.py",
+      "sha256": "be89282203faf34071db1544e751b87e4c6f3c58a3c5947decb0c7b01768b752"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch100/protosalvinia/r003/config.json",
+      "sha256": "d41bc465f4e02fc203e84f70554e78672b4f2262178b27179f592fbbd016cebe"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch100/build-dependencies.json",
+      "sha256": "21dbcc72984a29a2eb52dce772e90d0a7fbacb925400c000f0cc28b08da1b899"
+    }
+  ]
+}

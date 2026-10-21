@@ -1,0 +1,138 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/render-v002.py",
+    "--",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch100-evidence/final-render-queue/render/flabellophyton/r001/final-eight-views/8f71abc22b9aa590967c3b919e96a9b7bd984950cef6ea3e9eb47a12a7395a87/20261021T014450-b7d9ff92c3c349e48328bea1425a2639/outputs",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "32",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette"
+  ],
+  "created_at": "2026-10-21T01:44:50.311470+00:00",
+  "fingerprint": "8f71abc22b9aa590967c3b919e96a9b7bd984950cef6ea3e9eb47a12a7395a87",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 9609,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/delivery-brief.json",
+        "sha256": "fa12c77af35efbb57c60700030b42a0e5cbe930e976774279a0c10ff30902cde"
+      },
+      "glb": {
+        "bytes": 80216,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.glb",
+        "sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 2965,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/references.json",
+        "sha256": "5c1065f2055aca592762ad9ebada82e548f413928eefb35acce40facd4c95a1e"
+      },
+      "renderer": {
+        "bytes": 16212,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/render-v002.py",
+        "sha256": "615a82e5ec875e2aadd7d52bfcaa2c9d4a4a5a8496f76d2b8139eb059d4de78b"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "32",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette"
+      ],
+      "asset_id": "flabellophyton",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/flabellophyton/r001/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/render-v002.py"
+      },
+      "job_id": "final-eight-views",
+      "outputs": [
+        "hero.png",
+        "reversehero.png",
+        "front.png",
+        "side.png",
+        "rear.png",
+        "top.png",
+        "clay.png",
+        "silhouette.png",
+        "render-manifest.json",
+        "render-config.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 1800
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T014421-edf5da588fc547ec89b7ea0a439be55f"
+}

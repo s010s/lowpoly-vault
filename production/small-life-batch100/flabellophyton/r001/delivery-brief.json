@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "asset_id": "flabellophyton",
+  "brief_version": "delivery-r001",
+  "profile": "production",
+  "purpose": "Educational static lowpoly candidate, no independent acceptance or publication authority.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect each exactfinalframe against originalconcept and references. Concept viewed. Keep narrow elongated fan and basal stalk, but reduce rocklike volume and strong ribs. Continuous fine relief integral to thallus, not raised floating rods or roots.",
+      "required_sources": [
+        "WAN2020_LAB",
+        "WAN2020_PRIMARY"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One elongated narrow fan, widening upward from a slender basal stalk, upper edge mildly uneven, height roughly three times fan width. Fine closely bundled unbranched filaments radiate from base to uppermargin, made as continuous subtle geometric corrugation, no separate branching seaweed arms. Short narrow stalk and small blunt basal attachment integrated into thallus; no branching roots or invented rootball. Ediacaran fossil-style compressed thallus informed by institutional Lantian photos. Phylogenetic affinity unresolved. Proposed living cone not claimed as observed specimen. No roots, leaves, hidden wholeorganism anatomy or exact species identification.",
+      "required_sources": [
+        "WAN2020_LAB",
+        "WAN2020_PRIMARY"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight actual512px exact-final views and lossless sheet, no turntable for static-stylized-v1. CPU/Node not GPU or composedscene evidence.",
+  "frozen_at": "2026-10-21T01:29:03Z",
+  "subject": "Flabellophyton elongated fan-shaped fossil thallus compression",
+  "representation": "fossil-specimen",
+  "factual_scope": "Ediacaran fossil-style compressed thallus informed by institutional Lantian photos. Phylogenetic affinity unresolved. Proposed living cone not claimed as observed specimen. No roots, leaves, hidden wholeorganism anatomy or exact species identification.",
+  "identifying_features": [
+    "One elongated narrow fan, widening upward from a slender basal stalk, upper edge mildly uneven, height roughly three times fan width.",
+    "Fine closely bundled unbranched filaments radiate from base to uppermargin, made as continuous subtle geometric corrugation, no separate branching seaweed arms.",
+    "Short narrow stalk and small blunt basal attachment integrated into thallus; no branching roots or invented rootball."
+  ],
+  "scale": {
+    "units": "meters",
+    "hard_world_bbox_size_ranges_xyz_m": [
+      [
+        0.012,
+        0.03
+      ],
+      [
+        0.0001,
+        0.006
+      ],
+      [
+        0.04,
+        0.08
+      ]
+    ],
+    "hard_ranges_are": "Broad authored display envelopes, not scientific specimen limits. Measure actual transformed vertices including relief andcaps. Nominal construction inputs not exactfinalextents.",
+    "hard_component_extent_policy": "Every tagged solidcomponent has finitepositive worldextents within globalenvelope; actualworldXYZ and PCA extents measured. No microscopicminima invented.",
+    "accuracy": "Interpretive art, not specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Lowest worldvertexZ0, XYcenter by translation only. No finalscaling to fit.",
+  "intended_use": {
+    "role": "Staticmuseumcatalog candidate",
+    "viewing": "512px CPUstills",
+    "limits": "No GPU/composedscene acceptance."
+  },
+  "surface_profile": "Opaque flatfaceted closedfullvolume geometry, not alpha or doublesided planes. No copiedsourcepixels or textures.",
+  "palette_srgb": [
+    "#574B3C",
+    "#77644C",
+    "#8B7656",
+    "#66543E"
+  ],
+  "component_and_cause": {
+    "primary": "One elongated narrow fan, widening upward from a slender basal stalk, upper edge mildly uneven, height roughly three times fan width.",
+    "secondary": "Fine closely bundled unbranched filaments radiate from base to uppermargin, made as continuous subtle geometric corrugation, no separate branching seaweed arms.",
+    "tertiary": "Short narrow stalk and small blunt basal attachment integrated into thallus; no branching roots or invented rootball.",
+    "quiet_region": "Broad restrained bodyfacets or open intervals between fine elements."
+  },
+  "parameters": {
+    "nominal_height_m": 0.06,
+    "nominal_fan_width_m": 0.019,
+    "nominal_stalk_length_m": 0.006,
+    "nominal_body_thickness_m": 0.0005,
+    "illustrative_filament_ridges": 32
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-21T01:29:03Z",
+    "path": "production/small-life-batch100/concepts/flabellophyton-concept.png",
+    "sha256": "3916d1448230fae8610c745a9bac3225ad87dfe08e92fb50d2ad82590a23dcbb",
+    "decisions": "Concept viewed. Keep narrow elongated fan and basal stalk, but reduce rocklike volume and strong ribs. Continuous fine relief integral to thallus, not raised floating rods or roots."
+  },
+  "numeric_semantics": "Explicit integer construction counts are illustrative, not fossil universals. Only declared broad worldenvelopes and budgetceilings are hardpassgates. Art nominaldimensions separate from actual measured transformed sizes.",
+  "contact_policy": "Every attached organ physically intersects its actualparent AND remains visibly exposed. Every reliefvein intersectslamina along its path without fullburial, freefloating or piercingback. Contactsurfacewitnesses and exposure checks, not centeronly. Continuous integralcorrugation has no fictional separate-organ contact claim. Duplicate coincident endpoints checked.",
+  "deliverable_plan": [
+    "Editable Blend",
+    "GLB",
+    "Generator/config/seed/dependency closure",
+    "Actualworldcomponentdimensions and contact/exposure witnesses",
+    "Source reopen and authored/evaluated/exportedcounts",
+    "Two actualdistinctqueued rebuild PIDs and semanticcomparison",
+    "Project/Khronos/Threevalidation",
+    "Eightbound512views and losslesssheet"
+  ],
+  "prohibited": [
+    "Changing originalfreeze/inventory to pass",
+    "Treating concept as scientific evidence",
+    "Claiming inaccessible sourcepixels seen",
+    "Inventing wholeplantor spores",
+    "Material/camera masking geometrydefects",
+    "SelfindependentQA",
+    "CPUasGPU"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch100/flabellophyton/r001/original-brief.json",
+    "sha256": "7a8b654994c6fe9947ef97dde7cad383a0187fda6c5689fa77f2b121d6dbd6f3"
+  },
+  "delivery_bound_at": "2026-10-21T01:43:33.974638+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved": true,
+  "geometric_repair_note": "No geometry repair required.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch100/flabellophyton/r001/artifacts/flabellophyton.blend",
+      "sha256": "377e993ec809412b34b4e2758860d062837d940223d6cf90c298e94a26cd4c7b"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch100/tools/generate-r001.py",
+      "sha256": "1459464fe2475f816fa44dfbb2493b00aa0470a08b2eefbbecbc51e4e68dfe04"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch100/flabellophyton/r001/config.json",
+      "sha256": "3dedd665b53c8cd320d77dce3f3c8071ba8a648b25fe0266e27bd880bb0818c0"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch100/build-dependencies.json",
+      "sha256": "21dbcc72984a29a2eb52dce772e90d0a7fbacb925400c000f0cc28b08da1b899"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "asset_id": "chaetocladus",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Educational static lowpoly candidate, no independent acceptance or publication authority.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect each exactfinalframe against originalconcept and references. Concept viewed. Too sparse and near-two-ranked, axis excessively barkfaceted. Final15 whorls of32 rays, compressedradial arrangement, denserfeather profile. Counts and depthare artistic not microscopic fossilmeasurements. No lateralbifurcations.",
+      "required_sources": [
+        "WHITFIELD1894",
+        "LODUCA2011",
+        "LODUCA1997_2019"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One slim gentlycurved unbranched central axis carrying regularly separated whorls of many fine obliquelyascending laterals. Every lateral remains singleorder and unbranched; no treebranch hierarchy, no obsolete apparentfork/joint from1894Fig13. Dense narrow feathery plume, lowerlaterals a little shorter thanupper, slightcompresseddepth; no disproportionatelylargecap, heavybeads or columndefiningcollars. Ordovician Trenton Wisconsin C.plumula, not originalplanningSilurian. Single upright plume of WhitfieldPlateXI11 with modern2011 morphological correction to single-order unbranched laterals. Not wholeorganism, no roots/holdfast/apical reproductivecap/ecologicalcertainty. Original plateillustration not exact fossilcast. Secondary small plume lies in another lamina and is omitted.",
+      "required_sources": [
+        "WHITFIELD1894",
+        "LODUCA2011",
+        "LODUCA1997_2019"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight actual512px exact-final views and lossless sheet, no turntable for static-stylized-v1. CPU/Node not GPU or composedscene evidence.",
+  "frozen_at": "2026-10-21T01:29:03Z",
+  "subject": "Chaetocladus plumula single whorled fossil-axis interpretation",
+  "representation": "fossil-specimen",
+  "factual_scope": "Ordovician Trenton Wisconsin C.plumula, not originalplanningSilurian. Single upright plume of WhitfieldPlateXI11 with modern2011 morphological correction to single-order unbranched laterals. Not wholeorganism, no roots/holdfast/apical reproductivecap/ecologicalcertainty. Original plateillustration not exact fossilcast. Secondary small plume lies in another lamina and is omitted.",
+  "identifying_features": [
+    "One slim gentlycurved unbranched central axis carrying regularly separated whorls of many fine obliquelyascending laterals.",
+    "Every lateral remains singleorder and unbranched; no treebranch hierarchy, no obsolete apparentfork/joint from1894Fig13.",
+    "Dense narrow feathery plume, lowerlaterals a little shorter thanupper, slightcompresseddepth; no disproportionatelylargecap, heavybeads or columndefiningcollars."
+  ],
+  "scale": {
+    "units": "meters",
+    "hard_world_bbox_size_ranges_xyz_m": [
+      [
+        0.005,
+        0.018
+      ],
+      [
+        0.0005,
+        0.01
+      ],
+      [
+        0.03,
+        0.065
+      ]
+    ],
+    "hard_ranges_are": "Broad authored display envelopes, not scientific specimen limits. Measure actual transformed vertices including relief andcaps. Nominal construction inputs not exactfinalextents.",
+    "hard_component_extent_policy": "Every tagged solidcomponent has finitepositive worldextents within globalenvelope; actualworldXYZ and PCA extents measured. No microscopicminima invented.",
+    "accuracy": "Interpretive art, not specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Lowest worldvertexZ0, XYcenter by translation only. No finalscaling to fit.",
+  "intended_use": {
+    "role": "Staticmuseumcatalog candidate",
+    "viewing": "512px CPUstills",
+    "limits": "No GPU/composedscene acceptance."
+  },
+  "surface_profile": "Opaque flatfaceted closedfullvolume geometry, not alpha or doublesided planes. No copiedsourcepixels or textures.",
+  "palette_srgb": [
+    "#5C4A35",
+    "#776047",
+    "#8F7651",
+    "#69563E"
+  ],
+  "component_and_cause": {
+    "primary": "One slim gentlycurved unbranched central axis carrying regularly separated whorls of many fine obliquelyascending laterals.",
+    "secondary": "Every lateral remains singleorder and unbranched; no treebranch hierarchy, no obsolete apparentfork/joint from1894Fig13.",
+    "tertiary": "Dense narrow feathery plume, lowerlaterals a little shorter thanupper, slightcompresseddepth; no disproportionatelylargecap, heavybeads or columndefiningcollars.",
+    "quiet_region": "Broad restrained bodyfacets or open intervals between fine elements."
+  },
+  "parameters": {
+    "nominal_axis_height_m": 0.04,
+    "nominal_axis_radius_m": 0.00045,
+    "nominal_longest_lateral_length_m": 0.005,
+    "illustrative_whorls": 15,
+    "illustrative_laterals_per_whorl": 32,
+    "lateral_branch_orders": 1,
+    "nominal_depth_compression_factor": 0.35
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-21T01:29:03Z",
+    "path": "production/small-life-batch100/concepts/chaetocladus-concept.png",
+    "sha256": "ae93ad60606730190b2714ee89119f337cf6c795cbe8a3c326a39d3f76fb49a7",
+    "decisions": "Concept viewed. Too sparse and near-two-ranked, axis excessively barkfaceted. Final15 whorls of32 rays, compressedradial arrangement, denserfeather profile. Counts and depthare artistic not microscopic fossilmeasurements. No lateralbifurcations."
+  },
+  "numeric_semantics": "Explicit integer construction counts are illustrative, not fossil universals. Only declared broad worldenvelopes and budgetceilings are hardpassgates. Art nominaldimensions separate from actual measured transformed sizes.",
+  "contact_policy": "Every attached organ physically intersects its actualparent AND remains visibly exposed. Every reliefvein intersectslamina along its path without fullburial, freefloating or piercingback. Contactsurfacewitnesses and exposure checks, not centeronly. Continuous integralcorrugation has no fictional separate-organ contact claim. Duplicate coincident endpoints checked.",
+  "deliverable_plan": [
+    "Editable Blend",
+    "GLB",
+    "Generator/config/seed/dependency closure",
+    "Actualworldcomponentdimensions and contact/exposure witnesses",
+    "Source reopen and authored/evaluated/exportedcounts",
+    "Two actualdistinctqueued rebuild PIDs and semanticcomparison",
+    "Project/Khronos/Threevalidation",
+    "Eightbound512views and losslesssheet"
+  ],
+  "prohibited": [
+    "Changing originalfreeze/inventory to pass",
+    "Treating concept as scientific evidence",
+    "Claiming inaccessible sourcepixels seen",
+    "Inventing wholeplantor spores",
+    "Material/camera masking geometrydefects",
+    "SelfindependentQA",
+    "CPUasGPU"
+  ]
+}

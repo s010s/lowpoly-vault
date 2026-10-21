@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "b6964b57c7b6eb5d339f69f5af5ed6d0ee5faeff435077faaaa105d518d086b9",
+    "brief_sha256": "ef20f305b7519000274d993f921d216c9dda25c988a07521a7a7d5721887d02f",
+    "references_sha256": "71eb8bb570ced8f1ca180b480dd9a8b549dd76ed85242f15e9a263356a9c2e0b"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 744,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 43364,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "b6964b57c7b6eb5d339f69f5af5ed6d0ee5faeff435077faaaa105d518d086b9",
+      "report": {
+        "path": "production/small-life-batch100/lygodium/r003/qa/static-glb.report.json",
+        "sha256": "33f08c8bfaac4d94b0ec927ab686e1ee9f0822b9c7a4ae5110de84a94e3514df"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "b6964b57c7b6eb5d339f69f5af5ed6d0ee5faeff435077faaaa105d518d086b9",
+      "report": {
+        "path": "production/small-life-batch100/lygodium/r003/artifacts/gltf-validator.report.json",
+        "sha256": "60f79a90c0773c860cf6549804717de2cfebad9bf4c9bd07661ee869d73277fd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "b6964b57c7b6eb5d339f69f5af5ed6d0ee5faeff435077faaaa105d518d086b9",
+      "report": {
+        "path": "production/small-life-batch100/lygodium/r003/qa/source-export.report.json",
+        "sha256": "0fe2ce314d3fd5cb8842b31a36f6bd4d9245fab3b2f297318981b74ce8b06ebd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "b6964b57c7b6eb5d339f69f5af5ed6d0ee5faeff435077faaaa105d518d086b9",
+      "report": {
+        "path": "production/small-life-batch100/lygodium/r003/qa/reproducibility-a.report.json",
+        "sha256": "ece79aed4e7e497998a3356f4987bce1e308c94137e29170059d338bca0e5a18"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "b6964b57c7b6eb5d339f69f5af5ed6d0ee5faeff435077faaaa105d518d086b9",
+      "report": {
+        "path": "production/small-life-batch100/lygodium/r003/qa/reproducibility-b.report.json",
+        "sha256": "08cde7540f82ce71e2370ef2ea7c5f42b0817ab670117561c0bf1022cab50bdc"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.027543140575289726,
+      0.0,
+      -0.0004999999655410647
+    ],
+    "max": [
+      0.027543140575289726,
+      0.048924487084150314,
+      0.0004999999655410647
+    ],
+    "size": [
+      0.05508628115057945,
+      0.048924487084150314,
+      0.0009999999310821295
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "bifid-foliage-with-small-fertile-branch",
+      "vertices": 458,
+      "triangles": 744,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 1380,
+  "created_at": "2026-10-21T01:57:56.787438+00:00"
+}

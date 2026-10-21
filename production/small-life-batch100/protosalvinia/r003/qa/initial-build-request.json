@@ -1,0 +1,95 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/generate-protosalvinia-r003.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/protosalvinia/r003/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch100-evidence/protosalvinia-notch-build-queue/build/protosalvinia/r003/monotone-notch-repair/b8ba7c694f76ca3ff89b996f8bc84d78fd7ff20f353b7adf1be889ccf2ab558f/20261021T014058-9c4221b5bedf4df088edc88db7a241cd/outputs"
+  ],
+  "created_at": "2026-10-21T01:40:58.144800+00:00",
+  "fingerprint": "b8ba7c694f76ca3ff89b996f8bc84d78fd7ff20f353b7adf1be889ccf2ab558f",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 1317,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/protosalvinia/r003/config.json",
+        "sha256": "d41bc465f4e02fc203e84f70554e78672b4f2262178b27179f592fbbd016cebe"
+      },
+      "generator": {
+        "bytes": 10022,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/generate-protosalvinia-r003.py",
+        "sha256": "be89282203faf34071db1544e751b87e4c6f3c58a3c5947decb0c7b01768b752"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "protosalvinia",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/protosalvinia/r003/config.json",
+        "generator": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/generate-protosalvinia-r003.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "monotone-notch-repair",
+      "outputs": [
+        "protosalvinia/protosalvinia.glb",
+        "protosalvinia/protosalvinia.blend",
+        "protosalvinia/qa.json",
+        "protosalvinia/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T014058-42e024a0d3324d31bb90377e2a95e943"
+}

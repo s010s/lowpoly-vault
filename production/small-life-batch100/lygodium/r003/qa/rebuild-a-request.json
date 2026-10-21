@@ -1,0 +1,95 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/generate-lygodium-r003.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/lygodium/r003/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch100-evidence/rebuild-queue/build/lygodium/r003/semantic-rebuild-a/be19f19b5fde987f17da6d42a9b845e4f282b88984a1e50ec6a7c4cce277845c/20261021T015202-e7116ab3ecfa4af0a1735f1afe40c3cb/outputs"
+  ],
+  "created_at": "2026-10-21T01:52:02.699523+00:00",
+  "fingerprint": "be19f19b5fde987f17da6d42a9b845e4f282b88984a1e50ec6a7c4cce277845c",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 1259,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/lygodium/r003/config.json",
+        "sha256": "aeb55fed73c527bd14470f6926463c473af3790f0b6079cfb1ca2374c79ee08f"
+      },
+      "generator": {
+        "bytes": 10081,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/generate-lygodium-r003.py",
+        "sha256": "2e3c3ff04908ae0e23d2d1b489c89fe10e17892160bd244331af3db17dd83429"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "lygodium",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch100-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/lygodium/r003/config.json",
+        "generator": "/workspace/shared/lowpoly-batch100-20261021/production/small-life-batch100/tools/generate-lygodium-r003.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch100-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "semantic-rebuild-a",
+      "outputs": [
+        "lygodium/lygodium.glb",
+        "lygodium/lygodium.blend",
+        "lygodium/qa.json",
+        "lygodium/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T015202-abab9187a63c443594562f864977006c"
+}

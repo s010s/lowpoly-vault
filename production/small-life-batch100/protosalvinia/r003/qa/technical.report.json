@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "65b84ca342c7805c6bca09ca433f7e8d5ff5e4abd4306e285a2165ab70f98979",
+    "brief_sha256": "9cb35a875af26c6e6c89ac55e7b655fd54a322a4cc86a3536306d53d191ef675",
+    "references_sha256": "e2d40cbb3fa836d13b0553318c4a5a166b4b81b771446100ffe5ca8d744f95dc"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 3296,
+    "materials": 1,
+    "primitives": 1,
+    "glb_bytes": 162552,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "65b84ca342c7805c6bca09ca433f7e8d5ff5e4abd4306e285a2165ab70f98979",
+      "report": {
+        "path": "production/small-life-batch100/protosalvinia/r003/qa/static-glb.report.json",
+        "sha256": "99d050ccdb07fcc181a9cd3d3fbbb8a6ee7a4145cc09ace5e6bd651fd8b08b7c"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "65b84ca342c7805c6bca09ca433f7e8d5ff5e4abd4306e285a2165ab70f98979",
+      "report": {
+        "path": "production/small-life-batch100/protosalvinia/r003/artifacts/gltf-validator.report.json",
+        "sha256": "5f72f4ec2674d68b87f72679d41843712a631be3a77f3af1f154add558b946dc"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "65b84ca342c7805c6bca09ca433f7e8d5ff5e4abd4306e285a2165ab70f98979",
+      "report": {
+        "path": "production/small-life-batch100/protosalvinia/r003/qa/source-export.report.json",
+        "sha256": "4f69cde13a8618b6b4b8fab53d2b9b21be9d3b3d8f8fc7e9fd2810d2fe2b6d28"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "65b84ca342c7805c6bca09ca433f7e8d5ff5e4abd4306e285a2165ab70f98979",
+      "report": {
+        "path": "production/small-life-batch100/protosalvinia/r003/qa/reproducibility-a.report.json",
+        "sha256": "e138330daaf4feda22e0cdd7bdabcd5f7b20d6568f643ca257d4ffbbb43ce5db"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "65b84ca342c7805c6bca09ca433f7e8d5ff5e4abd4306e285a2165ab70f98979",
+      "report": {
+        "path": "production/small-life-batch100/protosalvinia/r003/qa/reproducibility-b.report.json",
+        "sha256": "f566647cf2ce35fef31f1e006351507e7e499c53d0f59d7427121a34991aa643"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.003000000026077032,
+      0.0,
+      -9.299975499743596e-05
+    ],
+    "max": [
+      0.003000000026077032,
+      0.004327095113694668,
+      9.299975499743596e-05
+    ],
+    "size": [
+      0.006000000052154064,
+      0.004327095113694668,
+      0.00018599950999487191
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "single-bilobed-compression",
+      "vertices": 1650,
+      "triangles": 3296,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 5881,
+  "created_at": "2026-10-21T01:51:18.325648+00:00"
+}

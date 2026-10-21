@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c",
+    "brief_sha256": "fa12c77af35efbb57c60700030b42a0e5cbe930e976774279a0c10ff30902cde",
+    "references_sha256": "5c1065f2055aca592762ad9ebada82e548f413928eefb35acce40facd4c95a1e"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 2076,
+    "materials": 1,
+    "primitives": 1,
+    "glb_bytes": 80216,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c",
+      "report": {
+        "path": "production/small-life-batch100/flabellophyton/r001/qa/static-glb.report.json",
+        "sha256": "d7052b36d359c310947267e943193aedf414b616be3269c02dff04b5b7b8a16e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c",
+      "report": {
+        "path": "production/small-life-batch100/flabellophyton/r001/artifacts/gltf-validator.report.json",
+        "sha256": "029f33e11bce34e154590f14d64c4423843abeb1f88a972a6cf2c14004388690"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c",
+      "report": {
+        "path": "production/small-life-batch100/flabellophyton/r001/qa/source-export.report.json",
+        "sha256": "2bbb80832a3c366d7592662277fa5f4b157fe69c84db9130c76c622b5fbbc376"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c",
+      "report": {
+        "path": "production/small-life-batch100/flabellophyton/r001/qa/reproducibility-a.report.json",
+        "sha256": "ef393afc2bad074ce0d93838af0ce38db1c69546eea1d121eaa11825a7f2e84d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "5bff0e374e277835b7b0bd47a32c0b644126e599c3f4744d6905b757c41f428c",
+      "report": {
+        "path": "production/small-life-batch100/flabellophyton/r001/qa/reproducibility-b.report.json",
+        "sha256": "6b9e9b3b2aea2d14e0bb7469d642cbd2ab922a180b78a9913019e604c02f1b03"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.009499999694526196,
+      0.0,
+      -0.0002899999963119626
+    ],
+    "max": [
+      0.009499999694526196,
+      0.05999999865889549,
+      0.0002899999963119626
+    ],
+    "size": [
+      0.01899999938905239,
+      0.05999999865889549,
+      0.0005799999926239252
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "narrow-radially-corrugated-thallus",
+      "vertices": 1040,
+      "triangles": 2076,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 2754,
+  "created_at": "2026-10-21T01:51:18.170188+00:00"
+}

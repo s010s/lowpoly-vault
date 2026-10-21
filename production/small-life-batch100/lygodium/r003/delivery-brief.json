@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "asset_id": "lygodium",
+  "brief_version": "delivery-r003",
+  "profile": "production",
+  "purpose": "Educational static lowpoly candidate, no independent acceptance or publication authority.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect each exactfinalframe against originalconcept and references. Concept viewed. Keep bifid blade and small fertile portion but reduce thickness, replace seedlike blobs with flattened narrow lobules, use near-equal dichotomizing veins rather than thick branching midrib.",
+      "required_sources": [
+        "NPS_FOBU12018",
+        "MANCHESTER_ZAVADA1987"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify A single continuous thin bifid lamina with two elongated rounded lobes and deep U/V cleft, narrow shared basal attachment. Fine lowangle radiating dichotomous open vein relief; no dicot pinnate midrib hierarchy or reticulate crossveins. Small attached subdivided fertile branch at the basal junction, much smaller than sterile lamina, with flattened sorophore lobules, not rounded seed pods. Eocene fossil-organ interpretation inspired by FOBU12018 only. Not a whole climbing frond or wholeplant. Two broad blunt elongated laminar lobes and small branched fertile structure. No roots/rhizome/climbing support/microscopic spores; modern habit never direct fossil evidence.",
+      "required_sources": [
+        "NPS_FOBU12018",
+        "MANCHESTER_ZAVADA1987"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight actual512px exact-final views and lossless sheet, no turntable for static-stylized-v1. CPU/Node not GPU or composedscene evidence.",
+  "frozen_at": "2026-10-21T01:29:03Z",
+  "subject": "Lygodium kaulfussi isolated bifid foliage with small fertile branch",
+  "representation": "fossil-specimen",
+  "factual_scope": "Eocene fossil-organ interpretation inspired by FOBU12018 only. Not a whole climbing frond or wholeplant. Two broad blunt elongated laminar lobes and small branched fertile structure. No roots/rhizome/climbing support/microscopic spores; modern habit never direct fossil evidence.",
+  "identifying_features": [
+    "A single continuous thin bifid lamina with two elongated rounded lobes and deep U/V cleft, narrow shared basal attachment.",
+    "Fine lowangle radiating dichotomous open vein relief; no dicot pinnate midrib hierarchy or reticulate crossveins.",
+    "Small attached subdivided fertile branch at the basal junction, much smaller than sterile lamina, with flattened sorophore lobules, not rounded seed pods."
+  ],
+  "scale": {
+    "units": "meters",
+    "hard_world_bbox_size_ranges_xyz_m": [
+      [
+        0.025,
+        0.075
+      ],
+      [
+        0.0001,
+        0.008
+      ],
+      [
+        0.035,
+        0.075
+      ]
+    ],
+    "hard_ranges_are": "Broad authored display envelopes, not scientific specimen limits. Measure actual transformed vertices including relief andcaps. Nominal construction inputs not exactfinalextents.",
+    "hard_component_extent_policy": "Every tagged solidcomponent has finitepositive worldextents within globalenvelope; actualworldXYZ and PCA extents measured. No microscopicminima invented.",
+    "accuracy": "Interpretive art, not specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Lowest worldvertexZ0, XYcenter by translation only. No finalscaling to fit.",
+  "intended_use": {
+    "role": "Staticmuseumcatalog candidate",
+    "viewing": "512px CPUstills",
+    "limits": "No GPU/composedscene acceptance."
+  },
+  "surface_profile": "Opaque flatfaceted closedfullvolume geometry, not alpha or doublesided planes. No copiedsourcepixels or textures.",
+  "palette_srgb": [
+    "#6F553B",
+    "#A18052",
+    "#B9955D",
+    "#81633E"
+  ],
+  "component_and_cause": {
+    "primary": "A single continuous thin bifid lamina with two elongated rounded lobes and deep U/V cleft, narrow shared basal attachment.",
+    "secondary": "Fine lowangle radiating dichotomous open vein relief; no dicot pinnate midrib hierarchy or reticulate crossveins.",
+    "tertiary": "Small attached subdivided fertile branch at the basal junction, much smaller than sterile lamina, with flattened sorophore lobules, not rounded seed pods.",
+    "quiet_region": "Broad restrained bodyfacets or open intervals between fine elements."
+  },
+  "parameters": {
+    "nominal_height_m": 0.054,
+    "nominal_width_m": 0.042,
+    "nominal_lamina_thickness_m": 0.00035,
+    "sterile_lobes": 2,
+    "fertile_branchlet_pairs": 3,
+    "vein_terminal_rays_per_lobe": 8
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-21T01:29:03Z",
+    "path": "production/small-life-batch100/concepts/lygodium-concept.png",
+    "sha256": "6b9586d96d96bb1c73b3a8ba464d9bf3beeebc75262a92f5417d28cbb1b8a894",
+    "decisions": "Concept viewed. Keep bifid blade and small fertile portion but reduce thickness, replace seedlike blobs with flattened narrow lobules, use near-equal dichotomizing veins rather than thick branching midrib."
+  },
+  "numeric_semantics": "Explicit integer construction counts are illustrative, not fossil universals. Only declared broad worldenvelopes and budgetceilings are hardpassgates. Art nominaldimensions separate from actual measured transformed sizes.",
+  "contact_policy": "Every attached organ physically intersects its actualparent AND remains visibly exposed. Every reliefvein intersectslamina along its path without fullburial, freefloating or piercingback. Contactsurfacewitnesses and exposure checks, not centeronly. Continuous integralcorrugation has no fictional separate-organ contact claim. Duplicate coincident endpoints checked.",
+  "deliverable_plan": [
+    "Editable Blend",
+    "GLB",
+    "Generator/config/seed/dependency closure",
+    "Actualworldcomponentdimensions and contact/exposure witnesses",
+    "Source reopen and authored/evaluated/exportedcounts",
+    "Two actualdistinctqueued rebuild PIDs and semanticcomparison",
+    "Project/Khronos/Threevalidation",
+    "Eightbound512views and losslesssheet"
+  ],
+  "prohibited": [
+    "Changing originalfreeze/inventory to pass",
+    "Treating concept as scientific evidence",
+    "Claiming inaccessible sourcepixels seen",
+    "Inventing wholeplantor spores",
+    "Material/camera masking geometrydefects",
+    "SelfindependentQA",
+    "CPUasGPU"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch100/lygodium/r001/original-brief.json",
+    "sha256": "c4b05df1c6e6e58979eba70920751dc1ae5c622daca355516796b73eaa2dd006"
+  },
+  "delivery_bound_at": "2026-10-21T01:52:02.393834+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved": true,
+  "geometric_repair_note": "Minimal real outline repair after four-view diagnosis: angular clipped lobe-tip edges replaced by smooth elliptical blunt caps. Same two lobes, scope, nominal dimensions and vein topology; original freeze immutable. Final8view inspection then found upper sorophores buried by non-parent sterile lamina. Lower the real fertile-axis trajectory from z0.016 to0.0105 and extend to x0.014 so all6flattened lobules lie outside mainlamina silhouette. Originalscope/counts/hardbounds remain unchanged; no camera/material fix.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch100/lygodium/r003/artifacts/lygodium.blend",
+      "sha256": "767f395e8487c365f3501256d5e71549b6327897d45682db44d5995c11707db7"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch100/tools/generate-lygodium-r003.py",
+      "sha256": "2e3c3ff04908ae0e23d2d1b489c89fe10e17892160bd244331af3db17dd83429"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch100/lygodium/r003/config.json",
+      "sha256": "aeb55fed73c527bd14470f6926463c473af3790f0b6079cfb1ca2374c79ee08f"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch100/build-dependencies-v002.json",
+      "sha256": "b7ff2da4e72c47d1938ea7bf254a8298b8e31093f901b2a794d5873c0bb758e1"
+    }
+  ]
+}
