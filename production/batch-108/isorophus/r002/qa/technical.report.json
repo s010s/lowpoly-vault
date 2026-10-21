@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "eee97ce183039b0d2cb10b219f1c7da57084f9a871a5068db68840c51fe58170",
+    "brief_sha256": "d83cc00f5163a3e443b77641f208857ad4d64f35c725ff6ccec3f9f1bb36644d",
+    "references_sha256": "4b5e150a1ea91c4df814ccc9595761969b4598136c70b9058e4bba8e7e8bd773"
+  },
+  "status": "pass",
+  "method": "Exact final GLB audit and original triangle winding, Khronos validation, reopened editable source, two different-PID queue rebuilds with semantic equality, actual world-space dimensions and contacts, and dense full-scene component exposure.",
+  "observations": [
+    "All technical checks pass with zero source warnings. No diagnostic weld or normal recalculation changes the original delivery or replaces original proof.",
+    "Exposure uses vertices and seven barycentric triangle samples with rays against every other component. No arbitrary exposure-percent cutoff. Integrated required features additionally ray-test against the full mesh including their host surface. All required structural components have actual exposure; individual repeated plates can be partly occluded by a deliberate anatomical overlap and are reported individually. Geometric exposure is not a guarantee of512px readability."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 13796,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 735104,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "eee97ce183039b0d2cb10b219f1c7da57084f9a871a5068db68840c51fe58170",
+      "report": {
+        "path": "production/batch-108/isorophus/r002/qa/static-glb.report.json",
+        "sha256": "f8b9bdb7cc62e2f4d46923c1bccf913cd76651a2850385f4c9faf939cc39a236"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "eee97ce183039b0d2cb10b219f1c7da57084f9a871a5068db68840c51fe58170",
+      "report": {
+        "path": "production/batch-108/isorophus/r002/artifacts/gltf-validator.report.json",
+        "sha256": "eba63757e6c491bc96abdba4f4d3475eb69ffd3817841e87c4c52ce1a3f3aeac"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "eee97ce183039b0d2cb10b219f1c7da57084f9a871a5068db68840c51fe58170",
+      "report": {
+        "path": "production/batch-108/isorophus/r002/qa/source-export.report.json",
+        "sha256": "1ebfda14476a318d846151a144995d6c2dd223852668828125c14d0caa7be959"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "eee97ce183039b0d2cb10b219f1c7da57084f9a871a5068db68840c51fe58170",
+      "report": {
+        "path": "production/batch-108/isorophus/r002/qa/reproducibility-a.report.json",
+        "sha256": "c3d1bb5ea18da9f5c325f89d75f3793c3038660013838d7c8bee8e7d3b2be184"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "eee97ce183039b0d2cb10b219f1c7da57084f9a871a5068db68840c51fe58170",
+      "report": {
+        "path": "production/batch-108/isorophus/r002/qa/reproducibility-b.report.json",
+        "sha256": "85af44aa0d516056fa2e05a14d45c4d73ce7b0e1a23d6741a76094e8c0ce3ae2"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "original_winding_report": {
+    "path": "production/batch-108/isorophus/r002/qa/original-winding.report.json",
+    "sha256": "5f98391ee3e49a18bfea3389ac14ad1cc71826f73c95d601d14cb3c88cbf436e"
+  },
+  "component_contact_exposure_report": {
+    "path": "production/batch-108/isorophus/r002/qa/component-contact-exposure.report.json",
+    "sha256": "a8df4082d88d5e529a727f6a7f6773589a3518db8d52664ec1f60df81674f1c3"
+  },
+  "factual_geometry_report": {
+    "path": "production/batch-108/isorophus/r002/qa/factual-geometry.report.json",
+    "sha256": "b1e79fa2c42920b4c3872c55a01a686e164c8913d59d0a7c743e67bca56f8783"
+  },
+  "positive_volume_contact_report": {
+    "path": "production/batch-108/isorophus/r002/qa/positive-contact-v002.report.json",
+    "sha256": "fe0a8eb473143c58dbfa52bc2b0da22f648eec22b6c6b7883f774ac57814c4a2"
+  },
+  "dependency_manifest": {
+    "path": "production/batch-108/dependencies-v002.json",
+    "sha256": "c381e78ca1701a83d89062a92107cf0f06bbccde3d96b9c4e406699b821abd52"
+  },
+  "bounds_glb_m": {
+    "min": [
+      -0.012500000186264515,
+      0.0,
+      -0.012500000186264515
+    ],
+    "max": [
+      0.012500000186264515,
+      0.007932111620903015,
+      0.012500000186264515
+    ],
+    "size": [
+      0.02500000037252903,
+      0.007932111620903015,
+      0.02500000037252903
+    ]
+  },
+  "created_at": "2026-10-21T05:45:13.851217+00:00"
+}

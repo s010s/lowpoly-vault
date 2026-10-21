@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+    "brief_sha256": "e3b4e28b49423662d9eb13973a63bc4348c094f72d003a85046614a3fb47ec0a",
+    "references_sha256": "f0ee47f007909fff865064d6c5f22a3ff69216c4fe8ef1026d37da3aff4b63ee"
+  },
+  "status": "pass",
+  "method": "Exact final GLB audit and original triangle winding, Khronos validation, reopened editable source, two different-PID queue rebuilds with semantic equality, actual world-space dimensions and contacts, and dense full-scene component exposure.",
+  "observations": [
+    "All technical checks pass with zero source warnings. No diagnostic weld or normal recalculation changes the original delivery or replaces original proof.",
+    "Exposure uses vertices and seven barycentric triangle samples with rays against every other component. No arbitrary exposure-percent cutoff. Integrated required features additionally ray-test against the full mesh including their host surface. All required structural components have actual exposure; individual repeated plates can be partly occluded by a deliberate anatomical overlap and are reported individually. Geometric exposure is not a guarantee of512px readability."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 3440,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 187464,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+      "report": {
+        "path": "production/batch-108/placocystites/r003/qa/static-glb.report.json",
+        "sha256": "15d9bac7c44170b1b042d8b23fa56a8a08fee81ed14b5b7db1b7653aa3e5aeb9"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+      "report": {
+        "path": "production/batch-108/placocystites/r003/artifacts/gltf-validator.report.json",
+        "sha256": "4ca881fe48f963331f69697ca2f3dad81af4b3a2ee1255329e0a94d69a3c5be4"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+      "report": {
+        "path": "production/batch-108/placocystites/r003/qa/source-export.report.json",
+        "sha256": "17cb0758f1121fabfc8328c7d11f3feaeb2908dc8893f050cf02b10cd4e694e0"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+      "report": {
+        "path": "production/batch-108/placocystites/r003/qa/reproducibility-a.report.json",
+        "sha256": "ed298ec39ba77f161f0cbf86541ba806346dc95830b9f71128dbc72d01e9d649"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+      "report": {
+        "path": "production/batch-108/placocystites/r003/qa/reproducibility-b.report.json",
+        "sha256": "9ddfe70bf81d31b2381f620ee0a0be74f49fd123f497c3ab670c49dcb5ffd81c"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "original_winding_report": {
+    "path": "production/batch-108/placocystites/r003/qa/original-winding.report.json",
+    "sha256": "8a056aa16edeab5060bc2d64009f1656c5abce4297052496ef36bf48711103ec"
+  },
+  "component_contact_exposure_report": {
+    "path": "production/batch-108/placocystites/r003/qa/component-contact-exposure.report.json",
+    "sha256": "a7910cc1fe950cbb7df73ce6ddd3852d4e6e3e636159e475284a4ff8afe99147"
+  },
+  "factual_geometry_report": {
+    "path": "production/batch-108/placocystites/r003/qa/factual-geometry.report.json",
+    "sha256": "8893f868e381c9e9d869c7dd06c623a80d486489423f7cc0eae1ed819dd5090c"
+  },
+  "positive_volume_contact_report": {
+    "path": "production/batch-108/placocystites/r003/qa/positive-contact-v003.report.json",
+    "sha256": "a000f349528b97d2bb23abb44ba4dc52884f5a621cf213b6fbad06940160e6e5"
+  },
+  "dependency_manifest": {
+    "path": "production/batch-108/dependencies-v003.json",
+    "sha256": "16ada70bfb65eaf2d67c5a484379a14726619090d846ba9c00f337dfee0a2777"
+  },
+  "bounds_glb_m": {
+    "min": [
+      -0.011788289994001389,
+      0.0,
+      -0.03489425778388977
+    ],
+    "max": [
+      0.011788289994001389,
+      0.004008528310805559,
+      0.03489425778388977
+    ],
+    "size": [
+      0.023576579988002777,
+      0.004008528310805559,
+      0.06978851556777954
+    ]
+  },
+  "created_at": "2026-10-21T05:45:16.251334+00:00"
+}

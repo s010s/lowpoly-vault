@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7",
+    "brief_sha256": "1a76cd48f49e21b9382d805963a208999775a0fbfad0af272355c6b5b7f56737",
+    "references_sha256": "2cf40c377c7c72f11b465a38644f73e843bb2ae6130b005b54b81357b35325c3"
+  },
+  "status": "pass",
+  "method": "Exact final GLB audit and original triangle winding, Khronos validation, reopened editable source, two different-PID queue rebuilds with semantic equality, actual world-space dimensions and contacts, and dense full-scene component exposure.",
+  "observations": [
+    "All technical checks pass with zero source warnings. No diagnostic weld or normal recalculation changes the original delivery or replaces original proof.",
+    "Exposure uses vertices and seven barycentric triangle samples with rays against every other component. No arbitrary exposure-percent cutoff. Integrated required features additionally ray-test against the full mesh including their host surface. All required structural components have actual exposure; individual repeated plates can be partly occluded by a deliberate anatomical overlap and are reported individually. Geometric exposure is not a guarantee of512px readability."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 11280,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 609356,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7",
+      "report": {
+        "path": "production/batch-108/eleutherocrinus/r002/qa/static-glb.report.json",
+        "sha256": "077df38998360bdff69138b291060fb4de84210c2b358506c3ed2a77564b8d49"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7",
+      "report": {
+        "path": "production/batch-108/eleutherocrinus/r002/artifacts/gltf-validator.report.json",
+        "sha256": "6afd2104d8b5f844d5a58bd6447e7a76f301d2995fb64aaf81cf065c71703819"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7",
+      "report": {
+        "path": "production/batch-108/eleutherocrinus/r002/qa/source-export.report.json",
+        "sha256": "d1d2b2059853acee2ba5f9de6ce44fbb1c4b23e41520fabdd7283d260f8bc83b"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7",
+      "report": {
+        "path": "production/batch-108/eleutherocrinus/r002/qa/reproducibility-a.report.json",
+        "sha256": "9f45aae1b57240d8caaffe70ae3569d5d327c33973499bc81d54a74b0e2f5767"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7",
+      "report": {
+        "path": "production/batch-108/eleutherocrinus/r002/qa/reproducibility-b.report.json",
+        "sha256": "09375bcb9c2cc9d09c9ce751c899b89a51af6b8754792bd2a398e89313fac765"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "original_winding_report": {
+    "path": "production/batch-108/eleutherocrinus/r002/qa/original-winding.report.json",
+    "sha256": "345ce39516081074f90bbc8c908317984f196db015285f556361337a9529eddd"
+  },
+  "component_contact_exposure_report": {
+    "path": "production/batch-108/eleutherocrinus/r002/qa/component-contact-exposure.report.json",
+    "sha256": "a4c909ad4cedb3c57b78ee3cd573c108a1bbdb9ff48fd3926bb5fdccf840d023"
+  },
+  "factual_geometry_report": {
+    "path": "production/batch-108/eleutherocrinus/r002/qa/factual-geometry.report.json",
+    "sha256": "572b8eab4d80802ea49a246d06bd325070204796d6235d7ed21c0810432f4b1f"
+  },
+  "positive_volume_contact_report": {
+    "path": "production/batch-108/eleutherocrinus/r002/qa/positive-contact-v003.report.json",
+    "sha256": "dd338edb7af4299725326f6f6aa19e64d6498efa176d4d29744c7e55a55d448c"
+  },
+  "dependency_manifest": {
+    "path": "production/batch-108/dependencies-v003.json",
+    "sha256": "16ada70bfb65eaf2d67c5a484379a14726619090d846ba9c00f337dfee0a2777"
+  },
+  "bounds_glb_m": {
+    "min": [
+      -0.006745034363120794,
+      0.0,
+      -0.00984888430684805
+    ],
+    "max": [
+      0.006745034363120794,
+      0.017838111147284508,
+      0.00984888430684805
+    ],
+    "size": [
+      0.013490068726241589,
+      0.017838111147284508,
+      0.0196977686136961
+    ]
+  },
+  "created_at": "2026-10-21T05:45:14.711302+00:00"
+}

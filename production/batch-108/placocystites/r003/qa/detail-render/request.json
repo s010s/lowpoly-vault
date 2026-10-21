@@ -1,0 +1,141 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/tools/render-detail.py",
+    "--",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/artifacts/placocystites.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch108-evidence/details-queue/render/placocystites/r003/exact-subject-details/7d99ede1f97c84dae4235f1884caa4f5b35e84a6d52ff782a74d944a7c02ea64/20261021T053641-db6b460facba42378925c88aa5c465db/outputs/details",
+    "--revision",
+    "r003",
+    "--brief",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/references.json",
+    "--resolution",
+    "1024",
+    "--samples",
+    "24",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "bottom,detail",
+    "--detail-target",
+    ".5,.61,.5",
+    "--detail-scale",
+    "0.28"
+  ],
+  "created_at": "2026-10-21T05:36:41.689298+00:00",
+  "fingerprint": "7d99ede1f97c84dae4235f1884caa4f5b35e84a6d52ff782a74d944a7c02ea64",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 10129,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/delivery-brief.json",
+        "sha256": "e3b4e28b49423662d9eb13973a63bc4348c094f72d003a85046614a3fb47ec0a"
+      },
+      "glb": {
+        "bytes": 187464,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/artifacts/placocystites.glb",
+        "sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 4547,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/references.json",
+        "sha256": "f0ee47f007909fff865064d6c5f22a3ff69216c4fe8ef1026d37da3aff4b63ee"
+      },
+      "renderer": {
+        "bytes": 16210,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/tools/render-detail.py",
+        "sha256": "e73734b9d556788bae7f39b1672743f7e575cafd68875ce5bc3df5fc5f83f808"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/details",
+        "--revision",
+        "r003",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "1024",
+        "--samples",
+        "24",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "bottom,detail",
+        "--detail-target",
+        ".5,.61,.5",
+        "--detail-scale",
+        "0.28"
+      ],
+      "asset_id": "placocystites",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch108-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/artifacts/placocystites.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch108-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/tools/render-detail.py"
+      },
+      "job_id": "exact-subject-details",
+      "outputs": [
+        "details/bottom.png",
+        "details/detail.png",
+        "details/render-manifest.json"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 1200
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1200
+  },
+  "run_id": "20261021T053548-2f4637f0a29f46e4ae3f7c9e4c8b90ed"
+}

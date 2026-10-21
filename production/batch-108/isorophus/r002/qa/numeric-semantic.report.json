@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "eee97ce183039b0d2cb10b219f1c7da57084f9a871a5068db68840c51fe58170",
+    "brief_sha256": "d83cc00f5163a3e443b77641f208857ad4d64f35c725ff6ccec3f9f1bb36644d",
+    "references_sha256": "4b5e150a1ea91c4df814ccc9595761969b4598136c70b9058e4bba8e7e8bd773"
+  },
+  "status": "pass",
+  "source_sha256": "8717381a862b3f96e467f687002aa7a5ca8261f07b134f35fbfc23cd92167be6",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "theca_core": 1,
+    "ambulacral_path": 5,
+    "principal_oral_plate": 4,
+    "periproct": 1,
+    "stem": 0,
+    "brachiole": 0
+  },
+  "observed_counts": {
+    "theca_core": 1,
+    "thecal_plating": 1,
+    "peripheral_belt": 1,
+    "ambulacral_path": 5,
+    "principal_oral_plate": 4,
+    "accessory_oral_plate": 5,
+    "periproct": 1,
+    "stem": 0,
+    "brachiole": 0
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "theca_core",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "ambulacral_path",
+      "required_count": 5,
+      "actual_nonempty_components": 5,
+      "pass": true
+    },
+    {
+      "kind": "principal_oral_plate",
+      "required_count": 4,
+      "actual_nonempty_components": 4,
+      "pass": true
+    },
+    {
+      "kind": "periproct",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "stem",
+      "required_count": 0,
+      "actual_nonempty_components": 0,
+      "pass": true
+    },
+    {
+      "kind": "brachiole",
+      "required_count": 0,
+      "actual_nonempty_components": 0,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/batch-108/isorophus/r002/qa/factual-geometry.report.json",
+    "sha256": "b1e79fa2c42920b4c3872c55a01a686e164c8913d59d0a7c743e67bca56f8783"
+  },
+  "integrated_features": {
+    "geometric_plate": 753
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/batch-108/isorophus/r002/qa/component-contact-exposure.report.json",
+    "sha256": "a8df4082d88d5e529a727f6a7f6773589a3518db8d52664ec1f60df81674f1c3"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. No scientific dimension ranges were invented from nominal artistic display dimensions."
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+    "brief_sha256": "e3b4e28b49423662d9eb13973a63bc4348c094f72d003a85046614a3fb47ec0a",
+    "references_sha256": "f0ee47f007909fff865064d6c5f22a3ff69216c4fe8ef1026d37da3aff4b63ee"
+  },
+  "status": "pass",
+  "source_sha256": "1a93f6f23a96fecc1511aabac9076e1d469c9b42c9ce316462fa78b1cbe1f65b",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "theca_core": 1,
+    "oral_spine": 2,
+    "aulacophore": 1,
+    "ventral_anterior_plate": 3,
+    "ventral_round_midline_plate": 1
+  },
+  "observed_counts": {
+    "theca_core": 1,
+    "thecal_plate": 17,
+    "marginal_plate": 6,
+    "ventral_anterior_plate": 3,
+    "ventral_round_midline_plate": 1,
+    "spine_articulation": 2,
+    "oral_spine": 2,
+    "aulacophore": 1
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "theca_core",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "oral_spine",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "aulacophore",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "ventral_anterior_plate",
+      "required_count": 3,
+      "actual_nonempty_components": 3,
+      "pass": true
+    },
+    {
+      "kind": "ventral_round_midline_plate",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/batch-108/placocystites/r003/qa/factual-geometry.report.json",
+    "sha256": "8893f868e381c9e9d869c7dd06c623a80d486489423f7cc0eae1ed819dd5090c"
+  },
+  "integrated_features": {
+    "geometric_plate": 27
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/batch-108/placocystites/r003/qa/component-contact-exposure.report.json",
+    "sha256": "a7910cc1fe950cbb7df73ce6ddd3852d4e6e3e636159e475284a4ff8afe99147"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. No scientific dimension ranges were invented from nominal artistic display dimensions."
+}

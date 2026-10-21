@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "distinct_real_blender_pids": [
+    9,
+    32
+  ],
+  "two_separate_executed_builds": true,
+  "queue_runs": [
+    {
+      "run": "a",
+      "pid": 9,
+      "request": {
+        "path": "production/batch-108/isorophus/r002/qa/rebuild-a/request.json",
+        "sha256": "9452a449416595fbc61f82afb1841a8ef9ec3dbe6d82d9da1755a0c3af1208ac"
+      },
+      "result": {
+        "path": "production/batch-108/isorophus/r002/qa/rebuild-a/result.json",
+        "sha256": "f90dfc94dc9739b16eb71fd7fe48f6a06df0f2b90365e9d594ac57a4c2f19b1a"
+      },
+      "execution": {
+        "path": "production/batch-108/isorophus/r002/qa/rebuild-a/execution.json",
+        "sha256": "cabcde4ae50e0b78b30d25382d269151d50f0c154deeb249963fb2bd2a453559"
+      }
+    },
+    {
+      "run": "b",
+      "pid": 32,
+      "request": {
+        "path": "production/batch-108/isorophus/r002/qa/rebuild-b/request.json",
+        "sha256": "447901adbb03c1595a4872b4e9d86e00890c606bde1896b133fbfdcef3f99ccd"
+      },
+      "result": {
+        "path": "production/batch-108/isorophus/r002/qa/rebuild-b/result.json",
+        "sha256": "0affa59541cf97b4cf1b96ce24f183bacd1c05982986d0566b56cba9f38d9b79"
+      },
+      "execution": {
+        "path": "production/batch-108/isorophus/r002/qa/rebuild-b/execution.json",
+        "sha256": "61b0af471453e995571f8f3b0f70adbe9e4278e4a1fb1034772fd1197bdc996b"
+      }
+    }
+  ],
+  "each_has_blocking_global_flock_and_threads2": true,
+  "semantic_equality": "pass; raw build and comparator reports pinned",
+  "not_independent_qa": true
+}

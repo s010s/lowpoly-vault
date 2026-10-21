@@ -1,0 +1,133 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/tools/render-detail.py",
+    "--",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/artifacts/eleutherocrinus.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch108-evidence/details-queue/render/eleutherocrinus/r002/exact-subject-details/e9d4d55eb5d2a69eaa3e8fd07b5f4e52750fe0b6d0d81245cf6647b9d1e16607/20261021T053548-2204e2e8849e4e9bbc21f623e347650c/outputs/details",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/references.json",
+    "--resolution",
+    "1024",
+    "--samples",
+    "24",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "front,bottom"
+  ],
+  "created_at": "2026-10-21T05:35:48.643383+00:00",
+  "fingerprint": "e9d4d55eb5d2a69eaa3e8fd07b5f4e52750fe0b6d0d81245cf6647b9d1e16607",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 10410,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/delivery-brief.json",
+        "sha256": "1a76cd48f49e21b9382d805963a208999775a0fbfad0af272355c6b5b7f56737"
+      },
+      "glb": {
+        "bytes": 609356,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/artifacts/eleutherocrinus.glb",
+        "sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 6404,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/references.json",
+        "sha256": "2cf40c377c7c72f11b465a38644f73e843bb2ae6130b005b54b81357b35325c3"
+      },
+      "renderer": {
+        "bytes": 16210,
+        "path": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/tools/render-detail.py",
+        "sha256": "e73734b9d556788bae7f39b1672743f7e575cafd68875ce5bc3df5fc5f83f808"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/details",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "1024",
+        "--samples",
+        "24",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "front,bottom"
+      ],
+      "asset_id": "eleutherocrinus",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch108-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/artifacts/eleutherocrinus.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch108-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r002/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/tools/render-detail.py"
+      },
+      "job_id": "exact-subject-details",
+      "outputs": [
+        "details/front.png",
+        "details/bottom.png",
+        "details/render-manifest.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 1200
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1200
+  },
+  "run_id": "20261021T053548-2f4637f0a29f46e4ae3f7c9e4c8b90ed"
+}

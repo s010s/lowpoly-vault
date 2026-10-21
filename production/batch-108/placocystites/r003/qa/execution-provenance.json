@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "distinct_real_blender_pids": [
+    101,
+    124
+  ],
+  "two_separate_executed_builds": true,
+  "queue_runs": [
+    {
+      "run": "a",
+      "pid": 101,
+      "request": {
+        "path": "production/batch-108/placocystites/r003/qa/rebuild-a/request.json",
+        "sha256": "db88cd45984aa3e1392b386f512498dba9c71efd8edd7a5d38d0a64409d64288"
+      },
+      "result": {
+        "path": "production/batch-108/placocystites/r003/qa/rebuild-a/result.json",
+        "sha256": "b574e776c6a6271d6be8e7e0114720c99166bb75c65ac6c7667a7e4b175edea8"
+      },
+      "execution": {
+        "path": "production/batch-108/placocystites/r003/qa/rebuild-a/execution.json",
+        "sha256": "4ab06d3f0d47b2305763bc415018d3f3411c5b2608ce2fb9509df7a94ca21d74"
+      }
+    },
+    {
+      "run": "b",
+      "pid": 124,
+      "request": {
+        "path": "production/batch-108/placocystites/r003/qa/rebuild-b/request.json",
+        "sha256": "c2efdacfde7cd9c70ca85fb7e152b3e5c5b9aaabb621368b42613ee9efd33dc2"
+      },
+      "result": {
+        "path": "production/batch-108/placocystites/r003/qa/rebuild-b/result.json",
+        "sha256": "b863051227f034444fcb9cf5a716893ef6da4815d638122f7b393ecbd06e15e9"
+      },
+      "execution": {
+        "path": "production/batch-108/placocystites/r003/qa/rebuild-b/execution.json",
+        "sha256": "405d57c686f9b11dc2394b8faea946d8772222a5f5c29db1ce4af8bc285c9993"
+      }
+    }
+  ],
+  "each_has_blocking_global_flock_and_threads2": true,
+  "semantic_equality": "pass; raw build and comparator reports pinned",
+  "not_independent_qa": true
+}

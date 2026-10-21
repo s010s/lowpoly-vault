@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "distinct_real_blender_pids": [
+    55,
+    78
+  ],
+  "two_separate_executed_builds": true,
+  "queue_runs": [
+    {
+      "run": "a",
+      "pid": 55,
+      "request": {
+        "path": "production/batch-108/nucleocrinus/r002/qa/rebuild-a/request.json",
+        "sha256": "d7e010740e37b0bb0c19f2c276125aa11e3a12da54f9caccbc5115417549d39a"
+      },
+      "result": {
+        "path": "production/batch-108/nucleocrinus/r002/qa/rebuild-a/result.json",
+        "sha256": "f481b85b2e2ae22d19ec075e5c7ef3ab5972c387511397387a9655d1dbab31ba"
+      },
+      "execution": {
+        "path": "production/batch-108/nucleocrinus/r002/qa/rebuild-a/execution.json",
+        "sha256": "d7124ee4591fddd14d26399a45a9cfbd973b44343162ae94c2d1f80a6c9e4d6f"
+      }
+    },
+    {
+      "run": "b",
+      "pid": 78,
+      "request": {
+        "path": "production/batch-108/nucleocrinus/r002/qa/rebuild-b/request.json",
+        "sha256": "069ce559a72e60cf89f7f519b35e5b43523ea9d13f17f9053e7598a7a9b232f3"
+      },
+      "result": {
+        "path": "production/batch-108/nucleocrinus/r002/qa/rebuild-b/result.json",
+        "sha256": "db060adb1c99288c4d4787192f00388747452de27a1a6e103a15778e09e58df4"
+      },
+      "execution": {
+        "path": "production/batch-108/nucleocrinus/r002/qa/rebuild-b/execution.json",
+        "sha256": "01e824917118364cec939e25aba59a4a34c50957872aba88cf06558a9643ad0b"
+      }
+    }
+  ],
+  "each_has_blocking_global_flock_and_threads2": true,
+  "semantic_equality": "pass; raw build and comparator reports pinned",
+  "not_independent_qa": true
+}
