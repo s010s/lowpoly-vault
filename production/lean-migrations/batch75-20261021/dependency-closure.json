@@ -1,0 +1,50 @@
+{
+  "scope": "Static file/hash/import closure only; no new Blender, render, QA verdict, rebuild or dependency installation.",
+  "assets": [
+    {
+      "asset_id": "banded-gneiss-outcrop",
+      "revision": "r005",
+      "build_dependencies_path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/build-dependencies.json",
+      "declared_file_paths": [
+        "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/generator.py",
+        "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/build-config.json",
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py"
+      ]
+    }
+  ],
+  "python_files_parsed": [
+    "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/generator.py",
+    "scripts/asset_common.py",
+    "scripts/qa_glb.py"
+  ],
+  "local_import_edges": [
+    {
+      "file": "scripts/asset_common.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/generator.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/generator.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    }
+  ],
+  "external_runtime_modules": [
+    "bmesh",
+    "bpy",
+    "mathutils"
+  ],
+  "missing_source_files": [],
+  "unresolved_imports": [],
+  "expected_runtime": {
+    "blender": "4.3.2",
+    "three": "0.180.0"
+  },
+  "all_declared_build_files_exact": true
+}
