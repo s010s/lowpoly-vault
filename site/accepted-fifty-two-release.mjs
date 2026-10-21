@@ -3,7 +3,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g01-20261021.json",
-      "sha256": "e511adfb9fc2de13be8a7de0169ccd08118aae7b16836fea9cb17aa7d0f2b636"
+      "sha256": "7e117cd4aa1ed539e62c3307a6ac664b17a00c188dd96013da8a32afa96ece21"
     },
     "release": {
       "version": 1,
@@ -22,7 +22,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g01-release-20261021/source-bundle.json",
-        "sha256": "e78019daade799770c1d2ad08bd9a68feda6b1d4c3224f3212de9fd7ae4008f8"
+        "sha256": "807e67bad69e15ccee2a38bbcb22456cfa4f66cbe4a2983edfe6049386442ee9"
       },
       "protected_source_inputs": [
         {
@@ -340,12 +340,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "diplopora"
         },
         {
-          "path": "production/small-life-batch93/concepts/diplopora-receipt.json",
-          "sha256": "4b9db00c83c3138ad8398667a8db1b47e6c62f55136fbaa6a3b9ac5a9f5ee2ed",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
           "path": "production/small-life-batch93/concepts/nathorstiana-concept.png",
           "sha256": "02a9c9f8ca9f8b97d56dd89c7db1c4a51a5ce06686ce4d31b45d437649f001de",
           "origin": "source",
@@ -354,12 +348,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch93/concepts/nathorstiana-prompt.txt",
           "sha256": "e13ff1603f0347c4f3aeedd94620924ceb41f526a781641a6b911721efbaf0f3",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/concepts/nathorstiana-receipt.json",
-          "sha256": "1419cc9530f7ebd0968a2c3535b09b05e3b6a75597297aa80798dbd23db756da",
           "origin": "source",
           "owner": "nathorstiana"
         },
@@ -394,26 +382,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "diplopora"
         },
         {
-          "path": "production/small-life-batch93/diplopora/r002/artifacts/gltf-validator.report.json",
-          "sha256": "0d23e7db2458132257e155070d78bb524b5cf285ebdedb8d0cd31b2482286251",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
           "path": "production/small-life-batch93/diplopora/r002/artifacts/metadata.json",
           "sha256": "2ab87226e5657cc0c45d48dc88fef073c09cdb71c3a877021dbd480fe13bd373",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/artifacts/qa.json",
-          "sha256": "452c8b7f09e4e4a14bcbe697741c8b91d762b6c24442d147d25a932cc357d757",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/artifacts/three-parse.report.json",
-          "sha256": "be3f67d0965211cf1336606cc1925bb5f810acff72c3fc97d9b2478bf3734e33",
           "origin": "source",
           "owner": "diplopora"
         },
@@ -436,20 +406,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "diplopora"
         },
         {
-          "path": "production/small-life-batch93/diplopora/r002/original-brief.json",
-          "sha256": "84921b27da781527956972e0659b017910834525b388d7dde12b5acd89e8ae4c",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
           "path": "production/small-life-batch93/diplopora/r002/profile-contract.json",
           "sha256": "679a6de55187bf2f2b0b5467de99866172ff32c348e333bfb3cf177a2caa1d97",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/actual-mesh-topology.json",
-          "sha256": "aa01778bb6a74fe82114d544f7856a26b9fdd8964965b42570c6a3fe5ccfa293",
           "origin": "source",
           "owner": "diplopora"
         },
@@ -460,128 +418,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "diplopora"
         },
         {
-          "path": "production/small-life-batch93/diplopora/r002/qa/byte-identity.json",
-          "sha256": "31d8d5d26754f5df58070420a0aea4e9273436a710e5960c08849f89e8cf3d49",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/candidate-integrity.report.json",
-          "sha256": "07af2da3b6f265d73f8e7963fbf0f722784469f27e9b2a3d1034eed2ad016635",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/execution-provenance.json",
-          "sha256": "0f7f20a96b105fe4488534405fbb841a7d708f402188dd214fde6b3257a78915",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/frozen-feature-measurements.json",
-          "sha256": "94c94f36e52dd76be6d8329648abf0f5958d001caa8fda22a7955ffc82561337",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/generator-qa.original.json",
-          "sha256": "764b4025262987bbb0e9d1fa80ea4ec2560bbb3bddb9c17d5756bd9fcb3955eb",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/maker-individual-view-inspection.json",
-          "sha256": "e47d69e8e7cd8b98d5fe138ba53b2fb45874c2d20fc4afb07123d0fa8ab6dec2",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/rebuild-a-execution.json",
-          "sha256": "2d1ff120cbe3c41e792a653c9b4b53b65739708a634c0906bf953bc611b4cb83",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/rebuild-a-request.json",
-          "sha256": "9b3916d9031554d400ba9bec9a763a8a114b8ab69c3bf3087172b30ef6de27ff",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/rebuild-a-result.json",
-          "sha256": "bb1411b4611fa0dea861d7157b9b53289004ab41dfcc7a38ab64811bc20b5630",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/rebuild-b-execution.json",
-          "sha256": "728f6dfa03175ed5246be2f97e67294f07552191beb73fd0aace7223ad236682",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/rebuild-b-request.json",
-          "sha256": "c6c9e01408b2b77ad558aa074afef2aa3b1d4d61d256b433b9e1866d7cd8bb2e",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/rebuild-b-result.json",
-          "sha256": "16c21dce6bb8268227972c585ab45d24310e8cb2727ffc6f126e37f4b24e4735",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/reproducibility-a.report.json",
-          "sha256": "7968d9873afd9f242624e751b62689b71223d9af863a2e42931f603f1ff82f30",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/reproducibility-b.report.json",
-          "sha256": "6f66287d325fd872f773dc223608d9a1289dd233dc98deb61b5c671357d60ac8",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
           "path": "production/small-life-batch93/diplopora/r002/qa/runtime-parse.report.json",
           "sha256": "ecf94b3b1e7a33b37b060d41516b69a7ce0f8ddd86e190c8f49ea4e1b34e7cfa",
           "origin": "source",
           "owner": "diplopora"
         },
         {
-          "path": "production/small-life-batch93/diplopora/r002/qa/source-export.report.json",
-          "sha256": "8fb7db6e2e9989be131a607cc8050da9f36fa3c57992fadfec921cba026702e7",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/source-request.json",
-          "sha256": "17e86661ff948c9de6aad295ab0443805c15aed284e91d0af5779b9e98a4eae2",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/source-result.json",
-          "sha256": "ce817fda16fc40b19edff2ae427d27ac246303ce55cb6abe16bf1b951fa3c787",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/qa/static-glb.report.json",
-          "sha256": "590c96c4b2ccc9f0ef611b9196eca3fad03d5e8a7935072095a11710565174f8",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
           "path": "production/small-life-batch93/diplopora/r002/qa/technical.report.json",
           "sha256": "f00aabca8f3881a541d19b2d1dbc37b01c1491ac01b5e76653ee6e760c8338e2",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/subject.json",
-          "sha256": "33d2c351d846473ac79e6de0ff7226a0d0e124e9fdba3389bf20dd1837de382e",
           "origin": "source",
           "owner": "diplopora"
         },
@@ -606,12 +450,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch93/diplopora/r002/views/rear.png",
           "sha256": "22b815cca91d9f04a1961a96e397c44c8d1707524b7a479050d1a328e890886e",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
-          "path": "production/small-life-batch93/diplopora/r002/views/render-config.json",
-          "sha256": "598f52085398aa27de69feff73014497e2eeacccc5689df969cf91e80c7072d3",
           "origin": "source",
           "owner": "diplopora"
         },
@@ -646,20 +484,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "diplopora"
         },
         {
-          "path": "production/small-life-batch93/diplopora/r002/views/turntable.json",
-          "sha256": "2df399b76f6f3f75a273000c631b95c605b811e7dcff2972e6a66c6850df7214",
-          "origin": "source",
-          "owner": "diplopora"
-        },
-        {
           "path": "production/small-life-batch93/nathorstiana/r001/references.json",
           "sha256": "2c07b8a649bae0df8d97e61cfb457aeb753b3323cda448a905da1b55d160812d",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/artifacts/gltf-validator.report.json",
-          "sha256": "030b2217d1d8727b41ff57eed111a9e32ed61e029b27988e77bf1c76adc1e257",
           "origin": "source",
           "owner": "nathorstiana"
         },
@@ -682,18 +508,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "nathorstiana"
         },
         {
-          "path": "production/small-life-batch93/nathorstiana/r002/artifacts/qa.json",
-          "sha256": "14f0ab33cb4af7b68db70c670b8cc3a7c24bfe40be52c1eefed6237e76f0e132",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/artifacts/three-parse.report.json",
-          "sha256": "a242ad1c3b81d0eb1325f28fc2817ce43d5ccb07d6ee3e29f0bcd22e7f122cab",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
           "path": "production/small-life-batch93/nathorstiana/r002/candidate.json",
           "sha256": "b06e02392203057ff3d0008f6096f992fe57ab4ca5d4e6379ba522fef8a0a538",
           "origin": "source",
@@ -712,26 +526,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "nathorstiana"
         },
         {
-          "path": "production/small-life-batch93/nathorstiana/r002/original-brief.json",
-          "sha256": "b6f630c91398925a939f8576546356db6593ecad6300e5792bc80efd61fbd887",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
           "path": "production/small-life-batch93/nathorstiana/r002/profile-contract.json",
           "sha256": "2aed2ebf91963f334f24ee38ba538905aa01cd227c30a7bcba74f1bc203602e2",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/actual-mesh-topology.json",
-          "sha256": "e8f80691679a5de9e9eb0265ca700b8e75e1e172be1a6a04f7088c23f69615ac",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/attachment-measurements.json",
-          "sha256": "dcec1245279138eb0aaebb97fd7d951f84c180223efdbcf92bf6b2809af6b53a",
           "origin": "source",
           "owner": "nathorstiana"
         },
@@ -742,128 +538,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "nathorstiana"
         },
         {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/byte-identity.json",
-          "sha256": "25c7af86e0f8c654d1d1d6518bc111999c531ce12849f6e0a323295e7bab5c05",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/candidate-integrity.report.json",
-          "sha256": "93a1dac1c45edc24367bcd00dc04b749a94abffc5fbae013699bea8cf6fd1d58",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/execution-provenance.json",
-          "sha256": "0bff86eb3a7d4f893f84384066ef9cecf83adc0b0466840a28711b35fed9142a",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/frozen-feature-measurements.json",
-          "sha256": "a23ce9308146286e8cf8ed104a3a785ebdcf27731e14d32ad124e08c5f80c231",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/generator-qa.original.json",
-          "sha256": "8811edbbe14d28dd4501a333ab5f2877eb32488783a7fa2c892590bef0e58a6a",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/maker-individual-view-inspection.json",
-          "sha256": "151ab71a6e732d68a2a4e731010f612c1635e6e248e93e8539cec21ff502fbb9",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/rebuild-a-execution.json",
-          "sha256": "d4db1379f346933d72a4720778f3a93366672b376ddccff311263ace652fc3d2",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/rebuild-a-request.json",
-          "sha256": "2802c6d918d3d29486321749a769a849649ec65aa3fbe8b2b84e9c5240c94b5b",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/rebuild-a-result.json",
-          "sha256": "ac93215b7e712bb6c34856949d7b1ee3bb749b9f4fa1552e4954bf68bedc3379",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/rebuild-b-execution.json",
-          "sha256": "4d473aa0912f4d655e394e1000545f823b5f0a670e2ef77da34e45a24ef7ffda",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/rebuild-b-request.json",
-          "sha256": "5b1c908cf732a075d7a2f8be119970d445a2c911e9f6487b49d2419ab371b080",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/rebuild-b-result.json",
-          "sha256": "ba16f87767401083a869f13c415470870cab5861ae42b39889d70afa36e5a065",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/reproducibility-a.report.json",
-          "sha256": "6d0a0f9632372fb3a3474ec8f3065d43bfcdde2bdbeff0544dfbd7d4ab6e134c",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/reproducibility-b.report.json",
-          "sha256": "eb02e83c97658c5942a1d8d347f49b35c3201e0e67318f8f5955b4621397058e",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
           "path": "production/small-life-batch93/nathorstiana/r002/qa/runtime-parse.report.json",
           "sha256": "020320c24d8a484ed329e4a5728baf1c6a901bf05915d0b72199aa7739b4130f",
           "origin": "source",
           "owner": "nathorstiana"
         },
         {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/source-export.report.json",
-          "sha256": "407a3c695504a0778199d7255d348a1962d28a90706785ada9154e5d739c1ac1",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/source-request.json",
-          "sha256": "a74698bd88a0bbadc11d4cd974eadb613926d488d60f3d4bc32e4534965a64b4",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/source-result.json",
-          "sha256": "f2f24cde2df9b74e8dc81e575938c8f4fefa08d21a82fde28468b95e49756f67",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/qa/static-glb.report.json",
-          "sha256": "7f07048e16350099e1f8ff4deedb4447e1cb1cd160069978ed7e35c075b8f31e",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
           "path": "production/small-life-batch93/nathorstiana/r002/qa/technical.report.json",
           "sha256": "5fdea09aa954e9e7ec59131f5aa38bec9104e387db15032f6306298d631021a4",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/subject.json",
-          "sha256": "f90f13dc2c177b146570548642b0990f727da4f55f0921c6ff77f0cfa3b4d8a5",
           "origin": "source",
           "owner": "nathorstiana"
         },
@@ -888,12 +570,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch93/nathorstiana/r002/views/rear.png",
           "sha256": "5fe388058b310a2b24da309c7d9f0361ea3237e1b7289424f9b1a0f7834de026",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/views/render-config.json",
-          "sha256": "2a7243bb731c6fcb3ee408ac92ee829ad0e3aecce54f8fd63ab9262f9f5d5636",
           "origin": "source",
           "owner": "nathorstiana"
         },
@@ -924,12 +600,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch93/nathorstiana/r002/views/top.png",
           "sha256": "6bd16b1adf75f874cf0a4a50f014f2200ee7cda701fa89c21d0c61c02cfcb512",
-          "origin": "source",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "production/small-life-batch93/nathorstiana/r002/views/turntable.json",
-          "sha256": "563636621751578cbb88b05cbe4e2253f0a4f3df7d35e688cfb28f2569936743",
           "origin": "source",
           "owner": "nathorstiana"
         },
@@ -1012,58 +682,10 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/diplopora/independent-review.json",
-          "sha256": "7ace1d9e4cd992a2b87e254ca450554df5b8a25ab2ab168b40a828351b7ce40a",
-          "origin": "review",
-          "owner": "diplopora"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/diplopora/khronos.json",
-          "sha256": "b1bb79c4d8bb3fa404f74b25741f6fd89f17e1ed01e6a8970fd8e9f60facd69a",
-          "origin": "review",
-          "owner": "diplopora"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/diplopora/project-candidate.json",
-          "sha256": "07af2da3b6f265d73f8e7963fbf0f722784469f27e9b2a3d1034eed2ad016635",
-          "origin": "review",
-          "owner": "diplopora"
-        },
-        {
           "path": "qa/continuous-small-life-round39-20261020/batch-93/diplopora/queued-at.txt",
           "sha256": "3ac6fbaf0675c0dc6f56ace67a5492025b73ac485b0ff7311330202652399ba1",
           "origin": "review",
           "owner": "diplopora"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/diplopora/source-geometry-reexport-attempt2.json",
-          "sha256": "447c0cd3ebf5db9b6e5da2ca229d0d71572fd18dd44a4ba7c8f0febb0743a1d8",
-          "origin": "review",
-          "owner": "diplopora"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/diplopora/source-geometry-reexport.json",
-          "sha256": "ed20bd8a3cc85180d8922da1b1074018f76bdf50f0f71184074fcb600aa96e22",
-          "origin": "review",
-          "owner": "diplopora"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/diplopora/three-parse.json",
-          "sha256": "ffbd21ac71f9f4df0fcf207b28c4d4ba874515bb80abe43f56554ceed211b49b",
-          "origin": "review",
-          "owner": "diplopora"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/final-readback.json",
-          "sha256": "e37446fca65c6e5f2f4df6d4a59a73f52c801703d47731ee0b165ce189cb5d0a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/final-subject-receipt.json",
-          "sha256": "6f14fe7669836fd53a03bf70f08baa387d9b40d621d8809d01c40e5c61c2f2ba",
-          "origin": "review",
-          "owner": "$batch"
         },
         {
           "path": "qa/continuous-small-life-round39-20261020/batch-93/handoff.json",
@@ -1078,58 +700,10 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/independent-source-review.json",
-          "sha256": "0444a1849988463fed1a27c2252ff7a27dc2a8a76064a8be8c478496a81731c2",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/lean-byte-identity.json",
-          "sha256": "8fea6289458d79087b496cfa8b62dbd0fe71dc47a68f26125dc1bb5e18a0b586",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/nathorstiana/independent-review.json",
-          "sha256": "d6b5de6722248565168bb841ec05f273043526b66aee7470d1c34faa20ffd2e3",
-          "origin": "review",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/nathorstiana/khronos.json",
-          "sha256": "d1babd3eb8ac02e1804d9ea503e2f6e684438f1d170fc69ad76d22be7dc03779",
-          "origin": "review",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/nathorstiana/project-candidate.json",
-          "sha256": "93a1dac1c45edc24367bcd00dc04b749a94abffc5fbae013699bea8cf6fd1d58",
-          "origin": "review",
-          "owner": "nathorstiana"
-        },
-        {
           "path": "qa/continuous-small-life-round39-20261020/batch-93/nathorstiana/queued-at.txt",
           "sha256": "2c09192125de8cb53a7e8ff2e610a117c90bff378be017332546dbdd7cb0831a",
           "origin": "review",
           "owner": "nathorstiana"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/nathorstiana/source-geometry-reexport.json",
-          "sha256": "210c156a0de301c22ae2ffeb827a3bc413e2f2e162504d54c188acedff996183",
-          "origin": "review",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/nathorstiana/three-parse.json",
-          "sha256": "9940449092faeae4c83312fcfce385577b814ef578eec95269fb35e395b0032c",
-          "origin": "review",
-          "owner": "nathorstiana"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-93/progress-01.json",
-          "sha256": "557a6b1e1b37cb5075aef75c018a54c26b8b232c4e5912ea228173b6c1834530",
-          "origin": "review",
-          "owner": "$batch"
         },
         {
           "path": "qa/continuous-small-life-round39-20261020/batch-93/report.md",
@@ -1162,8 +736,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/next52-g01-release-20261021/retention-summary.json",
-          "sha256": "6d243b2937de6e7663a4afb4e0bc02a937ba0a6d4dc9a7a191ed2b73bfdd3ed5",
+          "path": "qa/next52-g01-release-20261021/process-archive-index.json",
+          "sha256": "a2607e8e6cf03f97672e8f1c5ac896188242c4a0e19f5f960929c4b1331f2de9",
           "origin": "release",
           "owner": "$batch"
         }
@@ -1173,7 +747,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g02-20261021.json",
-      "sha256": "14286848cf87958f42c346f6822af53dc368e7e386cc8a280a43b47903379d98"
+      "sha256": "5795a0f0541a7b39e405de7b67576c74621c4fba3300781cce59ab63ae0b0474"
     },
     "release": {
       "version": 1,
@@ -1192,7 +766,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g02-release-20261021/source-bundle.json",
-        "sha256": "d28c2f2058ba37e34259dae1571bfc2cf147beef52b73d7733aafde5f3746d8a"
+        "sha256": "29357015d27b2dcac1114c9373d8c53244547276501e041f2a64aef6374c42ac"
       },
       "protected_source_inputs": [
         {
@@ -1390,12 +964,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "banded-gneiss-outcrop"
         },
         {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/brief.json",
-          "sha256": "64aec9a9e8bdd7e61626c9f87a86e0a0dfb467f6097126a986c50069aa780222",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/brief.md",
           "sha256": "f341f59433894a8751ea8ae82eb519247aeac28ab3fd2fa0abef3cf76ba860f3",
           "origin": "source",
@@ -1420,26 +988,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "banded-gneiss-outcrop"
         },
         {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/candidate-validation.json",
-          "sha256": "b0ea506d2442ea6e6c217a29cdf92a780c752d2abaa6da7a743175c8df21b0a0",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/candidate.json",
           "sha256": "b3bc63971426ba5b5e1b0ce0401bda654e213f8ab28f7a347ee0c4a35b7644bf",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/concept-evidence.json",
-          "sha256": "5702d369539d1cf8298725126ae172b0949198154580c6c1e3a661c487533f01",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/concept-generation.json",
-          "sha256": "79da5e716289ae4367cd4b2ad987e7ba5ba7e5c80b66e79169201aa702fa97c7",
           "origin": "source",
           "owner": "banded-gneiss-outcrop"
         },
@@ -1452,12 +1002,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/concept-prompt.txt",
           "sha256": "084da6769f354ac7ce54dc0cf1b2dff7311719995fe97375570b871da38bb304",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/concept-validation.json",
-          "sha256": "998396a4d225981971071851c52bf638eb94dc4fdc9c8d802914ca541571119a",
           "origin": "source",
           "owner": "banded-gneiss-outcrop"
         },
@@ -1498,12 +1042,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "banded-gneiss-outcrop"
         },
         {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/metadata.json",
-          "sha256": "9ebdba213b933a2793cdbe0507c5f0b7cca96b5f3d5de099245efc160d5c9836",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/metrics.json",
           "sha256": "ff9bc44822cb3476dcfe813e1b56798f4ff0ef139861e5590be3355e8d638074",
           "origin": "source",
@@ -1522,12 +1060,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "banded-gneiss-outcrop"
         },
         {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/physical-surfaces-final.report.json",
-          "sha256": "244f977fcd7550eb1945a1a5397b5243b2770e04dfe3921aa3b6d2ee61b1cf29",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/physical-surfaces.report.json",
           "sha256": "2aeb085b82d88c14362b68eaf54828f1e172727a899ed961882df9fc8ba79a74",
           "origin": "source",
@@ -1536,18 +1068,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/pixel-inspection.json",
           "sha256": "ca2836275d831edb877749daed2357911b29b03fbe944779672df9789bb7176e",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/premodel-schema-check.json",
-          "sha256": "f9cbd3697a8531353e5200702e3a0487862ae579d274ba4861dc57d6278151df",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/preproof-binding.json",
-          "sha256": "165dda2478c6a09cfe727bc47d97d56856b17664407f12ad93e4ff0946bc5e8b",
           "origin": "source",
           "owner": "banded-gneiss-outcrop"
         },
@@ -1588,12 +1108,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "banded-gneiss-outcrop"
         },
         {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/proof-final/render-config.json",
-          "sha256": "61fbd9352bf94123fded88651261dea490d7b717716badd2a889c88e86594b7a",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/proof-final/render-manifest.json",
           "sha256": "bdb8db50a21b6e06951cc287b13651f9ef940a2847b719b2b2c7888e37b84e38",
           "origin": "source",
@@ -1620,18 +1134,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/proof-final/top.png",
           "sha256": "b776473766ff7ff938d41ca8c9acd23ccb740c63beaf9b8ed83163485dbba7b6",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/proof-final/turntable.json",
-          "sha256": "604c5ccff0f2103e959e80cfed91fd288bba3722180947091edff9067183aa91",
-          "origin": "source",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "production/continuous-small-life-round30-20261020/work/batch-75/assets/banded-gneiss-outcrop/r005/qa.json",
-          "sha256": "cdc0e0116ab70eb521607905004788204bde0f787ad8b768d554fb998abcbb8c",
           "origin": "source",
           "owner": "banded-gneiss-outcrop"
         },
@@ -1696,56 +1198,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "banded-gneiss-outcrop"
         },
         {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/archive_manifest_check.json",
-          "sha256": "6729127ed8a5ed1e948f607067c723ac62893d729298731ac4aaa68ac4581d0c",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/audit.json",
-          "sha256": "3a56fb6f73664bfa89f63f1065a1d35c379d7ccea9d82f9fa77e3abc7a49cf5a",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/continuity.json",
-          "sha256": "e0eb448bacdcbfc9c0e0752a5ef4e88f7e8efc605d798d95b949d357a4698454",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/fresh-parse.json",
-          "sha256": "efd8075ec6abfdc6f7b8151b666c6f408a6d34c8ed966a46a1bf637ff7227001",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/fresh-physical.json",
-          "sha256": "b91a4851295e499ab1ea9022e8339ae2e27965d1e78f972305c3ca1b7c163205",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/ingestion-manifest.json",
-          "sha256": "4874839e51533f623057846b11264f38668a13e2cb7ac25fe66fbffc0fc57f6c",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
           "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/raw-manifest.json",
           "sha256": "d93eae93fe41d02f6046d020c49e304383c573238c720ff0dc9bfdb9ad3b21a1",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/rebuild-evidence.json",
-          "sha256": "082032ea77822ee5fd5c4cad20ac0c2586aa92c5aa64186d7a44968869d2673d",
-          "origin": "review",
-          "owner": "banded-gneiss-outcrop"
-        },
-        {
-          "path": "qa/continuous-small-life-round30-20261020/batch-75/diff-gneiss-r005/reopened-export.glb.json",
-          "sha256": "ed44777ad544778709670570b8d070db4cb99baa47fb42ba19d024fb88a9a751",
           "origin": "review",
           "owner": "banded-gneiss-outcrop"
         },
@@ -1762,8 +1216,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "banded-gneiss-outcrop"
         },
         {
-          "path": "qa/next52-g02-release-20261021/retention-summary.json",
-          "sha256": "8fe18a7703617c55fae3cc1babde26463578757f862569cab2765ff22a08aa0a",
+          "path": "qa/next52-g02-release-20261021/process-archive-index.json",
+          "sha256": "881bef2fd3e77de00cb3d4d69aef854f85692076cecf670976ab51121da111e7",
           "origin": "release",
           "owner": "$batch"
         }
@@ -1773,7 +1227,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g03-20261021.json",
-      "sha256": "dbcb870b57adb26777faf93a1fef182e582dcb5bb21ef723748b9a00bf17e646"
+      "sha256": "baa57525a28084cf6b9bd2a0fb31dca91e77c039ac4d29a2d60d4db640c8d2d7"
     },
     "release": {
       "version": 1,
@@ -1792,7 +1246,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g03-release-20261021/source-bundle.json",
-        "sha256": "8c94715eef793d44d0d1c27eefbee0544a98dc355981916d4b59068de320aefb"
+        "sha256": "01f7ea23cad1abad4ee2ba1f9f504db3ab924bd833091aa620725c1f77687f5c"
       },
       "protected_source_inputs": [
         {
@@ -2178,12 +1632,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cloudina"
         },
         {
-          "path": "production/small-life-batch83/assets/cloudina/r002/brief.json",
-          "sha256": "2b835c9e60689ba6626b702715306930b8da0c229d9d7db3df27f8dc843ce40d",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
           "path": "production/small-life-batch83/assets/cloudina/r002/brief.md",
           "sha256": "f8bad3b15e23c3573285b6c7921fc115c2aef9cdf65f0b8bba1561b651bf0b95",
           "origin": "source",
@@ -2208,26 +1656,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cloudina"
         },
         {
-          "path": "production/small-life-batch83/assets/cloudina/r002/candidate-validation.json",
-          "sha256": "8d7091701edbf98a91b101cf616c883787470429b02ddf77fb2e4dbd701a6b71",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
           "path": "production/small-life-batch83/assets/cloudina/r002/candidate.json",
           "sha256": "add0bfee0576c9c3429356e8c4e8c3c6471a6f7fa11e1d43953740fbe6870ed9",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
-          "path": "production/small-life-batch83/assets/cloudina/r002/concept-evidence.json",
-          "sha256": "412bf5e9ba4674dd5455e877b7447f9742089880cb26ed87b516e4c56cd1d284",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
-          "path": "production/small-life-batch83/assets/cloudina/r002/concept-generation.json",
-          "sha256": "85930cd97ff22633bd185092ac985a72e5eb423ba32690fab131820eacf1bcc8",
           "origin": "source",
           "owner": "cloudina"
         },
@@ -2240,12 +1670,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/cloudina/r002/concept-prompt.txt",
           "sha256": "62e19fceb7125edc0a4370b34385ce257088c28c35f23bc9fc43d09a0f6d3d94",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
-          "path": "production/small-life-batch83/assets/cloudina/r002/concept-validation.json",
-          "sha256": "93f415d2324f3f6a1512ee3aa23ad43d9e1e5200cf47abc12e7d7864254fa733",
           "origin": "source",
           "owner": "cloudina"
         },
@@ -2286,12 +1710,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cloudina"
         },
         {
-          "path": "production/small-life-batch83/assets/cloudina/r002/metadata.json",
-          "sha256": "2f0e91030801d5a6bb0a30e29c25256e95cf4c926ae74513ca82c692abced9ed",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
           "path": "production/small-life-batch83/assets/cloudina/r002/metrics.json",
           "sha256": "61d52b3f821cbddf7404aad9025d1e084837e385c0ccc0dc10d25e0da497b028",
           "origin": "source",
@@ -2318,18 +1736,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/cloudina/r002/pixel-inspection.json",
           "sha256": "68dd63bc3d1698d2bd6b602f24c93c5b383b67c0936b85859b2f22aaa42bf907",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
-          "path": "production/small-life-batch83/assets/cloudina/r002/premodel-schema-check.json",
-          "sha256": "7ed4a3815888ff60937b24294ce73ea685a82a2f34d59ebc80b22b5f071d54c5",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
-          "path": "production/small-life-batch83/assets/cloudina/r002/preproof-binding.json",
-          "sha256": "dc10bbdb31fc55905ecdab2137ce92e553a73e6a9e273ccc511533396a162177",
           "origin": "source",
           "owner": "cloudina"
         },
@@ -2370,12 +1776,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cloudina"
         },
         {
-          "path": "production/small-life-batch83/assets/cloudina/r002/proof-final/render-config.json",
-          "sha256": "1eb2f0ea3d1ff2a4c32fbc11ce83ad1967ea8171265fc0ffbb37e0786febb883",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
           "path": "production/small-life-batch83/assets/cloudina/r002/proof-final/render-manifest.json",
           "sha256": "be5dda5330ba02ac2e73b5515afc85c93bcfc00ce21811eb63bb0f96cca6b3a1",
           "origin": "source",
@@ -2402,18 +1802,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/cloudina/r002/proof-final/top.png",
           "sha256": "734a0a0d865c773ffe5a45d6c591fe7a194d93a15e0ef8ab5212680498428a12",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
-          "path": "production/small-life-batch83/assets/cloudina/r002/proof-final/turntable.json",
-          "sha256": "ef13a853224ba51a66bc3ff368cba3a78ce21ac4c77d8271f42525317499fd67",
-          "origin": "source",
-          "owner": "cloudina"
-        },
-        {
-          "path": "production/small-life-batch83/assets/cloudina/r002/qa.json",
-          "sha256": "63925d12cb72bb28fb3a88ddf36ee96922c215312d42fafd5b6b49807a9acc39",
           "origin": "source",
           "owner": "cloudina"
         },
@@ -2478,12 +1866,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "impact-crater"
         },
         {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/brief.json",
-          "sha256": "b04bebbfeb6d831c4f33ce81ea32ed9795c449c186e24b4466e14eac5e3e3945",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
           "path": "production/small-life-batch83/assets/impact-crater/r002/brief.md",
           "sha256": "fbfe8b1574c0320d6ac1198fc4032946032d147aa2233a1f89ea54cfd0492d2b",
           "origin": "source",
@@ -2508,26 +1890,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "impact-crater"
         },
         {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/candidate-validation.json",
-          "sha256": "6d533be8b70b6891b4e0790c375d435181fb5899a1adf259c529369663789745",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
           "path": "production/small-life-batch83/assets/impact-crater/r002/candidate.json",
           "sha256": "7acd6245a8c850b089ea5c366eec02c93d14a0f79ee709d83a1c45bf0322e2ab",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/concept-evidence.json",
-          "sha256": "1c39642e4872f1d7bc6112f9b750197fbbd571907f74196ab879b2462bd26c91",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/concept-generation.json",
-          "sha256": "250684539405b02a926bc892b7db56951472189f3abdf6a613df45ae0dd4616e",
           "origin": "source",
           "owner": "impact-crater"
         },
@@ -2540,12 +1904,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/impact-crater/r002/concept-prompt.txt",
           "sha256": "b183af5a2856514435ab35f3867e5d0fd07e1d0a9ec06ab9268e5916519dbfdf",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/concept-validation.json",
-          "sha256": "ac728ffa18b4b09f4e388fa96e305ecce9ed9a0e62de57c5dce747018d37af3e",
           "origin": "source",
           "owner": "impact-crater"
         },
@@ -2586,12 +1944,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "impact-crater"
         },
         {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/metadata.json",
-          "sha256": "698b2331b0238165f32bc9ef3b69a848add229e3774a68dfe7bd96b206c745b1",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
           "path": "production/small-life-batch83/assets/impact-crater/r002/metrics.json",
           "sha256": "3b199ba7793a631a6abb9caddf80974ef56e709f7179ae572466127362a093ab",
           "origin": "source",
@@ -2618,18 +1970,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/impact-crater/r002/pixel-inspection.json",
           "sha256": "3afeecd8188dcd1421ba9ece31a6442ef3ba5e4be289e4ec978c2531adc94f00",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/premodel-schema-check.json",
-          "sha256": "57c427f3719b52a698ee027bd6dfc7d884ec001686f3110e15e25a22388fc794",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/preproof-binding.json",
-          "sha256": "381d9dca5c7960aa4b2ed13899ee0036657a1f13f08dfdb5ae204af9199d5aee",
           "origin": "source",
           "owner": "impact-crater"
         },
@@ -2670,12 +2010,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "impact-crater"
         },
         {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/proof-final/render-config.json",
-          "sha256": "ccec1ea42b171bdc906fbbd087a08bbac85f0ab01b0d1582b67c69d665dc4ccb",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
           "path": "production/small-life-batch83/assets/impact-crater/r002/proof-final/render-manifest.json",
           "sha256": "e8c4dade98c5d0158cf21702063aa54090c4229ef91635e4161fd36f04f55457",
           "origin": "source",
@@ -2702,18 +2036,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/impact-crater/r002/proof-final/top.png",
           "sha256": "8618fad29df927cda2d03d0f65c5548e69b9b2f11a7b0b0ac290298f7c9d0346",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/proof-final/turntable.json",
-          "sha256": "76e852082280b947e696e5ee5f697e1741825ac106c4cd158d85f5a9be227508",
-          "origin": "source",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "production/small-life-batch83/assets/impact-crater/r002/qa.json",
-          "sha256": "80cb6669cb825b7fe82195f06d1a71e7a6f0c3b0b4dd1fba6e00663de402cec0",
           "origin": "source",
           "owner": "impact-crater"
         },
@@ -2778,12 +2100,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lava-tube-entrance"
         },
         {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/brief.json",
-          "sha256": "30dd984ea01794d724f5b54b2c374f10f7c3f5be9bdc20bf5ea46499e81d1252",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
           "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/brief.md",
           "sha256": "5578326bfb042b7f01400bf5109ba5fa41441a4cf328738c2da80ede0f330935",
           "origin": "source",
@@ -2808,26 +2124,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lava-tube-entrance"
         },
         {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/candidate-validation.json",
-          "sha256": "1e0b1cd15e09ee3ad1ba71338e6898e399b0e96de73416ffbd75007b8e0b1d0c",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
           "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/candidate.json",
           "sha256": "9d408a49d59f9a5e4eeea7c817fc5fb10c8e8973d9a57d35b2ad96652a3f208e",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/concept-evidence.json",
-          "sha256": "f40eb008c4497574c812c7f58034aaa9f1b999b91d1e85393184aa7795af5647",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/concept-generation.json",
-          "sha256": "f874d8c88b353e679bd0fb87a4bda9edab3ea3178c3f6c9b59990e0306e7c0af",
           "origin": "source",
           "owner": "lava-tube-entrance"
         },
@@ -2840,12 +2138,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/concept-prompt.txt",
           "sha256": "61f0adf3e35d44c518dde840e7f0426db9a245e38af0e7528089750483273e04",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/concept-validation.json",
-          "sha256": "8e1dfe730fbe81ff862eb2d24d7036e6762877d24ca8a6394c32af4fb3a6a775",
           "origin": "source",
           "owner": "lava-tube-entrance"
         },
@@ -2886,12 +2178,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lava-tube-entrance"
         },
         {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/metadata.json",
-          "sha256": "9febd4b78d54b9e3a7aa2941cd9ea47f151e35177e5ee90318d5c8fb227d3c9d",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
           "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/metrics.json",
           "sha256": "4de5987efa6d890371fb92257bbeb6c86617e146f412996a98405615483fc320",
           "origin": "source",
@@ -2918,18 +2204,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/pixel-inspection.json",
           "sha256": "8d284dfc1061b93bd838d4c24e657e517aa6b34172cf29cad99db737387d76b4",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/premodel-schema-check.json",
-          "sha256": "9c4909ef3c303842dc026fdb52f74d8b70cc7c0669561b7ffbfa15bb83b53497",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/preproof-binding.json",
-          "sha256": "db546513fb2d2fce06723acead0eea49e0772193e9f3431cae93e69856f7c8e7",
           "origin": "source",
           "owner": "lava-tube-entrance"
         },
@@ -2970,12 +2244,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lava-tube-entrance"
         },
         {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/proof-final/render-config.json",
-          "sha256": "ae09a0027df70dd3162c4961b979fff41e9716def3b55912c1b3ae97ed1c1bf5",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
           "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/proof-final/render-manifest.json",
           "sha256": "a466eb5d4271a7e535c268db3bc4096b17b60cb176d468e404cc791d05870b16",
           "origin": "source",
@@ -3002,18 +2270,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/proof-final/top.png",
           "sha256": "04c534a6e2117e710d45cd3b57d44361a272df1be19a8fce65263f529be6cc1c",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/proof-final/turntable.json",
-          "sha256": "854263b782ebf2e706c96f1eb30197f0d2737fedd19ad4f2e62d9c249e728272",
-          "origin": "source",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "production/small-life-batch83/assets/lava-tube-entrance/r003/qa.json",
-          "sha256": "92d19e8275452f38b6599168cad3d6f89688d5903700053f5e5137900ec5f53d",
           "origin": "source",
           "owner": "lava-tube-entrance"
         },
@@ -3114,62 +2370,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/cloudina/candidate-profile-fresh.json",
-          "sha256": "8d7091701edbf98a91b101cf616c883787470429b02ddf77fb2e4dbd701a6b71",
-          "origin": "review",
-          "owner": "cloudina"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/cloudina/concept-fresh.json",
-          "sha256": "93f415d2324f3f6a1512ee3aa23ad43d9e1e5200cf47abc12e7d7864254fa733",
-          "origin": "review",
-          "owner": "cloudina"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/cloudina/khronos-fresh.json",
-          "sha256": "61f857c837e0f8d77c08081baddce1f5197ce11d341cf99014ee075abb247c66",
-          "origin": "review",
-          "owner": "cloudina"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/cloudina/runtime-fresh.json",
-          "sha256": "55a71af05084854d6e170306be20959eecfd86f770c17bd1ee5abb72fc9ff730",
-          "origin": "review",
-          "owner": "cloudina"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/cloudina/saved-source/source-reexport.report.json",
-          "sha256": "a8b2d67f9cbf4b5ade6dae69ecb4acba9e1761f0089b7738b8316d739acbcaa7",
-          "origin": "review",
-          "owner": "cloudina"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/cloudina/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "2c5de8c65f69d31a9342a3ee81665ce1fdf71686d0ac27ab30c34c208529a337",
-          "origin": "review",
-          "owner": "cloudina"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/cloudina/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "2408f4f8fa6af7acf65e3ba9a503f21ff1231f4921c8dfdf8df4840f899b701c",
-          "origin": "review",
-          "owner": "cloudina"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/final-integrity.json",
-          "sha256": "99c78be2eb718e1a45c16ffd01f941984c9ac2e01406074def099449246a208d",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-83/finalize_report.py",
           "sha256": "a999878f5654ad0d339929897587c5e1cc794c24081e1e80e42f1f5c613d9db7",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/fresh-processes.json",
-          "sha256": "52b0c642ee9b10a099638356037b442426fd7f5422122519fc21c61d22be6040",
           "origin": "review",
           "owner": "$batch"
         },
@@ -3180,116 +2382,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/immutable-input-audit.json",
-          "sha256": "219c4ed74fd676c14066aa382fa94e6046315014cc69077be1063a442f9a2944",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/impact-crater/candidate-profile-fresh.json",
-          "sha256": "6d533be8b70b6891b4e0790c375d435181fb5899a1adf259c529369663789745",
-          "origin": "review",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/impact-crater/concept-fresh.json",
-          "sha256": "ac728ffa18b4b09f4e388fa96e305ecce9ed9a0e62de57c5dce747018d37af3e",
-          "origin": "review",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/impact-crater/khronos-fresh.json",
-          "sha256": "6c028fc96d611ad435ac9f9f7b50dd8510ebe136ea3aa4031b142bdfeeadc243",
-          "origin": "review",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/impact-crater/runtime-fresh.json",
-          "sha256": "1482af18922383d5e237e4aad1745770d383c41195b87775a3548a5c96622e21",
-          "origin": "review",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/impact-crater/saved-source/source-reexport.report.json",
-          "sha256": "9030fb11f984508ce4c33e91af1bf4add1a2515f3f3875a9bd7fe6986c48c51f",
-          "origin": "review",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/impact-crater/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "2e1e7d7ed8260b1846d02b5620d85ad11669de9dc777c3d73d6586d9fb4ddf65",
-          "origin": "review",
-          "owner": "impact-crater"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/impact-crater/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "5e032be62bb57b8d3cb5c0303bedfdb12629d9f7bb60341454fd0ab55c139849",
-          "origin": "review",
-          "owner": "impact-crater"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-83/independent-qa.report.json",
           "sha256": "430f33b1f5be66a9c7a5bab0713ce341b149ccc655806a9a530b4976fbc2092b",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lava-tube-entrance/candidate-profile-fresh.json",
-          "sha256": "1e0b1cd15e09ee3ad1ba71338e6898e399b0e96de73416ffbd75007b8e0b1d0c",
-          "origin": "review",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lava-tube-entrance/concept-fresh.json",
-          "sha256": "8e1dfe730fbe81ff862eb2d24d7036e6762877d24ca8a6394c32af4fb3a6a775",
-          "origin": "review",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lava-tube-entrance/khronos-fresh.json",
-          "sha256": "274aa93ecc3eeb5b9bd7a0a2684fadcdc9d6117b7343aa73a577773fa90b4081",
-          "origin": "review",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lava-tube-entrance/runtime-fresh.json",
-          "sha256": "37c4e31852f35cc6990c1cc9e63f62bd3657274cbf2dd4ab3ff6a3532cfcdf5d",
-          "origin": "review",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lava-tube-entrance/saved-source/source-reexport.report.json",
-          "sha256": "a2a0f48c385714c56e50533677ff3687f41c7d30face089742eb6c8aa96cf1cd",
-          "origin": "review",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lava-tube-entrance/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "c54c5545c0c8050b65dbf8c9f382d0d2387a7de936738182d17a1afc42f81896",
-          "origin": "review",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lava-tube-entrance/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "52c5ecb72c3366873ad33f5cb5c953b771d0ae6b55fa676922a4619f51a2c114",
-          "origin": "review",
-          "owner": "lava-tube-entrance"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/lossless-sheet-audit.json",
-          "sha256": "797be645886d1a228dfaad038bf6a009ceab5494a29a4aa61d60afc714da094b",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-83/own-evidence-manifest.json",
           "sha256": "069eefa60e830d1bc5c3b01f5dd7f5cd5f6783c80a3e89dfb442f9c7f8f3ea74",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/provenance-audit.json",
-          "sha256": "222df47b3404bf8634790af9a8954fcefeb8df324becda4139ff955902e6e9f4",
           "origin": "review",
           "owner": "$batch"
         },
@@ -3318,14 +2418,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-83/supplemental-processes.json",
-          "sha256": "44adf24f2ea5e11f582e7dd5168ea52c1bc0c9c7be9d42430e1737513d7c0089",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/next52-g03-release-20261021/retention-summary.json",
-          "sha256": "e22e0772da8b8ce0064024c76fd07924d2efe8be5abf4af32ef02f0cbe2cc5bd",
+          "path": "qa/next52-g03-release-20261021/process-archive-index.json",
+          "sha256": "38c852feae60c6f547e2ee695b80c0801270a8afbc857bb88c6517e7bd62d1b9",
           "origin": "release",
           "owner": "$batch"
         }
@@ -3335,7 +2429,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g04-20261021.json",
-      "sha256": "9d570e4ca2c571d74f2bafd6a12e8246e5cc98b0ebc3d58f9473ef60d5fe2a96"
+      "sha256": "eea6494f3f012b4c160362a17ead37302eb4384a3a43f3530dc3be5aebbfcb11"
     },
     "release": {
       "version": 1,
@@ -3354,7 +2448,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g04-release-20261021/source-bundle.json",
-        "sha256": "dadda5e3631f73036bec8fa850c913e795c7298481c9eedae6cad4c403d5a297"
+        "sha256": "599842187b40fe4ace201c3b2aebfe0be1b66a0cf5186bc9b38b3dcd328ffc20"
       },
       "protected_source_inputs": [
         {
@@ -3638,12 +2732,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "chondrites-branching-trace"
         },
         {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/brief.json",
-          "sha256": "7fe66074e08f39c4fe1124e8289fbd3cdeb89eeecb0891b201c5e3bd45825ffa",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
           "path": "production/batch88/assets/chondrites-branching-trace/r002/brief.md",
           "sha256": "ea01b85eb9e994c29de213557616064b9abd199f46ee6c685bce7cf119099ec1",
           "origin": "source",
@@ -3668,26 +2756,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "chondrites-branching-trace"
         },
         {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/candidate-validation.json",
-          "sha256": "40c14ee20d1e62633b50cf58f763764e90bd904f1a5823b578d97e5e49f360b5",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
           "path": "production/batch88/assets/chondrites-branching-trace/r002/candidate.json",
           "sha256": "e4ebe9a5866bcd0ecf0c29fa7b510366ac5c18590cfd845dceaf297cd518adb7",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/concept-evidence.json",
-          "sha256": "61b3d6cddb528aa1ae17cf253e03b51f07c932e7f6ea6b2701be20a9d68bd848",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/concept-generation.json",
-          "sha256": "659d07cd916856156d502736e8d7e551d50cc45bb23eaf95acc4fe439ccf755e",
           "origin": "source",
           "owner": "chondrites-branching-trace"
         },
@@ -3704,20 +2774,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "chondrites-branching-trace"
         },
         {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/concept-validation.json",
-          "sha256": "d191c561aacd33b29c15441b6b00fb051b552f3bbdb497da04885b8a4eb15cbb",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
           "path": "production/batch88/assets/chondrites-branching-trace/r002/contact-sheet.png",
           "sha256": "8b1039c000e5c1661b4301a5ade5234574e2ff68118abae88582dcf672f9c309",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/diagnostic-disposition.json",
-          "sha256": "0363481ff76ac097d505ed64215ebf7bc28a0c14e0e0c084510177641b2aaf36",
           "origin": "source",
           "owner": "chondrites-branching-trace"
         },
@@ -3730,12 +2788,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch88/assets/chondrites-branching-trace/r002/generator.py",
           "sha256": "4acd7af382207a61502363db87015d73a93d5825b2ce6c0e436361f3fc18a28b",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/geometry-semantics.json",
-          "sha256": "3bf80839d31f4d65e7c910d739b71c336c2e35265eb1988e36bfc70054f0ff37",
           "origin": "source",
           "owner": "chondrites-branching-trace"
         },
@@ -3782,12 +2834,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "chondrites-branching-trace"
         },
         {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/preproof-binding.json",
-          "sha256": "fb1c9e6b681435458cf2b445543f4a8428094217d3a4b6b654e17f9f10dab5e4",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
           "path": "production/batch88/assets/chondrites-branching-trace/r002/preview.png",
           "sha256": "fcd6c676cf5e4ef25cff5ac0880fb6ae19eae6997d39a175da0fb3954bf22543",
           "origin": "source",
@@ -3824,12 +2870,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "chondrites-branching-trace"
         },
         {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/proof-final/render-config.json",
-          "sha256": "4df9d6d8e8427c0853f76c91804a7c0250741777e06b6496653219b1ccf2ca5d",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
           "path": "production/batch88/assets/chondrites-branching-trace/r002/proof-final/render-manifest.json",
           "sha256": "dfbf0e99d420dc07c63be0deb0d01c29a36320f8657ae8edbd90e98bc0757536",
           "origin": "source",
@@ -3856,18 +2896,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch88/assets/chondrites-branching-trace/r002/proof-final/top.png",
           "sha256": "3c6f5f09006757ff2e6ed821563abde3cb6ab2e6fddab4f7199e4a219906acc6",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/proof-final/turntable.json",
-          "sha256": "e4ccfcd709832f7c57f82213be3ca4047ec44dc8f5d69cdde8218fe2932d063b",
-          "origin": "source",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "production/batch88/assets/chondrites-branching-trace/r002/qa.json",
-          "sha256": "de9577825de4f04d09186c2d7f5b6dc7b1dde24ce4b500484c698f5893acd484",
           "origin": "source",
           "owner": "chondrites-branching-trace"
         },
@@ -3932,12 +2960,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "planolites-smooth-burrow"
         },
         {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/brief.json",
-          "sha256": "a9a4c8f1902f9febd779300c10e43242f1f9c87e3769fcc875a6fd73d526eff1",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
           "path": "production/batch88/assets/planolites-smooth-burrow/r003/brief.md",
           "sha256": "23873422ed0a0d1bd9a742b3adf977d614871f9816d3b0e480d265260ecd8376",
           "origin": "source",
@@ -3962,26 +2984,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "planolites-smooth-burrow"
         },
         {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/candidate-validation.json",
-          "sha256": "63b87690caf6de672829e1d7b2a8ccc39e7510f8e9d30e7b01571accfc39a0c5",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
           "path": "production/batch88/assets/planolites-smooth-burrow/r003/candidate.json",
           "sha256": "6b5612d4b296cca7cd4d8d0bf5d17e006fde83b63f4d53ebe6febbcb2b492f5f",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/concept-evidence.json",
-          "sha256": "121395aaf265927381ad475a58e37b17e8413fd7ab416121bf001880793da0d6",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/concept-generation.json",
-          "sha256": "d39008aedc5ae813b629f67b1dfca54a23097f163b0e1b40c77350b4c33124eb",
           "origin": "source",
           "owner": "planolites-smooth-burrow"
         },
@@ -3998,20 +3002,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "planolites-smooth-burrow"
         },
         {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/concept-validation.json",
-          "sha256": "80a98b5247cd843b2536dd91bc2a581b0cde6a59e65f790ff04dfea928b212a3",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
           "path": "production/batch88/assets/planolites-smooth-burrow/r003/contact-sheet.png",
           "sha256": "eb6398f81db43c6f42633a072893480caa60d8ce84214e420fc03dd3c3ac1591",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/diagnostic-disposition.json",
-          "sha256": "94e4a52fd9a31a3d04cbc26b2139b29da8853b556e42e3bfefc7cd5fa04364a3",
           "origin": "source",
           "owner": "planolites-smooth-burrow"
         },
@@ -4024,12 +3016,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch88/assets/planolites-smooth-burrow/r003/generator.py",
           "sha256": "c0c73707b463502f43711c05344ea254f4c33f519dbd9d6ed2ad61a58a26dab0",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/geometry-semantics.json",
-          "sha256": "ca0df859d46ffc504b9efb9d1540ceb00c97d54232619c940f756c413df16e84",
           "origin": "source",
           "owner": "planolites-smooth-burrow"
         },
@@ -4076,12 +3062,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "planolites-smooth-burrow"
         },
         {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/preproof-binding.json",
-          "sha256": "dd320a0f1e96d2a15a40933668d930faa5a7793fd69c217f7f21870dc631c9e4",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
           "path": "production/batch88/assets/planolites-smooth-burrow/r003/preview.png",
           "sha256": "bbffa9e82e52d4876a9925bc2553388d7d76aa59837821b209a427273f1c2534",
           "origin": "source",
@@ -4118,12 +3098,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "planolites-smooth-burrow"
         },
         {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/proof-final/render-config.json",
-          "sha256": "97751d15d484d9a4834134c74f5e1941ea483203d57d0603311861fbc3fb206d",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
           "path": "production/batch88/assets/planolites-smooth-burrow/r003/proof-final/render-manifest.json",
           "sha256": "88198b77fdd1ac8a620af01e8a232cf8f4bb33813aa5642c164a6c5c71f82aaf",
           "origin": "source",
@@ -4150,18 +3124,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch88/assets/planolites-smooth-burrow/r003/proof-final/top.png",
           "sha256": "c04b53dbdcf897fe709133d8b9c67494d210ef910af49c2d484a5f3da9cca386",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/proof-final/turntable.json",
-          "sha256": "1efbad1b15288bd48e013d975c94a73841466a67f30681191739f7cb40b1ad17",
-          "origin": "source",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "production/batch88/assets/planolites-smooth-burrow/r003/qa.json",
-          "sha256": "675a6c8d7b27473d9bd68ddcf17e61bcc28b834ff8d980be7f493ad51a7d5b5f",
           "origin": "source",
           "owner": "planolites-smooth-burrow"
         },
@@ -4232,48 +3194,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/chondrites-branching-trace/candidate-validation-fresh.json",
-          "sha256": "40c14ee20d1e62633b50cf58f763764e90bd904f1a5823b578d97e5e49f360b5",
-          "origin": "review",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/chondrites-branching-trace/component-measurements.json",
-          "sha256": "5aa92749f47d5f2c94b8b9894290a2bc94c215a06824e8c705722f8deade3140",
-          "origin": "review",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/chondrites-branching-trace/mesh-measure-input.json",
-          "sha256": "e367cd7009e402abfded59076aede91a0707dd6377156336af37aa30d082888a",
-          "origin": "review",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/chondrites-branching-trace/runtime-check.json",
-          "sha256": "c042d161ac6cbcc64e25836e6fb6d684ae672ad815c1a4f67a6236f0cf374e53",
-          "origin": "review",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/chondrites-branching-trace/source-inspection.json",
-          "sha256": "8046d52b730d6b0e9576e7e6e396e703671b184f550e1e8e5b3acc1efb2fb96a",
-          "origin": "review",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/chondrites-branching-trace/source-run.json",
-          "sha256": "94477176a1497178df43333a35f17029bb1c339f81abc502a1a2e0b538031b04",
-          "origin": "review",
-          "owner": "chondrites-branching-trace"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/final-source-readback.json",
-          "sha256": "7863dccd2c00e4bd47b9091e9df1c9f2d03353a14a890e6247fb874cd12a3b7a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-88/handoff.json",
           "sha256": "21aa5cfe573a7b1b2287cfb55c8da88017c624bb07eceb7cf1be1ed31dd704a8",
           "origin": "review",
@@ -4282,18 +3202,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "qa/continuous-small-life-round38-20261020/batch-88/inspect-source.py",
           "sha256": "113ae2c0d4104cd44a6b78c435c580e05d3d013ffa8231442690b52c7174fae1",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/inspected-inputs.json",
-          "sha256": "3d9398447e240465d9c0188f2df225d530034dc677b626729a78b26f3cf64801",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/lean-byte-identity.json",
-          "sha256": "ae025be3399027ebc890e27fae4aa388c684e05c47bf1b3eabd45fc111a8a7b6",
           "origin": "review",
           "owner": "$batch"
         },
@@ -4334,48 +3242,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/planolites-smooth-burrow/candidate-validation-fresh.json",
-          "sha256": "63b87690caf6de672829e1d7b2a8ccc39e7510f8e9d30e7b01571accfc39a0c5",
-          "origin": "review",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/planolites-smooth-burrow/component-measurements.json",
-          "sha256": "03f1a71d617a2e39bdb06a66f45fcafafe241f7abf1dd1d7add3ae808913c811",
-          "origin": "review",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/planolites-smooth-burrow/mesh-measure-input.json",
-          "sha256": "5bbcf82d7e85a1fb9b4b9b33c745e471b6d070defe5d3ba0f5e55ac23e7a064f",
-          "origin": "review",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/planolites-smooth-burrow/runtime-check.json",
-          "sha256": "274a1ddd631c169b30cbe16918605ff6a6d11ae9fcb402d4ec5dfebd6a3f02e5",
-          "origin": "review",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/planolites-smooth-burrow/source-inspection.json",
-          "sha256": "dcb888ac476f72995f2bab87844d327699bd657ccce8f6192207483b37372cb2",
-          "origin": "review",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/planolites-smooth-burrow/source-run.json",
-          "sha256": "e6905aecb0e0b9df95472ae39c54ebce0a531f3d9f5fc2ee87d59c86b954f70a",
-          "origin": "review",
-          "owner": "planolites-smooth-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-88/provenance-check.json",
-          "sha256": "9c64c3c0eafc26854c58bf83378c6b08e07c48b18e6fa64e2b21836246343556",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-88/report.json",
           "sha256": "3eeaaa1ab379fd8765ca6cce973f061b77ff72be6b4bbef0f6b5958bab530be0",
           "origin": "review",
@@ -4406,8 +3272,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/next52-g04-release-20261021/retention-summary.json",
-          "sha256": "2d65171243575361e1b132aa5aa84b59ec15b0b818d89c86d89e59c707b9a6bd",
+          "path": "qa/next52-g04-release-20261021/process-archive-index.json",
+          "sha256": "39ed4881280181b46d137c0a87a944836e663a7d52330da0e72bc87fe0549c81",
           "origin": "release",
           "owner": "$batch"
         }
@@ -4417,7 +3283,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g05-20261021.json",
-      "sha256": "c6124c279af649fee231f8ab6554f1e7988e1f433d55723c06fc72c913e17457"
+      "sha256": "d1af9871eade30e50ad812c2a577d243d68ca2d29de84d69eb4b958e1fdceec8"
     },
     "release": {
       "version": 1,
@@ -4436,7 +3302,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g05-release-20261021/source-bundle.json",
-        "sha256": "e39bdfdf17a337ce627d356b65a6eb0ae6532c15f4561b395368052c32674607"
+        "sha256": "e3e0e54d14ffe71b624315b8c4cca7733b5adda37e90109f2af01b15f19b7b7a"
       },
       "protected_source_inputs": [
         {
@@ -4684,32 +3550,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "skolithos-pipe-field"
         },
         {
-          "path": "production/small-life-batch89/concepts/skolithos-pipe-field-receipt.json",
-          "sha256": "e3610757d8230eb2e44e614f1b67bc4f789388f5a51aeca7febbe3f69391a447",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
           "path": "production/small-life-batch89/skolithos-pipe-field/r001/candidate.json",
           "sha256": "c7e06189a89ca8b1b39a3556c8aa7970d691f3de77cdd4054bc36c89b7e1fa97",
           "origin": "source",
           "owner": "skolithos-pipe-field"
         },
         {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/artifacts/gltf-validator.report.json",
-          "sha256": "bd73600178438179dee4e36eb29e234994f629c5f5e2fe060876e540586ebd9f",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
           "path": "production/small-life-batch89/skolithos-pipe-field/r002/artifacts/metadata.json",
           "sha256": "8ee45c15727d9c1e566e91e2c636fffcc35414449338b42cc5db862274263dbe",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/artifacts/qa.json",
-          "sha256": "77cdbc7de93735798552c9cd4d5d154d60d00541758074a33696858180d8dcef",
           "origin": "source",
           "owner": "skolithos-pipe-field"
         },
@@ -4722,12 +3570,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/skolithos-pipe-field/r002/artifacts/skolithos-pipe-field.glb",
           "sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/artifacts/three-parse.report.json",
-          "sha256": "6c568b0d0f06702d451c3a506e498e757d93bd93db647245fbb8c0039c8c6f11",
           "origin": "source",
           "owner": "skolithos-pipe-field"
         },
@@ -4756,12 +3598,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "skolithos-pipe-field"
         },
         {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/maker-handoff.json",
-          "sha256": "6f68ba0cad6436aa477b51ee2ea9541b0a531b0f63d11b3edcc871d495a86713",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
           "path": "production/small-life-batch89/skolithos-pipe-field/r002/profile-contract.json",
           "sha256": "ffea99e3eea99a9e640aa6d2d3e2f7fa569cd677ff43370d7be666028bc61c1d",
           "origin": "source",
@@ -4774,164 +3610,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "skolithos-pipe-field"
         },
         {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/candidate-integrity.report.json",
-          "sha256": "b8858a75b636dd0c5529553f01b73ea72b1a5edf7dbe3ed55c36cdfd67b5aa6b",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/contact-sheet-provenance.json",
-          "sha256": "fe04dc3a40bb7d44a7373a9a5927db568424703f09ed1da39d8da065014530a1",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/execution-provenance.json",
-          "sha256": "d6c02f5e3c6c3493ec94a95ec795d8c3e703684894359eaef3d8892787812d5f",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/final-world-radius-measurements.json",
-          "sha256": "a1414d79a6f7198706d31b00e705a61b2d15241b9845a85dddc633d934b3e1bd",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/frozen-feature-measurements.json",
-          "sha256": "cb87f1e9cd497e7fbadcd613ae81967e334ee551d2d7c0f5cac301865c9ac4b9",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/generator-qa.original.json",
-          "sha256": "16197157957c15f3229be90c89242a60438aa7558bdb421dc423df8535b9422f",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/initial-execution.json",
-          "sha256": "a9dec0c8ab493b1827dd60a02b3863471d49009e29740c4a87c718741ec5b8a3",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/initial-request.json",
-          "sha256": "ab3b3e42b31d5077d6e52d52fc86bcf4f77a927fe5f9a9c2ebf7f531589742b7",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/initial-result.json",
-          "sha256": "ea9ade543358968f65e130a16d18bfb05615850973584cf7634c8879fbba2dae",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/local-raw-manifest.json",
-          "sha256": "e23368390d937e9b5e475d1f30ef3798b65d5e199a2bb8d3880dec863da45582",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/maker-individual-view-inspection.json",
-          "sha256": "34a40f39c72e35abb7ce5c4e2baa6769bddbd3bbefb862b7ed278a1e23380046",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/maker-source-reopen-reexport.json",
-          "sha256": "da7af3d8a97efbb8580f35d459ec808341ffba69aec7436e25fe04ddd4661bb9",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/original-failure-byte-map.json",
-          "sha256": "5ffc3401619841b39dae3c4351a619dde86287ba8371075d8d52781d06519ba5",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/original-r001-radius-reproduction.json",
-          "sha256": "ae52b39a5e0b92b971ab435437c1431dceddde76aa933a49113965934aefdd92",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/prefinal-binding-gate.json",
-          "sha256": "cc81b6b9f98d78c649aa23f7b6a2044530523035d33b3d8fca1c270e4e78da1a",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/radius-repair-comparison.json",
-          "sha256": "508a09e8dfbd43eb61b271458b58d38f4158576636a2cb51715c88eae55ed9fe",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/rebuild-a-execution.json",
-          "sha256": "30652e60560efb599beb2accec75b01dfad5af45ff4af2704847587e0bc76aa9",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/rebuild-a-request.json",
-          "sha256": "cc08acb60739f551d26a6bc68b4e2b8922c37c5d5c3a78816d9ad59eba6ae69e",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/rebuild-a-result.json",
-          "sha256": "133aeca8be793e64922fbc9d5a2b7f46a45937132cdb233311523b351704818b",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/rebuild-b-execution.json",
-          "sha256": "84ebffc7633fcb4a089525340ce989be1edd440c9d81d2440fe62c4cafac7f52",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/rebuild-b-request.json",
-          "sha256": "59b7007d0ca2fc2b072e64a9859e1d929d7e0424fad26b420e2e9046492bc5fe",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/rebuild-b-result.json",
-          "sha256": "da7cbdb3a21309c2450f49c1ad31f90eef900a14a385ebd3e823cce09b3b852a",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/reproducibility-a.report.json",
-          "sha256": "09573b1f6d183ed721998e2dec0c27db2232e2053c9f7c4c6c89307ad4c176bb",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/reproducibility-b.report.json",
-          "sha256": "711d830257fe3afcd709db08a75867bca8e865bc8903fc381c7ea4ea9de19d7f",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
           "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/runtime-parse.report.json",
           "sha256": "d7958e53790e6bd96d575acdb9bab800a014eec438a272b136397fbf303c08a9",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/source-export.report.json",
-          "sha256": "c68813862620a662970211731397f145995b33efb7750a84670c730f3da727b9",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/static-glb.report.json",
-          "sha256": "66a3e10911b791f0e1b5a1d236b42ddd40a6990584a9fd30f575d02d1667f452",
           "origin": "source",
           "owner": "skolithos-pipe-field"
         },
@@ -4944,24 +3624,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/skolithos-pipe-field/r002/references.json",
           "sha256": "462acade525357722fbc24fd3391970e666b7550fc3baf026c4bf6d7159a60be",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/repair-freeze.json",
-          "sha256": "070c5289f4e3db015d5372c883eff8ca71db4c10691094916e9b37218703829c",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/storage-accounting.json",
-          "sha256": "7ede7275d9b37c6ce13dd8a7ab71322eb629f73902618437c38edb99fd3c6215",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/subject.json",
-          "sha256": "6f6dfd3e0c78bc5fdb9ded5f15fe1f46b11f33748f9c12389357769fdd6d61e8",
           "origin": "source",
           "owner": "skolithos-pipe-field"
         },
@@ -4986,12 +3648,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/skolithos-pipe-field/r002/views/rear.png",
           "sha256": "365416067aa7c88850855648b39df97e9c46057c7111d4af0aec65db65315563",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/views/render-config.json",
-          "sha256": "da730456b6a3edfe7326c1df80be9202f39cf2ad7e11c6004c38badc2403f51d",
           "origin": "source",
           "owner": "skolithos-pipe-field"
         },
@@ -5022,12 +3678,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/skolithos-pipe-field/r002/views/top.png",
           "sha256": "ca0acb8a443a6ccf912ce0d1eeb6c1f77230b81b5eab0207a1334979aaf47bac",
-          "origin": "source",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "production/small-life-batch89/skolithos-pipe-field/r002/views/turntable.json",
-          "sha256": "3cbbd46836602e076bc653efbe3ff739ef7dd04334e591c572d547fb672a153d",
           "origin": "source",
           "owner": "skolithos-pipe-field"
         },
@@ -5080,80 +3730,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "skolithos-pipe-field"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/lean-byte-identity.json",
-          "sha256": "0894f44d5ddeeada637ed2492524dd47b1ac0b3f9f4d42a65b043cb35418f6fa",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/measure_world.py",
           "sha256": "a2cd7a2959328aed8b96b99669c83a0a25ad7845fe87d850f87b7c23be5deecf",
           "origin": "review",
           "owner": "skolithos-pipe-field"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-candidate-validation.json",
-          "sha256": "b8858a75b636dd0c5529553f01b73ea72b1a5edf7dbe3ed55c36cdfd67b5aa6b",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-geometry-recheck-resume2.json",
-          "sha256": "3be4e7c345a17af474d311e4abe54e7c9ba3502c51ef9e995d97c822a0e43aec",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-khronos-validation.json",
-          "sha256": "8d911126d1cee1744bfad108261c4f47eec0f4edd8a7fa0e27d27140ba34b79f",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-pixel-factual-inspection-resume2.json",
-          "sha256": "50836f654c8ce8183d648f2f361726889595c57dac5b5e63302e54e4560ce9c5",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-provenance-closure-resume2.json",
-          "sha256": "9f92eba0fef474ea37cc0d0c164e7f8626caf4fd9bd680b3bbe6145710f82b16",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-source-reopen-reexport.json",
-          "sha256": "ce5ed88f27cef536f7627241deba9176b13b6a175e71559284f0a1c0e29f8b1b",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-three-parse.json",
-          "sha256": "f50b5e6f51c2dd04e978593c710e4ae553b3a7f80766e6d5ba320571cdfc71d6",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/own-world-geometry-differential.json",
-          "sha256": "8b50f0bdec351b3773d21dedbf8b3c39055a683206dc5b95c629e648b54bac9d",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/recheck_geometry_resume2.py",
           "sha256": "e532bfc8c305f45e98481680d1ce178c322d30674bab8341b4865624609140ce",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/recovery-progress.json",
-          "sha256": "e52ab81465dfafb93699c364d405f2036b0789c5aa9e091dc12ed26c2b855a41",
-          "origin": "review",
-          "owner": "skolithos-pipe-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch89-skolithos-r002/recovery-readreceipt-resume2.json",
-          "sha256": "b37251137382fca868587a7c2490110fe9099ce39cd4a16b891ad0c47733774b",
           "origin": "review",
           "owner": "skolithos-pipe-field"
         },
@@ -5176,8 +3760,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "skolithos-pipe-field"
         },
         {
-          "path": "qa/next52-g05-release-20261021/retention-summary.json",
-          "sha256": "e9238df1dabc7026cc307002a408ff79075dbcbae2b1834b080e5057d0adea87",
+          "path": "qa/next52-g05-release-20261021/process-archive-index.json",
+          "sha256": "59113a1e656c697f6eb17bf56539befd07bd191268aed251ba06c1b10c17dfe6",
           "origin": "release",
           "owner": "$batch"
         }
@@ -5187,7 +3771,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g06-20261021.json",
-      "sha256": "45aae7643fee2f94c12365c5c6fe8712c7bb490ee179729e72ee3e28d696376c"
+      "sha256": "5a112bf6dce3afbf1b3325037b468c1c6f9c4b751e5c1183790b71414ec489ac"
     },
     "release": {
       "version": 1,
@@ -5206,7 +3790,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g06-release-20261021/source-bundle.json",
-        "sha256": "c77b2131bd2e401adaf8982214d6c835568cee13d3dd90cf0ba7ee78768e08c9"
+        "sha256": "679835c462aacc6b8042a9c4e0683ba8757c56a8f93718fd205b0a4f59910611"
       },
       "protected_source_inputs": [
         {
@@ -5630,12 +4214,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "psilophyton"
         },
         {
-          "path": "production/small-life-batch89/concepts/psilophyton-receipt.json",
-          "sha256": "812cfde1b0077aeaa40de899529c151307a475fd655a4aa79ac392d01d31db5e",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
           "path": "production/small-life-batch89/concepts/rosselia-concentrically-filled-burrow-concept.png",
           "sha256": "a07202b66127f610aaf3705ab00c266bf45642f9347f13e4633968a73598ce7e",
           "origin": "source",
@@ -5644,12 +4222,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/concepts/rosselia-concentrically-filled-burrow-prompt.txt",
           "sha256": "7fb07d9401165814062781470cfdfecc26ac25b1612267f820f741d7dbf8f446",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/concepts/rosselia-concentrically-filled-burrow-receipt.json",
-          "sha256": "7b280f0ffe603632ad8cc93e57bf44c1589aeafc9a7155053b1becb17d3586f1",
           "origin": "source",
           "owner": "rosselia-concentrically-filled-burrow"
         },
@@ -5666,22 +4238,10 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "teichichnus-spreite-wall"
         },
         {
-          "path": "production/small-life-batch89/concepts/teichichnus-spreite-wall-receipt.json",
-          "sha256": "dd09dfaeb577a4e444bfaad6a1592fa783ff26e61af1ddfc7d97e09844e866aa",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
           "path": "production/small-life-batch89/dependencies-r003.json",
           "sha256": "ee94bac110e4a00634794d78ea48141ce003814f02b24ee139acdc0db45170f6",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/artifacts/gltf-validator.report.json",
-          "sha256": "6d86119570e63b6759d770b45b852a16ec93b9039ea6f548a45d868b7a25b53b",
-          "origin": "source",
-          "owner": "psilophyton"
         },
         {
           "path": "production/small-life-batch89/psilophyton/r001/artifacts/metadata.json",
@@ -5698,18 +4258,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/psilophyton/r001/artifacts/psilophyton.glb",
           "sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/artifacts/qa.json",
-          "sha256": "67bd5b8ea0058e5baf6d19a08279c0c22b0beea2a0e6a03582e5fa0efc058e65",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/artifacts/three-parse.report.json",
-          "sha256": "423b8eb3a993b41de1e7df8029252c3c78b6476fe05265d361bf8cf835bf27fe",
           "origin": "source",
           "owner": "psilophyton"
         },
@@ -5732,12 +4280,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "psilophyton"
         },
         {
-          "path": "production/small-life-batch89/psilophyton/r001/original-brief.json",
-          "sha256": "44ca5811e9e5325d5c2781fea82845645c1da5e7e6b33ccf0ec37cf709714385",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
           "path": "production/small-life-batch89/psilophyton/r001/profile-contract.json",
           "sha256": "8a668a4f4c413e34c9247fcf3e98133a67f71f4ba7c826c67648f53e85db4249",
           "origin": "source",
@@ -5750,122 +4292,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "psilophyton"
         },
         {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/byte-identity.json",
-          "sha256": "4e2db80f2291c2eb37661d83e517a4aac3f2f31030f79603e221b47a7a8c198c",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/candidate-integrity.report.json",
-          "sha256": "d300b796bb12a2703d8683fdfb8f9019a2adc1c14c51637cde0c8f711179fc59",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/execution-provenance.json",
-          "sha256": "e838a919cbb9d61f68d954082d35711206d319715516dbf0a2edd7e4415a7182",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/frozen-feature-measurements.json",
-          "sha256": "9af20a0c274c1f2943432187047760a2fd0d93103df26079bd1b50eaee77ffbb",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/generator-qa.original.json",
-          "sha256": "46570e4705408a8953d5a2da7d740423163cb2943d0062dc8db37c62b3b43422",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/initial-execution.json",
-          "sha256": "2728eefabd584fd54b8bda629ba818bc108d47ea6fc05639942888e784d442d3",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/initial-request.json",
-          "sha256": "54a07adcce748774e3713bd2ca7af01ff334d1912d119bf4a1fc0504c3286927",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/initial-result.json",
-          "sha256": "ae94158a11e7b57c6c18c81e87b84f8db0d94ba7eff26262021592cf4b399f18",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/maker-individual-view-inspection.json",
-          "sha256": "8408f515e579365212b0a80577ec625d0d034dbf232466e4c6d40829c4cf6dc6",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/rebuild-a-execution.json",
-          "sha256": "894f1abfff37aed330f18df8dcb93eb0c76ab505d7dc3fb6f39e4ab64672330b",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/rebuild-a-request.json",
-          "sha256": "8abfc552185f3af63c0d191b118075f05d4930ccbdce1bdacbf46ce9a58114a3",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/rebuild-a-result.json",
-          "sha256": "d752f98361d6a23641c686038a17a7cbd794858d9e4f092242379316beba53bd",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/rebuild-b-execution.json",
-          "sha256": "fd42086d39593ded0bae736b1988dcfa95d34fa0a3fe823dc90d8eb24ebeac92",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/rebuild-b-request.json",
-          "sha256": "e247a91fbcf4b2d5ebf5a16b95bd391ea550083035f9c80d9572ca7613b14c00",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/rebuild-b-result.json",
-          "sha256": "feca70bc1bf0cc2173ee53588c84f3cae0ffa310f8f6483c673b6b4a8f052af7",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/reproducibility-a.report.json",
-          "sha256": "00d0688f94460335d97e09a06c357666d46eee4ce3cd9cf2abb6288b8dd52fce",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/reproducibility-b.report.json",
-          "sha256": "52c7d9370538cf5375f658614ec68a4e861e930b428d2ef47ff8298953459a9f",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
           "path": "production/small-life-batch89/psilophyton/r001/qa/runtime-parse.report.json",
           "sha256": "3dc06af37a8c9c6c92abc174e1b4af97d0f893a4de1711144acb36a7464f1472",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/source-export.report.json",
-          "sha256": "a20c901dd4f70df1dcdf01b65dd8c1363dd2ee425f1bcf4a5b3f5d57507926c4",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/qa/static-glb.report.json",
-          "sha256": "e5a638645ff9108faabaa7cb5bfa95ce677782ed3a39aec3500905c21e64a5cb",
           "origin": "source",
           "owner": "psilophyton"
         },
@@ -5878,12 +4306,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/psilophyton/r001/references.json",
           "sha256": "fd0994d8f1f42c01c523af8345605dc2884dbea0c4076e680af1201483b5ad54",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/subject.json",
-          "sha256": "21db42c3099cb095737929d585eaaea6068040cdde161442e489a06f6db36645",
           "origin": "source",
           "owner": "psilophyton"
         },
@@ -5908,12 +4330,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/psilophyton/r001/views/rear.png",
           "sha256": "2d81e1687d9aab5b99fd847df45cba9d0b3dcf5b142d69c71acb23352fe04e90",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "production/small-life-batch89/psilophyton/r001/views/render-config.json",
-          "sha256": "91abbfc45dbe062b1ef7dd42b4e5248729a04da6a0657c61cb42fa94adec8891",
           "origin": "source",
           "owner": "psilophyton"
         },
@@ -5948,32 +4364,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "psilophyton"
         },
         {
-          "path": "production/small-life-batch89/psilophyton/r001/views/turntable.json",
-          "sha256": "c846c49551bda20cd2d6d940e1f9d58fb3c6e25aa1d88260af231f180d6c9d09",
-          "origin": "source",
-          "owner": "psilophyton"
-        },
-        {
           "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r001/references.json",
           "sha256": "761d4872d3b98a3c51c24bb8c1a4f7429fc6dfe3226ccdde0b634c29228b8162",
           "origin": "source",
           "owner": "rosselia-concentrically-filled-burrow"
         },
         {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/gltf-validator.report.json",
-          "sha256": "6a771bf0e10fab819ff022c9ad5fe5474c2fd83be37e19fec6d69a79062caebf",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
           "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/metadata.json",
           "sha256": "0179b5a43203c6f77c3b518c77b751d54ef8db04f8a361211f2a95d060294710",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/qa.json",
-          "sha256": "8c1606f538dcc05435ee109ae0510099e740dae0ece5a360f5f4716315fb130c",
           "origin": "source",
           "owner": "rosselia-concentrically-filled-burrow"
         },
@@ -5986,12 +4384,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/rosselia-concentrically-filled-burrow.glb",
           "sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/three-parse.report.json",
-          "sha256": "9a7b44cd34ce5c0eb5bb9d289d93692b6b185986894ea1588bace45c3e85dea5",
           "origin": "source",
           "owner": "rosselia-concentrically-filled-burrow"
         },
@@ -6026,134 +4418,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "rosselia-concentrically-filled-burrow"
         },
         {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/byte-identity.json",
-          "sha256": "b730d42039c4f09dbfcb48a7432accb5b4b402c49f968ec70eaa5852ec3f495e",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/candidate-integrity.report.json",
-          "sha256": "4803424b9becca84d96ac0ab6eed65b9be75909c09185f84300f5b3e1ccfa47a",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/execution-provenance.json",
-          "sha256": "6a4a3a5278c77d93ded4922493c248e5a5da3061ae6c8a147c5fb2bdc4606c03",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/frozen-feature-measurements.json",
-          "sha256": "7eb0dd8fddcb93e50702dd88687936177f260a5d4812336e11ca396d35feb7a7",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/generator-qa.original.json",
-          "sha256": "3d73477fb971af53dbd29c2de22e4c0c43d58605434559b2bf828d54bdd5d631",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/initial-execution.json",
-          "sha256": "982a830653fedcebbbabd5c07f38439954d4acfa8f95a5e0070f4c549f506407",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/initial-request.json",
-          "sha256": "1e3ea4504ea8f688eb04c4e0c5c05b2a5e4bbd3bc448a335fa1bc1d4ac8899f5",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/initial-result.json",
-          "sha256": "63c1e394690ffd0f9206dad43e2de82c1f479ab29bab0795d74cafa42738badf",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/maker-individual-view-inspection.json",
-          "sha256": "9c91512b230aec4a1cec63c8b07d108bd08093b3a1ad3b69d48ad9475159a987",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/rebuild-a-execution.json",
-          "sha256": "6ae46982d5e89880e9d21ea53ba7f4557bbcaefc676a9e077e8bc1bcac4e667b",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/rebuild-a-request.json",
-          "sha256": "2e6b870b16380b8038e4cd0bcc225234a282e7420cba1612e825117b5d6c0300",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/rebuild-a-result.json",
-          "sha256": "ed1893db97887a816cc827829cb2c12ce6c316341f053f05d6e5a410696d4f8f",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/rebuild-b-execution.json",
-          "sha256": "8f312230fa4e9193af8780b8fc427fded7c273f0e80ceeb61b6105e2fbb97c5e",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/rebuild-b-request.json",
-          "sha256": "17eb5cab381e953140b6ac5d119461dcf403c8544dd40dbe97be4e4c61ec759e",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/rebuild-b-result.json",
-          "sha256": "d311173742b93b1a5cce7aa2f9e2a07201ad000bd424b4a6160772f8d806c1f5",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/reproducibility-a.report.json",
-          "sha256": "568eec78432d61b04cd5c07028c4dc76870d89450bea7291666a206e166a9099",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/reproducibility-b.report.json",
-          "sha256": "77a02a830583fe6a16b189ad7d40ec510371bcd8a53b510524ae116dfd9f550a",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
           "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/runtime-parse.report.json",
           "sha256": "6f54928d26d247322548dc783ed66cb2c1a9c4cd2fee20fc6367ed5fc316b994",
           "origin": "source",
           "owner": "rosselia-concentrically-filled-burrow"
         },
         {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/source-export.report.json",
-          "sha256": "ef9a7b8c3292a1d3171458786d119de524a084d934c2e9956976a424414e847e",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/static-glb.report.json",
-          "sha256": "227f419e7be15ef594d7cd883ff4d4a33661e3c821f2a47e0735a9a5c5782bc8",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
           "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/technical.report.json",
           "sha256": "ff7bec6667e7b443468c01df0c9b17a0756a1b7348988132f570ced9604fea40",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/subject.json",
-          "sha256": "d0b03c1a3b9030db90f47f45a6e361db2e95beb9304b112b8d7e89d0e4d0a2ec",
           "origin": "source",
           "owner": "rosselia-concentrically-filled-burrow"
         },
@@ -6178,12 +4450,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/views/rear.png",
           "sha256": "0b6149a42a59685978130398ab59faa094489d4ee743daeace923a172f04986c",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/views/render-config.json",
-          "sha256": "80bcd926045159a92357b547c872dc9c8a795b4f6beb30a9d021907b370be1c1",
           "origin": "source",
           "owner": "rosselia-concentrically-filled-burrow"
         },
@@ -6218,32 +4484,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "rosselia-concentrically-filled-burrow"
         },
         {
-          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/views/turntable.json",
-          "sha256": "f1bf85a5b6f23c159446de87ffcbe019e36fd2dcf662210506e8bc7c282de11a",
-          "origin": "source",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r001/references.json",
           "sha256": "40cef2e432e0ee1a257aa4c35aba8d7dfe288bc75c1a9fb56364b578b7e42e72",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
         },
         {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/gltf-validator.report.json",
-          "sha256": "cc36d6ca275e9c3a9f12c75fe823294f2c54b611c301eca180f283d508affcec",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/metadata.json",
           "sha256": "eb5780796142f52ace776aab74aa2c026ab47d8dbc090e2ac717e82bcefed58e",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/qa.json",
-          "sha256": "15983cdd560915e7ef267c26b8b89bfdd646deaa1ce735ea96da4d54fd7f4ff7",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
         },
@@ -6256,12 +4504,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/teichichnus-spreite-wall.glb",
           "sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/three-parse.report.json",
-          "sha256": "84de9d61f6cf591489c47da804b42169beb250357516261bd6187a3cb54defcb",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
         },
@@ -6284,12 +4526,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "teichichnus-spreite-wall"
         },
         {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/prefinal-feature-check.json",
-          "sha256": "2db2777b5250185c03c5b07dbc1e26c2b1a1559d5c423a3efb979b9ac006131a",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/profile-contract.json",
           "sha256": "8ae7669ed3c3f1b1d5a0f774a68e8caf9946c0f033517495f9be0105bd5064f0",
           "origin": "source",
@@ -6302,122 +4538,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "teichichnus-spreite-wall"
         },
         {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/basal-contact.report.json",
-          "sha256": "63534de76b82b8ff10a0dae8fbd510341e4386679598fb53ebea43e3375f88ba",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/byte-identity.json",
-          "sha256": "feed8799e6372e703f532ce6a645ceac8fc3e3a77f438c2bd604ae6b26176430",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/candidate-integrity.report.json",
-          "sha256": "ecf0bec52b8337214c948036b8563e5cbf8cf53a6710dce9446939aeaa5cdbb3",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/execution-provenance.json",
-          "sha256": "4138bb74f4c9ced0677c50f70d1af3759cd33d46556c9ef8436afc189d0737f2",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/frozen-feature-measurements.json",
-          "sha256": "8bd6d19ba5cc3fac6fd4cf70caa8c8a37745d3000a098925fad43fff1c564056",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/generator-qa.original.json",
-          "sha256": "e2afcf7a0c0dcb9e706d20adc34edefddf1cf7999401f8ff07d69397214948ed",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/maker-individual-view-inspection.json",
-          "sha256": "0def2b39276e5fafb406fc5ccc7fd7cccb2223ddbc23f3e5bea9b4c6bcb523d6",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/rebuild-a-execution.json",
-          "sha256": "ef624b0222a99bb9677d8ef88d0d74a350244d2c6386fd40b2c49e393bd2b4b8",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/rebuild-a-request.json",
-          "sha256": "5777b99237c614cd4b023c9205fe7a24ab8cf5f5d399f47e7f44a1fe2819ffa0",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/rebuild-a-result.json",
-          "sha256": "54caec228bcaf2d3cf62b25072e55eb53fed36d2ad4d4ef3adde2e37def1a995",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/rebuild-b-execution.json",
-          "sha256": "2e996fcb85f3ca25f4b38b222c605212b177570f9eaf882c5e5effa7a83c5323",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/rebuild-b-request.json",
-          "sha256": "5564e608a40f81ace45980a0a5dfa4468450e185095a78d4656a3b528a93768f",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/rebuild-b-result.json",
-          "sha256": "4c32e079f49323bd823ec2835cbdb5a3ec4a4a93701634ad6e175b8026b1e8d4",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/reproducibility-a.report.json",
-          "sha256": "3ee66e9dc242943a55b8b6679278ecf72324fe9bb1ee38ac5cd62dd9e8bcc465",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/reproducibility-b.report.json",
-          "sha256": "df8921fab7521f4882e3a6cb5e2891d697bb1e8ca4490e85bacde4ae591c7be9",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/runtime-parse.report.json",
           "sha256": "d6cd4e4614902514739637277b4319cb082ac05b0144a6b1e6f5cde4a6633cc7",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
         },
         {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/source-export.report.json",
-          "sha256": "a3603d5aeb22e16d434bb43d6597e54c82d92ed49f0c9dcc465499f3fc87b8ee",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/static-glb.report.json",
-          "sha256": "55a732835a2c6a601c949f67b75c49a1140ac7d19edbc5decba9384fa03b006f",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/technical.report.json",
           "sha256": "0d3bddda86732454098ca0fc9705fc4532580c7e8184c15ece66845d1f4d146c",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/subject.json",
-          "sha256": "5e5ee097c9c3188778b55ed2dc83f727a3b285e1d4845852ee941b36f8ec2419",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
         },
@@ -6442,12 +4570,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/views/rear.png",
           "sha256": "4b2ea8f9f319f1861362e4a5cffc1ab6d07d521ddfb6897faec272aab678782e",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/views/render-config.json",
-          "sha256": "ff724fe13846e259b7b88094704ed18c9c8412db8a86557138dc383177074bfe",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
         },
@@ -6478,12 +4600,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/views/top.png",
           "sha256": "ddd89db97c09ac9a8ec76b6005b25c08419a796d233d6c4b1d8ad623f5017d13",
-          "origin": "source",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/views/turntable.json",
-          "sha256": "02e9af5b3551fd505e7f5177ec2b17c3ba9552df8e6ced97ecb0e7f5988641fb",
           "origin": "source",
           "owner": "teichichnus-spreite-wall"
         },
@@ -6524,12 +4640,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/final-source-state.json",
-          "sha256": "6417507eea2eb8f3994ae079f77bb8fed2472e0fb25c7291115d148ada016ceb",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-89/independent-handoff.json",
           "sha256": "72ab6f9b989c4d415d154695cf970a677923eccfd77a6ee7b171c9daf0aa0a74",
           "origin": "review",
@@ -6548,20 +4658,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/lean-byte-identity.json",
-          "sha256": "1f8402a1c243b9b9f128316f9d6e9b7f5a05a92ef57a6c6ad199acf1cf2889da",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-89/measure_glb_features.py",
           "sha256": "105bda294738a5476b0a6b1274258bc348f48fc33e5e59c29a67f1f08b7cbc2d",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/own-integrity-provenance.json",
-          "sha256": "b5114218cf39a8feaa7b22f3fe714c21f1136c483cf23ef3aba0aad5d31cb03e",
           "origin": "review",
           "owner": "$batch"
         },
@@ -6570,72 +4668,6 @@ export const FIFTY_TWO_RELEASES = [
           "sha256": "8afe6efd7fc3e9f61051b05f1dbf415433aa22f15b13b060b6b90ec29057ecdc",
           "origin": "review",
           "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/independent-item-report.json",
-          "sha256": "3b26f0e7bcb08ade1d9ac6bbf8538368d355720be145e4b4c5393775044b5f54",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/independent-visual-review.json",
-          "sha256": "bd6d7e1620334da95f7bed881ed3af9beeb7022ddd4390e076ee277c5b353671",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-candidate-validation.json",
-          "sha256": "d300b796bb12a2703d8683fdfb8f9019a2adc1c14c51637cde0c8f711179fc59",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-decoded-glb-features.json",
-          "sha256": "cc04a5a3c60e33659bb1453b4e3358b8f99819b709b7b42b3d2766497929f9eb",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-khronos-validation.json",
-          "sha256": "847d4cafcdba84678a6ec120749646375b60e5c568bddd68376e0bd3eba03cf8",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-provenance.json",
-          "sha256": "45028d8a3c44c0c1cd135d216e9e3b5a5f0fafaacfe7947e0cf8aca2927ec07f",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-rebuild-a-comparison.json",
-          "sha256": "ef4f0fad07442df213848a43c7461ddbc46e2c87cbbe1d9fef4a001f2d44861f",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-rebuild-b-comparison.json",
-          "sha256": "44eca74f0ac39252b6c28f1d95ff4d127971598787a12163f91af8c0c3d3e17c",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-source-reopen-reexport.json",
-          "sha256": "ae1854efe9e7e2fbf2c9821dcb6c42ce806c6a1942e276d4ed0312e1cc8e0409",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-static-glb.json",
-          "sha256": "e5a638645ff9108faabaa7cb5bfa95ce677782ed3a39aec3500905c21e64a5cb",
-          "origin": "review",
-          "owner": "psilophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/psilophyton/own-three-parse.json",
-          "sha256": "86baea75baf7c6931dc76e60ce2079dce2f2c129693ceaa5a80fbbdcf9cbe8e2",
-          "origin": "review",
-          "owner": "psilophyton"
         },
         {
           "path": "qa/continuous-small-life-round38-20261020/batch-89/reopen_measure_reexport-attempt1.py",
@@ -6650,72 +4682,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/independent-item-report.json",
-          "sha256": "11ac92c930e4905cdd1b45c9103fb0c9bfc1ff590e7dfbb615d2d00978760b02",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/independent-visual-review.json",
-          "sha256": "a9df0fe0e1c9d874ee199f8a49ccadfb060189ee52489ecc33a69edb2caf6ae8",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-candidate-validation.json",
-          "sha256": "4803424b9becca84d96ac0ab6eed65b9be75909c09185f84300f5b3e1ccfa47a",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-decoded-glb-features.json",
-          "sha256": "32482a975a59b5085a83e0e2b09a317c24bf4ab7276d911fa2610467f653bc17",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-khronos-validation.json",
-          "sha256": "c373b01bf2baa9057d0de5eef8bf1e8e103c4bb42442fae28fabf9e69861ae97",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-provenance.json",
-          "sha256": "ac414cb055064e2eaebbe348359f815a8d7121b1b42feb5ddaecc50e0cf8b8f3",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-rebuild-a-comparison.json",
-          "sha256": "7cc61a6e8c793c70992551a4e53a196227acca13b2ada8aaf4c0c0f812b9860e",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-rebuild-b-comparison.json",
-          "sha256": "bc8abbb34b2b35dcab8edf1dceb30be23c04e9480c6c5f530a9931812fcc5836",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-source-reopen-reexport.json",
-          "sha256": "ccdbccd952a4d194cccb86b51fddc2be7267eed0883c4e120e33b1a14c0c04fb",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-static-glb.json",
-          "sha256": "227f419e7be15ef594d7cd883ff4d4a33661e3c821f2a47e0735a9a5c5782bc8",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/rosselia-concentrically-filled-burrow/own-three-parse.json",
-          "sha256": "712c78d6b3bdaa38928a2d5a40a5e0e305ceb30bf0cd2740f3e066dbb5c439b5",
-          "origin": "review",
-          "owner": "rosselia-concentrically-filled-burrow"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-89/run_own_sources.sh",
           "sha256": "5a15dee25b6d240cad356b1052db2dae3bf1430852673a7ed7d2c9047c79848f",
           "origin": "review",
@@ -6728,80 +4694,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/independent-item-report.json",
-          "sha256": "4a6acf210b4b6674d678e9586db2495bb227e0fdec0ec2ed5aeb1846f69c990b",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/independent-visual-review.json",
-          "sha256": "90e8aa04e2d79a7649d99086893400a14bebfdf53916d72159055617ebb22869",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-candidate-validation.json",
-          "sha256": "ecf0bec52b8337214c948036b8563e5cbf8cf53a6710dce9446939aeaa5cdbb3",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-decoded-glb-features.json",
-          "sha256": "9f673eff6bf3264f71a94273d2ad0512ed30c7b2613571070894803317b6bd1d",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-khronos-validation.json",
-          "sha256": "9e7ea386e0be7c19a511425a6c1882c19aed45adad85d17855c226beab0c31c7",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-provenance.json",
-          "sha256": "9445e83c292cbbc0ff29a335cb654a1cc04ff967da7535684632942832014ff3",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-rebuild-a-comparison.json",
-          "sha256": "9ec29727b420a00bc7eb5125f15c362c3a9abfdd7783ba6a3154ecce357976a0",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-rebuild-b-comparison.json",
-          "sha256": "f30503fc170f2d6373a71f6e8eba0fb57b6b478d09d2634b717513b911f3c6ea",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-source-reopen-reexport.json",
-          "sha256": "8fd24e4c0e23690d2117ff0d4effa8199c673a12438b764a24efe74dc014d1f1",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-static-glb.json",
-          "sha256": "55a732835a2c6a601c949f67b75c49a1140ac7d19edbc5decba9384fa03b006f",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-89/teichichnus-spreite-wall/own-three-parse.json",
-          "sha256": "91a195f27134b5854f2adddfcdaf45ce4ff5ad5fb56ce038d7938c665843cf8f",
-          "origin": "review",
-          "owner": "teichichnus-spreite-wall"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-89/write_review.py",
           "sha256": "c2f44461c9db3ff82ca29f1a70bb2dd176c5bb6037eb1798316f3a49fd642f43",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/next52-g06-release-20261021/retention-summary.json",
-          "sha256": "47809b6c2d01882fa8e827ee70dab33eab3c546d65ca04989881046feacd23b0",
+          "path": "qa/next52-g06-release-20261021/process-archive-index.json",
+          "sha256": "fe653882c223d0e5505ce12dbbdc017f936e34babc79eb46a76f732d0effb3d0",
           "origin": "release",
           "owner": "$batch"
         }
@@ -6811,7 +4711,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g07-20261021.json",
-      "sha256": "004926f9d9e2d9cde02c3cae8f3082e32c3f4594882e9561157c4b19520e291d"
+      "sha256": "0538d0da06fa58989949c7eeca79aa31827bb3ac3c81a9790be1db8133694c9f"
     },
     "release": {
       "version": 1,
@@ -6830,7 +4730,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g07-release-20261021/source-bundle.json",
-        "sha256": "c345dd808044064cd723654da5458476341ef883c3b39f7e5470b0a5033320f6"
+        "sha256": "21411872acac2f5636d6affe4aa765ec9da46bd81a4e6da83a93fb091a550ae0"
       },
       "protected_source_inputs": [
         {
@@ -7054,12 +4954,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "namacalathus"
         },
         {
-          "path": "production/small-life-batch85/concepts/namacalathus-receipt.json",
-          "sha256": "07b97fe255390c7670c05c2e985c5e0e7fc92e4943413c3a8d5ebe4a81e09a86",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
           "path": "production/small-life-batch85/dependencies.json",
           "sha256": "e002694c4e45102aacd4ee2ef6d67f55eb81cef078a74da3af1eb7ef6b5e87c4",
           "origin": "source",
@@ -7068,12 +4962,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85/namacalathus/r001/references.json",
           "sha256": "eb17d51c14565902230ffa07249019382116663ec7c62982e2394ca71becffbf",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/artifacts/gltf-validator.report.json",
-          "sha256": "5bfa89009e001ebce7225276fccf8b9a3fe358bebf68074a28aa8d9e8b707eda",
           "origin": "source",
           "owner": "namacalathus"
         },
@@ -7092,18 +4980,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85/namacalathus/r002/artifacts/namacalathus.glb",
           "sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/artifacts/qa.json",
-          "sha256": "a6bdcec4401e099d783088c6e92d3d2af3a834886d4e7d0daef2bc126c6f5e48",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/artifacts/three-parse.report.json",
-          "sha256": "000c896a18cad0d0794b3609e087c3ae90050c71abf3d3881d1e93a38692b5e0",
           "origin": "source",
           "owner": "namacalathus"
         },
@@ -7138,98 +5014,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "namacalathus"
         },
         {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/candidate-integrity.report.json",
-          "sha256": "ecd2efca7e64a67bed27521bc748724d841870b460e01465f8d314af5d6f5d96",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/execution-provenance.json",
-          "sha256": "14ef8f01b1a8720487687c26aa40e0769ece33af7dddab5d93c4e3b5c50ba0f0",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/maker-individual-view-inspection.json",
-          "sha256": "2ed8dfef343d852670557d8d2e4af46f1be26303c1ff6d164ac250249cbd498a",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/rebuild-a-execution.json",
-          "sha256": "4b1294f7cd1ffc7708fa19807bf8bea0b906f890e94d8461c101f6b816a8ff25",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/rebuild-a-request.json",
-          "sha256": "bbd66f7e547a69057c2e93e76de718e63af84a200299baa4eee5e5f0970b2d2c",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/rebuild-a-result.json",
-          "sha256": "f6bb2cd3e0c6401e4914e9da382bb05363d4227863346fdf8b8e891d703c60f8",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/rebuild-b-execution.json",
-          "sha256": "30b46a5fdcf2ad90ae0b5b173fae97308f1bac657bb0330e63ed83e507187ee0",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/rebuild-b-request.json",
-          "sha256": "7fc0d28408a1315fd385c005841438ac4b7e01c0370285e51065f396a2a4de1e",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/rebuild-b-result.json",
-          "sha256": "0c12411eb5d6e503d36fba942b2a7bc3fc8cf9833d111ad97376d6192fd2f96d",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/reproducibility-a.report.json",
-          "sha256": "f1c8d0253f95f73381fe1bea9333ec0c477625d4a9fe7f5ce68e8cbab243cd4f",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/reproducibility-b.report.json",
-          "sha256": "b639f3f3b9c31421f73b7f4d73643d67a1314c56cf703f01084daaed3194a73f",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
           "path": "production/small-life-batch85/namacalathus/r002/qa/runtime-parse.report.json",
           "sha256": "a9180f8f8e0c02fb836f04d9cf3d371b5bad76390351a7f4a6dec580b0f85878",
           "origin": "source",
           "owner": "namacalathus"
         },
         {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/source-export.report.json",
-          "sha256": "fc85aaa5f65264b2cb0f8c3a7a367bf060826ace402fcb64f5f9bd8b1263a9eb",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/qa/static-glb.report.json",
-          "sha256": "c0b3baa7f2a42b0d1101f63f3414d61623960888ba6105e6d8f31cc28fe41947",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
           "path": "production/small-life-batch85/namacalathus/r002/qa/technical.report.json",
           "sha256": "d6c6f876e80e661a11a862002792ac2cc8a4743324ab0eff43d3aae25aa61597",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/subject.json",
-          "sha256": "df6384bc4a796457ac7156bc4d0cf9f72167fcc0fe6d0d54fd3bf32a3e6ea3fc",
           "origin": "source",
           "owner": "namacalathus"
         },
@@ -7254,12 +5046,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85/namacalathus/r002/views/rear.png",
           "sha256": "73358f2c77145acbc6471d18ab29faf82cb9c33efa2981da6a26d86793c2be57",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "production/small-life-batch85/namacalathus/r002/views/render-config.json",
-          "sha256": "b883502ccffccb30950978834ebe1b18716a3f1804f1cb083669acb702308e99",
           "origin": "source",
           "owner": "namacalathus"
         },
@@ -7294,12 +5080,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "namacalathus"
         },
         {
-          "path": "production/small-life-batch85/namacalathus/r002/views/turntable.json",
-          "sha256": "c15329538759f61a8ffffa3d67d8818de0e266bd05e1d0a889856874bcce3b28",
-          "origin": "source",
-          "owner": "namacalathus"
-        },
-        {
           "path": "production/small-life-batch85/tools/generate.py",
           "sha256": "5284f9b71635197b870cc0262020d6c2bdcabe3002589b92f8e4829a6dfc5112",
           "origin": "source",
@@ -7330,20 +5110,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "namacalathus"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/final-integrity.json",
-          "sha256": "47f601f5b0bd8294edab1dd871755b3bf50011ecfad5fed7f1a3eaee29644826",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-85/finalize_report.py",
           "sha256": "47515d493c37c607b3eb7edc7f9cb7cc0443e5315848bd24f39728c524bdb390",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/fresh-processes.json",
-          "sha256": "7e8bbca9fb01e6ca23cff2cc4cb9680fcf2fd36ff9092ce1e56474d8c0f5cc9a",
           "origin": "review",
           "owner": "namacalathus"
         },
@@ -7354,26 +5122,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "namacalathus"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/immutable-input-audit.json",
-          "sha256": "30ba70ce32e8662e1821e4522069ead309cbe279dd8f3ac28e19d29a9224cfc7",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-85/independent-qa.report.json",
           "sha256": "7ddbcf2f7f1ad97ade71917ef4072d409ec8807fd3b1f00edb2fa1e1612ade5b",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/inspected-input-manifest.json",
-          "sha256": "3e9bab302b105b8079e24627a4650a0836b40c865c3a565237951c79364e2922",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/lean-byte-identity.json",
-          "sha256": "eaa023fb082476b0ce8060756f8ee0630dbf21b618101fb57b8747fb081dab70",
           "origin": "review",
           "owner": "namacalathus"
         },
@@ -7384,38 +5134,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "namacalathus"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/namacalathus/khronos-fresh.json",
-          "sha256": "875c49b53d1d3d6041fb58c37eeeaca01dbda047ea645ab016134cdc2e51fbe4",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/namacalathus/project-validation-fresh.json",
-          "sha256": "ecd2efca7e64a67bed27521bc748724d841870b460e01465f8d314af5d6f5d96",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/namacalathus/runtime-fresh.json",
-          "sha256": "aafa01b39e27c8a231c704d6c89e81e04ba6fbebb6e4298314380a6d35baf24e",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/namacalathus/saved-source/source-reexport.report.json",
-          "sha256": "ab8c972452b95e9977b5a672c0d7099543d87580e0c4e774b23a7eb1ed4e693c",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-85/own-evidence-manifest.json",
           "sha256": "ebb3b5834629e1878659ae8f8a67f7e52ef5485062c407f55063f7c7a9cc036d",
-          "origin": "review",
-          "owner": "namacalathus"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-85/parameter-measurements.json",
-          "sha256": "185dd0c14df42500ac0a4707bad21ccebfce2b6422ed4a52511a27ca51036f2f",
           "origin": "review",
           "owner": "namacalathus"
         },
@@ -7438,8 +5158,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "namacalathus"
         },
         {
-          "path": "qa/next52-g07-release-20261021/retention-summary.json",
-          "sha256": "39b0d8dfbee8ff7c6a91c81dabf6e568eb64e3570cc24721987cb2ad2561c8dc",
+          "path": "qa/next52-g07-release-20261021/process-archive-index.json",
+          "sha256": "90eaa5be32b3f8e2ec08a6b42f952dc00e4ead191632fa6113757ac1a96d08b2",
           "origin": "release",
           "owner": "$batch"
         }
@@ -7449,7 +5169,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g08-20261021.json",
-      "sha256": "6ae95b1938429a078dcb9b8e331ad65650c7cab0c4c117a52b6b78070c3d41a9"
+      "sha256": "c59b7109b0aae560fd9e5e5d0f80cc2b62e8c45de60a200ccc91e5b315488380"
     },
     "release": {
       "version": 1,
@@ -7468,7 +5188,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g08-release-20261021/source-bundle.json",
-        "sha256": "268c7c3b692c3a74fa0c714e43b138e6f6ed8c6a78565448044ee333d4df448e"
+        "sha256": "e9018767ef55009a974f218b4c1bd93c332599c4f0927a3e172dd223f8b77017"
       },
       "protected_source_inputs": [
         {
@@ -7894,12 +5614,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/artifacts/gltf-validator.report.json",
-          "sha256": "31ca837f55364c9d2fec63e44be0deb4a6646a9a6ab0238548b162dc6fdc9b6a",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/karst-polje/r003/artifacts/karst-polje.blend",
           "sha256": "3fa38d62fe1665955bdfe12078be0aa29a6926955039afe4411ff5b350fc2db9",
           "origin": "source",
@@ -7914,18 +5628,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/karst-polje/r003/artifacts/metadata.json",
           "sha256": "3b0ca121d7bcc5c5d34f3b6c2ab5bd4bd223368360fa0e104e7687b9fa955685",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/artifacts/qa.json",
-          "sha256": "479674354bcbf2a48145d8af33efe52d518e968c26b70e3cfe3f721db4a01fa0",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/artifacts/three-parse.report.json",
-          "sha256": "542dc8366ceaafbab4664f6acc818093c1523aec931fde0ffadd802afd8fe939",
           "origin": "source",
           "owner": "karst-polje"
         },
@@ -7948,24 +5650,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "karst-polje"
         },
         {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/original-brief.json",
-          "sha256": "d2940b22acf32ec4afaa6951f9a00da3d4c887dd0c8a05cda43cc2ceb0438592",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/pre-render-candidate.json",
-          "sha256": "fbf6e0c47144b98c7c35dd72a2b534de9c9e452f7a8a72c1e29420a2f0d57800",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/pre-render-contract.json",
-          "sha256": "d4d5209166408ec850f0d8a0b62ff2afd45f8c8f9f5aa00b50cd7ea6819e78a6",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/karst-polje/r003/profile-contract.json",
           "sha256": "bc8d48fbfe28987755c9c9ab9d4ff35a3322d77eb0df64fa3c6afc7cde4708af",
           "origin": "source",
@@ -7978,140 +5662,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "karst-polje"
         },
         {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/candidate-integrity.report.json",
-          "sha256": "fb4ee1b07a20b34c590c18cf6a23e18d8046e116652d0cc8ec23e5a3bb91ae73",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/diagnostic-inspection.json",
-          "sha256": "94009a66aba1b946e54bf517d8b1a2bab7acc492c0469bbbccda3c44d76e9c98",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/execution-provenance.json",
-          "sha256": "fc02044f304a25c214801a256fba7b21619b7d9d0b7b29d743b2ca2fd45f9ae2",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/height-measurements-technical.json",
-          "sha256": "859887bb2afc735679354715ce7aec16d8d0c7b94c8ac6e3861303797159fc32",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/height-measurements.json",
-          "sha256": "432cd93a1eb0f4241d42d4f07c4f43c8182a8c786e7a741d71f98c5fa60be413",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/maker-individual-view-inspection.json",
-          "sha256": "c7697a8a6ca91fe2793cc91e4ac6d381709955482687530691cb6c939f2f34ea",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/pre-render-schema.report.json",
-          "sha256": "070174dd9ab82f846bcd92f8a30a5107fbc4ae835299cd6298d8351ba2c5a9d6",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/rebuild-a-execution.json",
-          "sha256": "afe2c3b87b76ad55d00785abe7562daedcd48cd8e4fdbbfd5aa689924b47de77",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/rebuild-a-request.json",
-          "sha256": "b961fa5626b194cb1e0431163e7744c3964381209bfa437090411cc632312a25",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/rebuild-a-result.json",
-          "sha256": "534c8248ee27b6ec35177529911e4d78144ec4f58a495b277e4ed5d0f30e160f",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/rebuild-b-execution.json",
-          "sha256": "3d5084ff7839c565a095247cfc70bb4ded87549c36c959910324bebf27c04b99",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/rebuild-b-request.json",
-          "sha256": "feb8813f88c517b69d2da99ebbcef2672cea6db4795ff8d0c83a3d0899c8e214",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/rebuild-b-result.json",
-          "sha256": "988fa9456a9c0763a774bf6423954952818ddf819c0c233d0ccb226e75945bef",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/render-request.json",
-          "sha256": "4d5cb0db61ec574f897109b571e5c5ebf1d3a8f2459d5d8b911c833a28ef6536",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/render-result.json",
-          "sha256": "04bd647c6cadec20f701c7f32383f03149839d966ce4988bcbfa6bd39ab28bb1",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/reproducibility-a.report.json",
-          "sha256": "e7561645156463a36064d7a935e1de1df27dd4b77bb83f756391f3499542ebf8",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/reproducibility-b.report.json",
-          "sha256": "73c20b5799f5272c1bbbb69de8524b2663d9696d40112b5142a93c1cdc49654a",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/runtime-parse.report.json",
           "sha256": "533fc4da522a8834c0109ab9ba451e9028fd4f5a2943420fbd59d05b20e74509",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/source-export.report.json",
-          "sha256": "a8aa6d6738e07ce1f0a98fd14140c2cee8d26b80b010f6c25f08b7d45469260f",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/source-reexport.report.json",
-          "sha256": "789fab87492be492c0c6f559c196d139b13c21a8558cd08bb4ae27f20b29a4cc",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/source-request.json",
-          "sha256": "f5fedd247ee3eadc46ce71ca81afee092b758f865eb9270ddd9e8e1a177ee4d0",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/source-result.json",
-          "sha256": "bcf6e2cfbabffac43cd97e10e62b510f975dab291cf776385a19fb8935ce6045",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/qa/static-glb.report.json",
-          "sha256": "d42aff8f585e0531b36aa1ffd882b048e2b8585266ba5e75a820af27d0b7b654",
           "origin": "source",
           "owner": "karst-polje"
         },
@@ -8124,12 +5676,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/karst-polje/r003/references.json",
           "sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/subject.json",
-          "sha256": "e3a7b74697652478215274b8983ecd85415def030c880b3e3e3e106ed80d72bc",
           "origin": "source",
           "owner": "karst-polje"
         },
@@ -8154,12 +5700,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/karst-polje/r003/views/rear.png",
           "sha256": "ab5876031874c4d13daff594179959f1d194a2827f272e16ba01e6ea6384b4d5",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/views/render-config.json",
-          "sha256": "f03c023854d9390d749f133bc190288c995c974069a4d069dec2cbcf92dad067",
           "origin": "source",
           "owner": "karst-polje"
         },
@@ -8194,18 +5734,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "karst-polje"
         },
         {
-          "path": "production/small-life-batch85-height-repair/karst-polje/r003/views/turntable.json",
-          "sha256": "ae6186fddd125b470187301f4c1d1f4989f28e5f66dcdac118d857ea278be11c",
-          "origin": "source",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/artifacts/gltf-validator.report.json",
-          "sha256": "b2f5c3fe8aedff6f094f207c5d8b988f56913ac025ebec0418f744be14f35f20",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/lava-channel/r003/artifacts/lava-channel.blend",
           "sha256": "788edf508e8569c662a9e04512920180333720942d97feba76d465ac919c6e09",
           "origin": "source",
@@ -8220,18 +5748,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/lava-channel/r003/artifacts/metadata.json",
           "sha256": "1f9b48208a80770acf5c33ad869d148a09c1a53bc980023a0585bd03c179f8b5",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/artifacts/qa.json",
-          "sha256": "c5a30e8447c8c4b83436248f509c2419a8e86501ed71172973b2a069491cc335",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/artifacts/three-parse.report.json",
-          "sha256": "e000f5dc91a6810b00254e4239cd5739c307e0f2ce2bbf9cb325595d42fe9bea",
           "origin": "source",
           "owner": "lava-channel"
         },
@@ -8254,24 +5770,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lava-channel"
         },
         {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/original-brief.json",
-          "sha256": "f034e7111cbf29bec8b41de5fdd4408a7a1b34fefddbcc16c0cbd2f49ea0b0bb",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/pre-render-candidate.json",
-          "sha256": "7b8b21aeb7de26fff4a3e05af1bd15679105d26a21396e66593c8bd5aaedc336",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/pre-render-contract.json",
-          "sha256": "94f7fe9261f503dd5a19da480203e77727901683932d883e93bb06b2b22dd9d6",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/lava-channel/r003/profile-contract.json",
           "sha256": "e67c47f79af8e8a68f5dc41052a75602cb16599110b55ddf5af5a49a489c055f",
           "origin": "source",
@@ -8284,140 +5782,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lava-channel"
         },
         {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/candidate-integrity.report.json",
-          "sha256": "bb380295502777b02ec3cad51114128a52b87b6421ad66a1359a8efa8e8ad9ab",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/diagnostic-inspection.json",
-          "sha256": "88aa000a2d760372e6c7210b56b2a13ba42f6a5d95b4f784e817bee5fedb5662",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/execution-provenance.json",
-          "sha256": "df9f0577bda6d2ce97ef764653be95d50dc08b1432535b4e139ef82eac33fc16",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/height-measurements-technical.json",
-          "sha256": "ef6cc4921400f686d444e40cf93b1df41f3ba36c0e9c441353d8e50ed6de7d4a",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/height-measurements.json",
-          "sha256": "d0afa10ca4e721ff5e213e4cfc7a3664e1d53b455b216c0830e34e021496c38d",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/maker-individual-view-inspection.json",
-          "sha256": "2602b47a420ef13102fe4e6ba0cb48767f5afa3bd593fb206d57d1fbebb9338c",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/pre-render-schema.report.json",
-          "sha256": "07bcc584f5b88d2073cd588268dfbb73b7841ae6e4f8785050eb9747c519cffb",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/rebuild-a-execution.json",
-          "sha256": "a33867d0a125c9e9d004e2830223cc01abf40f2ca6f30ef9700a0dd9e698090e",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/rebuild-a-request.json",
-          "sha256": "e6f9d1000d7566b9e0ad2ebb9dac1bff5dde09ea4c0d36570c8eb97dab04be99",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/rebuild-a-result.json",
-          "sha256": "244bc1d00577d26aae3c79f9eec5d1e01d33af3bb81cb8d3c5549d4a2d8e5c0c",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/rebuild-b-execution.json",
-          "sha256": "ab3d8bdb6826c1e0d95afe8499523f63025d3cd40b1c6058d6939a321fa8e468",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/rebuild-b-request.json",
-          "sha256": "7c236a56f91eb2b3d588de2eeab77bececbb64c0fcb677437f832e12e9de159b",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/rebuild-b-result.json",
-          "sha256": "57bbcd07b3fcc0e06f79be3abb9508e72bf9fb211dd9706366613e4a173aeed9",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/render-request.json",
-          "sha256": "0bad01d8d3c8fbf3b9baa83e198ccbd7f4183d1c74fdd72a53d17fc0f55b5b30",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/render-result.json",
-          "sha256": "cfddf0ba7fd9f6529f458d25e536a1eb8f1c6c64623a76013b2ecff0a0343816",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/reproducibility-a.report.json",
-          "sha256": "9d931470f1cada91ff13385cbabfe38a0145fb906da7f08b7e4abf5093e53178",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/reproducibility-b.report.json",
-          "sha256": "fcccf01bebefd2508596d41a22e5e90152ce93299d86fe425362d90c3aa9bba3",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/runtime-parse.report.json",
           "sha256": "05731562236cefb0b186ee70260b5f1cc330766d699ed76e415138573e16c4ee",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/source-export.report.json",
-          "sha256": "f73fa846433af1822e7857424301c3b4ba3944c0d03493784b2dd999a7c2eccf",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/source-reexport.report.json",
-          "sha256": "33340b3f5875a7e53c156ba067a9b6b040a198c9cc8abc6eeda02e23ff9b87c0",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/source-request.json",
-          "sha256": "c5e9e0e7fbacdb7d0aa9b1f377fe06b6f5f8ffe2054ac72deb41f729dd80c756",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/source-result.json",
-          "sha256": "05c8de619531acca983f3ca566060a5f7eb39a1afb48693604f9f5404a10c06b",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/static-glb.report.json",
-          "sha256": "ff1233fa5285cab71c6368f2f2d520a54db48378352f1a08ea277a124764b59c",
           "origin": "source",
           "owner": "lava-channel"
         },
@@ -8430,12 +5796,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/lava-channel/r003/references.json",
           "sha256": "6b049e21e098df0f7f205345e5431073bc6ce42e1f8eae6afd59554316fd166f",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/subject.json",
-          "sha256": "bb4763f2e3559b0ea8b22eef00d7146158874d9f09345b589faa8212368f3c41",
           "origin": "source",
           "owner": "lava-channel"
         },
@@ -8460,12 +5820,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/lava-channel/r003/views/rear.png",
           "sha256": "8703dcb896e24c7d1d7af34ddbe2fc3e953d9bd5108f8f4101fefc00f7104996",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/views/render-config.json",
-          "sha256": "869d8d542b8e70d12e0b935c066724e5898430c31760278df520914f7720d490",
           "origin": "source",
           "owner": "lava-channel"
         },
@@ -8500,18 +5854,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lava-channel"
         },
         {
-          "path": "production/small-life-batch85-height-repair/lava-channel/r003/views/turntable.json",
-          "sha256": "387ea4a38d92db8c3091d2c772ec794c1f79eb9911207df619b9852374403623",
-          "origin": "source",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/gltf-validator.report.json",
-          "sha256": "3612494042a2f1905e8e9b0e8e3fa768d4e8d4627e11f1c0d00d258c3815ada8",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/metadata.json",
           "sha256": "0b95ff654962f39822b739d922fedce816b396a4224fb167ee5e953ebf74a5dc",
           "origin": "source",
@@ -8526,18 +5868,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/piedmont-glacier.glb",
           "sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/qa.json",
-          "sha256": "a4525a083f13ae2669a2a23cae7a95721c447860b4098acb99448a33d307f421",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/three-parse.report.json",
-          "sha256": "e3fbfd428df46b4f007f3f69de4044e927a39edb63c4fd9885e441fff5ed7fa7",
           "origin": "source",
           "owner": "piedmont-glacier"
         },
@@ -8560,24 +5890,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "piedmont-glacier"
         },
         {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/original-brief.json",
-          "sha256": "e08d743ab3d0672fc84d34ec53146843224dd43a54337edc6192dcf7f27faf4e",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/pre-render-candidate.json",
-          "sha256": "b7d7d711d49ea9a8afe7c28fcc9de8fa92c1382cc67f2043cbe19d7332821c07",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/pre-render-contract.json",
-          "sha256": "692d6011018320c5d17d064ee08927a316ef184240891221109baf411665fb99",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/profile-contract.json",
           "sha256": "6c5dc93f84e920a17e9537b71669f038d4c6fb5eb3b033c9dc018d15f9b8ccec",
           "origin": "source",
@@ -8590,140 +5902,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "piedmont-glacier"
         },
         {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/candidate-integrity.report.json",
-          "sha256": "3a4f77b0915deff390cf8353d8e1aea60e6a03c2a2b878ddb3617a2e14cb0eeb",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/diagnostic-inspection.json",
-          "sha256": "39d736f4825ee960fa6c47415ac0c0065a85d85023bf44b7e6e96a968b26d84c",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/execution-provenance.json",
-          "sha256": "fb5157cbecd693e50839f8a3d1e2d913f47e15e1e2346557419cd9b0699fa04c",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/height-measurements-technical.json",
-          "sha256": "f6878ce7032f2b6e4a607399df3ef3b9350d03d420253b1bced176fcd992e72d",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/height-measurements.json",
-          "sha256": "594d214573c32ba3d55263ff82510226f6e4610c11d9f5ee35e83dfa846531a2",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/maker-individual-view-inspection.json",
-          "sha256": "4c30e923438102a22bc2cb5a501580a12c47280a1fc4633587a2b955953f1676",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/pre-render-schema.report.json",
-          "sha256": "0696e4aa446526d19890f6edfa9b80ba38eb2b494e11473d84e22d4e053fccba",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/rebuild-a-execution.json",
-          "sha256": "db57acd73d8a1ea4a54376eb5e1c291a464499e298abec63570b398491f0846b",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/rebuild-a-request.json",
-          "sha256": "9e25f48d1fd62f1dad49ee212398e31f75479ee529532483b979ad32b734b251",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/rebuild-a-result.json",
-          "sha256": "84295266a1bb02c8d10022e6f9075208361022301020bdff6f466acc2ac8539f",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/rebuild-b-execution.json",
-          "sha256": "0b746a5eaeba9375580e7e4048a2b378f6e4cd0bebf7746c67041750cdc43c4a",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/rebuild-b-request.json",
-          "sha256": "21cedd69715e3e886ed24068336e0f4e6ab1255e758da73720585adafd42d799",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/rebuild-b-result.json",
-          "sha256": "eeab7c73d9c918ee8c765b632a51dc36f9105addbc0c74f235528ac42ff63e7d",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/render-request.json",
-          "sha256": "ed3211594060d746b428906d1a617a387481292ea0628452ba29931a87bcd037",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/render-result.json",
-          "sha256": "87bf8aeecf4ea5551956b0b73d09abb7ec24cb644d678754c75f16531dc7fd21",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/reproducibility-a.report.json",
-          "sha256": "077fa4b1d7d962fd052846081ba39b40a6fb3e0aeec05089a20d1b1f797a5a21",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/reproducibility-b.report.json",
-          "sha256": "95bbe800ae86d67280f2365485befe3d56f84375bdfa61bec4bb52693dcc44ec",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
           "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/runtime-parse.report.json",
           "sha256": "239b9874297dfa2727869e5208c1aa06e9226b1e456bff88aa3e98e1a28cee18",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/source-export.report.json",
-          "sha256": "10ed9254618f0fc0dc8698fa389cc2cdf8ff2effe6de0bc2b51482b954fdf600",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/source-reexport.report.json",
-          "sha256": "db3489c32338dc9d4ede9b419de17eba64f2d21c4b5a2dd6e2cf35b979c7a65a",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/source-request.json",
-          "sha256": "6ba88c2d0ede06bd5812b15724bebac70aabd9dfee7e902fb38cbdc041d6c173",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/source-result.json",
-          "sha256": "373c4f37b7d5856ffce60f77efdf69f3ea394723868a45e2053dfb1c44831c3c",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/static-glb.report.json",
-          "sha256": "dd73b64cb9d39e7ee875728a4db8f7b9048524199d31faf7a56581b2c077e39f",
           "origin": "source",
           "owner": "piedmont-glacier"
         },
@@ -8736,12 +5916,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/references.json",
           "sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/subject.json",
-          "sha256": "136f555052887d88033f661cf94a1eb15709729b8f32771b4b3d2349f8a3c112",
           "origin": "source",
           "owner": "piedmont-glacier"
         },
@@ -8766,12 +5940,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/views/rear.png",
           "sha256": "fe5a5b5a1c8c0f7fac876e51306cb5fbef38cfb7e5b1ba4dbbca4fc8ffe3ae90",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/views/render-config.json",
-          "sha256": "bf2fc70ff11d6a0fcd7547779ebde999ea0924c905b8f9c85ce262c28f750350",
           "origin": "source",
           "owner": "piedmont-glacier"
         },
@@ -8802,12 +5970,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/views/top.png",
           "sha256": "49318eee90c8fa57eea0b22d98897cbe94ae1a8b19a89f2e5ecc9da0a71044cc",
-          "origin": "source",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/views/turntable.json",
-          "sha256": "34fec120243dea8ea7de4ff00a139a1692466e5601d2c251f8b1085f10f3fff7",
           "origin": "source",
           "owner": "piedmont-glacier"
         },
@@ -8848,26 +6010,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/difference-processes.json",
-          "sha256": "2508c0c8c7bd1ecb8beec49fed6fd072cb682868ecb5b64e986ddca56036f2a6",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/final-integrity.json",
-          "sha256": "598de51c83c1968beec69ce915b5585f2f7d59dbe5cd4e64e601ddc72102ed1a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/finalize_report.py",
           "sha256": "bf9542002f1e84f4f2b9ab95e36c0c90e20c2bf06220b64e22e7013d3b75be26",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/fresh-processes.json",
-          "sha256": "599c3908ce2e7a63033cf2dc6d48d1b92b63017840baf27b668c9cd492ca3fdf",
           "origin": "review",
           "owner": "$batch"
         },
@@ -8890,110 +6034,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/immutable-input-audit.json",
-          "sha256": "94c107d185197df79b6dabaaa8359b821c6fb750fe35bcd08ee092809a98b2f4",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/independent-qa.report.json",
           "sha256": "de575cac4a6e81f5b9b1e1c5825410b40710d8f3b53ea79ecfc5fbe2e72f361e",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/inspected-input-manifest.json",
-          "sha256": "48abb8396c554bdad7574a115be6b4bc2f552ec5246d67aea676ec1a6ea244f3",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/karst-polje/glb-difference.json",
-          "sha256": "7af350f166ecd8bbdcec421103cd64d7839bed429c5f4c3ccf8632dbd3ab82bf",
-          "origin": "review",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/karst-polje/glb-logical-difference.json",
-          "sha256": "462b497850a55d300d0e40a64477196b75b01a26c28e3cdcfb4f45ccc6971323",
-          "origin": "review",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/karst-polje/khronos-fresh.json",
-          "sha256": "7046b60df4374f4d1f1de3007ea4a45a7a2acea2f466226b7d29b7985076f1fd",
-          "origin": "review",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/karst-polje/project-validation-fresh.json",
-          "sha256": "fb4ee1b07a20b34c590c18cf6a23e18d8046e116652d0cc8ec23e5a3bb91ae73",
-          "origin": "review",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/karst-polje/runtime-fresh.json",
-          "sha256": "a27779d4ae98a5b886f42fd13d8f578fb1afbc7c0159d1c69a053d2a5773dea6",
-          "origin": "review",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/karst-polje/saved-source/source-reexport.report.json",
-          "sha256": "e34aae2dc1a9f8baaee428bcbb517d687f915a99b05e650e2db3e7c6dad396d8",
-          "origin": "review",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/karst-polje/source-difference.json",
-          "sha256": "3aaa1c14b73a196a7ffa84b5d619ddfdb6dc0210eecc892f00f42306c728447b",
-          "origin": "review",
-          "owner": "karst-polje"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lava-channel/glb-difference.json",
-          "sha256": "ef0a935e75c36256f7208f834b5f556512ca6c0232ab71b8fde86991b808b556",
-          "origin": "review",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lava-channel/glb-logical-difference.json",
-          "sha256": "5de5077ef3f34d4f90fea67cd93dbf5fdf605aa83b6c5c7889d448c447f91867",
-          "origin": "review",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lava-channel/khronos-fresh.json",
-          "sha256": "5dc293a4a8814f82d93704c6042c76592b7671023a997f5b08ba094ac7eabd96",
-          "origin": "review",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lava-channel/project-validation-fresh.json",
-          "sha256": "bb380295502777b02ec3cad51114128a52b87b6421ad66a1359a8efa8e8ad9ab",
-          "origin": "review",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lava-channel/runtime-fresh.json",
-          "sha256": "4354ec3cfe08fe0c0e6543bb2bb036e3b715c9a116ee5294c1dfde0facfa848e",
-          "origin": "review",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lava-channel/saved-source/source-reexport.report.json",
-          "sha256": "a0aaa1f196be412886703c6d865bdb0cdedaf0bab2d1e6de3af7e0b17dfd920f",
-          "origin": "review",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lava-channel/source-difference.json",
-          "sha256": "99c11cfb36334557314e1be7b9c940bfb229fdb3fcaecf94f227a9488035c098",
-          "origin": "review",
-          "owner": "lava-channel"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/lean-byte-identity.json",
-          "sha256": "67041c07a008cf33b6a5d0d19ee4f6aa9ea2ef97296171d851e83674f62f1348",
           "origin": "review",
           "owner": "$batch"
         },
@@ -9008,54 +6050,6 @@ export const FIFTY_TWO_RELEASES = [
           "sha256": "6857f24490d8911c71aa3940b351a2469428f851b03907a3aa02652117aa0b2c",
           "origin": "review",
           "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/parameter-measurements.json",
-          "sha256": "c85a3a9a2aab13663058812bd6f27a5dc324ca110d3451818839e7192ffc85a2",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/piedmont-glacier/glb-difference.json",
-          "sha256": "1c16f3da7dc8e281a7772e65c1f491dafcd2f6593910e8c21d1e2880917bc1fc",
-          "origin": "review",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/piedmont-glacier/glb-logical-difference.json",
-          "sha256": "acbb5fc46d20e2796af7ae95818158e08699dc1f65c99cd6dcb160998a98ad15",
-          "origin": "review",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/piedmont-glacier/khronos-fresh.json",
-          "sha256": "71d0c59c802bca83b82a237de158e52cf68ed3f54af6e841cc7c90649f7cb3e2",
-          "origin": "review",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/piedmont-glacier/project-validation-fresh.json",
-          "sha256": "3a4f77b0915deff390cf8353d8e1aea60e6a03c2a2b878ddb3617a2e14cb0eeb",
-          "origin": "review",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/piedmont-glacier/runtime-fresh.json",
-          "sha256": "1bb54af01d9659e915eab33ae537994a3d74d9a460f7a744e2ae43a30a7861c7",
-          "origin": "review",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/piedmont-glacier/saved-source/source-reexport.report.json",
-          "sha256": "b460d3a0e72ebec3c27c084ae199de11d7d80cb12e4c35f0e8a57ebee618a30d",
-          "origin": "review",
-          "owner": "piedmont-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/piedmont-glacier/source-difference.json",
-          "sha256": "ed8e9e29748f44ecca55e3e1446d0ccdb1af48c8515a75c0350c750c2a5e1da8",
-          "origin": "review",
-          "owner": "piedmont-glacier"
         },
         {
           "path": "qa/continuous-small-life-round38-20261020/batch-85-height-repair/run_diffs.py",
@@ -9088,8 +6082,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/next52-g08-release-20261021/retention-summary.json",
-          "sha256": "4135c4d7063986d453a86a5f3fb1a79ee9d34e507cbd0e038a1a787b9de1165c",
+          "path": "qa/next52-g08-release-20261021/process-archive-index.json",
+          "sha256": "1f4b6cb5f484d5146c66c0196205e390a261ee02be8daa7286c966057c9a6752",
           "origin": "release",
           "owner": "$batch"
         }
@@ -9099,7 +6093,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g09-20261021.json",
-      "sha256": "282df59ac09a11f1e24c2c4b1d5bb112be8c746f10f2364c3c931cd1bb1c4b95"
+      "sha256": "1dd448167b5e249d95385b074a1d392ede987f3cbca25e19ea07629cfaf8ab93"
     },
     "release": {
       "version": 1,
@@ -9118,7 +6112,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g09-release-20261021/source-bundle.json",
-        "sha256": "d70c90815479a3f3d3da517efffb19d715bb99d0f33b82fec046f59142a5ece3"
+        "sha256": "438bf65688d813ff2f721a6a42d2f1397f7f1a05822a48e2f852234ca5b05c1a"
       },
       "protected_source_inputs": [
         {
@@ -9370,26 +6364,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate-validation.json",
-          "sha256": "a275b9d0d72a02d1787bac71f45161edb26759041fa677abe7f4be9ef018b427",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
           "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate.json",
           "sha256": "8a35e5654b9699793b71df4f4c77ced3f7a7481def419a96f35090c9b2ed88a7",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/concept-evidence.json",
-          "sha256": "0f62c2b3777bb33e4960d8324cbabbb32328103d09ba2dc2aabacf96e30fe688",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/concept-validation.json",
-          "sha256": "dd8b11752fb4a25a48de7ca4331d7d59b29e56a224b6ec440989439336a946c5",
           "origin": "source",
           "owner": "ernietta"
         },
@@ -9400,38 +6376,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic-disposition.json",
-          "sha256": "fa50eab99bd661f8c6fd2cb162459e8e50e577457035069d322821feabaa1fb1",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic/render-config.json",
-          "sha256": "0ad738e3f05c754d6d37e21da2c95bf223020c484831134ea64d42ca3a9e8ba7",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic/render-manifest.json",
-          "sha256": "f6654996094c877c021aee01134d403f282e3e438961f51dc1bef33d11cd839c",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic/turntable.json",
-          "sha256": "5f53996d6973f00ac4b22f060a2c8308f001382339972c7c7f29ae6563719722",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
           "path": "production/batch77-ernietta-repair/assets/ernietta/r012/final-rebuild-binding.json",
           "sha256": "c3223c6f74eafbcb1c4445f3ad45551c81d41fd78f85c7a1e1af866a215122a5",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/fresh-schema-check.json",
-          "sha256": "b7e1aaf377044c8304d60cc88175492fe84dc3ce274819bd6bc5da3cd0641499",
           "origin": "source",
           "owner": "ernietta"
         },
@@ -9526,12 +6472,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/render-config.json",
-          "sha256": "822e818cae4ac2da85f1377c31aa5d2de0c69eac2b3ee48c18c867dc2d2c52d1",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
           "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/render-manifest.json",
           "sha256": "4e61091e798ed8066b5462c6c9daf3d92ee37ba1f6919da6214783fbe3d1ddea",
           "origin": "source",
@@ -9562,26 +6502,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/turntable.json",
-          "sha256": "0329a6d35934b1ffe1498bbfbd339719db333a5908b84aae890e32882ad14add",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/qa.json",
-          "sha256": "1bf82fcd45fc5c8b1de2af7fd839e340eacae5e5db9c235548435c6d309a9da8",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
           "path": "production/batch77-ernietta-repair/assets/ernietta/r012/references.json",
           "sha256": "1d9e1f03ee1c23190ff5c533f5494ec1250331a3c1162444dc23467b278f6f3b",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
-          "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repair-boundary-check.json",
-          "sha256": "b6166a3a77289d96bc9fffe73d277be8ab38fa5f035c5adf2311112f973b9aa5",
           "origin": "source",
           "owner": "ernietta"
         },
@@ -9652,12 +6574,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "production/batch77-ernietta-repair/original-freeze/concept-generation.json",
-          "sha256": "3398f991a550ca2f03e063cafb21841801d74d4b9a22d3e2650bb45145c75dca",
-          "origin": "source",
-          "owner": "ernietta"
-        },
-        {
           "path": "production/batch77-ernietta-repair/original-freeze/concept-original.png",
           "sha256": "83e71efc37cd370eb76008b75220a56c48c4f2a0ac0a927abcc44c58d3352a5c",
           "origin": "source",
@@ -9706,12 +6622,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/fresh-render-compare.json",
-          "sha256": "1f7c4d9c729c846adedbf1b4f8d27d195156870862996c293e232b86f5850cd0",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/fresh-validate.mjs",
           "sha256": "5b1a7ffe37fc479972b1d01b7eb3b1fd6b24e8e0f3636e4dc271f0084f263b2f",
           "origin": "review",
@@ -9724,62 +6634,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/independent-bounds-closure.json",
-          "sha256": "aa2301625520e959301f683972efbcf03d7b7765a95ddb188901afa261d6fb30",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/input-hashes-after.json",
-          "sha256": "3cd849857ce97f25208ebf264016507d0d5be0653e051bac7ddb53e21fe3246c",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/input-hashes-before.json",
-          "sha256": "3cd849857ce97f25208ebf264016507d0d5be0653e051bac7ddb53e21fe3246c",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/integrity-check.json",
-          "sha256": "ce9da5f686608e2bb4ad28cdea0c3d9caf81e7908349619b5ca17423307379a0",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/integrity.py",
           "sha256": "68d42d01e36cc45d2498dd9f88d3156ed6af96494fcaad9ff46106943e04e091",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/khronos-fresh.json",
-          "sha256": "7c82804efe20924309dff98584b29b79242b47bf85bb641c53187001070e29a8",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/lean-byte-identity.json",
-          "sha256": "f6fc401c133e8ea2a4883254df1335fb6fb251cb7fa8564df93403546e125028",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/no-mutation-check.json",
-          "sha256": "8f63e39af8b15ca5ff4c1982abf1132feaf5dbac2b11f5c0d3cd635d731fd5b9",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/pixel-source-inspection.json",
-          "sha256": "10ad18dfef74885178f9c7e3544127a6ddde79aac29e340a85f8044ef3a6395d",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/project-fresh.json",
-          "sha256": "a275b9d0d72a02d1787bac71f45161edb26759041fa677abe7f4be9ef018b427",
           "origin": "review",
           "owner": "ernietta"
         },
@@ -9790,32 +6646,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "ernietta"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/reopen-diff.report.json",
-          "sha256": "53abef3ff0af34c270650c0969cb48edb41ab788dab656f2269c0d969ee886b5",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/report.md",
           "sha256": "b7be1c80bb41b02f7c8fd2a0e503b083b83626ea76c7165a0cd60fb8ccae8d40",
           "origin": "review",
           "owner": "ernietta"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/source-mesh-diff-raw.json",
-          "sha256": "4a7c5ed32680eb2aa9f098dc33b6e5328c3dd41414ff484b6205cd0a1beb90b6",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/three-fresh.json",
-          "sha256": "d5e316f6062f221b9fb0c475f889399b8a58439919b497391adb0066f437c077",
-          "origin": "review",
-          "owner": "ernietta"
-        },
-        {
-          "path": "qa/next52-g09-release-20261021/retention-summary.json",
-          "sha256": "1aa7fc5686de8e7550d9188da5683292663e99df0ec107b262e447cbbf3bf3e3",
+          "path": "qa/next52-g09-release-20261021/process-archive-index.json",
+          "sha256": "a0a97ab32b1b69dfcbc9ecda7adcff5eeb74895304b3509d769061f1e3a08417",
           "origin": "release",
           "owner": "$batch"
         }
@@ -9825,7 +6663,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g10-20261021.json",
-      "sha256": "e70efcb67da3d74d1208ac3cb356b0b9db07ebbc4dae65daa2f0c44640be64f2"
+      "sha256": "9ec780fc43b1fcf5e44e167ad6ef37534be5aa3b62c6ffbac30a782baaed694d"
     },
     "release": {
       "version": 1,
@@ -9844,7 +6682,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g10-release-20261021/source-bundle.json",
-        "sha256": "fb09a29d54ee6e65e34f68b56da06b266a0811da756fb3122fc650db41efa5e2"
+        "sha256": "a26b6ad8d1b3ccacae29a5b129a2a787d0b4f329a895e37ba93a93c148b7eb3d"
       },
       "protected_source_inputs": [
         {
@@ -10300,12 +7138,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "caytonia"
         },
         {
-          "path": "production/batch92/assets/caytonia/r002/brief.json",
-          "sha256": "e57b1b57bd9406526d0f80039cef804cc865699c8f7cebfa8785614d9ae077e3",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
           "path": "production/batch92/assets/caytonia/r002/build-config.json",
           "sha256": "2b275494362c65fa8e75cd0e6754a611abcd422cb0203d547eef4a41391d72e0",
           "origin": "source",
@@ -10324,26 +7156,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "caytonia"
         },
         {
-          "path": "production/batch92/assets/caytonia/r002/candidate-validation.json",
-          "sha256": "8865f80dbad87f89f66035af06c1a48085b2c546e8478aef171f270110a23975",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
           "path": "production/batch92/assets/caytonia/r002/candidate.json",
           "sha256": "8a8135e40a6a4906ee066d7f67ca4b79b3a9bdd783449c796142850013c6b98d",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
-          "path": "production/batch92/assets/caytonia/r002/concept-evidence.json",
-          "sha256": "fce58e07a255fb44b77247e678b2aeaf72287da51b9ce7ec660ae19410688ada",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
-          "path": "production/batch92/assets/caytonia/r002/concept-generation.json",
-          "sha256": "19bd1f8af48da955f1ea798e466e34718e57f6b405cf1b8017cd77b04a5b01a1",
           "origin": "source",
           "owner": "caytonia"
         },
@@ -10360,44 +7174,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "caytonia"
         },
         {
-          "path": "production/batch92/assets/caytonia/r002/concept-validation.json",
-          "sha256": "2852ee44c2deb221ddc445c4c65ad015712ed58e355c87048c1be31b49d2047f",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
           "path": "production/batch92/assets/caytonia/r002/contact-sheet.png",
           "sha256": "7c7f804ea83d1d473b22e2cd80aabd2ee5b4b998873e3a78b70004f88a5031f8",
           "origin": "source",
           "owner": "caytonia"
         },
         {
-          "path": "production/batch92/assets/caytonia/r002/diagnostic-disposition.json",
-          "sha256": "511c18970fe8ad74eca3df9028e6488e43d00c1b4938cb2c431a5428afd1630e",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
-          "path": "production/batch92/assets/caytonia/r002/execution.json",
-          "sha256": "3ced360f0a984a27f849238832ba6b11d1f98dd9d94b9164100bcd0f1ebb8b5b",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
-          "path": "production/batch92/assets/caytonia/r002/final-rebuild-binding.json",
-          "sha256": "0db37c3b03c8ca9e83253fd882098354eea598f8e93c508592655407fd08aec4",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
           "path": "production/batch92/assets/caytonia/r002/generator.py",
           "sha256": "a14c48a3bed1edbcbf76da43c81ea12823cabbefba55d2c88265814b2c9feb87",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
-          "path": "production/batch92/assets/caytonia/r002/geometry-semantics.json",
-          "sha256": "fa56dbc296067120d78935409320cf564bb74d314b0a3e093d6c31d9fe264eae",
           "origin": "source",
           "owner": "caytonia"
         },
@@ -10486,12 +7270,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "caytonia"
         },
         {
-          "path": "production/batch92/assets/caytonia/r002/proof-final/render-config.json",
-          "sha256": "8567d93530e7340baa5659fc4438dd999829bbadf24f2dc59e71f12a74c5887d",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
           "path": "production/batch92/assets/caytonia/r002/proof-final/render-manifest.json",
           "sha256": "cf31d5da8698f3344617af0739e48536ed6cbe9d765ddd379bff07994089769f",
           "origin": "source",
@@ -10518,18 +7296,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch92/assets/caytonia/r002/proof-final/top.png",
           "sha256": "954cfa82d318f1ec44ee4eb9ab832aa1bb0c4ccf327794766d03ee9c56cf2d25",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
-          "path": "production/batch92/assets/caytonia/r002/proof-final/turntable.json",
-          "sha256": "fc05df6d602dd37cc9783027e5ae923426e834fe2a8ac7490d6d935dd53d88aa",
-          "origin": "source",
-          "owner": "caytonia"
-        },
-        {
-          "path": "production/batch92/assets/caytonia/r002/qa.json",
-          "sha256": "a7c95bb4e60b425607ed5c7c501265a0012fbf97d0bc26df67ce2b33ed7e2424",
           "origin": "source",
           "owner": "caytonia"
         },
@@ -10588,12 +7354,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "eophyllophyton"
         },
         {
-          "path": "production/batch92/assets/eophyllophyton/r004/brief.json",
-          "sha256": "689c34afae4473c212117855422c038c7f77635eaee013324ce20981910f198c",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
           "path": "production/batch92/assets/eophyllophyton/r004/build-config.json",
           "sha256": "c64e7c853c6561235ef3955419e78557a37262f43959b5a8f1bf3517cc76d296",
           "origin": "source",
@@ -10612,26 +7372,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "eophyllophyton"
         },
         {
-          "path": "production/batch92/assets/eophyllophyton/r004/candidate-validation.json",
-          "sha256": "a796c3481a2719a151a7c984607b3e0d4477370031369f4ac46a4db13d6c3cb9",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
           "path": "production/batch92/assets/eophyllophyton/r004/candidate.json",
           "sha256": "40e2cb3c7ae88b6758b93746d9106a9e7a73150c02ef41db4af0f68f4fb1e7c5",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "production/batch92/assets/eophyllophyton/r004/concept-evidence.json",
-          "sha256": "21d3c84f24d3f40d0ac6f9b614c682afa0ef2fc3d0a3d392fa9d6f6532990f04",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "production/batch92/assets/eophyllophyton/r004/concept-generation.json",
-          "sha256": "b3cde9bed26cef887e4862872d2fa1e02408bbc3de43fc1d79417ceee40ee679",
           "origin": "source",
           "owner": "eophyllophyton"
         },
@@ -10648,44 +7390,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "eophyllophyton"
         },
         {
-          "path": "production/batch92/assets/eophyllophyton/r004/concept-validation.json",
-          "sha256": "616e4e40cb6c2551eeb5dba61e11d2c8188e6aea7b8bb19def5c11f6439bf28f",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
           "path": "production/batch92/assets/eophyllophyton/r004/contact-sheet.png",
           "sha256": "c69e2ef97a3145e18456d105e7ee97b56b1bb666a0d1599a3d328e1d65115aaa",
           "origin": "source",
           "owner": "eophyllophyton"
         },
         {
-          "path": "production/batch92/assets/eophyllophyton/r004/diagnostic-disposition.json",
-          "sha256": "9ac455ab54f4621d0ebb1cdb9ebc60eb07575febb1f1067f621b2266c67f79b1",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "production/batch92/assets/eophyllophyton/r004/execution.json",
-          "sha256": "cc215bd87327db4b6951f0282899700a5c031b8263f48179c368e27e84bae7eb",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "production/batch92/assets/eophyllophyton/r004/final-rebuild-binding.json",
-          "sha256": "206cdf84841fe831d0920baa8280bd82b725199ec4401f5852af6a884a074767",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
           "path": "production/batch92/assets/eophyllophyton/r004/generator.py",
           "sha256": "36e3fed93e7e10b9094dc28cc4ef6162ffc239d8dced51ace044c0bc8a3b11a0",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "production/batch92/assets/eophyllophyton/r004/geometry-semantics.json",
-          "sha256": "b68010859a8dc5e5856abd9c9b09f346563fabbdbcde509a9f5e80a0dea94a15",
           "origin": "source",
           "owner": "eophyllophyton"
         },
@@ -10774,12 +7486,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "eophyllophyton"
         },
         {
-          "path": "production/batch92/assets/eophyllophyton/r004/proof-final/render-config.json",
-          "sha256": "76ae64ded4937eb02155ea1695bf199638db3c6fdb95b1d616d3f6ba841489ea",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
           "path": "production/batch92/assets/eophyllophyton/r004/proof-final/render-manifest.json",
           "sha256": "eda3ac817d2937d90e83b29963e760d8d0e99cc7bbb543acdf00716fba7296e3",
           "origin": "source",
@@ -10806,18 +7512,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch92/assets/eophyllophyton/r004/proof-final/top.png",
           "sha256": "ee070613b37ab6028f4540ed599bc3887cff3fb80e244c92057833767828c8b6",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "production/batch92/assets/eophyllophyton/r004/proof-final/turntable.json",
-          "sha256": "2979567a991bdf40df8f703870d23b771ddd4e25ad73ab479787c4fa4b085aa8",
-          "origin": "source",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "production/batch92/assets/eophyllophyton/r004/qa.json",
-          "sha256": "0d50dc0757de6849815c6588ec33f24f5dba26398212122c7d7c290a9cdd7be9",
           "origin": "source",
           "owner": "eophyllophyton"
         },
@@ -10876,12 +7570,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "oncoid-bed"
         },
         {
-          "path": "production/batch92/assets/oncoid-bed/r001/brief.json",
-          "sha256": "f6e5579055746c14917afcc2a67bfa0c81fc5264912a7dfb245e7f65907b37d7",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
           "path": "production/batch92/assets/oncoid-bed/r001/build-config.json",
           "sha256": "5f01f8cd530f18ec5a6728098ad62bb4bbe7c0c020e09b790c1120e9259ce5c7",
           "origin": "source",
@@ -10900,26 +7588,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "oncoid-bed"
         },
         {
-          "path": "production/batch92/assets/oncoid-bed/r001/candidate-validation.json",
-          "sha256": "f52da62a298a74a4f4ca49782d0ece01f3bf3b8a2ad8b03e313b0de7b99d73d0",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
           "path": "production/batch92/assets/oncoid-bed/r001/candidate.json",
           "sha256": "9a16b871ddfbd32c140c9db8d0c0c3c249db6f1847996aac5dd53fcedb07b313",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/concept-evidence.json",
-          "sha256": "b6593f6eb6c76cd7c64f19642303fe5776039414376e7efcc23f538d452eb728",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/concept-generation.json",
-          "sha256": "51f76bb0c350763f04e9ea3581d2aaacbf3f2ae8da32a4d0a9f530ed81956ac0",
           "origin": "source",
           "owner": "oncoid-bed"
         },
@@ -10936,44 +7606,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "oncoid-bed"
         },
         {
-          "path": "production/batch92/assets/oncoid-bed/r001/concept-validation.json",
-          "sha256": "219cf00b51724a7e60441a33f21cfff9c48e5a33882f995ae70782be1f8dc71e",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
           "path": "production/batch92/assets/oncoid-bed/r001/contact-sheet.png",
           "sha256": "0afdf2cbf1fd4a09459acd04fc635ff63fab877ba96119d2920c979783ef2554",
           "origin": "source",
           "owner": "oncoid-bed"
         },
         {
-          "path": "production/batch92/assets/oncoid-bed/r001/diagnostic-disposition.json",
-          "sha256": "c32727785a6a9e5e0987d4d6833176038c90c745f711e78d92b3561da7e5362c",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/execution.json",
-          "sha256": "a90f512b2b38145893979f7044209fe7d703d7ff570da96bd4aa68f853231891",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/final-rebuild-binding.json",
-          "sha256": "b8837032408b435483cc29ae2f340a64925153338e0d7c6435a43c2f4349704a",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
           "path": "production/batch92/assets/oncoid-bed/r001/generator.py",
           "sha256": "5d4c6cbe1e60a6880150229b78967d712bea9e6cb58137b24171172ca1132548",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/geometry-semantics.json",
-          "sha256": "9eb7b514a204ac2590b4830abfc31970a929311d21e9e84aa83cb01ada151c4e",
           "origin": "source",
           "owner": "oncoid-bed"
         },
@@ -11004,12 +7644,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch92/assets/oncoid-bed/r001/model.glb",
           "sha256": "e18d0eb0817ad70bc1dbc5c4106d8ec536a11e20d5e090794094d119ac9f9da8",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/modeling-freeze.json",
-          "sha256": "b1b8f43591ca6853b5cb08f283ece33b7a78bac7437fde9e050ba7885ed31cb7",
           "origin": "source",
           "owner": "oncoid-bed"
         },
@@ -11068,12 +7702,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "oncoid-bed"
         },
         {
-          "path": "production/batch92/assets/oncoid-bed/r001/proof-final/render-config.json",
-          "sha256": "b6736a5544a609471df4c79bf96da10bb6db1f698b331802b8ea2b6b87252378",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
           "path": "production/batch92/assets/oncoid-bed/r001/proof-final/render-manifest.json",
           "sha256": "1944b98c5dad7d7f9c697e4675e9bd8d0560d15083b13304756807e32d1d1587",
           "origin": "source",
@@ -11100,18 +7728,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch92/assets/oncoid-bed/r001/proof-final/top.png",
           "sha256": "16c810975504f6aaa286d548be4ca17f8cd8a67557016d09611ea4ff7ca5487e",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/proof-final/turntable.json",
-          "sha256": "fcd7cc6e1e0a093722e6047486ae395d6f8f0ba0df84dc1070fce2dc4dedd227",
-          "origin": "source",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "production/batch92/assets/oncoid-bed/r001/qa.json",
-          "sha256": "b55df13b550a883cfbef7cc6dcaaf1a3773548065b34507237b35ec04fa0838b",
           "origin": "source",
           "owner": "oncoid-bed"
         },
@@ -11170,12 +7786,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "thrombolite-mound"
         },
         {
-          "path": "production/batch92/assets/thrombolite-mound/r003/brief.json",
-          "sha256": "84f81e8b14f887f7b473a2b7510ecf392385f08e7a02b79d02b2ffaec74eec96",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
           "path": "production/batch92/assets/thrombolite-mound/r003/build-config.json",
           "sha256": "58ef496bc48e71bf3234c833e7ca6ff8b8bcab3890c0ef9cf8341a2bc9f547b6",
           "origin": "source",
@@ -11194,26 +7804,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "thrombolite-mound"
         },
         {
-          "path": "production/batch92/assets/thrombolite-mound/r003/candidate-validation.json",
-          "sha256": "a59f410fb069afacfdaea2117e278b4aa5aa3a201d66c4a2b9fb7628bce9564c",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
           "path": "production/batch92/assets/thrombolite-mound/r003/candidate.json",
           "sha256": "e94dc567bcdbeec0d529a8d6343ec8ae796d2ab21747a11f4f88ce4985ca0b51",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "production/batch92/assets/thrombolite-mound/r003/concept-evidence.json",
-          "sha256": "28887dab102c0bafc7a580f2b7a8887f5a54e3eba445ef49a3ba7c1179dff375",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "production/batch92/assets/thrombolite-mound/r003/concept-generation.json",
-          "sha256": "b0b621ed8c214a04c4fef732132b9764972f4e6ced1716421aaf9222b5153262",
           "origin": "source",
           "owner": "thrombolite-mound"
         },
@@ -11230,44 +7822,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "thrombolite-mound"
         },
         {
-          "path": "production/batch92/assets/thrombolite-mound/r003/concept-validation.json",
-          "sha256": "3c1a9af88fcabc42524b6db7cbeabf04a71ec22da686097f41a45ca0e0a7e914",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
           "path": "production/batch92/assets/thrombolite-mound/r003/contact-sheet.png",
           "sha256": "c53e6585f8b5935b1af33885583c802d14ff08c045a4c6b272f7863ecba572a7",
           "origin": "source",
           "owner": "thrombolite-mound"
         },
         {
-          "path": "production/batch92/assets/thrombolite-mound/r003/diagnostic-disposition.json",
-          "sha256": "f07785cdfbebe43f75b6a0a8ba5a898b150f184fc5a02bea9c5b47d7417fca3f",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "production/batch92/assets/thrombolite-mound/r003/execution.json",
-          "sha256": "668abbc174ab0ff11d6e295381c39a5a8996ad5b9e3f2f752c985b95ce2c484a",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "production/batch92/assets/thrombolite-mound/r003/final-rebuild-binding.json",
-          "sha256": "a13d2690b4b5d9d2e0dcbad25abdbefca1888cedd722fec1c2813007ae1d9c18",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
           "path": "production/batch92/assets/thrombolite-mound/r003/generator.py",
           "sha256": "c7a762de59a47fec252c5bb2fd79b1ad129bda7e1c9a6678c5cbd894712fe321",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "production/batch92/assets/thrombolite-mound/r003/geometry-semantics.json",
-          "sha256": "181a2633020c2630c71141e71cc0c5ba2df84f863b65912e9726c2eba8a6b099",
           "origin": "source",
           "owner": "thrombolite-mound"
         },
@@ -11356,12 +7918,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "thrombolite-mound"
         },
         {
-          "path": "production/batch92/assets/thrombolite-mound/r003/proof-final/render-config.json",
-          "sha256": "5af95d99ca7995c98412e1f3725294f40028777760e1f5fe25cdc4f7631f5499",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
           "path": "production/batch92/assets/thrombolite-mound/r003/proof-final/render-manifest.json",
           "sha256": "905d246f0f3c8b0a09e29ce71d5e1996010629faa3ee35581bbc7c47a341d2e8",
           "origin": "source",
@@ -11388,18 +7944,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch92/assets/thrombolite-mound/r003/proof-final/top.png",
           "sha256": "df4b2af91e511af6a8b7c08a26aaa66091b485e54b0663208581e9b362cc47fb",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "production/batch92/assets/thrombolite-mound/r003/proof-final/turntable.json",
-          "sha256": "c8eab4c29ae2400a2c02db4626ddb7aaf0d8c1f3a19ab72144e86efff8cf3597",
-          "origin": "source",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "production/batch92/assets/thrombolite-mound/r003/qa.json",
-          "sha256": "4e8aa4f0b84faec2feef80838dac0e0ad50e31788865d0b01e7824604ec2febb",
           "origin": "source",
           "owner": "thrombolite-mound"
         },
@@ -11476,110 +8020,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/caytonia/candidate-validation-harness-attempt1.json",
-          "sha256": "a047e754af1a34dbd2e2bf1b0c046be6d65c71896bc5528351aae65c27df5982",
-          "origin": "review",
-          "owner": "caytonia"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/caytonia/candidate-validation.json",
-          "sha256": "8865f80dbad87f89f66035af06c1a48085b2c546e8478aef171f270110a23975",
-          "origin": "review",
-          "owner": "caytonia"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/caytonia/concept-validation.json",
-          "sha256": "2852ee44c2deb221ddc445c4c65ad015712ed58e355c87048c1be31b49d2047f",
-          "origin": "review",
-          "owner": "caytonia"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/caytonia/khronos.json",
-          "sha256": "d5c8e399491c584bc139ea2555faf24355697e5782604c8dce3dcf6411fedfd4",
-          "origin": "review",
-          "owner": "caytonia"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/caytonia/runtime-parse.json",
-          "sha256": "f502797d0330f739d48befb3408caad501c0a0551214979da149519452d9d0d2",
-          "origin": "review",
-          "owner": "caytonia"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/caytonia/source-inspection.json",
-          "sha256": "0d0e257358c17f454ad7f6e74f9f87397e8b245e7c8555282e2673e55b54fd1e",
-          "origin": "review",
-          "owner": "caytonia"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/chain-audit-harness-attempt1.json",
-          "sha256": "99d9e9a4089deb89c461b7452c7715a236d5d330cbe546a5d49726183c28ac84",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/chain-audit.json",
-          "sha256": "1d7716a0caa957ca53c98788edb85e0109892d38a0beda90b024cff0004f238d",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/eophyllophyton/candidate-validation-harness-attempt1.json",
-          "sha256": "a047e754af1a34dbd2e2bf1b0c046be6d65c71896bc5528351aae65c27df5982",
-          "origin": "review",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/eophyllophyton/candidate-validation.json",
-          "sha256": "a796c3481a2719a151a7c984607b3e0d4477370031369f4ac46a4db13d6c3cb9",
-          "origin": "review",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/eophyllophyton/concept-validation.json",
-          "sha256": "616e4e40cb6c2551eeb5dba61e11d2c8188e6aea7b8bb19def5c11f6439bf28f",
-          "origin": "review",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/eophyllophyton/khronos.json",
-          "sha256": "445b472faa736f5c3ed0c61572aae527704ae2cfd1b1c662655cf3c131911625",
-          "origin": "review",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/eophyllophyton/runtime-parse.json",
-          "sha256": "7715c0e5613ec764c7e225af7cccc712e2ed3f4bf8464379b2c1e8db448fe05f",
-          "origin": "review",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/eophyllophyton/source-inspection.json",
-          "sha256": "417c0d898cd993e9385d63e6e0e5c3c51c73bf267898b074d6aa49dca5de2509",
-          "origin": "review",
-          "owner": "eophyllophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/exact-triplets.json",
-          "sha256": "fb2b4b7594e3e4420b6f9e28d49270c6aefb8c1407b5d94c38faa5bfc0fa17cc",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/execution.json",
-          "sha256": "cbf90618f484966a5c152cb714a8731d4a819ae87a3cb5e470def1ec4c4f19ea",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round39-20261020/batch-92/finalize-report.py",
           "sha256": "3cc920a386594be9a6a6784e380cd7cf4127cc4b9d4467bd2d82bcf00d2a71f9",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/input-manifest.json",
-          "sha256": "f2422ce0a8fc1cfee753c856a3f48f402dc09532af648530b2fb29a0776c6494",
           "origin": "review",
           "owner": "$batch"
         },
@@ -11596,48 +8038,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/lean-byte-identity.json",
-          "sha256": "a468e00317235c5c7a47d47d046faac712a8cf050a4f0cc1858ca5d764e56d13",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/oncoid-bed/candidate-validation-harness-attempt1.json",
-          "sha256": "a047e754af1a34dbd2e2bf1b0c046be6d65c71896bc5528351aae65c27df5982",
-          "origin": "review",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/oncoid-bed/candidate-validation.json",
-          "sha256": "f52da62a298a74a4f4ca49782d0ece01f3bf3b8a2ad8b03e313b0de7b99d73d0",
-          "origin": "review",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/oncoid-bed/concept-validation.json",
-          "sha256": "219cf00b51724a7e60441a33f21cfff9c48e5a33882f995ae70782be1f8dc71e",
-          "origin": "review",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/oncoid-bed/khronos.json",
-          "sha256": "b75bf71b1deffb09cb5ffa6ef24b7c6db9d9b339d9d071472307f7ca363c9cc1",
-          "origin": "review",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/oncoid-bed/runtime-parse.json",
-          "sha256": "760847610d8e31815d6c7189eea78dcbff6beb6c507f05a8e01fd0511a90c844",
-          "origin": "review",
-          "owner": "oncoid-bed"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/oncoid-bed/source-inspection.json",
-          "sha256": "836d52a696c1900fbe299075c3d8bf5714f5d90cc4879fa1a5265b7d1a0478f9",
-          "origin": "review",
-          "owner": "oncoid-bed"
-        },
-        {
           "path": "qa/continuous-small-life-round39-20261020/batch-92/ownmanifest.json",
           "sha256": "b1f7c81210a40d6ebcd15e720e25fc722c100b4f5c7ac6e400665636af3713cd",
           "origin": "review",
@@ -11650,50 +8050,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/source-and-pixel-review.json",
-          "sha256": "06328c8eb15b78852d39b8900be5daca2529ae56fdbc8ec0419c9bfdc87e339b",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/thrombolite-mound/candidate-validation-harness-attempt1.json",
-          "sha256": "a047e754af1a34dbd2e2bf1b0c046be6d65c71896bc5528351aae65c27df5982",
-          "origin": "review",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/thrombolite-mound/candidate-validation.json",
-          "sha256": "a59f410fb069afacfdaea2117e278b4aa5aa3a201d66c4a2b9fb7628bce9564c",
-          "origin": "review",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/thrombolite-mound/concept-validation.json",
-          "sha256": "3c1a9af88fcabc42524b6db7cbeabf04a71ec22da686097f41a45ca0e0a7e914",
-          "origin": "review",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/thrombolite-mound/khronos.json",
-          "sha256": "23a2dc7a075592d20a01f2053d209dd2213fb048217b8959554f183dbdb45641",
-          "origin": "review",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/thrombolite-mound/runtime-parse.json",
-          "sha256": "9d233470af497ab2575839bfb50d3543c908e6f0218925f4b08ef898b72865cc",
-          "origin": "review",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "qa/continuous-small-life-round39-20261020/batch-92/thrombolite-mound/source-inspection.json",
-          "sha256": "464eca2cf2a326d275b46b3f1ee11f862c7c73fd16f0dfe83b867751bb8725cd",
-          "origin": "review",
-          "owner": "thrombolite-mound"
-        },
-        {
-          "path": "qa/next52-g10-release-20261021/retention-summary.json",
-          "sha256": "847f7a5cc09ea2832f489fd35b493f13ef829eef4e1e614543b44f3e9e1f22a7",
+          "path": "qa/next52-g10-release-20261021/process-archive-index.json",
+          "sha256": "c9cc7461065c15ff4386885a76247ef05f512cd93ba1edc196b602b38d44296f",
           "origin": "release",
           "owner": "$batch"
         }
@@ -11703,7 +8061,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g11-20261021.json",
-      "sha256": "37599d72d122a30bee340c961d2df7d1c802f562efbd6fecb47848d060f3a7b3"
+      "sha256": "9b9be88ae38cd90f30985c7ce2ec7e4813f9c54ba55589218e25b509b8c78281"
     },
     "release": {
       "version": 1,
@@ -11722,7 +8080,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g11-release-20261021/source-bundle.json",
-        "sha256": "9ddadf1f06d068c437a0330a3282669036b24c27e76b20abf7e190cafd9d4161"
+        "sha256": "99e0d5245ed90ad77da0216a1d18519745a48c208b79fe30ccc60df59214ff05"
       },
       "protected_source_inputs": [
         {
@@ -12120,12 +8478,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "badlands-ridge-network"
         },
         {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/brief.json",
-          "sha256": "170c81ac31d9bd7a56cabfd97bb519cbfb3357f082fa708b74e20dac9580dfae",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
           "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/brief.md",
           "sha256": "1f92367b31831799bf4ac7c9e9ab55e40466857dff57e181ab0f9900a9a6fac2",
           "origin": "source",
@@ -12150,26 +8502,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "badlands-ridge-network"
         },
         {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/candidate-validation.json",
-          "sha256": "28fb23a50482911a1fbc4003039972062430d50b1990364f57e468ebc94a3421",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
           "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/candidate.json",
           "sha256": "f102637dffb0ec632a6d7f92b64877c87f7c811ba690968743106bf6d948696a",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/concept-evidence.json",
-          "sha256": "cc6d73d05d055abbbab15eaa1f1f1bc85acdcfdfd5f25572667b876b91d32fec",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/concept-generation.json",
-          "sha256": "d8b0cf300a936e2e23e592faef3c2291106149151239cf0bf89355ea87aa4947",
           "origin": "source",
           "owner": "badlands-ridge-network"
         },
@@ -12182,12 +8516,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/concept-prompt.txt",
           "sha256": "ded7393034bad979238e05d6c90507d7d9496b519a2c9d65197b9f0910d71fff",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/concept-validation.json",
-          "sha256": "636ec1193ec222b674ce4087a9becb5dd1b50582517bcd9259b2f60795648c14",
           "origin": "source",
           "owner": "badlands-ridge-network"
         },
@@ -12222,12 +8550,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "badlands-ridge-network"
         },
         {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/metadata.json",
-          "sha256": "87c3325de3458d62014b432e76c79a45deacb10a48c0965b59658b8a6b578643",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
           "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/metrics.json",
           "sha256": "555cdab454951198e4f5584ae8791860994e7eb787d5099f2aa1afa808d7baa3",
           "origin": "source",
@@ -12254,18 +8576,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/pixel-inspection.json",
           "sha256": "f85bea74efe41d6a1fd70eabfc775984cd1750c4c43208121ede08c160cf68a6",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/premodel-schema-check.json",
-          "sha256": "c75ee72eb415ae10f92778690b37324cec175bd3e3dfd83b1efb9d260bf07ef7",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/preproof-binding.json",
-          "sha256": "a35a9d5a2dc3b04e8072b8532b0a97132eaeb65478e463953535785ae7eabd5c",
           "origin": "source",
           "owner": "badlands-ridge-network"
         },
@@ -12306,12 +8616,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "badlands-ridge-network"
         },
         {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/proof-final/render-config.json",
-          "sha256": "95af36391d7afdeff2585bdee30c817b2c048d5b40b05e2991cbbea6f13a7d22",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
           "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/proof-final/render-manifest.json",
           "sha256": "9c0c5acec238e9fc6ae5957d789ab602903f5f64a4172db085f3ea4eae8ee3e7",
           "origin": "source",
@@ -12338,18 +8642,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/proof-final/top.png",
           "sha256": "b8c8ecacf72bd35adb9401d673f6e2cbb23ef8cfe923d245cd96ed1361d4dd8d",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/proof-final/turntable.json",
-          "sha256": "0150b138c2def6ef3f1fb6a10c4d3db2d613118230db4637b45b73c9514f802f",
-          "origin": "source",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "production/small-life-batch82/assets/badlands-ridge-network/r002/qa.json",
-          "sha256": "e435a759a79a05af47825e7542e09bbe9c5b8bd6fcad96d79517a15a6b0b27ea",
           "origin": "source",
           "owner": "badlands-ridge-network"
         },
@@ -12414,12 +8706,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kimberella"
         },
         {
-          "path": "production/small-life-batch82/assets/kimberella/r002/brief.json",
-          "sha256": "1b89e3ed80b0c58a7f8c87231e46027e30bd3476646a3dbbb713aafe9b8befd7",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
           "path": "production/small-life-batch82/assets/kimberella/r002/brief.md",
           "sha256": "8afd1cc1dbada7fe921cb5a3f07559f47eed8edbc27483399dfff47d3447dbd3",
           "origin": "source",
@@ -12444,26 +8730,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kimberella"
         },
         {
-          "path": "production/small-life-batch82/assets/kimberella/r002/candidate-validation.json",
-          "sha256": "c8573bbb58070f22b0cbb2e581a0bd0bfb2f5373a08a3fab22a29dbf3622cc72",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
           "path": "production/small-life-batch82/assets/kimberella/r002/candidate.json",
           "sha256": "8f8c59ed582078287301e110a76ac0752241bc97c239a0ea748817fdb944079f",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
-          "path": "production/small-life-batch82/assets/kimberella/r002/concept-evidence.json",
-          "sha256": "2c233711b1428dcb4bce779b58e3ba6c57fcd9eb4bf492fc60bf0bb289bfce60",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
-          "path": "production/small-life-batch82/assets/kimberella/r002/concept-generation.json",
-          "sha256": "eaca94b65eb2d40e0ddb9bfc55b8eb153a0b7bef075c76863ec2d599e9de7bbf",
           "origin": "source",
           "owner": "kimberella"
         },
@@ -12476,12 +8744,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/kimberella/r002/concept-prompt.txt",
           "sha256": "ded7393034bad979238e05d6c90507d7d9496b519a2c9d65197b9f0910d71fff",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
-          "path": "production/small-life-batch82/assets/kimberella/r002/concept-validation.json",
-          "sha256": "7b4443865d1d291fecedf8c04cd520296772b767f3808250e5a187beabb12db2",
           "origin": "source",
           "owner": "kimberella"
         },
@@ -12516,12 +8778,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kimberella"
         },
         {
-          "path": "production/small-life-batch82/assets/kimberella/r002/metadata.json",
-          "sha256": "fcc86dddeb0ad472fe79e110dcad9de28933bba3c43bfb325f5259c714015a97",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
           "path": "production/small-life-batch82/assets/kimberella/r002/metrics.json",
           "sha256": "a43adab3d1e946894933d95426296feb75c58b030086bb5bfe2cd470e69e9d37",
           "origin": "source",
@@ -12548,18 +8804,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/kimberella/r002/pixel-inspection.json",
           "sha256": "6f59d98c603e4b6c9e8d1749042d2300fe8cd135100cb1c45243851916841a30",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
-          "path": "production/small-life-batch82/assets/kimberella/r002/premodel-schema-check.json",
-          "sha256": "e92a837ab8b8633920d43f0954c54d160a5da0c44b57f2d4ee8fc7bbef6f7dfb",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
-          "path": "production/small-life-batch82/assets/kimberella/r002/preproof-binding.json",
-          "sha256": "ccda94a7be101c9d5a150c15bdc8f263491881a358e26fe2af9dc00b76b8e8e0",
           "origin": "source",
           "owner": "kimberella"
         },
@@ -12600,12 +8844,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kimberella"
         },
         {
-          "path": "production/small-life-batch82/assets/kimberella/r002/proof-final/render-config.json",
-          "sha256": "82928ec4e06bff5637dc56977c4428c5080e60fa40d76d07c04f663c7d78cb24",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
           "path": "production/small-life-batch82/assets/kimberella/r002/proof-final/render-manifest.json",
           "sha256": "8c0a26da737878036c800e2b5f6900d237b84d7795b6a602acabac0dde292f18",
           "origin": "source",
@@ -12632,18 +8870,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/kimberella/r002/proof-final/top.png",
           "sha256": "80101733084d77ad8dcb4a0f570630b53abbcd7b67060a5df551712e0329bcfa",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
-          "path": "production/small-life-batch82/assets/kimberella/r002/proof-final/turntable.json",
-          "sha256": "548eada387cd901054ed63b71932eb2f62cbca441d5eadf917fa269883f0cec7",
-          "origin": "source",
-          "owner": "kimberella"
-        },
-        {
-          "path": "production/small-life-batch82/assets/kimberella/r002/qa.json",
-          "sha256": "e7cd480d169859b902f5a95550ef857a0528e6af08f1be545543b673fc057658",
           "origin": "source",
           "owner": "kimberella"
         },
@@ -12708,12 +8934,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "playa-basin"
         },
         {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/brief.json",
-          "sha256": "8e6dfd4850035ef3501f9d4c872431f5a63cb421cee02554eeb5cb6e46c599fd",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
           "path": "production/small-life-batch82/assets/playa-basin/r003/brief.md",
           "sha256": "3fc579fce1bf2bad9519de88655691e9ebde6244b29c098ac2d6eb7cf8700690",
           "origin": "source",
@@ -12738,26 +8958,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "playa-basin"
         },
         {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/candidate-validation.json",
-          "sha256": "bede0bfff969a2f1ac8ccf8629cef93e03790c2790098e85756399231f53813e",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
           "path": "production/small-life-batch82/assets/playa-basin/r003/candidate.json",
           "sha256": "2bdd44c63b9c57cd5c1c20dfa44a8248e575efc9791f48b9060dc8134806d222",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/concept-evidence.json",
-          "sha256": "402af31ca19d7cd359a4ab0eba37b434d32eeef20173bcea0d76d547163b126f",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/concept-generation.json",
-          "sha256": "6a9251635dfa171c4853234c78856bee980985332fa5057b006f7ed191e53836",
           "origin": "source",
           "owner": "playa-basin"
         },
@@ -12770,12 +8972,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/playa-basin/r003/concept-prompt.txt",
           "sha256": "ded7393034bad979238e05d6c90507d7d9496b519a2c9d65197b9f0910d71fff",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/concept-validation.json",
-          "sha256": "be1bb4102bd32463ba0a456ad2c2d31bbc9c3c8386353ef72ef5828202ad5ad5",
           "origin": "source",
           "owner": "playa-basin"
         },
@@ -12810,12 +9006,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "playa-basin"
         },
         {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/metadata.json",
-          "sha256": "eb34e1b4059f14f3527ee29f764aa768e3791c90a5fded8552ba70e9049c5e46",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
           "path": "production/small-life-batch82/assets/playa-basin/r003/metrics.json",
           "sha256": "3b21b212637e74d8a39d9d99c53254f8cc67dd6010aa0a8cf6965d32620aae3c",
           "origin": "source",
@@ -12842,18 +9032,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/playa-basin/r003/pixel-inspection.json",
           "sha256": "64b5fbf4938aaaaea10740800acc160d99b01b7b71d10d2c9e23f41146f1fca5",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/premodel-schema-check.json",
-          "sha256": "1199668fd0da6fbbd164ee22b51abd50d29b33211b72097a85b5d20ca9e8aa08",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/preproof-binding.json",
-          "sha256": "e5d45107f2e00976d85382509c2923ce38e0a2c773dd4b13a6704e3a72afbece",
           "origin": "source",
           "owner": "playa-basin"
         },
@@ -12894,12 +9072,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "playa-basin"
         },
         {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/proof-final/render-config.json",
-          "sha256": "3f525edc9d3e57e067ac7813c7e51a5bc1e3110aced19f5c4d6fb28b332c6712",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
           "path": "production/small-life-batch82/assets/playa-basin/r003/proof-final/render-manifest.json",
           "sha256": "c90b77a2f665d2451292f7423ddc52bb4bdf32609febee983e4bd83f49c74bfa",
           "origin": "source",
@@ -12926,18 +9098,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch82/assets/playa-basin/r003/proof-final/top.png",
           "sha256": "8b90898c05cb5b9d33d39d7d3bfbda2a10a1fbb6044bad8d0f75d5f552bc3d55",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/proof-final/turntable.json",
-          "sha256": "ca10dc47a9a0150a735ab4316a4c550beef08b33a3595bf972f7f489fe7779e4",
-          "origin": "source",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "production/small-life-batch82/assets/playa-basin/r003/qa.json",
-          "sha256": "7d2c2f320b503108da594c58cfee8d0618e5e7be767764d3bb87b0b573207cea",
           "origin": "source",
           "owner": "playa-basin"
         },
@@ -13032,56 +9192,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/badlands-ridge-network/candidate-profile-fresh.json",
-          "sha256": "28fb23a50482911a1fbc4003039972062430d50b1990364f57e468ebc94a3421",
-          "origin": "review",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/badlands-ridge-network/concept-fresh.json",
-          "sha256": "636ec1193ec222b674ce4087a9becb5dd1b50582517bcd9259b2f60795648c14",
-          "origin": "review",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/badlands-ridge-network/khronos-fresh.json",
-          "sha256": "bf4aa0bf9baeb81d8ce24d263b8f5c51d33b3da51100bb407d9aeb8f260bc229",
-          "origin": "review",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/badlands-ridge-network/runtime-fresh.json",
-          "sha256": "7faeb83339bf0f56fbfa1d09c1010c13557fa8f8f9fba773041b10670738bcc9",
-          "origin": "review",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/badlands-ridge-network/saved-source/source-reexport.report.json",
-          "sha256": "4b0c9f8b023269c9c20489a46d35544e96d95f1f6092758e17ebe93231171592",
-          "origin": "review",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/badlands-ridge-network/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "b5e4943a2045b1349b7ab11c2d23d3de1605ee079a1983e5d29f53294a362052",
-          "origin": "review",
-          "owner": "badlands-ridge-network"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/badlands-ridge-network/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "46e30021e9ca1fac2151ae1226b943eff07a835d94bec84f5da86416dee67000",
-          "origin": "review",
-          "owner": "badlands-ridge-network"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-82/finalize_report.py",
           "sha256": "ab7528a18ae68173ff876d81a67cb4a26e7019770b816bbfc96e6d1bb9c5a546",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/fresh-processes.json",
-          "sha256": "b26a826077ff1de5d77179bc84e6019a6fbf6a9e3a7d1d95e85da9e1a1120e35",
           "origin": "review",
           "owner": "$batch"
         },
@@ -13092,152 +9204,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/immutable-input-audit.json",
-          "sha256": "1edbb01aa02e9e4d42dfdc7c9da839fb15a8d3eb39b3257073ced3efc59a4924",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-82/independent-qa.report.json",
           "sha256": "9a70e16bba928fe3ffb9fec5317ec0304a38e5ab60e7f86d3e194fe189ace753",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/candidate-profile-fresh.json",
-          "sha256": "c8573bbb58070f22b0cbb2e581a0bd0bfb2f5373a08a3fab22a29dbf3622cc72",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/concept-fresh.json",
-          "sha256": "7b4443865d1d291fecedf8c04cd520296772b767f3808250e5a187beabb12db2",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/khronos-fresh.json",
-          "sha256": "1d5d0a7d180f883bcc2107bf1c7d92dd65655d72924536a59a441e667e9541dd",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/runtime-fresh.json",
-          "sha256": "90dc70c057437d4bb35f302e26e6d13533cd3ea82e48ff5f5c6df8bba61eb9fc",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/saved-source/source-reexport.report.json",
-          "sha256": "99c84a9dfe95b64d6413db1dde6baa7e9f7a40f3f6349e92e44208c87fd1a117",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "0d471cfe2ebc13fce94a2e7c281f1e0dcd3f46378a4b9202c54caf4a9e8ac10b",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "6cba1e285486f19ccf908254ac37494ee806585c435de568864f8a1409e610e3",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/supplemental/render-config.json",
-          "sha256": "bf7eb96a680d6f6b0a9e78db3630f9b67e46d79e37b6ad8f08c4ba7b9c46c28f",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/supplemental/render-manifest.json",
-          "sha256": "0ecf29fb94cf010a665612c0e7d1ccec66514458f6fdd78278906495d74dab90",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/kimberella/supplemental/turntable.json",
-          "sha256": "f599822943426afe73791673b1e87ac4b2a4df5a1b9693895551e1449a4cf208",
-          "origin": "review",
-          "owner": "kimberella"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/lossless-sheet-audit.json",
-          "sha256": "b34cc8f882acdfb5c929f23f8a11f04e4b542e354357f68c5d9efec5b3e9ab05",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-82/own-evidence-manifest.json",
           "sha256": "4d95737bc4527be4422cdb9faf722118b31deaa10087bb8d658918d0a8e9d07a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/candidate-profile-fresh.json",
-          "sha256": "bede0bfff969a2f1ac8ccf8629cef93e03790c2790098e85756399231f53813e",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/concept-fresh.json",
-          "sha256": "be1bb4102bd32463ba0a456ad2c2d31bbc9c3c8386353ef72ef5828202ad5ad5",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/khronos-fresh.json",
-          "sha256": "12622aabd4b4de7a1f31eeed67790ee1fe963e3ad0242305a6ea65d16059e7b8",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/runtime-fresh.json",
-          "sha256": "184d4e8be2021876e701282d470b9e4dd9ca59c86dffc3368ef39c55b62e4bd1",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/saved-source/source-reexport.report.json",
-          "sha256": "8fd2c38cb465ee44cccc91405e6be4a641b883ebe11d20a56b677df0b0c6b554",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "3e9e9adf5664f84040f8601c6d48afb07413e4fa247c7ae8f44d61dce9cebf39",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "40632f4201867ef3720b15656e22aabdd460a2def846a0d072b65b3f1e8db69e",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/supplemental/render-config.json",
-          "sha256": "2f97ca415a9f86ab4d70f5fe4aa83fc33091e348c6b50fe0eef002f452462739",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/supplemental/render-manifest.json",
-          "sha256": "270e300437e86fff37d6c1bc3bd7d0a5e0b06448c01ed1f9f8555cb936af766b",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/playa-basin/supplemental/turntable.json",
-          "sha256": "a388f7465ed16757a15002fcf2f5bc239efb72160aa5c2002cc451ac85b9739d",
-          "origin": "review",
-          "owner": "playa-basin"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/provenance-audit.json",
-          "sha256": "fe6a543eaa2948b87fa9218738ec97f0114f9d01f293a86a34e56cd3cb1c528e",
           "origin": "review",
           "owner": "$batch"
         },
@@ -13266,14 +9240,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82/supplemental-processes.json",
-          "sha256": "e23bee68a8c98133151f90d4fae85623264d76062be501917af3b77e36c90dd1",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/next52-g11-release-20261021/retention-summary.json",
-          "sha256": "a199a36d0d3d98c2a87b488046ae3d80d2be1d3409d80545ddc1a09e8e0e43e6",
+          "path": "qa/next52-g11-release-20261021/process-archive-index.json",
+          "sha256": "e92be56e6f4a358963cd0cdf4a878109f1f3b63e3eaeb300fd1a5b58f27e2b16",
           "origin": "release",
           "owner": "$batch"
         }
@@ -13283,7 +9251,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g12-20261021.json",
-      "sha256": "5e171abf0fd348542f43f8cacc4ff80de8ac5822fe526abfe51ad64138311cc8"
+      "sha256": "cafcf6533eae4da31c432e71f689f97b2648d4be10aae76f35452867f3ddf508"
     },
     "release": {
       "version": 1,
@@ -13302,7 +9270,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g12-release-20261021/source-bundle.json",
-        "sha256": "821a19a863b9c22b5b8bceb1b652d3624e3c19d78721ff05352ad3e870f95e8b"
+        "sha256": "087736d42d35dbf010aa35e90a5f55bbf1a0b51909401b4ddc7e29f046636a39"
       },
       "protected_source_inputs": [
         {
@@ -13564,12 +9532,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "stratovolcano"
         },
         {
-          "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/brief.json",
-          "sha256": "e2cfd8a263dc5d8af3f242170bf640fdec897595f3b037b41b6a536734c7d43b",
-          "origin": "source",
-          "owner": "stratovolcano"
-        },
-        {
           "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/brief.md",
           "sha256": "7c5a9752cff91977732ad2de6d687259912de1b27fdc6dd6bb621830836769e8",
           "origin": "source",
@@ -13594,20 +9556,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "stratovolcano"
         },
         {
-          "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/candidate-validation.json",
-          "sha256": "0092f1bd15efd55039e97dc5a7fd33838ca43e7f2a1cf33efbe8d395902e4268",
-          "origin": "source",
-          "owner": "stratovolcano"
-        },
-        {
           "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/candidate.json",
           "sha256": "e9c1b9573b0a4e059ae32d4b0dd478c7a94c3b045177c0ea76320ecf20e92f8f",
-          "origin": "source",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/concept-evidence.json",
-          "sha256": "8015984e6cab6b22f4a6412b035572e9ffb434c87220cfef6bc92c4ca0341c5a",
           "origin": "source",
           "owner": "stratovolcano"
         },
@@ -13626,12 +9576,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/concept-prompt.txt",
           "sha256": "ded7393034bad979238e05d6c90507d7d9496b519a2c9d65197b9f0910d71fff",
-          "origin": "source",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/concept-validation.json",
-          "sha256": "086201c1cfeca80bf94667b5e070ba11805cea53542cd652840acd570477abb5",
           "origin": "source",
           "owner": "stratovolcano"
         },
@@ -13756,12 +9700,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "stratovolcano"
         },
         {
-          "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/proof-final/render-config.json",
-          "sha256": "4c30ab5ab1ef414c0002999c5dd73eea41e3b6bd28831182411b8cbb4dcc1643",
-          "origin": "source",
-          "owner": "stratovolcano"
-        },
-        {
           "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/proof-final/render-manifest.json",
           "sha256": "2cb1dbf07496b31221d0d6d85d9a75c020d215f48491d0112c3302aee84f50c6",
           "origin": "source",
@@ -13788,12 +9726,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/proof-final/top.png",
           "sha256": "54bf372ef62ce8a320fd647147f60a3e6325c9ffa5dd34e3b346bf960f030e23",
-          "origin": "source",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "production/batch82-stratovolcano-repair/stratovolcano/r009/proof-final/turntable.json",
-          "sha256": "ba03b093b95aa8a7a8bc0c8096324213b0b6bf5ad5198b9e5ae016756151b6a5",
           "origin": "source",
           "owner": "stratovolcano"
         },
@@ -13882,32 +9814,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "stratovolcano"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/candidate-profile-fresh.json",
-          "sha256": "0092f1bd15efd55039e97dc5a7fd33838ca43e7f2a1cf33efbe8d395902e4268",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/concept-fresh.json",
-          "sha256": "086201c1cfeca80bf94667b5e070ba11805cea53542cd652840acd570477abb5",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/finalize_report.py",
           "sha256": "c5dad96f8638c3944979010914c56fd88b4fe7ccd5f064e8c3b62f047b486131",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/fresh-process.json",
-          "sha256": "493aa6bd0867712afb73fe5257caf03a5224dff02527d12ade06412bb497f42a",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/geometry-regression-audit.json",
-          "sha256": "b02995a848ed3bab0efb736d11570437a9525886456eddf6a459ab6fbf2c3ebb",
           "origin": "review",
           "owner": "stratovolcano"
         },
@@ -13918,26 +9826,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "stratovolcano"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/immutable-input-audit.json",
-          "sha256": "a8b49d62aeac1f1636f15238d7213a96d9ab90577641604cd2b24cb297c863c0",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/independent-qa.report.json",
           "sha256": "44e0100d76f808bee5ecf7f393bd3ebd40e0566492a656f7ef15113ba13ea7a9",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/khronos-fresh.json",
-          "sha256": "16c1f10168e1d87b9f4eb8ccdea6c650259de217aca2de7ce8905497b12106e2",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/lean-byte-identity.json",
-          "sha256": "201ad5557b1f534400823aa0e3809301317a71efe4307c0117fe85da9f60bbb2",
           "origin": "review",
           "owner": "stratovolcano"
         },
@@ -13950,18 +9840,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/own-evidence-manifest.json",
           "sha256": "3f1612bd7a70795a14df2104626b520e43639b6936a200e90a6b016233c0a016",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/pixel-review.json",
-          "sha256": "b97dc273ab0c8d0083063f29e5b7c872d9c3da3b20b0cd997a080de8fe846681",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/provenance-audit.json",
-          "sha256": "56fb527ac2b99c801e192ff6dcb48035978f314b0e6cfe4d4904dc8eeaaeeedd",
           "origin": "review",
           "owner": "stratovolcano"
         },
@@ -13984,26 +9862,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "stratovolcano"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/runtime-fresh.json",
-          "sha256": "71d9f5028dcef16261d0d2b2d973635e927d73fadf4f6ceed8aa57d32cd967b9",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/runtime_checks.mjs",
           "sha256": "bb838c8136734a7fa1e19df7a7b8e89e10dd23e5b5a82db1112487a697369931",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "65388b84fe51a1dc489d22372ad6877a1adec4ce524cf3b0c67b67fd3000ab99",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "7c73bfc6567fbccb260b2f188354db375c6bc6fc0992db7c3d452c93db25de09",
           "origin": "review",
           "owner": "stratovolcano"
         },
@@ -14014,14 +9874,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "stratovolcano"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-82-stratovolcano-r009/supplemental-process.json",
-          "sha256": "8bd9ca3a324613f9877448abfc381e2a8738a9178efeca99313371c06bf852f1",
-          "origin": "review",
-          "owner": "stratovolcano"
-        },
-        {
-          "path": "qa/next52-g12-release-20261021/retention-summary.json",
-          "sha256": "09fed374f9542013f464a4ccff0d4052f1fb4cf95b3c87be6d91911c700e8a24",
+          "path": "qa/next52-g12-release-20261021/process-archive-index.json",
+          "sha256": "6c6f9d362496f1b2369ea1bae2ee3bccad45e16a47598a65107087cb4f80be88",
           "origin": "release",
           "owner": "$batch"
         }
@@ -14031,7 +9885,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g13-20261021.json",
-      "sha256": "aae7fd440cdeae55455e4c93b5b1a3d9b2cd85f12d380f779084539ba0f4a69a"
+      "sha256": "a08ea4edf6a7e0b0b572d436aea1cb0f19a4bb734d2df57e7108b7698f69f504"
     },
     "release": {
       "version": 1,
@@ -14050,7 +9904,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g13-release-20261021/source-bundle.json",
-        "sha256": "12faa193c0e6857e833b341ce298abc210f3a157bd9519bbe1ecfa200cb5e03e"
+        "sha256": "665b4c9613908ebb4d5298c67fca0ee9115c048c1ae0fb7282f04fca89c9b56e"
       },
       "protected_source_inputs": [
         {
@@ -14408,12 +10262,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "arroyo-wash"
         },
         {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/brief.json",
-          "sha256": "351140124c91c22b3c6ca82835ca20888622d2e3fe7930aaa1e08a1ef6ab986f",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
           "path": "production/small-life-batch79/assets/arroyo-wash/r005/brief.md",
           "sha256": "0c39abf0274dbd1d769356674208802f76a38e4681333b129520d744d2f5071b",
           "origin": "source",
@@ -14438,26 +10286,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "arroyo-wash"
         },
         {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/candidate-validation.json",
-          "sha256": "cb22dd6d07618c2bcb506d2f38c18091bc21045e814888a0454c9098adce89d3",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
           "path": "production/small-life-batch79/assets/arroyo-wash/r005/candidate.json",
           "sha256": "32f1499c19b49ff84f70150cc25410e0ce9ebcc3febe642ec64c30696ca374a2",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/concept-evidence.json",
-          "sha256": "be77782fe21343fcc0942a24acec2a65156d3d89bc96b45d00d449e3e32948fa",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/concept-generation.json",
-          "sha256": "a75f4461e7582c70304bcadce62dfdae3cdbbbfb2ca8b4ae6b3982287cdb31e6",
           "origin": "source",
           "owner": "arroyo-wash"
         },
@@ -14470,12 +10300,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/arroyo-wash/r005/concept-prompt.txt",
           "sha256": "caa57de3b8a91c7bf1c135f55f4d0e0e65592de541486128f10571cf1489b619",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/concept-validation.json",
-          "sha256": "e5d360d61501fdddd0a6ca779a6e54cb85e89ed140375d2f90bd17c233cc9fe3",
           "origin": "source",
           "owner": "arroyo-wash"
         },
@@ -14516,12 +10340,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "arroyo-wash"
         },
         {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/metadata.json",
-          "sha256": "9cc1fbd7c8f1c7cc11d19d9f8228cb59381b84a4a85760718b4f89d857b0293d",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
           "path": "production/small-life-batch79/assets/arroyo-wash/r005/metrics.json",
           "sha256": "1ea1844ee0daf1be49c990c4f140ca2eef96457ff641303106bf396ac6ef4a7d",
           "origin": "source",
@@ -14548,18 +10366,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/arroyo-wash/r005/pixel-inspection.json",
           "sha256": "f41950c6e5dfb92dd945da653d746a46386a84b7611ee938d8b4b9fb09caaf12",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/premodel-schema-check.json",
-          "sha256": "4d98ff5b6d8a768d734fb79644a0406d5296b36db48ff3f13b0ec5a7aaef46f0",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/preproof-binding.json",
-          "sha256": "bcab3fc14d553ee39162121c96d01b72777a3b62b6b8c8076b801ea913bf243a",
           "origin": "source",
           "owner": "arroyo-wash"
         },
@@ -14600,12 +10406,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "arroyo-wash"
         },
         {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/proof-final/render-config.json",
-          "sha256": "33695e1ac7b040bc0992ba1b24071813b3a4ae65f1b4d2ff82e1a2aeba171eab",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
           "path": "production/small-life-batch79/assets/arroyo-wash/r005/proof-final/render-manifest.json",
           "sha256": "df79cc9267c6efbf0eb002e425f0c96bb714f307520ebaf6a96e92bb06507ed0",
           "origin": "source",
@@ -14632,18 +10432,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/arroyo-wash/r005/proof-final/top.png",
           "sha256": "47b9d89f38f9d0421512c86669383d29f91b1cb983a1a7db4fceeea59bd1b470",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/proof-final/turntable.json",
-          "sha256": "35fcca12f1dfb8063a480f50b4abcbaebeaa7bdf48bb0e5dce37addc84c4a3db",
-          "origin": "source",
-          "owner": "arroyo-wash"
-        },
-        {
-          "path": "production/small-life-batch79/assets/arroyo-wash/r005/qa.json",
-          "sha256": "c14e104b818f10f514cd7392aeee039ed1658cd0cf7dc364004ae3f10b4a7a5c",
           "origin": "source",
           "owner": "arroyo-wash"
         },
@@ -14708,12 +10496,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "dickinsonia"
         },
         {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/brief.json",
-          "sha256": "51996e0dcf39225d4529a74979f242fca588c06c6fca0af54c8b4cfea4ebdc4b",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
           "path": "production/small-life-batch79/assets/dickinsonia/r006/brief.md",
           "sha256": "efff6762fa2380116db2a79392c98f4078b52bdf07e98e968ce64eb73f715307",
           "origin": "source",
@@ -14738,26 +10520,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "dickinsonia"
         },
         {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/candidate-validation.json",
-          "sha256": "9156b90d92087d79999addd7ae9e47ca7704a0d1f752780d8b08a2a831a4f93e",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
           "path": "production/small-life-batch79/assets/dickinsonia/r006/candidate.json",
           "sha256": "cede2985caaff8da8539bb519b7d40e98b4b4731b430c62d89fa7739d1cb201a",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/concept-evidence.json",
-          "sha256": "2a3ae74aa3b1715e0cbb43c9b1bc95e6f233ee186d858d9494afc8fbba7c4d31",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/concept-generation.json",
-          "sha256": "3a7ffda2b596e91ff7e56426248c2e2c33c301a76bb2de547007fe10c9d1c42f",
           "origin": "source",
           "owner": "dickinsonia"
         },
@@ -14770,12 +10534,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/dickinsonia/r006/concept-prompt.txt",
           "sha256": "fc2ac2088f1e3432911cfb5bc4c75fd86397c9f72ffb88c30755d86589ae2518",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/concept-validation.json",
-          "sha256": "58c8a38f702f115bb1ba991aea6a1a93e25f8e42ec65e5d31f98ad943487a8b1",
           "origin": "source",
           "owner": "dickinsonia"
         },
@@ -14816,12 +10574,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "dickinsonia"
         },
         {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/metadata.json",
-          "sha256": "2585a80c1308a76b7eacb7628671a1d6459649179a465d751211a89bb368e644",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
           "path": "production/small-life-batch79/assets/dickinsonia/r006/metrics.json",
           "sha256": "b62f095186e87110cb50f29e77ca8af5a5f2aedc54dd9441dfbe4b8cdada377b",
           "origin": "source",
@@ -14848,18 +10600,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/dickinsonia/r006/pixel-inspection.json",
           "sha256": "4193250a26ee47d22eb8408e7f9b65a9f30694bf45532f1375fa8dd240758f36",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/premodel-schema-check.json",
-          "sha256": "0891cda433a9f52bc8e91d2f43532a0b5c4af8c66871930a3252ef87227a5a1b",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/preproof-binding.json",
-          "sha256": "087d76a6c646593fee141343c54d45ea2696ef7244b30df86837602647e31e3c",
           "origin": "source",
           "owner": "dickinsonia"
         },
@@ -14900,12 +10640,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "dickinsonia"
         },
         {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/proof-final/render-config.json",
-          "sha256": "8d251442b1b53aa24a7b6399b6cd0455d1c3da30d39e4fad1eb038a47a931114",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
           "path": "production/small-life-batch79/assets/dickinsonia/r006/proof-final/render-manifest.json",
           "sha256": "34b14b3cf8b42d418e2a407b4754eecad5d9deeaa9b1190322f2e1ed53489375",
           "origin": "source",
@@ -14932,18 +10666,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/dickinsonia/r006/proof-final/top.png",
           "sha256": "b4cf8dacc9e558f8457bc36ae2f06a2ad329baa557bf6af32c1c203903688d3d",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/proof-final/turntable.json",
-          "sha256": "986a512ad9054c357c89e9756cd1cfae35ce94a96abe000876364a37dc4fc0fe",
-          "origin": "source",
-          "owner": "dickinsonia"
-        },
-        {
-          "path": "production/small-life-batch79/assets/dickinsonia/r006/qa.json",
-          "sha256": "d476c79596b7ea22594712e968102cc0ef68db52573ba1047d89303f695d1e98",
           "origin": "source",
           "owner": "dickinsonia"
         },
@@ -15008,12 +10730,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "shield-volcano"
         },
         {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/brief.json",
-          "sha256": "6cac778e6174ca9d2a63f5e301f9f2683ce0afe5d450327332080742e7ccfd18",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
           "path": "production/small-life-batch79/assets/shield-volcano/r003/brief.md",
           "sha256": "72d28314da4b0b1e9bfe3b96cede70322a517cfdf0dd58ba3882f196451291e4",
           "origin": "source",
@@ -15038,26 +10754,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "shield-volcano"
         },
         {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/candidate-validation.json",
-          "sha256": "8a6c6a20afdae8d30367c1eaeb8dc3a743e751f0f3522e404298da840361de17",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
           "path": "production/small-life-batch79/assets/shield-volcano/r003/candidate.json",
           "sha256": "1ac1de544d948db51d3ef09e463566d35a65d4e22d80b8c1b62861d147de9f47",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/concept-evidence.json",
-          "sha256": "591ef044fa473003c963ad3955eb31f0496594eac8852af5f4f20073e77d4302",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/concept-generation.json",
-          "sha256": "70d82e739580c1b269bb9cda24e67c20739f74a87a2be0ac9353687e099f7d3f",
           "origin": "source",
           "owner": "shield-volcano"
         },
@@ -15070,12 +10768,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/shield-volcano/r003/concept-prompt.txt",
           "sha256": "1e26211e2562f9aa11000472f0916ad3aa7a9991e549257092aa8d25424b24ad",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/concept-validation.json",
-          "sha256": "da536f67db02efa260ee521cd59082616b8b7adc4f75b61f54b9e946cafec0ff",
           "origin": "source",
           "owner": "shield-volcano"
         },
@@ -15116,12 +10808,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "shield-volcano"
         },
         {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/metadata.json",
-          "sha256": "fc110b1ccfdffbd21c2af1676a0adf891f74b7219e70ef77f975f9b6e2aa0890",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
           "path": "production/small-life-batch79/assets/shield-volcano/r003/metrics.json",
           "sha256": "75da472dc9756c739ea2332aa703fd203abb51f16bb1e81968b62de93a71c5e5",
           "origin": "source",
@@ -15148,18 +10834,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/shield-volcano/r003/pixel-inspection.json",
           "sha256": "abd18591299f6988eb7917f7187f1005510e2c017a0726cda29e9736ea8ff499",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/premodel-schema-check.json",
-          "sha256": "751d6028b48fa65910b4f00e9ae6817ab9a30020f1fb1cd16da0849edd9a9931",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/preproof-binding.json",
-          "sha256": "fc80778f5d1084a6f23b9181b280fd1d42c546d236aab634ce57577d083c5861",
           "origin": "source",
           "owner": "shield-volcano"
         },
@@ -15200,12 +10874,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "shield-volcano"
         },
         {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/proof-final/render-config.json",
-          "sha256": "2048861bac4301d050f9b029b977609acaf397873a1553c27d0f4536d43e128c",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
           "path": "production/small-life-batch79/assets/shield-volcano/r003/proof-final/render-manifest.json",
           "sha256": "8eb59f93c186a2e390c19dd42ab521ac99c84bb5490583f5df6e3b24b4224f36",
           "origin": "source",
@@ -15232,18 +10900,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch79/assets/shield-volcano/r003/proof-final/top.png",
           "sha256": "ea08d5ef0397f93ae51345bfb5538c82f11d1c78fb2a2815a085e29ff19dfdc0",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/proof-final/turntable.json",
-          "sha256": "6741017dd0d8d7d1f54c6035a4034a90fe8428e737b3d6a3dfdfec27093144c1",
-          "origin": "source",
-          "owner": "shield-volcano"
-        },
-        {
-          "path": "production/small-life-batch79/assets/shield-volcano/r003/qa.json",
-          "sha256": "6004be701138076868842e2a4e16e4c445105896ef9b330f66d8bad339fb542d",
           "origin": "source",
           "owner": "shield-volcano"
         },
@@ -15320,32 +10976,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round32-20261020/batch-79/assets.json",
-          "sha256": "c2caa28206ca6b56657e275e0c84b1388724d6ee9563330fd5f449d881a5cfae",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round32-20261020/batch-79/independent-report.json",
           "sha256": "dffc6eb73cafb23f92ced50954e2e270331af4e9ebd4d80424e9645f09c1e6ac",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round32-20261020/batch-79/ingestion-manifest.json",
-          "sha256": "b6bacc764ab81e639150b1b06b4b94dad38e005f39c392ed591da12a71b3ee71",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round32-20261020/batch-79/rebuild-verification.json",
-          "sha256": "5afdc9f95543bdaada64273e6a811884c29e9794eb9525c622bcf395cee29fc0",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/next52-g13-release-20261021/retention-summary.json",
-          "sha256": "afcfaae7ecea897dea18930adb4693659419b2eade5c084be9aa76241404c3c3",
+          "path": "qa/next52-g13-release-20261021/process-archive-index.json",
+          "sha256": "d5008b26a6aa4a336d8d5783c3425c6491b57a77246dc2274a90063a504720cd",
           "origin": "release",
           "owner": "$batch"
         }
@@ -15355,7 +10993,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g14-20261021.json",
-      "sha256": "02f48c7f31d0a2f00258c4beeae68b94fb3a291601c026315f516dc8458948dc"
+      "sha256": "b17cd369af8907a7f2aab5f458d3d489b0a4465d1f608e402df36141ac1a7670"
     },
     "release": {
       "version": 1,
@@ -15374,7 +11012,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g14-release-20261021/source-bundle.json",
-        "sha256": "5fc87742e34ad61818fe45f85a8ca8f3c2d5c26f4d250bf1f68eac99f9e57ffd"
+        "sha256": "632ff631e33abe06da352481177db5a479ea096eb56e14ed463f3c5ce29086d4"
       },
       "protected_source_inputs": [
         {
@@ -15744,12 +11382,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "beach-cusp-field"
         },
         {
-          "path": "production/batch86/assets/beach-cusp-field/r003/brief.json",
-          "sha256": "02ee71b61a3150e1a2ad96e60cd0826cdde9473d943e85975d6570a59ad1f1dd",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
           "path": "production/batch86/assets/beach-cusp-field/r003/brief.md",
           "sha256": "b838efc2e199fc6ac7410f5f6bf0b86f0e32abc4b36f425ee348b76cd0183162",
           "origin": "source",
@@ -15774,26 +11406,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "beach-cusp-field"
         },
         {
-          "path": "production/batch86/assets/beach-cusp-field/r003/candidate-validation.json",
-          "sha256": "f067fdd6c7c9249d38a4a7a81ab3c5fb5dc6dfebad7e503c52ebf3694f99cdec",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
           "path": "production/batch86/assets/beach-cusp-field/r003/candidate.json",
           "sha256": "5d17de85fe97eb0b7e6d4c2332f89685263809da63317bc59ad86ebcbb441343",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "production/batch86/assets/beach-cusp-field/r003/concept-evidence.json",
-          "sha256": "d3c8e0bb901fa80dea135de2c0b142b7b7b36e88b4d6ddbb681e965d13fd7917",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "production/batch86/assets/beach-cusp-field/r003/concept-generation.json",
-          "sha256": "4def7b71da7cccf1f779e861ad9f5f7e042d7ad013454f627c2ff7b7abff34b0",
           "origin": "source",
           "owner": "beach-cusp-field"
         },
@@ -15810,20 +11424,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "beach-cusp-field"
         },
         {
-          "path": "production/batch86/assets/beach-cusp-field/r003/concept-validation.json",
-          "sha256": "9fbfa5db15c220420e6a96a3978a38e2e5eed2e79d71b0615bf18ee7ee4deca8",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
           "path": "production/batch86/assets/beach-cusp-field/r003/contact-sheet.png",
           "sha256": "5a6c0676c3ff294f542446774dacbf6038d63db5ae254d4efe8fbfc023791404",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "production/batch86/assets/beach-cusp-field/r003/diagnostic-disposition.json",
-          "sha256": "a40253d5b9cb1bcda9e4f73799a4f07e8e15d9d04cff04e4b338b5f0a95c1bc7",
           "origin": "source",
           "owner": "beach-cusp-field"
         },
@@ -15882,12 +11484,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "beach-cusp-field"
         },
         {
-          "path": "production/batch86/assets/beach-cusp-field/r003/preproof-binding.json",
-          "sha256": "2c3f0e3e8ccc32daca68b801257882a5e86eb0f31a4327dd866b8751d2865027",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
           "path": "production/batch86/assets/beach-cusp-field/r003/preview.png",
           "sha256": "8432fca568dc01582a615404d65f7d3587f67f81f99760ca4546aa7feb234878",
           "origin": "source",
@@ -15924,12 +11520,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "beach-cusp-field"
         },
         {
-          "path": "production/batch86/assets/beach-cusp-field/r003/proof-final/render-config.json",
-          "sha256": "ce6c06d1a2823fc3396aff45e0b1d3f3320fd238562e9d3a646d5a3747b5a0bb",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
           "path": "production/batch86/assets/beach-cusp-field/r003/proof-final/render-manifest.json",
           "sha256": "faaf7c5c7e676921cacf1f216197e441f4e407a4cc83436ead75bc397b572762",
           "origin": "source",
@@ -15956,18 +11546,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch86/assets/beach-cusp-field/r003/proof-final/top.png",
           "sha256": "65de3f091c6afdeff9440f96ada31a97d58ffa2b8915dc2470f0f6c5f10ea1c5",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "production/batch86/assets/beach-cusp-field/r003/proof-final/turntable.json",
-          "sha256": "39e90770f1be22dd511e80d19469cb3be4e368cf7f56ab1fd79d8b1d598ccf0a",
-          "origin": "source",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "production/batch86/assets/beach-cusp-field/r003/qa.json",
-          "sha256": "fbfbd2f8e76d953bce3975738b89a90bdfc5526f706dae30d000872a4391003a",
           "origin": "source",
           "owner": "beach-cusp-field"
         },
@@ -16032,12 +11610,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cinder-cone"
         },
         {
-          "path": "production/batch86/assets/cinder-cone/r001/brief.json",
-          "sha256": "0d03b02e041270ed3fd831c0ebc5656d6dd128af7c416e3419816b60313c14f2",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
           "path": "production/batch86/assets/cinder-cone/r001/brief.md",
           "sha256": "b035b0c269d01cb8f7c138dfe4b6790ac652be38325a14a0b3d182432e033aee",
           "origin": "source",
@@ -16062,26 +11634,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cinder-cone"
         },
         {
-          "path": "production/batch86/assets/cinder-cone/r001/candidate-validation.json",
-          "sha256": "dc3348d6531d52584939a6d3271e1d2883bef5dbf849133d9beb9789f7650f40",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
           "path": "production/batch86/assets/cinder-cone/r001/candidate.json",
           "sha256": "86e9207e25d2c4b54735e32b8d0b023725d04b143ef7a9fc6e1fef6c498e115b",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "production/batch86/assets/cinder-cone/r001/concept-evidence.json",
-          "sha256": "ec03b720168ead3a63fbfbdfc67ad561696eec1a4e01dee9eec146eec368f3b0",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "production/batch86/assets/cinder-cone/r001/concept-generation.json",
-          "sha256": "dd1144d6da592d02a2f8b8b2ccf39ac36733cc31c62b7ce1f00b89e68cbfbc1d",
           "origin": "source",
           "owner": "cinder-cone"
         },
@@ -16098,20 +11652,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cinder-cone"
         },
         {
-          "path": "production/batch86/assets/cinder-cone/r001/concept-validation.json",
-          "sha256": "589aebd0cd88eec02dc395d9c4c17c5d0bf86d79315e3c02a6bf0c785fba97f3",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
           "path": "production/batch86/assets/cinder-cone/r001/contact-sheet.png",
           "sha256": "b477ff36846cda11e8f231deed52912f4d3567877559a0958c6459ebe4448789",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "production/batch86/assets/cinder-cone/r001/diagnostic-disposition.json",
-          "sha256": "1dd1c11d1686238a53411d7bd959729c78eb591f1d6362ad90adab376ecf29b8",
           "origin": "source",
           "owner": "cinder-cone"
         },
@@ -16176,18 +11718,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cinder-cone"
         },
         {
-          "path": "production/batch86/assets/cinder-cone/r001/premodel-schema-check.json",
-          "sha256": "df7207f823bc4b21f203977171afaa14a2dc32a554e1b467b6fd963ea9aa6e70",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "production/batch86/assets/cinder-cone/r001/preproof-binding.json",
-          "sha256": "86f14b382cb05f4ce4b03385dfe3ad0dcf7ce204eef3e3968ff0d6c3014d9684",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
           "path": "production/batch86/assets/cinder-cone/r001/preview.png",
           "sha256": "653a32a23d3106f74cdc024189fe8704e94047d62fb86d74b85c3058cec32c73",
           "origin": "source",
@@ -16224,12 +11754,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "cinder-cone"
         },
         {
-          "path": "production/batch86/assets/cinder-cone/r001/proof-final/render-config.json",
-          "sha256": "e3d478ff101f91f0e25e83805164fffd194566a870e1c2cce2795ed31f93d9c6",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
           "path": "production/batch86/assets/cinder-cone/r001/proof-final/render-manifest.json",
           "sha256": "1642913d7dac49828e0b1211a2fc361d941d500be736b91694ad59a68347e700",
           "origin": "source",
@@ -16256,18 +11780,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch86/assets/cinder-cone/r001/proof-final/top.png",
           "sha256": "76cad2a7c579fcd1df7ca933fe9fee4e6e5ece13d552a88065f04a1bd2798b09",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "production/batch86/assets/cinder-cone/r001/proof-final/turntable.json",
-          "sha256": "f7db647ecdd212fa2b1d540646709e7bb2de7d1df3723c896ae4596bc18c37cc",
-          "origin": "source",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "production/batch86/assets/cinder-cone/r001/qa.json",
-          "sha256": "27d6109e4b68f0d36fbf7415ff05414af1ad4856b0acaf7dc8b8ca50cffae2f9",
           "origin": "source",
           "owner": "cinder-cone"
         },
@@ -16326,12 +11838,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "tower-karst"
         },
         {
-          "path": "production/batch86/assets/tower-karst/r003/brief.json",
-          "sha256": "17211a48c45288faf74e61d9ca2746a6f4a2f29a311c37937ea4e0d084c83ae7",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
           "path": "production/batch86/assets/tower-karst/r003/brief.md",
           "sha256": "434d52f6b050f4d61c5d1021e793e45358f4d8810bdd544910df26401156812a",
           "origin": "source",
@@ -16356,26 +11862,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "tower-karst"
         },
         {
-          "path": "production/batch86/assets/tower-karst/r003/candidate-validation.json",
-          "sha256": "812fb555a938e3f90a6f58731d5d7a6b5b71427f53081208be6fbfbfa34abc77",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
           "path": "production/batch86/assets/tower-karst/r003/candidate.json",
           "sha256": "0440010c1216f9bfa4872eea52f91aa5e85c5eb558a28468afc8d932aa056d51",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "production/batch86/assets/tower-karst/r003/concept-evidence.json",
-          "sha256": "544ac0859dfc470a24318e3b9dc24b965833a31bfd27287b4fefdb8b71d73484",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "production/batch86/assets/tower-karst/r003/concept-generation.json",
-          "sha256": "56b5ece9eb77d1955f699b9d5eb4e15749152082226c409cfb57cbf3198b20c6",
           "origin": "source",
           "owner": "tower-karst"
         },
@@ -16392,20 +11880,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "tower-karst"
         },
         {
-          "path": "production/batch86/assets/tower-karst/r003/concept-validation.json",
-          "sha256": "8dfba931f1f58fbb6ed0d519a3efbb276e37dde0f9d096c528d83f48d0315ca3",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
           "path": "production/batch86/assets/tower-karst/r003/contact-sheet.png",
           "sha256": "271339059cb331bede46582d75d92cf92411a80355244c04b06928b69da12bfb",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "production/batch86/assets/tower-karst/r003/diagnostic-disposition.json",
-          "sha256": "938ace59ea66349b10881fe9dde15703de278d345f0054396424d18ee9ff7e7f",
           "origin": "source",
           "owner": "tower-karst"
         },
@@ -16464,12 +11940,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "tower-karst"
         },
         {
-          "path": "production/batch86/assets/tower-karst/r003/preproof-binding.json",
-          "sha256": "ce47ded5ec6f2e0885d41d71e56bb4de015f44431b62f4b404b921f46e82f922",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
           "path": "production/batch86/assets/tower-karst/r003/preview.png",
           "sha256": "a65ca0ab07b1302283b43cb6641acf9f9e3f0296d54797f144c2a02b8f104cfb",
           "origin": "source",
@@ -16506,12 +11976,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "tower-karst"
         },
         {
-          "path": "production/batch86/assets/tower-karst/r003/proof-final/render-config.json",
-          "sha256": "fa2df3aa58542fc01c278fb3cca19465791ea92eb07967592c9b1e4f0e643f1a",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
           "path": "production/batch86/assets/tower-karst/r003/proof-final/render-manifest.json",
           "sha256": "b6f1bf38ac26050a40d18aa468673412db25c9710c53e31d419a04e1bca53bca",
           "origin": "source",
@@ -16538,18 +12002,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch86/assets/tower-karst/r003/proof-final/top.png",
           "sha256": "37a99ba8cb47d08124ba2f4cea480830c093550b987467354a6168bc577685b6",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "production/batch86/assets/tower-karst/r003/proof-final/turntable.json",
-          "sha256": "3f46601331d830d152218cedf9499ff86ca95fb56e0a6a0ac2da773f409dd2c4",
-          "origin": "source",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "production/batch86/assets/tower-karst/r003/qa.json",
-          "sha256": "7c211ea58c654f72d3b45dc3d315e81abc9cb4868c015f2d79dfe56027d1c20e",
           "origin": "source",
           "owner": "tower-karst"
         },
@@ -16620,68 +12072,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/beach-cusp-field/candidate-schema-fresh.json",
-          "sha256": "f067fdd6c7c9249d38a4a7a81ab3c5fb5dc6dfebad7e503c52ebf3694f99cdec",
-          "origin": "review",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/beach-cusp-field/khronos-fresh.json",
-          "sha256": "5abb581d190df393c89b6968fffd0ae827f2fe748a14ea4204c85fe501406e2c",
-          "origin": "review",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/beach-cusp-field/runtime-fresh.json",
-          "sha256": "9643e9f1367b4132d72fa9faff9b8d9ec8b5c93ffa3584e254a1d50b274d8eb1",
-          "origin": "review",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/beach-cusp-field/saved-source/source-reexport.report.json",
-          "sha256": "6d63bb459a63c7a39acbc1bb5c34f3ca308b10cd866bb742b5c41efd857dc847",
-          "origin": "review",
-          "owner": "beach-cusp-field"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/cinder-cone/candidate-schema-fresh.json",
-          "sha256": "dc3348d6531d52584939a6d3271e1d2883bef5dbf849133d9beb9789f7650f40",
-          "origin": "review",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/cinder-cone/khronos-fresh.json",
-          "sha256": "fc11cfe5a1f7a6db9b53113fb5745f1dada43720c444fe2b08acf06a903d88ba",
-          "origin": "review",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/cinder-cone/runtime-fresh.json",
-          "sha256": "5ac329c7b8084628073dc6a1a4fdedadd048067c4655145b8cca28e934d21c22",
-          "origin": "review",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/cinder-cone/saved-source/source-reexport.report.json",
-          "sha256": "a5ea52e5c039c4e51096dcd81834482c322492edbe18451f05b74d1937d1c84b",
-          "origin": "review",
-          "owner": "cinder-cone"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/final-integrity.json",
-          "sha256": "56365bf301cd5707acd742d5810069415597e959c024442ebb6c6274a35fdea2",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-86/finalize_report.py",
           "sha256": "166d6208cad3a41bb3382151d91a1cb9c0c25da93ae1eecb141f63c050d29b67",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/fresh-processes.json",
-          "sha256": "f97ac4a57115954ba1ef73e85de80b78597ee54a5d4090cf97d144e21ceec314",
           "origin": "review",
           "owner": "$batch"
         },
@@ -16692,26 +12084,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/immutable-input-audit.json",
-          "sha256": "ecb5089b8aeef4bde78d6b420f48d76861c772081b6e13adf97508c8475e86e2",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-86/independent-qa.report.json",
           "sha256": "83e66bc83fdae0046cd5568eb363e67427fdabfc3e1b88a1603ee66f010a9685",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/inspected-input-manifest.json",
-          "sha256": "b5f0047ac8cf82497a1682f21ee79fed113444e223e6404d9c7e0162974b4f83",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/lean-byte-identity.json",
-          "sha256": "f6746967df9046ffad2970c6b6172f8abec9a26b396a590d5697d58b73fb13ec",
           "origin": "review",
           "owner": "$batch"
         },
@@ -16724,12 +12098,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "qa/continuous-small-life-round37-20261020/batch-86/own-evidence-manifest.json",
           "sha256": "b280ca57f742f67ebce68629fd08929a12829b1ced4ff0d184a674b946484260",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/parameter-measurements.json",
-          "sha256": "77c7c93e5f2e492c906f9415e54cc65923fa804d3bdb42d5609ae7e71b9fee77",
           "origin": "review",
           "owner": "$batch"
         },
@@ -16752,32 +12120,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/tower-karst/candidate-schema-fresh.json",
-          "sha256": "812fb555a938e3f90a6f58731d5d7a6b5b71427f53081208be6fbfbfa34abc77",
-          "origin": "review",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/tower-karst/khronos-fresh.json",
-          "sha256": "10b8fdca629204613e6abbfe403fe4e26171bff777e1ada182c0dbcad3ae2ef7",
-          "origin": "review",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/tower-karst/runtime-fresh.json",
-          "sha256": "2234ea801b0578b75b172d391105ee06b9f0e8b56a9b00cfec6090a9756dee37",
-          "origin": "review",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-86/tower-karst/saved-source/source-reexport.report.json",
-          "sha256": "fd6ceb6300df85818454956248f11efbb495a861e811c3deedd1033bbdcf285f",
-          "origin": "review",
-          "owner": "tower-karst"
-        },
-        {
-          "path": "qa/next52-g14-release-20261021/retention-summary.json",
-          "sha256": "f41ddd51239de1d99e364751029e6a389d630bea4bb92ddc2e200b47b663f7d0",
+          "path": "qa/next52-g14-release-20261021/process-archive-index.json",
+          "sha256": "a391319bf3a8f37538f39210db2f3659f7d627841833ab286bd97fbd28481e9a",
           "origin": "release",
           "owner": "$batch"
         }
@@ -16787,7 +12131,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g15-20261021.json",
-      "sha256": "bfc8d73d0e3270ebeb81c9a88d7654011718e5d2dd3fba0f6fdcce276a8ca26a"
+      "sha256": "841d8f1152a97d2b7f370d56500bc7301961b432ec8dabc0c4a7f2d377112fa8"
     },
     "release": {
       "version": 1,
@@ -16806,7 +12150,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g15-release-20261021/source-bundle.json",
-        "sha256": "a0eac5a304458091cfc498274fa8231cf451c252195b4e15479e6b2dc67c3488"
+        "sha256": "f5b83a5668e182568ffb2d6dd75e83d88f1be42dc88b4ecfcd54069e30486dce"
       },
       "protected_source_inputs": [
         {
@@ -17208,12 +12552,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kame-mound"
         },
         {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/brief.json",
-          "sha256": "f381acf1bdef081103c1a48b00ef8ad62022f84ed205cf42e493b8d561bdc26a",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
           "path": "production/small-life-batch80/assets/kame-mound/r002/brief.md",
           "sha256": "da98e88cae463877de3fa1a8ce56bd45f935c93415cf6e228ab8d15576ab7d6f",
           "origin": "source",
@@ -17238,26 +12576,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kame-mound"
         },
         {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/candidate-validation.json",
-          "sha256": "5b39e6d06dcbbaf5f17ff7ceabe82ca700dc4bec60e307ff5ac6e9f30353e383",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
           "path": "production/small-life-batch80/assets/kame-mound/r002/candidate.json",
           "sha256": "4c07dcc462147d95d8017f895c4cc19555a38697ce6388d5a9aec431e068fa1e",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/concept-evidence.json",
-          "sha256": "efe07c925c566c663f6d14fcaad88f9dd0844cc333ef3925aebd9438ea2ba5f7",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/concept-generation.json",
-          "sha256": "0d1a4794ec4e35623fe954fded9a3f1bb17084b750f7f5799cc8f6449a58910f",
           "origin": "source",
           "owner": "kame-mound"
         },
@@ -17270,12 +12590,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/kame-mound/r002/concept-prompt.txt",
           "sha256": "f5764ad1892bd0f229c3bcaf13e476a9f65dcfac46d9726401c1d2029080531b",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/concept-validation.json",
-          "sha256": "c2a424d9c7e3b47a65e03940a9f6f17b64cfda4dcb923867facba496e065ee54",
           "origin": "source",
           "owner": "kame-mound"
         },
@@ -17316,12 +12630,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kame-mound"
         },
         {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/metadata.json",
-          "sha256": "2e5f03b0f6b5731be16ed438c13f79b177dbaa94f3754ad13986aabcb6b2605e",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
           "path": "production/small-life-batch80/assets/kame-mound/r002/metrics.json",
           "sha256": "f31e592cd753070f2de1bbcb89eb41e4c2b84c66b4f1dbd2cb65ca337941c9eb",
           "origin": "source",
@@ -17348,18 +12656,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/kame-mound/r002/pixel-inspection.json",
           "sha256": "ea0705e73dbebe6f71e7e17d7b689ff76586d6f21b37cdc66c113f1bd5cebb3c",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/premodel-schema-check.json",
-          "sha256": "9983c2422691b7104720663e6179f41a91f3ef318ae19f8eee1e1c18456ace8b",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/preproof-binding.json",
-          "sha256": "1a2461b847db13061e75199945f732d70ca05cab59f91e506a6fd228d8b6f9a9",
           "origin": "source",
           "owner": "kame-mound"
         },
@@ -17400,12 +12696,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "kame-mound"
         },
         {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/proof-final/render-config.json",
-          "sha256": "aaefc93f7119d5c24715e7b7e3e2f2829db5e2c83f466dcb8b51b8f17255e6a4",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
           "path": "production/small-life-batch80/assets/kame-mound/r002/proof-final/render-manifest.json",
           "sha256": "29c327850f8a95a1581363fe76c726637df9b2e2289e44cd62c5fe2ac87c40b6",
           "origin": "source",
@@ -17432,18 +12722,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/kame-mound/r002/proof-final/top.png",
           "sha256": "db92919201c7eb2f8f9f67a6f23b9a96f6fe3ae6ac27d2ed7db95fac708fda32",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/proof-final/turntable.json",
-          "sha256": "fd4dfb3fa85739653dddfde5d92e84a9fd9042b4fa5094aeb038fb605ca52e42",
-          "origin": "source",
-          "owner": "kame-mound"
-        },
-        {
-          "path": "production/small-life-batch80/assets/kame-mound/r002/qa.json",
-          "sha256": "afa21afc819005aecb0616faef7a59baff05ee28d5683961f43d0cfdb9e4feff",
           "origin": "source",
           "owner": "kame-mound"
         },
@@ -17508,12 +12786,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pediment"
         },
         {
-          "path": "production/small-life-batch80/assets/pediment/r002/brief.json",
-          "sha256": "5fe0b13dc95b7559c311e2c7a6ed33a86fdc01950d08c3da5196c458dbb44446",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
           "path": "production/small-life-batch80/assets/pediment/r002/brief.md",
           "sha256": "f545958d7af0ac64ee9110b3578a0e4c490e9e44dc050d17473a3de72abdaef8",
           "origin": "source",
@@ -17538,26 +12810,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pediment"
         },
         {
-          "path": "production/small-life-batch80/assets/pediment/r002/candidate-validation.json",
-          "sha256": "6c1258cedc9bc8b73582981cd38cea2d4226e350b3902502a787ff89b234aea9",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
           "path": "production/small-life-batch80/assets/pediment/r002/candidate.json",
           "sha256": "dadb435b88514d4694d6251b9ec393a6d0636889ef6d07e4499d577cfadc88e2",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
-          "path": "production/small-life-batch80/assets/pediment/r002/concept-evidence.json",
-          "sha256": "388a6808e51b94a5394c799d96be83fb6bb03d8d69c4dd959289daae80ebc288",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
-          "path": "production/small-life-batch80/assets/pediment/r002/concept-generation.json",
-          "sha256": "792e1f7862dbb43122e108b68b302ce71f2f51cabaa6ccaac12c1afcac08a344",
           "origin": "source",
           "owner": "pediment"
         },
@@ -17570,12 +12824,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/pediment/r002/concept-prompt.txt",
           "sha256": "f7c82c45aa9dafba204a7781ceeb84569c432b7ad29998446387f95f7556d5aa",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
-          "path": "production/small-life-batch80/assets/pediment/r002/concept-validation.json",
-          "sha256": "1114027dd9bf4ac9b8d20f4c5559680e3cf8f7cebae52567504e7f2ae910240c",
           "origin": "source",
           "owner": "pediment"
         },
@@ -17616,12 +12864,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pediment"
         },
         {
-          "path": "production/small-life-batch80/assets/pediment/r002/metadata.json",
-          "sha256": "82458068c7a61d49e8f768396bedc7da893d06cda21ec929f2951474c11f091f",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
           "path": "production/small-life-batch80/assets/pediment/r002/metrics.json",
           "sha256": "ad4d0176ffb501ba1cc6a314d2186e8f70c217741339845fddfc47f9df14e140",
           "origin": "source",
@@ -17648,18 +12890,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/pediment/r002/pixel-inspection.json",
           "sha256": "7a6752e595f8da2f36374952b86f545b4d7ba7d034ff0f11602f1b7fe4731f2c",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
-          "path": "production/small-life-batch80/assets/pediment/r002/premodel-schema-check.json",
-          "sha256": "1246a64f7790df4fe4f685cb8280e815e16c266c3eb892045215e091be4fa0bf",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
-          "path": "production/small-life-batch80/assets/pediment/r002/preproof-binding.json",
-          "sha256": "a4bfec7605663fa4799e92d23fa79248553e48d35db17f05ee0ad75c242a6b6f",
           "origin": "source",
           "owner": "pediment"
         },
@@ -17700,12 +12930,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pediment"
         },
         {
-          "path": "production/small-life-batch80/assets/pediment/r002/proof-final/render-config.json",
-          "sha256": "a1c57176032090b8007a1f7877f327c2c4015af82fc0889691dad2a5aff4cc3e",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
           "path": "production/small-life-batch80/assets/pediment/r002/proof-final/render-manifest.json",
           "sha256": "c51237c4553ad694b2310153a02743ab2810261ad83c1691e9a61b829cb6db43",
           "origin": "source",
@@ -17732,18 +12956,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/pediment/r002/proof-final/top.png",
           "sha256": "7357ce55db7d16348bb01cda06023532aaae66e11d2b2139a0f996f9c9e6da9b",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
-          "path": "production/small-life-batch80/assets/pediment/r002/proof-final/turntable.json",
-          "sha256": "93e944d673d2a86979ef44e0b49377902f989da96dd1f0c4f5de62aa841484da",
-          "origin": "source",
-          "owner": "pediment"
-        },
-        {
-          "path": "production/small-life-batch80/assets/pediment/r002/qa.json",
-          "sha256": "85bbe685f952c0614ff363b39a1a8867280a475d9edeb4009994fbf9c962a72f",
           "origin": "source",
           "owner": "pediment"
         },
@@ -17808,12 +13020,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spriggina"
         },
         {
-          "path": "production/small-life-batch80/assets/spriggina/r003/brief.json",
-          "sha256": "596712e9976f668d831c3d397b30d5d5c21e3cfe904673a0097167020f1450d2",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
           "path": "production/small-life-batch80/assets/spriggina/r003/brief.md",
           "sha256": "73b029b957701ecf93f801f47c6fcf181e3476101242de3ca4f92e98d6ace0d4",
           "origin": "source",
@@ -17838,26 +13044,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spriggina"
         },
         {
-          "path": "production/small-life-batch80/assets/spriggina/r003/candidate-validation.json",
-          "sha256": "1b5403ca713469b711dd08a13fcc1d78a2e2a36b03794658e21cf9d3fbce10bf",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
           "path": "production/small-life-batch80/assets/spriggina/r003/candidate.json",
           "sha256": "d47f7fa75884b1e942b20dfda04fbcfd80c7eb30a8e97501c95fa90d9049ebe7",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
-          "path": "production/small-life-batch80/assets/spriggina/r003/concept-evidence.json",
-          "sha256": "ac40efea1d19920c9aae03e63e0fcd071186d41b17cf050bac00be763c00a06f",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
-          "path": "production/small-life-batch80/assets/spriggina/r003/concept-generation.json",
-          "sha256": "7d353549a55082f69007bf6d6da0755700124cd8f983deb4ee57104f11111b26",
           "origin": "source",
           "owner": "spriggina"
         },
@@ -17870,12 +13058,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/spriggina/r003/concept-prompt.txt",
           "sha256": "94a42124c0b9af75f837b536fb0f7bcc0232c82c5291702bbc30470fc9b629f2",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
-          "path": "production/small-life-batch80/assets/spriggina/r003/concept-validation.json",
-          "sha256": "93bf73af801b8418f0cd218b308ad95565e2c71e5ab631f017315c5d36b5df37",
           "origin": "source",
           "owner": "spriggina"
         },
@@ -17916,12 +13098,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spriggina"
         },
         {
-          "path": "production/small-life-batch80/assets/spriggina/r003/metadata.json",
-          "sha256": "e93ce10b07009ea76db8d174788cdeab4efa5ed450d938e158eb8b3b1051b145",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
           "path": "production/small-life-batch80/assets/spriggina/r003/metrics.json",
           "sha256": "8a55ecf3fdb9878438cbb4c435d45039e9c9644cc77b7bf7e9ac4ee6966f5eef",
           "origin": "source",
@@ -17948,18 +13124,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/spriggina/r003/pixel-inspection.json",
           "sha256": "d92f9801e3560e9b1b63396ea5a4dacebc9a52fa1d6e8fc65622bb176debadf8",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
-          "path": "production/small-life-batch80/assets/spriggina/r003/premodel-schema-check.json",
-          "sha256": "315740a575f604c3dc96074fea6cde1aace9cd6434476fa8eb6e8b31b753ab26",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
-          "path": "production/small-life-batch80/assets/spriggina/r003/preproof-binding.json",
-          "sha256": "3a9b2898ea6a9256c73d7db56cdf0d164529746aaeacff9f5dfaa7d23743bad5",
           "origin": "source",
           "owner": "spriggina"
         },
@@ -18000,12 +13164,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spriggina"
         },
         {
-          "path": "production/small-life-batch80/assets/spriggina/r003/proof-final/render-config.json",
-          "sha256": "fb74c4e651a13eaf661f9c4cab32618b7aa77f49c404e1c0ca81474959a33b13",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
           "path": "production/small-life-batch80/assets/spriggina/r003/proof-final/render-manifest.json",
           "sha256": "991c32cb3bfc11c6a18c3fc1abc2af4d11619e0cb70a8af6bf9da7d12594d36a",
           "origin": "source",
@@ -18032,18 +13190,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch80/assets/spriggina/r003/proof-final/top.png",
           "sha256": "0eafbfa6627228a3ec55a63a7c33ba132ca9465b0a550b8282e31a82ae421a94",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
-          "path": "production/small-life-batch80/assets/spriggina/r003/proof-final/turntable.json",
-          "sha256": "7cd50c5b5f1a0943f753af6229abd0d115a7719970f5d011a7aed68de60e76fa",
-          "origin": "source",
-          "owner": "spriggina"
-        },
-        {
-          "path": "production/small-life-batch80/assets/spriggina/r003/qa.json",
-          "sha256": "373c3b41460c5edc85be60b030505a093bb47b095c7e6b8d91cdc278d0b00887",
           "origin": "source",
           "owner": "spriggina"
         },
@@ -18132,44 +13278,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/k0-report.json",
-          "sha256": "136cdbc935a3769ff4e2f4041fb447f72bbecc99eb0005d03e7d8f36088487d8",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/kame-mound.reopen-report.json",
-          "sha256": "17ac3bcfdb600b9a9de00117d1e4c5815e60689df25c01f1e4ee362c7587a9c9",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/khronos-report.json",
-          "sha256": "8e05ff0ae1939b6edf07475e1d76ff6c60b50a73a5758adf7b8f9d41291a5d5a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round33-20261020/batch-80/owned_outputs.json",
           "sha256": "ec710fb9c03aa4f8dd28230693652cf92aededf23fc691de3fe2dd8630c51e74",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/pediment.reopen-report.json",
-          "sha256": "72db52e8c6f0988d6fcd5a9599052a50537929ee3569bdb63b327fed64a430ca",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/physical-glb-report.json",
-          "sha256": "7ff394ed806f97fbb6f69537d410a45355ed5172e6240233dd1885d389e9964a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/proof-integrity-report.json",
-          "sha256": "3ab955414a397687e5ee66b441f901cdaa24176a4f61c5f259effb6c8cd50612",
           "origin": "review",
           "owner": "$batch"
         },
@@ -18186,44 +13296,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/semantic-rebuild-report.json",
-          "sha256": "65ed1d5ef48be8b240b7e11581d1934ab1cf7525c2c06851a70e807d08d84c4a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/source-integrity-report.json",
-          "sha256": "6b34217920d22a797be2b8f44bade792f896cec69dde1b1b056e95a49e9b9f2f",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/spec.json",
-          "sha256": "9b434d59f2244940294738fd4017af778c09b0528912e2edce821d9c261c912a",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/spriggina.reopen-report.json",
-          "sha256": "1b7a58bf4957d2de85694bd30938ed9a5aefc5a87fe7e6ecc41551db296512ad",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/three-report.json",
-          "sha256": "0a480c32a797b3592cad9f7abc235bcd3aeac42e9b97f2ad7f3c997edc9b550b",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round33-20261020/batch-80/tuya.reopen-report.json",
-          "sha256": "9c6bccfe42a68dc7b1dd935435e4736c9731ac6ed78b407bf29b4e2eaad567cb",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/next52-g15-release-20261021/retention-summary.json",
-          "sha256": "af2d589f2944102469dcaedbb4cb20ce96c321454f41eb6b860cc214669ad2a4",
+          "path": "qa/next52-g15-release-20261021/process-archive-index.json",
+          "sha256": "699702bb31eb4bd5602cf525ef4d51b5fe5c86487738405442aba5bff82b2629",
           "origin": "release",
           "owner": "$batch"
         }
@@ -18233,7 +13307,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g16-20261021.json",
-      "sha256": "18d8eb6bcfb1db16a48aa3cb1a4706bee44c994a3bd5e3d66f77bf0739fa7b15"
+      "sha256": "7ffb4b7aa9c71e411b4e68cdf99ae92a67a4401a44741efb762fcda4f2b74c95"
     },
     "release": {
       "version": 1,
@@ -18252,7 +13326,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g16-release-20261021/source-bundle.json",
-        "sha256": "d20ee1dc2a8ba4be8f51dbdddb703d663d4564c6920cbaa860869f9ad76a6e5e"
+        "sha256": "0bf4593e5fa09aecd53867a99f45b554086ecbffbda86689f902a908b7620361"
       },
       "protected_source_inputs": [
         {
@@ -18592,32 +13666,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/artifacts/construction-semantics.json",
-          "sha256": "097affa7da98a719da2740f05587fb6fb44f74b193d9ce4a85bf8ee613da9978",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/artifacts/execution.json",
-          "sha256": "88e31b5a973af25927ab7513d7a4b092d0bf8c4617f7ff720a219bf117acf991",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/artifacts/gltf-validator.report.json",
-          "sha256": "50b0ebd3ac19467c7e5fdf01c3fe4d50788c2578767df92683ad8c1e62e797c3",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
           "path": "production/batch87-landform-repair/spatter-cone/r006/artifacts/metadata.json",
           "sha256": "af6cae7ecc941ccee69b165a62b93c5963b0634bf8b558a697e20a9e00987538",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/artifacts/qa.json",
-          "sha256": "4c20c1ef6575d0c0df5dcb26d24ff5f941271a2e1e236ec43ed9ce184e66b277",
           "origin": "source",
           "owner": "spatter-cone"
         },
@@ -18630,12 +13680,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch87-landform-repair/spatter-cone/r006/artifacts/spatter-cone.glb",
           "sha256": "51b4daefbebba036ba57c76b932f2d18b265349c84d047261dbfbd1c223936a7",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/artifacts/three-parse.report.json",
-          "sha256": "7b1caa5ebb64627cb2dba0a8b3a0512cc2c7e53eadc0e0843417532ffa229eaa",
           "origin": "source",
           "owner": "spatter-cone"
         },
@@ -18658,32 +13702,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spatter-cone"
         },
         {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/diagnostic-disposition.json",
-          "sha256": "73be4572b9cb9deea96c210e94e07986b62b0fe0508c2bff9010e57571379c85",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/premodel-freeze.json",
-          "sha256": "a5e8327e4c7e60ea71e3be6923865565a39a67c1b062bf7a582caa1925fddded",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
           "path": "production/batch87-landform-repair/spatter-cone/r006/profile-contract.json",
           "sha256": "b2fb663878a9ac6e4924d9991d6822d9918af6b0d23c3b849de9e5fa579c2b40",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/actual-local-measurements.check-v001.json",
-          "sha256": "b53e4a623bf2257cc15b3441f4f0359da6230c2ab3a8dbe65e00593e1bb915e6",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/actual-local-measurements.json",
-          "sha256": "37197009161c5b6485d2413f20ba596058e291340619417ce4935f105ff2fbec",
           "origin": "source",
           "owner": "spatter-cone"
         },
@@ -18694,170 +13714,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spatter-cone"
         },
         {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/bottom-render-request.json",
-          "sha256": "46dc4662ce0827943a03f9311973aff90e56142da207389152696ead0e0e6257",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/bottom-render-result.json",
-          "sha256": "b0036ad389ff40797ce1d45a2a57f717c857367d8fddac9eeced402f1c6769ec",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/candidate-integrity.attempt-v001.report.json",
-          "sha256": "daffb3430425beb3322ffd7d1a56d3c8733a9d47228a75ddf288a51e87c8202a",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/candidate-integrity.report.json",
-          "sha256": "7a07bfb146c5896a8cfad10a6d76d9ce93ecd1c5138fd579b075cdc8faa23d73",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/contact-sheet-derivation.json",
-          "sha256": "c69f612d5aafe39cd602eac6c9434d0e11a8500de8427a8832d9f14fb93881f8",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/execution-provenance.json",
-          "sha256": "ee100f649da93732e743cea6c47f0d7f3ee91dc5593859ee5f229a317dc55b9a",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/final-render-request.json",
-          "sha256": "2ebbe68f0acd83c70f31acbf1b308a72c227fca0228830169fd6b49b766aff74",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/final-render-result.json",
-          "sha256": "27d9393588b3f8956222f1e72eb0a09870af1762e4edf1eb312c792d564c7358",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/initial-build-request.json",
-          "sha256": "110d3b30c8b0442d7cf2ea8406fd7c57aff58c3a962345d0345ce557e790d53f",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/initial-build-result.json",
-          "sha256": "1c7783b6aad57369bc22df7a7db90720e1b630d41c0e457a04f3471e86e9bafe",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/maker-individual-view-inspection.json",
-          "sha256": "397c1fd89c4d8a663697963c1353d56e938866557a8c96b6e4a9b9bc2caa498e",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/rebuild-a-execution.json",
-          "sha256": "cf5f35e048214b71690891aff81431683c9d6b30c6ce2bdb5c7c1879fd4f9a91",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/rebuild-a-request.json",
-          "sha256": "43b5fe63844ab46efb4664eb0a12c96b7e3fc225169a7a5b04921d9f46e9055f",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/rebuild-a-result.json",
-          "sha256": "5747134f54619dfa5f120785c1b79770439357a445059e337fbcd6328efc0411",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/rebuild-b-execution.json",
-          "sha256": "200105f77692dc7ceb8322b1efc65ca24513b30ff1669fbdc7dc3f70739060c4",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/rebuild-b-request.json",
-          "sha256": "1e86ae97ff45a0ed116a8f0c55078ced6130cb96ef4498644fda58fd99ed085f",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/rebuild-b-result.json",
-          "sha256": "861972267fec4eac5ebc9f26321410f6c0ed82b7138446e5343363b2ae807cbd",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/reproducibility-a.report.json",
-          "sha256": "0fde0ab233977e90536c942c354af5ec68453121fe5cc3a9447a7065462c4ba5",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/reproducibility-b.report.json",
-          "sha256": "b0e898bac8832fb4ade0949310f6e6cc1582d0616c5ebd4631aee1a1f5ec5c27",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
           "path": "production/batch87-landform-repair/spatter-cone/r006/qa/runtime-parse.report.json",
           "sha256": "169546e21c0eafdf206979973b13a1687de1e7b464096ad90a4480a9f75135e9",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/source-export.report.json",
-          "sha256": "bb513da7cb0e50c7054b33a7e6f6d8c69792472d6167f81a9e90e39d1681c1fa",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/source-request.json",
-          "sha256": "04400832957911ebe1da1fea7df97df085313b0f61de4117f35cb3de0e3a5a12",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/source-result.json",
-          "sha256": "0c972db3cbf59fed029220348ca5e075da2a4a9434d86f2039baec7d59416d7a",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/static-glb.report.json",
-          "sha256": "0d6756bc3ef21cdb0dd8576f20fb9f2a402b4f4f66871aade34fb07acd2ffcfd",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/supplemental-bottom-raw/render-config.json",
-          "sha256": "1469f2e8b34b2192f6f32f98807a10449a3b01504becd3aec1dd2ae95fc98548",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/supplemental-bottom-raw/render-manifest.json",
-          "sha256": "54bdb27c657128194d65c29df917bef092c46b2627335f92bdf5c95232acd1c9",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/supplemental-bottom-raw/turntable.json",
-          "sha256": "b6e53cdd86b2c17d3ee3185659b38c0e6ef9984f7dfafc5335a11c21245496b9",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/qa/technical.report.json",
-          "sha256": "bbaf9b009a0dfc2b2f1cc452c2ecee51526f58c17ab7adbdda5d231ea3f69c62",
           "origin": "source",
           "owner": "spatter-cone"
         },
@@ -18870,12 +13728,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch87-landform-repair/spatter-cone/r006/references.json",
           "sha256": "427cee9955bcb668e22d1544c5509a22bb3e2c3194c4d940cd67457fc2180ce0",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/subject.json",
-          "sha256": "95e960011b72116e01f5e4bffe239985d24967891443405e42d6d78195e4e1a9",
           "origin": "source",
           "owner": "spatter-cone"
         },
@@ -18900,12 +13752,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch87-landform-repair/spatter-cone/r006/views/rear.png",
           "sha256": "8797836b096d6d36aaf97065968bcb8f3c054f2aab13a254a81c1c104f5e2c7e",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/views/render-config.json",
-          "sha256": "0835af4c0aed26526c4e24b009cfd0fdd7d99aa9c25d3ca36ebbe72526713f6d",
           "origin": "source",
           "owner": "spatter-cone"
         },
@@ -18940,12 +13786,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spatter-cone"
         },
         {
-          "path": "production/batch87-landform-repair/spatter-cone/r006/views/turntable.json",
-          "sha256": "f8aabaaf7b47f97cdcf53ca0431715500b263fdff9939d938b9190c71af9f201",
-          "origin": "source",
-          "owner": "spatter-cone"
-        },
-        {
           "path": "production/batch87-landform-repair/tools/generate-spatter-r006.py",
           "sha256": "63c37474f4c422d69a591e113af755e1ff3400e16691c0d63b6a762d653d7889",
           "origin": "source",
@@ -18964,38 +13804,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/artifacts/construction-semantics.json",
-          "sha256": "74d4b630a69de8c4ee9ee2f7be0a848a87735b45f4bfcd2bf7aaf46e838bdaa7",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/artifacts/execution.json",
-          "sha256": "55ec3c56cef30a92587ceea275e79db18a3037a36b4a0c47d683c55754425b60",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/artifacts/gltf-validator.report.json",
-          "sha256": "828b7e82ba6709856c0059a9785ed3821c8ae01deb99d6914720b6b3a7a08939",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
           "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/artifacts/metadata.json",
           "sha256": "d6321deac27902ea615d7da7251a0a53181af084584b95cb8320cf68c98a4f99",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/artifacts/qa.json",
-          "sha256": "4b4bb61e50ad40691e42c476c4d52cd6bdfd55e1768ff55787b8e43901e25696",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/artifacts/three-parse.report.json",
-          "sha256": "3b8464bf8135110d752d44b28b4af7d173757812069ba4d09455b2bfb6f46fcf",
           "origin": "source",
           "owner": "travertine-terrace-pools"
         },
@@ -19030,26 +13840,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "travertine-terrace-pools"
         },
         {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/diagnostic-disposition.json",
-          "sha256": "873fba91bdfc7e902d9dc6e0e8dc811a72a5dd1cc7467be4d7419659d728bd1c",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
           "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/profile-contract.json",
           "sha256": "4275910b75b8289862443d8e1fd2af786003964f6d15dac50767c15270d21b64",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/actual-local-measurements.check-v001.json",
-          "sha256": "f57581c15b004ca596f9f577397acd5b1f464c6cfe1f6d79111af065d7fe4596",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/actual-local-measurements.json",
-          "sha256": "72358023d47abcbcb2e964df8fd74455fab8851f82e7e20961902fc588b05b81",
           "origin": "source",
           "owner": "travertine-terrace-pools"
         },
@@ -19060,170 +13852,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "travertine-terrace-pools"
         },
         {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/bottom-render-request.json",
-          "sha256": "c3206d710f283b4d3c7fe961104a43fec61ba559967a2684da894ef5d74f432e",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/bottom-render-result.json",
-          "sha256": "dc3e6e9e9e6df46857bd15f56eeefaea4450cb7762f336a06faa6613d8ae413f",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/candidate-integrity.attempt-v001.report.json",
-          "sha256": "b98fa93a10099f7de90e3e44b3f1594e0e2a20dd0e83b9f789003b1bf03d4f49",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/candidate-integrity.report.json",
-          "sha256": "d87a1321e95c7d757d3e8bdd5b33f503da5ee63d6075e06561be0b324b68e888",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/contact-sheet-derivation.json",
-          "sha256": "1141514bbe0a707148a8915423a3013c417a3e7a683d56193a8e0c1b32503364",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/execution-provenance.json",
-          "sha256": "54397be909316a8423785c19b31807ec9a9d9a442467dcd149920cf978261df9",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/final-render-request.json",
-          "sha256": "08ee23cafe5a2af131834a8026c69ed1bba00ab43c39cd7d1644ef3f1c553b1f",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/final-render-result.json",
-          "sha256": "1abdf8f3a07e62036a26648f3de19ed959562e43e7314fc41dced6c48a5c4751",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/initial-build-request.json",
-          "sha256": "d78c95576de8fd6476740c3f3d21110a14cccd704ee3ae39dfa49c82f0826993",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/initial-build-result.json",
-          "sha256": "ed247731274469e69eaf68693a5d4882fe5a98e6ce893b579cbc6952e3cf8bab",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/maker-individual-view-inspection.json",
-          "sha256": "ab60c23a75d46a09f46bf6425f6d595505cf88bd9ba1491b3ebbfc473c718ecd",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/rebuild-a-execution.json",
-          "sha256": "0d24b869ca6d78aeeafa74b8b4e7d5458e832907ce0d0aefe24ff271a930fa1e",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/rebuild-a-request.json",
-          "sha256": "bdb0f1e0d4afeed3fde2e3708d6b9e43ae800e74f26010121e65ef141b02a43e",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/rebuild-a-result.json",
-          "sha256": "db7b04abd7ef140e91be1615535e3b7b35e718a1f51decc6b97c2f61e31cbc3b",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/rebuild-b-execution.json",
-          "sha256": "3df3345da6a6b81f94017c92ebef5268696c6fd9cd3126e618babec0bb5bdd75",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/rebuild-b-request.json",
-          "sha256": "037ef2cec3ed8304476f33931b9d7667ac1d8e13d1ed400ce2787695cf946007",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/rebuild-b-result.json",
-          "sha256": "5dd834ad6f0096d372f690f89d2565f5b7b9a899c28f7618f99796578a3f6827",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/reproducibility-a.report.json",
-          "sha256": "cba9d2f1d88ce4c507ea9043c72e1ecd11e8da79e58d0cd1200d99ca739adde9",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/reproducibility-b.report.json",
-          "sha256": "406ac0edbabf4004083017a00d318034f16b907050d8e76ce06d371c185aeb98",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
           "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/runtime-parse.report.json",
           "sha256": "7ffdedfe73b5f6fdcc09b9eeb8cb3ab10c756d295bc192466db89ba78a2ba741",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/source-export.report.json",
-          "sha256": "45049e2b382af2d0839d981fa0a1db9930c00fd72b8b6d23d761e87191dcd317",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/source-request.json",
-          "sha256": "8e64fd9be8cce74999eaf200a09221364201404881b82a9ac86aaf46139c86f4",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/source-result.json",
-          "sha256": "a26f01040f48de9edeb9f1e8c8226e4d2560d30c8a2d91bd85dc51d05aa27764",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/static-glb.report.json",
-          "sha256": "0346c46fa60bb284e000bafde3cdbdd87b31ca85f93eb71a6e2f82d4f630b93b",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/supplemental-bottom-raw/render-config.json",
-          "sha256": "315908ed7d0356a1fcf20d08dee40f5b96a850b9420092506814fb51b7df3331",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/supplemental-bottom-raw/render-manifest.json",
-          "sha256": "cc2af202dd8903de3fa7f1b3b513124916304841febe72a18062356cbc249c0a",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/supplemental-bottom-raw/turntable.json",
-          "sha256": "a0ebf2827e34b780120a1ad7dd9dd041268e7e27dae6edad4c34a5461ec1433e",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/qa/technical.report.json",
-          "sha256": "faac9a9777f249976db089ca71d871da951c649217c44e154faf5d59484e2e65",
           "origin": "source",
           "owner": "travertine-terrace-pools"
         },
@@ -19236,12 +13866,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/references.json",
           "sha256": "efa7af1cc375054c9c7afa276ebeb4ddd5aadfa19bb293e424711044431bdfcd",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/subject.json",
-          "sha256": "f4d0675084dad70248aeb8c7b733cae0537aa0300a095b13443572b36f7633cf",
           "origin": "source",
           "owner": "travertine-terrace-pools"
         },
@@ -19266,12 +13890,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/views/rear.png",
           "sha256": "88421767163a87152ab748fdeeff4074186c29a10730ab8fa13442b6321ea25b",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/views/render-config.json",
-          "sha256": "fbdb025191fbbeeb7240ed7950bf6aff0c157c60e5af760cb3a802978cec3c5c",
           "origin": "source",
           "owner": "travertine-terrace-pools"
         },
@@ -19306,38 +13924,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "travertine-terrace-pools"
         },
         {
-          "path": "production/batch87-landform-repair/travertine-terrace-pools/r003/views/turntable.json",
-          "sha256": "07882780fcdfd31f3e5b6673a3888d336abfb716da88a8d80156b3c574d344cc",
-          "origin": "source",
-          "owner": "travertine-terrace-pools"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/audit_evidence.py",
           "sha256": "b24c7cc82a189f4f1ee7c33d2c9ac8e5205bc52e8d3d66fe98a8d951ed51de5c",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/evidence-audit.json",
-          "sha256": "e6a54658f57d2f17ee79b1ce1b9e9dca158e15df913025ebe90f6bc6150365f2",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/final-source-integrity.json",
-          "sha256": "aa1134dde2d8fc930f47f3b6579fdf3c57d746e4b288e529473f1e72b259b38f",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/handoff.json",
           "sha256": "dee1c8fbe67a845a9ae8bc92b8452bcb7e011475bff5cd3227672e951b74304b",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/independent-invocations.json",
-          "sha256": "40b6ef360c10decca4ff5f0d0a2a085c8440fd9da7df159cf8ede045afa68eaf",
           "origin": "review",
           "owner": "$batch"
         },
@@ -19354,26 +13948,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/initial-identity-checks.json",
-          "sha256": "9ef7fc8985d2bbba1fbed96360d8ae6a880b8c71f32e1deb5dfcb1e7e9886f6c",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/lean-byte-identity.json",
-          "sha256": "01bc39dfd24b552128a88aa4186148b24b4b6c6fee3ec94dcfa813c70b282a3c",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/own-manifest.json",
           "sha256": "4dac9fa742663664d9177ba88f56afa055a202e63f55cfa5dabd21514a78c394",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/recovery-progress.json",
-          "sha256": "4ba61ff74d08935741ff8adf9ae20e074d0073c0e145b405c3fac79c374f3a8a",
           "origin": "review",
           "owner": "$batch"
         },
@@ -19390,68 +13966,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/spatter-cone/candidate-validation.json",
-          "sha256": "7a07bfb146c5896a8cfad10a6d76d9ce93ecd1c5138fd579b075cdc8faa23d73",
-          "origin": "review",
-          "owner": "spatter-cone"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/spatter-cone/candidate-validation.stderr.txt",
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "origin": "review",
           "owner": "spatter-cone"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/spatter-cone/khronos-independent.json",
-          "sha256": "baaf88e91a173a1704aadec76cd940d31e2ed8f70d102f2db729824b5b0ddd2a",
-          "origin": "review",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/spatter-cone/source-measurements.json",
-          "sha256": "3a561e509c01cc7dcc93d6eb54601d0a12abe4930b0f0148e60fe17ae4a618e7",
-          "origin": "review",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/spatter-cone/three-independent.json",
-          "sha256": "5f3709bae25b958f7ac94ef3f8166e4e824013233efec560895dc405bf955406",
-          "origin": "review",
-          "owner": "spatter-cone"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/supplementary-independent-checks.json",
-          "sha256": "58065b9a65be7b3ae6ff975d42e27dd1fad8717645807844023feefdbd063100",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/travertine-terrace-pools/candidate-validation.json",
-          "sha256": "d87a1321e95c7d757d3e8bdd5b33f503da5ee63d6075e06561be0b324b68e888",
-          "origin": "review",
-          "owner": "travertine-terrace-pools"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/travertine-terrace-pools/candidate-validation.stderr.txt",
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "origin": "review",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/travertine-terrace-pools/khronos-independent.json",
-          "sha256": "fc1bdee818380f27a7b3d6841011ce5d4ffc0a1d974802d71e5db314c01bf130",
-          "origin": "review",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/travertine-terrace-pools/source-measurements.json",
-          "sha256": "5cb2bcedf7ee5b5954da3016ccd44c9bb582fe9d03736885769e2094304d6992",
-          "origin": "review",
-          "owner": "travertine-terrace-pools"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-87-landform-repair/travertine-terrace-pools/three-independent.json",
-          "sha256": "2c7ea7e78e350891724f8b86e172420d7233834f543289d5967c2c572dacb75a",
           "origin": "review",
           "owner": "travertine-terrace-pools"
         },
@@ -19462,8 +13984,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/next52-g16-release-20261021/retention-summary.json",
-          "sha256": "1cabe9660e1a9f09e8a2cbe5fb0f2699f064632f91dff167745fdee29b194c27",
+          "path": "qa/next52-g16-release-20261021/process-archive-index.json",
+          "sha256": "00c7bd6a166bcb5773083579a092ff549628a97217574c637b5d223ca13d22b5",
           "origin": "release",
           "owner": "$batch"
         }
@@ -19473,7 +13995,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g17-20261021.json",
-      "sha256": "a26911949ddc474c20a4581b8f622babb096af7495f2382a51b90d0d5d337d67"
+      "sha256": "a207dc7ebde50c89fa416e733b2dba793172d29fa3f6aaa7caa937384aee6a61"
     },
     "release": {
       "version": 1,
@@ -19492,7 +14014,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g17-release-20261021/source-bundle.json",
-        "sha256": "c6728388fd7a9531f2c991800f29e5ba01f4ddbc072cf6385174d99be742e4e9"
+        "sha256": "c7344800be87647d7953ceeca38ca45f7d1796de40d6e9a9590694c5efc7a0d8"
       },
       "protected_source_inputs": [
         {
@@ -19776,12 +14298,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "glossopteris"
         },
         {
-          "path": "production/batch84/assets/glossopteris/r001/brief.json",
-          "sha256": "c074b95539f429dabc563e11117983e5df55bcf1bd1cfb557a3b53a73285415c",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
           "path": "production/batch84/assets/glossopteris/r001/brief.md",
           "sha256": "c4b95a040d1d766ac9c024f5928101de48933892801fb76514b83dc2dd73316c",
           "origin": "source",
@@ -19806,56 +14322,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "glossopteris"
         },
         {
-          "path": "production/batch84/assets/glossopteris/r001/candidate-validation-v2.json",
-          "sha256": "09ee80a5c93b49b2b57982c5305ef8f6f0412ec3c5989a7af388f0eb6c43ab64",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/candidate-validation.json",
-          "sha256": "1be6b3eb43d4b0d70eb13474a22b35c0da18c0462818c16437d3146a1a8b8bfb",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
           "path": "production/batch84/assets/glossopteris/r001/candidate.json",
           "sha256": "3d0e392f8ba51ee55e2a602106ee3de1a94deae86dae435b7165c606af36d6d4",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/comparison-proof-2-process.json",
-          "sha256": "77debb02a77e4a3f6cc7ed98ecfa8cf6d6318062c6800490212cfc02e051ac91",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/comparison-proof-2/render-config.json",
-          "sha256": "3bbd975945881467ea42ebe3cf5f7884b71c4287b42398e183daeeb6102805fe",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/comparison-proof-2/render-manifest.json",
-          "sha256": "d77ada1badfa44262b5f93bd053b4fec6fc7040ed8bea941d528c674b8562ec3",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/comparison-proof-2/turntable.json",
-          "sha256": "9dfc1e548c3bc765616c4cb49efc28338d36fab57352e372b70b41145f48e241",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/concept-evidence.json",
-          "sha256": "5bf4a878d0556a579f99622bfd88afd5a4e26d0168a8882be83ae32f00112486",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/concept-generation.json",
-          "sha256": "a8c5bfb33e28826ab8291d7421706c53eabad13321008c5a9301a43cfb4fc1fa",
           "origin": "source",
           "owner": "glossopteris"
         },
@@ -19868,12 +14336,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch84/assets/glossopteris/r001/concept-prompt.txt",
           "sha256": "9ede0f5fe886338c2f076bc9200ba13e29ac3f290454d062666c7186bb3cb3d6",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/concept-validation.json",
-          "sha256": "a8afb50dd0694f013e7b0caa2be7da61956c2a8f4f80c2a382f6d36182200160",
           "origin": "source",
           "owner": "glossopteris"
         },
@@ -19908,12 +14370,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "glossopteris"
         },
         {
-          "path": "production/batch84/assets/glossopteris/r001/metadata.json",
-          "sha256": "fe27290ed1afc3048ba21a934b6a5f37e95fbe740da2b03c8190d8962933e1ef",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
           "path": "production/batch84/assets/glossopteris/r001/metrics.json",
           "sha256": "a1e7008f95b6f79145c84fb6264cc70e2d56b015a4977232f824b4d57f8b830e",
           "origin": "source",
@@ -19932,38 +14388,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "glossopteris"
         },
         {
-          "path": "production/batch84/assets/glossopteris/r001/physical-embedded-contacts.json",
-          "sha256": "e7adb6233abee69996c3d192c7a639e1ae1bb4736581e799ad62d9d48118c5ec",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
           "path": "production/batch84/assets/glossopteris/r001/pixel-inspection.json",
           "sha256": "8dc7cbacd3b81b55bdf3e83d51fd0e61d8f80d91c4843b3b92d1bb5e96f673cf",
           "origin": "source",
           "owner": "glossopteris"
         },
         {
-          "path": "production/batch84/assets/glossopteris/r001/premodel-schema-check.json",
-          "sha256": "5d4d4acf3c1ed8623b465450449103fae5e6a7998ebf1532ab0891579f3f80d5",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/preproof-binding.json",
-          "sha256": "91138c4ac4f7754a5e42206655bb355ec8e30402c18af94a367c2ac1ff499b05",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
           "path": "production/batch84/assets/glossopteris/r001/preview.png",
           "sha256": "7d2904ca70bfc423a35ecd0d7b1d84c3bb472682b46838636e6a15780b79a125",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/profile-contract-v2.json",
-          "sha256": "dbbf4363f733544c7bdbac4d9c167fe2cbf002e937f72a6672ca2a843ff38575",
           "origin": "source",
           "owner": "glossopteris"
         },
@@ -19998,12 +14430,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "glossopteris"
         },
         {
-          "path": "production/batch84/assets/glossopteris/r001/proof-final3/render-config.json",
-          "sha256": "bb20304174431be3fd81fcf38a976a3bc2b7995260402b710f5e6884c2c7434e",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
           "path": "production/batch84/assets/glossopteris/r001/proof-final3/render-manifest.json",
           "sha256": "516ad0c6c39fbe30647d15ac7e5235bf24dfb72362247a71e0ac08ecd2c5e6ca",
           "origin": "source",
@@ -20030,30 +14456,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch84/assets/glossopteris/r001/proof-final3/top.png",
           "sha256": "50f19ed758b92faaf8b55b607f8a07310eb32978529c1dd5fa98fc8916e9ef71",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/proof-final3/turntable.json",
-          "sha256": "3ff7cfe7e4caa659be7becf2c02b582ef3689f8e2b635d95087b1c6a75054d33",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/proof-resume3-binding.json",
-          "sha256": "a82c855620c8ec8798487be66dd59442efd80a12d1f08f9012de0bfc71de775e",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/proof-retry-binding.json",
-          "sha256": "546b66482a38451382bfa3f24b2b8834ad098fc061d5470bbcaf4e08bf953089",
-          "origin": "source",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "production/batch84/assets/glossopteris/r001/qa.json",
-          "sha256": "e87cc52fcfdcf55de8fc57018be1f1bb9e0d0c7a4046620d2a0af514e2bfac34",
           "origin": "source",
           "owner": "glossopteris"
         },
@@ -20112,12 +14514,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "volcanic-neck"
         },
         {
-          "path": "production/batch84/assets/volcanic-neck/r003/brief.json",
-          "sha256": "dc10d734743ac7ea112231249f6ab67d01976a74a7f8cfadd38b29887bf63175",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
           "path": "production/batch84/assets/volcanic-neck/r003/brief.md",
           "sha256": "018ad103bd783786c6de12c70dc03a4176fcbaa9467ce47600aa15f522b659f5",
           "origin": "source",
@@ -20142,32 +14538,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "volcanic-neck"
         },
         {
-          "path": "production/batch84/assets/volcanic-neck/r003/candidate-validation-v2.json",
-          "sha256": "cad0ce781f10a5fc46058333c5765a37009948b1186dba5bb676e4f9bc5cf47f",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/candidate-validation.json",
-          "sha256": "3daaf3a20bf6b729bea2d3e84c81cee0d57ba6d22b2da6e213c38cb6f3ee2dce",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
           "path": "production/batch84/assets/volcanic-neck/r003/candidate.json",
           "sha256": "ae37e093b08eb0fe229bea3b69b9b54c058be026c09049e6b4d9a6046c6d1c46",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/concept-evidence.json",
-          "sha256": "961714715605124efc9f1c26306d2bc96de165932ce69bababe4944186b8a3cc",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/concept-generation.json",
-          "sha256": "89e1edc3047da514ea44145db5315fda8e17fb222fe8adbb08eb597945ea3596",
           "origin": "source",
           "owner": "volcanic-neck"
         },
@@ -20184,20 +14556,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "volcanic-neck"
         },
         {
-          "path": "production/batch84/assets/volcanic-neck/r003/concept-validation.json",
-          "sha256": "9297b6a0855f1a1d2976f2950dad0a336a1b226a8c0899160584a28b78258021",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
           "path": "production/batch84/assets/volcanic-neck/r003/contact-sheet.png",
           "sha256": "e2e0d2864b2a410f63717ac3c80c6246a87c07312a914bf345f1c47ed4a48a67",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/diagnostic-r003-process.json",
-          "sha256": "98e1777251a1b5e7737d41f436c963de6062ef674c1a5313a6fd3b34462bc1e2",
           "origin": "source",
           "owner": "volcanic-neck"
         },
@@ -20222,12 +14582,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch84/assets/volcanic-neck/r003/maker-review.md",
           "sha256": "4084b1f3ed8a3d32a8f1072d0fdf95e6be62a8e524080279c7e3127a48fafef6",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/metadata.json",
-          "sha256": "6674d9aee70171a30bdbb16dd41d155f96e97a32aa13bb49de308b72fe0b42cb",
           "origin": "source",
           "owner": "volcanic-neck"
         },
@@ -20262,26 +14616,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "volcanic-neck"
         },
         {
-          "path": "production/batch84/assets/volcanic-neck/r003/premodel-schema-check.json",
-          "sha256": "98e3547bfef45f49dfa029d48194298394e49c2633ec40b7be9aeeac8529cf17",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/preproof-binding.json",
-          "sha256": "cd1b30f58f3603b6856c22835929dd32ce6495148c3478f5da4738b4c83003ff",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
           "path": "production/batch84/assets/volcanic-neck/r003/preview.png",
           "sha256": "f52ef04f6784efd222f52140efaa41a20ab25c530689df7c9db61df986fe90b0",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/profile-contract-v2.json",
-          "sha256": "7fae47f5ca9930a263a87102b6675545199059f8046f01352b450c22cf3463c0",
           "origin": "source",
           "owner": "volcanic-neck"
         },
@@ -20316,12 +14652,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "volcanic-neck"
         },
         {
-          "path": "production/batch84/assets/volcanic-neck/r003/proof-final3/render-config.json",
-          "sha256": "5c4c70c7066803965f5727db007c2544bc007c868648659a0bb3d316008a9541",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
           "path": "production/batch84/assets/volcanic-neck/r003/proof-final3/render-manifest.json",
           "sha256": "a2e05ffaccb7cc96598bb0c87b040246e81f462fa7391d8999175eb2ee589d29",
           "origin": "source",
@@ -20348,30 +14678,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch84/assets/volcanic-neck/r003/proof-final3/top.png",
           "sha256": "7a28e1ef927823e969096bc55263ce8be925f8c252937ab9a5dc3179d3378198",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/proof-final3/turntable.json",
-          "sha256": "4f4fd50d12b8e4d204646099aa083c0c207a4de6597edc3d8192ff4ac45c5da2",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/proof-resume3-binding.json",
-          "sha256": "f78048942ea4252971ef5f1a50e330cdfc551d5c5c9d3df53d0da03118926864",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/proof-retry-binding.json",
-          "sha256": "81ba89ab007528f0f27b7eeca441ee2101bb6d81428009d510f008982f96999d",
-          "origin": "source",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "production/batch84/assets/volcanic-neck/r003/qa.json",
-          "sha256": "7123181a3f929d478cd7511a843c9acd37a7fb5145b2785497136315b2a0decd",
           "origin": "source",
           "owner": "volcanic-neck"
         },
@@ -20454,122 +14760,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/diagnostic-processes.json",
-          "sha256": "5931fade34e016d5bb66c74a4d6067690c93deca73166c642be0fafecb645110",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/diagnostic2-processes.json",
-          "sha256": "74b67866c001b2e8950a64ce93e581269b844c89662f63ceb0f4d5bb49aaf22c",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/final-integrity.json",
-          "sha256": "6ea85656954a6181e48144f885a9b4df1af241b8a2c7a1e24fc5801f42415d13",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-84/finalize_report.py",
           "sha256": "78b786df91e773b5152b811b558908187033cd4b2a8fad9bf89bada3398c48f5",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/focused-diagnostic-scope.json",
-          "sha256": "38ae0de7d07c4454522c57638f2775c42983c37ed53dc63370cd1db888ce5579",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/focused-diagnostic2-scope.json",
-          "sha256": "618a531293eb7ba818a5582d21701be4643716c3f48ae77aa70ff739486ca009",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/fresh-processes.json",
-          "sha256": "9a3ea75647d06e23ff8a83c981504b765ece728e4256c41fd94806265f6964c6",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/candidate-schema-fresh.json",
-          "sha256": "09ee80a5c93b49b2b57982c5305ef8f6f0412ec3c5989a7af388f0eb6c43ab64",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/comparison-geometry-audit.json",
-          "sha256": "dbe95e0263ae20ff1a58b7687268775e569e5ef18fb6b80f780b189182201454",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/diagnostic2/render-config.json",
-          "sha256": "be5e6965aa1f33c4117b6b0c4509076308e22251b4905171ee5881c3ed589d8b",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/diagnostic2/render-manifest.json",
-          "sha256": "f83d1bb5a9c2a16a735d6e79264fe825dc11651efdd1ecef8df47c5ae7e80ab0",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/diagnostic2/turntable.json",
-          "sha256": "e57e22adbdedac2f8157fda73f82126c6e5ebf9446df3320821910ced2a09913",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/khronos-fresh.json",
-          "sha256": "bee26269c7b9ef4a82d4547be8e7d64b157b6366087ab453b85cfe4ffdca38a5",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/project-audit.json",
-          "sha256": "4336467b3167f77e65a766409379c307c58371827c6efc99b27905f6e5a332a4",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/rebuild-semantic-rebuild-1.json",
-          "sha256": "3f3da67c8972981ee6b4c84db28b297c3f1522c9f1c9b0be67c76c634c15c031",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/rebuild-semantic-rebuild-2.json",
-          "sha256": "528a0d8d2b99dd01bfba9a7b8440c49f19245cf16ef55ebf553350934a11436a",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/runtime-fresh.json",
-          "sha256": "5b31a7e04277e824c5bbea2be4a7f7851eb095211b9a513e70626d464d8f2e33",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/glossopteris/saved-source/source-reexport.report.json",
-          "sha256": "d0ab845d41124de16155c994fb2193860814f4fced44dd102150ea5f053af7de",
-          "origin": "review",
-          "owner": "glossopteris"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-84/handoff.json",
           "sha256": "44a96d0ec071a83eefcd50a8b27a5948bf75dadc194e9fe29a8ae41ad2516137",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/immutable-input-audit.json",
-          "sha256": "9665b4deacb7d3d34c28b8f4af1c416abf3b56c86b97b3867449d1440e4ff648",
           "origin": "review",
           "owner": "$batch"
         },
@@ -20634,56 +14832,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/actual-crown-geometry.json",
-          "sha256": "843245d159dd89ff1f833efa6cef4289ce37b3b0f7056221228782cc3a5cef05",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/candidate-schema-fresh.json",
-          "sha256": "cad0ce781f10a5fc46058333c5765a37009948b1186dba5bb676e4f9bc5cf47f",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/khronos-fresh.json",
-          "sha256": "d811b299e2d467d5364ad8cf9f1a273a9b93b960265c4edea1dd592ae309fd2f",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/project-audit.json",
-          "sha256": "1903ec821f5d5403e95d75f50e855427f571258716f18a825e36cd2b75dbfcad",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/rebuild-semantic-rebuild-1.json",
-          "sha256": "9d271f3f755b02bf776e1d0ad36337ef2abb6184bbb8e96857c0666516be7f52",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/rebuild-semantic-rebuild-2.json",
-          "sha256": "81532af62304e2eceabfabf630b5c81896032dc2ac8b6241bdc3d36486ed3db7",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/runtime-fresh.json",
-          "sha256": "eacdfd31fcb00ff99068eadd77ee69498eff69c6a061368c33503abb2632b474",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-84/volcanic-neck/saved-source/source-reexport.report.json",
-          "sha256": "e6174fd4e260bb26f70ef85104b419fc43a93f39b8554f26e2ffc3ab6cdc11aa",
-          "origin": "review",
-          "owner": "volcanic-neck"
-        },
-        {
-          "path": "qa/next52-g17-release-20261021/retention-summary.json",
-          "sha256": "0970b26f287f4730b9a4ae5e850e87b69b49c42379a135b85f381b648621bcd0",
+          "path": "qa/next52-g17-release-20261021/process-archive-index.json",
+          "sha256": "2badf51c83c7ea62b553e964388b19874883cfc84b8a80a23e4c80d66226969a",
           "origin": "release",
           "owner": "$batch"
         }
@@ -20693,7 +14843,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g18-20261021.json",
-      "sha256": "4f343bebae61ed3fb95dd2e2828d1eba26a75dc47d9aeb4b8c60786230851568"
+      "sha256": "5f7c91e7a2c270bb866132b89121845cabfd0a9d5f898ba22d3d2c5562fd66be"
     },
     "release": {
       "version": 1,
@@ -20712,7 +14862,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g18-release-20261021/source-bundle.json",
-        "sha256": "d507964ac238fe4a0474268976debd4f19211f7329ac88d347bedf31e0dd1e51"
+        "sha256": "5337feb5d67979773ec5c1e3abbacf22ac1b293c24bbd853529ba15c1a0d94c0"
       },
       "protected_source_inputs": [
         {
@@ -21108,12 +15258,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pterosaur-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/concepts/pterosaur-manus-pes-trackway-receipt.json",
-          "sha256": "3abd8311b222edaf54bff123ed1086baecb9206d6a5c8af14d71585034712a2c",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/concepts/sauropod-manus-pes-trackway-concept.png",
           "sha256": "b8971f8e64614f1e2ee91ea0db3d8a55460dccb16ba39c5a60b92f43ef715257",
           "origin": "source",
@@ -21122,12 +15266,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/concepts/sauropod-manus-pes-trackway-prompt.txt",
           "sha256": "93e44d32d21f5d2152324fd0f3be8a72073616b82bc980afa3486ed2557356b0",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/concepts/sauropod-manus-pes-trackway-receipt.json",
-          "sha256": "7ae1de32f0944285af501bece656eaf28731ec5aa0b86ab9cf04c90e85f651ab",
           "origin": "source",
           "owner": "sauropod-manus-pes-trackway"
         },
@@ -21144,12 +15282,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spiral-coprolite"
         },
         {
-          "path": "production/small-life-batch91/concepts/spiral-coprolite-receipt.json",
-          "sha256": "e501e8033ecabb8b5341df7de660efdbe9902d0930a8e09aca52345d58678e5d",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
           "path": "production/small-life-batch91/dependencies.json",
           "sha256": "3c604b537213402f1778a14aab989b38b7da0ea0e94a996ed14a3c8392fd19a3",
           "origin": "source",
@@ -21158,12 +15290,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r001/references.json",
           "sha256": "48d6310aaea0a7f97bfa53e02eeb464154ea771c949637bcd0f024e833688edf",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/artifacts/gltf-validator.report.json",
-          "sha256": "831bf86ac0aaae57acd49a7843fa5fb776382bef301c4e35aa5d3f3ef9cf595a",
           "origin": "source",
           "owner": "pterosaur-manus-pes-trackway"
         },
@@ -21186,18 +15312,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pterosaur-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/artifacts/qa.json",
-          "sha256": "c134f1921acaf54466cf80e417db2f609c4ae8ad258012c9458a727f2960bb1a",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/artifacts/three-parse.report.json",
-          "sha256": "2f9f3f20feebeeafe7318c3ef397775629fb1045d902801aae7837972d6476e8",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/candidate.json",
           "sha256": "f0a52fbfa90543ed45743d9ff6f1a0e3a4757d3bf16c62f4f3901e427e6629e9",
           "origin": "source",
@@ -21216,12 +15330,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pterosaur-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/original-brief.json",
-          "sha256": "0621bd0b70ebcd0ba147c717d35f0680e952167ca1f64bea45c0b549cb881fb7",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/profile-contract.json",
           "sha256": "cb33e810a64b72c1aab722b99ad70487fc2591e8705568fb114044b5af2d9540",
           "origin": "source",
@@ -21234,116 +15342,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pterosaur-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/byte-identity.json",
-          "sha256": "2b5bca8b64e08c2014d9a55eba508897bb7d0d9ab9e895bb463c9f9483ef92be",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/candidate-integrity.report.json",
-          "sha256": "94178280656a1a29409578a5f0c6226c8634baccfba23e5429e8cc8ef0abf7a7",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/execution-provenance.json",
-          "sha256": "14fbcc6a749a49978604a8d0224edec3ac6ae2801107a9492aed3ee5132e5d06",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/frozen-feature-measurements.json",
-          "sha256": "b047d9dbd144b95825fb1f6c302aec7dae294820ff1a5b1e0f9f7c878ab9e8eb",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/generator-qa.original.json",
-          "sha256": "b403ef3f7a35706532d6c7561908a36ba400f42b0448af1f199562833f87b8b8",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/maker-individual-view-inspection.json",
-          "sha256": "1325a4b819e1d3fe4952b021d15d270e7d47652bd53abb2982f9dd45af4ceebc",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/rebuild-a-execution.json",
-          "sha256": "155840612dffa33d7916d467fbbf20da1f3045413e4c9bb3518d96cf9e929e08",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/rebuild-a-request.json",
-          "sha256": "23d9405bad3a279a0db5fc19fbc9471d0e225e50a2b629d9acf1787d926112e3",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/rebuild-a-result.json",
-          "sha256": "648684c652b0c5260484666f0b22163e5d10704597e47bab7c9eb2673974cd3a",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/rebuild-b-execution.json",
-          "sha256": "b6fbabe5600c5d6316c28ba24601ff898e33badd9a432fcadb60522c1966d07f",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/rebuild-b-request.json",
-          "sha256": "f739ce9a36061cbac25ac16c1fb133828af09e93647edae4c4d8d7219cebff1a",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/rebuild-b-result.json",
-          "sha256": "561aa24145063ecdf6362c9b4b9cbeca267fa991ead3bbf546057babd9ac8af3",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/reproducibility-a.report.json",
-          "sha256": "71a070eb5d71f5518688a6b634827daf7bc4bd63bbd6848458f7c9b7e9b1cf8d",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/reproducibility-b.report.json",
-          "sha256": "3d3d2f48fb50fcecace00a7ceef201dfa2a8cdb1ecfcea625a127be4984d6376",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/runtime-parse.report.json",
           "sha256": "72333204ef6e7ff97511309e9c623edc66e07b4d814644c457e989346e7b6927",
           "origin": "source",
           "owner": "pterosaur-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/source-export.report.json",
-          "sha256": "03d940fb60f5e7404aad503802cd83051039437a9347648703974d53c0b9ad89",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/static-glb.report.json",
-          "sha256": "d15485ac243d98481731cab2f3b97e15324bba83a05f70d31c29147ca44cdb71",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/technical.report.json",
           "sha256": "10484443dac54ccb109e84245a49a471d122f2d6d795cbb463ade13d49f29d49",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/subject.json",
-          "sha256": "a4eec21f3ed0e0c8d7154bd6c3b5a5ed28f658138c9c60e767b3ff81861c2e14",
           "origin": "source",
           "owner": "pterosaur-manus-pes-trackway"
         },
@@ -21368,12 +15374,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/views/rear.png",
           "sha256": "fc31eb8b5ee4e4ccfba70d9ab9e463490239bcd1e32767a58d813442fa1d13e0",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/views/render-config.json",
-          "sha256": "038e0fae4f24b5bbe9aad7d042cc9028a1c1dbeba227b48fafa7cbb6ed56780a",
           "origin": "source",
           "owner": "pterosaur-manus-pes-trackway"
         },
@@ -21408,26 +15408,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pterosaur-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/views/turntable.json",
-          "sha256": "f128b79e58ce093caf73db474c1ddb8c7ef4a643c7900c1bb9dc5d0fa8473e1a",
-          "origin": "source",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/artifacts/gltf-validator.report.json",
-          "sha256": "19148e24841c4c9a4a2051fb187cdc2b1573f64a006604a6f73396913f947ef1",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/artifacts/metadata.json",
           "sha256": "7f29e665c874f2d38f280fe13abcf9f760f0e8a332550d7e0d8cc9626014017a",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/artifacts/qa.json",
-          "sha256": "0c8fd34e7f92bfd58f3522bb38ef59e36e26855b3d265542f2511daaaba1e030",
           "origin": "source",
           "owner": "sauropod-manus-pes-trackway"
         },
@@ -21440,12 +15422,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/artifacts/sauropod-manus-pes-trackway.glb",
           "sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/artifacts/three-parse.report.json",
-          "sha256": "7c7fd818bd40c7656b8d5c7b4863582bcea8ac8e1a2a634e9b7e6102c4d1d344",
           "origin": "source",
           "owner": "sauropod-manus-pes-trackway"
         },
@@ -21468,12 +15444,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sauropod-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/original-brief.json",
-          "sha256": "2700bde4d1ce7422ecb0f43401d2b7b63d8645b564414ee1064b0b8b33840995",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/profile-contract.json",
           "sha256": "aa099e7afda060e51e39cb76c1cc44ee0df8e987d0f6028ab469880095c82adf",
           "origin": "source",
@@ -21486,104 +15456,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sauropod-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/byte-identity.json",
-          "sha256": "0f86bdb1b52713c4e4e9d63a4b04350cb1ce06d5aef84aa49174e3aec83f9e36",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/candidate-integrity.report.json",
-          "sha256": "6e7b384215a0a650a8849fce99718c79c1041a1d3dc7500d971712ff6240f59e",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/execution-provenance.json",
-          "sha256": "8b5cf5c538a56dc662b0999d604103ac4f4cdac56252bc7dc89a7873a0dc1e89",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/frozen-feature-measurements.json",
-          "sha256": "f0af3150a48f994514a8ce569484ccb30b2febeb11f6ebd8dd42b5f7deded65d",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/generator-qa.original.json",
-          "sha256": "1895814cfc886a24fd084ce503334e009b4030963f13c0ee61a6fdcc377f4c39",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/maker-individual-view-inspection.json",
-          "sha256": "c62fa686ea49890f93327f760982f5c07886de87922d5480df957e3e0c597324",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/rebuild-a-execution.json",
-          "sha256": "edb98cd077c8e07939bbe13b4828bd403ff3aa985f85c728a0f87be8a0963099",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/rebuild-a-request.json",
-          "sha256": "fe1a22c394a4d6b9439cb906da667b13ef070f66e3c292d698587a0e9b623d0d",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/rebuild-a-result.json",
-          "sha256": "182cf98c944bf1bc758bffbc07139db7070ad7c61fc92e4f84c8628d14056c96",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/rebuild-b-execution.json",
-          "sha256": "b826d070219486821edac1e008ec5cfe1462e70831480c3c9721e881bdebd50a",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/rebuild-b-request.json",
-          "sha256": "4a1948327d3ff8338dcdd1394de88ffd01a3f94684aec34a7d904dedf120b5b8",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/rebuild-b-result.json",
-          "sha256": "71a5d3de6a517019ca69a086e231194fb3bd6957870499c8ea43a47fdec27090",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/reproducibility-a.report.json",
-          "sha256": "130bd0cc800039e0f90c21b567dc1425a67f768b323c05f07c22c4ad2184174d",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/reproducibility-b.report.json",
-          "sha256": "d765bd64f78e31c3c4396b3d4d8d8372e76a9fb0871e5e8d6a9605775d1fb7bb",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/runtime-parse.report.json",
           "sha256": "19180f2ac7cc78e4b1dc8d320192ecdd3962d0e2cdf83c88c1871bc26c0a1248",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/source-export.report.json",
-          "sha256": "a30dc17a1f8f1167b40749a633dd8fe66a218e7b107190241fac7520951a9611",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/qa/static-glb.report.json",
-          "sha256": "957797a93cde7f5a0208785da4efa3d53eaf3073dd444f7687c4f9b688101c37",
           "origin": "source",
           "owner": "sauropod-manus-pes-trackway"
         },
@@ -21596,12 +15470,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/references.json",
           "sha256": "9545393cf1cb168b270fe3854c941c0c885a3652999d3eeae03867b10d7ecb61",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/subject.json",
-          "sha256": "5b9f09285241cf2f284ffa07d77bdbf71dbd1be9619e800f510c006f2ddc22de",
           "origin": "source",
           "owner": "sauropod-manus-pes-trackway"
         },
@@ -21626,12 +15494,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/views/rear.png",
           "sha256": "8a1ee33fbb75a768ed8d20ab077b4f1341c89572ec3dd41a7025ae55f1a9f707",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/views/render-config.json",
-          "sha256": "a6facedc90fcc7ddee14a6ef5e0f61b6cb996fc45db178f1d3f65d37eb9d982d",
           "origin": "source",
           "owner": "sauropod-manus-pes-trackway"
         },
@@ -21666,32 +15528,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sauropod-manus-pes-trackway"
         },
         {
-          "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/views/turntable.json",
-          "sha256": "8b49bac1602241e8d964e17791f48328629bed65b52c1e2d82d8a90a7a3d9480",
-          "origin": "source",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
           "path": "production/small-life-batch91/spiral-coprolite/r001/references.json",
           "sha256": "ac2f23f4b59593825d2d56701f9aacee628dcdf79e1c63d3ee3eb22d77ca3d3a",
           "origin": "source",
           "owner": "spiral-coprolite"
         },
         {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/artifacts/gltf-validator.report.json",
-          "sha256": "498b7c6d1d21672e7e17babb667671d715f9b4ca362d26a15e8b0cc688899b5a",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
           "path": "production/small-life-batch91/spiral-coprolite/r003/artifacts/metadata.json",
           "sha256": "bb598e64c9fff97fee27eb1ca3313f93dcbe4fbbd40c4b4c440c9b55da26ce82",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/artifacts/qa.json",
-          "sha256": "55e71c7f3f9600332d8e502d248d7753f7e932d162922e017209560735b42d65",
           "origin": "source",
           "owner": "spiral-coprolite"
         },
@@ -21704,12 +15548,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/spiral-coprolite/r003/artifacts/spiral-coprolite.glb",
           "sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/artifacts/three-parse.report.json",
-          "sha256": "277120ec2faf6d79c3eeb0cdfcd26f129b8c911b383a1d3f24ca1cb8ce6ad971",
           "origin": "source",
           "owner": "spiral-coprolite"
         },
@@ -21732,12 +15570,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spiral-coprolite"
         },
         {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/original-brief.json",
-          "sha256": "d00f8ac427420bc2903a3867d0d915f87b097611e23035a9667adaf33dc3b1ef",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
           "path": "production/small-life-batch91/spiral-coprolite/r003/profile-contract.json",
           "sha256": "aa51c2076c7eaef59f029c58685f7077143be2977ad841b5ce556b0752d56521",
           "origin": "source",
@@ -21750,116 +15582,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "spiral-coprolite"
         },
         {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/byte-identity.json",
-          "sha256": "4aef85d0fb1fd9ca63f0908c1b0279f1d14baf5425fdc14f624a4dcb82532d7e",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/candidate-integrity.report.json",
-          "sha256": "25d82e43d387922b9387d0d9f309c5bc0ce1cde27d5e284a582fc8751f5a9cb9",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/execution-provenance.json",
-          "sha256": "9d11805190eb86e288c46e458ae8a1d2701e1733a254b553cd0fc27fc638a7bb",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/frozen-feature-measurements.json",
-          "sha256": "4f787bc656ad85c4f235c096ecd7eecd61c709053db77677528c69656a4e8d29",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/generator-qa.original.json",
-          "sha256": "3f989f319684b457d23b6952baebf51931d85eb1c6eea8ae5b57b6e9c80dd6b8",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/maker-individual-view-inspection.json",
-          "sha256": "a59a5b0976ab53aa1e0e37a8e1a9d82deca49184212d5d426b71234e8ce64d1f",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/rebuild-a-execution.json",
-          "sha256": "35830e59d48095f75551fcbfdd9b873ba878d404ca083daffae342f8a1e4f488",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/rebuild-a-request.json",
-          "sha256": "8ace0cd24e465811c29313b50b200b7172ecf82316bd2c680dcbddfe7003e683",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/rebuild-a-result.json",
-          "sha256": "d269fb28880d35facc78e9839820418f42004503e03b017db7f0a2bbfddf8707",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/rebuild-b-execution.json",
-          "sha256": "4a19425be72346d18fed058b461ac86098c79755676d74af31939105bf53bb0d",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/rebuild-b-request.json",
-          "sha256": "db5401838d7327c5c89043b6e76d8faf68a805a39005a44648334d94258bbf07",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/rebuild-b-result.json",
-          "sha256": "5d9a85d3bb40bd54067dde49e56ad1eb7f2593c4c4cda9d72cdba987f0b32854",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/reproducibility-a.report.json",
-          "sha256": "82cbf8ff64675280f7633906d7fa13ed41353edd8876cecdf0c618c790021985",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/reproducibility-b.report.json",
-          "sha256": "56dc41eb801e6796f2f81a85b2edd47abe88f9eabe546b599b4df0446323b14d",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
           "path": "production/small-life-batch91/spiral-coprolite/r003/qa/runtime-parse.report.json",
           "sha256": "48fffa3736ab96b53c4cd6d0edd24de4b09991a39654d3e8f62e12f13d085bc3",
           "origin": "source",
           "owner": "spiral-coprolite"
         },
         {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/source-export.report.json",
-          "sha256": "70d0dc46403a26ce55ffc853ede9fb9859bb13b9762a8a77351dfbc407e84cdb",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/qa/static-glb.report.json",
-          "sha256": "e5c124c6b064acc192477ebb195c4095720d6d895dd6e71d841a3cd94e5b810a",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
           "path": "production/small-life-batch91/spiral-coprolite/r003/qa/technical.report.json",
           "sha256": "dccbb6b2cc0125405c8cccc5a08064eaf57a437f8dbe4b80a3a152483fbf38b5",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/subject.json",
-          "sha256": "e824cbc73420f7a2646b632b762a4cf206cad47b4ec236801922e0459d04e036",
           "origin": "source",
           "owner": "spiral-coprolite"
         },
@@ -21884,12 +15614,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/spiral-coprolite/r003/views/rear.png",
           "sha256": "6c80a806611f2ed261d56b408f664b1bf44b93181613f845d35b16443b439978",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/views/render-config.json",
-          "sha256": "da09e2c09458f229384f70159b6ae5dcd2cd58186da7fa2691e04c762c6b7c4a",
           "origin": "source",
           "owner": "spiral-coprolite"
         },
@@ -21920,12 +15644,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch91/spiral-coprolite/r003/views/top.png",
           "sha256": "702691962880da7a8551f44a60d8a09b49aeccc6f68bc456e412ebaa7d53a0c7",
-          "origin": "source",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "production/small-life-batch91/spiral-coprolite/r003/views/turntable.json",
-          "sha256": "adf166947dbf1ad0262ab793a8de0961fb2bc92b3b9d73fff312d93359924441",
           "origin": "source",
           "owner": "spiral-coprolite"
         },
@@ -21978,18 +15696,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/bundle-integrity.report.json",
-          "sha256": "fcc096726d3df1e02e6baa31b4661c94e48fb74b38466d8be70f87bd4db3ba70",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/feature-geometry.report.json",
-          "sha256": "2bc540265ffb7becfea37f0c09944608ba191b86c3e4b94f0a450db50fb33e6c",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-91/fixed-handoff.json",
           "sha256": "260a2db7f302d105f169c95f6110d04396a6559174661c728b360a333fd00e02",
           "origin": "review",
@@ -22008,52 +15714,16 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/lean-byte-identity.json",
-          "sha256": "32a75e2d26221f6cf856d1c83e16bf5b094a3027a0cb534f2e39479a03c4d46d",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-91/own-manifest.json",
           "sha256": "a0ea726fd18f46250eaf41667d5962b4befda77546877b653b5eb38eb0124ba7",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/pterosaur-manus-pes-trackway/candidate-schema.report.json",
-          "sha256": "94178280656a1a29409578a5f0c6226c8634baccfba23e5429e8cc8ef0abf7a7",
-          "origin": "review",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-91/pterosaur-manus-pes-trackway/candidate-schema.stderr.txt",
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "origin": "review",
           "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/pterosaur-manus-pes-trackway/khronos-three.report.json",
-          "sha256": "7a8a94edc0036339426f28a702f16731ba31201573a533637fc9e9362de26d71",
-          "origin": "review",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/pterosaur-manus-pes-trackway/project-glb.report.json",
-          "sha256": "d15485ac243d98481731cab2f3b97e15324bba83a05f70d31c29147ca44cdb71",
-          "origin": "review",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/pterosaur-manus-pes-trackway/reopen-reexport.report.json",
-          "sha256": "1044ca155a5ce13bf2491eed020973474e4ace6e1d760ce455bd75b7c4bb8c6c",
-          "origin": "review",
-          "owner": "pterosaur-manus-pes-trackway"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/reopen-jobs.json",
-          "sha256": "36afcfc6e7cf18fbea050da4975570d24f09b946aee97a5a0a70f361e0e3fefd",
-          "origin": "review",
-          "owner": "$batch"
         },
         {
           "path": "qa/continuous-small-life-round38-20261020/batch-91/reopen_reexport.py",
@@ -22068,32 +15738,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/sauropod-manus-pes-trackway/candidate-schema.report.json",
-          "sha256": "6e7b384215a0a650a8849fce99718c79c1041a1d3dc7500d971712ff6240f59e",
-          "origin": "review",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-91/sauropod-manus-pes-trackway/candidate-schema.stderr.txt",
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "origin": "review",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/sauropod-manus-pes-trackway/khronos-three.report.json",
-          "sha256": "59a59feb44d3db94607632ff70b1ac58b34b882a880e2a34188da6436fc42eec",
-          "origin": "review",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/sauropod-manus-pes-trackway/project-glb.report.json",
-          "sha256": "957797a93cde7f5a0208785da4efa3d53eaf3073dd444f7687c4f9b688101c37",
-          "origin": "review",
-          "owner": "sauropod-manus-pes-trackway"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/sauropod-manus-pes-trackway/reopen-reexport.report.json",
-          "sha256": "354fb4b2f43ec5681431ba42c2a22bf5b2287228c639c76151973b4ef73463fb",
           "origin": "review",
           "owner": "sauropod-manus-pes-trackway"
         },
@@ -22104,32 +15750,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/spiral-coprolite/candidate-schema.report.json",
-          "sha256": "25d82e43d387922b9387d0d9f309c5bc0ce1cde27d5e284a582fc8751f5a9cb9",
-          "origin": "review",
-          "owner": "spiral-coprolite"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-91/spiral-coprolite/candidate-schema.stderr.txt",
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "origin": "review",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/spiral-coprolite/khronos-three.report.json",
-          "sha256": "b9f5111cfad908dd57c778d9ef84c05dcf57a180966f0943da5633ddfaed49a5",
-          "origin": "review",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/spiral-coprolite/project-glb.report.json",
-          "sha256": "e5c124c6b064acc192477ebb195c4095720d6d895dd6e71d841a3cd94e5b810a",
-          "origin": "review",
-          "owner": "spiral-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-91/spiral-coprolite/reopen-reexport.report.json",
-          "sha256": "c8641147f2ecf7c19629a688d23853c6cd8df895d8091d85f4270d17015f9202",
           "origin": "review",
           "owner": "spiral-coprolite"
         },
@@ -22140,8 +15762,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/next52-g18-release-20261021/retention-summary.json",
-          "sha256": "58f728882fa6d1b0b746d218cbc93fcd25f41262c9da2b0d63ef3c16c39d0a89",
+          "path": "qa/next52-g18-release-20261021/process-archive-index.json",
+          "sha256": "6431bab24f3d560289db2f29e1acb60c6f52b50d1960220b56c57fc0ad091835",
           "origin": "release",
           "owner": "$batch"
         }
@@ -22151,7 +15773,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g19-20261021.json",
-      "sha256": "129b72b70b72f6c909709062861fff2420b6d0526ca9b791ac6e7c85f5ab18fc"
+      "sha256": "d7d4c19c71ae1abb24556e3fc73e363f9ab6d66e4cfda1977a9ac124f8265f5e"
     },
     "release": {
       "version": 1,
@@ -22170,7 +15792,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g19-release-20261021/source-bundle.json",
-        "sha256": "0c834dfe4b856841a4a36574d5dbcea1c09c6f21a44b103de2d193c235ba7530"
+        "sha256": "2a922ce0b08cd529848129b15751736b72fe7087ae5444ddd4a4c717d4c7e15d"
       },
       "protected_source_inputs": [
         {
@@ -22564,12 +16186,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "inselberg"
         },
         {
-          "path": "production/small-life-batch81/assets/inselberg/r002/brief.json",
-          "sha256": "5003a750981199dbdb748e9fd3f84ddd495cfea6116b171f5499153c57f5afeb",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
           "path": "production/small-life-batch81/assets/inselberg/r002/brief.md",
           "sha256": "b708bf9e7b2cad6937f09f7273d195a38da31aba9e8cccb3e3393efd47411e9a",
           "origin": "source",
@@ -22594,26 +16210,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "inselberg"
         },
         {
-          "path": "production/small-life-batch81/assets/inselberg/r002/candidate-validation.json",
-          "sha256": "12f8235785ef0753b7a487aecd40b85e2c7096e7973c8d4d207545e0a774b6c3",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
           "path": "production/small-life-batch81/assets/inselberg/r002/candidate.json",
           "sha256": "748ec79d3d9ecb4acd863413cce5ef454a9cecf9d6cad1ec93554ea2fe6463f1",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
-          "path": "production/small-life-batch81/assets/inselberg/r002/concept-evidence.json",
-          "sha256": "69d46fb6dd80e570688fee2ed89650cfdfdcc22e93c23f9e82872b5d91d8ac3e",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
-          "path": "production/small-life-batch81/assets/inselberg/r002/concept-generation.json",
-          "sha256": "684f60d7938675182a07115023a53a9a5647f9a60206324acf28cf9fb7024975",
           "origin": "source",
           "owner": "inselberg"
         },
@@ -22626,12 +16224,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/inselberg/r002/concept-prompt.txt",
           "sha256": "2993ebdbe8081970f8de4f939d115967fe3a1b0feef9ca7480dc37942331d867",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
-          "path": "production/small-life-batch81/assets/inselberg/r002/concept-validation.json",
-          "sha256": "f07a8943885a191ad979793a521406b55b12fedf7a39ec69d9270175dd4a22c9",
           "origin": "source",
           "owner": "inselberg"
         },
@@ -22672,12 +16264,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "inselberg"
         },
         {
-          "path": "production/small-life-batch81/assets/inselberg/r002/metadata.json",
-          "sha256": "d9aba9534caffc0301dc63ce42edd1f0db6a3353b1f2d6bb023387b43d5c4ba2",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
           "path": "production/small-life-batch81/assets/inselberg/r002/metrics.json",
           "sha256": "b55a34d932ffb7c4f33e6bc39570782a3da3000d5f6f5f81a529a97ccf8cd68e",
           "origin": "source",
@@ -22704,18 +16290,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/inselberg/r002/pixel-inspection.json",
           "sha256": "19e83954a21e5f4c0d6eeee11626b06a1162939ee7f637f5b5862588b57d86f7",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
-          "path": "production/small-life-batch81/assets/inselberg/r002/premodel-schema-check.json",
-          "sha256": "7d7c2cf831d60116bfb46714a4ee86878b9762135b01d82dd2a97557aeeb902b",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
-          "path": "production/small-life-batch81/assets/inselberg/r002/preproof-binding.json",
-          "sha256": "12029ae877561168bf854ae94ae791f15239bf0e2aff0bdf366d721c47ff38e3",
           "origin": "source",
           "owner": "inselberg"
         },
@@ -22756,12 +16330,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "inselberg"
         },
         {
-          "path": "production/small-life-batch81/assets/inselberg/r002/proof-final/render-config.json",
-          "sha256": "d43a9e929a211ccee353d950d57dca26f2cb1226d6611edc43f8283be9a86fc0",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
           "path": "production/small-life-batch81/assets/inselberg/r002/proof-final/render-manifest.json",
           "sha256": "0d4cabe053cb38376f40605773c24c07547ade82d070db17e5b7849c164ec240",
           "origin": "source",
@@ -22788,18 +16356,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/inselberg/r002/proof-final/top.png",
           "sha256": "27d1aa2b651ef1a8d25698ffc5d9ca0e122a41aeb696224ff035143d2a6e634a",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
-          "path": "production/small-life-batch81/assets/inselberg/r002/proof-final/turntable.json",
-          "sha256": "d12de31c7817a9f41feeb1bb2a3ac5058f81c92c64ea2ec03cfbd654692fb27a",
-          "origin": "source",
-          "owner": "inselberg"
-        },
-        {
-          "path": "production/small-life-batch81/assets/inselberg/r002/qa.json",
-          "sha256": "bef1508d48e0963895e56b5d4fbfb12c2600446ad2f10a8e0081fc5ce2aafdc5",
           "origin": "source",
           "owner": "inselberg"
         },
@@ -22864,12 +16420,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "patterned-stone-circles"
         },
         {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/brief.json",
-          "sha256": "9989fc50eb4b41e99329387a7fa22dbdcca9e85a7af7d80ed877595bcaad7b4d",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
           "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/brief.md",
           "sha256": "ff5e23d80ab59a4904c4765d4a270bf631b05e1d0c88f105ff39e25d099cf011",
           "origin": "source",
@@ -22894,26 +16444,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "patterned-stone-circles"
         },
         {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/candidate-validation.json",
-          "sha256": "05be9ecf65821e326f1be91f7043bd360bffb0e8eac3e396252888dffda1d1af",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
           "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/candidate.json",
           "sha256": "29a5d6724c06ffefddb4767498809f488a57b7b0b8563d2509b069c9d38612ee",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/concept-evidence.json",
-          "sha256": "add731609dccdbf36666bfdfecf98484dc1254cf79bbbdccc50225b290e578c0",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/concept-generation.json",
-          "sha256": "160ebed397e3efc5053260d9a606c2ece043dab54be0757228822ed41c7b42a4",
           "origin": "source",
           "owner": "patterned-stone-circles"
         },
@@ -22926,12 +16458,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/concept-prompt.txt",
           "sha256": "42e44eacb1f6886f280979cfddd5253c277249608adbca1a034f6e34b125dce2",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/concept-validation.json",
-          "sha256": "2c3f9f87668ab513dcd291bf1773c2d6871eca78318f276b20c91b96e283e114",
           "origin": "source",
           "owner": "patterned-stone-circles"
         },
@@ -22972,12 +16498,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "patterned-stone-circles"
         },
         {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/metadata.json",
-          "sha256": "07f0488f2be1957337a3b34b5dd4a4dbd128384c06195a406cca54fe78fc22d3",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
           "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/metrics.json",
           "sha256": "82007959843e98280de10bc70f374e4a8234f48fa39ee13d5f3a3381ce06199f",
           "origin": "source",
@@ -23004,18 +16524,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/pixel-inspection.json",
           "sha256": "4ccbc5c5199b437cb8867b74c4a30e4895c8f27bde05651033940f2303b4808f",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/premodel-schema-check.json",
-          "sha256": "4d7fcbc3a4c331c3e13c436be816a9b5fc50b69a7fc6cf53c96f4b383ddb87b7",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/preproof-binding.json",
-          "sha256": "68cc809a2bc44601357a412578c9780343c2af7a647679fc1c694c66db8c0ae3",
           "origin": "source",
           "owner": "patterned-stone-circles"
         },
@@ -23056,12 +16564,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "patterned-stone-circles"
         },
         {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/proof-final/render-config.json",
-          "sha256": "c6285606a5c86e592abc502ebaaf130821f5b791b0da856c2c5f14bd52786e14",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
           "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/proof-final/render-manifest.json",
           "sha256": "cb1545828a6e3306eec1ebc4f661f2b8634b126eed0bafa4795981f8da811571",
           "origin": "source",
@@ -23088,18 +16590,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/proof-final/top.png",
           "sha256": "87c8f5e542bda75b04b41ad2c80c4721a371b72d9eccf0bc0fad44f7e4fb7b30",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/proof-final/turntable.json",
-          "sha256": "04b5de0efa30d724d4ca0364f88b32ed7f1c5633f24384054c556f300c3cb993",
-          "origin": "source",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "production/small-life-batch81/assets/patterned-stone-circles/r004/qa.json",
-          "sha256": "726fa4866d50b4d9487c025e433a6d3b4ff8a0900aeb327922b8ffd6ccaae93d",
           "origin": "source",
           "owner": "patterned-stone-circles"
         },
@@ -23164,12 +16654,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "valley-glacier"
         },
         {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/brief.json",
-          "sha256": "9661bb45709a34543a543b000e9d432d8eec762b95dffa64a06e656f24e407a6",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
           "path": "production/small-life-batch81/assets/valley-glacier/r002/brief.md",
           "sha256": "6e5fc8d6043bbd883a288425dc252a911033e063e753151b06ffb1b24d272974",
           "origin": "source",
@@ -23194,26 +16678,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "valley-glacier"
         },
         {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/candidate-validation.json",
-          "sha256": "2e558c3627f978171b57051e07677195effb01798a1b180274b2f1de39af6b44",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
           "path": "production/small-life-batch81/assets/valley-glacier/r002/candidate.json",
           "sha256": "5e8867b0961e426d64be54f591a15e6b0f5fbe40b99d7279b65e64ac0e461d16",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/concept-evidence.json",
-          "sha256": "c2bb3ed0701b311ae495f097f2ea9c6e0abaaa107f40319fdae061c743ad4c2d",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/concept-generation.json",
-          "sha256": "0d36782e6d8ca43df60ce41ea02a151a474996ac14f11acb966562cda11f3eda",
           "origin": "source",
           "owner": "valley-glacier"
         },
@@ -23226,12 +16692,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/valley-glacier/r002/concept-prompt.txt",
           "sha256": "df7649c712530d3111a00a86c30e8dab4fa2f23f983fb9360a7fdf19cfb35813",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/concept-validation.json",
-          "sha256": "5064aa8a0d49f23f88dcc65c694ac79e9269ff7031c205246d89fe5a5d9cfd96",
           "origin": "source",
           "owner": "valley-glacier"
         },
@@ -23272,12 +16732,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "valley-glacier"
         },
         {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/metadata.json",
-          "sha256": "1451fea8b2c8b9cc0b957f7a85bef8a245fca761807b9fa5f817e217fede5b58",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
           "path": "production/small-life-batch81/assets/valley-glacier/r002/metrics.json",
           "sha256": "9f40b8242511b29c875a88d3c0a23e6bc121c0cf743d10fc68a70eb45a8e1b23",
           "origin": "source",
@@ -23304,18 +16758,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/valley-glacier/r002/pixel-inspection.json",
           "sha256": "4747670a73e54240294bfa785163d2431e472b45b9f4b3238fc5abf495ee338f",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/premodel-schema-check.json",
-          "sha256": "33e9cae674c7fb810b7d1655fc7c43ef494ec66557aa66148cffad88f2b8feff",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/preproof-binding.json",
-          "sha256": "373f192edf75d415c05c92d6435e91d016ddea2f7694172fc747878e6d1670d2",
           "origin": "source",
           "owner": "valley-glacier"
         },
@@ -23356,12 +16798,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "valley-glacier"
         },
         {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/proof-final/render-config.json",
-          "sha256": "79c0b762642b067589f3a2694cb4e99425e864715f9783ef555f2730fad3db94",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
           "path": "production/small-life-batch81/assets/valley-glacier/r002/proof-final/render-manifest.json",
           "sha256": "3fa69c058c62f5288a9a724ccf140baed9805dbda292c151081a3b510b296ba7",
           "origin": "source",
@@ -23388,18 +16824,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/valley-glacier/r002/proof-final/top.png",
           "sha256": "c57606db3472396ed3aea197ddb6bd7cb38c9b7179dcdae0f666e6caf18c75be",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/proof-final/turntable.json",
-          "sha256": "7e7d403706fd617c64d02f29fabd0c113535c668371fcd4b368e49977e9e2cde",
-          "origin": "source",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "production/small-life-batch81/assets/valley-glacier/r002/qa.json",
-          "sha256": "2eb6ce478586c77212e92e2061e4012a10645e85aeb970d304d59de7abbf5759",
           "origin": "source",
           "owner": "valley-glacier"
         },
@@ -23494,20 +16918,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/fresh-processes.json",
-          "sha256": "2cd8826b4d860e7a2f044f88c07c04872787d9ad3f40252c5c5365b06e1d52f1",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-81/handoff.json",
           "sha256": "5aef021e61b539525ef9a93d3a9bbe2798da968d8d61fcb0f0d0abe617335aa5",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/immutable-input-audit.json",
-          "sha256": "de4577fde76547131e328d07f450d67f600a02181cf901f07f8457dca500b55a",
           "origin": "review",
           "owner": "$batch"
         },
@@ -23524,68 +16936,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "inselberg"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/candidate-fresh.stdout.json",
-          "sha256": "b3d804069e0894e9029a5d31ba90c16d576f362f652d0e408e70d8acf140774b",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/candidate-profile-fresh.json",
-          "sha256": "12f8235785ef0753b7a487aecd40b85e2c7096e7973c8d4d207545e0a774b6c3",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/concept-corrected-cli-fresh.json",
-          "sha256": "f07a8943885a191ad979793a521406b55b12fedf7a39ec69d9270175dd4a22c9",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/concept-fresh.stderr.txt",
           "sha256": "464a21ff0652852f496612585db0a35542dcc2143611d31badaf9b1fe873c8ea",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/concept-fresh.stdout.json",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/khronos-fresh.json",
-          "sha256": "6e7b6aed0e9fdc51cbdc497f4b02e1c7e15cd9f22e80466ef3ab1ceab2814e8d",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/runtime-fresh.json",
-          "sha256": "b408226b2102baf6e30d56e98e81dae08c6213a0645d1714714c6e2676d43e87",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/saved-source/source-reexport.report.json",
-          "sha256": "e8fe7c327f7dd93e3c60b064290af9b8ae1c9aa5292859c20af27fd9258b95ae",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "c9bc3cdd1bc65d0534427bc8e30424032b493dd05a51960f1db7b3d236caeb8b",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "7f2329bf777899d9f2bdfc71f6e69799e440b55e723a44c5c31faec87406a2a0",
-          "origin": "review",
-          "owner": "inselberg"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/inselberg/static-fresh.json",
-          "sha256": "db7ab46deae774953733289a09d6cc19d8fef1c46fb91a4ae2b496917fee1696",
           "origin": "review",
           "owner": "inselberg"
         },
@@ -23602,76 +16954,10 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "patterned-stone-circles"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/candidate-fresh.stdout.json",
-          "sha256": "c415064e114d728d889339807c2264ba51568b3deb70c583201bcedc6f7c3ce9",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/candidate-profile-fresh.json",
-          "sha256": "05be9ecf65821e326f1be91f7043bd360bffb0e8eac3e396252888dffda1d1af",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/concept-corrected-cli-fresh.json",
-          "sha256": "2c3f9f87668ab513dcd291bf1773c2d6871eca78318f276b20c91b96e283e114",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/concept-fresh.stderr.txt",
           "sha256": "464a21ff0652852f496612585db0a35542dcc2143611d31badaf9b1fe873c8ea",
           "origin": "review",
           "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/concept-fresh.stdout.json",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/khronos-fresh.json",
-          "sha256": "f50495cbd0411d606dea8eeb6c45d3b7dd9f388bb8dd32ba2189afa5761ee8b3",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/runtime-fresh.json",
-          "sha256": "47e11dcaf142d35a4eeafcbd960e50bd421354f1529d5f1bc1b48ff8c2e5e998",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/saved-source/source-reexport.report.json",
-          "sha256": "601b98e99c78047af0d622e5d5dedee2de1be2276523d91f0f983198b4616adc",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "d5d72dd230e240f7230dcb3f6b5374544c226b6ab1dfa7d0699a31716101300d",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "f7f88d450e2f27ced44f8674691724b9673450afac04fd9259401674d241409d",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/patterned-stone-circles/static-fresh.json",
-          "sha256": "702af23cda03fbeb9a453d8c3cdeff66363403cd96a9acd5298338e0d7e25155",
-          "origin": "review",
-          "owner": "patterned-stone-circles"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/provenance-audit.json",
-          "sha256": "b872ef8dfdecc88723981ca4b65808cf6b73bf46f3a77f63132cc3a8be23ff6b",
-          "origin": "review",
-          "owner": "$batch"
         },
         {
           "path": "qa/continuous-small-life-round37-20261020/batch-81/render_supplemental_topclay.py",
@@ -23704,74 +16990,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "valley-glacier"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/candidate-fresh.stdout.json",
-          "sha256": "71df3c211a498aac0d86e7519ec9b3fcf58dcc06702fee4fed0c91b13f84fea1",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/candidate-profile-fresh.json",
-          "sha256": "2e558c3627f978171b57051e07677195effb01798a1b180274b2f1de39af6b44",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/concept-corrected-cli-fresh.json",
-          "sha256": "5064aa8a0d49f23f88dcc65c694ac79e9269ff7031c205246d89fe5a5d9cfd96",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/concept-fresh.stderr.txt",
           "sha256": "464a21ff0652852f496612585db0a35542dcc2143611d31badaf9b1fe873c8ea",
           "origin": "review",
           "owner": "valley-glacier"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/concept-fresh.stdout.json",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/khronos-fresh.json",
-          "sha256": "baffb702b68bb98138131c4500e9e649250d1a19d6b2ae50e865d0e00a469557",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/runtime-fresh.json",
-          "sha256": "96bb04419ff2c65461110082394ee4399a6e09f8b6efe917366609143998a1f6",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/saved-source/source-reexport.report.json",
-          "sha256": "32956c703cdc49402bdf11eea91100867f1b5fe46dad9da146ce3afa3a03aac0",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "6c69e6da595407c36e211b4d5c1cb86afa5c07cb3dd61b0d445f3d0fdfbed828",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "7f6b2b628d108fce829c0f624fe9a5c7bd4cdb1d701612da052a22b712018f0e",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81/valley-glacier/static-fresh.json",
-          "sha256": "50d457af263fe9a065e364a8b37979117a283f719e46b09c9d986dd0becb72da",
-          "origin": "review",
-          "owner": "valley-glacier"
-        },
-        {
-          "path": "qa/next52-g19-release-20261021/retention-summary.json",
-          "sha256": "853080999ec26a768e90547ceb614e4d8b266355efa52d849674731ca6a1ccec",
+          "path": "qa/next52-g19-release-20261021/process-archive-index.json",
+          "sha256": "7e083cdc27779ddc6b0083af1f314a20479ae22246de2b1b0606bd9a7e933108",
           "origin": "release",
           "owner": "$batch"
         }
@@ -23781,7 +17007,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g20-20261021.json",
-      "sha256": "98badecd497e8264d4ab687f6ba2acd7957a0a36888287678ae87a9f2e974751"
+      "sha256": "469ef19682db7fb3fa24f376d45b17d810aee2ee453da34d11243410fd7cdaed"
     },
     "release": {
       "version": 1,
@@ -23800,7 +17026,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g20-release-20261021/source-bundle.json",
-        "sha256": "8baeaa7b7162a6378175831cce8c157389be8d4d4b57e05eec5593c12f3bf5ec"
+        "sha256": "950ace88f12b08b42b716f153ef202f9ce474451773ddb6686673e1e3c6f6df7"
       },
       "protected_source_inputs": [
         {
@@ -24016,26 +17242,8 @@ export const FIFTY_TWO_RELEASES = [
       ],
       "files": [
         {
-          "path": "production/small-life-batch81/assets/charnia/r003/build-config.json",
-          "sha256": "2a00c944c725394b7ed6f2ed67da6aa8bc7907da57482c8e161df7e9a9f7e15c",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r003/candidate-brief.json",
-          "sha256": "81300b6032ab5f7e5b42369217e59192f1f88a66b123c87ffe9ab547b553bcbc",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r003/candidate.json",
           "sha256": "84ba5240448b8bd6e81c0046eb162313f1163ef6c88db9eea36ed4dfc81d383c",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r003/concept-generation.json",
-          "sha256": "f1112f3d64f24d6fb675a69ae68b65ca6ea184580c8b4ca4fad286cedaec04d6",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24058,44 +17266,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "production/small-life-batch81/assets/charnia/r003/gltf-validator.report.json",
-          "sha256": "840626405ffef0e67546b6c5caa09cc4d94cadddce91a8771a8797720492a0e6",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r003/maker-review.md",
           "sha256": "37a892b70ab4fee47771e299c2ecba33bfb264ddc24fb3aa0545beda8d587c7d",
           "origin": "source",
           "owner": "charnia"
         },
         {
-          "path": "production/small-life-batch81/assets/charnia/r003/proof-final/render-manifest.json",
-          "sha256": "0498911f1c579847dab73876050a8a0e3967a96afceaf9887aff90993343c26d",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r003/references.json",
-          "sha256": "79013203822a7e4d7599545b1b4d0edbfcf5169c7e55f4b05228394fdca4a88d",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r006/LICENSES.md",
           "sha256": "6e175466ea5cf2519c0242493819b9324f1cd4bfbb9e93771588d9f27d6bc752",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/authorship.json",
-          "sha256": "85ed2185e49c201ce55b52b0d01056f12985742b0909f10b5d148335e58f8756",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/brief.json",
-          "sha256": "e8b61e8956089e8a4b748ce401556b986d28c6aee53347c7cc8e78806b8c8755",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24124,74 +17302,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "production/small-life-batch81/assets/charnia/r006/candidate-validation.json",
-          "sha256": "0c54082bf0c07bb4d9d0c1b19c343a24427f6e63beff0d773cd096f2009fa415",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r006/candidate.json",
           "sha256": "689ae9ce9997551c60d01bc24fd9d17546c5fcc1efcee8a60960405053ab6e79",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/metrics.json",
-          "sha256": "f55aa79e09f1643ec3806221db677be2e88ebf8e6b0e03f81d0ee41c010e9f74",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/request.json",
-          "sha256": "4f958aa8beac0e69f57e4c2ebed4ebcd97463ac834a3ec0d1de6a7bd485351c0",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/result.json",
-          "sha256": "6ff0050322e88bea828ade8a81e7b1fd2258396bd0988e0e4e1cb4fabc7a0a00",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/source-metrics.json",
-          "sha256": "c18e62b0e548ff66bcf4f96f766fe9dde20d2054a52908c567977a2ddaa9a131",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/metrics.json",
-          "sha256": "7820a153d92ad5eb918c9c3b55d68cd4643a810174deac8460beb0f9552e5962",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/request.json",
-          "sha256": "3cdaa22eca3cb03e7d3a4e9737c788db5a03b7622aede2edc7a14f379cb9c287",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/result.json",
-          "sha256": "42f5a83a77edaf8f9551ca91c26019133b21c63f29ed181014d85c7e05315b5d",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/source-metrics.json",
-          "sha256": "c18e62b0e548ff66bcf4f96f766fe9dde20d2054a52908c567977a2ddaa9a131",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/concept-evidence.json",
-          "sha256": "fbb71471c3de7641baffdc08d4a36c2027f998da1744e261b9eec9098f3501e3",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/concept-generation.json",
-          "sha256": "f1112f3d64f24d6fb675a69ae68b65ca6ea184580c8b4ca4fad286cedaec04d6",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24208,20 +17320,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "production/small-life-batch81/assets/charnia/r006/concept-validation.json",
-          "sha256": "459022c5603875bac013e5097356f0262164c39b2d01f7f072c2358e666fc13a",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r006/contact-sheet.png",
           "sha256": "d88de2cd84af909907f54827702b5143645d345cb6fcbbd9c2d142348a8be8d2",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/diagnostic-disposition.json",
-          "sha256": "537bc71598c7073a4479c38864a16fafeb972c63e4ea31f29ae5586cb336e46a",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24244,12 +17344,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "production/small-life-batch81/assets/charnia/r006/khronos-raw-summary.json",
-          "sha256": "a293aa56a8f838d1c66c99575582edb8cfe69badc1a5d7461443b17f37920dc6",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r006/lifecycle.jsonl",
           "sha256": "dd163ccc8bf81267459f7b4a6ed5098e1ff50d1cca8f8e0508b18579e15ae468",
           "origin": "source",
@@ -24258,12 +17352,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/charnia/r006/maker-review.md",
           "sha256": "c4b7afdca4a621cf64d9d197acebeaebf58b60f76be8a54489ca971a8400bcc3",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/metadata.json",
-          "sha256": "9ca0c32a46f21addbd0363c9826f3036061de5951beaa9acf1fc9d98137b1297",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24280,26 +17368,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "production/small-life-batch81/assets/charnia/r006/original-build-config.json",
-          "sha256": "2a00c944c725394b7ed6f2ed67da6aa8bc7907da57482c8e161df7e9a9f7e15c",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r006/original-modeling-freeze.json",
           "sha256": "0c41b1df42fd16cae3a4bb1bef4c98886d36ed2c29dba58f948f3e85dd4ee691",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/original-premodel-schema-check.json",
-          "sha256": "abb4b8e6c76e80f12e489718d104bbf999870e386a476450fd02611380edc77f",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/original-r003-concept-evidence.json",
-          "sha256": "9ff0f836aee920af14f178ca9d491af3cec3f44253357bd1ddb4d6008f954d4e",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24318,12 +17388,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/charnia/r006/pixel-inspection.json",
           "sha256": "e7b58406e3ee1db802491e7757a5a3a686487564725db53060e77fa0b4158dac",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/preproof-binding.json",
-          "sha256": "9b42a125134206ff01438aa8946b2a7d2beb2f0e264f1430f38186717284478b",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24364,12 +17428,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "production/small-life-batch81/assets/charnia/r006/proof-final/render-config.json",
-          "sha256": "49b6cb234c19657670de56a1e7576714ae5d9b8a8cba79ece9ad36a6e400ecc9",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
           "path": "production/small-life-batch81/assets/charnia/r006/proof-final/render-manifest.json",
           "sha256": "1680ea8808e11f671934d8ed4d5e054489a8634c5c892e742343b61d170e5abc",
           "origin": "source",
@@ -24396,30 +17454,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/small-life-batch81/assets/charnia/r006/proof-final/top.png",
           "sha256": "acf2248ce5d8389ee49b2b1f33f9ce626cec067f09de96f828d27e904035674a",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/proof-final/turntable.json",
-          "sha256": "b64955f6c56548ce420c696dc905ac0ed50b760a04bafcfc2c5cf41b4ca89224",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/qa.json",
-          "sha256": "e01951bfa0b00ecf5aad868113f4b74bf09893eec484f1755ff6205cd1e0732c",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/queue-semantic-rebuild-1.json",
-          "sha256": "96d6b734c8a4f8892a9451a9e5572e752736f4e5ef839a28610cbdf2751c70e8",
-          "origin": "source",
-          "owner": "charnia"
-        },
-        {
-          "path": "production/small-life-batch81/assets/charnia/r006/queue-semantic-rebuild-2.json",
-          "sha256": "e4a09aabf3dfb93206242e25ca58e51bb06eadf2b1358fd6815a4d07a272f84f",
           "origin": "source",
           "owner": "charnia"
         },
@@ -24532,20 +17566,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/candidate-profile-fresh.json",
-          "sha256": "0c54082bf0c07bb4d9d0c1b19c343a24427f6e63beff0d773cd096f2009fa415",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/candidate-profile-fresh.stderr.txt",
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/concept-fresh.json",
-          "sha256": "459022c5603875bac013e5097356f0262164c39b2d01f7f072c2358e666fc13a",
           "origin": "review",
           "owner": "charnia"
         },
@@ -24562,12 +17584,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/fresh-processes.json",
-          "sha256": "24a0e8f7e10bd6256cb24e333132efedc550f8c1ba4af2d262fa9b250d7bd69f",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/handoff.json",
           "sha256": "e206f2b049791f7f091ad365aee7b10858539344f33440274629fc370633f4b4",
           "origin": "review",
@@ -24576,30 +17592,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/independent-qa.report.json",
           "sha256": "fd933c0eef0e22dcf25b17416f1e3ee74fa0820666a36aa7ccfbcd18229220e4",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/initial-audit-diagnostic.json",
-          "sha256": "0cca4f975cf7c0e8620206d4e66aecc411baf65b3875b6c838cf5619dd11bcf9",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/input-provenance-audit.json",
-          "sha256": "1b9bc1f508157dc55b8fb03246ad0e0f112ed9a0293a0208408515a08450ab72",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/khronos-fresh.json",
-          "sha256": "90e8e6c4e414321229b151617fa99322446a4e13a5ff091450d90c3f282e0cad",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/lean-byte-identity.json",
-          "sha256": "990e3805d57a1e8b69ae78bd31b995b945ff8e5c34af9f463528b62ab5c87bcc",
           "origin": "review",
           "owner": "charnia"
         },
@@ -24622,26 +17614,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/runtime-fresh.json",
-          "sha256": "673f36eebe970f051caba4a78a8aac2f45c814f4e0fa885a434c191fc7d42d7d",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
           "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/runtime_checks.mjs",
           "sha256": "c15178e2a508f73cedd5fd760bae2942eb818730c1ff54ddb8a17addaf7448cf",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/semantic-rebuild-1-fresh-comparison.json",
-          "sha256": "e8b40f06d4a035b4b1cf0ca8e6f8a33512d16e85e6987a72cb911a52638cd54b",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/semantic-rebuild-2-fresh-comparison.json",
-          "sha256": "06691f083c96d819c48fb2145dc11efdb055979f4e754bc11140f35e7e35e808",
           "origin": "review",
           "owner": "charnia"
         },
@@ -24652,14 +17626,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "charnia"
         },
         {
-          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/static-fresh.json",
-          "sha256": "f6265b1e21d1da886c95b214cfac418d8e752b42865a3bf4b0b958db8ba03b93",
-          "origin": "review",
-          "owner": "charnia"
-        },
-        {
-          "path": "qa/next52-g20-release-20261021/retention-summary.json",
-          "sha256": "a6cc34a497f75a0dbfdf7110e0ef5bb56c97d0172477bd63e4b900906dd2adb7",
+          "path": "qa/next52-g20-release-20261021/process-archive-index.json",
+          "sha256": "5996f7e64c870831f87869d1652f5844f5e49f7a5000000f14d34c42291925a4",
           "origin": "release",
           "owner": "$batch"
         }
@@ -24669,7 +17637,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g21-20261021.json",
-      "sha256": "70bd3930f9f2323e4380c190d323a1cc8977e0c492a16196b0eec38dbbd9ea56"
+      "sha256": "6faa1ab6de793950ef0b9d78e055ad22767446dc6eebb42b9fd735b59e6f38ad"
     },
     "release": {
       "version": 1,
@@ -24688,7 +17656,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g21-release-20261021/source-bundle.json",
-        "sha256": "6d9fff9213a1a287aebda64a36b6868e66f0a891d0451addf41f842e6a588ae0"
+        "sha256": "8ee089b7bba36fe36aabb926e81f04b60b3c99c6319f28742be401277501c856"
       },
       "protected_source_inputs": [
         {
@@ -25144,12 +18112,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "calamites"
         },
         {
-          "path": "production/batch94/assets/calamites/r001/brief.json",
-          "sha256": "0afba536d8a661dc71af72d9a45e36bf125382a027cd6479845f43c15eed4bc7",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
           "path": "production/batch94/assets/calamites/r001/build-config.json",
           "sha256": "e94fe2617a11591fa5135c5e9cbfc91277d9d2d2069e84021ed5709a38fa00cd",
           "origin": "source",
@@ -25168,26 +18130,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "calamites"
         },
         {
-          "path": "production/batch94/assets/calamites/r001/candidate-validation.json",
-          "sha256": "2aba562ad3dec18d8fa30c63b06b60ad478ce005b33c7b46670565513302f167",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
           "path": "production/batch94/assets/calamites/r001/candidate.json",
           "sha256": "b778145f5664350f1dd7f1a0862f298c6cb9200261ffb5db17b879534c707973",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/concept-evidence.json",
-          "sha256": "09435a8da58aa9818e528e929c09c1491c1e296b4be07add8f366664e451af95",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/concept-generation.json",
-          "sha256": "bcb69ad45b7fe9012ea9ec76cd68cbb72f85d92a341635d20a464e18f9c43ae4",
           "origin": "source",
           "owner": "calamites"
         },
@@ -25204,20 +18148,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "calamites"
         },
         {
-          "path": "production/batch94/assets/calamites/r001/concept-validation.json",
-          "sha256": "c137f6ab6943624f706bde5045b00f191b761fc595a1f2acf203aff173afacd6",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
           "path": "production/batch94/assets/calamites/r001/contact-sheet.png",
           "sha256": "677994709060cd53c0c2d4def18a353fe99183b796884a85f829e27694afa5db",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/diagnostic-disposition.json",
-          "sha256": "bf9ac6abe69d804af1ed390cf2399f0de6fa37d563a1ec68449878a0e8918024",
           "origin": "source",
           "owner": "calamites"
         },
@@ -25228,20 +18160,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "calamites"
         },
         {
-          "path": "production/batch94/assets/calamites/r001/execution.json",
-          "sha256": "421bf5fab4037082935df18f809685401bddcf3881ddbb3ed614fdd5710d7cbc",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
           "path": "production/batch94/assets/calamites/r001/final-measurement.json",
           "sha256": "8d403919f71a8d47be81c57d214c3e52d712c967aab2374b6b15aeb0eb392a69",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/final-rebuild-binding.json",
-          "sha256": "bfb1523b77359a3b6b1164c3593af1a1b8e9441384aac04ffe14c247f0f2fd79",
           "origin": "source",
           "owner": "calamites"
         },
@@ -25252,20 +18172,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "calamites"
         },
         {
-          "path": "production/batch94/assets/calamites/r001/geometry-semantics.json",
-          "sha256": "06ed17c3776b2713af45b17afbdc550f6ea88abf4c22b9066b5a447c1da16991",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
           "path": "production/batch94/assets/calamites/r001/gltf-validator.report.json",
           "sha256": "682394875b48b10081a3c864bd8a0fe87581f12e52387b319000c73b7889a95a",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/hierarchy-measurements.json",
-          "sha256": "820d1b5092628651fd66415552615c6f20f46841342cecbb4020ebd1b5cd0bc7",
           "origin": "source",
           "owner": "calamites"
         },
@@ -25290,12 +18198,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/calamites/r001/model.glb",
           "sha256": "44fec258d990ba04a28211ecd8f0c6bfc25071e2a8fdadf7fc864507c9168238",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/modeling-freeze.json",
-          "sha256": "00cc5abd9d598406785831ce0d0f34881d0fe3a0ab064df41b4469c7330e0bda",
           "origin": "source",
           "owner": "calamites"
         },
@@ -25354,12 +18256,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "calamites"
         },
         {
-          "path": "production/batch94/assets/calamites/r001/proof-final/render-config.json",
-          "sha256": "839cd631cd795d3ba8f9da8518a5a223468612dbe33b5d23d12b3fc1b296d9c7",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
           "path": "production/batch94/assets/calamites/r001/proof-final/render-manifest.json",
           "sha256": "5f7c8fcfc43bf9e6ae10e57afd180e32e46d5cbc85d3f0becd869eeb30189740",
           "origin": "source",
@@ -25386,18 +18282,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/calamites/r001/proof-final/top.png",
           "sha256": "1a35397066b5128f4643b63e1cf7c954d23c74ca7a391738d94d702364ba1787",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/proof-final/turntable.json",
-          "sha256": "c592d1c522fb14d19aa78117bd3706f4166f7a223bcdf01d80cb73b2bc5bccc6",
-          "origin": "source",
-          "owner": "calamites"
-        },
-        {
-          "path": "production/batch94/assets/calamites/r001/qa.json",
-          "sha256": "fa5d72f6a67a5181b20bd250af8c4694b995f0d54eeef5ad56827b1dda6f946e",
           "origin": "source",
           "owner": "calamites"
         },
@@ -25450,12 +18334,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pseudobornia"
         },
         {
-          "path": "production/batch94/assets/pseudobornia/r001/brief.json",
-          "sha256": "84e3c8fe7a5d389e55e03fc2558157c2f8470d95294fbee06e755ba046d74329",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
           "path": "production/batch94/assets/pseudobornia/r001/build-config.json",
           "sha256": "17e2b060bfa4a4d7e74e74b25cef97ed9d740d0956b1f903709f590efe19b374",
           "origin": "source",
@@ -25474,26 +18352,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pseudobornia"
         },
         {
-          "path": "production/batch94/assets/pseudobornia/r001/candidate-validation.json",
-          "sha256": "b02172ed5a288b27f8bee8b8b0b5768fa6a301e6e9e67c12529a7664ceda2cfc",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
           "path": "production/batch94/assets/pseudobornia/r001/candidate.json",
           "sha256": "8d6e18c62b42c283a62839fbb95c2423aa019983e674be1a344034e8960aa608",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/concept-evidence.json",
-          "sha256": "6bfc7d806fe173532357f0159d3aef277b805d7aa37640cd1791af591ccec7f4",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/concept-generation.json",
-          "sha256": "88aadd99ec8d985f8e16b1d3fa2648e69a51ab13e5de90feeb2604d5b717402b",
           "origin": "source",
           "owner": "pseudobornia"
         },
@@ -25510,20 +18370,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pseudobornia"
         },
         {
-          "path": "production/batch94/assets/pseudobornia/r001/concept-validation.json",
-          "sha256": "5da908e8c252be1d8a3fc71d899ae31c13abda824a6e66a392872904f4fa62ed",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
           "path": "production/batch94/assets/pseudobornia/r001/contact-sheet.png",
           "sha256": "4e95c8924e44da7473d48bc6c11b5b97ef8a680972917ae1eba9a3affbb36adb",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/diagnostic-disposition.json",
-          "sha256": "8445dac6e09ef17841238589303438a42b0ca8e7d9d347ad4cc20554c2a1eb1c",
           "origin": "source",
           "owner": "pseudobornia"
         },
@@ -25534,20 +18382,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pseudobornia"
         },
         {
-          "path": "production/batch94/assets/pseudobornia/r001/execution.json",
-          "sha256": "afeef868df42f077b038bab5f67d27033e10ffaa88ee9ee63e91444ee7ed57bd",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
           "path": "production/batch94/assets/pseudobornia/r001/final-measurement.json",
           "sha256": "78b527b60980b136ebef513a2c1832aee09558c875028b525614bffd811feaee",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/final-rebuild-binding.json",
-          "sha256": "80aa06f1d76a3b0c2f5918bf4ea21c109996e3bbada60206d1d84d353074768d",
           "origin": "source",
           "owner": "pseudobornia"
         },
@@ -25558,20 +18394,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pseudobornia"
         },
         {
-          "path": "production/batch94/assets/pseudobornia/r001/geometry-semantics.json",
-          "sha256": "641df533952e2aeec086b129817dc8ed0efc6c6034c6b2c235c43880348cf40d",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
           "path": "production/batch94/assets/pseudobornia/r001/gltf-validator.report.json",
           "sha256": "df85a8418af3960ab9ccc69f3867306f1f9777965428c9fea5a5199bade8e08a",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/hierarchy-measurements.json",
-          "sha256": "692bf4dd30614122dd9e4dcc5400006d04dfa4a6a46d1de2b293840ab4db7794",
           "origin": "source",
           "owner": "pseudobornia"
         },
@@ -25596,12 +18420,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/pseudobornia/r001/model.glb",
           "sha256": "54c683a7e9a8efdcab16c49dc61a577a67e200122a043b00b357243fe5cb77e2",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/modeling-freeze.json",
-          "sha256": "c347bb470642253ae1f9d9583f8913dfd021cfd539f532b0cb0a389e83e19946",
           "origin": "source",
           "owner": "pseudobornia"
         },
@@ -25660,12 +18478,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pseudobornia"
         },
         {
-          "path": "production/batch94/assets/pseudobornia/r001/proof-final/render-config.json",
-          "sha256": "7fb297f4ba3fc0d71cccd708038c5db429e05dc3e87868494957efaf86dd7056",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
           "path": "production/batch94/assets/pseudobornia/r001/proof-final/render-manifest.json",
           "sha256": "2e8b6bdec131ff367a095771321a76e9c8cc77876f875b78b040091e9ecac6ae",
           "origin": "source",
@@ -25692,18 +18504,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/pseudobornia/r001/proof-final/top.png",
           "sha256": "d81aa3a53d1b129f4f630eb4cf4c0d913b87cbf6de9228ba949a32eaae0c82dd",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/proof-final/turntable.json",
-          "sha256": "58827d92a44e723f4389fd38d23cf4595e7b3336ab8ac541c386244f0dcf6c5e",
-          "origin": "source",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "production/batch94/assets/pseudobornia/r001/qa.json",
-          "sha256": "1b628efe414e91875882572d04224786457a0bf400426f7d8e475da3b5cd9ac8",
           "origin": "source",
           "owner": "pseudobornia"
         },
@@ -25756,12 +18556,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "rhacophyton"
         },
         {
-          "path": "production/batch94/assets/rhacophyton/r002/brief.json",
-          "sha256": "dd7e5fb2342d4d2a8043a30b91c5f875e6dc98c813fc5b95670da05c724bd731",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
           "path": "production/batch94/assets/rhacophyton/r002/build-config.json",
           "sha256": "184ed97b4d4f8389b31fb289405fe83077c064591368b9b9b1e4486b5b0df1b0",
           "origin": "source",
@@ -25780,26 +18574,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "rhacophyton"
         },
         {
-          "path": "production/batch94/assets/rhacophyton/r002/candidate-validation.json",
-          "sha256": "9f70a1461673c859fc95eafde1e4a89df4e7756ba73686b1c3f6c28a826d76cb",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
           "path": "production/batch94/assets/rhacophyton/r002/candidate.json",
           "sha256": "65ccbaf69254c41dbe41de3b4c7855172a30d780214de7b503953413bc317699",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/concept-evidence.json",
-          "sha256": "e3c37a413f84c8afb02e3844b83f563294367f0035b69c530034d5aba71013e4",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/concept-generation.json",
-          "sha256": "ad37cd097d3b2387982ebd4abe13a8bf3b297072b1d3ea007aa800ca48abe6db",
           "origin": "source",
           "owner": "rhacophyton"
         },
@@ -25816,26 +18592,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "rhacophyton"
         },
         {
-          "path": "production/batch94/assets/rhacophyton/r002/concept-validation.json",
-          "sha256": "e7d0a4d0fafbba43b1b4dc4a2f62b224539a54f451e55adade0cdcd3ab403cfa",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
           "path": "production/batch94/assets/rhacophyton/r002/contact-sheet.png",
           "sha256": "911c09121ab996f45e44ff006a8782aec8e2b80e0262e8a959ac72f55c0f5b74",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/diagnostic-disposition.json",
-          "sha256": "dacb485ab52127b04da665c3050ac58080337b7f2641727e56ca3c91f5689a76",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/execution.json",
-          "sha256": "e56969cd07f2b954704af542d4a561c443a0bb7946dffacefee1fe1d5393f461",
           "origin": "source",
           "owner": "rhacophyton"
         },
@@ -25846,32 +18604,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "rhacophyton"
         },
         {
-          "path": "production/batch94/assets/rhacophyton/r002/final-rebuild-binding.json",
-          "sha256": "df199b7b508e8aa56df8d2b5764489595f9b43c9d6866b2e8a22808e8c7bcf4e",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
           "path": "production/batch94/assets/rhacophyton/r002/generator.py",
           "sha256": "d2b2978ed6d30a342cb727bfae33c004863caa562da4ac492e8e24fd83bbfc91",
           "origin": "source",
           "owner": "rhacophyton"
         },
         {
-          "path": "production/batch94/assets/rhacophyton/r002/geometry-semantics.json",
-          "sha256": "e4d8d3a22bc16dd0bcc693cf771cd408741f97a6cdae937f571e344786b9b994",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
           "path": "production/batch94/assets/rhacophyton/r002/gltf-validator.report.json",
           "sha256": "7d5244f99c9e6970bdd44df4962c3ea1b8d2d7de8425e3aaf2abb07322244787",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/hierarchy-measurements.json",
-          "sha256": "b29b6116c598f2f8b3c4769183f8e0938d056accc2dbcf1f5bba19f1cbb17fa3",
           "origin": "source",
           "owner": "rhacophyton"
         },
@@ -25896,12 +18636,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/rhacophyton/r002/model.glb",
           "sha256": "2ab7364eca2c8905a5f99e3344a6ef3c3f1956618a00ed9606dd3b4948c71273",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/modeling-freeze.json",
-          "sha256": "f19f49e15327a5ce4062765c8bca8474d90927d5ceddac10dc5d5d169c2226e1",
           "origin": "source",
           "owner": "rhacophyton"
         },
@@ -25960,12 +18694,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "rhacophyton"
         },
         {
-          "path": "production/batch94/assets/rhacophyton/r002/proof-final/render-config.json",
-          "sha256": "ca3ab354c144d57da09973e7b4456f98d2a8fde450f25a470b2dc9f18a354875",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
           "path": "production/batch94/assets/rhacophyton/r002/proof-final/render-manifest.json",
           "sha256": "ba644ff758fe9fcffa496b1167dc223d10aa9a5d4301d0604a73723868b561cf",
           "origin": "source",
@@ -25992,18 +18720,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/rhacophyton/r002/proof-final/top.png",
           "sha256": "c079ecaca0783fbdacbeccf93d6849fe927c46c999d7356df83133bb45f65564",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/proof-final/turntable.json",
-          "sha256": "da2991995a39f651710de2a59f7ad461d36be040dece78da82f8c455d2abbc5d",
-          "origin": "source",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "production/batch94/assets/rhacophyton/r002/qa.json",
-          "sha256": "765a91af403694c79c07ca4d960e540d36fe1e1f21bf3b9c8c752b83941c0441",
           "origin": "source",
           "owner": "rhacophyton"
         },
@@ -26056,12 +18772,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sigillaria"
         },
         {
-          "path": "production/batch94/assets/sigillaria/r001/brief.json",
-          "sha256": "f80cd10cb0307c80126b08d41ba686504f8ecb294d14982c59af52602d8bd449",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
           "path": "production/batch94/assets/sigillaria/r001/build-config.json",
           "sha256": "6334878ad7750881f17a00c0941b17fad0beef4660dffa97d28787587950b3fb",
           "origin": "source",
@@ -26080,26 +18790,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sigillaria"
         },
         {
-          "path": "production/batch94/assets/sigillaria/r001/candidate-validation.json",
-          "sha256": "6c17605bcef6f88fcde7cc35a34320d6309b19da831fd2d55a8df81c90cb0b16",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
           "path": "production/batch94/assets/sigillaria/r001/candidate.json",
           "sha256": "991913d279decd63840298c15655f548979f0cca5127d37c0203d32cb79e6291",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/concept-evidence.json",
-          "sha256": "27c8bd90ebdac38d54ea6bac6df95fb8a4396eb325e3ac29814764a8529273a9",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/concept-generation.json",
-          "sha256": "2cef9399ac8bae46ac9831e9f5f6d9ecbd013322c43a45003d0764424b7b5419",
           "origin": "source",
           "owner": "sigillaria"
         },
@@ -26116,20 +18808,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sigillaria"
         },
         {
-          "path": "production/batch94/assets/sigillaria/r001/concept-validation.json",
-          "sha256": "66bc61747967a5ca4496a6c1e5968b1aaecc6c28df15f5c59c0051514cfa6c33",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
           "path": "production/batch94/assets/sigillaria/r001/contact-sheet.png",
           "sha256": "49092b2c0929fed071883e380783b9e6660eacc4384f4b2d65707de6227b4ee6",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/diagnostic-disposition.json",
-          "sha256": "3570648fcb4273b9c5ce6035b83d9be477659c2803503a32d59c3a23f5dc4a25",
           "origin": "source",
           "owner": "sigillaria"
         },
@@ -26140,20 +18820,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sigillaria"
         },
         {
-          "path": "production/batch94/assets/sigillaria/r001/execution.json",
-          "sha256": "29aad92a1fbff461fcf912b3cc5e1af43934c9f2b48c2f200de8c08497a5ac1d",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
           "path": "production/batch94/assets/sigillaria/r001/final-measurement.json",
           "sha256": "f6c3f3e3a04ae4186a0d580f7e923a52405db6c8d6c36d4f36a34c089aac44d4",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/final-rebuild-binding.json",
-          "sha256": "44b0284c41822cadf113eb1d7b448982580f28a25b93c757769958cb79e32aad",
           "origin": "source",
           "owner": "sigillaria"
         },
@@ -26164,20 +18832,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sigillaria"
         },
         {
-          "path": "production/batch94/assets/sigillaria/r001/geometry-semantics.json",
-          "sha256": "fb09286ec6d5f23730faacdfd79d147295eee12dc5ef1a03a6899f942cb7f477",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
           "path": "production/batch94/assets/sigillaria/r001/gltf-validator.report.json",
           "sha256": "1a33a0589f759c62bcece246c366dac15c3d37a7459b9dafc2d5095d33fa9d3e",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/hierarchy-measurements.json",
-          "sha256": "c9256eda7fa166294bfbe54acc973c198e5b24dff01c5485cce94d592fe141cd",
           "origin": "source",
           "owner": "sigillaria"
         },
@@ -26194,12 +18850,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sigillaria"
         },
         {
-          "path": "production/batch94/assets/sigillaria/r001/measurement-method-history.json",
-          "sha256": "432bf808916c316283f64fb65845214256ecc8c4946b6cbd44c880938cf23fe2",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
           "path": "production/batch94/assets/sigillaria/r001/metrics.json",
           "sha256": "5deff7a4d7a9aab094e7e4c4b62b72c9672660ecf311e4c5a290e4f74dc058fd",
           "origin": "source",
@@ -26208,12 +18858,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/sigillaria/r001/model.glb",
           "sha256": "c0b7a2040741e5583d957efdd5b0244314a1611bf840965b5b84673e32847b20",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/modeling-freeze.json",
-          "sha256": "9fe4028be526d55320ad7afa28d085dfc3337cdab6f007f641c5d3e19ff95e32",
           "origin": "source",
           "owner": "sigillaria"
         },
@@ -26272,12 +18916,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "sigillaria"
         },
         {
-          "path": "production/batch94/assets/sigillaria/r001/proof-final/render-config.json",
-          "sha256": "a966879d2f8563b5457bc9f58cd7b3abca91a769dfd09de8556a23e10b6ae72c",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
           "path": "production/batch94/assets/sigillaria/r001/proof-final/render-manifest.json",
           "sha256": "a639b6d084660f767882ad200f0ce9306d9593b9ec2d724ab1952034210cf558",
           "origin": "source",
@@ -26304,18 +18942,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch94/assets/sigillaria/r001/proof-final/top.png",
           "sha256": "a6b012635db0afbf03322a63add2e49e08bbb22531e39b641fcb2522e061de94",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/proof-final/turntable.json",
-          "sha256": "aa60be2e62eed4e8d73fd4eecd96a82af2c8b1eb684ee9f3c1d55eaa9810dcea",
-          "origin": "source",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "production/batch94/assets/sigillaria/r001/qa.json",
-          "sha256": "f61e33047638b2d1419d5d02994ee729d8e02bac4dd331d95d4214391c2f3e60",
           "origin": "source",
           "owner": "sigillaria"
         },
@@ -26398,86 +19024,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites-execution.json",
-          "sha256": "07cc34751590aa5ae33a66483965b789fa00008dba851e0dee9b5819eebf49db",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/detail-execution.json",
-          "sha256": "722fe7a0c38370ec121680c707ccfb5bfe569c91f3d8bd01c47f5918444d2098",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/detail-request.json",
-          "sha256": "964f8820cd692368bd09a8e2f9095c11d06b85319000daa5c8e7692bbcd89d6b",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/detail/render-config.json",
-          "sha256": "97486451e605c969b5a2556ed04aa4ee0465915c03bd1fd47cd37fb2d04c54a6",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/detail/render-manifest.json",
-          "sha256": "ff3b110cb56da2a8f5dfd326399e30be7321b94fd27ec71753da806ca48872e7",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/detail/turntable.json",
-          "sha256": "abe554726a5ff8898ecc5e29e4629f1b144d8213cc2f476c214b952f7e25dc71",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/final-khronos.json",
-          "sha256": "a9d613fb5d683a31df9d61b85a18119d921a268c012571f3bd781b6911d22c84",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/final-runtime.json",
-          "sha256": "dc49110c2bb00b6d8ab560f76d6f7faac08c27dd6d5ce4c599d18c1947f11356",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/independent-geometry.json",
-          "sha256": "9ba6254c2f81f0f6b8da97a6ebd72f172d64bb4c29dd7a93db72a6cb14b91d33",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/independent-project-audit.json",
-          "sha256": "dfcb847079a806fefb17d2fa0aeb45f27efcd04a86c6276a37dfe85782356361",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/reexport-khronos.json",
-          "sha256": "fb2a4e12fa430caab01ddf5aebfd7f58fbfcd65ea16e9f306e7818b50c449e8c",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/calamites/reexport-runtime.json",
-          "sha256": "62f676ffbd9c66ae1f8ae140f368420075ecd7efc4722be35825847a2290f410",
-          "origin": "review",
-          "owner": "calamites"
-        },
-        {
           "path": "qa/continuous-small-life-round40-20261020/batch-94/check-provenance.py",
           "sha256": "1408a52072396016bd879ee09dd7b11d8f348a7b7d832025cae2d4d12bbd8dad",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/final-source-integrity.json",
-          "sha256": "4f528311d52e30ec9f09d260b4fe2fdbfbe9745c7abb09045393b2ea18e085b6",
           "origin": "review",
           "owner": "$batch"
         },
@@ -26494,12 +19042,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/independent-provenance.json",
-          "sha256": "2187518c1c06620e38c91fe23e81aab7220fa5fdda897319a198684ba9278a25",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round40-20261020/batch-94/independent-runtime-initial-package-export-failure.mjs",
           "sha256": "00f21a29eb9bf55a79a366763d9772d081fbae8aadc04a7dd24bdf1fe55ee7b2",
           "origin": "review",
@@ -26512,196 +19054,10 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/initial-integrity.json",
-          "sha256": "ef93361d77f0b5b425dd0ff715bbc220425feae00f451ba500a84336a0148469",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round40-20261020/batch-94/inspect-preserved-r001.py",
           "sha256": "ebb17166652aea9e88a490115f310aed758cdf0c942039649a46bb28dc36b744",
           "origin": "review",
           "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/lean-byte-identity.json",
-          "sha256": "1474c31949c5c4e6508bafa9aeb255b5a7fa85976b80969f83047b7e7c9357f5",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pixel-and-source-review.json",
-          "sha256": "cd29d74c6ae3efdbb21ffcb39088bbbb82b825cb3ab484120ee19031c96a6c28",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia-execution.json",
-          "sha256": "b1dea32b9b00dc11ded401b2a51d8304298caadee8b572e6582ecfbc74f5eae5",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/detail-execution.json",
-          "sha256": "306285245305ed83b53a4e7b60c5dd040294380c0688b0d6133f6453146cf897",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/detail-request.json",
-          "sha256": "c69d8eafc24a3e4a4e22a1fa25ead753ca431739329a3b4dd6e28dd704a0672f",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/detail/render-config.json",
-          "sha256": "ffb3ed02070acc733f0d5b768a68745fb2d64e21eae6b416d26bb1a933bf699f",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/detail/render-manifest.json",
-          "sha256": "3c438742365fec8d2105891994eaf8c882ddec355b15b4de03d3b1481e438975",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/detail/turntable.json",
-          "sha256": "db8b8372c9da940f8519f359637c08ede08d83ad7a5bc139afb64ef910817ba2",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/final-khronos.json",
-          "sha256": "4322c6b3464b700f19e044757cee965d76f877a371349fd4f4bb5a37f4a45c4a",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/final-runtime.json",
-          "sha256": "ffbfb277b470e89e5b5fd89625481bffd28c6eec25b08e5990d0b602af326c39",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/independent-geometry.json",
-          "sha256": "0df397e73a7f461389983a6c666a2841b7d8db4161c82ea8345de2a9cda020f0",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/independent-project-audit.json",
-          "sha256": "c89fffcd5e241ef10efb14427e9f7518f98502cd55dc193180907d4b8f137851",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/reexport-khronos.json",
-          "sha256": "0521f045d3ca4dc6c5aa47f0de3892e1bbc3afc995376f037773848a4a15bde1",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/pseudobornia/reexport-runtime.json",
-          "sha256": "36b82e45aff20844f5c4750b23bce6b59746097810ce4c59316ca6669546c793",
-          "origin": "review",
-          "owner": "pseudobornia"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/recovery-progress.json",
-          "sha256": "db356c6ba0891018bec8042f5115115db2970a8299ab8877ea74d50f8d0c7d3d",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/retained-evidence-integrity.json",
-          "sha256": "e1739b91c8543fc99543a6a2e2f0eea78395679ae911c01c8f7e42a0574df756",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/reviewer-recovery-notes.json",
-          "sha256": "76b379b9364c3821ea6765f9012381efcb0203080378bd06f1cca00898ee4552",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton-execution.json",
-          "sha256": "74d07631237ab80c5dd749f17a7742f58e4d6d6545a91ea207dd87a8aaeadffe",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/detail-execution.json",
-          "sha256": "e52ba8b719f70d48ced682081aa82eea307e5f8752e879063f5a046023a5f3b5",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/detail-request.json",
-          "sha256": "73182dcba73184fb343cd71c36f8f35706bc752c05942594f07663319eb910dd",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/detail/render-config.json",
-          "sha256": "a9b58d0aeacb7530584ce39a70429bf53fe14a7c8cdcc204e3253cf03a5d464a",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/detail/render-manifest.json",
-          "sha256": "7dec2168d0f6e2465f45b2d55f89b6d7d7530e6e345c107e30dc702866244daa",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/detail/turntable.json",
-          "sha256": "8cd398ff2875da2aaefd94d36c5ad47a6f9e25f9767a869d798c3377705d923d",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/final-khronos.json",
-          "sha256": "b0f2c8cfff68e4f500e649fdbf364820ac36fa07a06d3b1a302da9e89123a3f7",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/final-runtime.json",
-          "sha256": "24251f3e53127c3e6e66c1e956fc5a3ffd7bd3c3e6554c4548419df316485b8b",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/independent-geometry.json",
-          "sha256": "117e3db76aa53cec1b05ff0212c1655229ff96161d6549c1875eb86e371eaf3a",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/independent-project-audit.json",
-          "sha256": "4ce0d3cc18a2045d4d271408f51f904355c4d7cc5cd951438c7341a11c332bdd",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/initial-runtime-partial-khronos.json",
-          "sha256": "f6f79e5dd5e9a2512f880d1dcf5542e3941adfd6ff0a2eb2df578cee6d93988a",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/reexport-khronos.json",
-          "sha256": "6e657cb9680e0c6b344d3daff8f37121a0dce52fed45f7457e835ed2fbd5c701",
-          "origin": "review",
-          "owner": "rhacophyton"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/rhacophyton/reexport-runtime.json",
-          "sha256": "affa5bd94caceea82f43666afc8e56205753c70fdae6a1426b45bca0218240fb",
-          "origin": "review",
-          "owner": "rhacophyton"
         },
         {
           "path": "qa/continuous-small-life-round40-20261020/batch-94/run-details.py",
@@ -26716,92 +19072,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria-execution.json",
-          "sha256": "d05e0ec811bd42df9e4e99c753b5cf597323c461e52ac924bd02d8d740c10dfe",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/detail-execution.json",
-          "sha256": "9bd0ddca24c7904da3209efef4df418b212aa0e8dcbe0361702bbb83b82c7270",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/detail-request.json",
-          "sha256": "842826fc4a43cfaf28c47d2ad11a5630b64ba595f52b73704a031bc7605cc841",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/detail/render-config.json",
-          "sha256": "d28c668d3af9327ab5418b735807796b1efc2e9052d7d5caeb1b72e28e9a714a",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/detail/render-manifest.json",
-          "sha256": "03a6741e61a8f15e313977ce40a278b2f3fa4d05513366b835ae8c9171490bb6",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/detail/turntable.json",
-          "sha256": "cbaddd17a4740f704cfe9b3cbc06d6dc7338cf3e099043dea7e26a9ede1fc661",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/final-khronos.json",
-          "sha256": "a3b954a9bbc4387ff97dd2d3dc22ae15a7cbe14859dc7f4e023ae1701254cb14",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/final-runtime.json",
-          "sha256": "5364c6042bcc231d3bd92170f117b8d658650449084272c0228b5e3fa1136ca0",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/independent-geometry.json",
-          "sha256": "8dce423083d8e7070434dbf51ff78b44c587d366b3852ce86f26466fd129165a",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/independent-project-audit.json",
-          "sha256": "f9612569c60238a92c0d997a14d76a2166772096490651c2d3d08b39ce9123d3",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/reexport-khronos.json",
-          "sha256": "7ac739e84c1d792c094236df7c7b1919ffbbfe71d8dd094120b1015a0344976e",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/sigillaria/reexport-runtime.json",
-          "sha256": "1be4071bb14472c1e9feeccf241bc42fd5cb18fafff0ca33b27b8d1a5842e238",
-          "origin": "review",
-          "owner": "sigillaria"
-        },
-        {
-          "path": "qa/continuous-small-life-round40-20261020/batch-94/source-inventory-integrity.json",
-          "sha256": "a18a7a9a794ccef21d5a993315e61ac56a911ae1cf04cd1fb920eb042859ba0c",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round40-20261020/batch-94/write-report.py",
           "sha256": "03135476f6ed556e1012be86134b8caba3c57296c56d7c37f4c64e892308f6b6",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/next52-g21-release-20261021/retention-summary.json",
-          "sha256": "5df7876700e3cd4ec8d402e205ae40418b430592ecb4ed50409b323fb0f6839e",
+          "path": "qa/next52-g21-release-20261021/process-archive-index.json",
+          "sha256": "a70d8e303af87c3a28eeeb96978fb7e0faa08c0d33601778ed9e64d756cf132f",
           "origin": "release",
           "owner": "$batch"
         }
@@ -26811,7 +19089,7 @@ export const FIFTY_TWO_RELEASES = [
   {
     "descriptor": {
       "path": "assets/releases/next52-g22-20261021.json",
-      "sha256": "2c184eeab4be5c236f64b0bd65ecd0332a08e83d2c62660b296ca24b2d5bb41e"
+      "sha256": "20cc0915005d1fa0d10e1e8417f6f96726777bc73043d7ac95c9df535d0fcb3e"
     },
     "release": {
       "version": 1,
@@ -26830,7 +19108,7 @@ export const FIFTY_TWO_RELEASES = [
       },
       "source_bundle": {
         "path": "qa/next52-g22-release-20261021/source-bundle.json",
-        "sha256": "96a060361b545c617faa39c7aab1d82489ea25edfb267469fd9521bf3d64195d"
+        "sha256": "f726159730218c917131f903abc531bfb8608b7f2283ecba8b28783150df8594"
       },
       "protected_source_inputs": [
         {
@@ -27200,12 +19478,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lumbricaria-thread-like-coprolite"
         },
         {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/brief.json",
-          "sha256": "f0666671d6b966bfb1fb651c21f9fbceb7fd9d194b17737297e569d6cfef049c",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
           "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/build-config.json",
           "sha256": "6a242bb2c128b202549d4423f387f9f4d897894af33952e7f03e62d5a2925f2c",
           "origin": "source",
@@ -27224,26 +19496,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lumbricaria-thread-like-coprolite"
         },
         {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/candidate-validation.json",
-          "sha256": "c333718c9d9a0c08d7770dcd571e842e401fbf073602812e8fb3877178fe059e",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
           "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/candidate.json",
           "sha256": "00f5caec92444216c033c4504b867eebf1c79e1f6fff5e265505fb2758087353",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/concept-evidence.json",
-          "sha256": "d7dfb06301e509c849fb1f2d480088eeea0c9c254779d06928aaf264005df8b4",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/concept-generation.json",
-          "sha256": "de8cca5ef33445619270ece89182457dfcddd3a2e179932560c9b23941322f8d",
           "origin": "source",
           "owner": "lumbricaria-thread-like-coprolite"
         },
@@ -27260,44 +19514,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lumbricaria-thread-like-coprolite"
         },
         {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/concept-validation.json",
-          "sha256": "59f99376ae491e20a4ab3b7bbd349d23469086f4c2028984f82b6d93cb8ffc47",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
           "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/contact-sheet.png",
           "sha256": "2e176447710adee9aedc6eb7d4e4e31c1a7413ff5e59a7252886c3c525414baa",
           "origin": "source",
           "owner": "lumbricaria-thread-like-coprolite"
         },
         {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/diagnostic-disposition.json",
-          "sha256": "2a593ab433a691975dd2218142b9e15cf0e272aa5112dfb0aa263266459595a2",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/execution.json",
-          "sha256": "d0161fa339f619909972e0a270f401e2bf39dc4297413e2ff881687e7b5ebb9a",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/final-rebuild-binding.json",
-          "sha256": "708351b34c52eb257bc329b391115f798db09a108f2b4265cca606917dc9f97e",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
           "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/generator.py",
           "sha256": "841b81b7f02da587e5293ab9ad38255fdd277875c0bf8d704cd28685d178f43c",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/geometry-semantics.json",
-          "sha256": "e1f8afcba3b2e1c28dacc6ccf4046b5cb2607ae1aa48fbbf3c6bb4562067c999",
           "origin": "source",
           "owner": "lumbricaria-thread-like-coprolite"
         },
@@ -27328,12 +19552,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/model.glb",
           "sha256": "5c473c15091b75f6c1bd82d10d9cd478e1877369e4fc5d101dcea5653144a76e",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/modeling-freeze.json",
-          "sha256": "195edc2f6a57183da85d8576b06e48ebb71b85522627c3b099b1d8a78df7ab34",
           "origin": "source",
           "owner": "lumbricaria-thread-like-coprolite"
         },
@@ -27392,12 +19610,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "lumbricaria-thread-like-coprolite"
         },
         {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/proof-final/render-config.json",
-          "sha256": "519ccba1f8db68867ffdf3783175a77376ddbeddaf8348eb5593936569d9305d",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
           "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/proof-final/render-manifest.json",
           "sha256": "b14bb952842f3aecabe9c95592886322e1f7c97ad7f22c1ae692fe88a16983cf",
           "origin": "source",
@@ -27424,12 +19636,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/proof-final/top.png",
           "sha256": "aefeff0809c654f7f1c778eb9f88f434d25dd97e907d0a7076e4ca9eef835e61",
-          "origin": "source",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "production/batch90/assets/lumbricaria-thread-like-coprolite/r001/proof-final/turntable.json",
-          "sha256": "8a8ef70fff41f47a62463ebd896525166e51533736c0ca3681cbd3a5870a9ea7",
           "origin": "source",
           "owner": "lumbricaria-thread-like-coprolite"
         },
@@ -27494,12 +19700,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pertica"
         },
         {
-          "path": "production/batch90/assets/pertica/r003/brief.json",
-          "sha256": "6f756b45fc4e6a9daa6198206931d173ee053e0e8ef69857fb63875d5cb35361",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
           "path": "production/batch90/assets/pertica/r003/build-config.json",
           "sha256": "50d86874a524943bf92c7e80b2f3ad4086e23918d167642bbb9d5281d2f22973",
           "origin": "source",
@@ -27518,26 +19718,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pertica"
         },
         {
-          "path": "production/batch90/assets/pertica/r003/candidate-validation.json",
-          "sha256": "3237b4fa2448c614f132ba299f3322006a91f5da9ebbe609b82ba0b35e7f215b",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
           "path": "production/batch90/assets/pertica/r003/candidate.json",
           "sha256": "3931a65f3961e851dafd276eabad50af80424095996a0d005c95e4a19f2fe36f",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
-          "path": "production/batch90/assets/pertica/r003/concept-evidence.json",
-          "sha256": "aa6b36077f890dddfc6f725989f340ef56bfcf7ea8a930cf85e3d4eda836a8d2",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
-          "path": "production/batch90/assets/pertica/r003/concept-generation.json",
-          "sha256": "32578c2050477bc4566c3433a3572ac9630374ea770530303d20ea025282c79d",
           "origin": "source",
           "owner": "pertica"
         },
@@ -27554,50 +19736,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pertica"
         },
         {
-          "path": "production/batch90/assets/pertica/r003/concept-validation.json",
-          "sha256": "7a2883d410b485eca3392c75ebd917f3ab65ef4e23582d1b7be46d9a7c5e9b4b",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
           "path": "production/batch90/assets/pertica/r003/contact-sheet.png",
           "sha256": "428849a5924b8ae41eedc9e2d93d565f50de8f7687287d742b34e4d3b6588090",
           "origin": "source",
           "owner": "pertica"
         },
         {
-          "path": "production/batch90/assets/pertica/r003/diagnostic-disposition.json",
-          "sha256": "8c99a81026f294c50725e2014fddf667ec0de6d32b34ff203f07894d7336cc09",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
-          "path": "production/batch90/assets/pertica/r003/execution.json",
-          "sha256": "96289b4e415968db71762c2d9d2d1b7f3f567670f05d23152461fed3e403b3b2",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
-          "path": "production/batch90/assets/pertica/r003/final-rebuild-binding.json",
-          "sha256": "6352db8b5ff4171f614bcc25cce0eb5cb1366605349cd8714ee1ce9f41e3de4a",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
-          "path": "production/batch90/assets/pertica/r003/framing-pixel-check.json",
-          "sha256": "21e7f39f15de4e1b10cc7d22e7bd1169a9bbf9124d1e4363cfb886719f0b1a8e",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
           "path": "production/batch90/assets/pertica/r003/generator.py",
           "sha256": "4e009c2cceefe71ba8469617a6e45d76306278931bad66514783e93da6de901e",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
-          "path": "production/batch90/assets/pertica/r003/geometry-semantics.json",
-          "sha256": "abbc6ae63e2f7dd14986288fdadf4b892ee6c127d13ec0ca0696be293cff8acb",
           "origin": "source",
           "owner": "pertica"
         },
@@ -27686,12 +19832,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pertica"
         },
         {
-          "path": "production/batch90/assets/pertica/r003/proof-final/render-config.json",
-          "sha256": "1f20cafa081a17b6b6129149e7d8e3b3612c5276c3b0d04c467c2cee39a05978",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
           "path": "production/batch90/assets/pertica/r003/proof-final/render-manifest.json",
           "sha256": "b33af49ea961b81d025806182e56fe6ae99d19ed6032f17ef56e198598e6d71c",
           "origin": "source",
@@ -27722,12 +19862,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "pertica"
         },
         {
-          "path": "production/batch90/assets/pertica/r003/proof-final/turntable.json",
-          "sha256": "1fbb38b3e6316c1873dee0d96374db17b272e41ca6030c85857e3ea69fe163a6",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
           "path": "production/batch90/assets/pertica/r003/qa.json",
           "sha256": "d2aa68534020fd4c1e68da76937bed6ad61840e4c0034caa544616334c5c6cf6",
           "origin": "source",
@@ -27736,12 +19870,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch90/assets/pertica/r003/references.json",
           "sha256": "6dc47a6e463af37d336d07ede5678f7007af13c25f33677dbb6beb1e1f0ce467",
-          "origin": "source",
-          "owner": "pertica"
-        },
-        {
-          "path": "production/batch90/assets/pertica/r003/repair-freeze.json",
-          "sha256": "ec9f32507e02e389ee8b414c9f064073873649103cf58986fdd57bcb3751a519",
           "origin": "source",
           "owner": "pertica"
         },
@@ -27794,12 +19922,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "zoophycos-spiral-spreite"
         },
         {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/brief.json",
-          "sha256": "d1e571fc8823e6a31175153d15160c40b69a84ad1b616aa931a120a2e5120c11",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
           "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/build-config.json",
           "sha256": "4cb36bda1c652dc9abafd0b9da1bf7cba2f7a1453b264fc5ddd6db609f4b6cd7",
           "origin": "source",
@@ -27818,26 +19940,8 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "zoophycos-spiral-spreite"
         },
         {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/candidate-validation.json",
-          "sha256": "0bff39b34cc158ec907ad7cdb94289fb04abb208f79c5a9cad83aa3220ced408",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
           "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/candidate.json",
           "sha256": "294765bc7890cae0571ccf23ff3e71943fe421ead8857d8d5e34f8a062c41980",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/concept-evidence.json",
-          "sha256": "53f8e2b8fecfaaed8b1892d114eec35c13f31e1f66e26b99bf22af7d4bb369fb",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/concept-generation.json",
-          "sha256": "f93bbbad90a1ca7fd5df138f08deaaf450b196071542207789e0a1a5ab33cf3e",
           "origin": "source",
           "owner": "zoophycos-spiral-spreite"
         },
@@ -27854,44 +19958,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "zoophycos-spiral-spreite"
         },
         {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/concept-validation.json",
-          "sha256": "1396eba279dc40dd195b9e79b00d376e977b0af9fdec9bc49345cd521c3c1477",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
           "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/contact-sheet.png",
           "sha256": "4df756d0bbd25122062983e01aa6dabed013392454037c65d7f6613c4818d521",
           "origin": "source",
           "owner": "zoophycos-spiral-spreite"
         },
         {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/diagnostic-disposition.json",
-          "sha256": "39af5453ef111e6dcc80042e959cf9a5537e37bce8934aa6baa5cca007bf1ef6",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/execution.json",
-          "sha256": "5d289e06954ba61d8f6869f969ac14386b37c09e6cce2c0fab5025b8d2d8e7ff",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/final-rebuild-binding.json",
-          "sha256": "ad8186e7d6044c8b273c57cf1b857f72407a56e469b8d33947f62411e97bd8a6",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
           "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/generator.py",
           "sha256": "3da45e42f0a84d7a066f246cd8ef0658c04c873466d66b7248822fc5bf9b9b1c",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/geometry-semantics.json",
-          "sha256": "fe33f406ca3fca8941aab5e0c7b899f68c9671fc4f126aeb76a1c13cdff0fb34",
           "origin": "source",
           "owner": "zoophycos-spiral-spreite"
         },
@@ -27980,12 +20054,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "zoophycos-spiral-spreite"
         },
         {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/proof-final/render-config.json",
-          "sha256": "cce214f4b6ba5e7c3e3a3a9979d7071cc492f28fb0f2705c4b5d59f68d85dcfb",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
           "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/proof-final/render-manifest.json",
           "sha256": "ba1378c19b3bbe063fd8d263d61a99514ae76c61293a8792ac2925439fcb6a34",
           "origin": "source",
@@ -28016,12 +20084,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "zoophycos-spiral-spreite"
         },
         {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/proof-final/turntable.json",
-          "sha256": "05a86021e3f133c814ebc15ef09ef31389c9be77b89b265b39bfcce8ae148cc7",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
           "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/qa.json",
           "sha256": "80ba98d6a70380cb7e0c2accaa1a4d4d3d1bc2164234cadfcbf6b8c19eacb604",
           "origin": "source",
@@ -28030,12 +20092,6 @@ export const FIFTY_TWO_RELEASES = [
         {
           "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/references.json",
           "sha256": "e452737ab50846bee3a03ca72c86fe3351508459d70540cb7bbb3721f672e358",
-          "origin": "source",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "production/batch90/assets/zoophycos-spiral-spreite/r002/repair-freeze.json",
-          "sha256": "cf5806fe2381171306278f3670a77aec53761540358c15cd1c9c41c27b1db18e",
           "origin": "source",
           "owner": "zoophycos-spiral-spreite"
         },
@@ -28100,12 +20156,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/final-source-state.json",
-          "sha256": "c50d848d62bf34d8ac124ad56c7c12c236a24845d5dace84dfc522b19d103185",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-90/independent-handoff.json",
           "sha256": "6cd21dcf979be98dd470260f33109c771c03143f37a477d5d3b9c7b7be553a49",
           "origin": "review",
@@ -28124,72 +20174,6 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lean-byte-identity.json",
-          "sha256": "61c605d1373bbd8b111e7a3f8025866cbba1413db9970f4ba00c9790bbb6d1c7",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/cord-width-diagnostic.json",
-          "sha256": "d558af3d3f771bbc2b573d0fbdd4b72cc0de267f3ea291108ec3381eadf98772",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-candidate-validation.json",
-          "sha256": "c333718c9d9a0c08d7770dcd571e842e401fbf073602812e8fb3877178fe059e",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-exported-relief-measurement.json",
-          "sha256": "9a34ffb1bceafe636b653c03efe7da296af1ee49319e1dca88b4756f43cbdec0",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-khronos-validation.json",
-          "sha256": "d050757162d0b0f25c2ad5158bc984d2cf2c3eee47d9e6e4dee01dbbce4c160f",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-project-audit.json",
-          "sha256": "a13d00805699b7c598ae3c2514b8ebdef9c35f611cf671687fd61828fe07dbe1",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-provenance.json",
-          "sha256": "3d1f12ccd217f2cfe96d521f55c68823e94bce9d910869f2a82314161ebef7cb",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-rebuild-1-comparison.json",
-          "sha256": "d6c13184bddeac3c5e04c7516e480bb1cf3629439ddf4bee770aefd3c2e86d14",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-rebuild-2-comparison.json",
-          "sha256": "6476dacac4e74c594dcb8c26309b4813800466a1b72322a648db5600e483e8c4",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-source-reopen-reexport.json",
-          "sha256": "1e7763702313926d779014f5150b8fe6de0459bead4ed64481fec1f16e9b463e",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/lumbricaria-thread-like-coprolite/own-three-parse.json",
-          "sha256": "2f9fe82add022e8805ca374a8a252aae933fcee9f7d8e7e59bc51c9022968ce4",
-          "origin": "review",
-          "owner": "lumbricaria-thread-like-coprolite"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-90/measure_glb_relief-attempt1.py",
           "sha256": "22cf42d9ad42c2c50f0f2b639c018c3a8621d4a8f0114e00154cf5def161b4d3",
           "origin": "review",
@@ -28202,64 +20186,10 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/own-integrity-provenance.json",
-          "sha256": "f678bc7a2c5c56aa0169cbf0dd2509e52929cd7b860fefe6ead36a5e9451b2c0",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-90/own-manifest.json",
           "sha256": "429423de3dcee2fc6d69bc72536aa108fe47063e2e3189361d6e7368dbb53948",
           "origin": "review",
           "owner": "$batch"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-candidate-validation.json",
-          "sha256": "3237b4fa2448c614f132ba299f3322006a91f5da9ebbe609b82ba0b35e7f215b",
-          "origin": "review",
-          "owner": "pertica"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-khronos-validation.json",
-          "sha256": "1393b4cc9cfa7fe85ce0fc488ea34f859601dd0fc827c6102a0762c9643f4066",
-          "origin": "review",
-          "owner": "pertica"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-project-audit.json",
-          "sha256": "9a2e3669908075ab47a0bf1bbdde7a051e0aadad97f9957164e12fc5a3deb099",
-          "origin": "review",
-          "owner": "pertica"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-provenance.json",
-          "sha256": "cd3c39df0c1aea38481f0a207b5710df17b5b0c060cc2c5dfe5b529d0d12c1fa",
-          "origin": "review",
-          "owner": "pertica"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-rebuild-1-comparison.json",
-          "sha256": "dce536e2c46cc2ebecaab4d90c4c90c799acf2ae80715cf8566df1e6bd9a46de",
-          "origin": "review",
-          "owner": "pertica"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-rebuild-2-comparison.json",
-          "sha256": "e23ea23f14874839f78460e82ceec65746cc147d1caa84c864f0ad515e300d81",
-          "origin": "review",
-          "owner": "pertica"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-source-reopen-reexport.json",
-          "sha256": "a0c055bec89e9fa641de34ecbaf1d7c08a0ed3a8d36b7d676808de6d6e2460fc",
-          "origin": "review",
-          "owner": "pertica"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/pertica/own-three-parse.json",
-          "sha256": "f578407baa172f72235b79d4ee7c33a4092289ec1f33563449520437ccee7e29",
-          "origin": "review",
-          "owner": "pertica"
         },
         {
           "path": "qa/continuous-small-life-round38-20261020/batch-90/pin_chamber_tail.py",
@@ -28286,68 +20216,14 @@ export const FIFTY_TWO_RELEASES = [
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/source-pin-checks.json",
-          "sha256": "0d3ea253be0fa65c03175213bc5db6fd65076d7cb8337f01635cbf8b6e2f5c06",
-          "origin": "review",
-          "owner": "$batch"
-        },
-        {
           "path": "qa/continuous-small-life-round38-20261020/batch-90/write_review.py",
           "sha256": "7886f34588bb25e57cc2e4d6dc3baae8e646b02bc5cbb173e629997a46705904",
           "origin": "review",
           "owner": "$batch"
         },
         {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-candidate-validation.json",
-          "sha256": "0bff39b34cc158ec907ad7cdb94289fb04abb208f79c5a9cad83aa3220ced408",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-khronos-validation.json",
-          "sha256": "1b1feb5deb014ba853671ff4f7081dea354f7f313a717f8b3be382415eae8c87",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-project-audit.json",
-          "sha256": "73d167e789151f71da28ebe8948d3a46943d6611878d219c906c46940d548c1f",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-provenance.json",
-          "sha256": "4467700444bd9a9bc14534bbdf6dcd37296f8d89a5d1fb39be96c0475b60bb9d",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-rebuild-1-comparison.json",
-          "sha256": "40bc4ad21caeb32371ef88fb7df705eec720909f5787ebb38393c820ca6aa06b",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-rebuild-2-comparison.json",
-          "sha256": "b6b4bdd26ddb9aea848835f691058cbb42d476b188b1b6f375bd32e0fd555a07",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-source-reopen-reexport.json",
-          "sha256": "a67ca344e22200892e461fc90aef482c99eb7f98d19798c7f71eb3446ea24744",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/continuous-small-life-round38-20261020/batch-90/zoophycos-spiral-spreite/own-three-parse.json",
-          "sha256": "1b00a0502d66fcc96cb61a66224b2485bd2dae10e68cd98313a5407940312229",
-          "origin": "review",
-          "owner": "zoophycos-spiral-spreite"
-        },
-        {
-          "path": "qa/next52-g22-release-20261021/retention-summary.json",
-          "sha256": "708751cce7dc0cf93e8431c40ac4a07c86885dc646a0c3862038862784775eab",
+          "path": "qa/next52-g22-release-20261021/process-archive-index.json",
+          "sha256": "d206223bbe6e3889a632df20512973049912fe103d8f875c9faa2497328661a7",
           "origin": "release",
           "owner": "$batch"
         }
