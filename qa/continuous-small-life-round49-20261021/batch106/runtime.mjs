@@ -1,0 +1,10 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import {createRequire} from 'node:module';
+const base='/workspace/shared/lowpoly-landair-web-integration/node_modules/';const require=createRequire(import.meta.url);const validator=require(base+'gltf-validator');const THREE=await import(base+'three/build/three.module.js');const {GLTFLoader}=await import(base+'three/examples/jsm/loaders/GLTFLoader.js');
+const root='/workspace/shared/lowpoly-batch106-20261021/production/small-life-batch106';const out='/workspace/shared/lowpoly-batch106-independent-qa-20261021';
+for(const [a,r] of [['didymograptus','r004'],['monograptus','r004'],['diplograptus','r009'],['dictyonema','r005']]){
+ const p=`${root}/${a}/${r}/artifacts/${a}.glb`,b=fs.readFileSync(p),sha=crypto.createHash('sha256').update(b).digest('hex');
+ const kr=await validator.validateBytes(new Uint8Array(b),{uri:a+'.glb',maxIssues:10000,severityOverrides:{ACCESSOR_INDEX_TRIANGLE_DEGENERATE:0},externalResourceFunction:async uri=>{throw Error('Unexpected external resource '+uri)}});
+ fs.writeFileSync(`${out}/${a}/khronos.json`,JSON.stringify({subject_sha256:sha,validator_version:validator.version(),...kr},null,2));
+ const started=performance.now();const result=await new Promise((resolve,reject)=>new GLTFLoader().parse(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'',resolve,reject));let meshes=0,triangles=0;let mats=new Set();result.scene.traverse(o=>{if(o.isMesh){meshes++;triangles+=(o.geometry.index?o.geometry.index.count:o.geometry.attributes.position.count)/3;for(const m of Array.isArray(o.material)?o.material:[o.material])mats.add(m.uuid)}});const box=new THREE.Box3().setFromObject(result.scene);
+ fs.writeFileSync(`${out}/${a}/three-runtime.json`,JSON.stringify({subject_sha256:sha,status:'PASS',three_revision:THREE.REVISION,meshes,triangles,materials:mats.size,bounds:{min:box.min.toArray(),max:box.max.toArray()},parse_ms:performance.now()-started,created_at:new Date().toISOString(),gpu:'UNKNOWN: not executed',scene:'UNKNOWN: not executed'},null,2));console.log(a,kr.issues.numErrors,kr.issues.numWarnings,triangles)
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "batch": 106,
+  "fixed": true,
+  "source_commit": "182bcec567f6a9ef901f5ea926f482b43aad120e",
+  "source_handoff_sha256": "07fea59f653f2b5ac2df46e2287ee066088262389f5f141556759053577703c5",
+  "report": {
+    "path": "/workspace/shared/lowpoly-batch106-independent-qa-20261021/independent-report.json",
+    "sha256": "d816b79a3f12642de849bbb6f5f394d8e825ba9998aa4be00d7c954ca5683156"
+  },
+  "readable_report": {
+    "path": "/workspace/shared/lowpoly-batch106-independent-qa-20261021/INDEPENDENT-REPORT.md",
+    "sha256": "23ccd53337f3c71b37c8f260133d33d66b6f1168e75b0e08861cbb379f242a05"
+  },
+  "manifest": {
+    "path": "/workspace/shared/lowpoly-batch106-independent-qa-20261021/manifest.json",
+    "sha256": "752a3986b2c278ba9b00f44612720664022e681a418790ee4f5b2e7307286308"
+  },
+  "assets": {
+    "didymograptus": {
+      "revision": "r004",
+      "subject": {
+        "revision": "r004",
+        "glb_sha256": "3f97448a5fd69f61b5005f145f6b1d4e81a5ea2d29398d7fe15f41e71480eba3",
+        "brief_sha256": "73a1b3ebcbb3781714173c1508b104bf44495191e5449a6ca1b6875ce89b32f9",
+        "references_sha256": "0e1d58a77c41504127934ce8d35315dc5faa60e7629b58148fd043335f4cf106"
+      },
+      "source_sha256": "a23ebd2843aa1c39c97a095dd40802216f167690dd5ee057e682560ab7421b20",
+      "disposition": "PASS",
+      "stages": {
+        "technical": "PASS",
+        "visual": "PASS",
+        "factual": "PASS",
+        "specification": "PASS",
+        "runtime_parse": "PASS",
+        "gpu": "UNKNOWN",
+        "scene": "UNKNOWN"
+      },
+      "repair_scope": []
+    },
+    "monograptus": {
+      "revision": "r004",
+      "subject": {
+        "revision": "r004",
+        "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+        "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+        "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+      },
+      "source_sha256": "18ff9ac194c3facb6bbdb91991998e4f88468cc00a7138b11a53c20f8b655704",
+      "disposition": "REVISE",
+      "stages": {
+        "technical": "REVISE",
+        "visual": "PASS",
+        "factual": "PASS",
+        "specification": "PASS",
+        "runtime_parse": "PASS",
+        "gpu": "UNKNOWN",
+        "scene": "UNKNOWN"
+      },
+      "repair_scope": [
+        {
+          "id": "nema-stipe-zero-volume-contact",
+          "original_requirement": "Every intended child embeds into true parent solid; all relevant features tested against union of ALL global solids. Rim cavities get open-axis witness probes; exact pixels decide readability. No arbitrary new exposure percentage gates.",
+          "geometry_evidence": "geometry-details.json",
+          "exact_separating_plane_z_m": 0.02516326867043972,
+          "diagnosis": "Nema base and stipe tip have equal planar coordinates; the solids lie on opposite closed half-spaces and share no positive volume. Maker parity test incorrectly counted boundary vertices as strict interior.",
+          "minimal_repair": "In a new isolated revision, move only the hidden nema base into the stipe to create real embedding. Preserve the exposed tip, thecal geometry and all original frozen scope/limits. Refresh exact source/GLB bindings, two real rebuild records, full source re-export, relevant contacts/topology and exact final proof pixels; targeted difference review only. No whole-model redesign."
+        }
+      ]
+    },
+    "diplograptus": {
+      "revision": "r009",
+      "subject": {
+        "revision": "r009",
+        "glb_sha256": "e1d521a7c3ced7fe3801a3dc37eb73f70d63fff8d85ec24551e78d91bd150741",
+        "brief_sha256": "1f64a82366c6c5b28231b23a0857db5f4a16292e7e470fcf117654eb292486d3",
+        "references_sha256": "d4b41283247b5cdc29dd0fe4cd246e3146e707d05c6b0858fa5e047d8a4e74d0"
+      },
+      "source_sha256": "1e9a6cadaae6ec8ece0445cb06024f44ddc73dfef35d681afd97fcbbbfc0d89d",
+      "disposition": "PASS",
+      "stages": {
+        "technical": "PASS",
+        "visual": "PASS",
+        "factual": "PASS",
+        "specification": "PASS",
+        "runtime_parse": "PASS",
+        "gpu": "UNKNOWN",
+        "scene": "UNKNOWN"
+      },
+      "repair_scope": []
+    },
+    "dictyonema": {
+      "revision": "r005",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+        "brief_sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b",
+        "references_sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+      },
+      "source_sha256": "1f27fdd95972b97f46b737b506df0f7b0f0882add765bc7636085e0f65ccf2ba",
+      "disposition": "PASS",
+      "stages": {
+        "technical": "PASS",
+        "visual": "PASS",
+        "factual": "PASS",
+        "specification": "PASS",
+        "runtime_parse": "PASS",
+        "gpu": "UNKNOWN",
+        "scene": "UNKNOWN"
+      },
+      "repair_scope": []
+    }
+  },
+  "minimal_next_action": "Only Monograptus r004 requires a new isolated repair revision: embed the hidden nema base into the declared stipe. Preserve original freeze and all existing evidence. Refresh affected exact-subject source/export, two rebuilds, validation, contacts and proof images; receive targeted difference review. Do not redesign or block the three passed IDs.",
+  "gpu": "UNKNOWN: not executed",
+  "scene": "UNKNOWN: not executed",
+  "publication_approval": false,
+  "counters_changed": false,
+  "source_changed": false,
+  "resource_bytes": 4184130,
+  "created_at": "2026-10-21T05:11:08.255802+00:00"
+}
