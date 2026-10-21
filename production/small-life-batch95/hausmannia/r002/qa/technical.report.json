@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "70b8a98c50dbaa9d9db3e076da31ffb3c37ae7ad0e13d4305de874fc36651ef4",
+    "brief_sha256": "e7546ccc7dbaa86ed846a669fc93741643c121bfacc8e760ec4636b2cdc2c2f3",
+    "references_sha256": "33d068d82a3b66a38adcba9558eccf524d0fc25eec5e8da9c60d05952f6193a5"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 4528,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 206500,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "70b8a98c50dbaa9d9db3e076da31ffb3c37ae7ad0e13d4305de874fc36651ef4",
+      "report": {
+        "path": "production/small-life-batch95/hausmannia/r002/qa/static-glb.report.json",
+        "sha256": "ef9decdb242138cb0d6028f0c3b063110650286bd2cc48e4176700583a1eacdf"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "70b8a98c50dbaa9d9db3e076da31ffb3c37ae7ad0e13d4305de874fc36651ef4",
+      "report": {
+        "path": "production/small-life-batch95/hausmannia/r002/artifacts/gltf-validator.report.json",
+        "sha256": "9d0d0baafcd3d4c7344f818e39ca80ecc987cc0110388a95c3dbc9d3f8110347"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "70b8a98c50dbaa9d9db3e076da31ffb3c37ae7ad0e13d4305de874fc36651ef4",
+      "report": {
+        "path": "production/small-life-batch95/hausmannia/r002/qa/source-export.report.json",
+        "sha256": "33fb4de0acbb1deb04d41f98debc907dea3bc7d828d5ace3fc1792cf3355e392"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "70b8a98c50dbaa9d9db3e076da31ffb3c37ae7ad0e13d4305de874fc36651ef4",
+      "report": {
+        "path": "production/small-life-batch95/hausmannia/r002/qa/reproducibility-a.report.json",
+        "sha256": "ee0d7dba65b3217c87fd155a4804432a17810eb33786b3d5931c81a46d8d63d8"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "70b8a98c50dbaa9d9db3e076da31ffb3c37ae7ad0e13d4305de874fc36651ef4",
+      "report": {
+        "path": "production/small-life-batch95/hausmannia/r002/qa/reproducibility-b.report.json",
+        "sha256": "b800b3d566236ca96535f950f417c15d2d6626cc447f3127d49a43e4774cb2b4"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.0439269058406353,
+      0.0,
+      -0.003403277834877372
+    ],
+    "max": [
+      0.0439269058406353,
+      0.10009434819221497,
+      0.0034032780677080154
+    ],
+    "size": [
+      0.0878538116812706,
+      0.10009434819221497,
+      0.006806555902585387
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "continuous-paired-tooth-fossil-fan-sector",
+      "vertices": 2472,
+      "triangles": 4528,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 7226,
+  "created_at": "2026-10-21T00:04:13.262030+00:00"
+}

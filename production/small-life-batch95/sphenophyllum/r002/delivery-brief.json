@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "asset_id": "sphenophyllum",
+  "brief_version": "delivery-r002",
+  "profile": "production",
+  "purpose": "Static educational low-poly catalog candidate; independent review/GPU/scene/release separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every final view against original scope. Concept inspected23:38:40UTC. Retain open trailing hierarchy and wedge leaves. Correct over-thick axes, too-large independent hooks and excessive hook frequency. Four small hooks only; keep leaf bases visibly attached; no separate support tree.",
+      "required_sources": [
+        "BASHFORTH2016"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Open trailing main axis plus three connected rising lateral axes; separated nodes carry six leaves per whorl. Broad cuneate leaves widen distally with toothed outer edges; eight leaves are deeply divided into two narrow lobes, not ordinary horsetail needles. Four divided leaf tips include small recurved hooks; leaves attach to actual node positions, and basal rootlets connect to main stem. Conservative whole living reconstruction of a scrambling Sphenophyllum cuneifolium, anchored to USNM594376-594379 foliage. Main-axis extent, branching, colors and root arrangement are hypothetical. Hooks are documented elsewhere in this species, not claimed visible in selected specimens. Illustrated leaf widths/lengths mildly exaggerated for low-poly readability, not specimen measurements. No cones/flowers or support-tree asset.",
+      "required_sources": [
+        "BASHFORTH2016"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px exact final views and lossless sheet; independent review and runtime GPU/scene separate.",
+  "frozen_at": "2026-10-20T23:41:56.719718+00:00",
+  "subject": "Sphenophyllum cuneifolium scrambling wedge-leaf reconstruction",
+  "representation": "living-reconstruction",
+  "factual_scope": "Conservative whole living reconstruction of a scrambling Sphenophyllum cuneifolium, anchored to USNM594376-594379 foliage. Main-axis extent, branching, colors and root arrangement are hypothetical. Hooks are documented elsewhere in this species, not claimed visible in selected specimens. Illustrated leaf widths/lengths mildly exaggerated for low-poly readability, not specimen measurements. No cones/flowers or support-tree asset.",
+  "identifying_features": [
+    "Open trailing main axis plus three connected rising lateral axes; separated nodes carry six leaves per whorl.",
+    "Broad cuneate leaves widen distally with toothed outer edges; eight leaves are deeply divided into two narrow lobes, not ordinary horsetail needles.",
+    "Four divided leaf tips include small recurved hooks; leaves attach to actual node positions, and basal rootlets connect to main stem."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.38,
+      0.18,
+      0.34
+    ],
+    "bounds_interpretation": "Nominal artistic display targets, not hard equalities/minimum/maximum thresholds. Measure and disclose actual final world bounds and all tagged components after transforms. Scientific morphology and explicitly stated module counts are mandatory; dimensions are illustrative unless identified otherwise.",
+    "accuracy": "Interpretive art, not a specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Lowest geometry contact at z0; support or specimen footprint centered horizontally.",
+  "intended_use": {
+    "role": "Static educational catalog candidate",
+    "viewing": "512px CPU diagnostic stills, later web inspection",
+    "limits": "No GPU, composed-scene, collision or dynamics acceptance established."
+  },
+  "surface_profile": "Opaque flat-faceted full-volume geometry; no textures, alpha planes, emission or double-sided concealment.",
+  "palette_srgb": [
+    "#796747",
+    "#586548",
+    "#70844E",
+    "#93A06A"
+  ],
+  "component_and_cause": {
+    "primary": "Open trailing main axis plus three connected rising lateral axes; separated nodes carry six leaves per whorl.",
+    "secondary": "Broad cuneate leaves widen distally with toothed outer edges; eight leaves are deeply divided into two narrow lobes, not ordinary horsetail needles.",
+    "tertiary": "Four divided leaf tips include small recurved hooks; leaves attach to actual node positions, and basal rootlets connect to main stem.",
+    "quiet_region": "Untextured stem intervals or broad muted lamina facets."
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-20T23:41:56.719718+00:00",
+    "path": "production/small-life-batch95/concepts/sphenophyllum-concept.png",
+    "sha256": "964b0775868f73d02c4dc87df77bd9765daa789c0870076b284855755fd1dcd1",
+    "decisions": "Concept inspected23:38:40UTC. Retain open trailing hierarchy and wedge leaves. Correct over-thick axes, too-large independent hooks and excessive hook frequency. Four small hooks only; keep leaf bases visibly attached; no separate support tree."
+  },
+  "parameters": {
+    "main_axis_nodes": 7,
+    "lateral_axes": 3,
+    "nodes_per_lateral": 3,
+    "leaves_per_whorl": 6,
+    "divided_leaf_count": 8,
+    "hooked_leaf_count": 4,
+    "root_count": 5,
+    "nominal_span_m": 0.38,
+    "nominal_height_m": 0.34,
+    "nominal_leaf_length_m": 0.018,
+    "nominal_leaf_width_m": 0.012,
+    "nominal_stem_radius_m": 0.0028
+  },
+  "numeric_semantics": "Integer component counts in parameters are mandatory construction choices, not fossil universals. All lengths, radii, thicknesses, widths and bounds are nominal artistic inputs; final transformed world geometry must be measured and disclosed. No normalization is planned, so component scale is preserved except grounding/centering translation.",
+  "contact_policy": "Leaf/pinna/frond bases and root bundles must genuinely contact their supporting axis or lamina, with geometric penetration below the visible surface permitted. Measure actual world-space tagged vertex groups; inspect branching junctions and veins in multiple diagnostic directions. No visible coplanar surface interference.",
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts/bounds and component world measurements",
+    "source reopen",
+    "two distinct actual queued semantic rebuilds",
+    "project/Khronos/Three.js checks",
+    "eight exact512px final images and lossless sheet"
+  ],
+  "prohibited": [
+    "Change original inventory/freeze to pass",
+    "Treat concepts as source evidence",
+    "Copy consultation imagery/meshes",
+    "Hide defects with renderer tricks",
+    "Claim CPU/Node proves GPU/scene"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch95/sphenophyllum/r001/original-brief.json",
+    "sha256": "9512643be437d6fa118cd29fc9b55e9a7115509e08399e8707c1a16fa0571d56"
+  },
+  "delivery_bound_at": "2026-10-20T23:57:53.367248+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved_in_original_brief": true,
+  "geometric_repair_note": "Actual world-space contact diagnostics found three leaf-base and three hook attachments without surface penetration. Embed leaf bases along actual parent axis and extend thinner hooks into the divided-leaf solid; preserve4axes16whorls96leaves8divided4hooks.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch95/sphenophyllum/r002/artifacts/sphenophyllum.blend",
+      "sha256": "b168b264333d4dc43801ec99e463f0c7fdad24cb8c9316c3b3b8468d1180e91a"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch95/tools/generate-r005.py",
+      "sha256": "e414f3dbade42c9839cb5019f83d6caed8d5672f5ed2ee1f660ba176a68047e7"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch95/sphenophyllum/r002/config.json",
+      "sha256": "92b6bc75df22f0d08d151798442dd9332c0d529e782f287de2c728ef19eadab9"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch95/dependencies.json",
+      "sha256": "7a1582ada157da19673df841331a7abaa7e02b4ebf070ced03fd77a47ee6379f"
+    }
+  ]
+}

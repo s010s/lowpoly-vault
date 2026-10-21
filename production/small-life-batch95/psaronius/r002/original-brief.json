@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "asset_id": "psaronius",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational low-poly catalog candidate; independent review/GPU/scene/release separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every final view against original scope. Concept inspected23:38:40UTC. Keep tall root-mantled trunk and crown. Correct concept scale-like bark chips into continuous narrow root strands; ensure twice-pinnate foliage rather than simplified once-pinnate palm. Preserve crown negative spaces.",
+      "required_sources": [
+        "BSPG2015"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One tall upright trunk is stabilized by a continuous downward root mantle, visibly thickest and flared at the base. Eight long arching fronds emerge together at the terminal crown, each with seven opposite pairs of pinnae; each pinna bears five paired pinnules. Root bundles remain thin longitudinal root-like ridges, not overlapping bark scales or palm leaf bases; isolated tree, no pedestal. Genus-level living reconstruction from museum root-mantle specimen and compatible published tree-fern reconstruction. Psaronius simplex crosssection supports the root mantle only; crown is not attributed to that species. Crown frond/pinna/pinnule counts, root bundle count, colors and nominal display scale are artistic. No claimed reproductive or microscopic anatomy.",
+      "required_sources": [
+        "BSPG2015"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px exact final views and lossless sheet; independent review and runtime GPU/scene separate.",
+  "frozen_at": "2026-10-20T23:41:56.719718+00:00",
+  "subject": "Psaronius root-mantled tree fern",
+  "representation": "living-reconstruction",
+  "factual_scope": "Genus-level living reconstruction from museum root-mantle specimen and compatible published tree-fern reconstruction. Psaronius simplex crosssection supports the root mantle only; crown is not attributed to that species. Crown frond/pinna/pinnule counts, root bundle count, colors and nominal display scale are artistic. No claimed reproductive or microscopic anatomy.",
+  "identifying_features": [
+    "One tall upright trunk is stabilized by a continuous downward root mantle, visibly thickest and flared at the base.",
+    "Eight long arching fronds emerge together at the terminal crown, each with seven opposite pairs of pinnae; each pinna bears five paired pinnules.",
+    "Root bundles remain thin longitudinal root-like ridges, not overlapping bark scales or palm leaf bases; isolated tree, no pedestal."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      3.1,
+      3.1,
+      3.6
+    ],
+    "bounds_interpretation": "Nominal artistic display targets, not hard equalities/minimum/maximum thresholds. Measure and disclose actual final world bounds and all tagged components after transforms. Scientific morphology and explicitly stated module counts are mandatory; dimensions are illustrative unless identified otherwise.",
+    "accuracy": "Interpretive art, not a specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Lowest geometry contact at z0; support or specimen footprint centered horizontally.",
+  "intended_use": {
+    "role": "Static educational catalog candidate",
+    "viewing": "512px CPU diagnostic stills, later web inspection",
+    "limits": "No GPU, composed-scene, collision or dynamics acceptance established."
+  },
+  "surface_profile": "Opaque flat-faceted full-volume geometry; no textures, alpha planes, emission or double-sided concealment.",
+  "palette_srgb": [
+    "#675136",
+    "#887048",
+    "#A18A5B",
+    "#526742",
+    "#7D8B52"
+  ],
+  "component_and_cause": {
+    "primary": "One tall upright trunk is stabilized by a continuous downward root mantle, visibly thickest and flared at the base.",
+    "secondary": "Eight long arching fronds emerge together at the terminal crown, each with seven opposite pairs of pinnae; each pinna bears five paired pinnules.",
+    "tertiary": "Root bundles remain thin longitudinal root-like ridges, not overlapping bark scales or palm leaf bases; isolated tree, no pedestal.",
+    "quiet_region": "Untextured stem intervals or broad muted lamina facets."
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-20T23:41:56.719718+00:00",
+    "path": "production/small-life-batch95/concepts/psaronius-concept.png",
+    "sha256": "b451a73a92982698e1950f9d5b9de9a6ff920b545c012adacddf07bbe5e2108d",
+    "decisions": "Concept inspected23:38:40UTC. Keep tall root-mantled trunk and crown. Correct concept scale-like bark chips into continuous narrow root strands; ensure twice-pinnate foliage rather than simplified once-pinnate palm. Preserve crown negative spaces."
+  },
+  "parameters": {
+    "trunk_height_m": 2.5,
+    "nominal_core_radius_m": 0.09,
+    "nominal_mantle_base_radius_m": 0.28,
+    "root_bundle_count": 18,
+    "frond_count": 8,
+    "pinna_pairs_per_frond": 7,
+    "pinnule_pairs_per_pinna": 5,
+    "nominal_frond_length_m": 1.45,
+    "nominal_pinnule_length_m": 0.09,
+    "nominal_pinnule_width_m": 0.026
+  },
+  "numeric_semantics": "Integer component counts in parameters are mandatory construction choices, not fossil universals. All lengths, radii, thicknesses, widths and bounds are nominal artistic inputs; final transformed world geometry must be measured and disclosed. No normalization is planned, so component scale is preserved except grounding/centering translation.",
+  "contact_policy": "Leaf/pinna/frond bases and root bundles must genuinely contact their supporting axis or lamina, with geometric penetration below the visible surface permitted. Measure actual world-space tagged vertex groups; inspect branching junctions and veins in multiple diagnostic directions. No visible coplanar surface interference.",
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts/bounds and component world measurements",
+    "source reopen",
+    "two distinct actual queued semantic rebuilds",
+    "project/Khronos/Three.js checks",
+    "eight exact512px final images and lossless sheet"
+  ],
+  "prohibited": [
+    "Change original inventory/freeze to pass",
+    "Treat concepts as source evidence",
+    "Copy consultation imagery/meshes",
+    "Hide defects with renderer tricks",
+    "Claim CPU/Node proves GPU/scene"
+  ]
+}

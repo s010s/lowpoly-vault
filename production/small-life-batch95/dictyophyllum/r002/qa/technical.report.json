@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "09d84f23c4d7cc50f1e93f01bd187fdc055612539efcf455f2b613b1e3312adc",
+    "brief_sha256": "751ad4838284fe3257c4b47cfb06ae1aabf01684f66efe981e6a1cd920bd2ed9",
+    "references_sha256": "e2ac8b671ae432137d7378a9030bd3bbf7cc90de097cb047969e5ba57ef1c592"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 3380,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 179620,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "09d84f23c4d7cc50f1e93f01bd187fdc055612539efcf455f2b613b1e3312adc",
+      "report": {
+        "path": "production/small-life-batch95/dictyophyllum/r002/qa/static-glb.report.json",
+        "sha256": "47bf1e9a3115a5c9b37a2a55d32be928a3ab85ec0ac1ffb002b4f829182be654"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "09d84f23c4d7cc50f1e93f01bd187fdc055612539efcf455f2b613b1e3312adc",
+      "report": {
+        "path": "production/small-life-batch95/dictyophyllum/r002/artifacts/gltf-validator.report.json",
+        "sha256": "796a9528de7e9a1f72aa6d967eccb21e2da00af4c046f2d8f69a08b8a566334f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "09d84f23c4d7cc50f1e93f01bd187fdc055612539efcf455f2b613b1e3312adc",
+      "report": {
+        "path": "production/small-life-batch95/dictyophyllum/r002/qa/source-export.report.json",
+        "sha256": "e031fe4775fc299cc9e73b75caf0da69bb61d280b06947df3f8965d2453f02b8"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "09d84f23c4d7cc50f1e93f01bd187fdc055612539efcf455f2b613b1e3312adc",
+      "report": {
+        "path": "production/small-life-batch95/dictyophyllum/r002/qa/reproducibility-a.report.json",
+        "sha256": "349f6b8417e540ef879229582afffe92ba4284a755d12e3513fe12f61a55ed4d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "09d84f23c4d7cc50f1e93f01bd187fdc055612539efcf455f2b613b1e3312adc",
+      "report": {
+        "path": "production/small-life-batch95/dictyophyllum/r002/qa/reproducibility-b.report.json",
+        "sha256": "48e9faa4b41ca41c399c43d3db4389e42fa1da94a98bd91f4a3a25d759efa6af"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.039430707693099976,
+      0.0,
+      -0.0017445669509470463
+    ],
+    "max": [
+      0.039430707693099976,
+      0.06496121734380722,
+      0.0017445669509470463
+    ],
+    "size": [
+      0.07886141538619995,
+      0.06496121734380722,
+      0.0034891339018940926
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "bifurcate-eight-lobate-rays-fossil-frond",
+      "vertices": 2068,
+      "triangles": 3380,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 6284,
+  "created_at": "2026-10-21T00:04:13.375101+00:00"
+}

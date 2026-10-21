@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "1ec9dd8f89934be64eeaaa78267cc43efff7f30558cfc4825be9d088d3bab464",
+    "brief_sha256": "0ad02a0b1ed7ba8caad5fa0699caa343c2b79c9eda351b7221b0565035c9e6bb",
+    "references_sha256": "faaffb19209b88ce36c9ce3f8ab7452443ad5df143d541938c40308ffce5e58d"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 13036,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 956392,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "1ec9dd8f89934be64eeaaa78267cc43efff7f30558cfc4825be9d088d3bab464",
+      "report": {
+        "path": "production/small-life-batch95/psaronius/r002/qa/static-glb.report.json",
+        "sha256": "10e03aa09094befb79601ddd46ab27a090ef7d22500c16e81bdb954f5b7b3025"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "1ec9dd8f89934be64eeaaa78267cc43efff7f30558cfc4825be9d088d3bab464",
+      "report": {
+        "path": "production/small-life-batch95/psaronius/r002/artifacts/gltf-validator.report.json",
+        "sha256": "59d11272b4cb7aa5c114b3cf0667d30666672eee79e4c2d2dbe654aa56c129a0"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "1ec9dd8f89934be64eeaaa78267cc43efff7f30558cfc4825be9d088d3bab464",
+      "report": {
+        "path": "production/small-life-batch95/psaronius/r002/qa/source-export.report.json",
+        "sha256": "62aa6a676e78b4dc907b52e21634a77df33ab9329fcb36de4a8ffbce30d8cb0e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "1ec9dd8f89934be64eeaaa78267cc43efff7f30558cfc4825be9d088d3bab464",
+      "report": {
+        "path": "production/small-life-batch95/psaronius/r002/qa/reproducibility-a.report.json",
+        "sha256": "9934c27981e2d4a247685c09188cd63352a6d6f97d614a351571f2d65c1d81de"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "1ec9dd8f89934be64eeaaa78267cc43efff7f30558cfc4825be9d088d3bab464",
+      "report": {
+        "path": "production/small-life-batch95/psaronius/r002/qa/reproducibility-b.report.json",
+        "sha256": "1ec23975f5c323e2e2174c725faa1b75ad598f8e843bacc0a6c7b184ed46ab5f"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -1.3699252605438232,
+      0.0,
+      -1.344271183013916
+    ],
+    "max": [
+      1.3699252605438232,
+      3.072155475616455,
+      1.344271183013916
+    ],
+    "size": [
+      2.7398505210876465,
+      3.072155475616455,
+      2.688542366027832
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "root-mantled-tree-eight-bipinnate-fronds",
+      "vertices": 9036,
+      "triangles": 13036,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 34964,
+  "created_at": "2026-10-21T00:04:12.782976+00:00"
+}

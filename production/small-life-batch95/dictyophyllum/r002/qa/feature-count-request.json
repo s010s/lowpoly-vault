@@ -1,0 +1,77 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/measure_feature_counts.py",
+    "--",
+    "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/dictyophyllum/r002/artifacts/dictyophyllum.blend",
+    "/workspace/shared/lowpoly-batch95-evidence/feature-count-queue/build/dictyophyllum/r002/actual-feature-counts/7e91d156b9f69f81e5eaa298b03eea1501501c925e604f2fcac1cd04d71c298f/20261021T000338-a7ae13053ee640eda269714fe9a66e61/outputs/actual-feature-counts.json"
+  ],
+  "created_at": "2026-10-21T00:03:38.864278+00:00",
+  "fingerprint": "7e91d156b9f69f81e5eaa298b03eea1501501c925e604f2fcac1cd04d71c298f",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "checker": {
+        "bytes": 2704,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/measure_feature_counts.py",
+        "sha256": "daf7078fe30f674bd9881dcb7cc380dc140d551ca85bda6ce2a9d820f8b3b374"
+      },
+      "source": {
+        "bytes": 763944,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/dictyophyllum/r002/artifacts/dictyophyllum.blend",
+        "sha256": "c518dba1993a054d23c6988fbe294088d2b32844ad2df71548de75d8254727ca"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:checker}",
+        "--",
+        "{input:source}",
+        "{output_dir}/actual-feature-counts.json"
+      ],
+      "asset_id": "dictyophyllum",
+      "inputs": {
+        "checker": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/measure_feature_counts.py",
+        "source": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/dictyophyllum/r002/artifacts/dictyophyllum.blend"
+      },
+      "job_id": "actual-feature-counts",
+      "outputs": [
+        "actual-feature-counts.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T000333-1a7d3e3fff5d46449cb08afb36a5f3b5"
+}

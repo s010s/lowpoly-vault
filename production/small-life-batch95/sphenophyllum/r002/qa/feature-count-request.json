@@ -1,0 +1,77 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/measure_feature_counts.py",
+    "--",
+    "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r002/artifacts/sphenophyllum.blend",
+    "/workspace/shared/lowpoly-batch95-evidence/feature-count-queue/build/sphenophyllum/r002/actual-feature-counts/7d4f6fa6481b3629d1287fb392264508bc317207bba88eef763a8acfa662c7d3/20261021T000333-eeaade19679a4de892f65da1633660c2/outputs/actual-feature-counts.json"
+  ],
+  "created_at": "2026-10-21T00:03:33.069865+00:00",
+  "fingerprint": "7d4f6fa6481b3629d1287fb392264508bc317207bba88eef763a8acfa662c7d3",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "checker": {
+        "bytes": 2704,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/measure_feature_counts.py",
+        "sha256": "daf7078fe30f674bd9881dcb7cc380dc140d551ca85bda6ce2a9d820f8b3b374"
+      },
+      "source": {
+        "bytes": 847124,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r002/artifacts/sphenophyllum.blend",
+        "sha256": "b168b264333d4dc43801ec99e463f0c7fdad24cb8c9316c3b3b8468d1180e91a"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:checker}",
+        "--",
+        "{input:source}",
+        "{output_dir}/actual-feature-counts.json"
+      ],
+      "asset_id": "sphenophyllum",
+      "inputs": {
+        "checker": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/measure_feature_counts.py",
+        "source": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r002/artifacts/sphenophyllum.blend"
+      },
+      "job_id": "actual-feature-counts",
+      "outputs": [
+        "actual-feature-counts.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T000333-1a7d3e3fff5d46449cb08afb36a5f3b5"
+}

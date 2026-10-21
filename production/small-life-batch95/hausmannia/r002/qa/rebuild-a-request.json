@@ -1,0 +1,95 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r003.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/hausmannia/r002/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch95-evidence/rebuild-queue/build/hausmannia/r002/semantic-rebuild-a/1d49ed620184eada273302b07c03b3f10a90ab6e70a8bbdd8f175e1de2b1f5bc/20261020T235806-3fb693f662694698a8db054fc5d2d1f2/outputs"
+  ],
+  "created_at": "2026-10-20T23:58:06.791808+00:00",
+  "fingerprint": "1d49ed620184eada273302b07c03b3f10a90ab6e70a8bbdd8f175e1de2b1f5bc",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 911,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/hausmannia/r002/config.json",
+        "sha256": "abf85e62660acde39badb3215df4746026eb2637dfe5eadccff6cf65a9b83112"
+      },
+      "generator": {
+        "bytes": 12798,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r003.py",
+        "sha256": "f8243c0957c9a1d66465f0571341c6255defa9fd8d405a5460d5652fe04102db"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "hausmannia",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/hausmannia/r002/config.json",
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r003.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "job_id": "semantic-rebuild-a",
+      "outputs": [
+        "hausmannia/hausmannia.glb",
+        "hausmannia/hausmannia.blend",
+        "hausmannia/qa.json",
+        "hausmannia/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261020T235754-00650b5548a345c1af86a520193fc855"
+}
