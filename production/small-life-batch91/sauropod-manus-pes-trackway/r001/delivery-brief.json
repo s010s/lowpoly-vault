@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "asset_id": "sauropod-manus-pes-trackway",
+  "brief_version": "delivery-r001",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate preparation; independent acceptance, GPU, scene and release separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all exact final views against original scope. All three concept panels inspected22:05:05\u201322:05:45UTC. Keep negative relief and smaller crescent manus, but correct concept same-side repetitions into alternating left/right pairs. Round pes corners, orient each manus ahead of its own pes. Actual geometry rather than texture supplies diagnostic relief.",
+      "required_sources": [
+        "RIGA2011"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Three alternating left-right manus-pes pairs progress along a wide-gauge illustrative sediment slab with a clear untraced middle gap. Smaller asymmetric crescent/kidney-shaped forefoot impressions are paired with larger rounded/subtriangular hindfoot impressions; no manual digit marks or bird-like separated toes. All six footprints are actual negative cavities with sloping walls and floors, not raised appliques or pigment-only shapes; slab thickness and broken edges remain readable. Trace-morphology concept informed by Gonzalez Riga2011 Titanopodus photos/map and original2009 indexed abstract. Manus/pes outline and wide-gauge morphology are source-supported; exact six-print sequence, miniature0.38m display, depth, colors and surface shape are illustrative, not a measured cast. No producer species, locomotor speed or unique behavior inferred. Cretaceous refers to source examples, not complete range.",
+      "required_sources": [
+        "RIGA2011"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet, independent review separate; GPU/scene unknown unrun.",
+  "frozen_at": "2026-10-20T22:07:40.115468+00:00",
+  "subject": "Sauropod manus-pes trackway",
+  "representation": "trace-concept",
+  "factual_scope": "Trace-morphology concept informed by Gonzalez Riga2011 Titanopodus photos/map and original2009 indexed abstract. Manus/pes outline and wide-gauge morphology are source-supported; exact six-print sequence, miniature0.38m display, depth, colors and surface shape are illustrative, not a measured cast. No producer species, locomotor speed or unique behavior inferred. Cretaceous refers to source examples, not complete range.",
+  "identifying_features": [
+    "Three alternating left-right manus-pes pairs progress along a wide-gauge illustrative sediment slab with a clear untraced middle gap.",
+    "Smaller asymmetric crescent/kidney-shaped forefoot impressions are paired with larger rounded/subtriangular hindfoot impressions; no manual digit marks or bird-like separated toes.",
+    "All six footprints are actual negative cavities with sloping walls and floors, not raised appliques or pigment-only shapes; slab thickness and broken edges remain readable."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.21,
+      0.38,
+      0.018
+    ],
+    "bounds_interpretation": "ART PLANNING TARGETS ONLY, not independent hard equality/minimum/maximum thresholds. Measure and disclose final bounds. Frozen component counts, negative relief polarity and named identifying morphology are mandatory; no threshold may be invented from this bbox.",
+    "accuracy": "Artistic, not measured complete specimen or exact track-site cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom support contact z0; horizontal center of support footprint.",
+  "intended_use": {
+    "role": "static educational museum/catalog rotation candidate",
+    "viewing": "512px diagnostic stills, later web inspection",
+    "limits": "No GPU/composed-scene/collision/dynamics acceptance established."
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no textures, emission, transparent planes or double-sided concealment.",
+  "palette_srgb": [
+    "#B6A485",
+    "#927D5F",
+    "#BBA98A"
+  ],
+  "component_and_cause": {
+    "primary": "Three alternating left-right manus-pes pairs progress along a wide-gauge illustrative sediment slab with a clear untraced middle gap.",
+    "secondary": "Smaller asymmetric crescent/kidney-shaped forefoot impressions are paired with larger rounded/subtriangular hindfoot impressions; no manual digit marks or bird-like separated toes.",
+    "tertiary": "All six footprints are actual negative cavities with sloping walls and floors, not raised appliques or pigment-only shapes; slab thickness and broken edges remain readable.",
+    "quiet_region": "Subordinate untraced sediment or support matrix"
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-20T22:07:40.115468+00:00",
+    "path": "production/small-life-batch91/concepts/sauropod-manus-pes-trackway-concept.png",
+    "sha256": "b8971f8e64614f1e2ee91ea0db3d8a55460dccb16ba39c5a60b92f43ef715257",
+    "decisions": "All three concept panels inspected22:05:05\u201322:05:45UTC. Keep negative relief and smaller crescent manus, but correct concept same-side repetitions into alternating left/right pairs. Round pes corners, orient each manus ahead of its own pes. Actual geometry rather than texture supplies diagnostic relief."
+  },
+  "parameters": {
+    "slab_dimensions_m": [
+      0.21,
+      0.38,
+      0.018
+    ],
+    "pair_count": 3,
+    "alternating_sides": [
+      -1,
+      1,
+      -1
+    ],
+    "pair_y_m": [
+      -0.125,
+      -0.015,
+      0.095
+    ],
+    "pes_center_x_abs_m": 0.05,
+    "manus_extra_outward_m": 0.004,
+    "manus_forward_offset_m": 0.046,
+    "pes_length_m": 0.057,
+    "pes_width_m": 0.043,
+    "manus_length_m": 0.024,
+    "manus_width_m": 0.039,
+    "impression_depth_m": 0.006,
+    "floor_shape_scale": 0.8,
+    "gauge_style": "wide illustrative",
+    "surface_wobble_m": 0
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "source reopen",
+    "two distinct real queued semantic rebuilds",
+    "project/Khronos/Three.js parse",
+    "eight actual512px final images and lossless sheet"
+  ],
+  "prohibited": [
+    "Alter original inventory or frozen scope",
+    "Treat concept as primary evidence",
+    "Copy source imagery/meshes",
+    "Hide defects with renderer tricks",
+    "Claim CPU or Node parse proves GPU/scene"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/original-brief.json",
+    "sha256": "2700bde4d1ce7422ecb0f43401d2b7b63d8645b564414ee1064b0b8b33840995"
+  },
+  "delivery_bound_at": "2026-10-20T22:15:25.125746+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved_in_original_brief": true,
+  "geometric_repair_note": "No diagnostic repair required.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/artifacts/sauropod-manus-pes-trackway.blend",
+      "sha256": "ad3c837966a5b21ec4b1cbd89c4144ebceb62eb6f2600fabd00ff79d80ef1563"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch91/tools/generate.py",
+      "sha256": "1ff06b4be2a30fe7817bb2ef4ec17ada62e8f3e1cd8dbb2df88e0c4d932f82b2"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch91/sauropod-manus-pes-trackway/r001/config.json",
+      "sha256": "105bbe450ea322b9a1ac0c68bd9c09734461faa32a4fecd7aa377e69b0dac6ba"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch91/dependencies.json",
+      "sha256": "3c604b537213402f1778a14aab989b38b7da0ea0e94a996ed14a3c8392fd19a3"
+    }
+  ]
+}

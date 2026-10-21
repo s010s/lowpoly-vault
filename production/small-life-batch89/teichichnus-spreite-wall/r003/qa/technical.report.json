@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+    "brief_sha256": "e9420013ce73a387d02dc5d193d993cf4c436a02b442049ed3d2a0aaf663055c",
+    "references_sha256": "40cef2e432e0ee1a257aa4c35aba8d7dfe288bc75c1a9fb56364b578b7e42e72"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 8496,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 417952,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+      "report": {
+        "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/static-glb.report.json",
+        "sha256": "55a732835a2c6a601c949f67b75c49a1140ac7d19edbc5decba9384fa03b006f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+      "report": {
+        "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/gltf-validator.report.json",
+        "sha256": "cc36d6ca275e9c3a9f12c75fe823294f2c54b611c301eca180f283d508affcec"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+      "report": {
+        "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/source-export.report.json",
+        "sha256": "a3603d5aeb22e16d434bb43d6597e54c82d92ed49f0c9dcc465499f3fc87b8ee"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+      "report": {
+        "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/reproducibility-a.report.json",
+        "sha256": "3ee66e9dc242943a55b8b6679278ecf72324fe9bb1ee38ac5cd62dd9e8bcc465"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+      "report": {
+        "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/qa/reproducibility-b.report.json",
+        "sha256": "df8921fab7521f4882e3a6cb5e2891d697bb1e8ca4490e85bacde4ae591c7be9"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.06499999761581421,
+      0.0,
+      -0.032499998807907104
+    ],
+    "max": [
+      0.06499999761581421,
+      0.04740322753787041,
+      0.032499998807907104
+    ],
+    "size": [
+      0.12999999523162842,
+      0.04740322753787041,
+      0.06499999761581421
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "irregular-illustrative-sediment-slab",
+      "vertices": 16,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "gutter-laminae-with-real-layer-edge-relief",
+      "vertices": 4254,
+      "triangles": 8468,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 15115,
+  "created_at": "2026-10-20T21:47:59.777774+00:00"
+}

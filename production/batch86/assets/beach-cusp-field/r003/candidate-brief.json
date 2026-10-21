@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "beach-cusp-field",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original static geological-form educational terrain module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Check all recognition features: At least five connected projecting sediment horns alternate with four crescent embayments along one continuous beach; A genuinely shallow sloping beach with raised horn ridges and depressed bay swales, not detached dunes or merely a painted straight shoreline; Broad quiet inland beach and open seaward water edge; rhythmic pattern remains legible in neutral clay and top views. Respect claim scope: Generic beach-cusp geological-process/form teaching module informed by the published Duck beach photograph and bathymetric contour changes. Not an exact Duck site, tide, storm, age, ecosystem or hydrodynamic simulation. Nominal120x60m footprint,5m maximum solid tile height, spacing and muted colors are illustrative. Static opaque water is integrated with original continuous terrain geometry.",
+      "required_sources": [
+        "CIRIANO2005"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check all recognition features: At least five connected projecting sediment horns alternate with four crescent embayments along one continuous beach; A genuinely shallow sloping beach with raised horn ridges and depressed bay swales, not detached dunes or merely a painted straight shoreline; Broad quiet inland beach and open seaward water edge; rhythmic pattern remains legible in neutral clay and top views. Respect claim scope: Generic beach-cusp geological-process/form teaching module informed by the published Duck beach photograph and bathymetric contour changes. Not an exact Duck site, tide, storm, age, ecosystem or hydrodynamic simulation. Nominal120x60m footprint,5m maximum solid tile height, spacing and muted colors are illustrative. Static opaque water is integrated with original continuous terrain geometry.",
+      "required_sources": [
+        "CIRIANO2005"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 eight actual512px fixed views; CPU stills not GPU/scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch86/assets/beach-cusp-field/r003/source.blend",
+      "sha256": "ace2aeb00208cbd262e89606efa892385d11a1e765a426ae3534cb89faf65b69"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch86/assets/beach-cusp-field/r003/generator.py",
+      "sha256": "c3ec985e94745541b0b7d84c9979d985ec0f53add94b8df61e5dd66739632b92"
+    },
+    {
+      "role": "config",
+      "path": "production/batch86/assets/beach-cusp-field/r003/build-config.json",
+      "sha256": "652b1428e9de7e9644f431a07597ce4ffaa70a10a056d712fb3b1686adefd4dd"
+    }
+  ],
+  "claim_scope": "Generic beach-cusp geological-process/form teaching module informed by the published Duck beach photograph and bathymetric contour changes. Not an exact Duck site, tide, storm, age, ecosystem or hydrodynamic simulation. Nominal120x60m footprint,5m maximum solid tile height, spacing and muted colors are illustrative. Static opaque water is integrated with original continuous terrain geometry.",
+  "nominal_dimensions_blender_xyz_m": [
+    120,
+    60,
+    5
+  ],
+  "dimension_status": "Illustrative targets, measured source/export bounds reported separately.",
+  "recognition_features": [
+    "At least five connected projecting sediment horns alternate with four crescent embayments along one continuous beach",
+    "A genuinely shallow sloping beach with raised horn ridges and depressed bay swales, not detached dunes or merely a painted straight shoreline",
+    "Broad quiet inland beach and open seaward water edge; rhythmic pattern remains legible in neutral clay and top views"
+  ],
+  "concept_decisions": "Concept inspected: retain connected five-horn/four-bay rhythm, pale sand and teal sea. Correct excessive cliff-like shoreline and sharp promontories to gentle swash-beach slope and low relief. Actual photo shows shallow crescent swash bays, not high eroded cliffs. Bay/horn relief must be encoded in surface height and shoreline coordinates, with no coplanar water overlay. Modestly unequal spacing and skew are allowed; original repeated natural pattern must remain. No foam, separate dune domes, shells or vegetation.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static educational asset at256-512px; source world scale retained.",
+  "created_at": "2026-10-20T20:39:34.370105+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T20:49:38.490601+00:00",
+    "frozen_design_brief_sha256": "02ee71b61a3150e1a2ad96e60cd0826cdde9473d943e85975d6570a59ad1f1dd",
+    "note": "Postbuild source/generator/config hash closure only; original design and reference ledger unchanged."
+  }
+}

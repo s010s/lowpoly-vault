@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "asset_id": "skolithos-pipe-field",
+  "revision": "r002",
+  "seed": 89001,
+  "frozen_at": "2026-10-20T22:47:56.192226+00:00",
+  "parameters": {
+    "block_dimensions_m": [
+      0.1,
+      0.07,
+      0.065
+    ],
+    "shaft_count": 7,
+    "shaft_radius_range_m": [
+      0.0026,
+      0.0048
+    ],
+    "shaft_radial_segments": 12,
+    "visible_front_shafts": 3,
+    "section": "stepped front cutaway with intact rear"
+  },
+  "palette_srgb": [
+    "#BDA47A",
+    "#CDB791",
+    "#987643",
+    "#9D8966"
+  ],
+  "design_brief": "../r001/original-brief.json",
+  "export": "Blender4.3.2 standalone selected EXPORT collection; Y-up; no textures/animation/compression.",
+  "repair": {
+    "description": "Restore only shaft index5 actual circumradius into the unchanged original range while preserving the .999 physical clearance between filled shaft and true host hole.",
+    "original_nominal_hole_radius_m": 0.0026,
+    "affected_zero_based_shaft_index": 5,
+    "filled_shaft_target_radius_m": 0.00260001,
+    "hole_radius_m": 0.0026026126126126124,
+    "unchanged_inset_factor": 0.999,
+    "interior_geometry_margin_m": 1e-08,
+    "margin_kind": "Authored geometry 10nm inside lower bound, NOT a relaxed acceptance tolerance. Every actual vertex must still be >=.0026m and <=.0048m.",
+    "other_six_nominal_hole_radii_unchanged": true,
+    "source_config": {
+      "path": "production/small-life-batch89/skolithos-pipe-field/r001/config.json",
+      "sha256": "9afbb934834820642e48c97772eacce1d7d8aae90da2e153740614ded91567cb"
+    }
+  }
+}

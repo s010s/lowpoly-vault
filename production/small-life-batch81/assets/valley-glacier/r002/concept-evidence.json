@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "valley-glacier",
+  "revision": "r002",
+  "labels": {
+    "en": "valley-glacier"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "32ed50dddd1611d06d0ddcaa9d96a9b1af6b58e904a932879ba26f812b3f036d"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "6a1db550f28d213aa830b8ca3dbc271d2a33f736b9df7d238f7997408b25faf0"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "ec5884a0bd139d84813437a1bdb8a895a1d566396e9a957ed39535453a940f23"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "57549c6b090fef0ae135a146411c1f22cc5e45efb337b8d3de37e99eb0925459"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "50dc619a61f4e8569619e5f0ac93279320ad99834196952c8f90d8936db210bd"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ef89d0df3d65460705cd9b80dadf5959542f9264d81498ba7cf8b1448fbe37dc"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "df7649c712530d3111a00a86c30e8dab4fa2f23f983fb9360a7fdf19cfb35813"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "0d36782e6d8ca43df60ce41ea02a151a474996ac14f11acb966562cda11f3eda"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "1f3a479ae0b4671590c8bbbb36e57aa6f04bb397bc2c25e8faedea30d01172f7"
+      }
+    ],
+    "cross_view_consistency_note": "Keep concept long confined continuous ice and mountain shoulders. Simplify unnecessary grass, tributary tributary complexity and too-dense terminal ice teeth. Unequal lower transverse crevasses integrated into same ice surface volume, visible blunt confined terminus before short forevalley, lateral debris narrow. No disconnected blocks or broad foreland lobe, no regular grid. Terrain and ice share boundary without exposed coplanar overlapping faces, one integrated solid landscape mesh.",
+    "hidden_surface_decisions": "Keep concept long confined continuous ice and mountain shoulders. Simplify unnecessary grass, tributary tributary complexity and too-dense terminal ice teeth. Unequal lower transverse crevasses integrated into same ice surface volume, visible blunt confined terminus before short forevalley, lateral debris narrow. No disconnected blocks or broad foreland lobe, no regular grid. Terrain and ice share boundary without exposed coplanar overlapping faces, one integrated solid landscape mesh."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:58:19.567716+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 42.5417,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "3fa69c058c62f5288a9a724ccf140baed9805dbda292c151081a3b510b296ba7"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "3fa69c058c62f5288a9a724ccf140baed9805dbda292c151081a3b510b296ba7"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "95f23a1293e45607fec09fc2bec48731925ab26aa9898bfda29cea7ed39c1b6e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "fc83d6434438ac2ac10d940164d063476c8a90fbd572e0269ea8d2363b8464ab"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "32ed50dddd1611d06d0ddcaa9d96a9b1af6b58e904a932879ba26f812b3f036d",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "6165b58610e68577be8776b7002e6ca1ceb9359d30c1d12b5939d5d0a5be1457"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

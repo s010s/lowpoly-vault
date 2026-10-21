@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "rhacophyton",
+  "revision": "r002",
+  "maker": {
+    "id": "batch94 maker",
+    "task_id": "/root/resume_parallel_model_production/resume_batch94_recovery2"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch94/assets/rhacophyton/r002/model.glb",
+      "sha256": "2ab7364eca2c8905a5f99e3344a6ef3c3f1956618a00ed9606dd3b4948c71273"
+    },
+    "brief": {
+      "path": "production/batch94/assets/rhacophyton/r002/candidate-brief.json",
+      "sha256": "9d0f04d9aaf8fda3f17c8cb079d691d15d2168677cce98f52db3f074191e52fa"
+    },
+    "references": {
+      "path": "production/batch94/assets/rhacophyton/r002/references.json",
+      "sha256": "2afb566d16d363a29aed36bc826f087233faeaa6be1484148e0ec07d2c8e0be1"
+    },
+    "source": {
+      "path": "production/batch94/assets/rhacophyton/r002/source.blend",
+      "sha256": "c7d1596e393c6946a53bded32d66be437f01012edd58aa96e121c950ca50687f"
+    },
+    "generator": {
+      "path": "production/batch94/assets/rhacophyton/r002/generator.py",
+      "sha256": "d2b2978ed6d30a342cb727bfae33c004863caa562da4ac492e8e24fd83bbfc91"
+    },
+    "config": {
+      "path": "production/batch94/assets/rhacophyton/r002/build-config.json",
+      "sha256": "184ed97b4d4f8389b31fb289405fe83077c064591368b9b9b1e4486b5b0df1b0"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "2ab7364eca2c8905a5f99e3344a6ef3c3f1956618a00ed9606dd3b4948c71273",
+        "brief_sha256": "9d0f04d9aaf8fda3f17c8cb079d691d15d2168677cce98f52db3f074191e52fa",
+        "references_sha256": "2afb566d16d363a29aed36bc826f087233faeaa6be1484148e0ec07d2c8e0be1"
+      },
+      "path": "production/batch94/assets/rhacophyton/r002/proof-final/render-manifest.json",
+      "sha256": "ba644ff758fe9fcffa496b1167dc223d10aa9a5d4301d0604a73723868b561cf"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and actual reference pixels inspected before original freeze. Exact species/habit, organ-association and scale uncertainties remain explicit in own frozen ledgers. Generated concepts are design aids, not factual sources. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/metrics.json",
+      "sha256": "b1b5216386b327e38a09e990e4108d99803829f5bbc2354c55897e01f2270614"
+    },
+    "source-metrics.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/source-metrics.json",
+      "sha256": "3c0d653f2594b962134a900861567ed411db3d9e9cdeb1a47cf4c729ef9c561b"
+    },
+    "project-audit.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/project-audit.json",
+      "sha256": "4ce0d3cc18a2045d4d271408f51f904355c4d7cc5cd951438c7341a11c332bdd"
+    },
+    "source-final.report.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/source-final.report.json",
+      "sha256": "414bfc6f079ccca9b953805abfc7389bf590af37156474174457996a023e8d1b"
+    },
+    "final-measurement.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/final-measurement.json",
+      "sha256": "26c325a039fa4d56a8981a05386f66645efc53ce1a65d5f964365d82553427ec"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/repro-final-1.report.json",
+      "sha256": "7350ec905ea3190d8051ab3299b09b4dbe77911c96ea3ec2c40f351e847cb5d7"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/repro-final-2.report.json",
+      "sha256": "7656357d3f0b82f43e8bb61e92b0ce662d6693612508a2f07d7b201c0077bd96"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/gltf-validator.report.json",
+      "sha256": "7d5244f99c9e6970bdd44df4962c3ea1b8d2d7de8425e3aaf2abb07322244787"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/runtime-parse.report.json",
+      "sha256": "76dcf71eae2a1ece71a01a2825fe6cc3c202954568cdc665506dcb9863c95842"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/build-dependencies.json",
+      "sha256": "0191324197bfe87e6553d3520549ff15f0efc2c6fa557efcd6659558e453fd60"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/pixel-inspection.json",
+      "sha256": "7bfb106cc27c88cbb3dced62875416b65f1889346bae28b59e2cc2283a3ae1d9"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch94/assets/rhacophyton/r002/contact-sheet.png",
+      "sha256": "911c09121ab996f45e44ff006a8782aec8e2b80e0262e8a959ac72f55c0f5b74"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch94/assets/rhacophyton/r002/preproof-binding.json",
+      "sha256": "6253fc84b2d64167bbfdab2bf3317c4042895c022e7307187b89182165a8b1f1"
+    }
+  }
+}

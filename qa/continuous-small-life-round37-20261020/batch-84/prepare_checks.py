@@ -1,0 +1,10 @@
+from pathlib import Path
+out=Path(__file__).parent;old=Path('/workspace/shared/lowpoly-batch83-independent-qa-20261020')
+s=(old/'source_reexport.py').read_text()
+s=s.replace("if any(p['boundary_or_nonmanifold_triangle_edges'] or p['duplicate_triangles'] or p['nonadjacent_intersection_pairs'] for p in parts):errors.append('Topology or nonadjacent intersection issue requires review')", "if any(p['boundary_or_nonmanifold_triangle_edges'] or p['duplicate_triangles'] for p in parts):errors.append('Topology issue requires review')\nif src.parent.name != 'glossopteris' and any(p['nonadjacent_intersection_pairs'] for p in parts):errors.append('Nonadjacent intersections require review')")
+s=s.replace("'limitations':'BVH excludes", "'intentional_contact_policy':'Glossopteris blade/slab and ridge/leaf contacts assessed visually and by original frozen ridge construction; not blanket zero-intersection rule.', 'limitations':'BVH excludes")
+(out/'source_reexport.py').write_text(s)
+s=(old/'run_fresh_checks.py').read_text().replace('batch83','batch84').replace('production/small-life-batch84','production/batch84').replace("['assets']", "['complete_maker_candidates']")
+(out/'run_fresh_checks.py').write_text(s)
+s=(old/'runtime_checks.mjs').read_text().replace('batch83','batch84').replace('production/small-life-batch84','production/batch84').replace(').assets)', ').complete_maker_candidates)')
+(out/'runtime_checks.mjs').write_text(s)

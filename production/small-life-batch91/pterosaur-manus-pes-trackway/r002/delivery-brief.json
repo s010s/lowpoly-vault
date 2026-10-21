@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "asset_id": "pterosaur-manus-pes-trackway",
+  "brief_version": "delivery-r002",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate preparation; independent acceptance, GPU, scene and release separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all exact final views against original scope. Both actual concept panels inspected22:01:10\u201322:01:31UTC. Keep negative asymmetric manus and digitless elongate pes. Correct same-sided sequence to alternating left/right, round the point-like heel, and keep a single long digitIII rather than three equal bird toes. Final actual top view mandatory; concept did not produce one.",
+      "required_sources": [
+        "HWANG2002"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify Three alternating left-right manus-pes pairs, each manus lying slightly outside and behind its associated elongated pes in the illustrative sequence. Each manus is strongly asymmetric and three-pronged, with one longer backward/lateral digit trace and two shorter branches; no five-finger hand or symmetric birdfoot. Contrasting pes has a narrow rounded heel and a broader rounded triangular anterior, without distinct separated digit or claw impressions, following the selected Uhangri evidence; all marks are negative cavities. Stylized trace-morphology concept using Hwang et al.2002 Uhangri Haenamichnus text/photos. This is not a specimen replica or producer species diagnosis. Small refers to hand-scale display planning, not actual Uhangri size: published manus/pes lengths are comparable and can be hundreds of millimeters. Our miniature0.36m slab, depth, exact pair sequence and color are artistic. Digitless pes is specific to chosen Uhangri morphology, not asserted for all pterosaur traces. Source preservation and authorship uncertainties retained.",
+      "required_sources": [
+        "HWANG2002"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet, independent review separate; GPU/scene unknown unrun.",
+  "frozen_at": "2026-10-20T22:07:40.115468+00:00",
+  "subject": "Pterosaur manus-pes trackway",
+  "representation": "trace-concept",
+  "factual_scope": "Stylized trace-morphology concept using Hwang et al.2002 Uhangri Haenamichnus text/photos. This is not a specimen replica or producer species diagnosis. Small refers to hand-scale display planning, not actual Uhangri size: published manus/pes lengths are comparable and can be hundreds of millimeters. Our miniature0.36m slab, depth, exact pair sequence and color are artistic. Digitless pes is specific to chosen Uhangri morphology, not asserted for all pterosaur traces. Source preservation and authorship uncertainties retained.",
+  "identifying_features": [
+    "Three alternating left-right manus-pes pairs, each manus lying slightly outside and behind its associated elongated pes in the illustrative sequence.",
+    "Each manus is strongly asymmetric and three-pronged, with one longer backward/lateral digit trace and two shorter branches; no five-finger hand or symmetric birdfoot.",
+    "Contrasting pes has a narrow rounded heel and a broader rounded triangular anterior, without distinct separated digit or claw impressions, following the selected Uhangri evidence; all marks are negative cavities."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.18,
+      0.36,
+      0.014
+    ],
+    "bounds_interpretation": "ART PLANNING TARGETS ONLY, not independent hard equality/minimum/maximum thresholds. Measure and disclose final bounds. Frozen component counts, negative relief polarity and named identifying morphology are mandatory; no threshold may be invented from this bbox.",
+    "accuracy": "Artistic, not measured complete specimen or exact track-site cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom support contact z0; horizontal center of support footprint.",
+  "intended_use": {
+    "role": "static educational museum/catalog rotation candidate",
+    "viewing": "512px diagnostic stills, later web inspection",
+    "limits": "No GPU/composed-scene/collision/dynamics acceptance established."
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no textures, emission, transparent planes or double-sided concealment.",
+  "palette_srgb": [
+    "#A69D86",
+    "#81745E",
+    "#B9AC91"
+  ],
+  "component_and_cause": {
+    "primary": "Three alternating left-right manus-pes pairs, each manus lying slightly outside and behind its associated elongated pes in the illustrative sequence.",
+    "secondary": "Each manus is strongly asymmetric and three-pronged, with one longer backward/lateral digit trace and two shorter branches; no five-finger hand or symmetric birdfoot.",
+    "tertiary": "Contrasting pes has a narrow rounded heel and a broader rounded triangular anterior, without distinct separated digit or claw impressions, following the selected Uhangri evidence; all marks are negative cavities.",
+    "quiet_region": "Subordinate untraced sediment or support matrix"
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-20T22:07:40.115468+00:00",
+    "path": "production/small-life-batch91/concepts/pterosaur-manus-pes-trackway-concept.png",
+    "sha256": "c1e2221957f682e3c85be669dfe60b14e618eb33e75fc2d50eb2c25c9645ade4",
+    "decisions": "Both actual concept panels inspected22:01:10\u201322:01:31UTC. Keep negative asymmetric manus and digitless elongate pes. Correct same-sided sequence to alternating left/right, round the point-like heel, and keep a single long digitIII rather than three equal bird toes. Final actual top view mandatory; concept did not produce one."
+  },
+  "parameters": {
+    "slab_dimensions_m": [
+      0.18,
+      0.36,
+      0.014
+    ],
+    "pair_count": 3,
+    "alternating_sides": [
+      -1,
+      1,
+      -1
+    ],
+    "pair_y_m": [
+      -0.098,
+      0,
+      0.105
+    ],
+    "pes_center_x_abs_m": 0.028,
+    "manus_extra_outward_m": 0.02,
+    "manus_behind_offset_m": 0.022,
+    "pes_length_m": 0.048,
+    "pes_width_m": 0.019,
+    "manus_extent_m": 0.043,
+    "impression_depth_m": 0.0045,
+    "floor_shape_scale": 0.72,
+    "gauge_style": "illustrative alternating",
+    "surface_wobble_m": 0
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "source reopen",
+    "two distinct real queued semantic rebuilds",
+    "project/Khronos/Three.js parse",
+    "eight actual512px final images and lossless sheet"
+  ],
+  "prohibited": [
+    "Alter original inventory or frozen scope",
+    "Treat concept as primary evidence",
+    "Copy source imagery/meshes",
+    "Hide defects with renderer tricks",
+    "Claim CPU or Node parse proves GPU/scene"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r001/original-brief.json",
+    "sha256": "0621bd0b70ebcd0ba147c717d35f0680e952167ca1f64bea45c0b549cb881fb7"
+  },
+  "delivery_bound_at": "2026-10-20T22:15:25.132974+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved_in_original_brief": true,
+  "geometric_repair_note": "Move manus centers6mm inward and first pair7mm forward, preserving all six footprints, asymmetric three-digit morphology and alternating ordering. Avoid slab-edge breakthrough.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/artifacts/pterosaur-manus-pes-trackway.blend",
+      "sha256": "ef98012a7901191f812516b379885417bc1c631b97abd8256c918ed64d33eb77"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch91/tools/generate-r002.py",
+      "sha256": "c1f90ad81bfb51e6f795ead795f74ce0537ead640ac2a9dd714ad018a75e67f2"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/config.json",
+      "sha256": "bfcc78ea782b4ecfb4c032f15ecd5416b5ca043ea972e909488c79ac781216d6"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch91/dependencies.json",
+      "sha256": "3c604b537213402f1778a14aab989b38b7da0ea0e94a996ed14a3c8392fd19a3"
+    }
+  ]
+}

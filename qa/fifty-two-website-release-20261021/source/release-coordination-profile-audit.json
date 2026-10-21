@@ -1,0 +1,489 @@
+{
+  "version": 1,
+  "status": "NEW_COORDINATION_PROFILES_VALID_ORIGINAL_MAKER_PROFILES_REMAIN_POLICY_BOUNDARY_FAIL",
+  "models": [
+    {
+      "id": "glossopteris",
+      "candidate": {
+        "path": "production/batch84/assets/glossopteris/r001/candidate.json",
+        "sha256": "3d0e392f8ba51ee55e2a602106ee3de1a94deae86dae435b7165c606af36d6d4"
+      },
+      "original_profile": {
+        "path": "production/batch84/assets/glossopteris/r001/profile-contract.json",
+        "sha256": "8c90ee4413561b703ff225b04620135d5025ea60806f32f5b0f5deec57cad109"
+      },
+      "original_policy": {
+        "path": "production/batch84/publication-policy-reference.json",
+        "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+      },
+      "release_coordination_profile": {
+        "path": "qa/fifty-two-website-release-20261021/release-coordination-profiles/glossopteris.json",
+        "sha256": "9e1cf108cf2ad2163efbc6489df013ed724a7f46360982da896c42a3bcd38d7c"
+      },
+      "canonical_policy": {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      "unchanged_fields": {
+        "schema_version": 1,
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "candidate": {
+          "path": "production/batch84/assets/glossopteris/r001/candidate.json",
+          "sha256": "3d0e392f8ba51ee55e2a602106ee3de1a94deae86dae435b7165c606af36d6d4"
+        },
+        "publication_authority": "separate"
+      },
+      "changed_fields": {
+        "publication_policy": {
+          "original": {
+            "path": "production/batch84/publication-policy-reference.json",
+            "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+          },
+          "coordination": {
+            "path": "production/policies/qa-passed-batch-publication-20261018.json",
+            "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+          }
+        },
+        "rationale": {
+          "original": "Interpret this exact frozen production brief under its explicit zero-turntable/eight-fixed-view contract. Artifact pins supply required source/generator/config roles when the historical brief omits the list. Preserve original authority wording and record candidate/publication separation through the pinned policy. No stage outcome or approval is changed.",
+          "coordination": "Interpret this exact frozen production brief under its explicit zero-turntable/eight-fixed-view contract. Artifact pins supply required source/generator/config roles when the historical brief omits the list. Preserve original authority wording and record candidate/publication separation through the pinned policy. No stage outcome or approval is changed. This is a new release-coordination phase for the exact unchanged candidate under the current owner-authorized upload/merge/deployment workflow, contingent on all independent checks and platform approvals. The original maker-local profile and its policy-boundary failure remain historical evidence; this sidecar does not grant publication or promote formal, GPU, or target-scene acceptance."
+        }
+      },
+      "geometry_artifacts_and_candidate_unchanged": true,
+      "validator_unchanged": {
+        "path": "scripts/validate_candidate.py",
+        "sha256": "fe679a8be19d16b9d9b86ee3419a73d2dd16b77dfa371bf1186ce0120d120ff9"
+      },
+      "runs": [
+        {
+          "role": "original_maker_profile",
+          "profile": {
+            "path": "production/batch84/assets/glossopteris/r001/profile-contract.json",
+            "sha256": "8c90ee4413561b703ff225b04620135d5025ea60806f32f5b0f5deec57cad109"
+          },
+          "exit_code": 1,
+          "result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "profile contract: invalid separate publication policy"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "static-stylized-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "glossopteris",
+            "revision": "r001",
+            "subject": {
+              "revision": "r001",
+              "glb_sha256": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+              "brief_sha256": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+              "references_sha256": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec"
+            },
+            "artifact_sha256": {
+              "glb": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+              "brief": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+              "references": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec",
+              "source": "5175c4f6e1dabb2fc03626c5cbf4703646370ea30e89db4db9589077a6041764",
+              "generator": "cdf80eb26c462bde241f73a699182d808be80ac70e52fba1078497b1f0b98b26",
+              "config": "667037cbafc65bcdf627bb8734c531971dc9598c769a90469d9da2eabad0b7a8"
+            },
+            "approved_visual_image_sha256": [],
+            "legacy_result": {
+              "valid": false,
+              "approved_for_brief": false,
+              "errors": [
+                "brief.turntable_frames: integer >= 2 required"
+              ],
+              "approval_blockers": [],
+              "required_stages": [],
+              "measurements": {},
+              "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+              "validation_profile": "legacy-v1",
+              "rule_version": "2026-10-18.1",
+              "profile_contract_status": "not_checked",
+              "asset_id": "glossopteris",
+              "revision": "r001",
+              "subject": {
+                "revision": "r001",
+                "glb_sha256": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+                "brief_sha256": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+                "references_sha256": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec"
+              },
+              "artifact_sha256": {
+                "glb": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+                "brief": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+                "references": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec",
+                "source": "5175c4f6e1dabb2fc03626c5cbf4703646370ea30e89db4db9589077a6041764",
+                "generator": "cdf80eb26c462bde241f73a699182d808be80ac70e52fba1078497b1f0b98b26",
+                "config": "667037cbafc65bcdf627bb8734c531971dc9598c769a90469d9da2eabad0b7a8"
+              },
+              "approved_visual_image_sha256": []
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "role": "current_release_coordination_profile",
+          "profile": {
+            "path": "qa/fifty-two-website-release-20261021/release-coordination-profiles/glossopteris.json",
+            "sha256": "9e1cf108cf2ad2163efbc6489df013ed724a7f46360982da896c42a3bcd38d7c"
+          },
+          "exit_code": 0,
+          "result": {
+            "valid": true,
+            "approved_for_brief": false,
+            "errors": [],
+            "approval_blockers": [
+              "technical: unknown",
+              "technical-acceptance: unknown",
+              "visual: unknown",
+              "visual-acceptance: unknown",
+              "factual: unknown",
+              "factual-acceptance: unknown",
+              "specification: unknown",
+              "specification-acceptance: unknown",
+              "runtime_parse: unknown",
+              "runtime_parse-acceptance: unknown",
+              "gpu: unknown",
+              "gpu-acceptance: unknown",
+              "scene: unknown",
+              "scene-acceptance: unknown",
+              "open blocker: pending-independent-qa",
+              "open blocker: pending-runtime-render",
+              "approval: pending"
+            ],
+            "required_stages": [
+              "factual",
+              "gpu",
+              "runtime_parse",
+              "scene",
+              "specification",
+              "technical",
+              "visual"
+            ],
+            "measurements": {
+              "triangles": 3400,
+              "materials": 3,
+              "primitives": 3,
+              "glb_bytes": 193968,
+              "texture_count": 0,
+              "texture_max_dimension": 0,
+              "texture_bytes": 0,
+              "decoded_texture_bytes_estimate": 0,
+              "semantic_sha256": "92fac9b384be3e32c2196e8b0acc275e9ca967fa6c4c080d4deb8913b8392643"
+            },
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "static-stylized-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "pass",
+            "asset_id": "glossopteris",
+            "revision": "r001",
+            "subject": {
+              "revision": "r001",
+              "glb_sha256": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+              "brief_sha256": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+              "references_sha256": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec"
+            },
+            "artifact_sha256": {
+              "glb": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+              "brief": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+              "references": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec",
+              "source": "5175c4f6e1dabb2fc03626c5cbf4703646370ea30e89db4db9589077a6041764",
+              "generator": "cdf80eb26c462bde241f73a699182d808be80ac70e52fba1078497b1f0b98b26",
+              "config": "667037cbafc65bcdf627bb8734c531971dc9598c769a90469d9da2eabad0b7a8"
+            },
+            "approved_visual_image_sha256": [],
+            "profile_contract": {
+              "path": "qa/fifty-two-website-release-20261021/release-coordination-profiles/glossopteris.json",
+              "sha256": "9e1cf108cf2ad2163efbc6489df013ed724a7f46360982da896c42a3bcd38d7c"
+            },
+            "profile": "production",
+            "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+            "approval_status": "pending",
+            "legacy_result": {
+              "valid": false,
+              "approved_for_brief": false,
+              "errors": [
+                "brief.turntable_frames: integer >= 2 required"
+              ],
+              "approval_blockers": [],
+              "required_stages": [],
+              "measurements": {},
+              "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+              "validation_profile": "legacy-v1",
+              "rule_version": "2026-10-18.1",
+              "profile_contract_status": "not_checked",
+              "asset_id": "glossopteris",
+              "revision": "r001",
+              "subject": {
+                "revision": "r001",
+                "glb_sha256": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+                "brief_sha256": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+                "references_sha256": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec"
+              },
+              "artifact_sha256": {
+                "glb": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+                "brief": "dd9544e216587bc42eb84a08e28dcf3705a1ac8707c3783893f32b4cfeb22952",
+                "references": "810366eca1bd65f8ecd15ff24a64fc97dee870c0fc0025897de2bc629266c2ec",
+                "source": "5175c4f6e1dabb2fc03626c5cbf4703646370ea30e89db4db9589077a6041764",
+                "generator": "cdf80eb26c462bde241f73a699182d808be80ac70e52fba1078497b1f0b98b26",
+                "config": "667037cbafc65bcdf627bb8734c531971dc9598c769a90469d9da2eabad0b7a8"
+              },
+              "approved_visual_image_sha256": []
+            }
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "volcanic-neck",
+      "candidate": {
+        "path": "production/batch84/assets/volcanic-neck/r003/candidate.json",
+        "sha256": "ae37e093b08eb0fe229bea3b69b9b54c058be026c09049e6b4d9a6046c6d1c46"
+      },
+      "original_profile": {
+        "path": "production/batch84/assets/volcanic-neck/r003/profile-contract.json",
+        "sha256": "934a7917423d88d481829712380e6ee05b9404461989e55ee26a5ff1080927bf"
+      },
+      "original_policy": {
+        "path": "production/batch84/publication-policy-reference.json",
+        "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+      },
+      "release_coordination_profile": {
+        "path": "qa/fifty-two-website-release-20261021/release-coordination-profiles/volcanic-neck.json",
+        "sha256": "051168a8eb9a571b9082b8ac1402c53ac984fc28fbc609b5e97f3a1bdaf23c4e"
+      },
+      "canonical_policy": {
+        "path": "production/policies/qa-passed-batch-publication-20261018.json",
+        "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+      },
+      "unchanged_fields": {
+        "schema_version": 1,
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "candidate": {
+          "path": "production/batch84/assets/volcanic-neck/r003/candidate.json",
+          "sha256": "ae37e093b08eb0fe229bea3b69b9b54c058be026c09049e6b4d9a6046c6d1c46"
+        },
+        "publication_authority": "separate"
+      },
+      "changed_fields": {
+        "publication_policy": {
+          "original": {
+            "path": "production/batch84/publication-policy-reference.json",
+            "sha256": "e1b5ca2a1a5a06415ffb8c0dcf04e1a9a17dc868edef170c01d74bce09362a93"
+          },
+          "coordination": {
+            "path": "production/policies/qa-passed-batch-publication-20261018.json",
+            "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+          }
+        },
+        "rationale": {
+          "original": "Interpret this exact frozen production brief under its explicit zero-turntable/eight-fixed-view contract. Artifact pins supply required source/generator/config roles when the historical brief omits the list. Preserve original authority wording and record candidate/publication separation through the pinned policy. No stage outcome or approval is changed.",
+          "coordination": "Interpret this exact frozen production brief under its explicit zero-turntable/eight-fixed-view contract. Artifact pins supply required source/generator/config roles when the historical brief omits the list. Preserve original authority wording and record candidate/publication separation through the pinned policy. No stage outcome or approval is changed. This is a new release-coordination phase for the exact unchanged candidate under the current owner-authorized upload/merge/deployment workflow, contingent on all independent checks and platform approvals. The original maker-local profile and its policy-boundary failure remain historical evidence; this sidecar does not grant publication or promote formal, GPU, or target-scene acceptance."
+        }
+      },
+      "geometry_artifacts_and_candidate_unchanged": true,
+      "validator_unchanged": {
+        "path": "scripts/validate_candidate.py",
+        "sha256": "fe679a8be19d16b9d9b86ee3419a73d2dd16b77dfa371bf1186ce0120d120ff9"
+      },
+      "runs": [
+        {
+          "role": "original_maker_profile",
+          "profile": {
+            "path": "production/batch84/assets/volcanic-neck/r003/profile-contract.json",
+            "sha256": "934a7917423d88d481829712380e6ee05b9404461989e55ee26a5ff1080927bf"
+          },
+          "exit_code": 1,
+          "result": {
+            "valid": false,
+            "approved_for_brief": false,
+            "errors": [
+              "profile contract: invalid separate publication policy"
+            ],
+            "approval_blockers": [],
+            "required_stages": [],
+            "measurements": {},
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "static-stylized-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "not_checked",
+            "asset_id": "volcanic-neck",
+            "revision": "r003",
+            "subject": {
+              "revision": "r003",
+              "glb_sha256": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+              "brief_sha256": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+              "references_sha256": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104"
+            },
+            "artifact_sha256": {
+              "glb": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+              "brief": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+              "references": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104",
+              "source": "843820189078606d0afd6a4b6a62bc3e26dce40460aec06e6db2270a9182df43",
+              "generator": "53648bbccbc0b27f28e9585d5bdd5911019cb41d3b6b33bb42a17d378a09b68b",
+              "config": "59150bd7363e4887e05a670be5cf0877eb14f19d85fac2c50fbf3449b6c998e6"
+            },
+            "approved_visual_image_sha256": [],
+            "legacy_result": {
+              "valid": false,
+              "approved_for_brief": false,
+              "errors": [
+                "brief.turntable_frames: integer >= 2 required"
+              ],
+              "approval_blockers": [],
+              "required_stages": [],
+              "measurements": {},
+              "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+              "validation_profile": "legacy-v1",
+              "rule_version": "2026-10-18.1",
+              "profile_contract_status": "not_checked",
+              "asset_id": "volcanic-neck",
+              "revision": "r003",
+              "subject": {
+                "revision": "r003",
+                "glb_sha256": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+                "brief_sha256": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+                "references_sha256": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104"
+              },
+              "artifact_sha256": {
+                "glb": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+                "brief": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+                "references": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104",
+                "source": "843820189078606d0afd6a4b6a62bc3e26dce40460aec06e6db2270a9182df43",
+                "generator": "53648bbccbc0b27f28e9585d5bdd5911019cb41d3b6b33bb42a17d378a09b68b",
+                "config": "59150bd7363e4887e05a670be5cf0877eb14f19d85fac2c50fbf3449b6c998e6"
+              },
+              "approved_visual_image_sha256": []
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "role": "current_release_coordination_profile",
+          "profile": {
+            "path": "qa/fifty-two-website-release-20261021/release-coordination-profiles/volcanic-neck.json",
+            "sha256": "051168a8eb9a571b9082b8ac1402c53ac984fc28fbc609b5e97f3a1bdaf23c4e"
+          },
+          "exit_code": 0,
+          "result": {
+            "valid": true,
+            "approved_for_brief": false,
+            "errors": [],
+            "approval_blockers": [
+              "technical: unknown",
+              "technical-acceptance: unknown",
+              "visual: unknown",
+              "visual-acceptance: unknown",
+              "factual: unknown",
+              "factual-acceptance: unknown",
+              "specification: unknown",
+              "specification-acceptance: unknown",
+              "runtime_parse: unknown",
+              "runtime_parse-acceptance: unknown",
+              "gpu: unknown",
+              "gpu-acceptance: unknown",
+              "scene: unknown",
+              "scene-acceptance: unknown",
+              "open blocker: pending-independent-qa",
+              "open blocker: pending-runtime-render",
+              "approval: pending"
+            ],
+            "required_stages": [
+              "factual",
+              "gpu",
+              "runtime_parse",
+              "scene",
+              "specification",
+              "technical",
+              "visual"
+            ],
+            "measurements": {
+              "triangles": 3136,
+              "materials": 3,
+              "primitives": 3,
+              "glb_bytes": 242364,
+              "texture_count": 0,
+              "texture_max_dimension": 0,
+              "texture_bytes": 0,
+              "decoded_texture_bytes_estimate": 0,
+              "semantic_sha256": "6cc5b2b995778edaca8d9b654777fb49dcbfdea88c7bcb424ee72d4687b4ff2a"
+            },
+            "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+            "validation_profile": "static-stylized-v1",
+            "rule_version": "2026-10-18.1",
+            "profile_contract_status": "pass",
+            "asset_id": "volcanic-neck",
+            "revision": "r003",
+            "subject": {
+              "revision": "r003",
+              "glb_sha256": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+              "brief_sha256": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+              "references_sha256": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104"
+            },
+            "artifact_sha256": {
+              "glb": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+              "brief": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+              "references": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104",
+              "source": "843820189078606d0afd6a4b6a62bc3e26dce40460aec06e6db2270a9182df43",
+              "generator": "53648bbccbc0b27f28e9585d5bdd5911019cb41d3b6b33bb42a17d378a09b68b",
+              "config": "59150bd7363e4887e05a670be5cf0877eb14f19d85fac2c50fbf3449b6c998e6"
+            },
+            "approved_visual_image_sha256": [],
+            "profile_contract": {
+              "path": "qa/fifty-two-website-release-20261021/release-coordination-profiles/volcanic-neck.json",
+              "sha256": "051168a8eb9a571b9082b8ac1402c53ac984fc28fbc609b5e97f3a1bdaf23c4e"
+            },
+            "profile": "production",
+            "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+            "approval_status": "pending",
+            "legacy_result": {
+              "valid": false,
+              "approved_for_brief": false,
+              "errors": [
+                "brief.turntable_frames: integer >= 2 required"
+              ],
+              "approval_blockers": [],
+              "required_stages": [],
+              "measurements": {},
+              "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+              "validation_profile": "legacy-v1",
+              "rule_version": "2026-10-18.1",
+              "profile_contract_status": "not_checked",
+              "asset_id": "volcanic-neck",
+              "revision": "r003",
+              "subject": {
+                "revision": "r003",
+                "glb_sha256": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+                "brief_sha256": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+                "references_sha256": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104"
+              },
+              "artifact_sha256": {
+                "glb": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+                "brief": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d",
+                "references": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104",
+                "source": "843820189078606d0afd6a4b6a62bc3e26dce40460aec06e6db2270a9182df43",
+                "generator": "53648bbccbc0b27f28e9585d5bdd5911019cb41d3b6b33bb42a17d378a09b68b",
+                "config": "59150bd7363e4887e05a670be5cf0877eb14f19d85fac2c50fbf3449b6c998e6"
+              },
+              "approved_visual_image_sha256": []
+            }
+          },
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "publication_authority": false,
+  "formal_acceptance": "BLOCKED",
+  "hardware_gpu_verified": false,
+  "target_scene_verified": false,
+  "note": "Current release coordination is a separate authorized phase, not a rewrite of maker-local history. Native validation checks recorded obligations only and does not certify publication or independent visual acceptance."
+}

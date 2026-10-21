@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-10-20T21:43:20.418982+00:00",
+  "method": "Independent numeric evaluation of geometric function AST, excluding all top-level execution and file writes; crosschecked actual saved-source and GLB decoded bounds. Shared 48 angle boundary samples directly compared.",
+  "old_angular_samples": 96,
+  "new_angular_samples": 144,
+  "old_measured_blender_xyz_m": [
+    6259.97998046875,
+    5472.12841796875,
+    2243.06201171875
+  ],
+  "new_measured_blender_xyz_m": [
+    6261.283203125,
+    5471.44189453125,
+    2242.98974609375
+  ],
+  "measured_delta_m": [
+    1.30322265625,
+    -0.6865234375,
+    -0.072265625
+  ],
+  "relative_percent": [
+    0.020818319871885822,
+    -0.012545821023601581,
+    -0.0032217399529059984
+  ],
+  "analytic_old_at96": [
+    6259.979752316338,
+    5472.128354724453,
+    2243.06189650228
+  ],
+  "analytic_old_at144": [
+    6261.283056960683,
+    5471.4418830837785,
+    2242.9896765839976
+  ],
+  "analytic_new_at144": [
+    6261.283056960683,
+    5471.4418830837785,
+    2242.9896765839976
+  ],
+  "original_profile_resampled_at144_reproduces_new_bounds": true,
+  "boundary_and_vent_common_angle_tests": [
+    {
+      "normalized_radius": 1,
+      "common_angular_samples": 48,
+      "maximum_coordinate_delta_m": 0.0
+    },
+    {
+      "normalized_radius": 0.093,
+      "common_angular_samples": 48,
+      "maximum_coordinate_delta_m": 0.0
+    },
+    {
+      "normalized_radius": 0.061,
+      "common_angular_samples": 48,
+      "maximum_coordinate_delta_m": 0.0
+    },
+    {
+      "normalized_radius": 0.043,
+      "common_angular_samples": 48,
+      "maximum_coordinate_delta_m": 0.0
+    },
+    {
+      "normalized_radius": 0.018,
+      "common_angular_samples": 48,
+      "maximum_coordinate_delta_m": 0.0
+    }
+  ],
+  "explanation": "Outer-foot and vent coordinate formulas are unchanged at common angular samples. The original boundary evaluated at144 rather than96 angles predicts all three new dimensions; float32 rounding accounts for less than0.001m residual. Incision and jitter do not determine overall extrema. This is sampling drift, not a scale change. Local flank silhouette intentionally changes under incisions; it is not claimed pixel-identical.",
+  "materials_exactly_identical": true,
+  "textures_exactly_identical": true,
+  "old_export": {
+    "profile": "static-uncompressed-v1",
+    "file": "/workspace/shared/lowpoly-batch82-20261020/production/small-life-batch82/assets/stratovolcano/r006/model.glb",
+    "errors": [],
+    "warnings": [],
+    "khronos_validator": "not_run_by_this_script",
+    "bytes": 187952,
+    "sha256": "94a39e7d4d31e22df87b33cbf48c7db332920566d24cef297874f26b229679a4",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "extensions_used": [],
+    "materials": 2,
+    "unique_mesh_triangles": 2496,
+    "unique_mesh_primitives": 2,
+    "unique_position_accessor_vertices": 7105,
+    "bounds_m": {
+      "min": [
+        -3129.989990234375,
+        0.0,
+        -2736.064208984375
+      ],
+      "max": [
+        3129.989990234375,
+        2243.06201171875,
+        2736.064208984375
+      ],
+      "size": [
+        6259.97998046875,
+        2243.06201171875,
+        5472.12841796875
+      ]
+    },
+    "semantic_sha256": "6a51102504b1ba874f8dd64c418663b57b9b413116e0eb1a7bb2cb56ad51a281",
+    "semantic_digest_profile": "decoded-static-content-v1",
+    "scene_triangles": 2496,
+    "scene_primitives_estimated_base_draw_calls": 2,
+    "status": "pass"
+  },
+  "new_export": {
+    "profile": "static-uncompressed-v1",
+    "file": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020/production/batch82-stratovolcano-repair/stratovolcano/r009/model.glb",
+    "errors": [],
+    "warnings": [],
+    "khronos_validator": "not_run_by_this_script",
+    "bytes": 885600,
+    "sha256": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "extensions_used": [],
+    "materials": 2,
+    "unique_mesh_triangles": 11520,
+    "unique_mesh_primitives": 2,
+    "unique_position_accessor_vertices": 33920,
+    "bounds_m": {
+      "min": [
+        -3130.6416015625,
+        0.0,
+        -2735.720947265625
+      ],
+      "max": [
+        3130.6416015625,
+        2242.98974609375,
+        2735.720947265625
+      ],
+      "size": [
+        6261.283203125,
+        2242.98974609375,
+        5471.44189453125
+      ]
+    },
+    "semantic_sha256": "d27e78aa9a1a045cdf72cf082c5f113d7e19fe5d1e367898419d54ffba61e9d2",
+    "semantic_digest_profile": "decoded-static-content-v1",
+    "scene_triangles": 11520,
+    "scene_primitives_estimated_base_draw_calls": 2,
+    "status": "pass"
+  },
+  "authored_channel_counts": {
+    "main": 6,
+    "tributary": 12,
+    "nested-tributary": 8
+  },
+  "camera_same_angles": true,
+  "ortho_scale_percent_difference": -0.006731507009660742,
+  "light_scaling_explanation": "Radius-dependent light energy follows the identical original renderer algorithm. Expected energy ratio equals square of framing radius ratio.",
+  "expected_light_energy_ratio": 0.9998653743911254,
+  "actual_light_energy_ratios": [
+    0.9998653383966601,
+    0.9998653620578923
+  ],
+  "renderer_color_sampling_unchanged": {
+    "renderer": true,
+    "engine": true,
+    "samples": true,
+    "resolution": true,
+    "denoising": true,
+    "view_transform": true,
+    "look": true,
+    "exposure": true,
+    "gamma": true,
+    "background": true,
+    "camera_type": true,
+    "base_pose_deg": true,
+    "elevation_deg": true
+  }
+}

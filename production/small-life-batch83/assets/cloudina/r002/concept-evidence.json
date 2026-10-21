@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "cloudina",
+  "revision": "r002",
+  "labels": {
+    "en": "cloudina"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "eae46d63f9c74f3a53bd2862ad94a57d7302e5806c06432be9d996107dd7c805"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "d14a6aac4c61e59aa064ab25f79a18028f9041e6fd2c509ce9fdb8f74eaec701"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "1b85b9166da4d9b543764af9c00d70bf915080c6e0d54d522ee9192d37b6f7b7"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "3517d02ce1b0d9e63825300e25f8cf13154add51d042055411beab7c87ea1d60"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "e4fb6c38ddb9499cb23070dfac0583eda37188daf37b7cc98a032cf9de92a4f4"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "03cef2c473276aef649139642bb5b32e12b8c1c317e8efbcb0a5e92507098f3a"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "62e19fceb7125edc0a4370b34385ce257088c28c35f23bc9fc43d09a0f6d3d94"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "85930cd97ff22633bd185092ac985a72e5eb423ba32690fab131820eacf1bcc8"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "512135561cecd01d6e13d07861a969d0661d8a1b25c2b18596a89b3a6af4548f"
+      }
+    ],
+    "cross_view_consistency_note": "Concept correctly shows single curved hollow nested funnel construction, but exaggerates thick chalk texture and flare size; simplify texture to palette-only facets, reduce chunky wall and taper, retain continuous thin wall and visible lumen. Use about14 uneven mildly eccentric collars along a gentle curve, not separate intersecting rings or hollow cups stacked with gaps. Ends broken with modest uneven edge, no invented basal holdfast, tentacles, organism or reef. Final orientation upright fragment is presentation only, not ecological life-position claim.",
+    "hidden_surface_decisions": "Concept correctly shows single curved hollow nested funnel construction, but exaggerates thick chalk texture and flare size; simplify texture to palette-only facets, reduce chunky wall and taper, retain continuous thin wall and visible lumen. Use about14 uneven mildly eccentric collars along a gentle curve, not separate intersecting rings or hollow cups stacked with gaps. Ends broken with modest uneven edge, no invented basal holdfast, tentacles, organism or reef. Final orientation upright fragment is presentation only, not ecological life-position claim."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T17:27:08Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.0608,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "be5dda5330ba02ac2e73b5515afc85c93bcfc00ce21811eb63bb0f96cca6b3a1"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "be5dda5330ba02ac2e73b5515afc85c93bcfc00ce21811eb63bb0f96cca6b3a1"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "cf83d3a0918c9a595b2512056cfefb558c10a9a2fca1304f90d2c0132bbe0670",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "65900962951c93697667bfe8f1684b9a38ecfe3c30c8df9eac0678e067d2e3af"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "eae46d63f9c74f3a53bd2862ad94a57d7302e5806c06432be9d996107dd7c805",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "c1b350747b208ca586b7d67da27249ae5c64b672448e4f7f6f082b33a6d8dadd"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

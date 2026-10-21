@@ -1,0 +1,875 @@
+{
+  "schema_version": 1,
+  "kind": "fresh_independent_height_repair_difference_qa",
+  "batch": 85,
+  "reviewer": "review_batch85_height_repairs",
+  "reviewed_at": "2026-10-20T22:10:45.032428+00:00",
+  "source_root": "/workspace/shared/lowpoly-batch85-height-repair-20261020",
+  "source_commit": "459054688a9d501f8e024b6ebbd1179cbda57c26",
+  "source_parent": "28261ac79bf82fee9a056e80a1317b89ce298bf0",
+  "source_branch": "candidate/batch85-height-repair-20261020",
+  "maker_handoff_sha256": "678b730ca4c713d567c1d7a2b672eb4b3b8759b016a26b84eb139082cd6dd17c",
+  "original_maker_commit": "b727e577737d5108f5316ab898e8d7cbc4948f9f",
+  "original_qa_sha256": "7ddbcf2f7f1ad97ade71917ef4072d409ec8807fd3b1f00edb2fa1e1612ade5b",
+  "scope": "Three exact height-repair revisions. Original failures and raw evidence retained. Namacalathus prior PASS is outside this review and unchanged. No push/PR/merge/site/CI/release action.",
+  "summary": {
+    "PASS": [
+      "piedmont-glacier",
+      "lava-channel",
+      "karst-polje"
+    ],
+    "REVISE": [],
+    "BLOCKED": [],
+    "individual_final512px_views_inspected": 24,
+    "lossless_sheets_inspected": 3,
+    "concepts_inspected": 3,
+    "primary_pixel_files_inspected": 3,
+    "fresh_source_reexports_byte_identical": 3,
+    "fresh_runtime_parse_pass": 3,
+    "khronos_errors": 0,
+    "khronos_warnings": 0,
+    "checked_input_files": 954,
+    "preserved_original_raw_files": 616,
+    "preserved_original_raw_bytes": 52948655,
+    "new_repair_raw_files": 208,
+    "new_repair_raw_bytes": 11699906,
+    "distinct_maker_rebuild_blender_pids": [
+      12,
+      35,
+      58,
+      81,
+      104,
+      127
+    ]
+  },
+  "method_notes": [
+    "Actual final GLB measurement, fresh read-only Blend reopen/reexport, separate read-only old/new source geometry difference, independent format/runtime/project checks and individual pixel inspection. Maker measurements were not assumed.",
+    "All Blender jobs used blocking global flock and --threads2 per process. Original source and failed bytes were never saved or modified. No installation, clone, full build or input evidence deletion.",
+    "Repair preparation script persists repair-intent before writing generator. Actual build requests/executions follow frozen_at. Original concept receipts and original freeze verified; provider/internal timestamps remain unknown when absent.",
+    "954 distinct input files rehashed, including original616 and new208 raw files. Exact final GLB/brief/reference hashes appear in render requests before execution; rendered output bytes match delivery and lossless sheet tiles. All six rebuild processes have distinct PIDs and separate request/result/output/time provenance with matching semantic subjects.",
+    "Original explicit maximum/range constraints applied strictly. Approximate/nominal art dimensions not converted into new hard constraints. No new universal zero-regularity or zero-volume-intersection rule.",
+    "Fresh web primary text, original actual reference pixels, original concept pixels and original asset-specific freezes personally reread. Consult-only source pixels remain outside repository."
+  ],
+  "items": [
+    {
+      "asset_id": "piedmont-glacier",
+      "revision": "r005",
+      "previous_revision": "r004",
+      "verdict": "PASS",
+      "acceptance_scope": "Static candidate only; not all-seven-stage approval or publication.",
+      "subject": {
+        "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+        "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+        "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f",
+        "revision": "r005"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "stage": "technical",
+          "status": "pass",
+          "finding": "Fresh independent saved-source reopen/reexport is byte-identical. Project static profile schema valid; fresh Khronos default severities0errors/0warnings. Actual counts and finite bounds comply with frozen budgets; zero textures. Closed source meshes, no duplicate/nonmanifold triangle edges or nonadjacent within-component BVH intersections detected.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/saved-source/source-reexport.report.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/khronos-fresh.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/project-validation-fresh.json"
+          ]
+        },
+        {
+          "id": "visual-acceptance",
+          "stage": "visual",
+          "status": "pass",
+          "finding": "All eight exact512px final views personally inspected individually, plus lossless sheet and actual concept pixels. Original identifying features remain legible; no new visible surface interference or height-repair artifact.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/render-manifest.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/contact-sheet.png"
+          ]
+        },
+        {
+          "id": "factual-acceptance",
+          "stage": "factual",
+          "status": "pass",
+          "finding": "Freshly read NPS definition and Malaspina page, and personally inspected actual aerial pixels. Valley confinement opens onto a broad foreland lobe; sweeping debris bands are reference-supported. Generic simplified form and illustrative scale preserved, not a Malaspina survey, ice-flow simulation or date claim.",
+          "evidence": {
+            "urls": [
+              "https://www.nps.gov/articles/valleyandpiedmontglaciers.htm",
+              "https://www.nps.gov/places/malaspina-glacier.htm"
+            ],
+            "primary_pixels": "/workspace/shared/lowpoly-batch85-evidence/consult-only/piedmont.jpg",
+            "finding": "Freshly read NPS definition and Malaspina page, and personally inspected actual aerial pixels. Valley confinement opens onto a broad foreland lobe; sweeping debris bands are reference-supported. Generic simplified form and illustrative scale preserved, not a Malaspina survey, ice-flow simulation or date claim."
+          }
+        },
+        {
+          "id": "specification-acceptance",
+          "stage": "specification",
+          "status": "pass",
+          "finding": "Original freeze/source inventory, parameters and references remain unchanged. Exact GLB and source measurements now satisfy original explicit height gate without changing other geometry or scope. Full source/config/dependency closure, two real queued rebuilds, pre-render triplet binding, eight new frames and lossless sheet verified.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/piedmont-glacier/r001/original-brief.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/parameter-measurements.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/source-difference.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/immutable-input-audit.json"
+          ]
+        },
+        {
+          "id": "runtime_parse-acceptance",
+          "stage": "runtime_parse",
+          "status": "pass",
+          "finding": "Fresh Three.js0.180.0/revision180 GLTFLoader Node parse of exactGLB succeeds with expected counts/bounds/materials. This is not GPU rendering.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/runtime-fresh.json"
+          ]
+        },
+        {
+          "id": "gpu-acceptance",
+          "stage": "gpu",
+          "status": "not_run",
+          "finding": "No target hardware GPU/browser render evidence. CPU stills and Node parse do not satisfy this downstream gate.",
+          "evidence": []
+        },
+        {
+          "id": "scene-acceptance",
+          "stage": "scene",
+          "status": "not_run",
+          "finding": "No intended composed-scene or live-website test. Separate downstream acceptance required.",
+          "evidence": []
+        }
+      ],
+      "component_dispositions": [
+        {
+          "component": "east-mountain-shoulder",
+          "status": "pass",
+          "finding": "Exactly60 source vertices changed only in height. Relief above52m scaled by0.98; maximum387.633941650m\u2264original390m. XY, topology, material assignments and transforms unchanged."
+        },
+        {
+          "component": "west shoulder / foreland substrate / continuous ice",
+          "status": "pass",
+          "finding": "All three components retain every source vertex coordinate and polygon. Exact GLB position streams unchanged. Frozen25 sections and18 cross-width segments preserved; lobe/throat ratio4.33\u22653. Approximate original dimensions not converted into new exact thresholds."
+        }
+      ],
+      "measured_parameters": {
+        "shoulder_max_z_m": 387.6339416503906,
+        "frozen_max_shoulder_height_m": 390,
+        "max_shoulder_point_blender_xyz_m": [
+          342.5,
+          790.0,
+          387.6339416503906
+        ],
+        "rear_throat_width_m": 250.0,
+        "lobe_width_m": 1082.5,
+        "lobe_to_throat_ratio": 4.33,
+        "ice_max_z_m": 235.74180603027344,
+        "ice_max_thickness_above_substrate_m": 180.74180603027344,
+        "cross_section_method": "Verified source generator reads frozen25, produces25 rows of19 top vertices (18 cross-width segments)."
+      },
+      "actual_metrics": {
+        "materials": 6,
+        "bounds_m": {
+          "min": [
+            -650.0,
+            0.0,
+            -810.0
+          ],
+          "max": [
+            635.0,
+            387.6339416503906,
+            830.0
+          ],
+          "size": [
+            1285.0,
+            387.6339416503906,
+            1640.0
+          ]
+        },
+        "semantic_sha256": "904c4c91484718ce7fbb619adda6076f0d0ff2aa84d7d5c6d8331b50319a27e2",
+        "authored_vertices": 817,
+        "authored_polygons": 1296,
+        "evaluated_vertices": 817,
+        "evaluated_polygons": 1296,
+        "exported_position_vertices": 4078,
+        "bounds_glb_size_m": [
+          1285,
+          387.6339416503906,
+          1640
+        ]
+      },
+      "individual_view_observations": [
+        {
+          "view": "hero",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/hero.png",
+          "sha256": "005038d306d2a8b5bcc65bf91de197c935254c8013f0e7204b89896ca4045179",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Narrow confined throat broadens continuously into dominant low lobe; east shoulder remains secondary to foreland ice area.",
+          "status": "pass"
+        },
+        {
+          "view": "reversehero",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/reversehero.png",
+          "sha256": "2a48ffff1b2be5e797eaa11c3de8fb716aca91747476b3a34e3f1719b5577f45",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Rear cap is distinct from shoulders and substrate. No exposed coincident strip or new shoulder/ice seam artifact.",
+          "status": "pass"
+        },
+        {
+          "view": "front",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/front.png",
+          "sha256": "4733bb32fbb817b1f40752e56f03b811b45b1448f32976ad53c20a7c70bec551",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Low wide toe and unequal higher shoulder peaks read clearly; toe remains supported on substrate.",
+          "status": "pass"
+        },
+        {
+          "view": "side",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/side.png",
+          "sha256": "54255d938d76060bd6dc683cfadfa279e524f4339342e31d5262a592218b24e5",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Longitudinal lowering of ice toward foreland is preserved; east relief reduction does not introduce a ledge.",
+          "status": "pass"
+        },
+        {
+          "view": "rear",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/rear.png",
+          "sha256": "fe5a5b5a1c8c0f7fac876e51306cb5fbef38cfb7e5b1ba4dbbca4fc8ffe3ae90",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Central truncated ice tongue sits between separate sloping shoulders; stable base is visible.",
+          "status": "pass"
+        },
+        {
+          "view": "top",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/top.png",
+          "sha256": "49318eee90c8fa57eea0b22d98897cbe94ae1a8b19a89f2e5ecc9da0a71044cc",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Lobe/throat transition and two sweeping material bands are legible; no additional surface strips or changed plan.",
+          "status": "pass"
+        },
+        {
+          "view": "clay",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/clay.png",
+          "sha256": "8966850aa69f284f5965b190f36f3a4957d8b1abc38887be7446a6dcc7d7d222",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Continuous throat/lobe relief persists without palette; minor toe scallops are geometric and no overlapping exposed face is visible.",
+          "status": "pass"
+        },
+        {
+          "view": "silhouette",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/piedmont-glacier/r005/views/silhouette.png",
+          "sha256": "d735e858db8d8f7be84dbc242b9f5b45a1e74a2a5f6acca9bd4edb15ee844f9d",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Full-volume shoulders, throat and wide rounded lobe remain coherent; no detached fragment or visible flashing.",
+          "status": "pass"
+        }
+      ],
+      "lossless_sheet_matches": true,
+      "concept": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/concepts/piedmont-glacier-concept.png",
+        "sha256": "8edaf6049be5bcd875ed429a68481670d7259374c34833a6e5941d290d254f4a",
+        "personally_inspected": true,
+        "scientific_authority": false
+      },
+      "source_difference_evidence": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/source-difference.json",
+      "export_difference_reconciliation": {
+        "initial_diagnostic": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/glb-difference.json",
+        "reconciled_report": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/piedmont-glacier/glb-logical-difference.json",
+        "finding": "Raw exported index values differ for lava/polje due to normal-split duplicate-vertex allocation. Exact oriented planar triangle multisets, source vertex/polygon topology, materials and all XY are unchanged; source reexport byte identity connects the checks. Initial diagnostic is retained, not suppressed."
+      },
+      "approvals": {
+        "independent_static_candidate": true,
+        "formal": false,
+        "user": false,
+        "website": false,
+        "release": false
+      }
+    },
+    {
+      "asset_id": "lava-channel",
+      "revision": "r003",
+      "previous_revision": "r002",
+      "verdict": "PASS",
+      "acceptance_scope": "Static candidate only; not all-seven-stage approval or publication.",
+      "subject": {
+        "brief_sha256": "b190a0eb74fb44d5e76f03698ce044f7066dd39683adbd6c8cf11dee853ce4d4",
+        "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+        "references_sha256": "6b049e21e098df0f7f205345e5431073bc6ce42e1f8eae6afd59554316fd166f",
+        "revision": "r003"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "stage": "technical",
+          "status": "pass",
+          "finding": "Fresh independent saved-source reopen/reexport is byte-identical. Project static profile schema valid; fresh Khronos default severities0errors/0warnings. Actual counts and finite bounds comply with frozen budgets; zero textures. Closed source meshes, no duplicate/nonmanifold triangle edges or nonadjacent within-component BVH intersections detected.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/saved-source/source-reexport.report.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/khronos-fresh.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/project-validation-fresh.json"
+          ]
+        },
+        {
+          "id": "visual-acceptance",
+          "stage": "visual",
+          "status": "pass",
+          "finding": "All eight exact512px final views personally inspected individually, plus lossless sheet and actual concept pixels. Original identifying features remain legible; no new visible surface interference or height-repair artifact.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/render-manifest.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/contact-sheet.png"
+          ]
+        },
+        {
+          "id": "factual-acceptance",
+          "stage": "factual",
+          "status": "pass",
+          "finding": "Freshly read USGS August2018 description and personally inspected its actual photograph. Higher irregular levee over lower cooling lava surface supports the bank/floor relation. No site copying, current temperature, emissive lava or active-eruption claim. S plan and compressed low-poly relief remain original illustrative design.",
+          "evidence": {
+            "urls": [
+              "https://www.usgs.gov/media/images/fissure-8-lava-channel"
+            ],
+            "primary_pixels": "/workspace/shared/lowpoly-batch85-evidence/consult-only/lava.jpg",
+            "finding": "Freshly read USGS August2018 description and personally inspected its actual photograph. Higher irregular levee over lower cooling lava surface supports the bank/floor relation. No site copying, current temperature, emissive lava or active-eruption claim. S plan and compressed low-poly relief remain original illustrative design."
+          }
+        },
+        {
+          "id": "specification-acceptance",
+          "stage": "specification",
+          "status": "pass",
+          "finding": "Original freeze/source inventory, parameters and references remain unchanged. Exact GLB and source measurements now satisfy original explicit height gate without changing other geometry or scope. Full source/config/dependency closure, two real queued rebuilds, pre-render triplet binding, eight new frames and lossless sheet verified.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/lava-channel/r001/original-brief.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/parameter-measurements.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/source-difference.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/immutable-input-audit.json"
+          ]
+        },
+        {
+          "id": "runtime_parse-acceptance",
+          "stage": "runtime_parse",
+          "status": "pass",
+          "finding": "Fresh Three.js0.180.0/revision180 GLTFLoader Node parse of exactGLB succeeds with expected counts/bounds/materials. This is not GPU rendering.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/runtime-fresh.json"
+          ]
+        },
+        {
+          "id": "gpu-acceptance",
+          "stage": "gpu",
+          "status": "not_run",
+          "finding": "No target hardware GPU/browser render evidence. CPU stills and Node parse do not satisfy this downstream gate.",
+          "evidence": []
+        },
+        {
+          "id": "scene-acceptance",
+          "stage": "scene",
+          "status": "not_run",
+          "finding": "No intended composed-scene or live-website test. Separate downstream acceptance required.",
+          "evidence": []
+        }
+      ],
+      "component_dispositions": [
+        {
+          "component": "right levee crest",
+          "status": "pass",
+          "finding": "Exactly33 source vertices, column9 in each of33 rows, lowered by approximately1.7m. Per-section crest8.772561073\u201312.880973816m is inside original8\u201313m; original irregular variation retained."
+        },
+        {
+          "component": "left levee / floor / all other columns",
+          "status": "pass",
+          "finding": "All other source vertices unchanged. Left crest8.859398842\u201312.964069366m; floor2.606297493\u20133.959904432m. All XY, S-plan, open ends, topology and material assignments preserved."
+        }
+      ],
+      "measured_parameters": {
+        "max_levee_z_m": 12.964069366455078,
+        "frozen_levee_height_range_m": [
+          8,
+          13
+        ],
+        "max_levee_point_blender_xyz_m": [
+          -9.049060821533203,
+          -0.6045907139778137,
+          12.964069366455078
+        ],
+        "longitudinal_sections": 33,
+        "section_width_range_m": [
+          46.815701484680176,
+          49.168617248535156
+        ],
+        "left_crest_range_m": [
+          8.85939884185791,
+          12.964069366455078
+        ],
+        "right_crest_range_m": [
+          8.772561073303223,
+          12.880973815917969
+        ],
+        "floor_z_range_m": [
+          2.606297492980957,
+          3.959904432296753
+        ]
+      },
+      "actual_metrics": {
+        "materials": 3,
+        "bounds_m": {
+          "min": [
+            -32.66007614135742,
+            0.0,
+            -60.0
+          ],
+          "max": [
+            33.428466796875,
+            12.964069366455078,
+            60.0
+          ],
+          "size": [
+            66.08854293823242,
+            12.964069366455078,
+            120.0
+          ]
+        },
+        "semantic_sha256": "bdbdd21bcd176b109fba020eb8b16fdb873842e653a84e386dfe0281bfba243b",
+        "authored_vertices": 517,
+        "authored_polygons": 857,
+        "evaluated_vertices": 517,
+        "evaluated_polygons": 857,
+        "exported_position_vertices": 2700,
+        "bounds_glb_size_m": [
+          66.08854293823242,
+          12.964069366455078,
+          120
+        ]
+      },
+      "individual_view_observations": [
+        {
+          "view": "hero",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/hero.png",
+          "sha256": "e713887307dacc19c03b0c30092495471567f1fcfe71f004ecc12520d0bbc73a",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Open S trough has a lower continuous quiet floor and two irregular raised banks; lowered right crest remains well above floor.",
+          "status": "pass"
+        },
+        {
+          "view": "reversehero",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/reversehero.png",
+          "sha256": "04d72c665fadedc2dd1963013c61436670d62310d80358e6839bd8abbb566217",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Opposite diagonal shows unequal crest rhythm and both open truncated ends; no roof, wall stacking or raised floor.",
+          "status": "pass"
+        },
+        {
+          "view": "front",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/front.png",
+          "sha256": "675bff46495d99755c438333ebb4fa643d11cc2f030980105ae7d63259ed4f11",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Open cross-section with two substantial banks and inset floor; repair has not closed the channel.",
+          "status": "pass"
+        },
+        {
+          "view": "side",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/side.png",
+          "sha256": "a606a3670378863f168d2d61942695d96de8365f40c53fdbc2689bd8fa236628",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Variable nonuniform crest heights persist along the length; no flat clipped cap or detached bank element.",
+          "status": "pass"
+        },
+        {
+          "view": "rear",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/rear.png",
+          "sha256": "8703dcb896e24c7d1d7af34ddbe2fc3e953d9bd5108f8f4101fefc00f7104996",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Opposite open cross-section remains connected to the base; no tunnel-like closure.",
+          "status": "pass"
+        },
+        {
+          "view": "top",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/top.png",
+          "sha256": "c43670fb5806ad7234c295db6f3b040e5b58bc115cf874f81955f8ae2b0733f5",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Sinuous plan and narrow central floor remain clear; all planar geometry is unchanged.",
+          "status": "pass"
+        },
+        {
+          "view": "clay",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/clay.png",
+          "sha256": "cfc3d9286a3457f56ea3b576351ee147c862486fb88f14fd90f65472444a1263",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Trough and irregular unequal banks remain readable without palette; small floor variation stays subordinate.",
+          "status": "pass"
+        },
+        {
+          "view": "silhouette",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/lava-channel/r003/views/silhouette.png",
+          "sha256": "b843605455f32078e6f6909ec6881f213ce391558f1e3c6e2bc5f1573f5e38ca",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Coherent solid trough and banks with continuous base; no surface interference visible.",
+          "status": "pass"
+        }
+      ],
+      "lossless_sheet_matches": true,
+      "concept": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/concepts/lava-channel-concept.png",
+        "sha256": "c3aadee240fe9a6c5680cb517076ba2a95e1fd521b097609042ff6bc3e60f899",
+        "personally_inspected": true,
+        "scientific_authority": false
+      },
+      "source_difference_evidence": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/source-difference.json",
+      "export_difference_reconciliation": {
+        "initial_diagnostic": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/glb-difference.json",
+        "reconciled_report": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/lava-channel/glb-logical-difference.json",
+        "finding": "Raw exported index values differ for lava/polje due to normal-split duplicate-vertex allocation. Exact oriented planar triangle multisets, source vertex/polygon topology, materials and all XY are unchanged; source reexport byte identity connects the checks. Initial diagnostic is retained, not suppressed."
+      },
+      "approvals": {
+        "independent_static_candidate": true,
+        "formal": false,
+        "user": false,
+        "website": false,
+        "release": false
+      }
+    },
+    {
+      "asset_id": "karst-polje",
+      "revision": "r003",
+      "previous_revision": "r002",
+      "verdict": "PASS",
+      "acceptance_scope": "Static candidate only; not all-seven-stage approval or publication.",
+      "subject": {
+        "brief_sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891",
+        "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+        "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214",
+        "revision": "r003"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "stage": "technical",
+          "status": "pass",
+          "finding": "Fresh independent saved-source reopen/reexport is byte-identical. Project static profile schema valid; fresh Khronos default severities0errors/0warnings. Actual counts and finite bounds comply with frozen budgets; zero textures. Closed source meshes, no duplicate/nonmanifold triangle edges or nonadjacent within-component BVH intersections detected.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/saved-source/source-reexport.report.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/khronos-fresh.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/project-validation-fresh.json"
+          ]
+        },
+        {
+          "id": "visual-acceptance",
+          "stage": "visual",
+          "status": "pass",
+          "finding": "All eight exact512px final views personally inspected individually, plus lossless sheet and actual concept pixels. Original identifying features remain legible; no new visible surface interference or height-repair artifact.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/render-manifest.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/contact-sheet.png"
+          ]
+        },
+        {
+          "id": "factual-acceptance",
+          "stage": "factual",
+          "status": "pass",
+          "finding": "Freshly read Gams2005 definition p27 and personally inspected both actual p31 photographs of Globodol and Planina. Broad flat basin enclosed by higher circumference is supported. Underground drainage is contextual, not modeled plumbing. No universal tectonic-origin, site facsimile or hydrological simulation claim.",
+          "evidence": {
+            "urls": [
+              "https://ojs.zrc-sazu.si/carsologica/article/download/277/266/544"
+            ],
+            "primary_pixels": "/workspace/shared/lowpoly-batch85-evidence/consult-only/polje-page7.png",
+            "finding": "Freshly read Gams2005 definition p27 and personally inspected both actual p31 photographs of Globodol and Planina. Broad flat basin enclosed by higher circumference is supported. Underground drainage is contextual, not modeled plumbing. No universal tectonic-origin, site facsimile or hydrological simulation claim."
+          }
+        },
+        {
+          "id": "specification-acceptance",
+          "stage": "specification",
+          "status": "pass",
+          "finding": "Original freeze/source inventory, parameters and references remain unchanged. Exact GLB and source measurements now satisfy original explicit height gate without changing other geometry or scope. Full source/config/dependency closure, two real queued rebuilds, pre-render triplet binding, eight new frames and lossless sheet verified.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/karst-polje/r001/original-brief.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/parameter-measurements.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/source-difference.json",
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/immutable-input-audit.json"
+          ]
+        },
+        {
+          "id": "runtime_parse-acceptance",
+          "stage": "runtime_parse",
+          "status": "pass",
+          "finding": "Fresh Three.js0.180.0/revision180 GLTFLoader Node parse of exactGLB succeeds with expected counts/bounds/materials. This is not GPU rendering.",
+          "evidence": [
+            "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/runtime-fresh.json"
+          ]
+        },
+        {
+          "id": "gpu-acceptance",
+          "stage": "gpu",
+          "status": "not_run",
+          "finding": "No target hardware GPU/browser render evidence. CPU stills and Node parse do not satisfy this downstream gate.",
+          "evidence": []
+        },
+        {
+          "id": "scene-acceptance",
+          "stage": "scene",
+          "status": "not_run",
+          "finding": "No intended composed-scene or live-website test. Separate downstream acceptance required.",
+          "evidence": []
+        }
+      ],
+      "component_dispositions": [
+        {
+          "component": "upper rim rings4 and5",
+          "status": "pass",
+          "finding": "Exactly112 source vertices changed only in height. All56 sector maxima175.373229980\u2013235.955368042m are inside original170\u2013270m. No uniform clipping; variable crest and closed circumference retained."
+        },
+        {
+          "component": "sediment floor / foot slope / outer skirt / all XY",
+          "status": "pass",
+          "finding": "All169 floor vertices remain identical at45m; floor bounds and every planar coordinate identical. Lower rings, foot-slope and outer skirt unchanged, with no raised floor or plinth."
+        }
+      ],
+      "measured_parameters": {
+        "flat_floor_vertices": 169,
+        "floor_height_m": 45,
+        "floor_bounds_xy_m": [
+          [
+            -405.9181823730469,
+            427.261962890625
+          ],
+          [
+            -783.1632080078125,
+            753.840576171875
+          ]
+        ],
+        "rim_max_m": 235.9553680419922,
+        "frozen_rim_height_range_m": [
+          170,
+          270
+        ],
+        "sector_count": 56,
+        "local_rim_crest_range_m": [
+          175.37322998046875,
+          235.9553680419922
+        ],
+        "sectors_below_frozen170m": [],
+        "below170_count": 0
+      },
+      "actual_metrics": {
+        "materials": 5,
+        "bounds_m": {
+          "min": [
+            -557.4098510742188,
+            0.0,
+            -1037.681640625
+          ],
+          "max": [
+            593.7897338867188,
+            235.9553680419922,
+            1114.052490234375
+          ],
+          "size": [
+            1151.1995849609375,
+            235.9553680419922,
+            2151.734130859375
+          ]
+        },
+        "semantic_sha256": "3eaa5af6561ce1eab6a7d875a48ec91de07a06ff27b8e73a6544775f28ca17aa",
+        "authored_vertices": 449,
+        "authored_polygons": 785,
+        "evaluated_vertices": 449,
+        "evaluated_polygons": 785,
+        "exported_position_vertices": 1793,
+        "bounds_glb_size_m": [
+          1151.1995849609375,
+          235.9553680419922,
+          2151.734130859375
+        ]
+      },
+      "individual_view_observations": [
+        {
+          "view": "hero",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/hero.png",
+          "sha256": "f2d04651be42c4305dd033fd3ee396425f71c36b0099dcca7e88e93c8564ea13",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Broad quiet sediment floor remains dominant inside a closed higher, uneven circumference; no central crater or outlet cut.",
+          "status": "pass"
+        },
+        {
+          "view": "reversehero",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/reversehero.png",
+          "sha256": "83f8dca08aae1811da4272fe6f227e7d81ec415af63b0323d5063a3531f55a56",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Opposite view confirms irregular crest and steep inner slope transition without detached ledges.",
+          "status": "pass"
+        },
+        {
+          "view": "front",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/front.png",
+          "sha256": "2281f5ae3c73ffe4177e65c1442a47e6d8d10ef58625fddaa0a59cfba4b024d8",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Heights vary along circumference rather than a level clipped ring; floor is appropriately occluded at low angle.",
+          "status": "pass"
+        },
+        {
+          "view": "side",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/side.png",
+          "sha256": "0be9e9c98ebc8efc341a0d77e22446dd4b7886d727d1840856f88e83343e54f4",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Elongated basin proportions and variable crest retained; no new plinth or raised floor.",
+          "status": "pass"
+        },
+        {
+          "view": "rear",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/rear.png",
+          "sha256": "ab5876031874c4d13daff594179959f1d194a2827f272e16ba01e6ea6384b4d5",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Closed perimeter remains solid with coherent outer skirt and underside.",
+          "status": "pass"
+        },
+        {
+          "view": "top",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/top.png",
+          "sha256": "47e28766f57586009dc9426440c9ef22b4013fdddf8622186e201777f98838d8",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Asymmetric elongated floor dominates interior; rim remains continuous and not circular or uniformly repeated.",
+          "status": "pass"
+        },
+        {
+          "view": "clay",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/clay.png",
+          "sha256": "fde3e781c46ae241fd550e67e10fe6fb0778f359b9f1fe9dea157e2c7b291553",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Flat floor, distinct inner slope break and undulating upper rim read independent of material colors.",
+          "status": "pass"
+        },
+        {
+          "view": "silhouette",
+          "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/karst-polje/r003/views/silhouette.png",
+          "sha256": "27af3782ea8638c574a7fdf9e5eaab07d741c33f5a390b31a0b9ca038e64393e",
+          "pixels": [
+            512,
+            512
+          ],
+          "observation": "Closed full-volume basin silhouette retains variable rim; no visible coincident faces or detached fragments.",
+          "status": "pass"
+        }
+      ],
+      "lossless_sheet_matches": true,
+      "concept": {
+        "path": "/workspace/shared/lowpoly-batch85-20261020/production/small-life-batch85/concepts/karst-polje-concept.png",
+        "sha256": "dc5f7557e08105790c683ef8541c251213de37203e9197707f787a851ce67892",
+        "personally_inspected": true,
+        "scientific_authority": false
+      },
+      "source_difference_evidence": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/source-difference.json",
+      "export_difference_reconciliation": {
+        "initial_diagnostic": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/glb-difference.json",
+        "reconciled_report": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/karst-polje/glb-logical-difference.json",
+        "finding": "Raw exported index values differ for lava/polje due to normal-split duplicate-vertex allocation. Exact oriented planar triangle multisets, source vertex/polygon topology, materials and all XY are unchanged; source reexport byte identity connects the checks. Initial diagnostic is retained, not suppressed."
+      },
+      "approvals": {
+        "independent_static_candidate": true,
+        "formal": false,
+        "user": false,
+        "website": false,
+        "release": false
+      }
+    }
+  ],
+  "approvals": {
+    "formal": false,
+    "user": false,
+    "website": false,
+    "release": false
+  },
+  "limitations": [
+    "GPU and intended composed scene not run. Static candidate PASS does not mean seven-stage, formal, user or release approval.",
+    "Eight fixed CPU views do not establish absence of artifacts at every possible future camera. BVH excludes shared-vertex adjacent triangles and is within components, not exhaustive inter-object collision evidence."
+  ],
+  "source_mutated": false
+}

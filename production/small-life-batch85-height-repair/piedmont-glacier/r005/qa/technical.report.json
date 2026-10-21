@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r005",
+    "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+    "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+    "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+  },
+  "status": "pass",
+  "method": "Project GLB audit; official Khronos; fresh saved-source reopen, evaluated counts and actual reexport; two separately executed queued semantic rebuilds; actual component crest measurements.",
+  "observations": [
+    "All named automated checks passed against this exact subject.",
+    "Saved-source reexport is byte-identical; two rebuilds have different Blender PIDs, requests/results and output payloads.",
+    "Original explicit height bounds are now measured within range. No palette, renderer, frozen scope or source modification."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1618,
+    "materials": 6,
+    "primitives": 10,
+    "glb_bytes": 115476,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/static-glb.report.json",
+        "sha256": "dd73b64cb9d39e7ee875728a4db8f7b9048524199d31faf7a56581b2c077e39f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/gltf-validator.report.json",
+        "sha256": "3612494042a2f1905e8e9b0e8e3fa768d4e8d4627e11f1c0d00d258c3815ada8"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/source-export.report.json",
+        "sha256": "10ed9254618f0fc0dc8698fa389cc2cdf8ff2effe6de0bc2b51482b954fdf600"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/reproducibility-a.report.json",
+        "sha256": "077fa4b1d7d962fd052846081ba39b40a6fb3e0aeec05089a20d1b1f797a5a21"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/reproducibility-b.report.json",
+        "sha256": "95bbe800ae86d67280f2365485befe3d56f84375bdfa61bec4bb52693dcc44ec"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "saved_source_reexport",
+      "status": "pass",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/source-reexport.report.json",
+        "sha256": "db3489c32338dc9d4ede9b419de17eba64f2d21c4b5a2dd6e2cf35b979c7a65a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "frozen_height_measurement",
+      "status": "pass",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/height-measurements-technical.json",
+        "sha256": "f6878ce7032f2b6e4a607399df3ef3b9350d03d420253b1bced176fcd992e72d"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -650.0,
+      0.0,
+      -810.0
+    ],
+    "max": [
+      635.0,
+      387.6339416503906,
+      830.0
+    ],
+    "size": [
+      1285.0,
+      387.6339416503906,
+      1640.0
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "foreland-substrate",
+      "vertices": 22,
+      "triangles": 40,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "continuous-throat-spreading-lobe",
+      "vertices": 559,
+      "triangles": 1114,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "west-mountain-shoulder",
+      "vertices": 118,
+      "triangles": 232,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "east-mountain-shoulder",
+      "vertices": 118,
+      "triangles": 232,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 4078,
+  "created_at": "2026-10-20T21:58:47.788264+00:00"
+}

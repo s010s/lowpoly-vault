@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight final frames personally opened. Hero/reversehero/top show a fine open acute repeatedly branching principal trace and a small companion, no broad lobes, pellets or annulations. Clay retains the three-order ridge geometry rather than only a painted branching line. Front/side/rear show the low raised relief above the bedding slab; those low edge-on views and the slab silhouette cannot identify ichnotaxon alone. The original Waverly Chondrites assignment is tentative; the clearly documented2012 Chondrites morphology is supplementary genus support, never a revised Waverly age or secure species identification. Straightened paths and raised display are artistic simplifications, with no producer/behavior claim.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 72a9922ede8d80e1c7c15795c66bf37fffd5dd066cdfaa5f419683f947f05cfe. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

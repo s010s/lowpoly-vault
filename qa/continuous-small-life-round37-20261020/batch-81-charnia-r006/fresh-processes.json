@@ -1,0 +1,77 @@
+[
+  {
+    "stage": "source-reexport",
+    "wrapper_pid": 7,
+    "started_at": "2026-10-20T21:15:50.054788+00:00",
+    "finished_at": "2026-10-20T21:15:54.463622+00:00",
+    "exit_code": 0,
+    "command": [
+      "flock",
+      "/tmp/lowpoly-production-blender.lock",
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/shared/lowpoly-batch81-charnia-r006-independent-qa-20261020/source_reexport.py",
+      "--",
+      "/workspace/shared/lowpoly-batch81-charnia-repair-20261020",
+      "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006",
+      "/workspace/shared/lowpoly-batch81-charnia-r006-independent-qa-20261020/saved-source"
+    ]
+  },
+  {
+    "stage": "supplemental-topclay",
+    "wrapper_pid": 29,
+    "started_at": "2026-10-20T21:15:54.465287+00:00",
+    "finished_at": "2026-10-20T21:16:00.018547+00:00",
+    "exit_code": 0,
+    "command": [
+      "flock",
+      "/tmp/lowpoly-production-blender.lock",
+      "/usr/bin/blender",
+      "-b",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--threads",
+      "2",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/workspace/shared/lowpoly-batch81-charnia-r006-independent-qa-20261020/render_supplemental_topclay.py",
+      "--",
+      "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/model.glb",
+      "--output-dir",
+      "/workspace/shared/lowpoly-batch81-charnia-r006-independent-qa-20261020/supplemental-topclay",
+      "--revision",
+      "r006",
+      "--brief",
+      "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/candidate-brief.json",
+      "--references",
+      "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/references.json",
+      "--resolution",
+      "512",
+      "--samples",
+      "16",
+      "--turntable-frames",
+      "0",
+      "--views",
+      "clay"
+    ]
+  },
+  {
+    "stage": "runtime",
+    "wrapper_pid": 53,
+    "started_at": "2026-10-20T21:16:00.018994+00:00",
+    "finished_at": "2026-10-20T21:16:00.310114+00:00",
+    "exit_code": 0,
+    "command": [
+      "node",
+      "/workspace/shared/lowpoly-batch81-charnia-r006-independent-qa-20261020/runtime_checks.mjs"
+    ]
+  }
+]

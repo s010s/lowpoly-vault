@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "asset_id": "karst-polje",
+  "revision": "r003",
+  "seed": 85001,
+  "frozen_at": "2026-10-20T20:36:19.485050+00:00",
+  "parameters": {
+    "length_m": 2100,
+    "width_m": 1100,
+    "floor_height_m": 45,
+    "rim_height_range_m": [
+      170,
+      270
+    ],
+    "floor_fraction_radius": 0.7,
+    "angular_segments": 56,
+    "radial_segments": 7
+  },
+  "palette_srgb": [
+    "#AAA783",
+    "#BBB9AA",
+    "#93958A",
+    "#7F8B65",
+    "#CABD9D"
+  ],
+  "design_brief": "original-brief.json",
+  "export": "asset_common.export_asset; Blender4.3.2, selected EXPORT collection, Y-up, normals, no animation, no textures, no compression",
+  "change_note": "Retain all x/y positions, z45 sediment floor, foot-slope and outer skirt. For each56angular sectors compute original maximum of radial rings4/5, target=175+0.55*(old_crest-128), and rescale only those two upper-ring reliefs about z45 by(target-45)/(old_crest-45). This preserves variable crest positions and irregular heights; expected sector maxima175.37\u2013235.96m within170\u2013270. No raising of the floor/base or new plinth.",
+  "repair_freeze": "../../repair-intent-freeze.json"
+}

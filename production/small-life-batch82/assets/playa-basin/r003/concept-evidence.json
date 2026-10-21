@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "playa-basin",
+  "revision": "r003",
+  "labels": {
+    "en": "playa-basin"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "9b6bdef5c02948e1cb0941b531449bf44825bd3c4b7d9f5a858e3ff29183127e"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "a2abff226f3601c8e4384fb56278e06b10cd577b44ef35aeb7a9f7f69c2a7354"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "95ba781b6d57af2a7ad0687215368403f3e72ac56f6842e46e73900683c471bf"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "316df62d699e2ebe609355d9f006ba972ef36833b2540ac96b03ededc323a959"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "54f0327fb0bd90337838e63368311a57cc281073cb9b6aaff38ecc326c415ee7"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "a23995cca4a9a54d2d66af5e81ac0c40dfd7f2bd81516c39f27949fcc5cfea51"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "ded7393034bad979238e05d6c90507d7d9496b519a2c9d65197b9f0910d71fff"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "6a9251635dfa171c4853234c78856bee980985332fa5057b006f7ed191e53836"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "0060bcb028f42d61e05627fc997c99a165d311c60f7c1384d964e5e18e30286f"
+      }
+    ],
+    "cross_view_consistency_note": "Keep broad flat floor and low irregular closed rim. Reduce concept deep bowl or mountains if present. Broad central ellipse-like irregular floor approximately70percent footprint, transitional gently inclining margin to low surrounding raised ground. No river breach, volcanic crater, water, discrete polygon-crack carpet or enormous enclosing wall. Bare pale sediment palette artistic; source actual photo has footprints and scrub along edge, omitted not claimed original ecosystem.",
+    "hidden_surface_decisions": "Keep broad flat floor and low irregular closed rim. Reduce concept deep bowl or mountains if present. Broad central ellipse-like irregular floor approximately70percent footprint, transitional gently inclining margin to low surrounding raised ground. No river breach, volcanic crater, water, discrete polygon-crack carpet or enormous enclosing wall. Bare pale sediment palette artistic; source actual photo has footprints and scrub along edge, omitted not claimed original ecosystem."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:56:39.460599+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.1842,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "c90b77a2f665d2451292f7423ddc52bb4bdf32609febee983e4bd83f49c74bfa"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "c90b77a2f665d2451292f7423ddc52bb4bdf32609febee983e4bd83f49c74bfa"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "d119a5e9ff664ac2f3ed12377ea976c5a6526550c878be04fa96ac8e520cbbb7",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "ef19916c244380e12616fbd0657d861252085cfdeb43f6d742fb6e1a4908213c"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "9b6bdef5c02948e1cb0941b531449bf44825bd3c4b7d9f5a858e3ff29183127e",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "7d85cd154cedcaf06810a0320613d06851907e480da77ebcaefde69a9abb4a42"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

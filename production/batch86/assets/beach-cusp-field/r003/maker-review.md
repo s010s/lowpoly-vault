@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight exact final views inspected. Hero/reversehero/top show five edge-including seaward horns and four crescent bays on a continuous sand-to-swash surface. The shallow horn crests and bay swales survive the clay view, rather than being only color boundaries. Canonical front/side/rear are intentionally genuinely edge-on for this low-relief terrain and confirm a thin sloping tile; they are less informative than the elevated views. The regular repeated pattern is illustrative, not a measured DEM or process simulation. Water is the material region of the same connected surface, not a coplanar overlay. No dune domes, cliff band, foam or vegetation.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 8ca4797452265d9c6ab889c0ef4af75505b3e8544e4a78d68ee19d9d9b04e07f. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

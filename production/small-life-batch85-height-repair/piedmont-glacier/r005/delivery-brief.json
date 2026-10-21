@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "asset_id": "piedmont-glacier",
+  "brief_version": "delivery-r005",
+  "profile": "production",
+  "purpose": "Original static low-poly catalog candidate; not formal approval or public release.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect eight individual512px exact-GLB views. All three identifying features must read, no visible coplanar overlap, faceted coherent surfaces, full volume. All actual concept panels inspected: narrow throat and widened fan clear. Concept too jagged and repetitive along toe; simplify to low scalloped continuous lobe. Mountain shoulders remain secondary. Dark bands are structurally assigned face regions, not overlapping strips.",
+      "required_sources": [
+        "NPS-GLACIER"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify: Continuous narrow confined valley tongue emerges between two mountain shoulders. Broad low foreland lobe at least3times throat width; wide rounded toe remains the dominant mass. Subtle sweeping lateral debris bands explain spreading, not ice terraces; reduced shoulder detail. Preserve uncertainty: Generic process/form with approximate art scale, not Malaspina survey, present extent, period or ecosystem. Terrain vertical proportions compressed for catalog readability; geometry original, no copied map. Debris band age and flow dynamics unspecified.",
+      "required_sources": [
+        "NPS-GLACIER"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight fixed512px views, no turntable. GPU and scene remain separate required later gates.",
+  "frozen_at": "2026-10-20T20:36:19.485050+00:00",
+  "subject": "Piedmont glacier",
+  "representation": "geological-form",
+  "factual_scope": "Generic process/form with approximate art scale, not Malaspina survey, present extent, period or ecosystem. Terrain vertical proportions compressed for catalog readability; geometry original, no copied map. Debris band age and flow dynamics unspecified.",
+  "identifying_features": [
+    "Continuous narrow confined valley tongue emerges between two mountain shoulders.",
+    "Broad low foreland lobe at least3times throat width; wide rounded toe remains the dominant mass.",
+    "Subtle sweeping lateral debris bands explain spreading, not ice terraces; reduced shoulder detail."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      1200,
+      1600,
+      390
+    ],
+    "accuracy": "illustrative; not measured subject"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact center; all terrain substrates bottom z0. Isolated skeletal stem bottomz0.",
+  "intended_use": {
+    "role": "static low-poly museum catalog asset",
+    "viewing": "512px diagnostics; desktop gallery and close rotation later",
+    "no_claim": "No collision, dynamics, animation, site or live ecosystem compatibility established."
+  },
+  "surface_profile": "palette-only, opaque, flat faceted, no textures/emission/double-sided concealment",
+  "palette_srgb": [
+    "#C9E3E8",
+    "#8FB7C6",
+    "#E2F0EF",
+    "#726B5E",
+    "#8E826B",
+    "#575D59"
+  ],
+  "component_and_cause": {
+    "primary": "Continuous narrow confined valley tongue emerges between two mountain shoulders.",
+    "secondary": "Broad low foreland lobe at least3times throat width; wide rounded toe remains the dominant mass.",
+    "tertiary": "Subtle sweeping lateral debris bands explain spreading, not ice terraces; reduced shoulder detail.",
+    "quiet_region": "Cup panels / glacier interior / trough floor / sediment basin, respectively; no uniform micro-noise."
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T20:36:19.485050+00:00",
+    "path": "production/small-life-batch85/concepts/piedmont-glacier-concept.png",
+    "sha256": "8edaf6049be5bcd875ed429a68481670d7259374c34833a6e5941d290d254f4a",
+    "decisions": "All actual concept panels inspected: narrow throat and widened fan clear. Concept too jagged and repetitive along toe; simplify to low scalloped continuous lobe. Mountain shoulders remain secondary. Dark bands are structurally assigned face regions, not overlapping strips."
+  },
+  "parameters": {
+    "length_m": 1600,
+    "lobe_max_width_m": 1100,
+    "throat_width_m": 260,
+    "substrate_height_m": 55,
+    "max_shoulder_height_m": 390,
+    "ice_toe_thickness_m": 36,
+    "ice_center_thickness_m": 125,
+    "cross_sections": 25,
+    "cross_width_segments": 18
+  },
+  "deliverable_plan": [
+    "editable Blender source",
+    "standalone GLB",
+    "deterministic generator, frozen config and dependency closure",
+    "source reopen",
+    "two distinct queued semantic rebuilds",
+    "project and Khronos checks",
+    "Three.js exact-GLB parse",
+    "eight actual512px images and lossless sheet"
+  ],
+  "prohibited": [
+    "Copy source image or mesh",
+    "Treat ImageGen as scientific evidence",
+    "Narrow original scope after build",
+    "Change source inventory",
+    "Claim CPU image/Node parse as GPU or composed-scene evidence"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch85/piedmont-glacier/r001/original-brief.json",
+    "sha256": "e08d743ab3d0672fc84d34ec53146843224dd43a54337edc6192dcf7f27faf4e"
+  },
+  "delivery_bound_at": "2026-10-20T21:51:58.326039+00:00",
+  "scope_changed": false,
+  "height_repair_freeze": {
+    "path": "production/small-life-batch85-height-repair/repair-intent-freeze.json",
+    "sha256": "4633a9aba9ec1175d8088f40e6ef7edea5027c0886143a2ad8c4ffb20885d961"
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/piedmont-glacier.blend",
+      "sha256": "03272197d50122e7c9ef178db753ec90159b416e2fcec98a05fc46f102fb9b8c"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch85-height-repair/tools/generate.py",
+      "sha256": "26751bae0a598103e71cfa6ea8a5ba5570949223ad99dd5dffb0ecefecb61e28"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/config.json",
+      "sha256": "1302dcccdd2230f4dbb561ca4476ad97dc75b046dcf722f289d3c954466a9de6"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch85-height-repair/dependencies.json",
+      "sha256": "3d17758576d75a5dc11da7f51b3912741d3872b60d7071ebde349147f7e71d69"
+    }
+  ]
+}

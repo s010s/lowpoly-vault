@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "kind": "fresh_context_independent_focused_difference_QA",
+  "reviewer": "review_stratovolcano_repair",
+  "review_task": "/root/resume_parallel_model_production/review_stratovolcano_repair",
+  "reviewed_at": "2026-10-20T21:46:19.870038+00:00",
+  "source_root": "/workspace/shared/lowpoly-batch82-stratovolcano-repair-20261020",
+  "immutable_commit": "1b8673e257f7376e4dd7b5967a35ec8bf0a9d0f0",
+  "base_commit": "bab2c1ca72c40d60b542ab3d41f01c1b215fa14a",
+  "branch": "candidate/batch82-stratovolcano-repair-20261020",
+  "read_only_source": true,
+  "asset_id": "stratovolcano",
+  "revision": "r009",
+  "subject": {
+    "brief_sha256": "bd690d4909d9ae333bc3d16e04ac1bb9ab02a8a696dcf474e422f955c43eff45",
+    "glb_sha256": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998",
+    "references_sha256": "ebce3fb83c8205a547fff0fd2e3fa6938f1a9c41552c7d39d66655955fd40d90",
+    "revision": "r009"
+  },
+  "artifact_hashes": {
+    "glb": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998",
+    "source": "7d4e1e0785dc35dea73119d004674f5d91f62cd516e26e90095abf3aebc5eedd",
+    "generator": "62c9d749212993251225f358c6aa99277f4b58baeace9473b18ce938be517abe",
+    "config": "afc1d3a74dd0ebbac3ffa6d806257c3f34ec26626100b8a879d1c26c3f26db88",
+    "brief": "bd690d4909d9ae333bc3d16e04ac1bb9ab02a8a696dcf474e422f955c43eff45",
+    "references": "ebce3fb83c8205a547fff0fd2e3fa6938f1a9c41552c7d39d66655955fd40d90",
+    "proof": "2cb1dbf07496b31221d0d6d85d9a75c020d215f48491d0112c3302aee84f50c6",
+    "sheet": "6383c05cf12d456e96aaa26e38e2737b5c50fb1675203a652d22670c91ac4559",
+    "repair_freeze": "52edbf8caa784497ff7e29f3c07468634d6b726884ab4839a291934cd1a4670d"
+  },
+  "local_five_stage_verdict": "PASS",
+  "accepted_delta_local_five_stages": 1,
+  "stages": {
+    "technical": {
+      "status": "PASS",
+      "execution": "run",
+      "evidence": [
+        "saved-source/source-reexport.report.json",
+        "khronos-fresh.json",
+        "geometry-regression-audit.json",
+        "provenance-audit.json",
+        "candidate-profile-fresh.json"
+      ],
+      "note": "Fresh saved-source reopen/reexport and decoded project audit pass; byte and semantic identity; Khronos0errors/0warnings; exact budgets, origin and bounds verified. Two original real queued rebuild outputs independently rehashed and compared."
+    },
+    "visual": {
+      "status": "PASS",
+      "execution": "run",
+      "evidence": [
+        "pixel-review.json",
+        "supplemental/render-manifest.json"
+      ],
+      "note": "B82-STRATO-01 is resolved on r009: meaningful joined tributaries, differently sized channels and unequal integrated divides are visible in the exact eight512px frames and independent gray diagnostics. No new visual blocker identified within this focused regression review."
+    },
+    "factual": {
+      "status": "PASS",
+      "execution": "run",
+      "evidence": [
+        "pixel-review.json",
+        "immutable-input-audit.json"
+      ],
+      "note": "Original generic composite-volcano scope remains. Actual NPS text and retained Iliamna photo personally inspected; steep upper cone, concave lower profile and erosional flanks are consistent. Vent commonness comes from source text, not claimed visible through snow. Drainage arrangement/depth, subdued rock palette and nominal scale remain illustrative rather than site/DEM/age/deposit claims."
+    },
+    "specification": {
+      "status": "PASS",
+      "execution": "run",
+      "evidence": [
+        "immutable-input-audit.json",
+        "geometry-regression-audit.json",
+        "provenance-audit.json",
+        "concept-fresh.json"
+      ],
+      "note": "Original criteria, palette, references, nominal scale, renderer and budget unchanged. Derived brief adds only explicit source/generator/config hash closure. Eight exact512px renders follow fixed final GLB/brief/references. Failed r007 and unselected r008 preserved. Original provider/modeling-start timestamp limitations remain explicitly unknown, not recreated."
+    },
+    "runtime_parse": {
+      "status": "PASS",
+      "execution": "run",
+      "evidence": [
+        "runtime-fresh.json"
+      ],
+      "note": "Pinned Three.js0.180.0 independently parses exact GLB,11520triangles33920position vertices2meshes with matching bounds. Node parse is not GPU evidence."
+    },
+    "gpu": {
+      "status": "BLOCKED",
+      "execution": "not_run",
+      "evidence": [],
+      "note": "BLOCKED: not run in this review; requires separate target graphics runtime/device evidence."
+    },
+    "scene": {
+      "status": "BLOCKED",
+      "execution": "not_run",
+      "evidence": [],
+      "note": "BLOCKED: not run in this review; requires separate intended composed-scene evidence."
+    }
+  },
+  "original_criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "original_description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "status": "PASS",
+      "evidence": [
+        "saved-source/source-reexport.report.json",
+        "khronos-fresh.json",
+        "geometry-regression-audit.json",
+        "provenance-audit.json",
+        "candidate-profile-fresh.json"
+      ],
+      "finding": "Fresh saved-source reopen/reexport and decoded project audit pass; byte and semantic identity; Khronos0errors/0warnings; exact budgets, origin and bounds verified. Two original real queued rebuild outputs independently rehashed and compared."
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "original_description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Steep conical edifice with concave flanks: broad lower skirt and steeper summit; Integrated unequal radial ridges and eroded gullies, subordinate small closed summit vent; Not broad low convex shield, flat capped tuya, loose cinder fragments or regular stripe-layer cone. Scope: Generic original composite-volcano geological form informed by NPS primary composite-volcano explanation and actual AVO/USGS Iliamna field photograph. No exact named edifice, DEM, eruption simulation, age or coexisting ecosystem. Nominal6000x5400x2250m illustrative art-planning module, not measured Iliamna. A small main summit vent is a generic source-supported common feature, not claimed directly visible in chosen snow-covered Iliamna photo. Composite volcanoes need not comprise orderly alternating layers. No regular horizontal bands, lava, plume, snow or geological cross-section.",
+      "status": "PASS",
+      "evidence": [
+        "pixel-review.json",
+        "supplemental/render-manifest.json"
+      ],
+      "finding": "B82-STRATO-01 is resolved on r009: meaningful joined tributaries, differently sized channels and unequal integrated divides are visible in the exact eight512px frames and independent gray diagnostics. No new visual blocker identified within this focused regression review."
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "original_description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Steep conical edifice with concave flanks: broad lower skirt and steeper summit; Integrated unequal radial ridges and eroded gullies, subordinate small closed summit vent; Not broad low convex shield, flat capped tuya, loose cinder fragments or regular stripe-layer cone. Scope: Generic original composite-volcano geological form informed by NPS primary composite-volcano explanation and actual AVO/USGS Iliamna field photograph. No exact named edifice, DEM, eruption simulation, age or coexisting ecosystem. Nominal6000x5400x2250m illustrative art-planning module, not measured Iliamna. A small main summit vent is a generic source-supported common feature, not claimed directly visible in chosen snow-covered Iliamna photo. Composite volcanoes need not comprise orderly alternating layers. No regular horizontal bands, lava, plume, snow or geological cross-section.",
+      "status": "PASS",
+      "evidence": [
+        "pixel-review.json",
+        "immutable-input-audit.json"
+      ],
+      "finding": "Original generic composite-volcano scope remains. Actual NPS text and retained Iliamna photo personally inspected; steep upper cone, concave lower profile and erosional flanks are consistent. Vent commonness comes from source text, not claimed visible through snow. Drainage arrangement/depth, subdued rock palette and nominal scale remain illustrative rather than site/DEM/age/deposit claims."
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "original_description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "status": "PASS",
+      "evidence": [
+        "immutable-input-audit.json",
+        "geometry-regression-audit.json",
+        "provenance-audit.json",
+        "concept-fresh.json"
+      ],
+      "finding": "Original criteria, palette, references, nominal scale, renderer and budget unchanged. Derived brief adds only explicit source/generator/config hash closure. Eight exact512px renders follow fixed final GLB/brief/references. Failed r007 and unselected r008 preserved. Original provider/modeling-start timestamp limitations remain explicitly unknown, not recreated."
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "original_description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "status": "PASS",
+      "evidence": [
+        "runtime-fresh.json"
+      ],
+      "finding": "Pinned Three.js0.180.0 independently parses exact GLB,11520triangles33920position vertices2meshes with matching bounds. Node parse is not GPU evidence."
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "original_description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "status": "BLOCKED",
+      "evidence": [],
+      "finding": "BLOCKED: not run in this review; requires separate target graphics runtime/device evidence."
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "original_description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "status": "BLOCKED",
+      "evidence": [],
+      "finding": "BLOCKED: not run in this review; requires separate intended composed-scene evidence."
+    }
+  ],
+  "defect_resolution": {
+    "id": "B82-STRATO-01",
+    "original_revision": "r006",
+    "original_glb_sha256": "94a39e7d4d31e22df87b33cbf48c7db332920566d24cef297874f26b229679a4",
+    "original_qa_sha256": "9a70e16bba928fe3ffb9fec5317ec0304a38e5ab60e7f86d3e194fe189ace753",
+    "status": "resolved_on_r009_only",
+    "finding": "New relief produces readable offset tributary/trunk confluences and unequal divides where r006 had broad uninterrupted panels. Clay and alternate-key gray rendering confirm the repair is geometric. Original r006 remains REVISE and its immutable QA is unchanged.",
+    "confidence": "high"
+  },
+  "regression": {
+    "small_closed_vent": "PASS: original vent formulas agree exactly at all48common angular samples on four rim/interior radii; source mesh remains closed and vent is visible in exact reversehero/top.",
+    "primary_profile": "PASS: steep conical summit and broad concave lower skirt remain; local flank notch changes are intentional geometry, not asserted identical silhouette.",
+    "palette_renderer_nominal_scale": "PASS: exact exported materials and textures, original palette and nominal dimensions retained; renderer byte-identical with same angles/sampling/color pipeline.",
+    "bounds_delta_m": [
+      1.30322265625,
+      -0.6865234375,
+      -0.072265625
+    ],
+    "bounds_delta_percent": [
+      0.020818319871885822,
+      -0.012545821023601581,
+      -0.0032217399529059984
+    ],
+    "bounds_explanation": "Outer-foot and vent coordinate formulas are unchanged at common angular samples. The original boundary evaluated at144 rather than96 angles predicts all three new dimensions; float32 rounding accounts for less than0.001m residual. Incision and jitter do not determine overall extrema. This is sampling drift, not a scale change. Local flank silhouette intentionally changes under incisions; it is not claimed pixel-identical.",
+    "proof_framing_percent_difference": -0.006731507009660742,
+    "surface_integrity": "PASS in scoped checks:0boundary/nonmanifold edges,0duplicate triangles,0nonadjacent BVH intersection pairs; no visible coplanar artifact in inspected frames."
+  },
+  "measured": {
+    "triangles": 11520,
+    "bytes": 885600,
+    "authored_vertices": 5762,
+    "evaluated_vertices": 5762,
+    "exported_position_vertices": 33920,
+    "authored_material_slots": 3,
+    "exported_materials": 2,
+    "exported_primitives": 2,
+    "textures": 0,
+    "bounds_blender_xyz_m": [
+      6261.283203125,
+      5471.44189453125,
+      2242.98974609375
+    ],
+    "bounds_glb_xyz_m": [
+      6261.283203125,
+      2242.98974609375,
+      5471.44189453125
+    ],
+    "geometry_budget": {
+      "max_triangles": 14000,
+      "max_materials": 6,
+      "max_primitives": 30,
+      "max_glb_bytes": 1000000
+    },
+    "source_reexport_byte_identical": true,
+    "source_reexport_semantic_identical": true,
+    "original_rebuild_pids": [
+      120,
+      147
+    ],
+    "original_rebuild_glbs_byte_and_semantic_identical": true
+  },
+  "chronology": {
+    "repair_freeze": "2026-10-20T21:29:49.192111+00:00",
+    "selected_build_start": "2026-10-20T21:29:49.261435+00:00",
+    "final_binding": "2026-10-20T21:31:09.484155+00:00",
+    "proof_process_start": "2026-10-20T21:31:09.528363+00:00",
+    "proof_completed": "2026-10-20T21:31:47.567705+00:00",
+    "provider_concept_generated_at": null,
+    "original_modeling_started_at": null,
+    "concept_integrity_valid": true,
+    "concept_evidence_complete": false,
+    "note": "Original concept receipt gaps remain unknown. No filesystem-mtime chronology or manufactured fresh concept is asserted."
+  },
+  "prior_attempts": {
+    "r007": "Preserved rejected attempt:1008076B exceeds immutable1000000B budget. Not PASS.",
+    "r008": "Preserved unselected shallow/stepped branch attempt. Not PASS."
+  },
+  "formal_accepted_for_brief": false,
+  "user_acceptance": false,
+  "website_acceptance": false,
+  "publication_approval": false,
+  "release_approval": false,
+  "new_defects": [],
+  "limits": [
+    "Focused independent r009 repair/regression review, not a duplicate full-batch82 review.",
+    "CPU stills and Node parse do not establish GPU or composed-scene stages.",
+    "BVH check excludes shared-vertex adjacent triangles; topology and static views are not exhaustive proof against every runtime artifact.",
+    "Retained queue request/result/logs are execution attestations, not cryptographic execution proof.",
+    "Original ImageGen provider timestamp and exact original authoring start remain unavailable."
+  ],
+  "integrity_evidence": [
+    "immutable-input-audit.json",
+    "geometry-regression-audit.json",
+    "provenance-audit.json",
+    "fresh-process.json",
+    "supplemental-process.json",
+    "pixel-review.json"
+  ],
+  "resource_policy": "Native /workspace/shared only. Both fresh Blender processes use blocking per-process flock and threads2. Existing dependencies read-only; no clone/install/site build/model edits/source deletion/commit/push/PR/merge/release."
+}

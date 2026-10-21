@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "asset_id": "rosselia-concentrically-filled-burrow",
+  "brief_version": "delivery-r002",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate only; not independent, user, GPU, scene or release approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every final exact view and compare to original scope. Concept actual hero/front/side/top pixels show correct broad-upper narrowing funnel and nested rings. Correct excessively broad central tube and wall-wide funnel to a thin nearly cylindrical central fill and discrete funnel inside host rock. Keep full-volume back and half-section front; not a hollow nest of bowls.",
+      "required_sources": [
+        "KGS2002"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One broad-topped funnel-shaped fill narrows downward inside a solid half-section sediment block. Five nested concentric sediment envelopes wrap a narrow central to slightly inclined filled tube; nested rings visible on top and funnel profile on front. Illustrative front section with actual three-dimensional layered volumes; flat to slightly convex upper fill, no hollow crater, helicoidal twist or producer animal. Stylized Rosselia trace morphology informed by KGS2002 R.socialis KUMIP288531. Concentric layering is poorly preserved in cited specimen and enhanced conservatively for legibility from the genus diagnosis. Section cut, layer count/color, display block and exact scale artistic. Pennsylvanian source example is not total temporal/environmental range; no maker identity or certain behavior asserted.",
+      "required_sources": [
+        "KGS2002"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet. Static candidate; GPU/scene remain unrun unknown.",
+  "frozen_at": "2026-10-20T21:28:51.727606+00:00",
+  "subject": "Rosselia concentrically filled burrow",
+  "representation": "trace-concept",
+  "factual_scope": "Stylized Rosselia trace morphology informed by KGS2002 R.socialis KUMIP288531. Concentric layering is poorly preserved in cited specimen and enhanced conservatively for legibility from the genus diagnosis. Section cut, layer count/color, display block and exact scale artistic. Pennsylvanian source example is not total temporal/environmental range; no maker identity or certain behavior asserted.",
+  "identifying_features": [
+    "One broad-topped funnel-shaped fill narrows downward inside a solid half-section sediment block.",
+    "Five nested concentric sediment envelopes wrap a narrow central to slightly inclined filled tube; nested rings visible on top and funnel profile on front.",
+    "Illustrative front section with actual three-dimensional layered volumes; flat to slightly convex upper fill, no hollow crater, helicoidal twist or producer animal."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.065,
+      0.035,
+      0.045
+    ],
+    "accuracy": "artistic, not measured complete specimen"
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom support contact z0 and center of basal footprint.",
+  "intended_use": {
+    "role": "static educational museum/catalog rotation candidate",
+    "viewing": "512px diagnostic stills and later web inspection",
+    "limits": "No collision/dynamics/GPU/composed-scene acceptance established."
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no textures, emission, transparent planes or double-sided concealment.",
+  "palette_srgb": [
+    "#B6A17D",
+    "#B49265",
+    "#D1BB91",
+    "#887454",
+    "#5C503D"
+  ],
+  "component_and_cause": {
+    "primary": "One broad-topped funnel-shaped fill narrows downward inside a solid half-section sediment block.",
+    "secondary": "Five nested concentric sediment envelopes wrap a narrow central to slightly inclined filled tube; nested rings visible on top and funnel profile on front.",
+    "tertiary": "Illustrative front section with actual three-dimensional layered volumes; flat to slightly convex upper fill, no hollow crater, helicoidal twist or producer animal.",
+    "quiet_region": "Untraced host sediment, subordinate to diagnostic trace geometry"
+  },
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T21:28:51.727606+00:00",
+    "path": "production/small-life-batch89/concepts/rosselia-concentrically-filled-burrow-concept.png",
+    "sha256": "a07202b66127f610aaf3705ab00c266bf45642f9347f13e4633968a73598ce7e",
+    "decisions": "Concept actual hero/front/side/top pixels show correct broad-upper narrowing funnel and nested rings. Correct excessively broad central tube and wall-wide funnel to a thin nearly cylindrical central fill and discrete funnel inside host rock. Keep full-volume back and half-section front; not a hollow nest of bowls."
+  },
+  "parameters": {
+    "block_radius_m": 0.0325,
+    "height_m": 0.045,
+    "cone_top_radius_m": 0.019,
+    "cone_bottom_radius_m": 0.0038,
+    "central_tube_radius_m": 0.0016,
+    "concentric_layers": 5,
+    "radial_segments_half": 24,
+    "vertical_segments": 10,
+    "section": "front half removed, rear half full-volume"
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "fresh source reopen",
+    "two distinct queued semantic rebuilds",
+    "project/Khronos/Three.js parse",
+    "eight exact512px renders and lossless sheet"
+  ],
+  "prohibited": [
+    "Alter original inventory or frozen scope",
+    "Claim concept as primary evidence",
+    "Copy copyrighted source pixels/mesh",
+    "Hide geometry defects by rendering changes",
+    "Claim CPU or Node parse proves GPU/scene"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r001/original-brief.json",
+    "sha256": "d49b15f16428e0d32cb05d8098e7ce192c0b17c5c4d2e3ec44bfa8fcb4022879"
+  },
+  "delivery_bound_at": "2026-10-20T21:37:40.196802+00:00",
+  "scope_changed": false,
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/rosselia-concentrically-filled-burrow.blend",
+      "sha256": "e240bce9476c5e846d3d8118abc83c3f6e338ca374438713196a8a5fbc2ee57e"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch89/tools/generate-relief-r002.py",
+      "sha256": "9b1dda782ae0bf5385a2552b5ee026b44e36ee6caacfb157aab82545dcfda249"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/config.json",
+      "sha256": "26e2ae3a359544512c4df7f8fccf69c5fabbde23ee55c6e59b0165d3fcb55d8d"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch89/dependencies.json",
+      "sha256": "18fa560aa2a92b74fffed67cb7f4d2fb9a5c8646fc26634f06ec023c6edf1774"
+    }
+  ]
+}

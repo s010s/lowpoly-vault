@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "batch": 89,
+  "reviewer": "review_batch89_candidates",
+  "source_commit": "7ae917c10db80d59fca39a507f91de865cf69b10",
+  "source_parent": "43e40fc89f2b369a5f1858e72fa58a0d10318124",
+  "disposition": "3 PASS, 1 REVISE",
+  "report": {
+    "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/independent-review.json",
+    "sha256": "2d412491a835c8eff4999da07692ec7bb532d7159103ba1e645e390aa46a3485"
+  },
+  "readable_report": {
+    "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/independent-review.md",
+    "sha256": "9074553508a763fde3904caf3d727ec8daa32a6985e67a08ac2fedb0382ab5a3"
+  },
+  "own_manifest": {
+    "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/own-manifest.json",
+    "sha256": "8afe6efd7fc3e9f61051b05f1dbf415433aa22f15b13b060b6b90ec29057ecdc"
+  },
+  "accepted_static_candidates": [
+    {
+      "asset_id": "psilophyton",
+      "revision": "r001",
+      "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118"
+    },
+    {
+      "asset_id": "rosselia-concentrically-filled-burrow",
+      "revision": "r002",
+      "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07"
+    },
+    {
+      "asset_id": "teichichnus-spreite-wall",
+      "revision": "r003",
+      "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e"
+    }
+  ],
+  "revise": [
+    {
+      "asset_id": "skolithos-pipe-field",
+      "revision": "r001",
+      "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "reason": "Actual minimum shaft radius below original explicit0.0026m lower bound."
+    }
+  ],
+  "stage_note": "All four technical, visual, factual and runtime_parse pass. Specification passes for three; Skolithos r001 fails its explicit radius interval. GPU and scene remain unknown/not run for all. No formal/user/website/release/live approval.",
+  "scope_completed": {
+    "final_individual_frames": 32,
+    "lossless_sheets": 4,
+    "genuine_concepts": 4,
+    "primary_pixel_files": 5,
+    "own_reopen_reexports": 4,
+    "raw_manifest_files": 450,
+    "pin_checks": 716
+  },
+  "reproduce_radius_check": "python /workspace/shared/lowpoly-batch89-independent-qa-20261020/measure_glb_features.py",
+  "reexport_glbs_local_only": true,
+  "source_and_failures_unchanged": true,
+  "slot_released": true,
+  "next_full_qa": "batch90; no need to wait for upload",
+  "no_push_pr_merge": true,
+  "own_evidence_total_bytes": 2717053
+}

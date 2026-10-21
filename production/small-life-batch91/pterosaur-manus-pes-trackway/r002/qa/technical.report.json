@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "be8849cc5425c8e65776b24e9db3157958387afd1f0b3291d728d32b3093377a",
+    "brief_sha256": "584ce300d75f4a6f4d90687620f7d4007f7110314ca6f0fdf39cb1dff63ce109",
+    "references_sha256": "48d6310aaea0a7f97bfa53e02eeb464154ea771c949637bcd0f024e833688edf"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 298,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 18576,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "be8849cc5425c8e65776b24e9db3157958387afd1f0b3291d728d32b3093377a",
+      "report": {
+        "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/static-glb.report.json",
+        "sha256": "d15485ac243d98481731cab2f3b97e15324bba83a05f70d31c29147ca44cdb71"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "be8849cc5425c8e65776b24e9db3157958387afd1f0b3291d728d32b3093377a",
+      "report": {
+        "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/artifacts/gltf-validator.report.json",
+        "sha256": "831bf86ac0aaae57acd49a7843fa5fb776382bef301c4e35aa5d3f3ef9cf595a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "be8849cc5425c8e65776b24e9db3157958387afd1f0b3291d728d32b3093377a",
+      "report": {
+        "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/source-export.report.json",
+        "sha256": "03d940fb60f5e7404aad503802cd83051039437a9347648703974d53c0b9ad89"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "be8849cc5425c8e65776b24e9db3157958387afd1f0b3291d728d32b3093377a",
+      "report": {
+        "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/reproducibility-a.report.json",
+        "sha256": "71a070eb5d71f5518688a6b634827daf7bc4bd63bbd6848458f7c9b7e9b1cf8d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "be8849cc5425c8e65776b24e9db3157958387afd1f0b3291d728d32b3093377a",
+      "report": {
+        "path": "production/small-life-batch91/pterosaur-manus-pes-trackway/r002/qa/reproducibility-b.report.json",
+        "sha256": "3d3d2f48fb50fcecace00a7ceef201dfa2a8cdb1ecfcea625a127be4984d6376"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.08820000290870667,
+      0.0,
+      -0.18000000715255737
+    ],
+    "max": [
+      0.09000000357627869,
+      0.014000000432133675,
+      0.18000000715255737
+    ],
+    "size": [
+      0.17820000648498535,
+      0.014000000432133675,
+      0.36000001430511475
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "solid-sediment-with-six-negative-impressions",
+      "vertices": 151,
+      "triangles": 298,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 450,
+  "created_at": "2026-10-20T22:21:16.126913+00:00"
+}

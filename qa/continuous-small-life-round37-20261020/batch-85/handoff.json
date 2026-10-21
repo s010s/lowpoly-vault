@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "batch": 85,
+  "completed_at": "2026-10-20T21:24:29.203259+00:00",
+  "immutable_source_commit": "b727e577737d5108f5316ab898e8d7cbc4948f9f",
+  "maker_handoff_sha256": "9af0f746fce607fa78b72a88bf1706c89079d3dfc11c43b23a5849b41df2f185",
+  "summary": {
+    "PASS": [
+      "namacalathus"
+    ],
+    "REVISE": [
+      "piedmont-glacier",
+      "lava-channel",
+      "karst-polje"
+    ],
+    "BLOCKED": [],
+    "views_personally_inspected": 32,
+    "concepts_personally_inspected": 4,
+    "all_original_primary_pixel_files_personally_inspected": true,
+    "fresh_reexports_byte_identical": 4,
+    "khronos_errors": 0,
+    "khronos_warnings": 0,
+    "runtime_parse_pass": 4,
+    "input_hashes_verified": 757,
+    "raw_files_verified": 616,
+    "raw_bytes_verified": 52948655
+  },
+  "report": {
+    "path": "/workspace/shared/lowpoly-batch85-independent-qa-20261020/independent-qa.report.json",
+    "sha256": "7ddbcf2f7f1ad97ade71917ef4072d409ec8807fd3b1f00edb2fa1e1612ade5b"
+  },
+  "human_report": {
+    "path": "/workspace/shared/lowpoly-batch85-independent-qa-20261020/REPORT.md",
+    "sha256": "9e643a7b30aca1ad36e78e85ed1066a1a9b0f00c2dcd9dfdb3c3725f66d6d6d4"
+  },
+  "own_evidence_manifest": {
+    "path": "/workspace/shared/lowpoly-batch85-independent-qa-20261020/own-evidence-manifest.json",
+    "sha256": "ebb3b5834629e1878659ae8f8a67f7e52ef5485062c407f55063f7c7a9cc036d"
+  },
+  "source_unchanged": true,
+  "items": [
+    {
+      "asset_id": "namacalathus",
+      "revision": "r002",
+      "verdict": "PASS",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+        "brief_sha256": "04d5dbee592cb08c7567fd10a787394bcb9da341eea15946163642e00551c1d9",
+        "references_sha256": "eb17d51c14565902230ffa07249019382116663ec7c62982e2394ca71becffbf"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "repair_required": null
+    },
+    {
+      "asset_id": "piedmont-glacier",
+      "revision": "r004",
+      "verdict": "REVISE",
+      "subject": {
+        "revision": "r004",
+        "glb_sha256": "8f08cd8186406aec7964dea275aefa53f40c96d9400c4ae4ed5ec23a70031bba",
+        "brief_sha256": "2806649761f4a38d23f50987c830ab2f73cf8b9454e90e9fd3b5083744b41687",
+        "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "fail",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "repair_required": {
+        "id": "frozen-max-shoulder-height",
+        "expected": "original-brief.json and original config: parameters.max_shoulder_height_m=390",
+        "observed": "East shoulder maximum source/GLB z=394.483612061m; over390m by4.483612m.",
+        "repair": "Change the actual shoulder geometry to respect the immutable390m ceiling, retaining confined tongue, broad lobe and repaired cap separation. Preserve old revision; new exact source/GLB, closure, two queued rebuilds and eight final views are required."
+      }
+    },
+    {
+      "asset_id": "lava-channel",
+      "revision": "r002",
+      "verdict": "REVISE",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "fe46b63410f9c76383e8a115b7e31b16c15a09e3aae3a67cabbc860aa8f1b7d5",
+        "brief_sha256": "abc13272f7c13867cbbbd456dd00aa0a14105c44a738dedd984088e443f95967",
+        "references_sha256": "6b049e21e098df0f7f205345e5431073bc6ce42e1f8eae6afd59554316fd166f"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "fail",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "repair_required": {
+        "id": "frozen-levee-height-range",
+        "expected": "original-brief.json and original config: parameters.levee_height_range_m=[8,13]",
+        "observed": "Right levee crest maximum source/GLB z=14.580973625m; over13m by1.580974m. Left crest range8.859399–12.964069m; right10.002486–14.580974m.",
+        "repair": "Constrain the actual levee heights to the original8–13m range without hiding the defect with framing/material changes. Keep unequal irregular levees, quiet lowered floor and open ends. Preserve old revision and repeat exact final lifecycle for repair."
+      }
+    },
+    {
+      "asset_id": "karst-polje",
+      "revision": "r002",
+      "verdict": "REVISE",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "ffeca9a25439b3dbd662a57e482b5531da4196f50a5d0ce65ef0ffe3c0ca4f41",
+        "brief_sha256": "4cf196b52e00bd2dcf99df10a9d949db1595820c442cf5412dc58b0e97c308cf",
+        "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "fail",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "repair_required": {
+        "id": "frozen-rim-height-range",
+        "expected": "original-brief.json and original config: parameters.rim_height_range_m=[170,270]",
+        "observed": "Measured local maximum rim height in each of56 angular sectors. Range128.678604–238.827927m; 12 sectors have local crest below170m. This is a crest measurement, not floor/foot-slope misclassification.",
+        "repair": "Raise affected actual rim crest geometry into original170–270m range while preserving variable natural perimeter, closed depression and dominant flat floor. Do not change freeze. Preserve old revision and repeat exact final lifecycle for repair."
+      }
+    }
+  ],
+  "approvals": {
+    "formal": false,
+    "user": false,
+    "website": false,
+    "release": false
+  },
+  "authority": "Read-only independent QA only. No upload/push/PR/merge/release authorization claimed."
+}

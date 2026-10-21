@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual final fossil relief and slab pixels inspected individually. Negative impressed elongate module-divided body has a broad undivided conventional anterior, tapering posterior and relative median ridge; top and reversehero show the relief more clearly than low hero. Orthogonal edge views show genuine slab thickness, not anatomy hidden elsewhere. No eyes, legs, mouth or living animal asserted. Low-angle hero relief remains subdued and fine posterior modules simplify at512px; independent factual/visual review must judge readability against N14-03. Original r001 and ornamental-boundary r002 retained, revised margin evaluated separately in r003.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash c5f189656f3558c352c9413fadc7049a398e7ccf4bab1277e91722b1347cd5e2. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

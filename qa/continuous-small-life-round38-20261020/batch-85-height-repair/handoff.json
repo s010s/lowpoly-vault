@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-20T22:10:45.197506+00:00",
+  "task": "review_batch85_height_repairs",
+  "batch": 85,
+  "source_root": "/workspace/shared/lowpoly-batch85-height-repair-20261020",
+  "source_commit": "459054688a9d501f8e024b6ebbd1179cbda57c26",
+  "source_branch": "candidate/batch85-height-repair-20261020",
+  "maker_handoff": {
+    "path": "/workspace/shared/lowpoly-batch85-height-repair-20261020/production/small-life-batch85-height-repair/maker-handoff.json",
+    "sha256": "678b730ca4c713d567c1d7a2b672eb4b3b8759b016a26b84eb139082cd6dd17c"
+  },
+  "report": {
+    "path": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/independent-qa.report.json",
+    "sha256": "de575cac4a6e81f5b9b1e1c5825410b40710d8f3b53ea79ecfc5fbe2e72f361e"
+  },
+  "own_manifest": {
+    "path": "/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/own-evidence-manifest.json",
+    "sha256": "6857f24490d8911c71aa3940b351a2469428f851b03907a3aa02652117aa0b2c"
+  },
+  "summary": {
+    "PASS": [
+      "piedmont-glacier",
+      "lava-channel",
+      "karst-polje"
+    ],
+    "REVISE": [],
+    "BLOCKED": [],
+    "individual_final512px_views_inspected": 24,
+    "lossless_sheets_inspected": 3,
+    "concepts_inspected": 3,
+    "primary_pixel_files_inspected": 3,
+    "fresh_source_reexports_byte_identical": 3,
+    "fresh_runtime_parse_pass": 3,
+    "khronos_errors": 0,
+    "khronos_warnings": 0,
+    "checked_input_files": 954,
+    "preserved_original_raw_files": 616,
+    "preserved_original_raw_bytes": 52948655,
+    "new_repair_raw_files": 208,
+    "new_repair_raw_bytes": 11699906,
+    "distinct_maker_rebuild_blender_pids": [
+      12,
+      35,
+      58,
+      81,
+      104,
+      127
+    ]
+  },
+  "accepted_subjects": [
+    {
+      "asset_id": "piedmont-glacier",
+      "verdict": "PASS",
+      "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+      "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f",
+      "revision": "r005",
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      }
+    },
+    {
+      "asset_id": "lava-channel",
+      "verdict": "PASS",
+      "brief_sha256": "b190a0eb74fb44d5e76f03698ce044f7066dd39683adbd6c8cf11dee853ce4d4",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "references_sha256": "6b049e21e098df0f7f205345e5431073bc6ce42e1f8eae6afd59554316fd166f",
+      "revision": "r003",
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      }
+    },
+    {
+      "asset_id": "karst-polje",
+      "verdict": "PASS",
+      "brief_sha256": "18c5a9e5681a88576ea1207565682ec8ee5dea728cb5e9b2334225ea578fa891",
+      "glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+      "references_sha256": "fd90a8906886e838c424ecad410699ecbeeebb1035f038ec9b1dca4858d1a214",
+      "revision": "r003",
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      }
+    }
+  ],
+  "approval_scope": "Independent static-candidate acceptance only. GPU/scene not run; formal/user/website/release approvals false. No push/PR/merge.",
+  "original_evidence_preserved": true,
+  "namacalathus": "Outside scope and unchanged."
+}

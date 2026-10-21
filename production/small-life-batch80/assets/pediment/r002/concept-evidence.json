@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "pediment",
+  "revision": "r002",
+  "labels": {
+    "en": "pediment"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "5acccae174dabafb01b6f253d09684821d467726d796f251f831ead2f8dad24a"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "cf095b05a3c862153a4b3467653e0452c53e41d0b5feee6af7c0c806c7e2091d"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "f8eaea8f48c49900e89d495074aac8cab8e046bed4ae59c9b7d1e1a769617636"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "3c586522bed75362f6088c26d034f4412ea4f11b6ac19b3423a19e07c4699d81"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "2289f51e5714ebfa6a5793f2b15d4da136651e9d8439ef1d0dce1f9561b6fb3e"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "7f80bdb72ec41ceb9a1b9fa3d5e5ee67c0b7b3ee588083986a3064257c8fe484"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "f7c82c45aa9dafba204a7781ceeb84569c432b7ad29998446387f95f7556d5aa"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "792e1f7862dbb43122e108b68b302ce71f2f51cabaa6ccaac12c1afcac08a344"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "ea666ca99294c8f28f0bdbf8a9a61329e1e3cea9416c33b7d4ede52d8d4cca83"
+      }
+    ],
+    "cross_view_consistency_note": "Keep concept broad sloping bedrock and abrupt rear relief; simplify concept overdeep channels, ornate stacked cliff terraces and scattered rocks. Continuous gently inclined planar apron occupying majority footprint, sparse shallow erosional channels integrated in same volume. Mountain/apron lithology connected, not a sediment pile. Natural irregular outline and faceted broken boundary, no rectangular pedestal, vegetation or photoreal grains.",
+    "hidden_surface_decisions": "Keep concept broad sloping bedrock and abrupt rear relief; simplify concept overdeep channels, ornate stacked cliff terraces and scattered rocks. Continuous gently inclined planar apron occupying majority footprint, sparse shallow erosional channels integrated in same volume. Mountain/apron lithology connected, not a sediment pile. Natural irregular outline and faceted broken boundary, no rectangular pedestal, vegetation or photoreal grains."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:34:52.459795+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 14.5016,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "c51237c4553ad694b2310153a02743ab2810261ad83c1691e9a61b829cb6db43"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "c51237c4553ad694b2310153a02743ab2810261ad83c1691e9a61b829cb6db43"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "8b371886d18a7f0dd21a39236539905befdb78dc8dd77336d1c9e4d29e20927c",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "e7bf402310496998f8f610d0b0f1ae319faaa3196785a000f820a08323d9be1b"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "5acccae174dabafb01b6f253d09684821d467726d796f251f831ead2f8dad24a",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "ee60beb66c863f2dca4dc603ed46e9b2e030674ac2a0ebe007a1e5922b6d7382"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

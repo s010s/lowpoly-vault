@@ -1,0 +1,1972 @@
+{
+  "version": 1,
+  "status": "accepted_for_scoped_website_delivery_only",
+  "capture_head": "6530a347dd83bbb20ea367473b282406d104db09",
+  "run_id": 39533215138,
+  "artifact_id": 12316536359,
+  "zip_sha256": "c4e204faba6350f2fb09eceef1bbcc1fb1a66490f3f1353a74a4e142e5d0188c",
+  "receipt": {
+    "path": "qa/fifty-two-website-release-20261021/capture/final-gallery-receipt.json",
+    "sha256": "dca5c912d683210e3f4be085e53e9047f6c1fe0b939d0af0724aaf06b6b28b44"
+  },
+  "scope": "Faithful delivery mapping of separately authored independent original104 PNG review. Bounded website presentation only, not formal user approval, full original-brief reacceptance, physical GPU, composed target scene, trusted main proof or publication/deployment acceptance.",
+  "hardware_gpu_verified": false,
+  "target_scene_verified": false,
+  "formal_acceptance": "BLOCKED",
+  "independent_review_sources": [
+    {
+      "path": "qa/fifty-two-website-release-20261021/capture/independent-reviews/review-result.json",
+      "sha256": "c8bc4d6c72c2afcee5b0df67d51e21906276f7cea070a65d913c4d1d9f3ef817"
+    },
+    {
+      "path": "qa/fifty-two-website-release-20261021/capture/independent-reviews/review-report.md",
+      "sha256": "547e7fa95f442b7b7743fc4306eb6e760a4880a3263f6dfb1532c564746ce9ad"
+    },
+    {
+      "path": "qa/fifty-two-website-release-20261021/capture/independent-reviews/artifact-manifest.json",
+      "sha256": "88035a2ef5519762729afa09d0b12ecd383ee45fe73119f3361dadc77925d9d2"
+    }
+  ],
+  "reviewed_model_count": 52,
+  "reviewed_original_PNG_count": 104,
+  "no_holds": true,
+  "source_review_unchanged": true,
+  "mapping": "Same original per-model result and PNG bytes/dimensions; paths mapped to delivered public originals. Original full reviewer reports and manifest retained unchanged.",
+  "alpha_investigation": {
+    "initial_suspicion": "Raw transparent-image viewer showed colored striped halos.",
+    "resolution": "False positive as a visible opaque-artifact claim. Actual RGBA compositing removes the colored halos, leaving subtle native shadows. Fully transparent RGB is not judged visible. All104 images separately checked on light and dark composites.",
+    "sample_image": "arroyo-wash-wheel.png",
+    "sample_pixels_xy_rgba": [
+      [
+        120,
+        350,
+        128,
+        128,
+        128,
+        4
+      ],
+      [
+        150,
+        360,
+        128,
+        128,
+        128,
+        6
+      ],
+      [
+        180,
+        390,
+        153,
+        153,
+        153,
+        5
+      ],
+      [
+        220,
+        400,
+        128,
+        128,
+        128,
+        4
+      ],
+      [
+        300,
+        402,
+        255,
+        255,
+        255,
+        1
+      ]
+    ],
+    "white_background_additional_check": "arroyo-white.png"
+  },
+  "models": [
+    {
+      "id": "arroyo-wash",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "92dddf56297b9def8870405ac53b6d31ddddd18bc466ab3af827e92b2b82c3c1",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "fbbb88c318f2b14fafb35ca4f9cb956130ba8bb0a08df4ac468d541e6790112d",
+          "bytes": 111421,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/arroyo-wash.png",
+          "artifact_original_path": "gallery/posters/arroyo-wash.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "b4cd0638fa95e4758601814d208ed0d0a49677ef8aac835e9cd8758c86992fbe",
+          "bytes": 188422,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/arroyo-wash-wheel.png",
+          "artifact_original_path": "gallery/posters/arroyo-wash-wheel.png"
+        }
+      ],
+      "observation": "Dry pale channel, unequal scalloped banks and continuous cut terrain are readable; higher wheel view exposes bed better.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "badlands-ridge-network",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "b0127ad07c326e85373ff207610051646349205b18b46524c4ce13cc47c87091",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "9e71761e8870c103354fa3c1b03472b1184d1c5028bcabbad6f65dcc93016272",
+          "bytes": 115735,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/badlands-ridge-network.png",
+          "artifact_original_path": "gallery/posters/badlands-ridge-network.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "0d310eed54443972c143308cac07bca89d0cb654bbc99d345cee5abdefcf1eba",
+          "bytes": 162384,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/badlands-ridge-network-wheel.png",
+          "artifact_original_path": "gallery/posters/badlands-ridge-network-wheel.png"
+        }
+      ],
+      "observation": "Connected sharp divides and intervening gullies read as continuous eroded terrain; nearer ridges naturally conceal some rear drainage.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "banded-gneiss-outcrop",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "c86d8b9ef0bda9b0cbd0bc9820fc7f11d561b619608e8a7e3dc676adf6524fad",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "82cd61bbb8a009a3b6abdccb813d84066880974c6cc94f4c56301a8d94377baa",
+          "bytes": 146373,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/banded-gneiss-outcrop.png",
+          "artifact_original_path": "gallery/posters/banded-gneiss-outcrop.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "7fb82a8b4f6aced5e35317d5f3f4338c99648a6f374e6f26f714cf8bef9088d4",
+          "bytes": 151728,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/banded-gneiss-outcrop-wheel.png",
+          "artifact_original_path": "gallery/posters/banded-gneiss-outcrop-wheel.png"
+        }
+      ],
+      "observation": "Folded contrasting bands wrap the block and preserve relief, coarse angular facets and full silhouette.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "beach-cusp-field",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "8ca4797452265d9c6ab889c0ef4af75505b3e8544e4a78d68ee19d9d9b04e07f",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "15650dbce0439a7f6d54a37256cc7781f846afe5ffb978c74fb20354fdc0e13c",
+          "bytes": 67622,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/beach-cusp-field.png",
+          "artifact_original_path": "gallery/posters/beach-cusp-field.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "7550de94244cdc3053f0367fd96cd54d6c4563a611d1af9232b624cee03c5ef7",
+          "bytes": 115205,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/beach-cusp-field-wheel.png",
+          "artifact_original_path": "gallery/posters/beach-cusp-field-wheel.png"
+        }
+      ],
+      "observation": "Repeated horns and bays remain clear on one thin beach/water module; subtle surface grain is subordinate.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "calamites",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "44fec258d990ba04a28211ecd8f0c6bfc25071e2a8fdadf7fc864507c9168238",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "df90d3ab2caed3ac9ac80e25fdc79a727839d192dac6ff946501d120a28bc5f8",
+          "bytes": 112697,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/calamites.png",
+          "artifact_original_path": "gallery/posters/calamites.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "96064398c9e4827429253359a15b148307ab0a1e60bba36bcd80a3903d2e607b",
+          "bytes": 99972,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/calamites-wheel.png",
+          "artifact_original_path": "gallery/posters/calamites-wheel.png"
+        }
+      ],
+      "observation": "Substantial jointed trunk and spaced radiating tiers are legible; small subordinate foliage remains fine rather than oversized.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "caytonia",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "bfc40984e83cf7d181ad6ac0ec9e7912f7e2a091a77dbebfed4d18c8d5a990a9",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "1e73f4898f3f3dfc2add9082626b7a8652e206980c4a188b8b4501263b59e8e5",
+          "bytes": 73133,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/caytonia.png",
+          "artifact_original_path": "gallery/posters/caytonia.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "9d4545fd462cea249c41c435e563c3e530e33b1ca1d216e9f7105d31213bc898",
+          "bytes": 64649,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/caytonia-wheel.png",
+          "artifact_original_path": "gallery/posters/caytonia-wheel.png"
+        }
+      ],
+      "observation": "Slender axis and twelve rounded paired cupules separate cleanly; proximal mouths are not adequately exposed for anatomical confirmation at this angle.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "charnia",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "127650cc0c7dc1c00faf6606097dada8500846b2ec13401aba4966c12881a934",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "5399e496a54bde8efcc3d574f1499c7e908f34c25c778c52af3e80bdd238ab1c",
+          "bytes": 74525,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/charnia.png",
+          "artifact_original_path": "gallery/posters/charnia.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "379012fd27771343adda28ff4353efdde062b00a373b81cd7d1f47056680fcec",
+          "bytes": 145797,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/charnia-wheel.png",
+          "artifact_original_path": "gallery/posters/charnia-wheel.png"
+        }
+      ],
+      "observation": "Tapered embedded frond and alternating branching relief visible; wheel improves shallow feature legibility.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: shallow relief and fine subdivisions lose contrast at thumbnail size; wheel and full-size image retain useful morphology."
+      ]
+    },
+    {
+      "id": "chondrites-branching-trace",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "72a9922ede8d80e1c7c15795c66bf37fffd5dd066cdfaa5f419683f947f05cfe",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "4e42429974b98aa813110c1a1371968696841bd5cf2cc35e21a62f59181d5d86",
+          "bytes": 62872,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/chondrites-branching-trace.png",
+          "artifact_original_path": "gallery/posters/chondrites-branching-trace.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "b1683a85a95869e562299cb59ea5314f3d3b1ec177722ee2d2531b7ea626099c",
+          "bytes": 104178,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/chondrites-branching-trace-wheel.png",
+          "artifact_original_path": "gallery/posters/chondrites-branching-trace-wheel.png"
+        }
+      ],
+      "observation": "Acute dendritic forks and thin filled traces are legible against quiet slab; no broad leaflike lobes.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "cinder-cone",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "ecdadbb29a60ac31b7bf729cadf487026f4126bc3983c35ce9754fe0fca37883",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "17c0107961e7af93d8f3d17c2b6a734f9e3a7cc14a308629586538684bb9a766",
+          "bytes": 91643,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/cinder-cone.png",
+          "artifact_original_path": "gallery/posters/cinder-cone.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "1f1a443c33fbcaf3c7ba621307ddd5ada72f200ccc001238c94c0e68fa6321fd",
+          "bytes": 188749,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/cinder-cone-wheel.png",
+          "artifact_original_path": "gallery/posters/cinder-cone-wheel.png"
+        }
+      ],
+      "observation": "Broad dry summit bowl and low apron remain distinct; higher wheel view establishes cavity more clearly than detail.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "cloudina",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "eae46d63f9c74f3a53bd2862ad94a57d7302e5806c06432be9d996107dd7c805",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "e6b489bb8af5316b4b1701dad222db35ce0ade9e4f50bb1c1566605119880965",
+          "bytes": 84929,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/cloudina.png",
+          "artifact_original_path": "gallery/posters/cloudina.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "6eed4bd778328978d85a5ba539c84408237d2c03b44eb0202c3a2d1963f77c81",
+          "bytes": 69463,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/cloudina-wheel.png",
+          "artifact_original_path": "gallery/posters/cloudina-wheel.png"
+        }
+      ],
+      "observation": "Curved slender tube with nested flared collars and irregular open top rim is clear; bottom lumen is hidden by pose.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "dickinsonia",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "6a480a166adc2447f5541fe0b74ebba713498eadddc300f3bcf9ba351ad07728",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "cae163db273c76a246d90134f25b2854bcf3da2572db72b6c1b46f7eeca0ec2c",
+          "bytes": 99250,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/dickinsonia.png",
+          "artifact_original_path": "gallery/posters/dickinsonia.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "f869c63162a3fce2530438e117df398f86452c9f46c5f94074c1b224ece52cd8",
+          "bytes": 221226,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/dickinsonia-wheel.png",
+          "artifact_original_path": "gallery/posters/dickinsonia-wheel.png"
+        }
+      ],
+      "observation": "Oval shallow mould, serial ribs and broad undivided region read clearly in wheel; detail is lower contrast.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: shallow relief and fine subdivisions lose contrast at thumbnail size; wheel and full-size image retain useful morphology."
+      ]
+    },
+    {
+      "id": "diplopora",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "e6c998c57fa65b591c78c19d72d1e05d4a2291ac85d4575c1fbe9b39d31be138",
+          "bytes": 64235,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/diplopora.png",
+          "artifact_original_path": "gallery/posters/diplopora.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "1174b407eb6cc032e457029ab19217abb90c86ae8aaba4751d646cc6a309351a",
+          "bytes": 54054,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/diplopora-wheel.png",
+          "artifact_original_path": "gallery/posters/diplopora-wheel.png"
+        }
+      ],
+      "observation": "Open top lumen and six pore rows read on pale cylindrical fragment; unseen rear pores and bottom opening not confirmed by these views.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "eophyllophyton",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "5c810c56560ed16f53cd7a12255d2e63ede479f5c66d786d886c97dd302cac2f",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "a6d1b04d55b6a474b3f175d9b87a4b20331c217b176f91524b22bbf671265a12",
+          "bytes": 104423,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/eophyllophyton.png",
+          "artifact_original_path": "gallery/posters/eophyllophyton.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "71d5f4c66bd2b6ab96830541de82ef01b33117b1ca401174fd66ca1ee9b061eb",
+          "bytes": 96003,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/eophyllophyton-wheel.png",
+          "artifact_original_path": "gallery/posters/eophyllophyton-wheel.png"
+        }
+      ],
+      "observation": "Open slender branching and small divided terminal fans visible; fine individual divisions are resolution-sensitive.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "ernietta",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "72b30dfed8b7786a357e63102bd36ff26007cfb45af28923c6393b7314018e6b",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "ded052fd8c55f776a76adbd1cb05fc507a39a8f8315ddeebfec79332b7b90b0c",
+          "bytes": 133750,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/ernietta.png",
+          "artifact_original_path": "gallery/posters/ernietta.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "2c6231f3e3541c76a044168b624b054f307308d14fc32b528294b249ba72c1fc",
+          "bytes": 161764,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/ernietta-wheel.png",
+          "artifact_original_path": "gallery/posters/ernietta-wheel.png"
+        }
+      ],
+      "observation": "Compressed ribbed sack with open irregular boundary and recessed cavity clearly reads; basal seam partly obscured by pose.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "glossopteris",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "94a51d28f929130a5a9c546a83dc13a039e73a420bb33ba93f500f8d8fd2533d",
+          "bytes": 78869,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/glossopteris.png",
+          "artifact_original_path": "gallery/posters/glossopteris.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "274e25ce35519baefeb9aadf870e6e069c766346b20f6e577c7aa4d790ccbb08",
+          "bytes": 146205,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/glossopteris-wheel.png",
+          "artifact_original_path": "gallery/posters/glossopteris-wheel.png"
+        }
+      ],
+      "observation": "Entire elongated leaf outline, midrib and fine reticulation visible, stronger in wheel; mesh microstructure is not a thumbnail claim.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: shallow relief and fine subdivisions lose contrast at thumbnail size; wheel and full-size image retain useful morphology."
+      ]
+    },
+    {
+      "id": "impact-crater",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "cfd50732977a30859163cfee30ce7190324830c07500a26ce63aeaa47a67cd43",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "5547d59f3a016fac135c54b326927064ed2f3f51dce9681b565d6ff2c72d42cc",
+          "bytes": 77570,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/impact-crater.png",
+          "artifact_original_path": "gallery/posters/impact-crater.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "ea13729b6359e0d2b3b8006bfa667322d7a98fade2b47356b2cf8b383b8f5a1e",
+          "bytes": 143063,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/impact-crater-wheel.png",
+          "artifact_original_path": "gallery/posters/impact-crater-wheel.png"
+        }
+      ],
+      "observation": "Depressed bowl, irregular raised rim and surrounding apron distinguish impact basin from cone.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "inselberg",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "ea11ad794fa02469190c6dc911b0fffeeca0d1b3287a479274ed3c024505f2ad",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "1b1623700de41c68f46a334dabedfb6a27624817f9b8f0061bfcee29578b6979",
+          "bytes": 98454,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/inselberg.png",
+          "artifact_original_path": "gallery/posters/inselberg.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "dc4f6e6f19d26c3df85a39378a7a4eb5d786a6ed47ae00060f67212f44dfbec6",
+          "bytes": 177866,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/inselberg-wheel.png",
+          "artifact_original_path": "gallery/posters/inselberg-wheel.png"
+        }
+      ],
+      "observation": "Isolated rounded asymmetric mass and broad low plain readable, with minor surface raster grain.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "kame-mound",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "f3877ca2efcca03a31e5b904c55c00675f64d9e58f0bc7736bcda93ac96dccf2",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "8621dd8b1ddd2c846ef7f95ee8f0812d5e420f8ac7ed8a9bdab63113de5370d4",
+          "bytes": 130097,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/kame-mound.png",
+          "artifact_original_path": "gallery/posters/kame-mound.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "4e95615f9bc6fc85352165baa5aa97a8ac3aecfc48cc212927d65c1d260dfc2c",
+          "bytes": 252881,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/kame-mound-wheel.png",
+          "artifact_original_path": "gallery/posters/kame-mound-wheel.png"
+        }
+      ],
+      "observation": "Unequal mound/shoulder and integral gravel-like facets visible; continuous footprint has comfortable framing.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "karst-polje",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "40ec03951b3bc0a390344c5577f8dc81beebff352933cea63c81b6c64b49a2c7",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "e733d1a7d90847e425a15354572daa30e7374b606104a01bff41f866a35c6851",
+          "bytes": 80484,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/karst-polje.png",
+          "artifact_original_path": "gallery/posters/karst-polje.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "80a2f40a0e867c70507ec810f8ecb7290ee7edb1d0f4690930d4e31bd440f13f",
+          "bytes": 137320,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/karst-polje-wheel.png",
+          "artifact_original_path": "gallery/posters/karst-polje-wheel.png"
+        }
+      ],
+      "observation": "Broad enclosed planar floor and irregular enclosing slopes remain evident; wheel shows enclosure better.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "kimberella",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "6437dec0dada749eba5bdf2a7be12b03bc634da4d651b571bf92c6d99aba1947",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "dd904a6619512755eac5fe6ff95de8b83f28c9962cb1016987387f77e718501d",
+          "bytes": 81115,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/kimberella.png",
+          "artifact_original_path": "gallery/posters/kimberella.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "b63b97bde583b9daae6874e1145bd62bcafbcae7ade6fb7291bcefb1b2e47e2a",
+          "bytes": 147335,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/kimberella-wheel.png",
+          "artifact_original_path": "gallery/posters/kimberella-wheel.png"
+        }
+      ],
+      "observation": "Oblong shallow impression with smooth center and grooved margin visible; wheel improves marginal relief.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: shallow relief and fine subdivisions lose contrast at thumbnail size; wheel and full-size image retain useful morphology."
+      ]
+    },
+    {
+      "id": "lava-channel",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "fff66e5394bafc6233783389ea7f4598a114fbb2097fb48f5d3af7093477c9e9",
+          "bytes": 87486,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/lava-channel.png",
+          "artifact_original_path": "gallery/posters/lava-channel.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "353b4d856bc4639d76e86b0e16f90d2636c3272b35ca21028b807fadc111a83f",
+          "bytes": 152989,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/lava-channel-wheel.png",
+          "artifact_original_path": "gallery/posters/lava-channel-wheel.png"
+        }
+      ],
+      "observation": "Continuous open sinuous floor between unequal dark levees clearly separates from roofed tube; silhouette contrast lower on dark backgrounds but recognizable.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "lava-tube-entrance",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "b7022acdc470a85c3ff76fa13025e3a95e75ac6fe7a5b9b6a3ee2d98c3789f00",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "4eb692900e014b35f6e1690b6efb8ca089f253eea9bda3679397278127f565b9",
+          "bytes": 96919,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/lava-tube-entrance.png",
+          "artifact_original_path": "gallery/posters/lava-tube-entrance.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "4eb932e2139d87e6ed5d2e1b7b678d45ae69427dd97b740ce63396f8426cb44f",
+          "bytes": 143279,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/lava-tube-entrance-wheel.png",
+          "artifact_original_path": "gallery/posters/lava-tube-entrance-wheel.png"
+        }
+      ],
+      "observation": "Low roofed entrance, wall thickness and receding interior floor visible; dark cavity is bounded and not a floating black plane.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "lumbricaria-thread-like-coprolite",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "5c473c15091b75f6c1bd82d10d9cd478e1877369e4fc5d101dcea5653144a76e",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "424bf36ba01ca4ecb240774538e72f230f2652720c95e461053d3036526ba9bd",
+          "bytes": 75885,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/lumbricaria-thread-like-coprolite.png",
+          "artifact_original_path": "gallery/posters/lumbricaria-thread-like-coprolite.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "bf34ac5cc5ee65647b14c259c9a9e9fce3ce23417c288888fa2e2ae563fb5b47",
+          "bytes": 137445,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/lumbricaria-thread-like-coprolite-wheel.png",
+          "artifact_original_path": "gallery/posters/lumbricaria-thread-like-coprolite-wheel.png"
+        }
+      ],
+      "observation": "Fine irregular loops and trailing ends retain open negative spaces on slab; crossings read as compressed contact.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "namacalathus",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "451b4bbb7006fb7f207466590d0fe01165a185fe91f0cb28af129776de600169",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "3605868c2b88a7ebd37c97675ceeab46f977675b924746199f14230475cd8704",
+          "bytes": 112022,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/namacalathus.png",
+          "artifact_original_path": "gallery/posters/namacalathus.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "aa1d357940ab9f3c63dee68c8d812151d52bcbac50c9c3a9fc687fc02284b35c",
+          "bytes": 99690,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/namacalathus-wheel.png",
+          "artifact_original_path": "gallery/posters/namacalathus-wheel.png"
+        }
+      ],
+      "observation": "Hollow goblet, upper aperture and visible lateral lumens read clearly on continuous stalk; not all six openings are visible.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "nathorstiana",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "29f7ce0852467223d8a9cb820e6373a0a5e891364a1110a05d60b25b8dd34c1b",
+          "bytes": 128204,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/nathorstiana.png",
+          "artifact_original_path": "gallery/posters/nathorstiana.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "5e9d323fbc5fa3686d69f10bf7f3f832dd015e16d2c0da95bdffd25ce3d12cd7",
+          "bytes": 121675,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/nathorstiana-wheel.png",
+          "artifact_original_path": "gallery/posters/nathorstiana-wheel.png"
+        }
+      ],
+      "observation": "Quill-like terminal tuft, short stem, swollen ribbed base and splayed rootlets visible with full silhouette.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "oncoid-bed",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "e18d0eb0817ad70bc1dbc5c4106d8ec536a11e20d5e090794094d119ac9f9da8",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "c816468fbf5c8a977728b88bbf58395f19253c363ca707b98dfc113f064206b4",
+          "bytes": 94162,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/oncoid-bed.png",
+          "artifact_original_path": "gallery/posters/oncoid-bed.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "c3420810a0b8bda913002cc3c6a7fa9a2a4fde044405b75a5e7a02cfcaf5e18b",
+          "bytes": 153321,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/oncoid-bed-wheel.png",
+          "artifact_original_path": "gallery/posters/oncoid-bed-wheel.png"
+        }
+      ],
+      "observation": "Separate rounded grains and three forward concentric cutfaces read well; higher wheel reduces rear overlap.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "patterned-stone-circles",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "703a9aabf6e3a57b3dd80999a71948a9e51e6a837c79169d148f540c46caa727",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "b65b0c6c7163a5ab71d3e4c06bde50103dcbbcf3b867eab24bb02d1f7f2ec41a",
+          "bytes": 104069,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/patterned-stone-circles.png",
+          "artifact_original_path": "gallery/posters/patterned-stone-circles.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "c8fbaff19d94ebad9b5c781ca4ee7faaa7bcadad1292dd1d16e580abfdd4e951",
+          "bytes": 205173,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/patterned-stone-circles-wheel.png",
+          "artifact_original_path": "gallery/posters/patterned-stone-circles-wheel.png"
+        }
+      ],
+      "observation": "Five unequal coarse-clast borders and quiet fine centers read as low relief rather than detached hoops.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "pediment",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "5acccae174dabafb01b6f253d09684821d467726d796f251f831ead2f8dad24a",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "399e11bd59aee9b85c1f6b0edd2bb7a2094caf1640aaeec495641a68ba084979",
+          "bytes": 100065,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pediment.png",
+          "artifact_original_path": "gallery/posters/pediment.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "4038fb6728a8cbf90cfc5533d47ea65e145818eca561364453783716be68cc65",
+          "bytes": 153929,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pediment-wheel.png",
+          "artifact_original_path": "gallery/posters/pediment-wheel.png"
+        }
+      ],
+      "observation": "Broad low apron remains dominant below abrupt mountain front; shallow washes are low contrast and not fully diagnostic at thumbnail size.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "pertica",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "70f0dbec0a276763480e7ceff2c28092f3e69e204fd9c02ca3bd3f02ad62b196",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "19c9eddd899c513f9d07b9acde72a84eedf8fcc05bce4229d9597fc2775f87dd",
+          "bytes": 123073,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pertica.png",
+          "artifact_original_path": "gallery/posters/pertica.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "7b0593b4615ee91fabeac09daf3cd52ae0053cfd73185c988f2256176ba9709b",
+          "bytes": 119411,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pertica-wheel.png",
+          "artifact_original_path": "gallery/posters/pertica-wheel.png"
+        }
+      ],
+      "observation": "Successive lateral sprays, naked forks and golden terminal clusters remain separable; smallest distal branches are thin.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "piedmont-glacier",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "44b670f518d871fd64a436d3c643990a0882b5641ac97231c9988fc2da80cd88",
+          "bytes": 84116,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/piedmont-glacier.png",
+          "artifact_original_path": "gallery/posters/piedmont-glacier.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "3cd1df85a899475dbcb0f742639f2a90340b97d1f201ddd947e944452d8da34d",
+          "bytes": 120075,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/piedmont-glacier-wheel.png",
+          "artifact_original_path": "gallery/posters/piedmont-glacier-wheel.png"
+        }
+      ],
+      "observation": "Narrow mountain-confined tongue opens into broad rounded foreland lobe; continuous ice visible.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "planolites-smooth-burrow",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "84ef7cdf4286e84cf1ec5473678c3bcbf7dd01258b9e95468339236761a3e694",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "017ef9da7bc7abc8e6f6d128eeafcc617ddabcb9574f7c9f8c655404da765424",
+          "bytes": 58626,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/planolites-smooth-burrow.png",
+          "artifact_original_path": "gallery/posters/planolites-smooth-burrow.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "63e9a7eb521e0536e09e94bf2159abf749aaf395dac228bdef2e7b53b717669b",
+          "bytes": 91383,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/planolites-smooth-burrow-wheel.png",
+          "artifact_original_path": "gallery/posters/planolites-smooth-burrow-wheel.png"
+        }
+      ],
+      "observation": "Single smooth unbranched winding filled tube and solid cut end readable on quiet matrix.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "playa-basin",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "9b6bdef5c02948e1cb0941b531449bf44825bd3c4b7d9f5a858e3ff29183127e",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "ce5da650a958a1a7c0d688abf4003ca7e4d56b7976d5cdf9ce518a0e72dde5e0",
+          "bytes": 91026,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/playa-basin.png",
+          "artifact_original_path": "gallery/posters/playa-basin.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "edf9b9b05a1878252597777689d6fc301778ae18c2a9434b64ff8cb6f9de6ff8",
+          "bytes": 184625,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/playa-basin-wheel.png",
+          "artifact_original_path": "gallery/posters/playa-basin-wheel.png"
+        }
+      ],
+      "observation": "Broad near-flat dry center and continuous subtle rim read as shallow enclosed basin; slight surface grain does not hide outline.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "pseudobornia",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "54c683a7e9a8efdcab16c49dc61a577a67e200122a043b00b357243fe5cb77e2",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "ab326b8d1e67de043ce8094152e3433e024dddf67bae84a35db4fc682644dad3",
+          "bytes": 104887,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pseudobornia.png",
+          "artifact_original_path": "gallery/posters/pseudobornia.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "d81cfa11c4c78e53f3600a6e25b5f6eb89466c67e6f607ac6ee01e10190255e5",
+          "bytes": 91037,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pseudobornia-wheel.png",
+          "artifact_original_path": "gallery/posters/pseudobornia-wheel.png"
+        }
+      ],
+      "observation": "Articulated main axis, sparse oblique hierarchy and subordinate terminal foliage remain clear; fine leaf dissection is not individually resolved in thumbnails.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "psilophyton",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "a61dc95af4c5d0211b2318836f58b4b8c463a990d7c02d7b35c07ade7e923bd4",
+          "bytes": 100054,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/psilophyton.png",
+          "artifact_original_path": "gallery/posters/psilophyton.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "ce2d4e85d59e92d770650bcf4755da0222f9be7a5bb7ef84284a8defc0718a54",
+          "bytes": 90767,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/psilophyton-wheel.png",
+          "artifact_original_path": "gallery/posters/psilophyton-wheel.png"
+        }
+      ],
+      "observation": "Naked dominant axis, unequal forks and paired hanging terminal bodies are readable; individual finest forks require full-size view.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "pterosaur-manus-pes-trackway",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "be8849cc5425c8e65776b24e9db3157958387afd1f0b3291d728d32b3093377a",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "5ed1bfef44498542ea8f9efba84fbb210c872f5d61a8f647ffb922a0197c6aea",
+          "bytes": 52518,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pterosaur-manus-pes-trackway.png",
+          "artifact_original_path": "gallery/posters/pterosaur-manus-pes-trackway.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "9cb169f3752d2f518b2d7cc9fa121bf2564f1a6b17ba727c503b765038e30d05",
+          "bytes": 96444,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/pterosaur-manus-pes-trackway-wheel.png",
+          "artifact_original_path": "gallery/posters/pterosaur-manus-pes-trackway-wheel.png"
+        }
+      ],
+      "observation": "Three separated paired impressions readable; asymmetric three-pronged manus distinct from elongated pes, clearer in wheel.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "rhacophyton",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "2ab7364eca2c8905a5f99e3344a6ef3c3f1956618a00ed9606dd3b4948c71273",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "57f7125b89b7875f41a262e7f9eb5c42566940ea0774e323f7a85c3a5e5da70f",
+          "bytes": 122668,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/rhacophyton.png",
+          "artifact_original_path": "gallery/posters/rhacophyton.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "ffac9872d3f30d212999c678459dee1a2147d72baa9f964fdd862c366c4b1f0c",
+          "bytes": 116855,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/rhacophyton-wheel.png",
+          "artifact_original_path": "gallery/posters/rhacophyton-wheel.png"
+        }
+      ],
+      "observation": "Open non-laminate frond frameworks and slender trunk readable; very fine branchlets weaken at thumbnail size without loss of overall silhouette.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "rosselia-concentrically-filled-burrow",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "779790897ccfd066055c41b4603a297450685c55263df7a974f5771a3ba58eb0",
+          "bytes": 83361,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/rosselia-concentrically-filled-burrow.png",
+          "artifact_original_path": "gallery/posters/rosselia-concentrically-filled-burrow.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "ec10017f75d709c5c329d66ee523f388089dd920287bce5746f2847e4abc63f1",
+          "bytes": 82364,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/rosselia-concentrically-filled-burrow-wheel.png",
+          "artifact_original_path": "gallery/posters/rosselia-concentrically-filled-burrow-wheel.png"
+        }
+      ],
+      "observation": "Nested top rings and downward tapering concentric section clearly distinguish filled funnel from hollow crater.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "sauropod-manus-pes-trackway",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "ccd0b3fa682a43e50384414b98aac04faa78414e8ef92e51427e7025a8b86952",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "65efa52a4ae11a1d33fae6904c79a5edf44856d8e73963b0a29d45cc3921a380",
+          "bytes": 53761,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/sauropod-manus-pes-trackway.png",
+          "artifact_original_path": "gallery/posters/sauropod-manus-pes-trackway.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "c2c95724e2bae45498285b4a89a345938c2779eaf5bb150f85ab3f8cae3216b0",
+          "bytes": 97345,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/sauropod-manus-pes-trackway-wheel.png",
+          "artifact_original_path": "gallery/posters/sauropod-manus-pes-trackway-wheel.png"
+        }
+      ],
+      "observation": "Three pairs of larger rounded pes and smaller crescent manus remain separated with open middle gap.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "shield-volcano",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "6d1b61ad7e87c8cd5ed8c8b3045ec2004332283f4d7a0d0017b06e9f5675567d",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "1a117aca859f2dfa6aeaffeb23b2883cf2f15bf4be7096cc66c09fb09a222482",
+          "bytes": 100963,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/shield-volcano.png",
+          "artifact_original_path": "gallery/posters/shield-volcano.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "01232368fa8a9c8c42039ab4c6f408da7a5886511abce42c9898a88bf5c010ab",
+          "bytes": 215126,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/shield-volcano-wheel.png",
+          "artifact_original_path": "gallery/posters/shield-volcano-wheel.png"
+        }
+      ],
+      "observation": "Broad low convex shield silhouette is clear; small summit depression is subtle in detail and only modestly visible in wheel.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: summit pit cannot be treated as reliably identifiable in tiny thumbnails; the broad shield silhouette remains readable."
+      ]
+    },
+    {
+      "id": "sigillaria",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "c0b7a2040741e5583d957efdd5b0244314a1611bf840965b5b84673e32847b20",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "dc31396d7953483566bb7e128d79158dad208639856eb8b753314507b5bc6108",
+          "bytes": 93725,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/sigillaria.png",
+          "artifact_original_path": "gallery/posters/sigillaria.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "6dee97d0b8a84da5aaa2f7894b4c2c11fd14df03377c7c4373fc631fec1ea4be",
+          "bytes": 81490,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/sigillaria-wheel.png",
+          "artifact_original_path": "gallery/posters/sigillaria-wheel.png"
+        }
+      ],
+      "observation": "Continuous ribbed column, vertical scar series and terminal strap foliage read clearly; smallest scars are not countable in thumbnail.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: finest branches/leaves become faint or merge at 160px detail and 288px wheel thumbnail dimensions; overall hierarchy remains readable. Use full-size/model view for microfeatures."
+      ]
+    },
+    {
+      "id": "skolithos-pipe-field",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "4d383f584346878abaf21164d9e78ac2b9b9cf6a9e5c8887c2f3532a899428f5",
+          "bytes": 72253,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/skolithos-pipe-field.png",
+          "artifact_original_path": "gallery/posters/skolithos-pipe-field.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "fbd24b9e845c38e322457e751ce7115d1cbc185cb2d6804325339da4cb334575",
+          "bytes": 74870,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/skolithos-pipe-field-wheel.png",
+          "artifact_original_path": "gallery/posters/skolithos-pipe-field-wheel.png"
+        }
+      ],
+      "observation": "Three exposed vertical shafts and seven top positions are readable in stepped cutaway without obstructing geometry.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "spatter-cone",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "51b4daefbebba036ba57c76b932f2d18b265349c84d047261dbfbd1c223936a7",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "75a47432d24ad0764730e41463e262e4c9ec526241397a12747529e45d02ebf5",
+          "bytes": 110041,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/spatter-cone.png",
+          "artifact_original_path": "gallery/posters/spatter-cone.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "446788fad6098a4b1919fc689909dd4b8c75ae27a3e1601b3d24440f5f2841e7",
+          "bytes": 189573,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/spatter-cone-wheel.png",
+          "artifact_original_path": "gallery/posters/spatter-cone-wheel.png"
+        }
+      ],
+      "observation": "Irregular fused mound, uneven rim and narrow dark vent readable; front slope naturally hides deepest cavity.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "spiral-coprolite",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "bce0f83c085f7ae512293612f6efc7b5e438bfec18be500212f86be9d77edb65",
+          "bytes": 73523,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/spiral-coprolite.png",
+          "artifact_original_path": "gallery/posters/spiral-coprolite.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "8affa39e86c5448648c8395887d21abc0d0a5ec0af6731fe68cd9d0ae48804bc",
+          "bytes": 102739,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/spiral-coprolite-wheel.png",
+          "artifact_original_path": "gallery/posters/spiral-coprolite-wheel.png"
+        }
+      ],
+      "observation": "Solid tapered oblong mass and broad shallow folds readable on matrix; shadow under tapered end does not imply detached whole body.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "spriggina",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "c5f189656f3558c352c9413fadc7049a398e7ccf4bab1277e91722b1347cd5e2",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "eb1954c5a62975d1bf7839f81bd9b86f30bc89e4e354079f3084ba9aeaa8cd00",
+          "bytes": 78929,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/spriggina.png",
+          "artifact_original_path": "gallery/posters/spriggina.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "e749d27206bfa92ef0ceb9ae7aaf401248a942c3f3c5b903f7db1933a4ad4e6c",
+          "bytes": 145433,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/spriggina-wheel.png",
+          "artifact_original_path": "gallery/posters/spriggina-wheel.png"
+        }
+      ],
+      "observation": "Small shallow negative impression and tapering modules are visible in full-size views; thumbnail shows form but not detailed boundaries.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: shallow relief and fine subdivisions lose contrast at thumbnail size; wheel and full-size image retain useful morphology."
+      ]
+    },
+    {
+      "id": "stratovolcano",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "c49a55663c95bad0c4b537f51b611490897e1f3bfde8b839892d5a9573874998",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "127b2ed14e3ef0d8ed805ec0627be1f4eea85e286a351b8d4dbf64d43ba056f2",
+          "bytes": 118335,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/stratovolcano.png",
+          "artifact_original_path": "gallery/posters/stratovolcano.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "09a3a93f756b20cfd9feec95d76f37f0368a1a1d8779fa0cff740027d8abaf1b",
+          "bytes": 220782,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/stratovolcano-wheel.png",
+          "artifact_original_path": "gallery/posters/stratovolcano-wheel.png"
+        }
+      ],
+      "observation": "Steep summit, broad skirt and radial gullies are clear with a small subordinate summit opening.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "teichichnus-spreite-wall",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "d70fc4339e0160558adbcd6beccd9a1aa6d1e8a8820ca4af1cc5818607c05990",
+          "bytes": 97070,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/teichichnus-spreite-wall.png",
+          "artifact_original_path": "gallery/posters/teichichnus-spreite-wall.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "321f1e4726138539366efd9a82eeab785cfd7e708a9c3b3de25239abb9e89a85",
+          "bytes": 130030,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/teichichnus-spreite-wall-wheel.png",
+          "artifact_original_path": "gallery/posters/teichichnus-spreite-wall-wheel.png"
+        }
+      ],
+      "observation": "Closely stacked gutter-like laminae, top tube and exposed end section are readable on solid basal slab.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "thrombolite-mound",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "8e303602455cc235dff744df8faad4870282c124b1a2257b8c73831c816d8a3f",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "ef0de8112ddb3ee973da7c14fc05ac50f869b2d56c57fba9e467e6a1d70ef750",
+          "bytes": 78594,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/thrombolite-mound.png",
+          "artifact_original_path": "gallery/posters/thrombolite-mound.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "7a2f6ecca0e830ecb326f99f14a6e6717d520a65fb6d8088e66f0cf7398dba33",
+          "bytes": 93855,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/thrombolite-mound-wheel.png",
+          "artifact_original_path": "gallery/posters/thrombolite-mound-wheel.png"
+        }
+      ],
+      "observation": "Coherent squat mound and front clotted teaching cut readable, with no separate floating cutting plane.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "tower-karst",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "897aea54745d39fe910db3e9543988ddda2445b81120a9ee4e49fc1268a73083",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "80e7bf3365c460dc5e7c7887e2e500c2e68daf5d8751291b17b1d2469c6f554a",
+          "bytes": 96727,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/tower-karst.png",
+          "artifact_original_path": "gallery/posters/tower-karst.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "400af788a559a8460bb002b2769cd442b9423c3e8768c3616e1a7b1eed2d6cdb",
+          "bytes": 148271,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/tower-karst-wheel.png",
+          "artifact_original_path": "gallery/posters/tower-karst-wheel.png"
+        }
+      ],
+      "observation": "Four unequal separate towers and open plain corridors visible; faint straight floor raster seams are minor and do not disconnect terrain.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established.",
+        "Nonblocking: faint straight raster seams on plain visible at full size; not opaque fragments or shape-breaking gaps."
+      ]
+    },
+    {
+      "id": "travertine-terrace-pools",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "f0b8e2558e44250555c7205858f602e1bcab8ba33f2b2f1a8fb0934b3227c432",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "740de4dd0da3a03f32bf0ba7b3182696e2750638d9b6292a54c223c361dc33aa",
+          "bytes": 86739,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/travertine-terrace-pools.png",
+          "artifact_original_path": "gallery/posters/travertine-terrace-pools.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "fedbd03b7157b6a4ef08520712319fc58500a26a7ab921733c0d461d9a1b74f0",
+          "bytes": 125137,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/travertine-terrace-pools-wheel.png",
+          "artifact_original_path": "gallery/posters/travertine-terrace-pools-wheel.png"
+        }
+      ],
+      "observation": "Five connected shallow pools, pale rims and continuous sidewall visible; light-on-light contrast is modest but steps remain distinct.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "valley-glacier",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "32ed50dddd1611d06d0ddcaa9d96a9b1af6b58e904a932879ba26f812b3f036d",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "dfc6413f9c988715bfa3cc051884c875bbae1ceb5422d6e5df81f24f60e0ce7a",
+          "bytes": 98443,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/valley-glacier.png",
+          "artifact_original_path": "gallery/posters/valley-glacier.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "1ab13e66910e05fde23de252b1c3292d0cfe2470888538cd308c149a01a9581d",
+          "bytes": 133568,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/valley-glacier-wheel.png",
+          "artifact_original_path": "gallery/posters/valley-glacier-wheel.png"
+        }
+      ],
+      "observation": "Continuous pale ice tongue between unequal higher sides visible; higher wheel improves lower crevasse visibility.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "volcanic-neck",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "dcafcbcdc85940fc4df139c5de617f9a4d9543a3b7e744c1610e38c9375acdab",
+          "bytes": 110399,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/volcanic-neck.png",
+          "artifact_original_path": "gallery/posters/volcanic-neck.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "70b3dae1cd36b664ee45522f6eaa5031735c7803bbea366d45b7a2e8af4cd736",
+          "bytes": 144893,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/volcanic-neck-wheel.png",
+          "artifact_original_path": "gallery/posters/volcanic-neck-wheel.png"
+        }
+      ],
+      "observation": "Abrupt vertically faceted blunt neck over low integrated foot is clear, without crater or cone silhouette.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    },
+    {
+      "id": "zoophycos-spiral-spreite",
+      "result": "PASS_BOUNDED_PRESENTATION",
+      "source_glb_sha256": "c3819e278beb43ba6651a38bd6bcfe509ec7218d13b5bfd51c8d0f4090030e56",
+      "original_pngs": [
+        {
+          "kind": "detail",
+          "sha256": "31401a8be78c42aef9f2cd9ba953e4f8e56501cc14a5408cb6c2aa007ed839a0",
+          "bytes": 83850,
+          "dimensions": [
+            512,
+            512
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/zoophycos-spiral-spreite.png",
+          "artifact_original_path": "gallery/posters/zoophycos-spiral-spreite.png"
+        },
+        {
+          "kind": "wheel",
+          "sha256": "84b3f492905cdbf228c78320eaadd65d0782b00653073b9917750726190f004a",
+          "bytes": 143710,
+          "dimensions": [
+            768,
+            432
+          ],
+          "original_pixels_independently_reviewed": true,
+          "path": "site/public/gallery/posters/zoophycos-spiral-spreite-wheel.png",
+          "artifact_original_path": "gallery/posters/zoophycos-spiral-spreite-wheel.png"
+        }
+      ],
+      "observation": "Broad spiral sheet, radial curved lamellae, offset edge and narrow axial connection readable; underside is naturally partly hidden.",
+      "blocking_findings": [],
+      "limitations_and_nonblocking_observations": [
+        "Only these two fixed camera presentations are accepted; hidden surfaces, exact anatomical counts and full original-brief acceptance are not newly established."
+      ]
+    }
+  ]
+}

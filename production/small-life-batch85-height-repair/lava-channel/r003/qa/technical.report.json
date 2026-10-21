@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+    "brief_sha256": "b190a0eb74fb44d5e76f03698ce044f7066dd39683adbd6c8cf11dee853ce4d4",
+    "references_sha256": "6b049e21e098df0f7f205345e5431073bc6ce42e1f8eae6afd59554316fd166f"
+  },
+  "status": "pass",
+  "method": "Project GLB audit; official Khronos; fresh saved-source reopen, evaluated counts and actual reexport; two separately executed queued semantic rebuilds; actual component crest measurements.",
+  "observations": [
+    "All named automated checks passed against this exact subject.",
+    "Saved-source reexport is byte-identical; two rebuilds have different Blender PIDs, requests/results and output payloads.",
+    "Original explicit height bounds are now measured within range. No palette, renderer, frozen scope or source modification."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1030,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 73992,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/static-glb.report.json",
+        "sha256": "ff1233fa5285cab71c6368f2f2d520a54db48378352f1a08ea277a124764b59c"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/lava-channel/r003/artifacts/gltf-validator.report.json",
+        "sha256": "b2f5c3fe8aedff6f094f207c5d8b988f56913ac025ebec0418f744be14f35f20"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/source-export.report.json",
+        "sha256": "f73fa846433af1822e7857424301c3b4ba3944c0d03493784b2dd999a7c2eccf"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/reproducibility-a.report.json",
+        "sha256": "9d931470f1cada91ff13385cbabfe38a0145fb906da7f08b7e4abf5093e53178"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/reproducibility-b.report.json",
+        "sha256": "fcccf01bebefd2508596d41a22e5e90152ce93299d86fe425362d90c3aa9bba3"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "saved_source_reexport",
+      "status": "pass",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/source-reexport.report.json",
+        "sha256": "33340b3f5875a7e53c156ba067a9b6b040a198c9cc8abc6eeda02e23ff9b87c0"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "frozen_height_measurement",
+      "status": "pass",
+      "glb_sha256": "552dca8452372f2512e9eec4aa43e25111318a01187f04ad33d4146e19705eba",
+      "report": {
+        "path": "production/small-life-batch85-height-repair/lava-channel/r003/qa/height-measurements-technical.json",
+        "sha256": "ef6cc4921400f686d444e40cf93b1df41f3ba36c0e9c441353d8e50ed6de7d4a"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -32.66007614135742,
+      0.0,
+      -60.0
+    ],
+    "max": [
+      33.428466796875,
+      12.964069366455078,
+      60.0
+    ],
+    "size": [
+      66.08854293823242,
+      12.964069366455078,
+      120.0
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "cooled-floor-and-welded-levee-terrain",
+      "vertices": 517,
+      "triangles": 1030,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 2700,
+  "created_at": "2026-10-20T21:58:47.857473+00:00"
+}

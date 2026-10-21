@@ -1,0 +1,26 @@
+{
+  "asset_id": "banded-gneiss-outcrop",
+  "revision": "r005",
+  "seed": 75,
+  "nominal_dimensions_blender_xyz_m": [
+    3.4,
+    1.6,
+    2.2
+  ],
+  "palette": {
+    "felsic": "#BDB7A6",
+    "mafic": "#555C58",
+    "feldspar": "#C5B6A3",
+    "matrix": "#82847B"
+  },
+  "blender_threads": 2,
+  "three_version": "0.180.0",
+  "concept_inspected_at": "2026-10-20T15:28:24.340011+00:00",
+  "modeling_decisions": "Retain concept coarse open fold, thick contrasting mineral bands, chunky broken faces. Simplify photoreal microtexture into integrated angular coarse mineral facets. Use one closed surface mesh with folded full-depth foliation coordinates, physical differential erosion ribs; no colored shells or coplanar tiles. Eight coarse uneven bands, not dozens of BIF laminae. Avoid treating the crosscutting pale veins in supplemental USGS DeathValley photo as foliation.",
+  "repair_design": "r004 diagnostic pixels resolve QA sawtooth defect using coherent band-contour polygons. Physical check found15 rim T-junction edges because float32 membership residual exceeded1e-7; r005 uses scale-appropriate1e-5 boundary membership tolerance to propagate exact contour split vertices into side faces. Same cap shape, coherent segmentation, palette, camera, renderer and original purpose/scope retained. r004 diagnostic and failure evidence immutable.",
+  "derived_from_original_premodel_file_sha256": "0c580243586757ecf39280f1eb889fe8b0cd9a4b217b48aeaed7b30c91ed920f",
+  "derived_from_prior_revision_file_sha256": "ed06f3c19a563dd902564238d4ea91ddeeb9d489b83699f7c7a472f43a668142",
+  "derived_from_r003_file_sha256": "4a1981e609809dfbff032d106af2fd365f4302341ff5ecfef6f93d184035b655",
+  "cap_segmentation": "Exact piecewise-linear mineral-band contour clipping of actual surface triangles; shared boundary refinement, no triangle-centroid paint steps.",
+  "derived_from_r004_file_sha256": "096847fbd0bbf254bf15586a01bef451ad6fad4f32d3a2c9633fe32ae879a1e0"
+}

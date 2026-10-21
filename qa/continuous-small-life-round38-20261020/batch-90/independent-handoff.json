@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-20T22:34:48.382915+00:00",
+  "batch": 90,
+  "source_commit": "625b5f2cdd97623e216874fd981958852a3a910d",
+  "direct_parent": "43e40fc89f2b369a5f1858e72fa58a0d10318124",
+  "result": "3 PASS,1 REVISE",
+  "review_scope": "independent static-stylized-v1 only",
+  "gpu": "not_run",
+  "scene": "not_run",
+  "formal_user_release_live_approval": false,
+  "report": {
+    "path": "/workspace/shared/lowpoly-batch90-independent-qa-20261020/independent-review.json",
+    "sha256": "da755e89f339e45cd88b0098da74e0bfaec326df6924825b8a6cea7494faa4cd"
+  },
+  "summary": {
+    "path": "/workspace/shared/lowpoly-batch90-independent-qa-20261020/independent-review.md",
+    "sha256": "83ca2c9dde4e0997698748156dabe237892b7c993fc4bd96b8a72100e911dee4"
+  },
+  "manifest": {
+    "path": "/workspace/shared/lowpoly-batch90-independent-qa-20261020/own-manifest.json",
+    "sha256": "429423de3dcee2fc6d69bc72536aa108fe47063e2e3189361d6e7368dbb53948"
+  },
+  "accepted": [
+    {
+      "asset_id": "pertica",
+      "revision": "r003",
+      "glb_sha256": "70f0dbec0a276763480e7ceff2c28092f3e69e204fd9c02ca3bd3f02ad62b196"
+    },
+    {
+      "asset_id": "zoophycos-spiral-spreite",
+      "revision": "r002",
+      "glb_sha256": "c3819e278beb43ba6651a38bd6bcfe509ec7218d13b5bfd51c8d0f4090030e56"
+    },
+    {
+      "asset_id": "lumbricaria-thread-like-coprolite",
+      "revision": "r001",
+      "glb_sha256": "5c473c15091b75f6c1bd82d10d9cd478e1877369e4fc5d101dcea5653144a76e"
+    }
+  ],
+  "revise": [
+    {
+      "asset_id": "rosary-shaped-chambered-burrow-hormosiroidea-type",
+      "revision": "r001",
+      "glb_sha256": "6775f982eb3b04c5e8c6fb7c198a485cb8774fbe4728f7101bc922d48fc8f954",
+      "defects": [
+        {
+          "id": "rosary-chamber-radius-support",
+          "stage": "specification",
+          "original_field": "brief.json parameters.chamber_radius_range_m=[0.0027,0.0032]",
+          "severity": "local geometric range mismatch, not visual/factual rejection",
+          "finding": "Actual meshed chamber contribution extends beyond3.2mm into the host. At lobe11 normal radius3.5mm, relief1.251848\u00b5m remains and nearest neck/chamber center is also3.5mm. This is a host-fusion interpolation tail, not the body visibly swelling. Original field supplies no contour-height threshold, so a threshold cannot silently redefine radius.",
+          "precision": "Host9mm float32 ULP0.000931\u00b5m; peak measured beyond limit2.153856\u00b5m is2312.7ULP. Double precision triangle interpolation; identity node transforms. Not output quantization.",
+          "evidence": {
+            "path": "/workspace/shared/lowpoly-batch90-independent-qa-20261020/rosary-shaped-chambered-burrow-hormosiroidea-type/chamber-tail-exact-triangle-evidence.json",
+            "sha256": "39bf61422cee95669f0cf0a3f7dbaf599aadf6df52d18c2a34414ed4f924a034"
+          },
+          "threshold_diagnostic": {
+            "path": "/workspace/shared/lowpoly-batch90-independent-qa-20261020/rosary-shaped-chambered-burrow-hormosiroidea-type/chamber-radius-diagnostic.json",
+            "sha256": "fbd4173e3e9e94e7496a86fa525ac21223aa2c534f2bd3564cccb6567e2b36d6"
+          },
+          "minimum_fix": "Keep original frozen radius range and13 chambers/path/neck geometry. Ensure radial samples at or outside each true chamber base are exactly host/neck baseline, constrain the transition support so CDT triangles do not carry a positive chamber contribution beyond the base, remeasure exact exported geometry. No material/render workaround, no freeze edits.",
+          "retain_passes": [
+            "technical",
+            "visual",
+            "factual",
+            "runtime_parse"
+          ],
+          "next_qa": "New repair revision with original freeze unchanged. Rerun affected exact-source lifecycle, all8 real final frames after new subject binding, then targeted independent radius/support/binding difference review. Other3 assets do not require rebuilding."
+        }
+      ]
+    }
+  ],
+  "source_state": {
+    "checked_at": "2026-10-20T22:34:48.373596+00:00",
+    "commit": "625b5f2cdd97623e216874fd981958852a3a910d",
+    "source_clean": true,
+    "all24_core_pins_unchanged": true,
+    "no_maker_writes": true,
+    "no_remote_actions": true
+  },
+  "unique_evidence_bytes": 2766275,
+  "lean_evidence_bytes": 1090183,
+  "released_qa_slot": true
+}

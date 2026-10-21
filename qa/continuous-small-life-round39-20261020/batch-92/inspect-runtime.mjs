@@ -1,0 +1,11 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import {createRequire} from 'node:module';
+import {GLTFLoader} from '/workspace/shared/lowpoly-landair-web-integration/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import {Box3,Vector3,REVISION} from '/workspace/shared/lowpoly-landair-web-integration/node_modules/three/build/three.module.js';
+const require=createRequire('/workspace/shared/lowpoly-landair-web-integration/package.json');const validator=require('gltf-validator');
+const [source,out]=process.argv.slice(2);const bytes=fs.readFileSync(source);const hash=crypto.createHash('sha256').update(bytes).digest('hex');
+const validation=await validator.validateBytes(new Uint8Array(bytes),{uri:source,maxIssues:1000});
+fs.writeFileSync(out+'/khronos.json',JSON.stringify({input_sha256:hash,observed_at:new Date().toISOString(),validator_version:validator.version(),report:validation},null,2)+'\n');
+const g=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');g.scene.updateMatrixWorld(true);let mesh=[];
+g.scene.traverse(o=>{if(o.isMesh)mesh.push({name:o.name,position_vertices:o.geometry.attributes.position.count,triangles:(o.geometry.index?.count||o.geometry.attributes.position.count)/3,world_bounds:new Box3().setFromObject(o).getSize(new Vector3()).toArray()});});
+const result={kind:'fresh-independent-runtime-parse',observed_at:new Date().toISOString(),pid:process.pid,status:'pass',glb_sha256:hash,three_revision:REVISION,meshes:mesh,triangles:mesh.reduce((a,m)=>a+m.triangles,0),exported_position_vertices:mesh.reduce((a,m)=>a+m.position_vertices,0),world_bounds:new Box3().setFromObject(g.scene).getSize(new Vector3()).toArray(),gpu:'not_run',scene:'not_run',limitations:'Node GLTFLoader parse, no device or composed scene rendering.'};
+fs.writeFileSync(out+'/runtime-parse.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({status:result.status,triangles:result.triangles,khronosErrors:validation.issues.numErrors,khronosWarnings:validation.issues.numWarnings}));

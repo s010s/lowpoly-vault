@@ -1,0 +1,987 @@
+{
+  "schema_version": 1,
+  "reviewer": {
+    "id": "batch89-fresh-independent-qa",
+    "task_id": "review_batch89_candidates",
+    "maker_role": false,
+    "repair_role": false
+  },
+  "completed_at": "2026-10-20T22:19:47.455526+00:00",
+  "fixed_commit": "7ae917c10db80d59fca39a507f91de865cf69b10",
+  "base_main": "43e40fc89f2b369a5f1858e72fa58a0d10318124",
+  "maker_handoff_sha256": "a1ce538c90bce44752ff9e4732a4744ff8c70595c3730f7d351589f53111a3af",
+  "disposition": "PARTIAL:3PASS,1REVISE",
+  "accepted_static_candidates": [
+    {
+      "asset_id": "psilophyton",
+      "revision": "r001",
+      "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118"
+    },
+    {
+      "asset_id": "rosselia-concentrically-filled-burrow",
+      "revision": "r002",
+      "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07"
+    },
+    {
+      "asset_id": "teichichnus-spreite-wall",
+      "revision": "r003",
+      "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e"
+    }
+  ],
+  "revision_required": [
+    {
+      "asset_id": "skolithos-pipe-field",
+      "revision": "r001",
+      "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+      "reason": "Actual minimum shaft radius below original explicit0.0026m lower bound."
+    }
+  ],
+  "independent_evidence": {
+    "actual_primary_text_read": true,
+    "source_pixels_personally_inspected": 5,
+    "genuine_concepts_personally_inspected": 4,
+    "final_individual_frames_personally_inspected": 32,
+    "lossless_sheets_personally_inspected": 4,
+    "old_r002_front_rear_personally_inspected": true,
+    "own_saved_source_reopen_reexport_count": 4,
+    "own_khronos_and_three_checks": 4,
+    "integrity_report": {
+      "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/own-integrity-provenance.json",
+      "sha256": "b5114218cf39a8feaa7b22f3fe714c21f1136c483cf23ef3aba0aad5d31cb03e"
+    },
+    "pin_checks": 716,
+    "raw_files_verified": 450,
+    "freeze_files_verified": 28
+  },
+  "chronology": {
+    "original_freeze_observed_at": "2026-10-20T21:28:51.727606+00:00",
+    "source_inspection_observed_at": "2026-10-20T21:22:41.760370+00:00",
+    "earliest_initial_build_request": "2026-10-20T21:30:57.995350+00:00",
+    "all_initial_builds_after_freeze": true,
+    "generator_authorship_evidence": "Freeze records generator_authored=false, geometry_authored=false; original manifest excludes generator and geometry, then initial queue requests pin generator and output. This is observed local chronological provenance, not cryptographic attestation; filesystem times are not used as provider/authoring timestamps."
+  },
+  "rights_and_limitations": "Consult-only source pixels remain outside Git. Concepts are planning, not scientific evidence. No provider timestamp invented; genuine receipts retain unknown provider/internal IDs. Original freeze, source inventory, raw process trees and failures were not changed. Chronology is observed queue/receipt provenance, not a cryptographic proof of authorship.",
+  "execution": "Only native/shared output directory written. Every own Blender process ran through blocking flock /tmp/lowpoly-production-blender.lock with threads2 and per-process release. No installation, clone, site build, CI, old-model, credential, permission, Git commit, push, PR or merge action.",
+  "qa_tool_recovery": "First own source audit had a local Python variable-shadowing error before reexport; retained failed script/log, fixed only own QA script, then all4 fresh reopens/reexports passed. First provenance audit rejected the intentional derived brief_version label; corrected checker to exclude only that metadata label while comparing every other original core field. No candidate evidence modified.",
+  "formal_user_website_release_live_approval": "not_claimed",
+  "gpu": "unknown_not_run",
+  "scene": "unknown_not_run",
+  "items": [
+    {
+      "asset_id": "psilophyton",
+      "revision": "r001",
+      "disposition": "PASS",
+      "acceptance_scope": "Independent static-stylized candidate only; no formal/user/website/release/live approval.",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+        "brief_sha256": "22800d4734df5dab26ef968596a6a9f0b5c144f33ca5bae1e61f1202087c8744",
+        "references_sha256": "fd0994d8f1f42c01c523af8345605dc2884dbea0c4076e680af1201483b5ad54",
+        "bound_at": "2026-10-20T21:37:40.196067+00:00"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/small-life-batch89/psilophyton/r001/artifacts/psilophyton.glb",
+          "sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118"
+        },
+        "brief": {
+          "path": "production/small-life-batch89/psilophyton/r001/delivery-brief.json",
+          "sha256": "22800d4734df5dab26ef968596a6a9f0b5c144f33ca5bae1e61f1202087c8744"
+        },
+        "references": {
+          "path": "production/small-life-batch89/psilophyton/r001/references.json",
+          "sha256": "fd0994d8f1f42c01c523af8345605dc2884dbea0c4076e680af1201483b5ad54"
+        },
+        "source": {
+          "path": "production/small-life-batch89/psilophyton/r001/artifacts/psilophyton.blend",
+          "sha256": "0cadeabdf002fbee67fdff971b0bc7054a44a1938ff88ad10d34461ad2d3d692"
+        },
+        "generator": {
+          "path": "production/small-life-batch89/tools/generate.py",
+          "sha256": "25871a90c636c8d710285073858c17b91cbfb752d6fb79cb7da83509f379417b"
+        },
+        "config": {
+          "path": "production/small-life-batch89/psilophyton/r001/config.json",
+          "sha256": "0f1ff42a88f75be2b7c781c83d688f30f49239b18c9925019ecc55c357bf3070"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch89/dependencies.json",
+          "sha256": "18fa560aa2a92b74fffed67cb7f4d2fb9a5c8646fc26634f06ec023c6edf1774"
+        }
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "criteria": {
+        "technical": {
+          "status": "pass",
+          "criteria_id": "technical-acceptance",
+          "note": "Own saved-source reopen, actual geometry audit, byte-identical reexport, candidate integrity, independent Khronos0errors0warnings and full pinned provenance checks pass. Not visual approval."
+        },
+        "visual": {
+          "status": "pass",
+          "criteria_id": "visual-acceptance",
+          "note": "All8final512frames and lossless sheet personally inspected; component criteria detailed in independent-visual-review.json."
+        },
+        "factual": {
+          "status": "pass",
+          "criteria_id": "factual-acceptance",
+          "note": "PASS for conservative gross-form whole-plant reconstruction. Naked dominant axis, repeatedly divided lateral sprays and grouped elongate terminal pairs are present; no broad leaf planes. Complete basal form, color, size, seven sprays and 40 pairs remain artistic. Fine within-pair torsion and microscopic anatomy are not resolved or claimed; this is not a taxonomically exact reproductive specimen model."
+        },
+        "specification": {
+          "status": "pass",
+          "criteria_id": "specification-acceptance",
+          "note": "Frozen original scope, component constraints, explicit budgets and required local evidence satisfied."
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "criteria_id": "runtime_parse-acceptance",
+          "note": "Own exact-byte Three.js GLTFLoader parse; loader revision180. Bounds/counts/materials agree."
+        },
+        "gpu": {
+          "status": "unknown",
+          "criteria_id": "gpu-acceptance",
+          "note": "Not run. CPU stills and Node parse do not establish graphics-hardware acceptance."
+        },
+        "scene": {
+          "status": "unknown",
+          "criteria_id": "scene-acceptance",
+          "note": "Not run. No intended composed website/museum scene tested."
+        }
+      },
+      "source_and_concept_review": {
+        "sources": [
+          {
+            "id": "ALBERTA",
+            "url": "https://grad.biology.ualberta.ca/paleobotany/?page_id=28",
+            "method": "Opened current primary collection page and personally inspected retained exact JPG pixels.",
+            "observation": "Named L4-27 S5713 specimen is fragmentary dark axes in a slab; it does not preserve a whole plant or demonstrate a complete basal habit."
+          },
+          {
+            "id": "BANKS1975",
+            "url": "https://www.digitalatlasofancientlife.org/learn/embryophytes/tracheophytes/branching/",
+            "method": "Opened credited reconstruction page and personally inspected retained original PNG.",
+            "observation": "The right panel is Abbe/Banks Psilophyton reconstruction, not the left Aglaophyton panel or its scale bar. Dominant overtopping axes, divided lateral systems and grouped terminal capsules are the relevant evidence. This is a reconstruction, not an intact specimen."
+          },
+          {
+            "id": "NOETINGER2018",
+            "url": "https://ri.conicet.gov.ar/bitstream/11336/96552/2/CONICET_Digital_Nro.d80dcdee-fa90-498c-86df-36da5dbcb95d_A.pdf",
+            "method": "Personally read primary PDF introduction, emended diagnosis/description on PDF pages9-10 and figure1 caption on page32 through web. No PDF pixel claim.",
+            "observation": "Primary text supports dichotomizing fertile branches and paired elongated fusiform sporangia. It describes intertwined pairs and larger typical clusters; model counts and dimensions are deliberately artistic, not those measured fossils."
+          },
+          {
+            "id": "ARCHITECTURE2017",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5710528/",
+            "method": "Current web read returned a browser check; personally read matching preserved HTML passages and table. No CAPTCHA action.",
+            "observation": "Corroborative review associates P. dawsonii with Gensel, distinguishes P. crenulatum/Dawson, and cautions about incomplete fossils. Not the sole primary authority."
+          }
+        ],
+        "concept": "Genuine three-panel concept inspected. It initially has sparse single terminal pairs, a thick tree-like axis and large base; frozen correction directs repeatedly dichotomized grouped fertile sprays and smaller conjectural anchorage. Final geometry follows those corrections.",
+        "rights": "Alberta and article content consult-only. Banks reproduction is credited CC BY-NC-SA3.0 but no source pixels are incorporated, traced, embedded or redistributed. Exact source pixels remain outside the candidate Git worktree.",
+        "factual_scope_decision": "PASS for conservative gross-form whole-plant reconstruction. Naked dominant axis, repeatedly divided lateral sprays and grouped elongate terminal pairs are present; no broad leaf planes. Complete basal form, color, size, seven sprays and 40 pairs remain artistic. Fine within-pair torsion and microscopic anatomy are not resolved or claimed; this is not a taxonomically exact reproductive specimen model."
+      },
+      "component_review": [
+        "Fresh source connectivity gives272 closed components, including80capsules and80necks. Decoded GLB independently yields60palette2+20palette3 capsule components.",
+        "Actual fork construction is seven lateral systems of15branch tubes each (three binary levels), with the106th21-vertex tube the unequal apical branch; source and top pixels agree.",
+        "Forty terminal pairs are the model count, not a fossil count. All connected components are closed; intended intersecting junction volumes are not treated as a universal zero-intersection failure."
+      ],
+      "visual_report": {
+        "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/independent-visual-review.json",
+        "sha256": "bd6d7e1620334da95f7bed881ed3af9beeb7022ddd4390e076ee277c5b353671"
+      },
+      "specification": {
+        "status": "pass",
+        "criteria_id": "specification-acceptance",
+        "original_scope_preserved": true,
+        "original_brief_sha256": "44ca5811e9e5325d5c2781fea82845645c1da5e7e6b33ccf0ec37cf709714385",
+        "explicit_budgets": {
+          "triangles": {
+            "actual": 10576,
+            "max": 14000,
+            "pass": true
+          },
+          "bytes": {
+            "actual": 544120,
+            "max": 1000000,
+            "pass": true
+          },
+          "materials": {
+            "actual": 4,
+            "max": 6,
+            "pass": true
+          },
+          "primitives": {
+            "actual": 4,
+            "max": 30,
+            "pass": true
+          },
+          "textures": {
+            "actual": 0,
+            "max": 0,
+            "pass": true
+          }
+        },
+        "dimension_semantics": "Original scale.art_target_bounds_blender_xyz_m is explicitly an art target, not a hard exported bbox interval. Scalar shape parameters specify design construction and are not silently turned into exact bbox thresholds. The one explicit shaft_radius_range_m interval is separately checked, without inventing a tolerance.",
+        "art_target_blender_xyz_m": [
+          0.55,
+          0.5,
+          0.72
+        ],
+        "measured_blender_xyz_m": [
+          0.3743652254343033,
+          0.366151824593544,
+          0.7205957770347595
+        ],
+        "required_deliverables_complete": true,
+        "eight_views_and_sheet_verified": true,
+        "source_editable_reopened_reexported": true,
+        "two_real_semantic_rebuilds_verified": true,
+        "component_findings": [
+          "Fresh source connectivity gives272 closed components, including80capsules and80necks. Decoded GLB independently yields60palette2+20palette3 capsule components.",
+          "Actual fork construction is seven lateral systems of15branch tubes each (three binary levels), with the106th21-vertex tube the unequal apical branch; source and top pixels agree.",
+          "Forty terminal pairs are the model count, not a fossil count. All connected components are closed; intended intersecting junction volumes are not treated as a universal zero-intersection failure."
+        ]
+      },
+      "actual_metrics": {
+        "triangles": 10576,
+        "position_vertices": 19860,
+        "materials": 4,
+        "primitives": 4,
+        "bytes": 544120,
+        "bounds_glb_m": {
+          "min": [
+            -0.17662429809570312,
+            0.0,
+            -0.18885476887226105
+          ],
+          "max": [
+            0.19774092733860016,
+            0.7205957770347595,
+            0.17729705572128296
+          ],
+          "size": [
+            0.3743652254343033,
+            0.7205957770347595,
+            0.366151824593544
+          ]
+        },
+        "authored_evaluated_parts": [
+          {
+            "name": "dominant-naked-axis-dichotomized-sprays-paired-sporangia",
+            "vertices": 5832,
+            "polygons": 4642,
+            "triangles": 10576,
+            "evaluated_vertices": 5832,
+            "evaluated_polygons": 4642,
+            "evaluated_triangles": 10576,
+            "modifiers": 0,
+            "editable": true
+          }
+        ]
+      },
+      "own_reopen_pid": 10,
+      "own_reexport_byte_and_semantic_match": true,
+      "maker_rebuild_pids": [
+        8,
+        31
+      ],
+      "proof_paths": [
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-source-reopen-reexport.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-decoded-glb-features.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-static-glb.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-candidate-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-provenance.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-khronos-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-three-parse.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-rebuild-a-comparison.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/psilophyton/own-rebuild-b-comparison.json"
+      ]
+    },
+    {
+      "asset_id": "rosselia-concentrically-filled-burrow",
+      "revision": "r002",
+      "disposition": "PASS",
+      "acceptance_scope": "Independent static-stylized candidate only; no formal/user/website/release/live approval.",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+        "brief_sha256": "110584bb28ab87cf77ee4605c254ba356e2a248e9b8baf87d058f63a19df41a4",
+        "references_sha256": "761d4872d3b98a3c51c24bb8c1a4f7429fc6dfe3226ccdde0b634c29228b8162",
+        "bound_at": "2026-10-20T21:37:40.199417+00:00"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/rosselia-concentrically-filled-burrow.glb",
+          "sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07"
+        },
+        "brief": {
+          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/delivery-brief.json",
+          "sha256": "110584bb28ab87cf77ee4605c254ba356e2a248e9b8baf87d058f63a19df41a4"
+        },
+        "references": {
+          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r001/references.json",
+          "sha256": "761d4872d3b98a3c51c24bb8c1a4f7429fc6dfe3226ccdde0b634c29228b8162"
+        },
+        "source": {
+          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/rosselia-concentrically-filled-burrow.blend",
+          "sha256": "e240bce9476c5e846d3d8118abc83c3f6e338ca374438713196a8a5fbc2ee57e"
+        },
+        "generator": {
+          "path": "production/small-life-batch89/tools/generate-relief-r002.py",
+          "sha256": "9b1dda782ae0bf5385a2552b5ee026b44e36ee6caacfb157aab82545dcfda249"
+        },
+        "config": {
+          "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/config.json",
+          "sha256": "26e2ae3a359544512c4df7f8fccf69c5fabbde23ee55c6e59b0165d3fcb55d8d"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch89/dependencies.json",
+          "sha256": "18fa560aa2a92b74fffed67cb7f4d2fb9a5c8646fc26634f06ec023c6edf1774"
+        }
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "criteria": {
+        "technical": {
+          "status": "pass",
+          "criteria_id": "technical-acceptance",
+          "note": "Own saved-source reopen, actual geometry audit, byte-identical reexport, candidate integrity, independent Khronos0errors0warnings and full pinned provenance checks pass. Not visual approval."
+        },
+        "visual": {
+          "status": "pass",
+          "criteria_id": "visual-acceptance",
+          "note": "All8final512frames and lossless sheet personally inspected; component criteria detailed in independent-visual-review.json."
+        },
+        "factual": {
+          "status": "pass",
+          "criteria_id": "factual-acceptance",
+          "note": "PASS for disclosed trace concept. The section convention, enhanced layering, five layers and block dimensions are artistic. No producer, behavior, universal environment or full temporal-range claim is encoded."
+        },
+        "specification": {
+          "status": "pass",
+          "criteria_id": "specification-acceptance",
+          "note": "Frozen original scope, component constraints, explicit budgets and required local evidence satisfied."
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "criteria_id": "runtime_parse-acceptance",
+          "note": "Own exact-byte Three.js GLTFLoader parse; loader revision180. Bounds/counts/materials agree."
+        },
+        "gpu": {
+          "status": "unknown",
+          "criteria_id": "gpu-acceptance",
+          "note": "Not run. CPU stills and Node parse do not establish graphics-hardware acceptance."
+        },
+        "scene": {
+          "status": "unknown",
+          "criteria_id": "scene-acceptance",
+          "note": "Not run. No intended composed website/museum scene tested."
+        }
+      },
+      "source_and_concept_review": {
+        "sources": [
+          {
+            "id": "KGS2002",
+            "url": "https://www.kgs.ku.edu/Publications/Bulletins/245/04_ichno2.html",
+            "method": "Read official primary text and personally inspected original PDF page70/figure54 pixels.",
+            "observation": "Figure54 shows the rounded top and narrowing section of KUMIP288531. Concentric fill is weakly preserved; a thin central tube and funnel/conical outline support an illustrative layered section, not a hollow crater or helicoid."
+          }
+        ],
+        "concept": "Four-panel genuine concept inspected. Frozen correction appropriately narrows the central tube and separates the funnel from host volume. Final r002 has five real nested envelopes, central volume and host, not a painted-only cone.",
+        "rights": "Official source imagery is consult-only outside Git; no incorporated third-party image, texture or mesh.",
+        "factual_scope_decision": "PASS for disclosed trace concept. The section convention, enhanced layering, five layers and block dimensions are artistic. No producer, behavior, universal environment or full temporal-range claim is encoded."
+      },
+      "component_review": [
+        "Fresh source and decoded GLB both give7 closed volumes:5 nested envelopes,1 central half-tube,1 host.",
+        "Actual exposed front relief extends to y=-0.00057999999m; gray pixels show it. This is a geometry repair, not a material or depth-bias workaround.",
+        "All components closed with0boundary/nonmanifold edges. Adjacent envelope interfaces are internal; no visible surface interference identified in8views."
+      ],
+      "visual_report": {
+        "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/independent-visual-review.json",
+        "sha256": "a9df0fe0e1c9d874ee199f8a49ccadfb060189ee52489ecc33a69edb2caf6ae8"
+      },
+      "specification": {
+        "status": "pass",
+        "criteria_id": "specification-acceptance",
+        "original_scope_preserved": true,
+        "original_brief_sha256": "d49b15f16428e0d32cb05d8098e7ce192c0b17c5c4d2e3ec44bfa8fcb4022879",
+        "explicit_budgets": {
+          "triangles": {
+            "actual": 9120,
+            "max": 14000,
+            "pass": true
+          },
+          "bytes": {
+            "actual": 427128,
+            "max": 1000000,
+            "pass": true
+          },
+          "materials": {
+            "actual": 5,
+            "max": 6,
+            "pass": true
+          },
+          "primitives": {
+            "actual": 5,
+            "max": 30,
+            "pass": true
+          },
+          "textures": {
+            "actual": 0,
+            "max": 0,
+            "pass": true
+          }
+        },
+        "dimension_semantics": "Original scale.art_target_bounds_blender_xyz_m is explicitly an art target, not a hard exported bbox interval. Scalar shape parameters specify design construction and are not silently turned into exact bbox thresholds. The one explicit shaft_radius_range_m interval is separately checked, without inventing a tolerance.",
+        "art_target_blender_xyz_m": [
+          0.065,
+          0.035,
+          0.045
+        ],
+        "measured_blender_xyz_m": [
+          0.0650324784219265,
+          0.03233163640834391,
+          0.04500000178813934
+        ],
+        "required_deliverables_complete": true,
+        "eight_views_and_sheet_verified": true,
+        "source_editable_reopened_reexported": true,
+        "two_real_semantic_rebuilds_verified": true,
+        "component_findings": [
+          "Fresh source and decoded GLB both give7 closed volumes:5 nested envelopes,1 central half-tube,1 host.",
+          "Actual exposed front relief extends to y=-0.00057999999m; gray pixels show it. This is a geometry repair, not a material or depth-bias workaround.",
+          "All components closed with0boundary/nonmanifold edges. Adjacent envelope interfaces are internal; no visible surface interference identified in8views."
+        ]
+      },
+      "actual_metrics": {
+        "triangles": 9120,
+        "position_vertices": 15311,
+        "materials": 5,
+        "primitives": 5,
+        "bytes": 427128,
+        "bounds_glb_m": {
+          "min": [
+            -0.03221607580780983,
+            0.0,
+            -0.031751636415719986
+          ],
+          "max": [
+            0.03281640261411667,
+            0.04500000178813934,
+            0.0005799999926239252
+          ],
+          "size": [
+            0.0650324784219265,
+            0.04500000178813934,
+            0.03233163640834391
+          ]
+        },
+        "authored_evaluated_parts": [
+          {
+            "name": "volumetric-concentric-funnel-exposed-ribs",
+            "vertices": 4574,
+            "polygons": 4539,
+            "triangles": 9120,
+            "evaluated_vertices": 4574,
+            "evaluated_polygons": 4539,
+            "evaluated_triangles": 9120,
+            "modifiers": 0,
+            "editable": true
+          }
+        ]
+      },
+      "own_reopen_pid": 34,
+      "own_reexport_byte_and_semantic_match": true,
+      "maker_rebuild_pids": [
+        54,
+        77
+      ],
+      "proof_paths": [
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-source-reopen-reexport.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-decoded-glb-features.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-static-glb.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-candidate-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-provenance.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-khronos-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-three-parse.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-rebuild-a-comparison.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/rosselia-concentrically-filled-burrow/own-rebuild-b-comparison.json"
+      ]
+    },
+    {
+      "asset_id": "skolithos-pipe-field",
+      "revision": "r001",
+      "disposition": "REVISE",
+      "acceptance_scope": "Independent static-stylized candidate only; no formal/user/website/release/live approval.",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9",
+        "brief_sha256": "e8dd9f6d14d661b285b98d2d8a85e795de9fdb542b9ee7f8ac1e8d0d27b3f177",
+        "references_sha256": "462acade525357722fbc24fd3391970e666b7550fc3baf026c4bf6d7159a60be",
+        "bound_at": "2026-10-20T21:37:40.201125+00:00"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/small-life-batch89/skolithos-pipe-field/r001/artifacts/skolithos-pipe-field.glb",
+          "sha256": "9f9f7f90636992e5b95ae7086e75ff5203ad311b05d8dad3f564d83e375ca7b9"
+        },
+        "brief": {
+          "path": "production/small-life-batch89/skolithos-pipe-field/r001/delivery-brief.json",
+          "sha256": "e8dd9f6d14d661b285b98d2d8a85e795de9fdb542b9ee7f8ac1e8d0d27b3f177"
+        },
+        "references": {
+          "path": "production/small-life-batch89/skolithos-pipe-field/r001/references.json",
+          "sha256": "462acade525357722fbc24fd3391970e666b7550fc3baf026c4bf6d7159a60be"
+        },
+        "source": {
+          "path": "production/small-life-batch89/skolithos-pipe-field/r001/artifacts/skolithos-pipe-field.blend",
+          "sha256": "8b7ada81de5befa7bc39ab93890bec644bfe5568ba5cea3b2ac3c1e298839334"
+        },
+        "generator": {
+          "path": "production/small-life-batch89/tools/generate.py",
+          "sha256": "25871a90c636c8d710285073858c17b91cbfb752d6fb79cb7da83509f379417b"
+        },
+        "config": {
+          "path": "production/small-life-batch89/skolithos-pipe-field/r001/config.json",
+          "sha256": "9afbb934834820642e48c97772eacce1d7d8aae90da2e153740614ded91567cb"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch89/dependencies.json",
+          "sha256": "18fa560aa2a92b74fffed67cb7f4d2fb9a5c8646fc26634f06ec023c6edf1774"
+        }
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "fail",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "criteria": {
+        "technical": {
+          "status": "pass",
+          "criteria_id": "technical-acceptance",
+          "note": "Own saved-source reopen, actual geometry audit, byte-identical reexport, candidate integrity, independent Khronos0errors0warnings and full pinned provenance checks pass. Not visual approval."
+        },
+        "visual": {
+          "status": "pass",
+          "criteria_id": "visual-acceptance",
+          "note": "All8final512frames and lossless sheet personally inspected; component criteria detailed in independent-visual-review.json."
+        },
+        "factual": {
+          "status": "pass",
+          "criteria_id": "factual-acceptance",
+          "note": "PASS for genus-level generic illustrative sectional structure. The original frozen and delivery text explicitly states depth/cutaway are not observed specimen sections and avoids ichnospecies and maker claims. The dimensional specification defect is not a factual or visual defect."
+        },
+        "specification": {
+          "status": "fail",
+          "criteria_id": "specification-acceptance",
+          "note": "shaft-radius-below-frozen-minimum"
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "criteria_id": "runtime_parse-acceptance",
+          "note": "Own exact-byte Three.js GLTFLoader parse; loader revision180. Bounds/counts/materials agree."
+        },
+        "gpu": {
+          "status": "unknown",
+          "criteria_id": "gpu-acceptance",
+          "note": "Not run. CPU stills and Node parse do not establish graphics-hardware acceptance."
+        },
+        "scene": {
+          "status": "unknown",
+          "criteria_id": "scene-acceptance",
+          "note": "Not run. No intended composed website/museum scene tested."
+        }
+      },
+      "source_and_concept_review": {
+        "sources": [
+          {
+            "id": "KGS2002",
+            "url": "https://www.kgs.ku.edu/Publications/Bulletins/245/04_ichno2.html",
+            "method": "Read official primary text and personally inspected original PDF page72/figure56 pixels.",
+            "observation": "Figure56 supplies bed-top protrusions only. The text diagnoses separate vertical unbranched cylindrical fills and explicitly says absent sections prevent confident ichnospecies identification. It does not document the depicted 65.6mm shaft depth."
+          }
+        ],
+        "concept": "Four-panel genuine concept inspected. Concept has inconsistent/discontinuous exposed lengths; frozen correction fixes seven continuous shafts with three front exposures. Final geometry actually implements that correction.",
+        "rights": "Official source imagery is consult-only outside Git; no incorporated third-party image, texture or mesh.",
+        "factual_scope_decision": "PASS for genus-level generic illustrative sectional structure. The original frozen and delivery text explicitly states depth/cutaway are not observed specimen sections and avoids ichnospecies and maker claims. The dimensional specification defect is not a factual or visual defect."
+      },
+      "component_review": [
+        "Fresh source and decoded GLB give1host+7closed shafts. All shafts extend from0to0.06560000032m and preserve constant cross-sections.",
+        "The host is actually boolean-cut rather than merely covered by coincident colored caps; exposed shafts and raised top rims survive clay.",
+        "One physical radius is below the explicit frozen range after0.999clearance. This is independently measured in both saved-source vertices and exported POSITION data."
+      ],
+      "visual_report": {
+        "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/independent-visual-review.json",
+        "sha256": "df90f15039b6e7a4263a43b4be23f3e9eeee728e063424a7679122b434877961"
+      },
+      "specification": {
+        "status": "fail",
+        "criteria_id": "specification-acceptance",
+        "original_scope_preserved": true,
+        "original_brief_sha256": "6c0d7f4802599073bd88fb36361a276224911c14a4c32c57030749368c87e536",
+        "explicit_budgets": {
+          "triangles": {
+            "actual": 652,
+            "max": 14000,
+            "pass": true
+          },
+          "bytes": {
+            "actual": 30172,
+            "max": 1000000,
+            "pass": true
+          },
+          "materials": {
+            "actual": 2,
+            "max": 6,
+            "pass": true
+          },
+          "primitives": {
+            "actual": 2,
+            "max": 30,
+            "pass": true
+          },
+          "textures": {
+            "actual": 0,
+            "max": 0,
+            "pass": true
+          }
+        },
+        "dimension_semantics": "Original scale.art_target_bounds_blender_xyz_m is explicitly an art target, not a hard exported bbox interval. Scalar shape parameters specify design construction and are not silently turned into exact bbox thresholds. The one explicit shaft_radius_range_m interval is separately checked, without inventing a tolerance.",
+        "art_target_blender_xyz_m": [
+          0.1,
+          0.07,
+          0.065
+        ],
+        "measured_blender_xyz_m": [
+          0.10000000149011612,
+          0.07000000029802322,
+          0.06560000032186508
+        ],
+        "required_deliverables_complete": true,
+        "eight_views_and_sheet_verified": true,
+        "source_editable_reopened_reexported": true,
+        "two_real_semantic_rebuilds_verified": true,
+        "component_findings": [
+          "Fresh source and decoded GLB give1host+7closed shafts. All shafts extend from0to0.06560000032m and preserve constant cross-sections.",
+          "The host is actually boolean-cut rather than merely covered by coincident colored caps; exposed shafts and raised top rims survive clay.",
+          "One physical radius is below the explicit frozen range after0.999clearance. This is independently measured in both saved-source vertices and exported POSITION data."
+        ],
+        "failure": {
+          "id": "shaft-radius-below-frozen-minimum",
+          "frozen_field": "parameters.shaft_radius_range_m",
+          "frozen_range_m": [
+            0.0026,
+            0.0048
+          ],
+          "actual_smallest_shaft_circumradius_min_m": 0.002597398883191733,
+          "actual_smallest_shaft_circumradius_max_m": 0.0025974004529416977,
+          "minimum_shortfall_m": 2.601116808266697e-06,
+          "magnitude": "Approximately2.6micrometers /0.1percent; small but outside the explicitly bounded interval, not float32 rounding.",
+          "cause": "The generator scales each physical shaft radius by0.999while the smallest nominal radius is already0.0026m.",
+          "interpretation": "The immutable brief labels this field a range, without approx/nominal/art-target qualification. No tolerance is declared for this range; dimensions being artistic does not negate a chosen bounded production specification.",
+          "repair_required": "Produce a new immutable candidate revision whose actual smallest shaft radius lies within the original range; preserve through-shafts, real host holes and absence of visible coplanar artifacts. Do not alter the original freeze or relabel this range retroactively. Rebind exact triplet and genuinely rerender required views; repeat exact lifecycle for changed candidate."
+        }
+      },
+      "actual_metrics": {
+        "triangles": 652,
+        "position_vertices": 998,
+        "materials": 2,
+        "primitives": 2,
+        "bytes": 30172,
+        "bounds_glb_m": {
+          "min": [
+            -0.05000000074505806,
+            0.0,
+            -0.03500000014901161
+          ],
+          "max": [
+            0.05000000074505806,
+            0.06560000032186508,
+            0.03500000014901161
+          ],
+          "size": [
+            0.10000000149011612,
+            0.06560000032186508,
+            0.07000000029802322
+          ]
+        },
+        "authored_evaluated_parts": [
+          {
+            "name": "sectioned-host-sandstone",
+            "vertices": 334,
+            "polygons": 189,
+            "triangles": 652,
+            "evaluated_vertices": 334,
+            "evaluated_polygons": 189,
+            "evaluated_triangles": 652,
+            "modifiers": 0,
+            "editable": true
+          }
+        ]
+      },
+      "own_reopen_pid": 58,
+      "own_reexport_byte_and_semantic_match": true,
+      "maker_rebuild_pids": [
+        100,
+        123
+      ],
+      "proof_paths": [
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-source-reopen-reexport.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-decoded-glb-features.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-static-glb.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-candidate-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-provenance.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-khronos-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-three-parse.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-rebuild-a-comparison.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/skolithos-pipe-field/own-rebuild-b-comparison.json"
+      ]
+    },
+    {
+      "asset_id": "teichichnus-spreite-wall",
+      "revision": "r003",
+      "disposition": "PASS",
+      "acceptance_scope": "Independent static-stylized candidate only; no formal/user/website/release/live approval.",
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e",
+        "brief_sha256": "e9420013ce73a387d02dc5d193d993cf4c436a02b442049ed3d2a0aaf663055c",
+        "references_sha256": "40cef2e432e0ee1a257aa4c35aba8d7dfe288bc75c1a9fb56364b578b7e42e72",
+        "bound_at": "2026-10-20T21:46:27.231919+00:00"
+      },
+      "artifacts": {
+        "glb": {
+          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/teichichnus-spreite-wall.glb",
+          "sha256": "dc663edc45eeeca4d316101f4115a7d22d5d3431ac96df32c6bda5eefcdb1c3e"
+        },
+        "brief": {
+          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/delivery-brief.json",
+          "sha256": "e9420013ce73a387d02dc5d193d993cf4c436a02b442049ed3d2a0aaf663055c"
+        },
+        "references": {
+          "path": "production/small-life-batch89/teichichnus-spreite-wall/r001/references.json",
+          "sha256": "40cef2e432e0ee1a257aa4c35aba8d7dfe288bc75c1a9fb56364b578b7e42e72"
+        },
+        "source": {
+          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/artifacts/teichichnus-spreite-wall.blend",
+          "sha256": "1535aa1977d1f3a39da0aa710f84073732d4bcec282a9a0e093c1dbbe0e937ca"
+        },
+        "generator": {
+          "path": "production/small-life-batch89/tools/generate-teich-r003.py",
+          "sha256": "c54f076672f53c1b4ff461da9d9bb7b483c487b519b8df6165614adb35c19fe2"
+        },
+        "config": {
+          "path": "production/small-life-batch89/teichichnus-spreite-wall/r003/config.json",
+          "sha256": "86a925dd0061d33d1280095844cdf8af753bb117512e27deb5397afd653f49d5"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch89/dependencies-r003.json",
+          "sha256": "ee94bac110e4a00634794d78ea48141ce003814f02b24ee139acdc0db45170f6"
+        }
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "criteria": {
+        "technical": {
+          "status": "pass",
+          "criteria_id": "technical-acceptance",
+          "note": "Own saved-source reopen, actual geometry audit, byte-identical reexport, candidate integrity, independent Khronos0errors0warnings and full pinned provenance checks pass. Not visual approval."
+        },
+        "visual": {
+          "status": "pass",
+          "criteria_id": "visual-acceptance",
+          "note": "All8final512frames and lossless sheet personally inspected; component criteria detailed in independent-visual-review.json."
+        },
+        "factual": {
+          "status": "pass",
+          "criteria_id": "factual-acceptance",
+          "note": "PASS for disclosed stylized trace relief. Nine gutter laminae and a simple upper tube are present, not a producer reconstruction or macroscopic U-loop; counts/color/size are artistic."
+        },
+        "specification": {
+          "status": "pass",
+          "criteria_id": "specification-acceptance",
+          "note": "Frozen original scope, component constraints, explicit budgets and required local evidence satisfied."
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "criteria_id": "runtime_parse-acceptance",
+          "note": "Own exact-byte Three.js GLTFLoader parse; loader revision180. Bounds/counts/materials agree."
+        },
+        "gpu": {
+          "status": "unknown",
+          "criteria_id": "gpu-acceptance",
+          "note": "Not run. CPU stills and Node parse do not establish graphics-hardware acceptance."
+        },
+        "scene": {
+          "status": "unknown",
+          "criteria_id": "scene-acceptance",
+          "note": "Not run. No intended composed website/museum scene tested."
+        }
+      },
+      "source_and_concept_review": {
+        "sources": [
+          {
+            "id": "KGS2002",
+            "url": "https://www.kgs.ku.edu/Publications/Bulletins/245/04_ichno2.html",
+            "method": "Read official primary text and personally inspected original PDF pages72-73/figure57 pixels.",
+            "observation": "Top relief and section of KUMIP288500 support a simple causative tube with vertically/subvertically stacked shallow gutter laminae. Raised sectional wall presentation is illustrative, not a replica of the slab."
+          }
+        ],
+        "concept": "Four-panel genuine concept inspected. Frozen plan removes the large obscuring backing wall, keeps a solid slab and closely packed gutter stack, and forbids large open gaps. Final r003 honors that correction.",
+        "rights": "Official source imagery is consult-only outside Git; no incorporated third-party image, texture or mesh.",
+        "factual_scope_decision": "PASS for disclosed stylized trace relief. Nine gutter laminae and a simple upper tube are present, not a producer reconstruction or macroscopic U-loop; counts/color/size are artistic."
+      },
+      "component_review": [
+        "Fresh source and decoded GLB give11closed volumes:9laminae,1tube,1host. Every adjacent lamina interface shares153surface vertices, supporting a solid stack rather than large open gaps.",
+        "Own source measurement finds153lowest vertices distributed over17longitudinal sections,9per section, all atz0.009700000286m; host topz0.009999999776m. Hidden embed is0.000299999490m.",
+        "Actual r003 bottom repair and all8newframes confirmed. Old r0028frames andfailure remain intact; every new frame hash differs. Personally inspected old front/rear gap and current front/rear absence. No new visible overlap artifact."
+      ],
+      "visual_report": {
+        "path": "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/independent-visual-review.json",
+        "sha256": "90e8aa04e2d79a7649d99086893400a14bebfdf53916d72159055617ebb22869"
+      },
+      "specification": {
+        "status": "pass",
+        "criteria_id": "specification-acceptance",
+        "original_scope_preserved": true,
+        "original_brief_sha256": "9adb0d9474df4e5a1a6e56b72d69cc509f63b59bb34d734ab6adb611daca9164",
+        "explicit_budgets": {
+          "triangles": {
+            "actual": 8496,
+            "max": 14000,
+            "pass": true
+          },
+          "bytes": {
+            "actual": 417952,
+            "max": 1000000,
+            "pass": true
+          },
+          "materials": {
+            "actual": 4,
+            "max": 6,
+            "pass": true
+          },
+          "primitives": {
+            "actual": 4,
+            "max": 30,
+            "pass": true
+          },
+          "textures": {
+            "actual": 0,
+            "max": 0,
+            "pass": true
+          }
+        },
+        "dimension_semantics": "Original scale.art_target_bounds_blender_xyz_m is explicitly an art target, not a hard exported bbox interval. Scalar shape parameters specify design construction and are not silently turned into exact bbox thresholds. The one explicit shaft_radius_range_m interval is separately checked, without inventing a tolerance.",
+        "art_target_blender_xyz_m": [
+          0.13,
+          0.065,
+          0.055
+        ],
+        "measured_blender_xyz_m": [
+          0.12999999523162842,
+          0.06499999761581421,
+          0.04740322753787041
+        ],
+        "required_deliverables_complete": true,
+        "eight_views_and_sheet_verified": true,
+        "source_editable_reopened_reexported": true,
+        "two_real_semantic_rebuilds_verified": true,
+        "component_findings": [
+          "Fresh source and decoded GLB give11closed volumes:9laminae,1tube,1host. Every adjacent lamina interface shares153surface vertices, supporting a solid stack rather than large open gaps.",
+          "Own source measurement finds153lowest vertices distributed over17longitudinal sections,9per section, all atz0.009700000286m; host topz0.009999999776m. Hidden embed is0.000299999490m.",
+          "Actual r003 bottom repair and all8newframes confirmed. Old r0028frames andfailure remain intact; every new frame hash differs. Personally inspected old front/rear gap and current front/rear absence. No new visible overlap artifact."
+        ]
+      },
+      "actual_metrics": {
+        "triangles": 8496,
+        "position_vertices": 15115,
+        "materials": 4,
+        "primitives": 4,
+        "bytes": 417952,
+        "bounds_glb_m": {
+          "min": [
+            -0.06499999761581421,
+            0.0,
+            -0.032499998807907104
+          ],
+          "max": [
+            0.06499999761581421,
+            0.04740322753787041,
+            0.032499998807907104
+          ],
+          "size": [
+            0.12999999523162842,
+            0.04740322753787041,
+            0.06499999761581421
+          ]
+        },
+        "authored_evaluated_parts": [
+          {
+            "name": "irregular-illustrative-sediment-slab",
+            "vertices": 16,
+            "polygons": 10,
+            "triangles": 28,
+            "evaluated_vertices": 16,
+            "evaluated_polygons": 10,
+            "evaluated_triangles": 28,
+            "modifiers": 0,
+            "editable": true
+          },
+          {
+            "name": "gutter-laminae-with-real-layer-edge-relief",
+            "vertices": 4254,
+            "polygons": 4226,
+            "triangles": 8468,
+            "evaluated_vertices": 4254,
+            "evaluated_polygons": 4226,
+            "evaluated_triangles": 8468,
+            "modifiers": 0,
+            "editable": true
+          }
+        ]
+      },
+      "own_reopen_pid": 82,
+      "own_reexport_byte_and_semantic_match": true,
+      "maker_rebuild_pids": [
+        8,
+        31
+      ],
+      "proof_paths": [
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-source-reopen-reexport.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-decoded-glb-features.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-static-glb.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-candidate-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-provenance.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-khronos-validation.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-three-parse.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-rebuild-a-comparison.json",
+        "/workspace/shared/lowpoly-batch89-independent-qa-20261020/teichichnus-spreite-wall/own-rebuild-b-comparison.json"
+      ]
+    }
+  ]
+}

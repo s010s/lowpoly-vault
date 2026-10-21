@@ -1,0 +1,1 @@
+Original geometry, inherited generated concept, previews and prose: CC BY4.0, Leon Made This / s010s. Generator/support code: MIT. Primary reference text/images are consulted-only and not incorporated or redistributed. No institutional endorsement.

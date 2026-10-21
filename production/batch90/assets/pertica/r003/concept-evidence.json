@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "pertica",
+  "revision": "r003",
+  "labels": {
+    "en": "Pertica quadrifaria tiered lateral branches"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "70f0dbec0a276763480e7ceff2c28092f3e69e204fd9c02ca3bd3f02ad62b196"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "fb1522a02979fdd2b9c3f4169d1ab451d1465dbc86bb4b70ead69f2a9cdd51d8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "6dc47a6e463af37d336d07ede5678f7007af13c25f33677dbb6beb1e1f0ce467"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "2b9ca6771ea88fe8df2715915431526ccb8fdbc7f8b2004d115d117e33fae1c4"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "4e009c2cceefe71ba8469617a6e45d76306278931bad66514783e93da6de901e"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "50d86874a524943bf92c7e80b2f3ad4086e23918d167642bbb9d5281d2f22973"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "2c14f6ae87009634cd03a7049accefd01d88979c980fe7257cd4e5b8ea22c09e"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "32578c2050477bc4566c3433a3572ac9630374ea770530303d20ea025282c79d"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "4417d1b49d6020c1c85711d2162efafcaeb1dac94ebf2d036bb74df26e6d8a12"
+      }
+    ],
+    "cross_view_consistency_note": "All generated concept panels inspected. Preserve naked branching hierarchy but correct thick tree-like trunk and pronounced modern roots to slender axis/minimal conjectural base. Concept uses too few branches and sparse fertile bunches; freeze16 successive four-rank lateral systems, ten dense terminal clusters and six sterile sprays. Do not copy apparent equal-height pairs in concept.",
+    "hidden_surface_decisions": "All generated concept panels inspected. Preserve naked branching hierarchy but correct thick tree-like trunk and pronounced modern roots to slender axis/minimal conjectural base. Concept uses too few branches and sparse fertile bunches; freeze16 successive four-rank lateral systems, ten dense terminal clusters and six sterile sprays. Do not copy apparent equal-height pairs in concept."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T21:38:37.338Z",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 58.587,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "32578c2050477bc4566c3433a3572ac9630374ea770530303d20ea025282c79d"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 36.2286,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b33af49ea961b81d025806182e56fe6ae99d19ed6032f17ef56e198598e6d71c"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b33af49ea961b81d025806182e56fe6ae99d19ed6032f17ef56e198598e6d71c"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "c3582b3da1a6bf04752d05ebc7ee6ff1418ef019a1d2a13f05d7580e976cf086",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "25db2a5ff8788cbbf922fe4406a85641b07d7d147a36a044cff7ebee006c8f0c"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "70f0dbec0a276763480e7ceff2c28092f3e69e204fd9c02ca3bd3f02ad62b196",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "82b05da3b08f705ec13bf2939efbcd7a9d24dbdfba96b281859eb208fbe4b923"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}

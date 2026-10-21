@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "zoophycos-spiral-spreite",
+  "revision": "r002",
+  "labels": {
+    "en": "Zoophycos spiral spreite"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "c3819e278beb43ba6651a38bd6bcfe509ec7218d13b5bfd51c8d0f4090030e56"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "aba8bd233586037abb8d8cbf3f68580ae26f192a0902f4bad7a2f39e149bad89"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "e452737ab50846bee3a03ca72c86fe3351508459d70540cb7bbb3721f672e358"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "277f7e959c3a5a40b54eab3719eef54cfd982969f925f1c97ea28529fc2c2dab"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "3da45e42f0a84d7a066f246cd8ef0658c04c873466d66b7248822fc5bf9b9b1c"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "4cb36bda1c652dc9abafd0b9da1bf7cba2f7a1453b264fc5ddd6db609f4b6cd7"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "2dbf4516fe9a05f10387ab63e8e0e505c7534afbee07322f213e6e8da2f3f5c0"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f93bbbad90a1ca7fd5df138f08deaaf450b196071542207789e0a1a5ab33cf3e"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "efba03db91ba25d64666d4cb2173af30bcbae9007b39c1ce70ab7c2bd34195f1"
+      }
+    ],
+    "cross_view_consistency_note": "All concept views inspected. Preserve wide connected spiral sheet and radial curved lamellae. Correct the exaggerated fat pole, dish-like deep depression and overly prominent outer wall to thin shaft, shallowly sloping full sheet and modest integrated margin. Geometry must include full underside; concept underside panel is not treated as evidence of a real specimen.",
+    "hidden_surface_decisions": "All concept views inspected. Preserve wide connected spiral sheet and radial curved lamellae. Correct the exaggerated fat pole, dish-like deep depression and overly prominent outer wall to thin shaft, shallowly sloping full sheet and modest integrated margin. Geometry must include full underside; concept underside panel is not treated as evidence of a real specimen."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T21:38:41.776Z",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 87.195,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "f93bbbad90a1ca7fd5df138f08deaaf450b196071542207789e0a1a5ab33cf3e"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 29.7267,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "ba1378c19b3bbe063fd8d263d61a99514ae76c61293a8792ac2925439fcb6a34"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "ba1378c19b3bbe063fd8d263d61a99514ae76c61293a8792ac2925439fcb6a34"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "6a375316829b7033d6bd2596ba5ba14f07ff5ec6fdc6efc06d7657575d1b2d88",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "7eb205e313b3af2cf60226ec7fc222a7bdf1cff30397e4674b526d071bb219cb"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "c3819e278beb43ba6651a38bd6bcfe509ec7218d13b5bfd51c8d0f4090030e56",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "459ff9917eaea81e53db711c01d0e9a420b07f8160e6569613804e75a5d20388"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}
