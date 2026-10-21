@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -56,7 +56,7 @@
+    for s in [-1,1]:
+     j=i*8+level*2+(s+1)//2;pg=f'pinna-{j:03d}';axis=(side*s*.88+d*.45+Vector((0,0,.20))).normalized();end=at+axis*(.12*(1-.14*level));tube(M,[at,at.lerp(end,.55)+Vector((0,0,.006)),end],[.0017,.0011,.00035],5,1,pg,fg)
+     for k in range(p['forklets_per_pinna']):
+-     idx=j*4+k;gg=f'forklet-{idx:03d}';fb=at.lerp(end,.21+k*.20);fd=(d*.78+axis*.3+Vector((0,0,.35))).normalized();tip=fb+fd*(.029*(1-.08*level));tube(M,[fb,tip],[.00075,.0004],4,1,gg,pg)
++     idx=j*4+k;gg=f'forklet-{idx:03d}';ft=.21+k*.20;mid=at.lerp(end,.55)+Vector((0,0,.006));fb=at.lerp(mid,ft/.55) if ft<=.55 else mid.lerp(end,(ft-.55)/.45);fd=(d*.78+axis*.3+Vector((0,0,.35))).normalized();tip=fb+fd*(.029*(1-.08*level));tube(M,[fb,tip],[.00075,.0004],4,1,gg,pg)
+      for sign in [-1,1]:tube(M,[tip,tip+fd*.018+side*sign*.010+Vector((0,0,.004))],[.00044,.00013],4,2,gg)
+  M.emit('open-bipinnate-nonlaminate-framework');semantic.update(note='Eight historical spiral fronds,64pinnae,256bifurcated open forklets; no enlarged tip buds, reproductive organs or broad laminae.')
+ 

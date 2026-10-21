@@ -1,0 +1,9 @@
+import pathlib,json,subprocess,datetime,hashlib,time
+S=pathlib.Path('/workspace/shared/lowpoly-batch94-20261020');O=pathlib.Path('/workspace/shared/lowpoly-batch94-independent-qa-20261020');H=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+for aid,rev,group,scale in [('rhacophyton','r002','pinna-000',.16),('sigillaria','r001','scar-10-08',.16),('pseudobornia','r001','fourth-00',.14),('calamites','r001','secondary-00',.14)]:
+ B=S/'production/batch94/assets'/aid/rev;D=O/aid;g=json.load(open(D/'independent-geometry.json'));bounds=g['world_bounds'];c=g['component_bounds'][group]['bounds'];target=[((c['min'][i]+c['max'][i])/2-bounds['min'][i])/bounds['size'][i]for i in range(3)]
+ cmd=['flock','/tmp/lowpoly-production-blender.lock','/usr/bin/blender','-b','--factory-startup','--disable-autoexec','--threads','2','--python-exit-code','1','--python',str(S/'production/batch94/render-fixed8.py'),'--',str(B/'model.glb'),'--output-dir',str(D/'detail'),'--revision',rev,'--brief',str(B/'candidate-brief.json'),'--references',str(B/'references.json'),'--resolution','512','--samples','32','--turntable-frames','0','--views','detail','--detail-target',','.join(map(str,target)),'--detail-scale',str(scale)]
+ st=datetime.datetime.now(datetime.timezone.utc).isoformat();req={'requested_at':st,'purpose':'Supplemental actual-subject interface/shape diagnostic; not replacement final frame.','target_group':group,'command':cmd,'subject_glb_sha256':H(B/'model.glb')};(D/'detail-request.json').write_text(json.dumps(req,indent=2)+'\n')
+ with (D/'detail-render.log').open('x')as f:p=subprocess.Popen(cmd,stdout=f,stderr=subprocess.STDOUT);code=p.wait()
+ (D/'detail-execution.json').write_text(json.dumps({'finished_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'runner_pid':p.pid,'exit_code':code},indent=2)+'\n');print(aid,code,flush=True)
+ if code:raise SystemExit(code)
