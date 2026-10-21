@@ -20,7 +20,7 @@ for(const [label,change] of [
  ['forged presentation',m=>m.publication.final_five_presentation.sha256='0'.repeat(64)],
  ['missing presentation',m=>delete m.publication.final_five_presentation],
  ['extra header',m=>m.publication.unreviewed=true],
- ['self reported digest',m=>{m.assets[0].description.en+=' altered';m.publication.baseline347_sha256='da39151f8ffb135cc32e76a89cff03acf065f0419f9aebed5a0929f68a3aa2d8';}]
+ ['self reported digest',m=>{m.assets[0].description.en+=' altered';m.publication.baseline347_sha256='7c86e7087dd1b1dd1e207bce67fc5b9dec3e5cf80bb433d762c70a1c48b2e463';}]
 ]){const bad=structuredClone(current);change(bad);assert.throws(()=>historical295Fixture(bad),undefined,label);rejected++;}
 const oldBad=structuredClone(prior);oldBad.assets[0].description.en+=' altered';assert.throws(()=>historical295Fixture(oldBad));rejected++;
 console.log(`PASS historical295 fixture: exact352 and exact347 restore identical fixed295; input unchanged; ${rejected} rejections.`);

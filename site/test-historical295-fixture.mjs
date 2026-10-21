@@ -5,9 +5,10 @@ import {FINAL_FIVE_IDS,FINAL_FIVE_PRESENTATION} from './final-five-release.mjs';
 import {FIFTY_TWO_IDS,assertFiftyTwoBaseline} from './fifty-two-release.mjs';
 import {FIFTY_TWO_RELEASES} from './accepted-fifty-two-release.mjs';
 // Canonical whole manifests, not asset counts or caller-supplied claims.
-// 347: bb8599225e2167d57282bbe19e6dc12fc6a2715d; 352: reviewed 24d75a5.
-const FIXED347='da39151f8ffb135cc32e76a89cff03acf065f0419f9aebed5a0929f68a3aa2d8';
-const FIXED352='2cee8d93b6054aa4d1cf6114a147c2a3f7702dec00234343071f99f0fcd8f427';
+// 347: reviewed migration main 7ab45923c28a59e91f54ad1efde2928fe5bd4faf.
+// 352: exactly that whole347 plus unchanged reviewed24d75 five objects/presentation.
+const FIXED347='7c86e7087dd1b1dd1e207bce67fc5b9dec3e5cf80bb433d762c70a1c48b2e463';
+const FIXED352='3640bfe31556f321f8dc4f292625ddd858bbf7426ec1e6e89b851cfb4f6e367d';
 export function historical295Fixture(input){
  const manifest=structuredClone(input);
  if(manifest.assets?.length===352){
