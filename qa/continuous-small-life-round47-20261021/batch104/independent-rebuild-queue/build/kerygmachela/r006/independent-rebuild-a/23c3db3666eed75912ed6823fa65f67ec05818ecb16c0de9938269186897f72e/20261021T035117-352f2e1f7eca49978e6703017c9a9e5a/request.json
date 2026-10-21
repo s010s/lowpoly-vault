@@ -1,0 +1,97 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r006.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch104-independent-qa-20261021/independent-rebuild-queue/build/kerygmachela/r006/independent-rebuild-a/23c3db3666eed75912ed6823fa65f67ec05818ecb16c0de9938269186897f72e/20261021T035117-352f2e1f7eca49978e6703017c9a9e5a/outputs"
+  ],
+  "created_at": "2026-10-21T03:51:17.127634+00:00",
+  "fingerprint": "23c3db3666eed75912ed6823fa65f67ec05818ecb16c0de9938269186897f72e",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 1145,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/config.json",
+        "sha256": "8df62d78655571422fc898c44526e0cecaad035b7181f489745583b84064773e"
+      },
+      "generator": {
+        "bytes": 18037,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r006.py",
+        "sha256": "810ba277df3accc635ebe6491693885e5d896c9516b259fe1dc96c2cefa2d5a2"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "kerygmachela",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/config.json",
+        "generator": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r006.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "independent-rebuild-a",
+      "outputs": [
+        "kerygmachela/kerygmachela.glb",
+        "kerygmachela/kerygmachela.blend",
+        "kerygmachela/qa.json",
+        "kerygmachela/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r006",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T035117-ffd3092d315a44dfb3933c20058efa83"
+}

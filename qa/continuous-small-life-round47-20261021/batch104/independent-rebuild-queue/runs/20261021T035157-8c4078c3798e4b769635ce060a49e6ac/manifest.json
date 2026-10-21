@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "aegirocassis",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/aegirocassis/r008/config.json",
+        "generator": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r008.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "independent-rebuild-a",
+      "outputs": [
+        "aegirocassis/aegirocassis.glb",
+        "aegirocassis/aegirocassis.blend",
+        "aegirocassis/qa.json",
+        "aegirocassis/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r008",
+      "timeout_seconds": 1800
+    },
+    {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "aegirocassis",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/aegirocassis/r008/config.json",
+        "generator": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r008.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "independent-rebuild-b",
+      "outputs": [
+        "aegirocassis/aegirocassis.glb",
+        "aegirocassis/aegirocassis.blend",
+        "aegirocassis/qa.json",
+        "aegirocassis/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r008",
+      "timeout_seconds": 1800
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

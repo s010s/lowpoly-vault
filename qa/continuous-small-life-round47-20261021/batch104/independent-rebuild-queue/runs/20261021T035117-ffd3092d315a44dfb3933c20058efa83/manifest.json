@@ -1,0 +1,82 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "kerygmachela",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/config.json",
+        "generator": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r006.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "independent-rebuild-a",
+      "outputs": [
+        "kerygmachela/kerygmachela.glb",
+        "kerygmachela/kerygmachela.blend",
+        "kerygmachela/qa.json",
+        "kerygmachela/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r006",
+      "timeout_seconds": 1800
+    },
+    {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "kerygmachela",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/config.json",
+        "generator": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r006.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "independent-rebuild-b",
+      "outputs": [
+        "kerygmachela/kerygmachela.glb",
+        "kerygmachela/kerygmachela.blend",
+        "kerygmachela/qa.json",
+        "kerygmachela/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r006",
+      "timeout_seconds": 1800
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

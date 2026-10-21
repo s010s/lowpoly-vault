@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "arthropleura",
+      "revision": "r009",
+      "job_id": "independent-rebuild-a",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r009.py",
+        "config": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/arthropleura/r009/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "arthropleura/arthropleura.glb",
+        "arthropleura/arthropleura.blend",
+        "arthropleura/qa.json",
+        "arthropleura/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "arthropleura",
+      "revision": "r009",
+      "job_id": "independent-rebuild-b",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/generate-r009.py",
+        "config": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/arthropleura/r009/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "arthropleura/arthropleura.glb",
+        "arthropleura/arthropleura.blend",
+        "arthropleura/qa.json",
+        "arthropleura/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    }
+  ]
+}
