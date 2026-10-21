@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "asset_id": "penniretepora",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational skeletal colony study; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Unmodified closed outward components; exact measured transformed geometry/contact/global exposure; source reopen,2distinctPID semantic rebuilds,project/Khronos validation.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all8exact512images and sheet; Concept has too few side branches; final has16unconnected sides in8alternating pairs. Preserve two rows, not enlarged decorative pores; implement actual0.07mm cavities. Low keel blends into branch face, no nodes. Tiny stellate inner septa and microstylets deliberately omitted, rather than misrepresented as macroscale spines.",
+      "required_sources": [
+        "ERNST2022-PENNIRETEPORA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Straight narrow main branch with two alternating ranks of unconnected pinnate lateral branches. Two aperture rows on main and lateral branches separated by low undulating median keel without nodes. No fused lateral branches or mesh, unlike Septopora. Recessed apertures, not beads. Bounded skeletal reconstruction based on SNSB-BSPG2020XCI121/122/123 exterior fragments, not complete observed colony. Finis Shale Member, Graham Formation, Pennsylvanian Virgilian, Texas. Side-branch lengths and totalcount artistic; main/lateral widths, insertion angles, spacing and aperture widths source constrained. No living tentacles inferred.",
+      "required_sources": [
+        "ERNST2022-PENNIRETEPORA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/references/concept freeze; no retrospective narrowing.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware target test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed target scene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512 views plus lossless sheet; supplementary macro images if actual tiny relief needs closer inspection.",
+  "frozen_at": "2026-10-21T03:21:01.198319+00:00",
+  "subject": "Penniretepora flexistriata Richards, 1959 low-poly skeletal fragment study",
+  "taxon": "Penniretepora flexistriata Richards, 1959",
+  "representation": "bounded-skeletal-reconstruction",
+  "factual_scope": "Bounded skeletal reconstruction based on SNSB-BSPG2020XCI121/122/123 exterior fragments, not complete observed colony. Finis Shale Member, Graham Formation, Pennsylvanian Virgilian, Texas. Side-branch lengths and totalcount artistic; main/lateral widths, insertion angles, spacing and aperture widths source constrained. No living tentacles inferred.",
+  "identifying_features": [
+    "Straight narrow main branch with two alternating ranks of unconnected pinnate lateral branches.",
+    "Two aperture rows on main and lateral branches separated by low undulating median keel without nodes.",
+    "No fused lateral branches or mesh, unlike Septopora. Recessed apertures, not beads."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.0028,
+      0.00022,
+      0.0066
+    ],
+    "interpretation": "Nominal art targets only. Source hard organ ranges separately enforced on actual transformed coordinates; no global normalization."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted solids; real cavity and fenestrule geometry. No texture cards or double-sided concealment. Original winding must pass unchanged.",
+  "palette_srgb": [
+    "#B59B76",
+    "#D2BE9C",
+    "#887657"
+  ],
+  "parameters": {
+    "main_length_m": 0.0062,
+    "main_width_m": 0.00032,
+    "main_thickness_m": 0.00016,
+    "lateral_length_m": 0.0013,
+    "lateral_width_m": 0.00018,
+    "lateral_thickness_m": 0.00012,
+    "branch_pairs": 8,
+    "branch_spacing_m": 0.00072,
+    "branch_angle_deg": 70,
+    "aperture_rows": 2,
+    "aperture_diameter_m": 7e-05,
+    "main_aperture_stations": 20,
+    "lateral_aperture_stations": 5,
+    "keel_relief_m": 1.4e-05
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "main_branch",
+      "measure": "oriented_width_m",
+      "range": [
+        0.00022,
+        0.00043
+      ]
+    },
+    {
+      "kind": "lateral_branch",
+      "measure": "oriented_width_m",
+      "range": [
+        0.00012,
+        0.00024
+      ]
+    }
+  ],
+  "hard_component_counts": {
+    "main_branch": 1,
+    "lateral_branch": 16
+  },
+  "source_hard_boundaries": [
+    "Main width0.22–0.43mm; lateral width0.12–0.24mm; lateral angle59–82degrees; same-rank center spacing0.59–0.85mm; aperture width0.06–0.08mm.",
+    "Two aperture rows both main/lateral; no connected laterals. Source has fragmentary branches, not a complete observed outline."
+  ],
+  "numeric_semantics": "Source limits separated from nominal artistic parameters. Ornamental counts are frozen implementation choices, not alleged observed fossil counts.",
+  "component_measurement_contract": "Named editable semantic vertexgroups; actual transformed oriented dimensions,closed winding/contact and global surface exposure. Integrated feature ranges and counts recorded separately.",
+  "contact_policy": "Actual triangles/base contact and globally traced surface visibility; no arbitrary exposurepercentage gate. Small parts need exact final pixels, not only numeric passes.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T03:21:01.198319+00:00",
+    "path": "production/small-life-batch105/concepts/penniretepora-concept.png",
+    "sha256": "9bfa21025ad1215fd0c46059837a18f1d175d95ae13b7817ccfc3820a41532f8",
+    "decisions": "Concept has too few side branches; final has16unconnected sides in8alternating pairs. Preserve two rows, not enlarged decorative pores; implement actual0.07mm cavities. Low keel blends into branch face, no nodes. Tiny stellate inner septa and microstylets deliberately omitted, rather than misrepresented as macroscale spines."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "generator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andsheet",
+    "sevendistincthoneststagestates"
+  ]
+}

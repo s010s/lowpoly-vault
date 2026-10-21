@@ -1,0 +1,140 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/render-macro.py",
+    "--",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/artifacts/penniretepora.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch105-evidence/queue/render/penniretepora/r001/exact-macro/c103d9ee0f5f56ac61038c782a8b67c6dcd0bc64d907721510a54fdddb29c214/20261021T034537-5a5a9f3ecbb34738bfc49f790459b34b/outputs/views",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "32",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "detail",
+    "--detail-target",
+    "0.5,0.5,0.35",
+    "--detail-scale",
+    "0.32"
+  ],
+  "created_at": "2026-10-21T03:45:37.559530+00:00",
+  "fingerprint": "c103d9ee0f5f56ac61038c782a8b67c6dcd0bc64d907721510a54fdddb29c214",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 9171,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/delivery-brief.json",
+        "sha256": "510deafae759d42470b52134485ddcd4a9971c1647ec37fedfd1238a9f611a1a"
+      },
+      "glb": {
+        "bytes": 518820,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/artifacts/penniretepora.glb",
+        "sha256": "8702a14ca721ff60d80a4cfb81ab5524fa38c2b2b7fa6f511486f6eb0d2a1b4c"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 1524,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/references.json",
+        "sha256": "69d1aae16f0626b1523b7872c076d445de23e002804a51af4b59a64b9d44774f"
+      },
+      "renderer": {
+        "bytes": 16209,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/render-macro.py",
+        "sha256": "5ce1d03722d7a77544c2e87700371ee6048ec451d3bdd0f0f4131284aec881af"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/views",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "32",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "detail",
+        "--detail-target",
+        "0.5,0.5,0.35",
+        "--detail-scale",
+        "0.32"
+      ],
+      "asset_id": "penniretepora",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch105-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/artifacts/penniretepora.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch105-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/penniretepora/r001/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/render-macro.py"
+      },
+      "job_id": "exact-macro",
+      "outputs": [
+        "views/detail.png",
+        "views/render-manifest.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 900
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T034537-9ab6aa355121472d805bba450c543fd2"
+}

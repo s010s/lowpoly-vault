@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "82b06f60e371e8542ae5f74f42dc65a79f349e8356ceaf9ed92860e7f05e65da",
+    "brief_sha256": "5c12ea022d7f6671ac40565b2fd4c327f0b8636f400650212d967d61fdc29a7a",
+    "references_sha256": "c7bc0cb67137bd69f243f0984ff3d274957c2c3ad5d6ca27ccf8cdf92870f5b7"
+  },
+  "status": "pass",
+  "source_sha256": "863d3b4e3e959f44f4b10222e3331fccecf45cf2aa3145e914c2d517e785096e",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "bifoliate_branch": 3
+  },
+  "observed_counts": {
+    "bifoliate_branch": 3
+  },
+  "hard_organ_ranges": [
+    {
+      "rule": {
+        "kind": "bifoliate_branch",
+        "measure": "oriented_width_m",
+        "range": [
+          0.00067,
+          0.00107
+        ]
+      },
+      "observed_min": 0.0008799999777693301,
+      "observed_max": 0.0008800004725344479,
+      "count": 3,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "bifoliate_branch",
+        "measure": "oriented_thickness_m",
+        "range": [
+          0.0004,
+          0.00092
+        ]
+      },
+      "observed_min": 0.000615999975707382,
+      "observed_max": 0.000615999975707382,
+      "count": 3,
+      "failures": []
+    }
+  ],
+  "additional_source_checks": [
+    {
+      "kind": "bifoliate_branch",
+      "required_count": 3,
+      "actual_nonempty_components": 3,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/small-life-batch105/cystodictya/r003/qa/factual-geometry.report.json",
+    "sha256": "d94f56d24b8130986f087dabd9aa79e5010500ec1f32f3a03119db392600c85e"
+  },
+  "integrated_features": {
+    "recessed_aperture": 230
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch105/cystodictya/r003/qa/component-contact-exposure.report.json",
+    "sha256": "dd6274d7f86af1ecfa5336bec4ae7961bfa6d4f18c5132a51c48cd7046fe1234"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}

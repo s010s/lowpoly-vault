@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "asset_id": "constellaria",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational skeletal colony study; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Unmodified closed outward components; exact measured transformed geometry/contact/global exposure; source reopen,2distinctPID semantic rebuilds,project/Khronos validation.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all8exact512images and sheet; Concept stars far too large and regular. Reduce to many small shallow integrated radiating depressions, not large isolated six-point decorations. Keep branches broad/flat and nonmesh. Both faces detailed; rays and selected porecount are artistic abstraction, not specimen counts.",
+      "required_sources": [
+        "OUIP24",
+        "ULRICH1905"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Broad flat branches, approximately12mmwide and3.5mmthick, open asymmetrical Y outline. Shallow integrated stellate depressions on both broad surfaces, with subtly elevated intervening pore-bearing ridges. Sparse actual geometric pore cavities near rays, not star decals; no separate mounted relief ornaments. Bounded fossil-fragment reconstruction from OUIP24, Kope Formation, Franklin County Indiana. Broad flattened ramose form also supported by Ulrich and Bassler1905 pp37–38. Do not borrow the narrower closely interwoven C.emaciata form. Star topography is depressed maculae with intervening raised skeletal fields, not glued stars. Arrangement, macro size and number of sampled maculae artistic.",
+      "required_sources": [
+        "OUIP24",
+        "ULRICH1905"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/references/concept freeze; no retrospective narrowing.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware target test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed target scene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512 views plus lossless sheet; supplementary macro images if actual tiny relief needs closer inspection.",
+  "frozen_at": "2026-10-21T03:21:01.198319+00:00",
+  "subject": "Constellaria florida Ulrich, 1882 low-poly skeletal fragment study",
+  "taxon": "Constellaria florida Ulrich, 1882",
+  "representation": "bounded-skeletal-reconstruction",
+  "factual_scope": "Bounded fossil-fragment reconstruction from OUIP24, Kope Formation, Franklin County Indiana. Broad flattened ramose form also supported by Ulrich and Bassler1905 pp37–38. Do not borrow the narrower closely interwoven C.emaciata form. Star topography is depressed maculae with intervening raised skeletal fields, not glued stars. Arrangement, macro size and number of sampled maculae artistic.",
+  "identifying_features": [
+    "Broad flat branches, approximately12mmwide and3.5mmthick, open asymmetrical Y outline.",
+    "Shallow integrated stellate depressions on both broad surfaces, with subtly elevated intervening pore-bearing ridges.",
+    "Sparse actual geometric pore cavities near rays, not star decals; no separate mounted relief ornaments."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.047,
+      0.004,
+      0.052
+    ],
+    "interpretation": "Nominal art targets only. Source hard organ ranges separately enforced on actual transformed coordinates; no global normalization."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted solids; real cavity and fenestrule geometry. No texture cards or double-sided concealment. Original winding must pass unchanged.",
+  "palette_srgb": [
+    "#B3AA97",
+    "#D1C7B0",
+    "#8E8778"
+  ],
+  "parameters": {
+    "main_length_m": 0.026,
+    "arm_length_m": 0.029,
+    "branch_width_m": 0.012,
+    "branch_thickness_m": 0.0035,
+    "left_angle_deg": 31,
+    "right_angle_deg": 38,
+    "macula_columns": 2,
+    "macula_stations": 3,
+    "macula_radius_m": 0.00165,
+    "macula_depth_m": 0.00022,
+    "macula_rays": 6,
+    "pore_diameter_m": 0.00018
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "broad_branch",
+      "measure": "oriented_thickness_m",
+      "range": [
+        0.003,
+        0.005
+      ]
+    }
+  ],
+  "hard_component_counts": {
+    "broad_branch": 3
+  },
+  "source_hard_boundaries": [
+    "Selected broadbranch interpretation keeps12mmwidth and3.5mmthickness; original source typicalwidth is not a universal minimum.",
+    "Stellate maculae must be continuous surface relief, depressed centers/rays and relative raised interrays. No glued solid stars."
+  ],
+  "numeric_semantics": "Source limits separated from nominal artistic parameters. Ornamental counts are frozen implementation choices, not alleged observed fossil counts.",
+  "component_measurement_contract": "Named editable semantic vertexgroups; actual transformed oriented dimensions,closed winding/contact and global surface exposure. Integrated feature ranges and counts recorded separately.",
+  "contact_policy": "Actual triangles/base contact and globally traced surface visibility; no arbitrary exposurepercentage gate. Small parts need exact final pixels, not only numeric passes.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T03:21:01.198319+00:00",
+    "path": "production/small-life-batch105/concepts/constellaria-concept.png",
+    "sha256": "d30efa24c3b766dd4c09dc64eedc924792a42b582bb8c4b60146629168a99914",
+    "decisions": "Concept stars far too large and regular. Reduce to many small shallow integrated radiating depressions, not large isolated six-point decorations. Keep branches broad/flat and nonmesh. Both faces detailed; rays and selected porecount are artistic abstraction, not specimen counts."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "generator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andsheet",
+    "sevendistincthoneststagestates"
+  ]
+}

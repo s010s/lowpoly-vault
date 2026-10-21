@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "distinct_real_blender_pids": [
+    7,
+    30
+  ],
+  "two_separate_executed_builds": true,
+  "queue_runs": [
+    {
+      "run": "a",
+      "pid": 7,
+      "request": {
+        "path": "production/small-life-batch105/archimedes/r001/qa/rebuild-a/request.json",
+        "sha256": "88ad2a9b057f204b003dbedc82c279381b6c887b70e994879179db5e2ef2d182"
+      },
+      "result": {
+        "path": "production/small-life-batch105/archimedes/r001/qa/rebuild-a/result.json",
+        "sha256": "31d7634a9144c5e38ae70220f5dda3399237c14e793604d9d139031110bb65b6"
+      },
+      "execution": {
+        "path": "production/small-life-batch105/archimedes/r001/qa/rebuild-a/execution.json",
+        "sha256": "f79779ae0ed29a9b69892052ad7e6f9e61b6570b23a412c282a7673a134b38b7"
+      }
+    },
+    {
+      "run": "b",
+      "pid": 30,
+      "request": {
+        "path": "production/small-life-batch105/archimedes/r001/qa/rebuild-b/request.json",
+        "sha256": "76008e03aa32f3fa4ffe684e6824bea59abbb0afe40a637d2865f4ff7ad8b323"
+      },
+      "result": {
+        "path": "production/small-life-batch105/archimedes/r001/qa/rebuild-b/result.json",
+        "sha256": "68e7d5a5fa3138121679c875ea9756a687095658fe3a799ee55bc3acd51a61ed"
+      },
+      "execution": {
+        "path": "production/small-life-batch105/archimedes/r001/qa/rebuild-b/execution.json",
+        "sha256": "1e811313eb9c77ec9d8db860b4132eb224b29f88ad31a4b85f7dd02dada0d499"
+      }
+    }
+  ],
+  "each_has_blocking_global_flock_and_threads2": true,
+  "semantic_equality": "pass; raw build and comparator reports pinned",
+  "not_independent_qa": true
+}

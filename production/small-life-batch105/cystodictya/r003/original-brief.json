@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "asset_id": "cystodictya",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational skeletal colony study; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Unmodified closed outward components; exact measured transformed geometry/contact/global exposure; source reopen,2distinctPID semantic rebuilds,project/Khronos validation.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all8exact512images and sheet; Concept shows only3–4rows in places; final exactlyfive rows per broad face. Preserve narrow bifoliate thickness. Implement modest horseshoe lip integrated at each cavity, not large jewelry rings. Original row alternation and width/thickness measured; no thinsection treated as intact colony.",
+      "required_sources": [
+        "ERNST2022-CYSTODICTYA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Narrow lenticular/strap-shaped bifoliate branches, no broad stellate fronds. Five alternating aperture rows on each of both broad faces,4–6source range. Circular-oval recessed apertures with subtle horseshoe lunaria and fine longitudinal striation; no surface beads. Bounded narrow bifoliate Y fragment based on SNSB-BSPG2020XCI99 exterior and XCI23c crosssection, Finis Shale, Graham Formation, Pennsylvanian Virgilian, Texas. Whole colony outline is unknown from these fragments; Y arrangement artistic, not asserted complete fossil. Internal mesotheca not external ornament; no C.pustulosa dimensions mixed.",
+      "required_sources": [
+        "ERNST2022-CYSTODICTYA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/references/concept freeze; no retrospective narrowing.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware target test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed target scene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512 views plus lossless sheet; supplementary macro images if actual tiny relief needs closer inspection.",
+  "frozen_at": "2026-10-21T03:21:01.198319+00:00",
+  "subject": "Cystodictya formosa Moore, 1929 low-poly skeletal fragment study",
+  "taxon": "Cystodictya formosa Moore, 1929",
+  "representation": "bounded-skeletal-reconstruction",
+  "factual_scope": "Bounded narrow bifoliate Y fragment based on SNSB-BSPG2020XCI99 exterior and XCI23c crosssection, Finis Shale, Graham Formation, Pennsylvanian Virgilian, Texas. Whole colony outline is unknown from these fragments; Y arrangement artistic, not asserted complete fossil. Internal mesotheca not external ornament; no C.pustulosa dimensions mixed.",
+  "identifying_features": [
+    "Narrow lenticular/strap-shaped bifoliate branches, no broad stellate fronds.",
+    "Five alternating aperture rows on each of both broad faces,4–6source range.",
+    "Circular-oval recessed apertures with subtle horseshoe lunaria and fine longitudinal striation; no surface beads."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.004,
+      0.00065,
+      0.005
+    ],
+    "interpretation": "Nominal art targets only. Source hard organ ranges separately enforced on actual transformed coordinates; no global normalization."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted solids; real cavity and fenestrule geometry. No texture cards or double-sided concealment. Original winding must pass unchanged.",
+  "palette_srgb": [
+    "#ACA99C",
+    "#CCC6B3",
+    "#817E71"
+  ],
+  "parameters": {
+    "main_length_m": 0.0025,
+    "arm_length_m": 0.0028,
+    "branch_width_m": 0.00088,
+    "branch_thickness_m": 0.00058,
+    "left_angle_deg": 27,
+    "right_angle_deg": 34,
+    "aperture_rows": 5,
+    "main_aperture_stations": 7,
+    "arm_aperture_stations": 8,
+    "aperture_diameter_m": 0.00014,
+    "lunarium_relief_m": 1.8e-05
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "bifoliate_branch",
+      "measure": "oriented_width_m",
+      "range": [
+        0.00067,
+        0.00107
+      ]
+    },
+    {
+      "kind": "bifoliate_branch",
+      "measure": "oriented_thickness_m",
+      "range": [
+        0.0004,
+        0.00092
+      ]
+    }
+  ],
+  "hard_component_counts": {
+    "bifoliate_branch": 3
+  },
+  "source_hard_boundaries": [
+    "Branch width0.67–1.07mm and thickness0.40–0.92mm; five rows in observed4–6range; aperture width0.10–0.18mm.",
+    "Two faces both carry apertures; narrow branches remain free, never form a mesh or broadleaf."
+  ],
+  "numeric_semantics": "Source limits separated from nominal artistic parameters. Ornamental counts are frozen implementation choices, not alleged observed fossil counts.",
+  "component_measurement_contract": "Named editable semantic vertexgroups; actual transformed oriented dimensions,closed winding/contact and global surface exposure. Integrated feature ranges and counts recorded separately.",
+  "contact_policy": "Actual triangles/base contact and globally traced surface visibility; no arbitrary exposurepercentage gate. Small parts need exact final pixels, not only numeric passes.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T03:21:01.198319+00:00",
+    "path": "production/small-life-batch105/concepts/cystodictya-concept.png",
+    "sha256": "3d06d2cc1e3f6c30cdb0ea956d1bd9e38a6b1a016c47c910182e619b8e313966",
+    "decisions": "Concept shows only3–4rows in places; final exactlyfive rows per broad face. Preserve narrow bifoliate thickness. Implement modest horseshoe lip integrated at each cavity, not large jewelry rings. Original row alternation and width/thickness measured; no thinsection treated as intact colony."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "generator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andsheet",
+    "sevendistincthoneststagestates"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "789f3ba80c2982b996974bc3eae887716ddeb7c74589b12b7fd1064cc8495c3d",
+    "brief_sha256": "f7d978a5504a49cba906eedfb838d2efb4d0157a6b971b5d024fd16ba8cf2c15",
+    "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+  },
+  "status": "pass",
+  "source_sha256": "8b645457f94d094c80af52b500ea2be4b652968e8cd8bdaee2913f1381300ffb",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "axial_helix": 1,
+    "perforated_frond": 1
+  },
+  "observed_counts": {
+    "axial_helix": 1,
+    "perforated_frond": 1
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "axial_helix",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "perforated_frond",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/small-life-batch105/archimedes/r001/qa/factual-geometry.report.json",
+    "sha256": "6d8f50b2a928a36841f7915731507ee37ab0cd54a1b8d7dc95f0cb3810f1d64e"
+  },
+  "integrated_features": {
+    "open_fenestrule": 300
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch105/archimedes/r001/qa/component-contact-exposure.report.json",
+    "sha256": "bb8a7e1e788fd3c842b5dedf456d96927783a64bf33c882687a69a008b7470fb"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}

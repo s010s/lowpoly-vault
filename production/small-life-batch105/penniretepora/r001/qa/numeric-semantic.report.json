@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "8702a14ca721ff60d80a4cfb81ab5524fa38c2b2b7fa6f511486f6eb0d2a1b4c",
+    "brief_sha256": "510deafae759d42470b52134485ddcd4a9971c1647ec37fedfd1238a9f611a1a",
+    "references_sha256": "69d1aae16f0626b1523b7872c076d445de23e002804a51af4b59a64b9d44774f"
+  },
+  "status": "pass",
+  "source_sha256": "807898e7b8cc0bf454457caf28191b3bf4ff983a3d1c160642977c23017d618c",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "main_branch": 1,
+    "lateral_branch": 16
+  },
+  "observed_counts": {
+    "main_branch": 1,
+    "lateral_branch": 16
+  },
+  "hard_organ_ranges": [
+    {
+      "rule": {
+        "kind": "main_branch",
+        "measure": "oriented_width_m",
+        "range": [
+          0.00022,
+          0.00043
+        ]
+      },
+      "observed_min": 0.00031999999191612005,
+      "observed_max": 0.00031999999191612005,
+      "count": 1,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "lateral_branch",
+        "measure": "oriented_width_m",
+        "range": [
+          0.00012,
+          0.00024
+        ]
+      },
+      "observed_min": 0.00018000011914409697,
+      "observed_max": 0.00018000102136284113,
+      "count": 16,
+      "failures": []
+    }
+  ],
+  "additional_source_checks": [
+    {
+      "kind": "main_branch",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "lateral_branch",
+      "required_count": 16,
+      "actual_nonempty_components": 16,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/small-life-batch105/penniretepora/r001/qa/factual-geometry.report.json",
+    "sha256": "d159e3e17b8d10fad9a166867786846150e738e498ace014fe053a2b08f14684"
+  },
+  "integrated_features": {
+    "recessed_aperture": 200
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch105/penniretepora/r001/qa/component-contact-exposure.report.json",
+    "sha256": "e6b4ae29d937e482d42e34b35cdfdce3134e7eb21bf956b1aefa9436dae73b1e"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}

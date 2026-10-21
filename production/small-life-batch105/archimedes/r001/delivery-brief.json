@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "asset_id": "archimedes",
+  "brief_version": "delivery-v001",
+  "profile": "production",
+  "purpose": "Static educational skeletal colony study; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Unmodified closed outward components; exact measured transformed geometry/contact/global exposure; source reopen,2distinctPID semantic rebuilds,project/Khronos validation.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all8exact512images and sheet; Retain continuous perforated flare and faceted ivory skeleton. Correct concept bulky nearly-straight trunk to an actual narrow corkscrew axial support. Keep actual holes and taper incomplete ends; no massive root base.",
+      "required_sources": [
+        "KGS-ARCHIMEDES",
+        "RAUP2006"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "A corkscrew-shaped axial support and one continuously winding, outward/upward flaring perforated frond. Real fenestrules between skeletal branches and crossbars, not painted openings or a solid spiral ribbon. A connected 2.5-turn original stylized helical net, no borrowed published simulation algorithm or mesh. Specimen-informed bounded reconstruction of a skeletal colony fragment. The KGS material is not given a species or accession number. No species-level determination is invented. Extent, complete coil and ornamental sampling are artistic; the fossil photograph is distinct from Greb’s reconstruction beside it. Original fossil-specimen inventory preserved, with a transparent reconstructed missing-frond surface.",
+      "required_sources": [
+        "KGS-ARCHIMEDES",
+        "RAUP2006"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/references/concept freeze; no retrospective narrowing.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware target test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed target scene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512 views plus lossless sheet; supplementary macro images if actual tiny relief needs closer inspection.",
+  "frozen_at": "2026-10-21T03:21:01.198319+00:00",
+  "subject": "Archimedes sp., Breckenridge County KGS attached-frond material low-poly skeletal fragment study",
+  "taxon": "Archimedes sp., Breckenridge County KGS attached-frond material",
+  "representation": "bounded-skeletal-reconstruction",
+  "factual_scope": "Specimen-informed bounded reconstruction of a skeletal colony fragment. The KGS material is not given a species or accession number. No species-level determination is invented. Extent, complete coil and ornamental sampling are artistic; the fossil photograph is distinct from Greb’s reconstruction beside it. Original fossil-specimen inventory preserved, with a transparent reconstructed missing-frond surface.",
+  "identifying_features": [
+    "A corkscrew-shaped axial support and one continuously winding, outward/upward flaring perforated frond.",
+    "Real fenestrules between skeletal branches and crossbars, not painted openings or a solid spiral ribbon.",
+    "A connected 2.5-turn original stylized helical net, no borrowed published simulation algorithm or mesh."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.02,
+      0.02,
+      0.042
+    ],
+    "interpretation": "Nominal art targets only. Source hard organ ranges separately enforced on actual transformed coordinates; no global normalization."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted solids; real cavity and fenestrule geometry. No texture cards or double-sided concealment. Original winding must pass unchanged.",
+  "palette_srgb": [
+    "#B7986A",
+    "#DDCBA8",
+    "#A17D52"
+  ],
+  "parameters": {
+    "turns": 2.5,
+    "axis_height_m": 0.035,
+    "axis_helix_radius_m": 0.00125,
+    "axis_tube_radius_m": 0.00065,
+    "outer_radius_m": 0.0095,
+    "frond_rise_m": 0.0055,
+    "frond_thickness_m": 0.00022,
+    "angular_cells": 60,
+    "radial_cells": 5,
+    "hole_fraction": 0.68
+  },
+  "hard_organ_ranges": [],
+  "hard_component_counts": {
+    "axial_helix": 1,
+    "perforated_frond": 1
+  },
+  "source_hard_boundaries": [
+    "Fenestrules must be actual holes and the frond must remain globally exposed.",
+    "Exactly one axial helix and one connected perforated frond. 2.5turns and300fenestrules are declared artistic sampling, not fossil counts."
+  ],
+  "numeric_semantics": "Source limits separated from nominal artistic parameters. Ornamental counts are frozen implementation choices, not alleged observed fossil counts.",
+  "component_measurement_contract": "Named editable semantic vertexgroups; actual transformed oriented dimensions,closed winding/contact and global surface exposure. Integrated feature ranges and counts recorded separately.",
+  "contact_policy": "Actual triangles/base contact and globally traced surface visibility; no arbitrary exposurepercentage gate. Small parts need exact final pixels, not only numeric passes.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T03:21:01.198319+00:00",
+    "path": "production/small-life-batch105/concepts/archimedes-concept.png",
+    "sha256": "b7bbca3cc2a2f2a9565845d1a012da82bb1b4131db3eac0c69e40312bed927ce",
+    "decisions": "Retain continuous perforated flare and faceted ivory skeleton. Correct concept bulky nearly-straight trunk to an actual narrow corkscrew axial support. Keep actual holes and taper incomplete ends; no massive root base."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "generator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andsheet",
+    "sevendistincthoneststagestates"
+  ],
+  "original_frozen_brief": {
+    "path": "production/small-life-batch105/archimedes/r001/original-brief.json",
+    "sha256": "c9f39797b1b0eb648955021c1f99716fe96a3f5fd96e32a9b49ec48d71238f0f"
+  },
+  "delivery_bound_at": "2026-10-21T03:33:54.813977+00:00",
+  "delivery_note": "Derived by adding delivery identities only. Original anatomy, scope, budgets, criteria, numeric semantics and immutable freeze remain unchanged.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch105/archimedes/r001/artifacts/archimedes.blend",
+      "sha256": "8b645457f94d094c80af52b500ea2be4b652968e8cd8bdaee2913f1381300ffb"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch105/tools/generate-r001.py",
+      "sha256": "91bd0943579523d52c51168ea5751897765bdaada2e525c148a64fe933da9d32"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch105/archimedes/r001/config.json",
+      "sha256": "b530096f6217ecd76342c998f029b4f0c743032c7a3f76062714e52834d8768c"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch105/dependencies.json",
+      "sha256": "1c1300ba037ef3fb851f5b7f63cad81b11f4c427e8ef36435bfbca239e53d1e8"
+    }
+  ]
+}

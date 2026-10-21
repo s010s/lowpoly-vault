@@ -1,0 +1,139 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/render.py",
+    "--",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/artifacts/constellaria.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch105-evidence/queue/render/constellaria/r002/final-evidence/2933c4949b7648b054ffa979616fb8b890fc64cc31a8679c760271279fa5e75f/20261021T034049-02a40a49ffc64f29b8f4e1f8817aba77/outputs/views",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette"
+  ],
+  "created_at": "2026-10-21T03:40:49.296354+00:00",
+  "fingerprint": "2933c4949b7648b054ffa979616fb8b890fc64cc31a8679c760271279fa5e75f",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 8929,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/delivery-brief.json",
+        "sha256": "0f3115a2a96a5c313a28c4ef0bb2bb0ea75d9fc7cc8b276ef8fe5fca33ae7e46"
+      },
+      "glb": {
+        "bytes": 584516,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/artifacts/constellaria.glb",
+        "sha256": "9ad41d73295256a618dbb337b82b3cf106a105d876685c49ba405b01e88b4dd0"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 2323,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/references.json",
+        "sha256": "fee7a0b2b5c5cd602a4b2c3dcd7d51b4b2ef5559349e12a4a2d1145df1ad8edf"
+      },
+      "renderer": {
+        "bytes": 16211,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/render.py",
+        "sha256": "b88d7873610d320aaf541f78865d15adc7b0855a016f7a63913c61f9f42be286"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/views",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette"
+      ],
+      "asset_id": "constellaria",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch105-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/artifacts/constellaria.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch105-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r002/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/render.py"
+      },
+      "job_id": "final-evidence",
+      "outputs": [
+        "views/hero.png",
+        "views/reversehero.png",
+        "views/front.png",
+        "views/side.png",
+        "views/rear.png",
+        "views/top.png",
+        "views/clay.png",
+        "views/silhouette.png",
+        "views/render-manifest.json"
+      ],
+      "revision": "r002",
+      "timeout_seconds": 900
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T034049-1d61e73279924c0589aa6755d0e81717"
+}

@@ -1,0 +1,102 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/generate-r005.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r001/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch105-evidence/queue/build/constellaria/r001/correction4/f9fd75ecaf390647837c1cd6b92466dee4e4f19f3039399003383f73064cea9f/20261021T033842-dc8db3b383b64a2785a2b736d0cdd2ef/outputs"
+  ],
+  "created_at": "2026-10-21T03:38:42.604228+00:00",
+  "fingerprint": "f9fd75ecaf390647837c1cd6b92466dee4e4f19f3039399003383f73064cea9f",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "blender": {
+        "bytes": 94967000,
+        "path": "/usr/bin/blender",
+        "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+      },
+      "config": {
+        "bytes": 780,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r001/config.json",
+        "sha256": "3b050d395eec4fab29251372f0a37f97817911a86e10b84d03192682c7d9bac4"
+      },
+      "generator": {
+        "bytes": 13934,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/generate-r005.py",
+        "sha256": "25078b87c4235c684e2f6b76bcd47b86ed2118eaece9a26c4ea55e7d19cc060c"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch105-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "constellaria",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch105-20261021/scripts/asset_common.py",
+        "blender": "/usr/bin/blender",
+        "config": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/constellaria/r001/config.json",
+        "generator": "/workspace/shared/lowpoly-batch105-20261021/production/small-life-batch105/tools/generate-r005.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch105-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "correction4",
+      "outputs": [
+        "constellaria/constellaria.blend",
+        "constellaria/constellaria.glb",
+        "constellaria/qa.json",
+        "execution.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 900
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T033842-9be8deb380fe4fec989e548f2fa915fd"
+}
